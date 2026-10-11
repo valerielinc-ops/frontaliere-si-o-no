@@ -88,6 +88,38 @@
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  // Classic portals sometimes put the checkbox name in the input's label
+  // position and leave the human sentence as an adjacent text node (for
+  // example: <input name="agbs_check"> Accetto ...). Keep that sentence in
+  // the field metadata so the planner can distinguish application consent
+  // from a marketing opt-in without knowing the portal's field name.
+  const TECHNICAL_CHECKBOX_LABEL_RE = /^(?:agbs?|privacy|consent|terms?)(?:[_:-](?:check|checkbox|box|accept))?$/i;
+  const nodeText = (node) => {
+    if (!node || node.nodeType === 3) return clean(node?.textContent || '');
+    if (node.nodeType !== 1 || node.matches('input, select, textarea, button, script, style')) return '';
+    return clean(node.innerText || node.textContent || '');
+  };
+  const adjacentCheckboxText = (element) => {
+    const parent = element.parentElement;
+    if (!parent) return '';
+    const nodes = [...parent.childNodes];
+    const index = nodes.indexOf(element);
+    return clean([...nodes.slice(index + 1), ...nodes.slice(0, index)]
+      .map(nodeText)
+      .filter(Boolean)
+      .join(' '));
+  };
+  const checkboxLabelFor = (element) => {
+    const label = labelFor(element);
+    if (element.type !== 'checkbox' || (label && !TECHNICAL_CHECKBOX_LABEL_RE.test(label))) return label;
+    const nearby = [
+      adjacentCheckboxText(element),
+      ...['td', 'li', '.field', '.form-group', '.application-question', 'p']
+        .map((selector) => element.closest(selector))
+        .map((scope) => clean(scope?.innerText || scope?.textContent || '')),
+    ];
+    return nearby.find((text) => text && text !== label && text.length <= 300 && !GENERATED_ID_RE.test(text)) || label;
+  };
   // A heading of another step a portal keeps in the page, hidden, names nothing.
   const shown = (node) => {
     if (node.closest('[hidden], [aria-hidden="true"]')) return false;
@@ -109,6 +141,25 @@
       if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
     }
     return found;
+  };
+  // A few ATSes use a bare label such as «CAP». Preserve the nearest named
+  // section/heading so the planner can distinguish residence from work-history
+  // fields without guessing from the label alone.
+  const sectionContext = (element) => {
+    const parts = [];
+    const section = element.closest('fieldset, section, article, [role="tabpanel"], [role="region"], [role="group"], [role="radiogroup"]');
+    if (section) {
+      parts.push(section.getAttribute('aria-label') || '');
+      parts.push(textOf(section.getAttribute('aria-labelledby')));
+      const legend = section.querySelector('legend');
+      if (legend) parts.push(clean(legend.innerText || legend.textContent));
+      // Rexx/Ticino puts «Indirizzo» and «CAP» in sibling labels under the
+      // generic «Dati anagrafici» legend. Labels carry field semantics but no
+      // candidate values, so they are safe context for the classifier.
+      parts.push([...section.querySelectorAll('label')].map((label) => clean(label.innerText || label.textContent)).filter(Boolean).join(' · '));
+    }
+    parts.push(headingBefore(element));
+    return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
   // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
   // nearest before it, else the first after it, so two unnamed fields in one
@@ -184,6 +235,7 @@
       inputType: 'date',
       name: clean(picker.getAttribute('name') || ''),
       label,
+      context: sectionContext(picker),
       required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
@@ -216,7 +268,7 @@
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
@@ -230,6 +282,7 @@
     const pills = multiselectId
       ? [...document.querySelectorAll(`[data-uxi-widget-type="selectinputlistitem"][data-uxi-multiselect-id="${CSS.escape(multiselectId)}"]`)].map((item) => clean(item.innerText)).filter(Boolean)
       : [];
+    const label = type === 'checkbox' ? checkboxLabelFor(element) : labelFor(element);
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
@@ -237,8 +290,10 @@
       inputType: type,
       form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
-      label: labelFor(element),
-      required: required || REQUIRED_LABEL.test(labelFor(element)),
+      label,
+      context: sectionContext(element),
+      section: headingBefore(element),
+      required: required || REQUIRED_LABEL.test(label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
@@ -277,6 +332,7 @@
       inputType: 'date',
       name: '',
       label,
+      context: sectionContext(element),
       required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
@@ -313,7 +369,7 @@
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -335,6 +391,7 @@
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
+      context: sectionContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label),
       value: clean(element.innerText || element.textContent),
       invalid: element.getAttribute('aria-invalid') === 'true',
@@ -351,6 +408,13 @@
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
+  const fileContext = (element) => {
+    for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
+      const text = clean(node.innerText || node.textContent);
+      if (text.length <= 500 && /\.(?:pdf|docx?|rtf|odt)\b/i.test(text)) return text;
+    }
+    return '';
+  };
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
@@ -367,6 +431,8 @@
       id: idFor(element),
       ...dialogMeta(element),
       text: buttonName(element),
+      section: headingBefore(element),
+      fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       ...(inSiteChrome(element) ? { chrome: true } : {}),

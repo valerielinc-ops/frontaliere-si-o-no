@@ -68,6 +68,15 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.label === 'CAP *')).toMatchObject({ context: expect.stringContaining('Indirizzo') });
   });
 
+  it('reads a legacy checkbox sentence next to a technical input name', () => {
+    const page = extract(`
+      <table><tr><td><input type="checkbox" name="agbs_check" data-size="1"> Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.</td></tr></table>`);
+    expect(page.fields.find((field: any) => field.name === 'agbs_check')).toMatchObject({
+      kind: 'checkbox',
+      label: expect.stringContaining('Accetto la memorizzazione elettronica dei miei dati'),
+    });
+  });
+
   // Giro di prova 2026-10-01 on JOIN: option cards are ARIA radios with no native input.
   it('reads an ARIA radio group as one question with its options, and the chosen one', () => {
     const card = (letter: string, title: string, text: string, checked = false) => `

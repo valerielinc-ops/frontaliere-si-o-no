@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { isNationalityField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionTopic } from './plan.mjs';
 import { residenceCountryCode } from './residence-address.mjs';
@@ -29,6 +30,7 @@ import { extractFields } from './fields.mjs';
 
 const TYPE_DELAY_MS = 25;
 const ACTION_TIMEOUT_MS = 6000;
+const UPLOAD_INPUT_TIMEOUT_MS = 30_000;
 // How long a search box gets to list its matches after Enter: they come with a request.
 const SUGGESTIONS_TIMEOUT_MS = 5000;
 // A file sent as soon as it is chosen: how long it may travel, and how long nothing must be in flight.
@@ -566,15 +568,37 @@ async function dateRegistered(locator, value) {
  * none has been in flight for UPLOAD_QUIET_MS — bounded, and a short pause on
  * a form that sends its files with the submit.
  */
-export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
+async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
   const inFlight = new Set();
-  const started = (request) => { if (request.method() !== 'GET') inFlight.add(request); };
+  const uploads = new Set();
+  const failed = new Set();
+  const accepted = new Set();
+  const isUploadRequest = (request) => {
+    const contentType = String(request.headers?.()['content-type'] || '');
+    return /multipart\/form-data|application\/(?:octet-stream|pdf|msword|vnd\.openxmlformats-officedocument\.|vnd\.oasis\.opendocument\.)/i.test(contentType);
+  };
+  const started = (request) => {
+    if (request.method() === 'GET') return;
+    inFlight.add(request);
+    if (isUploadRequest(request)) uploads.add(request);
+  };
   const ended = (request) => { inFlight.delete(request); };
+  const failedRequest = (request) => {
+    if (uploads.has(request) && !accepted.has(request)) failed.add(request);
+    ended(request);
+  };
+  const received = (response) => {
+    const request = response.request();
+    if (!uploads.has(request)) return;
+    if (response.status() >= 400) failed.add(request);
+    else if (response.status() >= 200 && response.status() < 300) accepted.add(request);
+  };
   page.on('request', started);
   page.on('requestfinished', ended);
-  page.on('requestfailed', ended);
+  page.on('requestfailed', failedRequest);
+  page.on('response', received);
   try {
-    await locator.setInputFiles(paths, { timeout: ACTION_TIMEOUT_MS });
+    await setFiles();
     const deadline = now() + settleMs;
     let quietSince = now();
     while (now() < deadline) {
@@ -585,8 +609,44 @@ export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETT
   } finally {
     page.off('request', started);
     page.off('requestfinished', ended);
-    page.off('requestfailed', ended);
+    page.off('requestfailed', failedRequest);
+    page.off('response', received);
   }
+  if (failed.size) throw new Error('upload_http_failed');
+  return { accepted: accepted.size > 0 };
+}
+
+export function chooseFiles(page, locator, paths, options = {}) {
+  return observeFileUpload(page, () => locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS }), options);
+}
+
+export function chooseChooserFiles(page, chooser, paths, options = {}) {
+  return observeFileUpload(page, () => chooser.setFiles(paths), options);
+}
+
+/** The files a file input can actually accept from this document. */
+function selectedUploadPaths(paths, multiple) {
+  return paths.length > 1 && multiple ? paths : paths.slice(0, 1);
+}
+
+/** A Workday file needs a successful upload response; its selected filename is not a receipt. */
+export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
+  const names = paths.map((file) => path.basename(file));
+  if (!names.length) return false;
+  const requiresPortalReceipt = /workday/i.test(page.url());
+  const deadline = Date.now() + timeoutMs;
+  do {
+    const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
+    if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
+    const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
+    const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
+    const inputHasFiles = names.every((name) => inputNames.includes(name));
+    if ((!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
+      || (inputHasFiles && (!requiresPortalReceipt || acceptedResponse))) return true;
+    if (Date.now() >= deadline) break;
+    await page.waitForTimeout(250);
+  } while (true);
+  return false;
 }
 
 /** The local paths of one document: the CV, the letter, or the files of a requested document (extra_N). */
@@ -595,7 +655,10 @@ export function documentPaths(files, document) {
   return (Array.isArray(value) ? value : [value]).filter((path) => typeof path === 'string' && path);
 }
 
-export async function applyActions(page, fields, actions, files, { pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)) } = {}) {
+export async function applyActions(page, fields, actions, files, {
+  pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)),
+  onUploadSelection = () => {},
+} = {}) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const results = [];
   for (const action of actions) {
@@ -610,10 +673,18 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (!paths.length) throw new Error('document_unavailable');
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-        await chooseFiles(page, locator, multiple ? paths : paths[0]);
-        uploaded = multiple ? paths.length : 1;
+        const selectedPaths = selectedUploadPaths(paths, multiple);
+        const receipt = await chooseFiles(page, locator, selectedPaths.length > 1 ? selectedPaths : selectedPaths[0]);
+        onUploadSelection(field.id, selectedPaths);
+        uploaded = selectedPaths.length;
+        results.push({ fieldId: field.id, ok: true, files: uploaded, ...(receipt.accepted ? { uploadAccepted: true } : {}) });
+        await pause();
+        continue;
       } else if (action.action === 'check' || action.action === 'uncheck') {
-        await setChoice(locator, action.action === 'check');
+        const wanted = action.action === 'check';
+        await setChoice(locator, wanted);
+        const registered = await locator.isChecked({ timeout: 2000 }).catch(() => null);
+        if (registered !== wanted) throw new Error('choice_not_registered');
       } else if (field.kind === 'radio') {
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
         if (!option) throw new Error('radio_option_missing');
@@ -678,7 +749,7 @@ export const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|man
 // 2026-10-01: «Non siamo riusciti a inviare la tua candidatura. Riprova.»).
 export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
 // SuccessFactors (Coop, 2026-10-03): «Bitte korrigieren Sie die folgenden Fehler.», «Anrede ist erforderlich».
-export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
+export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|indicare\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|inserire\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|date\s+(?:in|au)\s+(?:the\s+)?(?:indicated|specified|correct)\s+format|datum\s+im\s+(?:angegebenen|korrekten)\s+format|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
 
 /**
  * First enabled button matching the pattern (a disabled one is returned only when asked). One of the page's

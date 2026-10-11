@@ -44,7 +44,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -429,7 +429,10 @@ function fakePortal() {
           <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
           <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
           <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
-          ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete CV_Luca_Bianchi.pdf" style="width:24px;height:24px"></button></div>' : ''}
+          <div id="cv-status" aria-live="polite"></div>
+          ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete" style="width:24px;height:24px"></button></div>' : ''}
+          <section><h2>Work Experience</h2><div id="experience-rows"></div><button type="button" id="add-experience">Add</button></section>
+          <section><h2>Education</h2><div id="education-rows"></div><button type="button" id="add-education">Add</button></section>
           <button type="submit">Bewerbung absenden</button>
         </form>
         <ul id="countries" role="listbox" style="display:none"><li role="option">Switzerland</li><li role="option">United States of America</li></ul>
@@ -445,6 +448,40 @@ function fakePortal() {
           };
           draw('United States of America');
           if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
+          el('cv').addEventListener('change', async () => {
+            const body = new FormData();
+            body.append('cv', el('cv').files[0]);
+            const request = ${workday.uploadFails
+              ? "{ method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: el('cv').files[0].name }) }"
+              : "{ method: 'POST', body }"};
+            const response = await fetch('/wd/upload', request);
+            if (response.ok) el('cv-status').textContent = el('cv').files[0].name + ' successfully uploaded';
+            else el('cv-status').textContent = el('cv').files[0].name;
+          });
+          const addProfileRow = (kind) => {
+            const root = el(kind + '-rows');
+            const row = document.createElement('fieldset');
+            const index = document.querySelectorAll('[data-profile-editor]').length + 1;
+            const experience = kind === 'experience';
+            const labels = experience
+              ? [['role', 'Job Title'], ['employer', 'Employer'], ['start', 'Start Date'], ['end', 'End Date']]
+              : [['degree', 'Degree'], ['institution', 'Institution'], ['start', 'Start Date'], ['end', 'End Date']];
+            row.dataset.profileEditor = kind;
+            row.innerHTML = '<legend>' + (experience ? 'Work Experience Entry' : 'Education Entry') + '</legend>'
+              + labels.map(([key, label]) => '<label for="profile-' + kind + '-' + index + '-' + key + '">' + label + ' *</label><input required id="profile-' + kind + '-' + index + '-' + key + '" name="' + key + '">').join('')
+              + '<button type="button" data-profile-save>Save</button><button type="button" data-profile-cancel>Cancel</button>';
+            row.querySelector('[data-profile-save]').onclick = () => {
+              const values = labels.map(([key]) => row.querySelector('[name="' + key + '"]').value);
+              const hidden = document.createElement('input');
+              hidden.type = 'hidden'; hidden.name = kind; hidden.value = values.join('|');
+              el('cv').form.append(hidden);
+              row.remove();
+            };
+            row.querySelector('[data-profile-cancel]').onclick = () => row.remove();
+            root.append(row);
+          };
+          el('add-experience').onclick = () => addProfileRow('experience');
+          el('add-education').onclick = () => addProfileRow('education');
           for (const option of el('countries').children) {
             option.onclick = () => { el('countries').style.display = 'none'; el('countryValue').value = option.textContent; setTimeout(() => draw(option.textContent), 400); };
           }
@@ -465,9 +502,15 @@ function fakePortal() {
     if (route === 'POST /wd/submit') {
       const raw = await readBody(req);
       const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
-      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept') });
+      const many = (name) => [...raw.matchAll(new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`, 'g'))].map((match) => match[1]);
+      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept'), experience: many('experience'), education: many('education') });
       state.applications.push({ hasCv: /filename="CV_/.test(raw), first: part('first') });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    if (route === 'POST /wd/upload') {
+      await readBody(req);
+      res.writeHead(workday.uploadFails ? 500 : 204);
+      return res.end();
     }
     if (route === 'POST /wd/delete-file') {
       workday.deletedFiles += 1;
@@ -678,10 +721,19 @@ let plannerSawPassword = false;
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
   if (prompt.includes('{"agentPage"')) return fakeAgent(prompt);
-  const form = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly'))).form;
+  const request = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly')));
+  const { form, candidate } = request;
   if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
+    const experience = candidate?.profile?.experience?.[0] || {};
+    const education = candidate?.profile?.education?.[0] || {};
+    if (/^job title\b/i.test(field.label)) return act('fill', experience.role || '', { source: 'profile' });
+    if (/^employer\b/i.test(field.label)) return act('fill', experience.employer || '', { source: 'profile' });
+    if (/^degree\b/i.test(field.label)) return act('fill', education.degree || '', { source: 'profile' });
+    if (/^institution\b/i.test(field.label)) return act('fill', education.institution || '', { source: 'profile' });
+    if (/^start date\b/i.test(field.label)) return act('fill', experience.start || education.start || '', { source: 'profile' });
+    if (/^end date\b/i.test(field.label)) return act('fill', experience.end || education.end || '', { source: 'profile' });
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
     if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
@@ -716,7 +768,7 @@ async function fakeCodex({ prompt }) {
  * after storing its password, while the portal had not answered yet, called it refused and threw the
  * password away.
  */
-async function workdayAccountChecks({ base, state, workday, files, executablePath, check }) {
+async function workdayAccountChecks({ base, state, workday, files, executablePath, check }, assistedOnly = false) {
   const host = new URL(base).hostname;
   const saved = new Map();
   const accounts = {
@@ -728,12 +780,16 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
-  const run = (order = job) => submitViaPortal({
-    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }, files, codex: fakeCodex, accounts,
+  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => submitViaPortal({
+    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
     launch: () => launchChromium({ headless: true, executablePath }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
 
+  if (assistedOnly) {
+    const seeded = await run();
+    check('Workday: focused assisted-flow setup creates the account and applies', seeded.event.type === 'submit_succeeded');
+  } else {
   // The portal never answers the registration: no word of refusal, so the password stays for the next run.
   workday.silent = true;
   const unanswered = await run();
@@ -806,6 +862,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const afterCover = await run();
   check('Workday: the run after that stop creates the account and sends the application',
     afterCover.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password && saved.get(host)?.status === 'created');
+  }
   // An application in progress from an earlier run (the one that stopped for a question, a dry run): the page
   // after the sign-in asks to be refreshed and is, and the CV that run left is taken away before this run's
   // goes in — one CV on the application, never two.
@@ -818,6 +875,50 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     resumed.event.type === 'submit_succeeded' && resumed.evidence.steps.some((step) => step.refreshed)
     && workday.deletedFiles === 1 && kept.kept === '' && state.applications.at(-1)?.hasCv === true
     && resumed.evidence.steps.some((step) => (step.replaced || []).includes('cv')));
+
+  state.sessions.clear();
+  workday.resumed = true;
+  workday.uploadFails = true;
+  const beforeFailedUpload = state.applications.length;
+  const failedUpload = await run();
+  workday.resumed = false;
+  workday.uploadFails = false;
+  check('Workday: HTTP 500 with the selected filename still visible is handed off before application submission',
+    failedUpload.event.type === 'submit_handoff' && failedUpload.event.reason === 'upload_failed'
+    && state.applications.length === beforeFailedUpload && workday.deletedFiles === 2);
+
+  const profileCandidate = {
+    identity: { email: ALIAS },
+    profile: {
+      location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
+      experience: [
+        { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' },
+        { role: 'Cashier', employer: 'Lugano Foods', start: '2022-05', end: '2024-10' },
+        { role: 'Temporary Helper', employer: 'Seasonal Shop', start: '2021', end: '' },
+      ],
+      education: [
+        { degree: 'Vocational Diploma', institution: 'Scuola Cantonale', start: '2015-09', end: '2018-06' },
+        { degree: 'Secondary School', institution: 'Liceo Lugano', start: '2012-09', end: '2015-06' },
+      ],
+    },
+  };
+  state.sessions.clear();
+  const profileResult = await run(job, profileCandidate);
+  const profileForm = workday.forms.at(-1) || {};
+  check('Workday: profile sections add complete experience and education entries in source order, skipping rows without month-level dates',
+    profileResult.event.type === 'submit_succeeded'
+    && JSON.stringify(profileForm.experience) === JSON.stringify([
+      'Retail Assistant|Mendrisio Market|2020-03|2022-04',
+      'Cashier|Lugano Foods|2022-05|2024-10',
+    ])
+    && JSON.stringify(profileForm.education) === JSON.stringify([
+      'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
+      'Secondary School|Liceo Lugano|2012-09|2015-06',
+    ])
+    && profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
+      { section: 'experience', added: 2, skipped: 1 },
+      { section: 'education', added: 2, skipped: 0 },
+    ])));
 }
 
 async function main() {
@@ -867,7 +968,11 @@ async function main() {
 
   const checks = [];
   const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
+  const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
   try {
+    if (focusWorkday) {
+      await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
+    } else {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -1143,6 +1248,7 @@ async function main() {
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
     await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    }
   } finally {
     server.close();
     await rm(dir, { recursive: true, force: true });

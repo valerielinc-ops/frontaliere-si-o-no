@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   collapseDuplicateRouteEntries,
@@ -167,4 +168,17 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
       for (const route of namespacedRoutes(fixture)) expect(served.has(route), route).toBe(true);
     }
   });
+
+  it('computes convergence signatures without serialising the full archive', () => {
+    const source = readFileSync(
+      new URL('../scripts/lib/expired-jobs-archive.mjs', import.meta.url),
+      'utf8',
+    );
+
+    expect(source).toContain('archiveEntriesSignature(current)');
+    expect(source).toContain('archiveEntriesSignature(result.entries)');
+    expect(source).not.toContain('JSON.stringify(current)');
+    expect(source).not.toContain('JSON.stringify(result.entries)');
+  });
+
 });

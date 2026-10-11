@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, knownValuesOf, nativeLanguageOption, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -14,6 +14,64 @@ const fields = [
   { id: 'f4', kind: 'select', label: 'Country', required: true, options: [{ label: 'Switzerland' }, { label: 'Italy' }] },
   { id: 'f5', kind: 'file', label: 'Resume/CV', required: true },
 ];
+
+describe('assisted application profile history and file replacement', () => {
+  it('matches an icon-only removal control through its nearby uploaded-file context', () => {
+    const remove = { id: 'remove-cv', text: 'Delete', fileContext: 'CV_Luca_Bianchi.pdf successfully uploaded', disabled: false };
+    expect(removalsOf([remove], ['CV_Luca_Bianchi.pdf'])).toEqual([remove]);
+    expect(removalsOf([{ ...remove, fileContext: 'Cover_Letter.pdf successfully uploaded' }], ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+
+  it('waits boundedly for an asynchronously removed prior filename to disappear', async () => {
+    let visible = true;
+    const waitFor = vi.fn(async ({ state, timeout }: { state: string; timeout: number }) => {
+      expect(state).toBe('hidden');
+      expect(timeout).toBe(1500);
+      await new Promise((resolve) => setTimeout(() => { visible = false; resolve(undefined); }, 350));
+      if (visible) throw new Error('still visible');
+    });
+    const page = { getByText: () => ({ first: () => ({ waitFor }) }) };
+    expect(await waitForFileRemoval(page as any, 'CV.pdf')).toBe(true);
+    expect(visible).toBe(false);
+
+    const timeoutPage = { getByText: () => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('still visible')) }) }) };
+    expect(await waitForFileRemoval(timeoutPage as any, 'CV.pdf')).toBe(false);
+  });
+
+  it('keeps profile entries in source order and skips entries without explicit month-level start and end dates', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First', employer: 'A', start: '03/2020', end: '2022-04' },
+      { role: 'Undated', employer: 'B', start: '2021', end: '' },
+      { role: 'Second', employer: 'C', start: 'May 2022', end: 'Oktober 2024' },
+      { role: '', employer: 'D', start: '2020-01', end: '2021-01' },
+    ] } };
+    expect(profileEntriesForSection(candidate, 'experience').map((entry) => entry.role)).toEqual(['First', 'Second']);
+    expect(profileEntriesForSection(candidate, 'education')).toEqual([]);
+  });
+
+  it('uses exact education-row labels to recover only the corresponding profile fact', () => {
+    const entry = { degree: 'Vocational Diploma', institution: 'Scuola Cantonale', start: '2015-09', end: '2018-06' };
+    expect(profileEntryAnswer(entry, 'education', { label: 'Degree *' })).toEqual({ value: 'Vocational Diploma', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'End Date *' })).toEqual({ value: '2018-06', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
+  });
+
+  it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
+    const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
+    const page = {
+      url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { acceptedResponse: true, timeoutMs: 0 })).toBe(true);
+    const visibleWorkdayName = { ...page, getByText: () => ({ first: () => ({ isVisible: async () => true }) }) };
+    expect(await uploadReceipt(visibleWorkdayName as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
+    const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
+    expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
+  });
+});
 
 describe('portal link clicks', () => {
   it('uses a locator with a bounded timeout', async () => {
@@ -153,6 +211,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
+  });
+
+  it('reports a checkbox that did not commit instead of treating the click as done', async () => {
+    const control = {
+      setChecked: vi.fn(async () => {}),
+      isChecked: vi.fn(async () => false),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{ id: 'privacy', kind: 'checkbox', label: 'Privacy', required: true }], [{ fieldId: 'privacy', action: 'check', value: '' }], {}, { pause: async () => {} });
+    expect(result).toEqual([{ fieldId: 'privacy', ok: false, error: 'choice_not_registered' }]);
   });
 
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
@@ -521,6 +590,44 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
+    expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
+  });
+
+  it('never sends an ongoing or partial CV period to a calendar field', () => {
+    const dateField = { id: 'past-end', kind: 'text', label: 'al (GG.MM.AAAA)', required: true };
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ start: '2015', end: 'ad oggi' }] },
+    });
+    expect(candidate.profile.experience[0].end).toBe('ad oggi');
+    const invalid = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: 'ad oggi', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(invalid.actions).toEqual([]);
+    expect(invalid.missingRequired.map((item: any) => item.fieldId)).toEqual(['past-end']);
+    const corrected = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: '2024-08-31', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(corrected.actions[0]).toMatchObject({ fieldId: 'past-end', value: '31.08.2024' });
+    expect(corrected.missingRequired).toEqual([]);
+  });
+
+  it('preserves the advertised date separator and ignores section-only date labels', () => {
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'dd/mm/yyyy' }, '15/03/2020')).toBe('15/03/2020');
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'mm-dd-yyyy' }, '15/03/2020')).toBe('03-15-2020');
+    expect(isDateField({ kind: 'text', label: 'First name', context: 'First name · Date of birth' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data source' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data' })).toBe(true);
+  });
+
+  it('fails closed when a legacy consent check is reported as a rule action', () => {
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'agbs_check', label: '', required: false },
+    )).toBe(true);
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'privacy_marketing', label: '', required: false },
+    )).toBe(false);
   });
 
   it('maps an explicitly ongoing CV experience to the current employment option', () => {
@@ -584,29 +691,37 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
-  it('waits for a file the form sends as soon as it is chosen, and only a moment when it sends nothing', async () => {
-    const run = async (requests: Array<{ at: number; until: number; method?: string }>) => {
+  it('waits for upload requests, fails on an HTTP error, and removes its listeners', async () => {
+    const run = async (requests: Array<{ at: number; until: number; method?: string; status?: number; upload?: boolean; failAfterResponse?: boolean }>) => {
       let clock = 0;
-      const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set() };
-      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', started: false, ended: false }));
+      const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set(), response: new Set() };
+      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', headers: () => ({ 'content-type': item.upload === false ? 'application/json' : 'multipart/form-data; boundary=test' }), started: false, ended: false }));
       const page = {
         on: (event: string, handler: any) => handlers[event].add(handler),
         off: (event: string, handler: any) => handlers[event].delete(handler),
         waitForTimeout: async (ms: number) => {
           clock += ms;
           for (const request of live) {
-            if (!request.started && clock >= request.at) { request.started = true; handlers.request.forEach((handler) => handler(request)); }
+            if (!request.started && clock >= request.at) {
+              request.started = true;
+              handlers.request.forEach((handler) => handler(request));
+              if (request.status) handlers.response.forEach((handler) => handler({ request: () => request, status: () => request.status }));
+              if (request.failAfterResponse) handlers.requestfailed.forEach((handler) => handler(request));
+            }
             if (request.started && !request.ended && clock >= request.until) { request.ended = true; handlers.requestfinished.forEach((handler) => handler(request)); }
           }
         },
       };
       const chosen: any[] = [];
-      await chooseFiles(page as any, { setInputFiles: async (paths: any) => { chosen.push(paths); } } as any, '/tmp/cv.pdf', { now: () => clock });
-      return { clock, chosen, listeners: Object.values(handlers).reduce((sum, set) => sum + set.size, 0) };
+      let inputTimeout = 0;
+      const receipt = await chooseFiles(page as any, { setInputFiles: async (paths: any, options: any) => { chosen.push(paths); inputTimeout = options.timeout; } } as any, '/tmp/cv.pdf', { now: () => clock });
+      return { clock, chosen, inputTimeout, accepted: receipt.accepted, listeners: Object.values(handlers).reduce((sum, set) => sum + set.size, 0) };
     };
     // Nothing leaves on the choice (the file goes with the submit): the quiet moment only, and no listener left.
     const plain = await run([]);
     expect(plain.chosen).toEqual(['/tmp/cv.pdf']);
+    expect(plain.inputTimeout).toBe(30_000);
+    expect(plain.accepted).toBe(false);
     expect(plain.clock).toBeGreaterThanOrEqual(700);
     expect(plain.clock).toBeLessThan(1200);
     expect(plain.listeners).toBe(0);
@@ -614,6 +729,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const upload = await run([{ at: 150, until: 5000 }]);
     expect(upload.clock).toBeGreaterThanOrEqual(5700);
     expect(upload.clock).toBeLessThan(6500);
+    expect((await run([{ at: 150, until: 500, status: 204 }])).accepted).toBe(true);
+    expect((await run([{ at: 150, until: 500, status: 204, failAfterResponse: true }])).accepted).toBe(true);
     // Sent in two pieces with a short gap: both.
     expect((await run([{ at: 150, until: 2000 }, { at: 2300, until: 4000 }])).clock).toBeGreaterThanOrEqual(4600);
     // A plain GET (an image, a script) is nobody's upload; a request that never ends is not waited for ever.
@@ -621,11 +738,15 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const stuck = await run([{ at: 150, until: Infinity }]);
     expect(stuck.clock).toBeGreaterThanOrEqual(45_000);
     expect(stuck.clock).toBeLessThan(47_000);
+    const failed = await run([{ at: 150, until: 500, status: 500 }]).then(() => false, (error) => error.message === 'upload_http_failed');
+    expect(failed).toBe(true);
+    expect((await run([{ at: 150, until: 500, status: 500, upload: false }])).accepted).toBe(false);
   });
 
   // The record of what left (submit.mjs `sent`) names the files a form's field received.
   it('says how many files of a requested document an upload set: all of them in a multiple input, else the first', async () => {
     const chosen: unknown[] = [];
+    const selectedByField = new Map<string, string[]>();
     const page = (multiple: boolean) => {
       const input = {
         first: () => input,
@@ -639,10 +760,21 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const files = { cv: '/tmp/cv.pdf', cover_letter: '/tmp/letter.pdf', extra_1: ['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg'] };
     const upload = (document: string) => [{ fieldId: 'f9', action: 'upload', value: '', document }];
     const pause = async () => {};
-    expect(await applyActions(page(true) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 2 }]);
+    expect(await applyActions(page(true) as any, fields, upload('extra_1'), files, { pause, onUploadSelection: (fieldId, paths) => selectedByField.set(fieldId, paths) })).toEqual([{ fieldId: 'f9', ok: true, files: 2 }]);
     expect(chosen.at(-1)).toEqual(['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg']);
-    expect(await applyActions(page(false) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
+    expect(selectedByField.get('f9')).toEqual(['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg']);
+    expect(await applyActions(page(false) as any, fields, upload('extra_1'), files, { pause, onUploadSelection: (fieldId, paths) => selectedByField.set(fieldId, paths) })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
     expect(chosen.at(-1)).toBe('/tmp/zeugnis-1.pdf');
+    expect(selectedByField.get('f9')).toEqual(['/tmp/zeugnis-1.pdf']);
+    const inputWithOneAcceptedFile = { evaluate: async () => ['zeugnis-1.pdf'] };
+    const workday = {
+      url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+    expect(await uploadReceipt(workday as any, inputWithOneAcceptedFile as any, selectedByField.get('f9')!, { acceptedResponse: true, timeoutMs: 0 })).toBe(true);
+    expect(await uploadReceipt(workday as any, inputWithOneAcceptedFile as any, files.extra_1, { acceptedResponse: true, timeoutMs: 0 })).toBe(false);
     expect(await applyActions(page(false) as any, fields, upload('cv'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
     // A document that is not there sets nothing.
     expect(await applyActions(page(true) as any, fields, upload('extra_2'), files, { pause })).toEqual([{ fieldId: 'f9', ok: false, error: 'document_unavailable' }]);
@@ -949,6 +1081,7 @@ describe('portal runner helpers', () => {
     // Review of #10725: the whole label, so a filter control is never the submission.
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Indicare la data nel formato indicato.', 'Inserire la data nel formato corretto.', 'Datum im angegebenen Format']) expect(VALIDATION_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     // The same thanks in more words (an ATS in English, 2026-10-03).
     for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);
