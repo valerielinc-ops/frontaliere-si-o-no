@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { afterEach, describe, expect, it } from 'vitest';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -43,5 +43,35 @@ describe('validate-article-append-integrity --swiss-only', () => {
 
     expect(output).toMatch(/SWISS slug-uniqueness/);
     expect(output).not.toMatch(/BLOG/);
+  });
+
+  it('fails on a duplicate localized slug in the package-owned Swiss registry and names both articles', () => {
+    fixture = mkdtempSync(path.join(tmpdir(), 'swiss-duplicate-fixture-'));
+    mkdirSync(path.join(fixture, 'packages', 'articles', 'content'), { recursive: true });
+    mkdirSync(path.join(fixture, 'public'), { recursive: true });
+    writeFileSync(
+      path.join(fixture, 'packages/articles/content/routerSwissData.ts'),
+      [
+        'export const SWISS_SLUGS = {',
+        " 'swiss-article-a': { it: 'same-it-slug', en: 'article-a-en', de: 'article-a-de', fr: 'article-a-fr' },",
+        " 'swiss-article-b': { it: 'same-it-slug', en: 'article-b-en', de: 'article-b-de', fr: 'article-b-fr' },",
+        '};',
+      ].join('\n'),
+    );
+    writeFileSync(
+      path.join(fixture, 'public/sitemap-test.xml'),
+      '<urlset><url><loc>https://example.test/swiss-article-a</loc></url></urlset>\n',
+    );
+
+    const result = spawnSync('node', [SCRIPT, '--swiss-only'], {
+      cwd: fixture,
+      encoding: 'utf8',
+    });
+    const output = `${result.stdout || ''}\n${result.stderr || ''}`;
+
+    expect(result.status).toBe(1);
+    expect(output).toContain('swiss-article-a');
+    expect(output).toContain('swiss-article-b');
+    expect(output).toContain('duplicate IT slug');
   });
 });
