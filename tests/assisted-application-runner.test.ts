@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
+import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -1092,10 +1093,17 @@ describe('career-ops liveness', () => {
 
     const jobUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Verkaufsberater_R15163';
     const shell = '<html><body><div id="root"></div></body></html>';
-    const workday = (api: () => Response, dataset = 200) => async (url: string) => {
-      if (url.startsWith('https://cdn.frontaliereticino.ch/')) return new Response(null, { status: dataset });
+    const activeIndex = (ids: string[], generatedAt = new Date().toISOString()) => new Response(JSON.stringify({
+      schemaVersion: 1, generatedAt, total: ids.length, ids,
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+    const workday = (api: () => Response, activeIds = ['acme-1'], generatedAt?: string, indexStatus = 200) => vi.fn(async (url: string) => {
+      if (url === JOB_ACTIVE_IDS_URL) return indexStatus === 200
+        ? activeIndex(activeIds, generatedAt)
+        : new Response(null, { status: indexStatus });
+      // A retired posting can still have a historical job-detail response.
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) return new Response(null, { status: 200 });
       return url.includes('/wday/cxs/acme/Careers/job/') ? api() : new Response(shell, { status: 200, headers: { 'content-type': 'text/html' } });
-    };
+    });
     const check = (fetchImpl: any) => checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl }, posting: { applyUrl: jobUrl }, fetchImpl, resolve: publicDns });
     const open = () => new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true } }), { status: 200 });
     const gone = () => new Response(JSON.stringify({ httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 });
@@ -1111,10 +1119,19 @@ describe('career-ops liveness', () => {
         .toMatchObject({ page: { result: 'expired', code: 'ats_api_gone' } });
     }
     expect(await check(workday(gone))).toMatchObject({ page: { result: 'expired', code: 'ats_api_gone' }, datasetGone: false, closed: false });
-    expect(await check(workday(gone, 404))).toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: true, closed: true });
+    const staleDetail = workday(gone, ['another-active-job']);
+    expect(await check(staleDetail)).toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: true, closed: true });
+    expect(staleDetail.mock.calls.map(([url]) => url)).toContain(JOB_ACTIVE_IDS_URL);
+    expect(staleDetail.mock.calls.some(([url]) => url.includes('/data/job-detail/'))).toBe(false);
+    expect(await check(workday(gone, ['another-active-job'], new Date(Date.now() - 48 * 60 * 60_000).toISOString())))
+      .toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: false, closed: false });
+    expect(await check(workday(gone, [])))
+      .toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: false, closed: false });
+    expect(await check(workday(gone, [], undefined, 404)))
+      .toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: false, closed: false });
     // Workday does not answer: the shell, as before, which never refunds.
-    expect(await check(workday(() => new Response('', { status: 503 }), 404))).toMatchObject({ page: { result: 'expired', code: 'insufficient_content' }, closed: false });
-    expect(await check(workday(() => { throw new Error('socket hang up'); }, 404))).toMatchObject({ page: { code: 'insufficient_content' }, closed: false });
+    expect(await check(workday(() => new Response('', { status: 503 })))).toMatchObject({ page: { result: 'expired', code: 'insufficient_content' }, closed: false });
+    expect(await check(workday(() => { throw new Error('socket hang up'); }))).toMatchObject({ page: { code: 'insufficient_content' }, closed: false });
   });
 });
 

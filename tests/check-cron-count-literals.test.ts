@@ -190,13 +190,13 @@ describe('buildCronPathMatcher', () => {
     expect(isCronPath('data/border-wait-averages.json')).toBe(true);
   });
 
-  it('non prende le configurazioni curate a mano accanto al dato vivo', () => {
-    // `data/pharmac` e' una radice di NOME del guard dei dati vivi: presa per
-    // prefisso copriva il calendario di Ginevra e il registro dei 26 cantoni,
-    // scritti solo da PR.
+  it('distingue la configurazione ginevrina curata dal registro riscritto dal bot', () => {
+    // `data/pharmac` e' una radice di NOME del guard dei dati vivi. La
+    // configurazione ginevrina resta curata a mano, mentre il registro dei
+    // 26 cantoni viene riscritto dal workflow delle farmacie tramite PR.
     const isCronPath = buildCronPathMatcher(syntheticRepo());
     expect(isCronPath('data/pharmacy-duties-geneva-sources.json')).toBe(false);
-    expect(isCronPath('data/pharmacy-sources-registry.json')).toBe(false);
+    expect(isCronPath('data/pharmacy-sources-registry.json')).toBe(true);
   });
 });
 

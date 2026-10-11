@@ -20,6 +20,9 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
@@ -51,6 +54,9 @@ function loadHelpers(env: Record<string, string> = {}) {
   const slugs = JSON.parse(readFileSync(resolve(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf-8'));
   const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
+    const utf8Encoder = new TextEncoder();
+    ${ticinoTreeBucket.toString()}
+    ${legacyTicinoTreeBucket.toString()}
     const process = { env: ${JSON.stringify(env)} };
     const flatString = (value) => value;
     const slugifyCompanyName = (name) => String(name || '').toLowerCase()
@@ -115,23 +121,34 @@ describe('deployed sitemap inventory — locale alternates are part of the set',
 
 describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', () => {
   const { treeEntryToRoute } = loadHelpers();
+  const wrongMuratoreBucket = ticinoTreeBucket('muratore') === '00' ? '01' : '00';
 
   it('removes the storage bucket for Italian and localized Ticino section shards', () => {
     expect(treeEntryToRoute(
-      'cerca-lavoro-ticino/_tree/mu/muratore/index.html',
+      `cerca-lavoro-ticino/_tree/${ticinoTreeBucket('muratore')}/muratore/index.html`,
       'ticino',
       'it',
     )).toBe('/cerca-lavoro-ticino/muratore');
     expect(treeEntryToRoute(
-      'en/find-jobs-ticino/_tree/mu/muller-amp-8211-bautischler/index.html',
+      `en/find-jobs-ticino/_tree/${ticinoTreeBucket('muller-amp-8211-bautischler')}/muller-amp-8211-bautischler/index.html`,
       'ticino',
       'en',
     )).toBe('/en/find-jobs-ticino/muller-amp-8211-bautischler');
     expect(treeEntryToRoute(
-      'de/jobs-im-tessin/_tree/ir/Ir-Job-123/index.html',
+      `de/jobs-im-tessin/_tree/${ticinoTreeBucket('Ir-Job-123')}/Ir-Job-123/index.html`,
       'ticino',
       'de',
     )).toBe('/de/jobs-im-tessin/Ir-Job-123');
+    expect(treeEntryToRoute(
+      `de/jobs-im-tessin/_tree/${ticinoTreeBucket('direct-page.html')}/direct-page.html`,
+      'ticino',
+      'de',
+    )).toBe('/de/jobs-im-tessin/direct-page');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/fo/foo/index.html',
+      'ticino',
+      'en',
+    )).toBe('/en/find-jobs-ticino/foo');
   });
 
   it('leaves section roots and non-Ticino trees unchanged', () => {
@@ -143,10 +160,10 @@ describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', (
       'en',
     )).toBe('/en/find-jobs-ticino/_tree/mu/example');
     expect(treeEntryToRoute(
-      'cerca-lavoro-ticino/_tree/zz/muratore/index.html',
+      `cerca-lavoro-ticino/_tree/${wrongMuratoreBucket}/muratore/index.html`,
       'ticino',
       'it',
-    )).toBe('/cerca-lavoro-ticino/_tree/zz/muratore');
+    )).toBe(`/cerca-lavoro-ticino/_tree/${wrongMuratoreBucket}/muratore`);
   });
 });
 
