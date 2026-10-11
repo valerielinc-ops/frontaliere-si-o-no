@@ -170,6 +170,19 @@ describe('Benteler source-backed empty evidence', () => {
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
+  it('does not resolve a whitespace-only href to the listing page', async () => {
+    const listingWithBlankHref = bentelerListingPage().replace(
+      'href="/job/position-0/"',
+      'href="   "',
+    );
+    fetchHtml.mockResolvedValueOnce(listingWithBlankHref);
+
+    const jobs = await fetchAllBentelerJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
   it('propagates a multi-location detail fetch failure instead of certifying zero', async () => {
     fetchHtml
       .mockResolvedValueOnce(bentelerListingPage({ multiFirst: true }))

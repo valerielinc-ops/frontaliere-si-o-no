@@ -321,8 +321,10 @@ async function listSwissJobs() {
   }
 
   const listingUrls = allRows.map((row) => {
+    const href = typeof row.href === 'string' ? row.href.trim() : '';
+    if (!href) return '';
     try {
-      const url = new URL(row.href, CAREER_BASE);
+      const url = new URL(href, CAREER_BASE);
       return url.hostname === CAREER_HOST ? url.href : '';
     } catch {
       return '';
