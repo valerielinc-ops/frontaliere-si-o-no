@@ -304,7 +304,7 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
     const reader = response.body.getReader();
     const tooLarge = new Error('upstream_response_too_large');
     const cancelOnAbort = () => {
-      void reader.cancel().catch(() => {});
+      void cancelReaderWithDeadline(reader);
     };
     signal?.addEventListener('abort', cancelOnAbort, { once: true });
     try {
