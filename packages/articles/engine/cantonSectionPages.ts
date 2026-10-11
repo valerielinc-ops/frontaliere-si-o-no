@@ -730,7 +730,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
       : block;
   }).join('\n');
 
-  const curatedHtml = `      <section class="cth-section cth-curated" aria-labelledby="hub-articles"><h2 id="hub-articles" class="s-sXAwQz cth-section-title">${esc(copy.curated)}</h2>${input.curatedArticles.length
+  const curatedHtml = `      <section class="cth-section cth-curated" aria-labelledby="hub-articles"><div class="cth-section-heading"><h2 id="hub-articles" class="s-sXAwQz cth-section-title">${esc(copy.curated)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div>${input.curatedArticles.length
     ? `<ul class="s-0c2lhY cth-article-list">${input.curatedArticles.map((a) => {
         const date = a.date ? ` <time datetime="${esc(requireDate(a.date, 'curatedArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
         return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'curatedArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}</a>${date}</li>`;
@@ -738,7 +738,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     : `<p class="s-s6RP5r">${esc(copy.noCurated)}</p>`}</section>`;
 
   const toolsHtml = input.links.length
-    ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
+    ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><div class="cth-section-heading"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
         `<li><a class="s-7DS5hj" href="${esc(safeHref(l.url, 'links.url'))}">${esc(l.label)}</a>${l.description ? ` — ${esc(l.description)}` : ''}</li>`).join('')}</ul></section>`
     : '';
 

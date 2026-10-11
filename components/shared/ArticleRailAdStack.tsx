@@ -99,32 +99,45 @@ const MAX_PANELS = 6;
 const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, compact = false, desktopRail = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
   const gutterHeight = useRef(0);
-  // Per-panel GPT verdict, keyed by panel index (true = reported empty).
-  const emptyByIndex = useRef<Map<number, boolean>>(new Map());
   // Start at 0 — measurement sets the correct count after mount, avoiding a
   // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
+  // Keep the aggregate verdict in React state so the resolution effect reruns
+  // when a child reports a late GPT result, not only when the panel count or
+  // callback identity changes.
+  const [panelVerdicts, setPanelVerdicts] = useState<Partial<Record<number, boolean>>>({});
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
 
-  // Aggregate per-panel GPT verdicts into one rail-level verdict. Collapse
-  // (`true`) only once every mounted panel has reported empty; un-collapse
-  // (`false`) the moment any panel fills, so a paying creative never sits in a
-  // zero-width gutter.
+  // A panel set can grow or shrink after ResizeObserver measurement. Discard
+  // the prior set so a verdict from a previous generation cannot collapse a
+  // newly mounted rail before its current panels report.
+  useEffect(() => {
+    setPanelVerdicts((current) => Object.keys(current).length === 0 ? current : {});
+  }, [panels]);
+
   const handlePanelEmpty = useCallback((index: number, isEmpty: boolean) => {
-    emptyByIndex.current.set(index, isEmpty);
-    let reported = 0;
-    let anyFilled = false;
-    for (let i = 0; i < panels; i++) {
-      const v = emptyByIndex.current.get(i);
-      if (v === undefined) continue;
-      reported++;
-      if (v === false) anyFilled = true;
-    }
-    // GPT owns waiting/no-fill/offscreen decisions. A missing iframe after a
-    // wall-clock deadline is not a terminal verdict and cannot shrink a gutter.
+    setPanelVerdicts((current) => current[index] === isEmpty
+      ? current
+      : { ...current, [index]: isEmpty });
+  }, []);
+
+  let reported = 0;
+  let anyFilled = false;
+  for (let i = 0; i < panels; i++) {
+    const verdict = panelVerdicts[i];
+    if (verdict === undefined) continue;
+    reported++;
+    if (verdict === false) anyFilled = true;
+  }
+
+  // GPT owns waiting/no-fill/offscreen decisions. A missing iframe after a
+  // wall-clock deadline is not a terminal verdict and cannot shrink a gutter.
+  // `anyFilled` and `reported` are explicit dependencies: late child verdicts
+  // must update the caller even when the rail count stays unchanged.
+  useEffect(() => {
     if (anyFilled) onEmptyResolved?.(false);
     else if (panels > 0 && reported >= panels) onEmptyResolved?.(true);
-  }, [panels, onEmptyResolved]);
+  }, [panels, panelVerdicts, anyFilled, reported, onEmptyResolved]);
 
   useEffect(() => {
     const el = ref.current;
