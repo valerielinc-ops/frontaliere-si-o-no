@@ -44,7 +44,7 @@
  * kill-switch as ArticleRailAd (it owns the Remote Config gate).
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ArticleRailAd from '@/components/shared/ArticleRailAd';
 
 export interface ArticleRailAdStackProps {
@@ -102,29 +102,29 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
   // Start at 0 — measurement sets the correct count after mount, avoiding a
   // premature 600px CLS reservation on pages whose gutter is below MIN_FILL_PX.
   const [panels, setPanels] = useState(0);
-  // Keep the aggregate verdict in React state so the resolution effect reruns
-  // when a child reports a late GPT result, not only when the panel count or
-  // callback identity changes.
-  const [panelVerdicts, setPanelVerdicts] = useState<Partial<Record<number, boolean>>>({});
+  // Each measured panel count is a new generation. An object identity is used
+  // instead of the count itself so a 3 → 1 → 3 cycle cannot reuse the first
+  // generation's verdicts when the count happens to come back.
+  const panelGeneration = useMemo(() => ({}), [panels]);
+  const [panelVerdicts, setPanelVerdicts] = useState<{
+    generation: object;
+    values: Partial<Record<number, boolean>>;
+  }>(() => ({ generation: panelGeneration, values: {} }));
   const maxPanels = Math.max(1, count ?? MAX_PANELS);
 
-  // A panel set can grow or shrink after ResizeObserver measurement. Discard
-  // the prior set so a verdict from a previous generation cannot collapse a
-  // newly mounted rail before its current panels report.
-  useEffect(() => {
-    setPanelVerdicts((current) => Object.keys(current).length === 0 ? current : {});
-  }, [panels]);
-
   const handlePanelEmpty = useCallback((index: number, isEmpty: boolean) => {
-    setPanelVerdicts((current) => current[index] === isEmpty
-      ? current
-      : { ...current, [index]: isEmpty });
-  }, []);
+    setPanelVerdicts((current) => {
+      const values = current.generation === panelGeneration ? current.values : {};
+      if (current.generation === panelGeneration && values[index] === isEmpty) return current;
+      return { generation: panelGeneration, values: { ...values, [index]: isEmpty } };
+    });
+  }, [panelGeneration]);
 
+  const activeVerdicts = panelVerdicts.generation === panelGeneration ? panelVerdicts.values : {};
   let reported = 0;
   let anyFilled = false;
   for (let i = 0; i < panels; i++) {
-    const verdict = panelVerdicts[i];
+    const verdict = activeVerdicts[i];
     if (verdict === undefined) continue;
     reported++;
     if (verdict === false) anyFilled = true;
@@ -135,9 +135,13 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
   // `anyFilled` and `reported` are explicit dependencies: late child verdicts
   // must update the caller even when the rail count stays unchanged.
   useEffect(() => {
+    // A count change creates a new generation. Wait for a child callback from
+    // that generation before resolving, so stale empty verdicts cannot cause
+    // a one-render collapse while ResizeObserver is shrinking the rail.
+    if (panelVerdicts.generation !== panelGeneration) return;
     if (anyFilled) onEmptyResolved?.(false);
     else if (panels > 0 && reported >= panels) onEmptyResolved?.(true);
-  }, [panels, panelVerdicts, anyFilled, reported, onEmptyResolved]);
+  }, [panels, panelVerdicts, panelGeneration, anyFilled, reported, onEmptyResolved]);
 
   useEffect(() => {
     const el = ref.current;
