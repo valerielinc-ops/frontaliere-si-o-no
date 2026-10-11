@@ -1,28 +1,29 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-10T21:34:48.465Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-10-11T09:30:51.517Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3423,
-  "avgDurationMs": 3423,
+  "durationMs": 886,
+  "avgDurationMs": 886,
   "durationHistory": [
-    3423
+    886
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "visionapartments-e3a15eb09025",
       "slug": "servizi-di-costruzione-tecnici-all-rounder-m-f-100-vision-management-services-gmbh-zurich",
@@ -30,7 +31,6 @@
       "companyKey": "visionapartments",
       "companyDomain": "visionapartments.com",
       "title": "HAUSTECHNIKER/ALLROUNDER (m/w) 100%",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
@@ -67,7 +67,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
