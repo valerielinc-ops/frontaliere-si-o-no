@@ -1,7 +1,7 @@
 {
   "key": "reboot-monkey",
   "label": "Reboot Monkey",
-  "generatedAt": "2026-10-10T21:24:00.018Z",
+  "generatedAt": "2026-10-11T09:30:19.743Z",
   "total": 107,
   "discovered": null,
   "parsed": 108,
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 1,
-  "updatedCount": 2,
+  "updatedCount": 106,
   "removedCount": 0,
-  "unchangedCount": 104,
-  "durationMs": 6508,
-  "avgDurationMs": 6508,
+  "unchangedCount": 0,
+  "durationMs": 401321,
+  "avgDurationMs": 401321,
   "durationHistory": [
-    6508
+    401321
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-plan-les-ouates-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.835Z",
+      "crawledAt": "2026-10-11T09:27:59.538Z",
       "addressLocality": "Plan-les-Ouates",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,9 +45,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-plan-les-ouates-on-site-1/c/new",
       "remote": false,
       "needsRetranslation": true,
@@ -57,105 +57,16 @@
       "postalCode": "1228",
       "addressRegion": "GE",
       "firstSeenAt": "2026-08-13T10:28:16.254Z",
-      "_qualityScore": 87,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 21,
-        "completeness": 20
+        "completeness": 22
       }
     }
   ],
   "updatedJobs": [
-    {
-      "id": "reboot-monkey-93701b31cbe0",
-      "slug": "data-center-technician-svizzera-munchenstein-in-loco-reboot-monkey-munchenstein-f82582",
-      "company": "Reboot Monkey",
-      "companyKey": "reboot-monkey",
-      "companyDomain": "rebootmonkey.com",
-      "title": "Data Center Technician - Switzerland - Münchenstein - On-site",
-      "location": "Münchenstein",
-      "canton": "BL",
-      "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-munchenstein-on-site",
-      "source": "Reboot Monkey Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.843Z",
-      "addressLocality": "Münchenstein",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Tecnologia / Data Center",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-munchenstein-on-site/c/new",
-      "remote": false,
-      "firstSeenAt": "2026-05-18T13:03:42.246Z",
-      "needsRetranslation": true,
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "postalCode": "4142",
-      "addressRegion": "BL",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "reboot-monkey-653d230ddd49",
-      "slug": "data-center-technician-lucerna-in-sede-reboot-monkey-lucerne",
-      "company": "Reboot Monkey",
-      "companyKey": "reboot-monkey",
-      "companyDomain": "rebootmonkey.com",
-      "title": "Data Center Technician - Lucerne - On-site",
-      "location": "Lucerne",
-      "canton": "LU",
-      "url": "https://jobs.rebootmonkey.com/o/data-center-technician-lucerne-on-site-4",
-      "source": "Reboot Monkey Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.583Z",
-      "addressLocality": "Lucerne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "freelance",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "junior",
-      "sector": "Tecnologia / Data Center",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-lucerne-on-site-4/c/new",
-      "remote": false,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:03:49.460Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "postalCode": "6003",
-      "addressRegion": "LU",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "reboot-monkey-3a9640da6a6f",
       "slug": "tecnico-data-center-svizzera-rumlang-presenza-in-sede-reboot-monkey-rumlang",
@@ -168,7 +79,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-rumlang-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.932Z",
+      "crawledAt": "2026-10-11T09:30:08.411Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -179,9 +90,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-rumlang-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.824Z",
@@ -190,12 +101,12 @@
       "salarySource": "estimated",
       "postalCode": "8153",
       "addressRegion": "ZH",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -210,7 +121,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-zurich-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.927Z",
+      "crawledAt": "2026-10-11T09:30:04.333Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,9 +132,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-zurich-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.823Z",
@@ -232,12 +143,12 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -252,7 +163,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lupfig-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.926Z",
+      "crawledAt": "2026-10-11T09:29:59.677Z",
       "addressLocality": "Lupfig",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,9 +174,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-lupfig-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.823Z",
@@ -274,12 +185,12 @@
       "salarySource": "estimated",
       "postalCode": "5242",
       "addressRegion": "AG",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -294,7 +205,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-meyrin-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.924Z",
+      "crawledAt": "2026-10-11T09:29:55.054Z",
       "addressLocality": "Meyrin",
       "addressCountry": "CH",
       "country": "CH",
@@ -305,9 +216,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-meyrin-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.822Z",
@@ -316,12 +227,12 @@
       "salarySource": "estimated",
       "postalCode": "1217",
       "addressRegion": "GE",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -336,7 +247,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-basel-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.923Z",
+      "crawledAt": "2026-10-11T09:29:50.657Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -347,9 +258,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-basel-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.822Z",
@@ -358,12 +269,12 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -378,7 +289,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-avenches-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.922Z",
+      "crawledAt": "2026-10-11T09:29:50.011Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,9 +300,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-avenches-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.821Z",
@@ -400,12 +311,12 @@
       "salarySource": "estimated",
       "postalCode": "1580",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -420,7 +331,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-bielbienne-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.918Z",
+      "crawledAt": "2026-10-11T09:29:45.901Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,9 +342,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-bielbienne-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.820Z",
@@ -442,12 +353,12 @@
       "salarySource": "estimated",
       "postalCode": "2502",
       "addressRegion": "BE",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -462,7 +373,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-chiasso-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.917Z",
+      "crawledAt": "2026-10-11T09:29:45.270Z",
       "addressLocality": "Chiasso",
       "addressCountry": "CH",
       "country": "CH",
@@ -473,9 +384,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-chiasso-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.819Z",
@@ -484,12 +395,12 @@
       "salarySource": "estimated",
       "postalCode": "6830",
       "addressRegion": "TI",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -504,7 +415,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-crissier-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.913Z",
+      "crawledAt": "2026-10-11T09:29:40.941Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
       "country": "CH",
@@ -515,9 +426,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-crissier-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.819Z",
@@ -526,12 +437,12 @@
       "salarySource": "estimated",
       "postalCode": "1023",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -546,7 +457,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dielsdorf-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.910Z",
+      "crawledAt": "2026-10-11T09:29:36.521Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -557,9 +468,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-dielsdorf-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.818Z",
@@ -568,12 +479,12 @@
       "salarySource": "estimated",
       "postalCode": "8157",
       "addressRegion": "ZH",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -588,7 +499,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dietikon-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.905Z",
+      "crawledAt": "2026-10-11T09:29:32.518Z",
       "addressLocality": "Dietikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -599,9 +510,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-dietikon-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.818Z",
@@ -610,12 +521,12 @@
       "salarySource": "estimated",
       "postalCode": "8953",
       "addressRegion": "ZH",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -630,7 +541,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dietlikon-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.904Z",
+      "crawledAt": "2026-10-11T09:29:28.306Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -641,9 +552,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-dietlikon-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.817Z",
@@ -652,12 +563,12 @@
       "salarySource": "estimated",
       "postalCode": "8305",
       "addressRegion": "ZH",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -672,7 +583,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dudingen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.900Z",
+      "crawledAt": "2026-10-11T09:29:24.264Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -683,9 +594,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-dudingen-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.816Z",
@@ -694,12 +605,12 @@
       "salarySource": "estimated",
       "postalCode": "3186",
       "addressRegion": "FR",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -714,7 +625,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-emmen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.897Z",
+      "crawledAt": "2026-10-11T09:29:20.359Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -725,9 +636,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-emmen-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.816Z",
@@ -736,12 +647,12 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "addressRegion": "LU",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -756,7 +667,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gais-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.896Z",
+      "crawledAt": "2026-10-11T09:29:16.210Z",
       "addressLocality": "Gais",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,9 +678,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-gais-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.815Z",
@@ -778,12 +689,12 @@
       "salarySource": "estimated",
       "postalCode": "9056",
       "addressRegion": "AR",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -798,7 +709,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gland-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.894Z",
+      "crawledAt": "2026-10-11T09:29:12.136Z",
       "addressLocality": "Gland",
       "addressCountry": "CH",
       "country": "CH",
@@ -809,9 +720,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-gland-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.814Z",
@@ -820,12 +731,12 @@
       "salarySource": "estimated",
       "postalCode": "1196",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -840,7 +751,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gland-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.890Z",
+      "crawledAt": "2026-10-11T09:29:11.503Z",
       "addressLocality": "Gland",
       "addressCountry": "CH",
       "country": "CH",
@@ -851,9 +762,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-gland-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.814Z",
@@ -862,12 +773,12 @@
       "salarySource": "estimated",
       "postalCode": "1196",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -882,7 +793,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-hunenberg-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.886Z",
+      "crawledAt": "2026-10-11T09:29:10.841Z",
       "addressLocality": "Hünenberg",
       "addressCountry": "CH",
       "country": "CH",
@@ -893,9 +804,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-hunenberg-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.813Z",
@@ -904,12 +815,12 @@
       "salarySource": "estimated",
       "postalCode": "6331",
       "addressRegion": "ZG",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -924,7 +835,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-hunenberg-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.880Z",
+      "crawledAt": "2026-10-11T09:29:06.737Z",
       "addressLocality": "Hünenberg",
       "addressCountry": "CH",
       "country": "CH",
@@ -935,9 +846,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-hunenberg-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.813Z",
@@ -946,12 +857,12 @@
       "salarySource": "estimated",
       "postalCode": "6331",
       "addressRegion": "ZG",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -966,7 +877,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.875Z",
+      "crawledAt": "2026-10-11T09:29:02.325Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -977,9 +888,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.812Z",
@@ -988,12 +899,12 @@
       "salarySource": "estimated",
       "postalCode": "2300",
       "addressRegion": "NE",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1008,7 +919,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.874Z",
+      "crawledAt": "2026-10-11T09:28:58.107Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -1019,9 +930,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.812Z",
@@ -1030,12 +941,12 @@
       "salarySource": "estimated",
       "postalCode": "2300",
       "addressRegion": "NE",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1050,7 +961,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lausanne-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.872Z",
+      "crawledAt": "2026-10-11T09:28:53.997Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1061,9 +972,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-lausanne-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.811Z",
@@ -1072,12 +983,12 @@
       "salarySource": "estimated",
       "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1092,7 +1003,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lausanne-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.871Z",
+      "crawledAt": "2026-10-11T09:28:49.943Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1103,9 +1014,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-lausanne-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.811Z",
@@ -1114,12 +1025,12 @@
       "salarySource": "estimated",
       "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1134,7 +1045,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-les-acacias-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.870Z",
+      "crawledAt": "2026-10-11T09:28:45.787Z",
       "addressLocality": "Les Acacias",
       "addressCountry": "CH",
       "country": "CH",
@@ -1145,21 +1056,21 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-les-acacias-on-site-1/c/new",
       "remote": false,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 17
+        "completeness": 19
       }
     },
     {
@@ -1174,7 +1085,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-linthal-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.865Z",
+      "crawledAt": "2026-10-11T09:28:41.453Z",
       "addressLocality": "Linthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1185,9 +1096,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-linthal-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.808Z",
@@ -1196,12 +1107,12 @@
       "salarySource": "estimated",
       "postalCode": "8783",
       "addressRegion": "GL",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1216,7 +1127,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-luzern-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.859Z",
+      "crawledAt": "2026-10-11T09:28:36.956Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1227,9 +1138,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-luzern-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-05-17T10:55:52.874Z",
@@ -1238,12 +1149,12 @@
       "salarySource": "estimated",
       "postalCode": "6003",
       "addressRegion": "LU",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1258,7 +1169,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-manno-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.858Z",
+      "crawledAt": "2026-10-11T09:28:32.838Z",
       "addressLocality": "Manno",
       "addressCountry": "CH",
       "country": "CH",
@@ -1269,9 +1180,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-manno-on-site/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.805Z",
@@ -1280,12 +1191,12 @@
       "salarySource": "estimated",
       "postalCode": "6928",
       "addressRegion": "TI",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1300,7 +1211,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-manno-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.854Z",
+      "crawledAt": "2026-10-11T09:28:28.348Z",
       "addressLocality": "Manno",
       "addressCountry": "CH",
       "country": "CH",
@@ -1311,9 +1222,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-manno-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-04-13T11:09:46.805Z",
@@ -1322,12 +1233,12 @@
       "salarySource": "estimated",
       "postalCode": "6928",
       "addressRegion": "TI",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1342,7 +1253,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-melano-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.850Z",
+      "crawledAt": "2026-10-11T09:28:23.812Z",
       "addressLocality": "Melano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1353,9 +1264,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-melano-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-05-17T10:55:52.869Z",
@@ -1364,12 +1275,12 @@
       "salarySource": "estimated",
       "postalCode": "6818",
       "addressRegion": "TI",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     },
     {
@@ -1384,7 +1295,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-muttenz-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:23:42.844Z",
+      "crawledAt": "2026-10-11T09:28:19.879Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1395,9 +1306,9 @@
       "sector": "Tecnologia / Data Center",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
+      "datePosted": "2026-02-11",
+      "postedDate": "2026-02-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://rebootmonkey.recruitee.com/o/data-center-technician-switzerland-muttenz-on-site-1/c/new",
       "remote": false,
       "firstSeenAt": "2026-05-13T22:53:14.276Z",
@@ -1406,14 +1317,16 @@
       "salarySource": "estimated",
       "postalCode": "4132",
       "addressRegion": "BL",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
