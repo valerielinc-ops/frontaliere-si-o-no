@@ -13,6 +13,7 @@ const identity = {
   GIT_COMMITTER_NAME: 'frontaliere-automation[bot]',
   GIT_COMMITTER_EMAIL: '296434481+frontaliere-automation[bot]@users.noreply.github.com',
 };
+const PUSH_URL = 'https://x-access-token:fixture-token@github.com/fixture/publisher.git';
 
 afterEach(() => {
   for (const directory of directories.splice(0)) fs.rmSync(directory, { recursive: true, force: true });
@@ -45,6 +46,17 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/ci/reconcile-data-refresh-main.mjs',
   'scripts/ci/merge-compat-shard.mjs',
 ];
+
+function writeGitUrlRewriteConfig(directory: string, remote: string) {
+  const config = path.join(directory, 'gitconfig');
+  fs.writeFileSync(config, [
+    `[url "${remote}"]`,
+    `\tinsteadOf = ${PUSH_URL}`,
+    '\tinsteadOf = https://github.com/fixture/publisher.git',
+    '',
+  ].join('\n'));
+  return config;
+}
 
 function fixture() {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-checkout-'));
@@ -85,6 +97,7 @@ function fixture() {
   git(repo, ['remote', 'add', 'origin', remote]);
   git(repo, ['push', '-q', 'origin', 'main', 'chore/refresh']);
   git(repo, ['config', `url.${remote}.insteadOf`, 'https://x-access-token:fixture-token@github.com/fixture/publisher.git']);
+  const gitConfig = writeGitUrlRewriteConfig(directory, remote);
   const bin = path.join(directory, 'bin');
   fs.mkdirSync(bin);
   const gh = path.join(bin, 'gh');
@@ -92,7 +105,7 @@ function fixture() {
   fs.chmodSync(gh, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
-  return { repo, remote, bin, body, base };
+  return { repo, remote, bin, body, base, gitConfig };
 }
 
 function publish(
@@ -113,6 +126,7 @@ function publish(
       ...process.env, ...identity,
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+      GIT_CONFIG_GLOBAL: setup.gitConfig,
       REFRESH_FIXTURE_GH_FAIL: fail ? '1' : '0',
       ...extraEnv,
     },
@@ -134,6 +148,7 @@ function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = [
       ...process.env, ...identity,
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+      GIT_CONFIG_GLOBAL: setup.gitConfig,
       REFRESH_FIXTURE_GH_FAIL: '0',
     },
   });
@@ -616,7 +631,6 @@ describe('data publisher preserves its source checkout', () => {
 });
 
 // ── A new stable branch while main keeps moving (issue 12262) ────────────────
-const PUSH_URL = 'https://x-access-token:fixture-token@github.com/fixture/publisher.git';
 const NEW_BRANCH = 'chore/sitemap-fixture';
 
 /**
@@ -670,6 +684,7 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
 
   git(directory, ['clone', '-q', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
   git(runner, ['config', `url.${remote}.insteadOf`, PUSH_URL]);
+  const gitConfig = writeGitUrlRewriteConfig(directory, remote);
   git(runner, ['config', 'maintenance.auto', 'false']);
   git(runner, ['config', 'gc.auto', '0']);
   if (afterHistoryGuard) {
@@ -740,7 +755,7 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
   fs.writeFileSync(body, '## Implementato\n- Fixture sitemap.\n\n## Non implementato (ancora)\n- Nessuno.\n');
 
   return {
-    directory, remote, runner, bin, body, checkout, historyObjects,
+    directory, remote, runner, bin, body, checkout, historyObjects, gitConfig,
     ghCalls: () => fs.readFileSync(ghLog, 'utf8'),
     // A push to main: from now on the remote's main tip is a commit the runner does not have.
     advanceMain: () => {
@@ -802,6 +817,7 @@ function compatHistoryFixture(
   git(seed, ['push', '-q', 'origin', 'main:refs/heads/main', `${COMPAT_BRANCH}:refs/heads/${COMPAT_BRANCH}`]);
   git(directory, ['clone', '-q', '-c', 'maintenance.auto=false', '-c', 'gc.auto=0', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
   git(runner, ['config', `url.${remote}.insteadOf`, PUSH_URL]);
+  const gitConfig = writeGitUrlRewriteConfig(directory, remote);
   git(runner, ['config', 'maintenance.auto', 'false']);
   git(runner, ['config', 'gc.auto', '0']);
 
@@ -831,7 +847,7 @@ function compatHistoryFixture(
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture compat.\n\n## Non implementato (ancora)\n- Nessuno.\n');
 
-  return { directory, remote, runner, bin, body };
+  return { directory, remote, runner, bin, body, gitConfig };
 }
 
 function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
@@ -846,6 +862,7 @@ function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
       ...process.env, ...identity,
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+      GIT_CONFIG_GLOBAL: setup.gitConfig,
     },
   });
   return {
@@ -895,6 +912,7 @@ function publishSitemap(setup: ReturnType<typeof movingMainFixture>, env: Record
       ...process.env, ...identity,
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+      GIT_CONFIG_GLOBAL: setup.gitConfig,
       GIT_TRACE2_EVENT: trace,
       ...env,
     },
@@ -957,8 +975,9 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // The fixture puts the runner in the guard's end state by hand, because the
     // guard's marker is a constant of the real repository. Keep the two in step.
     const guard = fs.readFileSync(path.join(ROOT, 'scripts/lib/old-history-guard.mjs'), 'utf8');
-    expect(guard).toContain("'--unshallow',\n      '--filter=tree:0',");
-    expect(guard).toMatch(/'--no-write-fetch-head',\n\s+'--filter=tree:0',\n\s+remote,\n\s+commitRef,/);
+    expect(guard).toContain("if (isShallowRepository(cwd)) args.push('--unshallow');");
+    expect(guard).toContain("'--filter=tree:0', fetchTarget.remote,");
+    expect(guard).toContain("if (markerRef && !commitExists(markerRef, cwd)) args.push(markerRef);");
     const setup = movingMainFixture({ afterHistoryGuard: true });
     expect(git(setup.runner, ['rev-parse', '--is-shallow-repository'])).toBe('false');
     expect(git(setup.runner, ['config', '--get-regexp', '^remote\\..*\\.promisor$'])).toContain('true');
