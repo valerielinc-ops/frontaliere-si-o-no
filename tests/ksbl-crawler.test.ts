@@ -54,4 +54,16 @@ describe('KSBL listing cards', () => {
       occupation: '80%',
     }]);
   });
+
+  it('does not treat hyphenated class suffixes as KSBL card tokens', () => {
+    const html = `
+      <div class="foo-col-12 foo-mb-3">
+        <a href="https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/bad/${uuid}"></a>
+        <h3 class="foo-card-title">Bad</h3>
+        <ul><li class="foo-jobs-text-gray">80%</li></ul>
+      </div></div></div>
+    `;
+
+    expect(parseKsblPage(html)).toEqual([]);
+  });
 });

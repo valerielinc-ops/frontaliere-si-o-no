@@ -57,6 +57,11 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 const MAX_PAGES = 20; // safety cap
 
+// Match a complete whitespace-separated class token inside a quoted class
+// attribute. A word boundary is insufficient because CSS class names often
+// contain hyphens (for example, `foo-col-12` is not `col-12`).
+const classToken = (pattern) => `(?:[^"]*\\s)?(?:${pattern})(?:\\s[^"]*)?`;
+
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
   uuml: 'ü', ouml: 'ö', auml: 'ä', Uuml: 'Ü', Ouml: 'Ö', Auml: 'Ä',
@@ -123,7 +128,13 @@ export function parseKsblPage(html) {
   // KSBL changed the listing from the old responsive grid cards to one
   // `col-12 mb-3` card per row. Match both known wrappers while leaving
   // unrelated `col-12` layout containers out of the parser.
-  const cardRx = /<div\b(?=[^>]*class="[^"]*\bcol-12\b[^"]*")(?=[^>]*class="[^"]*\b(?:mb-gap|mb-3)\b[^"]*")[^>]*>([\s\S]*?<h3\b[^>]*class="[^"]*\bcard-title\b[^"]*"[^>]*>[\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g;
+  const cardRx = new RegExp(
+    `<div\\b(?=[^>]*class="${classToken('col-12')}")`
+      + `(?=[^>]*class="${classToken('mb-gap|mb-3')}")[^>]*>`
+      + `([\\s\\S]*?<h3\\b[^>]*class="${classToken('card-title')}"[^>]*>`
+      + `[\\s\\S]*?)<\\/div>\\s*<\\/div>\\s*<\\/div>`,
+    'g',
+  );
   const seen = new Set();
   let m;
   while ((m = cardRx.exec(html))) {
@@ -139,7 +150,10 @@ export function parseKsblPage(html) {
     seen.add(uuid);
 
     // Title
-    const titleMatch = cardHtml.match(/<h3\b[^>]*class="[^"]*\bcard-title\b[^"]*"[^>]*>([\s\S]*?)<\/h3>/i);
+    const titleMatch = cardHtml.match(new RegExp(
+      `<h3\\b[^>]*class="${classToken('card-title')}"[^>]*>([\\s\\S]*?)<\\/h3>`,
+      'i',
+    ));
     if (!titleMatch) continue;
     const title = normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, '')));
     if (!title || title.length < 3) continue;
@@ -147,13 +161,26 @@ export function parseKsblPage(html) {
     // Category (Pflege, Ärztliches Personal, Therapien, etc.)
     // Old cards use a span; the current page uses a div with
     // `list-optional-label`.
-    const catMatch = cardHtml.match(/<(span|div)\b[^>]*class="[^"]*\boptional-label\b[^"]*"[^>]*>([\s\S]*?)<\/\1>/i);
+    const catMatch = cardHtml.match(new RegExp(
+      `<(span|div)\\b[^>]*class="${classToken('optional-label|list-optional-label')}"`
+        + `[^>]*>([\\s\\S]*?)<\\/\\1>`,
+      'i',
+    ));
     const category = catMatch ? normalizeSpace(decodeEntities(catMatch[2].replace(/<[^>]+>/g, ''))) : '';
 
     // Occupation percentage (e.g. "80%", "60-100%"). The current listing
     // moved it from a span into the first `jobs-text-gray` list item.
-    const oldPctMatch = cardHtml.match(/<span\b[^>]*class="[^"]*\blead\b[^"]*\bfont-weight-normal\b[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
-    const newPctMatch = cardHtml.match(/<li\b[^>]*class="[^"]*\bjobs-text-gray\b[^"]*"[^>]*>\s*((?:\d{2,3}\s*[-–]\s*)?\d{2,3}\s*%)\s*<\/li>/i);
+    const oldPctMatch = cardHtml.match(new RegExp(
+      `<span\\b(?=[^>]*class="${classToken('lead')}")`
+        + `(?=[^>]*class="${classToken('font-weight-normal')}")`
+        + `[^>]*>([\\s\\S]*?)<\\/span>`,
+      'i',
+    ));
+    const newPctMatch = cardHtml.match(new RegExp(
+      `<li\\b(?=[^>]*class="${classToken('jobs-text-gray')}")`
+        + `[^>]*>\\s*((?:\\d{2,3}\\s*[-–]\\s*)?\\d{2,3}\\s*%)\\s*<\\/li>`,
+      'i',
+    ));
     const occupation = oldPctMatch
       ? normalizeSpace(oldPctMatch[1].replace(/<[^>]+>/g, ''))
       : newPctMatch ? normalizeSpace(newPctMatch[1]) : '';
