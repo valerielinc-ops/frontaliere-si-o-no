@@ -4617,9 +4617,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       console.log(`  🧷 slugByLocale backfill: filled ${slugBackfilled} missing locale entries from canonical slug`);
     }
 
-    writeJson(DATA_JOBS, assembled, { compact: true });
+    writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-    writeJson(PUBLIC_JOBS, assembled, { compact: true });
+    writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
     console.log(`✅ data/jobs.json assembled: ${assembled.length} jobs from ${listSliceFiles(JOBS_SLICES_DIR).length} slices`);
 
     // --- PostalCode enrichment (ensures 100% postalCode for JobPosting schema) ---
@@ -4652,8 +4652,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
     }
     if (postalFilled > 0) {
-      writeJson(DATA_JOBS, assembled, { compact: true });
-      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
       console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled}/${assembled.length} jobs`);
     }
 
@@ -4665,8 +4665,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       job.qualityScore = total;
     }
     if (qsChanged > 0) {
-      writeJson(DATA_JOBS, assembled, { compact: true });
-      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
       console.log(`  📊 Quality score: computed for ${assembled.length} jobs (${qsChanged} changed)`);
     }
 
@@ -4690,12 +4690,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
-          writeJson(DATA_JOBS, assembled, { compact: true });
-          writeJson(PUBLIC_JOBS, assembled, { compact: true });
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
-        writeJson(DATA_EXPIRED, cleanedExpired);
+        writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, cleanedExpired);
+        writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
         console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
         // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
@@ -4723,8 +4723,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             const orphanResult = reconcileOrphanSlugs(publishedJobs, orphanSlugs, enrichedData, { dryRun: false });
             if (orphanResult.mergedCount > 0) {
               console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-              writeJson(DATA_JOBS, assembled, { compact: true });
-              writeJson(PUBLIC_JOBS, assembled, { compact: true });
+              writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+              writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
             }
           }
 
@@ -4732,18 +4732,18 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           const expResult = reconcileExpiredSlugs(publishedJobs, cleanedExpired, { dryRun: false });
           if (expResult.mergedCount > 0) {
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-            writeJson(DATA_JOBS, assembled, { compact: true });
-            writeJson(PUBLIC_JOBS, assembled, { compact: true });
-            writeJson(DATA_EXPIRED, cleanedExpired);
-            writeJson(PUBLIC_EXPIRED, cleanedExpired);
+            writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+            writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+            writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
+            writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
           }
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
         }
       } else {
-        writeJson(DATA_EXPIRED, expiredJobs);
+        writeJson(DATA_EXPIRED, expiredJobs, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, expiredJobs);
+        writeJson(PUBLIC_EXPIRED, expiredJobs, { streamArray: true });
         console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
       }
     }
