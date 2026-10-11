@@ -3735,7 +3735,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -6921,10 +6922,6 @@
           "apothekenassistent-afc-coop-vitality-galenica-grindelwald"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 415,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -7733,10 +7730,6 @@
           "apothekenhelferin-afc-coop-vitality-galenica-bubendorf"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 414,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8547,10 +8540,6 @@
           "apothekenassistentin-afc-coop-vitality-galenica-laufen"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 412,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9567,10 +9556,6 @@
           "pharmaassistent-afc-coop-vitality-galenica-feuerthalen"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 433,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10468,10 +10453,6 @@
           "aide-a-la-recherche-agricole-coop-vitality-galenica-mendrisio"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 423,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -10681,10 +10662,6 @@
           "apothekenassistent-afc-coop-vitality-galenica-rorschach"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 411,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12522,10 +12499,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-rapperswil-jona"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 422,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13011,10 +12984,6 @@
           "pharmaassistent-in-afc-coop-vitality-galenica-grenchen"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 422,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -13234,10 +13203,6 @@
           "apothekenassistentin-afc-coop-vitality-galenica-kreuzlingen"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 443,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13457,10 +13422,6 @@
           "apothekenassistent-afc-coop-vitality-galenica-wohlen-ag"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 419,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -13987,10 +13948,6 @@
           "pharmaassistent-afc-coop-vitality-galenica-morges"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 411,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14890,10 +14847,6 @@
           "apothekenassistentin-apotheker-coop-vitality-galenica-frick"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 409,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -15481,10 +15434,6 @@
           "pharmaassistentin-pharmaassistent-afc-coop-vitality-galenica-vich"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 416,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15698,12 +15647,14 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "pharmacy-assistant-afc-sun-store-apotheke-galenica-conthey"
+        "pharmacy-assistant-afc-sun-store-apotheke-galenica-conthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
-          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
         ],
         "en": [
           "pharmacy-assistant-afc-sun-store-apotheke-galenica-conthey"
@@ -16216,10 +16167,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-granges-paccot"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 441,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -16297,10 +16244,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-lenzburg"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 423,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -17068,10 +17011,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-tenero"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 421,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -17437,10 +17376,6 @@
           "apothekerassistent-in-afc-coop-vitality-galenica-canobbio"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 423,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -17735,10 +17670,6 @@
           "pharmaassistent-in-afc-coop-vitality-galenica-kaiseraugst"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 431,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -17960,10 +17891,6 @@
           "pharmaassistent-in-afc-coop-vitality-galenica-neuchatel"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 448,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -18114,10 +18041,6 @@
           "pharmaassistent-in-afc-coop-vitality-galenica-lyss"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 407,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -18424,10 +18347,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-st-gallen"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 432,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -18791,10 +18710,6 @@
           "pharmaassistent-afc-coop-vitality-galenica-niederrohrdorf"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 412,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -19160,10 +19075,6 @@
         "afc-pharmacy-assistant-coop-vitality-galenica-seewen-sz",
         "assistant-di-farmacia-afc-coop-vitality-galenica-seewen-sz"
       ],
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 425,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -19977,10 +19888,6 @@
           "apothekenassistent-in-afc-coop-vitality-galenica-delemont"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 413,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -20269,10 +20176,6 @@
           "apothekenassistent-afc-coop-vitality-galenica-glattpark-opfikon"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 431,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -20350,10 +20253,6 @@
           "pharmazieassistent-in-afc-coop-vitality-galenica-huttwil"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 413,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -21378,7 +21277,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-b50d587334bc",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21438,7 +21336,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-2bde75e4df6e",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -21498,7 +21395,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a8707bf9e909",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -21558,7 +21454,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f6307e980f58",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21618,7 +21513,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-175794eb8d31",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -21678,7 +21572,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-048c3e8469cb",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -21738,7 +21631,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-c0b553cc3ddf",
       "previousSlugsByLocale": {
         "de": [
@@ -21806,7 +21698,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d9b5bc309591",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -21866,7 +21757,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-4902eb4c4623",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21926,7 +21816,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-ad3467fdb62c",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -21986,7 +21875,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-453a2b29bdfd",
       "previousSlugsByLocale": {
         "de": [
@@ -22058,7 +21946,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-740c37ce8660",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -22118,7 +22005,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-616b5c735b43",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -22178,7 +22064,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-e5999a0bf827",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -22238,7 +22123,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-ea422a940329",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -22298,7 +22182,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-7fea3bf922d5",
       "previousSlugsByLocale": {
         "de": [
@@ -22366,7 +22249,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-def87906abed",
       "previousSlugsByLocale": {
         "de": [

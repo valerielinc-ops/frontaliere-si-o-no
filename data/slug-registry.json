@@ -67531,7 +67531,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-galexis-ag-kaufmann-frau-kv-efz-niederbipp",
-      "en": "galenica-galexis-ag-kaufmann-frau-kv-efz-niederbipp",
+      "en": "employee-di-commercio-afc-galexis-ag-galenica-niederbipp",
       "fr": "galenica-galexis-ag-employe-e-de-commerce-cfc-niederbipp",
       "it": "galenica-galexis-ag-impiegato-a-di-commercio-afc-niederbipp"
     }
@@ -67542,7 +67542,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-galexis-ag-logistiker-in-efz-niederbipp",
-      "en": "galenica-galexis-ag-logistiker-in-efz-niederbipp",
+      "en": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
       "fr": "galenica-galexis-ag-logisticien-ne-cfc-niederbipp",
       "it": "galenica-galexis-ag-impiegato-a-in-logistica-afc-niederbipp"
     }
@@ -67553,7 +67553,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-alloga-ag-logistiker-in-efz-burgdorf",
-      "en": "galenica-alloga-ag-logistiker-in-efz-burgdorf",
+      "en": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
       "fr": "galenica-alloga-ag-logisticien-ne-cfc-burgdorf",
       "it": "galenica-alloga-ag-impiegato-a-in-logistica-afc-burgdorf"
     }
@@ -68664,7 +68664,7 @@
     "createdAt": "2026-07-01",
     "slugByLocale": {
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
+      "en": "pharmacy-assistant-afc-amavita-galenica-st-moritz",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-moritz",
       "it": "galenica-amavita-assistente-di-farmacia-afc-st-moritz"
     }
@@ -68972,7 +68972,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-renens",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-renens",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-renens",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-renens",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-renens"
     }
@@ -69401,7 +69401,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-langenthal",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-langenthal",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal"
     }
@@ -69489,7 +69489,7 @@
     "createdAt": "2026-04-10",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-s-antonino",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-s-antonino",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-s-antonino",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-s-antonino",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-s-antonino"
     }
@@ -69500,7 +69500,7 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "galenica-galenica-ag-kaufmann-frau-kv-efz-bern",
-      "en": "galenica-galenica-ag-kaufmann-frau-kv-efz-bern",
+      "en": "employee-di-commercio-afc-galenica-ag-galenica-bern",
       "fr": "galenica-galenica-ag-employe-e-de-commerce-cfc-bern",
       "it": "galenica-galenica-ag-impiegato-a-di-commercio-afc-bern"
     }
@@ -198653,7 +198653,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich"
+      "de": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
+      "it": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "training-for-dipl-nurse-hf-dipl-nursing-professional-hf-psychiatrische-universitatsklinik-zurich-zurich",
+      "fr": "formation-pour-l-infirmiere-diplomee-hf-dipl-soins-infirmiers-professionnels-hf-psychiatrische-universitatsklinik-zurich"
     }
   },
   "url|https://apply.refline.ch/163206/1546/pub/8/index.html": {
@@ -198889,7 +198892,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+      "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+      "it": "assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
+      "fr": "docteur-assistant-psychiatrische-universitatsklinik-zurich-zurich"
     }
   },
   "url|https://apply.refline.ch/163206/2549/pub/1/index.html": {
@@ -199100,7 +199106,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich"
+      "de": "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
+      "it": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "assistant-doctor-inpatient-psychiatrische-universitatsklinik-zurich-zurich",
+      "fr": "medecin-assistant-inpatient-psychiatrische-universitatsklinik-zurich-zurich"
     }
   },
   "url|https://apply.refline.ch/163206/2655/pub/1/index.html": {
@@ -269481,7 +269490,10 @@
   "url|https://apply.refline.ch/163206/2692/pub/1/index.html": {
     "canonicalSlug": "oberarztin-oberarzt-puk-zuerich-zurich-4",
     "slugByLocale": {
-      "de": "oberarztin-oberarzt-puk-zuerich-zurich"
+      "de": "oberarztin-oberarzt-puk-zuerich-zurich",
+      "it": "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-zurich-c90446",
+      "en": "senior-physician-senior-physician-psychiatrische-universitatsklinik-zurich-zurich-c90446",
+      "fr": "medecin-superieur-medecin-superieur-psychiatrische-universitatsklinik-zurich-zurich-c90446"
     },
     "createdAt": "2026-07-04",
     "canton": "ZH"
@@ -269489,7 +269501,10 @@
   "url|https://apply.refline.ch/163206/2658/pub/1/index.html": {
     "canonicalSlug": "oberarztin-oberarzt-puk-zuerich-zurich-5",
     "slugByLocale": {
-      "de": "oberarztin-oberarzt-puk-zuerich-zurich"
+      "de": "oberarztin-oberarzt-puk-zuerich-zurich",
+      "it": "primario-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "senior-physician-psychiatrische-universitatsklinik-zurich-zurich",
+      "fr": "medecin-chef-psychiatrische-universitatsklinik-zurich-zurich"
     },
     "createdAt": "2026-07-04",
     "canton": "ZH"
@@ -274125,7 +274140,9 @@
     "canonicalSlug": "junior-quantitative-analyst-gps-100-f-m-d-julius-baer",
     "slugByLocale": {
       "it": "analista-quantitativo-junior-gps-100-f-m-d-julius-baer-zurich",
-      "fr": "analyste-quantitatif-junior-gps-100-f-m-d-julius-baer-zurich"
+      "fr": "analyste-quantitatif-junior-gps-100-f-m-d-julius-baer-zurich",
+      "en": "quantitative-analyst-derivatives-trading-gps-100-f-m-d-julius-baer",
+      "de": "quantitativer-analyst-derivatehandel-gps-100-m-w-d-julius-baer-zurich"
     },
     "createdAt": "2026-07-06",
     "canton": "ZH"
@@ -282160,7 +282177,10 @@
   "url|https://apply.refline.ch/163206/1385/pub/14/index.html": {
     "canonicalSlug": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
     "slugByLocale": {
-      "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+      "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+      "it": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "assistant-doctor-assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
+      "fr": "assistant-medecin-assistant-medecin-psychiatrische-universitatsklinik-zurich-zurich"
     },
     "createdAt": "2026-07-07",
     "canton": "ZH"
@@ -349352,7 +349372,8 @@
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-geneve",
       "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
     },
     "createdAt": "2026-07-17",
     "canton": "GE"
@@ -350655,7 +350676,9 @@
     "canonicalSlug": "ingegnere-di-sistema-100-f-m-d-julius-baer-zurich",
     "slugByLocale": {
       "en": "system-engineer-100-f-m-d-julius-baer",
-      "fr": "ingenieur-systeme-100-f-m-d-julius-baer-zurich"
+      "fr": "ingenieur-systeme-100-f-m-d-julius-baer-zurich",
+      "it": "ingegnere-di-sistema-100-f-m-d-julius-baer-zurich",
+      "de": "ingegnere-di-sistema-100-f-m-d-julius-baer-zurich"
     },
     "createdAt": "2026-07-18",
     "canton": "ZH"
@@ -387670,7 +387693,8 @@
     "slugByLocale": {
       "de": "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch",
       "it": "bio-operatore-p1p2-4-schicht-m-w-d-lonza-visp",
-      "fr": "bio-operateur-p1p2-4-schicht-m-w-d-lonza-visp"
+      "fr": "bio-operateur-p1p2-4-schicht-m-w-d-lonza-visp",
+      "en": "bio-operator-p1p2-4-shift-operation-all-genders-lonza-visp"
     },
     "createdAt": "2026-07-22",
     "canton": "VS"
@@ -388589,7 +388613,8 @@
     "canonicalSlug": "microbiologia-qc-m-f-d-60-lonza-ch",
     "slugByLocale": {
       "it": "microbiologia-qc-m-f-d-60-lonza-ch",
-      "de": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
+      "de": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
+      "fr": "laboratory-technicien-qc-microbiology-m-f-d-60-lonza-visp"
     },
     "createdAt": "2026-07-22",
     "canton": "VS"
@@ -409851,7 +409876,8 @@
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-ilanz",
       "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ilanz",
-      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ilanz"
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ilanz",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ilanz"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -409894,7 +409920,8 @@
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-kussnacht-am-rigi",
       "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kussnacht-am-rigi",
-      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-kussnacht-am-rigi"
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-kussnacht-am-rigi",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kussnacht-am-rigi"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -409904,7 +409931,8 @@
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-le-lignon",
       "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-lignon",
-      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-lignon"
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-lignon",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-lignon"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -409936,7 +409964,8 @@
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-haag",
       "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-haag",
-      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-haag"
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-haag",
+      "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-haag"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -409946,7 +409975,8 @@
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-rickenbach-b-wil",
       "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rickenbach-b-wil",
-      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-rickenbach-b-wil"
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-rickenbach-b-wil",
+      "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rickenbach-b-wil"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -409978,7 +410008,8 @@
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-fontainemelon",
       "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fontainemelon",
-      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-fontainemelon"
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-fontainemelon",
+      "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fontainemelon"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -410021,7 +410052,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romont",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romont",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romont"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romont",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romont"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -410075,7 +410107,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-montagny-yverdon",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-montagny-yverdon"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-montagny-yverdon",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -410085,7 +410118,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-blonay",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-blonay",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-blonay"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-blonay",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-blonay"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -410106,7 +410140,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-clarens",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-clarens",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-clarens"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-clarens",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-clarens"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -410138,7 +410173,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vesenaz",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vesenaz",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vesenaz"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vesenaz",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vesenaz"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -714802,7 +714838,8 @@
     "slugByLocale": {
       "it": "galenica-galenica-ag-mobile-therapiebegleitung-parkinson-w-m-d-bern",
       "en": "therapy-support-for-the-patient-m-f-d-galenica-ag-galenica-bern",
-      "fr": "soutien-therapeutique-pour-le-patient-h-f-d-galenica-ag-galenica-bern"
+      "fr": "soutien-therapeutique-pour-le-patient-h-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-mobile-therapiebegleitung-parkinson-w-m-d-zuchwil"
     },
     "createdAt": "2026-09-14",
     "canton": "BE"
@@ -788222,7 +788259,8 @@
     "slugByLocale": {
       "it": "sicurezza-del-posto-di-lavoro-e-responsabile-della-sicurezza-fisica-zurich-100-m-f-d-julius-baer-zurich",
       "en": "workplace-safety-physical-security-officer-zurich-100-f-m-d-julius-baer",
-      "fr": "agent-de-securite-physique-et-de-securite-au-travail-zurich-100-h-f-d-julius-baer-zurich"
+      "fr": "agent-de-securite-physique-et-de-securite-au-travail-zurich-100-h-f-d-julius-baer-zurich",
+      "de": "workplace-safety-physical-security-officer-zurich-100-f-m-d-julius-baer"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -797029,7 +797067,9 @@
     "canonicalSlug": "regolatore-di-rischio-di-mercato-100-m-f-d-julius-baer-zurich",
     "slugByLocale": {
       "en": "market-risk-controller-100-f-m-d-julius-baer",
-      "fr": "controleur-du-risque-de-marche-100-h-f-d-julius-baer-zurich"
+      "fr": "controleur-du-risque-de-marche-100-h-f-d-julius-baer-zurich",
+      "it": "regolatore-di-rischio-di-mercato-100-m-f-d-julius-baer-zurich",
+      "de": "regolatore-di-rischio-di-mercato-100-m-f-d-julius-baer-zurich"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -837929,7 +837969,9 @@
     "canonicalSlug": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775",
     "slugByLocale": {
       "en": "office-manager-in-theater-am-hechtplatz-stadt-zurich-zurich",
-      "de": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775"
+      "de": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775",
+      "it": "direttore-d-ufficio-in-teatro-am-hechtplatz-stadt-zurich-zurich",
+      "fr": "directeur-de-bureau-au-theatre-am-hechtplatz-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -845811,7 +845853,8 @@
     "canonicalSlug": "sous-chef-senevita-zh-dietikon",
     "slugByLocale": {
       "de": "sous-chef-senevita-zh-dietikon",
-      "it": "sottocuoco-senevita-zh-dietikon"
+      "it": "sottocuoco-senevita-zh-dietikon",
+      "en": "sous-chief-senevita-zh-dietikon"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -889177,7 +889220,10 @@
   "id|hitachienergy.com|jid3-218742": {
     "canonicalSlug": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland",
     "slugByLocale": {
-      "en": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland"
+      "en": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland",
+      "it": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich",
+      "de": "global-manufacturing-process-definition-improvement-spezialist-professional-hitachi-energy-remote-zurich",
+      "fr": "global-manufacturing-process-definition-improvement-specialiste-professional-hitachi-energy-remote-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -890783,7 +890829,10 @@
   "id|kulm.com|736": {
     "canonicalSlug": "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st",
     "slugByLocale": {
-      "en": "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st"
+      "en": "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st",
+      "it": "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-34a303a457",
+      "de": "group-finanzen-praktikant-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "fr": "group-finance-stagiaire-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-10-07",
     "canton": "GR"
@@ -911194,9 +911243,1424 @@
   "id|hitachienergy.com|jid3-220300": {
     "canonicalSlug": "test-engineer-80-100-w-m-d-hitachi-energy-zurich-switzerland",
     "slugByLocale": {
-      "de": "test-engineer-80-100-w-m-d-hitachi-energy-zurich-switzerland"
+      "de": "test-engineer-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+      "it": "test-ingegnere-80-100-w-m-d-hitachi-energy-zurich",
+      "fr": "test-ingenieur-80-100-w-m-d-hitachi-energy-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
+  },
+  "id|liebherr.com|1445772633": {
+    "canonicalSlug": "marketing-e-comunicazione-dei-giovani-talenti-m-f-x-liebherr-bulle",
+    "slugByLocale": {
+      "it": "marketing-e-comunicazione-dei-giovani-talenti-m-f-x-liebherr-bulle",
+      "fr": "young-talent-marketing-communication-m-f-x-liebherr-bulle"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|klinik-gut.ch|#drz-accordion-id-4923": {
+    "canonicalSlug": "servizio-tecnico-per-dipendenti-north-grisons-80-100-klinik-gut-ag-flasch",
+    "slugByLocale": {
+      "it": "servizio-tecnico-per-dipendenti-north-grisons-80-100-klinik-gut-ag-flasch",
+      "en": "technical-services-employee-northern-grisons-80-100-klinik-gut-ag-flasch",
+      "de": "mitarbeiter-in-technischer-dienst-nordbunden-80-100-klinik-gut-flasch",
+      "fr": "employe-e-du-service-technique-des-grisons-du-nord-80-100-klinik-gut-ag-flasch"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|klinik-gut.ch|#drz-accordion-id-4447": {
+    "canonicalSlug": "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz",
+    "slugByLocale": {
+      "it": "ricevimento-dei-dipendenti-80-posizione-stagionale-novembre-2026-a-marzo-aprile-2027-klinik-gut-ag-st-moritz",
+      "en": "employee-reception-80-seasonal-position-november-2026-to-march-april-2027-klinik-gut-ag-st-moritz",
+      "de": "mitarbeiter-in-empfang-80-saisonstelle-november-2026-bis-marz-april-2027-klinik-gut-st",
+      "fr": "reception-des-employes-80-poste-saisonnier-novembre-2026-a-mars-avril-2027-klinik-gut-ag-st-moritz"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79169": {
+    "canonicalSlug": "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp",
+    "slugByLocale": {
+      "it": "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp",
+      "en": "electrical-installer-efz-80-100-m-w-d-lonza-visp",
+      "de": "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
+      "fr": "installateur-electrique-efz-80-100-m-w-d-lonza-visp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r80000-1": {
+    "canonicalSlug": "ehs-senior-specialista-specialized-modalitites-integrated-biologics-lonza-visp",
+    "slugByLocale": {
+      "it": "ehs-senior-specialista-specialized-modalitites-integrated-biologics-lonza-visp",
+      "en": "ehs-senior-specialist-specialized-modalitites-integrated-biologics-lonza-ch",
+      "de": "ehs-senior-spezialist-specialized-modalitites-integrated-biologics-lonza-visp",
+      "fr": "ehs-senior-specialiste-specialized-modalitites-integrated-biologics-lonza-visp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VS"
+  },
+  "id|ameos.eu|13714-dipl-radiologiefachperson-in-einsiedeln": {
+    "canonicalSlug": "dipl-specialista-di-radiologia-m-f-d-ameos-schweiz-einsiedeln",
+    "slugByLocale": {
+      "it": "dipl-specialista-di-radiologia-m-f-d-ameos-schweiz-einsiedeln",
+      "en": "dipl-radiology-specialist-m-f-d-ameos-schweiz-einsiedeln",
+      "de": "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln",
+      "fr": "dipl-specialiste-en-radiologie-h-f-d-ameos-schweiz-einsiedeln"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SZ"
+  },
+  "id|ameos.eu|13730-controller-in-brunnen": {
+    "canonicalSlug": "controller-m-f-d-ameos-schweiz-brunnen",
+    "slugByLocale": {
+      "it": "controller-m-f-d-ameos-schweiz-brunnen",
+      "en": "controller-m-f-d-ameos-schweiz-brunnen",
+      "de": "controller-m-w-d-ameos-brunnen",
+      "fr": "controleur-h-f-d-ameos-schweiz-brunnen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SZ"
+  },
+  "url|https://apply.refline.ch/163206/1987/pub/10/index.html": {
+    "canonicalSlug": "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich",
+    "slugByLocale": {
+      "it": "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "sub-assistants-sub-assistants-psychiatrische-universitatsklinik-zurich-zurich",
+      "de": "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+      "fr": "sous-assistants-psychiatrische-universitatsklinik-zurich-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/163206/2791/pub/1/index.html": {
+    "canonicalSlug": "dipendente-gestione-del-tempo-fino-al-30-aprile-2027-psychiatrische-universitatsklinik-zurich-zurich",
+    "slugByLocale": {
+      "it": "dipendente-gestione-del-tempo-fino-al-30-aprile-2027-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "employee-employee-time-management-limited-to-30-april-2027-psychiatrische-universitatsklinik-zurich-zurich",
+      "de": "mitarbeiter-mitarbeiterin-zeitwirtschaft-befristet-bis-30-april-2027-puk-zuerich-zurich",
+      "fr": "gestion-du-temps-des-employes-limitee-a-30-avril-2027-psychiatrische-universitatsklinik-zurich-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/163206/2790/pub/1/index.html": {
+    "canonicalSlug": "infermiere-diplomato-infermiera-diplomata-hf-fh-centro-per-le-dipendenze-psychiatrische-universitatsklinik-zurich-zurich",
+    "slugByLocale": {
+      "it": "infermiere-diplomato-infermiera-diplomata-hf-fh-centro-per-le-dipendenze-psychiatrische-universitatsklinik-zurich-zurich",
+      "en": "dipl-nursing-professional-dipl-nursing-specialist-hf-fh-centre-for-dependency-diseases-psychiatrische-universitatsklinik",
+      "de": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-puk",
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-hf-fh-centre-des-maladies-de-la"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/163206/2787/pub/1/index.html": {
+    "canonicalSlug": "terapeuta-del-movimento-terapeuta-del-movimento-psychiatrische-universitatsklinik-zurich-winterthur",
+    "slugByLocale": {
+      "it": "terapeuta-del-movimento-terapeuta-del-movimento-psychiatrische-universitatsklinik-zurich-winterthur",
+      "en": "movement-therapist-movement-therapist-psychiatrische-universitatsklinik-zurich-winterthur",
+      "de": "bewegungstherapeutin-bewegungstherapeut-puk-zuerich-winterthur",
+      "fr": "therapeute-de-mouvement-therapeute-de-mouvement-psychiatrische-universitatsklinik-zurich-winterthur"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19935-2": {
+    "canonicalSlug": "compliance-officer-global-sanctions-advisory-80-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "responsabile-della-conformita-global-sanzioni-advisory-80-100-m-f-d-julius-baer-zurich",
+      "en": "compliance-officer-global-sanctions-advisory-80-100-f-m-d-julius-baer",
+      "fr": "agent-de-conformite-global-sanctions-advisory-80-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20119-1": {
+    "canonicalSlug": "senior-quantitative-analyst-interest-rate-pricing-models-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "analista-quantitativo-senior-modelli-di-prezzo-del-tasso-di-interesse-100-m-f-d-contrasportare-attraverso-il-nostro",
+      "en": "senior-quantitative-analyst-interest-rate-pricing-models-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-possible-extension-julius-baer",
+      "de": "senior-quantitative-analyst-zinsmodelle-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem",
+      "fr": "analyste-quantitatif-principal-modeles-de-tarification-des-taux-d-interet-100-h-f-d-contracter-par-l-intermediaire-de"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19882": {
+    "canonicalSlug": "strategy-specialist-group-strategy-100-m-f-d-julius-baer",
+    "slugByLocale": {
+      "it": "specialista-di-strategia-strategia-di-gruppo-100-m-f-d-julius-baer-zurich",
+      "en": "strategy-specialist-group-strategy-100-m-f-d-julius-baer",
+      "de": "strategiespezialist-gruppenstrategie-100-m-w-d-julius-baer-zurich",
+      "fr": "specialiste-de-la-strategie-strategie-de-groupe-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20061-2": {
+    "canonicalSlug": "assistant-relationship-manager-intermediaries-100-f-m-d-temporary-until-31-07-2027-julius-baer",
+    "slugByLocale": {
+      "en": "assistant-relationship-manager-intermediaries-100-f-m-d-temporary-until-31-07-2027-julius-baer",
+      "de": "assistant-relationship-manager-vermittler-100-m-w-d-vorubergehend-bis-31-07-2027-julius-baer-zurich",
+      "fr": "assistant-gestionnaire-de-relations-intermediaires-100-h-f-d-temporaire-jusqu-au-31-07-2027-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19599-1": {
+    "canonicalSlug": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "ingegnere-di-accesso-remoto-citrix-netscaler-zscaler-accesso-privato-100-m-f-d-julius-baer-zurich",
+      "en": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19906-1": {
+    "canonicalSlug": "junior-compliance-officer-employee-related-conflicts-80-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "junior-compliance-officer-conflitti-correlati-ai-dipendenti-80-100-m-f-d-julius-baer-zurich",
+      "en": "junior-compliance-officer-employee-related-conflicts-80-100-f-m-d-julius-baer",
+      "de": "junior-compliance-officer-mitarbeiterbezogene-konflikte-80-100-m-w-d-julius-baer-zurich",
+      "fr": "agent-de-conformite-junior-conflits-lies-aux-employes-80-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-18604-1": {
+    "canonicalSlug": "gps-associate-investment-advisor-geneva-switzerland-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "gps-associate-investment-advisor-geneva-switzerland-100-f-m-d-julius-baer",
+      "fr": "conseiller-en-investissement-associe-gps-geneve-suisse-100-h-f-d-julius-baer-geneva"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GE"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20015-1": {
+    "canonicalSlug": "intern-dcfo-p-bs-100-fixed-term-contract-of-5-6-months-julius-baer-s-intern-programme-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "intern-dcfo-p-bs-100-contratto-di-5-6-mesi-programma-interno-di-julius-baer-m-f-d-julius-baer-zurich",
+      "en": "intern-dcfo-p-bs-100-fixed-term-contract-of-5-6-months-julius-baer-s-intern-programme-f-m-d-julius-baer",
+      "de": "intern-dcfo-p-bs-100-festvertrag-von-5-6-monaten-julius-bar-s-intern-programm-m-w-d-julius-baer-zurich",
+      "fr": "stagiaire-dcfo-p-bs-100-contrat-a-duree-determinee-de-5-6-mois-programme-interne-julius-baer-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19706-2": {
+    "canonicalSlug": "internship-data-analytics-intern-product-control-100-f-m-d-6-12-month-internship-programme-julius-baer",
+    "slugByLocale": {
+      "en": "internship-data-analytics-intern-product-control-100-f-m-d-6-12-month-internship-programme-julius-baer",
+      "de": "praktikum-data-analytics-praktikant-produktkontrolle-100-m-w-d-6-12-monatiges-praktikumsprogramm-julius-baer-zurich",
+      "fr": "stage-stagiaire-en-analyse-des-donnees-controle-des-produits-100-h-f-d-programme-de-stages-de-6-a-12-mois-julius-baer"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20063-1": {
+    "canonicalSlug": "senior-it-lead-asset-onboarding-connectivity-integration-delivery-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-12-26-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-it-lead-asset-onboarding-connectivity-integration-delivery-100-m-f-d-contrasporta-tramite-il-nostro-partner-di",
+      "en": "senior-it-lead-asset-onboarding-connectivity-integration-delivery-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-12-26-possible-extension-julius-baer",
+      "de": "senior-it-lead-asset-onboarding-connectivity-integration-delivery-100-m-w-d-vertrag-uber-unseren-externen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19373-1": {
+    "canonicalSlug": "team-head-emerging-markets-investment-advisory-zurich-based-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "team-head-emerging-markets-investment-advisory-zurich-based-100-f-m-d-julius-baer",
+      "fr": "chef-d-equipe-marches-emergents-conseil-en-investissement-zurich-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-20062-1": {
+    "canonicalSlug": "test-environment-and-data-specialist-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-11-months-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "test-ambiente-e-data-specialist-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con-avvio",
+      "en": "test-environment-and-data-specialist-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-11-months-possible-extension-julius-baer",
+      "de": "testumgebung-und-datenspezialist-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem-start-fur",
+      "fr": "test-environment-and-data-specialist-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye-avec"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19514": {
+    "canonicalSlug": "internship-at-cfo-office-100-fixed-term-contract-for-6-12-months-until-03-06-2027-julius-baer",
+    "slugByLocale": {
+      "it": "internship-presso-cfo-office-100-contratto-di-fixed-term-per-6-12-mesi-fino-a-03-06-2027-julius-baer-zurich",
+      "en": "internship-at-cfo-office-100-fixed-term-contract-for-6-12-months-until-03-06-2027-julius-baer",
+      "de": "praktikum-bei-cfo-office-100-festvertrag-fur-6-12-monate-bis-03-06-2027-julius-baer-zurich",
+      "fr": "stage-au-bureau-du-dpf-100-contrat-a-duree-determinee-de-6-a-12-mois-jusqu-au-03-06-2027-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-18923-1": {
+    "canonicalSlug": "senior-engineer-scrum-master-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "senior-engineer-scrum-master-100-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19534-1": {
+    "canonicalSlug": "it-team-lead-for-business-process-content-management-services-80-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "leader-del-team-it-per-i-servizi-di-gestione-dei-processi-aziendali-e-dei-contenuti-80-100-m-f-d-julius-baer-zurich",
+      "en": "it-team-lead-for-business-process-content-management-services-80-100-f-m-d-julius-baer",
+      "fr": "responsable-de-l-equipe-informatique-pour-les-services-de-gestion-des-processus-operationnels-et-des-contenus-80-100-h-f"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19996-1": {
+    "canonicalSlug": "senior-automation-test-engineer-java-selenium-playwright-90-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "automation-quality-assurance-tester-90-100-m-f-d-contrassegnare-attraverso-il-nostro-partner-di-payroll-esterno-avvio",
+      "en": "senior-automation-test-engineer-java-selenium-playwright-90-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+      "de": "automation-quality-assurance-tester-90-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger-start",
+      "fr": "automatisation-assurance-qualite-testeur-90-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19664": {
+    "canonicalSlug": "global-mobility-specialist-w-m-d-100-12-months-julius-baer",
+    "slugByLocale": {
+      "en": "global-mobility-specialist-w-m-d-100-12-months-julius-baer",
+      "fr": "specialiste-de-la-mobilite-mondiale-w-m-d-100-12-mois-julius-baer-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19998-1": {
+    "canonicalSlug": "senior-project-lead-fx-pm-etds-e-trading-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-project-lead-fx-pm-etds-e-trading-100-m-f-d-contraccia-attraverso-il-nostro-partner-di-payroll-esterno-partenza",
+      "en": "senior-project-lead-fx-pm-etds-e-trading-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+      "de": "senior-project-lead-fx-pm-etds-e-trading-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger-start",
+      "fr": "chef-de-projet-principal-fx-pm-etd-e-trading-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692154": {
+    "canonicalSlug": "assistente-agricola-dell-afc-amavita-galenica-domdidier",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-amavita-galenica-domdidier",
+      "en": "afc-pharmacy-assistant-amavita-galenica-domdidier",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-domdidier",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-domdidier"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|12692161": {
+    "canonicalSlug": "assistente-agricola-dell-afc-amavita-galenica-les-acacias",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-amavita-galenica-les-acacias",
+      "en": "afc-pharmacy-assistant-amavita-galenica-les-acacias",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-les-acacias",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-les-acacias"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GE"
+  },
+  "id|galenica.com|12692162": {
+    "canonicalSlug": "assistente-agricola-dell-afc-amavita-galenica-st-imier",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-amavita-galenica-st-imier",
+      "en": "afc-pharmacy-assistant-amavita-galenica-st-imier",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-imier",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-imier"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692220": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-buchs",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-buchs",
+      "en": "pharmacy-assistant-afc-amavita-galenica-buchs",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-buchs",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-buchs"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|12692320": {
+    "canonicalSlug": "assistente-agricola-dell-afc-amavita-galenica-lausanne",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-amavita-galenica-lausanne",
+      "en": "assistant-di-farmacia-afc-amavita-galenica-lausanne",
+      "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692366": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-winterthur",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-winterthur",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-winterthur",
+      "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-winterthur",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-winterthur"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692407": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-oron-la-ville",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-oron-la-ville",
+      "en": "assistant-di-farmacia-afc-coop-vitality-galenica-oron-la-ville",
+      "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oron-la-ville",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oron-la-ville"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692452": {
+    "canonicalSlug": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-signy",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-signy",
+      "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-signy",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-signy",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-signy"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692480": {
+    "canonicalSlug": "assistenza-alla-afc-sun-store-apotheke-galenica-neuchatel",
+    "slugByLocale": {
+      "it": "assistenza-alla-afc-sun-store-apotheke-galenica-neuchatel",
+      "en": "pharmacy-assistant-efz-sun-store-apotheke-galenica-neuchatel",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-neuchatel"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
+  },
+  "id|galenica.com|12692481": {
+    "canonicalSlug": "assistenza-alla-afc-sun-store-apotheke-galenica-lutry",
+    "slugByLocale": {
+      "it": "assistenza-alla-afc-sun-store-apotheke-galenica-lutry",
+      "en": "pharmacy-assistant-afc-sun-store-apotheke-galenica-lutry",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lutry",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lutry"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|12692506": {
+    "canonicalSlug": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-marin-centre",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-marin-centre",
+      "en": "assistant-di-farmacia-afc-sun-store-apotheke-galenica-marin-centre",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-marin-centre",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
+  },
+  "id|galenica.com|12692527": {
+    "canonicalSlug": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-marin-centre-23367c",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-marin-centre-23367c",
+      "en": "assistant-di-farmacia-afc-sun-store-apotheke-galenica-marin-centre-23367c",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-marin-centre",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
+  },
+  "id|galenica.com|12692537": {
+    "canonicalSlug": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-bassecourt",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-bassecourt",
+      "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-bassecourt",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bassecourt",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bassecourt"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "JU"
+  },
+  "id|galenica.com|12692556": {
+    "canonicalSlug": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-les-avanchets",
+    "slugByLocale": {
+      "it": "assistente-agricola-dell-afc-sun-store-apotheke-galenica-les-avanchets",
+      "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-les-avanchets",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-les-avanchets",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-les-avanchets"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GE"
+  },
+  "id|galenica.com|3129245": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz",
+    "slugByLocale": {
+      "en": "pharmacist-m-f-d-galenica-galenica-rennaz",
+      "de": "apotheker-apothekerin-m-w-d-galenica-galenica-rennaz",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3131486": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-rickenbach-b",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-rickenbach-b",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-rickenbach-b",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-rickenbach-b-wil",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-rickenbach-b"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TG"
+  },
+  "id|galenica.com|3135601": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-mellingen",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-mellingen",
+      "en": "pharmacist-m-f-d-galenica-ag-galenica-mellingen",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mellingen",
+      "fr": "pharmacien-ne-h-f-d-galenica-ag-galenica-mellingen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3136168": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern-ed51ef",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern-ed51ef",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nx2xey",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3136540": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-visp",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-visp",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-visp",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-visp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VS"
+  },
+  "id|galenica.com|3136835": {
+    "canonicalSlug": "galenica-galenica-sap-consultant-successfactors-payroll-w-m-d-bern",
+    "slugByLocale": {
+      "de": "galenica-galenica-sap-consultant-successfactors-payroll-w-m-d-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3137011": {
+    "canonicalSlug": "farmacista-come-saltatore-m-f-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "farmacista-come-saltatore-m-f-d-galenica-ag-galenica-bern",
+      "en": "pharmacist-as-springer-m-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
+      "fr": "pharmacien-en-tant-que-sauteur-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3137322": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-koniz",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-koniz",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-koniz",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-koniz",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-koniz"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3137566": {
+    "canonicalSlug": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-zollikofen",
+    "slugByLocale": {
+      "it": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-zollikofen",
+      "en": "apoth-mik-apoth-mikyu-m-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-zollikofen",
+      "fr": "apoth-mik-apoth-mikyu-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3137592": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern",
+      "en": "pharma-assistant-pharma-assistentin-m-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nx27e8",
+      "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3137625": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-liestal",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-liestal",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-liestal",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-liestal",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-liestal"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BL"
+  },
+  "id|galenica.com|3137626": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-wurenlos",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-wurenlos",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-wurenlos",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wurenlos",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-wurenlos"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3138171": {
+    "canonicalSlug": "addetto-a-al-prelievo-addetto-a-alla-logistica-m-f-d-galenica-galenica-villars-sur-glane",
+    "slugByLocale": {
+      "it": "addetto-a-al-prelievo-addetto-a-alla-logistica-m-f-d-galenica-galenica-villars-sur-glane",
+      "en": "order-picker-m-f-d-galenica-galenica-villars-sur-glane",
+      "de": "galenica-galenica-kommissionierer-kommissioniererin-logistikmitarbeiter-logistikmitarbeiterin-w-m-d-villars-sur-glane",
+      "fr": "les-donnees-sont-transmises-par-les-autorites-competentes-des-etats-membres-h-f-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3138215": {
+    "canonicalSlug": "responsabile-marketing-w-m-d-galenica-ag-galenica-villars-sur-glane",
+    "slugByLocale": {
+      "it": "responsabile-marketing-w-m-d-galenica-ag-galenica-villars-sur-glane",
+      "en": "head-of-marketing-w-m-d-galenica-ag-galenica-villars-sur-glane",
+      "de": "galenica-galenica-ag-head-of-marketing-w-m-d-villars-sur-glane",
+      "fr": "responsable-marketing-w-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3138395": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-zurich",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-zurich",
+      "en": "pharmacist-m-f-d-galenica-galenica-zurich-449a11",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich-nx1lw0",
+      "fr": "pharmacien-ne-h-f-d-galenica-galenica-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3138419": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-erlenbach-zh",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-erlenbach-zh",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-erlenbach-zh",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-erlenbach-zh",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-erlenbach-zh"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3138437": {
+    "canonicalSlug": "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-winterthur",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-winterthur",
+      "en": "pharmacist-pharmacist-as-deputy-m-f-d-galenica-galenica-winterthur",
+      "de": "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
+      "fr": "pharmacienne-pharmacienne-adjointe-h-f-d-galenica-galenica-winterthur"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3138468": {
+    "canonicalSlug": "gestione-dei-partner-lead-m-f-d-galenica-ag-galenica-burgdorf",
+    "slugByLocale": {
+      "it": "gestione-dei-partner-lead-m-f-d-galenica-ag-galenica-burgdorf",
+      "en": "partner-management-lead-w-m-d-galenica-ag-galenica-burgdorf",
+      "de": "galenica-galenica-ag-partner-management-lead-w-m-d-burgdorf",
+      "fr": "responsable-de-la-gestion-des-partenaires-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3138488": {
+    "canonicalSlug": "pharmacien-pharmacienne-f-m-d-galenica-galenica-blonay",
+    "slugByLocale": {
+      "it": "pharmacien-pharmacienne-f-m-d-galenica-galenica-blonay",
+      "en": "pharmacien-pharmacienne-m-f-d-galenica-galenica-blonay",
+      "de": "pharmaciene-pharmacienne-m-w-d-galenica-galenica-bern-d225fa",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-h-f-d-blonay"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3138589": {
+    "canonicalSlug": "farmacista-per-la-formazione-fph-m-f-d-galenica-galenica-thalwil",
+    "slugByLocale": {
+      "it": "farmacista-per-la-formazione-fph-m-f-d-galenica-galenica-thalwil",
+      "en": "apoth-mik-apoth-mikyu-m-f-d-galenica-galenica-bern",
+      "de": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-thalwil",
+      "fr": "apoth-mik-apoth-mikyu-h-f-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3138684": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-grindelwald",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-grindelwald",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-grindelwald",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-grindelwald",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-grindelwald"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3138839": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-wadenswil",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-wadenswil",
+      "en": "pharma-assistant-pharma-assistentin-m-f-d-galenica-galenica-bern",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-wadenswil-nx1ibl",
+      "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3138852": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-luzern",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-luzern",
+      "en": "pharmacy-technician-m-f-d-galenica-ag-galenica-luzern",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-luzern",
+      "fr": "assistant-e-en-pharmacie-h-f-d-galenica-ag-galenica-luzern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|galenica.com|3139068": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-langenthal",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal-nx1172",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-langenthal"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3139108": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ebikon",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ebikon",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ebikon",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ebikon",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ebikon"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|galenica.com|3139112": {
+    "canonicalSlug": "assistente-farmaceutico-a-presso-il-centro-di-assistenza-clienti-m-f-d-galenica-ag-galenica-zuchwil",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-a-presso-il-centro-di-assistenza-clienti-m-f-d-galenica-ag-galenica-zuchwil",
+      "en": "pharmaceutical-assistant-in-the-customer-service-center-m-f-d-galenica-ag-galenica-zuchwil",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-zuchwil",
+      "fr": "assistant-e-en-pharmacie-au-centre-de-service-a-la-clientele-h-f-d-galenica-ag-galenica-zuchwil"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|galenica.com|3139129": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-kriens",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-kriens",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-kriens",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-kriens",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-kriens"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|galenica.com|3139164": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil-79c602",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil-79c602",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-volketswil-79c602",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-volketswil-79c602"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3139180": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-weinfelden",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-weinfelden",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-weinfelden",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-weinfelden"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TG"
+  },
+  "id|galenica.com|3139223": {
+    "canonicalSlug": "pharmacien-pharmacienne-f-m-d-galenica-galenica-oron-la-ville",
+    "slugByLocale": {
+      "it": "pharmacien-pharmacienne-f-m-d-galenica-galenica-oron-la-ville",
+      "en": "pharmacien-pharmacienne-m-f-d-galenica-galenica-oron-la-ville",
+      "de": "pharmaciene-pharmacienne-m-w-d-galenica-galenica-bern",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-oron-la-ville"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3139241": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-thalwil",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-thalwil",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-thalwil",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-thalwil",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-thalwil"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3139251": {
+    "canonicalSlug": "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-uznach",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-uznach",
+      "en": "pharmacist-as-deputy-m-f-d-galenica-galenica-uznach",
+      "de": "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-uznach",
+      "fr": "pharmacien-pharmacienne-en-remplacement-de-h-f-d-galenica-galenica-uznach"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SG"
+  },
+  "id|galenica.com|3139274": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-zurich",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-zurich",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-zurich",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3139365": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-niederbipp",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-niederbipp",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-niederbipp",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-niederbipp",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-niederbipp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3139414": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-huttwil",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-huttwil",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-huttwil",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-huttwil",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-huttwil"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3139458": {
+    "canonicalSlug": "assistente-farmaceutico-a-m-f-d-lavoro-stagionale-galenica-ag-galenica-grindelwald",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-a-m-f-d-lavoro-stagionale-galenica-ag-galenica-grindelwald",
+      "en": "pharma-as-permanent-pharma-as-permanentin-m-f-d-saisonstelle-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-saisonstelle-grindelwald",
+      "fr": "pharma-assistant-pharma-assistant-h-f-d-saisonstelle-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3139660": {
+    "canonicalSlug": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-galenica-riehen",
+    "slugByLocale": {
+      "it": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-galenica-riehen",
+      "en": "pharmacist-as-managing-director-female-pharmacist-as-managing-director-m-f-d-galenica-galenica-riehen",
+      "de": "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-riehen",
+      "fr": "pharmacien-en-tant-que-gerant-pharmacienne-en-tant-que-gerante-h-f-d-galenica-galenica-riehen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|galenica.com|3139898": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-echallens",
+    "slugByLocale": {
+      "en": "pharmacist-m-f-d-galenica-galenica-echallens",
+      "de": "apotheker-in-m-w-d-galenica-galenica-echallens",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-echallens"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3139995": {
+    "canonicalSlug": "assistant-en-pharmacie-assistante-en-pharmacie-f-m-d-galenica-galenica-conthey",
+    "slugByLocale": {
+      "it": "assistant-en-pharmacie-assistante-en-pharmacie-f-m-d-galenica-galenica-conthey",
+      "en": "assistant-en-pharmacie-assistante-en-pharmacie-m-f-d-galenica-galenica-conthey",
+      "de": "assistent-en-pharmacie-assistante-en-pharmacie-f-h-d-galenica-galenica-bern",
+      "fr": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-conthey"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VS"
+  },
+  "id|galenica.com|3140013": {
+    "canonicalSlug": "assistante-en-pharmacie-assistant-en-pharmacie-f-m-d-galenica-ag-galenica-la-chaux-de-fonds",
+    "slugByLocale": {
+      "it": "assistante-en-pharmacie-assistant-en-pharmacie-f-m-d-galenica-ag-galenica-la-chaux-de-fonds",
+      "en": "assistant-en-pharmacie-assistant-en-pharmacie-m-f-d-galenica-ag-galenica-la-chaux-de-fonds",
+      "de": "assistante-en-pharmacie-assistent-en-pharmacie-f-h-d-galenica-ag-galenica-bern",
+      "fr": "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-la-chaux-de-fonds"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
+  },
+  "id|galenica.com|3140041": {
+    "canonicalSlug": "pharmacien-pharmacienne-f-m-d-galenica-ag-galenica-biel-bienne",
+    "slugByLocale": {
+      "it": "pharmacien-pharmacienne-f-m-d-galenica-ag-galenica-biel-bienne",
+      "en": "pharmacien-pharmacienne-m-f-d-galenica-ag-galenica-biel-bienne",
+      "de": "pharmaciene-pharmacienne-m-w-d-galenica-ag-galenica-bern",
+      "fr": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-biel-bienne"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3140070": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-romanel-sur-lausanne",
+    "slugByLocale": {
+      "en": "pharmacist-m-f-d-galenica-galenica-romanel-sur-lausanne",
+      "de": "apotheker-apothekerin-m-w-d-galenica-galenica-romanel-sur-lausanne",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-romanel-sur-lausanne"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3140130": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-biel-bienne",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-biel-bienne",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-biel-bienne",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-biel-bienne",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-biel-bienne"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3140158": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-langnau-i",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-langnau-i",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-langnau-i",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-langnau-i"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3140256": {
+    "canonicalSlug": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-ostermundigen",
+    "slugByLocale": {
+      "it": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-ostermundigen",
+      "en": "pharmacist-as-managing-director-pharmacist-as-managing-director-m-f-d-galenica-ag-galenica-ostermundigen",
+      "de": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen",
+      "fr": "pharmacien-en-tant-que-gerant-pharmacienne-en-tant-que-gerante-h-f-d-galenica-ag-galenica-ostermundigen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3140358": {
+    "canonicalSlug": "farmacista-m-f-d-sa-so-galenica-galenica-zurich",
+    "slugByLocale": {
+      "it": "farmacista-m-f-d-sa-so-galenica-galenica-zurich",
+      "en": "pharmacist-m-f-d-sa-so-galenica-galenica-zurich",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-sa-so-zurich",
+      "fr": "pharmacien-ne-h-f-d-sa-so-galenica-galenica-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3140412": {
+    "canonicalSlug": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen",
+    "slugByLocale": {
+      "it": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen",
+      "en": "pharmacist-for-fph-continuing-education-m-f-d-galenica-ag-galenica-oftringen",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen",
+      "fr": "pharmacien-pharmacienne-pour-la-formation-continue-fph-h-f-d-galenica-ag-galenica-oftringen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3140567": {
+    "canonicalSlug": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-egerkingen",
+    "slugByLocale": {
+      "it": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-egerkingen",
+      "en": "pharmacist-as-managing-director-pharmacist-as-managing-director-m-f-d-galenica-ag-galenica-egerkingen",
+      "de": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-egerkingen",
+      "fr": "pharmacienne-directrice-generale-pharmacienne-directrice-generale-h-f-d-galenica-ag-galenica-egerkingen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|galenica.com|3140577": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-ilanz",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-ilanz",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-ilanz",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-ilanz",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-ilanz"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|galenica.com|3140587": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-luzern",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-luzern",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-luzern",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-luzern",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-luzern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|galenica.com|3140717": {
+    "canonicalSlug": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-galenica-bachenbulach",
+    "slugByLocale": {
+      "it": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-galenica-bachenbulach",
+      "en": "pharmacist-as-managing-director-pharmacist-as-managing-director-m-f-d-galenica-galenica-bachenbulach",
+      "de": "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bachenbulach",
+      "fr": "pharmacien-en-tant-que-gerant-pharmacienne-en-tant-que-gerante-h-f-d-galenica-galenica-bachenbulach"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3141037": {
+    "canonicalSlug": "sviluppatore-sviluppatrice-software-senior-m-f-d-galenica-ag-galenica-rheinfelden",
+    "slugByLocale": {
+      "it": "sviluppatore-sviluppatrice-software-senior-m-f-d-galenica-ag-galenica-rheinfelden",
+      "en": "senior-software-developer-m-f-d-galenica-ag-galenica-rheinfelden",
+      "de": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-rheinfelden",
+      "fr": "developpeur-de-logiciels-senior-developpeuse-de-logiciels-h-f-d-galenica-ag-galenica-rheinfelden"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3141101": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-renens",
+    "slugByLocale": {
+      "en": "pharmacist-m-f-d-galenica-galenica-renens",
+      "de": "apotheker-in-m-w-d-galenica-galenica-renens",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-renens"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3141361": {
+    "canonicalSlug": "galenica-galenica-ag-pharmacienne-pharmacien-f-h-d-geneve",
+    "slugByLocale": {
+      "en": "pharmacist-m-f-d-galenica-ag-galenica-geneve",
+      "de": "apothekerin-apotheker-m-w-d-galenica-ag-galenica-geneve",
+      "fr": "galenica-galenica-ag-pharmacienne-pharmacien-f-h-d-geneve"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GE"
+  },
+  "id|galenica.com|3141477": {
+    "canonicalSlug": "farmacista-m-f-d-galenica-galenica-zurich",
+    "slugByLocale": {
+      "it": "farmacista-m-f-d-galenica-galenica-zurich",
+      "en": "pharmacist-m-f-d-galenica-galenica-zurich",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich-nwm9ib",
+      "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3141535": {
+    "canonicalSlug": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-granges-paccot",
+    "slugByLocale": {
+      "it": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-granges-paccot",
+      "en": "assistant-pharmacist-assistant-pharmacist-m-f-d-galenica-galenica-granges-paccot",
+      "de": "assistenzapotheker-assistenzapotheker-m-w-d-galenica-galenica-granges-paccot",
+      "fr": "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-granges-paccot"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3141566": {
+    "canonicalSlug": "galenica-galenica-ag-regulatory-affairs-specialist-manager-w-m-d-villars-sur-glane",
+    "slugByLocale": {
+      "de": "galenica-galenica-ag-regulatory-affairs-specialist-manager-w-m-d-villars-sur-glane"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3141609": {
+    "canonicalSlug": "farmacista-m-f-d-galenica-ag-galenica-wettingen",
+    "slugByLocale": {
+      "it": "farmacista-m-f-d-galenica-ag-galenica-wettingen",
+      "en": "pharmacist-m-f-d-galenica-ag-galenica-wettingen",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-wettingen",
+      "fr": "pharmacien-pharmacienne-h-f-d-galenica-ag-galenica-wettingen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3141706": {
+    "canonicalSlug": "galenica-galenica-ag-regulatory-affairs-specialist-manager-f-h-d-villars-sur-glane",
+    "slugByLocale": {
+      "fr": "galenica-galenica-ag-regulatory-affairs-specialist-manager-f-h-d-villars-sur-glane"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3141889": {
+    "canonicalSlug": "galenica-galenica-csv-manager-csv-managerin-w-m-d-niederbipp",
+    "slugByLocale": {
+      "de": "galenica-galenica-csv-manager-csv-managerin-w-m-d-niederbipp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3141924": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-bubendorf",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-bubendorf",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-bubendorf",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bubendorf",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-bubendorf"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BL"
+  },
+  "id|galenica.com|3141934": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ostermundigen",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ostermundigen",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ostermundigen",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ostermundigen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142001": {
+    "canonicalSlug": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-marly",
+    "slugByLocale": {
+      "en": "pharmacy-assistant-pharmacy-assistant-m-f-d-galenica-galenica-marly",
+      "de": "assistent-en-pharmacie-assistante-en-pharmacie-f-h-d-galenica-galenica-marly",
+      "fr": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-marly"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3142006": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-basel",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-basel",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-basel",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-basel",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-basel"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|galenica.com|3142145": {
+    "canonicalSlug": "assistenzjahr-per-pharmaziestudierende-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "assistenzjahr-per-pharmaziestudierende-m-w-d-galenica-ag-galenica-bern",
+      "en": "assistant-year-for-pharmaceuticals-m-f-d-galenica-ag-galenica-bern",
+      "de": "galenica-galenica-ag-assistenzjahr-fur-pharmaziestudierende-w-m-d-bern",
+      "fr": "annee-assistante-pour-les-produits-pharmaceutiques-h-f-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142226": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-chur",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-chur",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-chur",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-chur",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-chur"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|galenica.com|3142271": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-thun",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutica-m-f-d-galenica-ag-galenica-thun",
+      "en": "pharmacy-technician-m-f-d-galenica-ag-galenica-thun",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-thun",
+      "fr": "assistant-e-en-pharmacie-h-f-d-galenica-ag-galenica-thun"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142272": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-lyss",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-lyss"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142347": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-ag-galenica-muri-ag",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-ag-galenica-muri-ag",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-ag-galenica-muri-ag",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-muri-ag",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-ag-galenica-muri-ag"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3142349": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-ittigen",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-ittigen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142367": {
+    "canonicalSlug": "farmacista-come-sostituto-farmacista-come-sostituto-m-f-d-galenica-ag-galenica-interlaken",
+    "slugByLocale": {
+      "it": "farmacista-come-sostituto-farmacista-come-sostituto-m-f-d-galenica-ag-galenica-interlaken",
+      "en": "pharmacist-as-deputy-pharmacist-as-deputy-m-f-d-galenica-ag-galenica-interlaken",
+      "de": "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken",
+      "fr": "pharmacien-en-tant-que-suppleant-pharmacienne-en-tant-que-suppleant-h-f-d-galenica-ag-galenica-interlaken"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3142472": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-lutry",
+    "slugByLocale": {
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-lutry",
+      "de": "apotheker-apotheker-m-w-d-galenica-galenica-lutry",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-lutry"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3142850": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-davos-dorf",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-davos-dorf",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-davos-dorf",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-davos-dorf",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-davos-dorf"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|galenica.com|3142972": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-adliswil",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-adliswil",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-adliswil",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-adliswil",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-adliswil"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3143027": {
+    "canonicalSlug": "consulente-clienti-consulente-clienti-frontoffice-temporaneo-m-f-d-galenica-ag-galenica-otelfingen",
+    "slugByLocale": {
+      "it": "consulente-clienti-consulente-clienti-frontoffice-temporaneo-m-f-d-galenica-ag-galenica-otelfingen",
+      "en": "customer-consultant-customer-consultant-frontoffice-temporary-m-f-d-galenica-ag-galenica-otelfingen",
+      "de": "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-otelfingen",
+      "fr": "consultant-client-consultant-client-frontoffice-temporaire-h-f-d-galenica-ag-galenica-otelfingen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3143065": {
+    "canonicalSlug": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-la-chaux-de-fonds",
+    "slugByLocale": {
+      "en": "pharmacy-assistant-pharmacy-assistant-m-f-d-galenica-ag-galenica-la-chaux-de-fonds",
+      "fr": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-la-chaux-de-fonds"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
+  },
+  "id|galenica.com|3143190": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-baden",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-baden",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-baden",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-baden",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-baden"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|galenica.com|3143191": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-riehen",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-riehen",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-riehen",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-riehen",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-riehen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|galenica.com|3143209": {
+    "canonicalSlug": "contabile-general-ledger-w-m-d-galenica-galenica-bern",
+    "slugByLocale": {
+      "it": "contabile-general-ledger-w-m-d-galenica-galenica-bern",
+      "de": "galenica-galenica-accountant-general-ledger-w-m-d-bern",
+      "fr": "comptable-general-h-f-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3143225": {
+    "canonicalSlug": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-montreux",
+    "slugByLocale": {
+      "en": "pharmacy-assistant-pharmacy-assistant-m-f-d-galenica-galenica-montreux",
+      "de": "assistent-en-pharmacie-assistante-en-pharmacie-f-h-d-galenica-galenica-montreux",
+      "fr": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-montreux"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3143260": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-st-gallen",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-st-gallen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SG"
+  },
+  "id|galenica.com|3143516": {
+    "canonicalSlug": "galenica-galenica-employe-employee-logistique-preparateur-preparatrice-de-commandes-f-h-d-ver-rossens-promolager-villars-sur-glane",
+    "slugByLocale": {
+      "en": "employee-logistics-employee-preparation-order-preparation-m-f-d-ver-rossens-promoter-galenica-galenica-villars-sur-glane",
+      "de": "mitarbeiter-logistiker-vorbereitung-auftragsvorbereitung-m-w-d-ver-rossens-promoter-galenica-galenica-villars-sur-glane",
+      "fr": "galenica-galenica-employe-employee-logistique-preparateur-preparatrice-de-commandes-f-h-d-ver-rossens-promolager-villars-sur-glane"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "FR"
+  },
+  "id|galenica.com|3143538": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern-53af0d",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern-53af0d",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-bern-53af0d",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-bern-53af0d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3143712": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-sirnach",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-sirnach",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-sirnach",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-sirnach"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TG"
+  },
+  "id|galenica.com|3143715": {
+    "canonicalSlug": "galenica-galenica-ag-senior-it-operations-specialist-teamlead-w-m-d-oensingen",
+    "slugByLocale": {
+      "de": "galenica-galenica-ag-senior-it-operations-specialist-teamlead-w-m-d-oensingen"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|galenica.com|3143800": {
+    "canonicalSlug": "galenica-galenica-ag-contract-manager-pharma-logistics-w-m-d-burgdorf",
+    "slugByLocale": {
+      "de": "galenica-galenica-ag-contract-manager-pharma-logistics-w-m-d-burgdorf"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3143988": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-niederbipp",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-niederbipp",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-niederbipp",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-niederbipp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|galenica.com|3144004": {
+    "canonicalSlug": "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle",
+    "slugByLocale": {
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-aigle",
+      "de": "apotheker-apotheker-m-w-d-galenica-galenica-aigle",
+      "fr": "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
+  },
+  "id|galenica.com|3144068": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-volketswil",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-volketswil",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-volketswil",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-volketswil"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3144117": {
+    "canonicalSlug": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-neuchatel",
+    "slugByLocale": {
+      "en": "pharmacy-assistant-pharmacy-assistant-m-f-d-galenica-ag-galenica-neuchatel",
+      "de": "assistent-en-pharmacie-assistante-en-pharmacie-f-h-d-galenica-ag-galenica-neuchatel",
+      "fr": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-neuchatel"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NE"
   }
 }

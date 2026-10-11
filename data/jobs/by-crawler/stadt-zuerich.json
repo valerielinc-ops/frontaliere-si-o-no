@@ -7548,7 +7548,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.726Z",
-      "needsRetranslation": true,
       "salaryMin": 140000,
       "salaryMax": 214000,
       "salarySource": "estimated",
@@ -9154,7 +9153,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:43:19.010Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -15557,7 +15555,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -25799,7 +25796,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -25848,14 +25845,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -26924,9 +26921,9 @@
       "slug": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
-        "en": "finance-specialist-sap-finance-stadt-zurich-zurich",
+        "en": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
         "de": "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891",
-        "fr": "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
+        "fr": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26974,11 +26971,19 @@
       "unit": "Finanzverwaltung",
       "referenceNumber": "51891",
       "previousSlugs": [
-        "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
+        "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891",
+        "finance-specialist-sap-finance-stadt-zurich-zurich",
+        "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
+        ],
+        "en": [
+          "finance-specialist-sap-finance-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:45:37.980Z",
@@ -27459,7 +27464,6 @@
           "projektleiter-in-ne5-7-netz-mittelbunden-stadt-zuerich-zurigo-51656"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:49:25.037Z",
       "salaryMin": 140000,
       "salaryMax": 214000,
@@ -27482,7 +27486,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27532,7 +27536,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27540,7 +27544,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -28175,10 +28179,10 @@
       "id": "stadt-zuerich-98edc6f6c870",
       "slug": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
+        "it": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "en": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "de": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "fr": "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
+        "fr": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28227,15 +28231,14 @@
       "referenceNumber": "51901",
       "previousSlugs": [
         "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+        "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901"
         ],
         "fr": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-07T09:49:25.035Z",
@@ -30778,7 +30781,7 @@
       "slug": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
       "slugByLocale": {
         "it": "kontraktmanager-in-con-schwerpunkt-flucht-e-migration-stadt-zurich",
-        "en": "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich",
+        "en": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich",
         "de": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
         "fr": "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
       },
@@ -30829,14 +30832,14 @@
       "referenceNumber": "51879",
       "previousSlugs": [
         "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879",
-        "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
+        "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879"
         ],
         "en": [
-          "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zurich-zurich"
+          "contract-manager-with-a-focus-on-displacement-and-migration-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:58:41.278Z",
@@ -32586,8 +32589,8 @@
       "id": "stadt-zuerich-923a61bed310",
       "slug": "praticante-universitario-a-in-comunicazione-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "praticante-universitario-a-in-comunicazione-stadt-zurich-zurich",
-        "en": "university-intern-communications-stadt-zurich-zurich",
+        "it": "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich",
+        "en": "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921",
         "fr": "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
       },
@@ -32638,15 +32641,14 @@
       "referenceNumber": "51921",
       "previousSlugs": [
         "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921",
-        "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
+        "university-intern-communications-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921",
-          "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
+          "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921"
         ],
         "en": [
-          "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
+          "university-intern-communications-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-09T09:49:12.106Z",
