@@ -61,8 +61,10 @@ jobs:
     # indici client completi. Il vecchio 3 × 45 s per-locale dichiarava di
     # coprire il bucket da cinque minuti ma concedeva solo 90 secondi allo
     # stesso surface; al tempo stesso serializzava l'attesa fino a ~12 minuti.
-    # Tre round costano ~10 minuti qualunque sia il numero di landing rosse e
-    # restano con margine nel timeout di 25 minuti.
+    # Ogni probe ha inoltre un hard timeout di 20 s e 2 s di kill grace. Il
+    # worst-case riproducibile con tutte le otto landing rosse e' quindi
+    # 2 × 300 s + 3 × 8 × 22 s = 1128 s (18m48s): restano 6m12s per checkout,
+    # setup e reporting prima del timeout di job.
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
@@ -108,6 +110,10 @@ jobs:
         id: check
         env:
           SECTION_INPUT: ${{ github.event.inputs.section || 'both' }}
+          PARITY_ATTEMPTS: '3'
+          PARITY_RETRY_SLEEP_SECONDS: '300'
+          PARITY_PROBE_TIMEOUT_SECONDS: '20'
+          PARITY_PROBE_KILL_AFTER_SECONDS: '2'
         run: |
           set -uo pipefail
           if [ "$SECTION_INPUT" = "both" ]; then
@@ -130,12 +136,15 @@ jobs:
           done
 
           attempt=1
-          while [ -s parity-targets.txt ] && [ "$attempt" -le 3 ]; do
+          while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]; do
             : > parity-targets-next.txt
             while read -r section locale; do
               label="${section}/${locale}"
-              echo "::group::${label} — attempt ${attempt}/3"
-              if ! node scripts/ci/check-hydrated-article-parity.mjs \
+              echo "::group::${label} — attempt ${attempt}/${PARITY_ATTEMPTS}"
+              if ! timeout --signal=TERM \
+                   --kill-after="${PARITY_PROBE_KILL_AFTER_SECONDS}s" \
+                   "${PARITY_PROBE_TIMEOUT_SECONDS}s" \
+                   node scripts/ci/check-hydrated-article-parity.mjs \
                    --section="$section" --locale="$locale" 2>&1 \
                    | tee "parity-${section}-${locale}.txt"; then
                 echo "$section $locale" >> parity-targets-next.txt
@@ -143,8 +152,8 @@ jobs:
               echo "::endgroup::"
             done < parity-targets.txt
             mv parity-targets-next.txt parity-targets.txt
-            if [ -s parity-targets.txt ] && [ "$attempt" -lt 3 ]; then
-              sleep 300
+            if [ -s parity-targets.txt ] && [ "$attempt" -lt "$PARITY_ATTEMPTS" ]; then
+              sleep "$PARITY_RETRY_SLEEP_SECONDS"
             fi
             attempt=$((attempt + 1))
           done
