@@ -3993,12 +3993,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-cm7y1g",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
@@ -4007,7 +4001,12 @@
           "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:28:16.254Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-cm7y1g",
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4022,7 +4021,8 @@
         }
       },
       "postalCode": "1228",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "firstSeenAt": "2026-08-13T10:28:16.254Z"
     },
     {
       "id": "reboot-monkey-82b75718ba1a",

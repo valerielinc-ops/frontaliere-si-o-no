@@ -10833,26 +10833,6 @@
       "crawledAt": "2026-10-11T21:15:00.152Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-in-denner-11l56c",
-          "stv-filialleiter-in-denner-cham-b334ddb645",
-          "stv-filialleiter-in-denner"
-        ],
-        "en": [
-          "stv-filialleiter-in-denner-cham"
-        ],
-        "fr": [
-          "stv-filialleiter-in-denner-cham"
-        ]
-      },
-      "previousSlugs": [
-        "stv-filialleiter-in-denner-cham",
-        "stv-filialleiter-in-denner-11l56c",
-        "stv-filialleiter-in-denner-cham-b334ddb645",
-        "stv-filialleiter-in-denner"
-      ],
-      "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -10865,6 +10845,26 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-06-22T22:33:45.051Z",
+      "previousSlugs": [
+        "stv-filialleiter-in-denner-cham",
+        "stv-filialleiter-in-denner-11l56c",
+        "stv-filialleiter-in-denner-cham-b334ddb645",
+        "stv-filialleiter-in-denner"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "stv-filialleiter-in-denner-cham"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-cham"
+        ],
+        "it": [
+          "stv-filialleiter-in-denner-11l56c",
+          "stv-filialleiter-in-denner-cham-b334ddb645",
+          "stv-filialleiter-in-denner"
+        ]
       }
     },
     {
@@ -27450,14 +27450,14 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
-        "de": [
-          "stv-filialleiter-in-denner"
-        ],
         "it": [
           "stv-filialleiter-in-denner",
           "stv-branch-manager-in-denner-ag-zurich-z8lf10",
           "stv-filialleiter-in-denner-zurich-ceb90d0562",
           "stv-branch-manager-in-denner-ag-zurich"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-branch-manager-in-denner-ag-zurich-z8lf10"
@@ -27469,7 +27469,6 @@
         "stv-filialleiter-in-denner-zurich-ceb90d0562",
         "stv-branch-manager-in-denner-ag-zurich"
       ],
-      "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -27482,7 +27481,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-22T22:33:45.051Z"
     },
     {
       "id": "denner-884406e1f0a8",
