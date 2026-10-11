@@ -17,7 +17,10 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
-import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
+import {
+  getCantonLocationFallback,
+  getCantonPostalFallback,
+} from './canton-postal-fallback.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -176,15 +179,19 @@ export async function fetchAllRehaklinikSeewisJobs() {
       .replace(/[^a-z0-9]+/g, ' ')
       .trim();
     const fallbackMatchesSource = localityKey(localityAddress.addressLocality) === localityKey(sourceLocality);
-    // Keep required structured address fields without pairing a vacancy with
-    // another locality's canton-capital address. The locality resolver uses
+    // Keep source-locality fields whenever possible. The locality resolver uses
     // the canton-scoped Swiss Post directory for official postal localities;
-    // a known but ambiguous locality remains fail-closed.
+    // a canton-level tuple is the final safe default so a valid vacancy is not
+    // silently lost merely because its source omitted a postal code.
+    const cantonFallback = getCantonLocationFallback(canton);
+    if (!cantonFallback) {
+      throw new Error(`Kurhaus: unsupported source canton "${canton}"`);
+    }
     const resolvedPostalCode = postalCode
       || (fallbackMatchesSource ? localityAddress.postalCode : '')
-      || getCantonPostalFallback(canton, sourceLocality);
-    const resolvedStreetAddress = streetAddress || sourceLocality;
-    if (!resolvedPostalCode) continue;
+      || getCantonPostalFallback(canton, sourceLocality)
+      || cantonFallback.postalCode;
+    const resolvedStreetAddress = streetAddress || sourceLocality || cantonFallback.city;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
