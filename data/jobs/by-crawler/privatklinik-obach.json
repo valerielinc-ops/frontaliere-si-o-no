@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-obach",
-  "assembledAt": "2026-10-10T21:22:52.848Z",
+  "assembledAt": "2026-10-11T09:24:49.883Z",
   "jobs": [
     {
       "id": "privatklinik-obach-6c5a6f2d6c81",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:22:47.284Z",
+      "crawledAt": "2026-10-11T09:24:44.678Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:22:44.409Z",
+      "crawledAt": "2026-10-11T09:24:41.905Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "privatklinik-obach-4437b662e47a",
@@ -320,7 +320,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
