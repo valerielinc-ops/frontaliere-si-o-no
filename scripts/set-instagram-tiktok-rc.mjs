@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 /**
  * One-shot: publish Instagram/TikTok profile identifiers to Firebase Remote
- * Config. Public account identifiers only — no access token yet for either
- * platform (Meta App Review / TikTok app audit still pending), so the poster
- * scripts stay unbuilt-until-authorized; this just records what the accounts
- * already are, the same way FB_PAGE_ID does for Facebook.
+ * Config. Public account identifiers only. The browser robot publishes
+ * through the owner's authenticated Chrome profile; API access tokens remain
+ * optional and are not needed for that route.
  *
  * Auth: GOOGLE_APPLICATION_CREDENTIALS → Firebase SA (Remote Config Admin).
  */
@@ -13,7 +12,7 @@ import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } fro
 const PARAMS = {
   INSTAGRAM_USERNAME: 'frontaliereticino',
   INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982',
-  TIKTOK_USERNAME: 'frontaliereticino',
+  TIKTOK_USERNAME: 'valerie.linc',
 };
 
 const rc = await getRemoteConfig();

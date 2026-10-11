@@ -54,6 +54,7 @@ export const RX = Object.freeze({
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
   ttPostNow: ANY_OF('Post now', 'Pubblica ora', 'Jetzt posten', 'Publier maintenant'),
+  ttPublicVisibility: EXACT_TEXT_ONE_OF('Tutti', 'Everyone', 'Alle', 'Tout le monde', 'Public', 'Pubblico', 'Öffentlich'),
   ttContentChecksTitle: /Attivare i controlli automatici dei contenuti\?|Turn on automatic content checks\?|Automatische Inhaltsprüfungen aktivieren\?|Automatische Inhaltskontrollen aktivieren\?|Activer les contrôles automatiques du contenu\s*\?/i,
   ttContentChecksCancel: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
   ttCookieTitle: /Consentire i cookie da TikTok su questo browser\?|Allow cookies from TikTok on this browser\?|Cookies von TikTok in diesem Browser zulassen\?|Autoriser les cookies de TikTok sur ce navigateur\s*\?/i,
@@ -787,6 +788,65 @@ async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, 
   return Boolean(loc);
 }
 
+const TIKTOK_VISIBILITY_CONTAINER = '[data-e2e="video_visibility_container"]';
+
+/**
+ * TikTok can remember a private default for the owner profile. Selecting the
+ * public option is safe and deterministic; every other visibility choice is
+ * rejected before the Post button can be pressed.
+ */
+export function isTikTokPublicVisibility(value) {
+  return RX.ttPublicVisibility.test(normalize(value));
+}
+
+async function readTikTokVisibility(control) {
+  return normalize(await control.innerText().catch(() => ''));
+}
+
+/** Ensure the upload composer is explicitly set to a public audience. */
+export async function ensureTikTokPublicVisibility({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.ui }) {
+  step.set('visibility');
+  const container = await findFirst([page.locator(TIKTOK_VISIBILITY_CONTAINER)], { guard, timeout });
+  if (!container) {
+    throw new RobotError('selector-missing', 'TikTok did not show the audience visibility control', { step: 'visibility' });
+  }
+
+  const control = await findFirst([
+    container.getByRole('combobox'),
+    container.locator('[role="combobox"]'),
+    container.locator('button'),
+  ], { guard, timeout });
+  if (!control) {
+    throw new RobotError('selector-missing', 'TikTok audience visibility control has no selectable button', { step: 'visibility' });
+  }
+
+  let current = await readTikTokVisibility(control);
+  if (isTikTokPublicVisibility(current)) return current;
+
+  await snap('visibility-before-publish');
+  await clickChecked(page, control, { step, snap, platform: 'tiktok', label: 'TikTok audience visibility control' });
+  const publicOption = await findFirst([
+    page.getByRole('option', { name: RX.ttPublicVisibility }),
+    page.getByRole('menuitem', { name: RX.ttPublicVisibility }),
+    page.locator('[role="listbox"] [role="option"], [role="menu"] [role="menuitem"], [role="option"], [role="menuitem"]').filter({ hasText: RX.ttPublicVisibility }),
+  ], { guard, timeout });
+  if (!publicOption) {
+    throw new RobotError('selector-missing', 'TikTok did not expose the public audience option', { step: 'visibility' });
+  }
+  await clickChecked(page, publicOption, { step, snap, platform: 'tiktok', label: 'TikTok public audience option' });
+
+  const deadline = Date.now() + timeout;
+  for (;;) {
+    await guard();
+    current = await readTikTokVisibility(control);
+    if (isTikTokPublicVisibility(current)) return current;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', `TikTok audience remains non-public after selection ("${current || 'unknown'}")`, { step: 'visibility' });
+    }
+    await sleep(Math.min(100, Math.max(1, deadline - Date.now())));
+  }
+}
+
 export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload }) {
   step.set('reel-next-preview');
   const deadline = Date.now() + timeout;
@@ -1033,6 +1093,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: 0 });
   await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true, platform: 'tiktok', step, snap });
   await human.pause();
+  await ensureTikTokPublicVisibility({ page, step, snap, guard, timeout: t.ui });
 
   const post = await required(step, 'post-button', [
     page.locator('button[data-e2e="post_video_button"]'),
