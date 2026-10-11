@@ -1799,6 +1799,7 @@ function renderPage(inp: PageInputs): string {
     <h2 id="top3" class="s-h2">${esc(copy.top3Label)}</h2>
     ${stationsHtml}
   </section>
+  ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="trend7">
     <h2 id="trend7" class="s-h2">${esc(copy.trendLabel)}</h2>
     <p class="s-C63fWv">${esc(historyCopy)}</p>
@@ -1806,7 +1807,6 @@ function renderPage(inp: PageInputs): string {
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
-  ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle)}">
     <p class="s-kvHUMU">${esc(intro)}</p>
