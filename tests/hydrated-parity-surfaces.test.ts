@@ -67,7 +67,9 @@ describe('the surfaces the gate reads', () => {
 describe('the propagation retry window', () => {
   it('rechecks failed surfaces in global five-minute rounds', () => {
     expect(WORKFLOW).toContain('while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]');
-    expect(WORKFLOW).toContain('while read -r section locale');
+    expect(WORKFLOW).toContain('while read -r -u 9 section locale');
+    expect(WORKFLOW).toContain('done 9< parity-targets.txt');
+    expect(WORKFLOW).toContain('--section="$section" --locale="$locale" </dev/null 2>&1');
     expect(WORKFLOW).toContain('sleep "$PARITY_RETRY_SLEEP_SECONDS"');
     expect(WORKFLOW).not.toContain('sleep 45');
   });
