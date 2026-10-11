@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { cancelReaderWithDeadline } from './lib/bounded-response-body.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
   CALLER_REPOSITORY,
@@ -96,10 +97,6 @@ function dispatchResponseRunId(body, repository) {
   }
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
-}
-
 async function boundedResponseBody(response) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > MAX_RESPONSE_BYTES) throw new Error('response_too_large');
@@ -122,7 +119,7 @@ async function boundedResponseBody(response) {
         : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

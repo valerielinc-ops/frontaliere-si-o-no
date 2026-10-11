@@ -70,7 +70,9 @@ async function readJsonWithDeadline(response, timeoutPromise, setActiveReader) {
       ]);
       if (done) break;
       if (!(value instanceof Uint8Array)) throw new TypeError('Invalid MyMemory response chunk');
-      chunks.push(value);
+      // A stream source may reuse the same Uint8Array backing store on its
+      // next read; retain a byte copy before asking it for another chunk.
+      chunks.push(Uint8Array.from(value));
       totalBytes += value.byteLength;
     }
 

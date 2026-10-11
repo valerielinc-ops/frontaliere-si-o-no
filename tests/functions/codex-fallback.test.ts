@@ -375,6 +375,21 @@ describe('readCodexSse — il testo finale come lo legge la CLI', () => {
     ].join('');
     await expect(readCodexSse(new Response(raw).body)).resolves.toBe('Ciao mondo');
   });
+
+  it('returns a completed response when cancelling the still-open stream stalls', async () => {
+    const { readCodexSse } = await import('../../functions/src/codexFallback.js');
+    const reader = {
+      read: vi.fn().mockResolvedValue({
+        done: false,
+        value: new TextEncoder().encode(sseText([assistantMessage('Risposta finale', 'final_answer'), COMPLETED])),
+      }),
+      cancel: vi.fn(() => new Promise<void>(() => {})),
+    };
+    const body = { getReader: () => reader } as unknown as ReadableStream<Uint8Array>;
+
+    await expect(readCodexSse(body)).resolves.toBe('Risposta finale');
+    expect(reader.cancel).toHaveBeenCalledTimes(1);
+  }, 5_000);
 });
 
 describe('parità con la CI e con la rotazione', () => {

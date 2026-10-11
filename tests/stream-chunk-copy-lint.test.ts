@@ -67,6 +67,7 @@ describe('stream readers copy the bytes of every chunk', () => {
     const reader = 'const { done, value } = await reader.read();\n';
     expect(unsafeChunkForms(`${reader}chunks.push(Buffer.from(value));`)).toHaveLength(1);
     expect(unsafeChunkForms(`${reader}chunks.push(new Uint8Array(value));`)).toHaveLength(1);
+    expect(unsafeChunkForms(`${reader}chunks.push(Uint8Array.from(value));`)).toEqual([]);
     expect(unsafeChunkForms(`${reader}buffer.set(value, total);`)).toHaveLength(1);
     expect(unsafeChunkForms(`${reader}chunks.push(value);`)).toHaveLength(1);
     expect(unsafeChunkForms(`${reader}const v = value instanceof ArrayBuffer\n  ? new Uint8Array(value)\n  : x;`)).toEqual([]);

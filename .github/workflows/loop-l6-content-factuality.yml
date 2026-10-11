@@ -76,6 +76,7 @@ jobs:
             /scripts/lib/loop-fleet-issue.mjs
             /scripts/ci/produce-l6-source-verdicts.mjs
             /scripts/lib/l6-source-check.mjs
+            /scripts/lib/bounded-response-body.mjs
             /scripts/lib/blog-body-io.mjs
             /scripts/lib/unescape-ts-string.mjs
             /packages/articles/content/blog-articles-data.ts

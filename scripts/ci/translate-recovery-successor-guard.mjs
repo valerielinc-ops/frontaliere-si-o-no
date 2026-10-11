@@ -119,8 +119,20 @@ function apiBaseUrl(value) {
   return parsed.toString().replace(/\/$/, '');
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+async function cancelReaderWithDeadline(reader) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => reader.cancel()),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, 1_000);
+      }),
+    ]);
+  } catch {
+    // The read verdict stays authoritative even when cancellation rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
 }
 
 /**
@@ -154,7 +166,7 @@ async function readJson(response) {
       size += value.byteLength;
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     // Cleanup must never replace the verdict: older WHATWG streams throw here.

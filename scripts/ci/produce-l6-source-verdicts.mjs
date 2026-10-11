@@ -30,6 +30,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { extractBodies } from '../lib/blog-body-io.mjs';
 import {
   AUTOMATED_METHOD,
@@ -185,10 +186,6 @@ async function discardBody(response) {
   }
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
-}
-
 async function readCapped(response, maxBytes) {
   if (!response.body || typeof response.body.getReader !== 'function') {
     const buffer = Buffer.from(await response.arrayBuffer());
@@ -213,7 +210,7 @@ async function readCapped(response, maxBytes) {
         : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }

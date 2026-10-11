@@ -3,6 +3,7 @@ import { describe, expect, it, vi, afterEach } from 'vitest';
 import {
   createJobsSourceRelayHandler,
   RELAY_MAX_UPSTREAM_PER_DAY,
+  RELAY_TIMEOUT_MS,
   MAX_RELAY_RESPONSE_BYTES,
   parseAllowedRelayTarget,
   verifyGithubOidcToken,
@@ -141,7 +142,7 @@ describe('jobsSourceRelay', () => {
   });
 
   it('cancels an invalid streamed chunk before returning an upstream error', async () => {
-    const cancel = vi.fn().mockResolvedValue(undefined);
+    const cancel = vi.fn(() => new Promise<void>(() => {}));
     const releaseLock = vi.fn();
     const reader = {
       read: vi.fn().mockResolvedValue({ done: false, value: '<html>' }),
@@ -163,7 +164,43 @@ describe('jobsSourceRelay', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(cancel).toHaveBeenCalledTimes(1);
     expect(releaseLock).toHaveBeenCalledTimes(1);
-  });
+  }, 5_000);
+
+  it('bounds reader cancellation triggered by the relay abort deadline', async () => {
+    vi.useFakeTimers();
+    try {
+      let finishRead: ((result: { done: boolean }) => void) | undefined;
+      const cancel = vi.fn(() => {
+        finishRead?.({ done: true });
+        return new Promise<void>(() => {});
+      });
+      const reader = {
+        read: vi.fn(() => new Promise<{ done: boolean }>((resolve) => {
+          finishRead = resolve;
+        })),
+        cancel,
+        releaseLock: vi.fn(),
+      };
+      const fetchImpl = vi.fn().mockResolvedValue({
+        status: 200,
+        headers: new Headers({ 'content-type': 'text/html' }),
+        body: { getReader: vi.fn(() => reader) },
+      });
+      const handler = authenticatedHandler(fetchImpl);
+      const res = responseRecorder();
+      const pending = handler(request(CHUR_URL), res);
+
+      await vi.advanceTimersByTimeAsync(RELAY_TIMEOUT_MS);
+      await vi.advanceTimersByTimeAsync(1_000);
+      await pending;
+
+      expect(res.statusCode).toBe(504);
+      expect(cancel).toHaveBeenCalled();
+      expect(reader.releaseLock).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  }, 5_000);
 
   it('returns 401 when the token is missing or invalid', async () => {
     const fetchImpl = vi.fn();

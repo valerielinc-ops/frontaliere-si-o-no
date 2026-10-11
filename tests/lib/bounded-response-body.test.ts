@@ -175,6 +175,23 @@ describe('readBoundedResponseBytes', () => {
     expect(cancel).toHaveBeenCalledTimes(1);
   });
 
+  it('preserves a read error when reader cancellation never settles', async () => {
+    const readError = new Error('socket hang up');
+    const cancel = vi.fn(() => new Promise<void>(() => {}));
+    const response = {
+      headers: new Headers(),
+      body: {
+        getReader: () => ({
+          read: async () => { throw readError; },
+          cancel,
+          releaseLock() {},
+        }),
+      },
+    };
+    await expect(readBoundedResponseBytes(response, 10)).rejects.toBe(readError);
+    expect(cancel).toHaveBeenCalledTimes(1);
+  }, 5_000);
+
   it('does not let a stalled cancel hold the caller forever', async () => {
     const response = {
       headers: new Headers(),

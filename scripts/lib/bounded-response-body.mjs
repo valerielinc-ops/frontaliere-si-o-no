@@ -36,6 +36,11 @@ async function boundedCleanup(cleanup) {
   }
 }
 
+/** Best-effort reader cancellation that cannot hold a response verdict forever. */
+export function cancelReaderWithDeadline(reader, reason) {
+  return boundedCleanup(() => reader?.cancel?.(reason));
+}
+
 export async function readBoundedResponseBytes(response, maxBytes) {
   if (!Number.isSafeInteger(maxBytes) || maxBytes < 0) {
     throw new TypeError('invalid_response_byte_limit');
@@ -58,7 +63,7 @@ export async function readBoundedResponseBytes(response, maxBytes) {
       if (done) break;
       if (!ArrayBuffer.isView(value)) throw new TypeError('response_chunk_not_bytes');
       if (value.byteLength > maxBytes - size) {
-        await boundedCleanup(() => reader.cancel('response exceeds byte limit'));
+        await cancelReaderWithDeadline(reader, 'response exceeds byte limit');
         return null;
       }
       if (value.byteLength === 0) continue;
@@ -68,7 +73,7 @@ export async function readBoundedResponseBytes(response, maxBytes) {
       size += value.byteLength;
     }
   } catch (error) {
-    await boundedCleanup(() => reader.cancel());
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     // Older WHATWG streams and polyfilled bodies throw from releaseLock()

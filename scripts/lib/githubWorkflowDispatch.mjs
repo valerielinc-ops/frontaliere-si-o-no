@@ -2,6 +2,7 @@ import {
   GITHUB_WORKFLOW_DISPATCH_API_VERSION,
   githubApiHeaders,
 } from './githubApiHeaders.mjs';
+import { cancelReaderWithDeadline } from './bounded-response-body.mjs';
 
 export const MAX_GITHUB_WORKFLOW_DISPATCH_RESPONSE_BYTES = 1024 * 1024;
 const RUN_LOOKUP_ATTEMPTS = 3;
@@ -53,10 +54,6 @@ export function githubWorkflowDispatchHeaders(token, extra = {}) {
   });
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
-}
-
 export async function readBoundedJsonResponse(
   response,
   maxBytes = MAX_GITHUB_WORKFLOW_DISPATCH_RESPONSE_BYTES,
@@ -85,7 +82,7 @@ export async function readBoundedJsonResponse(
         : new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

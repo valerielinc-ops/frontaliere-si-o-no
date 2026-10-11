@@ -90,4 +90,39 @@ describe('MyMemory bounded request deadline', () => {
     expect(json).not.toHaveBeenCalled();
     expect(releaseLock).toHaveBeenCalledOnce();
   });
+
+  it('copies each chunk when the response source reuses its Uint8Array buffer', async () => {
+    const payload = new TextEncoder().encode(JSON.stringify({
+      responseData: { translatedText: 'Basilea', match: 0.9 },
+    }));
+    const split = Math.floor(payload.length / 2);
+    const first = payload.subarray(0, split);
+    const second = payload.subarray(split);
+    const reusedBuffer = new Uint8Array(Math.max(first.length, second.length));
+    let readIndex = 0;
+    const read = vi.fn(async () => {
+      if (readIndex === 0) {
+        readIndex += 1;
+        reusedBuffer.set(first);
+        return { done: false, value: reusedBuffer.subarray(0, first.length) };
+      }
+      if (readIndex === 1) {
+        readIndex += 1;
+        reusedBuffer.set(second);
+        return { done: false, value: reusedBuffer.subarray(0, second.length) };
+      }
+      return { done: true, value: undefined };
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      body: {
+        cancel: vi.fn(async () => {}),
+        getReader: () => ({ read, cancel: vi.fn(async () => {}), releaseLock: vi.fn() }),
+      },
+      json: vi.fn(),
+    })));
+
+    await expect(translateWithMyMemory('Frontaliere', 'it', 'de')).resolves.toBe('Basilea');
+    expect(read).toHaveBeenCalledTimes(3);
+  });
 });

@@ -53,6 +53,7 @@
 import { randomUUID } from 'node:crypto';
 import os from 'node:os';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { cancelReaderWithDeadline } from './lib/boundedReaderCleanup.js';
 
 /** model-provider-info/src/lib.rs:40 — base URL con un login ChatGPT (:293-306). */
 export const CHATGPT_CODEX_BASE_URL = 'https://chatgpt.com/backend-api/codex';
@@ -293,7 +294,7 @@ export async function readCodexSse(body) {
     }
   } finally {
     // Terminato prima della fine dello stream (completed, errore, timeout): chiude la connessione.
-    if (!ended) await reader.cancel().catch(() => {});
+    if (!ended) await cancelReaderWithDeadline(reader);
   }
   if (!completed) throw new Error(failure ?? 'codex_stream_closed');
 
