@@ -931,6 +931,20 @@ describe('Mac host launch agent', () => {
     expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
   });
 
+  it('replaces runner/current instead of writing current.tmp inside the old snapshot', () => {
+    const fixture = createLaunchFixture();
+    const runner = path.join(fixture.state, 'runner');
+    const oldSnapshot = path.join(runner, 'old-snapshot');
+    const current = path.join(runner, 'current');
+    fs.mkdirSync(oldSnapshot, { recursive: true });
+    fs.symlinkSync(oldSnapshot, current);
+
+    runLauncher(fixture, launchEnv(fixture));
+
+    expect(fs.realpathSync(current)).toBe(fs.realpathSync(path.join(runner, fixture.sha)));
+    expect(fs.existsSync(path.join(oldSnapshot, 'current.tmp'))).toBe(false);
+  });
+
   it('uses the persisted checkout when the installed launcher has no repo env', () => {
     const fixture = createLaunchFixture();
     const installEnv = launchEnv(fixture, {
