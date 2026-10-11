@@ -1,7 +1,7 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-11T09:21:11.274Z",
+  "generatedAt": "2026-10-11T21:15:30.693Z",
   "total": 12,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 3389,
-  "avgDurationMs": 3389,
+  "durationMs": 4743,
+  "avgDurationMs": 4743,
   "durationHistory": [
-    3389
+    4743
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -402,7 +402,7 @@
     },
     {
       "title": "Küche, 80%",
-      "slug": "kuche-80-berit-klinik",
+      "slug": "cucina-80-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -527,5 +527,5 @@
       }
     }
   ],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }

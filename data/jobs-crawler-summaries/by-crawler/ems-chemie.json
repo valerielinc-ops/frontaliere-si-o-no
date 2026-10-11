@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-10-11T09:16:12.896Z",
+  "generatedAt": "2026-10-11T21:17:22.690Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 63475,
-  "avgDurationMs": 63475,
+  "durationMs": 49892,
+  "avgDurationMs": 49892,
   "durationHistory": [
-    63475
+    49892
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -523,7 +523,7 @@
       "category": "science",
       "postedDate": "2026-09-17",
       "source": "company-website",
-      "slug": "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "regolatore-di-vendita-m-f-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "id": "ems-chemie-2dc155283bc3",
       "sourceLang": "de",
@@ -545,5 +545,5 @@
       }
     }
   ],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }
