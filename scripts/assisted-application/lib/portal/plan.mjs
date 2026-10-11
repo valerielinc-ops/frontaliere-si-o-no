@@ -132,6 +132,8 @@ const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|o
 const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b/i;
 const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*[-–—:]?\s*(?:address|adresse|indirizzo))?(?:\s*[/|]\s*(?:login|identifiant))?(?:\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld|erforderlich)\)|[*:?!]))*\s*$/i;
+const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
+const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
 const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
 // Contact e-mail labels contain the word «adresse/address», but are ordinary
 // identity fields and must not be blocked by the residence-address guard.
@@ -395,6 +397,7 @@ const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indiriz
 // A generic personal-data section can also contain unrelated labels such as
 // «Data di nascita». Only these residence-specific words override that noise
 // when a sibling-label context contains both kinds of information.
+const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+details|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
@@ -405,6 +408,7 @@ const STANDALONE_RESIDENCE_POSTAL_RE = /^\s*cap\s*$/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
+const PHONE_CODE_FIELD_RE = /\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono)\b/i;
 
 export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
@@ -412,9 +416,10 @@ export function addressQuestionTopic(text, context = '') {
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
-  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
+  if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || PHONE_CODE_FIELD_RE.test(surrounding) || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding);
+  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
+    || (PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding) && !nonResidenceContext);
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
@@ -619,7 +624,16 @@ export function candidateAnswerForField(candidate, field) {
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
-    const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
+    let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
+    // Workday and similar ATSs split «Street Name» from the house number.
+    // Preserve the full CV address for a combined «Street address» field, but
+    // do not send its trailing civic number into a street-name-only control.
+    if (!field?.options?.length && topic === 'address_street' && STREET_NAME_ONLY_RE.test(String(field?.label || ''))) {
+      value = String(value || '')
+        .replace(/^\s*[0-9]{1,5}[A-Za-z]?\s*[,.-]?\s+/, '')
+        .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
+        .trim();
+    }
     return value ? { value, source: previous ? 'answers' : 'identity' } : null;
   }
   if (previous) {
@@ -717,6 +731,15 @@ export function knownAnswer(knownValues, answer) {
   return [...dates].every((date) => known.has(date));
 }
 
+/** A repeated e-mail field is still an identity fact, even when its label
+ * contains «Adresse/address» and therefore looks like a residence field to
+ * the sensitive-answer guard. */
+function identityAnswerMatches(candidate, field, value) {
+  if (!IDENTITY_EMAIL_RE.test(String(field?.label || ''))) return false;
+  const email = String(candidate?.identity?.email || '').trim();
+  return Boolean(email && comparableAnswer(email) === comparableAnswer(value));
+}
+
 /**
  * Code-side guard on the plan: an answer to a sensitive question must come
  * from the candidate's answers or profile, never from a model "rule".
@@ -811,7 +834,8 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
+    const fromCandidate = (['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value))
+      || (action.source === 'identity' && identityAnswerMatches(candidate, field, action.value));
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     const native = ['fill', 'select'].includes(action.action)
       && nativeLanguageAnswerMatches(candidate, field, action.value, field.context);

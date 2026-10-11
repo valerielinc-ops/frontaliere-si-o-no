@@ -44,6 +44,7 @@ import {
   changedLinesFromPatch,
   dedupeFindingsById,
   extractBodyCitation,
+  findingIdentityComponents,
   isMalformedReviewBody,
   normalizeBodyCitationText,
   reviewBodyDefects,
@@ -2189,7 +2190,7 @@ export function logClassification(classification) {
     }
   }
   for (const finding of classification.inScope) {
-    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff confirm=${JSON.stringify(stableFindingId(finding))}`);
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff confirm=${JSON.stringify(stableFindingId(finding))} identity=${JSON.stringify(findingIdentityComponents(finding))}`);
   }
   for (const finding of classification.unresolved) {
     const expectedKey = finding.citations?.length === 0
@@ -2435,7 +2436,7 @@ export async function runReviewGate({
         const context = [...new Set(finding.citations
           .filter((citation) => citation.line === null)
           .map((citation) => citation.path))];
-        console.log(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${id} path=${context.join(',') || '-'} reason=file cited without a line is outside the PR diff; id and line anchors confirmed by an approving review`);
+        console.log(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${id} path=${context.join(',') || '-'} identity=${JSON.stringify(findingIdentityComponents(finding))} reason=file cited without a line is outside the PR diff; id and line anchors confirmed by an approving review`);
       }
       historical = withDiff;
     }
