@@ -3,8 +3,8 @@
  * (follow-up #2837 of PR #2835).
  *
  * Covers:
- *  1. The CLI still passes on the real, clean repo tree for the synced
- *     SWISS_SLUGS registry (the --swiss-only CI profile).
+ *  1. The --swiss-only CI profile still checks the synced SWISS_SLUGS registry
+ *     against a pinned fixture, without making the test read mutable repo data.
  *  2. A duplicate localized slug in BLOG_SLUGS (routerBlogData.ts / FRONTALIERE
  *     section) is now caught — this is the corruption class that redded
  *     tests/blog/svizzera-section-routing for SWISS_SLUGS and, until #2837,
@@ -27,8 +27,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SCRIPT = path.join(ROOT, 'scripts', 'ci', 'validate-article-append-integrity.mjs');
+const SCRIPT = fileURLToPath(new URL('../scripts/ci/validate-article-append-integrity.mjs', import.meta.url));
 
 const cleanSwissData = [
   "export const SWISS_SLUGS = {",
@@ -86,9 +85,10 @@ afterEach(() => {
   }
 });
 
-describe('validate-article-append-integrity — real repo tree', () => {
-  it('exits 0 on the current clean tree and checks the synced SWISS_SLUGS registry', () => {
-    const { status, output } = runCli(ROOT, ['--swiss-only']);
+describe('validate-article-append-integrity — --swiss-only profile', () => {
+  it('checks the synced SWISS_SLUGS registry against a pinned fixture', () => {
+    tmpDir = makeFixture();
+    const { status, output } = runCli(tmpDir, ['--swiss-only']);
     expect(status).toBe(0);
     expect(output).toMatch(/SWISS slug-uniqueness/);
   });
