@@ -3226,6 +3226,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     out.titleByLocale = titleByLocale;
     out.descriptionByLocale = currentByLocale;
     if (shouldMarkSkipAiRetranslation(out, {
+      crawlerKey: crawlerConfig?.crawlerKey || crawlerConfig?.companyKey || out.companyKey,
       sourceLang: out.sourceLang || sourceLang,
       minDescriptionChars: localeDescFloor,
     })) {

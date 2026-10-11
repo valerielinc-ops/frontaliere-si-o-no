@@ -200,9 +200,14 @@ describe('SKIP_AI_TRANSLATION enqueue ownership', () => {
 
   it('does not reflag unchanged complete maps in enrichJobLocalesDCC', async () => {
     const { after } = prepare('source-unchanged');
+    delete after.companyKey;
 
-    expect(shouldMarkSkipAiRetranslation(after)).toBe(false);
-    const enriched = await enrichJobLocalesDCC(after, { minDescriptionChars: 120 }, forceContext);
+    expect(shouldMarkSkipAiRetranslation(after, { crawlerKey: 'acme' })).toBe(false);
+    const enriched = await enrichJobLocalesDCC(
+      after,
+      { crawlerKey: 'acme', minDescriptionChars: 120 },
+      forceContext,
+    );
 
     expect(enriched.needsRetranslation).toBeUndefined();
   });
