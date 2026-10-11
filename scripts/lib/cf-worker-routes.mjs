@@ -39,6 +39,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import {
   CDN_BASE,
+  EDGE_PUSHED_FILES,
   SECTION_ROUTES,
   SECTION_ORIGIN,
   SHARD_ORIGIN,
@@ -116,6 +117,10 @@ export function shardOriginForApexUrl(url) {
       url.pathname.startsWith(`${route.prefix}/`),
   );
   if (section) return SECTION_ORIGIN[section.section]?.[section.locale] ?? null;
+  // The Worker deliberately keeps query variants of these legacy aliases on
+  // the apex Pages origin, even though the no-query forms are shard routes.
+  // Mirror that exception before the locale regex below.
+  if (url.search && /^\/(?:en|de|fr)\.html$/u.test(url.pathname)) return null;
   const locale = /^\/(en|de|fr)(\/|$|\.html$)/.exec(url.pathname);
   if (locale) return SHARD_ORIGIN[locale[1]] ?? null;
   return null;
@@ -132,6 +137,8 @@ export function shardOriginForApexUrl(url) {
  */
 export function corpusEdgeUrlForApexUrl(url) {
   if (url.hostname !== APEX_HOST) return null;
+  const pushed = EDGE_PUSHED_FILES[url.pathname];
+  if (pushed) return new URL(pushed.cdnKey, CDN_BASE).toString();
   if (corpusEdgeFileForPath(url.pathname)) return null;
   const route = matchCorpusSection(url.pathname);
   if (!route) return null;
@@ -170,6 +177,14 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     const pattern = workerRouteForUrl(url, patterns);
     if (!pattern) continue; // apex passthrough — this purge is the real one
     const expectedCompanion = corpusEdgeUrlForApexUrl(url);
+    const expectedOrigin = shardOriginForApexUrl(url);
+    const corpusEdgeFile = corpusEdgeFileForPath(url.pathname);
+    // The broad apex route also admits ordinary pages to the Worker so its
+    // response filter can run, but the router forwards those pages to the
+    // apex origin. They remain apex-keyed, so an apex purge is not blind.
+    // Corpus sitemaps are the one R2 family whose key is versioned by the
+    // release registry and therefore cannot be named by the static helper.
+    if (!expectedOrigin && !expectedCompanion && !corpusEdgeFile) continue;
     const covered = companions.some(
       (companion) =>
         companion.pathname === url.pathname ||
@@ -180,8 +195,9 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     gaps.push({
       url: url.toString(),
       pattern,
-      expectedOrigin: shardOriginForApexUrl(url),
+      expectedOrigin,
       expectedCompanion,
+      expectedCorpusFile: corpusEdgeFile?.name ?? null,
     });
   }
   return gaps;

@@ -2639,11 +2639,23 @@ const router = {
     const corpusSection = await serveCorpusSection(request, url, ctx);
     if (corpusSection) return corpusSection;
 
+    // The apex wildcard routes query variants of the three legacy locale HTML
+    // aliases through this Worker too. Keep those variants on the apex Pages
+    // origin: the locale shards do not contain /<locale>.html, and the existing
+    // exact routes intentionally send only the bare paths to the shard.
+    if (url.search && /^\/(?:en|de|fr)\.html$/u.test(url.pathname)) {
+      try {
+        return await fetchOriginWithRetry(url, request);
+      } catch {
+        return new Response('Origin unavailable', { status: 503 });
+      }
+    }
+
     // Section shard — checked BEFORE the locale match so an /en|/de|/fr section
     // path (e.g. /en/find-jobs-ticino/..., /en/find-jobs-zurich/...) resolves to
     // its carved-out section shard, instead of origin-{loc}. Each section's IT
-    // prefix reaches the Worker via its own wrangler routes; all other IT paths
-    // stay a pure apex passthrough (the !match branch below).
+    // prefix reaches the Worker via its own wrangler route; the apex wildcard
+    // also brings other IT paths through the !match passthrough below.
     const sec = matchSection(url.pathname);
     if (sec) {
       if (
@@ -2665,19 +2677,12 @@ const router = {
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {
-      // IT + shared (sitemaps, robots, rss, favicon, /...) — passthrough.
-      // MOSTLY UNREACHABLE, no longer strictly DEFENSIVE: wrangler.toml scopes
-      // the Worker to locale routes + section prefixes + the exact
-      // EDGE_PUSHED_FILES paths above (issue #4881 Fase 3), so this branch is
-      // only reached today by (a) an EDGE_PUSHED_FILES path whose R2 copy
-      // missed/errored just above, falling through here on purpose, (b) an IT
-      // `/articoli-*` path that is not a live corpus section (canton section
-      // still draft / no registry, or a look-alike) — the fail-closed path, so
-      // it gets the very Pages answer it got before that route existed — or
-      // (c) a route scope expansion. Every other IT path bypasses the Worker
-      // entirely as a pure CF passthrough. The timeout+retry guard mirrors the
-      // shard-origin layer. No cf caching opts: this passthrough must respect
-      // the zone's own cache rules.
+      // IT + shared paths (home, sitemaps, robots, rss, favicon, ...) use the
+      // original apex origin. EDGE_PUSHED_FILES and registered section paths
+      // have already been handled above; unknown/look-alike paths retain the
+      // Pages answer. The outer response filter removes stale first-party SRI
+      // from HTML. The timeout+retry guard mirrors the shard-origin layer. No
+      // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
         return await fetchOriginWithRetry(url, request);
       } catch {
