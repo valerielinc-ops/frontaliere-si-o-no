@@ -17,8 +17,10 @@ import { realpathSync } from 'node:fs';
  */
 import { execFileSync } from 'node:child_process';
 import { appendFileSync } from 'node:fs';
-
 import { isAggregate } from './check-issue-already-resolved.mjs';
+
+// Keep this identical twin self-contained; it is also copied to the corpus.
+const GH_EXEC_MAX_BUFFER = 64 * 1024 * 1024;
 
 export function detectAggregate({ title = '', body = '', readable = true } = {}) {
   if (!readable) return { aggregate: true, fallback: true };
@@ -47,7 +49,7 @@ function readIssue(repo, issue) {
     const out = execFileSync(
       'gh',
       ['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] },
     );
     return parseIssuePayload(JSON.parse(out));
   } catch (err) {

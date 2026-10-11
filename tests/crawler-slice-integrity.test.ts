@@ -11,6 +11,7 @@ import {
   clearCrossCrawlerDedupProofFile,
   isProvenCrossCrawlerDedupRemoval,
   isProvenCrossCrawlerDedupPrune,
+  isProvenConflictMarkerRecovery,
   isProvenGhostExpiredPrune,
   isProvenGhostExpiredReconciliation,
   isProvenExpiredRouteCollapse,
@@ -31,6 +32,32 @@ import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
 function sha256(raw: string) {
   return createHash('sha256').update(raw, 'utf8').digest('hex');
 }
+
+describe('conflict-marker recovery proof', () => {
+  it('opens the byte-floor guard only for exact validated snapshots', () => {
+    const filePath = 'data/jobs/by-crawler/recovery.json';
+    const previous = `<<<<<<< HEAD\n${'x'.repeat(1_100_000)}\n=======\n${'y'.repeat(1_100_000)}\n>>>>>>> stale-writer\n`;
+    const next = `${JSON.stringify({
+      crawlerKey: 'recovery',
+      jobs: [{ id: 'recovered-1', url: 'https://example.ch/recovered-1' }],
+    }, null, 2)}\n`;
+    const proof = {
+      kind: 'conflict-marker-recovery',
+      path: filePath,
+      sourceDigest: sha256(previous),
+      candidateDigest: sha256(next),
+    };
+
+    expect(isProvenConflictMarkerRecovery(filePath, previous, next, proof)).toBe(true);
+    expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { housekeepingProof: proof }).reason)
+      .toBe('proven-conflict-marker-recovery');
+    expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next)).toThrow(/catastrophic truncation avoided/);
+    expect(isProvenConflictMarkerRecovery(filePath, previous, next, {
+      ...proof,
+      candidateDigest: sha256(`${next}tampered`),
+    })).toBe(false);
+  });
+});
 
 function swissReJob(url: string, location: string, description: string) {
   return {

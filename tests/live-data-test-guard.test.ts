@@ -249,6 +249,32 @@ describe('un test che NON legge dati vivi non puo` stare nell`inventario', () =>
     expect(codeOnlyShape(body)).toBeNull();
   });
 
+  it('non classifica come live le slice nominate solo dentro fixture temporanee', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-temp-slices-'));
+    try {
+      const testsDir = path.join(root, 'tests');
+      fs.mkdirSync(testsDir, { recursive: true });
+      fs.writeFileSync(path.join(testsDir, 'merge-history.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SHELL_PATH = path.resolve(ROOT, 'scripts/lib/git-commit-data.sh');",
+        "const SLICE = 'crawler-slices/acme.json';",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gcd-history-fast-path-'));",
+        "const input = fs.readFileSync(path.join(dir, 'base.json'), 'utf8');",
+      ].join('\n'));
+      fs.writeFileSync(path.join(testsDir, 'recover-slice.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SCRIPT = path.join(ROOT, 'scripts/recover-conflict-marker-slices.mjs');",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'recover-slice-slugs-'));",
+        "const sliceDir = path.join(dir, 'data/jobs/by-crawler');",
+        "const slice = fs.readFileSync(path.join(sliceDir, 'acme.json'), 'utf8');",
+      ].join('\n'));
+
+      expect(scanLiveDataTests(root)).toEqual([]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('riconosce il sorgente del package: packages/articles/engine non e` il corpus', () => {
     const engine = "const src = fs.readFileSync(np.join(ROOT, 'packages', 'articles', 'engine', 'ogPagesPlugin.ts'), 'utf8');";
     expect(codeOnlyShape(engine)).toBe('package-engine-source');

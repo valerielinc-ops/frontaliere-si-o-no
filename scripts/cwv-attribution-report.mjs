@@ -18,6 +18,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 // entirely after 2026-10-04 also fails when its template samples are non-good
 // but the attribution stream is empty; pre-emitter windows remain fail-open.
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -135,7 +136,7 @@ export function renderReport(report, { runUrl } = {}) {
 }
 
 function defaultGh(args) {
-  return execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+  return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
 }
 
 /** Open CWV issues: every `cwv-regression` one plus the #5001 watchlist tracker. Never closed ones. */

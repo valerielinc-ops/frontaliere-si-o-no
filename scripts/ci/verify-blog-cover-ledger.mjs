@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import {
+  GENERATED_IMAGE_LICENSE,
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
@@ -76,10 +77,10 @@ function main() {
       }
       for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
         const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
-        if (!validation.valid || record?.kind !== 'generated' || record?.imageUrl !== imageUrl) {
+        if (!validation.valid || record?.license !== GENERATED_IMAGE_LICENSE || record?.imageUrl !== imageUrl) {
           errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length
             ? `: ${validation.errors.join('; ')}`
-            : ' (kind or imageUrl does not match the record key)'}`);
+            : ' (license or imageUrl does not match the record key)'}`);
           continue;
         }
         const existing = generatedByUrl.get(imageUrl);

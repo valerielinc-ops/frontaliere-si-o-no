@@ -11,6 +11,7 @@
  * carried forward.
  */
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { realpathSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -1765,6 +1766,7 @@ function main() {
         headSha: beforeMutation.headRefOid,
       }), {
         encoding: 'utf8',
+        maxBuffer: GH_EXEC_MAX_BUFFER,
         stdio: ['ignore', 'pipe', 'pipe'],
         env: { ...process.env },
       }),

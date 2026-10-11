@@ -87,6 +87,7 @@
 // eccezione locale `worktree-agent-*` 0-ahead.
 
 import { execFileSync, execSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import {
   appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
   writeFileSync,
@@ -229,6 +230,7 @@ function ghOut(args, { allowFail = false } = {}) {
   try {
     return execFileSync('gh', args, {
       encoding: 'utf8',
+      maxBuffer: GH_EXEC_MAX_BUFFER,
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
   } catch (e) {

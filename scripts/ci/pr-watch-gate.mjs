@@ -90,6 +90,7 @@
  * (~22min push→LGTM) a 1-2 round-trip invece di 4-5.
  */
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -286,7 +287,7 @@ async function main() {
   // "not terminal yet" — otherwise a laptop with no network would wedge
   // every session shut, which is worse than the bug this hook fixes.
   try {
-    execFileSync('gh', ['auth', 'status'], { timeout: 5_000, stdio: 'ignore' });
+    execFileSync('gh', ['auth', 'status'], { timeout: 5_000, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: 'ignore' });
   } catch {
     return; // gh unusable right now — fail open
   }

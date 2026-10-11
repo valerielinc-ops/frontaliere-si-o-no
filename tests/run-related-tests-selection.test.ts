@@ -53,6 +53,8 @@ function fixture(files: Record<string, string>, linked: string[] = []) {
   git(root, 'config', 'user.email', 'related-selection@example.invalid');
   git(root, 'config', 'user.name', 'related-selection-contract');
   git(root, 'add', '.');
+  const dataFixtures = Object.keys(files).filter((relative) => relative.startsWith('data/'));
+  if (dataFixtures.length > 0) git(root, 'add', '-f', '--', ...dataFixtures);
   git(root, 'commit', '-qm', 'selection fixture');
   const base = git(root, 'rev-parse', 'HEAD');
   git(root, 'update-ref', 'refs/remotes/origin/main', base);
@@ -230,15 +232,15 @@ describe('run-related-tests selection contract', () => {
   });
 
   it('runs the image-registry readers on the data pull request that rewrites a registry', () => {
-    // `data/` is outside the import graph: without these links the recurring
-    // licence audit rewrote the registries behind a gate that read none of them.
+    // These exact reads are indexed as assets; there is no image-specific
+    // test-to-data mapping in sourceTreeLintTests.
     const policy = 'tests/published-image-policy.test.ts';
     const images = 'tests/generated-site-images.test.ts';
     const root = fixture({
       'data/event-image-library.json': '{}\n',
       'data/generated-image-registry.json': '{}\n',
-      [policy]: 'export const policy = true;\n',
-      [images]: 'export const images = true;\n',
+      [policy]: "import { readFileSync } from 'node:fs'; export const policy = readFileSync('data/event-image-library.json', 'utf8');\n",
+      [images]: "import { readFileSync } from 'node:fs'; export const images = readFileSync('data/generated-image-registry.json', 'utf8');\n",
     });
     const library = select(root, ['data/event-image-library.json']);
     expect(library.status, library.stderr || library.stdout).toBe(0);
@@ -247,8 +249,35 @@ describe('run-related-tests selection contract', () => {
 
     const shared = select(root, ['data/generated-image-registry.json']);
     expect(shared.status, shared.stderr || shared.stdout).toBe(0);
-    expect(shared.stdout).toContain(policy);
     expect(shared.stdout).toContain(images);
+    expect(shared.stdout).not.toContain(policy);
+  });
+
+  it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
+    const reader = 'tests/translation-data-reader.test.ts';
+    const segmentedReader = 'tests/translation-data-segmented-reader.test.ts';
+    const commentOnly = 'tests/translation-data-comment.test.ts';
+    const unrelated = 'tests/unrelated-data-reader.test.ts';
+    const root = fixture({
+      'data/translation-stats-history.json': '{}\n',
+      'data/weather-snapshot.json': '{}\n',
+      [reader]: "import { readFileSync } from 'node:fs'; export const history = readFileSync('data/translation-stats-history.json', 'utf8');\n",
+      [segmentedReader]: "import { readFileSync } from 'node:fs'; import path from 'node:path'; const ROOT = '/repo'; export const weather = readFileSync(path.join(ROOT, 'data', 'weather-snapshot.json'), 'utf8');\n",
+      [commentOnly]: "// readFileSync('data/translation-stats-history.json')\nexport const comment = true;\n",
+      [unrelated]: "import { readFileSync } from 'node:fs'; export const weather = readFileSync('data/weather-snapshot.json', 'utf8');\n",
+    });
+
+    const history = select(root, ['data/translation-stats-history.json']);
+    expect(history.status, history.stderr || history.stdout).toBe(0);
+    expect(history.stdout).toContain(reader);
+    expect(history.stdout).not.toContain(commentOnly);
+    expect(history.stdout).not.toContain(unrelated);
+
+    const weather = select(root, ['data/weather-snapshot.json']);
+    expect(weather.status, weather.stderr || weather.stdout).toBe(0);
+    expect(weather.stdout).toContain(unrelated);
+    expect(weather.stdout).toContain(segmentedReader);
+    expect(weather.stdout).not.toContain(reader);
   });
 
   it('runs the publisher-code closure test when a file it only reaches by name changes', () => {

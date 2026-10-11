@@ -14,39 +14,21 @@ compatibility_date = "2026-01-01"
 # (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
 # NB: the account is on Workers Paid (10M req/mo included, overage ~$0.30/M), so
 # the old free 100k/day invocation cap no longer binds — Worker-routed traffic
-# volume is no longer a scoping constraint (the section routes below add three of
-# the IT bulk's largest sections deliberately).
+# volume is no longer a scoping constraint.
 #
-# The Worker is scoped to the locale paths PLUS the ticino/svizzera/zurigo section
-# IT prefixes. The locale scope uses three exact patterns (subtree /*, bare, .html)
-# so look-alikes like /enterprise never match; each section's IT scope uses one
-# wildcard (see its comment below) so query-string hits are covered — a look-alike
-# like /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code.
-# The in-code LOCALE_RE + matchSection are the authoritative matching guards.
-# Non-section IT paths stay pure Cloudflare passthrough with no Worker subrequest.
+# The apex wildcard brings every apex page, including the Italian home and paths
+# outside the named sections, through the stale-SRI response filter. In-code
+# LOCALE_RE + matchSection remain authoritative for locale/shard selection; all
+# other paths use the existing apex-origin passthrough and zone cache rules.
+# Explicit locale/section routes below remain as the route inventory.
 #
-# THE THREE `/xx.html` ROUTES STAY EXACT — DO NOT WILDCARD THEM.
-# The EDGE_PUSHED_FILES routes further down were given a trailing `*` (see the
-# /sitemap-blog-ch.xml comment for the full rationale) so a query string cannot
-# change which origin answers. The same reasoning does NOT carry over here, and
-# applying it would make things worse. Measured 2026-08-08:
-#
-#   /en.html  bare → 404      /en.html?cb=1 → 200
-#   /de.html  bare → 404      /de.html?cb=1 → 200
-#   /fr.html  bare → 404      /fr.html?cb=1 → 200
-#
-# The bare request is already routed here (these exact patterns), LOCALE_RE
-# matches, and serveShard sends it to origin-{loc}, which has no such file —
-# confirmed directly: origin-en.frontaliereticino.ch/en.html → 404 while
-# origin-en.frontaliereticino.ch/index.html → 200. The 200 comes from the
-# BYPASS: without the Worker the request lands on the Pages trunk, which does
-# carry en.html. So here the query-string variant is the one that works, and
-# wildcarding these routes would route it to the shard too and turn the last
-# working variant into a third 404. The real defect is that the locale shards do
-# not carry `<loc>.html`, or that the Worker does not fold `/en.html` onto the
-# locale root — a Worker-code/shard-content fix, not a routing one. Left open
-# deliberately; do not "make it consistent" by widening the route.
+# The three `/xx.html` routes below stay exact. The apex wildcard also captures
+# their query-string variants; locale-router explicitly sends those requests to
+# the apex origin because locale shards do not carry `<loc>.html`. This preserves
+# the existing 200 response for query variants while the bare exact routes keep
+# their current shard behavior.
 routes = [
+  { pattern = "frontaliereticino.ch/*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en.html", zone_name = "frontaliereticino.ch" },
@@ -69,43 +51,18 @@ routes = [
   { pattern = "frontaliereticino.ch/de/partner-dienste*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr/services-partenaires*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/job-board*", zone_name = "frontaliereticino.ch" },
-  # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
-  # see locale-router.js SECTION_ORIGIN.ticino). The en/de/fr Ticino subpaths
-  # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
-  # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
-  # origin-ticino-<loc> in-code (matchSection), so only the IT prefix needs a new
-  # route here — the IT apex otherwise bypasses the Worker entirely.
-  #
-  # ONE wildcard `…/cerca-lavoro-ticino*` (NOT bare + /* + .html exact routes): a
-  # CF route without a trailing `*` matches only the exact URL with NO query
-  # string (#2611), so the busiest section's `?utm_*`/`?fbclid=` ad/social/
-  # newsletter hits would bypass the Worker and — after the strip flip — 404 at
-  # the apex. The wildcard covers the bare path, /, .html, deep paths, AND query
-  # strings. Look-alikes like /cerca-lavoro-ticino-altro also match the CF route
-  # but matchSection returns null for them in-code → harmless apex passthrough.
-  # Same pattern as the disiscrivi-* proxies above.
+  # Explicit Ticino section entry (IT apex prefix) → origin-ticino-it (one shard
+  # repo per locale; see locale-router.js SECTION_ORIGIN.ticino). The apex
+  # wildcard also covers this prefix; matchSection remains authoritative, so
+  # look-alikes pass through to the apex origin.
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino*", zone_name = "frontaliereticino.ch" },
-  # Svizzera section (IT apex prefix, nationwide aggregator) → origin-svizzera-it
-  # (one shard repo per locale; see locale-router.js SECTION_ORIGIN.svizzera). Same
-  # rationale as the Ticino route above: the en/de/fr svizzera subpaths
-  # (/en/find-jobs-switzerland, /de/jobs-in-schweiz, /fr/trouver-emploi-suisse)
-  # already reach the Worker via the /en|/de|/fr routes above and are re-targeted
-  # to origin-svizzera-<loc> in-code (matchSection), so only the IT prefix needs a
-  # new route here. Wildcard for the same reason as Ticino's: a CF route without a
-  # trailing `*` matches only the exact URL with NO query string (#2611), and this
-  # is a high-traffic section that gets `?utm_*`/`?fbclid=` ad/social/newsletter
-  # hits. Look-alikes match the CF route but matchSection rejects them in-code.
+  # Explicit Svizzera section entry (IT apex prefix, nationwide aggregator) →
+  # origin-svizzera-it (one shard repo per locale; see SECTION_ORIGIN.svizzera).
+  # The apex wildcard also covers this prefix; matchSection remains authoritative.
   { pattern = "frontaliereticino.ch/cerca-lavoro-svizzera*", zone_name = "frontaliereticino.ch" },
-  # Zurigo section (IT apex prefix, Zurich canton) → origin-zurigo-it (one shard
-  # repo per locale; see locale-router.js SECTION_ORIGIN.zurigo). Same rationale as
-  # the Ticino route above: the en/de/fr zurigo subpaths (/en/find-jobs-zurich,
-  # /de/jobs-in-zurich, /fr/trouver-emploi-zurich) already reach the Worker via the
-  # /en|/de|/fr routes above and are re-targeted to origin-zurigo-<loc> in-code
-  # (matchSection), so only the IT prefix needs a new route here. Wildcard for the
-  # same reason as Ticino's: a CF route without a trailing `*` matches only the
-  # exact URL with NO query string (#2611), and this is a high-traffic section that
-  # gets `?utm_*`/`?fbclid=` ad/social/newsletter hits. Look-alikes match the CF
-  # route but matchSection rejects them in-code.
+  # Explicit Zurigo section entry (IT apex prefix) → origin-zurigo-it (one shard
+  # repo per locale; see SECTION_ORIGIN.zurigo). The apex wildcard also covers
+  # this prefix; matchSection remains authoritative.
   { pattern = "frontaliereticino.ch/cerca-lavoro-zurigo*", zone_name = "frontaliereticino.ch" },
   # Remaining 22 canton sections + the 2 article hubs (all-cantons shard wave,
   # 2026-07-26): same rationale as Ticino/Svizzera/Zurigo above — one shard repo

@@ -39,6 +39,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   hasSuccessFactorsMoreLocationsInRow,
   isSuccessFactorsWidgetText,
@@ -58,6 +59,51 @@ const HQ = getCompanyDefaults('benteler');
 
 const PAGE_SIZE = 25;
 const MAX_PAGES = 40; // safety cap (40 * 25 = 1000 rows)
+
+// Jobs2Web emits ISO 3166-1 alpha-2 country codes in the final location
+// segment. Keep this allow-list deliberately fail-closed: a plausible-looking
+// two-letter token such as `ZZ` or a Swiss canton/foreign region code is not
+// enough evidence to retire the existing Benteler slice.
+const NON_SWISS_ISO_COUNTRY_CODES = new Set([
+  'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ',
+  'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS', 'BT', 'BV', 'BW', 'BY', 'BZ',
+  'CA', 'CC', 'CD', 'CF', 'CG', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ',
+  'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ',
+  'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET',
+  'FI', 'FJ', 'FK', 'FM', 'FO', 'FR',
+  'GA', 'GB', 'GD', 'GE', 'GF', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GP', 'GQ', 'GR', 'GS', 'GT', 'GU', 'GW', 'GY',
+  'HK', 'HM', 'HN', 'HR', 'HT', 'HU',
+  'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP',
+  'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ',
+  'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY',
+  'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MQ', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ',
+  'NA', 'NC', 'NE', 'NF', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ',
+  'OM',
+  'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PS', 'PT', 'PW', 'PY',
+  'QA',
+  'RE', 'RO', 'RS', 'RU', 'RW',
+  'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'SS', 'ST', 'SV', 'SX', 'SY', 'SZ',
+  'TC', 'TD', 'TF', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ',
+  'UA', 'UG', 'UM', 'US', 'UY', 'UZ',
+  'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU',
+  'WF', 'WS',
+  'YE', 'YT',
+  'ZA', 'ZM', 'ZW',
+]);
+
+export function hasExplicitCountryCode(value = '') {
+  const parts = String(value || '').split(',').map((part) => part.trim());
+  return NON_SWISS_ISO_COUNTRY_CODES.has((parts[parts.length - 1] || '').toUpperCase());
+}
+
+function withListingEvidence(candidates, allRows, total, complete) {
+  Object.defineProperties(candidates, {
+    allRows: { value: allRows },
+    total: { value: total },
+    complete: { value: complete },
+  });
+  return candidates;
+}
 
 /**
  * Build a Jobs2Web listing URL. Benteler's tenant now exposes the
@@ -244,7 +290,7 @@ async function listSwissJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const allRows = [];
   let startrow = 0;
-  let expectedTotal = 0;
+  let expectedTotal = null;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const url = buildListingUrl(startrow);
@@ -260,12 +306,33 @@ async function listSwissJobs() {
     }
     const { rows, total } = parseSearchPage(html);
     if (page === 0) expectedTotal = total;
-    if (rows.length === 0) break;
+    if (!expectedTotal || total !== expectedTotal) {
+      return withListingEvidence([], allRows, expectedTotal, false);
+    }
+    const expectedPageRows = Math.min(PAGE_SIZE, expectedTotal - startrow);
+    if (rows.length !== expectedPageRows) {
+      return withListingEvidence([], allRows, expectedTotal, false);
+    }
     allRows.push(...rows);
-    if (rows.length < PAGE_SIZE) break;
-    if (expectedTotal > 0 && allRows.length >= expectedTotal) break;
+    if (allRows.length >= expectedTotal) break;
     startrow += PAGE_SIZE;
+    if (page === MAX_PAGES - 1) return withListingEvidence([], allRows, expectedTotal, false);
     await new Promise((r) => setTimeout(r, 500));
+  }
+
+  const listingUrls = allRows.map((row) => {
+    const href = typeof row.href === 'string' ? row.href.trim() : '';
+    if (!href) return '';
+    try {
+      const url = new URL(href, CAREER_BASE);
+      return url.hostname === CAREER_HOST ? url.href : '';
+    } catch {
+      return '';
+    }
+  });
+  if (allRows.length !== expectedTotal || listingUrls.some((url) => !url)
+    || new Set(listingUrls).size !== expectedTotal) {
+    return withListingEvidence([], allRows, expectedTotal, false);
   }
 
   const swissRows = allRows.filter(
@@ -274,7 +341,7 @@ async function listSwissJobs() {
   console.log(
     `  🎯 Filtered ${allRows.length} total → ${swissRows.length} Swiss/multi-location candidates`,
   );
-  return swissRows;
+  return withListingEvidence(swissRows, allRows, expectedTotal, true);
 }
 
 /**
@@ -355,7 +422,7 @@ async function fetchJobDetail(href) {
     html = await fetchHtml(url, { timeoutMs });
   } catch (err) {
     console.warn(`⚠️ Detail fetch failed for ${url}: ${err.message}`);
-    return null;
+    throw err;
   }
   return parseJobDetailHtml(html, url);
 }
@@ -369,26 +436,48 @@ export async function fetchAllBentelerJobs() {
   console.log(`   Filter: Switzerland (jobLocation text)\n`);
 
   const listings = await listSwissJobs();
+  if (!listings || !listings.complete) {
+    console.warn('⚠️ Jobs2Web listing could not be completely reconciled; refusing an empty snapshot.');
+    return [];
+  }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings found on the Jobs2Web board.');
-    return [];
+    const sourceIsExplicitlyForeign = listings.allRows.length > 0 && listings.allRows.every((row) => (
+      !isSwissLocation(row.locationText)
+      && hasExplicitCountryCode(row.locationText)
+      && !row.hasMoreLocations
+    ));
+    if (!sourceIsExplicitlyForeign) return [];
+    return markAuthoritativeEmptySnapshot(
+      [],
+      'Complete Jobs2Web listing of ' + listings.total
+        + ' unique postings; every location has explicit non-Swiss country evidence.',
+    );
   }
 
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
+  const verifiedForeignMultiLocationHrefs = new Set();
   for (const listing of listings) {
     if (!listing.href) continue;
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
     const detail = await fetchJobDetail(listing.href);
-    if (!detail) continue;
+    if (!detail) throw new Error('Jobs2Web candidate detail could not be fetched or parsed: ' + listing.href);
 
     // Multi-location candidates ("+N more…") were kept past the listing
     // filter only to inspect their full address microdata: drop them unless
     // one of the addresses is actually Swiss.
     const visiblySwiss = isSwissLocation(listing.locationText);
     const detailSwiss = (detail.addresses || []).some((a) => a.addressCountry === 'CH');
+    if (listing.hasMoreLocations && !visiblySwiss) {
+      const addresses = detail.addresses || [];
+      if (addresses.length === 0 || addresses.some((address) => !hasExplicitCountryCode(address.addressCountry))) {
+        throw new Error('Jobs2Web multi-location detail lacks complete country evidence: ' + detail.url);
+      }
+      if (!detailSwiss) verifiedForeignMultiLocationHrefs.add(listing.href);
+    }
     if (!visiblySwiss && !detailSwiss) {
       console.log(`     ↳ skipped (no Swiss site among ${detail.addresses?.length || 0} locations)`);
       continue;
@@ -454,5 +543,17 @@ export async function fetchAllBentelerJobs() {
   }
 
   console.log(`\n📋 Total Benteler jobs discovered: ${jobs.length}`);
+  const sourceIsExplicitlyForeign = listings.allRows.every((row) => (
+    !isSwissLocation(row.locationText)
+    && hasExplicitCountryCode(row.locationText)
+    && (!row.hasMoreLocations || verifiedForeignMultiLocationHrefs.has(row.href))
+  ));
+  if (jobs.length === 0 && sourceIsExplicitlyForeign) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      'Complete Jobs2Web listing of ' + listings.total
+        + ' unique postings; every location has explicit non-Swiss country evidence and all multi-location details were checked.',
+    );
+  }
   return jobs;
 }

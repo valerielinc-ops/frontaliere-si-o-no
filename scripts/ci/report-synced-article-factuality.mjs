@@ -100,6 +100,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 import { appendFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import os from 'node:os';
@@ -437,6 +438,7 @@ export function recordSeenSignatures(number, signatures) {
     writeFileSync(file, body);
     execFileSync('gh', ['issue', 'edit', String(number), '--body-file', file, ...ghRepoArgs()], {
       encoding: 'utf8',
+      maxBuffer: GH_EXEC_MAX_BUFFER,
       stdio: ['ignore', 'pipe', 'inherit'],
     });
     return true;
