@@ -16,6 +16,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -165,6 +166,22 @@ export async function fetchAllRehaklinikSeewisJobs() {
       postalCode,
       streetAddress,
     } = geography;
+    const sourceLocality = normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]);
+    const localityAddress = resolveLocalityAddress({ city: sourceLocality, canton });
+    const localityKey = (value) => normalizeSpace(value)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+    const fallbackMatchesSource = localityKey(localityAddress.addressLocality) === localityKey(sourceLocality);
+    // Keep required structured address fields without pairing a vacancy with
+    // another locality's canton-capital address. Use the helper only for an
+    // official CAP when its tuple names the source locality; a missing street
+    // stays a source-locality label, not an invented workplace address.
+    const resolvedPostalCode = postalCode || (fallbackMatchesSource ? localityAddress.postalCode : '');
+    const resolvedStreetAddress = streetAddress || sourceLocality;
+    if (!resolvedPostalCode) continue;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -200,12 +217,12 @@ export async function fetchAllRehaklinikSeewisJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressLocality: sourceLocality,
       addressRegion: normalizeSpace(addressRegion || canton),
       addressCountry: normalizeSpace(addressCountry || 'CH'),
       country: normalizeSpace(addressCountry || 'CH'),
-      ...(postalCode ? { postalCode } : {}),
-      ...(streetAddress ? { streetAddress } : {}),
+      postalCode: resolvedPostalCode,
+      streetAddress: resolvedStreetAddress,
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'

@@ -1,7 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   REHAKLINIK_SEEWIS_KEY,
   REHAKLINIK_SEEWIS_COMPANY_NAME,
+  fetchAllRehaklinikSeewisJobs,
   isRehaklinikSeewisJob,
   isTrustedDomain,
 } from '../scripts/lib/rehaklinik-seewis-job-parser.mjs';
@@ -10,6 +12,11 @@ import {
   sourceBackedSwissGeographyFields,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  loadSpec: vi.fn(() => ({})),
+  runSpecInProduction: vi.fn(async () => []),
+}));
 
 describe('Kurhaus crawler parser', () => {
   // ── Constants ──
@@ -83,6 +90,26 @@ describe('Kurhaus crawler parser', () => {
     const geography = sourceBackedSwissGeographyFields(listingWithoutAddressFields, resolved);
 
     expect(geography).toMatchObject({ postalCode: '7212', streetAddress: 'Via fonte' });
+  });
+
+  it('publishes a complete source-locality address when a valid Swiss listing omits postal and street fields', async () => {
+    vi.mocked(runSpecInProduction).mockResolvedValueOnce([{
+      title: 'Oberarzt Orthopädie',
+      location: 'Chur, GR',
+      addressCountry: 'CH',
+      description: '<p>Behandlung und Betreuung der Patientinnen und Patienten.</p>',
+      url: 'https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/oberarzt-orthopaedie',
+    }]);
+
+    const jobs = await fetchAllRehaklinikSeewisJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      addressLocality: 'Chur',
+      addressRegion: 'GR',
+      postalCode: '7000',
+    });
+    expect(jobs[0].streetAddress).toBeTruthy();
   });
 
   // ── slugify (imported from crawler-template) ──
