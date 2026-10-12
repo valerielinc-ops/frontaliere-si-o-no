@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-11T21:10:39.120Z",
+  "assembledAt": "2026-10-12T09:16:06.211Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.722Z",
+      "crawledAt": "2026-10-12T09:16:00.867Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -109,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.721Z",
+      "crawledAt": "2026-10-12T09:16:00.866Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -184,7 +184,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.720Z",
+      "crawledAt": "2026-10-12T09:16:00.865Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -214,81 +214,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyste – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.719Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -334,7 +259,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.718Z",
+      "crawledAt": "2026-10-12T09:16:00.863Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -410,7 +335,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.718Z",
+      "crawledAt": "2026-10-12T09:16:00.862Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -486,7 +411,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.717Z",
+      "crawledAt": "2026-10-12T09:16:00.861Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -531,39 +456,38 @@
       }
     },
     {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
       "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
       "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyste – Enterprise Data Management (EDM)"
       },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
       "descriptionByLocale": {
-        "it": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "en": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "de": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
       },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
+      "location": "Genève, , Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.716Z",
-      "addressLocality": "Geneva",
+      "crawledAt": "2026-10-12T09:16:00.860Z",
+      "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
       "streetAddress": "Place Ruth-Bösiger 6",
@@ -576,113 +500,22 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-827097ba6739",
-      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-      "slugByLocale": {
-        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
-        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
-        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "AI Platform Engineer — Plugins & Marketplace",
-      "titleByLocale": {
-        "it": "AI Platform Ingegnere — Plugins & Marketplace",
-        "en": "AI Platform Engineer — Plugins & Marketplace",
-        "de": "AI Platform Ingenieur — Plugins & Marketplace",
-        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
-      },
-      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
-      "descriptionByLocale": {
-        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
-        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
-        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
-        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.715Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:22.869Z",
-      "postedDate": "2026-09-25T14:26:22.869Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "jobReqId": "744000151870429",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.547Z",
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -729,7 +562,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.714Z",
+      "crawledAt": "2026-10-12T09:16:00.859Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -821,7 +654,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.713Z",
+      "crawledAt": "2026-10-12T09:16:00.858Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -880,6 +713,173 @@
       }
     },
     {
+      "id": "talan-827097ba6739",
+      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+      "slugByLocale": {
+        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
+        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
+        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "AI Platform Engineer — Plugins & Marketplace",
+      "titleByLocale": {
+        "it": "AI Platform Ingegnere — Plugins & Marketplace",
+        "en": "AI Platform Engineer — Plugins & Marketplace",
+        "de": "AI Platform Ingenieur — Plugins & Marketplace",
+        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
+      },
+      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
+      "descriptionByLocale": {
+        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
+        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
+        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
+        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-12T09:16:00.856Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T14:26:22.869Z",
+      "postedDate": "2026-09-25T14:26:22.869Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "jobReqId": "744000151870429",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.547Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "en": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "de": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-12T09:16:00.855Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-61c9acf4f11b",
       "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
       "slugByLocale": {
@@ -910,7 +910,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.712Z",
+      "crawledAt": "2026-10-12T09:16:00.854Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -986,7 +986,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.711Z",
+      "crawledAt": "2026-10-12T09:16:00.853Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -1061,7 +1061,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154704665-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:10:33.707Z",
+      "crawledAt": "2026-10-12T09:16:00.848Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",

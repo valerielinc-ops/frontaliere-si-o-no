@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadtspital-zuerich",
-  "assembledAt": "2026-10-11T21:36:30.227Z",
+  "assembledAt": "2026-10-12T09:42:12.312Z",
   "jobs": [
     {
       "id": "stadtspital-zuerich-6e6078db4cc2",
@@ -85,7 +85,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-38a6f853d722",
@@ -170,7 +171,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-0cbaeeaca2d9",
@@ -256,7 +258,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-d2b3052d4655",
@@ -343,7 +346,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-f39367585084",
@@ -433,7 +437,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-63e020a4a5ec",
@@ -521,7 +526,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-c96aaf1e8083",
@@ -608,7 +614,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-82b7258c43e5",
@@ -702,7 +709,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-e5395de0cde0",
@@ -788,7 +796,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-5a2b061390bf",
@@ -846,13 +855,11 @@
       "referenceNumber": "50310",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-1e3abb57f0",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-1e3abb57f0",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
         ]
       },
@@ -869,7 +876,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-274479f1701d",
@@ -952,7 +960,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-9ffebb693f1c",
@@ -985,7 +994,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Pflegeexpertin-Pflegeexperte-Notfallstation-mit-MScN-%28Clinical-Nurse-Specialist%29/1361249357/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.271Z",
+      "crawledAt": "2026-10-12T09:41:51.843Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1062,7 +1071,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachperson-Gesundheit-Intensivstation/1350525757/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.271Z",
+      "crawledAt": "2026-10-12T09:41:51.841Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1147,7 +1156,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Praktikantin-Pflege/518378202/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.271Z",
+      "crawledAt": "2026-10-12T09:41:51.843Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1224,7 +1233,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Berufsbildnerin-Pflege-Ausbildungsstation-mit-WAIDsicht/1358646757/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.271Z",
+      "crawledAt": "2026-10-12T09:41:51.843Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1305,7 +1314,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-mit-Zusatzaufgabe-als-Tagesbezugsperson-f%C3%BCr-die-Ausbildungsstation/1330754957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.271Z",
+      "crawledAt": "2026-10-12T09:41:51.843Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1426,7 +1435,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-8eb63497521c",
@@ -1510,7 +1520,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-8e4a38ddfaa6",
@@ -1587,7 +1598,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-7e8aa920ac6b",
@@ -1671,7 +1683,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-d4cf7786466d",
@@ -1755,7 +1768,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-b212917eff31",
@@ -1843,7 +1857,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-f597df812971",
@@ -1920,7 +1935,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-791a3b8a5aa5",
@@ -2004,7 +2020,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-371f53fdcb1a",
@@ -2092,7 +2109,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-263de7bdc3d1",
@@ -2180,7 +2198,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-5d6467d5647e",
@@ -2264,7 +2283,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-b68a66147460",
@@ -2341,7 +2361,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-904aa7ffd79f",
@@ -2418,7 +2439,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-02a77a351f43",
@@ -2499,7 +2521,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-9d57f998db1b",
@@ -2584,7 +2607,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-ab5f61ed1861",
@@ -2661,7 +2685,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-5952387c4ea9",
@@ -2747,7 +2772,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-063df3ef4817",
@@ -2824,7 +2850,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-34c474c1887e",
@@ -2909,7 +2936,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-f411770ca1c7",
@@ -2997,7 +3025,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-91a217225cdd",
@@ -3078,7 +3107,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-31f585d57f8b",
@@ -3155,7 +3185,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-17e8bed5c47e",
@@ -3236,7 +3267,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-eb1495e75643",
@@ -3317,7 +3349,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-e604e9e1208c",
@@ -3400,7 +3433,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-bd77531ea904",
@@ -3481,7 +3515,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-1b0e8362c1ae",
@@ -3566,7 +3601,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-bf56e5fe6554",
@@ -3651,7 +3687,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-ea49bba28fad",
@@ -3739,7 +3776,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-81fdabce34f3",
@@ -3827,7 +3865,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-84e13e9f16f1",
@@ -3908,7 +3947,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-b62282b72b68",
@@ -3985,7 +4025,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-7fb0c08fa1ec",
@@ -4070,7 +4111,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-6fb0ededdfac",
@@ -4147,7 +4189,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-111a1716205b",
@@ -4224,7 +4267,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-d649d5c85376",
@@ -4301,7 +4345,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-33621da7e923",
@@ -4385,7 +4430,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-82b3f43be1f0",
@@ -4462,7 +4508,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-1a34babc14aa",
@@ -4495,7 +4542,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Praktikantin-Ambulantes-Perioperatives-Zentrum/828169602/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.268Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4573,7 +4620,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Med_-Praxisassistentin-Fachperson-Gesundheit-EndokrinologieDiabetologiePorphyrie/1371113757/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.268Z",
+      "crawledAt": "2026-10-12T09:41:51.847Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4650,7 +4697,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Physiotherapeutin-als-Fachverantwortlicher-kardiopulmonale-Physiotherapie/1368892957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.268Z",
+      "crawledAt": "2026-10-12T09:41:51.847Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4804,7 +4851,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-2aa1acfeaca3",
@@ -4885,7 +4933,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-cb0332ed4418",
@@ -4973,7 +5022,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-10d778eae262",
@@ -5060,7 +5110,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-fa552d67385d",
@@ -5145,7 +5196,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-cee3417ca990",
@@ -5229,7 +5281,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-eae39ce5ec4e",
@@ -5310,7 +5363,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadtspital-zuerich-aa314dbd64a9",
@@ -5343,7 +5397,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-als-Dauernachtwache%2C-befristet/828392602/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5429,7 +5483,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-IMC-f%C3%BCr-die-med_-%C3%9Cberwachungsstation%2C-befristet/1374457457/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5448,13 +5502,11 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-IMC-f%C3%BCr-die-med_-%C3%9Cberwachungsstation%2C-befristet/1374457457/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51928",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich"
@@ -5509,7 +5561,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachperson-Gesundheit-mit-WAIDsicht/1369186857/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5576,11 +5628,11 @@
     },
     {
       "id": "stadtspital-zuerich-53d18d59894f",
-      "slug": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
+      "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
+        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
+        "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -5605,7 +5657,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Herzchirurgie-und-Traumatologie-Triemli/1369192557/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5624,21 +5676,21 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Herzchirurgie-und-Traumatologie-Triemli/1369192557/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51306",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
       ],
       "salaryMin": 91500,
@@ -5687,7 +5739,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Intensivpflege-Triemli/1352438357/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5770,7 +5822,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Frauenklinik%2C-Schwerpunkt-Wochenbett/817646502/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5846,7 +5898,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachperson-Gesundheit-Medizin/1366395657/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5943,7 +5995,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Assistentin-Gesundheit-und-Soziales-oder-Pflegeassistentin-mit-Fachausweis/1366396957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6026,7 +6078,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachbereichsleiterin-BMA-H%C3%A4matologielabor-%2880-100%29%2C-Standort-Triemli/1371706857/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6111,7 +6163,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Expertin-Experte-Intensivpflege/1352447457/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6194,7 +6246,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Oberarzt-Ober%C3%A4rztin-f%C3%BCr-Medizinische-Onkologie/1358425257/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6271,7 +6323,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachverantwortlicher-Versorgungsassistentin-OP/1374282557/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6356,7 +6408,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Gruppenleiterin-Physiotherapie/1355786857/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.846Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6388,7 +6440,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -6434,7 +6485,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Med_-Praxisassistentin-EFZ-im-Schichtdienst-der-Kinderklinik/1331107957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.267Z",
+      "crawledAt": "2026-10-12T09:41:51.847Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6521,7 +6572,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Praktikantin-Pflege-Kinderklinik/1350386957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.266Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6544,24 +6595,24 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "48770",
+      "previousSlugs": [
+        "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770",
+        "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich"
-        ],
         "it": [
           "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770"
         ],
         "en": [
           "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770"
         ],
+        "de": [
+          "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich"
+        ],
         "fr": [
           "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-pflege-kinderklinik-stadtspital-zuerich-48770",
-        "praktikant-in-pflege-kinderklinik-stadtspital-zurich-zurich"
-      ],
       "firstSeenAt": "2026-10-09T09:38:44.838Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -6608,7 +6659,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-f%C3%BCr-die-interdisziplin%C3%A4re-chirurgische-Privatstation/1371462657/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.266Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6688,7 +6739,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Bildungsverantwortlicher-mit-Ausbildungsgangverantwortung-f%C3%BCr-FH-Hebammen/1358640657/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.266Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6767,7 +6818,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Sachbearbeiterin-Sekretariat-Ausbildung-und-Bildung/1368952957/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.266Z",
+      "crawledAt": "2026-10-12T09:41:51.844Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6843,7 +6894,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Pflegefachperson-Urologie%2C-Wirbels%C3%A4ulenchirurgie-und-Beleg%C3%A4rztinnen/1366591257/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.266Z",
+      "crawledAt": "2026-10-12T09:41:51.845Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6940,7 +6991,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachperson-Gesundheit-An%C3%A4sthesie/1372011257/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.265Z",
+      "crawledAt": "2026-10-12T09:41:51.844Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -7017,7 +7068,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Fachperson-Gesundheit-Notfall/1372011557/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.265Z",
+      "crawledAt": "2026-10-12T09:41:51.844Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -7094,7 +7145,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Med_-Praxisassistentin-Fachperson-Gesundheit-Europaallee-Praxen/828733602/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:36:14.261Z",
+      "crawledAt": "2026-10-12T09:41:51.843Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -7143,6 +7194,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "stadtspital-zuerich-77262416eb79",
+      "slug": "dipl-radiologiefachperson-stadtspital-zurich-zurich",
+      "slugByLocale": {
+        "de": "dipl-radiologiefachperson-stadtspital-zuerich-51815",
+        "it": "dipl-radiologiefachperson-stadtspital-zurich-zurich",
+        "en": "dipl-radiologiefachperson-stadtspital-zurich-zurich",
+        "fr": "dipl-radiologiefachperson-stadtspital-zurich-zurich"
+      },
+      "company": "Stadtspital Zürich",
+      "companyKey": "stadtspital-zuerich",
+      "companyDomain": "stadtspital.ch",
+      "title": "Dipl. Radiologiefachperson",
+      "titleByLocale": {
+        "de": "Dipl. Radiologiefachperson",
+        "it": "Dipl. Radiologiefachperson",
+        "en": "Dipl. Radiologiefachperson",
+        "fr": "Dipl. Radiologiefachperson"
+      },
+      "description": "Zur Verstärkung unseres Teams am Standort Triemli suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nAufgaben\n\n• Du arbeitest abwechselnd an unseren modernen Arbeitsplätzen in der digitalen konventionellen Radiologie (Samsung GCA 85), Mammografie (GE Senographie Pristina), interventionellen Radiologie (Siemens ARTIS pheno, Siemens ARTIS zee MP), Computertomographie (Revolution CT, GE) und Magnetresonanztomographie (1.5T GE Signa Artist und 3.0T GE Signa Architect).\n\n• Du hast zudem die Option, das Team in der Nuklearmedizin auf unseren modernen Geräten (PETCT GE Discovery NM) zu unterstützen\n\n• Du engagierst dich bei der Einführung neuer Mitarbeitenden und wirkst bei der Betreuung von unseren Studierenden mit.\n\n• Du förderst eine gute Zusammenarbeit im Team und interdisziplinär.\n\n• Du erhältst die Möglichkeit, bei Interesse auch standortübergreifend tätig zu sein.\n\nProfil\n\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Dipl. Radiologiefachmann HF\n\n• Teamfähigkeit, hohe Belastbarkeit und ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Hohes Verantwortungs- und Qualitätsbewusstsein sowie Zuverlässigkeit\n\n• Bereitschaft zur Schicht- und Wochenendarbeit\n\nWir bieten\n\nWir bieten dir mehr als nur einen Job! Wir leben eine offene Du-Kultur, die von einem unkomplizierten und persönlichen Miteinander auf Augenhöhe, Respekt und Wertschätzung geprägt ist. Als Teil unseres vielfältigen Teams aus über 120 Berufsgruppen gestaltest du aktiv ein sinnstiftendes Umfeld mit. Darüber hinaus profitierst du von attraktiven Anstellungsbedingungen sowie ausgezeichneten Sozialleistungen der Stadt Zürich.\n\nÜber uns\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein.",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Teams am Standort Triemli suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nAufgaben\n\n• Du arbeitest abwechselnd an unseren modernen Arbeitsplätzen in der digitalen konventionellen Radiologie (Samsung GCA 85), Mammografie (GE Senographie Pristina), interventionellen Radiologie (Siemens ARTIS pheno, Siemens ARTIS zee MP), Computertomographie (Revolution CT, GE) und Magnetresonanztomographie (1.5T GE Signa Artist und 3.0T GE Signa Architect).\n\n• Du hast zudem die Option, das Team in der Nuklearmedizin auf unseren modernen Geräten (PETCT GE Discovery NM) zu unterstützen\n\n• Du engagierst dich bei der Einführung neuer Mitarbeitenden und wirkst bei der Betreuung von unseren Studierenden mit.\n\n• Du förderst eine gute Zusammenarbeit im Team und interdisziplinär.\n\n• Du erhältst die Möglichkeit, bei Interesse auch standortübergreifend tätig zu sein.\n\nProfil\n\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Dipl. Radiologiefachmann HF\n\n• Teamfähigkeit, hohe Belastbarkeit und ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Hohes Verantwortungs- und Qualitätsbewusstsein sowie Zuverlässigkeit\n\n• Bereitschaft zur Schicht- und Wochenendarbeit\n\nWir bieten\n\nWir bieten dir mehr als nur einen Job! Wir leben eine offene Du-Kultur, die von einem unkomplizierten und persönlichen Miteinander auf Augenhöhe, Respekt und Wertschätzung geprägt ist. Als Teil unseres vielfältigen Teams aus über 120 Berufsgruppen gestaltest du aktiv ein sinnstiftendes Umfeld mit. Darüber hinaus profitierst du von attraktiven Anstellungsbedingungen sowie ausgezeichneten Sozialleistungen der Stadt Zürich.\n\nÜber uns\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein.",
+        "it": "Zur Verstärkung unseres Teams am Standort Triemli suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nAufgaben\n\n• Du arbeitest abwechselnd an unseren modernen Arbeitsplätzen in der digitalen konventionellen Radiologie (Samsung GCA 85), Mammografie (GE Senographie Pristina), interventionellen Radiologie (Siemens ARTIS pheno, Siemens ARTIS zee MP), Computertomographie (Revolution CT, GE) und Magnetresonanztomographie (1.5T GE Signa Artist und 3.0T GE Signa Architect).\n\n• Du hast zudem die Option, das Team in der Nuklearmedizin auf unseren modernen Geräten (PETCT GE Discovery NM) zu unterstützen\n\n• Du engagierst dich bei der Einführung neuer Mitarbeitenden und wirkst bei der Betreuung von unseren Studierenden mit.\n\n• Du förderst eine gute Zusammenarbeit im Team und interdisziplinär.\n\n• Du erhältst die Möglichkeit, bei Interesse auch standortübergreifend tätig zu sein.\n\nProfil\n\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Dipl. Radiologiefachmann HF\n\n• Teamfähigkeit, hohe Belastbarkeit und ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Hohes Verantwortungs- und Qualitätsbewusstsein sowie Zuverlässigkeit\n\n• Bereitschaft zur Schicht- und Wochenendarbeit\n\nWir bieten\n\nWir bieten dir mehr als nur einen Job! Wir leben eine offene Du-Kultur, die von einem unkomplizierten und persönlichen Miteinander auf Augenhöhe, Respekt und Wertschätzung geprägt ist. Als Teil unseres vielfältigen Teams aus über 120 Berufsgruppen gestaltest du aktiv ein sinnstiftendes Umfeld mit. Darüber hinaus profitierst du von attraktiven Anstellungsbedingungen sowie ausgezeichneten Sozialleistungen der Stadt Zürich.\n\nÜber uns\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein.",
+        "en": "Zur Verstärkung unseres Teams am Standort Triemli suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nAufgaben\n\n• Du arbeitest abwechselnd an unseren modernen Arbeitsplätzen in der digitalen konventionellen Radiologie (Samsung GCA 85), Mammografie (GE Senographie Pristina), interventionellen Radiologie (Siemens ARTIS pheno, Siemens ARTIS zee MP), Computertomographie (Revolution CT, GE) und Magnetresonanztomographie (1.5T GE Signa Artist und 3.0T GE Signa Architect).\n\n• Du hast zudem die Option, das Team in der Nuklearmedizin auf unseren modernen Geräten (PETCT GE Discovery NM) zu unterstützen\n\n• Du engagierst dich bei der Einführung neuer Mitarbeitenden und wirkst bei der Betreuung von unseren Studierenden mit.\n\n• Du förderst eine gute Zusammenarbeit im Team und interdisziplinär.\n\n• Du erhältst die Möglichkeit, bei Interesse auch standortübergreifend tätig zu sein.\n\nProfil\n\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Dipl. Radiologiefachmann HF\n\n• Teamfähigkeit, hohe Belastbarkeit und ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Hohes Verantwortungs- und Qualitätsbewusstsein sowie Zuverlässigkeit\n\n• Bereitschaft zur Schicht- und Wochenendarbeit\n\nWir bieten\n\nWir bieten dir mehr als nur einen Job! Wir leben eine offene Du-Kultur, die von einem unkomplizierten und persönlichen Miteinander auf Augenhöhe, Respekt und Wertschätzung geprägt ist. Als Teil unseres vielfältigen Teams aus über 120 Berufsgruppen gestaltest du aktiv ein sinnstiftendes Umfeld mit. Darüber hinaus profitierst du von attraktiven Anstellungsbedingungen sowie ausgezeichneten Sozialleistungen der Stadt Zürich.\n\nÜber uns\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein.",
+        "fr": "Zur Verstärkung unseres Teams am Standort Triemli suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit.\n\nAufgaben\n\n• Du arbeitest abwechselnd an unseren modernen Arbeitsplätzen in der digitalen konventionellen Radiologie (Samsung GCA 85), Mammografie (GE Senographie Pristina), interventionellen Radiologie (Siemens ARTIS pheno, Siemens ARTIS zee MP), Computertomographie (Revolution CT, GE) und Magnetresonanztomographie (1.5T GE Signa Artist und 3.0T GE Signa Architect).\n\n• Du hast zudem die Option, das Team in der Nuklearmedizin auf unseren modernen Geräten (PETCT GE Discovery NM) zu unterstützen\n\n• Du engagierst dich bei der Einführung neuer Mitarbeitenden und wirkst bei der Betreuung von unseren Studierenden mit.\n\n• Du förderst eine gute Zusammenarbeit im Team und interdisziplinär.\n\n• Du erhältst die Möglichkeit, bei Interesse auch standortübergreifend tätig zu sein.\n\nProfil\n\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Dipl. Radiologiefachmann HF\n\n• Teamfähigkeit, hohe Belastbarkeit und ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Hohes Verantwortungs- und Qualitätsbewusstsein sowie Zuverlässigkeit\n\n• Bereitschaft zur Schicht- und Wochenendarbeit\n\nWir bieten\n\nWir bieten dir mehr als nur einen Job! Wir leben eine offene Du-Kultur, die von einem unkomplizierten und persönlichen Miteinander auf Augenhöhe, Respekt und Wertschätzung geprägt ist. Als Teil unseres vielfältigen Teams aus über 120 Berufsgruppen gestaltest du aktiv ein sinnstiftendes Umfeld mit. Darüber hinaus profitierst du von attraktiven Anstellungsbedingungen sowie ausgezeichneten Sozialleistungen der Stadt Zürich.\n\nÜber uns\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.stadt-zuerich.ch/job/Dipl_-Radiologiefachperson/1374025157/",
+      "source": "Stadtspital Zürich Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-12T09:41:51.847Z",
+      "streetAddress": "Birmensdorferstrasse 497",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.stadt-zuerich.ch/job/Dipl_-Radiologiefachperson/1374025157/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Gesundheits- und Umweltdepartement",
+      "unit": "Stadtspital Zürich",
+      "referenceNumber": "51815",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-stadtspital-zuerich-51815"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-stadtspital-zuerich-51815"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-12T09:41:51.847Z"
     }
   ]
 }

@@ -1,18 +1,59 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-11T21:11:30.517Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-10-12T09:14:58.649Z",
+  "total": 15,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 9659,
-  "avgDurationMs": 9659,
+  "durationMs": 9860,
+  "avgDurationMs": 9860,
   "durationHistory": [
-    9659
+    9860
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikant/-in Buchhaltung",
+      "slug": "praktikant-in-buchhaltung-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/praktikant-in-buchhaltung/209afba1-448e-4967-997d-88537825b9bb",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20696",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-12T07:51:49Z",
+      "postedDate": "2026-10-12T07:51:49Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-aee7a17e5812",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 100500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-12T09:14:47.378Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "HR Business Partner/-in",
@@ -215,46 +256,6 @@
       }
     },
     {
-      "title": "Sanitär- und Heizungstechniker/in",
-      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-29T22:00:00Z",
-      "validThrough": "2026-11-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-7ef1058e63a6",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-18T21:36:14.124Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "datePosted": "2026-09-29T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
       "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
@@ -290,6 +291,46 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Sanitär- und Heizungstechniker/in",
+      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-29T22:00:00Z",
+      "validThrough": "2026-11-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-7ef1058e63a6",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -575,5 +616,5 @@
       }
     }
   ],
-  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
+  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
 }

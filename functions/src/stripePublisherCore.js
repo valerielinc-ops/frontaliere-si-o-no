@@ -1073,6 +1073,15 @@ export async function handleStripeWebhook(req) {
     return { status: 200, body: { received: true } };
   }
 
+  // The 30-day application concierge has its own parent entitlement ledger.
+  // Dispatch it before the legacy one-job €0.99 handler so the two products
+  // cannot reinterpret each other's metadata or refunds.
+  const { handleApplicationConciergeWebhookEvent } = await import('./applicationConciergeCheckout.js');
+  if (await handleApplicationConciergeWebhookEvent(event, { db, ts })) {
+    await eventRef.set({ type: event.type, processedAt: ts });
+    return { status: 200, body: { received: true } };
+  }
+
   // Assisted-application one-off payments (#6405). This is deliberately a
   // separate dynamic dispatch: the signed project-wide webhook remains the
   // only payment-confirmation path, while publisher handling below stays

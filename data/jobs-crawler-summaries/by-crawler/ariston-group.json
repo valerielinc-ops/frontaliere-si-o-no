@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-10-11T21:31:07.035Z",
+  "generatedAt": "2026-10-12T09:36:53.905Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6869,
-  "avgDurationMs": 6869,
+  "durationMs": 7011,
+  "avgDurationMs": 7011,
   "durationHistory": [
-    6869
+    7011
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-fa7a95384a19",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -76,7 +76,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-1063a4afe357",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -117,7 +117,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-f611fe7dcd9d",
       "salaryMin": 46900,
       "salaryMax": 71400,
@@ -158,7 +158,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-3d3d44e691e3",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -199,7 +199,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-5db962c060fe",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -240,7 +240,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-dd651d458850",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -323,7 +323,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-11",
       "id": "ariston-group-d2410eb46b18",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -463,5 +463,5 @@
       }
     }
   ],
-  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
+  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
 }

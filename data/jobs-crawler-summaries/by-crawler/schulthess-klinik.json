@@ -1,25 +1,25 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-10-11T21:09:48.293Z",
-  "total": 8,
+  "generatedAt": "2026-10-12T09:15:37.967Z",
+  "total": 7,
   "discovered": null,
-  "parsed": 7,
+  "parsed": 6,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 3549,
-  "avgDurationMs": 3549,
+  "durationMs": 3185,
+  "avgDurationMs": 3185,
   "durationHistory": [
-    3549
+    3185
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:09:35.266Z",
+      "crawledAt": "2026-10-12T09:15:23.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,9 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "schulthess-klinik-a0f86a090119",
       "slug": "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
@@ -101,7 +103,6 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,7 +112,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "schulthess-klinik-93d8ce3bb1fc",
@@ -126,7 +126,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/48e0236d-d7b2-4e77-8c30-db26b0ddf6b0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:09:35.289Z",
+      "crawledAt": "2026-10-12T09:15:23.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/5436004d-b4fd-4783-a9f4-3412327ae7cb",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:09:35.285Z",
+      "crawledAt": "2026-10-12T09:15:23.253Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/815a04d2-89e2-4018-9b7c-1cc368677341",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:09:35.281Z",
+      "crawledAt": "2026-10-12T09:15:23.249Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/d4e72e6d-3527-417c-a433-f6b297abf3b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:09:35.277Z",
+      "crawledAt": "2026-10-12T09:15:23.241Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -298,7 +298,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/7ca302b9-6563-4230-b545-33faeeb48848",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:09:35.273Z",
+      "crawledAt": "2026-10-12T09:15:23.236Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -362,6 +362,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -371,5 +372,5 @@
       }
     }
   ],
-  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
+  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
 }

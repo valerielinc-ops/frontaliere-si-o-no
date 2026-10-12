@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-11T21:19:42.468Z",
+  "generatedAt": "2026-10-12T09:16:55.074Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 8376,
-  "avgDurationMs": 8376,
+  "durationMs": 9239,
+  "avgDurationMs": 9239,
   "durationHistory": [
-    8376
+    9239
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -103,6 +103,47 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Customer Service Specialist - German Speaking",
+      "slug": "servizio-clienti-specialista-german-speaking-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-German-Speaking/1355847255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1355847255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-604443163c6a",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-06-18T22:39:21.798Z",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-german-speaking/1355847255",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
     {
       "title": "Legal Senior Specialist",
       "slug": "legal-senior-specialist-damiani-group-mendrisio",
@@ -347,48 +388,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "title": "Customer Service Specialist - German Speaking",
-      "slug": "servizio-clienti-specialista-german-speaking-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-German-Speaking/1355847255/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1355847255/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-604443163c6a",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-06-18T22:39:21.798Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-german-speaking/1355847255",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
+  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
 }

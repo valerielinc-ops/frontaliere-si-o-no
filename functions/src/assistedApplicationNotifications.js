@@ -1000,6 +1000,7 @@ export async function handleAssistedApplicationOrderWritten(
 ) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const results = [];
+  const conciergeChild = after.billingMode === 'application_concierge';
 
   // A new CV reference: verify the stored bytes before anyone opens the file.
   if (after.cvStorageKey && after.cvStorageKey !== before?.cvStorageKey) {
@@ -1009,6 +1010,13 @@ export async function handleAssistedApplicationOrderWritten(
     } catch (error) {
       results.push({ ok: false, key: 'cv_file_check', reason: error instanceof Error ? error.message : String(error) });
     }
+  }
+
+  // Concierge children inherit payment and candidate data from the parent
+  // service. They still use this trigger for the server-side CV magic-byte
+  // check, but must not receive the legacy €0.99 payment/materials emails.
+  if (conciergeChild) {
+    return results.length > 0 ? { ok: true, results } : { ok: true, skipped: 'concierge_child' };
   }
 
   if (isPaid(after) && !isPaid(before)) {
@@ -1070,6 +1078,10 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
 
   for (const doc of snapshot.docs || []) {
     const order = doc.data() || {};
+    if (order.billingMode === 'application_concierge') {
+      summary.skipped += 1;
+      continue;
+    }
     const notifications = order.notifications || {};
     const paidAtMs = timestampMillis(order.paidAt);
     const intro = notifications[NOTIFICATION_KEYS.customerIntro];
