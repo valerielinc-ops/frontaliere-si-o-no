@@ -15,6 +15,15 @@ export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultin
 /** Stripe Checkout Session creation for the €0.99 assisted-application flow. */
 export const CREATE_ASSISTED_APPLICATION_CHECKOUT_URL = `${FUNCTIONS_BASE}/createAssistedApplicationCheckout`;
 
+/** Stripe/SumUp Checkout for the €39.99, 30-day application concierge. */
+export const CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL = `${FUNCTIONS_BASE}/createApplicationConciergeCheckout`;
+
+/** Candidate portal API for the application concierge parent service. */
+export const APPLICATION_CONCIERGE_URL = `${FUNCTIONS_BASE}/applicationConcierge`;
+
+/** Owner proposal queue API for the application concierge. */
+export const MANAGE_APPLICATION_CONCIERGE_URL = `${FUNCTIONS_BASE}/manageApplicationConcierge`;
+
 /** Candidate review page of the automated assisted application (signed link, no login). */
 export const ASSISTED_APPLICATION_REVIEW_URL = `${FUNCTIONS_BASE}/assistedApplicationReview`;
 

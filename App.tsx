@@ -134,6 +134,7 @@ const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/Preferred
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
 const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
+const ApplicationConciergePortal = lazyRetry(() => import('@/components/community/ApplicationConciergePortal'));
 const GptJobBoardBootstrap = React.lazy(() => import('@/components/shared/GptJobBoardBootstrap'));
 const PlateAuctionsPage = lazyRetry(() => import('@/components/pages/PlateAuctionsPage').then(m => ({ default: m.PlateAuctionsPage })));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
@@ -3230,7 +3231,15 @@ const App: React.FC = () => {
  // 1400) so the v4 cascade can't pin it to 7xl. Inner list view self-caps
  // (max-w-6xl), so only the rail'd detail/gate views use the full width.
  <div className="max-xlw:max-w-7xl xlw:max-w-none mx-auto">
- <JobBoard
+ {(typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge_service_id') || new URLSearchParams(window.location.search).get('application_concierge') === '1')) ? (
+ <ApplicationConciergePortal
+  serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
+  entry={typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('application_concierge') === '1'}
+  authUser={authUser}
+  authLoading={authLoading}
+  onRequireAuth={() => navigateTo('profile' as any)}
+ />
+ ) : <JobBoard
  initialJobSlug={jobSlug || undefined}
  initialFilterParams={jobBoardFilterParams}
  initialFilterCanton={typeof window !== 'undefined' ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null) : null}
@@ -3261,7 +3270,7 @@ const App: React.FC = () => {
  onPostJob={() => {
  navigateTo('for-employers' as any);
  }}
- />
+ />}
  </div>
  ) : activeTab === 'profile' ? (
  <div className="max-w-7xl mx-auto">

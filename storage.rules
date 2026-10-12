@@ -33,6 +33,24 @@ service firebase.storage {
       allow update, delete: if false;
     }
 
+    // CV source for the paid 30-day concierge. The profile/consent write is
+    // server-side; this rule only permits the candidate's file after payment,
+    // while the API validates the resulting storage key before persisting it.
+    match /application-concierge-uploads/{serviceId}/{file} {
+      allow create: if request.auth != null
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.userId == request.auth.uid
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.paymentStatus == 'paid'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.serviceStatus == 'active'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.expiresAt > request.time
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.consentVersion == 'application-concierge-v1'
+        && firestore.get(/databases/(default)/documents/application_concierge_services/$(serviceId)).data.consentedAt is timestamp
+        && file.matches('^[A-Za-z0-9._-]+$')
+        && !file.matches('.*\\.\\..*')
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');
+      allow read, update, delete: if false;
+    }
+
     // Journalist hero-image uploads for draft/queued articles (see
     // firestore.rules `journalist_articles`). Only the owning journalist may
     // write or read their own path; the publish pipeline reads via the Admin

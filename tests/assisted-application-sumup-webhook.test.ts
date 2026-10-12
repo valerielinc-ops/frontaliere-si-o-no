@@ -4,6 +4,7 @@ const mocks = vi.hoisted(() => ({
   db: vi.fn(),
   retrieveSumUpCheckout: vi.fn(),
   handleAssistedApplicationWebhookEvent: vi.fn(),
+  handleApplicationConciergeWebhookEvent: vi.fn(),
 }));
 
 vi.mock('firebase-admin/firestore', () => ({
@@ -20,12 +21,32 @@ vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
   SUMUP_PAYMENT_PROVIDER: 'sumup',
   retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveSumUpCheckout(...args),
 }));
+vi.mock('../functions/src/applicationConciergeConstants.js', () => ({
+  APPLICATION_CONCIERGE_PRODUCT: 'application_concierge',
+  APPLICATION_CONCIERGE_SERVICES_COLLECTION: 'application_concierge_services',
+}));
+vi.mock('../functions/src/applicationConciergeCheckout.js', () => ({
+  handleApplicationConciergeWebhookEvent: (...args: unknown[]) => mocks.handleApplicationConciergeWebhookEvent(...args),
+}));
 
 const { handleAssistedApplicationSumUpWebhook } = await import('../functions/src/assistedApplicationSumupWebhook.js');
 
-function makeDb(order: Record<string, unknown> | null) {
+function makeDb(
+  order: Record<string, unknown> | null,
+  service: Record<string, unknown> | null = null,
+) {
   return {
     collection: (name: string) => {
+      if (name === 'application_concierge_services') {
+        return {
+          doc: () => ({
+            get: async () => ({
+              exists: service != null,
+              data: () => service,
+            }),
+          }),
+        };
+      }
       expect(name).toBe('assisted_applications');
       return {
         doc: (id: string) => ({
@@ -44,6 +65,7 @@ beforeEach(() => {
   mocks.db.mockReset();
   mocks.retrieveSumUpCheckout.mockReset();
   mocks.handleAssistedApplicationWebhookEvent.mockReset();
+  mocks.handleApplicationConciergeWebhookEvent.mockReset();
 });
 describe('SumUp assisted-application webhook', () => {
   it('retrieves and dispatches a paid checkout only for its own pending order', async () => {
@@ -106,6 +128,45 @@ describe('SumUp assisted-application webhook', () => {
       method: 'POST',
       body: { event_type: 'CHECKOUT_STATUS_CHANGED', id: 'sumup_checkout_1' },
     })).resolves.toEqual({ status: 200, body: { received: true, ignored: true } });
+    expect(mocks.handleAssistedApplicationWebhookEvent).not.toHaveBeenCalled();
+  });
+
+  it('dispatches the 39.99 EUR checkout to the concierge parent ledger', async () => {
+    mocks.db.mockReturnValue(makeDb(null, {
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_concierge_1',
+      paymentStatus: 'pending',
+    }));
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      id: 'sumup_concierge_1',
+      checkout_reference: 'service-1',
+      amount: 39.99,
+      currency: 'EUR',
+      status: 'PAID',
+      transactions: [{ id: 'sumup_transaction_concierge' }],
+    });
+
+    await expect(handleAssistedApplicationSumUpWebhook({
+      method: 'POST',
+      body: { event_type: 'CHECKOUT_STATUS_CHANGED', id: 'sumup_concierge_1' },
+    })).resolves.toEqual({ status: 200, body: { received: true } });
+
+    expect(mocks.handleApplicationConciergeWebhookEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: 'checkout.session.completed',
+        data: expect.objectContaining({
+          object: expect.objectContaining({
+            amount_total: 3999,
+            client_reference_id: 'service-1',
+            metadata: expect.objectContaining({
+              product: 'application_concierge',
+              serviceId: 'service-1',
+            }),
+          }),
+        }),
+      }),
+      expect.objectContaining({ ts: '__timestamp__' }),
+    );
     expect(mocks.handleAssistedApplicationWebhookEvent).not.toHaveBeenCalled();
   });
 });

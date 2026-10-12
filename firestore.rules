@@ -1103,6 +1103,20 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // Application concierge parent entitlement. Candidate state changes go
+    // through the authenticated Cloud Function so proposal acceptance can be
+    // checked and materialized atomically; direct client writes stay closed.
+    match /application_concierge_services/{serviceId} {
+      allow get: if isSiteAdmin()
+        || (isSignedIn() && request.auth.uid == resource.data.userId);
+      allow list: if false;
+      allow create, update, delete: if false;
+    }
+
+    match /application_concierge_services/{serviceId}/proposals/{proposalId} {
+      allow read, write: if false;
+    }
+
     // Lifecycle audit entries contain operational history and actor metadata;
     // they are written by the admin/status webhook code with the Admin SDK only.
     // In particular, a candidate must not be able to erase or forge a
