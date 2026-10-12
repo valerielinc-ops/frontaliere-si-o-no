@@ -1207,7 +1207,7 @@
       "slug": "cassiera-otto-s-ag-thun",
       "slugByLocale": {
         "it": "cassiera-otto-s-ag-thun",
-        "en": "cashiers-otto-s-ag-thun",
+        "en": "cashier-in-otto-s-ag-thun",
         "de": "kassierer-in-ottos-thun",
         "fr": "caissier-otto-s-ag-thun"
       },
@@ -1260,14 +1260,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "kassierer-in-ottos-thun",
-        "cashier-in-otto-s-ag-thun"
+        "cashiers-otto-s-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kassierer-in-ottos-thun"
         ],
         "en": [
-          "cashier-in-otto-s-ag-thun"
+          "cashiers-otto-s-ag-thun"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:34.217Z",
@@ -1897,7 +1897,7 @@
       "id": "ottos-5a32d85f8456",
       "slug": "cassiere-otto-s-ag-wattwil",
       "slugByLocale": {
-        "it": "cassiere-otto-s-ag-wattwil",
+        "it": "cashier-in-otto-s-ag-wattwil",
         "en": "cashiers-otto-s-ag-wattwil",
         "de": "kassierer-in-ottos-wattwil",
         "fr": "caissier-en-otto-s-ag-wattwil"
@@ -1953,16 +1953,14 @@
         "cashier-in-otto-s-ag-wil",
         "kassierer-in-ottos-wil",
         "caissier-otto-s-ag-wil",
-        "kassierer-in-ottos-wattwil",
-        "cashier-in-otto-s-ag-wattwil"
+        "kassierer-in-ottos-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cashier-in-otto-s-ag-wil",
           "kassierer-in-ottos-wil",
           "caissier-otto-s-ag-wil",
-          "kassierer-in-ottos-wattwil",
-          "cashier-in-otto-s-ag-wattwil"
+          "kassierer-in-ottos-wattwil"
         ],
         "en": [
           "cashier-in-otto-s-ag-wil"
@@ -2319,7 +2317,7 @@
         "it": "mobili-per-rappresentanti-vendite-otto-s-ag-aathal",
         "en": "sales-staff-in-furniture-otto-s-ag-aathal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-aathal",
-        "fr": "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
+        "fr": "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2378,7 +2376,7 @@
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-langwiesen",
         "vendeur-vendeuse-de-meubles-otto-s-ag-langwiesen",
         "verkaufsmitarbeiter-in-mobel-ottos-aathal",
-        "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
+        "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2402,7 +2400,7 @@
         "fr": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
           "personnel-de-vente-en-mobilier-otto-s-ag-langwiesen",
-          "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
+          "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:24.172Z",
@@ -3742,7 +3740,7 @@
         "it": "mobili-per-rappresentanti-vendite-otto-s-ag-schattdorf",
         "en": "sales-staff-in-furniture-otto-s-ag-schattdorf",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
-        "fr": "vendeur-de-meubles-otto-s-ag-schattdorf"
+        "fr": "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3794,7 +3792,7 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
         "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
-        "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
+        "vendeur-de-meubles-otto-s-ag-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3806,7 +3804,7 @@
         ],
         "fr": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
-          "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
+          "vendeur-de-meubles-otto-s-ag-schattdorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:05.032Z",
@@ -4658,9 +4656,9 @@
       "slug": "vice-direttore-di-filiale-otto-s-ag-uetendorf",
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-otto-s-ag-uetendorf",
-        "en": "assistant-store-manager-otto-s-ag-uetendorf",
+        "en": "deputy-in-branch-management-otto-s-ag-uetendorf",
         "de": "stellvertreter-in-filialleitung-ottos-uetendorf",
-        "fr": "assistant-manager-de-magasin-otto-s-ag-uetendorf"
+        "fr": "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4715,18 +4713,18 @@
         "stellvertreter-in-filialleitung-ottos-zuchwil",
         "adjoint-dans-la-direction-generale-otto-s-ag-zuchwil",
         "stellvertreter-in-filialleitung-ottos-uetendorf",
-        "deputy-in-branch-management-otto-s-ag-uetendorf",
-        "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
+        "assistant-store-manager-otto-s-ag-uetendorf",
+        "assistant-manager-de-magasin-otto-s-ag-uetendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertreter-in-filialleitung-ottos-uetendorf"
         ],
         "en": [
-          "deputy-in-branch-management-otto-s-ag-uetendorf"
+          "assistant-store-manager-otto-s-ag-uetendorf"
         ],
         "fr": [
-          "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
+          "assistant-manager-de-magasin-otto-s-ag-uetendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:59.339Z",
@@ -7329,7 +7327,7 @@
       "id": "ottos-dad39d14dda7",
       "slug": "responsabile-reparto-mobili-otto-s-ag-winterthur",
       "slugByLocale": {
-        "it": "responsabile-reparto-mobili-otto-s-ag-winterthur",
+        "it": "capo-dipartimento-arredamento-otto-s-ag-winterthur",
         "en": "head-of-department-in-furniture-otto-s-ag-winterthur",
         "de": "abteilungsleiter-in-mobel-ottos-winterthur",
         "fr": "chef-de-departement-en-mobilier-otto-s-ag-winterthur"
@@ -7388,14 +7386,12 @@
         "abteilungsleiter-in-mobel-ottos-grenchen",
         "chef-de-departement-en-mobilier-otto-s-ag-grenchen",
         "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
-        "abteilungsleiter-in-mobel-ottos-winterthur",
-        "capo-dipartimento-arredamento-otto-s-ag-winterthur"
+        "abteilungsleiter-in-mobel-ottos-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-mobel-otto-s-ag-winterthur",
-          "abteilungsleiter-in-mobel-ottos-winterthur",
-          "capo-dipartimento-arredamento-otto-s-ag-winterthur"
+          "abteilungsleiter-in-mobel-ottos-winterthur"
         ],
         "en": [
           "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
@@ -9325,9 +9321,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistician-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "specialiste-en-logistique-otto-s-ag-sursee"
+        "fr": "logisticien-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9384,8 +9380,8 @@
         "kassierer-in-ottos-sursee",
         "caissier-otto-s-ag-sursee",
         "logistiker-in-ottos-sursee",
-        "logistician-in-otto-s-ag-sursee",
-        "logisticien-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "specialiste-en-logistique-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9399,7 +9395,7 @@
         "en": [
           "logistiker-in-otto-s-ag-sursee",
           "cashier-in-otto-s-ag-sursee",
-          "logistician-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "de": [
           "kassierer-in-ottos-sursee"
@@ -9407,7 +9403,7 @@
         "fr": [
           "logistiker-in-otto-s-ag-sursee",
           "caissier-otto-s-ag-sursee",
-          "logisticien-in-otto-s-ag-sursee"
+          "specialiste-en-logistique-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -10090,7 +10086,7 @@
       "slug": "vice-direttore-di-filiale-otto-s-ag-cham",
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-otto-s-ag-cham",
-        "en": "assistant-store-manager-otto-s-ag-cham",
+        "en": "deputy-in-branch-management-otto-s-ag-cham",
         "de": "stellvertreter-in-filialleitung-ottos-cham",
         "fr": "adjoint-dans-la-direction-generale-otto-s-ag-cham"
       },
@@ -10143,14 +10139,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "stellvertreter-in-filialleitung-ottos-cham",
-        "deputy-in-branch-management-otto-s-ag-cham"
+        "assistant-store-manager-otto-s-ag-cham"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertreter-in-filialleitung-ottos-cham"
         ],
         "en": [
-          "deputy-in-branch-management-otto-s-ag-cham"
+          "assistant-store-manager-otto-s-ag-cham"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:11.038Z",

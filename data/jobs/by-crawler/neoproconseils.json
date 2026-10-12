@@ -77,9 +77,9 @@
     },
     {
       "id": "neoproconseils-3813e5ada334",
-      "slug": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
+      "slug": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
       "slugByLocale": {
-        "it": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
+        "it": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
         "en": "electrical-installer-m-f-neo-pro-conseils-sa-geneve-ge",
         "de": "elektroinstallateur-m-w-neo-pro-conseils-sa-geneve-ge",
         "fr": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
@@ -129,14 +129,14 @@
         "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
         "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
         "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
-        "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
+        "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
           "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
-          "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
+          "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
         ]
       },
       "firstSeenAt": "2026-09-23T23:35:57.252Z",
@@ -156,12 +156,12 @@
     },
     {
       "id": "neoproconseils-2d5de1ea0740",
-      "slug": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+      "slug": "bore-mason-m-f-neo-pro-conseils-sa-geneve-ge",
       "slugByLocale": {
         "fr": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
-        "it": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+        "it": "bore-mason-m-f-neo-pro-conseils-sa-geneve-ge",
         "en": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
-        "de": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch"
+        "de": "bohrmaurer-m-w-neo-pro-conseils-sa-geneve-ge"
       },
       "company": "NEO Pro conseils SA",
       "companyKey": "neoproconseils",
@@ -219,7 +219,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:12:59.220Z"
+      "firstSeenAt": "2026-10-12T21:12:59.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macon-coffreur-h-f-geneve-ge-neoproconseils-ch"
+        ],
+        "de": [
+          "macon-coffreur-h-f-geneve-ge-neoproconseils-ch"
+        ]
+      },
+      "previousSlugs": [
+        "macon-coffreur-h-f-geneve-ge-neoproconseils-ch"
+      ]
     }
   ]
 }

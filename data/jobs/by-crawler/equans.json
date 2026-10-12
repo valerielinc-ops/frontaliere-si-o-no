@@ -230,7 +230,7 @@
       "id": "equans-9021924e82f7",
       "slug": "responsabile-servizio-idraulica-equans-switzerland-luzern",
       "slugByLocale": {
-        "it": "responsabile-servizio-idraulica-equans-switzerland-luzern",
+        "it": "service-manager-in-sanitario-equans-switzerland-luzern",
         "en": "service-manager-in-sanitary-equans-switzerland-luzern",
         "de": "serviceleiter-in-sanitar-equans-luzern",
         "fr": "gestionnaire-de-services-en-sanitaire-equans-switzerland-luzern"
@@ -279,13 +279,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "serviceleiter-in-sanitar-equans-luzern",
-        "service-manager-in-sanitario-equans-switzerland-luzern"
+        "serviceleiter-in-sanitar-equans-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "serviceleiter-in-sanitar-equans-luzern",
-          "service-manager-in-sanitario-equans-switzerland-luzern"
+          "serviceleiter-in-sanitar-equans-luzern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.316Z",
@@ -946,8 +944,8 @@
       "id": "equans-4f51f2c8ce64",
       "slug": "sovrintendente-equans-switzerland-raron",
       "slugByLocale": {
-        "it": "sovrintendente-equans-switzerland-raron",
-        "en": "superintendent-fitter-equans-switzerland-raron",
+        "it": "responsabile-della-costruzione-in-equans-switzerland-raron",
+        "en": "manager-of-construction-in-equans-switzerland-raron",
         "de": "bauleitender-monteur-in-equans-raron",
         "fr": "directeur-de-la-construction-in-equans-switzerland-raron"
       },
@@ -996,16 +994,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleitender-monteur-in-equans-raron",
-        "responsabile-della-costruzione-in-equans-switzerland-raron",
-        "manager-of-construction-in-equans-switzerland-raron"
+        "superintendent-fitter-equans-switzerland-raron"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleitender-monteur-in-equans-raron",
-          "responsabile-della-costruzione-in-equans-switzerland-raron"
+          "bauleitender-monteur-in-equans-raron"
         ],
         "en": [
-          "manager-of-construction-in-equans-switzerland-raron"
+          "superintendent-fitter-equans-switzerland-raron"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.267Z",
@@ -6245,7 +6241,7 @@
         "it": "tecnica-r-housekeeper-in-equans-switzerland-chur",
         "en": "technical-r-housekeeper-in-equans-switzerland-chur",
         "de": "technische-r-hauswart-in-equans-chur",
-        "fr": "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
+        "fr": "technique-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -6292,14 +6288,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technische-r-hauswart-in-equans-chur",
-        "technique-equans-switzerland-chur"
+        "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-hauswart-in-equans-chur"
         ],
         "fr": [
-          "technique-equans-switzerland-chur"
+          "technicien-de-maintenance-des-batiments-equans-switzerland-chur"
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:28.881Z",
@@ -6705,7 +6701,7 @@
       "slug": "personale-di-sicurezza-equans-switzerland-ebikon",
       "slugByLocale": {
         "it": "personale-di-sicurezza-equans-switzerland-ebikon",
-        "en": "security-officer-equans-switzerland-ebikon",
+        "en": "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
         "de": "sicherheitsmitarbeiter-in-equans-ebikon",
         "fr": "personnel-de-securite-equans-switzerland-ebikon"
       },
@@ -6754,7 +6750,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
-        "sicherheitsmitarbeiter-in-equans-ebikon"
+        "sicherheitsmitarbeiter-in-equans-ebikon",
+        "security-officer-equans-switzerland-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6762,7 +6759,7 @@
           "sicherheitsmitarbeiter-in-equans-ebikon"
         ],
         "en": [
-          "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
+          "security-officer-equans-switzerland-ebikon"
         ],
         "fr": [
           "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
@@ -8876,9 +8873,9 @@
     },
     {
       "id": "equans-6d4a1701f6ad",
-      "slug": "sanitarinstallateur-in-equans-switzerland-bern",
+      "slug": "installatore-trice-di-sanitari-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-equans-switzerland-bern",
+        "it": "installatore-trice-di-sanitari-equans-switzerland-bern",
         "en": "plumbing-engineer-equans-switzerland-bern",
         "de": "sanitarinstallateur-in-equans-bern",
         "fr": "installateur-trice-sanitaire-cfc-equans-switzerland-bern"
@@ -8927,12 +8924,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-equans-bern",
-        "installatore-trice-di-sanitari-equans-switzerland-bern"
+        "sanitarinstallateur-in-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-equans-bern",
-          "installatore-trice-di-sanitari-equans-switzerland-bern"
+          "sanitarinstallateur-in-equans-switzerland-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.028Z",
@@ -10791,12 +10788,12 @@
     },
     {
       "id": "equans-8e344da94f8e",
-      "slug": "servicetechniker-in-luftung-equans-switzerland-winterthur",
+      "slug": "tecnico-a-di-assistenza-per-la-ventilazione-equans-switzerland-winterthur",
       "slugByLocale": {
         "de": "servicetechniker-in-luftung-equans-winterthur",
-        "it": "servicetechniker-in-luftung-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-luftung-equans-winterthur",
-        "fr": "servicetechniker-in-luftung-equans-winterthur"
+        "it": "tecnico-a-di-assistenza-per-la-ventilazione-equans-switzerland-winterthur",
+        "en": "ventilation-service-technician-equans-switzerland-winterthur",
+        "fr": "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10845,11 +10842,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-luftung-equans-winterthur",
+          "servicetechniker-in-luftung-equans-switzerland-winterthur"
+        ],
+        "en": [
+          "servicetechniker-in-luftung-equans-winterthur"
+        ],
+        "fr": [
           "servicetechniker-in-luftung-equans-winterthur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-luftung-equans-winterthur"
+        "servicetechniker-in-luftung-equans-winterthur",
+        "servicetechniker-in-luftung-equans-switzerland-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -10868,12 +10873,12 @@
     },
     {
       "id": "equans-ff941f084cc3",
-      "slug": "servicetechniker-in-sanitar-equans-switzerland-winterthur",
+      "slug": "tecnico-a-per-impianti-sanitari-equans-switzerland-winterthur",
       "slugByLocale": {
         "de": "servicetechniker-in-sanitar-equans-winterthur",
-        "it": "servicetechniker-in-sanitar-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-sanitar-equans-winterthur",
-        "fr": "servicetechniker-in-sanitar-equans-winterthur"
+        "it": "tecnico-a-per-impianti-sanitari-equans-switzerland-winterthur",
+        "en": "sanitary-service-technician-equans-switzerland-winterthur",
+        "fr": "technicien-ne-de-service-sanitaire-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10922,11 +10927,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-sanitar-equans-winterthur",
+          "servicetechniker-in-sanitar-equans-switzerland-winterthur"
+        ],
+        "en": [
+          "servicetechniker-in-sanitar-equans-winterthur"
+        ],
+        "fr": [
           "servicetechniker-in-sanitar-equans-winterthur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-sanitar-equans-winterthur"
+        "servicetechniker-in-sanitar-equans-winterthur",
+        "servicetechniker-in-sanitar-equans-switzerland-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

@@ -431,7 +431,7 @@
         "it": "legal-entity-contabile-vontobel-zurich-gotthardstrasse-35",
         "en": "legal-entity-accountant-vontobel-ch",
         "de": "legal-entity-buchhalter-vontobel-zurich-gotthardstrasse-35",
-        "fr": "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
+        "fr": "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -483,7 +483,7 @@
         "comptable-des-entites-juridiques-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-en-personne-morale-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-        "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+        "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -505,7 +505,7 @@
         "fr": [
           "legal-entity-accountant-us-vontobel-zurich-gotthardstrasse-35",
           "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-          "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+          "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
         ]
       },
       "firstSeenAt": "2026-08-10T22:04:14.969Z",
@@ -1788,12 +1788,12 @@
     },
     {
       "id": "vontobel-52c02f4a2923",
-      "slug": "senior-compliance-officer-cee-vontobel-ch",
+      "slug": "alto-ufficiale-di-conformita-cee-vontobel-zurich-gotthardstrasse-44",
       "slugByLocale": {
         "en": "senior-compliance-officer-cee-vontobel-ch",
-        "it": "senior-compliance-officer-cee-vontobel-ch",
-        "de": "senior-compliance-officer-cee-vontobel-ch",
-        "fr": "senior-compliance-officer-cee-vontobel-ch"
+        "it": "alto-ufficiale-di-conformita-cee-vontobel-zurich-gotthardstrasse-44",
+        "de": "leitender-compliance-beauftragter-cee-vontobel-zurich-gotthardstrasse-44",
+        "fr": "agent-principal-de-conformite-cee-vontobel-zurich-gotthardstrasse-44"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -1852,7 +1852,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-12T21:27:11.432Z"
+      "firstSeenAt": "2026-10-12T21:27:11.432Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-cee-vontobel-ch"
+        ],
+        "de": [
+          "senior-compliance-officer-cee-vontobel-ch"
+        ],
+        "fr": [
+          "senior-compliance-officer-cee-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-cee-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-cd4272cf8d4b",

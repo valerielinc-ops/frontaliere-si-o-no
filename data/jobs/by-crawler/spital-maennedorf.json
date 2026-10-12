@@ -3288,12 +3288,12 @@
     },
     {
       "id": "spital-maennedorf-deb8aa978143",
-      "slug": "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf",
+      "slug": "servizio-in-camera-dei-dipendenti-50-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "mitarbeiterin-room-service-50-m-w-d-spital-maennedorf-ch",
-        "it": "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf",
+        "it": "servizio-in-camera-dei-dipendenti-50-m-f-d-spital-mannedorf-mannedorf",
         "en": "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf"
+        "fr": "service-en-chambre-des-employes-50-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3343,11 +3343,16 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-room-service-50-m-w-d-spital-maennedorf-ch"
+          "mitarbeiterin-room-service-50-m-w-d-spital-maennedorf-ch",
+          "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-room-service-50-m-w-d-spital-maennedorf-ch"
+        "mitarbeiterin-room-service-50-m-w-d-spital-maennedorf-ch",
+        "mitarbeiterin-room-service-50-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 36500,
       "salaryMax": 45800,

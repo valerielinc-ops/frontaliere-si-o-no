@@ -936,7 +936,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1003,7 +1003,7 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
@@ -2244,12 +2244,12 @@
     },
     {
       "id": "ksw-9cd820467da6",
-      "slug": "oberarztin-oberarzt-dermatologie-ksw-ch",
+      "slug": "medico-senior-dermatologia-medico-senior-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-dermatologie-ksw-ch",
-        "it": "oberarztin-oberarzt-dermatologie-ksw-ch",
-        "en": "oberarztin-oberarzt-dermatologie-ksw-ch",
-        "fr": "oberarztin-oberarzt-dermatologie-ksw-ch"
+        "it": "medico-senior-dermatologia-medico-senior-kantonsspital-winterthur-ksw-winterthur",
+        "en": "senior-physician-senior-physician-dermatology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-ou-dermatologie-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2308,7 +2308,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:15:28.866Z"
+      "firstSeenAt": "2026-10-12T21:15:28.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-dermatologie-ksw-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-dermatologie-ksw-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-dermatologie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-dermatologie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-ce64e89655f0",
@@ -2653,12 +2667,12 @@
     },
     {
       "id": "ksw-265156035163",
-      "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
-        "en": "pflegefachfrau-pflegefachmann-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-ksw-ch"
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
+        "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2707,12 +2721,20 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-ksw-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-ksw-ch"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2733,7 +2755,7 @@
       "id": "ksw-fce9482fcf5c",
       "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
+        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur-ca7442",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur-ca7442"
@@ -2781,13 +2803,11 @@
       "requirementsByLocale": {},
       "department": "Klinik für med. Onkologie und Hämatologie",
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -3098,8 +3118,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-logistik-ksw-ch",
         "it": "mitarbeiterin-addetto-a-alla-logistica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-logistik-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
+        "en": "employee-employee-logistics-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "employe-employe-logistique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3148,6 +3168,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
         ]
       },
@@ -3761,12 +3787,12 @@
     },
     {
       "id": "ksw-05f50a9508fa",
-      "slug": "med-praxisassistentin-med-praxisassistent-ksw-ch",
+      "slug": "assistente-di-pratica-med-assistente-di-pratica-med-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-ksw-ch",
-        "it": "med-praxisassistentin-med-praxisassistent-ksw-ch",
-        "en": "med-praxisassistentin-med-praxisassistent-ksw-ch",
-        "fr": "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        "it": "assistente-di-pratica-med-assistente-di-pratica-med-kantonsspital-winterthur-ksw-winterthur",
+        "en": "med-practice-assistant-med-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-de-medecine-assistant-de-medecine-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3825,7 +3851,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:15:28.864Z"
+      "firstSeenAt": "2026-10-12T21:15:28.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistentin-med-praxisassistent-ksw-ch"
+      ]
     },
     {
       "id": "ksw-d02108d0ab23",

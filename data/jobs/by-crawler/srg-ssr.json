@@ -2838,12 +2838,12 @@
     },
     {
       "id": "srg-ssr-5cb7d72b206c",
-      "slug": "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+      "slug": "ricerca-tirocinante-per-lo-spettacolo-we-talk-about-it-srg-ssr-bern",
       "slugByLocale": {
         "fr": "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-        "it": "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-        "en": "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-        "de": "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        "it": "ricerca-tirocinante-per-lo-spettacolo-we-talk-about-it-srg-ssr-bern",
+        "en": "research-trainee-for-the-show-we-talk-about-it-srg-ssr-bern",
+        "de": "research-trainee-fur-die-show-we-talk-about-it-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2926,7 +2926,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        ],
+        "en": [
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        ],
+        "de": [
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+      ]
     }
   ]
 }

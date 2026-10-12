@@ -2597,9 +2597,9 @@
       "id": "stadt-zuerich-ec677844b6a5",
       "slug": "schulsozialarbeiter-in-stadt-zurich-zurich-cf0a22087e",
       "slugByLocale": {
+        "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
         "it": "schulsozialarbeiter-in-stadt-zurich-zurich-cf0a22087e",
         "en": "schulsozialarbeiter-in-stadt-zurich-zurich",
-        "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
         "fr": "schulsozialarbeiter-in-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -2647,10 +2647,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51688",
-      "previousSlugs": [
-        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
-        "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688"
@@ -2662,7 +2658,10 @@
           "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx"
         ]
       },
-      "firstSeenAt": "2026-09-01T09:06:07.782Z",
+      "previousSlugs": [
+        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
+        "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx"
+      ],
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2675,7 +2674,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T09:06:07.782Z"
     },
     {
       "id": "stadt-zuerich-241e6d626d7b",

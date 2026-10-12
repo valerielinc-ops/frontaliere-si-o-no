@@ -501,12 +501,12 @@
     },
     {
       "id": "schulthess-klinik-64b48f2b6b3b",
-      "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
+      "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-        "it": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
-        "en": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich",
-        "fr": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        "it": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-zurich",
+        "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-zurich",
+        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -554,11 +554,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -1038,7 +1038,7 @@
       "id": "uzh-f81ca21443ea",
       "slug": "assistenza-scientifica-universitat-zurich-zurich-d7cf4e1a41",
       "slugByLocale": {
-        "it": "assistenza-scientifica-universitat-zurich-zurich-d7cf4e1a41",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
         "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
         "fr": "assistance-scientifique-universitat-zurich-zurich"
@@ -2142,7 +2142,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2189,7 +2189,7 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2197,7 +2197,7 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.623Z",
@@ -8829,7 +8829,7 @@
       "id": "uzh-a62aff43d87d",
       "slug": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
       "slugByLocale": {
-        "it": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
         "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
         "fr": "assistance-scientifique-universitat-zurich-zurich"
@@ -9615,12 +9615,12 @@
     },
     {
       "id": "uzh-75095e27cbd5",
-      "slug": "academic-assistant-80-phd-position-uzh-zurich",
+      "slug": "assistente-accademico-80-phd-position-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "academic-assistant-80-phd-position-uzh-zurich",
-        "it": "academic-assistant-80-phd-position-uzh-zurich",
+        "it": "assistente-accademico-80-phd-position-universitat-zurich-zurich",
         "de": "academic-assistant-80-phd-position-uzh-zurich",
-        "fr": "academic-assistant-80-phd-position-uzh-zurich"
+        "fr": "assistant-universitaire-poste-de-doctorat-a-80-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9679,7 +9679,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:14:51.166Z"
+      "firstSeenAt": "2026-10-12T21:14:51.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "academic-assistant-80-phd-position-uzh-zurich"
+        ],
+        "fr": [
+          "academic-assistant-80-phd-position-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "academic-assistant-80-phd-position-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-ee894ccc0371",
@@ -9751,12 +9762,12 @@
     },
     {
       "id": "uzh-ca0fd9d984c7",
-      "slug": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich",
+      "slug": "supporta-l-implementazione-dell-accessibilita-digitale-e-accessibilita-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich",
-        "it": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich",
-        "en": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich",
-        "fr": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+        "it": "supporta-l-implementazione-dell-accessibilita-digitale-e-accessibilita-universitat-zurich-zurich",
+        "en": "support-implementation-of-digital-accessibility-e-accessibility-universitat-zurich-zurich",
+        "fr": "soutenir-la-mise-en-uvre-de-l-accessibilite-numerique-e-accessibilite-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9815,7 +9826,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:14:51.097Z"
+      "firstSeenAt": "2026-10-12T21:14:51.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+        ],
+        "en": [
+          "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+        ],
+        "fr": [
+          "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-47eb7a36400e",

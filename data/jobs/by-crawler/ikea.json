@@ -1804,7 +1804,7 @@
       "id": "ikea-afa273a9b1cf",
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
         "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
         "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-de-vente-30-ikea-ch"
@@ -1851,13 +1851,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-30-ikea-ch"
@@ -2954,12 +2952,12 @@
     },
     {
       "id": "ikea-7f596cb113a5",
-      "slug": "collaboratore-trice-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-pratteln-1",
+      "slug": "addetto-a-al-ristorante-e-alla-cucina-ikea-20-e-60-a-tempo-determinato-fino-al-31-gennaio-2027-ikea-pratteln-1-basel",
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch",
-        "it": "collaboratore-trice-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-pratteln-1",
-        "en": "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch"
+        "it": "addetto-a-al-ristorante-e-alla-cucina-ikea-20-e-60-a-tempo-determinato-fino-al-31-gennaio-2027-ikea-pratteln-1-basel",
+        "en": "ikea-restaurant-kitchen-associate-20-60-fixed-term-until-january-31-2027-ikea-pratteln-1-basel-landschaft-switzerland",
+        "fr": "collaborateur-rice-ikea-restaurant-cuisine-20-60-en-contrat-a-duree-determinee-jusqu-au-31-janvier-2027-ikea-pratteln-1"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3006,11 +3004,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch",
+          "collaboratore-trice-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-pratteln-1"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch"
+        "mitarbeiter-in-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-ch",
+        "collaboratore-trice-ikea-restaurant-kuche-20-60-befristet-bis-31-01-2027-ikea-pratteln-1"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -3184,8 +3190,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
         "it": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
-        "en": "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
-        "fr": "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "en": "sales-associate-kitchens-and-dining-department-20-fixed-term-until-february-28-2027-ikea-pratteln-1-basel-landschaft",
+        "fr": "collaborateur-rice-de-vente-au-rayon-cuisines-et-salle-a-manger-20-en-contrat-a-duree-determinee-jusqu-au-28-fevrier"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3233,10 +3239,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+        ],
+        "fr": [
+          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
+        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
+        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
       ],
       "salaryMin": 14800,
       "salaryMax": 22700,

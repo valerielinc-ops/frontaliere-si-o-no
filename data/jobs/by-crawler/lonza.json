@@ -333,7 +333,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -379,7 +379,7 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -387,7 +387,7 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+          "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:31.217Z",
@@ -14673,12 +14673,12 @@
     },
     {
       "id": "lonza-e6cdaa880565",
-      "slug": "mes-technical-lead-m-f-d-80-100-lonza-ch",
+      "slug": "mes-guida-tecnica-m-f-d-80-100-lonza-visp",
       "slugByLocale": {
         "en": "mes-technical-lead-m-f-d-80-100-lonza-ch",
-        "it": "mes-technical-lead-m-f-d-80-100-lonza-ch",
+        "it": "mes-guida-tecnica-m-f-d-80-100-lonza-visp",
         "de": "mes-technical-lead-m-f-d-80-100-lonza-ch",
-        "fr": "mes-technical-lead-m-f-d-80-100-lonza-ch"
+        "fr": "mes-responsable-technique-m-f-d-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14737,7 +14737,18 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-12T21:12:22.739Z"
+      "firstSeenAt": "2026-10-12T21:12:22.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mes-technical-lead-m-f-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "mes-technical-lead-m-f-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mes-technical-lead-m-f-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-64081adf3f7d",
@@ -14975,7 +14986,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15019,7 +15030,7 @@
       "jobReqId": "R79521",
       "previousSlugs": [
         "senior-director-strategy-lonza-ch",
-        "directeur-principal-strategie-lonza-basel"
+        "senior-director-strategy-lonza-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15029,7 +15040,7 @@
           "senior-director-strategy-lonza-ch"
         ],
         "fr": [
-          "directeur-principal-strategie-lonza-basel"
+          "senior-director-strategy-lonza-basel"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:16.372Z",

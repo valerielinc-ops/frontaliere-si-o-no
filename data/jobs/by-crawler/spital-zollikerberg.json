@@ -387,12 +387,12 @@
     },
     {
       "id": "spital-zollikerberg-0e8b7a4db05a",
-      "slug": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital",
+      "slug": "formazione-professionale-presso-la-stazione-privata-interdisciplinare-1-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital",
-        "it": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital",
-        "en": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital",
-        "fr": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+        "it": "formazione-professionale-presso-la-stazione-privata-interdisciplinare-1-spital-zollikerberg-zollikerberg",
+        "en": "vocational-trainer-at-the-interdisciplinary-private-station-1-spital-zollikerberg-zollikerberg",
+        "fr": "formateur-professionnel-a-la-station-privee-interdisciplinaire-1-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -450,7 +450,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:10:29.266Z"
+      "firstSeenAt": "2026-10-12T21:10:29.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-ca2b0b3629db",

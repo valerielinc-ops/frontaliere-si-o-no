@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "belimo-190a2eea1621",
-      "slug": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil",
+      "slug": "assistente-al-consiglio-generale-del-gruppo-paralegal-40-60-belimo-hinwil",
       "slugByLocale": {
         "de": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil",
-        "it": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil",
+        "it": "assistente-al-consiglio-generale-del-gruppo-paralegal-40-60-belimo-hinwil",
         "en": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil",
-        "fr": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil"
+        "fr": "assistant-de-l-avocat-general-juriste-40-60-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:15:30.153Z"
+      "firstSeenAt": "2026-10-12T21:15:30.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil"
+        ],
+        "fr": [
+          "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-edc05be4fba1",

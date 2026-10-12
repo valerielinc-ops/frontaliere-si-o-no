@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-7b28fa2f406f",
-      "slug": "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch",
+      "slug": "servizio-di-assistenza-clienti-piastre-di-servizio-m-f-d-100-bms-building-materials-rapperswil-jona",
       "slugByLocale": {
         "de": "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch",
-        "it": "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch",
-        "en": "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch",
-        "fr": "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch"
+        "it": "servizio-di-assistenza-clienti-piastre-di-servizio-m-f-d-100-bms-building-materials-rapperswil-jona",
+        "en": "customer-service-field-service-plates-m-f-d-100-bms-building-materials-rapperswil-jona",
+        "fr": "service-a-la-clientele-plaques-de-service-sur-le-terrain-h-f-d-100-bms-building-materials-rapperswil-jona"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -105,7 +105,21 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-10-12T21:13:27.354Z"
+      "firstSeenAt": "2026-10-12T21:13:27.354Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch"
+        ],
+        "en": [
+          "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberatung-aussendienst-platten-w-m-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-9a879820ec32",

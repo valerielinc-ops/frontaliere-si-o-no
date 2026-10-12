@@ -1600,7 +1600,7 @@
         "de": "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
         "en": "legal-counsel-m-f-d-legal-service-provision-corporate-clients-part-time-full-time-helvetia-versicherungen-basel",
         "fr": "conseiller-juridique-m-f-d-service-juridique-fourniture-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia",
-        "it": "legal-counsel-m-f-d-servizio-legale-previdenza-clienti-aziendali-part-time-full-time-helvetia-versicherungen-basel-54c61392d7"
+        "it": "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1646,13 +1646,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
-          "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
+          "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia"
         ]
       },
       "previousSlugs": [
-        "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
-        "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
+        "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -10955,8 +10953,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-teilzeit-vollzeit-helvetia-versicherungen-horgen",
-        "en": "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit",
-        "fr": "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit"
+        "en": "employee-sales-support-m-f-d-agency-lake-zurich-in-horgen-affoltern-a-a-part-time-full-time-helvetia-versicherungen",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-lac-zurich-a-horgen-affoltern-a-a-temps-partiel-temps-plein-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11004,6 +11002,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit"
         ]
       },
@@ -11104,7 +11108,7 @@
       "id": "helvetia-848e70b3e69f",
       "slug": "legal-counsel-m-f-d-servizio-legale-previdenza-clienti-aziendali-part-time-full-time-helvetia-versicherungen-basel-3b3fb209da",
       "slugByLocale": {
-        "it": "legal-counsel-m-f-d-servizio-legale-previdenza-clienti-aziendali-part-time-full-time-helvetia-versicherungen-basel-3b3fb209da",
+        "it": "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel",
         "en": "legal-counsel-m-f-d-legal-service-precaution-corporate-clients-part-time-full-time-helvetia-versicherungen-basel",
         "de": "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
         "fr": "conseiller-juridique-h-f-d-service-juridique-precaution-clients-corporatifs-a-temps-partiel-a-temps-plein-helvetia"
@@ -11155,14 +11159,12 @@
       "previousSlugs": [
         "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
         "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-6od9ta",
-        "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
+        "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia",
-          "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-6od9ta",
-          "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"
+          "legal-counsel-m-w-d-rechtsdienst-previdenza-unternehmenskunden-teilzeit-vollzeit-6od9ta"
         ],
         "fr": [
           "legal-counsel-m-w-d-rechtsdienst-vorsorge-unternehmenskunden-teilzeit-vollzeit-helvetia-versicherungen-basel"

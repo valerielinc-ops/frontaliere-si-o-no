@@ -486,7 +486,7 @@
         "it": "responsabile-delle-indagini-senior-trafigura-geneva",
         "en": "senior-investigations-officer-trafigura-ch",
         "de": "leitender-untersuchungsbeauftragter-trafigura-geneva",
-        "fr": "senior-investigations-officer-trafigura-geneva"
+        "fr": "specialiste-des-enquetes-hors-classe-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -533,7 +533,7 @@
       "previousSlugs": [
         "agent-principal-des-enquetes-trafigura-geneva",
         "senior-investigations-officer-trafigura-ch",
-        "specialiste-des-enquetes-hors-classe-trafigura-geneva"
+        "senior-investigations-officer-trafigura-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -541,7 +541,7 @@
         ],
         "fr": [
           "agent-principal-des-enquetes-trafigura-geneva",
-          "specialiste-des-enquetes-hors-classe-trafigura-geneva"
+          "senior-investigations-officer-trafigura-geneva"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:34.822Z",
@@ -639,12 +639,12 @@
     },
     {
       "id": "trafigura-d0463e7e9737",
-      "slug": "crude-trader-trafigura-ch",
+      "slug": "crocifisso-trader-trafigura-geneva",
       "slugByLocale": {
         "en": "crude-trader-trafigura-ch",
-        "it": "crude-trader-trafigura-ch",
-        "de": "crude-trader-trafigura-geneva",
-        "fr": "crude-trader-trafigura-ch"
+        "it": "crocifisso-trader-trafigura-geneva",
+        "de": "rohhandler-trafigura-geneva",
+        "fr": "commerce-brut-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -703,7 +703,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-12T21:12:01.143Z"
+      "firstSeenAt": "2026-10-12T21:12:01.143Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crude-trader-trafigura-ch"
+        ],
+        "de": [
+          "crude-trader-trafigura-geneva"
+        ],
+        "fr": [
+          "crude-trader-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "crude-trader-trafigura-ch",
+        "crude-trader-trafigura-geneva"
+      ]
     }
   ]
 }

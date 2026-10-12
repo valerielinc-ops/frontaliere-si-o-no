@@ -24,12 +24,12 @@
         "en": "LPP Manager Forecast (m/f) 80-100% - temporary 3 months",
         "de": "LPP Manager Forecast (m/w) 80-100% - temporäre 3 Monate"
       },
-      "slug": "gestionnaire-lpp-prevoyance-m-w-d-80-100-temporaire-3-mois-groupe-mutuel-martigny",
+      "slug": "lpp-manager-forecast-m-f-80-100-temporaneo-3-mesi-groupe-mutuel-martigny",
       "slugByLocale": {
         "fr": "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel",
-        "en": "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel",
-        "it": "gestionnaire-lpp-prevoyance-m-w-d-80-100-temporaire-3-mois-groupe-mutuel-martigny",
-        "de": "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
+        "en": "lpp-manager-forecast-m-f-80-100-temporary-3-months-groupe-mutuel-martigny",
+        "it": "lpp-manager-forecast-m-f-80-100-temporaneo-3-mesi-groupe-mutuel-martigny",
+        "de": "lpp-manager-forecast-m-w-80-100-temporare-3-monate-groupe-mutuel-martigny"
       },
       "category": "insurance",
       "datePosted": "2026-10-12",
@@ -49,11 +49,19 @@
       "id": "groupe-mutuel-4721454d383b",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel",
+          "gestionnaire-lpp-prevoyance-m-w-d-80-100-temporaire-3-mois-groupe-mutuel-martigny"
+        ],
+        "en": [
+          "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
+        ],
+        "de": [
           "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel"
+        "gestionnaire-lpp-prevoyance-h-f-80-100-temporaire-3-mois-groupe-mutuel",
+        "gestionnaire-lpp-prevoyance-m-w-d-80-100-temporaire-3-mois-groupe-mutuel-martigny"
       ],
       "salaryMin": 65500,
       "salaryMax": 109000,

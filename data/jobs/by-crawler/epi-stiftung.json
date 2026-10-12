@@ -1532,12 +1532,12 @@
     },
     {
       "id": "epi-stiftung-65f40098bb33",
-      "slug": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slug": "corso-di-studi-per-infermiere-a-diplomato-a-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "it": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "fr": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "it": "corso-di-studi-per-infermiere-a-diplomato-a-hf-presso-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "nursing-studies-to-become-a-qualified-nurse-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "etudes-d-infirmier-ere-diplome-e-es-a-l-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1585,11 +1585,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "en": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "fr": [
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
-        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

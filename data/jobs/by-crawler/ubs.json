@@ -3501,7 +3501,7 @@
         "en": "2027-internship-real-estate-business-operations-esg-zh-ubs-zurich",
         "it": "2027-internship-real-estate-business-operations-esg-zh-ubs-zurich",
         "de": "2027-internship-real-estate-business-operations-esg-zh-ubs-zurich",
-        "fr": "2027-internship-real-estate-business-operations-esg-zh-ubs-zurich"
+        "fr": "2027-stage-operations-immobilieres-et-esg-zh-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9087,11 +9087,11 @@
     },
     {
       "id": "ubs-11d162685b4e",
-      "slug": "audit-expert-ib-execution-services-ubs-zurich-united-kingdom",
+      "slug": "servizi-di-esecuzione-di-audit-expert-ib-ubs-zurich-united-kingdom",
       "slugByLocale": {
         "en": "audit-expert-ib-execution-services-ubs-zurich",
-        "de": "audit-expert-ib-execution-services-ubs-zurich-united-kingdom",
-        "it": "audit-expert-ib-execution-services-ubs-zurich-united-kingdom",
+        "de": "prufungsexperte-fur-ib-ausfuhrungsdienstleistungen-ubs-zurich",
+        "it": "servizi-di-esecuzione-di-audit-expert-ib-ubs-zurich-united-kingdom",
         "fr": "audit-expert-ib-execution-services-ubs-zurich-united-kingdom"
       },
       "company": "UBS",
@@ -9147,11 +9147,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "prufungsexperte-fur-ib-ausfuhrungsdienstleistungen-ubs-zurich"
+          "audit-expert-ib-execution-services-ubs-zurich-united-kingdom"
+        ],
+        "it": [
+          "audit-expert-ib-execution-services-ubs-zurich-united-kingdom"
         ]
       },
       "previousSlugs": [
-        "prufungsexperte-fur-ib-ausfuhrungsdienstleistungen-ubs-zurich"
+        "audit-expert-ib-execution-services-ubs-zurich-united-kingdom"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -10002,7 +10005,7 @@
         "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10056,8 +10059,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+        "event-attendant-hourly-paid-ubs-geneve-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10069,7 +10071,7 @@
         ],
         "fr": [
           "event-attendant-hourly-paid-ubs-geneve-2",
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10601,7 +10603,7 @@
       "slugByLocale": {
         "en": "security-intelligence-analyst-ubs-zurich-united-kingdom",
         "it": "security-intelligence-analyst-ubs-zurich-united-kingdom",
-        "de": "security-intelligence-analyst-ubs-zurich-united-kingdom",
+        "de": "sicherheits-geheimdienst-ubs-zurich-united-kingdom",
         "fr": "security-intelligence-analyst-ubs-zurich-united-kingdom"
       },
       "company": "UBS",
@@ -11373,7 +11375,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11427,8 +11429,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-        "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11439,7 +11440,7 @@
         ],
         "fr": [
           "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-          "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
