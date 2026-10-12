@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe",
+  "sourceCommit": "5b41ebd1a5407f5ba5d23ce84bcc2b5398b07d15",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe"
+    "sourceCommit": "5b41ebd1a5407f5ba5d23ce84bcc2b5398b07d15"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 625,
+  "crawlerCount": 626,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0dd9e889af27feebc6d7a9765dfffbf66e741e8aa1e4fa499143c15b428df58f",
+    "rosterDigest": "sha256:b852336d7d32fa6470963d17495b043986995c0b49d4db503689974aa2b5cdb2",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -575,6 +575,7 @@
     "scripts/update-wuerth-international-jobs.mjs",
     "scripts/update-yapeal-jobs.mjs",
     "scripts/update-yellowshark-jobs.mjs",
+    "scripts/update-zaugg-jobs.mjs",
     "scripts/update-zermatt-bergbahnen-jobs.mjs",
     "scripts/update-zfv-unternehmungen-jobs.mjs",
     "scripts/update-zkb-jobs.mjs",
@@ -1445,8 +1446,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "56eb03c357893685586d1b315410c8c0d107b24e6bb609bf1ba75285830150c8",
-      "artifactSha256": "bdd2d83ef943da0ff5072660b9623a84ff15c989fdb6be6b880c228012d99825",
+      "sourceSha256": "29d167877123928484f4a6033b35db1eb76de3f8759a2937d2b2a16747eeec07",
+      "artifactSha256": "4c280637eb16f5d0b0e7b2f5dd74741cb113a17e5f8bca7d72fa3136167cd39c",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "albergo-gardenia",
@@ -1474,7 +1475,8 @@
         "confederazione",
         "mediamarkt",
         "pianorm",
-        "rehaklinik-seewis"
+        "rehaklinik-seewis",
+        "zaugg"
       ]
     },
     {

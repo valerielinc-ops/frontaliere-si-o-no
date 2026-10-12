@@ -54,6 +54,9 @@
       ],
       "protectas.com": [
         "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/"
+      ],
+      "zaugg.swiss": [
+        "https://www.zaugg.swiss/stellen"
       ]
     },
     "byName": {}
@@ -73,6 +76,9 @@
     "protectas": [
       "html",
       "jsonld"
+    ],
+    "zaugg": [
+      "html"
     ]
   },
   "minQualityScore": 4,
