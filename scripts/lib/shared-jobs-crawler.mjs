@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
  * Ticino Company Careers Crawler
  *
@@ -4776,6 +4777,15 @@ function extractHtmlMicrodataAddress(html = '') {
   };
 }
 
+function extractHtmlMicrodataContent(html = '', prop = '') {
+  const tag = String(html).match(new RegExp(
+    `<[^>]*\\bitemprop=["']${prop}["'][^>]*>`,
+    'i',
+  ))?.[0] || '';
+  const content = tag.match(/\bcontent=(?:"([^"]*)"|'([^']*)')/i);
+  return normalizeSpace(decodeHtmlEntities(content?.[1] || content?.[2] || ''));
+}
+
 function extractTitleFromHtml(html) {
   return normalizeSpace(stripScriptsAndStyles(html).match(/<title(?=[\s/>])[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
@@ -4898,6 +4908,9 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     return { job: null, reason: 'html_listing_summary_page' };
   }
   const microdataAddress = extractHtmlMicrodataAddress(html);
+  const htmlPublication = successFactorsPostingDateFields(
+    extractHtmlMicrodataContent(html, 'datePosted'),
+  );
   const microdataLocation = [microdataAddress.locality, microdataAddress.region]
     .filter(Boolean)
     .join(', ');
@@ -4987,7 +5000,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
       ? requirementsFromMigros
       : extractRequirements(description),
     featured: false,
-    ...mergeSourcePostingDates({}, seedMeta),
+    ...mergeSourcePostingDates(seedMeta, htmlPublication),
     url: pageUrl,
     // HTML-only pages have the same explicit handoff contract as JSON-LD
     // pages. The URL is evidence of where a user can continue, not a submit

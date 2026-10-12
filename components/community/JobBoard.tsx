@@ -1814,6 +1814,18 @@ export function parseCompanySlugFilter(initialJobSlug?: string, activeJobs?: Job
  return slug || null;
 }
 
+/**
+ * Parse a search landing slug unless it is also the canonical (or localized)
+ * slug of an active job. Job titles can legitimately begin with `ricerca-`,
+ * `search-`, `suche-`, or `recherche-`, so the reserved landing prefix is not
+ * enough to identify the page once the board already knows the job record.
+ */
+export function parseJobRouteSearchFilter(initialJobSlug?: string, activeJobs?: JobListing[]): string | null {
+ if (!initialJobSlug) return null;
+ if (activeJobs?.some((job) => matchesRouteSlug(job, initialJobSlug))) return null;
+ return parseSearchSlugFilter(initialJobSlug);
+}
+
 function getJobBoardLocationRoutePrefix(locale: Locale): string {
  switch (locale) {
  case 'en': return 'location';
@@ -1845,11 +1857,15 @@ function parseLocationSlugFilter(initialJobSlug?: string): string | null {
  return slug || null;
 }
 
-export function shouldRestoreJobBoardListState(previousSlug?: string, nextSlug?: string): boolean {
+export function shouldRestoreJobBoardListState(
+ previousSlug?: string,
+ nextSlug?: string,
+ activeJobs?: JobListing[],
+): boolean {
  const wasOnDetail = Boolean(
  previousSlug
  && !parseCompanySlugFilter(previousSlug)
- && !parseSearchSlugFilter(previousSlug)
+ && !parseJobRouteSearchFilter(previousSlug, activeJobs)
  && !parseLocationSlugFilter(previousSlug)
  );
  const isBackToPlainList = !nextSlug;
@@ -2692,7 +2708,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
  // would otherwise seed the search box, filtering the listing on a job URL.
  const isSeededExpiredDetail = Boolean(initialJobSlug && seededJobMatchesSlug(initialJobSlug));
- const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl());
+ const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
  // natively in the DOM with zero React involvement, so typing never waits on this
@@ -3131,7 +3147,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Restore page + scroll when returning from job detail to list
  useEffect(() => {
- const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
+ const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug, jobs);
  prevSlugRef.current = initialJobSlug;
  if (shouldRestore && savedListState.current) {
  const { page: savedPage, scrollY, query } = savedListState.current;
@@ -3142,7 +3158,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  savedListState.current = null;
  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
  }
- }, [initialJobSlug]);
+ }, [initialJobSlug, jobs]);
 
  // ⌘K / Ctrl+K keyboard shortcut to focus search
  useEffect(() => {
@@ -3246,9 +3262,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  //
  // `parseCompanySlugFilter` used to catch the company ones by scanning
  // `jobs[].previousSlugs`, but the slim index no longer carries that field
- // (build-plugins/shared/slimJobIndex.ts). `parseSearchSlugFilter` never had
- // the guard at all, so the 13 search-prefixed aliases mis-parsed already —
- // same class of bug, closed here in the same PR (AGENTS.md §6).
+ // (build-plugins/shared/slimJobIndex.ts). Search-prefixed job slugs need the
+ // same active-job disambiguation: a real title can begin with `ricerca-` even
+ // when the URL is not a search landing.
  //
  // The build-injected global is the right signal: synchronous, present at
  // first paint, and set by the very plugin that emits the bridge page.
@@ -3270,8 +3286,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialJobSlug, isBridgePage, isSeededExpiredDetail],
  );
  const searchSlugFilter = useMemo(
- () => (isBridgePage || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)),
- [initialJobSlug, isBridgePage, isSeededExpiredDetail],
+ () => (isBridgePage || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)),
+ [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail],
  );
  // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
  // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
@@ -3283,10 +3299,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  const syncFromUrl = () => {
- // Same bridge-page guard as `searchSlugFilter` above (the third call site of
- // parseSearchSlugFilter): on a job bridge page the URL segment is a job's old
- // slug, not a search keyword, so it must not become the search query.
- const next = (isBridgePage || isSeededExpiredDetail ? null : parseSearchSlugFilter(initialJobSlug)) || readSearchQueryFromUrl();
+ // Same route-slug guard as `searchSlugFilter` above:
+ // On a job bridge page the URL segment is a job's old slug, not a search
+ // keyword, and an active job whose slug starts with a
+ // reserved prefix is not a search landing either.
+ const next = (isBridgePage || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl();
  const nextPage = readPageFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
  setPage(nextPage);
@@ -3300,7 +3317,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  window.addEventListener('popstate', syncFromUrl);
  return () => window.removeEventListener('popstate', syncFromUrl);
- }, [initialJobSlug, isBridgePage, isSeededExpiredDetail, page, searchQuery]);
+ }, [initialJobSlug, jobs, isBridgePage, isSeededExpiredDetail, page, searchQuery]);
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
