@@ -41,7 +41,9 @@
  * omitted rather than serialized as `null`.
  *
  * Keep this list to what a LISTING CARD reads. Anything a card does not render
- * is 156k copies of dead weight.
+ * is 156k copies of dead weight. Provenance fields are included when they
+ * control a visible label: omitting them makes the hydrated card disagree
+ * with the detail page even though both started from the same job record.
  */
 
 /** Inline-script global carrying the seed. One document, one seed. */
@@ -51,17 +53,18 @@ export const CLUSTER_SEARCH_SEED_GLOBAL = '__SEARCH_SEED__';
  * Fields a listing card (and the helpers that build its props) actually read:
  * `JobCard` itself reads canton/category/company/featured/id/location/title,
  * and its props come from `buildJobPath` (slug, canton), `formatSalary`
- * (salaryMin/Max, currency), `companyLogoUrl` (companyLogo, companyDomain),
- * `isNewJob` + `daysSincePosted` (postedDate) and `contractTranslationKey`
- * (contract).
+ * (salaryMin/Max, currency, salarySource), `companyLogoUrl`
+ * (companyKey/companyLogo/companyDomain), `daysSincePosted`
+ * (postingDateSource + datePosted/postedDate) and
+ * `contractTranslationKey` (contract).
  */
 export const CLUSTER_SEARCH_SEED_FIELDS: readonly string[] = [
   'id', 'slug', 'title',
-  'company', 'companyDomain', 'companyLogo',
+  'company', 'companyKey', 'companyDomain', 'companyLogo',
   'location', 'canton',
   'category', 'contract', 'featured',
-  'postedDate',
-  'salaryMin', 'salaryMax', 'currency',
+  'postingDateSource', 'datePosted', 'postedDate',
+  'salaryMin', 'salaryMax', 'currency', 'salarySource',
 ];
 
 export interface ClusterSearchSeed {
