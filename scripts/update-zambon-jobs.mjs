@@ -20,8 +20,8 @@ import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
-  registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
+import { writeSummaryCrawlerSlice,
+  writeJobsCrawlerSliceVerified, registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -31,6 +31,8 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { markAuthoritativeEmptySnapshot, isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -73,6 +75,23 @@ async function fetchPage(url, timeoutMs = 20000) {
 function isZambonSwissSiteLocation(rawLocation = '') {
   const location = normalize(rawLocation);
   return !location || /\bcadempino\b/.test(location);
+}
+
+/**
+ * Read the careers API envelope without confusing a successful source-zero
+ * with a parser miss. Only the documented HTTP/JSON success envelope with an
+ * explicit empty `data` array proves that the source has no positions.
+ */
+export function parseZambonApiPayload(body) {
+  const allJobs = body?.data ?? body;
+  if (!Array.isArray(allJobs)) throw new Error('API response is not an array');
+  if (!Array.isArray(body) && body?.status === 200 && Array.isArray(body.data) && body.data.length === 0) {
+    return markAuthoritativeEmptySnapshot(
+      allJobs,
+      'Zambon careers API returned a successful status=200 envelope with data=[]',
+    );
+  }
+  return allJobs;
 }
 
 const DETAIL_DELAY_MS = 1000;
@@ -154,8 +173,11 @@ async function fetchJobs() {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const body = await res.json();
-    const allJobs = body.data || body;
-    if (!Array.isArray(allJobs)) throw new Error('API response is not an array');
+    const allJobs = parseZambonApiPayload(body);
+    if (isAuthoritativeEmptySnapshot(allJobs)) {
+      console.log('  📋 Zambon careers API explicitly reports no open positions.');
+      return allJobs;
+    }
 
     // Filter to Switzerland only
     const swissJobs = allJobs.filter(j => j.country === 'CH' || (j.country_label || '').toLowerCase().includes('switz'));
@@ -220,6 +242,9 @@ function storedZambonSourceBody(job = {}) {
  * previousSlugs/firstSeenAt history (issue #3699).
  */
 export function mergeZambonJobs(existingCompanyJobs = [], discoveredJobs = []) {
+  // A valid empty API envelope is the only empty batch allowed to retire
+  // stored offers. Bare [] still means the source was not read completely.
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) return [];
   // No row read from the source (the listing failed, or `readZambonBodies`
   // found no readable NcorePlat page) is a source-level failure, not "every
   // vacancy closed": the stored slice stays exactly as it is. Scrubbing it
@@ -318,22 +343,62 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Zambon Svizzera SA — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Zambon jobs discovered.'); return; }
+  const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
+  if (!discovered.length && !authoritativeEmptySnapshot) {
+    console.log('⚠️ No Zambon jobs discovered from a complete source snapshot; keeping the stored slice.');
+    return;
+  }
   updateAdapterConfig(discovered.map((j) => j.url));
   const mergedCompanyJobs = await mergeJobs(discovered);
-  console.log('\n🌐 Running base crawler for AI localization...');
-  await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true });
+  if (authoritativeEmptySnapshot) {
+    console.log('  ✅ Publishing source-confirmed empty Zambon snapshot; prior offers will be retired.');
+  } else {
+    console.log('\n🌐 Running base crawler for AI localization...');
+    await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true });
+  }
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_ZAMBON_STRICT', label: COMPANY_NAME, dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_zambon_domain', failWhenNoJobs: false });
   const afterSnapshot = snapshotJobSlugs((readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob));
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, COMPANY_NAME); writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   const _dur = getCrawlerElapsedMs();
   const _sliceJobs = mergedCompanyJobs;
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    skipShrinkGuard: authoritativeEmptySnapshot,
+  });
+  const archived = authoritativeEmptySnapshot
+    ? archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)
+    : 0;
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    discovered: discovered.length,
+    parsed: discovered.length,
+    written: _sliceJobs.length,
+    lastFetchOutcome: 'ok',
+    abortKind: null,
+    authoritativeEmptySnapshot,
+    authoritativeSnapshotVerified: authoritativeEmptySnapshot,
+    ...(authoritativeEmptySnapshot
+      ? { authoritativeEmptyEvidence: discovered.authoritativeEmptyEvidence }
+      : {}),
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs: _dur,
+    avgDurationMs: _dur,
+    durationHistory: [_dur],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  });
   await assembleJobsDataset();
+  if (archived > 0) console.log(`📦 Archived ${archived} retired Zambon route(s) for expired-job soft landing.`);
   console.log('\n✅ Zambon crawler complete.');
 }
 

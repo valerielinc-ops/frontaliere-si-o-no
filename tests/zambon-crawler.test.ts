@@ -15,7 +15,8 @@ import {
   MIN_DESC_LENGTH,
   extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
-import { buildZambonJob, mergeZambonJobs, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { buildZambonJob, mergeZambonJobs, parseZambonApiPayload, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -347,6 +348,24 @@ describe('Zambon source text only (issue 5253)', () => {
     expect(merged.map((job: { url: string }) => job.url)).toEqual(['https://app.ncoreplat.com/jobposition/1']);
     expect(merged).toEqual([legacy]);
     expect(merged[0]).not.toBe(legacy);
+  });
+
+  it('recognizes only the successful API empty envelope as an authoritative zero', () => {
+    const empty = parseZambonApiPayload({ status: 200, data: [] });
+    expect(empty).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(empty)).toBe(true);
+    expect(Object.keys(empty)).toEqual([]);
+
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload([]))).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload({ status: 503, data: [] }))).toBe(false);
+    expect(isAuthoritativeEmptySnapshot(parseZambonApiPayload({ status: 200, data: [{ id: 12, country: 'IT' }] }))).toBe(false);
+    expect(() => parseZambonApiPayload({ status: 200, data: null })).toThrow('API response is not an array');
+  });
+
+  it('retires stored Zambon jobs only for the source-stamped empty envelope', () => {
+    const authoritativeEmpty = parseZambonApiPayload({ status: 200, data: [] });
+    expect(mergeZambonJobs([STORED], authoritativeEmpty)).toEqual([]);
+    expect(mergeZambonJobs([STORED], [])).toEqual([STORED]);
   });
 
   it('publishes a body only from the shared 50-word floor (review #10396)', () => {
