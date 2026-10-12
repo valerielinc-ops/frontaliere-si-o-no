@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-12T09:13:26.174Z",
-  "total": 24,
+  "generatedAt": "2026-10-12T21:12:35.100Z",
+  "total": 23,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
-  "unchangedCount": 21,
-  "durationMs": 11001,
-  "avgDurationMs": 11001,
+  "removedCount": 0,
+  "unchangedCount": 20,
+  "durationMs": 13250,
+  "avgDurationMs": 13250,
   "durationHistory": [
-    11001
+    13250
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -285,130 +285,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "efg-6137",
-      "slug": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
-      "company": "EFG International AG",
-      "title": "International Payroll Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6137",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The International Payroll Specialist will be a key resource within an evolving global payroll structure. The role ensures accurate salary processing, full compliance with local and international regulations, and effective collaboration with internal and external partners to guarantee efficient and compliant payroll operations.",
-              "This position will primarily focus on EFG locations outside Switzerland and will serve as the main point of contact for payroll‑related matters across these locations. At the same time, the role will also be involved in payroll operations for Switzerland, providing support and backup to the team as needed. This role will provide guidance on payroll topics, including allowances, tax regulations, social security and reporting requirements, supporting the organisation in maintaining high standards of compliance and service quality.",
-              "The role also offers the opportunity to contribute to the implementation of a global payroll platform for employees of EFG international locations and to progressively take ownership of multi‑country payroll operations from Switzerland"
-            ],
-            "responsibilities": [
-              "Manage the global payroll process from Switzerland for selected international locations, ensuring accurate and timely salary payments.",
-              "Support and act as backup for payroll activities for Switzerland‑based employees.",
-              "Coordinate with local payroll providers, ensuring compliance with tax, social security and labour regulations in each jurisdiction.",
-              "Collaborate with HR and Finance to align processes, ensure accurate interfaces and resolve issues.",
-              "Act as first point of contact for employee payroll queries, providing timely and accurate support and maintaining high data quality across locations.",
-              "Prepare and review payroll reports (salaries, contributions, tax obligations) and support internal and external audits with required documentation.",
-              "Drive initiatives to review, streamline and centralise HR/payroll processes globally, performing regular checks on payroll outputs to ensure quality and compliance."
-            ],
-            "requirements": [
-              "Proven experience in multi‑country payroll management, ideally within an international or financial services environment.",
-              "Strong knowledge of international payroll processes and compliance requirements (tax, social security, labour law) across multiple jurisdictions.",
-              "Experience with payroll platforms and HR systems, with strong attention to data quality and process reliability.",
-              "Structured, detail‑oriented and highly reliable, with strong organisational skills and the ability to manage multiple deadlines in a dynamic and demanding environment.",
-              "Comfortable working in a regulated and international context, with high levels of integrity and discretion in handling confidential data.",
-              "International mindset and experience working in multicultural environments.",
-              "Excellent interpersonal and collaboration skills, with a proactive and positive attitude, energy and intellectual curiosity.",
-              "Strong communication skills, with the ability to provide clear explanations to non‑specialist stakeholders.",
-              "Fluent in English; knowledge of national languages, particularly French and Italian, is a strong asset."
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Manage the global payroll process from Switzerland for selected international locations, ensuring accurate and timely salary payments.",
-              "Support and act as backup for payroll activities for Switzerland‑based employees.",
-              "Coordinate with local payroll providers, ensuring compliance with tax, social security and labour regulations in each jurisdiction.",
-              "Proven experience in multi‑country payroll management, ideally within an international or financial services environment.",
-              "Strong knowledge of international payroll processes and compliance requirements (tax, social security, labour law) across multiple jurisdictions.",
-              "Experience with payroll platforms and HR systems, with strong attention to data quality and process reliability.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Proven experience in multi‑country payroll management",
-              "Strong knowledge of international payroll processes and compliance requirements (tax",
-              "Experience with payroll platforms and HR systems",
-              "Structured",
-              "Comfortable working in a regulated and international context",
-              "Manage the global payroll process from Switzerland for selected international locations",
-              "Support and act as backup for payroll activities for Switzerland‑based employees.",
-              "Coordinate with local payroll providers",
-              "Collaborate with HR and Finance to align processes"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-08-12T21:49:50.461Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "",
-      "firstSeenAt": "2026-04-13T10:28:21.957Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6137",
-      "postingDateSource": "unknown",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6490",
@@ -513,7 +390,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.930Z",
+      "crawledAt": "2026-10-12T21:12:21.155Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25T07:07:02+00:00",
@@ -567,7 +444,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.924Z",
+      "crawledAt": "2026-10-12T21:12:21.148Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -672,7 +549,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.921Z",
+      "crawledAt": "2026-10-12T21:12:21.145Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14T16:10:22+00:00",
@@ -810,7 +687,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.915Z",
+      "crawledAt": "2026-10-12T21:12:21.140Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -867,7 +744,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.884Z",
+      "crawledAt": "2026-10-12T21:12:21.104Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13T15:55:36+00:00",
@@ -923,7 +800,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.880Z",
+      "crawledAt": "2026-10-12T21:12:21.098Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
@@ -1051,7 +928,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.876Z",
+      "crawledAt": "2026-10-12T21:12:21.094Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -1111,7 +988,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.871Z",
+      "crawledAt": "2026-10-12T21:12:21.090Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -1242,7 +1119,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.851Z",
+      "crawledAt": "2026-10-12T21:12:21.068Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1322,7 +1199,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-12T09:13:10.844Z",
+      "crawledAt": "2026-10-12T21:12:21.060Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-29T15:25:56+00:00",
@@ -2395,130 +2272,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "id": "efg-6326",
-      "slug": "cash-reconciliation-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cash Reconciliation Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6326",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span>",
-              "<span>Monitor, check, and investigate cash differences on a daily basis</span>",
-              "<span>Communicate effectively in English, both orally and in writing</span>"
-            ],
-            "responsibilities": [
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
-              "<span>Establish and maintain a list of pending cash amounts</span>",
-              "<span>Manage treatment and follow-up of current files</span>",
-              "<span>Claim and recover missing statements from counterparties</span>",
-              "<span>Investigation on Customer Wires</span>",
-              "<span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span>",
-              "<span>Understand the roles of each counterparty involved in wire payments</span>",
-              "<span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span>",
-              "<span>Take responsibility for managing investigations from start to finish</span>",
-              "<span>Apply familiarity with compliance requirements throughout investigations</span>",
-              "<p><span>Communicate effectively in English, both orally and in writing</span></p><p> </p>"
-            ],
-            "requirements": [
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
-              "<span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span>",
-              "<span>Proficient in MS Office suite </span>",
-              "<span>Solution-oriented, pragmatic, and precise </span>",
-              "<span>Strong team player, comfortable working in open space environments </span>",
-              "<span>Resilient under pressure, flexible, and adaptable </span>",
-              "<span>Proactive with excellent attention to detail</span>"
-            ],
-            "benefits": [
-              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
-              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>",
-              "<span>Passionate: Being committed and striving for excellence</span>",
-              "<span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span>",
-              "<span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span>"
-            ],
-            "process": [
-              "<span>Should you wish to apply for this position use this link to apply.</span>"
-            ],
-            "highlights": [
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
-              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
-              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>"
-            ],
-            "keywords": [
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written)",
-              "<span>Knowledge of GTMatch",
-              "<span>Proficient in MS Office suite </span>",
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor",
-              "<span>Establish and maintain a list of pending cash amounts</span>"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<span><strong>Our Purpose and Mission</strong></span>",
-                  "<span>Empowering entrepreneurial minds to create value – today and for the future.</span>",
-                  "<span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-13T10:16:44.476Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "country": "CH",
-      "firstSeenAt": "2026-07-02T11:04:59.203Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6326",
-      "postingDateSource": "unknown",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }

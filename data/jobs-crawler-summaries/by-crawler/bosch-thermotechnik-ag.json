@@ -1,18 +1,99 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-12T09:17:33.407Z",
+  "generatedAt": "2026-10-12T21:17:49.187Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 20391,
-  "avgDurationMs": 20391,
+  "newCount": 2,
+  "updatedCount": 1,
+  "removedCount": 2,
+  "unchangedCount": 5,
+  "durationMs": 20923,
+  "avgDurationMs": 20923,
   "durationHistory": [
-    20391
+    20923
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sachbearbeiter Verkauf Innendienst 80 - 100% (w/m/div.) REF298291X",
+      "slug": "sachbearbeiter-vendita-servizio-interno-80-100-w-m-div-ref298291x-bosch-thermotechnik-ag-spreitenbach",
+      "url": "https://jobs.bosch.com/en/job/REF298291X-sachbearbeiter-verkauf-innendienst-80-100-w-m-div-ref298291x",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000155024552-sachbearbeiter-verkauf-innendienst-80-100-w-m-div-ref298291x?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Spreitenbach",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-12",
+      "postedDate": "2026-10-12",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-74689810ee66",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8957",
+      "firstSeenAt": "2026-10-12T21:17:38.628Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Area Sales Manager (Fachhandel) – Bosch Power Tools 100% (w/m/div.)",
+      "slug": "area-sales-manager-fachhandel-bosch-power-tools-100-w-m-div-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF298253B-area-sales-manager-fachhandel-bosch-power-tools-100-w-m-div",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154957319-area-sales-manager-fachhandel-bosch-power-tools-100-w-m-div-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-12",
+      "postedDate": "2026-10-12",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-ad8ccdd072d3",
+      "needsRetranslation": true,
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-10-12T21:17:38.628Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
@@ -53,6 +134,47 @@
         "translation": 25,
         "completeness": 22
       }
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Praktikum - Business Unit Controlling REF297441C",
+      "slug": "praktikum-business-unit-controlling-ref297441c-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF297441C-praktikum-business-unit-controlling-ref297441c",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921499-praktikum-business-unit-controlling-ref297441c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-553567bd3eb3",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "firstSeenAt": "2026-10-03T09:12:47.552Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "4500",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
     },
     {
       "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
@@ -85,7 +207,6 @@
       "datePosted": "2026-10-01",
       "postingDateSource": "reported",
       "postalCode": "4500",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -95,7 +216,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
@@ -291,46 +411,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Praktikum - Business Unit Controlling REF297441C",
-      "slug": "praktikum-business-unit-controlling-ref297441c-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF297441C-praktikum-business-unit-controlling-ref297441c",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921499-praktikum-business-unit-controlling-ref297441c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-553567bd3eb3",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "4500",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
