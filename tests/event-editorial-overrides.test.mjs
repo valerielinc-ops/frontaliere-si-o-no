@@ -24,3 +24,11 @@ test('does not mutate an event without a matching override', () => {
   const event = { id: 'guidle:other', category: 'Music' };
   assert.deepEqual(applyEditorialOverride(event, { overrides: {} }), event);
 });
+
+test('merges a partial locale correction without deleting existing translations', () => {
+  const corrected = applyEditorialOverride(
+    { id: 'guidle:partial', descriptionByLocale: { en: 'E', de: 'D', fr: 'F' } },
+    { overrides: { 'guidle:partial': { descriptionByLocale: { it: 'I' } } } },
+  );
+  assert.deepEqual(corrected.descriptionByLocale, { en: 'E', de: 'D', fr: 'F', it: 'I' });
+});
