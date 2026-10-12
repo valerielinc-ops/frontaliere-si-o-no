@@ -228,7 +228,8 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).toContain(
       "|| (assistedApplicationVariant === 'rewarded_ad' && assistedOfferSource === 'offerwall_fallback');",
     );
-    expect(jobBoardSource).toContain('const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (');
+    expect(jobBoardSource).toContain('const assistedApplicationOfferJsx = sumUpPayment ? (');
+    expect(jobBoardSource).toContain(') : assistedApplicationJob && assistedOfferAvailable ? (');
     expect(jobBoardSource).toContain('if (!job || !assistedOfferAvailable) return;');
     expect(jobBoardSource).toMatch(
       /const startAssistedCheckout = async \(job: JobListing, extra: Record<string, unknown> = \{\}\) => \{\s*if \(assistedCheckoutBusy\) return;/,
