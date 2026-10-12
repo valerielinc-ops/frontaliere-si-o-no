@@ -6,6 +6,7 @@ import ts from 'typescript';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { seededJobMatchesSlug } from '../services/seededExpiredJob';
 import { parseSearchSlugFilter } from '../services/relatedSearchClusters';
+import { parseJobRouteSearchFilter } from '../components/community/JobBoard';
 
 // Execute the production effect's selected and no-selected-job paths without mounting the
 // whole board or replacing its schema cleanup with a test implementation.
@@ -35,12 +36,13 @@ const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selecte
 if (!locationParser || filterInitializers.size !== 2) throw new Error('Production slug filter declarations not found');
 const filterCode = ts.transpileModule(`${locationParser}
   const useMemo = (read: () => unknown) => read();
+  const jobs = [];
   const search = ${filterInitializers.get('searchSlugFilter')};
   const location = ${filterInitializers.get('locationSlugFilter')};
   return { search, location };`, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
 }).outputText;
-const executeFilters = new Function('initialJobSlug', 'isSeededExpiredDetail', 'isBridgePage', 'parseSearchSlugFilter', filterCode);
+const executeFilters = new Function('initialJobSlug', 'isSeededExpiredDetail', 'isBridgePage', 'parseSearchSlugFilter', 'parseJobRouteSearchFilter', filterCode);
 const seededWindow = window as unknown as { __EXPIRED_JOB_DATA__?: { slug: string; title: string } };
 
 function runEffect(slug?: string, locationFilter: string | null = null) {
@@ -102,13 +104,13 @@ describe('archived JobPosting hydration and list navigation', () => {
 
   it.each(['search-engineer-acme', 'location-manager-acme'])('treats matching archive %s as a detail instead of a filter landing', (slug) => {
     seededWindow.__EXPIRED_JOB_DATA__ = { slug, title: 'Historical vacancy' };
-    expect(executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter)).toEqual({ search: null, location: null });
+    expect(executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter, parseJobRouteSearchFilter)).toEqual({ search: null, location: null });
   });
 
   it('keeps real search and location filters available after leaving an archive', () => {
     seededWindow.__EXPIRED_JOB_DATA__ = { slug: 'search-engineer-acme', title: 'Historical vacancy' };
     for (const slug of ['search-infermiere', 'location-lugano']) {
-      const filters = executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter);
+      const filters = executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter, parseJobRouteSearchFilter);
       expect(filters.search || filters.location).toBeTruthy();
     }
   });
