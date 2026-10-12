@@ -1,7 +1,7 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-10-12T09:16:21.497Z",
+  "generatedAt": "2026-10-12T21:15:19.982Z",
   "total": 37,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 32,
-  "durationMs": 14721,
-  "avgDurationMs": 14721,
+  "durationMs": 10758,
+  "avgDurationMs": 10758,
   "durationHistory": [
-    14721
+    10758
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -945,52 +945,6 @@
     },
     {
       "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "sviluppatore-trice-di-applicazioni-senior-80-100-fincons-group-bern-629901",
-      "url": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
-      "applyUrl": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "",
-        "uniqueJobCode": "",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-da85abd59ed6",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "title": "Senior Applikations-Entwickler:in 80 - 100%",
       "slug": "sviluppatore-trice-di-applicazioni-senior-80-100-fincons-group-bern-7ef770",
       "url": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
       "applyUrl": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
@@ -1033,6 +987,52 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "title": "Senior Applikations-Entwickler:in 80 - 100%",
+      "slug": "sviluppatore-trice-di-applicazioni-senior-80-100-fincons-group-bern-629901",
+      "url": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/VuPyov176B/Senior-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "",
+        "uniqueJobCode": "",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-da85abd59ed6",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -1635,5 +1635,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
