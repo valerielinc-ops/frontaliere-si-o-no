@@ -71,7 +71,12 @@ function housekeepingEntries(): string[] {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> };
   const job = analyzeWorkflow(join(ROOT, WORKFLOW), pkg.scripts).jobs
     .find((candidate: { jobId: string }) => candidate.jobId === 'housekeeping');
-  return [...(job?.entries ?? []), ...(job?.inlineEntries ?? []), ...COMMIT_SCRIPT_ENTRIES];
+  return [
+    ...(job?.entries ?? []),
+    ...(job?.inlineEntries ?? []),
+    ...COMMIT_SCRIPT_ENTRIES,
+    ...COMMIT_SCRIPT_TRANSITIVE_ENTRIES,
+  ];
 }
 
 /**
@@ -85,6 +90,9 @@ const COMMIT_SCRIPT_ENTRIES = [
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/ci/canonicalize-expired-archive-slice.mjs',
   'scripts/lib/run-bounded-command.mjs',
+];
+const COMMIT_SCRIPT_TRANSITIVE_ENTRIES = [
+  'scripts/lib/pipeline-phase-timing.mjs',
 ];
 
 /** Esegue lo step vero di verifica in un repo con la lista committata. */
@@ -177,6 +185,9 @@ describe('housekeeping sparse path list', () => {
     for (const entry of COMMIT_SCRIPT_ENTRIES) {
       expect(commitScript).toContain(entry.split('/').pop());
     }
+    const boundedWrapper = readFileSync(join(ROOT, 'scripts/lib/run-bounded-command.mjs'), 'utf8');
+    expect(boundedWrapper).toContain('pipeline-phase-timing.mjs');
+    expect(entries).toContain('scripts/lib/pipeline-phase-timing.mjs');
 
     const uncovered = uncoveredAllowListCode(realList.paths, entries, { cone: true });
     expect(

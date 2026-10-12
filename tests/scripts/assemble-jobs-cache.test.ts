@@ -70,6 +70,12 @@ beforeAll(async () => {
     path.join(REPO_ROOT, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
     path.join(tmpRoot, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
   );
+  const articleSharedDir = path.join(tmpRoot, 'packages', 'articles', 'engine', 'shared');
+  mkdirSync(articleSharedDir, { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'packages', 'articles', 'engine', 'shared', 'htmlMarkup.mjs'),
+    path.join(articleSharedDir, 'htmlMarkup.mjs'),
+  );
   mkdirSync(path.join(tmpRoot, 'data'), { recursive: true });
   cpSync(
     path.join(REPO_ROOT, 'data', 'canton-url-slugs.json'),
@@ -78,6 +84,14 @@ beforeAll(async () => {
   cpSync(
     path.join(REPO_ROOT, 'data', 'canton-municipalities.json'),
     path.join(tmpRoot, 'data', 'canton-municipalities.json'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'swiss-locality-postal-codes.json'),
+    path.join(tmpRoot, 'data', 'swiss-locality-postal-codes.json'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'data', 'swiss-postal-code-index.json'),
+    path.join(tmpRoot, 'data', 'swiss-postal-code-index.json'),
   );
 
   // Pre-create empty slice directories so existsSync passes

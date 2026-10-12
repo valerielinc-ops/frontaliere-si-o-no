@@ -37,6 +37,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/open-data-refresh-pr.sh',
   'scripts/lib/old-history-guard.mjs',
   'scripts/lib/run-bounded-command.mjs',
+  'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/git-add-resolved.mjs',
   'scripts/lib/resolve-git-add-path.mjs',
@@ -1259,6 +1260,8 @@ describe('bounded command runner', () => {
     expect(result.error).toBeUndefined();
     expect(result.status).toBe(124);
     expect(result.stderr).toContain('::error::git push of the new stable branch timed out after 1 second');
+    expect(result.stderr).toContain('"event":"finish","duration_ms":');
+    expect(result.stderr).toContain('"outcome":"timeout"');
     expect(Date.now() - startedAt).toBeLessThan(10_000);
   });
 
@@ -1278,7 +1281,8 @@ describe('bounded command runner', () => {
     const result = bounded(['--timeout-seconds', '10', '--label', 'quick', '--', process.execPath, '-e', "console.log('out'); process.exit(7);"]);
     expect(result.status).toBe(7);
     expect(result.stdout).toBe('out\n');
-    expect(result.stderr).toBe('');
+    expect(result.stderr).toContain('[pipeline-timing] {"pipeline":"bounded-command","phase":"quick","event":"start"}');
+    expect(result.stderr).toContain('"outcome":"failure"');
   });
 
   it('refuses to run without a cap or a label', () => {

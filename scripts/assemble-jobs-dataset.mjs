@@ -112,6 +112,7 @@ import {
 import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-previous-run-slice.mjs';
 import { isIncomplete } from './lib/translation-incomplete.mjs';
 import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
+import { startPipelinePhase } from './lib/pipeline-phase-timing.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -3305,17 +3306,21 @@ export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
  * Returns the assembled jobs array, or null if no slices exist.
  */
 async function assembleJobs() {
+  const finishAssemblyTiming = startPipelinePhase('jobs-dataset', 'active-jobs assembly');
   const sliceFiles = listSliceFiles(JOBS_SLICES_DIR);
 
   if (sliceFiles.length === 0) {
     console.log('ℹ️  No per-crawler job slices found — data/jobs.json left unchanged.');
+    finishAssemblyTiming();
     return null;
   }
 
   // Parse all slices in parallel (read+JSON.parse only — dedup stays sequential
   // below, in the same alphabetical input order, so output is byte-identical
   // to the legacy single-threaded path).
+  const finishParseTiming = startPipelinePhase('jobs-dataset', 'read and parse crawler slices');
   const parsed = await parseSlicesInParallel(sliceFiles);
+  finishParseTiming();
   const slices = [];
   const malformed = [];
   for (const { path: slicePath, parsed: slice, error } of parsed) {
@@ -3339,8 +3344,12 @@ async function assembleJobs() {
     );
   }
 
-  if (slices.length === 0) return null;
+  if (slices.length === 0) {
+    finishAssemblyTiming();
+    return null;
+  }
 
+  const finishMergeTiming = startPipelinePhase('jobs-dataset', 'merge, dedupe, and normalize active jobs');
   // Keep raw crawler location evidence attached to the stable source identity
   // before any assembly-time normalization or deduplication changes the row.
   // The assembled copy can inherit fields from a different duplicate; the
@@ -3525,12 +3534,15 @@ async function assembleJobs() {
     const refreshed = slugRefresh.refreshed > 0 ? `; refreshed ${slugRefresh.refreshed} slug(s)` : '';
     console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey || 'slug-only'})${refreshed}`);
   }
+  finishMergeTiming();
 
   // ── Foreign filter + Swiss-municipality whitelist ───────────────────
   // See applySwissLocationGate() for the rules; the gate itself remains pure so
   // replay tests run the exact filtering logic, while this assembly boundary
   // preserves an expired route for every filtered job.
+  const finishSwissGateTiming = startPipelinePhase('jobs-dataset', 'Swiss location filter');
   const swissGate = applySwissLocationGate(deduped);
+  finishSwissGateTiming();
   let swissValidated = swissGate.jobs;
   const { foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress } = swissGate;
   if (foreignCount > 0) {
@@ -3540,7 +3552,9 @@ async function assembleJobs() {
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
   }
+  const finishFilteredArchiveTiming = startPipelinePhase('jobs-dataset', 'archive Swiss-filtered jobs');
   const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
+  finishFilteredArchiveTiming();
   if (filteredArchive.added > 0) {
     console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
   }
@@ -3550,6 +3564,7 @@ async function assembleJobs() {
   // those filters would drop must NOT supersede (and bridge onto) a crawled twin
   // that survives — that would orphan the already-indexed crawled URL. See
   // scripts/lib/publisher-supersede.mjs.
+  const finishPublisherSupersedeTiming = startPipelinePhase('jobs-dataset', 'publisher supersede');
   {
     const before = swissValidated.length;
     const res = supersedeCrawledByPublisher(swissValidated);
@@ -3558,6 +3573,7 @@ async function assembleJobs() {
       console.log(`  🏷️  Publisher supersede: dropped ${res.superseded} crawled duplicate(s) of employer-published ads (${before} → ${swissValidated.length})`);
     }
   }
+  finishPublisherSupersedeTiming();
 
   // ── Canton validation — fix mismatches using BFS data ──────────────
   // Some crawlers assign HQ canton instead of the actual city's canton.
@@ -3577,6 +3593,7 @@ async function assembleJobs() {
   // pinned, the pin always wins — the URL section can never drift again.
   // Recovery of ALREADY-orphaned URLs lives on the emit/resolver side
   // (build-plugins/searchConsoleCompat.ts).
+  const finishCantonTiming = startPipelinePhase('jobs-dataset', 'canton resolution and pin migration');
   const cantonPinsPath = path.join(ROOT, 'data', 'job-canton-pins.json');
   let cantonPins = {};
   try { cantonPins = JSON.parse(fs.readFileSync(cantonPinsPath, 'utf-8')) || {}; }
@@ -3746,6 +3763,7 @@ async function assembleJobs() {
     // manual triage (bad crawler field mapping) rather than silently persisting.
     console.warn(`  ⚠️  Canton no-signal orphans: ${cantonEmptyNoSignal} job(s) with empty canton AND no location text at all (cannot self-heal) — sample: ${cantonEmptyNoSignalSamples.join(', ')}`);
   }
+  finishCantonTiming();
 
   // ── Backfill empty description from descriptionByLocale ────────────
   // Some crawlers (skip_ai_translation=1 mode) write jobs with empty
@@ -3785,6 +3803,7 @@ async function assembleJobs() {
   // this gate, fixture jobs end up persisted into data/jobs.json and
   // downstream consumers (newsletter, jobsSeoPagesPlugin, GSC orphan
   // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
+  const finishPostFilterTiming = startPipelinePhase('jobs-dataset', 'post-filter normalization and assembly output');
   const cleaned = filterFixtureJobs(swissValidated, 'assemble-jobs-dataset');
 
   // Existing slices can predate the write-time funnel above. Normalize the
@@ -3798,6 +3817,8 @@ async function assembleJobs() {
   if (assembleTimeMojibakeRepairs > 0) {
     console.log(`  🔤 Assembly encoding normalize: repaired ${assembleTimeMojibakeRepairs} malformed job text field(s)`);
   }
+  finishPostFilterTiming();
+  finishAssemblyTiming();
   return assembled;
 }
 
@@ -4494,9 +4515,11 @@ async function persistQualityScoresToFirestore(summaries) {
 }
 
 export async function assembleJobsDataset({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+  const finishDatasetTiming = startPipelinePhase('jobs-dataset', 'dataset orchestration');
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
+    finishDatasetTiming('skipped');
     return;
   }
 
@@ -4504,7 +4527,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Skip the 58 s assembly when the slice fingerprint matches a previous run.
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
+  const finishFingerprintTiming = startPipelinePhase('jobs-dataset', 'input fingerprint and cache lookup');
   const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
+  finishFingerprintTiming();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
@@ -4532,6 +4557,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     // a full miss rather than half-restoring outputs.
     const allPresent = restorePairs.every(([src]) => fs.existsSync(src));
     if (allPresent) {
+      const finishRestoreTiming = startPipelinePhase('jobs-dataset', 'restore cached artifacts');
       for (const [src, dst] of restorePairs) {
         fs.mkdirSync(path.dirname(dst), { recursive: true });
         fs.copyFileSync(src, dst);
@@ -4543,6 +4569,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       }
       const dt = ((Date.now() - t0) / 1000).toFixed(2);
       console.log(`✅ assemble-jobs cache HIT (key=${cacheKey.slice(0, 12)}..., restored ${restorePairs.length} files in ${dt}s)`);
+      finishRestoreTiming();
+      finishDatasetTiming();
       return;
     }
     console.log(`⚠️  assemble-jobs cache partial (key=${cacheKey.slice(0, 12)}..., missing snapshot files) — running full assembly`);
@@ -4559,7 +4587,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   const priorJobsSnapshot = readJson(DATA_JOBS, []);
 
   // --- Jobs ---
+  const finishActiveAssemblyTiming = startPipelinePhase('jobs-dataset', 'assemble active dataset');
   const assembledAll = await assembleJobs();
+  finishActiveAssemblyTiming();
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
   // Il taglio della pubblicazione è QUI: data/jobs.json e public/data/jobs.json
   // alimentano il build (jobsSeoPagesPlugin, hub, sitemap, conteggi), gli
@@ -4572,6 +4602,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // JOBS_INCLUDE_TRANSLATION_HELD=1. Le riconciliazioni con l'archivio degli
   // scaduti girano sempre sui soli pubblicati: un job trattenuto non è mai
   // stato pubblico e non deve assorbire né generare route storiche.
+  const finishActiveOutputTiming = startPipelinePhase('jobs-dataset', 'active dataset reconciliation and writes');
   const includeHeld = includeTranslationHeldFromEnv();
   let assembled = assembledAll;
   let publishedJobs = assembledAll;
@@ -4742,10 +4773,13 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     console.log(`✅ data/jobs-meta.json generated: ${publishedJobs.length} total jobs`);
   }
 
+  finishActiveOutputTiming();
+
   // --- Expired jobs ---
   // Some consumers (for example the 404-risk audit) only need the active
   // dataset. Keep the expired archive and its write-time integrity guards out
   // of that read-only consumer path; the default remains the full assembly.
+  const finishExpiredTiming = startPipelinePhase('jobs-dataset', 'expired archive and orphan reconciliation');
   if (withExpired) {
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
@@ -4815,6 +4849,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   } else {
     console.log('⏭️  Expired jobs skipped (--active-only): archive and expired-slug reconciliation left as-is');
   }
+  finishExpiredTiming();
 
   // --- Summaries ---
   // `withSummaries: false` skips the SECOND full read of data/jobs/by-crawler/*
@@ -4825,6 +4860,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // keeps the default full assembly because its baseline and cascade consume
   // the post-Argos dataset before the later final re-assembles. The option stays
   // opt-in for callers that explicitly accept a stale summary aggregate.
+  const finishSummariesTiming = startPipelinePhase('jobs-dataset', 'crawler summary aggregation');
   if (withSummaries) {
     const summaryStore = assembleSummaries();
     if (summaryStore !== null) {
@@ -4837,17 +4873,21 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   } else {
     console.log('⏭️  Summaries skipped (--no-summaries): data/jobs-crawler-summaries.json left as-is');
   }
+  finishSummariesTiming();
 
   // --- Stats (optional) ---
+  const finishStatsTiming = startPipelinePhase('jobs-dataset', 'optional job statistics');
   if (withStats) {
     const { generateJobBoardStats } = await import('./generate-job-board-stats.mjs');
     const result = generateJobBoardStats();
     console.log(`📈 Stats regenerated: ${result.summary.totals.activeJobs} active jobs`);
   }
+  finishStatsTiming();
 
   // --- Snapshot to cache for next run ---
   // Wrapped in try/catch — cache write failures must never fail the deploy;
   // worst case the next run pays the 58 s assembly cost again.
+  const finishSnapshotTiming = startPipelinePhase('jobs-dataset', 'cache snapshot and pruning');
   try {
     fs.rmSync(cacheDir, { recursive: true, force: true });
     fs.mkdirSync(cacheDir, { recursive: true });
@@ -4901,9 +4941,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     }
   } catch (err) {
     console.warn(`⚠️  assemble-jobs cache snapshot failed (non-fatal): ${err.message}`);
+    finishSnapshotTiming('failure');
   }
 
   console.log('✅ Assembly complete.');
+  finishSnapshotTiming();
+  finishDatasetTiming();
 }
 
 /* ── CLI entry point ──────────────────────────────────────────────────── */
