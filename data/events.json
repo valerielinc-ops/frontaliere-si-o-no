@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T20:01:19.536Z",
+  "generatedAt": "2026-10-12T22:02:32.921Z",
   "totalEvents": 12823,
   "events": [
     {
@@ -73,7 +73,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Gallusmarkt è un mercato ricorrente a Einsiedeln. I mercati si distribuiscono lungo la strada principale tra la piazza del paese e il municipio.",
+      "descriptionByLocale": {
+        "it": "Il Gallusmarkt è un mercato ricorrente a Einsiedeln. I mercati si distribuiscono lungo la strada principale tra la piazza del paese e il municipio.",
+        "en": "Gallusmarkt is a recurring market event in Einsiedeln. The markets are arranged along the main street between the village square and the town hall.",
+        "de": "Der Gallusmarkt ist ein wiederkehrender Marktanlass in Einsiedeln. Die Märkte verteilen sich auf die Hauptstrasse zwischen Dorfplatz und Rathaus.",
+        "fr": "Le Gallusmarkt est un marché récurrent à Einsiedeln. Les marchés s’étendent le long de la rue principale entre la place du village et l’hôtel de ville."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:358eed118ca246c58064d8572fe502d5",
@@ -105,7 +113,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo Stöckmärcht im Ybrig è un appuntamento ricorrente a Unteriberg, legato a una tradizione. Il Chatzästreblä è una pratica sportiva nata come passatempo per chi lavorava negli alpeggi ed è oggi considerata un’usanza dello Stöckmärcht.",
+      "descriptionByLocale": {
+        "it": "Lo Stöckmärcht im Ybrig è un appuntamento ricorrente a Unteriberg, legato a una tradizione. Il Chatzästreblä è una pratica sportiva nata come passatempo per chi lavorava negli alpeggi ed è oggi considerata un’usanza dello Stöckmärcht.",
+        "en": "Stöckmärcht im Ybrig is a recurring event held in Unteriberg and linked to a tradition. Chatzästreblä is a sporting practice that began as a pastime for Alpine herders and is now considered part of the Stöckmärcht custom.",
+        "de": "Der Stöckmärcht im Ybrig ist ein wiederkehrender Anlass in Unteriberg, der mit einer überlieferten Tradition verbunden ist. Chatzästreblä bezeichnet dabei eine Sportart, die früher Älplern als Zeitvertreib diente und heute zum Brauchtum des Stöckmärchts gehört.",
+        "fr": "Le Stöckmärcht im Ybrig est une manifestation récurrente à Unteriberg, liée à une tradition. Le Chatzästreblä est une pratique sportive qui servait autrefois de passe-temps aux gardiens d’alpage et qui est aujourd’hui considérée comme une coutume du Stöckmärcht."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8d264c03773c46c3abea282b2c877223",
@@ -217,7 +233,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "reparaTHURbude è un appuntamento ricorrente a Weinfelden. Vi si può riparare personalmente un oggetto a cui si tiene oppure affidarlo per la riparazione.",
+      "descriptionByLocale": {
+        "it": "reparaTHURbude è un appuntamento ricorrente a Weinfelden. Vi si può riparare personalmente un oggetto a cui si tiene oppure affidarlo per la riparazione.",
+        "en": "reparaTHURbude is a recurring event in Weinfelden. It provides a place to repair a personal item oneself or have it fixed.",
+        "de": "Die reparaTHURbude ist ein wiederkehrender Anlass in Weinfelden. Dort können Lieblingsgegenstände selbst repariert oder zum Flicken gebracht werden.",
+        "fr": "reparaTHURbude est un rendez-vous récurrent à Weinfelden. On peut y réparer soi-même un objet apprécié ou le faire remettre en état."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e94dcf4fa7f04bfd9fa9f277fba5be74",
@@ -249,7 +273,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fideriser Heuberge - Fideris; comune: Fideris; cantone: GR; categoria: Event; data: 2025-10-15; ora: 08:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fideriser Heuberge - Fideris; comune: Fideris; cantone: GR; categoria: Event; data: 2025-10-15; ora: 08:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Fideriser Heuberge - Fideris; municipality: Fideris; canton: GR; category: Event; date: 2025-10-15; time: 08:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Fideriser Heuberge - Fideris; gemeinde: Fideris; kanton: GR; kategorie: Event; datum: 2025-10-15; uhrzeit: 08:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Fideriser Heuberge - Fideris; commune: Fideris; canton: GR; catégorie: Event; date: 2025-10-15; heure: 08:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:aa1585e7b64747d0830d706fa1ef3759",
@@ -361,7 +393,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo corso invernale ricorrente a Gipf-Oberfrick è dedicato al mal di schiena e ai disturbi reumatici. Tra i temi figurano i dolori alla schiena, alle articolazioni e quelli reumatici.",
+      "descriptionByLocale": {
+        "it": "Questo corso invernale ricorrente a Gipf-Oberfrick è dedicato al mal di schiena e ai disturbi reumatici. Tra i temi figurano i dolori alla schiena, alle articolazioni e quelli reumatici.",
+        "en": "This recurring winter course in Gipf-Oberfrick focuses on back pain and rheumatism. It addresses discomfort affecting the back and joints as well as rheumatic pain.",
+        "de": "Dieser wiederkehrende Winterkurs in Gipf-Oberfrick befasst sich mit Rückenschmerzen und Rheuma. Er behandelt Beschwerden am Rücken und an den Gelenken sowie rheumatische Schmerzen.",
+        "fr": "Ce cours d’hiver récurrent à Gipf-Oberfrick porte sur les maux de dos et les troubles rhumatismaux. Il aborde les douleurs du dos et des articulations ainsi que les douleurs rhumatismales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ff02a984aca64986808ad2aa7fc63be3",
@@ -447,7 +487,15 @@
           "comune": "__other-events__",
           "slug": "indian-evening-at-restaurant-spillgerten-2025-10-31"
         }
-      ]
+      ],
+      "description": "La serata gastronomica ricorrente all’Hotel Spillgerten è dedicata alla cucina indiana. Il programma comprende un buffet di specialità indiane.",
+      "descriptionByLocale": {
+        "it": "La serata gastronomica ricorrente all’Hotel Spillgerten è dedicata alla cucina indiana. Il programma comprende un buffet di specialità indiane.",
+        "en": "This recurring food event at Hotel Spillgerten is dedicated to Indian cuisine. The programme includes a buffet of Indian specialities.",
+        "de": "Der wiederkehrende kulinarische Anlass im Hotel Spillgerten ist der indischen Küche gewidmet. Auf dem Programm steht ein Buffet mit indischen Spezialitäten.",
+        "fr": "Ce rendez-vous gastronomique récurrent à l’hôtel Spillgerten est consacré à la cuisine indienne. Il comprend un buffet de spécialités indiennes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ad703a7a6cf448c9977131ee2ee211df",
@@ -565,7 +613,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una celebrazione ecumenica in memoria dei defunti a Coira. Dopo la celebrazione è prevista una visita alle tombe, con musica all’organo e al violoncello.",
+      "descriptionByLocale": {
+        "it": "L’evento è una celebrazione ecumenica in memoria dei defunti a Coira. Dopo la celebrazione è prevista una visita alle tombe, con musica all’organo e al violoncello.",
+        "en": "The event is an ecumenical commemoration of the deceased in Chur. A visit to the graves follows, with music on the organ and cello.",
+        "de": "Die Veranstaltung ist eine ökumenische Gedenkfeier für Verstorbene in Chur. Im Anschluss folgt ein Gräberbesuch mit musikalischer Begleitung durch Orgel und Cello.",
+        "fr": "Cet événement est une célébration œcuménique à la mémoire des défunts à Coire. Elle est suivie d’une visite des tombes, avec de la musique à l’orgue et au violoncelle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:aa93f6282d8448038c18b9d826b3e51f",
@@ -597,7 +653,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Isenthal; cantone: UR; categoria: Event; data: 2025-11-05; ora: 08:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Isenthal; cantone: UR; categoria: Event; data: 2025-11-05; ora: 08:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Isenthal; canton: UR; category: Event; date: 2025-11-05; time: 08:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Isenthal; kanton: UR; kategorie: Event; datum: 2025-11-05; uhrzeit: 08:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Isenthal; canton: UR; catégorie: Event; date: 2025-11-05; heure: 08:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8b3558ff76b643a99d4342ca4d21f3cd",
@@ -749,7 +813,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente offre uno spazio per conversare in italiano. Alla Stadtbibliothek Baden, gli scambi guidati riguardano temi della vita quotidiana e si rivolgono a persone interessate alle lingue e alla cultura.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente offre uno spazio per conversare in italiano. Alla Stadtbibliothek Baden, gli scambi guidati riguardano temi della vita quotidiana e si rivolgono a persone interessate alle lingue e alla cultura.",
+        "en": "This recurring café provides an opportunity to converse in Italian. At Stadtbibliothek Baden, facilitated exchanges cover everyday topics and are intended for people interested in languages and culture.",
+        "de": "Das wiederkehrende Café bietet Gelegenheit, Italienisch zu sprechen. In der Stadtbibliothek Baden werden Gespräche über Themen des täglichen Lebens begleitet und richten sich an Menschen mit Interesse an Sprachen und Kultur.",
+        "fr": "Ce rendez-vous récurrent permet de pratiquer l’italien dans un cadre de discussion. À la Stadtbibliothek Baden, les échanges animés portent sur des sujets du quotidien et s’adressent aux personnes intéressées par les langues et la culture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a33fe2e5f5524184a1c7e88b1d06ada7",
@@ -987,7 +1059,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Baden; cantone: AG; categoria: Event; data: 2025-11-25; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Baden; cantone: AG; categoria: Event; data: 2025-11-25; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Baden; canton: AG; category: Event; date: 2025-11-25; time: 15:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Baden; kanton: AG; kategorie: Event; datum: 2025-11-25; uhrzeit: 15:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Baden; canton: AG; catégorie: Event; date: 2025-11-25; heure: 15:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:33949dc467d34744a6bb57054e1f1853",
@@ -1105,7 +1185,15 @@
           "comune": "__other-events__",
           "slug": "repair-cafe-reparieren-statt-wegwerfen-2025-11-29"
         }
-      ]
+      ],
+      "description": "L’evento ricorrente si svolge presso la Freizeitstätte Langnau, nel cantone di Berna. Professionisti aiutano a riparare gratuitamente gli oggetti personali, mentre durante l’incontro vengono offerti caffè e dolci.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si svolge presso la Freizeitstätte Langnau, nel cantone di Berna. Professionisti aiutano a riparare gratuitamente gli oggetti personali, mentre durante l’incontro vengono offerti caffè e dolci.",
+        "en": "This recurring event is held at Freizeitstätte Langnau in the canton of Bern. Professionals assist with the free repair of personal items, while coffee and cake are served during the gathering.",
+        "de": "Die wiederkehrende Veranstaltung findet in der Freizeitstätte Langnau im Kanton Bern statt. Fachleute helfen kostenlos dabei, persönliche Gegenstände zu reparieren; währenddessen gibt es Kaffee und Kuchen.",
+        "fr": "Ce rendez-vous récurrent se tient à la Freizeitstätte Langnau, dans le canton de Berne. Des professionnels aident les participants à réparer gratuitement leurs objets, et du café ainsi que des gâteaux sont proposés sur place."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f52d35529c1a481db82364dbf5e280a4",
@@ -1413,7 +1501,15 @@
           "comune": "__other-events__",
           "slug": "atemtag-im-sunnehus-2025-12-07"
         }
-      ]
+      ],
+      "description": "Al Sunnehus - Kur-und Gesundheitshotel si svolge una giornata dedicata alla respirazione e alla percezione. L'appuntamento ricorre una volta al mese.",
+      "descriptionByLocale": {
+        "it": "Al Sunnehus - Kur-und Gesundheitshotel si svolge una giornata dedicata alla respirazione e alla percezione. L'appuntamento ricorre una volta al mese.",
+        "en": "At Sunnehus - Kur-und Gesundheitshotel, the event is a day devoted to breathing and sensory perception. It takes place once a month.",
+        "de": "Im Sunnehus - Kur-und Gesundheitshotel findet ein Tag zu Atem und Empfindung statt. Die Veranstaltung findet einmal im Monat statt.",
+        "fr": "Au Sunnehus - Kur-und Gesundheitshotel, la manifestation est une journée consacrée à la respiration et à la perception. Elle a lieu une fois par mois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9272ec7ca2e8483483a2787b88345e7e",
@@ -1451,7 +1547,15 @@
           "comune": "__other-events__",
           "slug": "die-grune-welt-der-einsiedelei-2025-12-07"
         }
-      ]
+      ],
+      "description": "L'evento propone una visita guidata dedicata al mondo delle piante presso Einsiedelei - St. Verena. L'appuntamento si svolge in ogni stagione.",
+      "descriptionByLocale": {
+        "it": "L'evento propone una visita guidata dedicata al mondo delle piante presso Einsiedelei - St. Verena. L'appuntamento si svolge in ogni stagione.",
+        "en": "The event is a guided tour of the plant world at Einsiedelei - St. Verena. It takes place in every season.",
+        "de": "Die Veranstaltung umfasst eine Führung durch die Pflanzenwelt der Einsiedelei - St. Verena. Sie findet zu jeder Jahreszeit statt.",
+        "fr": "La manifestation comprend une visite guidée consacrée au monde végétal de l’Einsiedelei - St. Verena. Elle a lieu à chaque saison."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f850ff80ccf744c99de1e9f8f0a2c6e4",
@@ -1489,7 +1593,15 @@
           "comune": "__other-events__",
           "slug": "altdorfer-christkindlimarkt-2025-12-12"
         }
-      ]
+      ],
+      "description": "L’appuntamento è un mercatino natalizio ricorrente. Si svolge ad Altdorf.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un mercatino natalizio ricorrente. Si svolge ad Altdorf.",
+        "en": "This recurring event is a Christmas market. It takes place in Altdorf.",
+        "de": "Bei der Veranstaltung handelt es sich um einen wiederkehrenden Weihnachtsmarkt. Sie findet in Altdorf statt.",
+        "fr": "Ce rendez-vous est un marché de Noël récurrent. Il se déroule à Altdorf."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f7abbc87b90544cea64cae54f624844c",
@@ -1633,7 +1745,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: autobau erlebniswelt; comune: Romanshorn; cantone: TG; categoria: Event; data: 2025-12-26; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: autobau erlebniswelt; comune: Romanshorn; cantone: TG; categoria: Event; data: 2025-12-26; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: autobau erlebniswelt; municipality: Romanshorn; canton: TG; category: Event; date: 2025-12-26; time: 10:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: autobau erlebniswelt; gemeinde: Romanshorn; kanton: TG; kategorie: Event; datum: 2025-12-26; uhrzeit: 10:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: autobau erlebniswelt; commune: Romanshorn; canton: TG; catégorie: Event; date: 2025-12-26; heure: 10:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0f3b5d270d4a408fb87d707cceee5098",
@@ -1671,7 +1791,15 @@
           "comune": "__other-events__",
           "slug": "anno-nuovo-2026-01-01"
         }
-      ]
+      ],
+      "description": "Il Capodanno è una festività nazionale ad Appenzello. Musei e negozi rimangono chiusi.",
+      "descriptionByLocale": {
+        "it": "Il Capodanno è una festività nazionale ad Appenzello. Musei e negozi rimangono chiusi.",
+        "en": "New Year's Day is observed as a national holiday in Appenzell. Museums and shops remain closed.",
+        "de": "Neujahr ist in Appenzell ein nationaler Feiertag. Museen und Geschäfte bleiben geschlossen.",
+        "fr": "Le Nouvel An est un jour férié national à Appenzell. Les musées et les magasins restent fermés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fc588521a6814ad8ab51093635839c2b",
@@ -1927,7 +2055,15 @@
           "comune": "__other-events__",
           "slug": "flohmarkt-petersplatz-2026-01-10"
         }
-      ]
+      ],
+      "description": "Questo mercatino delle pulci ricorrente si svolge al Petersplatz, nel cantone BS. L’evento è previsto in più occasioni nel 2026.",
+      "descriptionByLocale": {
+        "it": "Questo mercatino delle pulci ricorrente si svolge al Petersplatz, nel cantone BS. L’evento è previsto in più occasioni nel 2026.",
+        "en": "This recurring flea market takes place at Petersplatz in canton BS. The event is scheduled repeatedly during 2026.",
+        "de": "Der wiederkehrende Flohmarkt findet auf dem Petersplatz im Kanton BS statt. Die Veranstaltung ist für mehrere Termine im Jahr 2026 angesetzt.",
+        "fr": "Ce marché aux puces récurrent se tient sur le Petersplatz, dans le canton BS. La manifestation est prévue à plusieurs reprises en 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4bd745b999bf447b996684a7a70d8ee5",
@@ -2089,7 +2225,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il club di lettura in spagnolo si svolge regolarmente presso la Stadtbibliothek Baden. Riunisce persone interessate alla lingua e alla letteratura, che discutono di libri selezionati.",
+      "descriptionByLocale": {
+        "it": "Il club di lettura in spagnolo si svolge regolarmente presso la Stadtbibliothek Baden. Riunisce persone interessate alla lingua e alla letteratura, che discutono di libri selezionati.",
+        "en": "This recurring Spanish-language reading club takes place at Stadtbibliothek Baden. It brings together people interested in language and literature to discuss selected books.",
+        "de": "Der regelmässige spanischsprachige Leseklub findet in der Stadtbibliothek Baden statt. Er bringt Menschen mit Interesse an Sprache und Literatur zusammen, die sich über ausgewählte Bücher austauschen.",
+        "fr": "Ce club de lecture en espagnol se réunit régulièrement à la Stadtbibliothek Baden. Il rassemble des personnes intéressées par la langue et la littérature pour échanger sur des livres sélectionnés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3c611dd7294d4468b404266f51e7304d",
@@ -2161,7 +2305,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione ricorrente a Flims offre un pomeriggio per giocare insieme. Chi partecipa può portare i propri giochi; sul posto sono disponibili carte per il Jass e altri giochi diffusi.",
+      "descriptionByLocale": {
+        "it": "La manifestazione ricorrente a Flims offre un pomeriggio per giocare insieme. Chi partecipa può portare i propri giochi; sul posto sono disponibili carte per il Jass e altri giochi diffusi.",
+        "en": "The recurring gathering in Flims is an afternoon devoted to shared games. Participants can bring their own games, while Jass cards and other popular games are available on site.",
+        "de": "Die wiederkehrende Veranstaltung in Flims ist ein Nachmittag zum gemeinsamen Spielen. Teilnehmende können eigene Spiele mitbringen; vor Ort gibt es Jasskarten und weitere gängige Spiele.",
+        "fr": "Ce rendez-vous récurrent à Flims prend la forme d’un après-midi consacré aux jeux. Les participants peuvent apporter leurs propres jeux, tandis que des cartes de jass et d’autres jeux courants sont disponibles sur place."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6becc1fc90d04693a7b8208a83777891",
@@ -178312,7 +178464,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è in programma un concerto di musica elettronica sperimentale. Il concerto presenta Autechre e prevede un ingresso di 15 CHF.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è in programma un concerto di musica elettronica sperimentale. Il concerto presenta Autechre e prevede un ingresso di 15 CHF.",
+        "en": "The event is a concert of experimental electronic music in Geneva. It features Autechre, and admission costs CHF 15.",
+        "de": "Die Veranstaltung ist ein Konzert mit experimenteller elektronischer Musik in Genf. Bei dem Konzert ist Autechre vertreten, und der Eintritt kostet 15 CHF.",
+        "fr": "L’événement est un concert d’électro expérimentale à Genève. Autechre y est programmé et l’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:37c2f68f579b482db052854c40d3d1f8",
@@ -180278,7 +180438,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Savognin, nella regione di Val Surses, si svolge una settimana di circo dedicata a bambini e giovani. La Scuola di Circo Marotte collabora con Turismo Val Surses Savognin Bivio AG per organizzarla; l’iniziativa viene proposta due volte l’anno.",
+      "descriptionByLocale": {
+        "it": "A Savognin, nella regione di Val Surses, si svolge una settimana di circo dedicata a bambini e giovani. La Scuola di Circo Marotte collabora con Turismo Val Surses Savognin Bivio AG per organizzarla; l’iniziativa viene proposta due volte l’anno.",
+        "en": "Savognin in Val Surses hosts a circus week for children and young people. It is jointly run by the Marotte circus school and Tourism Val Surses Savognin Bivio AG and takes place twice a year.",
+        "de": "In Savognin im Val Surses findet eine Zirkuswoche für Kinder und Jugendliche statt. Die Zirkusschule Marotte organisiert sie gemeinsam mit Tourismus Val Surses Savognin Bivio AG; die Veranstaltung findet zweimal im Jahr statt.",
+        "fr": "À Savognin, dans le Val Surses, une semaine de cirque est consacrée aux enfants et aux jeunes. L’École de cirque Marotte l’organise avec Tourism Val Surses Savognin Bivio AG, et l’événement a lieu deux fois par an."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9e6db546af3f4810a508e2d30dc0e929",
@@ -180810,7 +180978,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "“Lady” è una proiezione di un film di finzione a Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso costa 6 CHF.",
+      "descriptionByLocale": {
+        "it": "“Lady” è una proiezione di un film di finzione a Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso costa 6 CHF.",
+        "en": "“Lady” is a fiction-film screening in Geneva. The event is organised by Ville de Genève Agenda, and admission costs CHF 6.",
+        "de": "„Lady“ ist die Vorführung eines Spielfilms in Genf. Die Veranstaltung wird von Ville de Genève Agenda organisiert; der Eintritt kostet 6 CHF.",
+        "fr": "« Lady » est une projection de fiction à Genève. L’événement est organisé par Ville de Genève Agenda et l’entrée coûte 6 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:langages-sacres-metamorphoses-martin-abega",
@@ -180879,7 +181055,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente si tiene al Centre International de Conférences Genève (CICG), a Ginevra. Riunisce organizzazioni della città e partner internazionali per mettere in comune conoscenze e pratiche legate alla pace.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente si tiene al Centre International de Conférences Genève (CICG), a Ginevra. Riunisce organizzazioni della città e partner internazionali per mettere in comune conoscenze e pratiche legate alla pace.",
+        "en": "This recurring event is held at the Centre International de Conférences Genève (CICG) in Geneva. It brings together organisations from Geneva and international partners to exchange knowledge and approaches relating to peace.",
+        "de": "Die wiederkehrende Veranstaltung findet im Centre International de Conférences Genève (CICG) in Genf statt. Sie bringt Organisationen aus Genf und internationale Partner zusammen, um Wissen und Ansätze rund um Frieden auszutauschen.",
+        "fr": "Ce rendez-vous récurrent se déroule au Centre International de Conférences Genève (CICG), à Genève. Il réunit des organisations genevoises et des partenaires internationaux pour mettre en commun des connaissances et des pratiques liées à la paix."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "lu-stadt-agenda:7456402",
@@ -181202,7 +181386,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Al Bar Incontro di Muralto è previsto un concerto jazz nel Locarnese. La formazione riunisce clarinetto basso, sassofoni soprano e tenore, clarinetto contrabbasso, fisarmonica e pianoforte in un repertorio di composizioni proprie, elementi folk e improvvisazione.",
+      "descriptionByLocale": {
+        "it": "Al Bar Incontro di Muralto è previsto un concerto jazz nel Locarnese. La formazione riunisce clarinetto basso, sassofoni soprano e tenore, clarinetto contrabbasso, fisarmonica e pianoforte in un repertorio di composizioni proprie, elementi folk e improvvisazione.",
+        "en": "Bar Incontro in Muralto hosts a jazz concert in the Locarnese region. The ensemble works with bass clarinet, soprano and tenor saxophones, contrabass clarinet, accordion and piano, combining original pieces with folk elements and improvisation.",
+        "de": "Im Bar Incontro in Muralto ist ein Jazzkonzert im Locarnese vorgesehen. Die Besetzung umfasst Bassklarinette, Sopran- und Tenorsaxofon, Kontrabassklarinette, Akkordeon und Klavier sowie eigene Stücke, Folk-Elemente und Improvisation.",
+        "fr": "Le Bar Incontro de Muralto accueille un concert de jazz dans le Locarnese. La musique fait intervenir la clarinette basse, les saxophones soprano et ténor, la clarinette contrebasse, l’accordéon et le piano dans des compositions personnelles mêlant folk et improvisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:messidor",
@@ -181238,7 +181430,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Messidor è la proiezione di un film di finzione a Ginevra. L’evento è organizzato da Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "Messidor è la proiezione di un film di finzione a Ginevra. L’evento è organizzato da Ville de Genève Agenda.",
+        "en": "Messidor is a fiction-film screening in Geneva. The event is organised by Ville de Genève Agenda.",
+        "de": "Messidor ist eine Vorführung eines Spielfilms in Genf. Die Veranstaltung wird von Ville de Genève Agenda organisiert.",
+        "fr": "Messidor est une projection de fiction à Genève. L’événement est organisé par Ville de Genève Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:mois-histoire-lgbtiq-2026",
@@ -181391,7 +181591,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di una proiezione cinematografica a Ginevra, nel cantone di Ginevra. L’ingresso costa 6 CHF e l’appuntamento è organizzato da Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "Si tratta di una proiezione cinematografica a Ginevra, nel cantone di Ginevra. L’ingresso costa 6 CHF e l’appuntamento è organizzato da Ville de Genève Agenda.",
+        "en": "This event is a film screening in Geneva, in the canton of Geneva. Admission costs CHF 6, and the organiser is Ville de Genève Agenda.",
+        "de": "Die Veranstaltung ist eine Filmvorführung in Genf im Kanton Genf. Der Eintritt kostet 6 CHF; als Veranstalter ist Ville de Genève Agenda angegeben.",
+        "fr": "Cette manifestation est une projection cinématographique à Genève, dans le canton de Genève. L’entrée coûte 6 CHF et l’organisateur indiqué est Ville de Genève Agenda."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVbms2t",
@@ -183003,7 +183211,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il film segue Soraya Akhlaghi, un’artista afghana sposata da bambina, mentre tenta di lasciare l’Iran e raggiungere l’Europa senza documenti. La regia di Oskouei combina i video realizzati da Akhlaghi con immagini della migrazione; la proiezione dura 76 minuti ed è seguita da un approfondimento sui diritti negati e sull’arte come possibile evasione.",
+      "descriptionByLocale": {
+        "it": "Il film segue Soraya Akhlaghi, un’artista afghana sposata da bambina, mentre tenta di lasciare l’Iran e raggiungere l’Europa senza documenti. La regia di Oskouei combina i video realizzati da Akhlaghi con immagini della migrazione; la proiezione dura 76 minuti ed è seguita da un approfondimento sui diritti negati e sull’arte come possibile evasione.",
+        "en": "The film follows Soraya Akhlaghi, an Afghan artist who was married as a child, as she tries to travel from Iran to Europe without legal documents. Directed by Oskouei and based partly on videos made by Akhlaghi, it runs for 76 minutes and is followed by a discussion about denied rights and art as a possible means of escape.",
+        "de": "Der Film begleitet Soraya Akhlaghi, eine afghanische Künstlerin, die als Kind verheiratet wurde, bei ihrem Versuch, vom Iran nach Europa zu gelangen. Oskouei verbindet dafür von Akhlaghi erstellte Videos mit Bildern der Migration; auf die 76-minütige Vorführung folgt ein Gespräch über verweigerte Rechte und Kunst als möglichen Ausweg.",
+        "fr": "Le film suit Soraya Akhlaghi, une artiste afghane mariée enfant, dans sa tentative de rejoindre l’Europe depuis l’Iran sans documents officiels. Réalisé par Oskouei à partir de vidéos tournées par Akhlaghi, il dure 76 minutes et est suivi d’un échange sur les droits refusés et l’art comme moyen d’évasion."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64075",
@@ -184041,7 +184257,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una proiezione di cortometraggi collegata al Festival Everybody's Perfect. Si svolge a Ginevra e prevede un ingresso di 6 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una proiezione di cortometraggi collegata al Festival Everybody's Perfect. Si svolge a Ginevra e prevede un ingresso di 6 CHF.",
+        "en": "The event presents a screening of short films connected to Festival Everybody's Perfect. It takes place in Geneva, and admission costs CHF 6.",
+        "de": "Die Veranstaltung umfasst eine Vorführung von Kurzfilmen im Zusammenhang mit dem Festival Everybody's Perfect. Sie findet in Genf statt; der Eintritt kostet 6 CHF.",
+        "fr": "Cette projection propose des films courts dans le contexte du Festival Everybody's Perfect. L’événement a lieu à Genève et l’entrée est fixée à 6 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:92200",
@@ -188486,7 +188710,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Diemtigen, questo appuntamento ricorrente è dedicato alla panificazione nello storico Ofehüsi e si svolge presso la Reformierte Kirchgemeinde Diemtigen. La partecipazione costa 2 CHF.",
+      "descriptionByLocale": {
+        "it": "A Diemtigen, questo appuntamento ricorrente è dedicato alla panificazione nello storico Ofehüsi e si svolge presso la Reformierte Kirchgemeinde Diemtigen. La partecipazione costa 2 CHF.",
+        "en": "This recurring event in Diemtigen focuses on baking in the historic Ofehüsi and takes place at the Reformierte Kirchgemeinde Diemtigen. A participation fee of CHF 2 applies.",
+        "de": "In Diemtigen findet eine wiederkehrende Veranstaltung zum Backen im historischen Ofehüsi statt; als Veranstaltungsort ist die Reformierte Kirchgemeinde Diemtigen angegeben. Für die Teilnahme sind 2 CHF vorgesehen.",
+        "fr": "À Diemtigen, ce rendez-vous récurrent est consacré à la boulangerie dans l’Ofehüsi historique et se tient à la paroisse réformée de Diemtigen. La participation coûte 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ADHqaFW",
@@ -196202,7 +196434,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il film di Vincenzo Caricari e Barbara Di Fabio racconta la vicenda di Maysoon Majidi, un’attivista curda fuggita dalla repressione in Iran e arrivata in Italia via mare. Dopo l’arrivo a Crotone, viene arrestata con un’accusa legata al traffico di migranti e trascorre 302 giorni in carcere prima della sentenza. La proiezione al Cinema Corso di Lugano è seguita da un approfondimento sul caso.",
+      "descriptionByLocale": {
+        "it": "Il film di Vincenzo Caricari e Barbara Di Fabio racconta la vicenda di Maysoon Majidi, un’attivista curda fuggita dalla repressione in Iran e arrivata in Italia via mare. Dopo l’arrivo a Crotone, viene arrestata con un’accusa legata al traffico di migranti e trascorre 302 giorni in carcere prima della sentenza. La proiezione al Cinema Corso di Lugano è seguita da un approfondimento sul caso.",
+        "en": "The film by Vincenzo Caricari and Barbara Di Fabio follows Maysoon Majidi, a Kurdish activist who flees repression in Iran and reaches Italy by sea. After arriving in Crotone, she is arrested on a charge related to migrant smuggling and spends 302 days in prison before the verdict. The screening at Cinema Corso in Lugano is followed by a discussion of the case.",
+        "de": "Der Film von Vincenzo Caricari und Barbara Di Fabio erzählt von Maysoon Majidi, einer kurdischen Aktivistin, die vor der Repression im Iran flieht und auf dem Seeweg nach Italien gelangt. Nach ihrer Ankunft in Crotone wird sie wegen des Vorwurfs der Schleusung von Migranten festgenommen und verbringt 302 Tage im Gefängnis, bevor das Urteil fällt. Auf die Vorführung im Cinema Corso in Lugano folgt eine Vertiefung zum Fall.",
+        "fr": "Le film de Vincenzo Caricari et Barbara Di Fabio suit Maysoon Majidi, une militante kurde qui fuit la répression en Iran et rejoint l’Italie par la mer. Après son arrivée à Crotone, elle est arrêtée sous l’accusation de trafic de migrants et passe 302 jours en prison avant le verdict. La projection au Cinema Corso de Lugano est suivie d’un échange consacré à cette affaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Au7Q8dV",
@@ -222434,7 +222674,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma allo Spazio Elle di Locarno riunisce un’esibizione solista di Alice Trost e Air Pressure, una performance basata su registrazioni ambientali, elettronica dal vivo, percussioni e uno strumento a corde progettato dall’artista. Trost lavora soprattutto con la viola e l’improvvisazione, mentre Air Pressure collega suoni registrati in Antartide a una ricerca dal vivo su aria, pressione, vibrazione e risonanza.",
+      "descriptionByLocale": {
+        "it": "Il programma allo Spazio Elle di Locarno riunisce un’esibizione solista di Alice Trost e Air Pressure, una performance basata su registrazioni ambientali, elettronica dal vivo, percussioni e uno strumento a corde progettato dall’artista. Trost lavora soprattutto con la viola e l’improvvisazione, mentre Air Pressure collega suoni registrati in Antartide a una ricerca dal vivo su aria, pressione, vibrazione e risonanza.",
+        "en": "At Spazio Elle in Locarno, the programme combines a solo performance by Alice Trost with Air Pressure, a work involving environmental recordings, live electronics, percussion and an artist-designed string instrument. Trost mainly explores viola and improvisation, while Air Pressure links sounds recorded in Antarctica with live investigations of air, pressure, vibration and resonance.",
+        "de": "Im Spazio Elle in Locarno verbindet das Programm ein Soloprojekt von Alice Trost mit Air Pressure, einer Performance aus Umweltaufnahmen, Live-Elektronik, Perkussion und einem von einem Künstler entwickelten Saiteninstrument. Trost arbeitet vor allem mit der Viola und Improvisation, während Air Pressure in der Antarktis aufgenommene Klänge mit einer Live-Erkundung von Luft, Druck, Schwingung und Resonanz verknüpft.",
+        "fr": "À Spazio Elle, à Locarno, le programme réunit un solo d’Alice Trost et Air Pressure, une performance qui associe des enregistrements environnementaux, de l’électronique en direct, des percussions et un instrument à cordes conçu par un artiste. Trost explore principalement l’alto et l’improvisation, tandis qu’Air Pressure met en relation des sons enregistrés en Antarctique avec une recherche en direct sur l’air, la pression, les vibrations et la résonance."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:eef9b165e8e145cda86b684390c15079",
@@ -222769,7 +223017,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone opere per organo di Johann Sebastian Bach. Il programma comprende sonate in trio per organo in do maggiore e mi bemolle maggiore, oltre a brani corali tra cui «Nun komm der Heiden Heiland». Il concerto si svolge nella Kartäuserkirche.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone opere per organo di Johann Sebastian Bach. Il programma comprende sonate in trio per organo in do maggiore e mi bemolle maggiore, oltre a brani corali tra cui «Nun komm der Heiden Heiland». Il concerto si svolge nella Kartäuserkirche.",
+        "en": "The event presents organ works by Johann Sebastian Bach. The programme includes trio sonatas for organ in C major and E-flat major, together with chorale-based pieces including “Nun komm der Heiden Heiland.” The concert takes place at the Kartäuserkirche.",
+        "de": "Die Veranstaltung widmet sich Orgelwerken von Johann Sebastian Bach. Auf dem Programm stehen Orgeltriosonaten in C-Dur und Es-Dur sowie Choralbearbeitungen, darunter „Nun komm der Heiden Heiland“. Die Aufführung findet in der Kartäuserkirche statt.",
+        "fr": "Le rendez-vous présente des œuvres pour orgue de Johann Sebastian Bach. Le programme réunit des sonates en trio pour orgue en do majeur et en mi bémol majeur, ainsi que des pièces chorales, dont « Nun komm der Heiden Heiland ». Le concert a lieu à la Kartäuserkirche."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bbe1954b4ce146e88f8880eb0065006d",
@@ -223596,7 +223852,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si svolge al Migros Museum für Gegenwartskunst di Zurigo con Kamilla Ødegård. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si svolge al Migros Museum für Gegenwartskunst di Zurigo con Kamilla Ødegård. L’ingresso è gratuito.",
+        "en": "The event takes place at the Migros Museum für Gegenwartskunst in Zurich with Kamilla Ødegård. Admission is free.",
+        "de": "Im Migros Museum für Gegenwartskunst in Zürich findet eine Veranstaltung mit Kamilla Ødegård statt. Der Eintritt ist kostenlos.",
+        "fr": "Une manifestation avec Kamilla Ødegård se tient au Migros Museum für Gegenwartskunst à Zurich. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANjpwEh",
@@ -232941,7 +233205,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il gruppo di auto-aiuto offre alle donne uno spazio per condividere esperienze, emozioni e domande legate al parto e ai vissuti difficili che possono seguirlo. Gli incontri si svolgono presso la sede di Nascere bene Ticino a Lugano, in presenza oppure online, e sono gratuiti.",
+      "descriptionByLocale": {
+        "it": "Il gruppo di auto-aiuto offre alle donne uno spazio per condividere esperienze, emozioni e domande legate al parto e ai vissuti difficili che possono seguirlo. Gli incontri si svolgono presso la sede di Nascere bene Ticino a Lugano, in presenza oppure online, e sono gratuiti.",
+        "en": "The self-help group offers women a setting to discuss experiences, feelings and questions related to childbirth and difficult experiences that may follow it. Meetings take place in person at the Nascere bene Ticino premises in Lugano or online, and they are free of charge.",
+        "de": "Die Selbsthilfegruppe bietet Frauen einen geschützten Rahmen, um Erfahrungen, Gefühle und Fragen rund um die Geburt sowie belastende Erlebnisse danach zu besprechen. Die Treffen finden am Sitz von Nascere bene Ticino in Lugano vor Ort oder online statt und sind kostenlos.",
+        "fr": "Ce groupe d’entraide offre aux femmes un espace pour parler de leurs expériences, émotions et questions liées à l’accouchement ainsi que de vécus difficiles qui peuvent en découler. Les rencontres ont lieu au siège de Nascere bene Ticino à Lugano, sur place ou en ligne, et sont gratuites."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8fceb53cc5bb4cd8914cc759f936285f",
