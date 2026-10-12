@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, UploadCloud, XCircle } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
@@ -79,6 +80,13 @@ export default function ApplicationConciergePortal({
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [consent, setConsent] = useState(false);
+  const conciergeViewTracked = useRef(false);
+
+  useEffect(() => {
+    if (!entry || serviceId || conciergeViewTracked.current) return;
+    conciergeViewTracked.current = true;
+    Analytics.trackApplicationConciergeView();
+  }, [entry, serviceId]);
 
   useEffect(() => {
     if (!authUser) return;
@@ -147,6 +155,8 @@ export default function ApplicationConciergePortal({
   }, [error, t]);
 
   const startCheckout = async () => {
+    if (busy === 'checkout') return;
+    Analytics.trackApplicationConciergeCheckoutClick();
     setBusy('checkout');
     setError(null);
     try {
@@ -245,15 +255,133 @@ export default function ApplicationConciergePortal({
 
   if (entry && !serviceId) {
     return (
-      <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-3xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
-        <section className="rounded-3xl border border-edge bg-surface p-6 shadow-sm sm:p-9">
-          <div className="flex items-start gap-3"><div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent-subtle text-accent"><BriefcaseBusiness aria-hidden="true" /></div><div><p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('jobBoard.concierge.eyebrow')}</p><h1 className="mt-1 text-3xl font-bold font-display text-heading">{t('jobBoard.concierge.title')}</h1></div></div>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-body">{t('jobBoard.concierge.description')}</p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3"><Info icon={<Clock3 size={17} />} label={t('jobBoard.concierge.duration')} /><Info icon={<BriefcaseBusiness size={17} />} label={t('jobBoard.concierge.quota')} /><Info icon={<ShieldCheck size={17} />} label={t('jobBoard.concierge.noRenewal')} /></div>
-          <p className="mt-5 rounded-2xl border border-info-border bg-info-subtle/60 p-4 text-sm leading-6 text-body">{t('jobBoard.concierge.disclosure')}</p>
-          <button type="button" onClick={() => { void startCheckout(); }} disabled={busy === 'checkout'} className="mt-6 inline-flex min-h-[46px] items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-on-accent hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60">{busy === 'checkout' && <Loader2 size={16} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.start')} · {formattedPrice}</button>
-          {displayError && <p role="alert" className="mt-4 text-sm text-danger">{displayError}</p>}
-        </section>
+      <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-5xl px-4 py-6 sm:py-10`} {...REPLAY_PRIVATE_ATTRS}>
+        <div className="space-y-10">
+          <section className="overflow-hidden rounded-3xl border border-edge bg-surface shadow-stripe-sm">
+            <div className="grid lg:grid-cols-[1.08fr_.92fr]">
+              <div className="bg-accent-subtle/60 p-6 sm:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-on-accent shadow-stripe-sm">
+                  <BriefcaseBusiness aria-hidden="true" />
+                </div>
+                <h1 className="mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-[-0.025em] font-display text-heading sm:text-5xl">
+                  {t('jobBoard.concierge.title')}
+                </h1>
+                <p className="mt-5 max-w-2xl text-base leading-7 text-body sm:text-lg">
+                  {t('jobBoard.concierge.description')}
+                </p>
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-surface px-3 py-2 text-sm font-semibold text-accent">
+                  <Sparkles className="h-4 w-4" aria-hidden="true" />
+                  {t('jobBoard.concierge.landingBadge')}
+                </div>
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  <Info icon={<Clock3 size={17} />} label={t('jobBoard.concierge.duration')} />
+                  <Info icon={<BriefcaseBusiness size={17} />} label={t('jobBoard.concierge.quota')} />
+                  <Info icon={<ShieldCheck size={17} />} label={t('jobBoard.concierge.noRenewal')} />
+                </div>
+                <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+                  <button
+                    type="button"
+                    onClick={() => { void startCheckout(); }}
+                    disabled={busy === 'checkout'}
+                    aria-busy={busy === 'checkout'}
+                    className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60"
+                    data-testid="application-concierge-start"
+                  >
+                    {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
+                    {t('jobBoard.concierge.start')}
+                    <ArrowRight size={17} aria-hidden="true" />
+                  </button>
+                  <span className="text-sm font-semibold text-body">{formattedPrice} · {t('jobBoard.concierge.priceNote')}</span>
+                </div>
+                {displayError && <p role="alert" className="mt-4 text-sm font-medium text-danger">{displayError}</p>}
+                <p className="mt-5 max-w-2xl text-xs leading-5 text-subtle">{t('jobBoard.concierge.disclosure')}</p>
+              </div>
+              <div className="border-t border-edge bg-surface p-6 sm:p-10 lg:border-l lg:border-t-0">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-[-0.02em] font-display text-heading">
+                      {t('jobBoard.concierge.howItWorksTitle')}
+                    </h2>
+                    <p className="mt-2 text-sm leading-6 text-subtle">{t('jobBoard.concierge.howItWorksIntro')}</p>
+                  </div>
+                  <Target className="mt-1 h-6 w-6 shrink-0 text-accent" aria-hidden="true" />
+                </div>
+                <ol className="mt-7 space-y-6">
+                  <Step number="1" title={t('jobBoard.concierge.step1Title')} text={t('jobBoard.concierge.step1Text')} />
+                  <Step number="2" title={t('jobBoard.concierge.step2Title')} text={t('jobBoard.concierge.step2Text')} />
+                  <Step number="3" title={t('jobBoard.concierge.step3Title')} text={t('jobBoard.concierge.step3Text')} />
+                  <Step number="4" title={t('jobBoard.concierge.step4Title')} text={t('jobBoard.concierge.step4Text')} />
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="concierge-benefits-title">
+            <div className="max-w-2xl">
+              <h2 id="concierge-benefits-title" className="text-2xl font-bold tracking-[-0.02em] font-display text-heading sm:text-3xl">
+                {t('jobBoard.concierge.benefitsTitle')}
+              </h2>
+              <p className="mt-3 text-base leading-7 text-subtle">{t('jobBoard.concierge.benefitsIntro')}</p>
+            </div>
+            <ul className="mt-7 grid gap-x-8 gap-y-7 md:grid-cols-3">
+              <Benefit icon={<Target size={20} />} title={t('jobBoard.concierge.benefitMatchingTitle')} text={t('jobBoard.concierge.benefitMatchingText')} />
+              <Benefit icon={<FileText size={20} />} title={t('jobBoard.concierge.benefitTailoredTitle')} text={t('jobBoard.concierge.benefitTailoredText')} />
+              <Benefit icon={<ShieldCheck size={20} />} title={t('jobBoard.concierge.benefitApprovalTitle')} text={t('jobBoard.concierge.benefitApprovalText')} />
+            </ul>
+          </section>
+
+          <section className="rounded-3xl border border-edge bg-surface p-6 sm:p-9" aria-labelledby="concierge-included-title">
+            <div className="max-w-2xl">
+              <h2 id="concierge-included-title" className="text-2xl font-bold tracking-[-0.02em] font-display text-heading sm:text-3xl">
+                {t('jobBoard.concierge.includedTitle')}
+              </h2>
+              <p className="mt-3 text-base leading-7 text-subtle">{t('jobBoard.concierge.includedIntro')}</p>
+            </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              <IncludedValue value="30" label={t('jobBoard.concierge.included30')} />
+              <IncludedValue value="10" label={t('jobBoard.concierge.included10')} />
+              <IncludedValue value="€39,99" label={t('jobBoard.concierge.includedPrice')} />
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-info-border bg-info-subtle/60 p-6 sm:p-9" aria-labelledby="concierge-clarity-title">
+            <div className="grid gap-7 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
+              <div>
+                <h2 id="concierge-clarity-title" className="text-2xl font-bold tracking-[-0.02em] font-display text-heading sm:text-3xl">
+                  {t('jobBoard.concierge.clarityTitle')}
+                </h2>
+                <p className="mt-3 text-base leading-7 text-body">{t('jobBoard.concierge.clarityText')}</p>
+              </div>
+              <div className="space-y-3 text-sm leading-6 text-body">
+                <p className="flex items-start gap-3"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-success" aria-hidden="true" />{t('jobBoard.concierge.clarityApproval')}</p>
+                <p className="flex items-start gap-3"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-success" aria-hidden="true" />{t('jobBoard.concierge.clarityNoRenewal')}</p>
+                <p className="flex items-start gap-3"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-success" aria-hidden="true" />{t('jobBoard.concierge.noGuarantee')}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-3xl bg-accent p-6 text-on-accent shadow-stripe-sm sm:p-9" aria-labelledby="concierge-final-title">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-2xl">
+                <h2 id="concierge-final-title" className="text-2xl font-bold tracking-[-0.02em] font-display sm:text-3xl">
+                  {t('jobBoard.concierge.finalTitle')}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-on-accent/85">{t('jobBoard.concierge.finalText')}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => { void startCheckout(); }}
+                disabled={busy === 'checkout'}
+                aria-busy={busy === 'checkout'}
+                className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-bold text-accent transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-accent disabled:cursor-wait disabled:opacity-60"
+              >
+                {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
+                {t('jobBoard.concierge.start')} · {formattedPrice}
+                <ArrowRight size={17} aria-hidden="true" />
+              </button>
+            </div>
+          </section>
+        </div>
       </main>
     );
   }
@@ -300,7 +428,37 @@ function PortalShell({ children }: { children: ReactNode }) {
 }
 
 function Info({ icon, label }: { icon: ReactNode; label: string }) {
-  return <div className="flex items-center gap-2 rounded-xl bg-surface-raised p-3 text-sm font-semibold text-body">{icon}<span>{label}</span></div>;
+  return <div className="flex items-start gap-2 rounded-xl border border-edge bg-surface p-3 text-sm font-semibold leading-5 text-body">{icon}<span>{label}</span></div>;
+}
+
+function Step({ number, title, text }: { number: string; title: string; text: string }) {
+  return (
+    <li className="flex gap-3">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-on-accent" aria-hidden="true">{number}</span>
+      <div>
+        <h3 className="font-bold text-heading">{title}</h3>
+        <p className="mt-1 text-sm leading-6 text-subtle">{text}</p>
+      </div>
+    </li>
+  );
+}
+
+function Benefit({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
+  return (
+    <li className="border-t border-edge pt-4">
+      <div className="flex items-center gap-2 text-accent">{icon}<h3 className="font-bold text-heading">{title}</h3></div>
+      <p className="mt-2 text-sm leading-6 text-subtle">{text}</p>
+    </li>
+  );
+}
+
+function IncludedValue({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="border-t-2 border-accent pt-3">
+      <p className="text-3xl font-bold tracking-[-0.02em] font-display text-heading">{value}</p>
+      <p className="mt-1 text-sm leading-6 text-subtle">{label}</p>
+    </div>
+  );
 }
 
 function Notice({ icon, text, tone = 'info' }: { icon: ReactNode; text: string; tone?: 'info' | 'danger' | 'warning' | 'success' }) {

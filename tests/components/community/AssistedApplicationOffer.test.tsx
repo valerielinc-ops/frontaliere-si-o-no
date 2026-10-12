@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock('@/services/i18n', () => ({
   // The Terms and Privacy links are built with buildPath, which reads the locale.
   getLocale: () => 'it',
+  useLocale: () => ['it'],
   useTranslation: () => ({
     t: (key: string) => ({
       'common.close': 'Chiudi',
@@ -30,6 +31,8 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
+      'jobBoard.concierge.offerLink': 'Cerchi più posizioni? Scopri il servizio di 30 giorni',
+      'jobBoard.concierge.offerLinkHint': 'Ti proponiamo internamente le posizioni adatte e prepariamo la candidatura solo dopo la tua approvazione.',
     }[key] || key),
   }),
 }));
@@ -73,6 +76,13 @@ describe('AssistedApplicationOffer', () => {
       'assisted_application_offer_viewed',
       expect.objectContaining({ price_eur_cents: 99, jobId: 'job-42', companyId: 'company-acme' }),
     );
+  });
+
+  it('links the concierge offer to the job-board service entry instead of the current job URL', () => {
+    renderOffer();
+
+    expect(screen.getByRole('link', { name: 'Cerchi più posizioni? Scopri il servizio di 30 giorni' }))
+      .toHaveAttribute('href', '/cerca-lavoro-ticino/?application_concierge=1');
   });
 
   it.each([

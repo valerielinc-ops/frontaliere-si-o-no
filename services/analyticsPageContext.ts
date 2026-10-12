@@ -46,6 +46,16 @@ function normalizePath(input: string): string {
  return path || '/';
 }
 
+function isApplicationConciergePath(input: string): boolean {
+ try {
+  const url = new URL(String(input || ''), 'https://frontaliereticino.ch');
+  return url.searchParams.get('application_concierge') === '1'
+   || Boolean(url.searchParams.get('application_concierge_service_id'));
+ } catch {
+  return false;
+ }
+}
+
 function startsWithAny(path: string, prefixes: string[]): boolean {
  return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
@@ -93,6 +103,16 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
  const localeMatch = normalizedPath.match(LOCALE_PREFIX_RE);
  const contentLocale = (localeMatch?.[1]?.toLowerCase() || 'it') as AnalyticsPageContext['contentLocale'];
  const localPath = normalizedPath.replace(LOCALE_PREFIX_RE, '') || '/';
+
+ if (isApplicationConciergePath(inputPath)) {
+  return {
+   contentGroup: 'jobs',
+   pageTemplate: 'application_concierge',
+   siteSection: 'jobs',
+   contentLocale,
+   routeFamily: 'application_concierge',
+  };
+ }
 
  const jobBoardRoots = ['/cerca-lavoro-ticino', '/find-jobs-ticino', '/jobs-im-tessin', '/trouver-emploi-tessin'];
  const isCantonJobBoardPath = /^\/(?:cerca-lavoro|find-jobs|jobs-(?:im|in)|trouver-emploi)-[a-z-]+(?:\/|$)/i.test(localPath);
