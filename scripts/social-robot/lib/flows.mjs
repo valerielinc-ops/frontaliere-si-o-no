@@ -652,6 +652,7 @@ async function findTikTokMusicCard({ page, search, guard, timeout = TIKTOK_MUSIC
     await guard();
 
     const direct = await findVisible([
+      page.locator('div[role="listitem"][data-item-id]'),
       page.locator('[data-e2e="music-card"]'),
       page.locator('[data-testid*="music-card" i]'),
       page.locator('[data-testid*="sound-card" i]'),
