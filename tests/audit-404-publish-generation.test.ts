@@ -73,10 +73,11 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${pick('splitByGeneration')}
     ${pick('sourceAssembledAtForCompany')}
     ${pick('isSourceSnapshotNewer')}
+    ${pick('isUnservedHubLink')}
     ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
     ${pick('generationSummary')}
-    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, splitHubOffenders, generationSummary };
+    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, isUnservedHubLink, splitHubOffenders, generationSummary };
   `;
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
@@ -85,6 +86,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     shardOwnerOf: (p: string) => { kind: string; section?: string; loc: string };
     classifyOffender: (p: string, gen: unknown) => string;
     splitByGeneration: (paths: string[], gen: unknown) => { unserved: string[]; skew: string[] };
+    isUnservedHubLink: (builderUrl: string, expectedUrl: string, resolves: (path: string) => boolean) => boolean;
     splitHubOffenders: (
       offenders: Array<Record<string, unknown>>,
       deployedSitemapPaths: Set<string>,
@@ -319,6 +321,30 @@ describe('splitHubOffenders — current crawler data vs deployed pages', () => {
     expect(result.unserved).toHaveLength(1);
     expect(result.publishSkew).toHaveLength(0);
     expect(result.sourceSkew).toHaveLength(0);
+  });
+});
+
+describe('newsletter hub 404 predicate', () => {
+  const { isUnservedHubLink } = loadHelpers();
+  const route = '/fr/trouver-emploi-tessin/entreprise-board-international';
+
+  it('does not call a served bridge URL a 404 just because it is intentionally absent from the sitemap', () => {
+    const deployedSitemapPaths = new Set<string>();
+    const servedPaths = new Set([route]);
+
+    expect(deployedSitemapPaths.has(route)).toBe(false);
+    expect(isUnservedHubLink(route, route, (path) => servedPaths.has(path))).toBe(false);
+    expect(SCRIPT).toMatch(/if\s*\(!isUnservedHubLink\(url, expected, resolves\)\) continue;/);
+    expect(SCRIPT).not.toMatch(/absentFromDeployedSitemap\s*\|\|\s*!resolves\(url\)/);
+  });
+
+  it('still flags a missing served route and a wrong builder URL', () => {
+    expect(isUnservedHubLink(route, route, () => false)).toBe(true);
+    expect(isUnservedHubLink(
+      '/fr/trouver-emploi-tessin/company-board-international',
+      route,
+      () => true,
+    )).toBe(true);
   });
 });
 
