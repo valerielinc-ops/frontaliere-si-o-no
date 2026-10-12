@@ -1,99 +1,5 @@
 [
   {
-    "timestamp": "2026-09-20T19:41:36.402Z",
-    "label": "before",
-    "total": 30583,
-    "needsRetranslation": 5525,
-    "suppressed": 210,
-    "incomplete": 5907,
-    "complete": 24676,
-    "slotsPresent": 24676,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 24676,
-    "sourceCopyExcused": 814,
-    "slotsPresentByLength": 30464,
-    "languageVerified": 25451,
-    "missingByLocale": {
-      "it": 543,
-      "en": 528,
-      "de": 140,
-      "fr": 480
-    },
-    "queueAge": {
-      "count": 5525,
-      "withTimestamp": 5525,
-      "oldestAgeDays": 160.4,
-      "p50AgeDays": 25.9,
-      "p90AgeDays": 108.8,
-      "buckets": {
-        "0-1d": 666,
-        "1-2d": 31,
-        "2-7d": 124,
-        "0-7d": 821,
-        "7-30d": 2126,
-        "30-90d": 1740,
-        "90-180d": 838,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "genderFormRepair": {
-      "measured": false,
-      "status": "cohort-captured",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 1257,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "topPending": [
-      {
-        "company": "Roche",
-        "pending": 430
-      },
-      {
-        "company": "PEMSA",
-        "pending": 184
-      },
-      {
-        "company": "Sulzer",
-        "pending": 184
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 176
-      },
-      {
-        "company": "VOLG",
-        "pending": 171
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 132
-      },
-      {
-        "company": "Manor AG",
-        "pending": 130
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 107
-      },
-      {
-        "company": "Hirslanden Klinik",
-        "pending": 106
-      },
-      {
-        "company": "Galenica AG (Galenica)",
-        "pending": 96
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-20T23:45:03.907Z",
     "label": "before",
     "total": 30583,
@@ -23572,5 +23478,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-12T16:40:18.538Z",
+    "label": "before",
+    "total": 32135,
+    "needsRetranslation": 2976,
+    "suppressed": 168,
+    "incomplete": 3572,
+    "complete": 28563,
+    "slotsPresent": 28563,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 28563,
+    "sourceCopyExcused": 324,
+    "slotsPresentByLength": 32122,
+    "languageVerified": 30741,
+    "missingByLocale": {
+      "it": 269,
+      "en": 230,
+      "de": 9,
+      "fr": 237
+    },
+    "queueAge": {
+      "count": 2976,
+      "withTimestamp": 2976,
+      "oldestAgeDays": 182.3,
+      "p50AgeDays": 25.4,
+      "p90AgeDays": 101.2,
+      "buckets": {
+        "0-1d": 77,
+        "1-2d": 4,
+        "2-7d": 281,
+        "0-7d": 362,
+        "7-30d": 1144,
+        "30-90d": 992,
+        "90-180d": 468,
+        "180d+": 10
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1008,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "56bc8e843866357e",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 75,
+      "complete": 71
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 705
+      },
+      {
+        "company": "Anliker Landtechnik",
+        "pending": 245
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 159
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 148
+      },
+      {
+        "company": "Medbase",
+        "pending": 125
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 107
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 95
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 86
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 86
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 71
+      }
+    ]
   }
 ]
