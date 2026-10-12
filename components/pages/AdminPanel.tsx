@@ -13,6 +13,7 @@ import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type 
 import { fetchJournalistGrants, setJournalistRole, type JournalistGrant } from '@/services/journalistAdminService';
 import { fetchRedazioneAdminData, updateAuthorProfile, reassignArticleAuthor, type RedazioneAdminData } from '@/services/redazioneAdminService';
 import AssistedApplicationAdmin from '@/components/pages/AssistedApplicationAdmin';
+import ApplicationConciergeAdmin from '@/components/pages/ApplicationConciergeAdmin';
 import type { AuthorProfilePatch } from '@/services/authorProfileService';
 import { getAllAuthors } from '@/data/authors';
 import { ARTICLES } from '@/data/blog-articles-data';
@@ -4012,6 +4013,7 @@ export default function AdminPanel() {
 
  {/* Assisted-application operational queue */}
  {activeSection === 'assisted-applications' && <AssistedApplicationAdmin />}
+ {activeSection === 'assisted-applications' && <ApplicationConciergeAdmin />}
 
  {/* Giornalisti section */}
  {activeSection === 'journalists' && (
