@@ -91,9 +91,12 @@ async function cli(argv: string[], rc = fakeRemoteConfig(template()), env: Recor
 describe('the table of the switches', () => {
   const keys = Object.keys(RC_SWITCHES);
 
-  it('holds the keys the loader exports to the runner and never masks', () => {
+  it('holds the assisted keys the loader exports to the runner and never masks', () => {
     expect(keys).toEqual([RENDERER, DOSSIER, INPLACE]);
-    expect([...keys].sort()).toEqual([...PLAIN_WORD_RC_KEYS].sort());
+    expect([...PLAIN_WORD_RC_KEYS].sort()).toEqual([
+      ...keys,
+      'TIKTOK_VIDEO_CREATIVE_MODE',
+    ].sort());
     for (const key of keys) expect((RC_TO_ENV as Record<string, string[]>)[key], key).toContain(key);
   });
 
