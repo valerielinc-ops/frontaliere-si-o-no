@@ -1,6 +1,6 @@
 {
   "crawlerKey": "brefispersonal",
-  "assembledAt": "2026-10-11T21:41:20.786Z",
+  "assembledAt": "2026-10-12T09:40:56.203Z",
   "jobs": [
     {
       "id": "brefispersonal-554e7c9c44e1",
@@ -33,7 +33,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46131",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:41:16.035Z",
+      "crawledAt": "2026-10-12T09:40:49.054Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46132",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:41:16.034Z",
+      "crawledAt": "2026-10-12T09:40:49.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -266,7 +266,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "brefispersonal-1247d9950492",
@@ -350,7 +350,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "brefispersonal-9e2094d3d481",
@@ -436,7 +436,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "brefispersonal-2fccb6e3f33f",
@@ -538,7 +538,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
