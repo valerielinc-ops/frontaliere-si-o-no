@@ -28,6 +28,7 @@ import { Analytics } from '@/services/analytics';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 
@@ -456,7 +457,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  />
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
- )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />
+ )} {/* AdSense */} <AdSenseUnit slot={AD_SLOTS.JOBBRIDGE_MULTIPLEX.slot} format={AD_SLOTS.JOBBRIDGE_MULTIPLEX.format} className="my-2" />
 
  {/* Company banner */}
  {/*

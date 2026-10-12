@@ -34,6 +34,7 @@ import {
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 const EVENT = {
   id: 'tio-agenda:42',
@@ -493,8 +494,8 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('ev-hero-backdrop');
     expect(page.html).toContain('ev-hero-surface');
     expect(page.html).toContain('prefers-reduced-motion:reduce');
-    expect(page.html.match(/data-ad-slot=["']?1982411173/g)).toHaveLength(1);
-    expect(page.html.match(/data-ad-slot=["']?5196931137/g)).toHaveLength(1);
+    expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`, 'g'))).toHaveLength(1);
+    expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`, 'g'))).toHaveLength(1);
     expect(page.html).toContain('data-events-page=event_detail');
     expect(page.html).toContain('data-events-lifecycle=active');
   });
@@ -600,7 +601,7 @@ describe('renderEventDetailPage', () => {
       distDir,
     });
     expect(listPage.html).toContain('data-ad-placement=events-list-infeed');
-    expect(listPage.html.match(/data-ad-slot=8164676143/g)).toHaveLength(1);
+    expect(listPage.html.match(new RegExp(`data-ad-slot=${AD_SLOTS.EVENTS_LIST_INFEED.slot}`, 'g'))).toHaveLength(1);
     expect(listPage.html).not.toContain('EVENTS_LIST_INFEED');
     expect(listPage.html).toContain('data-events-page=events_comune');
   });
@@ -663,8 +664,8 @@ describe('renderEventDetailPage', () => {
     expect(pastPage.html).not.toContain('"@context":"https://schema.org","@type":"Event"');
     expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
     expect(pastPage.html).toContain('data-events-lifecycle=past');
-    expect(pastPage.html).toMatch(/data-ad-slot=["']?1982411173/);
-    expect(pastPage.html).toMatch(/data-ad-slot=["']?5196931137/);
+    expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
+    expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`));
   });
   it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
