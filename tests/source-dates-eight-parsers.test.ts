@@ -60,7 +60,8 @@ describe('remaining employer producer publication contracts', () => {
     expect(build({ ...input, postingDateSource: 'reported', datePosted: '2026-10-04' })).toMatchObject(unknown);
   });
   it.each(cases)('RhB preserves only valid explicit input %j', (raw) => {
-    expect(buildJob({ title: 'Engineer', url: 'https://www.rhb.ch/de/job/engineer/', location: 'Chur', datePosted: raw, description }))
+    expect(buildJob({ title: 'Engineer', url: 'https://www.rhb.ch/de/job/engineer/', location: 'Chur', datePosted: raw, description,
+      crawlObservedAt: new Date('2026-10-03T12:00:00.000Z') }))
       .toMatchObject(sourcePostingDateFields(raw));
   });
   it('RhB never promotes an adjacent employment-start date', () => {
