@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-12T09:17:20.390Z",
+  "generatedAt": "2026-10-12T21:12:39.176Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 2486,
-  "avgDurationMs": 2486,
+  "durationMs": 2949,
+  "avgDurationMs": 2949,
   "durationHistory": [
-    2486
+    2949
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,54 +56,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Content Specialist",
-      "slug": "senior-content-specialista-guess-europe-sagl-bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/8B6EACA7AF/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/8B6EACA7AF/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Bioggio",
-      "addressLocality": "Bioggio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-05T00:00:00.000Z",
-      "postedDate": "2026-10-05T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "benefits": [
-        "An International, fresh and dynamic working environment",
-        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
-        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
-        "Training & Development platform and paths",
-        "Discount on our products both online and in stores"
-      ],
-      "id": "guess-europe-caf5e0fdd364",
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T09:15:50.416Z",
-      "postalCode": "6934",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Content Production Intern",
@@ -558,5 +511,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
