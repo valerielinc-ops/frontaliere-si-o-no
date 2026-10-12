@@ -191,6 +191,12 @@ describe('il rilevatore', () => {
     expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino.json');
     expect(LIVE_DATA_ROOTS).toContain('data/blog-cover-ledger.json');
     expect(LIVE_DATA_ROOTS).toContain('data/event-image-library.json');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-blog');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-articles-archive.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-news.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-topics-');
+    expect(LIVE_DATA_ROOTS).not.toContain('public/sitemap');
     expect(LIVE_DATA_ROOTS.some((root) => 'data/pharmacies-ticino.json'.startsWith(root))).toBe(false);
     expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
     // Una baseline cambia solo quando qualcuno decide di cambiarla: e' dato
@@ -442,6 +448,40 @@ describe('il censimento 2026-09-19 regge le proprie premesse', () => {
       return !src.includes('SKIP_LIVE_DATA');
     }).map((e) => e.file);
     expect(missing, `file senza skipIf(SKIP_LIVE_DATA): ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('non duplica un file tra inventario completo e parziale', () => {
+    const counts = new Map<string, number>();
+    for (const { file } of [...KNOWN_LIVE_DATA_TESTS, ...LIVE_DATA_PARTIAL_TESTS]) {
+      counts.set(file, (counts.get(file) ?? 0) + 1);
+    }
+    const duplicates = [...counts]
+      .filter(([, count]) => count > 1)
+      .map(([file]) => file)
+      .sort();
+    expect(duplicates).toEqual([]);
+  });
+
+  it('il replay 2026-10-12 rimette i casi di codice nel gate PR', () => {
+    const replayed = LIVE_DATA_PARTIAL_TESTS.filter((entry) => entry.since === '2026-10-12');
+    expect(replayed.map((entry) => entry.file).sort()).toEqual([
+      'tests/build-article-embeddings-meta-carryforward.test.ts',
+      'tests/extract-articles-package.test.ts',
+      'tests/seo/cathedral-expired-tracking-canton.test.ts',
+      'tests/sitemap-news-canonical.test.ts',
+      'tests/sitemap-retired-paths-absent.test.ts',
+    ]);
+
+    const liveMonitor = new Set(listLiveDataMonitorTests());
+    const fullyExcluded = new Set(listLiveDataTestsForCi());
+    for (const entry of replayed) {
+      expect(entry.evidence, `${entry.file}: replay evidence`).toBe('replay');
+      expect(KNOWN_LIVE_DATA_TESTS.map((known) => known.file)).not.toContain(entry.file);
+      expect(liveMonitor.has(entry.file), `${entry.file} deve restare nel monitor`).toBe(true);
+      expect(fullyExcluded.has(entry.file), `${entry.file} deve tornare nel gate PR`).toBe(false);
+      const source = fs.readFileSync(path.resolve(__dirname, '..', entry.file), 'utf8');
+      expect(source, `${entry.file} deve avere skip per caso vivo`).toMatch(/it\.skipIf\(SKIP_LIVE_DATA\)/u);
+    }
   });
 
   it('ogni voce nuova dichiara la prova su cui sta in piedi', () => {

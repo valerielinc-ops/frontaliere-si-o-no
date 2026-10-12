@@ -15,6 +15,7 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 import {
   readAllKnownJobSlugs,
   knownSlugsStoreExists,
@@ -48,8 +49,8 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
     expect(region).not.toMatch(/sectionByLocale\[locale\]/);
   });
 
-  it('data: non-TI tracking entries no longer reference the TI section path', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
-    if (!knownSlugsStoreExists(REPO_ROOT)) return;
+  it.skipIf(SKIP_LIVE_DATA)('data: non-TI tracking entries no longer reference the TI section path', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    expect(knownSlugsStoreExists(REPO_ROOT), 'the live slug store must be present in the data monitor').toBe(true);
     const jobs = readJobsDataset<{
       slug?: string;
       canton?: string;
@@ -57,6 +58,7 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
       slugByLocale?: Record<string, string>;
       previousSlugs?: string[];
     }>(JOBS_PATH);
+    expect(jobs, 'the live jobs dataset must be present in the data monitor').toBeTruthy();
     if (!jobs) return;
     const tracking: Record<string, Record<string, string>> = readAllKnownJobSlugs(
       REPO_ROOT,

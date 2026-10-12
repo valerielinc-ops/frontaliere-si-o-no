@@ -26,6 +26,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -127,7 +128,7 @@ describe('sitemap-news canonical filename — A4 Google News compliance', () => 
     expect(offenders).toEqual([]);
   });
 
-  it('public/sitemap.xml index references only the dash-separated news sitemap', () => {
+  it.skipIf(SKIP_LIVE_DATA)('public/sitemap.xml index references only the dash-separated news sitemap', () => {
     const indexPath = path.join(ROOT, 'public', 'sitemap.xml');
     const xml = fs.readFileSync(indexPath, 'utf-8');
 
