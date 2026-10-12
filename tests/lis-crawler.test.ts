@@ -438,6 +438,7 @@ describe('LIS Arca24 parser — buildLisJob', () => {
     expect(job!.slug).toBe('capireparto');
     expect(job!.source).toBe('arca24');
     expect(job!.datePosted).toBe('2026-01-26');
+    expect(Number.isFinite(Date.parse(job!.crawledAt))).toBe(true);
   });
 
   it('includes salary fields when salary is present in description', () => {

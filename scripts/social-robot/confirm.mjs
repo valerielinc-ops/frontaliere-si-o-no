@@ -30,7 +30,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 const POSTED_TRIM_LIMIT = 1000;
-const QUEUE_ID_RE = /^(?:article|job|border)-\d{4}-\d{2}-\d{2}$/;
+const QUEUE_ID_RE = /^(?:article|job|border|reel)-\d{4}-\d{2}-\d{2}$/;
 
 export function parseConfirmArgs(argv) {
   const get = (name) => argv.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3) ?? '';
@@ -38,7 +38,7 @@ export function parseConfirmArgs(argv) {
   const queueId = get('queue-id');
   const confirmedAt = get('confirmed-at');
   if (!SOCIAL_CHANNELS.includes(channel)) throw new Error(`--channel must be one of ${SOCIAL_CHANNELS.join(', ')}`);
-  if (!QUEUE_ID_RE.test(queueId)) throw new Error(`--queue-id must look like article-YYYY-MM-DD (got "${queueId}")`);
+  if (!QUEUE_ID_RE.test(queueId)) throw new Error(`--queue-id must look like article-, job-, border-, or reel-YYYY-MM-DD (got "${queueId}")`);
   if (!Number.isFinite(Date.parse(confirmedAt))) throw new Error(`--confirmed-at must be an ISO timestamp (got "${confirmedAt}")`);
   let fallbackLedgerEntries = [];
   const raw = get('ledger-entries');

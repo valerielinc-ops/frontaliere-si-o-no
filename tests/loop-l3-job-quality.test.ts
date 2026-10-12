@@ -72,6 +72,12 @@ function tempSource(summaryValue: unknown, outcomeValue: unknown = null) {
 }
 
 describe('L3 Job Quality → Apply', () => {
+  it('keeps malformed summary entries visible instead of throwing while reading aggregate metadata', () => {
+    const verdict = validateJobSummaries([null], { outcomes: outcomes(), now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('summary is not an object');
+  });
+
   it('accepts complete summaries and keeps the handoff metric explicit', () => {
     const verdict = validateJobSummaries([summary()], { outcomes: outcomes(), now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
@@ -133,6 +139,36 @@ describe('L3 Job Quality → Apply', () => {
       updatedJobs: [job(), job({ title: 'Operatore logistico aggiornato' })],
     })], { outcomes: outcomes(), now: NOW });
     expect(verdict.ok).toBe(false);
+    expect(verdict.issues.join(' ')).toContain('duplicate identity id:job-1');
+  });
+
+  it('accepts an identical record repeated by an explicitly declared Swatch aggregate', () => {
+    const member = summary({ key: 'eta-sa-swatch-group' });
+    const aggregate = summary({ key: 'swatchgroup', aggregateOf: ['eta-sa-swatch-group'] });
+    member.file = 'eta-sa-swatch-group.json';
+    aggregate.file = 'swatchgroup.json';
+
+    const verdict = validateJobSummaries([member, aggregate], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(true);
+    expect(verdict.snapshot.duplicateIdentities).toBe(0);
+    expect(verdict.issues).toEqual([]);
+  });
+
+  it('still rejects aggregate rows that differ from the declared owner posting', () => {
+    const member = summary({ key: 'eta-sa-swatch-group' });
+    const aggregate = summary({
+      key: 'swatchgroup',
+      aggregateOf: ['eta-sa-swatch-group'],
+      newJobs: [job({ url: 'https://jobs.example.test/other' })],
+    });
+    member.file = 'eta-sa-swatch-group.json';
+    aggregate.file = 'swatchgroup.json';
+
+    const verdict = validateJobSummaries([member, aggregate], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.snapshot.duplicateIdentities).toBe(1);
     expect(verdict.issues.join(' ')).toContain('duplicate identity id:job-1');
   });
 

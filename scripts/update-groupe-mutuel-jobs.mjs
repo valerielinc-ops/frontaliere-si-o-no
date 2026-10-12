@@ -897,6 +897,7 @@ async function main() {
   );
   await writeJobsCrawlerSliceVerified(GROUPE_MUTUEL_KEY, _sliceJobs, {
     isTargetJob: isGroupeMutuelJob,
+    observedJobs: discoveredJobs,
     ...(housekeepingProof ? { housekeepingProof } : {}),
   });
   writeSummaryCrawlerSlice({

@@ -20,7 +20,7 @@ on:
         type: choice
         options: ['instagram', 'tiktok']
       queue_id:
-        description: 'Queue entry id (article-YYYY-MM-DD, job-…, border-…)'
+        description: 'Queue entry id (article-YYYY-MM-DD, job-YYYY-MM-DD, border-YYYY-MM-DD, reel-YYYY-MM-DD)'
         required: true
         type: string
       confirmed_at:

@@ -27,6 +27,15 @@ describe('central job-board detail URLs', () => {
     expect(isLikelyJobDetailUrl('https://www.swisstiming.com/company/job-offers/?job=269611')).toBe(false);
   });
 
+  it('recognizes Galenica Solique hash routes only when they carry a numeric vacancy id', () => {
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=3136151.4065791')).toBe(true);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/de/jobs/#job.id=12345')).toBe(true);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.galenica.com/it/jobs/#job.id=search')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://jobs.example.test/it/jobs/#job.id=12345')).toBe(false);
+  });
+
   it('allows the shared JSON-LD parser to consume the detail page', () => {
     const result = __testables.toJobFromJsonLd(
       {
