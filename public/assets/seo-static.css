@@ -2446,3 +2446,62 @@ main.seo-static-content:has(> .fh-entry-main) > .seo-hub-hero .s-0E4V2z {
   .fh-entry-panel { margin-bottom: 38px; padding-top: 22px; }
   .fh-entry-related .fh-rll { grid-template-columns: 1fr; }
 }
+
+/* CTH first-paint geometry. These layout declarations mirror the three
+   `.cth-page` selectors that determine the static hub title's position in
+   `index.css`; the critical-CSS reserve is derived from this sheet. The test
+   `criticalCssStaticSeoReserve.test.ts` enforces exact layout parity while
+   leaving all visual paint properties in the async application stylesheet. */
+.cth-page {
+  min-width: 0;
+  padding-block: clamp(8px, 1vw, 16px) 56px;
+}
+.cth-page .cth-hero {
+  margin: 0;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 52px);
+  border: 1px solid var(--color-edge);
+}
+.cth-page .cth-hero .s-e3gkVi {
+  max-width: 18ch;
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+@media (max-width: 639px) {
+  .cth-page .cth-hero { padding: 24px 18px; }
+  .cth-page .cth-hero .s-e3gkVi { max-width: none; }
+}
+.cth-page {
+  padding-block: 12px 72px;
+}
+.cth-page .cth-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .38fr);
+  gap: clamp(24px, 5vw, 72px);
+  overflow: hidden;
+  margin: 0;
+  padding: clamp(30px, 5vw, 64px);
+  border: 0;
+}
+.cth-page .cth-hero .s-e3gkVi {
+  max-width: 12ch;
+  margin: 0 0 20px;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  font-weight: 500;
+  line-height: .96;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+@media (max-width: 800px) {
+  .cth-page .cth-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 22px;
+  }
+  .cth-page .cth-hero .s-e3gkVi {
+    max-width: none;
+    font-size: clamp(2.35rem, 13vw, 4rem);
+  }
+}
