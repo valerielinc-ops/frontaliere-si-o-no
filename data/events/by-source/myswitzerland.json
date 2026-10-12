@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-11T12:01:12.224Z",
+  "assembledAt": "2026-10-12T13:55:35.849Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -36757,6 +36757,14 @@
         "lng": 7.648341
       },
       "recurring": false,
+      "performer": {
+        "name": "Simone Xie"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "bc53e92deaeb29ee570b8ded797a3b927bbb2b0bd7b8799fed2ec154bbc31c9f"
     },
     {
@@ -175085,14 +175093,14 @@
         "de": "Water Pong",
         "fr": "Water Pong"
       },
-      "startDate": "2026-08-17",
+      "startDate": "2026-09-28",
       "endDate": "2026-11-30",
       "startTime": "00:00",
       "category": "Event",
-      "venue": "Barberousse",
+      "venue": "Losanna",
       "comune": "Lausanne",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/water-pong/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/water-pong/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -175100,7 +175108,23 @@
         "lng": 6.62854
       },
       "recurring": true,
-      "sourceDescriptionHash": "53a4d8d514f903356f7b1e9662277319e0bdef6c77dad443c0c6d563437e627c"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Losanna"
+      },
+      "sourceDescriptionHash": "53a4d8d514f903356f7b1e9662277319e0bdef6c77dad443c0c6d563437e627c",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Lausanne",
+          "slug": "water-pong-2026-08-17"
+        }
+      ]
     },
     {
       "id": "myswitzerland:7dcd62d4f30a4f219b2ccf23ae626c9f",
@@ -175369,6 +175393,19 @@
         "lng": 6.6315445
       },
       "recurring": false,
+      "performer": [
+        {
+          "name": "Nova Cardinale (2022"
+        },
+        {
+          "name": "Siècle (2025), apprezzati da critica"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "e1797e8065db2d91129f7c920ee78cf358248e4c3da3c97a526478a6fd2dc1be"
     },
     {
@@ -263477,6 +263514,609 @@
         "name": "Liestal"
       },
       "sourceDescriptionHash": "12cfe4c8ade185e97c513eb5759f578a18cb35ecffb9c21f5dee6bc8a2962666"
+    },
+    {
+      "id": "myswitzerland:8210a16603fd4f86b174e255d8aa993a",
+      "title": "Viaggio sonoro - guarigione sonora con gong e ciotole di cristallo - 1h",
+      "titleByLocale": {
+        "it": "Viaggio sonoro - guarigione sonora con gong e ciotole di cristallo - 1h",
+        "en": "Sound journey - sound healing with gong and crystal bowls - 1h",
+        "de": "Klangreise - Soundhealing mit Gong und Kristallschalen - 1h",
+        "fr": "Voyage sonore - Soundhealing avec gong et bols de cristal - 1h"
+      },
+      "startDate": "2026-10-12",
+      "endDate": "2026-12-28",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/viaggio-sonoro-guarigione-sonora-con-gong-e-ciotole-di-cristallo-1h-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.470203,
+        "lng": 8.317096
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "0e0e6dfe3dbeccb5a4d69fc6517604ecad4214956fa7fe1e663713f9f0e255b4"
+    },
+    {
+      "id": "myswitzerland:81c7eb7d5e3d4675a58c44a9b6705fbd",
+      "title": "Claudio Zuccolini – DER VORSORGER",
+      "titleByLocale": {
+        "it": "Claudio Zuccolini – DER VORSORGER",
+        "en": "Claudio Zuccolini – DER VORSORGER",
+        "de": "Claudio Zuccolini – DER VORSORGER",
+        "fr": "Claudio Zuccolini – DER VORSORGER"
+      },
+      "startDate": "2027-04-10",
+      "endDate": "2027-04-10",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "A majestically located spa resort - Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/claudio-zuccolini-der-vorsorger-17/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4458192,
+        "lng": 9.5320353
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "A majestically located spa resort - Heiden"
+      },
+      "sourceDescriptionHash": "42a00bcf00f1ef2066f84768868754caf0aada362d574499255f1aebc8b87c0a"
+    },
+    {
+      "id": "myswitzerland:814d03ca66264b7ebc9f6ee998f59368",
+      "title": "Le jeu de l'amour et du hasard - Casino Théâtre de Rolle",
+      "titleByLocale": {
+        "it": "Le jeu de l'amour et du hasard - Casino Théâtre de Rolle",
+        "en": "Le jeu de l'amour et du hasard - Casino Théâtre de Rolle",
+        "de": "Le jeu de l'amour et du hasard - Casino Théâtre de Rolle",
+        "fr": "Le jeu de l'amour et du hasard - Casino Théâtre de Rolle"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Rolle",
+      "comune": "Rolle",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/le-jeu-de-lamour-et-du-hasard-casino-theatre-de-rolle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4552063,
+        "lng": 6.3368213
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rolle"
+      },
+      "sourceDescriptionHash": "b33f82404bfdd0f2948fca822d03326e5036a0c626b51757a8a8b9ae38e8e9d7"
+    },
+    {
+      "id": "myswitzerland:80550d20e619462c80d24e47a1c711e0",
+      "title": "Sekt Matinee & Lesung – Marcel Huwyler im Weinbaumuseum",
+      "titleByLocale": {
+        "it": "Sekt Matinee & Lesung – Marcel Huwyler im Weinbaumuseum",
+        "en": "Sekt Matinee & Lesung – Marcel Huwyler im Weinbaumuseum",
+        "de": "Sekt Matinee & Lesung – Marcel Huwyler im Weinbaumuseum",
+        "fr": "Sekt Matinee & Lesung – Marcel Huwyler im Weinbaumuseum"
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTime": "11:00",
+      "category": "Event",
+      "venue": "Tegerfelden",
+      "comune": "Tegerfelden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sekt-matinee-lesung-marcel-huwyler-im-weinbaumuseum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5576587,
+        "lng": 8.2917281
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Tegerfelden"
+      },
+      "sourceDescriptionHash": "179cfb17e9f0a5e5da785893aa9e4c050a440b0ae1c679bc04ef0acdf7c189a5"
+    },
+    {
+      "id": "myswitzerland:7fe4fa5d688f4706bba50001e0f031f3",
+      "title": "Stadtkeller: Tribschenhorn Luzern Shanty Crew",
+      "titleByLocale": {
+        "it": "Stadtkeller: Tribschenhorn Luzern Shanty Crew",
+        "en": "Stadtkeller: Tribschenhorn Luzern Shanty Crew",
+        "de": "Stadtkeller: Shantycrew Tribschenhorn Luzern",
+        "fr": "Stadtkeller : Shantycrew Tribschenhorn, Lucerne"
+      },
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-10",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stadtkeller-tribschenhorn-luzern-shanty-crew/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "f47bbf83a52519a28bdc9185e03e1435ccd98f5d42df0c32f21653ee5fab25b4"
+    },
+    {
+      "id": "myswitzerland:7f25b68afb6849b48d54d559b46e3755",
+      "title": "Aarauer Highlights am Rüeblimärttag",
+      "titleByLocale": {
+        "it": "Aarauer Highlights am Rüeblimärttag",
+        "en": "Aarauer Highlights am Rüeblimärttag",
+        "de": "Aarauer Highlights am Rüeblimärttag",
+        "fr": "Aarauer Highlights am Rüeblimärttag"
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/aarauer-highlights-am-rueeblimaerttag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3932644,
+        "lng": 8.0445159
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Aarau"
+      },
+      "sourceDescriptionHash": "8c8eac3aeb94cb8627189452f799e67b9e6da460784f33388c3302d97e5c414d"
+    },
+    {
+      "id": "myswitzerland:7e605d9f3f0d41b6b32484d42e0bb8e7",
+      "title": "TANZhAUS ON STAGE // The air between us - Atemspaziergang",
+      "titleByLocale": {
+        "it": "TANZhAUS ON STAGE // The air between us - Atemspaziergang",
+        "en": "TANZhAUS ON STAGE // The air between us - Atemspaziergang",
+        "de": "TANZhAUS ON STAGE // The air between us - Atemspaziergang",
+        "fr": "TANZhAUS ON STAGE // The air between us - Atemspaziergang"
+      },
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-18",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tanzhaus-on-stage-the-air-between-us-atemspaziergang/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9399483,
+        "lng": 7.4454857
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bern"
+      },
+      "sourceDescriptionHash": "33e87918022e41dc9fb98e20aeaeb1fe627f4d46ae364a26b1469ee6772b4d2d"
+    },
+    {
+      "id": "myswitzerland:7dddd59ad9f24905bd10f3554ee13b11",
+      "title": "Das Versprechen",
+      "titleByLocale": {
+        "it": "Das Versprechen",
+        "en": "Das Versprechen",
+        "de": "Das Versprechen",
+        "fr": "Das Versprechen"
+      },
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-23",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/das-versprechen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3882558,
+        "lng": 8.5535396
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "596e1fcc28d01de1de8ebd700ba11882bc76788146f26cbf36070ce1a0c16560"
+    },
+    {
+      "id": "myswitzerland:7da33582775a471daf0d996db0db8f3f",
+      "title": "Theatertour: Glanz und Güsel – Willkommen im Sauberland Schweiz!",
+      "titleByLocale": {
+        "it": "Theatertour: Glanz und Güsel – Willkommen im Sauberland Schweiz!",
+        "en": "Theatertour: Glanz und Güsel – Willkommen im Sauberland Schweiz!",
+        "de": "Theatertour: Glanz und Güsel – Willkommen im Sauberland Schweiz!",
+        "fr": "Theatertour: Glanz und Güsel – Willkommen im Sauberland Schweiz!"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-23",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theatertour-glanz-und-guesel-willkommen-im-sauberland-schweiz-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.051662,
+        "lng": 8.3010435
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "26ee7f82c6c56f2568afbee6d826ebefe828c46953ca7ec27a9ae241d27c5ad0"
+    },
+    {
+      "id": "myswitzerland:7c9354e3c14f486998bb6075a4e1a4e3",
+      "title": "Sheer Mag",
+      "titleByLocale": {
+        "it": "Sheer Mag",
+        "en": "Sheer Mag",
+        "de": "Sheer Mag",
+        "fr": "Sheer Mag"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sheer-mag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.343558,
+        "lng": 8.5358291
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Josefin, Katina, Maryse"
+        },
+        {
+          "name": "Fanny lässt sich ungern in Schubladen stecken"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "e4364c7b092a4fc945d46630fb3a01e4f39b66f5616867ad9ca752919c4a477c"
+    },
+    {
+      "id": "myswitzerland:7b555eb8d0f94751919d75969d8503e2",
+      "title": "Schlusslauf Zwingen der Laufsportgruppe Laufen",
+      "titleByLocale": {
+        "it": "Schlusslauf Zwingen der Laufsportgruppe Laufen",
+        "en": "Schlusslauf Zwingen der Laufsportgruppe Laufen",
+        "de": "Schlusslauf Zwingen der Laufsportgruppe Laufen",
+        "fr": "Schlusslauf Zwingen der Laufsportgruppe Laufen"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Zwingen BL",
+      "comune": "Zwingen",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schlusslauf-zwingen-der-laufsportgruppe-laufen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4391529,
+        "lng": 7.5347668
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zwingen BL"
+      },
+      "sourceDescriptionHash": "70936a1b29c87e7dc6e5edee688fe7ecd313d8f00da0291b16eed9113a180f66"
+    },
+    {
+      "id": "myswitzerland:7b4854914c8f41789f077bfd4cf3945d",
+      "title": "La légende du Juif errant",
+      "titleByLocale": {
+        "it": "La légende du Juif errant",
+        "en": "La légende du Juif errant",
+        "de": "La légende du Juif errant",
+        "fr": "La légende du Juif errant"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-27",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-legende-du-juif-errant/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2013698,
+        "lng": 6.1485431
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "814837e34f8065654b576c626be597f03328ada0d38f4600761d11ad45c6fff5"
+    },
+    {
+      "id": "myswitzerland:7b139109a33043229e329626d2d1c7fa",
+      "title": "4 x Murbach \"2 generazioni - 4 persone - 1 mostra\"",
+      "titleByLocale": {
+        "it": "4 x Murbach \"2 generazioni - 4 persone - 1 mostra\"",
+        "en": "4 x Murbach \"2 Generations - 4 People - 1 Exhibition\"",
+        "de": "4 x Murbach \"2 Generationen - 4 Personen - 1 Ausstellung\"",
+        "fr": "4 x Murbach « 2 générations - 4 personnes - 1 exposition »"
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-11-19",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Gais",
+      "comune": "Gais",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/4-x-murbach-2-generazioni-4-persone-1-mostra/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3621687,
+        "lng": 9.4542006
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Gais"
+      },
+      "sourceDescriptionHash": "e433d923a69c717731e4025d55e0a15abb28328a7bad789164e3ebaccc55dbe0"
+    },
+    {
+      "id": "myswitzerland:7a5cfed8cc03421085d7cfa5476c295b",
+      "title": "Waldbaden Alpin",
+      "titleByLocale": {
+        "it": "Waldbaden Alpin",
+        "en": "Forest Bathing Alpin",
+        "de": "Waldbaden Alpin",
+        "fr": "Waldbaden Alpin"
+      },
+      "startDate": "2026-10-16",
+      "endDate": "2026-11-06",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Scuol",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/waldbaden-alpin/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7966882,
+        "lng": 10.3020679
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Waldbaden in den Engadiner Wald eintauchen"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "aa38658eb0b8c77543ac4e1621e6ab766b6b709c4c22828334f39a2fa0d7277f"
+    },
+    {
+      "id": "myswitzerland:7a4a7a38c4134abca1a2419dbb90663a",
+      "title": "Friday Pyjama Party",
+      "titleByLocale": {
+        "it": "Friday Pyjama Party",
+        "en": "Friday Pyjama Party",
+        "de": "Friday Pyjama Party",
+        "fr": "Friday Pyjama Party"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2027-06-25",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Schlieren",
+      "comune": "Schlieren",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/friday-pyjama-party/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3967904,
+        "lng": 8.4457418
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schlieren"
+      },
+      "sourceDescriptionHash": "bc432e9cc479aa437bd52f039f17642265edfba4b05ae26aee95418c3854feca"
+    },
+    {
+      "id": "myswitzerland:7a337dfca6ed47cfa0d79a60b8d4657f",
+      "title": "Locarno Time Travel Tour",
+      "titleByLocale": {
+        "it": "Locarno Time Travel Tour",
+        "en": "Locarno Time Travel Tour",
+        "de": "Locarno Time Travel Tour",
+        "fr": "Locarno Time Travel Tour"
+      },
+      "startDate": "2026-10-06",
+      "endDate": "2026-10-20",
+      "startTime": "10:15",
+      "category": "Event",
+      "venue": "Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/locarno-time-travel-tour/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1696279,
+        "lng": 8.7990235
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Locarno"
+      },
+      "italianFrontierComuni": [
+        "Tronzano Lago Maggiore",
+        "Maccagno con Pino e Veddasca",
+        "Curiglia con Monteviasco",
+        "Cannobio"
+      ],
+      "sourceDescriptionHash": "1e46315389848c2a0e08f937cc99638c80010e118ced28a9471c96a05582815b"
+    },
+    {
+      "id": "myswitzerland:79b0675eb0f6406da69ac4d6e71b900d",
+      "title": "Flammkuchen Freitag",
+      "titleByLocale": {
+        "it": "Flammkuchen Freitag",
+        "en": "Flammkuchen Freitag",
+        "de": "Flammkuchen Freitag",
+        "fr": "Flammkuchen Freitag"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2027-01-29",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/flammkuchen-freitag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.473042,
+        "lng": 8.308576
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Flammkuchen"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "237d1a361e012a9b41791977758db0f0d2e24173131ec271e8106df2daea6fb9"
     }
   ]
 }
