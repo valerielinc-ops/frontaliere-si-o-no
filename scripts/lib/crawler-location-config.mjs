@@ -783,6 +783,9 @@ export const COMPANY_HQ = {
   // `resolveAddress()` in scripts/lib/holmes-place-job-parser.mjs; this HQ
   // entry is only the generic canton/postal fallback.
   'holmes-place': { city: 'Oberrieden', canton: 'ZH', postalCode: '8942', addressRegion: 'ZH' },
+  // ZAUGG AG's official vacancy places the welding team at its Eggiwil
+  // headquarters; the official site footer gives CH-3537 Eggiwil.
+  'zaugg': { city: 'Eggiwil', canton: 'BE', postalCode: '3537', addressRegion: 'BE' },
 };
 
 /**

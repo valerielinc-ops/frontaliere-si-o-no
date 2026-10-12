@@ -13,11 +13,11 @@
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 626,
+  "crawlerCount": 627,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:cfc30d2121214cdd624446f146a86ce3b72fca0fd4e96d13dca1e505dbb63fdc",
+    "rosterDigest": "sha256:6cdc30c1a79ab3d685045f1c2ecaf980916333142fa4b6ce19a43555bbd1aa77",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -576,6 +576,7 @@
     "scripts/update-wuerth-international-jobs.mjs",
     "scripts/update-yapeal-jobs.mjs",
     "scripts/update-yellowshark-jobs.mjs",
+    "scripts/update-zaugg-jobs.mjs",
     "scripts/update-zermatt-bergbahnen-jobs.mjs",
     "scripts/update-zfv-unternehmungen-jobs.mjs",
     "scripts/update-zkb-jobs.mjs",
@@ -1446,8 +1447,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "13f786c7c436b1fc801773bb5c323943608381d7233d6361fed0eb4b5a6d7a3d",
-      "artifactSha256": "8b66d8655eecae313a45493f25b9e2c05abd4f3e1a94f9975dc353d95966e270",
+      "sourceSha256": "4d13ca0bd6413d4043ebb92138147fa0a042bbf6a1d9f54841a5f25192c2a8d4",
+      "artifactSha256": "d17384891184f0e14c6d3319058ad25b067072ca373ad6d4368295f3cd578582",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "albergo-gardenia",
@@ -1476,7 +1477,8 @@
         "mediamarkt",
         "pianorm",
         "rehaklinik-seewis",
-        "my"
+        "my",
+        "zaugg"
       ]
     },
     {

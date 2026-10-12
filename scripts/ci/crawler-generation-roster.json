@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 626,
+  "crawlerCount": 627,
   "groups": {
     "10": [
       "atec-personal",
@@ -422,7 +422,8 @@
       "postfinance",
       "premiumpflege24",
       "rehaklinik-seewis",
-      "tsmg"
+      "tsmg",
+      "zaugg"
     ],
     "24": [
       "protectas"
@@ -1299,6 +1300,7 @@
     "yapeal": "data/jobs/by-crawler/yapeal.json",
     "yellowshark": "data/jobs/by-crawler/yellowshark.json",
     "zambon": "data/jobs/by-crawler/zambon.json",
+    "zaugg": "data/jobs/by-crawler/zaugg.json",
     "zermatt-bergbahnen": "data/jobs/by-crawler/zermatt-bergbahnen.json",
     "zfv-unternehmungen": "data/jobs/by-crawler/zfv-unternehmungen.json",
     "zkb": "data/jobs/by-crawler/zkb.json",
@@ -1306,5 +1308,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:cfc30d2121214cdd624446f146a86ce3b72fca0fd4e96d13dca1e505dbb63fdc"
+  "digest": "sha256:6cdc30c1a79ab3d685045f1c2ecaf980916333142fa4b6ce19a43555bbd1aa77"
 }
