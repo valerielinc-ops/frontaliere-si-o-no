@@ -357,7 +357,7 @@ export async function fetchAllBitfinexJobs() {
       addressLocality: city,
       addressRegion: jobRegion,
       addressCountry: 'CH',
-      postalCode: inferredCanton ? HQ.postalCode : '',
+      postalCode: normalizeSpace(firstLoc.postal_code || ''),
       country: 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',

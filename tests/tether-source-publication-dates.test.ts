@@ -38,6 +38,19 @@ describe('Tether source publication provenance', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject({ url: 'https://tether.recruitee.com/o/mixed', location: 'Lugano, Ticino', addressCountry: 'CH', country: 'CH', canton: 'TI' });
   });
+  it('uses the selected Swiss location postal code instead of the Lugano HQ', async () => {
+    const mixed = offer(undefined, 'zurich');
+    mixed.locations = [
+      { city: 'London', state: 'England', country: 'United Kingdom', country_code: 'GB' },
+      { city: 'Zürich', state: 'ZH', country: 'Switzerland', country_code: 'CH', postal_code: '8000' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => response([mixed])));
+
+    const jobs = await fetchAllTetherJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Zürich, ZH', addressRegion: 'ZH', postalCode: '8000' });
+    expect(jobs[0].postalCode).not.toBe('6900');
+  });
   it('preserves the timestamp and matching URL on the custom-origin fallback', async () => {
     vi.stubGlobal('fetch', vi.fn(async (url: string) => String(url).startsWith('https://tether.recruitee.com') ? new Response('', { status: 503 }) : response([offer(date)])));
     const jobs = await fetchAllTetherJobs();

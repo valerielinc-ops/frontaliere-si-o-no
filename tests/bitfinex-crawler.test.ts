@@ -112,6 +112,17 @@ describe('Bitfinex crawler parser', () => {
       expect(jobs).toHaveLength(1);
       expect(jobs[0]).toMatchObject({ location: 'Lugano, Ticino', addressCountry: 'CH', country: 'CH', canton: 'TI' });
     });
+
+    it('uses the selected Swiss location postal code instead of the Lugano HQ', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Zürich', state: 'ZH', country: 'Switzerland', country_code: 'CH', postal_code: '8000' }),
+      ])));
+
+      const jobs = await fetchAllBitfinexJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ addressRegion: 'ZH', postalCode: '8000' });
+      expect(jobs[0].postalCode).not.toBe('6900');
+    });
   });
 
   // ── Job Shape Validation ──
