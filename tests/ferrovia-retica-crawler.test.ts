@@ -9,7 +9,7 @@ import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
-  buildJob,
+  buildJob as buildFerroviaJob,
   RHB_INVENTED_FALLBACK_RE,
   getLocationAddress,
   isGrigioniItalianoJob,
@@ -21,6 +21,10 @@ import {
 import { mergeDiscoveredJobWithPrev } from '@/scripts/update-ferrovia-retica-jobs.mjs';
 import { repairRelabeledSourceLocale } from '@/scripts/lib/dedicated-crawler-common.mjs';
 import { dropFabricatedDescription } from '@/scripts/lib/drop-fabricated-description.mjs';
+
+const OBSERVED_AT = new Date();
+const RECENT_POSTED_DATE = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const buildJob = (raw: any) => buildFerroviaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
 
 // ─── Fixture: Career listing page ──────────────────────────
 const LISTING_HTML = `
@@ -207,6 +211,16 @@ describe('inferLocation', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('buildJob', () => {
+  it('requires an explicit crawl observation and never substitutes the posting date', () => {
+    const raw = { title: 'Lokführer/in', datePosted: RECENT_POSTED_DATE };
+    expect(buildFerroviaJob(raw)).toBeNull();
+    expect(buildFerroviaJob({ ...raw, crawlObservedAt: new Date(Number.NaN) })).toBeNull();
+
+    const job = buildFerroviaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds complete job object', () => {
     const job = buildJob({
       title: 'Lokführer/in',

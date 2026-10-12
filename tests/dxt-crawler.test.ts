@@ -19,7 +19,9 @@ import {
   MIN_DESC_LENGTH,
   MIN_TITLE_OVERLAP,
 } from '@/scripts/lib/dxt-job-parser.mjs';
-import { buildDescription, dropInventedDxtLocaleText, dxtPanelUrl, dxtMergeKey } from '@/scripts/update-dxt-jobs.mjs';
+import { buildDescription, dxtCrawledAt, dropInventedDxtLocaleText, dxtPanelUrl, dxtMergeKey } from '@/scripts/update-dxt-jobs.mjs';
+
+const OBSERVED_AT = new Date();
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 // Mirrors the actual HTML structure served by dxt.com/careers/ on 2026-03-18.
@@ -168,6 +170,18 @@ const FIXTURE_SHORT_DESC = `
 // ─── parseWpsmAccordionPanels — Lugano Junior Legal regression ────────────────
 
 describe('parseWpsmAccordionPanels — Junior Legal regression', () => {
+  it('carries only an explicit successful-fetch observation timestamp', () => {
+    const [observed] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897', OBSERVED_AT);
+    expect(observed.crawledAt).toBe(OBSERVED_AT.toISOString());
+
+    const [withoutObservation] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
+    const [invalidObservation] = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897', new Date(Number.NaN));
+    expect(withoutObservation).not.toHaveProperty('crawledAt');
+    expect(invalidObservation).not.toHaveProperty('crawledAt');
+    expect(dxtCrawledAt({ ...withoutObservation, datePosted: OBSERVED_AT.toISOString() })).toBeNull();
+    expect(dxtCrawledAt(observed)).toBe(OBSERVED_AT.toISOString());
+  });
+
   it('finds exactly one job', () => {
     const jobs = parseWpsmAccordionPanels(FIXTURE_LUGANO_ACCORDION, '20897');
     expect(jobs).toHaveLength(1);

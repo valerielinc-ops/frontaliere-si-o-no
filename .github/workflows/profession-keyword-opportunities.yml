@@ -44,16 +44,52 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          # Full history for the rebase-retry push loop (same rationale as
-          # refresh-thin-promotions.yml: shallow clones break `git rebase
-          # origin/main` on bursts of concurrent data commits).
-          fetch-depth: 0
+          # `fetch-depth: 0` fetches every branch and tag. Keep the initial
+          # checkout shallow and materialize only this writer's runtime inputs;
+          # the targeted blobless fetch below restores the history needed by
+          # the rebase-retry push loop without downloading unrelated refs/blobs.
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+          sparse-checkout: |
+            /.gitattributes
+            /.githooks/
+            /build-plugins/professionLandingsData.ts
+            /build-plugins/shared/cantonResolvers.mjs
+            /data/gsc-orphan-queries.json
+            /data/jobs.json
+            /data/jobs/by-crawler/
+            /data/keyword-pages-config.json
+            /data/profession-keyword-opportunities.json
+            /package.json
+            /package-lock.json
+            /scripts/lib/
+            /scripts/load-rc-env.mjs
+            /scripts/profession-keyword-opportunities.mjs
+          sparse-checkout-cone-mode: false
           token: ${{ secrets.GITHUB_TOKEN }}
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
         timeout-minutes: 9
+
+      - name: Fetch blobless history for push retries
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          # The checkout is partial because it is sparse. Keep later lazy blob
+          # reads on that filter, and fetch only the checked-out branch plus
+          # main (the write target), never every head or tag in the repository.
+          git config remote.origin.promisor true
+          git config remote.origin.partialclonefilter blob:none
+          git fetch --no-tags --filter=blob:none --unshallow origin \
+            "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+          if [ "$BRANCH" != main ]; then
+            git fetch --no-tags --filter=blob:none origin \
+              "+refs/heads/main:refs/remotes/origin/main"
+          fi
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v7
         with:
