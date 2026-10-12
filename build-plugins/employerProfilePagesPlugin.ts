@@ -288,6 +288,24 @@ const NEW_ROLES_LABEL: Record<Locale, string> = {
 const JOBS_HEADING: Record<Locale, string> = {
   it: 'Offerte di lavoro attive', en: 'Active job openings', de: 'Aktive Stellenangebote', fr: 'Offres d’emploi actives',
 };
+const OPENINGS_LEAD: Record<Locale, string> = {
+  it: 'Confronta ruolo, sede e contratto, poi apri l’annuncio originale per candidarti.',
+  en: 'Compare role, location and contract, then open the original listing to apply.',
+  de: 'Vergleichen Sie Rolle, Standort und Vertrag und öffnen Sie danach die Originalanzeige.',
+  fr: 'Comparez le poste, le lieu et le contrat, puis ouvrez l’annonce originale pour postuler.',
+};
+const VIEW_OPENINGS_CTA: Record<Locale, (count: number) => string> = {
+  it: (count) => `Vedi ${count} offerte`,
+  en: (count) => `View ${count} openings`,
+  de: (count) => `${count} offene Stellen ansehen`,
+  fr: (count) => `Voir ${count} offres`,
+};
+const METHOD_SUMMARY: Record<Locale, string> = {
+  it: 'Come leggere questi dati',
+  en: 'How to read this data',
+  de: 'So lesen Sie diese Daten',
+  fr: 'Comment lire ces données',
+};
 const EXPLORE_HEADING: Record<Locale, string> = {
   it: 'Esplora', en: 'Explore', de: 'Entdecken', fr: 'Explorer',
 };
@@ -408,7 +426,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
       ? `Tutte le posizioni attive sono a ${label}.`
       : `${count} delle ${total} posizioni attive pubblicate sono a ${label}.`,
     salaryRange: (min, max) => `Gli stipendi pubblicati per queste posizioni vanno da ${min} a ${max} lordi all’anno.`,
-    outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
+    outro: 'Le posizioni attive sono raccolte in questa pagina; per candidarti apri la fonte originale.',
   },
   en: {
     intro: (name, n, cantonCount) => `${name} currently has ${n} open positions published on Frontaliere Ticino, across ${cantonCount} Swiss canton${cantonCount === 1 ? '' : 's'}.`,
@@ -422,7 +440,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
       ? `All active positions are ${label}.`
       : `${count} of the ${total} active postings are ${label}.`,
     salaryRange: (min, max) => `Published salaries for these roles range from ${min} to ${max} gross per year.`,
-    outro: 'Browse the active roles below and apply directly on the employer’s own site.',
+    outro: 'The active roles are collected on this page; to apply, open the original source.',
   },
   de: {
     intro: (name, n, cantonCount) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino, verteilt auf ${cantonCount} Schweizer Kanton${cantonCount === 1 ? '' : 'e'}.`,
@@ -436,7 +454,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
       ? `Alle aktiven Stellen sind ${label}.`
       : `${count} der ${total} aktiven Stellen sind ${label}.`,
     salaryRange: (min, max) => `Die veröffentlichten Gehälter für diese Stellen reichen von ${min} bis ${max} brutto pro Jahr.`,
-    outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
+    outro: 'Die aktiven Stellen sind auf dieser Seite zusammengefasst; öffnen Sie für die Bewerbung die Originalquelle.',
   },
   fr: {
     intro: (name, n, cantonCount) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino, répartis dans ${cantonCount} canton${cantonCount === 1 ? '' : 's'} suisse${cantonCount === 1 ? '' : 's'}.`,
@@ -450,7 +468,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
       ? `Tous les postes actifs sont en ${label}.`
       : `${count} des ${total} postes actifs publiés sont en ${label}.`,
     salaryRange: (min, max) => `Les salaires publiés pour ces postes vont de ${min} à ${max} brut par an.`,
-    outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
+    outro: 'Les postes actifs sont réunis sur cette page ; pour postuler, ouvrez la source originale.',
   },
 };
 
@@ -539,7 +557,7 @@ export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: 
 }
 
 function statTile(label: string, value: string): string {
-  return `<div class="rounded-xl border border-edge bg-surface-alt px-3.5 py-2.5"><div class="text-xs text-muted">${esc(label)}</div><div class="text-sm font-semibold text-strong">${value}</div></div>`;
+  return `<div class="company-profile-stat"><div class="company-profile-stat-label">${esc(label)}</div><div class="company-profile-stat-value">${value}</div></div>`;
 }
 
 function breadcrumbHtml(locale: Locale, name: string): string {
@@ -592,6 +610,7 @@ function renderProfileBody(
   options: ProfileRenderOptions = {},
 ): string {
   const name = profile.name;
+  const profileIntro = introProse(profile, allActiveJobs, locale);
   const salarySummary = reportedSalarySummary(allActiveJobs);
   const tiles = [
     statTile(OPEN_ROLES_LABEL[locale], String(profile.activeJobs)),
@@ -637,21 +656,31 @@ function renderProfileBody(
     ? `<section class="max-w-3xl mx-auto px-4 my-6" aria-label="advertisement" data-ad-experiment="${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}" data-ad-variant="${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</section>`
     : '';
 
-  return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
+  return `<main class="seo-static-content company-profile-page max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
 ${breadcrumbHtml(locale, name)}
-<header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
-<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(employerHeadline(locale, name))}</h1>
-<p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
+<header class="company-profile-hero">
+<div class="company-profile-hero-top">
+<div>
+<h1 class="company-profile-title">${esc(employerHeadline(locale, name))}</h1>
+<p class="company-profile-lede">${esc(profileIntro.split('. ')[0])}.</p>
+</div>
+<a class="company-profile-primary-action" href="#company-openings">${esc(VIEW_OPENINGS_CTA[locale](profile.activeJobs))}<span aria-hidden="true"> →</span></a>
+</div>
+<div class="company-profile-stats">${tiles}</div>
 ${reportedSalaryNote(locale, salarySummary)}
 </header>
 ${employerProfileMidAdHtml}
-${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
-<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p><p class="my-2.5 leading-relaxed text-body">${esc(PROFILE_METHOD_NOTE[locale])}</p></section>
-<section class="mb-2">
-<h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
+<section id="company-openings" class="company-profile-openings mb-2" aria-labelledby="company-openings-title">
+<div class="company-profile-openings-head">
+<div>
+<h2 id="company-openings-title" class="company-profile-openings-title">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
+<p class="company-profile-openings-lead">${esc(OPENINGS_LEAD[locale])}</p>
+</div>
+</div>
 ${jobListHtml}
 </section>
+${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
+<section class="company-profile-context mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(profileIntro)}</p><details class="company-profile-method"><summary>${esc(METHOD_SUMMARY[locale])}</summary><p>${esc(PROFILE_METHOD_NOTE[locale])}</p></details></section>
 ${exploreLinksHtml(profile, locale)}
 ${renderEmployerCtaBlock(locale, 'employer_profile')}
 </main>`;
@@ -855,10 +884,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
           // manual slots. Employer profiles keep the page-level multiplex as
-          // their control unit; the opt-in EOC test is added only to the
-          // indexable final render below. The job-list in-feed cadence can make
-          // a long profile fail the audit's content/slot ratio before Auto Ads
-          // even run, so it stays disabled on this family.
+          // their control unit; the opt-in EOC test and shared every-three-jobs
+          // cadence are added only to the indexable final render below.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
@@ -866,7 +893,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           const renderedBodyHtml = indexable
             ? renderProfileBody(liveProfile, listed, locale, group, {
-                interleaveInfeedAds: false,
+                interleaveInfeedAds: true,
                 includeEmployerProfileMidAd: true,
                 employerProfileMidAdVariant,
               })
