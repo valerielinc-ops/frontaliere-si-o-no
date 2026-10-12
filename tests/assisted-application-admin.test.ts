@@ -33,6 +33,7 @@ vi.mock('../functions/src/stripePublisherCore.js', () => ({
 vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
   retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveSumUpCheckout(...args),
   refundSumUpTransaction: (...args: unknown[]) => mocks.refundSumUpTransaction(...args),
+  SumUpApiError: class SumUpApiError extends Error {},
 }));
 
 type Store = Record<string, Record<string, any>>;
@@ -524,9 +525,9 @@ describe('handleAssistedApplicationAdmin', () => {
       },
     });
     mocks.getAdminDb.mockReturnValue(database.db);
-    mocks.retrieveSumUpCheckout
-      .mockResolvedValueOnce({ transactions: [{ id: 'sumup_transaction_1', status: 'SUCCESSFUL' }] })
-      .mockResolvedValueOnce({ transactions: [{ id: 'sumup_transaction_1', status: 'REFUNDED' }] });
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      transactions: [{ id: 'sumup_transaction_1', status: 'SUCCESSFUL' }],
+    });
     mocks.refundSumUpTransaction.mockResolvedValue({ status: 204 });
 
     const originalRunTransaction = database.db.runTransaction.bind(database.db);
@@ -537,6 +538,16 @@ describe('handleAssistedApplicationAdmin', () => {
       return originalRunTransaction(callback);
     };
 
+    await expect(handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }))).rejects.toThrow('firestore_commit_failed');
+
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      refundStatus: 'pending',
+      sumupRefundRequestId: 'sumup_transaction_1',
+      sumupRefundRequestStatus: 'accepted',
+    });
     const result = await handleAssistedApplicationAdmin(request({
       method: 'POST',
       body: { action: 'refund', orderId: 'blocked' },
