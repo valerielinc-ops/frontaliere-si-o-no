@@ -527,13 +527,11 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
 // Docs: https://maileroo.com/docs/api-reference/statistics/summary
 // GET https://api.maileroo.com/v1/statistics/summary — aggregates the
 // CURRENT CALENDAR MONTH only (no date-range params, no billing-cycle anchor
-// day like Resend's). Docs list the required scope as `statistics.read`
-// under a distinct "Account API" section, separate from the sending-key auth
-// used by sendViaMaileroo — unconfirmed whether MAILEROO_API_KEY (a Domain
-// Sending Key) carries that scope. Tried with the same X-Api-Key header as
-// the send endpoint (the only credential this integration has); a 401/403
-// here just means the key lacks the scope and callers fall back to the
-// conservative static floor below — never a hard failure either way.
+// day like Resend's). Docs list the required scope as `statistics.read` under
+// a distinct "Account API" section, separate from the sending-key auth used
+// by sendViaMaileroo. A sending key is never sent to this endpoint: when the
+// dedicated Account API key is absent, callers fall back to the conservative
+// static floor below.
 //
 // The response has no raw "sent"/"accepted" counter, only terminal
 // delivery-outcome fields (`delivered`, `bounced`, `opens`, `clicks`,
@@ -550,10 +548,7 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   // is NOT valid here even with the correct header shape (401 "invalid or
   // revoked") — the Account API needs its own key, generated under
   // Maileroo's "Applications" dashboard section, not provisioned yet.
-  // MAILEROO_ACCOUNT_API_KEY is tried first when set; MAILEROO_API_KEY is
-  // tried as a fallback in case a future account/key setup grants it the
-  // statistics.read scope directly. Either way a 401 degrades safely below.
-  const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY || process.env.MAILEROO_API_KEY;
+  const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
   try {
     const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {

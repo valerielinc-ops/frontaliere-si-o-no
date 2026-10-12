@@ -219,6 +219,8 @@ describe('sendNewsletterWelcomeEmail', () => {
       { name: 'type', value: 'lifecycle' },
       { name: 'locale', value: 'it' },
     ]);
+    expect(call.payload.text).toBeTruthy();
+    expect(call.payload.text).not.toMatch(/<\/?[a-z][^>]*>/i);
     expect(call.payload.headers['List-Unsubscribe-Post']).toBe('List-Unsubscribe=One-Click');
     expect(call.payload.headers['List-Unsubscribe']).toContain('disiscrivi-newsletter');
   });

@@ -64,6 +64,44 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
+function decodeHtmlEntities(value) {
+  return String(value || '')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, decimal) => String.fromCodePoint(Number(decimal)))
+    .replace(/&(?:apos|#39|#039);/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&amp;/gi, '&')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&zwnj;|&zwj;/gi, '');
+}
+
+/**
+ * Keep the plain alternative aligned with the HTML source without maintaining
+ * a second copy of the segment copy. Links retain their visible label and
+ * destination so the message remains useful in text-only clients.
+ */
+function htmlToPlainText(html) {
+  const text = String(html || '')
+    .replace(/<head[\s\S]*?<\/head>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/&#847;|&zwnj;|&zwj;/gi, '')
+    .replace(/<a\b[^>]*\bhref=(['"])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi, (_, quote, href, label) => {
+      const labelText = label.replace(/<[^>]+>/g, '');
+      return `${labelText} (${href})`;
+    })
+    .replace(/<li\b[^>]*>/gi, '\n- ')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|div|tr|td|th|h[1-6]|li|table|section|footer|body|html)>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/\n{3,}/g, '\n\n');
+  return decodeHtmlEntities(text).trim();
+}
+
 function ensureTrailingSlash(url) {
   return url.endsWith('/') ? url : `${url}/`;
 }
@@ -601,7 +639,7 @@ const PREHEADER_PAD = '&#847;&zwnj;&nbsp;'.repeat(40);
  *   preferencesUrl?: string|null,
  *   acquisitionSource?: string|null,
  * }} args
- * @returns {{ subject: string, preheader: string, html: string }}
+ * @returns {{ subject: string, preheader: string, html: string, text: string }}
  */
 export function buildWelcomeEmail({
   segment,
@@ -700,5 +738,10 @@ export function buildWelcomeEmail({
 </body>
 </html>`;
 
-  return { subject: content.subject, preheader: content.preheader, html };
+  return {
+    subject: content.subject,
+    preheader: content.preheader,
+    html,
+    text: htmlToPlainText(html),
+  };
 }
