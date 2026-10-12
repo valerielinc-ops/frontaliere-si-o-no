@@ -898,6 +898,14 @@ function expectedHubPath(slug, locale) {
   return normPath(`/${board}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}`);
 }
 
+// A company-hub bridge can intentionally be absent from the sitemap while
+// still serving the requested route. Sitemap absence is useful when deciding
+// whether crawler data is newer than the deployed apex, but it is not itself
+// evidence of a GitHub Pages 404.
+function isUnservedHubLink(builderUrl, expectedUrl, resolves) {
+  return expectedUrl !== builderUrl || !resolves(builderUrl);
+}
+
 function isSourceSnapshotNewer(company, sourceAssembledAtByCompany, deployedAt) {
   const sourceAt = Date.parse(sourceAssembledAtForCompany(company, sourceAssembledAtByCompany));
   const deployed = Date.parse(deployedAt || '');
@@ -1039,21 +1047,17 @@ async function main() {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const url = builderHubPath(name, locale, emittedSlugs); // what the REAL builder emits (TI-gated)
       if (!url) continue; // builder emits no link for this company/locale — correctly gated, nothing to 404-check
-      const absentFromDeployedSitemap = !deployedSitemapPaths.has(url);
-      if (absentFromDeployedSitemap || !resolves(url)) {
-        const expected = expectedHubPath(slug, locale);
-        hubOffenders.push({
-          company: name,
-          locale,
-          builderUrl: url,
-          expectedUrl: expected,
-          reason: expected !== url
-            ? `builder emits wrong locale prefix → expected '${COMPANY_ROUTE_PREFIX[locale]}-'`
-            : absentFromDeployedSitemap
-              ? 'hub URL is absent from the deployed sitemap and served set'
-              : 'hub page not present in served set',
-        });
-      }
+      const expected = expectedHubPath(slug, locale);
+      if (!isUnservedHubLink(url, expected, resolves)) continue;
+      hubOffenders.push({
+        company: name,
+        locale,
+        builderUrl: url,
+        expectedUrl: expected,
+        reason: expected !== url
+          ? `builder emits wrong locale prefix → expected '${COMPANY_ROUTE_PREFIX[locale]}-'`
+          : 'hub page not present in served set',
+      });
     }
   }
   const { unserved: hubUnserved, publishSkew: hubSkew, sourceSkew: hubSourceSkew } = splitHubOffenders(
