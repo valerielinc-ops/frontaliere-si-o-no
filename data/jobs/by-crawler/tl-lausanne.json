@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-10-12T09:36:25.580Z",
+  "assembledAt": "2026-10-12T21:36:48.843Z",
   "jobs": [
     {
       "id": "tl-lausanne-f3513380a950",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -34,7 +34,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-logisticien%C2%B7ne/1428665133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:17.960Z",
+      "crawledAt": "2026-10-12T21:36:41.786Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -57,14 +57,14 @@
       "previousSlugs": [
         "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
         ],
         "de": [
-          "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "fr": [
           "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -90,8 +90,8 @@
       "slug": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -116,7 +116,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-d'exploitation/1428728233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:17.371Z",
+      "crawledAt": "2026-10-12T21:36:41.158Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,18 +138,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
-        "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
         ],
         "en": [
-          "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:32.114Z",
@@ -172,8 +172,8 @@
       "slug": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -199,7 +199,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-automaticien%C2%B7nes/1428782833/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:16.795Z",
+      "crawledAt": "2026-10-12T21:36:40.510Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -221,18 +221,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
-        "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
         ],
         "en": [
-          "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.324Z",
@@ -256,7 +256,7 @@
       "slugByLocale": {
         "it": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentice-industrial-varnisher-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -282,7 +282,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-vernisseur%C2%B7euse-industriel/1428725433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:16.213Z",
+      "crawledAt": "2026-10-12T21:36:39.830Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -304,14 +304,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
-        "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
         ],
         "de": [
-          "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.901Z",
@@ -361,7 +361,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-relation-client/1428711533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:15.584Z",
+      "crawledAt": "2026-10-12T21:36:39.184Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9catronicien%C2%B7nes-d'automobiles-v%C3%A9hicules-utilitaires-%28%C3%A9galement-RAC-3%C3%A8me%29/1428720633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:14.904Z",
+      "crawledAt": "2026-10-12T21:36:38.538Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -511,7 +511,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-employ%C3%A9%C2%B7es-de-commerce/1428672533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:14.269Z",
+      "crawledAt": "2026-10-12T21:36:37.913Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -586,7 +586,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9canicien%C2%B7nes-en-maintenance-automobiles-v%C3%A9hicules-utilitaires/1428715533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:13.673Z",
+      "crawledAt": "2026-10-12T21:36:37.290Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -635,7 +635,7 @@
       "slugByLocale": {
         "it": "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentices-in-public-transport-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -661,7 +661,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-agent%C2%B7es-de-transports-publics/1429059433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:13.019Z",
+      "crawledAt": "2026-10-12T21:36:36.664Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -683,14 +683,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
-        "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
         ],
         "de": [
-          "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:28.174Z",
@@ -707,82 +707,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "tl-lausanne-a6af0f6593e5",
-      "slug": "direttore-risorse-umane-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "slugByLocale": {
-        "it": "direttore-risorse-umane-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "director-human-resources-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "direktor-human-resources-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "fr": "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
-      },
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Directeur·trice Ressources Humaines (RH)",
-      "titleByLocale": {
-        "it": "Direttore Risorse Umane (HR)",
-        "en": "Director Human Resources (HR)",
-        "de": "Direktor Human Resources (HR)",
-        "fr": "Directeur·trice Ressources Humaines (RH)"
-      },
-      "description": "Acteur de référence de la mobilité en Suisse romande, les  tl s’engagent pour une mobilité simple, innovante et durable, au service de la population . Avec près de 135 millions de voyageuses et voyageurs par an et plus de 2’000 collaboratrices et collaborateurs engagé·es au quotidien, les tl portent une mission d’utilité publique essentielle au dynamisme économique, environnemental et social du canton de Vaud.\n\nAu cœur des enjeux humains de l’entreprise, les Ressources Humaines jouent un rôle clé dans l’accompagnement des évolutions managériales, le dialogue social et l’anticipation des besoins en ressources et en compétences. Dans ce contexte, les tl mettent au concours le poste de :\n\nDirectrice ou Directeur des Ressources Humaines\n\n• Votre mission\n\nÀ ce poste clé, vous pilotez la stratégie des ressources humaines et veillez à offrir un climat de travail sain, une expérience collaborateur·ice complète, en cohérence avec les valeurs et la politique d’entreprise et en miroir de l’expérience client·e.   Membre de la Direction générale, vous participez également de manière active aux décisions et orientations prises concernant l’ensemble des Directions. De plus, tout en garantissant la qualité de ses prestations RH, vous renforcez la contribution stratégique de la fonction et développez une équipe pluridisciplinaire d’environ 50 personnes. Partenaire de confiance de la Direction générale et des managers, vous veillez au déploiement d’une culture managériale responsabilisante, favorisant l’autonomie de la ligne hiérarchique et clarifiant les rôles et responsabilités de chacun·e. Par ailleurs, vous contribuez à l’anticipation des besoins en effectifs et en compétences, en développant une approche prospective et des outils de pilotage pertinents. Vous conduisez également le dialogue social et contribuez à structurer les échanges avec les partenaires sociaux et la commission du personnel, dans une approche constructive, exigeante et orientée vers la recherche de solutions. Vous identifiez proactivement les évolutions organisationnelles, sociétales, les transformations des métiers et supervisez l’ensemble des domaines RH : la gestion du personnel, le recrutement et le développement des compétences et la formation, la gestion administrative, la rémunération et les relations sociales.\n\n• Votre profil\n\nVous disposez d’une expérience confirmée à la tête d’une fonction RH, idéalement acquise dans une entreprise de services ou un environnement technique et opérationnel. Vous maîtrisez les enjeux RH dans leur diversité et savez conjuguer vision stratégique, pragmatisme et proximité avec le terrain.\n\nVotre leadership vous permet de fédérer une équipe pluridisciplinaire, de développer des dynamiques de coopération et d’accompagner les managers dans la durée. Vous portez un intérêt marqué à l’évolution des pratiques managériales et de la culture d’entreprise et savez favoriser l’autonomie et la responsabilisation de la ligne hiérarchique.\n\nÀ l’aise dans les relations avec les partenaires sociaux, vous appréciez la négociation et savez conjuguer écoute, capacité à défendre une position et recherche de solutions partagées. Votre esprit analytique, votre capacité d’anticipation et votre curiosité vous permettent également d’inscrire les enjeux RH dans une vision globale et à long terme.\n\nSi vous vous reconnaissez dans cette description et que ce poste vous enthousiasme, merci d’adresser votre dossier (CV, lettre de motivation et certificats de travail) d’ici au 11 octobre à notre mandataire Artemia Executive par courrier électronique à l’adresse : candidature@artemia-executive.com\n\nPour de plus amples informations, notre mandataire se fera un plaisir de répondre à vos questions et reste à votre disposition au 021 213 08 03.",
-      "descriptionByLocale": {
-        "it": "In qualità di referente per la mobilità in Svizzera francofona, il Tl ss si impegna a una mobilità semplice, innovativa e sostenibile al servizio della popolazione. Con quasi 135 milioni di viaggiatori all'anno e oltre 2.000 dipendenti impegnati quotidianamente, hanno una missione di pubblica utilità essenziale per il dinamismo economico, ambientale e sociale del Canton Vaud.\n\nAl centro della partecipazione umana dell'azienda, le Risorse Umane svolgono un ruolo chiave nel sostenere gli sviluppi manageriali, il dialogo sociale e l'anticipazione dei bisogni delle risorse e delle competenze. In questo contesto, la concorrenza comprende le seguenti posizioni:\n\nDirettore delle Risorse Umane\n\n• La tua missione\n\nIn questa posizione chiave, guida la strategia delle risorse umane e assicurati di fornire un ambiente di lavoro sano, un'esperienza di lavoro completa, coerente con i valori aziendali e la politica e l'esperienza del cliente rispecchiante. In qualità di membro della Direzione generale, siete anche attivamente coinvolti nelle decisioni e nelle indicazioni prese in merito a tutte le direzioni. Inoltre, pur garantendo la qualità dei suoi servizi HR, si rafforza il contributo strategico della funzione e si sviluppa un team multidisciplinare di circa 50 persone. Un partner di fiducia della Direzione Generale e dei gestori, si assicura l'implementazione di una cultura manageriale responsabile, promuovendo l'autonomia della linea gerarchica e chiarire i ruoli e le responsabilità di ciascuno. Inoltre, stai contribuendo all'anticipazione delle esigenze di forza lavoro e di abilità, sviluppando un approccio previsionale e strumenti di pilotaggio rilevanti. Lei guida anche il dialogo sociale e aiuta a strutturare gli scambi con le parti sociali e con il Comitato del personale, in un approccio costruttivo, esigente e orientato alla soluzione. Identificare proattivamente le trasformazioni organizzative, sociali, commerciali e supervisionare tutte le aree HR: gestione del personale, assunzione e sviluppo delle competenze e formazione, gestione amministrativa, compensazione e relazioni sociali.\n\n• Il tuo profilo\n\nHai una comprovata esperienza a capo di una funzione HR, idealmente acquisita in una società di servizi o in un ambiente tecnico e operativo. Padroneggiare le questioni HR nella loro diversità e sapere come combinare la visione strategica, il pragmatismo e la prossimità con il campo.\n\nLa vostra leadership consente di unire un team multidisciplinare, sviluppare dinamiche di cooperazione e accompagnare i manager nel tempo. Hai un forte interesse per l'evoluzione delle pratiche manageriali e della cultura aziendale e sai come promuovere l'autonomia e la responsabilità della linea gerarchica.\n\nA suo agio nei rapporti con le parti sociali, apprezzi la negoziazione e sa come combinare l'ascolto, la capacità di difendere una posizione e la ricerca di soluzioni condivise. La vostra mente analitica, l'anticipazione e la curiosità permettono anche di integrare le questioni HR in una visione globale e a lungo termine.\n\nSe ti riconosci in questa descrizione e sei entusiasta di questa posizione, invia il tuo file (CV, lettera di copertura e certificati di lavoro) entro l'11 ottobre al nostro rappresentante esecutivo Artemia via e-mail a: candidacy@artemia-executive.com\n\nPer ulteriori informazioni, il nostro rappresentante sarà lieto di rispondere alle vostre domande e rimane a vostra disposizione a 021 213 08 03.",
-        "en": "As a reference player for mobility in French-speaking Switzerland, the Tl ss are committed to a simple, innovative and sustainable mobility at the service of the population. With nearly 135 million travellers per year and more than 2,000 employees engaged on a daily basis, they have a mission of public utility essential to the economic, environmental and social dynamism of the canton of Vaud.\n\nAt the heart of the company's human stakes, Human Resources plays a key role in supporting managerial developments, social dialogue and anticipation of resource and skills needs. In this context, the competition shall include the following positions:\n\nDirector of Human Resources\n\n• Your Mission\n\nIn this key position, you guide the human resources strategy and ensure that you provide a healthy working environment, a full working experience, consistent with corporate values and policy and mirroring customer experience. As a member of the Directorate-General, you are also actively involved in the decisions and guidance taken concerning all Directorates. In addition, while guaranteeing the quality of its HR services, you strengthen the strategic contribution of the function and develop a multidisciplinary team of about 50 people. A trusted partner of the Directorate-General and managers, you ensure the deployment of a responsible managerial culture, promoting the autonomy of the hierarchical line and clarifying the roles and responsibilities of each. In addition, you are contributing to the anticipation of workforce and skill needs, developing a forward-looking approach and relevant piloting tools. You also lead the social dialogue and help structure exchanges with the social partners and the Staff Committee, in a constructive, demanding and solution-oriented approach. You proactively identify organizational, societal, trade transformations and oversee all HR areas: personnel management, recruitment and skills development and training, administrative management, compensation and social relations.\n\n• Your profile\n\nYou have a proven experience at the head of a HR function, ideally acquired in a service company or a technical and operational environment. You master HR issues in their diversity and know how to combine strategic vision, pragmatism and proximity with the field.\n\nYour leadership allows you to unite a multidisciplinary team, develop cooperation dynamics and accompany managers over time. You have a strong interest in the evolution of managerial practices and corporate culture and know how to promote the autonomy and accountability of the hierarchical line.\n\nAt ease in relations with the social partners, you appreciate the negotiation and know how to combine listening, the ability to defend a position and the search for shared solutions. Your analytical mind, anticipation and curiosity also allow you to integrate HR issues into a comprehensive and long-term vision.\n\nIf you recognize yourself in this description and are enthusiastic about this position, please send your file (CV, cover letter and work certificates) by October 11 to our Artemia Executive representative by e-mail to: candidacy@artemia-executive.com\n\nFor more information, our representative will be happy to answer your questions and remains at your disposal at 021 213 08 03.",
-        "de": "Als Referenzgeber für Mobilität in der französischsprachigen Schweiz setzen sich die Tlss für eine einfache, innovative und nachhaltige Mobilität im Dienste der Bevölkerung ein. Mit fast 135 Millionen Reisenden pro Jahr und mehr als 2.000 täglich beschäftigten Mitarbeitern haben sie eine Aufgabe von öffentlichem Nutzen, die für die wirtschaftliche, ökologische und soziale Dynamik des Kantons Waadt unerlässlich ist.\n\nIm Mittelpunkt der menschlichen Interessen des Unternehmens spielt Human Resources eine Schlüsselrolle bei der Unterstützung von Managemententwicklungen, dem sozialen Dialog und der Antizipation von Ressourcen- und Qualifikationsbedürfnissen. In diesem Zusammenhang umfasst der Wettbewerb folgende Positionen:\n\nDirektor für Human Resources\n\n• Deine Mission\n\nIn dieser Schlüsselposition leiten Sie die Personalstrategie und stellen sicher, dass Sie ein gesundes Arbeitsumfeld, eine vollständige Arbeitserfahrung, im Einklang mit den Unternehmenswerten und -richtlinien und eine Spiegelung der Kundenerfahrung bieten. Als Mitglied der Generaldirektion sind Sie auch aktiv an den Entscheidungen und Leitlinien für alle Direktionen beteiligt. Darüber hinaus stärken Sie, während Sie die Qualität der HR-Dienstleistungen garantieren, den strategischen Beitrag der Funktion und entwickeln ein multidisziplinäres Team von etwa 50 Personen. Als vertrauenswürdiger Partner der Generaldirektion und der Führungskräfte sorgen Sie für den Einsatz einer verantwortungsvollen Führungskultur, fördern die Autonomie der hierarchischen Linie und klären die Rollen und Verantwortlichkeiten jedes einzelnen. Darüber hinaus tragen Sie zur Antizipation des Personal- und Qualifikationsbedarfs bei und entwickeln einen zukunftsweisenden Ansatz und relevante Pilotierungsinstrumente. Sie führen auch den sozialen Dialog und helfen, den Austausch mit den Sozialpartnern und der Personalvertretung konstruktiv, anspruchsvoll und lösungsorientiert zu gestalten. Sie identifizieren proaktiv organisatorische, gesellschaftliche, geschäftliche Transformationen und beaufsichtigen alle HR-Bereiche: Personalmanagement, Rekrutierung und Kompetenzentwicklung und -training, Verwaltungsmanagement, Vergütung und soziale Beziehungen.\n\n• Dein Profil\n\nSie verfügen über ausgewiesene Erfahrung an der Spitze einer HR-Funktion, idealerweise erworben in einem Dienstleistungsunternehmen oder einem technischen und betrieblichen Umfeld. Sie beherrschen HR-Themen in ihrer Vielfalt und wissen, wie man strategische Vision, Pragmatismus und Nähe mit dem Feld verbindet.\n\nIhre Führung ermöglicht es Ihnen, ein multidisziplinäres Team zu vereinen, Kooperationsdynamiken zu entwickeln und Führungskräfte im Laufe der Zeit zu begleiten. Sie haben ein starkes Interesse an der Entwicklung von Führungspraktiken und Unternehmenskultur und wissen, wie Sie die Autonomie und Rechenschaftspflicht der hierarchischen Linie fördern können.\n\nIn den Beziehungen zu den Sozialpartnern schätzen Sie die Verhandlungen und wissen, wie Sie das Zuhören, die Fähigkeit, eine Position zu verteidigen, und die Suche nach gemeinsamen Lösungen kombinieren können. Ihr analytischer Verstand, Ihre Vorfreude und Ihre Neugier ermöglichen es Ihnen auch, HR-Themen in eine umfassende und langfristige Vision zu integrieren.\n\nWenn Sie sich in dieser Beschreibung wiedererkennen und von dieser Position begeistert sind, senden Sie bitte Ihre Akte (Lebenslauf, Anschreiben und Arbeitsbescheinigungen) bis zum 11. Oktober an unseren Vertreter der Artemia-Exekutivabteilung per E-Mail an: candidacy@artemia-executive.com\n\nFür weitere Informationen beantwortet unser Vertreter gerne Ihre Fragen und steht Ihnen unter 021 213 08 03 zur Verfügung.",
-        "fr": "Acteur de référence de la mobilité en Suisse romande, les tl s’engagent pour une mobilité simple, innovante et durable, au service de la population . Avec près de 135 millions de voyageuses et voyageurs par an et plus de 2’000 collaboratrices et collaborateurs engagé·es au quotidien, les tl portent une mission d’utilité publique essentielle au dynamisme économique, environnemental et social du canton de Vaud.\n\nAu cœur des enjeux humains de l’entreprise, les Ressources Humaines jouent un rôle clé dans l’accompagnement des évolutions managériales, le dialogue social et l’anticipation des besoins en ressources et en compétences. Dans ce contexte, les tl mettent au concours le poste de :\n\nDirectrice ou Directeur des Ressources Humaines\n\n• Votre mission\n\nÀ ce poste clé, vous pilotez la stratégie des ressources humaines et veillez à offrir un climat de travail sain, une expérience collaborateur·ice complète, en cohérence avec les valeurs et la politique d’entreprise et en miroir de l’expérience client·e. Membre de la Direction générale, vous participez également de manière active aux décisions et orientations prises concernant l’ensemble des Directions. De plus, tout en garantissant la qualité de ses prestations RH, vous renforcez la contribution stratégique de la fonction et développez une équipe pluridisciplinaire d’environ 50 personnes. Partenaire de confiance de la Direction générale et des managers, vous veillez au déploiement d’une culture managériale responsabilisante, favorisant l’autonomie de la ligne hiérarchique et clarifiant les rôles et responsabilités de chacun·e. Par ailleurs, vous contribuez à l’anticipation des besoins en effectifs et en compétences, en développant une approche prospective et des outils de pilotage pertinents. Vous conduisez également le dialogue social et contribuez à structurer les échanges avec les partenaires sociaux et la commission du personnel, dans une approche constructive, exigeante et orientée vers la recherche de solutions. Vous identifiez proactivement les évolutions organisationnelles, sociétales, les transformations des métiers et supervisez l’ensemble des domaines RH : la gestion du personnel, le recrutement et le développement des compétences et la formation, la gestion administrative, la rémunération et les relations sociales.\n\n• Votre profil\n\nVous disposez d’une expérience confirmée à la tête d’une fonction RH, idéalement acquise dans une entreprise de services ou un environnement technique et opérationnel. Vous maîtrisez les enjeux RH dans leur diversité et savez conjuguer vision stratégique, pragmatisme et proximité avec le terrain.\n\nVotre leadership vous permet de fédérer une équipe pluridisciplinaire, de développer des dynamiques de coopération et d’accompagner les managers dans la durée. Vous portez un intérêt marqué à l’évolution des pratiques managériales et de la culture d’entreprise et savez favoriser l’autonomie et la responsabilisation de la ligne hiérarchique.\n\nÀ l’aise dans les relations avec les partenaires sociaux, vous appréciez la négociation et savez conjuguer écoute, capacité à défendre une position et recherche de solutions partagées. Votre esprit analytique, votre capacité d’anticipation et votre curiosité vous permettent également d’inscrire les enjeux RH dans une vision globale et à long terme.\n\nSi vous vous reconnaissez dans cette description et que ce poste vous enthousiasme, merci d’adresser votre dossier (CV, lettre de motivation et certificats de travail) d’ici au 11 octobre à notre mandataire Artemia Executive par courrier électronique à l’adresse : candidature@artemia-executive.com\n\nPour de plus amples informations, notre mandataire se fera un plaisir de répondre à vos questions et reste à votre disposition au 021 213 08 03."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Directeur%C2%B7trice-Ressources-Humaines-%28RH%29/1440814833/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:29:23.353Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T00:00:00Z",
-      "postedDate": "2026-09-24T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1440814833/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugs": [
-        "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T14:44:26.135Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     },
     {
       "id": "tl-lausanne-89a5b0ee385c",
@@ -816,7 +740,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:12.430Z",
+      "crawledAt": "2026-10-12T21:36:36.050Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -916,7 +840,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-environnement-LEB-%28hf%29/1444241433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:11.789Z",
+      "crawledAt": "2026-10-12T21:36:35.389Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -995,7 +919,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Assistant%C2%B7e-de-projets-LEB/1444225033/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:11.179Z",
+      "crawledAt": "2026-10-12T21:36:34.729Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1074,7 +998,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-BIM-Manager-LEB-%28hf%29/1444255133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:10.611Z",
+      "crawledAt": "2026-10-12T21:36:34.091Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1143,12 +1067,13 @@
         "de": "Der LEB (Lausanne–Échallens–Bercher) ist ein wichtiger Akteur in der Mobilität von Gros-de-Vaud, der Landschaft und Stadt nachhaltig verbindet und sich im Tempo einer sich entwickelnden Region entwickelt.\n\nZu Beginn einer neuen Phase mit Integration in Movodis bereits im Januar 2027 eröffneten sich neue Perspektiven: ehrgeizige Projekte, ein sich veränderndes Umfeld und viele Möglichkeiten für Veränderungen. Wir suchen Talente, die bereit sind, sich in einem menschlichen, anspruchsvollen und bewegenden Unternehmen an diesem Abenteuer zu beteiligen.\n\nMöchten Sie die Linien mit uns verschieben?\n\nWerden Sie unsere Zukunft\n\nSpezialist für Bahnplanung - LEB\nDeine Mission\n\n• Planung und Zuweisung von Schienenfahrzeugen auf der Grundlage von Verkehrsangeboten und Fahrplänen.\n\n• Gewährleistung, dass der Nutzungsbedarf in Übereinstimmung mit Gesetzen, Verordnungen und Tarifverträgen gedeckt wird.\n\n• Festlegung der für die Arbeiten am Eisenbahnnetz erforderlichen betrieblichen Maßnahmen.\n\n• Koordinieren Sie ihre Umsetzung mit internen Diensten und relevanten Partnern.\n\n• Arbeiten Sie eng mit der für das rollende Personal verantwortlichen Person zusammen.\n\n• Planen Sie die Furchen im Unterjahresplan.\n\n• Beteiligen Sie sich an Querschnittsarbeitsgruppen und Projekten, antizipieren Sie Schwierigkeiten und schlagen Sie konkrete Lösungen vor.\n\nDein Profil\n\nWenn Sie die folgenden Kriterien erfüllen:\n\n• Bedeutende Erfahrung im Schienenverkehr, auf normalen oder schmalen Gleisen.\n\n• Ausgezeichnete Kenntnisse der gesetzlichen Anforderungen in Bezug auf Arbeitszeiten, insbesondere LDT und OLDT.\n\n• Fähigkeit zur Planung, Koordination, Umsetzung und Kommunikation komplexer operativer Maßnahmen.\n\n• Beziehung, Kommunikation, Verhandlungsfähigkeit, Taktgefühl und Diplomatie.\n\n• Autonomie, Stressresistenz, Gesamtvision und lösungsorientierter Ansatz.\n\nPraktische Informationen\n\n•\nEine abwechslungsreiche Funktion im Herzen des Bahnbetriebs, in einem anregenden und lösungsorientierten Umfeld. Sie profitieren von attraktiven Arbeitsbedingungen, hochwertigen Sozialleistungen und verschiedenen Vorteilen im Zusammenhang mit öffentlichen Verkehrsmitteln.\n\n• Arbeitsplatz: Echhallens\n\n• Vertrag: unbefristet, 80 bis 100%\n\n• Auswahlverfahren\n\n• Erstes Interview mit Manager und Rekrutierungsspezialist\n\nAntragsfrist: 20. Oktober 2026",
         "fr": "Acteur clé de la mobilité du Gros-de-Vaud, le LEB (Lausanne–Échallens–Bercher) relie durablement la campagne et la ville et évolue au rythme d’une région en plein développement.\n\nÀ l’aube d’une nouvelle étape avec l’intégration à Movodis dès janvier 2027, de nouvelles perspectives s’ouvrent : des projets ambitieux, un environnement en transformation et de nombreuses possibilités d’évolution. Nous recherchons des talents prêts à s’engager dans cette aventure, au sein d’une entreprise humaine, exigeante et en mouvement.\n\nEnvie de faire bouger les lignes avec nous ?\n\nDevenez notre futur·e\n\nSpécialiste en planification ferroviaire - LEB\n Votre mission\n\n•  Planifier et répartir le personnel roulant ferroviaire sur la base de l’offre de transport et des horaires.\n\n•  Garantir la couverture des besoins de l’exploitation dans le respect des lois, des ordonnances et des conventions collectives.\n\n•  Définir les mesures d’exploitation nécessaires lors de travaux sur le réseau ferroviaire.\n\n•  Coordonner leur mise en œuvre avec les services internes et les partenaires concernés.\n\n•  Collaborer étroitement avec la personne responsable du personnel roulant.\n\n•  Planifier les sillons dans l’horaire sous-annuel.\n\n•  Participer à des groupes de travail et à des projets transverses, anticiper les difficultés et proposer des solutions concrètes.\n\nVotre profil\n\nVous correspondez au profil recherché si vous répondez aux critères suivants :\n\n•  Expérience significative dans l’exploitation ferroviaire, sur voie normale ou voie étroite.\n\n•  Excellente maîtrise des prescriptions légales relatives à la durée du travail, notamment la LDT et l’OLDT.\n\n•  Capacité à planifier, coordonner, mettre en place et communiquer des mesures d’exploitation complexes.\n\n•  Aisance relationnelle, sens de la communication, capacité de négociation, tact et diplomatie.\n\n•  Autonomie, résistance au stress, vision d’ensemble et approche orientée solutions.\n\nInformations pratiques\n\n•\n Une fonction variée au cœur de l’exploitation ferroviaire, dans un environnement stimulant et orienté solutions. Vous bénéficiez de conditions de travail attractives, de prestations sociales de qualité et de divers avantages liés aux transports publics.\n\n• Lieu de travail : Echallens\n\n• Contrat : durée indéterminée, 80 à 100%\n\n• Processus de sélection\n\n• Premier entretien avec le/la manager et un·e spécialiste du recrutement\n\nDélai de postulation: 20 octobre 2026"
       },
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-en-planification-ferroviaire-LEB/1444330633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:10.024Z",
+      "crawledAt": "2026-10-12T21:36:33.469Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1223,7 +1148,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projets-%C3%A9lectricit%C3%A9-LEB/1444762233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:09.443Z",
+      "crawledAt": "2026-10-12T21:36:32.806Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1300,7 +1225,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-pluridisciplinaire-LEB/1444790533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:08.870Z",
+      "crawledAt": "2026-10-12T21:36:32.173Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1383,7 +1308,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-infrastructures-LEB/1444766633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:08.288Z",
+      "crawledAt": "2026-10-12T21:36:31.509Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1463,7 +1388,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-informaticien%C2%B7ne-Exploitation-et-infrastructure/1434487133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:36:07.619Z",
+      "crawledAt": "2026-10-12T21:36:30.847Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1509,6 +1434,82 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "tl-lausanne-a6af0f6593e5",
+      "slug": "direttore-risorse-umane-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
+      "slugByLocale": {
+        "it": "direttore-risorse-umane-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "director-human-resources-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "direktor-human-resources-hr-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "fr": "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
+      },
+      "company": "tl (Transports publics de la région lausannoise)",
+      "companyKey": "tl-lausanne",
+      "companyDomain": "t-l.ch",
+      "title": "Directeur·trice Ressources Humaines (RH)",
+      "titleByLocale": {
+        "it": "Direttore Risorse Umane (HR)",
+        "en": "Director Human Resources (HR)",
+        "de": "Direktor Human Resources (HR)",
+        "fr": "Directeur·trice Ressources Humaines (RH)"
+      },
+      "description": "Acteur de référence de la mobilité en Suisse romande, les  tl s’engagent pour une mobilité simple, innovante et durable, au service de la population . Avec près de 135 millions de voyageuses et voyageurs par an et plus de 2’000 collaboratrices et collaborateurs engagé·es au quotidien, les tl portent une mission d’utilité publique essentielle au dynamisme économique, environnemental et social du canton de Vaud.\n\nAu cœur des enjeux humains de l’entreprise, les Ressources Humaines jouent un rôle clé dans l’accompagnement des évolutions managériales, le dialogue social et l’anticipation des besoins en ressources et en compétences. Dans ce contexte, les tl mettent au concours le poste de :\n\nDirectrice ou Directeur des Ressources Humaines\n\n• Votre mission\n\nÀ ce poste clé, vous pilotez la stratégie des ressources humaines et veillez à offrir un climat de travail sain, une expérience collaborateur·ice complète, en cohérence avec les valeurs et la politique d’entreprise et en miroir de l’expérience client·e.   Membre de la Direction générale, vous participez également de manière active aux décisions et orientations prises concernant l’ensemble des Directions. De plus, tout en garantissant la qualité de ses prestations RH, vous renforcez la contribution stratégique de la fonction et développez une équipe pluridisciplinaire d’environ 50 personnes. Partenaire de confiance de la Direction générale et des managers, vous veillez au déploiement d’une culture managériale responsabilisante, favorisant l’autonomie de la ligne hiérarchique et clarifiant les rôles et responsabilités de chacun·e. Par ailleurs, vous contribuez à l’anticipation des besoins en effectifs et en compétences, en développant une approche prospective et des outils de pilotage pertinents. Vous conduisez également le dialogue social et contribuez à structurer les échanges avec les partenaires sociaux et la commission du personnel, dans une approche constructive, exigeante et orientée vers la recherche de solutions. Vous identifiez proactivement les évolutions organisationnelles, sociétales, les transformations des métiers et supervisez l’ensemble des domaines RH : la gestion du personnel, le recrutement et le développement des compétences et la formation, la gestion administrative, la rémunération et les relations sociales.\n\n• Votre profil\n\nVous disposez d’une expérience confirmée à la tête d’une fonction RH, idéalement acquise dans une entreprise de services ou un environnement technique et opérationnel. Vous maîtrisez les enjeux RH dans leur diversité et savez conjuguer vision stratégique, pragmatisme et proximité avec le terrain.\n\nVotre leadership vous permet de fédérer une équipe pluridisciplinaire, de développer des dynamiques de coopération et d’accompagner les managers dans la durée. Vous portez un intérêt marqué à l’évolution des pratiques managériales et de la culture d’entreprise et savez favoriser l’autonomie et la responsabilisation de la ligne hiérarchique.\n\nÀ l’aise dans les relations avec les partenaires sociaux, vous appréciez la négociation et savez conjuguer écoute, capacité à défendre une position et recherche de solutions partagées. Votre esprit analytique, votre capacité d’anticipation et votre curiosité vous permettent également d’inscrire les enjeux RH dans une vision globale et à long terme.\n\nSi vous vous reconnaissez dans cette description et que ce poste vous enthousiasme, merci d’adresser votre dossier (CV, lettre de motivation et certificats de travail) d’ici au 11 octobre à notre mandataire Artemia Executive par courrier électronique à l’adresse : candidature@artemia-executive.com\n\nPour de plus amples informations, notre mandataire se fera un plaisir de répondre à vos questions et reste à votre disposition au 021 213 08 03.",
+      "descriptionByLocale": {
+        "it": "In qualità di referente per la mobilità in Svizzera francofona, il Tl ss si impegna a una mobilità semplice, innovativa e sostenibile al servizio della popolazione. Con quasi 135 milioni di viaggiatori all'anno e oltre 2.000 dipendenti impegnati quotidianamente, hanno una missione di pubblica utilità essenziale per il dinamismo economico, ambientale e sociale del Canton Vaud.\n\nAl centro della partecipazione umana dell'azienda, le Risorse Umane svolgono un ruolo chiave nel sostenere gli sviluppi manageriali, il dialogo sociale e l'anticipazione dei bisogni delle risorse e delle competenze. In questo contesto, la concorrenza comprende le seguenti posizioni:\n\nDirettore delle Risorse Umane\n\n• La tua missione\n\nIn questa posizione chiave, guida la strategia delle risorse umane e assicurati di fornire un ambiente di lavoro sano, un'esperienza di lavoro completa, coerente con i valori aziendali e la politica e l'esperienza del cliente rispecchiante. In qualità di membro della Direzione generale, siete anche attivamente coinvolti nelle decisioni e nelle indicazioni prese in merito a tutte le direzioni. Inoltre, pur garantendo la qualità dei suoi servizi HR, si rafforza il contributo strategico della funzione e si sviluppa un team multidisciplinare di circa 50 persone. Un partner di fiducia della Direzione Generale e dei gestori, si assicura l'implementazione di una cultura manageriale responsabile, promuovendo l'autonomia della linea gerarchica e chiarire i ruoli e le responsabilità di ciascuno. Inoltre, stai contribuendo all'anticipazione delle esigenze di forza lavoro e di abilità, sviluppando un approccio previsionale e strumenti di pilotaggio rilevanti. Lei guida anche il dialogo sociale e aiuta a strutturare gli scambi con le parti sociali e con il Comitato del personale, in un approccio costruttivo, esigente e orientato alla soluzione. Identificare proattivamente le trasformazioni organizzative, sociali, commerciali e supervisionare tutte le aree HR: gestione del personale, assunzione e sviluppo delle competenze e formazione, gestione amministrativa, compensazione e relazioni sociali.\n\n• Il tuo profilo\n\nHai una comprovata esperienza a capo di una funzione HR, idealmente acquisita in una società di servizi o in un ambiente tecnico e operativo. Padroneggiare le questioni HR nella loro diversità e sapere come combinare la visione strategica, il pragmatismo e la prossimità con il campo.\n\nLa vostra leadership consente di unire un team multidisciplinare, sviluppare dinamiche di cooperazione e accompagnare i manager nel tempo. Hai un forte interesse per l'evoluzione delle pratiche manageriali e della cultura aziendale e sai come promuovere l'autonomia e la responsabilità della linea gerarchica.\n\nA suo agio nei rapporti con le parti sociali, apprezzi la negoziazione e sa come combinare l'ascolto, la capacità di difendere una posizione e la ricerca di soluzioni condivise. La vostra mente analitica, l'anticipazione e la curiosità permettono anche di integrare le questioni HR in una visione globale e a lungo termine.\n\nSe ti riconosci in questa descrizione e sei entusiasta di questa posizione, invia il tuo file (CV, lettera di copertura e certificati di lavoro) entro l'11 ottobre al nostro rappresentante esecutivo Artemia via e-mail a: candidacy@artemia-executive.com\n\nPer ulteriori informazioni, il nostro rappresentante sarà lieto di rispondere alle vostre domande e rimane a vostra disposizione a 021 213 08 03.",
+        "en": "As a reference player for mobility in French-speaking Switzerland, the Tl ss are committed to a simple, innovative and sustainable mobility at the service of the population. With nearly 135 million travellers per year and more than 2,000 employees engaged on a daily basis, they have a mission of public utility essential to the economic, environmental and social dynamism of the canton of Vaud.\n\nAt the heart of the company's human stakes, Human Resources plays a key role in supporting managerial developments, social dialogue and anticipation of resource and skills needs. In this context, the competition shall include the following positions:\n\nDirector of Human Resources\n\n• Your Mission\n\nIn this key position, you guide the human resources strategy and ensure that you provide a healthy working environment, a full working experience, consistent with corporate values and policy and mirroring customer experience. As a member of the Directorate-General, you are also actively involved in the decisions and guidance taken concerning all Directorates. In addition, while guaranteeing the quality of its HR services, you strengthen the strategic contribution of the function and develop a multidisciplinary team of about 50 people. A trusted partner of the Directorate-General and managers, you ensure the deployment of a responsible managerial culture, promoting the autonomy of the hierarchical line and clarifying the roles and responsibilities of each. In addition, you are contributing to the anticipation of workforce and skill needs, developing a forward-looking approach and relevant piloting tools. You also lead the social dialogue and help structure exchanges with the social partners and the Staff Committee, in a constructive, demanding and solution-oriented approach. You proactively identify organizational, societal, trade transformations and oversee all HR areas: personnel management, recruitment and skills development and training, administrative management, compensation and social relations.\n\n• Your profile\n\nYou have a proven experience at the head of a HR function, ideally acquired in a service company or a technical and operational environment. You master HR issues in their diversity and know how to combine strategic vision, pragmatism and proximity with the field.\n\nYour leadership allows you to unite a multidisciplinary team, develop cooperation dynamics and accompany managers over time. You have a strong interest in the evolution of managerial practices and corporate culture and know how to promote the autonomy and accountability of the hierarchical line.\n\nAt ease in relations with the social partners, you appreciate the negotiation and know how to combine listening, the ability to defend a position and the search for shared solutions. Your analytical mind, anticipation and curiosity also allow you to integrate HR issues into a comprehensive and long-term vision.\n\nIf you recognize yourself in this description and are enthusiastic about this position, please send your file (CV, cover letter and work certificates) by October 11 to our Artemia Executive representative by e-mail to: candidacy@artemia-executive.com\n\nFor more information, our representative will be happy to answer your questions and remains at your disposal at 021 213 08 03.",
+        "de": "Als Referenzgeber für Mobilität in der französischsprachigen Schweiz setzen sich die Tlss für eine einfache, innovative und nachhaltige Mobilität im Dienste der Bevölkerung ein. Mit fast 135 Millionen Reisenden pro Jahr und mehr als 2.000 täglich beschäftigten Mitarbeitern haben sie eine Aufgabe von öffentlichem Nutzen, die für die wirtschaftliche, ökologische und soziale Dynamik des Kantons Waadt unerlässlich ist.\n\nIm Mittelpunkt der menschlichen Interessen des Unternehmens spielt Human Resources eine Schlüsselrolle bei der Unterstützung von Managemententwicklungen, dem sozialen Dialog und der Antizipation von Ressourcen- und Qualifikationsbedürfnissen. In diesem Zusammenhang umfasst der Wettbewerb folgende Positionen:\n\nDirektor für Human Resources\n\n• Deine Mission\n\nIn dieser Schlüsselposition leiten Sie die Personalstrategie und stellen sicher, dass Sie ein gesundes Arbeitsumfeld, eine vollständige Arbeitserfahrung, im Einklang mit den Unternehmenswerten und -richtlinien und eine Spiegelung der Kundenerfahrung bieten. Als Mitglied der Generaldirektion sind Sie auch aktiv an den Entscheidungen und Leitlinien für alle Direktionen beteiligt. Darüber hinaus stärken Sie, während Sie die Qualität der HR-Dienstleistungen garantieren, den strategischen Beitrag der Funktion und entwickeln ein multidisziplinäres Team von etwa 50 Personen. Als vertrauenswürdiger Partner der Generaldirektion und der Führungskräfte sorgen Sie für den Einsatz einer verantwortungsvollen Führungskultur, fördern die Autonomie der hierarchischen Linie und klären die Rollen und Verantwortlichkeiten jedes einzelnen. Darüber hinaus tragen Sie zur Antizipation des Personal- und Qualifikationsbedarfs bei und entwickeln einen zukunftsweisenden Ansatz und relevante Pilotierungsinstrumente. Sie führen auch den sozialen Dialog und helfen, den Austausch mit den Sozialpartnern und der Personalvertretung konstruktiv, anspruchsvoll und lösungsorientiert zu gestalten. Sie identifizieren proaktiv organisatorische, gesellschaftliche, geschäftliche Transformationen und beaufsichtigen alle HR-Bereiche: Personalmanagement, Rekrutierung und Kompetenzentwicklung und -training, Verwaltungsmanagement, Vergütung und soziale Beziehungen.\n\n• Dein Profil\n\nSie verfügen über ausgewiesene Erfahrung an der Spitze einer HR-Funktion, idealerweise erworben in einem Dienstleistungsunternehmen oder einem technischen und betrieblichen Umfeld. Sie beherrschen HR-Themen in ihrer Vielfalt und wissen, wie man strategische Vision, Pragmatismus und Nähe mit dem Feld verbindet.\n\nIhre Führung ermöglicht es Ihnen, ein multidisziplinäres Team zu vereinen, Kooperationsdynamiken zu entwickeln und Führungskräfte im Laufe der Zeit zu begleiten. Sie haben ein starkes Interesse an der Entwicklung von Führungspraktiken und Unternehmenskultur und wissen, wie Sie die Autonomie und Rechenschaftspflicht der hierarchischen Linie fördern können.\n\nIn den Beziehungen zu den Sozialpartnern schätzen Sie die Verhandlungen und wissen, wie Sie das Zuhören, die Fähigkeit, eine Position zu verteidigen, und die Suche nach gemeinsamen Lösungen kombinieren können. Ihr analytischer Verstand, Ihre Vorfreude und Ihre Neugier ermöglichen es Ihnen auch, HR-Themen in eine umfassende und langfristige Vision zu integrieren.\n\nWenn Sie sich in dieser Beschreibung wiedererkennen und von dieser Position begeistert sind, senden Sie bitte Ihre Akte (Lebenslauf, Anschreiben und Arbeitsbescheinigungen) bis zum 11. Oktober an unseren Vertreter der Artemia-Exekutivabteilung per E-Mail an: candidacy@artemia-executive.com\n\nFür weitere Informationen beantwortet unser Vertreter gerne Ihre Fragen und steht Ihnen unter 021 213 08 03 zur Verfügung.",
+        "fr": "Acteur de référence de la mobilité en Suisse romande, les tl s’engagent pour une mobilité simple, innovante et durable, au service de la population . Avec près de 135 millions de voyageuses et voyageurs par an et plus de 2’000 collaboratrices et collaborateurs engagé·es au quotidien, les tl portent une mission d’utilité publique essentielle au dynamisme économique, environnemental et social du canton de Vaud.\n\nAu cœur des enjeux humains de l’entreprise, les Ressources Humaines jouent un rôle clé dans l’accompagnement des évolutions managériales, le dialogue social et l’anticipation des besoins en ressources et en compétences. Dans ce contexte, les tl mettent au concours le poste de :\n\nDirectrice ou Directeur des Ressources Humaines\n\n• Votre mission\n\nÀ ce poste clé, vous pilotez la stratégie des ressources humaines et veillez à offrir un climat de travail sain, une expérience collaborateur·ice complète, en cohérence avec les valeurs et la politique d’entreprise et en miroir de l’expérience client·e. Membre de la Direction générale, vous participez également de manière active aux décisions et orientations prises concernant l’ensemble des Directions. De plus, tout en garantissant la qualité de ses prestations RH, vous renforcez la contribution stratégique de la fonction et développez une équipe pluridisciplinaire d’environ 50 personnes. Partenaire de confiance de la Direction générale et des managers, vous veillez au déploiement d’une culture managériale responsabilisante, favorisant l’autonomie de la ligne hiérarchique et clarifiant les rôles et responsabilités de chacun·e. Par ailleurs, vous contribuez à l’anticipation des besoins en effectifs et en compétences, en développant une approche prospective et des outils de pilotage pertinents. Vous conduisez également le dialogue social et contribuez à structurer les échanges avec les partenaires sociaux et la commission du personnel, dans une approche constructive, exigeante et orientée vers la recherche de solutions. Vous identifiez proactivement les évolutions organisationnelles, sociétales, les transformations des métiers et supervisez l’ensemble des domaines RH : la gestion du personnel, le recrutement et le développement des compétences et la formation, la gestion administrative, la rémunération et les relations sociales.\n\n• Votre profil\n\nVous disposez d’une expérience confirmée à la tête d’une fonction RH, idéalement acquise dans une entreprise de services ou un environnement technique et opérationnel. Vous maîtrisez les enjeux RH dans leur diversité et savez conjuguer vision stratégique, pragmatisme et proximité avec le terrain.\n\nVotre leadership vous permet de fédérer une équipe pluridisciplinaire, de développer des dynamiques de coopération et d’accompagner les managers dans la durée. Vous portez un intérêt marqué à l’évolution des pratiques managériales et de la culture d’entreprise et savez favoriser l’autonomie et la responsabilisation de la ligne hiérarchique.\n\nÀ l’aise dans les relations avec les partenaires sociaux, vous appréciez la négociation et savez conjuguer écoute, capacité à défendre une position et recherche de solutions partagées. Votre esprit analytique, votre capacité d’anticipation et votre curiosité vous permettent également d’inscrire les enjeux RH dans une vision globale et à long terme.\n\nSi vous vous reconnaissez dans cette description et que ce poste vous enthousiasme, merci d’adresser votre dossier (CV, lettre de motivation et certificats de travail) d’ici au 11 octobre à notre mandataire Artemia Executive par courrier électronique à l’adresse : candidature@artemia-executive.com\n\nPour de plus amples informations, notre mandataire se fera un plaisir de répondre à vos questions et reste à votre disposition au 021 213 08 03."
+      },
+      "needsRetranslation": false,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://carrieres.t-l.ch/job/Lausanne-Directeur%C2%B7trice-Ressources-Humaines-%28RH%29/1440814833/",
+      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-11T21:29:23.353Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Trasporto pubblico urbano (TPL)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24T00:00:00Z",
+      "postedDate": "2026-09-24T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1440814833/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugs": [
+        "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-ressources-humaines-rh-tl-lausanne-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-09-24T14:44:26.135Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }
