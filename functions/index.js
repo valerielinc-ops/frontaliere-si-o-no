@@ -78,6 +78,7 @@ import {
   runConsultingPaidNoticeSweep,
 } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
+import { handleAssistedApplicationSumUpWebhook } from './src/assistedApplicationSumupWebhook.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -1962,6 +1963,30 @@ export const createAssistedApplicationCheckout = onRequest(
     } catch (error) {
       console.error(
         '[createAssistedApplicationCheckout]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// SumUp Hosted Checkout callback for assisted applications. SumUp sends only
+// the checkout id; the handler re-fetches the checkout with the server-side
+// API key before changing the order state.
+export const sumupAssistedApplicationWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: false,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAssistedApplicationSumUpWebhook(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[sumupAssistedApplicationWebhook]',
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });

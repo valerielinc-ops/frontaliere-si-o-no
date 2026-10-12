@@ -1,10 +1,10 @@
 /**
- * One-off Stripe checkout for the assisted-application funnel (#6405).
+ * One-off payment checkout for the assisted-application funnel (#6405).
  *
  * The browser may request a session, but it never writes payment state. The
  * only transition to `paymentStatus: 'paid'` lives in
- * handleAssistedApplicationWebhookEvent, dispatched by the single signed
- * Stripe webhook in stripePublisherCore.js.
+ * handleAssistedApplicationWebhookEvent, dispatched by the signed Stripe
+ * webhook or the verified SumUp callback.
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
@@ -14,6 +14,11 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
+import {
+  createSumUpAssistedApplicationCheckout,
+  getAssistedApplicationPaymentProvider,
+  SUMUP_PAYMENT_PROVIDER,
+} from './sumupAssistedApplicationCore.js';
 import { isAutomationAgent, isCrawlerVisitorAgent } from './lib/returnVisit.js';
 import { localeFromSiteUrl } from './assistedApplicationNotifications.js';
 
@@ -112,10 +117,14 @@ function sameCanonicalCheckoutOrder(left, right) {
     === JSON.stringify(canonicalCheckoutOrder(right));
 }
 
-function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId) {
+function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId, paymentProvider = 'stripe') {
   if (!currentOrder) return false;
+  const currentProvider = currentOrder.paymentProvider || 'stripe';
+  if (currentProvider !== paymentProvider) return true;
   const currentSessionId = boundedString(
-    currentOrder.stripeCheckoutSessionId || currentOrder.stripeSessionId,
+    paymentProvider === SUMUP_PAYMENT_PROVIDER
+      ? currentOrder.sumupCheckoutId
+      : currentOrder.stripeCheckoutSessionId || currentOrder.stripeSessionId,
     200,
   );
   if (currentSessionId && sessionId && currentSessionId !== sessionId) return true;
@@ -126,6 +135,7 @@ function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId) {
 function metadataForOrder(order, userId) {
   return {
     product: ASSISTED_APPLICATION_PRODUCT,
+    paymentProvider: order.paymentProvider || 'stripe',
     orderId: order.orderId,
     jobId: order.jobId,
     jobUrl: order.jobUrl,
@@ -160,10 +170,11 @@ function stripeRequestKeyFor(requestRecord, requestKeyHash, checkoutAttempt) {
   return checkoutAttempt === 1 ? requestKeyHash : requestKeyHash + ':' + checkoutAttempt;
 }
 
-function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttempt, presentation) {
+function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttempt, presentation, paymentProvider) {
   return {
     orderId,
     userId,
+    paymentProvider,
     // Presentation only (not part of the checkout identity): the concierge
     // emails are written in this locale and link back to this page.
     locale: presentation.locale,
@@ -187,13 +198,17 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     stripePaymentIntentId: null,
     stripeChargeId: null,
     stripeRefundId: null,
+    sumupCheckoutId: null,
+    sumupTransactionId: null,
+    sumupTransactionCode: null,
+    sumupRefundId: null,
     retentionPurgedAt: null,
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
   };
 }
 
-/** Create a pending order and a fixed-price, one-time Stripe Checkout Session. */
+/** Create a pending order and a fixed-price, one-time payment checkout. */
 export async function handleCreateAssistedApplicationCheckout(req) {
   if (req.method !== 'POST') {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
@@ -233,6 +248,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
 
   const payloadHash = payloadHashFor(order);
   const requestKeyHash = sha256(`${userId}:${requestKey}`);
+  const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
   const firestore = db();
   const requestRef = firestore
     .collection(ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION)
@@ -288,16 +304,26 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           payloadHash,
           orderId: orderRef.id,
           checkoutAttempt,
+          paymentProvider: configuredPaymentProvider,
           stripeRequestKey,
           checkoutSessionStatus: 'creating',
           stripeCheckoutSessionId: null,
+          sumupCheckoutId: null,
           checkoutUrl: null,
           updatedAt: FieldValue.serverTimestamp(),
         };
         transaction.set(requestRef, requestRecord, { merge: true });
         transaction.set(
           orderRef,
-          pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt, { locale, successUrl }),
+          pendingOrderData(
+            order,
+            orderRef.id,
+            userId,
+            requestKeyHash,
+            checkoutAttempt,
+            { locale, successUrl },
+            configuredPaymentProvider,
+          ),
         );
         return;
       }
@@ -309,6 +335,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         requestKeyHash,
         payloadHash,
         userId,
+        paymentProvider: configuredPaymentProvider,
         orderId: orderRef.id,
         checkoutAttempt,
         stripeRequestKey,
@@ -319,7 +346,15 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       transaction.set(requestRef, requestRecord);
       transaction.set(
         orderRef,
-        pendingOrderData(order, orderRef.id, userId, requestKeyHash, checkoutAttempt, { locale, successUrl }),
+        pendingOrderData(
+          order,
+          orderRef.id,
+          userId,
+          requestKeyHash,
+          checkoutAttempt,
+          { locale, successUrl },
+          configuredPaymentProvider,
+        ),
       );
     });
   } catch (error) {
@@ -340,11 +375,10 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     };
   }
 
-  if (
-    requestRecord?.checkoutUrl
-    && requestRecord.stripeCheckoutSessionId
-    && requestRecord.checkoutSessionStatus !== 'expired'
-  ) {
+  const savedCheckoutId = requestRecord?.paymentProvider === SUMUP_PAYMENT_PROVIDER
+    ? requestRecord.sumupCheckoutId
+    : requestRecord?.stripeCheckoutSessionId;
+  if (requestRecord?.checkoutUrl && savedCheckoutId && requestRecord.checkoutSessionStatus !== 'expired') {
     return {
       status: 200,
       body: { ok: true, url: requestRecord.checkoutUrl, orderId: requestRecord.orderId },
@@ -352,48 +386,75 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   }
 
   const orderId = orderRef.id;
-  const metadata = metadataForOrder({ ...order, orderId, locale }, userId);
+  const checkoutProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
+  const metadata = metadataForOrder({ ...order, orderId, locale, paymentProvider: checkoutProvider }, userId);
 
-  const stripe = await getStripe();
-  const session = await stripe.checkout.sessions.create({
-    mode: 'payment',
-    line_items: [{
-      price_data: {
-        currency: ASSISTED_APPLICATION_CURRENCY,
-        unit_amount: ASSISTED_APPLICATION_PRICE_CENTS,
-        product_data: { name: 'Candidatura assistita' },
-      },
-      quantity: 1,
-    }],
-    success_url: appendOrderId(successUrl, orderId),
-    cancel_url: cancelUrl,
-    client_reference_id: orderId,
-    customer_email: typeof decoded.email === 'string' && decoded.email ? decoded.email : undefined,
-    metadata,
-    payment_intent_data: { metadata },
-  }, {
-    idempotencyKey: 'assisted-application:' + stripeRequestKey,
-  });
-
-  await orderRef.set({
-    stripeCheckoutSessionId: session.id,
-    checkoutAttempt,
-    stripeRequestKey,
-    checkoutSessionStatus: 'open',
-    updatedAt: FieldValue.serverTimestamp(),
-  }, { merge: true });
-  await requestRef.set({
-    checkoutAttempt,
-    stripeRequestKey,
-    stripeCheckoutSessionId: session.id,
-    checkoutUrl: session.url,
-    checkoutSessionStatus: 'open',
-    updatedAt: FieldValue.serverTimestamp(),
-  }, { merge: true });
+  let checkoutUrl;
+  if (checkoutProvider === SUMUP_PAYMENT_PROVIDER) {
+    const checkout = await createSumUpAssistedApplicationCheckout({
+      orderId,
+      redirectUrl: appendOrderId(successUrl, orderId),
+    });
+    checkoutUrl = checkout.url;
+    await orderRef.set({
+      paymentProvider: SUMUP_PAYMENT_PROVIDER,
+      sumupCheckoutId: checkout.id,
+      checkoutAttempt,
+      checkoutSessionStatus: 'open',
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    await requestRef.set({
+      checkoutAttempt,
+      paymentProvider: SUMUP_PAYMENT_PROVIDER,
+      sumupCheckoutId: checkout.id,
+      checkoutUrl: checkout.url,
+      checkoutSessionStatus: 'open',
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  } else {
+    const stripe = await getStripe();
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items: [{
+        price_data: {
+          currency: ASSISTED_APPLICATION_CURRENCY,
+          unit_amount: ASSISTED_APPLICATION_PRICE_CENTS,
+          product_data: { name: 'Candidatura assistita' },
+        },
+        quantity: 1,
+      }],
+      success_url: appendOrderId(successUrl, orderId),
+      cancel_url: cancelUrl,
+      client_reference_id: orderId,
+      customer_email: typeof decoded.email === 'string' && decoded.email ? decoded.email : undefined,
+      metadata,
+      payment_intent_data: { metadata },
+    }, {
+      idempotencyKey: 'assisted-application:' + stripeRequestKey,
+    });
+    checkoutUrl = session.url;
+    await orderRef.set({
+      paymentProvider: 'stripe',
+      stripeCheckoutSessionId: session.id,
+      checkoutAttempt,
+      stripeRequestKey,
+      checkoutSessionStatus: 'open',
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    await requestRef.set({
+      checkoutAttempt,
+      paymentProvider: 'stripe',
+      stripeRequestKey,
+      stripeCheckoutSessionId: session.id,
+      checkoutUrl: session.url,
+      checkoutSessionStatus: 'open',
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+  }
 
   return {
     status: 200,
-    body: { ok: true, url: session.url, orderId },
+    body: { ok: true, url: checkoutUrl, orderId },
   };
 }
 
@@ -468,6 +529,10 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
 
   if (obj.metadata?.product !== ASSISTED_APPLICATION_PRODUCT) return false;
 
+  const paymentProvider = obj.metadata?.paymentProvider === SUMUP_PAYMENT_PROVIDER
+    ? SUMUP_PAYMENT_PROVIDER
+    : 'stripe';
+
   const orderId = boundedString(obj.metadata?.orderId || obj.client_reference_id, 200);
   if (!orderId) return true;
 
@@ -500,14 +565,25 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
         ? 'completed'
         : 'pending';
 
+  const providerUpdate = paymentProvider === SUMUP_PAYMENT_PROVIDER
+    ? {
+      paymentProvider: SUMUP_PAYMENT_PROVIDER,
+      sumupCheckoutId: obj.id || null,
+      sumupTransactionId: boundedString(obj.sumupTransactionId, 200) || null,
+      sumupTransactionCode: boundedString(obj.sumupTransactionCode, 200) || null,
+    }
+    : {
+      paymentProvider: 'stripe',
+      stripeSessionId: obj.id || null,
+      stripePaymentIntentId: typeof obj.payment_intent === 'string'
+        ? obj.payment_intent
+        : obj.payment_intent?.id || null,
+    };
   const update = {
     paymentStatus,
     submissionStatus: paymentStatus === 'paid' ? 'awaiting_upload' : 'awaiting_payment',
     checkoutSessionStatus,
-    stripeSessionId: obj.id || null,
-    stripePaymentIntentId: typeof obj.payment_intent === 'string'
-      ? obj.payment_intent
-      : obj.payment_intent?.id || null,
+    ...providerUpdate,
     amountTotal: typeof obj.amount_total === 'number' ? obj.amount_total : null,
     currency: obj.currency || ASSISTED_APPLICATION_CURRENCY,
     customerEmail: obj.customer_details?.email || obj.customer_email || null,
@@ -520,7 +596,7 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
   await firestore.runTransaction(async (transaction) => {
     const currentSnapshot = await transaction.get(orderRef);
     const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
-    if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id)) return;
+    if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id, paymentProvider)) return;
     transaction.set(orderRef, update, { merge: true });
   });
   return true;

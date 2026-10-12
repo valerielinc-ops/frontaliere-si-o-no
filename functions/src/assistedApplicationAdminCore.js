@@ -2,7 +2,7 @@
  * Admin-only operational queue for one-off assisted applications.
  *
  * GET lists paid orders in the manual-submission lifecycle. POST performs a
- * server-validated submission-status transition, issues a full Stripe refund,
+ * server-validated submission-status transition, issues a full provider refund,
  * or returns a read-only candidate-facing order snapshot. Candidate PII stays
  * behind the same verified owner-email gate used by the other AdminPanel
  * endpoints; CVs are returned only as short-lived signed URLs.
@@ -16,6 +16,7 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { refundSumUpTransaction, retrieveSumUpCheckout } from './sumupAssistedApplicationCore.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import {
   AUTOMATION_ADMIN_ACTIONS,
@@ -207,6 +208,7 @@ function serializeOrder(doc, cvUrl) {
     paymentStatus: boundedString(data.paymentStatus, 40),
     amountTotal: amountFor(data),
     currency: boundedString(data.currency || 'eur', 12).toUpperCase(),
+    paymentProvider: boundedString(data.paymentProvider || 'stripe', 40) || 'stripe',
     paidAt: timestampToIso(data.paidAt),
     applicantName: optionalString(data.applicantName, 200) || null,
     applicantEmail: optionalString(data.applicantEmail, 320) || null,
@@ -454,6 +456,24 @@ async function resolvePaymentReference(order, stripe) {
   }
 }
 
+async function resolveSumUpPaymentReference(order) {
+  const direct = boundedString(order?.sumupTransactionId, 200);
+  if (direct) return { type: 'sumup_transaction', id: direct };
+  const checkoutId = boundedString(order?.sumupCheckoutId, 200);
+  if (!checkoutId) return null;
+  try {
+    const checkout = await retrieveSumUpCheckout(checkoutId);
+    const transaction = Array.isArray(checkout?.transactions)
+      ? checkout.transactions[checkout.transactions.length - 1]
+      : null;
+    const transactionId = boundedString(transaction?.id || checkout?.transaction_id, 200);
+    return transactionId ? { type: 'sumup_transaction', id: transactionId } : null;
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] SumUp payment reference lookup failed', error instanceof Error ? error.message : String(error));
+    return null;
+  }
+}
+
 async function reserveRefund(db, orderRef) {
   const reservationId = randomUUID();
   let alreadyRefunded = false;
@@ -503,7 +523,7 @@ async function releaseRefundReservation(db, orderRef, reservationId) {
 }
 
 /**
- * Full Stripe refund of one order, used by the owner queue and by the
+ * Full payment refund of one order, used by the owner queue and by the
  * automated flow when the ad closes before sending (actor 'automation').
  */
 export async function issueAssistedApplicationRefund(db, raw, adminEmail) {
@@ -529,8 +549,11 @@ async function handleRefund(db, raw, adminEmail) {
     throw new AssistedApplicationAdminError('already_submitted', 409);
   }
 
-  const stripe = await getStripe();
-  const reference = await resolvePaymentReference(order, stripe);
+  const sumUpOrder = order.paymentProvider === 'sumup';
+  const stripe = sumUpOrder ? null : await getStripe();
+  const reference = sumUpOrder
+    ? await resolveSumUpPaymentReference(order)
+    : await resolvePaymentReference(order, stripe);
   if (!reference) throw new AssistedApplicationAdminError('payment_reference_missing', 409);
 
   const reservation = await reserveRefund(db, orderRef);
@@ -540,25 +563,35 @@ async function handleRefund(db, raw, adminEmail) {
 
   let refund;
   try {
-    refund = await stripe.refunds.create(
-      reference.type === 'charge' ? { charge: reference.id } : { payment_intent: reference.id },
-      { idempotencyKey: `assisted-application-refund:${orderId}` },
-    );
+    refund = sumUpOrder
+      ? await refundSumUpTransaction(reference.id)
+      : await stripe.refunds.create(
+        reference.type === 'charge' ? { charge: reference.id } : { payment_intent: reference.id },
+        { idempotencyKey: `assisted-application-refund:${orderId}` },
+      );
   } catch (error) {
     await releaseRefundReservation(db, orderRef, reservation.reservationId);
-    console.error('[manageAssistedApplicationAdmin] Stripe refund failed', error instanceof Error ? error.message : String(error));
-    return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
+    console.error('[manageAssistedApplicationAdmin] payment refund failed', error instanceof Error ? error.message : String(error));
+    return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
   }
 
-  if (refund?.status !== 'succeeded') {
+  const refundSucceeded = sumUpOrder
+    ? Boolean(refund && (
+      refund.status === 204
+      || refund.status === 'REFUNDED'
+      || refund.simple_status === 'REFUNDED'
+    ))
+    : refund?.status === 'succeeded';
+  if (!refundSucceeded) {
     await releaseRefundReservation(db, orderRef, reservation.reservationId);
-    console.error('[manageAssistedApplicationAdmin] Stripe refund did not succeed', refund?.status || 'missing_status');
-    return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
+    console.error('[manageAssistedApplicationAdmin] payment refund did not succeed', refund?.status || 'missing_status');
+    return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
   }
 
   let alreadyRefunded = false;
   const timestamp = FieldValue.serverTimestamp();
-  const refundId = boundedString(refund?.id, 200) || null;
+  const refundId = boundedString(refund?.id || refund?.transaction_id, 200)
+    || (sumUpOrder ? reference.id : null);
   try {
     await db.runTransaction(async (transaction) => {
       const currentSnapshot = await transaction.get(orderRef);
@@ -570,7 +603,7 @@ async function handleRefund(db, raw, adminEmail) {
       }
       // The reservation blocks ordinary admin transitions. Keep this check in
       // the final transaction too: an Admin-SDK writer outside this endpoint
-      // must never be overwritten after Stripe has returned.
+      // must never be overwritten after the provider has returned.
       if (current.refundStatus !== 'pending' || current.refundReservationId !== reservation.reservationId) {
         throw new AssistedApplicationAdminError('refund_state_changed', 409);
       }
@@ -581,7 +614,7 @@ async function handleRefund(db, raw, adminEmail) {
         paymentStatus: 'refunded',
         submissionStatus: 'refunded',
         refundStatus: 'completed',
-        stripeRefundId: refundId,
+        ...(sumUpOrder ? { sumupRefundId: refundId } : { stripeRefundId: refundId }),
         refundedAt: timestamp,
         statusChangedAt: timestamp,
         updatedAt: timestamp,

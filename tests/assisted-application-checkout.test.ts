@@ -72,6 +72,11 @@ const stripeCheckoutSessionsCreate = vi.fn(async () => ({
   url: 'https://checkout.stripe.com/cs_assisted_1',
 }));
 const stripeConstructEvent = vi.fn();
+const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
+const sumUpCheckoutCreate = vi.fn(async () => ({
+  id: 'sumup_checkout_1',
+  url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+}));
 
 vi.mock('stripe', () => {
   class MockStripe {
@@ -80,6 +85,12 @@ vi.mock('stripe', () => {
   }
   return { default: MockStripe };
 });
+
+vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
+  getAssistedApplicationPaymentProvider: (...args: unknown[]) => assistedApplicationPaymentProvider(...args),
+  createSumUpAssistedApplicationCheckout: (...args: unknown[]) => sumUpCheckoutCreate(...args),
+  SUMUP_PAYMENT_PROVIDER: 'sumup',
+}));
 
 function request(overrides: Record<string, unknown> = {}) {
   return {
@@ -118,6 +129,11 @@ beforeEach(() => {
   stripeCheckoutSessionsCreate.mockImplementation(async () => ({
     id: 'cs_assisted_1',
     url: 'https://checkout.stripe.com/cs_assisted_1',
+  }));
+  assistedApplicationPaymentProvider.mockResolvedValue('stripe');
+  sumUpCheckoutCreate.mockImplementation(async () => ({
+    id: 'sumup_checkout_1',
+    url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
   }));
 });
 
@@ -199,6 +215,32 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       consentedAt: null,
       copyVariant: 'time_saved',
     }));
+  });
+
+  it('can create one SumUp Hosted Checkout without changing the one-application order', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const result = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(result).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+        orderId: 'order-1',
+      },
+    });
+    expect(sumUpCheckoutCreate).toHaveBeenCalledWith({
+      orderId: 'order-1',
+      redirectUrl: 'https://frontaliereticino.ch/lavoro/job-42?assisted_application_order_id=order-1',
+    });
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      paymentStatus: 'pending',
+    }));
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
   });
 
   it('stores the concierge locale and resume link, and accepts the Offerwall-fallback variant', async () => {
