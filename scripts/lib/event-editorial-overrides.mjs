@@ -29,7 +29,9 @@ export function applyEditorialOverride(event, registry = {}) {
         .filter(([, value]) => typeof value === 'string' && value.trim())
         .map(([locale, value]) => [locale, value.trim()]),
     );
-    if (Object.keys(descriptions).length) next.descriptionByLocale = descriptions;
+    if (Object.keys(descriptions).length) {
+      next.descriptionByLocale = { ...(event.descriptionByLocale || {}), ...descriptions };
+    }
   }
   return next;
 }
