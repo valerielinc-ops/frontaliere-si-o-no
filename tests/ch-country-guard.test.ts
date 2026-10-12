@@ -61,6 +61,12 @@ describe('ch-country-guard', () => {
     it.each(['France', 'DE', null, undefined, ''])('returns null for %o', (value) => {
       expect(canonicalChCountry(value)).toBeNull();
     });
+
+    it('uses the first non-empty supported field without overriding explicit foreign evidence', () => {
+      expect(canonicalChCountry('', ' CH ')).toBe('CH');
+      expect(canonicalChCountry({ code: '' }, { alpha3: 'CHE' })).toBe('CH');
+      expect(canonicalChCountry('France', 'CH')).toBeNull();
+    });
   });
 
   it('CH_COUNTRY_RX is exported for callers that match a pre-coerced token', () => {

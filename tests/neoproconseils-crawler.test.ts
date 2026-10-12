@@ -79,6 +79,12 @@ describe('NEO Pro conseils SA crawler parser', () => {
       });
     });
 
+    it('falls back to the first non-empty explicit country field', () => {
+      const job = buildNeoproconseilsJobFromListing({ ...listing(''), country: 'CH' });
+      expect(job).not.toBeNull();
+      expect(job).toMatchObject({ addressCountry: 'CH', country: 'CH' });
+    });
+
     it.each(['France', undefined])('quarantines non-CH or absent source country %o', (addressCountry) => {
       expect(buildNeoproconseilsJobFromListing(listing(addressCountry))).toBeNull();
     });

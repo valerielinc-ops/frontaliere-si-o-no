@@ -93,6 +93,16 @@ describe('Pantr GmbH crawler parser', () => {
       });
     });
 
+    it('falls back to the first non-empty explicit country field', () => {
+      const job = buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/country-field-fallback'),
+        addressCountry: '',
+        country: 'CH',
+      });
+      expect(job).not.toBeNull();
+      expect(job).toMatchObject({ addressCountry: 'CH', country: 'CH' });
+    });
+
     it.each(['France', undefined])('quarantines non-CH or absent source country %o', (addressCountry) => {
       expect(buildPantrChJobFromListing({
         ...listing('https://pantr.ch/jobs/non-ch-country'),

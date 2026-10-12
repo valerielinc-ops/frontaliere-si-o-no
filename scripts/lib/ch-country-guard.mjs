@@ -49,10 +49,11 @@ export function isChCountry(raw) {
 }
 
 /**
- * Return the canonical country code only when the source explicitly identifies
- * Switzerland. Missing and non-CH values stay null so callers cannot turn a
- * trusted domain or a Swiss-looking locality into country evidence.
+ * Return the canonical country code only when the first non-empty source
+ * country field explicitly identifies Switzerland. Empty aliases do not mask
+ * later supported fields; a non-empty foreign value remains authoritative.
  */
-export function canonicalChCountry(raw) {
-  return isChCountry(raw) ? 'CH' : null;
+export function canonicalChCountry(...rawFields) {
+  const firstNonEmpty = rawFields.map(coerceCountryField).find(Boolean) || '';
+  return isChCountry(firstNonEmpty) ? 'CH' : null;
 }

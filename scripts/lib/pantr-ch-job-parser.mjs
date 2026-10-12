@@ -126,7 +126,7 @@ export function buildPantrChJobFromListing(listing) {
 
   // Country is a publication boundary: aliases are canonicalized only after
   // explicit source evidence, while foreign and absent values are quarantined.
-  const sourceCountry = canonicalChCountry(listing.addressCountry ?? listing.country);
+  const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);
   if (!sourceCountry) return null;
   const sourceEvidence = { ...listing, addressCountry: sourceCountry, country: sourceCountry };
   const geography = sourceBackedSwissGeographyFields(sourceEvidence);
