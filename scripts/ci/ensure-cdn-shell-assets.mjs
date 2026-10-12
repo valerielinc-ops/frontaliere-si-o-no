@@ -19,9 +19,23 @@
 import { listStaticScriptFiles } from '../../build-plugins/staticScriptsPlugin.ts';
 import { ensureCdnShellAssets, shellAssetsFromStaticScripts } from '../lib/cdn-shell-assets.mjs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { startPipelinePhase } from '../lib/pipeline-phase-timing.mjs';
 
-export async function main({ ensure = ensureCdnShellAssets, listFiles = listStaticScriptFiles } = {}) {
-  return ensure({ assets: shellAssetsFromStaticScripts(listFiles()) });
+export async function main({
+  ensure = ensureCdnShellAssets,
+  listFiles = listStaticScriptFiles,
+  startTiming = startPipelinePhase,
+} = {}) {
+  const finishTiming = startTiming('fast-publish', 'ensure-cdn-shell-assets');
+  let outcome = 'success';
+  try {
+    return await ensure({ assets: shellAssetsFromStaticScripts(listFiles()) });
+  } catch (error) {
+    outcome = 'failure';
+    throw error;
+  } finally {
+    finishTiming(outcome);
+  }
 }
 
 if (isInvokedDirectly(import.meta.url)) {

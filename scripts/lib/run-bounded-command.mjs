@@ -19,6 +19,7 @@
 
 import { spawn } from 'node:child_process';
 import { constants } from 'node:os';
+import { startPipelinePhase } from './pipeline-phase-timing.mjs';
 
 function usage(message) {
   if (message) process.stderr.write(`::error::${message}\n`);
@@ -57,6 +58,7 @@ if (!label) usage('--label requires a value.');
 if (command.length === 0) usage('the command to run is missing.');
 
 const timeoutMs = Number(timeoutSeconds) * 1000;
+const finishTiming = startPipelinePhase('bounded-command', label);
 const child = spawn(command[0], command.slice(1), {
   // Its own process group, so the helpers it starts stop with it.
   detached: process.platform !== 'win32',
@@ -94,6 +96,7 @@ function finish(status) {
   clearTimeout(timer);
   if (forceTimer) clearTimeout(forceTimer);
   if (groupPoll) clearInterval(groupPoll);
+  finishTiming(timedOut ? 'timeout' : stopRequested ? 'cancelled' : status === 0 ? 'success' : 'failure');
   process.exitCode = status;
 }
 

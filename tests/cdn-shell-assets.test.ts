@@ -777,6 +777,32 @@ describe('ensure-cdn-shell-assets.mjs', () => {
     expect(received).toEqual(shellAssetsFromStaticScripts(listStaticScriptFiles()));
     expect(received.length).toBeGreaterThan(1);
   });
+
+  it('reports the CDN pre-publish gate through the pipeline timing contract', async () => {
+    const timing: Array<{ pipeline: string; phase: string; outcome: string }> = [];
+    await ensureMain({
+      ensure: async () => [],
+      startTiming: (pipeline: string, phase: string) => (outcome: string) => {
+        timing.push({ pipeline, phase, outcome });
+      },
+    });
+
+    expect(timing).toEqual([{
+      pipeline: 'fast-publish',
+      phase: 'ensure-cdn-shell-assets',
+      outcome: 'success',
+    }]);
+  });
+
+  it('marks the CDN pre-publish gate failed when an asset cannot be ensured', async () => {
+    const timing: string[] = [];
+    await expect(ensureMain({
+      ensure: async () => { throw new Error('CDN not ready'); },
+      startTiming: () => (outcome: string) => timing.push(outcome),
+    })).rejects.toThrow('CDN not ready');
+
+    expect(timing).toEqual(['failure']);
+  });
 });
 
 /**

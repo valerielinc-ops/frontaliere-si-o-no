@@ -20,6 +20,7 @@ const COMMIT_DATA_SCRIPT = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const PUSH_WITH_RETRY_SCRIPT = resolve(ROOT, 'scripts/lib/git-push-with-retry.sh');
 const MAIN_WRITERS = ['scripts/lib/git-commit-data.sh', 'scripts/lib/git-push-with-retry.sh'];
 const BOUNDED_COMMAND_WRAPPER = 'scripts/lib/run-bounded-command.mjs';
+const PIPELINE_TIMING_HELPER = 'scripts/lib/pipeline-phase-timing.mjs';
 const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
@@ -509,11 +510,17 @@ describe('main writer network bounds', () => {
     // workflow names the wrapper: only the list on disk can be checked.
     const { fixed, computed } = sparseCheckouts();
     expect(fixed.length).toBeGreaterThan(100);
-    const missing = fixed
+    const missingWrappers = fixed
       .filter((checkout) => MAIN_WRITERS.some((writer) => materializes(checkout, writer)))
       .filter((checkout) => !materializes(checkout, BOUNDED_COMMAND_WRAPPER))
       .map(({ where }) => where);
-    expect(missing).toEqual([]);
+    expect(missingWrappers).toEqual([]);
+
+    const missingTimingHelpers = fixed
+      .filter((checkout) => materializes(checkout, BOUNDED_COMMAND_WRAPPER))
+      .filter((checkout) => !materializes(checkout, PIPELINE_TIMING_HELPER))
+      .map(({ where }) => where);
+    expect(missingTimingHelpers).toEqual([]);
 
     // One list is computed at run time, from a versioned file that carries the
     // whole scripts directory; tests/housekeeping-sparse-paths.test.ts checks it.
