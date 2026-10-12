@@ -80,6 +80,30 @@ describe('exchangeAssertionForToken: errori transitori ritentati, credenziali no
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('un AbortError durante il body JSON 2xx ritenta l\'intera richiesta', async () => {
+    const bodyErr = Object.assign(new Error('body stream aborted'), { name: 'AbortError' });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => { throw bodyErr; } })
+      .mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un AbortError durante il body 5xx ritenta l\'intera richiesta', async () => {
+    const bodyErr = Object.assign(new Error('body stream aborted'), { name: 'AbortError' });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 503, text: async () => { throw bodyErr; } })
+      .mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it('un 403 di quota OAuth viene ritentato, ma solo col codice riconosciuto', async () => {
     const quotaBody = JSON.stringify({ error: 'quota_exceeded', error_description: 'retry later' });
     const fetchMock = vi

@@ -100,9 +100,8 @@ export const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
 export async function exchangeAssertionForToken(assertion) {
   let lastErr;
   for (let attempt = 1; attempt <= TOKEN_EXCHANGE_ATTEMPTS; attempt++) {
-    let res;
     try {
-      res = await fetch(GOOGLE_TOKEN_URL, {
+      const res = await fetch(GOOGLE_TOKEN_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -111,29 +110,24 @@ export async function exchangeAssertionForToken(assertion) {
         }),
         signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
       });
+      if (res.ok) {
+        const data = await res.json();
+        if (!data?.access_token) throw new Error('OAuth response missing access_token');
+        return data.access_token;
+      }
+      const text = await res.text();
+      const reason = extractOAuthErrorReason(text);
+      lastErr = new Error(`OAuth token exchange failed: ${res.status}${reason ? ` (${reason})` : ''} ${text}`);
+      if (!isRetryableTokenExchangeStatus(res.status, reason)) throw lastErr;
     } catch (err) {
-      // fetch rejects rather than returning a status for both time-outs and
-      // transient transport failures (DNS/TLS/connection reset). Restrict the
-      // retry to the error classes fetch uses so unrelated programming errors
-      // are not retried indiscriminately.
+      // fetch and response body reads both reject for time-outs and transient
+      // transport failures. Keep the whole request lifecycle in this attempt
+      // so a connection lost after the headers still consumes the retry budget.
       if (!isRetryableTokenExchangeError(err)) throw err;
       lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
         ? new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`)
         : err;
-      if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
-        await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
-      }
-      continue;
     }
-    if (res.ok) {
-      const data = await res.json();
-      if (!data?.access_token) throw new Error('OAuth response missing access_token');
-      return data.access_token;
-    }
-    const text = await res.text();
-    const reason = extractOAuthErrorReason(text);
-    lastErr = new Error(`OAuth token exchange failed: ${res.status}${reason ? ` (${reason})` : ''} ${text}`);
-    if (!isRetryableTokenExchangeStatus(res.status, reason)) throw lastErr;
     if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
       await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
     }
