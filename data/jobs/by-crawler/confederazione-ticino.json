@@ -19081,9 +19081,9 @@
       },
       "slugByLocale": {
         "de": "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u",
-        "it": "meccanico-a-di-armi-confederazione-svizzera-frauenfeld",
-        "en": "weapons-mechanic-confederazione-svizzera-frauenfeld",
-        "fr": "mecanicien-ne-d-armes-confederazione-svizzera-frauenfeld"
+        "it": "meccanico-a-di-armi-swiss-armed-forces-vtg-frauenfeld",
+        "en": "weapons-mechanic-swiss-armed-forces-vtg-frauenfeld",
+        "fr": "mecanicien-ne-d-armes-swiss-armed-forces-vtg-frauenfeld"
       },
       "id": "confederazione-ticino-f1d000fb1ff5",
       "needsRetranslation": true,
@@ -19098,17 +19098,21 @@
           "waffenmechaniker-in-confederazione-frauenfeld"
         ],
         "en": [
-          "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u"
+          "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u",
+          "weapons-mechanic-confederazione-svizzera-frauenfeld"
         ],
         "fr": [
-          "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u"
+          "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u",
+          "mecanicien-ne-d-armes-confederazione-svizzera-frauenfeld"
         ]
       },
       "previousSlugs": [
         "waffenmechaniker-in-confederazione-frauenfeld",
         "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld",
         "waffenmechaniker-in-swiss-armed-forces-vtg-frauenfeld-c1pk5u",
-        "waffenmechaniker-in-confederazione-svizzera-frauenfeld"
+        "waffenmechaniker-in-confederazione-svizzera-frauenfeld",
+        "weapons-mechanic-confederazione-svizzera-frauenfeld",
+        "mecanicien-ne-d-armes-confederazione-svizzera-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -19324,8 +19328,8 @@
       "slugByLocale": {
         "de": "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve",
         "it": "chef-in-strategie-e-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve",
-        "en": "head-of-strategy-and-governance-defence-confederazione-svizzera-bern",
-        "fr": "chef-fe-de-la-strategie-et-de-la-gouvernance-de-la-defense-confederazione-svizzera-bern"
+        "en": "head-of-strategy-and-governance-defence-swiss-armed-forces-vtg-bern",
+        "fr": "chef-fe-de-la-strategie-et-de-la-gouvernance-de-la-defense-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-b05e782cb89b",
       "needsRetranslation": true,
@@ -19336,20 +19340,24 @@
         ],
         "en": [
           "chef-in-strategie-und-governance-verteidigung-confederazione-bern",
-          "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve"
+          "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve",
+          "head-of-strategy-and-governance-defence-confederazione-svizzera-bern"
         ],
         "de": [
           "chef-in-strategie-und-governance-verteidigung-confederazione-bern"
         ],
         "fr": [
           "chef-in-strategie-und-governance-verteidigung-confederazione-bern",
-          "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve"
+          "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve",
+          "chef-fe-de-la-strategie-et-de-la-gouvernance-de-la-defense-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "chef-in-strategie-und-governance-verteidigung-confederazione-bern",
         "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern",
-        "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve"
+        "chef-in-strategie-und-governance-verteidigung-swiss-armed-forces-vtg-bern-p60xve",
+        "head-of-strategy-and-governance-defence-confederazione-svizzera-bern",
+        "chef-fe-de-la-strategie-et-de-la-gouvernance-de-la-defense-confederazione-svizzera-bern"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,

@@ -1659,12 +1659,12 @@
     },
     {
       "id": "abbott-ccf707303295",
-      "slug": "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch",
+      "slug": "strategia-di-portfolio-di-stagista-e-innovazione-futuro-programma-di-ipoteca-abbott-allschwil",
       "slugByLocale": {
         "en": "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch",
-        "it": "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch",
+        "it": "strategia-di-portfolio-di-stagista-e-innovazione-futuro-programma-di-ipoteca-abbott-allschwil",
         "de": "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch",
-        "fr": "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch"
+        "fr": "strategie-et-innovation-du-portefeuille-des-stagiaires-programme-des-talents-futurs-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1724,7 +1724,18 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-12T09:19:25.553Z"
+      "firstSeenAt": "2026-10-12T09:19:25.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch"
+        ],
+        "fr": [
+          "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-portfolio-strategy-innovation-future-talent-program-abbott-ch"
+      ]
     }
   ]
 }
