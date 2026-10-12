@@ -1855,11 +1855,15 @@ function parseLocationSlugFilter(initialJobSlug?: string): string | null {
  return slug || null;
 }
 
-export function shouldRestoreJobBoardListState(previousSlug?: string, nextSlug?: string): boolean {
+export function shouldRestoreJobBoardListState(
+ previousSlug?: string,
+ nextSlug?: string,
+ activeJobs?: JobListing[],
+): boolean {
  const wasOnDetail = Boolean(
  previousSlug
  && !parseCompanySlugFilter(previousSlug)
- && !parseSearchSlugFilter(previousSlug)
+ && !parseJobRouteSearchFilter(previousSlug, activeJobs)
  && !parseLocationSlugFilter(previousSlug)
  );
  const isBackToPlainList = !nextSlug;
@@ -3135,7 +3139,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Restore page + scroll when returning from job detail to list
  useEffect(() => {
- const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
+ const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug, jobs);
  prevSlugRef.current = initialJobSlug;
  if (shouldRestore && savedListState.current) {
  const { page: savedPage, scrollY, query } = savedListState.current;
@@ -3146,7 +3150,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  savedListState.current = null;
  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
  }
- }, [initialJobSlug]);
+ }, [initialJobSlug, jobs]);
 
  // ⌘K / Ctrl+K keyboard shortcut to focus search
  useEffect(() => {

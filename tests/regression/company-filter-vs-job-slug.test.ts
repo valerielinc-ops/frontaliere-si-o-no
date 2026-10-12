@@ -14,7 +14,11 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { parseCompanySlugFilter, parseJobRouteSearchFilter } from '@/components/community/JobBoard.tsx';
+import {
+  parseCompanySlugFilter,
+  parseJobRouteSearchFilter,
+  shouldRestoreJobBoardListState,
+} from '@/components/community/JobBoard.tsx';
 import { seededJobMatchesSlug } from '@/hooks/useExpiredJob';
 import type { JobListing } from '@/components/community/JobBoard.tsx';
 
@@ -101,6 +105,13 @@ describe('parseJobRouteSearchFilter', () => {
       slugByLocale: { it: 'ricerca-e-sviluppo-del-project-manager-ibsa-institut-biochimique-grancia' },
     });
     expect(parseJobRouteSearchFilter(activeJob.slugByLocale!.it!, [activeJob])).toBeNull();
+  });
+});
+
+describe('shouldRestoreJobBoardListState', () => {
+  it('treats an active search-prefixed job slug as a detail route', () => {
+    const activeJob = makeJob({ slug: 'search-foo' });
+    expect(shouldRestoreJobBoardListState('search-foo', undefined, [activeJob])).toBe(true);
   });
 });
 
