@@ -17,11 +17,12 @@
       ],
       "video": {
         "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/article-2026-10-11.mp4",
-        "bytes": 424599,
-        "sha256": "e77d37b50017c3bbfe91852e245d5d433f7d131460f38958d6d54fbd0d01cab7",
-        "durationMs": 22767,
+        "bytes": 609861,
+        "sha256": "bf65bff9b03cb988625254f447348594b78717d28364dbbde82d92fc2e0281b9",
+        "durationMs": 22267,
         "width": 1080,
-        "height": 1920
+        "height": 1920,
+        "creativeVariant": "motion-graphic-v1"
       },
       "ledgerEntries": [
         {
@@ -29,39 +30,64 @@
           "kind": "article",
           "url": "https://frontaliereticino.ch/articoli-frontaliere/malnate-imprenditrice-azienda-famiglia/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=malnate-imprenditrice-azienda-famiglia",
           "day": "2026-10-11",
-          "views": 52
+          "views": 52,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "fischiava-treno-gorla",
           "kind": "article",
           "url": "https://frontaliereticino.ch/articoli-frontaliere/fischiava-treno-gorla/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=fischiava-treno-gorla",
           "day": "2026-10-11",
-          "views": 33
+          "views": 33,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "ristorni-frontalieri-reazione-lombardia-mozione-ticino",
           "kind": "article",
           "url": "https://frontaliereticino.ch/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-mozione-ticino/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=ristorni-frontalieri-reazione-lombardia-mozione-ticino",
           "day": "2026-10-11",
-          "views": 21
+          "views": 21,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "bollettino-frontaliere-2026-10-11",
           "kind": "article",
           "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-10-11/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=bollettino-frontaliere-2026-10-11",
           "day": "2026-10-11",
-          "views": 15
+          "views": 15,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "educatore-infanzia-ticino-stipendio",
           "kind": "article",
           "url": "https://frontaliereticino.ch/articoli-frontaliere/educatore-infanzia-ticino-stipendio/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_article&utm_content=educatore-infanzia-ticino-stipendio",
           "day": "2026-10-11",
-          "views": 12
+          "views": 12,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         }
       ],
-      "createdAt": "2026-10-12T18:14:30.134Z",
-      "expiresAt": "2026-10-14T06:14:30.134Z"
+      "createdAt": "2026-10-12T20:01:56.036Z",
+      "expiresAt": "2026-10-14T08:01:56.036Z"
     },
     {
       "id": "job-2026-10-11",
@@ -83,7 +109,8 @@
         "sha256": "e5e4b1ff45fa30ac126236530b63347a955b17cb0e0f22f2b6aff6f29e136462",
         "durationMs": 22767,
         "width": 1080,
-        "height": 1920
+        "height": 1920,
+        "creativeVariant": "carousel-crossfade-v1"
       },
       "ledgerEntries": [
         {
@@ -91,39 +118,64 @@
           "kind": "job",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_job&utm_content=autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
           "day": "2026-10-11",
-          "views": 12
+          "views": 12,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
           "kind": "job",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/una-un-addetta-o-alla-sicurezza-srg-ssr-lugano/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_job&utm_content=una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
           "day": "2026-10-11",
-          "views": 11
+          "views": 11,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "collaboratore-collaboratrice-servizio-interno-axa-svizzera-chiasso",
           "kind": "job",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/collaboratore-collaboratrice-servizio-interno-axa-svizzera-chiasso/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_job&utm_content=collaboratore-collaboratrice-servizio-interno-axa-svizzera-chiasso",
           "day": "2026-10-11",
-          "views": 10
+          "views": 10,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "collaboratore-confezionamento-crudi-100-rapelli-stabio",
           "kind": "job",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/collaboratore-confezionamento-crudi-100-rapelli-stabio/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_job&utm_content=collaboratore-confezionamento-crudi-100-rapelli-stabio",
           "day": "2026-10-11",
-          "views": 10
+          "views": 10,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         },
         {
           "id": "impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
           "kind": "job",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno/?utm_source=tiktok&utm_medium=social&utm_campaign=tiktok_daily_job&utm_content=impiegata-ii-50-70-presso-la-cancelleria-comunale-locarno",
           "day": "2026-10-11",
-          "views": 10
+          "views": 10,
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
         }
       ],
-      "createdAt": "2026-10-12T18:14:49.353Z",
-      "expiresAt": "2026-10-14T06:14:49.353Z"
+      "createdAt": "2026-10-12T20:02:15.695Z",
+      "expiresAt": "2026-10-14T08:02:15.695Z"
     }
   ]
 }
