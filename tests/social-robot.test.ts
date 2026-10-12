@@ -38,7 +38,7 @@ import {
   pausedUntil,
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
-import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
+import { extractTikTokAuthenticatedUsername, RobotError } from '../scripts/social-robot/lib/flows.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
@@ -721,6 +721,12 @@ describe('runRobot', () => {
 });
 
 describe('robot helpers', () => {
+  it('extracts the authenticated TikTok handle from escaped Studio context', () => {
+    expect(extractTikTokAuthenticatedUsername('&quot;user&quot;:{&quot;uniqueId&quot;:&quot;Frontaliereticino&quot;}')).toBe('frontaliereticino');
+    expect(extractTikTokAuthenticatedUsername('{"user":{"uniqueId":"valerie.linc"}}')).toBe('valerie.linc');
+    expect(extractTikTokAuthenticatedUsername('')).toBe('');
+  });
+
   it('downloads only images from the site CDN', async () => {
     const dir = tempDir();
     const ok = async () => new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });

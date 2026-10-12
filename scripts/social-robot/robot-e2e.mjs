@@ -133,6 +133,7 @@ function tiktokPage({
   lateUnknownOverlay = false,
   prefilledCaption = 'video',
   visibility = 'Tutti',
+  username = 'frontaliereticino',
 } = {}) {
   const cookieShadowMarkup = `
     <style>
@@ -177,6 +178,7 @@ function tiktokPage({
     <div data-e2e="video_visibility_container"><span>Who can view this post</span><button id="visibility" type="button" role="combobox"><span id="visibility-value">${visibility}</span></button><div id="visibility-options" role="listbox" hidden><div role="option">Tutti</div><div role="option">Amici</div><div role="option">Solo io</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
+  <script id="__Creator_Center_Context__" type="application/json">${JSON.stringify({ user: { uniqueId: username } })}</script>
   ${(hasCookieBanner || cookieConfig) ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script>' : ''}
   ${hasCookieBanner ? `<tiktok-cookie-banner id="cookie-banner"${cookieAttributes}></tiktok-cookie-banner>` : ''}
   ${optionalPostCookieBanner ? '<button id="post-now" hidden style="position:fixed;left:30px;bottom:30px;z-index:100">Post now</button>' : ''}
@@ -304,6 +306,7 @@ function fakePlatforms() {
       case '/ig-logged-out/': return send(302, '', 'text/plain', { location: '/accounts/login/' });
       case '/accounts/login/': return send(200, instagramLogin());
       case '/tiktokstudio/upload': return send(200, tiktokPage());
+      case '/tt-wrong-account/tiktokstudio/upload': return send(200, tiktokPage({ username: 'valerie.linc' }));
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
       case '/tt-private/tiktokstudio/upload': return send(200, tiktokPage({ visibility: 'Solo io' }));
       case '/tt-video-only/tiktokstudio/upload': return send(200, tiktokPage({ accept: 'video/*' }));
@@ -351,6 +354,9 @@ async function main() {
   const context = await openProfile({ stateDir, headless: true, launch: executablePath ? { executablePath, kind: 'explicit' } : { kind: 'playwright-default' } });
   const tab = context.pages()[0] || (await context.newPage());
   tab.setDefaultTimeout(1_500);
+  // Browser startup can exceed the short selector timeout on the Mac host;
+  // navigation has its own bounded budget so the local fixture is not flaky.
+  tab.setDefaultNavigationTimeout(30_000);
 
   const run = async (channel, startUrl, { dryRun, label, reel = false, flowTimeouts = timeouts }) => {
     const dir = path.join(work, 'diagnostics', label);
@@ -450,6 +456,10 @@ async function main() {
     check(r.result?.status === 'dry-run', `a remembered private audience is switched to public before publishing (${r.error?.message || 'ok'})`);
     check(await tab.locator('#visibility-value').innerText() === 'Tutti', 'the visibility guard selects the public audience');
     check(state.ttPosts.length === 0, 'the visibility dry run posts nothing');
+
+    r = await run('tiktok', `${base}/tt-wrong-account/tiktokstudio/upload`, { dryRun: true, label: 'tt-wrong-account' });
+    check(r.error?.errorClass === 'account-mismatch' && r.error?.step === 'account', 'the TikTok flow refuses a different authenticated account before upload');
+    check(state.ttPosts.length === 0, 'the wrong-account guard posts nothing');
 
     r = await run('tiktok', `${base}/tt-cookie-config-no-action/tiktokstudio/upload`, { dryRun: true, label: 'tt-cookie-config-no-action' });
     check(r.result?.status === 'dry-run', `a non-actionable cookie config does not block upload (${r.error?.message || 'ok'})`);
