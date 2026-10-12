@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-12T09:35:27.277Z",
+  "assembledAt": "2026-10-12T21:28:29.537Z",
   "jobs": [
     {
       "id": "company-l4ti3x",
@@ -33,7 +33,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Assistente Risorse umane",
@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "human-resources-assistant-supsi-dti-manno",
-        "de": "personalassistent-supsi-dti-manno",
-        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "en": "assistente-risorse-umane-supsi-dti-manno",
+        "de": "assistente-risorse-umane-supsi-dti-manno",
+        "fr": "assistente-risorse-umane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,12 +112,22 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resource-assistant-supsi-dti-manno"
+          "human-resource-assistant-supsi-dti-manno",
+          "human-resources-assistant-supsi-dti-manno"
+        ],
+        "de": [
+          "personalassistent-supsi-dti-manno"
+        ],
+        "fr": [
+          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistente-risorse-umane-supsi-manno",
-        "human-resource-assistant-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno",
+        "human-resources-assistant-supsi-dti-manno",
+        "personalassistent-supsi-dti-manno",
+        "assistant-aux-ressources-humaines-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -154,7 +164,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "it": "Generalista Risorse umane",
@@ -170,9 +180,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalist-human-resources-supsi-dti-lugano",
+        "en": "generalista-risorse-umane-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
+        "fr": "generalista-risorse-umane-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -233,10 +243,18 @@
       "previousSlugsByLocale": {
         "it": [
           "generalista-risorse-umane-supsi-lugano"
+        ],
+        "en": [
+          "generalist-human-resources-supsi-dti-lugano"
+        ],
+        "fr": [
+          "generaliste-ressources-humaines-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
-        "generalista-risorse-umane-supsi-lugano"
+        "generalista-risorse-umane-supsi-lugano",
+        "generalist-human-resources-supsi-dti-lugano",
+        "generaliste-ressources-humaines-supsi-dti-lugano"
       ],
       "datePosted": "",
       "postingDateSource": "unknown",
@@ -272,7 +290,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "fr": "PhD / PhD en informatique (Interaction homme-ordinateur), avec l'accent sur la validité et la facilité d'utilisation des outils d'annotation semi-automatisés pour les contextes cliniques et thérapeutiques",
@@ -407,7 +425,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Ricercatore Senior in Intelligenza Artificiale Affidabile",
@@ -417,7 +435,7 @@
       },
       "descriptionByLocale": {
         "it": "# Ricercatore Senior in Intelligenza Artificiale Affidabile\n\nLa Scuola universitaria professionale della Svizzera Italiana (SUPSI) mette a concorso una posizione come\n\n## Ricercatrice / Ricercatore Senior in Intelligenza Artificiale Affidabile\n, presso l\n\n## ’Istituto Dalle Molle di studi sull’intelligenza artificiale (IDSIA USI-SUPSI)\ndel Dipartimento tecnologie innovative (DTI) con sede Lugano. Grado d’occupazione del 50%. Entrata in servizio 1° gennaio 2027 o data da convenire.\n\n## Mansioni\n- Sviluppare una linea di ricerca indipendente, teorica e applicata, negli ambiti delle probabilità imprecise, dei circuiti probabilistici, dei modelli grafici e della complessità computazionale dei modelli di IA.\n- Collaborare in team di ricerca e sviluppo per l’esecuzione di progetti industriali.\n- Supervisionare o co-supervisionare personale scientifico.\n- Partecipare e/o co-dirigere progetti di ricerca.\n- Contribuire allo sviluppo di proposte per l’acquisizione di finanziamenti.\n- Redigere o co-redigere articoli scientifici e rapporti interni.\n- Presentare il proprio lavoro a conferenze e partner di progetto.\n\n## Requisiti\n- PhD in Informatica, Ingegneria o discipline quantitative.\n- Eccellente preparazione teorica in informatica, machine learning probabilistico e IA.\n- Solide competenze di programmazione in C/C++, Python e R.\n- Eccellente curriculum di pubblicazioni scientifiche.\n- Comprovata esperienza nell’acquisizione di fondi e partecipazione a progetti.\n- Esperienza nella supervisione di studenti Bachelor, Master e PhD.\n- Ottima conoscenza dell’inglese scritto e parlato.\n\nRequisiti preferenziali\n- Buona conoscenza dell’italiano scritto e parlato.\n- Buone capacità organizzative e autonomia.\n- Capacità di lavorare in team e nel dialogo scientifico.\n- Forte motivazione per il raggiungimento di obiettivi e scadenze.\n- Elevata motivazione alla ricerca e alla pubblicazione.\n- Esperienza nella direzione di gruppi di ricerca costituisce un vantaggio.\n\n## Cosa offriamo\n- Un contratto determinato di due anni, con possibilità di rinnovo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza della/del candidata/o.\n- Ambiente lavorativo internazionale.\n- Partecipazione a conferenze e workshop di alto profilo.\n- Opportunità di sviluppare competenze professionali e scientifiche.\n- Co-supervisione di dottorandi e studenti.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15.10.2026\ntramite il formulario di candidatura dedicato, corredate da:\n- Curriculum vitae con lista delle pubblicazioni e link alla tesi di Dottorato.\n- Lettera di motivazione che includa anche una breve descrizione dell’esperienza (1 pagina).\n- Copia di almeno tre articoli scientifici pubblicati su riviste internazionali o su atti di convegni internazionali inerenti al bando.\n- Lista di tre referenze (con indirizzi e-mail).\n\nPer ulteriori informazioni è possibile rivolgersi a\nProf. Dr. Marco Zaffalon\n. Non saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
-        "en": "# Senior Researcher in Reliable Artificial Intelligence\n\nThe Professional University School of Italian Switzerland (SUPSI) puts in competition a position as\n\n## Researcher / Senior Researcher in Reliable Artificial Intelligence\n, at l\n\n## ’ Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\nof the Department of Innovative Technologies (DTI) with headquarters Lugano. Employment rate of 50%. Entry into service 1 January 2027 or date to be agreed.\n\n## Shipments\n- Develop an independent, theoretical and applied research line in the fields of imprecise probability, probability circuits, graphic models and computational complexity of IA models.\n- Collaboration in research and development teams for the execution of industrial projects.\n- Supervision or co-supervision scientific personnel.\n- Participate and/or co-direct research projects.\n- To contribute to the development of proposals for the acquisition of funding.\n- Draft or co-redesign scientific articles and internal relations.\n- Present your work at conferences and project partners.\n\n## Requirements\n- PhD in Computer Science, Engineering or Quantitative disciplines.\n- Excellent theoretical preparation in computer science, probability machine learning and IA.\n- Solid programming skills in C/C++, Python and R.\n- Excellent curriculum of scientific publications.\n- Experience acquired funds and participation in projects.\n- Experience in the supervision of Bachelor, Master and PhD students.\n- Excellent knowledge of written and spoken English.\n\nPreferential requirements\n- Good knowledge of Italian written and spoken.\n- Good organizational capacity and autonomy.\n- Ability to work in teams and in scientific dialogue.\n- Strong motivation for achieving goals and deadlines.\n- High motivation for research and publication.\n- Experience in the direction of research groups is an advantage.\n\n## What we offer\n- A contract of two years, with possibility of renewal.\n- Competitive room, in line with Swiss standards and the experience of the candidate/or.\n- International working environment.\n- Participation in high-profile conferences and workshops.\n- Opportunities to develop professional and scientific skills.\n- Co-supervision of PhDs and Students.\n\n## We value diversity\nIn all its activities, SUPSI guarantees an inclusive study and work environment, accessible and respectful of every diversity, with the aim of offering everyone a high quality university education.\n\n## Application\nOnly applications submitted within the\n\n## 15.10.2026\nthrough the application form, accompanied by:\n- Curriculum vitae with list of publications and links to the thesis of PhD.\n- Letter of motivation that also includes a brief description of the experience (1 page).\n- Copy of at least three scientific articles published in international journals or international conventions related to the call.\n- List of three references (with e-mail addresses).\n\nFor further information, please contact:\nProf. Dr. Marco Zaffalon\n. Incomplete applications will not be accepted, sent to different addresses or beyond the agreed deadline. In addition to the documents required for the online application, integration may be necessary with additional documentation, such as the judicial box or a copy of an identity document.",
+        "en": "# Senior Researcher in Trustworthy Artificial Intelligence\n\nThe University of Applied Sciences and Arts of Southern Switzerland (SUPSI) invites applications for a\n, at the\n\n## Dalle Molle Institute for Artificial Intelligence (IDSIA USI-SUPSI)\nwithin the Department of Innovative Technologies (DTI), located in Lugano. The degree of employment is 50%, with a contract starting on 01.01.2027, or on a mutually agreed date.\n\n## Duties and responsibilities\n- Pursue independent research agenda in theory and applications in the areas of imprecise probabilities, probabilistic circuits, graphical models, computational complexity of AI models.\n- Cooperate in R&D teams to execute projects related to industry. Strong collaboration with software engineers, researchers and industry partners.\n- (Co-)supervise scientific personnel.\n- Participate in and/or (co-)lead research projects.\n- Participate in developing proposals towards (research) grant acquisition.\n- (Co-)write scientific papers (i.e., both conference and journal articles) and internal reports.\n- Present work to a wide audience (e.g., conferences, project partners review meetings).\n\n## Requirements\nEssential\n- PhD in Computer Science, Engineering, Informatics, or other quantitative fields.\n- Excellent theoretical background in computer science and probabilistic machine learning and AI, including probabilistic graphical models and imprecise probability.\n- Strong programming skills in C/C++, python, R.\n- Strong publication record of scientific papers in highly respectable venues in machine learning and AI.\n- Substantial track-record of grant acquisition and project participation.\n- Prior supervision of bachelor, master, and PhD candidates until successful completion.\n- Proficiency in written and spoken English.\n\nDesirable\n- Good working knowledge of written and spoken Italian.\n- Good organizational skills, ability to work independently and to plan and direct own work.\n- Ability to work in a team and with colleagues and other members of the Institute, engage in scientific dialogue.\n- Strong motivation and commitment to fulfill research activities, milestones, and deadlines.\n- High motivation and commitment with a strong desire for research and publishing at top conferences and journals.\n- Past leadership of a research group is a plus.\n\n## What SUPSI Offers\n- Two-years fixed-term contract, with possibility of renewal.\n- Workplace at IDSIA USI-SUPSI in the new campus in Lugano (Switzerland).\n- An international working environment.\n- Attractive salary in line with Swiss standards and the experience of the candidate.\n- Covering the costs of participation in high-profile conferences.\n\n## Our Commitment\nSUPSI believes that the future is shaped by diverse perspectives, unique experiences, and a culture that is equitable, inclusive, and respectful of differences.\n\n## Application Process\nApplications will only be considered if submitted electronically by\n\n## 15.10.2026\n, through the dedicated application form (email submissions will be ignored). The following documents, written in English, must be included:\n- Curriculum vitae and publications list\n- Name and e-mail address of two reference contacts\n- A motivation letter, including a brief description of past research experience and future interests\n\nFor further information, please contact\nProf. Dr. Marco Zaffalon\n. Incomplete applications, those submitted to incorrect addresses, or those received after the deadline will not be considered. In addition to the required application documents, further documentation (such as a criminal record certificate or a copy of an identity document) may be requested at a later stage.",
         "de": "# Senior Researcher für zuverlässige künstliche Intelligenz\n\nDie Professional University School of Italian Switzerland (SUPSI) stellt im Wettbewerb eine Position als\n\n## Forscher / Senior Researcher in zuverlässiger künstlicher Intelligenz\n, bei l\n\n## ’ Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\nder Abteilung für Innovative Technologien (DTI) mit Sitz in Lugano. Beschäftigungsquote von 50 %. Inbetriebnahme 1. Januar 2027 oder noch zu vereinbarendes Datum.\n\n## Sendungen\n- Entwicklung einer unabhängigen, theoretischen und angewandten Forschungslinie in den Bereichen ungenaue Wahrscheinlichkeit, Wahrscheinlichkeitsschaltungen, grafische Modelle und rechnerische Komplexität von IA-Modellen.\n- Zusammenarbeit in Forschungs- und Entwicklungsteams zur Durchführung von Industrieprojekten.\n- Beaufsichtigung oder Mitaufsicht des wissenschaftlichen Personals.\n- Beteiligen Sie sich an und / oder Co-Direkt-Forschungsprojekten.\n- Beitrag zur Entwicklung von Vorschlägen für den Erwerb von Finanzmitteln.\n- Entwurf oder Mitgestaltung wissenschaftlicher Artikel und interner Beziehungen.\n- Präsentieren Sie Ihre Arbeit auf Konferenzen und Projektpartnern.\n\n## Anforderungen\n- PhD in Informatik, Engineering oder Quantitative Disziplinen.\n- Hervorragende theoretische Vorbereitung in der Informatik, Wahrscheinlichkeit Machine Learning und IA.\n- Solide Programmierkenntnisse in C/C++, Python und R.\n- Ausgezeichneter Lehrplan für wissenschaftliche Publikationen.\n- Erfahrung erworbene Mittel und Teilnahme an Projekten.\n- Erfahrung in der Betreuung von Bachelor-, Master- und Doktoranden.\n- Ausgezeichnete Kenntnisse des geschriebenen und gesprochenen Englisch.\n\nBevorzugte Anforderungen\n- Gute Kenntnisse des Italienischen geschrieben und gesprochen.\n- Gute Organisationsfähigkeit und Autonomie.\n- Fähigkeit, in Teams und im wissenschaftlichen Dialog zu arbeiten.\n- Starke Motivation, Ziele und Fristen zu erreichen.\n- Hohe Motivation für Forschung und Publikation.\n- Erfahrung in Richtung Forschungsgruppen ist von Vorteil.\n\n## Was wir anbieten\n- Ein Vertrag von zwei Jahren, mit der Möglichkeit der Verlängerung.\n- Wettbewerbsraum, im Einklang mit Schweizer Standards und der Erfahrung des Kandidaten / oder.\n- Internationales Arbeitsumfeld.\n- Teilnahme an hochkarätigen Konferenzen und Workshops.\n- Möglichkeiten, berufliche und wissenschaftliche Fähigkeiten zu entwickeln.\n- Co-Supervision von PhDs und Studenten.\n\n## Wir legen Wert auf Vielfalt\nIn all seinen Aktivitäten garantiert SUPSI ein inklusives Studien- und Arbeitsumfeld, zugänglich und respektvoll gegenüber jeder Vielfalt, mit dem Ziel, jedem eine qualitativ hochwertige Hochschulausbildung zu bieten.\n\n## Antragstellung\nNur Anträge, die innerhalb des\n\n## 15.10.2026\ndurch das Antragsformular zusammen mit:\n- Lebenslauf mit Publikationsliste und Links zur Doktorarbeit.\n- Motivationsschreiben, das auch eine kurze Beschreibung der Erfahrung (1 Seite) enthält.\n- Kopie von mindestens drei wissenschaftlichen Artikeln, die in internationalen Fachzeitschriften oder internationalen Übereinkommen im Zusammenhang mit dem Aufruf veröffentlicht wurden.\n- Liste von drei Referenzen (mit E-Mail-Adressen).\n\nFür weitere Informationen kontaktieren Sie bitte:\nProf. Dr. Marco Zaffalon\nUnvollständige Anträge werden nicht angenommen, an verschiedene Adressen oder über die vereinbarte Frist hinaus gesendet. Zusätzlich zu den für die Online-Bewerbung erforderlichen Dokumenten kann eine Integration mit zusätzlichen Unterlagen wie der Gerichtsbox oder einer Kopie eines Ausweises erforderlich sein.",
         "fr": "# Chercheur principal en intelligence artificielle fiable\n\nL'Ecole Universitaire Professionnelle de Suisse Italienne (SUPSI) met en compétition un poste comme\n\n## Chercheur / Chercheur principal en intelligence artificielle fiable\n, à l\n\n## Istituto Dalle Molle di studi su AI (IDSIA USI-SUPSI)\ndu Département des technologies innovantes (DTI) avec siège de Lugano. Taux d'emploi de 50 %. Entrée en vigueur 1er janvier 2027 ou date à convenir.\n\n## Expéditions\n- Développer une ligne de recherche indépendante, théorique et appliquée dans les domaines de la probabilité imprécise, des circuits de probabilité, des modèles graphiques et de la complexité informatique des modèles IA.\n- Collaboration en équipes de recherche et développement pour la réalisation de projets industriels.\n- Supervision ou co-surveillance du personnel scientifique.\n- Participer ou codiriger des projets de recherche.\n- Contribuer à l'élaboration de propositions d'acquisition de financement.\n- Projet ou co-conception d'articles scientifiques et de relations internes.\n- Présentez votre travail lors de conférences et de projets partenaires.\n\n## Exigences\n- Doctorat en informatique, génie ou disciplines quantitatives.\n- Excellente préparation théorique en informatique, apprentissage par machine de probabilité et IA.\n- Compétences de programmation solides en C/C++, Python et R.\n- Excellent programme de publications scientifiques.\n- Expérience acquise et participation à des projets.\n- Expérience dans la supervision des étudiants de baccalauréat, de maîtrise et de doctorat.\n- Excellente connaissance de l'anglais écrit et parlé.\n\nExigences préférentielles\n- Bonne connaissance de l'italien écrite et parlée.\n- Bonne capacité organisationnelle et autonomie.\n- Capacité de travailler en équipe et dans le dialogue scientifique.\n- Une forte motivation pour atteindre les objectifs et les échéances.\n- Une forte motivation pour la recherche et la publication.\n- L'expérience dans la direction des groupes de recherche est un avantage.\n\n## Ce que nous offrons\n- Un contrat de deux ans, avec possibilité de renouvellement.\n- Salle compétitive, conforme aux normes suisses et à l'expérience du candidat/ou candidat.\n- Environnement de travail international.\n- Participation à des conférences et ateliers de haut niveau.\n- Possibilités de développer des compétences professionnelles et scientifiques.\n- Co-supervision des doctorats et des étudiants.\n\n## Nous apprécions la diversité\nDans toutes ses activités, SUPSI garantit un environnement d'étude et de travail inclusif, accessible et respectueux de toute diversité, dans le but d'offrir à chacun une éducation universitaire de haute qualité.\n\n## Demande\nSeules les demandes présentées dans le cadre de\n\n## 15.10.2026\nau moyen du formulaire de demande, accompagné:\n- Curriculum vitae avec liste de publications et liens vers la thèse de doctorat.\n- Lettre de motivation qui comprend également une brève description de l'expérience (1 page).\n- Copie d'au moins trois articles scientifiques publiés dans des revues internationales ou des conventions internationales liées à l'appel.\n- Liste de trois références (avec adresses électroniques).\n\nPour de plus amples informations, veuillez contacter:\nProfesseur Dr Marco Zaffalon\n. Les demandes incomplètes ne seront pas acceptées, envoyées à différentes adresses ou au-delà de la date limite convenue. En plus des documents requis pour la demande en ligne, l'intégration peut être nécessaire avec des documents supplémentaires, tels que la boîte judiciaire ou une copie d'un document d'identité."
       },
@@ -425,7 +443,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -517,13 +535,18 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
+        ],
+        "fr": [
+          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
+        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4sv3h",
@@ -562,7 +585,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
@@ -703,7 +726,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -838,7 +861,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -854,9 +877,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -899,7 +922,23 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "stagist-52-weeks-supsi-dti-manno",
+        "stagist-52-wochen-supsi-dti-manno",
+        "stagiaire-52-semaines-supsi-dti-manno"
+      ]
     },
     {
       "id": "company-l4ti3w",
@@ -937,13 +976,13 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-12T09:35:11.654Z",
+      "crawledAt": "2026-10-12T21:28:17.703Z",
       "firstSeenAt": "2026-10-06T09:37:44.141Z",
       "slugByLocale": {
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
+        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Année préformative pour l'admission au baccalauréat en sciences en durabilité et transition systémique",
@@ -1011,6 +1050,9 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
+        ],
+        "fr": [
+          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
