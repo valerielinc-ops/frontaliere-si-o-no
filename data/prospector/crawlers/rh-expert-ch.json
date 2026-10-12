@@ -8,16 +8,11 @@
     "https://rh-expert.ch/fr/offres-demploi"
   ],
   "detailTemplate": "/fr/offres-demploi/*",
+  "listingCandidateText": "commis de salle",
   "detailEnrichment": true,
-  "detailFetchWorkers": 4,
-  "sampleVacancyCount": 5,
-  "sampleTitles": [
-    "En savoir plus",
-    "En savoir plus",
-    "En savoir plus",
-    "En savoir plus",
-    "En savoir plus"
-  ],
+  "detailFetchWorkers": 1,
+  "sampleVacancyCount": 1,
+  "sampleTitles": ["Commis de salle"],
   "canton": "GE",
   "sourceLang": "fr",
   "learnedAt": "2026-10-01T11:41:49.013Z"
