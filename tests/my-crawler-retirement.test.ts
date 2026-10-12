@@ -9,29 +9,28 @@ const readJson = <T>(relativePath: string): T =>
   JSON.parse(readFileSync(resolve(ROOT, relativePath), 'utf8')) as T;
 
 // Issue 5253: `my` was keyed on the host label of my.jobalino.ch, shared by
-// six prospector candidates. Promoted for «Bellevue Parkhotel & Spa», its spec
-// was overwritten by another candidate and the crawler published Fanzun AG's
-// «Initiativbewerbung» (not a vacancy) under the Bellevue name.
-describe('retired crawler my', () => {
-  it('cannot be scheduled any more', () => {
+// six prospector candidates. The dedicated Teo Jakob parser now owns the key;
+// the old Bellevue/Fanzun records remain covered by the soft-landing test below.
+describe('active crawler my', () => {
+  it('is scheduled with its dedicated parser', () => {
     const manifest = readJson<{ manifest: Array<{ slug: string }> }>('data/crawler-manifest.json');
     const assignments = readJson<{ groups: string[][] }>('data/crawler-group-assignments.json');
     const roster = readJson<{ groups: Record<string, string[]>; primarySlices: Record<string, string> }>(
       'scripts/ci/crawler-generation-roster.json',
     );
-    expect(manifest.manifest.some(({ slug }) => slug === 'my')).toBe(false);
-    expect(assignments.groups.flat()).not.toContain('my');
-    expect(Object.values(roster.groups).flat()).not.toContain('my');
-    expect(roster.primarySlices).not.toHaveProperty('my');
+    expect(manifest.manifest.some(({ slug }) => slug === 'my')).toBe(true);
+    expect(assignments.groups.flat()).toContain('my');
+    expect(Object.values(roster.groups).flat()).toContain('my');
+    expect(roster.primarySlices).toHaveProperty('my');
     for (const relativePath of ['scripts/lib/my-job-parser.mjs', 'scripts/update-my-jobs.mjs']) {
-      expect(existsSync(resolve(ROOT, relativePath)), relativePath).toBe(false);
+      expect(existsSync(resolve(ROOT, relativePath)), relativePath).toBe(true);
     }
     for (const relativePath of [
-      '.github/workflows/crawler-group-15.yml',
-      '.github/workflows/crawler-group-15-logic.yml',
-      '.github/corpus-workflows/crawler-group-15.yml',
+      '.github/workflows/crawler-group-23.yml',
+      '.github/workflows/crawler-group-23-logic.yml',
+      '.github/corpus-workflows/crawler-group-23.yml',
     ]) {
-      expect(readFileSync(resolve(ROOT, relativePath), 'utf8')).not.toContain('update-my-jobs');
+      expect(readFileSync(resolve(ROOT, relativePath), 'utf8')).toContain('update-my-jobs');
     }
   });
 
