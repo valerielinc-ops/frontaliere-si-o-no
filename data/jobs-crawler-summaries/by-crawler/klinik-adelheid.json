@@ -1,7 +1,7 @@
 {
   "key": "klinik-adelheid",
   "label": "Klinik Adelheid",
-  "generatedAt": "2026-10-12T09:25:47.545Z",
+  "generatedAt": "2026-10-12T21:26:19.835Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6965,
-  "avgDurationMs": 6965,
+  "durationMs": 6315,
+  "avgDurationMs": 6315,
   "durationHistory": [
-    6965
+    6315
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.klinik-adelheid.ch/job/zivildienstleistende-im-pflege-und-therapiebereich-39/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:33.823Z",
+      "crawledAt": "2026-10-12T21:26:08.013Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://www.klinik-adelheid.ch/job/studium-zur-dipl-pflegefachperson-hf-4/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:33.382Z",
+      "crawledAt": "2026-10-12T21:26:07.591Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.klinik-adelheid.ch/job/dipl-pflegefachfrau-mann-hf-60-100-46/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:32.512Z",
+      "crawledAt": "2026-10-12T21:26:06.750Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://www.klinik-adelheid.ch/job/lernende-n-als-koechin-koch-efz-3/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:34.256Z",
+      "crawledAt": "2026-10-12T21:26:08.430Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.klinik-adelheid.ch/job/fachfrau-mann-gesundheit-efz-80-100-5/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:32.949Z",
+      "crawledAt": "2026-10-12T21:26:07.168Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://www.klinik-adelheid.ch/job/servicefachangestellte-r-80-100-1/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:32.072Z",
+      "crawledAt": "2026-10-12T21:26:06.333Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://www.klinik-adelheid.ch/job/mitarbeiter-in-bettendisposition-80-100-50/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:31.637Z",
+      "crawledAt": "2026-10-12T21:26:05.913Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "url": "https://www.klinik-adelheid.ch/job/arztsekretaer-in-med-praxisassistent-in-20-40-57/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:31.201Z",
+      "crawledAt": "2026-10-12T21:26:05.488Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -372,7 +372,7 @@
       "url": "https://www.klinik-adelheid.ch/job/chefarztsekretaer-in-80-100-47/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:25:30.766Z",
+      "crawledAt": "2026-10-12T21:26:05.065Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -402,5 +402,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
