@@ -103,6 +103,7 @@ export function loadEventImageLibrary(filePath = EVENT_IMAGE_LIBRARY_PATH) {
   }
 }
 import { applyDescriptionRewrite, loadEventDescriptionRewriteCache, sanitizeEventForPublication } from './lib/event-description-policy.mjs';
+import { applyEditorialOverride, loadEditorialOverrides } from './lib/event-editorial-overrides.mjs';
 
 function readSlices(sliceDir = EVENTS_SLICE_DIR) {
   if (!existsSync(sliceDir)) return [];
@@ -739,6 +740,7 @@ export function assemble({
   datasetPath = EVENTS_DATASET_PATH,
   rewriteCachePath = path.join(path.dirname(datasetPath), 'events-description-rewrites.json'),
 } = {}) {
+  const editorialOverrides = loadEditorialOverrides(path.join(path.dirname(datasetPath), 'event-editorial-overrides.json'));
   const priorDataset = loadEventsDataset(datasetPath);
   const priorEvents = priorDataset.events.map(sanitizeEventForPublication);
   const priorById = new Map(priorEvents.map((event) => [event.id, event]));
@@ -753,7 +755,10 @@ export function assemble({
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
     for (const rawEvent of slice.events) {
       if (!rawEvent || !rawEvent.id || !rawEvent.startDate || !rawEvent.title) continue;
-      const ev = sanitizeEventForPublication(stripUnauthorizedEventImage(rawEvent));
+      const ev = applyEditorialOverride(
+        sanitizeEventForPublication(stripUnauthorizedEventImage(rawEvent)),
+        editorialOverrides,
+      );
       // Eventfrog & co. (scripts/lib/private-event-sources.mjs): a record of a
       // private source must never reach data/events.json or its public copy,
       // which the corpus republishes as an open API (AGB §17(3)).
@@ -797,7 +802,12 @@ export function assemble({
     }]);
   });
 
-  const eventsWithRewrites = withHistory.map((event) => applyDescriptionRewrite(event, rewriteCache));
+  // Apply once more after the rewrite cache: a reviewed artist correction is
+  // authoritative for public copy and must not be replaced by an older AI
+  // rewrite whose source hash still matches the crawled record.
+  const eventsWithRewrites = withHistory
+    .map((event) => applyDescriptionRewrite(event, rewriteCache))
+    .map((event) => applyEditorialOverride(event, editorialOverrides));
   const rewrittenDescriptions = eventsWithRewrites.filter((event) => event.description).length;
   const events = eventsWithRewrites.sort(
     (a, b) =>
