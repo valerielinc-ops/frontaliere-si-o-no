@@ -7,8 +7,9 @@
  * mirror https://careers.tether.io/api/offers if the legacy host fails.
  * Careers page: https://tether.recruitee.com/planb
  *
- * Tether is registered in Lugano, TI but all positions are remote.
- * We include ALL offers (no Swiss location filtering) per user request.
+ * Tether is registered in Lugano, TI but the Recruitee board also exposes
+ * worldwide offers. The Swiss slice keeps only offers with source-backed Swiss
+ * location evidence; foreign and unresolved offers are quarantined.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllTetherJobs()  — Fetch and parse all jobs
@@ -18,13 +19,13 @@
  */
 import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { findSwissRecruiteeLocation } from './recruitee-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -234,40 +235,27 @@ export async function fetchAllTetherJobs() {
     const combinedHtml = combineDescriptionSections(offer);
     const descriptionText = stripHtml(combinedHtml || offer.description || '');
 
-    // Extract location — remote company, default to Lugano HQ
-    const firstLoc = offer.locations?.[0] || {};
-    const rawCity = normalizeSpace(firstLoc.city || '');
-    const city = rawCity || HQ.city;
+    // Extract a source-backed Swiss location. A multi-location offer is kept
+    // when any one of its locations is Swiss; foreign-only/ambiguous offers
+    // remain quarantined instead of inheriting the Lugano HQ.
+    const firstLoc = findSwissRecruiteeLocation(offer.locations);
+    if (!firstLoc) {
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${title}`);
+      continue;
+    }
+    const city = normalizeSpace(firstLoc.city);
     const sourceState = normalizeSpace(firstLoc.state || '');
-    const state = sourceState || 'Ticino';
-    const location = `${city}, ${state}`;
+    const state = sourceState;
+    const location = state ? `${city}, ${state}` : city;
 
-    // Location classification: BFS Swiss municipalities → foreign keyword check → Nominatim
+    // The country gate above is source-backed; infer a canton only from the
+    // selected Swiss location and never use the company HQ as a country proof.
     const inferredCanton = inferCantonFromJobEvidence({
       cityText: city,
       locationText: sourceState ? location : city,
     });
-    let isForeignCity = false;
-    if (!inferredCanton && rawCity) {
-      // City provided but not in any Swiss canton — check if it's foreign
-      isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
-      if (!isForeignCity && !isKnownSwissMunicipality(city)) {
-        // Not in BFS data and not in static foreign list — verify via Nominatim
-        const countryCode = await geocodeCountry(city);
-        if (countryCode && countryCode !== 'ch') {
-          isForeignCity = true;
-          console.log(`  🌍 ${city} → ${countryCode.toUpperCase()} (verified via geocoding)`);
-        } else if (!countryCode) {
-          // Nominatim failed — if not in BFS, assume foreign (safe default for remote company)
-          isForeignCity = true;
-          console.log(`  ⚠️ ${city} → unknown country, treating as foreign`);
-        }
-        // Rate limit: 1 req/sec for Nominatim
-        await new Promise((r) => setTimeout(r, 1100));
-      }
-    }
-    const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
-    const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
+    const jobCanton = inferredCanton;
+    const jobRegion = inferredCanton || sourceState;
 
     // Work model — Tether is remote-first
     let workModel = 'remote';
@@ -316,9 +304,9 @@ export async function fetchAllTetherJobs() {
       // ── Recommended fields ──
       addressLocality: city,
       addressRegion: jobRegion,
-      addressCountry: isForeignCity ? '' : 'CH',
+      addressCountry: 'CH',
       postalCode: inferredCanton ? HQ.postalCode : '',
-      country: isForeignCity ? '' : 'CH',
+      country: 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',
       employmentType,

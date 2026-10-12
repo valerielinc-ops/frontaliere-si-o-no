@@ -1,11 +1,23 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BITFINEX_KEY,
   BITFINEX_COMPANY_NAME,
+  fetchAllBitfinexJobs,
   isBitfinexJob,
   isTrustedDomain,
 } from '../scripts/lib/bitfinex-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const sourceText = 'Engineering teams design reliable systems and maintain high quality through planning testing documentation and collaboration with colleagues and customers. '.repeat(5);
+const offer = (location: Record<string, unknown>, slug = 'systems-engineer') => ({
+  id: slug,
+  slug,
+  title: 'Systems Engineer',
+  description: `<p>${sourceText}</p>`,
+  locations: [location],
+});
+const response = (offers: unknown[]) => new Response(JSON.stringify({ offers }), { headers: { 'Content-Type': 'application/json' } });
+afterEach(() => vi.unstubAllGlobals());
 
 describe('Bitfinex crawler parser', () => {
   // ── Constants ──
@@ -77,6 +89,28 @@ describe('Bitfinex crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  describe('source-backed Swiss location gate', () => {
+    it('quarantines foreign and unresolved offers instead of assigning the Lugano HQ', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'foreign'),
+        offer({ city: 'Remote', state: 'Worldwide' }, 'unresolved'),
+      ])));
+
+      await expect(fetchAllBitfinexJobs()).resolves.toEqual([]);
+    });
+
+    it('keeps a source-backed Swiss offer and emits CH fields', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Lugano', state: 'Ticino', country: 'Switzerland', country_code: 'CH' }),
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'foreign'),
+      ])));
+
+      const jobs = await fetchAllBitfinexJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ location: 'Lugano, Ticino', addressCountry: 'CH', country: 'CH', canton: 'TI' });
     });
   });
 
