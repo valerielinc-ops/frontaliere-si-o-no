@@ -1,7 +1,7 @@
 {
   "key": "barry-callebaut",
   "label": "Barry Callebaut",
-  "generatedAt": "2026-10-12T09:28:16.121Z",
+  "generatedAt": "2026-10-12T21:41:45.493Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4068,
-  "avgDurationMs": 4068,
+  "durationMs": 3810,
+  "avgDurationMs": 3810,
   "durationHistory": [
-    4068
+    3810
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:27:59.699Z",
+      "crawledAt": "2026-10-12T21:41:26.100Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Trader-8005/1435276200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:27:59.697Z",
+      "crawledAt": "2026-10-12T21:41:26.098Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,7 +119,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:27:59.693Z",
+      "crawledAt": "2026-10-12T21:41:26.090Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -164,7 +164,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:27:59.695Z",
+      "crawledAt": "2026-10-12T21:41:26.096Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,7 +205,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Global-Accounts-Lead%2C-Sustainability-8005/1437631600/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:27:59.683Z",
+      "crawledAt": "2026-10-12T21:41:26.084Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
