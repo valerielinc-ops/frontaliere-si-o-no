@@ -103,12 +103,12 @@
     },
     {
       "id": "msc-cargo-366420ad6a7c",
-      "slug": "hr-director-msc-geneva",
+      "slug": "risorse-umane-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-director-msc-geneva",
-        "it": "hr-director-msc-geneva",
-        "de": "hr-director-msc-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "it": "risorse-umane-direttore-msc-group-geneva",
+        "de": "personalwesen-direktor-msc-group-geneva",
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -170,22 +170,21 @@
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-direttore-msc-group-geneva",
-          "directeur-rh-msc-group-geneva"
+          "directeur-rh-msc-group-geneva",
+          "hr-director-msc-geneva"
         ],
         "de": [
-          "personalwesen-direktor-msc-group-geneva"
+          "hr-director-msc-geneva"
         ],
         "fr": [
-          "directeur-des-ressources-humaines-msc-group-geneva",
-          "directeur-rh-msc-group-geneva"
+          "directeur-rh-msc-group-geneva",
+          "hr-director-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-direttore-msc-group-geneva",
-        "personalwesen-direktor-msc-group-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva",
-        "directeur-rh-msc-group-geneva"
+        "directeur-rh-msc-group-geneva",
+        "hr-director-msc-geneva",
+        "hr-director-msc-group-geneva"
       ]
     },
     {
@@ -750,7 +749,7 @@
           "social-media-specialist-indipendente-contraente-freelance-msc-group-geneva"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-04T21:27:37.326Z",
       "salaryMin": 61500,
       "salaryMax": 109000,
@@ -954,7 +953,7 @@
         "en": "visual-merchandising-manager-msc-geneva",
         "it": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
-        "fr": "visual-merchandising-manager-msc-geneva"
+        "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1016,7 +1015,6 @@
       "firstSeenAt": "2026-10-04T09:20:23.745Z",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
           "responsable-merchandising-visuel-msc-group-geneva"
         ],
         "it": [
@@ -1350,7 +1348,6 @@
         ]
       },
       "firstSeenAt": "2026-10-02T09:22:10.041Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",

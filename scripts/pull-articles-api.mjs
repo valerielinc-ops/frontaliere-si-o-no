@@ -31,9 +31,11 @@
  * Consistency with the corpus pull — see scripts/lib/articles-sync-pin.mjs. The
  * sitemaps this writes and the slug registry pull-articles-corpus.mjs writes are
  * committed together, so they must describe the SAME upstream state. The two
- * agree on `manifest.json`'s `commit` field; if the surface moves between the two
- * reads, this script skips (exit 0, nothing written) rather than commit a pair
- * that disagrees. `ARTICLES_SYNC_COMMIT` carries the pin between the steps.
+ * agree on `manifest.json`'s `commit` field. The manifest is checked both before
+ * and after the complete staged artifact batch; if the surface moves during
+ * either window, this script skips (exit 0, nothing written) rather than commit
+ * a pair that disagrees. The workflow retries both pulls as one bounded unit.
+ * `ARTICLES_SYNC_COMMIT` carries the pin between the steps.
  *
  * Usage:
  *   node scripts/pull-articles-api.mjs                 # write public/
@@ -47,7 +49,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
-  GENERATED_IMAGE_LICENSE,
   validateGeneratedImageRecord,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
@@ -490,15 +491,14 @@ if (!credits || credits.schema !== 1 || credits.section !== 'blog'
   fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
-  const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
-  const generatedLicenseMismatch = record?.license !== GENERATED_IMAGE_LICENSE;
+  const validation = validateGeneratedImageRecord(record);
+  const wrongScope = record?.scope !== 'article-hero';
   const imageUrlMismatch = record?.imageUrl !== imageUrl;
-  if (generatedLicenseMismatch || imageUrlMismatch || !validation.valid) {
-    const contractMismatch = generatedLicenseMismatch
-      ? 'license does not identify generated evidence'
-      : 'imageUrl does not match the record key';
-    fail(`${BLOG_CREDITS_ARTIFACT} has invalid generated evidence for ${imageUrl}: `
-      + (validation.errors.join('; ') || contractMismatch));
+  const errors = [...validation.errors];
+  if (wrongScope) errors.push('scope is not article-hero');
+  if (imageUrlMismatch) errors.push('imageUrl does not match the record key');
+  if (errors.length > 0) {
+    fail(`${BLOG_CREDITS_ARTIFACT} has invalid article image evidence for ${imageUrl}: ${errors.join('; ')}`);
   }
 }
 staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
@@ -506,7 +506,7 @@ staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
   commit: credits.commit,
   generated: credits.generated,
 }, null, 2)}\n`);
-log(`${BLOG_CREDITS_ARTIFACT}: validated ${Object.keys(credits.generated).length} generated cover records`);
+log(`${BLOG_CREDITS_ARTIFACT}: validated ${Object.keys(credits.generated).length} article image evidence records`);
 
 for (const name of SITEMAPS) {
   let xml;
@@ -993,6 +993,22 @@ for (const name of FEEDS) {
       }
     }
   }
+}
+
+// A static deployment can advance while this script is reading its many HTTP
+// artifacts. Re-read the release token after the entire staged batch has been
+// validated; if it changed, discard the batch so the caller can retry against
+// one coherent manifest. Nothing has been written yet.
+let finalManifest;
+try {
+  finalManifest = JSON.parse(await get('manifest.json'));
+} catch (err) {
+  fail(`final manifest unavailable after artifact fetch, keeping the committed copy: ${err.message}`);
+}
+const finalPin = pinVerdict({ pinned: manifest.commit, manifestCommit: finalManifest.commit });
+if (!finalPin.ok) {
+  emitSkip('pull-articles-api', finalPin.reason);
+  process.exit(0);
 }
 
 if (CHECK_ONLY) {

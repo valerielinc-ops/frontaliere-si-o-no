@@ -1352,7 +1352,7 @@
         "it": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-butzberg",
         "en": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
         "de": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "fr": "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
+        "fr": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
       },
       "slugDisambiguator": "40105",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1412,7 +1412,7 @@
       "previousSlugs": [
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105",
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+        "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1423,7 +1423,7 @@
           "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105"
         ],
         "fr": [
-          "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+          "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:57.762Z",
@@ -1521,7 +1521,7 @@
       "slug": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
       "slugByLocale": {
         "it": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
-        "en": "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
+        "en": "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "de": "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-schule-kallnach-kallnach-36735",
         "fr": "temps-partiel-psychomotricite-therapie-par-le-mouvement-2-3-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-un-36735"
       },
@@ -1608,7 +1608,7 @@
         "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-schule-kallnach-kallnach-36735",
-        "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+        "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1623,7 +1623,7 @@
           "partial-course-psychomotor-movement-therapy-2-3-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
           "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
           "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
-          "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+          "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
         ],
         "fr": [
           "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-36735"
@@ -2149,9 +2149,9 @@
     },
     {
       "id": "ksml-04c5ae798659",
-      "slug": "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herrenschwanden",
+      "slug": "vice-insegnante-primario-4-6-grado-21-lezioni-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-40438",
       "slugByLocale": {
-        "it": "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herrenschwanden",
+        "it": "vice-insegnante-primario-4-6-grado-21-lezioni-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-40438",
         "en": "deputy-primary-teacher-4th-6th-grade-21-lessons-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-40438",
         "de": "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-40438",
         "fr": "professeur-adjoint-de-primaire-4e-6e-annee-21-lecons-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-40438"
@@ -2201,12 +2201,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-40438",
-        "vice-insegnante-primario-4-6-grado-21-lezioni-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-40438"
+        "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herrenschwanden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-40438",
-          "vice-insegnante-primario-4-6-grado-21-lezioni-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-40438"
+          "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herrenschwanden"
         ],
         "en": [
           "stellvertretung-primarlehrperson-4-6-klasse-21-lektionen-26-10-26-31-12-26-mo-di-do-fr-40438"
@@ -3801,12 +3801,12 @@
     },
     {
       "id": "ksml-00d6811831bc",
-      "slug": "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herzogenbuchsee",
+      "slug": "professore-aggiunto-6-lezioni-ogni-venerdi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40442",
       "slugByLocale": {
         "de": "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-oberstufe-herzogenbuchsee-40442",
-        "it": "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herzogenbuchsee",
-        "en": "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40442",
-        "fr": "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40442"
+        "it": "professore-aggiunto-6-lezioni-ogni-venerdi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40442",
+        "en": "deputy-teacher-6-lessons-each-on-friday-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40442",
+        "fr": "professeur-adjoint-6-lecons-chacune-le-vendredi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40442"
       },
       "slugDisambiguator": "40442",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3855,11 +3855,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-oberstufe-herzogenbuchsee-40442"
+          "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-oberstufe-herzogenbuchsee-40442",
+          "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herzogenbuchsee"
+        ],
+        "en": [
+          "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40442"
+        ],
+        "fr": [
+          "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40442"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-oberstufe-herzogenbuchsee-40442"
+        "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-oberstufe-herzogenbuchsee-40442",
+        "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-herzogenbuchsee",
+        "stellvertretung-fachlehrperson-6-lektionen-jeweils-am-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40442"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -9615,7 +9624,7 @@
         "it": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf",
         "en": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297",
         "de": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "fr": "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
+        "fr": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
       },
       "slugDisambiguator": "40297",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -9662,14 +9671,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
+        "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297"
         ],
         "fr": [
-          "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
+          "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.253Z",
@@ -10431,12 +10440,12 @@
     },
     {
       "id": "ksml-038d4be24643",
-      "slug": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+      "slug": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
       "slugByLocale": {
         "de": "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
-        "it": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
-        "en": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
-        "fr": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
+        "it": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
+        "en": "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
+        "fr": "professeur-1-2-kl-a-partir-du-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
       },
       "slugDisambiguator": "40406",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10485,11 +10494,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406"
+          "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
+          "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+        ],
+        "en": [
+          "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
+        ],
+        "fr": [
+          "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
         ]
       },
       "previousSlugs": [
-        "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406"
+        "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
+        "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+        "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -11211,8 +11229,8 @@
       "slugByLocale": {
         "de": "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-padagogisches-38203",
         "it": "heilpadagogin-heilpadagoge-per-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez",
-        "en": "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez",
-        "fr": "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez"
+        "en": "healing-teacher-for-17-20-lessons-60-70-partial-perpetual-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38203",
+        "fr": "professeur-de-guerison-pour-17-20-lecons-60-70-partielle-perpetuel-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-38203"
       },
       "slugDisambiguator": "38203",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -11259,22 +11277,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-padagogisches-38203"
         ],
         "en": [
-          "healing-teacher-for-17-20-lessons-60-70-partial-perpetual-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38203"
+          "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez"
         ],
         "fr": [
-          "professeur-de-guerison-pour-17-20-lecons-60-70-partielle-perpetuel-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-38203"
+          "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez"
         ]
       },
       "previousSlugs": [
         "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-padagogisches-38203",
-        "healing-teacher-for-17-20-lessons-60-70-partial-perpetual-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38203",
-        "professeur-de-guerison-pour-17-20-lecons-60-70-partielle-perpetuel-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-38203"
+        "heilpadagogin-heilpadagoge-fur-17-20-lektionen-60-70-teilpensum-unbefristet-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiez"
       ],
       "salaryMin": 41300,
       "salaryMax": 76000,
@@ -13598,12 +13614,12 @@
     },
     {
       "id": "ksml-e6a74b76230b",
-      "slug": "56a-e-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+      "slug": "56a-e-56c-ti-stanno-cercando-insegnante-part-time-motivato-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443",
       "slugByLocale": {
         "de": "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-schule-ersigen-oesch-ersigen-40443",
-        "it": "56a-e-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
-        "en": "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443",
-        "fr": "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443"
+        "it": "56a-e-56c-ti-stanno-cercando-insegnante-part-time-motivato-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443",
+        "en": "56a-and-56c-are-looking-for-you-motivated-part-time-teacher-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40443",
+        "fr": "56a-et-56c-vous-recherchent-professeur-motive-a-temps-partiel-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40443"
       },
       "slugDisambiguator": "40443",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13652,11 +13668,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-schule-ersigen-oesch-ersigen-40443"
+          "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-schule-ersigen-oesch-ersigen-40443",
+          "56a-e-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen"
+        ],
+        "en": [
+          "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443"
+        ],
+        "fr": [
+          "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443"
         ]
       },
       "previousSlugs": [
-        "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-schule-ersigen-oesch-ersigen-40443"
+        "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-schule-ersigen-oesch-ersigen-40443",
+        "56a-e-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ersigen",
+        "56a-und-56c-suchen-dich-motivierte-teilpensenlehrperson-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40443"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -13761,12 +13786,12 @@
     },
     {
       "id": "ksml-21536a98cc79",
-      "slug": "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444",
+      "slug": "789r-cerca-una-rappresentanza-motivata-dall-11-gennaio-2027-19-marzo-2027-ksml-kantonaler-stellenmarkt-fur-40444",
       "slugByLocale": {
         "de": "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444",
-        "it": "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444",
-        "en": "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444",
-        "fr": "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444"
+        "it": "789r-cerca-una-rappresentanza-motivata-dall-11-gennaio-2027-19-marzo-2027-ksml-kantonaler-stellenmarkt-fur-40444",
+        "en": "789r-seeks-motivated-representation-from-january-11-2027-19-march-2027-ksml-kantonaler-stellenmarkt-fur-40444",
+        "fr": "789r-cherche-une-representation-motivee-du-11-janvier-2027-au-19-janvier-mars-2027-ksml-kantonaler-stellenmarkt-40444"
       },
       "slugDisambiguator": "40444",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13826,7 +13851,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:25:24.515Z"
+      "firstSeenAt": "2026-10-12T09:25:24.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444"
+        ],
+        "en": [
+          "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444"
+        ],
+        "fr": [
+          "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444"
+        ]
+      },
+      "previousSlugs": [
+        "789r-sucht-motivierte-vertretung-vom-11-januar-2027-19-marz-2027-schule-ersigen-oesch-40444"
+      ]
     },
     {
       "id": "ksml-5ed5fb67da28",
@@ -14086,12 +14125,12 @@
     },
     {
       "id": "ksml-3c75030e558b",
-      "slug": "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
+      "slug": "19-lezioni-promozione-integrata-di-cui-13-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441",
       "slugByLocale": {
         "de": "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
-        "it": "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
-        "en": "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
-        "fr": "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+        "it": "19-lezioni-promozione-integrata-di-cui-13-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441",
+        "en": "19-lessons-integrative-promotion-of-which-13-lessons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40441",
+        "fr": "19-lecons-promotion-integrative-dont-13-lecons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441"
       },
       "slugDisambiguator": "40441",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14151,7 +14190,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:25:24.514Z"
+      "firstSeenAt": "2026-10-12T09:25:24.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+        ],
+        "en": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+        ],
+        "fr": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+        ]
+      },
+      "previousSlugs": [
+        "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+      ]
     },
     {
       "id": "ksml-7ae7856905bd",

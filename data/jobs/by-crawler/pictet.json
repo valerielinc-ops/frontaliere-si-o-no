@@ -74,8 +74,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "needsRetranslation": true
+      "postalCode": "1204"
     },
     {
       "id": "pictet-e5e666c24adc",
@@ -84,7 +83,7 @@
         "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
         "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
-        "fr": "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -130,7 +129,7 @@
       "previousSlugs": [
         "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
         "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+        "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138,7 +137,7 @@
         ],
         "fr": [
           "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
-          "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+          "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:18:07.156Z",
@@ -164,7 +163,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "compliance-officer-pictet-group-geneva"
+        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -209,14 +208,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "compliance-officer-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+          "compliance-officer-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
@@ -306,8 +305,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "needsRetranslation": true
+      "postalCode": "1204"
     },
     {
       "id": "pictet-d644fcbe0361",
@@ -374,7 +372,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:26:12.238Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -472,12 +469,12 @@
     },
     {
       "id": "pictet-cb0dff47dc77",
-      "slug": "middle-officer-forex-securities-pictet-geneva",
+      "slug": "medio-ufficiale-forex-securities-pictet-group-geneva",
       "slugByLocale": {
         "en": "middle-officer-forex-securities-pictet-geneva",
-        "it": "middle-officer-forex-securities-pictet-geneva",
+        "it": "medio-ufficiale-forex-securities-pictet-group-geneva",
         "de": "middle-officer-forex-securities-pictet-geneva",
-        "fr": "middle-officer-forex-securities-pictet-geneva"
+        "fr": "agent-intermediaire-forex-securities-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -536,7 +533,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-12T09:24:08.820Z"
+      "firstSeenAt": "2026-10-12T09:24:08.820Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-forex-securities-pictet-geneva"
+        ],
+        "fr": [
+          "middle-officer-forex-securities-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-forex-securities-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-802e8cbc742a",

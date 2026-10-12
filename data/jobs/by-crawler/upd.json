@@ -3728,7 +3728,7 @@
       "slug": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
         "fr": "doctorat-etudiant-doctorat-etudiant-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -3776,7 +3776,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
-        "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+        "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3784,7 +3784,7 @@
         ],
         "en": [
           "doktorandin-doktorand-psychologie-upd-bern",
-          "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+          "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
           "doktorandin-doktorand-psychologie-upd-bern"
@@ -7114,12 +7114,12 @@
     },
     {
       "id": "upd-b6d1c0fb6080",
-      "slug": "einjahriges-praktikum-sozialpadagogik-upd-bern",
+      "slug": "stage-di-un-anno-nell-educazione-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "einjahriges-praktikum-sozialpadagogik-upd-bern",
-        "it": "einjahriges-praktikum-sozialpadagogik-upd-bern",
-        "en": "einjahriges-praktikum-sozialpadagogik-upd-bern",
-        "fr": "einjahriges-praktikum-sozialpadagogik-upd-bern"
+        "it": "stage-di-un-anno-nell-educazione-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "one-year-internship-in-social-education-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-d-un-an-dans-l-education-sociale-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -7178,7 +7178,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:20:48.796Z"
+      "firstSeenAt": "2026-10-12T09:20:48.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einjahriges-praktikum-sozialpadagogik-upd-bern"
+        ],
+        "en": [
+          "einjahriges-praktikum-sozialpadagogik-upd-bern"
+        ],
+        "fr": [
+          "einjahriges-praktikum-sozialpadagogik-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "einjahriges-praktikum-sozialpadagogik-upd-bern"
+      ]
     },
     {
       "id": "upd-ee8bfb28ee0d",

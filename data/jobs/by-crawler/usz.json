@@ -6101,7 +6101,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:14:12.674Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -6677,7 +6676,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:08:31.238Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -16878,7 +16876,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T22:13:59.391Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -17049,12 +17046,12 @@
     },
     {
       "id": "usz-6c32b35e10c2",
-      "slug": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
+      "slug": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "it": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "en": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "fr": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        "it": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17112,7 +17109,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.376Z"
+      "firstSeenAt": "2026-09-19T23:11:10.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ],
+        "en": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-bab683279614",
@@ -17264,12 +17275,12 @@
     },
     {
       "id": "usz-e87d8a2eab88",
-      "slug": "pflegefachperson-expert-in-intensivpflege-per-la-intensivstation-neonatologie-40-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-professionale-esperto-a-in-terapia-intensiva-per-l-unita-di-terapia-intensiva-neonatale-40-100",
       "slugByLocale": {
         "de": "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz",
-        "it": "pflegefachperson-expert-in-intensivpflege-per-la-intensivstation-neonatologie-40-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz",
-        "fr": "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz"
+        "it": "infermiere-a-professionale-esperto-a-in-terapia-intensiva-per-l-unita-di-terapia-intensiva-neonatale-40-100",
+        "en": "nursing-professional-intensive-care-expert-for-the-neonatal-intensive-care-unit-40-100-universitatsspital-zurich-usz",
+        "fr": "infirmier-ere-expert-e-en-soins-intensifs-pour-l-unite-de-soins-intensifs-de-neonatologie-40-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17317,11 +17328,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz",
+          "pflegefachperson-expert-in-intensivpflege-per-la-intensivstation-neonatologie-40-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz"
+        ],
+        "fr": [
           "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz"
+        "pflegefachperson-expert-in-intensivpflege-fur-die-intensivstation-neonatologie-40-100-usz",
+        "pflegefachperson-expert-in-intensivpflege-per-la-intensivstation-neonatologie-40-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17340,12 +17359,12 @@
     },
     {
       "id": "usz-b5a86dbd52cc",
-      "slug": "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch",
+      "slug": "studio-infermiera-clinica-data-manager-lung-circumstance-management-60-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch",
-        "it": "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch",
+        "it": "studio-infermiera-clinica-data-manager-lung-circumstance-management-60-universitatsspital-zurich-usz-zurich",
         "en": "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch",
-        "fr": "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch"
+        "fr": "infirmiere-de-l-etude-gestionnaire-de-donnees-cliniques-gestion-des-circonstances-pulmonaires-60-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17403,7 +17422,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:16:37.172Z"
+      "firstSeenAt": "2026-10-12T09:16:37.172Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch"
+        ],
+        "fr": [
+          "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-clinical-data-manager-lungenrundherdmanagement-60-usz-ch"
+      ]
     },
     {
       "id": "usz-ce6505b2cdf1",
@@ -17412,7 +17442,7 @@
         "de": "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch",
         "it": "mpa-fage-per-das-ambulatorium-am-usz-flughafen-g4-60-100-universitatsspital-zurich-usz-zurich",
         "en": "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch",
-        "fr": "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch"
+        "fr": "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g4-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17457,9 +17487,11 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch"
+        ],
+        "fr": [
           "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g4-60-100-usz-ch"
         ]
       },
@@ -17483,12 +17515,12 @@
     },
     {
       "id": "usz-74ab59f92640",
-      "slug": "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
-        "it": "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
-        "fr": "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch"
+        "it": "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "bma-bmld-as-educational-manager-r-in-hematological-diagnostics-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "bma-bmld-en-tant-que-responsable-de-l-education-r-dans-le-diagnostic-hematologique-80-100-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17533,14 +17565,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
+          "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch"
+        ],
+        "fr": [
           "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch"
+        "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
+        "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17559,12 +17598,12 @@
     },
     {
       "id": "usz-f3d686a1e6cf",
-      "slug": "radiologiefachperson-neuroradiologie-80-100-usz-ch",
+      "slug": "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-        "it": "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-        "en": "radiologiefachperson-neuroradiologie-80-100-usz-ch",
-        "fr": "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+        "it": "specialista-di-radiologia-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "radiology-specialist-neuroradiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-en-radiologie-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17622,16 +17661,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:16:37.170Z"
+      "firstSeenAt": "2026-10-12T09:16:37.170Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+        ],
+        "en": [
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-neuroradiologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-2e170efdbb7a",
-      "slug": "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch",
+      "slug": "esperto-a-in-cure-infermieristiche-nurse-practitioner-per-il-diabete-60-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch",
-        "it": "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch",
+        "it": "esperto-a-in-cure-infermieristiche-nurse-practitioner-per-il-diabete-60-universitatsspital-zurich-usz-zurich",
         "en": "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch",
-        "fr": "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch"
+        "fr": "expert-e-en-soins-nurse-practitioner-en-diabetologie-60-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17676,7 +17729,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -17690,16 +17742,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T19:49:54.940Z"
+      "firstSeenAt": "2026-09-23T19:49:54.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch"
+        ],
+        "fr": [
+          "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-nurse-practitioner-diabetes-60-usz-ch"
+      ]
     },
     {
       "id": "usz-374809c23694",
-      "slug": "beauftragte-r-qualitatsmanagement-digital-e-prazisionslabordiagnostik-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "responsabile-della-gestione-della-qualita-nella-diagnostica-di-laboratorio-digitale-e-di-precisione-80-100",
       "slugByLocale": {
         "de": "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch",
-        "it": "beauftragte-r-qualitatsmanagement-digital-e-prazisionslabordiagnostik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch",
-        "fr": "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch"
+        "it": "responsabile-della-gestione-della-qualita-nella-diagnostica-di-laboratorio-digitale-e-di-precisione-80-100",
+        "en": "commissioner-r-quality-management-digital-and-precision-laboratory-diagnostics-80-100-universitatsspital-zurich-usz",
+        "fr": "commissaire-r-gestion-de-la-qualite-diagnostics-de-laboratoire-numeriques-et-de-precision-80-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17744,14 +17807,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch",
+          "beauftragte-r-qualitatsmanagement-digital-e-prazisionslabordiagnostik-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch"
+        ],
+        "fr": [
           "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch"
+        "beauftragte-r-qualitatsmanagement-digital-und-prazisionslabordiagnostik-80-100-usz-ch",
+        "beauftragte-r-qualitatsmanagement-digital-e-prazisionslabordiagnostik-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

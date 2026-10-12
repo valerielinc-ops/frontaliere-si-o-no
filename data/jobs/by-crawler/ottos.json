@@ -1207,7 +1207,7 @@
       "slug": "cassiera-otto-s-ag-thun",
       "slugByLocale": {
         "it": "cassiera-otto-s-ag-thun",
-        "en": "cashiers-otto-s-ag-thun",
+        "en": "cashier-in-otto-s-ag-thun",
         "de": "kassierer-in-ottos-thun",
         "fr": "caissier-otto-s-ag-thun"
       },
@@ -1260,14 +1260,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "kassierer-in-ottos-thun",
-        "cashier-in-otto-s-ag-thun"
+        "cashiers-otto-s-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kassierer-in-ottos-thun"
         ],
         "en": [
-          "cashier-in-otto-s-ag-thun"
+          "cashiers-otto-s-ag-thun"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:34.217Z",
@@ -1897,7 +1897,7 @@
       "id": "ottos-5a32d85f8456",
       "slug": "cassiere-otto-s-ag-wattwil",
       "slugByLocale": {
-        "it": "cassiere-otto-s-ag-wattwil",
+        "it": "cashier-in-otto-s-ag-wattwil",
         "en": "cashiers-otto-s-ag-wattwil",
         "de": "kassierer-in-ottos-wattwil",
         "fr": "caissier-en-otto-s-ag-wattwil"
@@ -1953,16 +1953,14 @@
         "cashier-in-otto-s-ag-wil",
         "kassierer-in-ottos-wil",
         "caissier-otto-s-ag-wil",
-        "kassierer-in-ottos-wattwil",
-        "cashier-in-otto-s-ag-wattwil"
+        "kassierer-in-ottos-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cashier-in-otto-s-ag-wil",
           "kassierer-in-ottos-wil",
           "caissier-otto-s-ag-wil",
-          "kassierer-in-ottos-wattwil",
-          "cashier-in-otto-s-ag-wattwil"
+          "kassierer-in-ottos-wattwil"
         ],
         "en": [
           "cashier-in-otto-s-ag-wil"
@@ -2319,7 +2317,7 @@
         "it": "mobili-per-rappresentanti-vendite-otto-s-ag-aathal",
         "en": "sales-staff-in-furniture-otto-s-ag-aathal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-aathal",
-        "fr": "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
+        "fr": "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2378,7 +2376,7 @@
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-langwiesen",
         "vendeur-vendeuse-de-meubles-otto-s-ag-langwiesen",
         "verkaufsmitarbeiter-in-mobel-ottos-aathal",
-        "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
+        "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2402,7 +2400,7 @@
         "fr": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
           "personnel-de-vente-en-mobilier-otto-s-ag-langwiesen",
-          "personnel-de-vente-en-mobilier-otto-s-ag-aathal"
+          "vendeur-vendeuse-de-meubles-otto-s-ag-aathal"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:24.172Z",
@@ -3742,7 +3740,7 @@
         "it": "mobili-per-rappresentanti-vendite-otto-s-ag-schattdorf",
         "en": "sales-staff-in-furniture-otto-s-ag-schattdorf",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
-        "fr": "vendeur-de-meubles-otto-s-ag-schattdorf"
+        "fr": "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3794,7 +3792,7 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
         "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
-        "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
+        "vendeur-de-meubles-otto-s-ag-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3806,7 +3804,7 @@
         ],
         "fr": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
-          "personnel-de-vente-en-mobilier-otto-s-ag-schattdorf"
+          "vendeur-de-meubles-otto-s-ag-schattdorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:05.032Z",
@@ -4658,9 +4656,9 @@
       "slug": "vice-direttore-di-filiale-otto-s-ag-uetendorf",
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-otto-s-ag-uetendorf",
-        "en": "assistant-store-manager-otto-s-ag-uetendorf",
+        "en": "deputy-in-branch-management-otto-s-ag-uetendorf",
         "de": "stellvertreter-in-filialleitung-ottos-uetendorf",
-        "fr": "assistant-manager-de-magasin-otto-s-ag-uetendorf"
+        "fr": "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4715,18 +4713,18 @@
         "stellvertreter-in-filialleitung-ottos-zuchwil",
         "adjoint-dans-la-direction-generale-otto-s-ag-zuchwil",
         "stellvertreter-in-filialleitung-ottos-uetendorf",
-        "deputy-in-branch-management-otto-s-ag-uetendorf",
-        "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
+        "assistant-store-manager-otto-s-ag-uetendorf",
+        "assistant-manager-de-magasin-otto-s-ag-uetendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertreter-in-filialleitung-ottos-uetendorf"
         ],
         "en": [
-          "deputy-in-branch-management-otto-s-ag-uetendorf"
+          "assistant-store-manager-otto-s-ag-uetendorf"
         ],
         "fr": [
-          "adjoint-dans-la-direction-generale-otto-s-ag-uetendorf"
+          "assistant-manager-de-magasin-otto-s-ag-uetendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:59.339Z",
@@ -4770,7 +4768,6 @@
         "de": "Wirkungsbereich\n\n• Fachgerechte Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Optimal Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Berufserfahrung im Dienstleistungssektor\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Belastbarkeit: Gute körperliche Verfassung, vielseitig und flexibel\n• Teamplayer: Lösungsorientiert, zuverlässig und hilfsbereit\n• Affinität: Sind Sie unser Alleskönner? Dann packen Sie mit an und gestalten Sie den Alltag mit uns\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "fr": "Domaine d'activité\n\n• Gestion professionnelle des marchandises et des entrepôts : Vous traitez la réception des marchandises de manière responsable et vous assurez un flux de marchandises en douceur\n• Présentation optimale des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et effectuez la commande quotidienne avec compétence\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle : Première expérience professionnelle dans le secteur des services\n• Concept de service : comportement orienté client et apparence bien gardée\n• Résilience: Bonne condition physique, polyvalente et flexible\n• Joueur d'équipe : orienté solution, fiable et utile\n• Affinity: Êtes-vous notre tout autour? Alors rejoignez-nous et faites chaque jour avec nous.\n\nSecteur: branches OTTO\n\nPensum: 100%"
       },
-      "needsRetranslation": true,
       "location": "Köniz",
       "canton": "BE",
       "url": "https://live.solique.ch/ottosag/job/details/4083562",
@@ -5273,7 +5270,6 @@
         "de": "Wirkungsbereich\n\n• Abwechslungsreiche Warenpräsentation: Mit Ihrer Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Scanning-Kassensystem: Sie bedienen unser modernes Kassensystem sicher und effizient und führen gekonnt den täglichen Kassenabschluss durch\n• Optimale Lagerbewirtschaftung: Sie bringen innovative Ansätze ein und fördern somit die Effizienz und Nachhaltigkeit\n• Ordnung und Sauberkeit: Durch Ihre ordnungsliebende Arbeitsweise schaffen Sie ein einladendes Einkaufserlebnis\n\nProfil\n\n• Berufserfahrung: Erste Erfahrung in den Bereichen Food und/oder Non-Food\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie verantwortungsbewusst\n• Einsatzbereitschaft: Hohe Flexibilität, belastbar und selbstständig\n• Begeisterung: Ihr Herz schlägt für den Verkauf – Sie haben alles im Griff\n\nBereich: OTTO’S Filialen\n\nPensum: 60-80%",
         "fr": "Domaine d'activité\n\n• Présentation variée des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et vous effectuez la commande quotidienne avec compétence\n• Gestion optimale des entrepôts: Vous apportez des approches innovantes et ainsi promouvoir l'efficacité et la durabilité\n• Ordre et propreté: Grâce à votre méthode de travail ordonnée, vous créez une expérience d'achat invitant\n\nProfil\n\n• Expérience professionnelle: Première expérience en alimentation et/ou non alimentaire\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et responsable\n• Préparation à l'action : Haute flexibilité, résilience et indépendance\n• Enthousiasme: Votre coeur bat pour la vente – Vous avez tout sous contrôle.\n\nSecteur: branches OTTO\n\nPensum: 60-80 %"
       },
-      "needsRetranslation": true,
       "location": "Lyss",
       "canton": "BE",
       "url": "https://live.solique.ch/ottosag/job/details/4083097",
@@ -7329,7 +7325,7 @@
       "id": "ottos-dad39d14dda7",
       "slug": "responsabile-reparto-mobili-otto-s-ag-winterthur",
       "slugByLocale": {
-        "it": "responsabile-reparto-mobili-otto-s-ag-winterthur",
+        "it": "capo-dipartimento-arredamento-otto-s-ag-winterthur",
         "en": "head-of-department-in-furniture-otto-s-ag-winterthur",
         "de": "abteilungsleiter-in-mobel-ottos-winterthur",
         "fr": "chef-de-departement-en-mobilier-otto-s-ag-winterthur"
@@ -7388,14 +7384,12 @@
         "abteilungsleiter-in-mobel-ottos-grenchen",
         "chef-de-departement-en-mobilier-otto-s-ag-grenchen",
         "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
-        "abteilungsleiter-in-mobel-ottos-winterthur",
-        "capo-dipartimento-arredamento-otto-s-ag-winterthur"
+        "abteilungsleiter-in-mobel-ottos-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-mobel-otto-s-ag-winterthur",
-          "abteilungsleiter-in-mobel-ottos-winterthur",
-          "capo-dipartimento-arredamento-otto-s-ag-winterthur"
+          "abteilungsleiter-in-mobel-ottos-winterthur"
         ],
         "en": [
           "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
@@ -9325,9 +9319,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistician-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "specialiste-en-logistique-otto-s-ag-sursee"
+        "fr": "logisticien-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9384,8 +9378,8 @@
         "kassierer-in-ottos-sursee",
         "caissier-otto-s-ag-sursee",
         "logistiker-in-ottos-sursee",
-        "logistician-in-otto-s-ag-sursee",
-        "logisticien-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "specialiste-en-logistique-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9399,7 +9393,7 @@
         "en": [
           "logistiker-in-otto-s-ag-sursee",
           "cashier-in-otto-s-ag-sursee",
-          "logistician-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "de": [
           "kassierer-in-ottos-sursee"
@@ -9407,7 +9401,7 @@
         "fr": [
           "logistiker-in-otto-s-ag-sursee",
           "caissier-otto-s-ag-sursee",
-          "logisticien-in-otto-s-ag-sursee"
+          "specialiste-en-logistique-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -10090,7 +10084,7 @@
       "slug": "vice-direttore-di-filiale-otto-s-ag-cham",
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-otto-s-ag-cham",
-        "en": "assistant-store-manager-otto-s-ag-cham",
+        "en": "deputy-in-branch-management-otto-s-ag-cham",
         "de": "stellvertreter-in-filialleitung-ottos-cham",
         "fr": "adjoint-dans-la-direction-generale-otto-s-ag-cham"
       },
@@ -10143,14 +10137,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "stellvertreter-in-filialleitung-ottos-cham",
-        "deputy-in-branch-management-otto-s-ag-cham"
+        "assistant-store-manager-otto-s-ag-cham"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertreter-in-filialleitung-ottos-cham"
         ],
         "en": [
-          "deputy-in-branch-management-otto-s-ag-cham"
+          "assistant-store-manager-otto-s-ag-cham"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:11.038Z",
@@ -11350,7 +11344,6 @@
         "de": "Ihr Wirkungsbereich\n\n• Professioneller Kundenservice: Durch Ihren hervorragenden Kundenservice stellen Sie eine hohe Kundenzufriedenheit sicher\n• Optimale Warenpräsentation: Mit Ihre Kreativität setzen Sie eine attraktive und verkaufsfördernde Warenpräsentation um\n• Bedarfsgerechte Warendisposition: Durch hohes Verantwortungsbewusstsein stellen Sie eine optimale Verkaufsbereitschaft sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den täglichen Kassenabschluss durch\n\nIhr Profil\n\n• Berufserfahrung: Mehrjährige Erfahrung in der Parfümerie und/oder im Kosmetikbereich\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Teamplayer: Lösungsorientiert, zuverlässig, hilfsbereit sowie flexibel\n• Begeisterung: Ihre Leidenschaft für Beauty ist gefragt – bringen Sie Glanz in unser Team\n\nBereich: Beauty Shops\n\nPensum: 60-80%",
         "fr": "Votre domaine d'activité\n\n• Service client professionnel: Votre excellent service client assure un haut niveau de satisfaction client\n• Présentation optimale des marchandises: Avec votre créativité, vous implémentez une présentation attrayante et promotionnelle des produits\n• Distribution des biens fondée sur les besoins : Avec un haut sens des responsabilités, vous assurez une disponibilité commerciale optimale\n• Système POS de numérisation: Vous utilisez notre système POS moderne de manière sûre et efficace et effectuez la commande quotidienne avec compétence\n\nVotre profil\n\n• Expérience professionnelle: Plusieurs années d'expérience en parfumerie et/ou cosmétique\n• Concept de service : comportement orienté client et apparence bien gardée\n• Joueur d'équipe : orienté solution, fiable, utile et flexible\n• Enthousiasme : Votre passion pour la beauté est en demande – apportez de l'éclat à notre équipe\n\nZone: Boutiques de beauté\n\nPensum: 60-80 %"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://live.solique.ch/ottosag/job/details/4083565",

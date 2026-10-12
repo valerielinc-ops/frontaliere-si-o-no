@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "anker-swiss-0c2d40d35b88",
-      "slug": "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3",
+      "slug": "pittura-100-anker-swiss-ticino-ag-bern-0c2d40d3",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3",
-        "it": "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3",
-        "en": "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3",
-        "fr": "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3"
+        "it": "pittura-100-anker-swiss-ticino-ag-bern-0c2d40d3",
+        "en": "painter-100-anker-swiss-ticino-ag-bern-0c2d40d3",
+        "fr": "peintre-100-anker-swiss-ticino-ag-bern-0c2d40d3"
       },
       "slugDisambiguator": "0c2d40d3",
       "company": "Anker Swiss Ticino AG",
@@ -60,18 +60,26 @@
         "it": [
           "maler-100-anker-swiss-ticino-ag-bern-62a021cb",
           "maler-100-anker-swiss-ticino-ag-bern-1558c549",
-          "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49"
+          "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49",
+          "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-bern-62a021cb",
           "maler-100-anker-swiss-ticino-ag-bern-1558c549",
           "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3"
         ]
       },
       "previousSlugs": [
         "maler-100-anker-swiss-ticino-ag-bern-62a021cb",
         "maler-100-anker-swiss-ticino-ag-bern-1558c549",
-        "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49"
+        "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49",
+        "maler-100-anker-swiss-ticino-ag-bern-0c2d40d3"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2473,12 +2481,12 @@
     },
     {
       "id": "anker-swiss-c9fde25b2192",
-      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
+      "slug": "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
       "slugByLocale": {
         "de": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "it": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "en": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "fr": "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b"
+        "it": "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "en": "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
+        "fr": "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b"
       },
       "slugDisambiguator": "c9fde25b",
       "company": "Anker Swiss Ticino AG",
@@ -2528,34 +2536,32 @@
       "previousSlugsByLocale": {
         "it": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-          "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946"
+          "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b"
         ],
         "en": [
-          "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946"
+          "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b"
         ],
         "de": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946"
         ],
         "fr": [
-          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
-          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946"
+          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b"
         ]
       },
       "previousSlugs": [
         "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-2f3a5cca",
-        "asciugamani-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "plaster-dryers-100-anker-swiss-ticino-ag-baar-c9fde25b",
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-c9fde25b",
         "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-5edaf946",
         "asciugamani-100-anker-swiss-ticino-ag-baar-5edaf946",
         "plaster-dryers-100-anker-swiss-ticino-ag-baar-5edaf946",
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946"
+        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-baar-5edaf946",
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-baar-c9fde25b"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -3144,12 +3150,12 @@
     },
     {
       "id": "anker-swiss-6fa1ae284194",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+      "slug": "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "it": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "en": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "fr": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+        "it": "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+        "en": "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+        "fr": "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
       },
       "slugDisambiguator": "6fa1ae28",
       "company": "Anker Swiss Ticino AG",
@@ -3195,32 +3201,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
         "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
         "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
         "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-        "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+        "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-          "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+          "pittura-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ],
         "en": [
-          "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-          "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+          "painter-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
         ],
         "fr": [
-          "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
-          "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+          "peintre-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ]
       },
       "salaryMin": 69500,
@@ -11847,12 +11851,12 @@
     },
     {
       "id": "anker-swiss-26cf21571d64",
-      "slug": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+      "slug": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "it": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "en": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "fr": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+        "it": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+        "en": "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
       },
       "slugDisambiguator": "26cf2157",
       "company": "Anker Swiss Ticino AG",
@@ -11900,32 +11904,30 @@
         "de": []
       },
       "previousSlugs": [
-        "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
         "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
         "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
         "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+        "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ],
         "en": [
-          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ],
         "de": [
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
         ],
         "fr": [
-          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ]
       },
       "salaryMin": 68500,
@@ -13372,12 +13374,12 @@
     },
     {
       "id": "anker-swiss-4bfbde587ce0",
-      "slug": "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
+      "slug": "montaggio-solare-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
       "slugByLocale": {
         "de": "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
-        "it": "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
-        "en": "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
-        "fr": "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
+        "it": "montaggio-solare-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
+        "en": "solar-assembly-100-anker-swiss-ticino-ag-uetendorf-4bfbde58",
+        "fr": "montage-solaire-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
       },
       "slugDisambiguator": "4bfbde58",
       "company": "Anker Swiss Ticino AG",
@@ -13437,16 +13439,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:28:12.148Z"
+      "firstSeenAt": "2026-10-12T09:28:12.148Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
+        ],
+        "en": [
+          "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
+        ],
+        "fr": [
+          "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
+        ]
+      },
+      "previousSlugs": [
+        "solarmonteur-100-anker-swiss-ticino-ag-uetendorf-4bfbde58"
+      ]
     },
     {
       "id": "anker-swiss-23b9d034862b",
-      "slug": "maler-100-anker-swiss-ticino-ag-willisau-23b9d034",
+      "slug": "pittura-100-anker-swiss-ticino-ag-willisau-23b9d034",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-willisau-23b9d034",
-        "it": "maler-100-anker-swiss-ticino-ag-willisau-23b9d034",
-        "en": "maler-100-anker-swiss-ticino-ag-willisau-23b9d034",
-        "fr": "maler-100-anker-swiss-ticino-ag-willisau-23b9d034"
+        "it": "pittura-100-anker-swiss-ticino-ag-willisau-23b9d034",
+        "en": "painter-100-anker-swiss-ticino-ag-willisau-23b9d034",
+        "fr": "peintre-100-anker-swiss-ticino-ag-willisau-23b9d034"
       },
       "slugDisambiguator": "23b9d034",
       "company": "Anker Swiss Ticino AG",
@@ -13506,7 +13522,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:28:12.147Z"
+      "firstSeenAt": "2026-10-12T09:28:12.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-100-anker-swiss-ticino-ag-willisau-23b9d034"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-willisau-23b9d034"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-willisau-23b9d034"
+        ]
+      },
+      "previousSlugs": [
+        "maler-100-anker-swiss-ticino-ag-willisau-23b9d034"
+      ]
     },
     {
       "id": "anker-swiss-5f2703c640ac",

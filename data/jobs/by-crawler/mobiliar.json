@@ -80,12 +80,12 @@
     },
     {
       "id": "mobiliar-9e225b33d967",
-      "slug": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
+      "slug": "ispettore-di-danni-agricoltura-m-f-d-nella-rete-specializzata-damage-fns-die-mobiliar-bern",
       "slugByLocale": {
         "de": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "it": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "en": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "fr": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        "it": "ispettore-di-danni-agricoltura-m-f-d-nella-rete-specializzata-damage-fns-die-mobiliar-bern",
+        "en": "damage-inspector-agriculture-m-f-d-in-the-specialist-network-damage-fns-die-mobiliar-bern",
+        "fr": "inspecteur-des-dommages-agriculture-h-f-d-dans-le-reseau-specialise-dommages-fns-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -159,7 +159,21 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-12T09:14:45.094Z"
+      "firstSeenAt": "2026-10-12T09:14:45.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ],
+        "en": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ],
+        "fr": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-0aab62159c8f",
@@ -167,8 +181,8 @@
       "slugByLocale": {
         "fr": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
         "it": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
-        "en": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
-        "de": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss"
+        "en": "agricultural-disaster-inspector-m-f-d-within-the-network-of-specialists-on-disasters-rss-die-mobiliar-bern",
+        "de": "landwirtschaftlicher-katastropheninspektor-m-w-d-im-rahmen-des-netzwerks-der-spezialisten-fur-katastrophen-rss-die"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -415,7 +429,6 @@
         ]
       },
       "firstSeenAt": "2026-10-05T21:24:02.284Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -491,7 +504,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:54:18.234Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -658,7 +670,6 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:41:57.523Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -750,7 +761,6 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:41:58.386Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -848,7 +858,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:05:09.325Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -1104,7 +1113,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:38.052Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1195,7 +1203,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:49.632Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "salarySource": "estimated",
@@ -1438,7 +1445,6 @@
         ]
       },
       "firstSeenAt": "2026-10-07T09:16:59.976Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1706,7 +1712,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:14:02.705Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -1774,7 +1779,6 @@
       "requirementsByLocale": {},
       "sfJobId": "1165526055",
       "firstSeenAt": "2026-09-29T21:14:09.914Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -2383,7 +2387,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:54:19.954Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2663,7 +2666,6 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:41:48.608Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2755,7 +2757,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:43:26.952Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2852,7 +2853,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:05:08.294Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3029,7 +3029,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:54:05.390Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3203,7 +3202,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:43:41.390Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -3331,7 +3329,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:15:17.209Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3427,7 +3424,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:52:04.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3526,7 +3522,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:54:01.012Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3955,7 +3950,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:45:54.481Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4131,7 +4125,6 @@
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-buchs-sargans-die-mobiliar-buchs"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4223,7 +4216,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:56.343Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4396,7 +4388,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:54.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -4586,7 +4577,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:36.521Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4661,7 +4651,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:32:35.779Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4752,7 +4741,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:31.342Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -4841,7 +4829,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:43:26.089Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -5012,7 +4999,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:17:30.190Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -5112,7 +5098,6 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:43:21.425Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5300,7 +5285,6 @@
         "schadenspezialist-w-m-d-generalagentur-burgdorf-mobiliar-ch"
       ],
       "firstSeenAt": "2026-06-04T15:26:58.827Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -5322,9 +5306,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5388,21 +5372,21 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg"
+        "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5423,9 +5407,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5489,21 +5473,21 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5602,7 +5586,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:52:04.525Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -5701,7 +5684,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5777,7 +5759,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:37:05.981Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5799,9 +5780,9 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-        "en": "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "en": "m-d-generalagentur-biel-die-mobiliar-biel",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "fr": "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
+        "fr": "m-d-generalagentur-biel-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5846,17 +5827,18 @@
       "sfJobId": "1164039955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "m-d-generalagentur-biel-die-mobiliar-biel"
+        "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch"
         ],
         "en": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel"
         ],
         "fr": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:34.732Z",
@@ -5934,7 +5916,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:55.414Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6028,7 +6009,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:49:16.742Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -6122,7 +6102,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.866Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6218,7 +6197,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6297,7 +6275,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6396,7 +6373,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:40.343Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",

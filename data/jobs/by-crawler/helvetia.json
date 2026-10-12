@@ -10622,12 +10622,12 @@
     },
     {
       "id": "helvetia-eb82e02afb5f",
-      "slug": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
+      "slug": "consulente-clienti-m-f-d-assicurazione-zurich-city-part-time-full-time-helvetia-versicherungen-zurich",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
-        "it": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
-        "en": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich",
-        "fr": "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+        "it": "consulente-clienti-m-f-d-assicurazione-zurich-city-part-time-full-time-helvetia-versicherungen-zurich",
+        "en": "customer-consultant-m-f-d-insurance-zurich-city-part-time-full-time-helvetia-versicherungen-zurich",
+        "fr": "consultant-client-h-f-d-assurance-zurich-city-temps-partiel-temps-plein-helvetia-versicherungen-zurich"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10686,16 +10686,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T11:44:56.212Z"
+      "firstSeenAt": "2026-07-03T11:44:56.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-zurich-stadt-teilzeit-vollzeit-helvetia-zurich"
+      ]
     },
     {
       "id": "helvetia-35df3d0adf85",
-      "slug": "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel",
+      "slug": "team-leader-real-estate-management-losanna-tutti-i-tipi-tempo-pieno-o-parziale-helvetia-versicherungen-lausanne",
       "slugByLocale": {
         "fr": "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel",
-        "it": "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel",
-        "en": "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel",
-        "de": "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel"
+        "it": "team-leader-real-estate-management-losanna-tutti-i-tipi-tempo-pieno-o-parziale-helvetia-versicherungen-lausanne",
+        "en": "team-leader-real-estate-management-lausanne-all-kinds-full-or-part-time-helvetia-versicherungen-lausanne",
+        "de": "teamleiter-real-estate-management-lausanne-alle-arten-in-vollzeit-oder-teilzeit-helvetia-versicherungen-lausanne"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10754,16 +10768,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:12:26.287Z"
+      "firstSeenAt": "2026-10-12T09:12:26.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel"
+        ],
+        "en": [
+          "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel"
+        ],
+        "de": [
+          "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-39-equipe-gerance-immobiliere-lausanne-tous-genres-temps-plein-ou-partiel"
+      ]
     },
     {
       "id": "helvetia-a0e74f7477fc",
-      "slug": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
+      "slug": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
       "slugByLocale": {
         "de": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "it": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "en": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne",
-        "fr": "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
+        "it": "team-leader-real-estate-management-lausanne-m-f-d-part-time-fulltime-helvetia-versicherungen-lausanne",
+        "en": "team-leader-real-estate-management-lausanne-m-f-d-part-time-full-time-helvetia-versicherungen-lausanne",
+        "fr": "chef-d-equipe-gestion-immobiliere-lausanne-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-lausanne"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10822,7 +10850,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:12:26.281Z"
+      "firstSeenAt": "2026-10-12T09:12:26.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
+        ],
+        "en": [
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
+        ],
+        "fr": [
+          "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-immobilienbewirtschaftung-lausanne-w-m-d-teilzeit-vollzeit-helvetia-lausanne"
+      ]
     },
     {
       "id": "helvetia-0a4220bf2e6c",

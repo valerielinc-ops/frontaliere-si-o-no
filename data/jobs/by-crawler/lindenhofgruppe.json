@@ -3937,12 +3937,12 @@
     },
     {
       "id": "lindenhofgruppe-5c13ced5579e",
-      "slug": "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
+      "slug": "infermiere-a-diplomato-a-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
+        "it": "infermiere-a-diplomato-a-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
+        "en": "qualified-nurse-focus-f-neonatology-lindenhofgruppe-lindenhofspital",
+        "fr": "infirmiere-infirmier-diplome-e-es-focus-f-neonatologie-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3990,11 +3990,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
+        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
+        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

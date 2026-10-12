@@ -1274,7 +1274,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1320,15 +1320,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3920,12 +3919,12 @@
     },
     {
       "id": "hug-57eb91b85786",
-      "slug": "pharmacien-ou-pharmacienne-interne-50-hug-geneve",
+      "slug": "farmacista-interno-50-hug-geneve",
       "slugByLocale": {
         "fr": "pharmacien-ou-pharmacienne-interne-50-hug-geneve",
-        "it": "pharmacien-ou-pharmacienne-interne-50-hug-geneve",
-        "en": "pharmacien-ou-pharmacienne-interne-50-hug-geneve",
-        "de": "pharmacien-ou-pharmacienne-interne-50-hug-geneve"
+        "it": "farmacista-interno-50-hug-geneve",
+        "en": "internal-pharmacist-50-hug-geneve",
+        "de": "interner-apotheker-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3984,7 +3983,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-12T09:17:59.841Z"
+      "firstSeenAt": "2026-10-12T09:17:59.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharmacien-ou-pharmacienne-interne-50-hug-geneve"
+        ],
+        "en": [
+          "pharmacien-ou-pharmacienne-interne-50-hug-geneve"
+        ],
+        "de": [
+          "pharmacien-ou-pharmacienne-interne-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "pharmacien-ou-pharmacienne-interne-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-ad2506a1b55a",
@@ -4068,12 +4081,12 @@
     },
     {
       "id": "hug-803ba8046876",
-      "slug": "preparateur-ou-preparatrice-de-travaux-100-hug-geneve",
+      "slug": "preparazione-del-lavoro-100-hug-geneve",
       "slugByLocale": {
         "fr": "preparateur-ou-preparatrice-de-travaux-100-hug-geneve",
-        "it": "preparateur-ou-preparatrice-de-travaux-100-hug-geneve",
-        "en": "preparateur-ou-preparatrice-de-travaux-100-hug-geneve",
-        "de": "preparateur-ou-preparatrice-de-travaux-100-hug-geneve"
+        "it": "preparazione-del-lavoro-100-hug-geneve",
+        "en": "preparation-of-work-100-hug-geneve",
+        "de": "vorbereitung-der-arbeit-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4133,16 +4146,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-12T09:17:59.838Z"
+      "firstSeenAt": "2026-10-12T09:17:59.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "preparateur-ou-preparatrice-de-travaux-100-hug-geneve"
+        ],
+        "en": [
+          "preparateur-ou-preparatrice-de-travaux-100-hug-geneve"
+        ],
+        "de": [
+          "preparateur-ou-preparatrice-de-travaux-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "preparateur-ou-preparatrice-de-travaux-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-03c2f134ca76",
-      "slug": "physiotherapeute-100-hug-geneve",
+      "slug": "fisioterapia-100-hug-geneve",
       "slugByLocale": {
         "fr": "physiotherapeute-100-hug-geneve",
-        "it": "physiotherapeute-100-hug-geneve",
-        "en": "physiotherapeute-100-hug-geneve",
-        "de": "physiotherapeute-100-hug-geneve"
+        "it": "fisioterapia-100-hug-geneve",
+        "en": "physiotherapy-100-hug-geneve",
+        "de": "physiotherapie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4201,16 +4228,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-12T09:17:59.835Z"
+      "firstSeenAt": "2026-10-12T09:17:59.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-100-hug-geneve"
+        ],
+        "en": [
+          "physiotherapeute-100-hug-geneve"
+        ],
+        "de": [
+          "physiotherapeute-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-5470841b8774",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4268,7 +4309,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-80-hug-geneve"
+        ],
+        "en": [
+          "psychologue-80-hug-geneve"
+        ],
+        "de": [
+          "psychologue-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-80-hug-geneve"
+      ]
     }
   ]
 }
