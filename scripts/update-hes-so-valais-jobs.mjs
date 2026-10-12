@@ -953,7 +953,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isHessoJob) : [];
-  writeJobsCrawlerSlice(HESSO_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(HESSO_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: HESSO_KEY,
     label: 'HES-SO Valais-Wallis',

@@ -1208,6 +1208,7 @@ async function main() {
     : [];
   await writeJobsCrawlerSliceVerified(MANOR_KEY, _sliceJobs, {
     isTargetJob: isManorJob,
+    observedJobs: discoveredJobs,
   });
   writeSummaryCrawlerSlice({
     key: MANOR_KEY,

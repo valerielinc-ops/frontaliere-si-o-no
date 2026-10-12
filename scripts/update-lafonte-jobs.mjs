@@ -701,7 +701,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'La Fonte',

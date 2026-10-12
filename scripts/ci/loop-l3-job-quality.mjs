@@ -293,6 +293,10 @@ export function validateJobSummaries(summaries, {
       issues.push(`${prefix}: summary is not an object`);
       continue;
     }
+    const summaryKey = text(summary.key) ? summary.key.trim() : file;
+    const aggregateOf = new Set(Array.isArray(summary.aggregateOf)
+      ? summary.aggregateOf.filter(text).map((key) => key.trim())
+      : []);
     const generatedAt = finiteDate(summary.generatedAt);
     if (!text(summary.key)) issues.push(`${prefix}: key is missing`);
     if (!generatedAt) issues.push(`${prefix}: generatedAt is missing or invalid`);
@@ -326,10 +330,21 @@ export function validateJobSummaries(summaries, {
         if (identity) {
           const previous = identities.get(identity);
           if (previous) {
-            duplicateIdentities += 1;
-            rowIssues.push(`${jobPrefix}: duplicate identity ${identity} also appears in ${previous}`);
+            const sameAggregateRecord = text(job?.id)
+              && text(previous.job?.id)
+              && job.id.trim() === previous.job.id.trim()
+              && text(job?.url)
+              && text(previous.job?.url)
+              && job.url.trim() === previous.job.url.trim();
+            const declaredAggregateAlias = summaryKey !== previous.summaryKey
+              && sameAggregateRecord
+              && (aggregateOf.has(previous.summaryKey) || previous.aggregateOf.has(summaryKey));
+            if (!declaredAggregateAlias) {
+              duplicateIdentities += 1;
+              rowIssues.push(`${jobPrefix}: duplicate identity ${identity} also appears in ${previous.prefix}`);
+            }
           } else {
-            identities.set(identity, jobPrefix);
+            identities.set(identity, { prefix: jobPrefix, summaryKey, aggregateOf, job });
           }
         }
         if (rowIssues.length) {

@@ -353,6 +353,7 @@ async function main() {
   writeSummaryCrawlerSlice({
     key: 'swatchgroup',
     label: 'Swatch Group',
+    aggregateOf: companyKeys,
     generatedAt: new Date().toISOString(),
     total: _aggregateTotal,
     newCount: crawlDiff.newJobs.length,
