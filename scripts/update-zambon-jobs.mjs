@@ -329,6 +329,31 @@ async function mergeJobs(discoveredJobs) {
   return merged;
 }
 
+/**
+ * Diff the stored company slice against the slice that the merge actually
+ * produced, optionally archiving routes retired by an authoritative empty
+ * snapshot. The post-merge argument is deliberately the returned slice: the
+ * scratch dataset may still contain the prior jobs until the verified writer
+ * publishes the replacement.
+ */
+export function computeZambonCrawlResult(beforeJobs = [], afterJobs = [], {
+  archiveRemoved = false,
+  archiveDir,
+} = {}) {
+  const companyJobs = (jobs) => (Array.isArray(jobs) ? jobs : []).filter(isCompanyJob);
+  const beforeSnapshot = snapshotJobSlugs(companyJobs(beforeJobs));
+  const afterSnapshot = snapshotJobSlugs(companyJobs(afterJobs));
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  const archived = archiveRemoved
+    ? archiveRemovedJobsToSlice(
+      diff.removedJobs,
+      COMPANY_KEY,
+      archiveDir ? { dir: archiveDir } : {},
+    )
+    : 0;
+  return { diff, archived };
+}
+
 function updateAdapterConfig(seedUrls) {
   const p = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const a = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf-8')) : {};
@@ -343,7 +368,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Zambon Svizzera SA — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob));
+  const beforeJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
   const discovered = await fetchJobs();
   const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
   if (!discovered.length && !authoritativeEmptySnapshot) {
@@ -359,17 +384,15 @@ async function main() {
     await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true });
   }
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_ZAMBON_STRICT', label: COMPANY_NAME, dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_zambon_domain', failWhenNoJobs: false });
-  const afterSnapshot = snapshotJobSlugs((readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob));
-  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  const { diff, archived } = computeZambonCrawlResult(beforeJobs, mergedCompanyJobs, {
+    archiveRemoved: authoritativeEmptySnapshot,
+  });
   printCrawlChangeSummary(diff, COMPANY_NAME); writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   const _dur = getCrawlerElapsedMs();
   const _sliceJobs = mergedCompanyJobs;
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     skipShrinkGuard: authoritativeEmptySnapshot,
   });
-  const archived = authoritativeEmptySnapshot
-    ? archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)
-    : 0;
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: COMPANY_NAME,

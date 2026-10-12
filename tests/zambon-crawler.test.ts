@@ -4,6 +4,9 @@
  * Tests both the new zambon.com/en/open-positions format and
  * legacy jobopportunity.ch format for backward compatibility.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -15,7 +18,7 @@ import {
   MIN_DESC_LENGTH,
   extractZambonJobBody,
 } from '@/scripts/lib/zambon-job-parser.mjs';
-import { buildZambonJob, mergeZambonJobs, parseZambonApiPayload, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
+import { buildZambonJob, computeZambonCrawlResult, mergeZambonJobs, parseZambonApiPayload, ZAMBON_FABRICATED_DESCRIPTION_RE } from '@/scripts/update-zambon-jobs.mjs';
 import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
@@ -366,6 +369,26 @@ describe('Zambon source text only (issue 5253)', () => {
     const authoritativeEmpty = parseZambonApiPayload({ status: 200, data: [] });
     expect(mergeZambonJobs([STORED], authoritativeEmpty)).toEqual([]);
     expect(mergeZambonJobs([STORED], [])).toEqual([STORED]);
+  });
+
+  it('archives routes retired by the slice produced by an authoritative empty snapshot', () => {
+    const retired = buildZambonJob(
+      { id: 'zambon-811390', url: JOB_URL, title: 'Buyer Procurement Indirect' },
+      extractZambonJobBody(NCOREPLAT_PAGE),
+    );
+    const archiveDir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-zambon-expired-'));
+    try {
+      const { diff, archived } = computeZambonCrawlResult([retired], [], {
+        archiveRemoved: true,
+        archiveDir,
+      });
+      expect(diff.removedJobs.map((job) => job.url)).toEqual([JOB_URL]);
+      expect(archived).toBe(1);
+      const entries = JSON.parse(fs.readFileSync(path.join(archiveDir, 'zambon.json'), 'utf8'));
+      expect(entries.map((entry: { slug: string }) => entry.slug)).toEqual([retired.slug]);
+    } finally {
+      fs.rmSync(archiveDir, { recursive: true, force: true });
+    }
   });
 
   it('publishes a body only from the shared 50-word floor (review #10396)', () => {
