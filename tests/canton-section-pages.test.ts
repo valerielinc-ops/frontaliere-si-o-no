@@ -414,7 +414,8 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html).toContain(`data-ad-slot="${AD_SLOTS.SSG_END_MULTIPLEX.slot}"`);
         expect(html).toContain('data-ad-format="horizontal" data-full-width-responsive="true"');
         expect(html).toContain('data-ad-format="fluid" data-ad-layout="in-article"');
-        expect(html).toContain('data-ad-format="autorelaxed" data-ad-placement="ssg_end_multiplex"');
+        expect(html).toContain('data-ad-format="autorelaxed"');
+        expect(html).not.toContain('data-ad-placement="ssg_end_multiplex"');
         expect(html).toContain(`aria-label="${locale === 'it' ? 'Pubblicità' : locale === 'en' ? 'Advertisement' : locale === 'de' ? 'Werbung' : 'Publicité'}"`);
         const ld = jsonLd(html);
         expect(ld.map((x) => x['@type'])).toEqual(['BreadcrumbList', 'CollectionPage', 'Dataset']);

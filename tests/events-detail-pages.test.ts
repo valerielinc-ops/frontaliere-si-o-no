@@ -495,7 +495,7 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('ev-hero-surface');
     expect(page.html).toContain('prefers-reduced-motion:reduce');
     expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`, 'g'))).toHaveLength(1);
-    expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}`, 'g'))).toHaveLength(1);
+    expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`, 'g'))).toHaveLength(1);
     expect(page.html).toContain('data-events-page=event_detail');
     expect(page.html).toContain('data-events-lifecycle=active');
   });
@@ -665,7 +665,7 @@ describe('renderEventDetailPage', () => {
     expect(pastPage.html).toContain('"@type":"BreadcrumbList"');
     expect(pastPage.html).toContain('data-events-lifecycle=past');
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
-    expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}`));
+    expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`));
   });
   it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
