@@ -1380,6 +1380,39 @@ export const Analytics = {
  return resolvedPageViewEmissionId;
  },
 
+ /** GA4-only view event for the assisted-application service landing page. */
+ trackApplicationConciergeView: () => {
+  const pagePath = typeof window !== 'undefined'
+   ? `${window.location.pathname}${window.location.search}`
+   : '/cerca-lavoro-ticino/?application_concierge=1';
+  logFirebaseOnly('application_concierge_view', {
+   page_path: pagePath,
+   page_template: 'application_concierge',
+   content_group: 'jobs',
+   service_duration_days: 30,
+   position_limit: 10,
+   price_eur: 39.99,
+   price_eur_cents: 3999,
+  });
+ },
+
+ /** GA4-only click event for every attempt to open the checkout. */
+ trackApplicationConciergeCheckoutClick: () => {
+  const pagePath = typeof window !== 'undefined'
+   ? `${window.location.pathname}${window.location.search}`
+   : '/cerca-lavoro-ticino/?application_concierge=1';
+  logFirebaseOnly('application_concierge_checkout_click', {
+   page_path: pagePath,
+   page_template: 'application_concierge',
+   content_group: 'jobs',
+   cta_id: 'application_concierge.start_checkout',
+   service_duration_days: 30,
+   position_limit: 10,
+   price_eur: 39.99,
+   price_eur_cents: 3999,
+  });
+ },
+
  /** A visible referral CTA; Firebase is the unsampled source of truth. */
  trackAffiliateImpression: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
   logFirebaseOnly('affiliate_impression', affiliateTelemetry(partnerId, context, attribution));

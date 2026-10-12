@@ -140,4 +140,24 @@ describe('seoService — inLanguage whitelist', () => {
 
   expect(empty.map((l) => ({ lang: l.getAttribute('hreflang'), href: l.getAttribute('href') }))).toEqual([]);
  });
+
+ it('emits dedicated metadata, canonical and hreflang URLs for the concierge landing', async () => {
+  const route: AppRoute = { activeTab: 'job-board' };
+  const section = getSeoSection(route);
+  const path = `${buildPath(route, 'it')}?application_concierge=1`;
+
+  await loadAllLocaleChunks('it');
+  setLocale('it');
+  window.history.replaceState({}, '', path);
+  await updateMetaTags(section);
+
+  expect(document.title).toContain('Candidature assistite');
+  expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toContain('candidatura assistita');
+  expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href'))
+   .toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1');
+
+  const schemas = flatten(readEmittedSchemas());
+  expect(schemas.some((schema) => typeOf(schema) === 'Service')).toBe(true);
+  expect(Array.from(document.querySelectorAll('link[hreflang]')).every((link) => link.href.includes('application_concierge=1'))).toBe(true);
+ });
 });

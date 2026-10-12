@@ -1730,6 +1730,37 @@ function isLocaleChunkLoaded(locale: Locale): boolean {
  return !italianFallbacks.has(value);
 }
 
+function buildApplicationConciergeSeoMetadata(locale: Locale): SEOMetadata {
+ const canonicalPath = `${withTrailingSlashPath(buildPath({ activeTab: 'job-board' }, locale))}?application_concierge=1`;
+ const title = t('jobBoard.concierge.seoTitle');
+ const description = t('jobBoard.concierge.seoDescription');
+ return {
+  title,
+  description,
+  keywords: t('jobBoard.concierge.seoKeywords'),
+  ogTitle: title,
+  ogDescription: description,
+  canonicalPath,
+  structuredData: {
+   '@context': 'https://schema.org',
+   '@type': 'Service',
+   '@id': `${BASE_URL}${canonicalPath}#service`,
+   name: title,
+   description,
+   serviceType: 'Assisted job application service',
+   provider: { '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+   areaServed: { '@type': 'Place', name: 'Ticino, Switzerland' },
+   offers: {
+    '@type': 'Offer',
+    url: `${BASE_URL}${canonicalPath}`,
+    price: '39.99',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+   },
+  },
+ };
+}
+
 /**
  * Updates document meta tags dynamically.
  * Uses the i18n router to build locale-aware canonical and hreflang URLs.
@@ -1744,6 +1775,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
  // leave the previous page's head in place while that locale chunk loads.
  const { route, locale: pathLocale } = parsePath(pathnameSnapshot);
+ const searchParams = new URLSearchParams(window.location.search || '');
+ const isApplicationConciergeEntry = searchParams.get('application_concierge') === '1'
+  && !searchParams.get('application_concierge_service_id');
+ const isApplicationConciergeService = Boolean(searchParams.get('application_concierge_service_id'));
 
  // Static-overlay pages ship authoritative title, description, canonical,
  // hreflang and structured data in the HTML emitted by the build plugins. The
@@ -1774,7 +1809,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
 
  const authorMetadata = resolveAuthorProfileMetadata(sectionKey, pathLocale);
- const metadata: SEOMetadata = pharmacyMetadata ?? authorMetadata ?? await getSeoEntry(sectionKey);
+ const baseMetadata: SEOMetadata = pharmacyMetadata ?? authorMetadata ?? await getSeoEntry(sectionKey);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  if (getLocale() !== pathLocale) {
   setLocale(pathLocale);
@@ -1788,6 +1823,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (typeof document !== 'undefined' && document.documentElement.lang !== locale) {
  document.documentElement.lang = locale;
  }
+ const metadata: SEOMetadata = isApplicationConciergeEntry
+  ? buildApplicationConciergeSeoMetadata(locale)
+  : baseMetadata;
  // For static-overlay routes (recency landings, today landings, fuel-daily,
  // border-wait, etc.) `buildPath(route, locale)` would return the generic
  // tab root (e.g. `/cerca-lavoro-ticino/`) because the route only carries
@@ -1797,7 +1835,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const localePath = route.staticOverlay
  ? window.location.pathname
  : buildPath(route, locale);
- const canonicalLocalePath = withTrailingSlashPath(localePath);
+ const canonicalLocalePath = `${withTrailingSlashPath(localePath)}${isApplicationConciergeEntry ? '?application_concierge=1' : ''}`;
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
@@ -1876,7 +1914,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  const legalSeo = sectionKey === 'privacy' || sectionKey === 'terms' || sectionKey === 'data-deletion'
  ? (await import('./legal/documents')).buildLegalSeo(sectionKey, locale) : null;
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
- const localizedSeoContent = pharmacyMetadata
+ const localizedSeoContent = isApplicationConciergeEntry
+ ? { title: metadata.title, description: metadata.description, keywords: metadata.keywords }
+ : pharmacyMetadata
  ? pharmacyMetadata
  : (legalSeo ? { ...legalSeo, keywords: metadata.keywords } : null) ?? authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
@@ -1899,14 +1939,18 @@ export async function updateMetaTags(section: string): Promise<void> {
  const listingMeta = jobCount === null ? null : buildJobBoardListingMetadata(locale, listingCanton, jobCount);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
 
- const baseMetaTitle = jobSeo
+ const baseMetaTitle = isApplicationConciergeEntry
+ ? localizedSeoContent.title
+ : jobSeo
  ? jobSeo.title
  : isDialectPage
  ? dialectTitleByLocale[locale]
  : listingMeta
  ? listingMeta.title
  : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
- const baseMetaDescription = jobSeo
+ const baseMetaDescription = isApplicationConciergeEntry
+ ? localizedSeoContent.description
+ : jobSeo
  ? jobSeo.description
  : isDialectPage
  ? dialectDescriptionByLocale[locale]
@@ -1980,7 +2024,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
  })();
  const preserveStaticArticleNoindex = isBlogArticle && articleBodyLoadFailed && /\bnoindex\b/i.test(existingArticleRobots);
- const robotsDirective = hasFilterQuery || route.activeTab === 'newsletter-preferences'
+ const robotsDirective = isApplicationConciergeService
+ ? 'noindex, nofollow'
+ : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
  : articleBodyHasPromptPlaceholder || preserveStaticArticleNoindex
  ? 'noindex, follow'
@@ -2076,7 +2122,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  updateCanonicalLink(`${BASE_URL}${canonicalLocalePath}`);
 
  // Update hreflang tags with locale-specific paths
- updateHreflangTags(route);
+ updateHreflangTags(route, isApplicationConciergeEntry ? '?application_concierge=1' : '');
 
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
@@ -2202,7 +2248,7 @@ function getOgLocale(): string {
  * Now uses locale-specific paths from the i18n router
  * instead of ?lang= query parameters.
  */
-function updateHreflangTags(route: import('./router').AppRoute): void {
+function updateHreflangTags(route: import('./router').AppRoute, querySuffix = ''): void {
  // Static-overlay landing pages (recency/today landings, fuel-daily,
  // border-wait, salary-stats, profession-canton, publisher ads, …) do NOT
  // carry their specific slug in AppRoute — `buildPath(route, locale)` would
@@ -2229,7 +2275,7 @@ function updateHreflangTags(route: import('./router').AppRoute): void {
  // Semrush flags empty hreflang codes as conflicts; this guard ensures we
  // never emit one even if `paths` ends up with a missing/empty locale.
  const hreflangEntries = (['it', 'en', 'de', 'fr'] as const)
- .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}` : '' }))
+ .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
  .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
 
  hreflangEntries.forEach(({ lang, url }) => {
@@ -2244,7 +2290,7 @@ function updateHreflangTags(route: import('./router').AppRoute): void {
  const xDefault = document.createElement('link');
  xDefault.rel = 'alternate';
  xDefault.setAttribute('hreflang', 'x-default');
- xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}`;
+ xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`;
  document.head.appendChild(xDefault);
 }
 

@@ -43,6 +43,24 @@ describe('recommendedBlock selection', () => {
     }
   });
 
+  it('uses the assisted-application service for weekly newsletter and job-alert campaigns', () => {
+    for (const campaign of ['jobalert', 'weekly_2026-10-12']) {
+      const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'jobs', campaign });
+      expect(rec?.kind).toBe('internal');
+      expect(rec?.id).toBe('application-concierge');
+
+      const href = buildRecommendedHref(rec!, { campaign, acquisitionSource: 'job-alert' });
+      const parsed = new URL(href);
+      expect(parsed.pathname).toBe('/cerca-lavoro-ticino/');
+      expect(parsed.searchParams.get('application_concierge')).toBe('1');
+      expect(parsed.searchParams.get('utm_source')).toBe('newsletter');
+      expect(parsed.searchParams.get('utm_medium')).toBe('email');
+      expect(parsed.searchParams.get('utm_campaign')).toBe(campaign);
+      expect(parsed.searchParams.get('as')).toBe('job-alert');
+      expect(href).not.toContain('/go/');
+    }
+  });
+
   it('falls back to the only enabled affiliate when its interests do not cover the segment', () => {
     const savedEntries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
     try {
@@ -115,6 +133,14 @@ describe('recommendedBlock render', () => {
     expect(html).not.toContain('In collaborazione con un partner');
     // Policy: never AdSense / Google Ads in email.
     expect(html).not.toMatch(/adsbygoogle|googlesyndication|adsense|data-ad-client/i);
+  });
+
+  it('renders the first-party service link without a sponsored rel', () => {
+    const html = renderRecommendedBlock({ locale: 'it', interest: 'jobs', campaign: 'jobalert' });
+    expect(html).toContain('/cerca-lavoro-ticino/?application_concierge=1');
+    expect(html).toContain('Candidature assistite per 30 giorni');
+    expect(html).toContain('Servizio di Frontaliere Ticino');
+    expect(html).not.toContain('rel="noopener noreferrer sponsored"');
   });
 
   it('renders locale-correct copy (no IT leak into EN)', () => {

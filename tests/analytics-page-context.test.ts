@@ -39,6 +39,21 @@ describe('deriveAnalyticsPageContext', () => {
     });
   });
 
+  it('classifies the assisted-application landing and private service URLs', () => {
+    expect(deriveAnalyticsPageContext('/cerca-lavoro-ticino/?application_concierge=1')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      siteSection: 'jobs',
+      routeFamily: 'application_concierge',
+    });
+
+    expect(deriveAnalyticsPageContext('/en/find-jobs-ticino/?application_concierge_service_id=svc_123')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      contentLocale: 'en',
+    });
+  });
+
   it('keeps sector hubs out of the job-detail template', () => {
     expect(
       deriveAnalyticsPageContext('/cerca-lavoro-ticino/infermieri/'),
