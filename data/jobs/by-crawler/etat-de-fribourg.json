@@ -1604,7 +1604,7 @@
       "slug": "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
       "slugByLocale": {
         "de": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "it": "laboratory-technician-position-in-pharmacology-etat-de-fribourg",
+        "it": "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg",
         "fr": "laboratory-technicien-position-in-pharmacology-etat-de-fribourg-fribourg",
         "en": "laboratory-technician-position-in-pharmacology-etat-de-fribourg-fribourg"
       },
@@ -1656,13 +1656,11 @@
       "pensum": "95-100%",
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-          "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
+          "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch",
-        "laboratorio-tecnico-posizione-in-farmacologia-etat-de-fribourg-fribourg"
+        "laboratory-technician-position-in-pharmacology-etat-de-fribourg-ch"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2408,9 +2406,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -2463,14 +2461,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340"
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340"
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -4071,12 +4069,12 @@
     },
     {
       "id": "etat-de-fribourg-706d320b5c8a",
-      "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
+      "slug": "collaboratore-scientifico-etat-de-fribourg-fribourg-a5364e",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
-        "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2",
-        "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
+        "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-a5364e",
+        "en": "scientific-collaborator-etat-de-fribourg-fribourg-a5364e",
+        "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4139,7 +4137,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-10T23:21:46.330Z"
+      "firstSeenAt": "2026-09-10T23:21:46.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-2"
+      ]
     },
     {
       "id": "etat-de-fribourg-2ec8474124cc",
@@ -4226,12 +4238,12 @@
     },
     {
       "id": "etat-de-fribourg-b1b77d13f8bf",
-      "slug": "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-4dd77b8386",
+      "slug": "collaboratore-trice-scientifico-a-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
-        "it": "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-4dd77b8386",
-        "en": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2",
-        "fr": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
+        "it": "collaboratore-trice-scientifico-a-etat-de-fribourg-fribourg",
+        "en": "research-associate-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-rice-scientifique-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4282,12 +4294,20 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2",
-          "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-4dd77b8386"
+        ],
+        "en": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2"
         ]
       },
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-2",
-        "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-4dd77b8386"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4601,7 +4621,7 @@
         "it": "tecnico-di-laboratorio-etat-de-fribourg-givisiez",
         "en": "specialist-laboratory-technician-etat-de-fribourg-givisiez",
         "de": "fachlaborant-in-etat-de-fribourg-ch",
-        "fr": "fachlaborant-in-etat-de-fribourg-givisiez"
+        "fr": "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4649,7 +4669,7 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "fachlaborant-in-etat-de-fribourg-ch",
-        "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+        "fachlaborant-in-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4659,7 +4679,7 @@
           "fachlaborant-in-etat-de-fribourg-ch"
         ],
         "fr": [
-          "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+          "fachlaborant-in-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-10-03T09:26:31.698Z",
@@ -4931,12 +4951,12 @@
     },
     {
       "id": "etat-de-fribourg-ee4a13314d50",
-      "slug": "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246",
+      "slug": "collaboratore-trice-scientifico-a-etat-de-fribourg-fribourg-8aa8a6",
       "slugByLocale": {
         "de": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
-        "it": "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246",
-        "en": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
-        "fr": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
+        "it": "collaboratore-trice-scientifico-a-etat-de-fribourg-fribourg-8aa8a6",
+        "en": "research-associate-etat-de-fribourg-fribourg-8aa8a6",
+        "fr": "collaborateur-rice-scientifique-etat-de-fribourg-fribourg-8aa8a6"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4987,12 +5007,20 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
-          "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+          "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246"
+        ],
+        "en": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
+        ],
+        "fr": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3"
         ]
       },
       "previousSlugs": [
         "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch-3",
-        "wissenschaftl-collaboratore-trice-etat-de-fribourg"
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg",
+        "wissenschaftl-collaboratore-trice-etat-de-fribourg-fribourg-1cdd89e246"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5013,12 +5041,12 @@
     },
     {
       "id": "etat-de-fribourg-f2b3df497481",
-      "slug": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
+      "slug": "collaboratore-scientifico-etat-de-fribourg-fribourg-de2f84",
       "slugByLocale": {
         "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
-        "en": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3",
-        "de": "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-de2f84",
+        "en": "scientific-collaborator-etat-de-fribourg-fribourg-de2f84",
+        "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-de2f84"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5081,7 +5109,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-10T23:21:46.330Z"
+      "firstSeenAt": "2026-09-10T23:21:46.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        ],
+        "en": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        ],
+        "de": [
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch-3"
+      ]
     },
     {
       "id": "etat-de-fribourg-353f78179cca",
@@ -5504,12 +5546,12 @@
     },
     {
       "id": "etat-de-fribourg-8b58bd9c7368",
-      "slug": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2",
+      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg-e12911",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2",
-        "en": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2",
-        "de": "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg-e12911",
+        "en": "administrative-collaborator-etat-de-fribourg-fribourg-e12911",
+        "de": "verwaltungsmitarbeiter-etat-de-fribourg-fribourg-e12911"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5572,7 +5614,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-17T11:09:01.479Z"
+      "firstSeenAt": "2026-07-17T11:09:01.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-superieur-e-etat-de-fribourg-ch-2"
+      ]
     },
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
@@ -5749,7 +5805,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -5796,15 +5852,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:20.010Z",
@@ -6942,12 +6994,12 @@
     },
     {
       "id": "etat-de-fribourg-2368c87bee04",
-      "slug": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
+      "slug": "assistente-sociale-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
-        "it": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
-        "en": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
-        "fr": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        "it": "assistente-sociale-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
+        "en": "social-worker-family-external-care-etat-de-fribourg-fribourg",
+        "fr": "travailleur-social-travailleuse-sociale-prise-en-charge-extrafamiliale-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7010,7 +7062,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-08-28T05:35:45.788Z"
+      "firstSeenAt": "2026-08-28T05:35:45.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        ],
+        "en": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+      ]
     },
     {
       "id": "etat-de-fribourg-c63c069f360b",
@@ -7432,12 +7498,12 @@
     },
     {
       "id": "etat-de-fribourg-0eacadce4a1d",
-      "slug": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+      "slug": "professore-open-rank-presidente-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
-        "it": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+        "it": "professore-open-rank-presidente-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
         "en": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
-        "fr": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        "fr": "professeure-de-rang-ouvert-presidente-de-women-s-health-and-exposome-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7501,7 +7567,18 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:34.414Z"
+      "firstSeenAt": "2026-10-08T22:30:34.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+      ]
     },
     {
       "id": "etat-de-fribourg-109c98223bcb",
@@ -7673,9 +7750,9 @@
     },
     {
       "id": "etat-de-fribourg-058404fa70a6",
-      "slug": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+      "slug": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
       "slugByLocale": {
-        "it": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+        "it": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
         "en": "hr-specialist-etat-de-fribourg-hauterive-fr-82b187",
         "de": "hr-spezialist-in-etat-de-fribourg-ch",
         "fr": "specialiste-rh-etat-de-fribourg-hauterive-fr"
@@ -7726,12 +7803,12 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "hr-spezialist-in-etat-de-fribourg-ch",
-        "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+        "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-spezialist-in-etat-de-fribourg-ch",
-          "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+          "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "hr-spezialist-in-etat-de-fribourg-ch"
@@ -8640,9 +8717,9 @@
     },
     {
       "id": "etat-de-fribourg-ebabd01b2f7a",
-      "slug": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
         "en": "administrative-collaborator-ve-front-office-etat-de-fribourg-fribourg",
         "de": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
         "fr": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"
@@ -8693,12 +8770,12 @@
       "pensum": "80-90%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+        "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-          "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+          "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"

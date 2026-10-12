@@ -1724,12 +1724,12 @@
     },
     {
       "id": "epfl-5443d48f0428",
-      "slug": "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne",
+      "slug": "software-engineer-keystone-project-inferenza-llm-verificata-dalla-macchina-epfl-lausanne",
       "slugByLocale": {
-        "it": "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne",
+        "it": "software-engineer-keystone-project-inferenza-llm-verificata-dalla-macchina-epfl-lausanne",
         "en": "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne",
         "de": "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne",
-        "fr": "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne"
+        "fr": "ingenieur-logiciel-projet-keystone-inference-llm-controlee-par-machine-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1788,7 +1788,18 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne"
+        ],
+        "fr": [
+          "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-keystone-project-machine-verified-llm-inference-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-abf73f2db41f",
@@ -2638,9 +2649,9 @@
     },
     {
       "id": "epfl-cab3bc2ee8f8",
-      "slug": "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne",
+      "slug": "ingegnere-di-software-full-stack-costruzione-circolare-ai-reon-epfl-lausanne",
       "slugByLocale": {
-        "it": "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne",
+        "it": "ingegnere-di-software-full-stack-costruzione-circolare-ai-reon-epfl-lausanne",
         "en": "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne",
         "de": "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne",
         "fr": "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne"
@@ -2703,7 +2714,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "full-stack-software-engineer-circular-construction-ai-reon-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-2cbb5546ab83",
