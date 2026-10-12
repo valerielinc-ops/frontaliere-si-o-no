@@ -10,7 +10,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import {
-  GENERATED_IMAGE_LICENSE,
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
@@ -76,11 +75,11 @@ function main() {
         errors.push('published generated-image evidence commit differs from the corpus baseline');
       }
       for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
-        const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
-        if (!validation.valid || record?.license !== GENERATED_IMAGE_LICENSE || record?.imageUrl !== imageUrl) {
+        const validation = validateGeneratedImageRecord(record);
+        if (!validation.valid || record?.scope !== 'article-hero' || record?.imageUrl !== imageUrl) {
           errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length
             ? `: ${validation.errors.join('; ')}`
-            : ' (license or imageUrl does not match the record key)'}`);
+            : ' (scope or imageUrl does not match the published article-hero evidence key)'}`);
           continue;
         }
         const existing = generatedByUrl.get(imageUrl);

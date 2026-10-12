@@ -1181,12 +1181,41 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
 }
 
 // The usual object-recursion path above is skipped when mergeValue() takes a
-// base-equality fast path. Job slices are root arrays, so walk matching job
-// objects explicitly before returning a cloned remote/local value. This keeps
-// active slugs reachable for both one-sided cases: local==base and remote==base.
+// base-equality fast path. Job slices may be root arrays or wrapped objects
+// such as { assembledAt, crawlerKey, jobs }. Walk through wrappers to reach
+// matching job records before returning a cloned remote/local value. This
+// keeps active slugs reachable for both one-sided cases: local==base and
+// remote==base.
 function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey = '') {
   if (isPlainObject(merged)) {
-    preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+    const hasActive = typeof merged.slug === 'string' || isPlainObject(merged.slugByLocale);
+    const looksLikeJob = typeof merged.url === 'string'
+      || Array.isArray(merged.previousSlugs)
+      || isPlainObject(merged.previousSlugsByLocale);
+    if (hasActive && looksLikeJob) {
+      preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+      return;
+    }
+
+    const remoteObject = isPlainObject(remoteValue) ? remoteValue : {};
+    const localObject = isPlainObject(localValue) ? localValue : {};
+    const keys = new Set([
+      ...Object.keys(remoteObject),
+      ...Object.keys(localObject),
+      ...Object.keys(merged),
+    ]);
+    for (const key of keys) {
+      const child = merged[key];
+      if (!isPlainObject(child) && !Array.isArray(child)) continue;
+      preserveDroppedActiveSlugsInValue(
+        remoteObject[key],
+        localObject[key],
+        child,
+        warnings,
+        `${pathLabel}.${key}`,
+        forcedKey,
+      );
+    }
     return;
   }
   if (!Array.isArray(merged)) return;

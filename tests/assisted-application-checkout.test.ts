@@ -70,17 +70,27 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const stripeCheckoutSessionsCreate = vi.fn(async () => ({
   id: 'cs_assisted_1',
   url: 'https://checkout.stripe.com/cs_assisted_1',
+  expires_at: 4102444800,
+}));
+const stripeCheckoutSessionsRetrieve = vi.fn(async () => ({
+  id: 'cs_assisted_1',
+  status: 'open',
+  expires_at: 4102444800,
 }));
 const stripeConstructEvent = vi.fn();
 const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
 const sumUpCheckoutCreate = vi.fn(async () => ({
   id: 'sumup_checkout_1',
-  url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
 }));
 
 vi.mock('stripe', () => {
   class MockStripe {
-    checkout = { sessions: { create: stripeCheckoutSessionsCreate } };
+    checkout = {
+      sessions: {
+        create: stripeCheckoutSessionsCreate,
+        retrieve: stripeCheckoutSessionsRetrieve,
+      },
+    };
     webhooks = { constructEvent: stripeConstructEvent };
   }
   return { default: MockStripe };
@@ -129,11 +139,16 @@ beforeEach(() => {
   stripeCheckoutSessionsCreate.mockImplementation(async () => ({
     id: 'cs_assisted_1',
     url: 'https://checkout.stripe.com/cs_assisted_1',
+    expires_at: 4102444800,
+  }));
+  stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+    id: 'cs_assisted_1',
+    status: 'open',
+    expires_at: 4102444800,
   }));
   assistedApplicationPaymentProvider.mockResolvedValue('stripe');
   sumUpCheckoutCreate.mockImplementation(async () => ({
     id: 'sumup_checkout_1',
-    url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
   }));
 });
 
@@ -217,7 +232,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     }));
   });
 
-  it('can create one SumUp Hosted Checkout without changing the one-application order', async () => {
+  it('can create one SumUp widget checkout without changing the one-application order', async () => {
     assistedApplicationPaymentProvider.mockResolvedValue('sumup');
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
@@ -227,7 +242,8 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       status: 200,
       body: {
         ok: true,
-        url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
         orderId: 'order-1',
       },
     });
@@ -241,7 +257,63 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       paymentStatus: 'pending',
       customerEmail: 'candidate@example.com',
     }));
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      checkoutUrl: null,
+    }));
     expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('reuses the persisted SumUp widget checkout on a retry', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual(first);
+    expect(sumUpCheckoutCreate).toHaveBeenCalledTimes(1);
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('rotates an expired Stripe checkout when its expiration webhook was missed', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
+      id: 'cs_assisted_1',
+      url: 'https://checkout.stripe.com/cs_assisted_1',
+    }));
+    await handleCreateAssistedApplicationCheckout(request());
+
+    stripeCheckoutSessionsRetrieve.mockResolvedValueOnce({
+      id: 'cs_assisted_1',
+      status: 'expired',
+      expires_at: 1760000000,
+    });
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
+        orderId: 'order-2',
+      },
+    });
+    expect(stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_assisted_1');
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      checkoutSessionStatus: 'expired',
+      paymentFailureReason: 'checkout_session_expired',
+    }));
+    expect(store.assisted_applications['order-2']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'pending',
+      checkoutSessionStatus: 'open',
+      checkoutAttempt: 2,
+    }));
   });
 
   it('stores the concierge locale and resume link, and accepts the Offerwall-fallback variant', async () => {
@@ -473,6 +545,65 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       submissionStatus: 'awaiting_upload',
       paidAt: '__webhook_timestamp__',
       stripeSessionId: 'cs_assisted_1',
+    }));
+  });
+
+  it('allows a later SumUp success to upgrade a failed attempt on the same checkout', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.async_payment_failed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'unpaid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_failed_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__failed_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      submissionStatus: 'awaiting_payment',
+    }));
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_successful_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__paid_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+      sumupCheckoutId: 'sumup_checkout_1',
+      sumupTransactionId: 'sumup_successful_transaction',
+      paidAt: '__paid_timestamp__',
     }));
   });
 

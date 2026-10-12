@@ -1,8 +1,8 @@
 /**
- * SumUp Hosted Checkout for the one-off assisted-application payment.
+ * SumUp Checkout for the one-off assisted-application payment.
  *
  * SumUp is deliberately isolated from the existing Stripe integrations. The
- * The assisted-application endpoint selects it only when the owner explicitly
+ * assisted-application endpoint selects it only when the owner explicitly
  * sets ASSISTED_APPLICATION_PAYMENT_PROVIDER=sumup in Remote Config; an absent
  * or invalid switch keeps the current Stripe path as the safe default, while
  * incomplete SumUp credentials fail closed before a payment checkout is created.
@@ -109,12 +109,13 @@ async function findSumUpCheckoutByReference(
   return sumUpRequest(`/v0.1/checkouts/${encodeURIComponent(candidate.id)}`, { apiKey });
 }
 
-export async function createSumUpHostedCheckout(
+async function createSumUpCheckout(
   {
     checkoutReference,
     redirectUrl,
     amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
     description = 'Candidatura assistita',
+    hostedCheckout = false,
   },
   read = getRemoteConfigValue,
 ) {
@@ -136,33 +137,44 @@ export async function createSumUpHostedCheckout(
         currency: 'EUR',
         description: boundedString(description, 200) || 'Candidatura assistita',
         merchant_code: merchantCode,
-        redirect_url: redirectUrl,
+        ...(redirectUrl ? { redirect_url: redirectUrl } : {}),
         return_url: webhookUrl,
-        hosted_checkout: { enabled: true },
+        ...(hostedCheckout ? { hosted_checkout: { enabled: true } } : {}),
       },
     });
   } catch (error) {
     // SumUp rejects a second checkout with the same reference. Recover the
-    // already-created Hosted Checkout so a retry cannot strand the customer.
+    // already-created checkout so a retry cannot strand the customer.
     if (!(error instanceof SumUpApiError) || error.status !== 409) throw error;
     result = await findSumUpCheckoutByReference(reference, apiKey, { amountCents: normalizedAmount });
     if (!result) throw error;
   }
   const id = boundedString(result.id, 200);
   const url = boundedString(result.hosted_checkout_url, 1000);
-  if (!id || !url) throw new Error('sumup_checkout_response_invalid');
-  return { id, url };
+  if (!id || (hostedCheckout && !url)) throw new Error('sumup_checkout_response_invalid');
+  return { id, ...(url ? { url } : {}) };
+}
+
+export async function createSumUpHostedCheckout(
+  options,
+  read = getRemoteConfigValue,
+) {
+  return createSumUpCheckout({ ...options, hostedCheckout: true }, read);
 }
 
 export async function createSumUpAssistedApplicationCheckout(
   { orderId, redirectUrl },
   read = getRemoteConfigValue,
 ) {
-  return createSumUpHostedCheckout({
+  return createSumUpCheckout({
     checkoutReference: orderId,
     redirectUrl,
     amountCents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
     description: 'Candidatura assistita',
+    // The assisted flow renders SumUp's Payment Widget on our page. Keeping
+    // this false is what prevents the hosted page's manual “Return to
+    // merchant” button from being shown.
+    hostedCheckout: false,
   }, read);
 }
 

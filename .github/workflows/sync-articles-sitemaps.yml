@@ -227,27 +227,21 @@ jobs:
       #
       # A pull, never a push — nanako owns the corpus. See the script header.
       #
-      # Runs FIRST because it is the step that resolves the pin: it reads
-      # `manifest.json`, checks the corpus out at the commit named there rather
-      # than at `main`, and exports it as ARTICLES_SYNC_COMMIT for the next step.
-      - name: Pull the article corpus
-        id: pull-corpus
-        run: node scripts/pull-articles-corpus.mjs
-
-      # Skipped outright when the corpus pull already gave up: its sitemaps would
-      # be committed next to a registry from a different upstream state, which is
-      # the pair this whole mechanism exists to never produce.
-      - name: Pull published sitemaps
-        id: pull-api
-        if: steps.pull-corpus.outputs.skipped != 'true'
-        run: node scripts/pull-articles-api.mjs
+      # Pull the corpus and all published HTTP artifacts as one pinned pair.
+      # The wrapper retries BOTH pulls when the manifest advances during the
+      # staged API read, and the API pull rechecks the manifest after validating
+      # every artifact before it writes anything. A persistent skip remains
+      # fail-closed and is surfaced through one output for the workflow gates.
+      - name: Pull the article corpus and published HTTP surface
+        id: pull-article-surface
+        run: node scripts/ci/pull-articles-surface.mjs
 
       # The corpus registry and the published sitemap must also be internally
       # bijective. A localized slug collision makes REVERSE_SWISS last-wins and
       # leaves one article unreachable even when both pulls came from the same
       # upstream commit. Refuse the sync before it can open a PR with that data.
       - name: Validate article routing integrity
-        if: steps.pull-corpus.outputs.skipped != 'true' && steps.pull-api.outputs.skipped != 'true'
+        if: steps.pull-article-surface.outputs.skipped != 'true'
         run: node scripts/ci/validate-article-append-integrity.mjs --swiss-only
 
       # One place to ask whether this run has a coherent upstream pair, so a
@@ -256,8 +250,7 @@ jobs:
       - name: Decide whether this run may commit
         id: gate
         env:
-          CORPUS_SKIPPED: ${{ steps.pull-corpus.outputs.skipped }}
-          API_SKIPPED: ${{ steps.pull-api.outputs.skipped }}
+          SURFACE_SKIPPED: ${{ steps.pull-article-surface.outputs.skipped }}
           ALLOW_SIDE_EFFECT: 'true'
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
@@ -265,8 +258,8 @@ jobs:
           reason=''
           if [ "${EFFECTIVE_DRY_RUN:-}" = 'true' ]; then
             reason='dry-run requested'
-          elif [ "${CORPUS_SKIPPED:-}" = 'true' ] || [ "${API_SKIPPED:-}" = 'true' ]; then
-            reason='the corpus pull and the sitemap pull could not agree on one upstream commit'
+          elif [ "${SURFACE_SKIPPED:-}" = 'true' ]; then
+            reason='the corpus and published HTTP artifacts could not agree on one upstream commit after bounded retries'
           fi
           if [ -n "$reason" ]; then
             echo "skipped=true" >> "$GITHUB_OUTPUT"
@@ -321,8 +314,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GATE_REASON: ${{ steps.gate.outputs.skip-reason }}
-          CORPUS_REASON: ${{ steps.pull-corpus.outputs.skip-reason }}
-          API_REASON: ${{ steps.pull-api.outputs.skip-reason }}
+          SURFACE_REASON: ${{ steps.pull-article-surface.outputs.skip-reason }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
@@ -332,9 +324,9 @@ jobs:
           # block". YAML strips the block indent uniformly, so the shell — and
           # the issue — see flush-left markdown.
           DESC=$(cat <<EOF
-          This sync committed nothing. Either the corpus pull and the sitemap pull could not agree on a single upstream commit (background: \`scripts/lib/articles-sync-pin.mjs\`), or the run was an explicit dry-run. The reason below says which.
+          This sync committed nothing. Either the corpus and published HTTP artifacts could not agree on one upstream commit after bounded retries (background: \`scripts/lib/articles-sync-pin.mjs\` and \`scripts/lib/articles-sync-retry.mjs\`), or the run was an explicit dry-run. The reason below says which.
 
-          **Reason:** ${GATE_REASON:-}${CORPUS_REASON:+ | ${CORPUS_REASON}}${API_REASON:+ | ${API_REASON}}
+          **Reason:** ${GATE_REASON:-}${SURFACE_REASON:+ | ${SURFACE_REASON}}
 
           **Run:** ${RUN_URL}
 
