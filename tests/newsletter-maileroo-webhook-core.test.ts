@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  handleMailerooWebhookRequest,
   persistMailerooEvent,
   verifyMailerooSignature,
 } from '../functions/src/newsletterMailerooWebhookCore.js';
@@ -21,6 +22,12 @@ function createFakeDb(
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
+  const creates: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
+  const createdDocs = new Map<string, Record<string, unknown>>();
+
+  function docKey(collection: string, docId: string) {
+    return `${collection}/${docId}`;
+  }
 
   const makeCollection = (name: string) => ({
     doc: (docId: string) => {
@@ -50,8 +57,19 @@ function createFakeDb(
               set: async (data: Record<string, unknown>, _opts?: unknown) => {
                 sets.push({ collection: subPath, docId: subDocId, data });
               },
+              create: async (data: Record<string, unknown>) => {
+                const key = docKey(subPath, subDocId);
+                if (createdDocs.has(key)) {
+                  const error: any = new Error('Already exists');
+                  error.code = 6;
+                  throw error;
+                }
+                createdDocs.set(key, data);
+                creates.push({ collection: subPath, docId: subDocId, data });
+              },
               get: async () => {
-                const docData = existingDocs[subPath]?.[subDocId];
+                const docData = createdDocs.get(docKey(subPath, subDocId))
+                  || existingDocs[subPath]?.[subDocId];
                 return {
                   exists: !!docData,
                   data: () => docData || undefined,
@@ -87,6 +105,9 @@ function createFakeDb(
             set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
               ref.set(data, opts);
             },
+            create: (ref: any, data: Record<string, unknown>) => {
+              ref.create(data);
+            },
           };
           return updateFunction(tx);
         },
@@ -104,6 +125,7 @@ function createFakeDb(
     },
     __sets: sets,
     __adds: adds,
+    __creates: creates,
   };
 }
 
@@ -139,6 +161,50 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__sets.some((e) => e.collection === 'newsletter_subscribers' && e.docId === 'testuser@example.com')).toBe(true);
     expect(db.__sets.some((e) => e.collection.includes('/campaign_deliveries') && e.docId.includes('weekly_2026-03-11_testuser@example.com'))).toBe(true);
     expect(db.__adds.some((e) => e.collection.includes('/events'))).toBe(true);
+  });
+
+  it('deduplicates a repeated provider event_id without incrementing twice', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'duplicate@example.com': { status: 'confirmed', isActive: true },
+      },
+    });
+    const event = {
+      event_type: 'delivered',
+      event_id: 'evt_maileroo_duplicate_1',
+      message_id: 'msg_duplicate_1',
+      event_data: { to: 'duplicate@example.com' },
+    };
+
+    const first = await persistMailerooEvent(db as any, event);
+    const second = await persistMailerooEvent(db as any, event);
+
+    expect(first).toMatchObject({ processed: true, type: 'delivered' });
+    expect(second).toEqual({ skipped: true, reason: 'duplicate' });
+    expect(db.__creates).toHaveLength(1);
+    expect(db.__sets.filter((entry) => entry.collection === 'newsletter_subscribers').length).toBe(1);
+  });
+
+  it('deduplicates job-alert events on the same provider event_id', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: {
+        'alert-user@example.com': { status: 'active' },
+      },
+    });
+    const event = {
+      event_type: 'opened',
+      event_id: 'evt_maileroo_job_alert_1',
+      message_id: 'msg_job_alert_1',
+      tags: { type: 'job-alert' },
+      event_data: { to: 'alert-user@example.com' },
+    };
+
+    const first = await persistMailerooEvent(db as any, event);
+    const second = await persistMailerooEvent(db as any, event);
+
+    expect(first).toMatchObject({ processed: true, type: 'open', collection: 'job_alert_subscribers' });
+    expect(second).toEqual({ skipped: true, reason: 'duplicate' });
+    expect(db.__creates).toHaveLength(1);
   });
 
   it('preserves a confirmation-copy experiment campaign from the provider tag', async () => {
@@ -421,6 +487,34 @@ describe('verifyMailerooSignature', () => {
   it('rejects when signature or secret is missing', () => {
     expect(verifyMailerooSignature({ payload, signature: '', signingSecret: secret })).toBe(false);
     expect(verifyMailerooSignature({ payload, signature: goodSig, signingSecret: '' })).toBe(false);
+  });
+});
+
+describe('handleMailerooWebhookRequest', () => {
+  const secret = 'whsec-handler-test';
+  const payload = JSON.stringify({ event_type: 'delivered', event_data: { to: 'a@example.com' } });
+  const signature = crypto.createHmac('sha256', secret).update(payload, 'utf8').digest('hex');
+
+  it('fails closed when the webhook secret is missing', async () => {
+    await expect(handleMailerooWebhookRequest({
+      payload,
+      headers: {},
+      signingSecret: '',
+      db: createFakeDb() as any,
+    })).rejects.toThrow('secret is not configured');
+  });
+
+  it('propagates persistence errors so the provider can retry the delivery', async () => {
+    const brokenDb = {
+      collection: () => { throw new Error('firestore down'); },
+    };
+
+    await expect(handleMailerooWebhookRequest({
+      payload,
+      headers: { 'x-maileroo-signature': signature },
+      signingSecret: secret,
+      db: brokenDb as any,
+    })).rejects.toThrow('firestore down');
   });
 });
 

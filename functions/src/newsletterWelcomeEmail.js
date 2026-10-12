@@ -335,6 +335,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     preserveExistingUtmMedium: true,
     scheme: mintScheme,
   });
+  const text = built.text;
 
   const campaignId = `welcome_${ctx.segment}`;
 
@@ -344,6 +345,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
       to: normalizedEmail,
       subject,
       html,
+      text,
       tags: [
         { name: 'campaign_id', value: campaignId },
         { name: 'type', value: 'lifecycle' },
