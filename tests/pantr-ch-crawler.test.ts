@@ -83,6 +83,33 @@ describe('Pantr GmbH crawler parser', () => {
       })).toBeNull();
     });
 
+    it('canonicalizes a Swiss source alias in both published country fields', () => {
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/country-alias'),
+        addressCountry: 'Switzerland',
+      })).toMatchObject({
+        addressCountry: 'CH',
+        country: 'CH',
+      });
+    });
+
+    it('falls back to the first non-empty explicit country field', () => {
+      const job = buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/country-field-fallback'),
+        addressCountry: '',
+        country: 'CH',
+      });
+      expect(job).not.toBeNull();
+      expect(job).toMatchObject({ addressCountry: 'CH', country: 'CH' });
+    });
+
+    it.each(['France', undefined])('quarantines non-CH or absent source country %o', (addressCountry) => {
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/non-ch-country'),
+        addressCountry,
+      })).toBeNull();
+    });
+
     it('disambiguates repeated titles at one location with a stable URL suffix', () => {
       const first = buildPantrChJobFromListing(listing('https://pantr.ch/jobs/role-101'));
       const second = buildPantrChJobFromListing(listing('https://pantr.ch/jobs/role-202'));

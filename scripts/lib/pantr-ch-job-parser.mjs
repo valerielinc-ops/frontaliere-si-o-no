@@ -16,8 +16,9 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { sourceBackedSwissGeographyFields } from './prospector/location-evidence.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { canonicalChCountry } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -113,7 +114,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(PANTR_CH_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { requireExplicitCountryEvidence: true });
 }
 
 /** Build one valid source-locale job from a Pantr listing without fetching. */
@@ -123,11 +124,24 @@ export function buildPantrChJobFromListing(listing) {
   const title = normalizeSpace(listing.title || '');
   if (!title || title.length < 3) return null;
 
-  const geography = resolveSourceBackedSwissGeography(listing);
+  // Country is a publication boundary: aliases are canonicalized only after
+  // explicit source evidence, while foreign and absent values are quarantined.
+  const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);
+  if (!sourceCountry) return null;
+  const sourceEvidence = { ...listing, addressCountry: sourceCountry, country: sourceCountry };
+  const geography = sourceBackedSwissGeographyFields(sourceEvidence);
   // Required structured-data geography must come from the vacancy source.
   // Missing, foreign or non-specific values are not replaced with an HQ.
   if (!geography) return null;
-  const { location, canton } = geography;
+  const {
+    location,
+    canton,
+    addressLocality,
+    addressRegion,
+    addressCountry,
+    postalCode,
+    streetAddress,
+  } = geography;
   const descriptionHtml = listing.description || '';
   const descriptionText = stripHtml(descriptionHtml);
   if (!meetsSourceBodyFloor(descriptionText)) return null;
@@ -162,14 +176,13 @@ export function buildPantrChJobFromListing(listing) {
     crawledAt: new Date().toISOString(),
 
     // ── Recommended fields ──
-    // Prospected runtime rows retain the selected structured candidate;
-    // other ATS tiers use the same fields when their client exposes them.
-    addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-    addressRegion: normalizeSpace(listing.addressRegion || canton),
-    addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-    country: normalizeSpace(listing.addressCountry || 'CH'),
-    ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-    ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+    // Publish only the source-backed projection, including canonical country.
+    addressLocality,
+    addressRegion,
+    addressCountry,
+    country: addressCountry,
+    ...(postalCode ? { postalCode } : {}),
+    ...(streetAddress ? { streetAddress } : {}),
     category: detectCategory(title),
     contract: employmentType === 'PART_TIME'
       ? 'part-time'

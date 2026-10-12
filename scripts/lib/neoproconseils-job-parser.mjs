@@ -16,7 +16,8 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { sourceBackedSwissGeographyFields } from './prospector/location-evidence.mjs';
+import { canonicalChCountry } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -111,7 +112,84 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(NEOPROCONSEILS_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { requireExplicitCountryEvidence: true });
+}
+
+/** Build one valid source-locale job from a NEO Pro conseils listing without fetching. */
+export function buildNeoproconseilsJobFromListing(listing) {
+  if (!listing || typeof listing !== 'object') return null;
+
+  const title = normalizeSpace(listing.title || '');
+  if (!title || title.length < 3) return null;
+
+  // Country is a publication boundary: aliases are canonicalized only after
+  // explicit source evidence, while foreign and absent values are quarantined.
+  const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);
+  if (!sourceCountry) return null;
+  const sourceEvidence = { ...listing, addressCountry: sourceCountry, country: sourceCountry };
+  const geography = sourceBackedSwissGeographyFields(sourceEvidence);
+  if (!geography) return null;
+  const {
+    location,
+    canton,
+    addressLocality,
+    addressRegion,
+    addressCountry,
+    postalCode,
+    streetAddress,
+  } = geography;
+  const descriptionHtml = listing.description || '';
+  const descriptionText = stripHtml(descriptionHtml);
+  if (!descriptionText) return null;
+  // The detail URL is the vacancy identity: falling back to the listing page
+  // would give every posting the same `url`, `applyUrl` and `id` hash.
+  if (!listing.url) return null;
+  const publicUrl = listing.url;
+  const employmentType = detectEmploymentType(listing.timeType || title);
+
+  const sourceLang = detectLang(descriptionText || title, 'fr');
+  const jobSlug = slugify(`${title} ${location} neoproconseils ch`);
+  const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+  return {
+    // ── Required fields ──
+    id: `neoproconseils-${urlHash}`,
+    slug: jobSlug,
+    slugByLocale: { [sourceLang]: jobSlug },
+    company: NEOPROCONSEILS_COMPANY_NAME,
+    companyKey: NEOPROCONSEILS_KEY,
+    companyDomain: NEOPROCONSEILS_COMPANY_DOMAIN,
+    title,
+    titleByLocale: { [sourceLang]: title },
+    description: descriptionText,
+    descriptionByLocale: { [sourceLang]: descriptionText },
+    location,
+    canton,
+    url: publicUrl,
+    source: 'NEO Pro conseils SA Dedicated Parser',
+    sourceLang,
+    crawledAt: new Date().toISOString(),
+
+    // ── Recommended fields ──
+    // Publish only the source-backed projection, including canonical country.
+    addressLocality,
+    addressRegion,
+    addressCountry,
+    country: addressCountry,
+    ...(postalCode ? { postalCode } : {}),
+    ...(streetAddress ? { streetAddress } : {}),
+    category: detectCategory(title),
+    contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+    employmentType,
+    experienceLevel: detectExperienceLevel(title),
+    sector: 'Altro', // TODO: Set appropriate sector
+    currency: 'CHF',
+    featured: false,
+    ...mergeSourcePostingDates({}, listing),
+    applyUrl: publicUrl,
+    requirements: [],
+    requirementsByLocale: { [sourceLang]: [] },
+  };
 }
 
 /**
@@ -132,75 +210,7 @@ export async function fetchAllNeoproconseilsJobs() {
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
-
-  const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
-
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
-    const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
-    // The detail URL is the vacancy identity: falling back to the listing page
-    // would give every posting the same `url`, `applyUrl` and `id` hash.
-    if (!listing.url) continue;
-    const publicUrl = listing.url;
-    const employmentType = detectEmploymentType(listing.timeType || title);
-
-    const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} ${location} neoproconseils ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const job = {
-      // ── Required fields ──
-      id: `neoproconseils-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: NEOPROCONSEILS_COMPANY_NAME,
-      companyKey: NEOPROCONSEILS_KEY,
-      companyDomain: NEOPROCONSEILS_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
-      location,
-      canton,
-      url: publicUrl,
-      source: 'NEO Pro conseils SA Dedicated Parser',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      // Prospected runtime rows retain the selected structured candidate;
-      // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
-      category: detectCategory(title),
-      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType,
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Altro', // TODO: Set appropriate sector
-      currency: 'CHF',
-      featured: false,
-      ...mergeSourcePostingDates({}, listing),
-      applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
-  }
+  const jobs = listings.map(buildNeoproconseilsJobFromListing).filter(Boolean);
 
   console.log(`\n📋 Total NEO Pro conseils SA jobs discovered: ${jobs.length}`);
   return jobs;

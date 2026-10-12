@@ -194,10 +194,13 @@ export function needsDetailEnrichment(spec, rows = []) {
  * Preserve structured address fields selected by the geography resolver.
  * `location` remains the source display string; schema addressLocality should
  * be the pure municipality whenever the source supplied it.
+ * Callers that own a source-backed country boundary can request that an absent
+ * country stays absent; the legacy default remains available to other specs.
  *
  * @param {{ geography?: any, candidate?: any }} decision
+ * @param {{ requireExplicitCountryEvidence?: boolean }} [options]
  */
-export function geographyFieldsForDecision(decision = {}) {
+export function geographyFieldsForDecision(decision = {}, options = {}) {
   const geography = decision.geography;
   if (!geography) return null;
   // Select only publishable address fields. `decision.candidate` also carries
@@ -207,13 +210,17 @@ export function geographyFieldsForDecision(decision = {}) {
   const addressLocality = String(candidate.addressLocality || '').trim()
     || String(geography.location || '').split(/[,;/|]/)[0].trim();
   const addressRegion = String(candidate.addressRegion || '').trim() || geography.canton;
-  const addressCountry = String(candidate.addressCountry || geography.addressCountry || 'CH').trim();
+  const addressCountry = String(
+    candidate.addressCountry
+      || candidate.country
+      || geography.addressCountry
+      || (options.requireExplicitCountryEvidence ? '' : 'CH'),
+  ).trim();
   return {
     ...geography,
     addressLocality,
     addressRegion,
-    addressCountry,
-    country: addressCountry,
+    ...(addressCountry ? { addressCountry, country: addressCountry } : {}),
     ...(candidate.postalCode ? { postalCode: String(candidate.postalCode).trim() } : {}),
     ...(candidate.streetAddress ? { streetAddress: String(candidate.streetAddress).trim() } : {}),
   };
@@ -1215,6 +1222,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  *     descriptionSufficient: boolean,
  *     reason: 'geography'
  *   }) => boolean
+ *   requireExplicitCountryEvidence?: boolean
  * }} [runtime]
  * @returns {Promise<Array<Record<string, any> & {
  *   title: string,
@@ -1241,7 +1249,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
     if (!needsDetailEnrichment(spec, rows)) {
       const safeRows = rows.flatMap((row) => {
-        const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
+        const fields = geographyFieldsForDecision(
+          resolveDetailOrListingSwissGeography({}, row),
+          runtime,
+        );
         return fields ? [{ ...row, ...fields }] : [];
       });
       reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
@@ -1288,7 +1299,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             recordUrl: row.url,
           });
           const decision = resolveDetailOrListingSwissGeography(detail, row);
-          const geography = geographyFieldsForDecision(decision);
+          const geography = geographyFieldsForDecision(decision, runtime);
           const description = isSufficientVacancyDescription(detail.description)
             ? detail.description
             : row.description;
