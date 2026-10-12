@@ -33,11 +33,17 @@ import np from 'node:path';
 import os from 'node:os';
 
 import {
+  ARTICLES_PAGE_SIZE,
   HUB_LOCALES,
   HUB_SLUGS,
   SEO_HUB_RESERVED_SLUGS,
+  hubSlugFor,
   paginatedPath,
+  svizzeraArticlesArchiveBasePaths,
 } from '../../build-plugins/seoHubsData';
+import { ARTICLES_PAGE_SIZE as SHARED_ARTICLES_PAGE_SIZE } from '../../packages/articles/engine/shared/articleArchiveConfig.mjs';
+import { ARTICLE_SECTIONS } from '../../services/articleSections';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 
 let TMPDIR: string;
 let DIST: string;
@@ -57,6 +63,33 @@ afterAll(() => {
 // ---------------------------------------------------------------------------
 // 1. Slug-set invariants — fast static guards.
 // ---------------------------------------------------------------------------
+
+describe('seoHubsData — adapted corpus/site contract', () => {
+  it('shares archive data while retaining the richer site path API', () => {
+    expect(ARTICLES_PAGE_SIZE).toBe(SHARED_ARTICLES_PAGE_SIZE);
+    expect(HUB_LOCALES).toEqual(['it', 'en', 'de', 'fr']);
+
+    const swissArchivePaths = svizzeraArticlesArchiveBasePaths();
+    for (const locale of HUB_LOCALES) {
+      const prefix = locale === 'it' ? '' : `/${locale}`;
+      const allSlug = { it: 'tutti', en: 'all', de: 'alle', fr: 'tous' }[locale];
+
+      expect(HUB_SLUGS[locale].articlesAll).toBe(
+        `${prefix}/${SLUG_TABLES[locale].blog}/${allSlug}/`,
+      );
+      expect(swissArchivePaths[locale]).toBe(
+        `${prefix}/${ARTICLE_SECTIONS.svizzera.indexSlug[locale]}/${allSlug}/`,
+      );
+      expect(HUB_SLUGS[locale].jobsAll).toBe(hubSlugFor('TI', locale, 'tutti'));
+      expect(HUB_SLUGS[locale].sectorsAll).toBe(hubSlugFor('TI', locale, 'settori'));
+
+      for (const path of [...Object.values(HUB_SLUGS[locale]), swissArchivePaths[locale]]) {
+        expect(path.startsWith('/')).toBe(true);
+        expect(path.endsWith('/')).toBe(true);
+      }
+    }
+  });
+});
 
 describe('SEO_HUB_RESERVED_SLUGS — slug-set invariants', () => {
   it('covers every trailing slug used by HUB_SLUGS in every locale', () => {
