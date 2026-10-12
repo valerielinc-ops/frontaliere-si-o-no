@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-12T09:24:09.496Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-10-12T21:30:56.843Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8857,
-  "avgDurationMs": 8857,
+  "durationMs": 10653,
+  "avgDurationMs": 10653,
   "durationHistory": [
-    8857
+    10653
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Business Analyst - Payments and Fintech",
+      "slug": "business-analyst-payments-and-fintech-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000155033489&jobName=Business+Analyst+-+Payments+and+Fintech",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000155033489-business-analyst-payments-and-fintech?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-10-12T14:04:40.344Z",
+      "postedDate": "2026-10-12T14:04:40.344Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-bd2220ee6b08",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-12T21:30:47.103Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Data Engineer",
@@ -262,5 +304,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
