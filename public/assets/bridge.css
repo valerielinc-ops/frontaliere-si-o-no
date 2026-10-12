@@ -3,8 +3,8 @@
  *
  * These pages render BEFORE the SPA bundle loads (and may not load it at
  * all — they're thin "this URL has a canonical version" cards). They use
- * hardcoded hex colors instead of var(--color-*) tokens so they render
- * correctly without depending on the SPA stylesheet.
+ * standalone bridge tokens so they render correctly without depending on the
+ * SPA stylesheet, while still following the user's light/dark preference.
  *
  * Loaded via:
  *   <link rel="stylesheet" href="/assets/bridge.css?v=${BUILD_ID}">
@@ -14,11 +14,38 @@
  * external file deduplicates ~21 MB.
  */
 
+:root {
+  --bridge-page: #f8fafc;
+  --bridge-card: #fff;
+  --bridge-heading: #1e293b;
+  --bridge-body: #334155;
+  --bridge-muted: #64748b;
+  --bridge-footer: #94a3b8;
+  --bridge-edge: #e2e8f0;
+  --bridge-accent: #533afd;
+  --bridge-accent-hover: #4529e6;
+  --bridge-shadow: rgba(50, 50, 93, .11);
+}
+
+html.dark {
+  color-scheme: dark;
+  --bridge-page: #0f172a;
+  --bridge-card: #1e293b;
+  --bridge-heading: #f1f5f9;
+  --bridge-body: #cbd5e1;
+  --bridge-muted: #94a3b8;
+  --bridge-footer: #94a3b8;
+  --bridge-edge: #334155;
+  --bridge-accent: #7a5af8;
+  --bridge-accent-hover: #9b8afb;
+  --bridge-shadow: rgba(2, 6, 23, .35);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #f8fafc;
-  color: #334155;
+  background: var(--bridge-page);
+  color: var(--bridge-body);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,10 +54,10 @@ body {
   padding: 24px 16px;
 }
 .card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--bridge-card);
+  border: 1px solid var(--bridge-edge);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 6px var(--bridge-shadow), 0 1px 3px rgba(0, 0, 0, .08);
   max-width: 480px;
   width: 100%;
   padding: 32px 24px;
@@ -44,23 +71,23 @@ body {
   margin-bottom: 20px;
 }
 .logo svg { width: 28px; height: 28px; }
-.logo span { font-size: 16px; font-weight: 700; color: #1e293b; }
+.logo span { font-size: 16px; font-weight: 700; color: var(--bridge-heading); }
 h1 {
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--bridge-heading);
   margin-bottom: 8px;
   line-height: 1.3;
 }
 p {
   font-size: 14px;
-  color: #64748b;
+  color: var(--bridge-muted);
   line-height: 1.6;
   margin-bottom: 16px;
 }
 .btn {
   display: inline-block;
-  background: #533afd;
+  background: var(--bridge-accent);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -69,9 +96,9 @@ p {
   text-decoration: none;
   transition: background .15s;
 }
-.btn:hover { background: #4529e6; }
+.btn:hover { background: var(--bridge-accent-hover); }
 .footer {
   margin-top: 24px;
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--bridge-footer);
 }

@@ -634,9 +634,9 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .s--Vsbr1 { margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5 }
 .s--xxlQD { font-size:11px;opacity:0.7;margin-left:2px }
 .s--zidT1 { margin:6px 0 0;color:var(--color-subtle);font-size:12px }
-.s-01GpQM { margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem }
+.s-01GpQM { margin:.75rem 0;border:1px solid var(--color-edge);border-radius:8px;padding:.5rem .75rem }
 .s-01ocQJ { margin:0 0 16px;padding:10px 14px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-body);font-size:14px;line-height:1.55 }
-.s-040ZNE { display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;border:1px solid #e2e8f0 }
+.s-040ZNE { display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:var(--color-surface-raised);color:var(--color-heading);text-decoration:none;font-size:12px;border:1px solid var(--color-edge) }
 .s-0c2lhY { list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px }
 .s-0DwxlR { margin-top:.75rem;font-size:.95rem;line-height:1.6;color:var(--color-body) }
 .s-0E4V2z { margin:8px 0 0;font-size:1rem;line-height:1.55;opacity:.92 }
@@ -670,25 +670,25 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .s-2HdGmO { margin-top:32px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);padding:14px 18px;max-width:860px }
 .s-2Hpb5V { margin-top:14px;color:var(--color-body) }
 .s-2n4DG5 { padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle,#fff7ed);color:var(--color-warning,#9a3412) }
-.s-2T6Feu { margin:0;padding:0 0 0 18px;color:#0f172a;font-size:.95rem;line-height:1.6 }
+.s-2T6Feu { margin:0;padding:0 0 0 18px;color:var(--color-heading);font-size:.95rem;line-height:1.6 }
 .s-2u1Hmp { margin:0 0 1rem 1.25rem;padding:0 }
 .s-2xNC3d { margin:12px 0 6px;font-weight:700;color:var(--color-heading);font-size:14px }
 .s-2xx_KF { padding:8px 12px }
 .s-34uchz { display:flex;gap:.5rem;margin-bottom:1.5rem }
 .s-35KBSc { margin-top:10px }
-.s-3DDKBR { font-size:0.85rem;color:#475569;margin:.25rem 0 1rem }
+.s-3DDKBR { font-size:0.85rem;color:var(--color-subtle);margin:.25rem 0 1rem }
 .s-3E6P1h { font-size:15px;font-weight:600;color:var(--color-heading);margin:0 0 6px }
 .s-3kP_AL { padding:18px;border-radius:14px;background:var(--color-success-subtle);border:1px solid var(--color-success-border) }
 .s-3lpjYF { stroke:var(--color-chart-line) }
 .s-3U98wH { margin-top:4px;color:var(--color-subtle);font-size:13px }
-.s-3WzZY3 { background:#f1f5f9 }
+.s-3WzZY3 { background:var(--color-surface-raised) }
 .s-4FiAM7 { margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;font-size:.9rem }
 .s-4FS1gg { max-width:1100px;margin:24px auto 0;padding:0 16px }
 .s-4FxAs0 { margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface) }
 .s-4GMup_ { margin:12px 0 0 }
 .s-4mGaO2 { flex:1;min-width:260px }
 .s-4nYHgH { margin-top:16px;max-width:1080px }
-.s-4pFg-C { display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;border:1px solid #e2e8f0 }
+.s-4pFg-C { display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-surface-raised);color:var(--color-heading);text-decoration:none;font-size:13px;border:1px solid var(--color-edge) }
 .s-4Rmrb6 { color:var(--color-subtle);font-size:0.8rem;margin-top:.75rem; }
 .s-4s9CFT { margin:8px 0 0;font-size:13px;color:var(--color-body);line-height:1.6 }
 .s-4sIcQF { color:var(--color-success-strong);font-weight:600; }
@@ -698,12 +698,12 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .s-5DjKKm { margin:0;color:var(--color-body);line-height:1.65;max-width:860px }
 .s-5dnk5l { margin:.15rem 0 }
 .s-5kS4rj { margin:0 0 24px;font-size:14px;color:var(--color-subtle);line-height:1.5 }
-.s-5romL6 { margin:0 0 12px;color:#475569;font-size:.95rem;line-height:1.55 }
+.s-5romL6 { margin:0 0 12px;color:var(--color-subtle);font-size:.95rem;line-height:1.55 }
 .s-5x_qUh { display:flex;flex-wrap:wrap;gap:8px }
 .s-6_t7LY { margin-top:.5rem;line-height:1.9 }
 .s-65849O { padding:18px;border-radius:16px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-heading) }
 .s-65FRzB { margin:0 0 6px 0 }
-.s-676LjN { color:#2563eb;text-decoration:none; }
+.s-676LjN { color:var(--color-link);text-decoration:none; }
 .s-6aG_zc { margin-top:6px;font-size:13px;color:var(--color-subtle);text-transform:uppercase;letter-spacing:0.04em;font-weight:600 }
 .s-6B_yvh { margin:0 0 28px;background:var(--color-surface-alt);padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge) }
 .s-6FVpHG { margin:0;padding:0 }
@@ -775,7 +775,7 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .s-aqNNdD { display:none }
 .s-asm5zV { width:100%;border-collapse:collapse;min-width:560px;font-size:14px }
 .s-AT4KWZ { font-weight:700;font-size:15px;color:var(--color-heading);line-height:1.3 }
-.s-ATnCqo { background:#fef3c7 }
+.s-ATnCqo { background:var(--color-warning-subtle) }
 .s-au6GuP { margin:0;padding:6px 0 }
 .s-AV5A4S { margin:0 0 28px;padding:18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border) }
 .s-aVO1nD { padding:.5rem;border:1px solid #e2e8f0 }
@@ -1734,13 +1734,12 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
  * Moved verbatim out of the per-page inline <style> blocks each plugin used to
  * emit via `extraHeadHtml`. Three disjoint URL sets, three root namespaces:
  *   .salary-hub-page    scenario calc pages (token-based, dark-adaptive)
- *   .salary-hub-article evergreen articles  (legacy hardcoded hex, light-only)
- *   .salary-index-page  scenario index      (legacy hardcoded hex, light-only)
+ *   .salary-hub-article evergreen articles  (token-based)
+ *   .salary-index-page  scenario index      (token-based)
  * The article root was renamed from `.salary-hub-page` → `.salary-hub-article`
  * so its rules don't collide with the content rules now that both live in this
  * shared global sheet (content pages emit `<section class="salary-hub-page">`,
- * article pages emit `<article class="salary-hub-article">`). Hex is kept as-is
- * to stay pixel-identical; tokenization is a separate visual change. */
+ * article pages emit `<article class="salary-hub-article">`). */
 
 /* salaryHubContent: scenario calc pages */
 .salary-hub-page{color:var(--color-body);line-height:1.7}
@@ -1763,48 +1762,48 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
 
 /* salaryHubArticles: evergreen articles (root renamed from .salary-hub-page) */
-.salary-hub-article{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
+.salary-hub-article{max-width:1200px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.7}
 .salary-hub-article .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
 .salary-hub-article .rail{display:none}
 @media(min-width:1024px){.salary-hub-article .hub-grid{grid-template-columns:160px minmax(0,1fr) 160px}.salary-hub-article .rail{position:sticky;top:80px;align-self:start;display:block}.salary-hub-article .content{grid-column:2}}
 .salary-hub-article .content{min-width:0}
-.salary-hub-article h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 16px;line-height:1.3}
-.salary-hub-article h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
+.salary-hub-article h1{font-size:28px;font-weight:800;color:var(--color-heading);margin:0 0 16px;line-height:1.3}
+.salary-hub-article h2{font-size:20px;font-weight:700;color:var(--color-heading);margin:32px 0 12px}
 .salary-hub-article p{margin:0 0 16px;font-size:15px}
 .salary-hub-article ul{margin:0 0 16px 24px;font-size:15px}
 .salary-hub-article li{margin-bottom:8px}
-.salary-hub-article a{color:#533afd}
+.salary-hub-article a{color:var(--color-link)}
 .salary-hub-article .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-.salary-hub-article .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
+.salary-hub-article .related-card{display:block;padding:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:8px;text-decoration:none;color:var(--color-body);font-size:14px;transition:box-shadow .15s}
 .salary-hub-article .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
 .salary-hub-article .faq-section{margin-top:32px}
-.salary-hub-article .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
-.salary-hub-article .faq-q{font-weight:700;font-size:15px;color:#1e293b}
-.salary-hub-article .faq-a{font-size:14px;color:#475569;margin-top:8px}
+.salary-hub-article .faq-item{border-bottom:1px solid var(--color-edge);padding:16px 0}
+.salary-hub-article .faq-q{font-weight:700;font-size:15px;color:var(--color-heading)}
+.salary-hub-article .faq-a{font-size:14px;color:var(--color-subtle);margin-top:8px}
 .salary-hub-article .ad-unit{margin:24px 0;min-height:220px}
 .salary-hub-article .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
 .salary-hub-article .cta-box p{margin:0;color:#fff}
 .salary-hub-article .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
 
 /* salaryHubIndex: scenario index page */
-.salary-index-page{max-width:1100px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.65}
-.salary-index-page .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
-.salary-index-page .breadcrumb a{color:#533afd;text-decoration:none}
-.salary-index-page h1{font-size:32px;font-weight:800;color:#1e293b;margin:0 0 12px;line-height:1.2}
-.salary-index-page .lede{font-size:16px;color:#475569;margin:0 0 28px;max-width:80ch}
-.salary-index-page h2{font-size:22px;font-weight:700;color:#1e293b;margin:36px 0 8px;border-bottom:2px solid #e2e8f0;padding-bottom:6px}
-.salary-index-page .tier-meta{font-size:13px;color:#64748b;margin:0 0 6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.salary-index-page .tier-method{font-size:14px;color:#475569;margin:0 0 16px;max-width:78ch}
-.salary-index-page h3{font-size:15px;font-weight:700;color:#334155;margin:18px 0 6px}
+.salary-index-page{max-width:1100px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65}
+.salary-index-page .breadcrumb{font-size:13px;color:var(--color-muted);margin-bottom:16px}
+.salary-index-page .breadcrumb a{color:var(--color-link);text-decoration:none}
+.salary-index-page h1{font-size:32px;font-weight:800;color:var(--color-heading);margin:0 0 12px;line-height:1.2}
+.salary-index-page .lede{font-size:16px;color:var(--color-subtle);margin:0 0 28px;max-width:80ch}
+.salary-index-page h2{font-size:22px;font-weight:700;color:var(--color-heading);margin:36px 0 8px;border-bottom:2px solid var(--color-edge);padding-bottom:6px}
+.salary-index-page .tier-meta{font-size:13px;color:var(--color-muted);margin:0 0 6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.salary-index-page .tier-method{font-size:14px;color:var(--color-subtle);margin:0 0 16px;max-width:78ch}
+.salary-index-page h3{font-size:15px;font-weight:700;color:var(--color-body);margin:18px 0 6px}
 .salary-index-page ul.scenarios{list-style:none;margin:0 0 4px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 16px}
 .salary-index-page ul.scenarios li{margin:0;padding:0}
-.salary-index-page ul.scenarios a{color:#533afd;text-decoration:none;font-size:14px;display:block;padding:6px 0;border-bottom:1px dotted #e2e8f0}
+.salary-index-page ul.scenarios a{color:var(--color-link);text-decoration:none;font-size:14px;display:block;padding:6px 0;border-bottom:1px dotted var(--color-edge)}
 .salary-index-page ul.scenarios a:hover{text-decoration:underline}
-.salary-index-page .faq{margin-top:48px;padding-top:24px;border-top:2px solid #e2e8f0}
-.salary-index-page .faq-q{font-weight:700;color:#1e293b;margin:18px 0 4px;font-size:16px}
-.salary-index-page .faq-a{font-size:14px;color:#475569;margin:0 0 12px;max-width:78ch}
-.salary-index-page .pagination{margin:32px 0 8px;font-size:14px;color:#64748b}
-.salary-index-page .pagination a{color:#533afd;text-decoration:none;margin:0 12px}
+.salary-index-page .faq{margin-top:48px;padding-top:24px;border-top:2px solid var(--color-edge)}
+.salary-index-page .faq-q{font-weight:700;color:var(--color-heading);margin:18px 0 4px;font-size:16px}
+.salary-index-page .faq-a{font-size:14px;color:var(--color-subtle);margin:0 0 12px;max-width:78ch}
+.salary-index-page .pagination{margin:32px 0 8px;font-size:14px;color:var(--color-muted)}
+.salary-index-page .pagination a{color:var(--color-link);text-decoration:none;margin:0 12px}
 
 /* ── Scoped per-page blocks moved verbatim from build-plugin inline <style> ──
  * Each was injected per-page via a `<style>` block; these pages already link
@@ -1838,7 +1837,7 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
 .ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}
 @media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}
-.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;overflow:hidden}
+.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface);overflow:hidden}
 .ssg-art-img{width:100%;height:10rem;object-fit:cover}
 .ssg-art-body{padding:.75rem}
 .ssg-art-cat{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700}
@@ -2176,12 +2175,12 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
    ~190 B ≈ 119 KB on /cerca-lavoro-ticino/ alone, 54% of the page and the
    page-weight gate breaker (issue #1887). Values verbatim from the former
    inline constants. */
-.jbx-a{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #cbd5e1}
-.jbx-e{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #c7d2fe}
-.jbx-s{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #bbf7d0}
-.jbx-c{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #fcd34d}
-.jbx-l{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;border:1px solid #c7d2fe}
-.jbx-m{display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0}
+.jbx-a{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-surface-raised);color:var(--color-heading);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid var(--color-edge)}
+.jbx-e{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:var(--color-link);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid var(--color-accent-border)}
+.jbx-s{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-success-subtle);color:var(--color-success);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid var(--color-success-border)}
+.jbx-c{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-warning-subtle);color:var(--color-warning);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid var(--color-warning-border)}
+.jbx-l{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:var(--color-link);text-decoration:none;font-size:13px;border:1px solid var(--color-accent-border)}
+.jbx-m{display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:var(--color-success-subtle);color:var(--color-success);text-decoration:none;font-size:12px;border:1px solid var(--color-success-border)}
 
 /* Blog article body (ogPagesPlugin.ts <article class="ft-blog-article">): real typography for
    the markdown-derived headings/lists/blockquotes/links, instead of relying on unstyled tags. */
@@ -2711,4 +2710,92 @@ main.seo-static-content:has(> .fh-entry-main) > .seo-hub-hero .s-0E4V2z {
     max-width: none;
     font-size: clamp(2.35rem, 13vw, 4rem);
   }
+}
+
+/* Dark-mode safety net for static pages. The SPA stylesheet normally owns
+ * these semantic variables, but static SEO pages load this sheet on its own
+ * during the async handoff. Keeping the mode values here prevents the first
+ * paint from reintroducing white cards, inputs, maps, or legacy static pills. */
+html.dark {
+  color-scheme: dark;
+  --_surface: #1e293b;
+  --_surface-alt: #0f172a;
+  --_surface-raised: #334155;
+  --_muted: #94a3b8;
+  --_subtle: #94a3b8;
+  --_body: #cbd5e1;
+  --_strong: #e2e8f0;
+  --_heading: #f1f5f9;
+  --_edge: #334155;
+  --_link: #a78bfa;
+  --_accent: #7a5af8;
+  --_accent-subtle: rgba(46, 26, 158, .15);
+  --_accent-border: #3b1fc7;
+  --_success: #34d399;
+  --_success-subtle: rgba(5, 150, 105, .15);
+  --_success-border: #065f46;
+  --_warning: #fbbf24;
+  --_warning-subtle: rgba(217, 119, 6, .15);
+  --_warning-border: #92400e;
+  --_danger: #f87171;
+  --_danger-subtle: rgba(220, 38, 38, .15);
+  --_danger-border: #991b1b;
+  --color-surface: var(--_surface);
+  --color-surface-alt: var(--_surface-alt);
+  --color-surface-raised: var(--_surface-raised);
+  --color-muted: var(--_muted);
+  --color-subtle: var(--_subtle);
+  --color-body: var(--_body);
+  --color-strong: var(--_strong);
+  --color-heading: var(--_heading);
+  --color-edge: var(--_edge);
+  --color-link: var(--_link);
+  --color-accent: var(--_accent);
+  --color-accent-subtle: var(--_accent-subtle);
+  --color-accent-border: var(--_accent-border);
+  --color-success: var(--_success);
+  --color-success-subtle: var(--_success-subtle);
+  --color-success-border: var(--_success-border);
+  --color-warning: var(--_warning);
+  --color-warning-subtle: var(--_warning-subtle);
+  --color-warning-border: var(--_warning-border);
+  --color-danger: var(--_danger);
+  --color-danger-subtle: var(--_danger-subtle);
+  --color-danger-border: var(--_danger-border);
+  --surface: var(--_surface);
+  --surface-alt: var(--_surface-alt);
+  --surface-border: var(--_edge);
+  --text-base: var(--_body);
+  --text-muted: var(--_subtle);
+  --link: var(--_link);
+  --accent: var(--_accent);
+  --bg: var(--_surface-alt);
+}
+
+html.dark .bg-surface { background-color: var(--_surface); }
+html.dark .bg-surface-alt { background-color: var(--_surface-alt); }
+html.dark .bg-surface-raised { background-color: var(--_surface-raised); }
+html.dark .text-heading { color: var(--_heading); }
+html.dark .text-strong { color: var(--_strong); }
+html.dark .text-body { color: var(--_body); }
+html.dark .text-subtle,
+html.dark .text-muted { color: var(--_subtle); }
+html.dark .text-link,
+html.dark .text-accent { color: var(--_link); }
+html.dark .border-edge { border-color: var(--_edge); }
+html.dark .bg-accent-subtle { background-color: var(--_accent-subtle); }
+html.dark .bg-success-subtle { background-color: var(--_success-subtle); }
+html.dark .bg-warning-subtle { background-color: var(--_warning-subtle); }
+html.dark .bg-danger-subtle { background-color: var(--_danger-subtle); }
+
+/* Leaflet's own controls do not consume the site's semantic tokens. */
+html.dark .leaflet-control-zoom-in,
+html.dark .leaflet-control-zoom-out {
+  background: var(--_surface);
+  color: var(--_heading);
+  border-color: var(--_edge);
+}
+html.dark .leaflet-control-zoom-in:hover,
+html.dark .leaflet-control-zoom-out:hover {
+  background: var(--_surface-raised);
 }

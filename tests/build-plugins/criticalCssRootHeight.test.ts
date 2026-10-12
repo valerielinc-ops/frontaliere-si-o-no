@@ -147,6 +147,22 @@ describe('critical CSS single source of truth (#1586)', () => {
     expect(CRITICAL_CSS).toContain('.text-heading{color:var(--color-heading,#0f172a)}');
   });
 
+  it('carries the semantic dark palette into first paint', () => {
+    // Static SEO pages paint from critical.css while both application sheets
+    // are still async. The palette must therefore exist here, and the
+    // unlayered utility overrides must switch the shared surface classes as
+    // soon as the early-boot script adds `html.dark`.
+    expect(CRITICAL_CSS).toContain('html.dark{--_surface:#1e293b;--_surface-alt:#0f172a;');
+    expect(CRITICAL_CSS).toContain('html.dark{--_link:#a78bfa}');
+    expect(CRITICAL_CSS).toContain('--color-surface:var(--_surface)');
+    expect(CRITICAL_CSS).toContain(
+      '.dark .bg-surface-alt{background-color:var(--_surface-alt,#0f172a)}',
+    );
+    expect(CRITICAL_CSS).toContain(
+      '.dark .text-heading{color:var(--_heading,#f1f5f9)}',
+    );
+  });
+
   it('is defined ONCE — consumers import it, never re-inline the literal', () => {
     // No plugin should re-declare the full CSS string. They must reference the
     // shared CRITICAL_CSS so the twin-file drift (#1586 root cause) is
