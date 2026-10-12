@@ -294,6 +294,11 @@ export const RC_TO_ENV = {
   // _REFRESH_TOKEN + the client pair are mapped even though nothing else in
   // this file needs a client id/secret pair just to make one API call.
   TIKTOK_USERNAME:                     ['TIKTOK_USERNAME'],
+  // Native TikTok sound experiment: `off` (safe default) or `trend`; the
+  // rollout percentage is interpreted deterministically per queue id by the
+  // browser robot, so retries stay in the same control/treatment arm.
+  TIKTOK_MUSIC_MODE:                   ['TIKTOK_MUSIC_MODE'],
+  TIKTOK_MUSIC_ROLLOUT_PERCENT:        ['TIKTOK_MUSIC_ROLLOUT_PERCENT'],
   SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],

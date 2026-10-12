@@ -131,9 +131,11 @@ function tiktokPage({
   guidedTour = false,
   unknownOverlay = false,
   lateUnknownOverlay = false,
+  unsavedDraft = false,
   prefilledCaption = 'video',
   visibility = 'Tutti',
   username = 'frontaliereticino',
+  music = false,
 } = {}) {
   const cookieShadowMarkup = `
     <style>
@@ -176,11 +178,13 @@ function tiktokPage({
   <div id="editor" hidden>
     <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
     <div data-e2e="video_visibility_container"><span>Who can view this post</span><button id="visibility" type="button" role="combobox"><span id="visibility-value">${visibility}</span></button><div id="visibility-options" role="listbox" hidden><div role="option">Tutti</div><div role="option">Amici</div><div role="option">Solo io</div></div></div>
+    ${music ? '<button data-button-name="sounds" id="sounds" type="button">Suoni</button><span id="selected-sound"></span><div id="music-panel" hidden><input id="sound-search" placeholder="Cerca suoni"><div role="tab">Per te</div><div data-e2e="music-card"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="><span>Trend sound Ticino</span><span>00:15 · Artist</span><button id="music-add" type="button" aria-label="Aggiungi suono">+</button></div><button id="music-save" type="button">Salva</button></div>' : ''}
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
   <script id="__Creator_Center_Context__" type="application/json">${JSON.stringify({ user: { uniqueId: username } })}</script>
   ${(hasCookieBanner || cookieConfig) ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script>' : ''}
   ${hasCookieBanner ? `<tiktok-cookie-banner id="cookie-banner"${cookieAttributes}></tiktok-cookie-banner>` : ''}
+  ${unsavedDraft ? '<div id="unsaved-draft" role="dialog" style="position:fixed;inset:0;z-index:1200;background:#fff;padding:25% 20%"><h2>Un video che stavi modificando non è stato salvato. Continuare la modifica?</h2><button id="discard-draft" type="button">Scarta</button><button type="button">Continua</button></div>' : ''}
   ${optionalPostCookieBanner ? '<button id="post-now" hidden style="position:fixed;left:30px;bottom:30px;z-index:100">Post now</button>' : ''}
   ${unrelatedBanner ? '<div id="unrelated-banner" role="banner">Account navigation</div>' : ''}
   ${contentChecks ? '<div id="content-checks" role="dialog" hidden style="position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Attivare i controlli automatici dei contenuti?</h2><p>Esamineremo automaticamente il tuo video per escludere problemi con il copyright e altre possibili violazioni.</p><label><input type="checkbox" checked>Controllo a campione dei contenuti</label><button id="content-cancel">Annulla</button><button id="content-activate">Attiva</button><button id="content-close" aria-label="Close">×</button></div>' : ''}
@@ -195,6 +199,8 @@ let cookieAction = 'none';
 let cookieAcceptClicks = 0;
 let cookieShownByHover = false;
 let selectedVisibility = ${JSON.stringify(visibility)};
+let musicAction = 'none';
+let musicLabel = '';
 ${hasCookieBanner ? `
 const cookie = $('cookie-banner');
 const installCookie = (host, mode) => {
@@ -211,6 +217,7 @@ ${lateUnknownOverlay ? "$('post').addEventListener('mouseenter', () => { $('unkn
 $('content-cancel')?.addEventListener('click', () => { contentAction = 'cancel'; $('content-checks').hidden = true; });
 $('content-activate')?.addEventListener('click', () => { contentAction = 'activate'; $('content-checks').hidden = true; });
 $('content-close')?.addEventListener('click', () => { contentAction = 'close'; $('content-checks').hidden = true; });
+$('discard-draft')?.addEventListener('click', () => { $('unsaved-draft').remove(); });
 let tourStep = 0;
 $('tour-action')?.addEventListener('click', () => {
   if (tourStep === 0) {
@@ -246,8 +253,9 @@ document.querySelectorAll('#visibility-options [role="option"]').forEach((option
   $('visibility-value').innerText = selectedVisibility;
   $('visibility-options').hidden = true;
 }));
+${music ? "$('sounds').addEventListener('click', () => { $('music-panel').hidden = false; }); $('music-add').addEventListener('click', () => { musicAction = 'added'; musicLabel = 'Trend sound Ticino · Artist'; }); $('music-save').addEventListener('click', () => { if (musicAction === 'added') $('selected-sound').innerText = musicLabel; $('music-panel').hidden = true; });" : ''}
 const sendPost = async () => {
-  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes, contentAction, cookieAction, cookieAcceptClicks, cookieShownByHover, visibility: selectedVisibility }) });
+  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes, contentAction, cookieAction, cookieAcceptClicks, cookieShownByHover, visibility: selectedVisibility, musicAction, musicLabel }) });
   ${captchaAfterPost
     ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
     : after}
@@ -306,6 +314,7 @@ function fakePlatforms() {
       case '/ig-logged-out/': return send(302, '', 'text/plain', { location: '/accounts/login/' });
       case '/accounts/login/': return send(200, instagramLogin());
       case '/tiktokstudio/upload': return send(200, tiktokPage());
+      case '/tt-music/tiktokstudio/upload': return send(200, tiktokPage({ music: true }));
       case '/tt-wrong-account/tiktokstudio/upload': return send(200, tiktokPage({ username: 'valerie.linc' }));
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
       case '/tt-private/tiktokstudio/upload': return send(200, tiktokPage({ visibility: 'Solo io' }));
@@ -314,6 +323,7 @@ function fakePlatforms() {
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
       case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
+      case '/tt-unsaved-draft/tiktokstudio/upload': return send(200, tiktokPage({ unsavedDraft: true }));
       case '/tt-late-cookie/tiktokstudio/upload': return send(200, tiktokPage({ lateCookieBanner: true }));
       case '/tt-zero-size-cookie/tiktokstudio/upload': return send(200, tiktokPage({ zeroSizeCookieBanner: true }));
       case '/tt-delayed-cookie/tiktokstudio/upload': return send(200, tiktokPage({ delayedCookieBanner: true }));
@@ -358,12 +368,12 @@ async function main() {
   // navigation has its own bounded budget so the local fixture is not flaky.
   tab.setDefaultNavigationTimeout(30_000);
 
-  const run = async (channel, startUrl, { dryRun, label, reel = false, flowTimeouts = timeouts }) => {
+  const run = async (channel, startUrl, { dryRun, label, reel = false, musicVariant = 'control', flowTimeouts = timeouts }) => {
     const dir = path.join(work, 'diagnostics', label);
     const step = stepTracker();
     const snap = (name) => captureDiagnostics(tab, dir, name, { channel, step: step.get() });
     try {
-      return { result: await FLOWS[channel]({ page: tab, files: channel === 'tiktok' || reel ? videoFiles : files, caption: CAPTION, dryRun, human, snap, startUrl, timeouts: flowTimeouts, video: channel === 'tiktok' || reel ? { bytes: 8, durationMs: 7_750 } : undefined, step }), dir };
+      return { result: await FLOWS[channel]({ page: tab, files: channel === 'tiktok' || reel ? videoFiles : files, caption: CAPTION, dryRun, human, snap, startUrl, musicVariant, timeouts: flowTimeouts, video: channel === 'tiktok' || reel ? { bytes: 8, durationMs: 7_750 } : undefined, step }), dir };
     } catch (err) {
       return { error: err, dir };
     }
@@ -464,22 +474,29 @@ async function main() {
     r = await run('tiktok', `${base}/tt-cookie-config-no-action/tiktokstudio/upload`, { dryRun: true, label: 'tt-cookie-config-no-action' });
     check(r.result?.status === 'dry-run', `a non-actionable cookie config does not block upload (${r.error?.message || 'ok'})`);
 
+    r = await run('tiktok', `${base}/tt-unsaved-draft/tiktokstudio/upload`, { dryRun: true, label: 'tt-unsaved-draft' });
+    check(r.result?.status === 'dry-run', `an abandoned TikTok draft is discarded before the queued video is uploaded (${r.error?.message || 'ok'})`);
+
     r = await run('tiktok', `${base}/tiktokstudio/upload`, { dryRun: false, label: 'tt-publish' });
     check(r.result?.status === 'published', `publish returns with the redirect to the content page (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.length === 1 && !state.ttPosts[0].caption.includes('slide-1.jpg'), 'the pre-filled file name was replaced by the caption');
     check(state.ttPosts[0].caption.includes('#ticino') && state.ttPosts[0].files === videoFiles.length && state.ttPosts[0].popupEscapes > 0, 'caption, hashtag popup handling and video reached the platform');
     check(state.ttPosts[0].visibility === 'Tutti', 'published TikTok content is sent with the public audience');
 
+    r = await run('tiktok', `${base}/tt-music/tiktokstudio/upload`, { dryRun: false, label: 'tt-music', musicVariant: 'treatment' });
+    check(r.result?.status === 'published' && r.result.music?.variant === 'treatment', `the treatment selects and saves a native TikTok sound (${r.result?.evidence || r.error?.message})`);
+    check(state.ttPosts.at(-1).musicAction === 'added' && /Trend sound Ticino/.test(state.ttPosts.at(-1).musicLabel), 'the selected native sound reaches the fake platform');
+
     r = await run('tiktok', `${base}/tt-captcha/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha' });
     check(r.error?.errorClass === 'challenge', 'a captcha is a challenge');
     r = await run('tiktok', `${base}/tt-video-only/tiktokstudio/upload`, { dryRun: false, label: 'tt-video' });
     check(r.result?.status === 'published', 'the video-only upload field accepts the MP4');
-    check(state.ttPosts.length === 2, 'only the captcha was skipped');
+    check(state.ttPosts.length === 3, 'only the captcha was skipped');
     r = await run('tiktok', `${base}/tt-captcha-after-post/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha-after' });
-    check(state.ttPosts.length === 3, 'the post reached the platform before the captcha');
+    check(state.ttPosts.length === 4, 'the post reached the platform before the captcha');
     check(r.error?.errorClass === 'challenge' && r.error.pressed === true, `a captcha after the press stays a challenge, pressed (${r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-silent/tiktokstudio/upload`, { dryRun: false, label: 'tt-silent' });
-    check(state.ttPosts.length === 4, 'the silent page sent the post (200, no redirect)');
+    check(state.ttPosts.length === 5, 'the silent page sent the post (200, no redirect)');
     check(r.result?.status !== 'published' && r.error?.errorClass === 'confirmation-missing' && r.error.pressed === true,
       `the persistent "Manage your posts" navigation is no confirmation: confirmation-missing, pressed (${r.result?.status || r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });
