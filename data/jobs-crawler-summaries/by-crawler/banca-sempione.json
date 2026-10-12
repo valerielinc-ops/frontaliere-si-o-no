@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-12T09:24:13.952Z",
+  "generatedAt": "2026-10-12T21:20:45.721Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6469,
-  "avgDurationMs": 6469,
+  "durationMs": 6435,
+  "avgDurationMs": 6435,
   "durationHistory": [
-    6469
+    6435
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
-      "crawledAt": "",
+      "crawledAt": "2026-10-12T21:20:36.940Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -69,7 +69,7 @@
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
-      "crawledAt": "",
+      "crawledAt": "2026-10-12T21:20:36.940Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -121,6 +121,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -130,5 +131,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }

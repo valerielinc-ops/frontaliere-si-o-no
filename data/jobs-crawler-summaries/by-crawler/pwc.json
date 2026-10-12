@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-10-12T09:22:51.046Z",
+  "generatedAt": "2026-10-12T21:18:27.237Z",
   "total": 112,
   "newCount": 0,
   "updatedCount": 33,
   "removedCount": 0,
   "unchangedCount": 79,
-  "durationMs": 75432,
-  "avgDurationMs": 75432,
+  "durationMs": 56001,
+  "avgDurationMs": 56001,
   "durationHistory": [
-    75432
+    56001
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.632Z",
+      "crawledAt": "2026-10-12T21:17:22.739Z",
       "validThrough": "2036-10-04",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -79,7 +79,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.637Z",
+      "crawledAt": "2026-10-12T21:17:22.744Z",
       "validThrough": "2036-10-03",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -121,7 +121,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.641Z",
+      "crawledAt": "2026-10-12T21:17:22.749Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -163,7 +163,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.647Z",
+      "crawledAt": "2026-10-12T21:17:22.756Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -214,7 +214,7 @@
       "firstSeenAt": "2026-10-03T09:21:52.545Z",
       "datePosted": "2026-10-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.650Z",
+      "crawledAt": "2026-10-12T21:17:22.759Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -247,7 +247,7 @@
       "datePosted": "2026-09-28T22:00:00Z",
       "postedDate": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.655Z",
+      "crawledAt": "2026-10-12T21:17:22.764Z",
       "validThrough": "2036-09-25",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -298,7 +298,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-22T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.663Z",
+      "crawledAt": "2026-10-12T21:17:22.771Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -339,7 +339,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.667Z",
+      "crawledAt": "2026-10-12T21:17:22.775Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -381,7 +381,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.677Z",
+      "crawledAt": "2026-10-12T21:17:22.783Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -424,7 +424,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-09T14:12:44Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.693Z",
+      "crawledAt": "2026-10-12T21:17:22.799Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -466,7 +466,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-09T14:06:11Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.700Z",
+      "crawledAt": "2026-10-12T21:17:22.807Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -508,7 +508,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-09T13:57:18Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.702Z",
+      "crawledAt": "2026-10-12T21:17:22.809Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -550,7 +550,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-09T13:32:03Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.705Z",
+      "crawledAt": "2026-10-12T21:17:22.813Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -591,7 +591,7 @@
       "streetAddress": "",
       "datePosted": "2026-09-09T08:35:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.715Z",
+      "crawledAt": "2026-10-12T21:17:22.822Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -634,7 +634,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-08T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.718Z",
+      "crawledAt": "2026-10-12T21:17:22.825Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -676,7 +676,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-03T13:05:25Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.722Z",
+      "crawledAt": "2026-10-12T21:17:22.830Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -717,7 +717,7 @@
       "streetAddress": "Avenue Giuseppe-Motta 50",
       "datePosted": "2026-09-03T12:40:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.723Z",
+      "crawledAt": "2026-10-12T21:17:22.831Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -760,7 +760,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-02T07:42:22Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.727Z",
+      "crawledAt": "2026-10-12T21:17:22.834Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -802,7 +802,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.728Z",
+      "crawledAt": "2026-10-12T21:17:22.835Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -844,7 +844,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-11T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.744Z",
+      "crawledAt": "2026-10-12T21:17:22.850Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -885,7 +885,7 @@
       "streetAddress": "Rue des Epancheurs 6",
       "datePosted": "2026-08-11T11:57:40Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.746Z",
+      "crawledAt": "2026-10-12T21:17:22.853Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -927,7 +927,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-03T12:03:45Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.749Z",
+      "crawledAt": "2026-10-12T21:17:22.856Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -959,7 +959,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.755Z",
+      "crawledAt": "2026-10-12T21:17:22.862Z",
       "validThrough": "2036-07-24",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1011,7 +1011,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-07-02T10:05:52Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.763Z",
+      "crawledAt": "2026-10-12T21:17:22.869Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1053,7 +1053,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-06-14T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.785Z",
+      "crawledAt": "2026-10-12T21:17:22.889Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1094,7 +1094,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-06-04T14:38:53Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.787Z",
+      "crawledAt": "2026-10-12T21:17:22.891Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1137,7 +1137,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-06-03T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.788Z",
+      "crawledAt": "2026-10-12T21:17:22.892Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1169,7 +1169,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.802Z",
+      "crawledAt": "2026-10-12T21:17:22.906Z",
       "validThrough": "2036-05-04",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -1220,7 +1220,7 @@
       "streetAddress": "St. Jakobs-Strasse 25",
       "datePosted": "2026-05-06T09:34:26Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.807Z",
+      "crawledAt": "2026-10-12T21:17:22.911Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1262,7 +1262,7 @@
       "streetAddress": "St. Jakobs-Strasse 25",
       "datePosted": "2026-04-29T14:06:09Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.811Z",
+      "crawledAt": "2026-10-12T21:17:22.915Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1298,7 +1298,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.635Z",
+      "crawledAt": "2026-10-12T21:17:22.741Z",
       "validThrough": "2036-10-04",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1339,7 +1339,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.644Z",
+      "crawledAt": "2026-10-12T21:17:22.753Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1380,7 +1380,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.645Z",
+      "crawledAt": "2026-10-12T21:17:22.754Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1421,7 +1421,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.648Z",
+      "crawledAt": "2026-10-12T21:17:22.757Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1462,7 +1462,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T09:21:27.649Z",
+      "crawledAt": "2026-10-12T21:17:22.758Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1512,7 +1512,7 @@
       "firstSeenAt": "2026-09-30T21:21:24.995Z",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.652Z",
+      "crawledAt": "2026-10-12T21:17:22.761Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1553,7 +1553,7 @@
       "firstSeenAt": "2026-09-28T21:18:29.981Z",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.653Z",
+      "crawledAt": "2026-10-12T21:17:22.762Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1594,7 +1594,7 @@
       "firstSeenAt": "2026-09-29T21:22:11.075Z",
       "datePosted": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.657Z",
+      "crawledAt": "2026-10-12T21:17:22.766Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1635,7 +1635,7 @@
       "firstSeenAt": "2026-09-29T21:22:11.075Z",
       "datePosted": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.660Z",
+      "crawledAt": "2026-10-12T21:17:22.768Z",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1677,7 +1677,7 @@
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
       "datePosted": "2026-09-23T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.662Z",
+      "crawledAt": "2026-10-12T21:17:22.769Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1718,7 +1718,7 @@
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
       "datePosted": "2026-09-21T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.665Z",
+      "crawledAt": "2026-10-12T21:17:22.772Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1759,7 +1759,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-21T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.666Z",
+      "crawledAt": "2026-10-12T21:17:22.773Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1800,7 +1800,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.669Z",
+      "crawledAt": "2026-10-12T21:17:22.776Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1841,7 +1841,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.671Z",
+      "crawledAt": "2026-10-12T21:17:22.778Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1882,7 +1882,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.674Z",
+      "crawledAt": "2026-10-12T21:17:22.780Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1923,7 +1923,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.675Z",
+      "crawledAt": "2026-10-12T21:17:22.781Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1964,7 +1964,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.679Z",
+      "crawledAt": "2026-10-12T21:17:22.784Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2005,7 +2005,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.681Z",
+      "crawledAt": "2026-10-12T21:17:22.786Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2046,7 +2046,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-16T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.682Z",
+      "crawledAt": "2026-10-12T21:17:22.787Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2087,7 +2087,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-15T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.683Z",
+      "crawledAt": "2026-10-12T21:17:22.788Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2128,7 +2128,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.684Z",
+      "crawledAt": "2026-10-12T21:17:22.789Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2169,7 +2169,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:43:38Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.686Z",
+      "crawledAt": "2026-10-12T21:17:22.791Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2210,7 +2210,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:39:49Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.688Z",
+      "crawledAt": "2026-10-12T21:17:22.792Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2251,7 +2251,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:35:04Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.690Z",
+      "crawledAt": "2026-10-12T21:17:22.794Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2292,7 +2292,7 @@
       "streetAddress": "",
       "datePosted": "2026-09-09T15:22:45Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.691Z",
+      "crawledAt": "2026-10-12T21:17:22.796Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2324,7 +2324,7 @@
       "datePosted": "2026-09-09T08:29:05Z",
       "postedDate": "2026-09-09T08:29:05Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.716Z",
+      "crawledAt": "2026-10-12T21:17:22.824Z",
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -2374,7 +2374,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-08T14:49:10Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.719Z",
+      "crawledAt": "2026-10-12T21:17:22.827Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2415,7 +2415,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-08T11:25:02Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.721Z",
+      "crawledAt": "2026-10-12T21:17:22.828Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2456,7 +2456,7 @@
       "streetAddress": "St. Jakobs-Strasse 25",
       "datePosted": "2026-09-03T11:07:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.724Z",
+      "crawledAt": "2026-10-12T21:17:22.831Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -2498,7 +2498,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-03T08:02:16Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-12T09:21:27.726Z",
+      "crawledAt": "2026-10-12T21:17:22.833Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2508,5 +2508,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
