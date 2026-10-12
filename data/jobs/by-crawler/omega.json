@@ -1071,8 +1071,8 @@
       "slugByLocale": {
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
         "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "de": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -1139,18 +1139,10 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
-        ],
-        "en": [
-          "operational-learning-omega-sa-biel-bienne"
-        ],
-        "de": [
-          "betriebliches-lernen-omega-sa-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "operational-learning-omega-sa-biel-bienne",
-        "betriebliches-lernen-omega-sa-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

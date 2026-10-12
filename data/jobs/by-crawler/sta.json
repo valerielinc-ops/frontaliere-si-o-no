@@ -128320,12 +128320,12 @@
     },
     {
       "id": "sta-67755201b892",
-      "slug": "zimmermann-zimmerin-per-schreiner-montage-sta-personal-ag-zurich",
+      "slug": "carpentiere-carpentiera-per-il-montaggio-di-falegnameria-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch",
-        "it": "zimmermann-zimmerin-per-schreiner-montage-sta-personal-ag-zurich",
-        "en": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch",
-        "fr": "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch"
+        "it": "carpentiere-carpentiera-per-il-montaggio-di-falegnameria-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-for-joinery-assembly-sta-personal-ag-zurich-zurich",
+        "fr": "charpentier-charpentiere-pour-le-montage-de-menuiserie-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128371,11 +128371,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch",
+          "zimmermann-zimmerin-per-schreiner-montage-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch"
+        "zimmermann-zimmerin-fur-schreiner-montage-zurich-zurich-sta-ch",
+        "zimmermann-zimmerin-per-schreiner-montage-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -128392,16 +128400,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.656Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-c4d527c8967c",
-      "slug": "zimmermann-zimmerin-per-montagen-e-wartung-sta-personal-ag-sursee",
+      "slug": "carpentiere-a-per-montaggi-e-manutenzione-sta-personal-ag-sursee-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-montagen-und-wartung-sta-personal-ag-sursee",
-        "it": "zimmermann-zimmerin-per-montagen-e-wartung-sta-personal-ag-sursee",
-        "en": "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch",
-        "fr": "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
+        "it": "carpentiere-a-per-montaggi-e-manutenzione-sta-personal-ag-sursee-luzern",
+        "en": "carpenter-for-assembly-and-maintenance-sta-personal-ag-sursee-luzern",
+        "fr": "charpentier-charpentiere-pour-les-montages-et-la-maintenance-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128447,14 +128455,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch",
+          "zimmermann-zimmerin-per-montagen-e-wartung-sta-personal-ag-sursee"
         ],
         "de": [
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch"
+        "zimmermann-zimmerin-fur-montagen-und-wartung-sursee-luzern-sta-ch",
+        "zimmermann-zimmerin-per-montagen-e-wartung-sta-personal-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -128471,16 +128487,16 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-12T09:56:03.653Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-c5223f802eb1",
-      "slug": "zimmermann-zimmerin-per-holzsystembau-e-dachkonstruktionen-sta-personal-ag-luzern",
+      "slug": "carpentiere-a-per-la-costruzione-di-sistemi-in-legno-e-strutture-del-tetto-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch",
-        "it": "zimmermann-zimmerin-per-holzsystembau-e-dachkonstruktionen-sta-personal-ag-luzern",
-        "en": "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch",
-        "fr": "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch"
+        "it": "carpentiere-a-per-la-costruzione-di-sistemi-in-legno-e-strutture-del-tetto-sta-personal-ag-luzern-luzern",
+        "en": "carpenter-for-timber-system-construction-and-roof-structures-sta-personal-ag-luzern-luzern",
+        "fr": "charpentier-charpentiere-pour-la-construction-de-systemes-en-bois-et-les-structures-de-toiture-sta-personal-ag-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128526,11 +128542,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch",
+          "zimmermann-zimmerin-per-holzsystembau-e-dachkonstruktionen-sta-personal-ag-luzern"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch"
+        "zimmermann-zimmerin-fur-holzsystembau-und-dachkonstruktionen-luzern-luzern-sta-ch",
+        "zimmermann-zimmerin-per-holzsystembau-e-dachkonstruktionen-sta-personal-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -128547,16 +128571,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-12T09:56:03.651Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-9165fc2ef3db",
-      "slug": "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur",
+      "slug": "praticante-falegname-falegname-addetto-a-ai-servizi-sta-personal-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur",
-        "it": "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur",
-        "en": "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur",
-        "fr": "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur"
+        "it": "praticante-falegname-falegname-addetto-a-ai-servizi-sta-personal-ag-winterthur-zurich",
+        "en": "joiner-s-assistant-service-joiner-sta-personal-ag-winterthur-zurich",
+        "fr": "praticien-ne-en-menuiserie-menuisier-ere-de-service-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128602,14 +128626,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreinerpraktiker-in-serviceschreiner-in-winterthur-zurich-sta-ch"
+          "schreinerpraktiker-in-serviceschreiner-in-winterthur-zurich-sta-ch",
+          "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur"
         ],
         "de": [
           "schreinerpraktiker-in-serviceschreiner-in-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur"
+        ],
+        "fr": [
+          "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur"
         ]
       },
       "previousSlugs": [
-        "schreinerpraktiker-in-serviceschreiner-in-winterthur-zurich-sta-ch"
+        "schreinerpraktiker-in-serviceschreiner-in-winterthur-zurich-sta-ch",
+        "schreinerpraktiker-in-serviceschreiner-in-sta-personal-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -128626,16 +128658,16 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-12T09:56:03.642Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-d89854ca418c",
-      "slug": "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch",
+      "slug": "falegname-con-conoscenze-di-cnc-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-mit-cnc-kenntnissen-sta-personal-ag-wil-sg",
-        "it": "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch",
-        "en": "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch",
-        "fr": "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch"
+        "it": "falegname-con-conoscenze-di-cnc-sta-personal-ag-wil-sg-st-gallen",
+        "en": "joiner-with-cnc-skills-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "menuisier-ere-avec-des-connaissances-en-cnc-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128694,16 +128726,30 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-12T09:56:03.635Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-cnc-kenntnissen-wil-sg-st-gallen-sta-ch"
+      ]
     },
     {
       "id": "sta-2b88fe8bdab0",
-      "slug": "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil",
+      "slug": "falegname-addetto-a-all-utilizzo-di-macchine-cnc-sta-personal-ag-hinwil-zurich",
       "slugByLocale": {
         "de": "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil",
-        "it": "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil",
-        "en": "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil",
-        "fr": "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil"
+        "it": "falegname-addetto-a-all-utilizzo-di-macchine-cnc-sta-personal-ag-hinwil-zurich",
+        "en": "joiner-with-cnc-machine-operation-sta-personal-ag-hinwil-zurich",
+        "fr": "menuisier-ere-avec-experience-dans-l-utilisation-de-machines-cnc-sta-personal-ag-hinwil-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128749,14 +128795,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-mit-cnc-maschinenbedienung-hinwil-zurich-sta-ch"
+          "schreiner-in-mit-cnc-maschinenbedienung-hinwil-zurich-sta-ch",
+          "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil"
         ],
         "de": [
           "schreiner-in-mit-cnc-maschinenbedienung-hinwil-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil"
+        ],
+        "fr": [
+          "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-mit-cnc-maschinenbedienung-hinwil-zurich-sta-ch"
+        "schreiner-in-mit-cnc-maschinenbedienung-hinwil-zurich-sta-ch",
+        "schreiner-in-mit-cnc-maschinenbedienung-sta-personal-ag-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -128773,16 +128827,16 @@
       },
       "postalCode": "8340",
       "firstSeenAt": "2026-10-12T09:56:03.635Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-2084632b8f87",
-      "slug": "schreiner-in-per-montage-e-servicearbeiten-sta-personal-ag-baden",
+      "slug": "falegname-per-lavori-di-montaggio-e-assistenza-sta-personal-ag-baden-aargau",
       "slugByLocale": {
         "de": "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden",
-        "it": "schreiner-in-per-montage-e-servicearbeiten-sta-personal-ag-baden",
-        "en": "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden",
-        "fr": "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden"
+        "it": "falegname-per-lavori-di-montaggio-e-assistenza-sta-personal-ag-baden-aargau",
+        "en": "joiner-for-assembly-and-service-work-sta-personal-ag-baden-aargau",
+        "fr": "menuisier-ere-pour-des-travaux-de-montage-et-de-service-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128828,14 +128882,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-montage-und-servicearbeiten-baden-aargau-sta-ch"
+          "schreiner-in-fur-montage-und-servicearbeiten-baden-aargau-sta-ch",
+          "schreiner-in-per-montage-e-servicearbeiten-sta-personal-ag-baden"
         ],
         "de": [
           "schreiner-in-fur-montage-und-servicearbeiten-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden"
+        ],
+        "fr": [
+          "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montage-und-servicearbeiten-baden-aargau-sta-ch"
+        "schreiner-in-fur-montage-und-servicearbeiten-baden-aargau-sta-ch",
+        "schreiner-in-per-montage-e-servicearbeiten-sta-personal-ag-baden",
+        "schreiner-in-fur-montage-und-servicearbeiten-sta-personal-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -128852,16 +128915,16 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-12T09:56:03.626Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-bc9bc937fa61",
-      "slug": "schreiner-in-per-montagearbeiten-sta-personal-ag-andelfingen",
+      "slug": "falegname-per-lavori-di-montaggio-sta-personal-ag-andelfingen-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen",
-        "it": "schreiner-in-per-montagearbeiten-sta-personal-ag-andelfingen",
-        "en": "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen",
-        "fr": "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen"
+        "it": "falegname-per-lavori-di-montaggio-sta-personal-ag-andelfingen-zurich",
+        "en": "carpenter-joiner-for-installation-work-sta-personal-ag-andelfingen-zurich",
+        "fr": "menuisier-ere-pour-travaux-de-montage-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128907,14 +128970,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-montagearbeiten-andelfingen-zurich-sta-ch"
+          "schreiner-in-fur-montagearbeiten-andelfingen-zurich-sta-ch",
+          "schreiner-in-per-montagearbeiten-sta-personal-ag-andelfingen"
         ],
         "de": [
           "schreiner-in-fur-montagearbeiten-andelfingen-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen"
+        ],
+        "fr": [
+          "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montagearbeiten-andelfingen-zurich-sta-ch"
+        "schreiner-in-fur-montagearbeiten-andelfingen-zurich-sta-ch",
+        "schreiner-in-per-montagearbeiten-sta-personal-ag-andelfingen",
+        "schreiner-in-fur-montagearbeiten-sta-personal-ag-andelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -128931,16 +129003,16 @@
       },
       "postalCode": "8450",
       "firstSeenAt": "2026-10-12T09:56:03.626Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-8e4a54c82324",
-      "slug": "schreiner-in-per-montage-von-kuchen-e-mobeln-sta-personal-ag-baden",
+      "slug": "falegname-per-il-montaggio-di-cucine-e-mobili-sta-personal-ag-baden-aargau",
       "slugByLocale": {
         "de": "schreiner-in-fur-montage-von-kuchen-und-mobeln-sta-personal-ag-baden",
-        "it": "schreiner-in-per-montage-von-kuchen-e-mobeln-sta-personal-ag-baden",
-        "en": "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch",
-        "fr": "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
+        "it": "falegname-per-il-montaggio-di-cucine-e-mobili-sta-personal-ag-baden-aargau",
+        "en": "carpenter-for-installation-of-kitchens-and-furniture-sta-personal-ag-baden-aargau",
+        "fr": "menuisier-ere-pour-le-montage-de-cuisines-et-de-meubles-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128986,14 +129058,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
+          "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch",
+          "schreiner-in-per-montage-von-kuchen-e-mobeln-sta-personal-ag-baden"
         ],
         "de": [
+          "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch"
+        "schreiner-in-fur-montage-von-kuchen-und-mobeln-baden-aargau-sta-ch",
+        "schreiner-in-per-montage-von-kuchen-e-mobeln-sta-personal-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -129010,16 +129090,16 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-12T09:56:03.625Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-8218f19f6626",
-      "slug": "schreiner-in-per-montage-e-innenausbau-sta-personal-ag-wil-sg",
+      "slug": "falegname-per-montaggio-e-allestimento-d-interni-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-fur-montage-und-innenausbau-sta-personal-ag-wil-sg",
-        "it": "schreiner-in-per-montage-e-innenausbau-sta-personal-ag-wil-sg",
-        "en": "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch",
-        "fr": "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
+        "it": "falegname-per-montaggio-e-allestimento-d-interni-sta-personal-ag-wil-sg-st-gallen",
+        "en": "carpenter-for-assembly-and-interior-finishing-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "menuisier-ere-pour-le-montage-et-l-amenagement-interieur-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129065,14 +129145,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
+          "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch",
+          "schreiner-in-per-montage-e-innenausbau-sta-personal-ag-wil-sg"
         ],
         "de": [
+          "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch"
+        "schreiner-in-fur-montage-und-innenausbau-wil-sg-st-gallen-sta-ch",
+        "schreiner-in-per-montage-e-innenausbau-sta-personal-ag-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -129089,16 +129177,16 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-12T09:56:03.624Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-63db24f1c63a",
-      "slug": "schreiner-in-per-mobelmontagen-e-innenausbau-sta-personal-ag-uster",
+      "slug": "falegname-per-il-montaggio-di-mobili-e-allestimenti-interni-sta-personal-ag-uster-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-mobelmontagen-und-innenausbau-sta-personal-ag-uster",
-        "it": "schreiner-in-per-mobelmontagen-e-innenausbau-sta-personal-ag-uster",
-        "en": "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch",
-        "fr": "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
+        "it": "falegname-per-il-montaggio-di-mobili-e-allestimenti-interni-sta-personal-ag-uster-zurich",
+        "en": "carpenter-for-furniture-assembly-and-interior-construction-sta-personal-ag-uster-zurich",
+        "fr": "menuisier-ere-pour-le-montage-de-meubles-et-l-amenagement-interieur-sta-personal-ag-uster-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129144,14 +129232,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
+          "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch",
+          "schreiner-in-per-mobelmontagen-e-innenausbau-sta-personal-ag-uster"
         ],
         "de": [
+          "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch"
+        "schreiner-in-fur-mobelmontagen-und-innenausbau-uster-zurich-sta-ch",
+        "schreiner-in-per-mobelmontagen-e-innenausbau-sta-personal-ag-uster"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129168,16 +129264,16 @@
       },
       "postalCode": "8610",
       "firstSeenAt": "2026-10-12T09:56:03.623Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-bc54e2d3152a",
-      "slug": "schreiner-in-per-klassische-schreinerarbeiten-sta-personal-ag-wil-sg",
+      "slug": "falegname-per-lavori-di-falegnameria-classica-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg",
-        "it": "schreiner-in-per-klassische-schreinerarbeiten-sta-personal-ag-wil-sg",
-        "en": "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg",
-        "fr": "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg"
+        "it": "falegname-per-lavori-di-falegnameria-classica-sta-personal-ag-wil-sg-st-gallen",
+        "en": "carpenter-for-traditional-carpentry-work-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "menuisier-ere-pour-travaux-de-menuiserie-classiques-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129223,14 +129319,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-klassische-schreinerarbeiten-wil-sg-st-gallen-sta-ch"
+          "schreiner-in-fur-klassische-schreinerarbeiten-wil-sg-st-gallen-sta-ch",
+          "schreiner-in-per-klassische-schreinerarbeiten-sta-personal-ag-wil-sg"
         ],
         "de": [
           "schreiner-in-fur-klassische-schreinerarbeiten-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg"
+        ],
+        "fr": [
+          "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-klassische-schreinerarbeiten-wil-sg-st-gallen-sta-ch"
+        "schreiner-in-fur-klassische-schreinerarbeiten-wil-sg-st-gallen-sta-ch",
+        "schreiner-in-per-klassische-schreinerarbeiten-sta-personal-ag-wil-sg",
+        "schreiner-in-fur-klassische-schreinerarbeiten-sta-personal-ag-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -129247,16 +129352,16 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-12T09:56:03.621Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-f5b43b2bf6fb",
-      "slug": "schreiner-in-per-innenausbau-e-oberflachentechnik-sta-personal-ag-bulach",
+      "slug": "falegname-per-allestimenti-interni-e-tecniche-delle-superfici-sta-personal-ag-bulach-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach",
-        "it": "schreiner-in-per-innenausbau-e-oberflachentechnik-sta-personal-ag-bulach",
-        "en": "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach",
-        "fr": "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach"
+        "it": "falegname-per-allestimenti-interni-e-tecniche-delle-superfici-sta-personal-ag-bulach-zurich",
+        "en": "carpenter-for-interior-construction-and-surface-finishing-technology-sta-personal-ag-bulach-zurich",
+        "fr": "menuisier-ere-pour-amenagement-interieur-et-techniques-de-surface-sta-personal-ag-bulach-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129302,14 +129407,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-innenausbau-und-oberflachentechnik-bulach-zurich-sta-ch"
+          "schreiner-in-fur-innenausbau-und-oberflachentechnik-bulach-zurich-sta-ch",
+          "schreiner-in-per-innenausbau-e-oberflachentechnik-sta-personal-ag-bulach"
         ],
         "de": [
           "schreiner-in-fur-innenausbau-und-oberflachentechnik-bulach-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach"
+        ],
+        "fr": [
+          "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-oberflachentechnik-bulach-zurich-sta-ch"
+        "schreiner-in-fur-innenausbau-und-oberflachentechnik-bulach-zurich-sta-ch",
+        "schreiner-in-per-innenausbau-e-oberflachentechnik-sta-personal-ag-bulach",
+        "schreiner-in-fur-innenausbau-und-oberflachentechnik-sta-personal-ag-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129326,16 +129440,16 @@
       },
       "postalCode": "8180",
       "firstSeenAt": "2026-10-12T09:56:03.620Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-29694af78d44",
-      "slug": "schreiner-in-per-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen",
+      "slug": "falegname-per-lavori-personalizzati-in-officina-sta-personal-ag-andelfingen-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen",
-        "it": "schreiner-in-per-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen",
-        "en": "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen",
-        "fr": "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen"
+        "it": "falegname-per-lavori-personalizzati-in-officina-sta-personal-ag-andelfingen-zurich",
+        "en": "carpenter-joiner-for-custom-workshop-work-sta-personal-ag-andelfingen-zurich",
+        "fr": "menuisier-ere-pour-travaux-d-atelier-personnalises-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129381,14 +129495,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-individuelle-werkstattarbeiten-andelfingen-zurich-sta-ch"
+          "schreiner-in-fur-individuelle-werkstattarbeiten-andelfingen-zurich-sta-ch",
+          "schreiner-in-per-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen"
         ],
         "de": [
           "schreiner-in-fur-individuelle-werkstattarbeiten-andelfingen-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen"
+        ],
+        "fr": [
+          "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-individuelle-werkstattarbeiten-andelfingen-zurich-sta-ch"
+        "schreiner-in-fur-individuelle-werkstattarbeiten-andelfingen-zurich-sta-ch",
+        "schreiner-in-per-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen",
+        "schreiner-in-fur-individuelle-werkstattarbeiten-sta-personal-ag-andelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129405,16 +129528,16 @@
       },
       "postalCode": "8450",
       "firstSeenAt": "2026-10-12T09:56:03.619Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-665f643235dd",
-      "slug": "schreiner-in-per-innenausbau-e-kuchenmontage-sta-personal-ag-zurich",
+      "slug": "falegname-per-allestimenti-d-interni-e-montaggio-di-cucine-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-innenausbau-e-kuchenmontage-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch"
+        "it": "falegname-per-allestimenti-d-interni-e-montaggio-di-cucine-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-for-interior-construction-and-kitchen-installation-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-amenagement-interieur-et-montage-de-cuisines-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129460,11 +129583,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch",
+          "schreiner-in-per-innenausbau-e-kuchenmontage-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch"
+        "schreiner-in-fur-innenausbau-und-kuchenmontage-zurich-zurich-sta-ch",
+        "schreiner-in-per-innenausbau-e-kuchenmontage-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129481,16 +129612,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.619Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-a4b45d76ff87",
-      "slug": "schreiner-in-per-individuelle-montagearbeiten-sta-personal-ag-weinfelden",
+      "slug": "falegname-per-lavori-di-montaggio-personalizzati-sta-personal-ag-weinfelden-thurgau",
       "slugByLocale": {
         "de": "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden",
-        "it": "schreiner-in-per-individuelle-montagearbeiten-sta-personal-ag-weinfelden",
-        "en": "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden",
-        "fr": "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden"
+        "it": "falegname-per-lavori-di-montaggio-personalizzati-sta-personal-ag-weinfelden-thurgau",
+        "en": "carpenter-joiner-for-custom-installation-work-sta-personal-ag-weinfelden-thurgau",
+        "fr": "menuisier-ere-pour-travaux-de-montage-personnalises-sta-personal-ag-weinfelden-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129536,14 +129667,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-individuelle-montagearbeiten-weinfelden-thurgau-sta-ch"
+          "schreiner-in-fur-individuelle-montagearbeiten-weinfelden-thurgau-sta-ch",
+          "schreiner-in-per-individuelle-montagearbeiten-sta-personal-ag-weinfelden"
         ],
         "de": [
           "schreiner-in-fur-individuelle-montagearbeiten-weinfelden-thurgau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden"
+        ],
+        "fr": [
+          "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-individuelle-montagearbeiten-weinfelden-thurgau-sta-ch"
+        "schreiner-in-fur-individuelle-montagearbeiten-weinfelden-thurgau-sta-ch",
+        "schreiner-in-per-individuelle-montagearbeiten-sta-personal-ag-weinfelden",
+        "schreiner-in-fur-individuelle-montagearbeiten-sta-personal-ag-weinfelden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -129560,16 +129700,16 @@
       },
       "postalCode": "8570",
       "firstSeenAt": "2026-10-12T09:56:03.618Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-818f88220983",
-      "slug": "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-zurich",
+      "slug": "falegname-per-allestimenti-interni-di-alta-qualita-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch"
+        "it": "falegname-per-allestimenti-interni-di-alta-qualita-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-for-high-quality-interior-finishing-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-haut-de-gamme-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129615,11 +129755,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch",
+          "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch"
+        "schreiner-in-fur-hochwertigen-innenausbau-zurich-zurich-sta-ch",
+        "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129636,16 +129784,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.617Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-a7a6943612a8",
-      "slug": "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-meilen",
+      "slug": "falegname-per-allestimenti-interni-di-alta-qualita-sta-personal-ag-meilen-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-hochwertigen-innenausbau-sta-personal-ag-meilen",
-        "it": "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-meilen",
-        "en": "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch",
-        "fr": "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
+        "it": "falegname-per-allestimenti-interni-di-alta-qualita-sta-personal-ag-meilen-zurich",
+        "en": "carpenter-for-high-quality-interior-finishing-sta-personal-ag-meilen-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-haut-de-gamme-sta-personal-ag-meilen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129691,14 +129839,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
+          "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch",
+          "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-meilen"
         ],
         "de": [
+          "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch"
+        "schreiner-in-fur-hochwertigen-innenausbau-meilen-zurich-sta-ch",
+        "schreiner-in-per-hochwertigen-innenausbau-sta-personal-ag-meilen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129715,16 +129871,16 @@
       },
       "postalCode": "8706",
       "firstSeenAt": "2026-10-12T09:56:03.617Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-c0fa8cf1d425",
-      "slug": "schreiner-in-per-glaslosungen-im-innenausbau-sta-personal-ag-winterthur",
+      "slug": "falegname-per-soluzioni-in-vetro-nell-allestimento-d-interni-sta-personal-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-glaslosungen-im-innenausbau-sta-personal-ag-winterthur",
-        "it": "schreiner-in-per-glaslosungen-im-innenausbau-sta-personal-ag-winterthur",
-        "en": "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch",
-        "fr": "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
+        "it": "falegname-per-soluzioni-in-vetro-nell-allestimento-d-interni-sta-personal-ag-winterthur-zurich",
+        "en": "carpenter-joiner-for-glass-solutions-in-interior-fit-outs-sta-personal-ag-winterthur-zurich",
+        "fr": "menuisier-ere-pour-des-solutions-vitrees-dans-l-amenagement-interieur-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129770,14 +129926,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
+          "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch",
+          "schreiner-in-per-glaslosungen-im-innenausbau-sta-personal-ag-winterthur"
         ],
         "de": [
+          "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch"
+        "schreiner-in-fur-glaslosungen-im-innenausbau-winterthur-zurich-sta-ch",
+        "schreiner-in-per-glaslosungen-im-innenausbau-sta-personal-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -129794,16 +129958,16 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-12T09:56:03.615Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-3f7e2594da6e",
-      "slug": "schreiner-in-per-exklusive-innenausbauten-con-fuhrungsverantwortung-sta-personal-ag-frauenfeld",
+      "slug": "falegname-per-allestimenti-d-interni-esclusivi-con-responsabilita-di-gestione-sta-personal-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld",
-        "it": "schreiner-in-per-exklusive-innenausbauten-con-fuhrungsverantwortung-sta-personal-ag-frauenfeld",
-        "en": "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld",
-        "fr": "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld"
+        "it": "falegname-per-allestimenti-d-interni-esclusivi-con-responsabilita-di-gestione-sta-personal-ag-frauenfeld-thurgau",
+        "en": "carpenter-joiner-for-exclusive-interior-fit-outs-with-leadership-responsibility-sta-personal-ag-frauenfeld-thurgau",
+        "fr": "menuisier-ere-pour-des-amenagements-interieurs-exclusifs-avec-responsabilite-de-conduite-sta-personal-ag-frauenfeld"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129849,14 +130013,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-frauenfeld-thurgau-sta"
+          "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-frauenfeld-thurgau-sta",
+          "schreiner-in-per-exklusive-innenausbauten-con-fuhrungsverantwortung-sta-personal-ag-frauenfeld"
         ],
         "de": [
           "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-frauenfeld-thurgau-sta"
+        ],
+        "en": [
+          "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld"
+        ],
+        "fr": [
+          "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-frauenfeld-thurgau-sta"
+        "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-frauenfeld-thurgau-sta",
+        "schreiner-in-per-exklusive-innenausbauten-con-fuhrungsverantwortung-sta-personal-ag-frauenfeld",
+        "schreiner-in-fur-exklusive-innenausbauten-mit-fuhrungsverantwortung-sta-personal-ag-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -129873,16 +130046,16 @@
       },
       "postalCode": "8500",
       "firstSeenAt": "2026-10-12T09:56:03.611Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-ac13a80fd201",
-      "slug": "schreiner-in-per-bank-e-maschinenarbeiten-sta-personal-ag-munchwilen-tg",
+      "slug": "falegname-per-lavori-al-banco-e-alle-macchine-sta-personal-ag-munchwilen-tg-thurgau",
       "slugByLocale": {
         "de": "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg",
-        "it": "schreiner-in-per-bank-e-maschinenarbeiten-sta-personal-ag-munchwilen-tg",
-        "en": "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg",
-        "fr": "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg"
+        "it": "falegname-per-lavori-al-banco-e-alle-macchine-sta-personal-ag-munchwilen-tg-thurgau",
+        "en": "carpenter-for-bench-and-machine-work-sta-personal-ag-munchwilen-tg-thurgau",
+        "fr": "menuisier-ere-pour-les-travaux-d-etabli-et-sur-machines-sta-personal-ag-munchwilen-tg-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -129928,14 +130101,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-bank-und-maschinenarbeiten-munchwilen-tg-thurgau-sta-ch"
+          "schreiner-in-fur-bank-und-maschinenarbeiten-munchwilen-tg-thurgau-sta-ch",
+          "schreiner-in-per-bank-e-maschinenarbeiten-sta-personal-ag-munchwilen-tg"
         ],
         "de": [
           "schreiner-in-fur-bank-und-maschinenarbeiten-munchwilen-tg-thurgau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg"
+        ],
+        "fr": [
+          "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-bank-und-maschinenarbeiten-munchwilen-tg-thurgau-sta-ch"
+        "schreiner-in-fur-bank-und-maschinenarbeiten-munchwilen-tg-thurgau-sta-ch",
+        "schreiner-in-per-bank-e-maschinenarbeiten-sta-personal-ag-munchwilen-tg",
+        "schreiner-in-fur-bank-und-maschinenarbeiten-sta-personal-ag-munchwilen-tg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -129952,16 +130134,16 @@
       },
       "postalCode": "8500",
       "firstSeenAt": "2026-10-12T09:56:03.609Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-631430ef5402",
-      "slug": "schreiner-in-per-cnc-bearbeitung-e-kantenleim-sta-personal-ag-uster",
+      "slug": "falegname-per-la-lavorazione-cnc-e-l-incollaggio-dei-bordi-sta-personal-ag-uster-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-sta-personal-ag-uster",
-        "it": "schreiner-in-per-cnc-bearbeitung-e-kantenleim-sta-personal-ag-uster",
-        "en": "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch",
-        "fr": "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
+        "it": "falegname-per-la-lavorazione-cnc-e-l-incollaggio-dei-bordi-sta-personal-ag-uster-zurich",
+        "en": "carpenter-joiner-for-cnc-machining-and-edge-banding-sta-personal-ag-uster-zurich",
+        "fr": "menuisier-ere-pour-l-usinage-cnc-et-le-collage-de-chants-sta-personal-ag-uster-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130007,14 +130189,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
+          "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch",
+          "schreiner-in-per-cnc-bearbeitung-e-kantenleim-sta-personal-ag-uster"
         ],
         "de": [
+          "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch"
+        "schreiner-in-fur-cnc-bearbeitung-und-kantenleim-uster-zurich-sta-ch",
+        "schreiner-in-per-cnc-bearbeitung-e-kantenleim-sta-personal-ag-uster"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -130031,16 +130221,16 @@
       },
       "postalCode": "8610",
       "firstSeenAt": "2026-10-12T09:56:03.609Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-fb74b37d40bc",
-      "slug": "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch",
+      "slug": "falegname-afc-con-responsabilita-di-conduzione-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch",
-        "it": "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch",
-        "en": "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch"
+        "it": "falegname-afc-con-responsabilita-di-conduzione-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-efz-with-management-responsibility-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-cfc-avec-responsabilite-de-conduite-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130099,16 +130289,30 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.607Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-efz-mit-fuhrungsverantwortung-zurich-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-8a26c0615e8b",
-      "slug": "schreiner-in-cfc-per-mobelmontage-sta-personal-ag-wil-sg",
+      "slug": "falegname-afc-per-il-montaggio-di-mobili-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-efz-fur-mobelmontage-sta-personal-ag-wil-sg",
-        "it": "schreiner-in-cfc-per-mobelmontage-sta-personal-ag-wil-sg",
-        "en": "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch",
-        "fr": "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
+        "it": "falegname-afc-per-il-montaggio-di-mobili-sta-personal-ag-wil-sg-st-gallen",
+        "en": "carpenter-efz-for-furniture-assembly-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "menuisier-ere-cfc-pour-le-montage-de-meubles-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130154,14 +130358,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
+          "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch",
+          "schreiner-in-cfc-per-mobelmontage-sta-personal-ag-wil-sg"
         ],
         "de": [
+          "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch"
+        "schreiner-in-efz-fur-mobelmontage-wil-sg-st-gallen-sta-ch",
+        "schreiner-in-cfc-per-mobelmontage-sta-personal-ag-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -130178,16 +130390,16 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-12T09:56:03.606Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-abe66d4790b4",
-      "slug": "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch",
+      "slug": "falegname-falegname-di-mobili-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "schreiner-in-mobelschreiner-in-sta-personal-ag-wil-sg",
-        "it": "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch",
-        "en": "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch",
-        "fr": "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch"
+        "it": "falegname-falegname-di-mobili-sta-personal-ag-wil-sg-st-gallen",
+        "en": "carpenter-cabinetmaker-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "menuisier-ere-menuisier-ere-en-meubles-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130246,16 +130458,30 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-12T09:56:03.604Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mobelschreiner-in-wil-sg-st-gallen-sta-ch"
+      ]
     },
     {
       "id": "sta-6987e863bacd",
-      "slug": "schreiner-in-come-deckenmonteur-in-sta-personal-ag-zurich",
+      "slug": "falegname-come-montatore-trice-di-soffitti-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch",
-        "it": "schreiner-in-come-deckenmonteur-in-sta-personal-ag-zurich",
-        "en": "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch"
+        "it": "falegname-come-montatore-trice-di-soffitti-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-as-ceiling-installer-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-comme-monteur-euse-de-plafonds-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130301,11 +130527,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch",
+          "schreiner-in-come-deckenmonteur-in-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch"
+        "schreiner-in-als-deckenmonteur-in-zurich-zurich-sta-ch",
+        "schreiner-in-come-deckenmonteur-in-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -130322,16 +130556,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.604Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-953a04dd8178",
-      "slug": "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen",
+      "slug": "falegname-per-la-lavorazione-cnc-con-macchinari-moderni-sta-personal-ag-andelfingen-zurich",
       "slugByLocale": {
         "de": "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen",
-        "it": "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen",
-        "en": "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen",
-        "fr": "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen"
+        "it": "falegname-per-la-lavorazione-cnc-con-macchinari-moderni-sta-personal-ag-andelfingen-zurich",
+        "en": "carpenter-in-cnc-machining-with-modern-machine-technology-sta-personal-ag-andelfingen-zurich",
+        "fr": "menuisier-ere-dans-l-usinage-cnc-avec-une-technologie-moderne-des-machines-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130377,14 +130611,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-andelfingen-zurich-sta-ch"
+          "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-andelfingen-zurich-sta-ch",
+          "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen"
         ],
         "de": [
           "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-andelfingen-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen"
+        ],
+        "fr": [
+          "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-andelfingen-zurich-sta-ch"
+        "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-andelfingen-zurich-sta-ch",
+        "schreiner-in-cnc-bearbeitung-mit-moderner-maschinentechnik-sta-personal-ag-andelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -130401,16 +130643,16 @@
       },
       "postalCode": "8450",
       "firstSeenAt": "2026-10-12T09:56:03.604Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-3e7d4ebb6a07",
-      "slug": "schreiner-in-responsabile-di-progetto-con-cad-e-projektplanung-sta-personal-ag-frauenfeld",
+      "slug": "falegname-responsabile-di-progetto-con-cad-e-pianificazione-del-progetto-sta-personal-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-sta-personal-ag-frauenfeld",
-        "it": "schreiner-in-responsabile-di-progetto-con-cad-e-projektplanung-sta-personal-ag-frauenfeld",
-        "en": "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch",
-        "fr": "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
+        "it": "falegname-responsabile-di-progetto-con-cad-e-pianificazione-del-progetto-sta-personal-ag-frauenfeld-thurgau",
+        "en": "carpenter-project-manager-with-cad-and-project-planning-sta-personal-ag-frauenfeld-thurgau",
+        "fr": "menuisier-ere-chef-fe-de-projet-avec-cao-et-planification-de-projets-sta-personal-ag-frauenfeld-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130456,14 +130698,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
+          "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch",
+          "schreiner-in-responsabile-di-progetto-con-cad-e-projektplanung-sta-personal-ag-frauenfeld"
         ],
         "de": [
+          "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch"
+        "schreiner-in-projektleiter-in-mit-cad-und-projektplanung-frauenfeld-thurgau-sta-ch",
+        "schreiner-in-responsabile-di-progetto-con-cad-e-projektplanung-sta-personal-ag-frauenfeld"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -130629,12 +130879,12 @@
     },
     {
       "id": "sta-4c8d87cef591",
-      "slug": "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch",
+      "slug": "polimeccanico-a-per-fresatura-cnc-con-mastercam-sta-personal-ag-muri-ag-aargau",
       "slugByLocale": {
         "de": "polymechaniker-in-cnc-frasen-mit-mastercam-sta-personal-ag-muri-ag",
-        "it": "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch",
-        "en": "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch",
-        "fr": "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch"
+        "it": "polimeccanico-a-per-fresatura-cnc-con-mastercam-sta-personal-ag-muri-ag-aargau",
+        "en": "polymechanic-cnc-milling-with-mastercam-sta-personal-ag-muri-ag-aargau",
+        "fr": "polymecanicien-ne-fraisage-cnc-avec-mastercam-sta-personal-ag-muri-ag-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130693,16 +130943,30 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-12T09:56:03.576Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-frasen-mit-mastercam-muri-ag-aargau-sta-ch"
+      ]
     },
     {
       "id": "sta-17642bf2261a",
-      "slug": "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch",
+      "slug": "polimeccanico-a-programmazione-cam-con-fresatura-a-5-assi-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-sta-personal-ag-zofingen",
-        "it": "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch",
-        "en": "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch",
-        "fr": "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch"
+        "it": "polimeccanico-a-programmazione-cam-con-fresatura-a-5-assi-sta-personal-ag-zofingen-aargau",
+        "en": "polymechanic-cam-programming-with-5-axis-milling-sta-personal-ag-zofingen-aargau",
+        "fr": "polymecanicien-ne-programmation-cam-avec-fraisage-5-axes-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130761,16 +131025,30 @@
       },
       "postalCode": "4800",
       "firstSeenAt": "2026-10-12T09:56:03.575Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cam-programmierung-mit-5-achs-frasen-zofingen-aargau-sta-ch"
+      ]
     },
     {
       "id": "sta-2d43c1552869",
-      "slug": "glaser-in-per-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur",
+      "slug": "vetraio-a-per-vetrazioni-speciali-negli-allestimenti-interni-sta-personal-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur",
-        "it": "glaser-in-per-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur",
-        "en": "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur",
-        "fr": "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur"
+        "it": "vetraio-a-per-vetrazioni-speciali-negli-allestimenti-interni-sta-personal-ag-winterthur-zurich",
+        "en": "glazier-for-specialty-glazing-in-interior-construction-sta-personal-ag-winterthur-zurich",
+        "fr": "vitrier-ere-pour-vitrages-speciaux-dans-l-amenagement-interieur-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130816,14 +131094,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "glaser-in-fur-spezialverglasungen-im-innenausbau-winterthur-zurich-sta-ch"
+          "glaser-in-fur-spezialverglasungen-im-innenausbau-winterthur-zurich-sta-ch",
+          "glaser-in-per-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur"
         ],
         "de": [
           "glaser-in-fur-spezialverglasungen-im-innenausbau-winterthur-zurich-sta-ch"
+        ],
+        "en": [
+          "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur"
+        ],
+        "fr": [
+          "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur"
         ]
       },
       "previousSlugs": [
-        "glaser-in-fur-spezialverglasungen-im-innenausbau-winterthur-zurich-sta-ch"
+        "glaser-in-fur-spezialverglasungen-im-innenausbau-winterthur-zurich-sta-ch",
+        "glaser-in-per-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur",
+        "glaser-in-fur-spezialverglasungen-im-innenausbau-sta-personal-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -130840,16 +131127,16 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-12T09:56:03.461Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-e83411953297",
-      "slug": "anlagen-e-apparatebauer-in-con-erfahrung-in-abkantpressen-sta-personal-ag-lenzburg",
+      "slug": "costruttore-trice-di-impianti-e-apparecchi-con-esperienza-nelle-presse-piegatrici-sta-personal-ag-lenzburg-aargau",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-sta-personal-ag-lenzburg",
-        "it": "anlagen-e-apparatebauer-in-con-erfahrung-in-abkantpressen-sta-personal-ag-lenzburg",
-        "en": "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
+        "it": "costruttore-trice-di-impianti-e-apparecchi-con-esperienza-nelle-presse-piegatrici-sta-personal-ag-lenzburg-aargau",
+        "en": "plant-and-apparatus-builder-with-experience-in-press-brakes-sta-personal-ag-lenzburg-aargau",
+        "fr": "constructeur-trice-d-installations-et-d-appareils-avec-experience-des-presses-plieuses-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130895,14 +131182,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
+          "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch",
+          "anlagen-e-apparatebauer-in-con-erfahrung-in-abkantpressen-sta-personal-ag-lenzburg"
         ],
         "de": [
+          "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch"
+        "anlagen-und-apparatebauer-in-mit-erfahrung-in-abkantpressen-lenzburg-aargau-sta-ch",
+        "anlagen-e-apparatebauer-in-con-erfahrung-in-abkantpressen-sta-personal-ag-lenzburg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -130919,16 +131214,16 @@
       },
       "postalCode": "5600",
       "firstSeenAt": "2026-10-12T09:56:03.358Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-9fb658ef3bc3",
-      "slug": "schreiner-in-per-innenausbau-con-profi-werkzeug-sta-personal-ag-zurich",
+      "slug": "falegname-per-allestimenti-interni-con-utensili-professionali-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-innenausbau-con-profi-werkzeug-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch"
+        "it": "falegname-per-allestimenti-interni-con-utensili-professionali-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-joiner-for-interior-fit-out-with-professional-tools-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-avec-outillage-professionnel-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130974,11 +131269,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch",
+          "schreiner-in-per-innenausbau-con-profi-werkzeug-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch"
+        "schreiner-in-fur-innenausbau-mit-profi-werkzeug-zurich-zurich-sta-ch",
+        "schreiner-in-per-innenausbau-con-profi-werkzeug-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -130995,16 +131298,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.294Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-d45b78a1dce5",
-      "slug": "schreiner-in-per-innenausbau-e-montagen-sta-personal-ag-zurich",
+      "slug": "falegname-per-l-allestimento-degli-interni-e-i-montaggi-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-innenausbau-e-montagen-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch"
+        "it": "falegname-per-l-allestimento-degli-interni-e-i-montaggi-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-for-interior-construction-and-assembly-work-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-et-les-montages-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -131050,11 +131353,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch",
+          "schreiner-in-per-innenausbau-e-montagen-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch"
+        "schreiner-in-fur-innenausbau-und-montagen-zurich-zurich-sta-ch",
+        "schreiner-in-per-innenausbau-e-montagen-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -131070,7 +131381,7 @@
         }
       },
       "postalCode": "8001",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-310ea730f29e",
@@ -131147,12 +131458,12 @@
     },
     {
       "id": "sta-79adaf9b1d0e",
-      "slug": "schreiner-in-per-montagearbeiten-sta-personal-ag-baden",
+      "slug": "falegname-per-lavori-di-montaggio-sta-personal-ag-baden-aargau",
       "slugByLocale": {
         "de": "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden",
-        "it": "schreiner-in-per-montagearbeiten-sta-personal-ag-baden",
-        "en": "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden",
-        "fr": "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden"
+        "it": "falegname-per-lavori-di-montaggio-sta-personal-ag-baden-aargau",
+        "en": "carpenter-joiner-for-installation-work-sta-personal-ag-baden-aargau",
+        "fr": "menuisier-ere-pour-travaux-de-montage-sta-personal-ag-baden-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -131198,14 +131509,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-in-fur-montagearbeiten-baden-aargau-sta-ch"
+          "schreiner-in-fur-montagearbeiten-baden-aargau-sta-ch",
+          "schreiner-in-per-montagearbeiten-sta-personal-ag-baden"
         ],
         "de": [
           "schreiner-in-fur-montagearbeiten-baden-aargau-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden"
+        ],
+        "fr": [
+          "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montagearbeiten-baden-aargau-sta-ch"
+        "schreiner-in-fur-montagearbeiten-baden-aargau-sta-ch",
+        "schreiner-in-per-montagearbeiten-sta-personal-ag-baden",
+        "schreiner-in-fur-montagearbeiten-sta-personal-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -131222,16 +131542,16 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-12T09:56:03.294Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-604396bacad7",
-      "slug": "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch",
+      "slug": "falegname-falegname-da-banco-con-competenze-specialistiche-sta-personal-ag-uster-zurich",
       "slugByLocale": {
         "de": "schreiner-in-bankschreiner-in-mit-fachkompetenz-sta-personal-ag-uster",
-        "it": "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch",
-        "en": "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch",
-        "fr": "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch"
+        "it": "falegname-falegname-da-banco-con-competenze-specialistiche-sta-personal-ag-uster-zurich",
+        "en": "carpenter-bench-carpenter-with-specialist-expertise-sta-personal-ag-uster-zurich",
+        "fr": "menuisier-ere-menuisier-ere-d-etabli-avec-expertise-professionnelle-sta-personal-ag-uster-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -131290,16 +131610,30 @@
       },
       "postalCode": "8610",
       "firstSeenAt": "2026-10-12T09:56:03.293Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch"
+        ],
+        "en": [
+          "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch"
+        ],
+        "fr": [
+          "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-bankschreiner-in-mit-fachkompetenz-uster-zurich-sta-ch"
+      ]
     },
     {
       "id": "sta-df64ee874b9d",
-      "slug": "schreiner-in-per-fenster-e-fassadenmontage-sta-personal-ag-zurich",
+      "slug": "falegname-per-il-montaggio-di-finestre-e-facciate-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-fenster-e-fassadenmontage-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch"
+        "it": "falegname-per-il-montaggio-di-finestre-e-facciate-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-for-window-and-facade-installation-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-le-montage-de-fenetres-et-de-facades-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -131345,11 +131679,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch",
+          "schreiner-in-per-fenster-e-fassadenmontage-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch"
+        "schreiner-in-fur-fenster-und-fassadenmontage-zurich-zurich-sta-ch",
+        "schreiner-in-per-fenster-e-fassadenmontage-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -131365,16 +131707,16 @@
         }
       },
       "postalCode": "8001",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     },
     {
       "id": "sta-b456e4f9d559",
-      "slug": "schreiner-in-per-innenausbau-con-montagefahrzeug-sta-personal-ag-zurich",
+      "slug": "falegname-per-allestimenti-interni-con-veicolo-per-il-montaggio-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch",
-        "it": "schreiner-in-per-innenausbau-con-montagefahrzeug-sta-personal-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch",
-        "fr": "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch"
+        "it": "falegname-per-allestimenti-interni-con-veicolo-per-il-montaggio-sta-personal-ag-zurich-zurich",
+        "en": "carpenter-joiner-for-interior-fit-out-with-installation-vehicle-sta-personal-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-avec-vehicule-de-montage-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -131420,11 +131762,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch",
+          "schreiner-in-per-innenausbau-con-montagefahrzeug-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch"
+        "schreiner-in-fur-innenausbau-mit-montagefahrzeug-zurich-zurich-sta-ch",
+        "schreiner-in-per-innenausbau-con-montagefahrzeug-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -131441,7 +131791,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-12T09:56:03.293Z",
-      "translationHoldSince": "2026-10-12T09:56:24.534Z"
+      "translationHoldReleasedAt": "2026-10-12T13:50:26.440Z"
     }
   ]
 }

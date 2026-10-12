@@ -13249,12 +13249,12 @@
     },
     {
       "id": "stadler-rail-74965128ccb4",
-      "slug": "collaboratore-trice-qualitatssicherung-elektrovormontage-stadler-rail-st-margrethen",
+      "slug": "addetto-a-al-controllo-qualita-del-preassemblaggio-elettrico-stadler-rail-st-margrethen",
       "slugByLocale": {
         "de": "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch",
-        "it": "collaboratore-trice-qualitatssicherung-elektrovormontage-stadler-rail-st-margrethen",
-        "en": "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch",
-        "fr": "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch"
+        "it": "addetto-a-al-controllo-qualita-del-preassemblaggio-elettrico-stadler-rail-st-margrethen",
+        "en": "quality-assurance-employee-electrical-pre-assembly-stadler-rail-st-margrethen",
+        "fr": "collaborateur-rice-en-assurance-qualite-du-preassemblage-electrique-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13301,11 +13301,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch",
+          "collaboratore-trice-qualitatssicherung-elektrovormontage-stadler-rail-st-margrethen"
+        ],
+        "en": [
+          "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch"
+        "mitarbeiter-in-qualitatssicherung-elektrovormontage-stadler-rail-ch",
+        "collaboratore-trice-qualitatssicherung-elektrovormontage-stadler-rail-st-margrethen"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -13324,12 +13332,12 @@
     },
     {
       "id": "stadler-rail-6640aa0652f0",
-      "slug": "sachbearbeiter-in-qehs-administration-stadler-rail-ch",
+      "slug": "addetto-a-all-amministrazione-qehs-stadler-rail-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-in-qehs-administration-stadler-rail-ch",
-        "it": "sachbearbeiter-in-qehs-administration-stadler-rail-ch",
-        "en": "sachbearbeiter-in-qehs-administration-stadler-rail-ch",
-        "fr": "sachbearbeiter-in-qehs-administration-stadler-rail-ch"
+        "it": "addetto-a-all-amministrazione-qehs-stadler-rail-winterthur",
+        "en": "administrative-specialist-qehs-administration-stadler-rail-winterthur",
+        "fr": "assistant-e-administratif-ve-qehs-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13387,7 +13395,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:49:49.881Z"
+      "firstSeenAt": "2026-10-12T09:49:49.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-qehs-administration-stadler-rail-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-qehs-administration-stadler-rail-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-qehs-administration-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-qehs-administration-stadler-rail-ch"
+      ]
     }
   ]
 }

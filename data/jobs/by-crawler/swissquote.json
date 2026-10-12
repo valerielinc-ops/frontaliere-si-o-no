@@ -3061,12 +3061,12 @@
     },
     {
       "id": "swissquote-6661e4e43b78",
-      "slug": "private-sales-manager-swissquote-zurich",
+      "slug": "responsabile-vendite-private-swissquote-zurich",
       "slugByLocale": {
         "de": "private-sales-manager-swissquote-zurich",
-        "it": "private-sales-manager-swissquote-zurich",
+        "it": "responsabile-vendite-private-swissquote-zurich",
         "en": "private-sales-manager-swissquote-zurich",
-        "fr": "private-sales-manager-swissquote-zurich"
+        "fr": "responsable-des-ventes-privees-swissquote-zurich"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -3126,7 +3126,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:47:34.187Z"
+      "firstSeenAt": "2026-10-12T09:47:34.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "private-sales-manager-swissquote-zurich"
+        ],
+        "fr": [
+          "private-sales-manager-swissquote-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "private-sales-manager-swissquote-zurich"
+      ]
     }
   ]
 }

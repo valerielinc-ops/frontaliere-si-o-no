@@ -91,7 +91,7 @@
         "it": "logistica-di-raccolta-m-f-d-planzer-lyss",
         "en": "logistics-picking-m-f-d-planzer-lyss",
         "de": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        "fr": "recherche-logistique-h-f-d-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -137,8 +137,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "recherche-logistique-h-f-d-planzer-lyss"
+        "logistiker-kommissionierung-m-w-d-planzer-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -148,7 +147,7 @@
           "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ],
         "fr": [
-          "recherche-logistique-h-f-d-planzer-lyss"
+          "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ]
       },
       "salaryMin": 68500,
@@ -726,12 +725,12 @@
     },
     {
       "id": "planzer-608b3b7ea89d",
-      "slug": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs",
         "en": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-        "fr": "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        "fr": "chauffeur-cat-ce-region-berne-mittelland-h-f-d-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -791,7 +790,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-0f4e19479b00",

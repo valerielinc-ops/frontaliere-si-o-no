@@ -905,12 +905,12 @@
     },
     {
       "id": "strabag-3bdc5544b1c4",
-      "slug": "polier-in-strassenbau-e-genio-civile-strabag-ag-bern",
+      "slug": "capo-a-cantiere-per-la-costruzione-di-strade-e-il-genio-civile-strabag-ag-bern",
       "slugByLocale": {
         "de": "polier-in-strassenbau-und-tiefbau-strabag-bern",
-        "it": "polier-in-strassenbau-e-genio-civile-strabag-ag-bern",
-        "en": "polier-in-strassenbau-und-tiefbau-strabag-bern",
-        "fr": "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        "it": "capo-a-cantiere-per-la-costruzione-di-strade-e-il-genio-civile-strabag-ag-bern",
+        "en": "foreperson-in-road-construction-and-civil-engineering-strabag-ag-bern",
+        "fr": "contremaitre-contremaitresse-en-construction-routiere-et-genie-civil-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -958,11 +958,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polier-in-strassenbau-und-tiefbau-strabag-bern",
+          "polier-in-strassenbau-e-genio-civile-strabag-ag-bern"
+        ],
+        "en": [
+          "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        ],
+        "fr": [
           "polier-in-strassenbau-und-tiefbau-strabag-bern"
         ]
       },
       "previousSlugs": [
-        "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        "polier-in-strassenbau-und-tiefbau-strabag-bern",
+        "polier-in-strassenbau-e-genio-civile-strabag-ag-bern"
       ],
       "salaryMin": 76500,
       "salaryMax": 97000,
@@ -981,12 +989,12 @@
     },
     {
       "id": "strabag-068c6866bd36",
-      "slug": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
+      "slug": "direttore-trice-dei-lavori-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
       "slugByLocale": {
         "de": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "it": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "en": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "fr": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        "it": "direttore-trice-dei-lavori-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
+        "en": "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon",
+        "fr": "conducteur-conductrice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1045,7 +1053,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:18:09.716Z"
+      "firstSeenAt": "2026-09-10T23:18:09.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ],
+        "en": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ],
+        "fr": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+      ]
     },
     {
       "id": "strabag-ab3a175a024a",

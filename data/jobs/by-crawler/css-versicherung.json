@@ -2820,12 +2820,12 @@
     },
     {
       "id": "css-versicherung-fd3680a14a47",
-      "slug": "kundenberater-in-per-privatkunden-zug-80-100-css-versicherung-zug",
+      "slug": "consulente-alla-clientela-per-clienti-privati-a-zugo-80-100-css-versicherung-zug",
       "slugByLocale": {
         "de": "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug",
-        "it": "kundenberater-in-per-privatkunden-zug-80-100-css-versicherung-zug",
-        "en": "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug",
-        "fr": "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug"
+        "it": "consulente-alla-clientela-per-clienti-privati-a-zugo-80-100-css-versicherung-zug",
+        "en": "customer-advisor-for-private-customers-zug-80-100-css-versicherung-zug",
+        "fr": "conseiller-ere-a-la-clientele-privee-zoug-80-100-css-versicherung-zug"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2873,11 +2873,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug",
+          "kundenberater-in-per-privatkunden-zug-80-100-css-versicherung-zug"
+        ],
+        "en": [
+          "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug"
+        ],
+        "fr": [
           "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug"
+        "kundenberater-in-fur-privatkunden-zug-80-100-css-versicherung-zug",
+        "kundenberater-in-per-privatkunden-zug-80-100-css-versicherung-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

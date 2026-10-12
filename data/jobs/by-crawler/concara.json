@@ -3289,12 +3289,12 @@
     },
     {
       "id": "concara-25e399f2c723",
-      "slug": "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
+      "slug": "collaboratore-trice-nell-assistenza-e-nella-cura-assistente-di-cura-ac-o-ausiliario-a-di-cura-crs-60-80-concara-domicil",
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
-        "it": "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee",
-        "en": "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
-        "fr": "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
+        "it": "collaboratore-trice-nell-assistenza-e-nella-cura-assistente-di-cura-ac-o-ausiliario-a-di-cura-crs-60-80-concara-domicil",
+        "en": "care-and-support-assistant-ags-or-srk-nursing-assistant-60-80-concara-domicil-spitex-bern-munchenbuchsee",
+        "fr": "collaborateur-rice-en-accompagnement-et-soins-asa-ou-aide-soignant-e-crs-60-80-concara-domicil-spitex-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3342,11 +3342,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
+          "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
+        ],
+        "en": [
+          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
+        ],
+        "fr": [
           "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
+        "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
+        "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,
@@ -3365,12 +3373,12 @@
     },
     {
       "id": "concara-8baa8947a5a4",
-      "slug": "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern",
+      "slug": "autista-autista-del-servizio-pasti-20-30-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern",
-        "it": "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern",
-        "en": "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern",
-        "fr": "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern"
+        "it": "autista-autista-del-servizio-pasti-20-30-concara-domicil-spitex-bern-bern",
+        "en": "meal-delivery-driver-20-30-concara-domicil-spitex-bern-bern",
+        "fr": "chauffeur-chauffeuse-pour-le-service-de-repas-20-30-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3429,7 +3437,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:06:11.688Z"
+      "firstSeenAt": "2026-09-09T23:06:11.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern"
+        ],
+        "en": [
+          "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern"
+        ],
+        "fr": [
+          "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-chauffeuse-mahlzeitendienst-20-30-concara-bern"
+      ]
     }
   ]
 }

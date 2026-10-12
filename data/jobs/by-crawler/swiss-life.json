@@ -9,7 +9,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -58,7 +58,7 @@
       "previousSlugs": [
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "fr": [
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
-          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+          "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:43.080Z",
@@ -8108,12 +8108,12 @@
     },
     {
       "id": "swiss-life-62ec52052cf9",
-      "slug": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch",
+      "slug": "senior-consulente-patrimoniale-e-responsabile-delle-relazioni-m-f-d-100-swiss-life-bern",
       "slugByLocale": {
         "en": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch",
         "fr": "aine-planificateur-de-patrimoine-et-gestionnaire-de-relations-h-f-d-100-swiss-life-bern",
         "de": "senior-vermogen-planer-relationship-manager-m-w-d-100-swiss-life-bern",
-        "it": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        "it": "senior-consulente-patrimoniale-e-responsabile-delle-relazioni-m-f-d-100-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8174,7 +8174,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:00:23.629Z"
+      "firstSeenAt": "2026-09-19T23:00:23.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+      ]
     },
     {
       "id": "swiss-life-4accb0526e04",

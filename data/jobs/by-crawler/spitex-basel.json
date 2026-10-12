@@ -664,12 +664,12 @@
     },
     {
       "id": "spitex-basel-b0a12f31bc4c",
-      "slug": "spezialistin-spezialist-lohn-e-sozialversicherungen-spitex-basel",
+      "slug": "specialista-paghe-e-assicurazioni-sociali-spitex-basel-basel",
       "slugByLocale": {
         "de": "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel",
-        "it": "spezialistin-spezialist-lohn-e-sozialversicherungen-spitex-basel",
-        "en": "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel",
-        "fr": "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel"
+        "it": "specialista-paghe-e-assicurazioni-sociali-spitex-basel-basel",
+        "en": "payroll-and-social-insurance-specialist-spitex-basel-basel",
+        "fr": "specialiste-des-salaires-et-des-assurances-sociales-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -717,11 +717,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel",
+          "spezialistin-spezialist-lohn-e-sozialversicherungen-spitex-basel"
+        ],
+        "en": [
+          "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel"
+        ],
+        "fr": [
           "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel"
         ]
       },
       "previousSlugs": [
-        "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel"
+        "spezialistin-spezialist-lohn-und-sozialversicherungen-spitex-basel-basel",
+        "spezialistin-spezialist-lohn-e-sozialversicherungen-spitex-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -740,12 +748,12 @@
     },
     {
       "id": "spitex-basel-7d013611bf47",
-      "slug": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2",
+      "slug": "infermiere-a-diplomato-a-hf-fh-assistenza-domiciliare-pediatrica-pediatria-spitex-basel-basel",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel",
-        "it": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2",
-        "en": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2",
-        "fr": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        "it": "infermiere-a-diplomato-a-hf-fh-assistenza-domiciliare-pediatrica-pediatria-spitex-basel-basel",
+        "en": "registered-nurse-hf-fh-pediatric-home-care-pediatrics-spitex-basel-basel",
+        "fr": "infirmier-ere-diplome-e-hf-fh-soins-a-domicile-pour-enfants-pediatrie-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -804,7 +812,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-11T13:54:05.065Z"
+      "firstSeenAt": "2026-09-11T13:54:05.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+      ]
     }
   ]
 }

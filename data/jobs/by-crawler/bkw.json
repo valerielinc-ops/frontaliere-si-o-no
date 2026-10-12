@@ -608,8 +608,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -656,8 +656,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -665,10 +665,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -5486,7 +5486,7 @@
       "id": "bkw-dd2ab293c23a",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zuchwil",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zuchwil"
@@ -6443,7 +6443,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -6620,7 +6620,7 @@
       "id": "bkw-dd0a792638b8",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
@@ -6969,7 +6969,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -8373,7 +8373,7 @@
       "id": "bkw-df1980599c65",
       "slug": "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-afc-tutti-bkw-saanen-ddc0bc66ab",
       "slugByLocale": {
-        "it": "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-afc-tutti-bkw-saanen-ddc0bc66ab",
+        "it": "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen",
         "en": "apprenticeship-heating-installer-in-efz-all-bkw-saanen",
         "de": "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
         "fr": "installateur-de-chauffage-d-apprentissage-dans-efz-tous-bkw-saanen"
@@ -8422,14 +8422,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3",
-        "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen"
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-          "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3",
-          "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen"
+          "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3"
         ]
       },
       "firstSeenAt": "2026-07-30T11:21:11.327Z",
@@ -9117,7 +9115,7 @@
       "id": "bkw-8922b79ff8a8",
       "slug": "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-cfp-tutti-bkw-saanen-f409412099",
       "slugByLocale": {
-        "it": "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-cfp-tutti-bkw-saanen-f409412099",
+        "it": "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen",
         "en": "teaching-position-sanitary-practitioner-in-eba-all-bkw-saanen",
         "de": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
         "fr": "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-saanen"
@@ -9175,8 +9173,7 @@
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3",
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-4",
         "teaching-position-sanitary-practitioner-in-eba-all-bkw-luzern",
-        "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern",
-        "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen"
+        "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9190,8 +9187,7 @@
           "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3",
           "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-4",
           "teaching-position-sanitary-practitioner-in-eba-all-bkw-luzern",
-          "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern",
-          "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen"
+          "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern"
         ],
         "de": [
           "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-uqdgm5"
@@ -10322,7 +10318,7 @@
       "id": "bkw-650cb0e4e9e4",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-654fb1230f",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-654fb1230f",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich",
         "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2"
@@ -12037,7 +12033,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -12086,8 +12082,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12096,7 +12091,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -12357,7 +12352,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -12406,7 +12401,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12414,7 +12409,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -14271,7 +14266,7 @@
       "id": "bkw-d61837cbe39b",
       "slug": "progettista-elettrico-a-in-alle-bkw-dubendorf-aff330fe50",
       "slugByLocale": {
-        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf-aff330fe50",
+        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf",
         "en": "elektroplaner-in-alle-bkw-ch-2",
         "de": "elektroplaner-in-alle-bkw-ch",
         "fr": "elektroplaner-in-alle-bkw-ch-2"
@@ -16914,7 +16909,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -16960,14 +16955,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -16989,7 +16984,7 @@
       "id": "bkw-ead304e336a8",
       "slug": "progettista-elettrico-a-in-alle-bkw-dubendorf-96a74b1896",
       "slugByLocale": {
-        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf-96a74b1896",
+        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf",
         "en": "electrical-planner-in-alle-bkw-dubendorf",
         "de": "elektroplaner-in-alle-bkw-ch",
         "fr": "planificateur-electrique-tous-bkw-dubendorf"
@@ -22464,12 +22459,12 @@
     },
     {
       "id": "bkw-22d7bac907c1",
-      "slug": "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen-32679ceea3",
+      "slug": "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-eba-tutti-bkw-saanen",
       "slugByLocale": {
         "de": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
-        "it": "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen-32679ceea3",
-        "en": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
-        "fr": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch"
+        "it": "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-eba-tutti-bkw-saanen",
+        "en": "apprenticeship-as-a-sanitary-technician-eba-all-bkw-saanen",
+        "fr": "place-d-apprentissage-de-praticien-ne-en-installations-sanitaires-afp-tous-bkw-saanen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22518,12 +22513,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
-          "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen"
+          "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen",
+          "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen-32679ceea3"
+        ],
+        "en": [
+          "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
-        "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen"
+        "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen",
+        "apprendistato-sanitarpraktiker-in-afp-alle-bkw-saanen-32679ceea3"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -22616,12 +22619,12 @@
     },
     {
       "id": "bkw-14bd58fbe153",
-      "slug": "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen-7abb79deb6",
+      "slug": "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-efz-tutti-bkw-saanen",
       "slugByLocale": {
         "de": "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-        "it": "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen-7abb79deb6",
-        "en": "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch"
+        "it": "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-efz-tutti-bkw-saanen",
+        "en": "apprenticeship-as-a-heating-installer-efz-all-bkw-saanen",
+        "fr": "place-d-apprentissage-d-installateur-trice-en-chauffage-cfc-tous-bkw-saanen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22670,12 +22673,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen"
+          "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen",
+          "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen-7abb79deb6"
+        ],
+        "en": [
+          "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen"
+        "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen",
+        "apprendistato-heizungsinstallateur-in-cfc-alle-bkw-saanen-7abb79deb6"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -23956,8 +23967,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-dd03d49193",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zurich",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zurich"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24007,6 +24018,12 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4"
         ]
       },
       "previousSlugs": [
@@ -24252,12 +24269,12 @@
     },
     {
       "id": "bkw-ade2b3575a83",
-      "slug": "apprendistato-automatiker-in-cfc-alle-bkw-bern",
+      "slug": "posto-di-apprendistato-come-automatista-afc-tutti-bkw-bern",
       "slugByLocale": {
         "de": "lehrstelle-automatiker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-automatiker-in-cfc-alle-bkw-bern",
-        "en": "lehrstelle-automatiker-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-automatiker-in-efz-alle-bkw-ch"
+        "it": "posto-di-apprendistato-come-automatista-afc-tutti-bkw-bern",
+        "en": "apprenticeship-as-an-automation-technician-efz-all-genders-bkw-bern",
+        "fr": "place-d-apprentissage-d-automaticien-ne-cfc-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24305,11 +24322,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-automatiker-in-efz-alle-bkw-ch",
+          "apprendistato-automatiker-in-cfc-alle-bkw-bern"
+        ],
+        "en": [
+          "lehrstelle-automatiker-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-automatiker-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatiker-in-efz-alle-bkw-ch"
+        "lehrstelle-automatiker-in-efz-alle-bkw-ch",
+        "apprendistato-automatiker-in-cfc-alle-bkw-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -24402,12 +24427,12 @@
     },
     {
       "id": "bkw-f17bd55a17ed",
-      "slug": "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern",
+      "slug": "posto-di-apprendistato-come-montatore-trice-in-automazione-afc-tutti-bkw-bern",
       "slugByLocale": {
         "de": "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
-        "it": "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern",
-        "en": "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch"
+        "it": "posto-di-apprendistato-come-montatore-trice-in-automazione-afc-tutti-bkw-bern",
+        "en": "apprenticeship-as-an-automation-technician-efz-all-bkw-bern",
+        "fr": "place-d-apprentissage-de-monteur-automaticien-monteuse-automaticienne-cfc-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24455,11 +24480,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
+          "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern"
+        ],
+        "en": [
+          "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch"
+        "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
+        "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -24996,12 +25029,12 @@
     },
     {
       "id": "bkw-786f27c89f8b",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-saanen",
+      "slug": "posto-di-apprendistato-come-elettricista-di-montaggio-efz-tutti-bkw-saanen",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-saanen",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6"
+        "it": "posto-di-apprendistato-come-elettricista-di-montaggio-efz-tutti-bkw-saanen",
+        "en": "apprenticeship-as-an-assembly-electrician-efz-all-genders-bkw-saanen",
+        "fr": "place-d-apprentissage-d-electricien-ne-de-montage-cfc-tous-bkw-saanen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25049,11 +25082,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-saanen"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6"
+        ],
+        "fr": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-saanen"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -25146,12 +25187,12 @@
     },
     {
       "id": "bkw-969002e0ea38",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-gwatt-thun",
+      "slug": "posto-di-apprendistato-come-elettricista-di-montaggio-efz-tutti-bkw-gwatt-thun",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-gwatt-thun",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
+        "it": "posto-di-apprendistato-come-elettricista-di-montaggio-efz-tutti-bkw-gwatt-thun",
+        "en": "apprenticeship-as-an-assembly-electrician-efz-all-genders-bkw-gwatt-thun",
+        "fr": "place-d-apprentissage-d-electricien-ne-de-montage-cfc-tous-bkw-gwatt-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25199,11 +25240,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-gwatt-thun"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
+        ],
+        "fr": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-gwatt-thun"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -25226,8 +25275,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-gwatt-thun",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-14",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-14"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-gwatt-thun",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-gwatt-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25276,6 +25325,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-14"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-14"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-14"
         ]
       },
       "previousSlugs": [
@@ -25302,8 +25357,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-thun",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25351,6 +25406,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15"
+        ],
+        "fr": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-15"
         ]
       },
@@ -25526,8 +25587,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-muhleberg",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-muhleberg",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-muhleberg"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25576,6 +25637,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17"
         ]
       },
       "previousSlugs": [
@@ -25602,8 +25669,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroplaner-in-efz-alle-bkw-ch",
         "it": "apprendistato-progettista-elettrico-a-in-cfc-alle-bkw-utzenstorf",
-        "en": "lehrstelle-elektroplaner-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-elektroplaner-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf",
+        "fr": "place-d-apprentissage-de-planificateur-rice-electricien-ne-cfc-tous-bkw-utzenstorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25651,6 +25718,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-elektroplaner-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-elektroplaner-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-elektroplaner-in-efz-alle-bkw-ch"
         ]
       },
@@ -26270,8 +26343,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-b5d643d542",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zurich-483425",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zurich-483425"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26321,6 +26394,12 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18"
         ]
       },
       "previousSlugs": [
@@ -26348,8 +26427,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-marly",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "electrical-installer-efz-all-genders-bkw-marly",
+        "fr": "installateur-trice-electricien-ne-cfc-tous-bkw-marly"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26397,6 +26476,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },

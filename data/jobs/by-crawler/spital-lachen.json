@@ -2456,7 +2456,7 @@
         "it": "direzione-assistenza-60-spital-lachen-lachen",
         "en": "directorate-assistance-60-spital-lachen-lachen",
         "de": "direktionsassistenz-60-spital-lachen-lachen",
-        "fr": "direktionsassistenz-60-spital-lachen"
+        "fr": "assistance-de-la-direction-60-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -2525,8 +2525,7 @@
         "assistente-di-direzione-60-spital-lachen-lachen",
         "executive-assistant-60-spital-lachen-lachen",
         "direktionsassistenz-60-spital-lachen",
-        "direktionsassistenz-60-spital-lachen-lachen",
-        "assistance-de-la-direction-60-spital-lachen-lachen"
+        "direktionsassistenz-60-spital-lachen-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2539,7 +2538,7 @@
           "direktionsassistenz-60-spital-lachen"
         ],
         "fr": [
-          "assistance-de-la-direction-60-spital-lachen-lachen"
+          "direktionsassistenz-60-spital-lachen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:59.397Z",
@@ -3200,12 +3199,12 @@
     },
     {
       "id": "spital-lachen-6526f8d37c5d",
-      "slug": "dipl-radiologiefachperson-hf-100-spital-lachen-lachen",
+      "slug": "dipl-specialista-di-radiologia-hf-100-spital-lachen-lachen",
       "slugByLocale": {
         "de": "dipl-radiologiefachperson-hf-100-spital-lachen-lachen",
-        "it": "dipl-radiologiefachperson-hf-100-spital-lachen-lachen",
-        "en": "dipl-radiologiefachperson-hf-100-spital-lachen-lachen",
-        "fr": "dipl-radiologiefachperson-hf-100-spital-lachen-lachen"
+        "it": "dipl-specialista-di-radiologia-hf-100-spital-lachen-lachen",
+        "en": "dipl-radiology-specialist-hf-100-spital-lachen-lachen",
+        "fr": "dipl-specialiste-en-radiologie-hf-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3264,7 +3263,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:22:43.020Z"
+      "firstSeenAt": "2026-10-12T09:22:43.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-hf-100-spital-lachen-lachen"
+        ],
+        "en": [
+          "dipl-radiologiefachperson-hf-100-spital-lachen-lachen"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-hf-100-spital-lachen-lachen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-hf-100-spital-lachen-lachen"
+      ]
     }
   ]
 }

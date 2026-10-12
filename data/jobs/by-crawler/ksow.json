@@ -103,7 +103,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
+        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -179,12 +179,12 @@
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+          "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+        "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
       "salaryMin": 86500,
@@ -1139,8 +1139,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen",
         "it": "collaboratore-trice-abwaschkuche-a-100-kantonsspital-obwalden-sarnen",
-        "en": "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen",
-        "fr": "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen"
+        "en": "dishwashing-assistant-a-100-kantonsspital-obwalden-sarnen",
+        "fr": "employe-e-a-la-plonge-a-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1188,10 +1188,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen"
+        ],
+        "en": [
+          "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen"
+        "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen",
+        "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,
@@ -1210,12 +1217,12 @@
     },
     {
       "id": "ksow-fae562bf03b0",
-      "slug": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen",
+      "slug": "dipl-infermieristica-stazione-di-monitoraggio-professionale-hf-a-70-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen",
-        "it": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen",
-        "en": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen",
-        "fr": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
+        "it": "dipl-infermieristica-stazione-di-monitoraggio-professionale-hf-a-70-kantonsspital-obwalden-sarnen",
+        "en": "dipl-nursing-professional-monitoring-station-hf-a-70-kantonsspital-obwalden-sarnen",
+        "fr": "dipl-station-de-surveillance-professionnelle-des-soins-infirmiers-hf-a-70-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1262,11 +1269,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen"
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen",
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen"
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen",
+        "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
       ],
       "salaryMin": 60500,
       "salaryMax": 84400,

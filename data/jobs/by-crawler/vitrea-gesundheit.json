@@ -654,12 +654,12 @@
     },
     {
       "id": "vitrea-gesundheit-684e9f5daf79",
-      "slug": "assistenzarzt-assistenzarztin-a-physikalische-medizin-e-rehabilitation-100-vitrea-gesundheit-dussnang",
+      "slug": "medico-assistente-medica-assistente-a-in-medicina-fisica-e-riabilitazione-100-vitrea-gesundheit-dussnang",
       "slugByLocale": {
         "de": "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea",
-        "it": "assistenzarzt-assistenzarztin-a-physikalische-medizin-e-rehabilitation-100-vitrea-gesundheit-dussnang",
-        "en": "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea",
-        "fr": "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea"
+        "it": "medico-assistente-medica-assistente-a-in-medicina-fisica-e-riabilitazione-100-vitrea-gesundheit-dussnang",
+        "en": "assistant-doctor-a-physical-medicine-and-rehabilitation-100-vitrea-gesundheit-dussnang",
+        "fr": "medecin-adjoint-a-medecine-physique-et-readaptation-100-vitrea-gesundheit-dussnang"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -706,11 +706,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea",
+          "assistenzarzt-assistenzarztin-a-physikalische-medizin-e-rehabilitation-100-vitrea-gesundheit-dussnang"
+        ],
+        "en": [
+          "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea"
+        ],
+        "fr": [
           "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea"
+        "assistenzarzt-assistenzarztin-a-physikalische-medizin-und-rehabilitation-100-vitrea",
+        "assistenzarzt-assistenzarztin-a-physikalische-medizin-e-rehabilitation-100-vitrea-gesundheit-dussnang"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

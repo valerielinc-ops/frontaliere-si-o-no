@@ -1054,10 +1054,10 @@
     },
     {
       "id": "kanton-aargau-0ee80f4b23bf",
-      "slug": "client-engineer-platform-specialist-80-100-kanton-aargau-ch",
+      "slug": "client-ingegnere-platform-specialista-80-100-kanton-aargau-unterentfelden",
       "slugByLocale": {
         "de": "client-engineer-platform-specialist-80-100-kanton-aargau-ch",
-        "it": "client-engineer-platform-specialist-80-100-kanton-aargau-ch",
+        "it": "client-ingegnere-platform-specialista-80-100-kanton-aargau-unterentfelden",
         "en": "client-engineer-platform-specialist-80-100-kanton-aargau-ch",
         "fr": "client-engineer-platform-specialist-80-100-kanton-aargau-ch"
       },
@@ -1120,7 +1120,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:25:26.659Z"
+      "firstSeenAt": "2026-10-12T09:25:26.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-engineer-platform-specialist-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-engineer-platform-specialist-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a7c6b4b30f36",
@@ -4862,12 +4870,12 @@
     },
     {
       "id": "kanton-aargau-cdc18912039a",
-      "slug": "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-secondaria-fisica-120-immersione-kanton-aargau-baden",
       "slugByLocale": {
         "de": "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch",
-        "it": "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch",
-        "en": "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-secondaria-fisica-120-immersione-kanton-aargau-baden",
+        "en": "secondary-school-teacher-physics-120-immersive-kanton-aargau-baden",
+        "fr": "professeur-d-ecole-secondaire-physique-120-immersif-kanton-aargau-baden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4928,16 +4936,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:24:57.302Z"
+      "firstSeenAt": "2026-10-12T09:24:57.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-physik-120-immersiv-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-dcd3ce62bb00",
-      "slug": "mittelschullehrperson-tek-technologie-kommunikation-per-la-wirtschaftsmittelschule-100-kanton-aargau-baden",
+      "slug": "docente-di-scuola-media-superiore-tek-tecnologia-e-comunicazione-per-la-scuola-media-di-commercio-100-kanton-aargau",
       "slugByLocale": {
         "de": "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100",
-        "it": "mittelschullehrperson-tek-technologie-kommunikation-per-la-wirtschaftsmittelschule-100-kanton-aargau-baden",
-        "en": "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100",
-        "fr": "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100"
+        "it": "docente-di-scuola-media-superiore-tek-tecnologia-e-comunicazione-per-la-scuola-media-di-commercio-100-kanton-aargau",
+        "en": "secondary-school-teacher-tek-technology-communication-for-the-business-middle-school-100-kanton-aargau-baden",
+        "fr": "professeur-d-ecole-secondaire-tek-technologie-communication-pour-l-ecole-secondaire-de-commerce-100-kanton-aargau-baden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4987,11 +5009,19 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugsByLocale": {
         "it": [
+          "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100",
+          "mittelschullehrperson-tek-technologie-kommunikation-per-la-wirtschaftsmittelschule-100-kanton-aargau-baden"
+        ],
+        "en": [
+          "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100"
+        ],
+        "fr": [
           "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100"
         ]
       },
       "previousSlugs": [
-        "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100"
+        "mittelschullehrperson-tek-technologie-kommunikation-fur-die-wirtschaftsmittelschule-100",
+        "mittelschullehrperson-tek-technologie-kommunikation-per-la-wirtschaftsmittelschule-100-kanton-aargau-baden"
       ],
       "salaryMin": 63000,
       "salaryMax": 112000,
@@ -5163,12 +5193,12 @@
     },
     {
       "id": "kanton-aargau-f8a73eaffc82",
-      "slug": "praktikum-museumsarbeit-80-kanton-aargau-ch",
+      "slug": "lavoro-del-museo-di-stage-80-kanton-aargau-windisch",
       "slugByLocale": {
         "de": "praktikum-museumsarbeit-80-kanton-aargau-ch",
-        "it": "praktikum-museumsarbeit-80-kanton-aargau-ch",
-        "en": "praktikum-museumsarbeit-80-kanton-aargau-ch",
-        "fr": "praktikum-museumsarbeit-80-kanton-aargau-ch"
+        "it": "lavoro-del-museo-di-stage-80-kanton-aargau-windisch",
+        "en": "internship-museum-work-80-kanton-aargau-windisch",
+        "fr": "stages-travaux-du-musee-80-kanton-aargau-windisch"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5229,7 +5259,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:24:48.367Z"
+      "firstSeenAt": "2026-10-12T09:24:48.367Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-museumsarbeit-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikum-museumsarbeit-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikum-museumsarbeit-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-museumsarbeit-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-2bd1868de951",
@@ -5890,12 +5934,12 @@
     },
     {
       "id": "kanton-aargau-1ae48c77adc3",
-      "slug": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau",
+      "slug": "project-manager-project-manager-taxoptima-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
-        "it": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau",
+        "it": "project-manager-project-manager-taxoptima-80-100-kanton-aargau-aarau",
         "en": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
-        "fr": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-taxoptima-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5945,11 +5989,16 @@
       "department": "Kantonales Steueramt",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
+          "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau"
+        ],
+        "fr": [
           "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
+        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
+        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

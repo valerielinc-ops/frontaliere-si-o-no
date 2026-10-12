@@ -160,12 +160,12 @@
     },
     {
       "id": "suva-092dc68e4846",
-      "slug": "collaboratore-trice-backoffice-rechtsabteilung-50-100-suva-luzern",
+      "slug": "impiegato-a-back-office-reparto-legale-50-100-suva-luzern",
       "slugByLocale": {
         "de": "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern",
-        "it": "collaboratore-trice-backoffice-rechtsabteilung-50-100-suva-luzern",
-        "en": "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern",
-        "fr": "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern"
+        "it": "impiegato-a-back-office-reparto-legale-50-100-suva-luzern",
+        "en": "back-office-employee-legal-department-50-100-suva-luzern",
+        "fr": "collaborateur-rice-au-back-office-du-service-juridique-50-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -210,11 +210,19 @@
       "sfJobId": "1445588233",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern",
+          "collaboratore-trice-backoffice-rechtsabteilung-50-100-suva-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern"
+        "mitarbeiter-in-backoffice-rechtsabteilung-50-100-suva-luzern",
+        "collaboratore-trice-backoffice-rechtsabteilung-50-100-suva-luzern"
       ],
       "salaryMin": 80000,
       "salaryMax": 137000,
@@ -234,11 +242,11 @@
     },
     {
       "id": "suva-015aa12dc565",
-      "slug": "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne",
+      "slug": "collaboratore-collaboratore-backoffice-divisione-legale-50-100-suva-lucerne",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne",
-        "it": "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne",
-        "en": "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne",
+        "it": "collaboratore-collaboratore-backoffice-divisione-legale-50-100-suva-lucerne",
+        "en": "collaborator-collaborator-backoffice-legal-division-50-100-suva-lucerne",
         "de": "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne"
       },
       "company": "Suva",
@@ -295,7 +303,18 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-12T09:22:26.352Z"
+      "firstSeenAt": "2026-10-12T09:22:26.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-backoffice-division-juridique-50-100-suva-lucerne"
+      ]
     },
     {
       "id": "suva-62536e815c88",

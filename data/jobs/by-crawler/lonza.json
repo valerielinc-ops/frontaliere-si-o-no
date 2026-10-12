@@ -333,7 +333,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -379,7 +379,7 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -387,7 +387,7 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+          "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:31.217Z",
@@ -14120,7 +14120,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14164,7 +14164,7 @@
       "jobReqId": "R79521",
       "previousSlugs": [
         "senior-director-strategy-lonza-ch",
-        "directeur-principal-strategie-lonza-basel"
+        "senior-director-strategy-lonza-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14174,7 +14174,7 @@
           "senior-director-strategy-lonza-ch"
         ],
         "fr": [
-          "directeur-principal-strategie-lonza-basel"
+          "senior-director-strategy-lonza-basel"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:16.372Z",
@@ -14596,12 +14596,12 @@
     },
     {
       "id": "lonza-643fae706f20",
-      "slug": "operator-m-f-d-80-100-lonza-stein",
+      "slug": "operatore-m-f-d-80-100-lonza-stein",
       "slugByLocale": {
         "de": "operator-m-f-d-80-100-lonza-ch",
-        "it": "operator-m-f-d-80-100-lonza-stein",
+        "it": "operatore-m-f-d-80-100-lonza-stein",
         "en": "operator-m-f-d-80-100-lonza-ch",
-        "fr": "operator-m-f-d-80-100-lonza-ch"
+        "fr": "operateur-m-f-d-80-100-lonza-stein"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14648,11 +14648,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "operator-m-f-d-80-100-lonza-ch",
+          "operator-m-f-d-80-100-lonza-stein"
+        ],
+        "fr": [
           "operator-m-f-d-80-100-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "operator-m-f-d-80-100-lonza-ch"
+        "operator-m-f-d-80-100-lonza-ch",
+        "operator-m-f-d-80-100-lonza-stein"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14673,12 +14678,12 @@
     },
     {
       "id": "lonza-c1eae19e187e",
-      "slug": "technology-transfer-lead-80-100-lonza-ch",
+      "slug": "trasferimento-di-tecnologia-piombo-80-100-lonza-stein",
       "slugByLocale": {
         "en": "technology-transfer-lead-80-100-lonza-ch",
-        "it": "technology-transfer-lead-80-100-lonza-ch",
-        "de": "technology-transfer-lead-80-100-lonza-ch",
-        "fr": "technology-transfer-lead-80-100-lonza-ch"
+        "it": "trasferimento-di-tecnologia-piombo-80-100-lonza-stein",
+        "de": "technologietransfer-lead-80-100-lonza-stein",
+        "fr": "transfert-de-technologie-plomb-80-100-lonza-stein"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14737,16 +14742,30 @@
       },
       "postalCode": "4332",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-10T21:45:10.293Z"
+      "firstSeenAt": "2026-08-10T21:45:10.293Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-transfer-lead-80-100-lonza-ch"
+        ],
+        "de": [
+          "technology-transfer-lead-80-100-lonza-ch"
+        ],
+        "fr": [
+          "technology-transfer-lead-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technology-transfer-lead-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-7e24770c3ec9",
-      "slug": "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp",
+      "slug": "ingegnere-cqv-specialista-in-qualificazione-e-validazione-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
-        "it": "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp",
-        "en": "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
-        "fr": "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
+        "it": "ingegnere-cqv-specialista-in-qualificazione-e-validazione-80-100-m-f-d-lonza-visp",
+        "en": "cqv-engineer-qualification-and-validation-specialist-80-100-m-f-d-lonza-visp",
+        "fr": "ingenieur-cqv-specialiste-de-qualification-et-de-validation-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14792,11 +14811,19 @@
       "jobReqId": "R79900",
       "previousSlugsByLocale": {
         "it": [
+          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
+          "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp"
+        ],
+        "en": [
+          "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
+        "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch",
+        "cqv-ingenieur-qualifizierungs-e-validierungsspezialist-80-100-m-w-d-lonza-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

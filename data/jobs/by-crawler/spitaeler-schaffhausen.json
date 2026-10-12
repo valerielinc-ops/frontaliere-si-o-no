@@ -4678,12 +4678,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-ac34953b186e",
-      "slug": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen",
+      "slug": "infermiere-a-diplomato-a-sss-sup-sostituzione-per-congedo-di-maternita-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        "it": "infermiere-a-diplomato-a-sss-sup-sostituzione-per-congedo-di-maternita-spitaler-schaffhausen-schaffhausen",
+        "en": "registered-nurse-hf-fh-maternity-cover-spitaler-schaffhausen-schaffhausen",
+        "fr": "infirmier-iere-diplome-e-es-hes-remplacement-pour-conge-maternite-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4731,11 +4731,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen"
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen"
+        "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

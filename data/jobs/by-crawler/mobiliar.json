@@ -80,12 +80,12 @@
     },
     {
       "id": "mobiliar-9e225b33d967",
-      "slug": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
+      "slug": "ispettore-di-danni-agricoltura-m-f-d-nella-rete-specializzata-damage-fns-die-mobiliar-bern",
       "slugByLocale": {
         "de": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "it": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "en": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch",
-        "fr": "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        "it": "ispettore-di-danni-agricoltura-m-f-d-nella-rete-specializzata-damage-fns-die-mobiliar-bern",
+        "en": "damage-inspector-agriculture-m-f-d-in-the-specialist-network-damage-fns-die-mobiliar-bern",
+        "fr": "inspecteur-des-dommages-agriculture-h-f-d-dans-le-reseau-specialise-dommages-fns-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -159,7 +159,21 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-12T09:14:45.094Z"
+      "firstSeenAt": "2026-10-12T09:14:45.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ],
+        "en": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ],
+        "fr": [
+          "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schadeninspektor-landwirtschaft-w-m-d-im-fachkrafte-netzwerk-schaden-fns-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-0aab62159c8f",
@@ -167,8 +181,8 @@
       "slugByLocale": {
         "fr": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
         "it": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
-        "en": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
-        "de": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss"
+        "en": "agricultural-disaster-inspector-m-f-d-within-the-network-of-specialists-on-disasters-rss-die-mobiliar-bern",
+        "de": "landwirtschaftlicher-katastropheninspektor-m-w-d-im-rahmen-des-netzwerks-der-spezialisten-fur-katastrophen-rss-die"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5292,9 +5306,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5358,17 +5372,18 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg"
+        "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
@@ -5392,9 +5407,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5458,17 +5473,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

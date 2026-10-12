@@ -9447,8 +9447,8 @@
       "slugByLocale": {
         "de": "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich",
         "it": "professur-per-philosophie-des-geistes-e-der-sprache-universitat-zurich",
-        "en": "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich",
-        "fr": "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich"
+        "en": "professorship-for-philosophy-of-mind-and-language-universitat-zurich-zurich",
+        "fr": "professeur-de-philosophie-de-l-esprit-et-de-la-langue-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9497,6 +9497,12 @@
       "previousSlugsByLocale": {
         "it": [
           "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich"
+        ],
+        "en": [
+          "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich"
+        ],
+        "fr": [
+          "professur-fur-philosophie-des-geistes-und-der-sprache-uzh-zurich"
         ]
       },
       "previousSlugs": [
@@ -9519,12 +9525,12 @@
     },
     {
       "id": "uzh-e61b6113f4d5",
-      "slug": "professorship-in-philosophy-of-mind-an-language-uzh-zurich",
+      "slug": "professore-in-filosofia-della-mente-una-lingua-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "professorship-in-philosophy-of-mind-an-language-uzh-zurich",
-        "it": "professorship-in-philosophy-of-mind-an-language-uzh-zurich",
-        "de": "professorship-in-philosophy-of-mind-an-language-uzh-zurich",
-        "fr": "professorship-in-philosophy-of-mind-an-language-uzh-zurich"
+        "it": "professore-in-filosofia-della-mente-una-lingua-universitat-zurich-zurich",
+        "de": "professur-fur-philosophie-des-geistes-einer-sprache-universitat-zurich-zurich",
+        "fr": "professeur-de-philosophie-de-l-esprit-et-de-la-langue-universitat-zurich-zurich-a6049e"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9583,7 +9589,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:15:16.128Z"
+      "firstSeenAt": "2026-10-12T09:15:16.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-in-philosophy-of-mind-an-language-uzh-zurich"
+        ],
+        "de": [
+          "professorship-in-philosophy-of-mind-an-language-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-in-philosophy-of-mind-an-language-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-in-philosophy-of-mind-an-language-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-01e4e60aab10",
@@ -9667,8 +9687,8 @@
       "slugByLocale": {
         "de": "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich",
         "it": "laborant-in-der-abteilung-per-geflugel-e-kaninchenkrankheiten-universitat-zurich",
-        "en": "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich",
-        "fr": "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich"
+        "en": "laboratory-technician-in-the-poultry-and-rabbit-diseases-department-universitat-zurich-zurich",
+        "fr": "technicien-ne-de-laboratoire-au-sein-du-departement-des-maladies-de-la-volaille-et-du-lapin-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9716,6 +9736,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich"
+        ],
+        "en": [
+          "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich"
+        ],
+        "fr": [
           "laborant-in-in-der-abteilung-fur-geflugel-und-kaninchenkrankheiten-uzh-zurich"
         ]
       },

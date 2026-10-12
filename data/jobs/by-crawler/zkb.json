@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "zkb-4c6a572bcaf5",
-      "slug": "platform-engineer-postgresql-m-w-d-zkb-zurich",
+      "slug": "platform-ingegnere-postgresql-m-w-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "platform-engineer-postgresql-m-w-d-zkb-zurich",
-        "it": "platform-engineer-postgresql-m-w-d-zkb-zurich",
+        "it": "platform-ingegnere-postgresql-m-w-d-zurcher-kantonalbank-zurich",
         "en": "platform-engineer-postgresql-m-w-d-zurcher-kantonalbank-zurich",
         "fr": "platform-engineer-postgresql-m-w-d-zkb-zurich"
       },
@@ -71,7 +71,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:12:03.693Z"
+      "firstSeenAt": "2026-10-12T09:12:03.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-engineer-postgresql-m-w-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "platform-engineer-postgresql-m-w-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-86c2efe49cd4",

@@ -831,12 +831,12 @@
     },
     {
       "id": "postauto-9222b3b74157",
-      "slug": "postauto-fahrer-in-postauto-gelterkinden",
+      "slug": "autista-postauto-postauto-ag-gelterkinden",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-gelterkinden",
-        "it": "postauto-fahrer-in-postauto-gelterkinden",
-        "en": "postauto-fahrer-in-postauto-gelterkinden",
-        "fr": "postauto-fahrer-in-postauto-gelterkinden"
+        "it": "autista-postauto-postauto-ag-gelterkinden",
+        "en": "postauto-driver-postauto-ag-gelterkinden",
+        "fr": "conducteur-rice-postauto-postauto-ag-gelterkinden"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -898,16 +898,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:42:09.246Z"
+      "firstSeenAt": "2026-10-12T09:42:09.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-gelterkinden"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-gelterkinden"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-gelterkinden"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-gelterkinden"
+      ]
     },
     {
       "id": "postauto-3b1dc8db8a89",
-      "slug": "postauto-fahrer-in-postauto-hochwald",
+      "slug": "autista-postauto-postauto-ag-hochwald",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-hochwald",
-        "it": "postauto-fahrer-in-postauto-hochwald",
-        "en": "postauto-fahrer-in-postauto-hochwald",
-        "fr": "postauto-fahrer-in-postauto-hochwald"
+        "it": "autista-postauto-postauto-ag-hochwald",
+        "en": "postauto-driver-postauto-ag-hochwald",
+        "fr": "conducteur-rice-postauto-postauto-ag-hochwald"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -969,16 +983,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:42:08.171Z"
+      "firstSeenAt": "2026-10-12T09:42:08.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-hochwald"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-hochwald"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-hochwald"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-hochwald"
+      ]
     },
     {
       "id": "postauto-d862934fc668",
-      "slug": "postauto-fahrer-in-postauto-reichenburg",
+      "slug": "autista-postauto-postauto-ag-reichenburg",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-reichenburg",
-        "it": "postauto-fahrer-in-postauto-reichenburg",
-        "en": "postauto-fahrer-in-postauto-reichenburg",
-        "fr": "postauto-fahrer-in-postauto-reichenburg"
+        "it": "autista-postauto-postauto-ag-reichenburg",
+        "en": "postauto-driver-postauto-ag-reichenburg",
+        "fr": "conducteur-rice-postauto-postauto-ag-reichenburg"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1039,7 +1067,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-reichenburg"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-reichenburg"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-reichenburg"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-reichenburg"
+      ]
     },
     {
       "id": "postauto-7314c3a4ac62",

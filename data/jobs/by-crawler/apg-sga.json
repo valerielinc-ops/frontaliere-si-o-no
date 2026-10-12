@@ -228,7 +228,7 @@
         "de": "business-controller-80-100-zurich-apg-sga-ch",
         "it": "business-controller-80-100-zurich-apg-sga-ch",
         "en": "business-controller-80-100-zurich-apg-sga-ch",
-        "fr": "business-controller-80-100-zurich-apg-sga-ch"
+        "fr": "controleur-d-entreprise-80-100-zurich-apg-sga-zurich"
       },
       "company": "APG|SGA",
       "companyKey": "apg-sga",
@@ -290,11 +290,11 @@
     },
     {
       "id": "apg-sga-5d253cecb8cd",
-      "slug": "afficheur-100-lausanne-apg-sga-ch",
+      "slug": "100-display-losanna-apg-sga-lausanne-25",
       "slugByLocale": {
         "fr": "afficheur-100-lausanne-apg-sga-ch",
-        "it": "afficheur-100-lausanne-apg-sga-ch",
-        "en": "afficheur-100-lausanne-apg-sga-ch",
+        "it": "100-display-losanna-apg-sga-lausanne-25",
+        "en": "100-display-lausanne-apg-sga-lausanne-25",
         "de": "afficheur-100-lausanne-apg-sga-ch"
       },
       "company": "APG|SGA",
@@ -353,7 +353,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:25:54.263Z"
+      "firstSeenAt": "2026-10-12T09:25:54.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "afficheur-100-lausanne-apg-sga-ch"
+        ],
+        "en": [
+          "afficheur-100-lausanne-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "afficheur-100-lausanne-apg-sga-ch"
+      ]
     }
   ]
 }

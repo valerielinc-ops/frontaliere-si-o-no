@@ -14658,12 +14658,12 @@
         "en": "Customer Service Advisor",
         "de": "Kundenberaterin/Kundenberater"
       },
-      "slug": "conseillere-conseiller-a-la-clientele-post",
+      "slug": "consulente-alla-clientela-la-poste-suisse-aigle",
       "slugByLocale": {
         "fr": "conseillere-conseiller-a-la-clientele-post",
-        "it": "conseillere-conseiller-a-la-clientele-post",
-        "en": "conseillere-conseiller-a-la-clientele-post",
-        "de": "conseillere-conseiller-a-la-clientele-post"
+        "it": "consulente-alla-clientela-la-poste-suisse-aigle",
+        "en": "customer-service-advisor-la-poste-suisse-aigle",
+        "de": "kundenberaterin-kundenberater-la-poste-suisse-aigle"
       },
       "sourceLang": "fr",
       "department": "",
@@ -14700,7 +14700,21 @@
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "postalCode": "1860",
-      "firstSeenAt": "2026-10-12T09:46:29.337Z"
+      "firstSeenAt": "2026-10-12T09:46:29.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ],
+        "en": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ],
+        "de": [
+          "conseillere-conseiller-a-la-clientele-post"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-a-la-clientele-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/74013-de_DE",
@@ -14879,8 +14893,8 @@
       "slugByLocale": {
         "de": "leiter-in-distributionsgebiet-wadenswil-post",
         "it": "responsabile-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil",
-        "en": "leiter-in-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil",
-        "fr": "leiter-in-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil"
+        "en": "head-of-distribution-area-wadenswil-die-schweizerische-post-wadenswil",
+        "fr": "responsable-de-la-zone-de-distribution-de-wadenswil-die-schweizerische-post-wadenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -14904,16 +14918,15 @@
           "leiter-in-distributionsgebiet-wadenswil-post"
         ],
         "en": [
-          "head-of-distribution-area-wadenswil-die-schweizerische-post-wadenswil"
+          "leiter-in-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil"
         ],
         "fr": [
-          "responsable-de-la-zone-de-distribution-de-wadenswil-die-schweizerische-post-wadenswil"
+          "leiter-in-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil"
         ]
       },
       "previousSlugs": [
         "leiter-in-distributionsgebiet-wadenswil-post",
-        "head-of-distribution-area-wadenswil-die-schweizerische-post-wadenswil",
-        "responsable-de-la-zone-de-distribution-de-wadenswil-die-schweizerische-post-wadenswil"
+        "leiter-in-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-3843581c7d94",
@@ -14958,12 +14971,12 @@
         "en": "Sorting Logistics Team Leader",
         "fr": "Responsable d’équipe en logistique de tri"
       },
-      "slug": "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+      "slug": "team-leader-della-logistica-di-smistamento-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "de": "teamleader-in-sortierlogistik-post",
-        "it": "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen",
-        "en": "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen",
-        "fr": "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen"
+        "it": "team-leader-della-logistica-di-smistamento-die-schweizerische-post-zurich-mulligen",
+        "en": "sorting-logistics-team-leader-die-schweizerische-post-zurich-mulligen",
+        "fr": "responsable-d-equipe-en-logistique-de-tri-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -14985,11 +14998,19 @@
       "id": "posta-svizzera-centro-regionale-9d9a94120e6f",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-in-sortierlogistik-post"
+          "teamleader-in-sortierlogistik-post",
+          "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen"
+        ],
+        "en": [
+          "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen"
+        ],
+        "fr": [
+          "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
-        "teamleader-in-sortierlogistik-post"
+        "teamleader-in-sortierlogistik-post",
+        "teamleader-in-sortierlogistik-die-schweizerische-post-zurich-mulligen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

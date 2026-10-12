@@ -1793,7 +1793,7 @@
       "id": "ikea-afa273a9b1cf",
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
         "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
         "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-de-vente-30-ikea-ch"
@@ -1840,13 +1840,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-30-ikea-ch"
@@ -2433,8 +2431,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-restaurant-40-60-ikea-ch",
         "it": "collaboratore-trice-ikea-restaurant-40-60-ikea-lyssach",
-        "en": "mitarbeiter-in-ikea-restaurant-40-60-ikea-lyssach",
-        "fr": "mitarbeiter-in-ikea-restaurant-40-60-ikea-lyssach"
+        "en": "associate-ikea-restaurant-40-60-ikea-lyssach-bern",
+        "fr": "collaborateur-trice-ikea-restaurant-40-60-ikea-lyssach-bern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2482,10 +2480,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-restaurant-40-60-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-restaurant-40-60-ikea-lyssach"
+        ],
+        "fr": [
+          "mitarbeiter-in-ikea-restaurant-40-60-ikea-lyssach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-40-60-ikea-ch"
+        "mitarbeiter-in-ikea-restaurant-40-60-ikea-ch",
+        "mitarbeiter-in-ikea-restaurant-40-60-ikea-lyssach"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,

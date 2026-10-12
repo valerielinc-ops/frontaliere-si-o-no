@@ -2585,11 +2585,11 @@
     },
     {
       "id": "novartis-f968a63a5f9a",
-      "slug": "robotics-expert-itot-novartis-ch",
+      "slug": "esperto-di-robotica-itot-novartis-muttenz-with-canteen",
       "slugByLocale": {
         "en": "robotics-expert-itot-novartis-ch",
-        "it": "robotics-expert-itot-novartis-ch",
-        "de": "robotics-expert-itot-novartis-ch",
+        "it": "esperto-di-robotica-itot-novartis-muttenz-with-canteen",
+        "de": "robotik-experte-itot-novartis-muttenz-with-canteen",
         "fr": "robotics-expert-itot-novartis-ch"
       },
       "company": "Novartis",
@@ -2647,7 +2647,18 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-10-12T09:24:39.249Z"
+      "firstSeenAt": "2026-10-12T09:24:39.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "robotics-expert-itot-novartis-ch"
+        ],
+        "de": [
+          "robotics-expert-itot-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "robotics-expert-itot-novartis-ch"
+      ]
     },
     {
       "id": "novartis-c6b76eb45789",

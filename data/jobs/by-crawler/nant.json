@@ -249,7 +249,7 @@
       "slugByLocale": {
         "it": "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey",
         "en": "variable-rate-helpers-fondation-de-nant-corsier-sur-vevey",
-        "de": "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey",
+        "de": "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey",
         "fr": "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -298,7 +298,7 @@
       "previousSlugs": [
         "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
         "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-        "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+        "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -306,7 +306,7 @@
         ],
         "de": [
           "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-          "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+          "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:27.676Z",
@@ -487,12 +487,12 @@
     },
     {
       "id": "nant-098a38d24c44",
-      "slug": "apprentissage-de-cuisinier-ere-cfc-fondation-de-nant-corsier-sur-vevey",
+      "slug": "imparare-la-cucina-swc-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey",
-        "it": "apprentissage-de-cuisinier-ere-cfc-fondation-de-nant-corsier-sur-vevey",
-        "en": "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey",
-        "de": "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey"
+        "it": "imparare-la-cucina-swc-fondation-de-nant-corsier-sur-vevey",
+        "en": "swc-cooking-learning-fondation-de-nant-corsier-sur-vevey",
+        "de": "swc-kochen-lernen-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -540,11 +540,19 @@
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey",
+          "apprentissage-de-cuisinier-ere-cfc-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey"
+        ],
+        "de": [
           "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey"
+        "apprentissage-de-cuisinier-ere-cfc-nant-corsier-sur-vevey",
+        "apprentissage-de-cuisinier-ere-cfc-fondation-de-nant-corsier-sur-vevey"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
