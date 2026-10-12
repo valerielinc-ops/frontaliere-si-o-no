@@ -47,3 +47,12 @@ export function isChCountry(raw) {
   const token = coerceCountryField(raw);
   return token !== '' && CH_COUNTRY_RX.test(token);
 }
+
+/**
+ * Return the canonical country code only when the source explicitly identifies
+ * Switzerland. Missing and non-CH values stay null so callers cannot turn a
+ * trusted domain or a Swiss-looking locality into country evidence.
+ */
+export function canonicalChCountry(raw) {
+  return isChCountry(raw) ? 'CH' : null;
+}

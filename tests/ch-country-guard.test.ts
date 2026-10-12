@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   coerceCountryField,
   isChCountry,
+  canonicalChCountry,
   CH_COUNTRY_RX,
 } from '../scripts/lib/ch-country-guard.mjs';
 import { isDebiopharmSwissJob } from '../scripts/lib/debiopharm-job-parser.mjs';
@@ -46,6 +47,19 @@ describe('ch-country-guard', () => {
       { code: 'FR' }, null, undefined, '',
     ])('rejects %o', (value) => {
       expect(isChCountry(value)).toBe(false);
+    });
+  });
+
+  describe('canonicalChCountry — keeps source evidence explicit', () => {
+    it.each([
+      'CH', 'CHE', '756', 'Switzerland', 'Suisse', 'Schweiz', 'Svizzera',
+      { code: 'CH' },
+    ])('canonicalizes %o to CH', (value) => {
+      expect(canonicalChCountry(value)).toBe('CH');
+    });
+
+    it.each(['France', 'DE', null, undefined, ''])('returns null for %o', (value) => {
+      expect(canonicalChCountry(value)).toBeNull();
     });
   });
 

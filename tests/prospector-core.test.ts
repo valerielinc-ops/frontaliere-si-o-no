@@ -2242,6 +2242,16 @@ describe('production spec runtime', () => {
       postalCode: '4133',
       streetAddress: 'Grüssenweg 1',
     });
+    const missingCountryDecision = resolveDetailOrListingSwissGeography(
+      { locationCandidates: [{ location: 'Pratteln, BL', addressLocality: 'Pratteln', addressRegion: 'BL' }] },
+      {},
+    );
+    expect(geographyFieldsForDecision(missingCountryDecision, {
+      requireExplicitCountryEvidence: true,
+    })).not.toHaveProperty('addressCountry');
+    expect(geographyFieldsForDecision(missingCountryDecision, {
+      requireExplicitCountryEvidence: true,
+    })).not.toHaveProperty('country');
     expect(resolveSourceBackedSwissGeography('')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Paris')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Aix-en-Provence, France')).toBeNull();

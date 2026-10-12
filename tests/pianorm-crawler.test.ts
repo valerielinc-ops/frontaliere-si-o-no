@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   PIANORM_KEY,
   PIANORM_COMPANY_NAME,
+  buildPianormJobFromListing,
   isPianormJob,
   isTrustedDomain,
 } from '../scripts/lib/pianorm-job-parser.mjs';
@@ -64,6 +65,30 @@ describe('pianorm crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed country boundary', () => {
+    const description = 'Eine belastbare Stellenbeschreibung fuer die Produktion und die technische Mitarbeit.';
+    const listing = (addressCountry: unknown) => ({
+      title: 'CNC Maschinist',
+      description,
+      location: 'Winterthur, ZH',
+      addressLocality: 'Winterthur',
+      addressRegion: 'ZH',
+      addressCountry,
+      url: 'https://www.pianorm.ch/job/cnc-maschinist-m-w-100/',
+    });
+
+    it('canonicalizes a Swiss source alias in both published country fields', () => {
+      expect(buildPianormJobFromListing(listing('Schweiz'))).toMatchObject({
+        addressCountry: 'CH',
+        country: 'CH',
+      });
+    });
+
+    it.each(['France', undefined])('quarantines non-CH or absent source country %o', (addressCountry) => {
+      expect(buildPianormJobFromListing(listing(addressCountry))).toBeNull();
     });
   });
 

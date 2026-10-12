@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   NEOPROCONSEILS_KEY,
   NEOPROCONSEILS_COMPANY_NAME,
+  buildNeoproconseilsJobFromListing,
   isNeoproconseilsJob,
   isTrustedDomain,
 } from '../scripts/lib/neoproconseils-job-parser.mjs';
@@ -56,6 +57,30 @@ describe('NEO Pro conseils SA crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed country boundary', () => {
+    const description = 'Description de poste suffisamment concrete pour prouver le contenu de la source.';
+    const listing = (addressCountry: unknown) => ({
+      title: 'Consultant',
+      description,
+      location: 'Genève, GE',
+      addressLocality: 'Genève',
+      addressRegion: 'GE',
+      addressCountry,
+      url: 'https://neoproconseils.ch/emplois/consultant/',
+    });
+
+    it('canonicalizes a Swiss source alias in both published country fields', () => {
+      expect(buildNeoproconseilsJobFromListing(listing('Suisse'))).toMatchObject({
+        addressCountry: 'CH',
+        country: 'CH',
+      });
+    });
+
+    it.each(['France', undefined])('quarantines non-CH or absent source country %o', (addressCountry) => {
+      expect(buildNeoproconseilsJobFromListing(listing(addressCountry))).toBeNull();
     });
   });
 
