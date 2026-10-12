@@ -241,6 +241,30 @@ describe('SuccessFactors parser-quality boundary', () => {
     });
   });
 
+  it('carries explicit HTML datePosted evidence through the generic fallback', () => {
+    const sourceDate = new Date(Date.now() - 40 * 86400000).toISOString().slice(0, 10);
+    const sourceInstant = new Date(`${sourceDate}T00:00:00Z`);
+    const weekday = sourceInstant.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+    const month = sourceInstant.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' });
+    const rawDate = `${weekday} ${month} ${sourceInstant.getUTCDate()} 00:00:00 UTC ${sourceInstant.getUTCFullYear()}`;
+    const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
+      fixture('ibsa-grancia').replace('</head>', `<meta itemprop="datePosted" content="${rawDate}"></head>`),
+      'https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/',
+      'IBSA Institut Biochimique',
+      'Ticino',
+      {
+        isSeedDetail: true,
+        seedMeta: { location: 'Grancia', canton: 'TI', country: 'CH' },
+      },
+    );
+
+    expect(parsed.job).toMatchObject({
+      datePosted: `${sourceDate}T00:00:00Z`,
+      postedDate: `${sourceDate}T00:00:00Z`,
+      postingDateSource: 'reported',
+    });
+  });
+
   it('still rejects a real Italian address even when the adapter seed is Swiss', () => {
     const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
       fixture('italia-real'),

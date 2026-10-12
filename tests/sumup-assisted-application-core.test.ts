@@ -19,6 +19,7 @@ vi.stubGlobal('fetch', fetchMock);
 
 const {
   createSumUpAssistedApplicationCheckout,
+  createSumUpHostedCheckout,
   getAssistedApplicationPaymentProvider,
   refundSumUpTransaction,
   retrieveSumUpCheckout,
@@ -44,12 +45,11 @@ describe('SumUp assisted-application payment client', () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('stripe');
   });
 
-  it('creates a 0.99 EUR hosted checkout with a server-side status callback', async () => {
+  it('creates a 0.99 EUR widget checkout with a server-side status callback', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
       json: async () => ({
         id: 'sumup_checkout_1',
-        hosted_checkout_url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
       }),
     });
 
@@ -60,7 +60,6 @@ describe('SumUp assisted-application payment client', () => {
 
     expect(result).toEqual({
       id: 'sumup_checkout_1',
-      url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
     });
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe('https://api.sumup.com/v0.1/checkouts');
@@ -77,8 +76,28 @@ describe('SumUp assisted-application payment client', () => {
       merchant_code: 'MC_TEST',
       redirect_url: 'https://frontaliereticino.ch/lavoro/job-42?assisted_application_order_id=order-1',
       return_url: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
-      hosted_checkout: { enabled: true },
     });
+  });
+
+  it('keeps Hosted Checkout available for the concierge flow', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        id: 'sumup_concierge_1',
+        hosted_checkout_url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
+      }),
+    });
+
+    await expect(createSumUpHostedCheckout({
+      checkoutReference: 'concierge-1',
+      redirectUrl: 'https://frontaliereticino.ch/concierge?order=concierge-1',
+    })).resolves.toEqual({
+      id: 'sumup_concierge_1',
+      url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
+    });
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual(expect.objectContaining({
+      hosted_checkout: { enabled: true },
+    }));
   });
 
   it('re-fetches a checkout and supports full refunds through the SumUp API', async () => {
@@ -112,7 +131,6 @@ describe('SumUp assisted-application payment client', () => {
       }]) })
       .mockResolvedValueOnce({ ok: true, json: async () => ({
         id: 'sumup_checkout_existing',
-        hosted_checkout_url: 'https://checkout.sumup.com/pay/sumup_checkout_existing',
         status: 'PENDING',
       }) });
 
@@ -121,7 +139,6 @@ describe('SumUp assisted-application payment client', () => {
       redirectUrl: 'https://frontaliereticino.ch/lavoro/job-42',
     })).resolves.toEqual({
       id: 'sumup_checkout_existing',
-      url: 'https://checkout.sumup.com/pay/sumup_checkout_existing',
     });
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(fetchMock.mock.calls[1][0]).toBe('https://api.sumup.com/v0.1/checkouts?checkout_reference=order-1');

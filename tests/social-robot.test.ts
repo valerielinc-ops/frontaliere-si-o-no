@@ -357,6 +357,30 @@ describe('confirmation → ledger', () => {
     expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
   });
 
+  it('confirms an Instagram Reel in the ledger once and treats duplicate dispatches as a no-op', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const reel = reelEntry();
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [reel] }));
+    const args = parseConfirmArgs([
+      '--channel=instagram',
+      `--queue-id=${reel.id}`,
+      '--confirmed-at=2026-10-10T10:00:00Z',
+      '--evidence=Instagram confirmed the Reel',
+    ]);
+
+    const first = applyConfirmation({ root, ...args });
+    expect(first).toMatchObject({ alreadyConfirmed: false, source: 'queue' });
+    expect(first.ledgerEntries).toHaveLength(1);
+
+    const duplicate = applyConfirmation({ root, ...args });
+    expect(duplicate).toMatchObject({ alreadyConfirmed: true, source: 'ledger', ledgerEntries: [] });
+    expect(JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-queue.json'), 'utf8')).pending).toEqual([]);
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data', 'instagram-posted.json'), 'utf8'));
+    expect(ledger.posted).toHaveLength(1);
+    expect(ledger.posted[0]).toMatchObject({ queueId: reel.id, kind: 'reel', via: ROBOT_LEDGER_VIA });
+  });
+
   it('backfills known Instagram creative metadata at confirmation time', () => {
     const root = tempDir();
     fs.mkdirSync(path.join(root, 'data'));

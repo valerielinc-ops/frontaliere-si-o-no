@@ -225,8 +225,12 @@ function parseDeclarations(body: string): [string, string][] {
  * ORDER (the cascade inside a single unlayered sheet is order-sensitive, so
  * reordering would change which rule wins at first paint).
  */
-export function deriveSeoStaticFirstPaintReserve(css: string): string {
+export function deriveSeoStaticFirstPaintReserve(
+  css: string,
+  options: { selectorFilter?: (selector: string) => boolean } = {},
+): string {
   const withoutComments = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  const selectorFilter = options.selectorFilter ?? (() => true);
   const chunks: { at: readonly string[]; selector: string; decls: Map<string, string> }[] = [];
 
   for (const rule of parseRules(withoutComments)) {
@@ -240,7 +244,7 @@ export function deriveSeoStaticFirstPaintReserve(css: string): string {
     const selectors = rule.selector
       .split(',')
       .map((s) => s.trim().replace(/\s+/g, ' '))
-      .filter((s) => s.length > 0 && !STATE_VARIANT.test(s));
+      .filter((s) => s.length > 0 && !STATE_VARIANT.test(s) && selectorFilter(s));
     if (selectors.length === 0) continue;
 
     // Last declaration wins inside one block, as in the cascade.

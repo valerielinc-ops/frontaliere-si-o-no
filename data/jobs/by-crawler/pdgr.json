@@ -533,8 +533,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -590,16 +590,17 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -780,7 +781,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-cazis",
+        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -836,7 +837,7 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "senior-physician-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -849,7 +850,7 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-t5tvx5",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        "senior-physician-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1309,9 +1310,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1370,12 +1371,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+          "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatre-psychiatrische-dienste-graubunden-chur"
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1383,8 +1384,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1406,7 +1407,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1460,8 +1461,7 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1470,8 +1470,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1577,7 +1576,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1632,8 +1631,7 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1641,8 +1639,7 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-pdgr-ch"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1678,7 +1675,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1727,8 +1724,7 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1739,7 +1735,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2300,7 +2296,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2351,14 +2347,14 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
-        "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+        "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunsttherapeut-in-pdgr-ch"
         ],
         "en": [
-          "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+          "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:49.979Z",
@@ -2711,16 +2707,16 @@
       "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
       "titleByLocale": {
         "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
-        "en": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-        "fr": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF"
+        "it": "Infermiere/a diplomato/a SSS o pedagogista sociale diplomato/a SSS",
+        "en": "Qualified nursing professional HF or qualified social pedagogue HF",
+        "fr": "Infirmier/ière diplômé/e ES ou éducateur/trice social/e diplômé/e ES"
       },
       "description": "Ihre Umgebung:\nDie Jugendstation richtet sich an Jugendliche ab etwa 13 Jahren und bietet einen geschützten Ort für Kriseninterventionen, diagnostische Abklärungen und therapeutische Aufenthalte. Sie kann offen oder geschlossen geführt werden und verfügt über sieben Behandlungsplätze.\n\nIhre Aufgaben:\n- Sie arbeiten im Bezugspflegesystem mit aktivem Einbezug des in- und externen Hilfssystems\n\n- Sie sind mitverantwortlich für das milieutherapeutische Angebot auf der Station\n\n- Sie tragen Verantwortung für die Konzeptionierung und Leitung verschiedener Programme\n\n- Sie sind in der Entwicklung, Umsetzung und laufenden Anpassung der Behandlungsplanung, im Sinne der lösungs-, ziel- und systemorientierten Sozialpädagogik und des Pflegefachs, beteiligt\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF oder Dipl. Sozialpädagogin HF / Dipl. Sozialpädagoge HF\n\n- Sie haben idealerweise Berufserfahrung in der Kinder- und Jugendpsychiatrie und arbeiten patienteorientiert\n\n- Sie sind flexibel, belastbar, konfliktfähig und übernehmen gerne Verantwortung\n\nWir bieten Ihnen:\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team\n\n- Wir arbeiten nach lösungs- und ressourcenorientierten systemischen Ansätzen, sowie milieu- und soziotherapeutischen Grundsätzen\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, frühzeitiger Dienstplanung und unbezahlten Urlauben eine optimale Work-Life-Balance",
       "descriptionByLocale": {
         "de": "Ihre Umgebung:\nDie Jugendstation richtet sich an Jugendliche ab etwa 13 Jahren und bietet einen geschützten Ort für Kriseninterventionen, diagnostische Abklärungen und therapeutische Aufenthalte. Sie kann offen oder geschlossen geführt werden und verfügt über sieben Behandlungsplätze.\n\nIhre Aufgaben:\n- Sie arbeiten im Bezugspflegesystem mit aktivem Einbezug des in- und externen Hilfssystems\n\n- Sie sind mitverantwortlich für das milieutherapeutische Angebot auf der Station\n\n- Sie tragen Verantwortung für die Konzeptionierung und Leitung verschiedener Programme\n\n- Sie sind in der Entwicklung, Umsetzung und laufenden Anpassung der Behandlungsplanung, im Sinne der lösungs-, ziel- und systemorientierten Sozialpädagogik und des Pflegefachs, beteiligt\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF oder Dipl. Sozialpädagogin HF / Dipl. Sozialpädagoge HF\n\n- Sie haben idealerweise Berufserfahrung in der Kinder- und Jugendpsychiatrie und arbeiten patienteorientiert\n\n- Sie sind flexibel, belastbar, konfliktfähig und übernehmen gerne Verantwortung\n\nWir bieten Ihnen:\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team\n\n- Wir arbeiten nach lösungs- und ressourcenorientierten systemischen Ansätzen, sowie milieu- und soziotherapeutischen Grundsätzen\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, frühzeitiger Dienstplanung und unbezahlten Urlauben eine optimale Work-Life-Balance",
-        "it": "Ihre Umgebung:\nDie Jugendstation richtet sich an Jugendliche ab etwa 13 Jahren und bietet einen geschützten Ort für Kriseninterventionen, diagnostische Abklärungen und therapeutische Aufenthalte. Sie kann offen oder geschlossen geführt werden und verfügt über sieben Behandlungsplätze.\n\nIhre Aufgaben:\n- Sie arbeiten im Bezugspflegesystem mit aktivem Einbezug des in- und externen Hilfssystems\n\n- Sie sind mitverantwortlich für das milieutherapeutische Angebot auf der Station\n\n- Sie tragen Verantwortung für die Konzeptionierung und Leitung verschiedener Programme\n\n- Sie sind in der Entwicklung, Umsetzung und laufenden Anpassung der Behandlungsplanung, im Sinne der lösungs-, ziel- und systemorientierten Sozialpädagogik und des Pflegefachs, beteiligt\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF oder Dipl. Sozialpädagogin HF / Dipl. Sozialpädagoge HF\n\n- Sie haben idealerweise Berufserfahrung in der Kinder- und Jugendpsychiatrie und arbeiten patienteorientiert\n\n- Sie sind flexibel, belastbar, konfliktfähig und übernehmen gerne Verantwortung\n\nWir bieten Ihnen:\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team\n\n- Wir arbeiten nach lösungs- und ressourcenorientierten systemischen Ansätzen, sowie milieu- und soziotherapeutischen Grundsätzen\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, frühzeitiger Dienstplanung und unbezahlten Urlauben eine optimale Work-Life-Balance",
-        "en": "Ihre Umgebung:\nDie Jugendstation richtet sich an Jugendliche ab etwa 13 Jahren und bietet einen geschützten Ort für Kriseninterventionen, diagnostische Abklärungen und therapeutische Aufenthalte. Sie kann offen oder geschlossen geführt werden und verfügt über sieben Behandlungsplätze.\n\nIhre Aufgaben:\n- Sie arbeiten im Bezugspflegesystem mit aktivem Einbezug des in- und externen Hilfssystems\n\n- Sie sind mitverantwortlich für das milieutherapeutische Angebot auf der Station\n\n- Sie tragen Verantwortung für die Konzeptionierung und Leitung verschiedener Programme\n\n- Sie sind in der Entwicklung, Umsetzung und laufenden Anpassung der Behandlungsplanung, im Sinne der lösungs-, ziel- und systemorientierten Sozialpädagogik und des Pflegefachs, beteiligt\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF oder Dipl. Sozialpädagogin HF / Dipl. Sozialpädagoge HF\n\n- Sie haben idealerweise Berufserfahrung in der Kinder- und Jugendpsychiatrie und arbeiten patienteorientiert\n\n- Sie sind flexibel, belastbar, konfliktfähig und übernehmen gerne Verantwortung\n\nWir bieten Ihnen:\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team\n\n- Wir arbeiten nach lösungs- und ressourcenorientierten systemischen Ansätzen, sowie milieu- und soziotherapeutischen Grundsätzen\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, frühzeitiger Dienstplanung und unbezahlten Urlauben eine optimale Work-Life-Balance",
-        "fr": "Ihre Umgebung:\nDie Jugendstation richtet sich an Jugendliche ab etwa 13 Jahren und bietet einen geschützten Ort für Kriseninterventionen, diagnostische Abklärungen und therapeutische Aufenthalte. Sie kann offen oder geschlossen geführt werden und verfügt über sieben Behandlungsplätze.\n\nIhre Aufgaben:\n- Sie arbeiten im Bezugspflegesystem mit aktivem Einbezug des in- und externen Hilfssystems\n\n- Sie sind mitverantwortlich für das milieutherapeutische Angebot auf der Station\n\n- Sie tragen Verantwortung für die Konzeptionierung und Leitung verschiedener Programme\n\n- Sie sind in der Entwicklung, Umsetzung und laufenden Anpassung der Behandlungsplanung, im Sinne der lösungs-, ziel- und systemorientierten Sozialpädagogik und des Pflegefachs, beteiligt\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF oder Dipl. Sozialpädagogin HF / Dipl. Sozialpädagoge HF\n\n- Sie haben idealerweise Berufserfahrung in der Kinder- und Jugendpsychiatrie und arbeiten patienteorientiert\n\n- Sie sind flexibel, belastbar, konfliktfähig und übernehmen gerne Verantwortung\n\nWir bieten Ihnen:\n- Abwechslungsreiche interdisziplinäre Zusammenarbeit in einem professionellen Team\n\n- Wir arbeiten nach lösungs- und ressourcenorientierten systemischen Ansätzen, sowie milieu- und soziotherapeutischen Grundsätzen\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Fortschrittliche Arbeitsbedingungen\n\n- Mit Teilzeitarbeitsmodellen, frühzeitiger Dienstplanung und unbezahlten Urlauben eine optimale Work-Life-Balance"
+        "it": "I dintorni:\nIl centro giovanile è rivolto ai giovani di età superiore ai 13 anni e offre un luogo protetto per interventi di crisi, indagini diagnostiche e soggiorni terapeutici. Può essere eseguito aperto o chiuso e ha sette posti di trattamento.\n\nI loro compiti:\n- Lavorano nel sistema di assistenza di riferimento con il coinvolgimento attivo del sistema ausiliario interno ed esterno\n\n- Voi siete responsabili dell'offerta milieuterapeutica sulla stazione\n\n- Essi sono responsabili della progettazione e gestione di vari programmi\n\n- Essi sono coinvolti nello sviluppo, implementazione e adattamento continuo della pianificazione del trattamento nel senso di soluzione-, obiettivo- e sistema-oriented pedagogia sociale e allattamento.\n\nIl nostro profilo di requisito:\n- Tu sei Dipl. Specialista HF / Dipl. Cura professionale HF o Dipl. Social pedagogue HF / Dipl. Educatore sociale HF\n\n- Idealmente hanno esperienza professionale in psichiatria infantile e adolescente e lavoro orientato al paziente\n\n- Sono flessibili, resilienti, capaci di conflitti e sono felici di assumersi la responsabilità\n\nVi offriamo:\n- Variazione della cooperazione interdisciplinare in un team professionale\n\n- Lavoriamo secondo approcci sistemici orientati alla soluzione e alle risorse, nonché principi milieu- e socioterapeutici\n\n- Opportunità di formazione professionale e personale – supportiamo anche le vostre esigenze di formazione esterna\n\n- Condizioni di lavoro avanzate\n\n- Con modelli di lavoro part-time, pianificazione dei servizi e vacanze non retribuite, un equilibrio ottimale della vita lavorativa",
+        "en": "Your surroundings:\nThe youth centre is aimed at young people over the age of 13 and offers a protected place for crisis interventions, diagnostic investigations and therapeutic stays. It can be run open or closed and has seven treatment places.\n\nTheir tasks:\n- They work in the reference care system with active involvement of the internal and external auxiliary system\n\n- You are jointly responsible for the milieutherapeutic offer on the station\n\n- They are responsible for designing and managing various programmes\n\n- They are involved in the development, implementation and ongoing adaptation of treatment planning in the sense of solution-, goal- and system-oriented social pedagogy and nursing.\n\nOur requirement profile:\n- You are Dipl. Care specialist HF / Dipl. Care professional HF or Dipl. Social pedagogue HF / Dipl. Social educator HF\n\n- They ideally have professional experience in child and adolescent psychiatry and work patient-oriented\n\n- They are flexible, resilient, capable of conflict and are happy to take on responsibility\n\nWe offer you:\n- Varied interdisciplinary cooperation in a professional team\n\n- We work according to solution- and resource-oriented systemic approaches, as well as milieu- and sociotherapeutic principles\n\n- Professional and personal training opportunities – we also support your external training needs\n\n- Advanced working conditions\n\n- With part-time work models, early service planning and unpaid holidays, an optimal work-life balance",
+        "fr": "Votre environnement:\nCe centre s ' adresse aux jeunes de plus de 13 ans et offre un lieu protégé pour les interventions de crise, les enquêtes diagnostiques et les séjours thérapeutiques. Il peut être ouvert ou fermé et a sept lieux de traitement.\n\nLeurs tâches:\n- Ils travaillent dans le système de soins de référence avec la participation active du système auxiliaire interne et externe\n\n- Vous êtes conjointement responsable de l'offre milieuthérapeutique sur la station\n\n- Ils sont responsables de la conception et de la gestion de divers programmes\n\n- Ils participent à l'élaboration, à la mise en oeuvre et à l'adaptation continue de la planification des traitements au sens de la pédagogie sociale et des soins infirmiers axés sur la solution, les objectifs et le système.\n\nNotre profil d'exigence:\n- Vous êtes Dipl. Spécialiste des soins HF / Dipl. Soins professionnels HF ou Dipl. Pédagogue social HF / Dipl. Éducateur social HF\n\n- Ils ont idéalement une expérience professionnelle en psychiatrie de l'enfant et de l'adolescent et travaillent axée sur le patient\n\n- Ils sont flexibles, résilients, capables de conflit et sont heureux d'assumer leurs responsabilités.\n\nNous vous offrons:\n- Coopération interdisciplinaire variée dans une équipe professionnelle\n\n- Nous travaillons selon des approches systémiques axées sur les solutions et les ressources, ainsi que sur les principes du milieu et de la sociologie\n\n- Possibilités de formation professionnelle et personnelle – nous soutenons également vos besoins de formation externe\n\n- Conditions de travail avancées\n\n- Avec des modèles de travail à temps partiel, une planification précoce des services et des congés non payés, un équilibre optimal entre le travail et la vie personnelle"
       },
       "location": "Chur",
       "canton": "GR",
@@ -2752,7 +2748,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"

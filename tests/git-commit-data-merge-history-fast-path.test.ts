@@ -28,19 +28,27 @@ describe('git-commit-data merge history fast path (#12498)', () => {
     const remotePath = join(dir, 'remote.json');
     const localPath = join(dir, 'local.json');
     const outPath = join(dir, 'merged.json');
-    const base = [{
-      url: 'https://example.ch/jobs/123456',
-      slug: 'active-route',
-      title: 'Original title',
-      previousSlugs: ['legacy-route', 'denylisted-route'],
-      previousSlugsByLocale: { it: ['legacy-route', 'denylisted-route'], de: ['alte-route'] },
-    }];
-    const local = [{
-      ...base[0],
-      title: 'Updated title',
-      previousSlugs: [],
-      previousSlugsByLocale: {},
-    }];
+    const base = {
+      assembledAt: '2026-10-11T20:00:00.000Z',
+      crawlerKey: 'acme',
+      jobs: [{
+        url: 'https://example.ch/jobs/123456',
+        slug: 'active-route',
+        title: 'Original title',
+        previousSlugs: ['legacy-route', 'denylisted-route'],
+        previousSlugsByLocale: { it: ['legacy-route', 'denylisted-route'], de: ['alte-route'] },
+      }],
+    };
+    const local = {
+      ...base,
+      assembledAt: '2026-10-11T21:00:00.000Z',
+      jobs: [{
+        ...base.jobs[0],
+        title: 'Updated title',
+        previousSlugs: [],
+        previousSlugsByLocale: {},
+      }],
+    };
     writeJson(basePath, base);
     writeJson(remotePath, base);
     writeJson(localPath, local);
@@ -64,11 +72,11 @@ describe('git-commit-data merge history fast path (#12498)', () => {
       },
     );
     const merged = JSON.parse(readFileSync(outPath, 'utf8'));
-    expect(merged[0].title).toBe('Updated title');
-    expect(merged[0].previousSlugs).toContain('legacy-route');
-    expect(merged[0].previousSlugs).not.toContain('denylisted-route');
-    expect(merged[0].previousSlugsByLocale.it).toContain('legacy-route');
-    expect(merged[0].previousSlugsByLocale.de).toContain('alte-route');
+    expect(merged.jobs[0].title).toBe('Updated title');
+    expect(merged.jobs[0].previousSlugs).toContain('legacy-route');
+    expect(merged.jobs[0].previousSlugs).not.toContain('denylisted-route');
+    expect(merged.jobs[0].previousSlugsByLocale.it).toContain('legacy-route');
+    expect(merged.jobs[0].previousSlugsByLocale.de).toContain('alte-route');
     expect(output).toContain('Historical slug preserved');
   });
 });

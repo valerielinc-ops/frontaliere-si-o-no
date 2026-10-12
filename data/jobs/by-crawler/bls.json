@@ -824,8 +824,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-ertms-bls-ch",
         "it": "responsabile-di-progetto-ertms-bls-ag-bern",
-        "en": "projektleiter-in-ertms-bls-ch",
-        "fr": "projektleiter-in-ertms-bls-ch"
+        "en": "project-manager-ertms-bls-ag-bern",
+        "fr": "chef-de-projet-ertms-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -888,6 +888,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-ertms-bls-ch"
+        ],
+        "en": [
+          "projektleiter-in-ertms-bls-ch"
+        ],
+        "fr": [
           "projektleiter-in-ertms-bls-ch"
         ]
       },

@@ -62,6 +62,61 @@ function generatedRecord(sha = sha256(IMAGE_BYTES)) {
   };
 }
 
+function validPrivateGrantEvidence() {
+  const record: Record<string, unknown> = {
+    ...generatedRecord(),
+    assetId: 'private-grant-cover',
+    provider: 'site-owned',
+    note: 'Site-owned cover with documented publication rights.',
+    license: 'private-grant',
+    imageUrl: '/images/blog/private-grant-cover.webp',
+  };
+  for (const field of [
+    'model', 'executorModel', 'promptVersion', 'promptHash', 'licenseUrl', 'generatedAt',
+    'verifiedAt', 'restrictions', 'vision',
+  ]) delete record[field];
+  return record;
+}
+
+function validPexelsEvidence() {
+  return {
+    schema: 1,
+    assetId: 'pexels-cover',
+    kind: 'photo',
+    provider: 'pexels',
+    license: 'Pexels License',
+    licenseUrl: 'https://www.pexels.com/license/',
+    sourcePageUrl: 'https://www.pexels.com/photo/test-photo-1234567/',
+    author: { name: 'Test Photographer', url: 'https://www.pexels.com/@test-photographer' },
+    credit: 'Test Photographer / Pexels',
+    copyrightNotice: 'Photograph by Test Photographer via Pexels',
+    acquireLicensePage: 'https://www.pexels.com/license/',
+    sourceWidth: 1920,
+    sourceHeight: 1080,
+    generatedAt: '2026-10-07T10:00:00.000Z',
+    verifiedAt: '2026-10-07T10:05:00.000Z',
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: true,
+      is_topic_relevant: true,
+      notes: 'Safe generic licensed editorial photo for the ledger regression test.',
+    },
+    sha256: 'd'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    scope: 'article-hero',
+    imageUrl: '/images/blog/pexels-cover.webp',
+  };
+}
+
 function generatedCreditRecord(generated: ReturnType<typeof generatedRecord>) {
   return {
     schema: 1,
@@ -151,11 +206,52 @@ function fixture({ withImage = true } = {}) {
   return root;
 }
 
+function clearPublishedArticleCovers(root: string) {
+  fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), 'export const ARTICLES = [];\n');
+}
+
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
 
 describe('sync-published-blog-covers', () => {
+  it.each([
+    ['private-grant', validPrivateGrantEvidence],
+    ['licensed Pexels photo', validPexelsEvidence],
+  ])('verifies schema-valid published %s evidence', (_label, makeRecord) => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
+    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
+    const record = makeRecord();
+    evidence.generated[record.imageUrl] = record;
+    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
+
+    const output = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(JSON.parse(output)).toMatchObject({ errors: 0 });
+  });
+
+  it('still rejects schema-valid published evidence outside the article-hero scope', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
+    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
+    const record = validPrivateGrantEvidence();
+    record.scope = 'event-library';
+    record.imageUrl = '/images/events/library/private-grant-cover.webp';
+    evidence.generated[record.imageUrl] = record;
+    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
+
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('invalid published generated-image evidence');
+    expect(result.stdout).toContain('"errors": 1');
+  });
+
   it('adds only missing published covers to the paired ledger and index, idempotently', () => {
     const root = fixture();
     execFileSync(process.execPath, [SCRIPT], { cwd: root, env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT } });

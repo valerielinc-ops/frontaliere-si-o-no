@@ -16,11 +16,25 @@ export interface AssistedApplicationCheckoutInput {
   requestKey?: string;
 }
 
-export interface AssistedApplicationCheckoutResult {
+export interface AssistedApplicationCheckoutStripeResult {
   ok: true;
+  paymentProvider?: 'stripe';
   url: string;
   orderId: string;
 }
+
+export interface AssistedApplicationCheckoutSumUpResult {
+  ok: true;
+  paymentProvider: 'sumup';
+  checkoutId: string;
+  orderId: string;
+  /** Present only for backwards-compatible responses from older functions. */
+  url?: string;
+}
+
+export type AssistedApplicationCheckoutResult =
+  | AssistedApplicationCheckoutStripeResult
+  | AssistedApplicationCheckoutSumUpResult;
 
 export interface AssistedApplicationCheckoutError extends Error {
   code?: string;
@@ -192,7 +206,13 @@ export async function createAssistedApplicationCheckout(
     throw checkoutError('network_error');
   }
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data?.ok || !data?.url || !data?.orderId) {
+  const isSumUpWidgetResponse = data?.paymentProvider === 'sumup'
+    && typeof data?.checkoutId === 'string'
+    && data.checkoutId.length > 0;
+  const isRedirectResponse = data?.paymentProvider !== 'sumup'
+    && typeof data?.url === 'string'
+    && data.url.length > 0;
+  if (!response.ok || !data?.ok || !data?.orderId || (!isSumUpWidgetResponse && !isRedirectResponse)) {
     const code = safeErrorCode(data?.error) || (httpErrorCode(response.status) || 'invalid_response');
     throw checkoutError(code, response.status);
   }
