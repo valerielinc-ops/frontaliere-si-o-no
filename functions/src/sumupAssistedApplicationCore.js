@@ -86,18 +86,22 @@ async function sumUpRequest(path, { apiKey, method = 'GET', body } = {}) {
   return payload || {};
 }
 
-async function findSumUpCheckoutByReference(orderId, apiKey) {
+async function findSumUpCheckoutByReference(
+  checkoutReference,
+  apiKey,
+  { amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS, currency = 'EUR' } = {},
+) {
   const result = await sumUpRequest(
-    `/v0.1/checkouts?checkout_reference=${encodeURIComponent(orderId)}`,
+    `/v0.1/checkouts?checkout_reference=${encodeURIComponent(checkoutReference)}`,
     { apiKey },
   );
   const checkouts = Array.isArray(result)
     ? result
     : Array.isArray(result?.data) ? result.data : [];
   const candidate = checkouts.find((checkout) => (
-    boundedString(checkout?.checkout_reference, 64) === orderId
-    && Math.round(Number(checkout?.amount) * 100) === ASSISTED_APPLICATION_PRICE_EUR_CENTS
-    && String(checkout?.currency || '').toUpperCase() === 'EUR'
+    boundedString(checkout?.checkout_reference, 64) === checkoutReference
+    && Math.round(Number(checkout?.amount) * 100) === amountCents
+    && String(checkout?.currency || '').toUpperCase() === String(currency).toUpperCase()
     && boundedString(checkout?.id, 200)
     && String(checkout?.status || '').toUpperCase() !== 'EXPIRED'
   ));
@@ -105,23 +109,32 @@ async function findSumUpCheckoutByReference(orderId, apiKey) {
   return sumUpRequest(`/v0.1/checkouts/${encodeURIComponent(candidate.id)}`, { apiKey });
 }
 
-export async function createSumUpAssistedApplicationCheckout(
-  { orderId, redirectUrl },
+export async function createSumUpHostedCheckout(
+  {
+    checkoutReference,
+    redirectUrl,
+    amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+    description = 'Candidatura assistita',
+  },
   read = getRemoteConfigValue,
 ) {
   const { apiKey, merchantCode, webhookUrl } = await sumUpConfig(read);
-  const checkoutReference = boundedString(orderId, 64);
-  if (!checkoutReference) throw new Error('sumup_checkout_reference_invalid');
+  const reference = boundedString(checkoutReference, 64);
+  if (!reference) throw new Error('sumup_checkout_reference_invalid');
+  const normalizedAmount = Number(amountCents);
+  if (!Number.isSafeInteger(normalizedAmount) || normalizedAmount <= 0) {
+    throw new Error('sumup_checkout_amount_invalid');
+  }
   let result;
   try {
     result = await sumUpRequest('/v0.1/checkouts', {
       apiKey,
       method: 'POST',
       body: {
-        amount: ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100,
-        checkout_reference: checkoutReference,
+        amount: normalizedAmount / 100,
+        checkout_reference: reference,
         currency: 'EUR',
-        description: 'Candidatura assistita',
+        description: boundedString(description, 200) || 'Candidatura assistita',
         merchant_code: merchantCode,
         redirect_url: redirectUrl,
         return_url: webhookUrl,
@@ -132,13 +145,25 @@ export async function createSumUpAssistedApplicationCheckout(
     // SumUp rejects a second checkout with the same reference. Recover the
     // already-created Hosted Checkout so a retry cannot strand the customer.
     if (!(error instanceof SumUpApiError) || error.status !== 409) throw error;
-    result = await findSumUpCheckoutByReference(checkoutReference, apiKey);
+    result = await findSumUpCheckoutByReference(reference, apiKey, { amountCents: normalizedAmount });
     if (!result) throw error;
   }
   const id = boundedString(result.id, 200);
   const url = boundedString(result.hosted_checkout_url, 1000);
   if (!id || !url) throw new Error('sumup_checkout_response_invalid');
   return { id, url };
+}
+
+export async function createSumUpAssistedApplicationCheckout(
+  { orderId, redirectUrl },
+  read = getRemoteConfigValue,
+) {
+  return createSumUpHostedCheckout({
+    checkoutReference: orderId,
+    redirectUrl,
+    amountCents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+    description: 'Candidatura assistita',
+  }, read);
 }
 
 export async function retrieveSumUpCheckout(

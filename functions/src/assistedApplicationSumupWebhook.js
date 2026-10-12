@@ -15,6 +15,11 @@ import {
 } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import {
+  APPLICATION_CONCIERGE_PRODUCT,
+  APPLICATION_CONCIERGE_SERVICES_COLLECTION,
+} from './applicationConciergeConstants.js';
+import { handleApplicationConciergeWebhookEvent } from './applicationConciergeCheckout.js';
+import {
   retrieveSumUpCheckout,
   SUMUP_PAYMENT_PROVIDER,
 } from './sumupAssistedApplicationCore.js';
@@ -59,6 +64,45 @@ export async function handleAssistedApplicationSumUpWebhook(req) {
   const orderId = boundedString(checkout.checkout_reference, 200);
   if (!orderId || boundedString(checkout.id, 200) !== checkoutId) {
     return { status: 200, body: { received: true, ignored: true } };
+  }
+
+  // The concierge uses the same SumUp merchant but a different parent ledger
+  // and amount. Resolve it before the legacy €0.99 order path so a service id
+  // can never be interpreted as an old one-job order.
+  const serviceRef = db().collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(orderId);
+  const serviceSnapshot = await serviceRef.get();
+  const service = serviceSnapshot.exists ? serviceSnapshot.data() || {} : null;
+  if (
+    service
+    && service.paymentProvider === SUMUP_PAYMENT_PROVIDER
+    && service.sumupCheckoutId === checkoutId
+  ) {
+    const transaction = latestTransaction(checkout);
+    const transactionId = boundedString(transaction?.id || checkout.transaction_id, 200) || null;
+    const transactionCode = boundedString(transaction?.transaction_code || checkout.transaction_code, 200) || null;
+    await handleApplicationConciergeWebhookEvent({
+      type: statusEventType(String(checkout.status || '').toUpperCase()),
+      data: {
+        object: {
+          id: checkoutId,
+          amount_total: amountInCents(checkout.amount),
+          currency: String(checkout.currency || '').toLowerCase(),
+          payment_status: String(checkout.status || '').toUpperCase() === 'PAID' ? 'paid' : 'unpaid',
+          client_reference_id: orderId,
+          sumupTransactionId: transactionId,
+          sumupTransactionCode: transactionCode,
+          metadata: {
+            product: APPLICATION_CONCIERGE_PRODUCT,
+            paymentProvider: SUMUP_PAYMENT_PROVIDER,
+            serviceId: orderId,
+          },
+        },
+      },
+    }, {
+      db,
+      ts: FieldValue.serverTimestamp(),
+    });
+    return { status: 200, body: { received: true } };
   }
 
   // The reference is only accepted for an order that our own checkout path

@@ -171,6 +171,15 @@ export default function AssistedApplicationOffer({
               {paidLoading ? t('jobBoard.assisted.paidLoading') : t('jobBoard.assisted.paidCta')}
             </button>
             <p className="text-center text-xs font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</p>
+            <div className="rounded-stripe border border-accent/30 bg-accent-subtle/40 p-3">
+              <a
+                href="?application_concierge=1"
+                className="block text-sm font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+              >
+                {t('jobBoard.concierge.offerLink')}
+              </a>
+              <p className="mt-1 text-xs leading-relaxed text-subtle">{t('jobBoard.concierge.offerLinkHint')}</p>
+            </div>
             <button
               type="button"
               onClick={onChooseExternal}

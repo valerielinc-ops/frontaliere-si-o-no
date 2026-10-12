@@ -80,6 +80,12 @@ import {
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { handleAssistedApplicationSumUpWebhook } from './src/assistedApplicationSumupWebhook.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
+import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
+import {
+  handleApplicationConcierge,
+  handleManageApplicationConcierge,
+  expireApplicationConciergeServices,
+} from './src/applicationConciergeCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
@@ -1965,6 +1971,97 @@ export const createAssistedApplicationCheckout = onRequest(
         '[createAssistedApplicationCheckout]',
         error instanceof Error ? error.message : String(error),
       );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Application concierge endpoints use their own parent service and proposal API.
+// Expire active concierge entitlements after their fixed 30-day window. The
+// candidate endpoints enforce the same timestamp, so this is only a backstop.
+export const sweepApplicationConciergeServices = onSchedule(
+  { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  async () => {
+    try {
+      const summary = await expireApplicationConciergeServices({ db: getAdminDb() });
+      if (summary.expired) console.log('[sweepApplicationConciergeServices]', summary);
+    } catch (error) {
+      console.error('[sweepApplicationConciergeServices]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// API key before changing the order state.
+// One-off €39.99 checkout for the 30-day / 10-position application concierge.
+export const createApplicationConciergeCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateApplicationConciergeCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[createApplicationConciergeCheckout]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Candidate portal API: all state changes remain server-side.
+export const applicationConcierge = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '512MiB',
+    timeoutSeconds: 60,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleApplicationConcierge(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[applicationConcierge]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Owner API: list services and add the internal proposal queue.
+export const manageApplicationConcierge = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '512MiB',
+    timeoutSeconds: 60,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleManageApplicationConcierge(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[manageApplicationConcierge]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },

@@ -309,6 +309,7 @@ export async function handleListAssistedApplications(db, status = null) {
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).get();
   const docs = (snapshot.docs || []).filter((doc) => {
     const data = doc.data() || {};
+    if (data.billingMode === 'application_concierge') return false;
     const submissionStatus = statusFor(data);
     const isPaidOrder = data.paymentStatus === 'paid';
     const isRefundedOrder = submissionStatus === 'refunded' && data.paymentStatus === 'refunded';
@@ -627,6 +628,9 @@ async function handleRefund(db, raw, adminEmail) {
   const snapshot = await orderRef.get();
   if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
   const order = snapshot.data() || {};
+  if (order.billingMode === 'application_concierge') {
+    throw new AssistedApplicationAdminError('parent_service_refund_required', 409);
+  }
   if (order.paymentStatus === 'refunded' || order.submissionStatus === 'refunded') {
     return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
   }
