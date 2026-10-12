@@ -12,7 +12,7 @@ import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } fro
 const PARAMS = {
   INSTAGRAM_USERNAME: 'frontaliereticino',
   INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982',
-  TIKTOK_USERNAME: 'valerie.linc',
+  TIKTOK_USERNAME: 'frontaliereticino',
 };
 
 const rc = await getRemoteConfig();

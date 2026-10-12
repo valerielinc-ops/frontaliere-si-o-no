@@ -23,6 +23,7 @@ import path from 'node:path';
 
 export const INSTAGRAM_HOME = 'https://www.instagram.com/';
 export const TIKTOK_UPLOAD = 'https://www.tiktok.com/tiktokstudio/upload';
+export const DEFAULT_TIKTOK_USERNAME = 'frontaliereticino';
 
 export const DEFAULT_TIMEOUTS = Object.freeze({
   ui: 20_000, // a control of the page
@@ -84,7 +85,7 @@ export class RobotError extends Error {
   /**
    * @param {'login-required'|'challenge'|'selector-missing'|'upload-unsupported'|
    *   'confirmation-missing'|'download'|'browser'|'interstitial-unknown'|
-   *   'cookie-banner-unreachable'|'unexpected'} errorClass
+   *   'cookie-banner-unreachable'|'account-mismatch'|'unexpected'} errorClass
    * @param {string} message
    * @param {{ step?: string, pressed?: boolean }} [extra]
    */
@@ -527,6 +528,61 @@ export function tiktokGuard(page, step) {
       throw new RobotError('challenge', 'TikTok asks to verify the account', { step: step.get() });
     }
   };
+}
+
+/** Normalize a TikTok handle without ever exposing session data. */
+export function normalizeTikTokUsername(value) {
+  return String(value || '').trim().replace(/^@+/, '').toLowerCase();
+}
+
+/**
+ * Extract the authenticated creator handle from TikTok Studio's page context.
+ * TikTok currently HTML-escapes this JSON inside the script tag, so accept
+ * both the escaped server form and ordinary JSON used by local fixtures.
+ */
+export function extractTikTokAuthenticatedUsername(raw) {
+  const text = String(raw || '')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&#x27;/g, "'")
+    .replace(/&amp;/g, '&');
+  const match = text.match(/["']uniqueId["']\s*:\s*["']([^"']+)["']/i);
+  return normalizeTikTokUsername(match?.[1]);
+}
+
+/** Read only the current account identifier exposed by the Studio page. */
+export async function readTikTokAuthenticatedUsername(page) {
+  const context = page.locator('#__Creator_Center_Context__').first();
+  if ((await context.count().catch(() => 0)) === 0) return '';
+  return extractTikTokAuthenticatedUsername(await context.textContent().catch(() => ''));
+}
+
+/** Refuse to upload when Chrome is authenticated as a different TikTok account. */
+export async function ensureTikTokAccount({ page, targetUsername = DEFAULT_TIKTOK_USERNAME, guard, timeout = DEFAULT_TIMEOUTS.ui }) {
+  const expected = normalizeTikTokUsername(targetUsername);
+  if (!expected) {
+    throw new RobotError('account-mismatch', 'TikTok target account is not configured', { step: 'account' });
+  }
+
+  const deadline = Date.now() + timeout;
+  let actual = '';
+  for (;;) {
+    await guard();
+    actual = await readTikTokAuthenticatedUsername(page);
+    if (actual) break;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'TikTok Studio did not expose the authenticated account identifier', { step: 'account' });
+    }
+    await sleep(Math.min(100, Math.max(1, deadline - Date.now())));
+  }
+
+  if (actual !== expected) {
+    throw new RobotError(
+      'account-mismatch',
+      `TikTok is authenticated as @${actual}, expected @${expected}; refusing to publish on the wrong account`,
+      { step: 'account' },
+    );
+  }
+  return actual;
 }
 
 async function visible(locator) {
@@ -1064,7 +1120,7 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
 }
 
 /** Same contract as instagramFlow. */
-export async function tiktokFlow({ page, files, caption, video, dryRun, human, snap, startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
+export async function tiktokFlow({ page, files, caption, video, dryRun, human, snap, targetUsername = DEFAULT_TIKTOK_USERNAME, startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
   const baseTimeouts = { ...DEFAULT_TIMEOUTS, ...timeouts };
   const t = { ...baseTimeouts, upload: timeoutForTikTokVideo(video, baseTimeouts.upload) };
   const guard = tiktokGuard(page, step);
@@ -1072,6 +1128,8 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
   await guard();
   await human.pause();
+
+  await ensureTikTokAccount({ page, targetUsername, guard, timeout: t.ui });
 
   step.set('upload');
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });

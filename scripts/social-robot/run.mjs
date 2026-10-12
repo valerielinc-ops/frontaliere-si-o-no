@@ -58,7 +58,7 @@ import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
-import { FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, stepTracker } from './lib/flows.mjs';
+import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, stepTracker } from './lib/flows.mjs';
 import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -209,7 +209,17 @@ async function main() {
           const step = stepTracker();
           const snap = (label) => captureDiagnostics(p, dir, label, { channel, queueId: entry.id, step: step.get() });
           try {
-            return await FLOWS[channel]({ page: p, files, caption: entry.caption, video: entry.video, dryRun, human, snap, step });
+            return await FLOWS[channel]({
+              page: p,
+              files,
+              caption: entry.caption,
+              video: entry.video,
+              dryRun,
+              human,
+              snap,
+              step,
+              targetUsername: channel === 'tiktok' ? (process.env.TIKTOK_USERNAME || DEFAULT_TIKTOK_USERNAME) : undefined,
+            });
           } catch (err) {
             const e = classifyError(err);
             e.step ||= step.get();
