@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-12T09:17:21.950Z",
-  "total": 29,
+  "generatedAt": "2026-10-12T21:17:39.597Z",
+  "total": 28,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 22,
-  "durationMs": 2248,
-  "avgDurationMs": 2248,
+  "unchangedCount": 21,
+  "durationMs": 1524,
+  "avgDurationMs": 1524,
   "durationHistory": [
-    2248
+    1524
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1122,47 +1122,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Marketing Specialist 80%(all genders)",
-      "slug": "marketing-specialist-80-all-genders-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/67614512/Marketing-Specialist-80%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67614512/Marketing-Specialist-80%25-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-09-23T16:03:53.104+02:00",
-      "postedDate": "2026-09-23T16:03:53.104+02:00",
-      "postingDateSource": "reported",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-6c49dd60c7dc",
-      "firstSeenAt": "2026-09-23T23:41:28.403Z",
-      "salaryMin": 58400,
-      "salaryMax": 73200,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
