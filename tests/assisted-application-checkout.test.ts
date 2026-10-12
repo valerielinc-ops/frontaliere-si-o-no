@@ -70,6 +70,12 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const stripeCheckoutSessionsCreate = vi.fn(async () => ({
   id: 'cs_assisted_1',
   url: 'https://checkout.stripe.com/cs_assisted_1',
+  expires_at: 4102444800,
+}));
+const stripeCheckoutSessionsRetrieve = vi.fn(async () => ({
+  id: 'cs_assisted_1',
+  status: 'open',
+  expires_at: 4102444800,
 }));
 const stripeConstructEvent = vi.fn();
 const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
@@ -80,7 +86,12 @@ const sumUpCheckoutCreate = vi.fn(async () => ({
 
 vi.mock('stripe', () => {
   class MockStripe {
-    checkout = { sessions: { create: stripeCheckoutSessionsCreate } };
+    checkout = {
+      sessions: {
+        create: stripeCheckoutSessionsCreate,
+        retrieve: stripeCheckoutSessionsRetrieve,
+      },
+    };
     webhooks = { constructEvent: stripeConstructEvent };
   }
   return { default: MockStripe };
@@ -129,6 +140,12 @@ beforeEach(() => {
   stripeCheckoutSessionsCreate.mockImplementation(async () => ({
     id: 'cs_assisted_1',
     url: 'https://checkout.stripe.com/cs_assisted_1',
+    expires_at: 4102444800,
+  }));
+  stripeCheckoutSessionsRetrieve.mockImplementation(async () => ({
+    id: 'cs_assisted_1',
+    status: 'open',
+    expires_at: 4102444800,
   }));
   assistedApplicationPaymentProvider.mockResolvedValue('stripe');
   sumUpCheckoutCreate.mockImplementation(async () => ({
@@ -242,6 +259,44 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       customerEmail: 'candidate@example.com',
     }));
     expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('rotates an expired Stripe checkout when its expiration webhook was missed', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    stripeCheckoutSessionsCreate.mockImplementationOnce(async () => ({
+      id: 'cs_assisted_1',
+      url: 'https://checkout.stripe.com/cs_assisted_1',
+    }));
+    await handleCreateAssistedApplicationCheckout(request());
+
+    stripeCheckoutSessionsRetrieve.mockResolvedValueOnce({
+      id: 'cs_assisted_1',
+      status: 'expired',
+      expires_at: 1760000000,
+    });
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual({
+      status: 200,
+      body: {
+        ok: true,
+        url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+        orderId: 'order-2',
+      },
+    });
+    expect(stripeCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_assisted_1');
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      checkoutSessionStatus: 'expired',
+      paymentFailureReason: 'checkout_session_expired',
+    }));
+    expect(store.assisted_applications['order-2']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'pending',
+      checkoutSessionStatus: 'open',
+      checkoutAttempt: 2,
+    }));
   });
 
   it('stores the concierge locale and resume link, and accepts the Offerwall-fallback variant', async () => {
