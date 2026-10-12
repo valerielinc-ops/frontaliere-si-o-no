@@ -430,10 +430,16 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
     expect(script).toContain('preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles)');
   });
 
-  it('does not pull the published surface once the corpus pull has given up', () => {
-    expect(byName('Pull published sitemaps')?.if).toContain(
-      "steps.pull-corpus.outputs.skipped != 'true'",
-    );
+  it('runs both pinned pulls through the bounded whole-pair retry wrapper', () => {
+    const surface = byName('Pull the article corpus and published HTTP surface');
+    expect(surface?.id).toBe('pull-article-surface');
+    expect(surface?.run).toBe('node scripts/ci/pull-articles-surface.mjs');
+    const wrapper = fs.readFileSync(path.join(ROOT, 'scripts', 'ci', 'pull-articles-surface.mjs'), 'utf-8');
+    expect(wrapper).toContain("runPull('pull-articles-corpus.mjs'");
+    expect(wrapper).toContain("runPull('pull-articles-api.mjs'");
+    expect(wrapper).toContain('retryArticleSyncOnMovement');
+    expect(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'articles-sync-retry.mjs'), 'utf-8'))
+      .toContain('MAX_ARTICLE_SYNC_ATTEMPTS = 3');
   });
 
   it('gates every writing step on the same decision', () => {
@@ -512,14 +518,12 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
       expect(published).toContain('public/sitemap-blog-ch.xml');
     }
 
-    // Both pulls run in this job before the commit step, corpus first, and the
-    // API pull is gated on the corpus pull (asserted above).
+    // One wrapper runs the corpus and API pulls as a coherent pair before the
+    // commit step; its bounded replay owns both halves together.
     const names = steps.jobs.sync.steps.map((s) => s.name ?? '');
-    const corpusStep = names.findIndex((n) => n.includes('Pull the article corpus'));
-    const apiStep = names.findIndex((n) => n.includes('Pull published sitemaps'));
+    const surfaceStep = names.findIndex((n) => n.includes('Pull the article corpus and published HTTP surface'));
     const commitStep = names.findIndex((n) => n.includes('Commit if changed'));
-    expect(corpusStep).toBeGreaterThanOrEqual(0);
-    expect(apiStep).toBeGreaterThan(corpusStep);
-    expect(commitStep).toBeGreaterThan(apiStep);
+    expect(surfaceStep).toBeGreaterThanOrEqual(0);
+    expect(commitStep).toBeGreaterThan(surfaceStep);
   });
 });

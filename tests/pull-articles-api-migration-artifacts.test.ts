@@ -14,7 +14,7 @@
  * (this ships BEFORE nanako emits either), a malformed one is refused, and a
  * refusal writes NOTHING — the committed copy keeps serving.
  */
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import http from 'node:http';
@@ -156,6 +156,62 @@ const validGeneratedCover = () => {
     },
   };
 };
+
+const validPrivateGrantCover = () => ({
+  schema: 1,
+  assetId: 'test-private-grant-cover',
+  provider: 'site-owned',
+  note: 'Site-owned cover with documented publication rights.',
+  license: 'private-grant',
+  credit: 'frontaliereticino.ch',
+  sha256: 'c'.repeat(64),
+  bytes: 64,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  scope: 'article-hero',
+  imageUrl: '/images/blog/test-private-grant-cover.webp',
+});
+
+const validPexelsCover = () => {
+  const now = new Date().toISOString();
+  return {
+    schema: 1,
+    assetId: 'test-licensed-cover',
+    kind: 'photo',
+    provider: 'pexels',
+    license: 'Pexels License',
+    licenseUrl: 'https://www.pexels.com/license/',
+    sourcePageUrl: 'https://www.pexels.com/photo/test-photo-1234567/',
+    author: { name: 'Test Photographer', url: 'https://www.pexels.com/@test-photographer' },
+    credit: 'Test Photographer / Pexels',
+    copyrightNotice: 'Photograph by Test Photographer via Pexels',
+    acquireLicensePage: 'https://www.pexels.com/license/',
+    sourceWidth: 1920,
+    sourceHeight: 1080,
+    generatedAt: now,
+    verifiedAt: now,
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      contains_recognizable_foreground_person: false,
+      looks_like_specific_real_event: false,
+      is_photograph: true,
+      is_topic_relevant: true,
+      notes: 'Safe generic licensed editorial photo for the API pull regression test.',
+    },
+    sha256: 'd'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-licensed-cover.webp',
+  };
+};
 const FEEDS = [
   'rss.xml',
   'rss-it.xml',
@@ -175,6 +231,8 @@ type Routes = Record<string, string | Buffer | undefined>;
 let server: http.Server;
 let baseUrl: string;
 let routes: Routes = {};
+let manifestSequence: string[] | null = null;
+let manifestSequenceIndex = 0;
 
 function baseRoutes(): Routes {
   const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
@@ -212,7 +270,9 @@ function routesWithCredits(credits: string): Routes {
 beforeAll(async () => {
   server = http.createServer((req, res) => {
     const name = decodeURIComponent((req.url ?? '/').replace(/^\//, ''));
-    const body = routes[name];
+    const body = name === 'manifest.json' && manifestSequence
+      ? manifestSequence[Math.min(manifestSequenceIndex++, manifestSequence.length - 1)]
+      : routes[name];
     if (body === undefined) {
       res.writeHead(404).end('not found');
       return;
@@ -222,6 +282,11 @@ beforeAll(async () => {
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
   const addr = server.address() as { port: number };
   baseUrl = `http://127.0.0.1:${addr.port}`;
+});
+
+beforeEach(() => {
+  manifestSequence = null;
+  manifestSequenceIndex = 0;
 });
 
 afterAll(async () => {
@@ -590,9 +655,30 @@ describe('pull-articles-api: generated cover evidence', () => {
     const { code, out } = await run(dir);
 
     expect(code).toBe(0);
-    expect(out).toContain('validated 1 generated cover records');
+    expect(out).toContain('validated 1 article image evidence records');
     expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
       .toEqual({ [generated.imageUrl]: generated });
+  });
+
+  it.each([
+    ['private-grant', validPrivateGrantCover],
+    ['licensed Pexels photo', validPexelsCover],
+  ])('accepts schema-valid %s article-hero evidence', async (_label, makeRecord) => {
+    const record = makeRecord();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
   });
 
   it('still refuses a generated record whose image URL differs from its HTTP map key', async () => {
@@ -626,6 +712,23 @@ describe('pull-articles-api: generated cover evidence', () => {
     expect(out).toContain(`${BLOG_CREDITS_PATH} byte count differs from manifest`);
     expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
     expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('skips the complete staged batch when the release moves before the final manifest check', async () => {
+    routes = baseRoutes();
+    const originalManifest = routes['manifest.json'] as string;
+    const movedManifest = JSON.parse(originalManifest);
+    movedManifest.commit = 'f'.repeat(40);
+    manifestSequence = [originalManifest, JSON.stringify(movedManifest)];
+    const dir = makeCheckout();
+    const before = readPub(dir, 'sitemap-blog.xml');
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain(`published API moved from ${API_COMMIT} to ${'f'.repeat(40)}`);
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(before);
   });
 });
 
