@@ -24,6 +24,7 @@
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { isCrawlObservationTimestamp } from './lib/source-crawl-observation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -228,6 +229,7 @@ export async function fetchDxtJobs() {
     console.error('❌ Failed to fetch DXT careers page.');
     return [];
   }
+  const observedAt = new Date();
 
   console.log(`  📄 Page fetched (${html.length} chars)`);
 
@@ -244,7 +246,7 @@ export async function fetchDxtJobs() {
   // Parse jobs from each Lugano accordion group
   const parsedJobs = [];
   for (const groupId of luganoGroupIds) {
-    const panelJobs = parseWpsmAccordionPanels(html, groupId);
+    const panelJobs = parseWpsmAccordionPanels(html, groupId, observedAt);
     console.log(`  📋 Group ${groupId}: ${panelJobs.length} job panels found`);
     parsedJobs.push(...panelJobs);
   }
@@ -257,6 +259,12 @@ export async function fetchDxtJobs() {
   // Build job objects
   const jobs = [];
   for (const parsed of parsedJobs) {
+    const crawledAt = dxtCrawledAt(parsed);
+    if (!crawledAt) {
+      console.warn(`  ⏭️  Skipping ${parsed.title}: missing source crawl observation timestamp.`);
+      continue;
+    }
+
     const slug = slugify(parsed.title, 'dxt');
     const canonicalUrl = dxtPanelUrl(parsed.panelId);
 
@@ -283,6 +291,7 @@ export async function fetchDxtJobs() {
       slug,
       category: detectCategory(parsed.title),
       ...sourcePostingDateFields(),
+      crawledAt,
       source: 'dxt-careers-crawler',
       sourceLang,
       employmentType: 'FULL_TIME',
@@ -296,6 +305,10 @@ export async function fetchDxtJobs() {
 
   console.log(`\n📋 Total unique DXT Lugano jobs discovered: ${jobs.length}`);
   return jobs;
+}
+
+export function dxtCrawledAt(parsed) {
+  return isCrawlObservationTimestamp(parsed?.crawledAt) ? parsed.crawledAt : null;
 }
 
 // ─────────────────────────────────────────────────────────────

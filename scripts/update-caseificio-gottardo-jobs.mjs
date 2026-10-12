@@ -18,6 +18,7 @@
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -371,6 +372,9 @@ export async function fetchCaseificioJobs() {
     console.warn('⚠️ Failed to fetch careers page.');
     return [];
   }
+  const observedAt = new Date();
+  const crawledAt = crawledAtFromObservation(observedAt);
+  if (!crawledAt) return [];
 
   const listings = parseListingPage(html);
   console.log(`📋 Found ${listings.length} offerta(e) on page.`);
@@ -416,6 +420,7 @@ export async function fetchCaseificioJobs() {
       experienceLevel: detectExperienceLevel(listing.title, listing.category),
       source: 'caseificio-gottardo-crawler',
       ...sourcePostingDateFields(''),
+      crawledAt,
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },

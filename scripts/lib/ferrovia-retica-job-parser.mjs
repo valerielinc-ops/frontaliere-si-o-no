@@ -1,4 +1,5 @@
 import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Ferrovia Retica (RhB) — job parser
@@ -337,6 +338,8 @@ export function sourceLangFromUrl(url = '') {
 
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
 
   const title = normalizeSpace(raw.title);
   if (!title || title.length < 3) return null;
@@ -389,6 +392,7 @@ export function buildJob(raw) {
     // the merge kept the previous (stale or corrupt) source-locale copy forever.
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
     source: 'company-website',
     sourceLang,
     slug: baseSlug,
