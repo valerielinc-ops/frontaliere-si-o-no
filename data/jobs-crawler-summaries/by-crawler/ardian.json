@@ -1,7 +1,7 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-10-12T09:48:19.489Z",
+  "generatedAt": "2026-10-12T21:39:45.233Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5386,
-  "avgDurationMs": 5386,
+  "durationMs": 4665,
+  "avgDurationMs": 4665,
   "durationHistory": [
-    5386
+    4665
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:48:04.235Z",
+      "crawledAt": "2026-10-12T21:39:31.197Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:48:03.514Z",
+      "crawledAt": "2026-10-12T21:39:30.540Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-10-12T09:45:48.602Z",
+  "assembledAt": "2026-10-12T21:36:55.752Z",
   "jobs": [
     {
       "id": "six-group-d30e137579d4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Monitoring-%28100%29/1437212933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:42.739Z",
+      "crawledAt": "2026-10-12T21:36:48.536Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,10 +79,10 @@
       "id": "six-group-7a2c122794ec",
       "slug": "ingegnere-software-senior-80-100-six-group-zurich",
       "slugByLocale": {
-        "it": "senior-software-engineer-80-100-six-group-zurich-2",
+        "it": "ingegnere-software-senior-80-100-six-group-zurich",
         "en": "senior-software-engineer-80-100-six-group-zurich-2",
         "de": "senior-software-engineer-80-100-six-group-zurich-o2vik5",
-        "fr": "senior-software-engineer-80-100-six-group-zurich-2"
+        "fr": "ingenieur-logiciel-senior-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -106,7 +106,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:42.108Z",
+      "crawledAt": "2026-10-12T21:36:47.990Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,19 +129,20 @@
         "senior-software-engineer-80-100-six-group-zurich",
         "senior-software-ingenieur-80-100-six-group-zurich",
         "senior-software-ingegnere-80-100-six-group-zurich",
-        "ingenieur-logiciel-senior-80-100-six-group-zurich"
+        "senior-software-engineer-80-100-six-group-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-software-engineer-80-100-six-group-zurich",
-          "senior-software-ingegnere-80-100-six-group-zurich"
+          "senior-software-ingegnere-80-100-six-group-zurich",
+          "senior-software-engineer-80-100-six-group-zurich-2"
         ],
         "de": [
           "senior-software-engineer-80-100-six-group-zurich"
         ],
         "fr": [
           "senior-software-ingenieur-80-100-six-group-zurich",
-          "ingenieur-logiciel-senior-80-100-six-group-zurich"
+          "senior-software-engineer-80-100-six-group-zurich-2"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -193,7 +194,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Marketing-Events/1437825633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:41.472Z",
+      "crawledAt": "2026-10-12T21:36:47.441Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,7 +270,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Cash-Related-CA-%2880-100%29/1427975933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:40.772Z",
+      "crawledAt": "2026-10-12T21:36:46.878Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -342,7 +343,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Business-&-Application-Support/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:39.707Z",
+      "crawledAt": "2026-10-12T21:36:46.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -415,7 +416,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:35.829Z",
+      "crawledAt": "2026-10-12T21:36:43.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -494,7 +495,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1440470833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:35.185Z",
+      "crawledAt": "2026-10-12T21:36:42.797Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,7 +571,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:34.536Z",
+      "crawledAt": "2026-10-12T21:36:42.262Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -635,7 +636,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:33.874Z",
+      "crawledAt": "2026-10-12T21:36:41.721Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -700,7 +701,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Chargeback-Specialist-%2880-100%29/1440913133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:33.260Z",
+      "crawledAt": "2026-10-12T21:36:41.165Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -765,7 +766,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:32.613Z",
+      "crawledAt": "2026-10-12T21:36:40.618Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -830,7 +831,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Analyst-%28100%29/1440904933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:31.984Z",
+      "crawledAt": "2026-10-12T21:36:40.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -906,7 +907,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Proxy-Voting-Services-%2880-100%29/1430452433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:30.934Z",
+      "crawledAt": "2026-10-12T21:36:39.257Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -954,7 +955,7 @@
       "companyDomain": "six-group.com",
       "title": "Internship Tax Services",
       "titleByLocale": {
-        "de": "Praktikum Steuerberatung",
+        "de": "Internship Tax Services",
         "en": "Internship Tax Services",
         "it": "Tirocinio nei servizi fiscali",
         "fr": "Stage en fiscalité"
@@ -963,15 +964,16 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nSIX promuove la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo una combinazione unica di tradizione e futuro, di solide fondamenta e crescita. Apprezziamo le menti brillanti e le ispiriamo a crescere con le loro idee. Vieni a plasmare con noi il futuro dei mercati finanziari.\n\nTirocinio Tax Services\n\nOlten | 100% | Riferimento 8204\n\nSIX Securities Services svolge un ruolo importante nel mercato finanziario svizzero in qualità di depositario centrale di titoli e, per questo motivo, è soggetta a numerosi requisiti normativi, in particolare in ambito fiscale. Per soddisfare tali requisiti e le esigenze dei clienti, in costante crescita, nonché per promuovere in modo mirato i giovani talenti, offriamo un tirocinio della durata di un anno nell'ambito di Tax Services.\n\nDurante il tirocinio riceverai una panoramica completa degli aspetti fiscali dell'attività in titoli. Imparerai a conoscere le principali tipologie di imposta nell'ambito dei titoli, fornirai supporto nella documentazione dei conti titoli e nell'apertura dei conti lungo la catena di custodia e collaborerai all'elaborazione delle richieste di rimborso fiscale in diversi mercati.\n\nQuesti sono i tuoi compiti\n\n- Gestirai le attività quotidiane del team Regulatory Tax in modo orientato al cliente e con un approccio a basso rischio, con particolare attenzione a US Tax, Transaction Based Taxes e Account Documentation.\n- Nel team Tax Processing Services imparerai a gestire autonomamente i servizi di richiesta di rimborso fiscale per diversi mercati internazionali.\n- Fornirai supporto nelle attività operative, amministrative e analitiche, nonché nei progetti e nelle pubblicazioni di rilevanza fiscale.\n- Gestirai in autonomia le richieste dei clienti e condurrai approfondimenti tecnici con banche depositarie, autorità fiscali e altre controparti esterne.\n- Collaborerai attivamente su questioni fiscali più complesse e amplierai costantemente le tue competenze specialistiche.\n\nQuesto è ciò che porti con te\n\n- Laurea di primo livello conseguita in economia aziendale, diritto economico, informatica gestionale o in un indirizzo equivalente.\n- Una prima esperienza nella gestione e nell'analisi dei dati costituisce un vantaggio.\n- Sei una persona orientata al lavoro di squadra, dotata di spirito d'iniziativa e spiccate capacità comunicative.\n- Possiedi spiccate capacità analitiche e concettuali, un metodo di lavoro strutturato e autonomo, nonché ottime conoscenze di MS-Office, in particolare di Excel e PowerPoint.\n- Ottima conoscenza del tedesco e dell'inglese, sia parlati sia scritti.\n\nContatto\n\nPer qualsiasi domanda, visita la nostra pagina delle FAQ oppure contatta Janine Reichling al numero +41 58 399 42 99.\n\nPer questa posizione prendiamo in considerazione esclusivamente candidature dirette.\n\nLa diversità è importante per noi, pertanto siamo lieti di ricevere candidature indipendentemente dal background personale.",
         "en": "Description\n\nSIX is driving the transformation of financial markets forward.\n\nWhat sets us apart drives us forward: Between local roots and global relevance, we are a unique blend of tradition and the future, foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of financial markets with us.\n\nInternship Tax Services\n\nOlten | 100% | Reference 8204\n\nSIX Securities Services plays an important role in the financial market as the central securities depository for securities in Switzerland and is therefore subject to numerous regulatory requirements – particularly in the area of taxation. To meet these requirements, respond to ever-growing customer needs and specifically promote young talent, we offer a one-year internship in Tax Services.\n\nDuring the internship, you will gain comprehensive insight into the tax aspects of the securities business. You will learn about the most important types of tax in the securities sector, support custody documentation and account opening along the custody chain, and assist in processing tax reclaims in various markets.\n\nThese are your tasks\n\n- You will handle the low-risk and customer-oriented processing of day-to-day business in the Regulatory Tax team, focusing on US Tax, Transaction Based Taxes and Account Documentation.\n- In the Tax Processing Services team, you will learn to independently process tax reclaim services for various international markets.\n- You support operational, administrative and analytical activities, as well as tax-related projects and publications.\n- You handle customer inquiries independently and conduct subject-matter clarifications with custodian banks, tax authorities and other external counterparties.\n- You actively contribute to more challenging tax-related issues and continuously expand your expertise.\n\nWhat you bring\n\n- Completed bachelor's degree in business administration, business law, business information systems or a comparable field.\n- Initial experience working with data and in data analysis is an advantage.\n- You are a team-oriented individual with initiative and persuasive communication skills.\n- You have strong analytical and conceptual skills, a structured and independent way of working, as well as very good MS Office skills, particularly in Excel and PowerPoint.\n- Very good German and English skills, both written and spoken.\n\nContact\n\nIf you have any questions, visit our FAQ page or contact Janine Reichling at +41 58 399 42 99.\n\nFor this position, we will only consider direct applications.\n\nDiversity is important to us, which is why we welcome applications regardless of personal background.",
-        "de": "Beschreibung\n\nSIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nInternship Tax Services\n\nOlten | 100% | Referenz 8204\n\nSIX Securities Services nimmt als zentrale Verwahrstelle für Wertschriften in der Schweiz eine wichtige Rolle im Finanzmarkt ein und unterliegt deshalb zahlreichen regulatorischen Anforderungen – insbesondere im Steuerbereich. Um diesen Anforderungen sowie den stetig wachsenden Kundenbedürfnissen gerecht zu werden und gezielt Nachwuchstalente zu fördern, bieten wir ein einjähriges Internship im Bereich Tax Services an.\n\nWährend des Internships erhältst du einen umfassenden Einblick in die steuerlichen Aspekte des Wertschriftengeschäfts. Du lernst die wichtigsten Steuerarten im Wertschriftenbereich kennen, unterstützt bei der Depotdokumentation und Kontoeröffnung entlang der Verwahrkette und wirkst bei der Bearbeitung von Steuerrückforderungen in verschiedenen Märkten mit.\n\nDas sind deine Aufgaben\n\n- Du übernimmst die risikoarme und kundenorientierte Abwicklung des Tagesgeschäfts im Team Regulatory Tax mit Fokus auf US Tax, Transaction Based Taxes sowie Account Documentation.\n- Im Team Tax Processing Services lernst du, Steuerrückforderungsdienstleistungen für verschiedene internationale Märkte selbstständig abzuwickeln.\n- Du unterstützt bei operativen, administrativen und analytischen Tätigkeiten sowie bei steuerrelevanten Projekten und Publikationen.\n- Du bearbeitest Kundenanfragen eigenverantwortlich und führst fachliche Abklärungen mit Depotbanken, Steuerbehörden und weiteren externen Gegenparteien durch.\n- Du arbeitest aktiv an anspruchsvolleren steuerlichen Fragestellungen mit und baust dein Fachwissen kontinuierlich aus.\n\nDas brings du mit\n\n- Abgeschlossenes Bachelorstudium in Betriebswirtschaft, Wirtschaftsrecht, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung.\n- Erste Erfahrungen im Umgang mit Daten sowie in der Datenanalyse sind von Vorteil.\n- Du bist eine teamorientierte Persönlichkeit mit Eigeninitiative und überzeugenden Kommunikationsfähigkeiten.\n- Du verfügst über ausgeprägte analytische und konzeptionelle Fähigkeiten, eine strukturierte und selbstständige Arbeitsweise sowie sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint.\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\nKontakt\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Janine Reichling unter der Nummer +41 58 399 42 99.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nInternship Tax Services\n\nOlten | 100% | Referenz 8204\n\nSIX Securities Services nimmt als zentrale Verwahrstelle für Wertschriften in der Schweiz eine wichtige Rolle im Finanzmarkt ein und unterliegt deshalb zahlreichen regulatorischen Anforderungen – insbesondere im Steuerbereich. Um diesen Anforderungen sowie den stetig wachsenden Kundenbedürfnissen gerecht zu werden und gezielt Nachwuchstalente zu fördern, bieten wir ein einjähriges Internship im Bereich Tax Services an.\n\nWährend des Internships erhältst du einen umfassenden Einblick in die steuerlichen Aspekte des Wertschriftengeschäfts. Du lernst die wichtigsten Steuerarten im Wertschriftenbereich kennen, unterstützt bei der Depotdokumentation und Kontoeröffnung entlang der Verwahrkette und wirkst bei der Bearbeitung von Steuerrückforderungen in verschiedenen Märkten mit.\n\nDas sind deine Aufgaben\n\n• Du übernimmst die risikoarme und kundenorientierte Abwicklung des Tagesgeschäfts im Team Regulatory Tax mit Fokus auf US Tax, Transaction Based Taxes sowie Account Documentation.\n\n• Im Team Tax Processing Services lernst du, Steuerrückforderungsdienstleistungen für verschiedene internationale Märkte selbstständig abzuwickeln.\n\n• Du unterstützt bei operativen, administrativen und analytischen Tätigkeiten sowie bei steuerrelevanten Projekten und Publikationen.\n\n• Du bearbeitest Kundenanfragen eigenverantwortlich und führst fachliche Abklärungen mit Depotbanken, Steuerbehörden und weiteren externen Gegenparteien durch.\n\n• Du arbeitest aktiv an anspruchsvolleren steuerlichen Fragestellungen mit und baust dein Fachwissen kontinuierlich aus.\n\nDas brings du mit\n\n• Abgeschlossenes Bachelorstudium in Betriebswirtschaft, Wirtschaftsrecht, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung.\n\n• Erste Erfahrungen im Umgang mit Daten sowie in der Datenanalyse sind von Vorteil.\n\n• Du bist eine teamorientierte Persönlichkeit mit Eigeninitiative und überzeugenden Kommunikationsfähigkeiten.\n\n• Du verfügst über ausgeprägte analytische und konzeptionelle Fähigkeiten, eine strukturierte und selbstständige Arbeitsweise sowie sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint.\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Janine Reichling unter der Nummer +41 58 399 42 99.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
         "fr": "Description\n\nSIX fait avancer la transformation des marchés financiers.\n\nCe qui nous distingue nous fait avancer : Entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d’avenir, de fondations et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Viens façonner avec nous l’avenir des marchés financiers.\n\nStage en services fiscaux\n\nOlten | 100% | Référence 8204\n\nEn tant que dépositaire central de titres en Suisse, SIX Securities Services joue un rôle important sur le marché financier et est donc soumise à de nombreuses exigences réglementaires – notamment dans le domaine fiscal. Afin de répondre à ces exigences ainsi qu’aux besoins toujours croissants de nos clients et de promouvoir de manière ciblée les jeunes talents, nous proposons un stage d’un an dans le domaine des services fiscaux.\n\nPendant le stage, tu acquerras une vue d’ensemble des aspects fiscaux des opérations sur titres. Tu découvriras les principaux types d’impôts dans le domaine des titres, tu contribueras à la documentation des dépôts et à l’ouverture de comptes tout au long de la chaîne de conservation, et tu participeras au traitement des demandes de remboursement d’impôts sur différents marchés.\n\nVoici tes tâches\n\n- Tu prends en charge le traitement peu risqué et orienté client des activités quotidiennes au sein de l’équipe Regulatory Tax, avec un accent sur la fiscalité américaine, les impôts liés aux transactions ainsi que la documentation des comptes.\n- Au sein de l’équipe Tax Processing Services, tu apprends à traiter de manière autonome des services de récupération d’impôts pour différents marchés internationaux.\n- Tu apportes ton soutien dans le cadre d’activités opérationnelles, administratives et analytiques, ainsi que de projets et de publications liés à la fiscalité.\n- Tu traites les demandes des clients de manière autonome et effectues des clarifications techniques avec les banques dépositaires, les autorités fiscales et d’autres contreparties externes.\n- Tu participes activement à l’examen de questions fiscales plus complexes et développes continuellement tes connaissances spécialisées.\n\nCe que tu apportes\n\n- Diplôme de bachelor obtenu en gestion d’entreprise, droit des affaires, informatique de gestion ou dans une discipline comparable.\n- Une première expérience dans le traitement des données ainsi que dans leur analyse est un atout.\n- Tu es une personne orientée vers le travail en équipe, dotée d’un esprit d’initiative et d’excellentes compétences en communication.\n- Vous disposez de solides capacités analytiques et conceptuelles, d’une méthode de travail structurée et autonome ainsi que de très bonnes connaissances de MS Office, notamment d’Excel et de PowerPoint.\n- Très bonnes connaissances de l’allemand et de l’anglais à l’oral comme à l’écrit.\n\nContact\n\nPour toute question, consultez notre page FAQ ou contactez Janine Reichling au numéro +41 58 399 42 99.\n\nPour ce poste, nous prenons exclusivement en considération les candidatures directes.\n\nLa diversité est importante pour nous, c’est pourquoi nous nous réjouissons de recevoir des candidatures, quel que soit le parcours personnel."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.six-group.com/job/Olten-Internship-Tax-Services/1430474233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:30.280Z",
+      "crawledAt": "2026-10-12T21:36:38.731Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1002,16 +1004,16 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:58:51.162Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1048,7 +1050,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:29.235Z",
+      "crawledAt": "2026-10-12T21:36:37.904Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1125,7 +1127,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Sales-&-Products-Primary-Markets/1441725233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:26.558Z",
+      "crawledAt": "2026-10-12T21:36:35.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1205,7 +1207,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-IT-Workplace-Support-Specialist/1443142233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:23.387Z",
+      "crawledAt": "2026-10-12T21:36:33.697Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1284,7 +1286,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Engineer-%2880-100%29/1443323233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:22.311Z",
+      "crawledAt": "2026-10-12T21:36:32.931Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1349,7 +1351,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:21.201Z",
+      "crawledAt": "2026-10-12T21:36:32.110Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1435,7 +1437,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:19.735Z",
+      "crawledAt": "2026-10-12T21:36:31.084Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1500,7 +1502,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:17.922Z",
+      "crawledAt": "2026-10-12T21:36:29.586Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1573,7 +1575,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:16.312Z",
+      "crawledAt": "2026-10-12T21:36:28.515Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1594,7 +1596,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich"
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich",
+          "senior-sales-account-manager-in-banking-romandie-80-100-six-group-genf"
         ],
         "it": [
           "senior-sales-account-manager-in-banking-romandie-80-100-six-group-zurich",
@@ -1653,7 +1656,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Controlling-Financial-Information/1444871433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:12.460Z",
+      "crawledAt": "2026-10-12T21:36:25.611Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1717,22 +1720,23 @@
       "titleByLocale": {
         "it": "Responsabile del servizio clienti (80 - 100%)",
         "en": "Client Service Manager (80 - 100%)",
-        "de": "Kundenservice-Manager (80 - 100%)",
+        "de": "Client Service Manager (80 - 100%)",
         "fr": "Responsable du service client (80 - 100%)"
       },
       "description": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nClient Service Manager (80 - 100%)\n\nOlten |  Bis zu 40% Home Office möglich | Referenz 8210\n\nMöchtest du im internationalen Wertschriftengeschäft durchstarten?\n\nUnser Client Desk Team – ein motivierter Mix aus jungen und erfahrenen Mitarbeitenden mit hohem Kundenfokus – freut sich auf eine kommunikationsstarke, teamfähige Persönlichkeit.\n\nDas sind deine Aufgaben\n\n• Bearbeitung und Koordination von Anfragen nationaler und internationaler Banken im Bereich Mandatory Cash Related Corporate Actions (Dividenden-, Zins- und Rückzahlungen) über alle relevanten Märkte hinweg\n\n• Klärung von Entitlement-Fragen sowie Buchungs- und Zahlungsdifferenzen\n\n• Abklärungen mit Banken, Custodians, CSDs, Paying Agents und weiteren Marktteilnehmern zur korrekten und termingerechten Abwicklung\n\n• Recherchen über interne und externe Systeme, Datenquellen und Marktunterlagen\n\n• Zusammenarbeit mit internen Fachbereichen\n\n• Bearbeitung von Kundeneskalationen sowie Mitwirkung bei der Optimierung von Prozessen und Servicequalität\n\nDas bringst du mit\n\n• Kaufmännische Ausbildung, Banklehre oder vergleichbare Qualifikation\n\n• Idealerweise Erfahrung in Asset Servicing, Custody, Corporate Actions oder Securities Operations\n\n• Ausgezeichnete Kommunikationsfähigkeiten in Wort und Schrift auf Deutsch und Englisch (mind. B2)\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit analytischem Denken\n\n• Ausgeprägte Kunden- und Serviceorientierung sowie professionelles Auftreten\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska  unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
       "descriptionByLocale": {
         "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo una combinazione unica di tradizione e futuro, di basi solide e crescita. Apprezziamo le menti brillanti e le ispiriamo a crescere con le loro idee. Vieni a plasmare insieme a noi il futuro dei mercati finanziari.\n\nResponsabile del servizio clienti (80 - 100%)\n\nOlten | Possibilità di lavorare da casa fino al 40% | Riferimento 8210\n\nVuoi lanciarti nel settore internazionale dei titoli?\n\nIl nostro team Client Desk – un mix motivato di persone giovani ed esperte, con una forte attenzione al cliente – è alla ricerca di una persona con spiccate capacità comunicative e attitudine al lavoro di squadra.\n\nQueste sono le tue mansioni\n\n- Elaborazione e coordinamento delle richieste di banche nazionali e internazionali nell'ambito delle Mandatory Cash Related Corporate Actions (dividendi, interessi e rimborsi) su tutti i mercati rilevanti\n- Chiarimento delle questioni relative agli entitlement, nonché delle differenze di contabilizzazione e di pagamento\n- Verifiche con banche, custodian, CSD, paying agent e altri operatori di mercato per garantire una gestione corretta e puntuale\n- Ricerche tramite sistemi interni ed esterni, fonti di dati e documentazione di mercato\n- Collaborazione con i reparti specialistici interni\n- Gestione delle escalation dei clienti e partecipazione all'ottimizzazione dei processi e della qualità del servizio\n\nCosa porti con te\n\n- Formazione commerciale, apprendistato bancario o qualifica equivalente\n- Preferibilmente esperienza nell'Asset Servicing, nel Custody, nelle Corporate Actions o nelle Securities Operations\n- Ottime capacità comunicative, sia orali che scritte, in tedesco e inglese (almeno B2)\n- Metodo di lavoro autonomo, strutturato e orientato alle soluzioni, con capacità di pensiero analitico\n- Spiccato orientamento al cliente e al servizio, nonché un atteggiamento professionale\n\nIn caso di domande, consulta la nostra pagina FAQ o contatta Beata Czyzewska ai numeri +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPer questa posizione prendiamo in considerazione esclusivamente candidature dirette.\n\nLa diversità è importante per noi, pertanto siamo lieti di ricevere candidature indipendentemente dal background personale.",
         "en": "SIX is driving the transformation of financial markets.\n\nWhat sets us apart drives us forward: Between local roots and global relevance, we are a unique blend of tradition and future, foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of financial markets with us.\n\nClient Service Manager (80 - 100%)\n\nOlten | Up to 40% home office possible | Reference 8210\n\nWould you like to get your career off to a flying start in the international securities business?\n\nOur Client Desk team – a motivated mix of young and experienced employees with a strong customer focus – is looking forward to meeting a communicative, team-oriented person.\n\nThese are your responsibilities\n\n- Processing and coordinating inquiries from national and international banks in the area of Mandatory Cash Related Corporate Actions (dividends, interest and repayments) across all relevant markets\n- Clarification of entitlement-related questions as well as booking and payment discrepancies\n- Liaising with banks, custodians, CSDs, paying agents and other market participants to ensure correct and timely processing\n- Research using internal and external systems, data sources and market documents\n- Collaboration with internal specialist departments\n- Handling client escalations and contributing to the optimization of processes and service quality\n\nWhat you bring\n\n- Commercial training, banking apprenticeship or comparable qualification\n- Ideally, experience in Asset Servicing, Custody, Corporate Actions or Securities Operations\n- Excellent verbal and written communication skills in German and English (min. B2)\n- Independent, structured and solution-oriented working style with analytical thinking\n- Strong customer and service orientation as well as a professional demeanor\n\nIf you have any questions, visit our FAQ page or contact Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFor this vacancy, we will consider direct applications only.\n\nDiversity is important to us, which is why we welcome applications regardless of personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nClient Service Manager (80 - 100%)\n\nOlten | Bis zu 40% Home Office möglich | Referenz 8210\n\nMöchtest du im internationalen Wertschriftengeschäft durchstarten?\n\nUnser Client Desk Team – ein motivierter Mix aus jungen und erfahrenen Mitarbeitenden mit hohem Kundenfokus – freut sich auf eine kommunikationsstarke, teamfähige Persönlichkeit.\n\nDas sind deine Aufgaben\n\n- Bearbeitung und Koordination von Anfragen nationaler und internationaler Banken im Bereich Mandatory Cash Related Corporate Actions (Dividenden-, Zins- und Rückzahlungen) über alle relevanten Märkte hinweg\n- Klärung von Entitlement-Fragen sowie Buchungs- und Zahlungsdifferenzen\n- Abklärungen mit Banken, Custodians, CSDs, Paying Agents und weiteren Marktteilnehmern zur korrekten und termingerechten Abwicklung\n- Recherchen über interne und externe Systeme, Datenquellen und Marktunterlagen\n- Zusammenarbeit mit internen Fachbereichen\n- Bearbeitung von Kundeneskalationen sowie Mitwirkung bei der Optimierung von Prozessen und Servicequalität\n\nDas bringst du mit\n\n- Kaufmännische Ausbildung, Banklehre oder vergleichbare Qualifikation\n- Idealerweise Erfahrung in Asset Servicing, Custody, Corporate Actions oder Securities Operations\n- Ausgezeichnete Kommunikationsfähigkeiten in Wort und Schrift auf Deutsch und Englisch (mind. B2)\n- Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit analytischem Denken\n- Ausgeprägte Kunden- und Serviceorientierung sowie professionelles Auftreten\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nClient Service Manager (80 - 100%)\n\nOlten | Bis zu 40% Home Office möglich | Referenz 8210\n\nMöchtest du im internationalen Wertschriftengeschäft durchstarten?\n\nUnser Client Desk Team – ein motivierter Mix aus jungen und erfahrenen Mitarbeitenden mit hohem Kundenfokus – freut sich auf eine kommunikationsstarke, teamfähige Persönlichkeit.\n\nDas sind deine Aufgaben\n\n• Bearbeitung und Koordination von Anfragen nationaler und internationaler Banken im Bereich Mandatory Cash Related Corporate Actions (Dividenden-, Zins- und Rückzahlungen) über alle relevanten Märkte hinweg\n\n• Klärung von Entitlement-Fragen sowie Buchungs- und Zahlungsdifferenzen\n\n• Abklärungen mit Banken, Custodians, CSDs, Paying Agents und weiteren Marktteilnehmern zur korrekten und termingerechten Abwicklung\n\n• Recherchen über interne und externe Systeme, Datenquellen und Marktunterlagen\n\n• Zusammenarbeit mit internen Fachbereichen\n\n• Bearbeitung von Kundeneskalationen sowie Mitwirkung bei der Optimierung von Prozessen und Servicequalität\n\nDas bringst du mit\n\n• Kaufmännische Ausbildung, Banklehre oder vergleichbare Qualifikation\n\n• Idealerweise Erfahrung in Asset Servicing, Custody, Corporate Actions oder Securities Operations\n\n• Ausgezeichnete Kommunikationsfähigkeiten in Wort und Schrift auf Deutsch und Englisch (mind. B2)\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit analytischem Denken\n\n• Ausgeprägte Kunden- und Serviceorientierung sowie professionelles Auftreten\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
         "fr": "SIX fait avancer la transformation des marchés financiers.\n\nCe qui nous distingue nous fait avancer : Entre ancrage local et portée mondiale, nous sommes un mélange unique de tradition et d’avenir, de bases solides et de croissance. Nous valorisons les esprits brillants et les inspirons à grandir grâce à leurs idées. Viens façonner avec nous l’avenir des marchés financiers.\n\nClient Service Manager (80 - 100 %)\n\nOlten | Jusqu’à 40% de télétravail possible | Référence 8210\n\nSouhaites-tu te lancer dans le négoce international de titres ?\n\nNotre équipe Client Desk – un groupe motivé composé de collaborateurs jeunes et expérimentés, très orientés vers la clientèle – se réjouit d’accueillir une personne dotée d’excellentes compétences en communication et d’un bon esprit d’équipe.\n\nVoici tes tâches\n\n- Traitement et coordination des demandes de banques nationales et internationales dans le domaine des Mandatory Cash Related Corporate Actions (dividendes, intérêts et remboursements) sur tous les marchés pertinents\n- Clarification des questions relatives aux droits ainsi que des écarts de comptabilisation et de paiement\n- Échanges avec les banques, les conservateurs, les CSD, les Paying Agents et les autres acteurs du marché afin de garantir un règlement correct et dans les délais\n- Recherches dans des systèmes internes et externes, des sources de données et des documents de marché\n- Collaboration avec les services spécialisés internes\n- Traitement des escalades clients ainsi que participation à l’optimisation des processus et de la qualité du service\n\nCe que vous apportez\n\n- Formation commerciale, apprentissage bancaire ou qualification équivalente\n- Idéalement, expérience dans l’Asset Servicing, la conservation, les opérations sur titres ou les opérations liées aux titres\n- Excellentes compétences en communication à l’oral et à l’écrit en allemand et en anglais (min. B2)\n- Méthode de travail autonome, structurée et orientée vers les solutions, avec un esprit analytique\n- Forte orientation client et service, ainsi qu’une présentation professionnelle\n\nPour toute question, consultez notre page FAQ ou contactez Beata Czyzewska au numéro +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPour ce poste vacant, nous ne prenons en considération que les candidatures directes.\n\nLa diversité est importante pour nous, c’est pourquoi nous nous réjouissons de recevoir des candidatures, indépendamment du parcours personnel."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.six-group.com/job/Olten-Client-Service-Manager-%2880-100%29/1425295333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:45:08.929Z",
+      "crawledAt": "2026-10-12T21:36:22.997Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1805,7 +1809,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:05.516Z",
+      "crawledAt": "2026-10-12T21:36:20.418Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1885,7 +1889,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:45:04.796Z",
+      "crawledAt": "2026-10-12T21:36:19.817Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
