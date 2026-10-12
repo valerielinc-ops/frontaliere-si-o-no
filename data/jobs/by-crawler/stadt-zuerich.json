@@ -16312,12 +16312,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51121",
-      "previousSlugs": [
-        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
@@ -16326,8 +16320,12 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T00:09:01.758Z",
+      "previousSlugs": [
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -16340,7 +16338,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T00:09:01.758Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2834
     },
     {
       "id": "stadt-zuerich-c9ee943891a3",

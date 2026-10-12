@@ -10239,7 +10239,6 @@
       },
       "postalCode": "6532",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10255,7 +10254,9 @@
         }
       },
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1317
     },
     {
       "id": "jumbo-b9c1f865-7b5",
@@ -10325,7 +10326,6 @@
       },
       "postalCode": "6850",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10341,7 +10341,9 @@
         }
       },
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1318
     },
     {
       "id": "jumbo-a0f1e72e-340",
@@ -10411,7 +10413,6 @@
       },
       "postalCode": "6598",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10427,7 +10428,9 @@
         }
       },
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1315
     },
     {
       "id": "jumbo-664aaff5-09c",
@@ -14184,11 +14187,15 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
+        ],
+        "de": [
+          "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -15282,7 +15289,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 68500,
       "salaryMax": 105000,

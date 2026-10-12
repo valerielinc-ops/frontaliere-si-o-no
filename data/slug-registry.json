@@ -347830,7 +347830,9 @@
     "canonicalSlug": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
     "slugByLocale": {
       "de": "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und",
-      "fr": "directeur-du-developpement-des-affaires-b2b-m-f-d-selecta-steinhausen-6f9477"
+      "fr": "directeur-du-developpement-des-affaires-b2b-m-f-d-selecta-steinhausen-6f9477",
+      "it": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+      "en": "business-development-manager-b2b-m-w-d-selecta-steinhausen"
     },
     "createdAt": "2026-07-17",
     "canton": "ZG"
@@ -863896,7 +863898,10 @@
   "id|coopjobs.ch|cad0f8b5-390b-45a5-a719-993c7b343ccf": {
     "canonicalSlug": "verkaufsberater-in-deco-jumbo-chur-2",
     "slugByLocale": {
-      "de": "verkaufsberater-in-deco-jumbo-chur-pkl1fu"
+      "de": "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
+      "it": "verkaufsberater-in-deco-jumbo-chur",
+      "en": "verkaufsberater-in-deco-jumbo-chur",
+      "fr": "verkaufsberater-in-deco-jumbo-chur"
     },
     "createdAt": "2026-10-05",
     "canton": "GR"
@@ -895945,7 +895950,10 @@
   "id|liebherr.com|1445495033": {
     "canonicalSlug": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
     "slugByLocale": {
-      "en": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+      "en": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
+      "it": "giovane-talento-analista-aziendale-e-ufficio-di-gestione-dei-progetti-m-f-x-liebherr-bulle",
+      "de": "nachwuchstalent-unternehmensanalyst-und-buro-fur-projektmanagement-m-f-x-liebherr-bulle",
+      "fr": "jeune-talent-analyste-d-affaires-et-bureau-de-gestion-de-projets-m-f-x-liebherr-bulle"
     },
     "createdAt": "2026-10-08",
     "canton": "FR"
@@ -906558,7 +906566,9 @@
     "canonicalSlug": "avaloq-application-developer-f-m-d-raiffeisen-zurich",
     "slugByLocale": {
       "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-5ymw0l",
-      "fr": "developpeur-d-applications-avaloq-f-m-d-raiffeisen-zurich"
+      "fr": "developpeur-d-applications-avaloq-f-m-d-raiffeisen-zurich",
+      "it": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+      "en": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -910099,7 +910109,8 @@
     "canonicalSlug": "marketing-e-comunicazione-dei-giovani-talenti-m-f-x-liebherr-bulle",
     "slugByLocale": {
       "it": "marketing-e-comunicazione-dei-giovani-talenti-m-f-x-liebherr-bulle",
-      "fr": "young-talent-marketing-communication-m-f-x-liebherr-bulle"
+      "fr": "young-talent-marketing-communication-m-f-x-liebherr-bulle",
+      "de": "nachwuchstalent-marketing-und-kommunikation-m-w-x-liebherr-bulle"
     },
     "createdAt": "2026-10-11",
     "canton": "FR"
@@ -913044,5 +913055,24 @@
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
+  },
+  "id|raiffeisen.ch|6de0ad0e-10f3-4c9c-9151-3054870d7cd5": {
+    "canonicalSlug": "credit-officer-w-m-d-raiffeisen-uster",
+    "slugByLocale": {
+      "de": "credit-officer-w-m-d-raiffeisen-uster"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|mobiliar.ch|1165597655": {
+    "canonicalSlug": "swc-business-apprendimento-dei-dipendenti-agosto-2027-presso-l-agenzia-generale-della-costa-die-mobiliar-nyon",
+    "slugByLocale": {
+      "fr": "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote",
+      "it": "swc-business-apprendimento-dei-dipendenti-agosto-2027-presso-l-agenzia-generale-della-costa-die-mobiliar-nyon",
+      "en": "swc-business-employee-learning-august-2027-at-the-general-agency-of-the-coast-die-mobiliar-nyon",
+      "de": "swc-business-employee-learning-august-2027-bei-der-general-agency-of-the-coast-die-mobiliar-nyon"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "VD"
   }
 }
