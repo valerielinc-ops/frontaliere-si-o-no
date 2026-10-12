@@ -8,8 +8,9 @@
  *
  * Careers page: https://bitfinex.recruitee.com/
  *
- * Bitfinex is registered in Lugano, TI but all positions are remote.
- * We include ALL offers (no Swiss location filtering) per user request.
+ * Bitfinex is registered in Lugano, TI but the Recruitee board also exposes
+ * worldwide offers. The Swiss slice keeps only offers with source-backed Swiss
+ * location evidence; foreign and unresolved offers are quarantined.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBitfinexJobs()  — Fetch and parse all jobs
@@ -19,12 +20,13 @@
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { findSwissRecruiteeLocation } from './recruitee-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -287,21 +289,25 @@ export async function fetchAllBitfinexJobs() {
     const combinedHtml = combineDescriptionSections(offer);
     const descriptionText = stripHtml(combinedHtml || offer.description || '');
 
-    // Extract location — remote company, default to Lugano HQ
-    const firstLoc = offer.locations?.[0] || {};
-    const city = normalizeSpace(firstLoc.city || HQ.city);
+    // Extract a source-backed Swiss location. Do not use the employer HQ as a
+    // country fallback for a worldwide/ambiguous remote offer.
+    const firstLoc = findSwissRecruiteeLocation(offer.locations);
+    if (!firstLoc) {
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${title}`);
+      continue;
+    }
+    const city = normalizeSpace(firstLoc.city);
     const sourceState = normalizeSpace(firstLoc.state || '');
-    const state = sourceState || 'Ticino';
-    const location = `${city}, ${state}`;
+    const state = sourceState;
+    const location = state ? `${city}, ${state}` : city;
 
-    // Infer actual canton from job city — don't hardcode HQ canton for foreign locations
+    // Infer the canton from the selected Swiss source location only.
     const inferredCanton = inferCantonFromJobEvidence({
       cityText: city,
       locationText: sourceState ? location : city,
     });
-    const isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
-    const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
-    const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
+    const jobCanton = inferredCanton;
+    const jobRegion = inferredCanton || sourceState;
 
     // Work model — Bitfinex is remote-first
     let workModel = 'remote';
@@ -350,9 +356,9 @@ export async function fetchAllBitfinexJobs() {
       // ── Recommended fields ──
       addressLocality: city,
       addressRegion: jobRegion,
-      addressCountry: isForeignCity ? '' : 'CH',
-      postalCode: inferredCanton ? HQ.postalCode : '',
-      country: isForeignCity ? '' : 'CH',
+      addressCountry: 'CH',
+      postalCode: normalizeSpace(firstLoc.postal_code || ''),
+      country: 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',
       employmentType,
