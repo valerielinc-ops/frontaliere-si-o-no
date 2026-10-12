@@ -35,6 +35,30 @@ describe('article HTTP sync pair retry', () => {
     expect(runApi.mock.calls.map(([args]) => args.commit)).toEqual([SHA_A, SHA_B]);
   });
 
+  it('restarts the corpus pull when its first attempt reports movement', async () => {
+    const runCorpus = vi.fn(async ({ attempt }: { attempt: number }) => attempt === 1
+      ? { exitCode: 0, skipped: true, reason: moved(SHA_A, SHA_B) }
+      : { exitCode: 0, skipped: false, commit: SHA_B });
+    const runApi = vi.fn(async ({ commit }: { attempt: number; commit: string }) => ({
+      exitCode: 0,
+      skipped: false,
+      commit,
+    }));
+    const onRetry = vi.fn();
+
+    const result = await retryArticleSyncOnMovement({ runCorpus, runApi, onRetry });
+
+    expect(result).toEqual({ status: 'success', commit: SHA_B, attempts: 2 });
+    expect(runCorpus.mock.calls.map(([args]) => args.attempt)).toEqual([1, 2]);
+    expect(runApi.mock.calls.map(([args]) => args.attempt)).toEqual([2]);
+    expect(onRetry).toHaveBeenCalledWith({
+      attempt: 1,
+      nextAttempt: 2,
+      stage: 'corpus',
+      reason: moved(SHA_A, SHA_B),
+    });
+  });
+
   it('stops after the fixed retry cap and reports the final clean skip', async () => {
     let commit = 0;
     const runCorpus = vi.fn(async () => ({ exitCode: 0, commit: (commit++ === 0 ? SHA_A : SHA_B) }));

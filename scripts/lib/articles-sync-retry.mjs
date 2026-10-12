@@ -34,12 +34,12 @@ export async function retryArticleSyncOnMovement({
       };
     }
     if (corpus.skipped) {
-      return {
-        status: 'skipped',
-        stage: 'corpus',
-        reason: corpus.reason || 'the corpus pull skipped without a reason',
-        attempts: attempt,
-      };
+      const reason = corpus.reason || 'the corpus pull skipped without a reason';
+      if (!isPublishedApiMovement(reason) || attempt === limit) {
+        return { status: 'skipped', stage: 'corpus', reason, attempts: attempt };
+      }
+      onRetry({ attempt, nextAttempt: attempt + 1, stage: 'corpus', reason });
+      continue;
     }
     if (typeof corpus.commit !== 'string' || !FULL_SHA_RE.test(corpus.commit)) {
       return {
