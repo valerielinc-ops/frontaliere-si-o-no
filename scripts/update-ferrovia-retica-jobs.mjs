@@ -114,6 +114,7 @@ async function fetchJobs() {
     console.error(`❌ Failed to fetch career page: ${err?.message || err}`);
     throw err;
   }
+  const observedAt = html ? new Date() : null;
 
   const rawListings = parseListingPage(html);
   console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
@@ -121,6 +122,9 @@ async function fetchJobs() {
   // Fetch detail pages to get rich descriptions
   const jobs = [];
   for (const listing of rawListings) {
+    // Carry the successful careers-page observation alongside parsed source
+    // fields; buildJob never derives crawl time from the posting date.
+    listing.crawlObservedAt = observedAt;
     if (listing.url) {
       console.log(`    🔗 Fetching detail page: ${listing.url}`);
       try {
