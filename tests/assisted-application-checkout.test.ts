@@ -476,6 +476,65 @@ describe('handleAssistedApplicationWebhookEvent', () => {
     }));
   });
 
+  it('allows a later SumUp success to upgrade a failed attempt on the same checkout', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const {
+      handleCreateAssistedApplicationCheckout,
+      handleAssistedApplicationWebhookEvent,
+    } = await loadCheckout();
+    await handleCreateAssistedApplicationCheckout(request());
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.async_payment_failed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'unpaid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_failed_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__failed_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentStatus: 'failed',
+      submissionStatus: 'awaiting_payment',
+    }));
+
+    await handleAssistedApplicationWebhookEvent({
+      type: 'checkout.session.completed',
+      data: {
+        object: {
+          id: 'sumup_checkout_1',
+          amount_total: 99,
+          currency: 'eur',
+          payment_status: 'paid',
+          metadata: {
+            product: 'assisted_application',
+            paymentProvider: 'sumup',
+            orderId: 'order-1',
+          },
+          sumupTransactionId: 'sumup_successful_transaction',
+        },
+      },
+    }, { db: firestore, ts: '__paid_timestamp__' });
+
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      paymentStatus: 'paid',
+      submissionStatus: 'awaiting_upload',
+      sumupCheckoutId: 'sumup_checkout_1',
+      sumupTransactionId: 'sumup_successful_transaction',
+      paidAt: '__paid_timestamp__',
+    }));
+  });
+
   it('preserves a paid order when a stale failure event arrives later', async () => {
     const {
       handleCreateAssistedApplicationCheckout,

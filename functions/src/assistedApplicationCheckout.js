@@ -129,7 +129,10 @@ function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId, payment
   );
   if (currentSessionId && sessionId && currentSessionId !== sessionId) return true;
   if (currentOrder.submissionStatus === 'ready_for_manual_submission') return true;
-  return ['paid', 'failed', 'refunded'].includes(currentOrder.paymentStatus);
+  // A hosted checkout can contain multiple payment attempts. A failed
+  // attempt must remain upgradeable when a later callback for the same
+  // checkout confirms payment.
+  return ['paid', 'refunded'].includes(currentOrder.paymentStatus);
 }
 
 function metadataForOrder(order, userId) {
