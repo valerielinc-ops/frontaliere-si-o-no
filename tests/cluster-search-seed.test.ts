@@ -51,6 +51,7 @@ function realisticJob(n: number): Record<string, unknown> {
     slug: `assistente-psicologo-in-neuropsicologia-stadtspital-zurich-${n}`,
     title: `Assistente psicologo in Neuropsicologia ${n}`,
     company: 'Psychiatrische Universitätsklinik Zürich',
+    companyKey: 'pukzh',
     companyDomain: 'pukzh.ch',
     companyLogo: '',
     location: 'Zürich',
@@ -58,10 +59,13 @@ function realisticJob(n: number): Record<string, unknown> {
     category: 'healthcare',
     contract: 'full-time',
     featured: false,
+    postingDateSource: 'reported',
+    datePosted: '2026-08-14',
     postedDate: '2026-08-14',
     salaryMin: 85000,
     salaryMax: 105000,
     currency: 'CHF',
+    salarySource: 'estimated',
     // Fields that must NOT reach the seed:
     url: 'https://jobs.pukzh.ch/vacancies/12345/assistente-psicologo-neuropsicologia-80-100',
     description: 'x'.repeat(4000),
@@ -91,14 +95,26 @@ describe('cluster search seed — payload shape', () => {
     expect(pickClusterSeedJob({ ...realisticJob(1), featured: true })).toHaveProperty('featured', true);
   });
 
+  it('keeps company identity and visible salary/date provenance in the seed', () => {
+    const picked = pickClusterSeedJob(realisticJob(1));
+    expect(picked).toMatchObject({
+      companyKey: 'pukzh',
+      salarySource: 'estimated',
+      postingDateSource: 'reported',
+      datePosted: '2026-08-14',
+      postedDate: '2026-08-14',
+    });
+  });
+
   it('pins the field set — this payload ships 156.032 times', () => {
     // Deliberately an exact list, not a subset check: growing it is a real
     // decision (each ~30 B/record field is ~140 MB of dist), so it should
     // require editing this line and reading why.
     expect([...CLUSTER_SEARCH_SEED_FIELDS].sort()).toEqual([
-      'canton', 'category', 'company', 'companyDomain', 'companyLogo',
-      'contract', 'currency', 'featured', 'id', 'location',
-      'postedDate', 'salaryMax', 'salaryMin', 'slug', 'title',
+      'canton', 'category', 'company', 'companyDomain', 'companyKey',
+      'companyLogo', 'contract', 'currency', 'datePosted', 'featured',
+      'id', 'location', 'postedDate', 'postingDateSource', 'salaryMax',
+      'salaryMin', 'salarySource', 'slug', 'title',
     ]);
   });
 
@@ -273,7 +289,13 @@ describe('cluster search seed — rendered page', () => {
         keyword: 'assistente psicologo',
         city: null,
         matchingJobs: [
-          { id: 'a1', title: 'Assistente psicologo in Neuropsicologia', company: 'Stadtspital', location: 'Zürich', canton: 'ZH', slug: 'assistente-psicologo-neuropsicologia', url: 'https://ats.example/apply/a1', description: 'x'.repeat(3000) },
+          {
+            id: 'a1', title: 'Assistente psicologo in Neuropsicologia', company: 'Medbase', companyKey: 'medbase',
+            companyDomain: 'medbase.ch', location: 'Zürich', canton: 'ZH', slug: 'assistente-psicologo-neuropsicologia',
+            salaryMin: 57500, salaryMax: 87000, currency: 'CHF', salarySource: 'estimated',
+            postingDateSource: 'reported', datePosted: '2026-08-14', postedDate: '2026-08-14',
+            url: 'https://ats.example/apply/a1', description: 'x'.repeat(3000),
+          },
           { id: 'a2', title: 'Psicologo-psicoterapeuta in Psicologia', company: 'CNP', location: 'Neuchâtel', canton: 'NE', slug: 'psicologo-psicoterapeuta', url: 'https://ats.example/apply/a2', description: 'y'.repeat(3000) },
           { id: 'a3', title: 'Pedopsichiatra - Ambulatorio della Crisi', company: 'CNP', location: 'Neuchâtel', canton: 'NE', slug: 'pedopsichiatra-ambulatorio', url: 'https://ats.example/apply/a3', description: 'z'.repeat(3000) },
         ],
@@ -301,6 +323,13 @@ describe('cluster search seed — rendered page', () => {
     // The seed carries the SAME jobs the page prints — including the two the
     // client matcher would drop (their titles lack "assistente").
     expect(seed.j.map((j) => j.id)).toEqual(['a1', 'a2', 'a3']);
+    expect(seed.j[0]).toMatchObject({
+      companyKey: 'medbase',
+      salarySource: 'estimated',
+      postingDateSource: 'reported',
+      datePosted: '2026-08-14',
+      postedDate: '2026-08-14',
+    });
   });
 
   it('does not ship the external apply url or the description it matched on', () => {
