@@ -89,7 +89,7 @@
           "personnel-de-vente-migrolino-wilderswil-1abf98"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:31:54.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -103,7 +103,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-fa41171abbf1",
@@ -565,7 +566,6 @@
           "verkaufsmitarbeiter-in-migrolino-interlaken"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:32:08.977Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -718,7 +718,7 @@
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-in-lugano-migrolino-lugano"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:13:38.983Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -732,7 +732,8 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-1885e3187a77",
@@ -798,7 +799,6 @@
           "verkaufsmitarbeiter-in-migrolino-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -871,7 +871,6 @@
           "verkaufsmitarbeiter-in-migrolino-altdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:34.359Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
