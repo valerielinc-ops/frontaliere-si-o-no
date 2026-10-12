@@ -141,6 +141,14 @@ export function parseZauggSourceDate(rawDate = '') {
   return sourcePostingDateFields(normalizeSourceDate(rawDate));
 }
 
+function parseRequiredZauggSourceDate(rawDate = '') {
+  const sourceDate = parseZauggSourceDate(rawDate);
+  if (sourceDate.postingDateSource !== 'reported') {
+    throw new Error('ZAUGG detail page has no valid source-backed posting date');
+  }
+  return sourceDate;
+}
+
 /** Keep the job copy while excluding recruiter contact details from output. */
 export function sanitizeZauggDescription(rawText = '') {
   const withoutEmail = String(rawText || '').replace(
@@ -189,10 +197,7 @@ export function parseZauggDetailPage(html, detailUrl) {
     }
 
     const dateText = normalizeSpace(document.querySelector(SOURCE_SELECTORS.postingDate)?.textContent || '');
-    const sourceDate = parseZauggSourceDate(dateText);
-    if (sourceDate.postingDateSource !== 'reported') {
-      throw new Error('ZAUGG detail page has no valid source-backed posting date');
-    }
+    const sourceDate = parseRequiredZauggSourceDate(dateText);
     return {
       title,
       description,
