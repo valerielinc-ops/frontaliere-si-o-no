@@ -14,7 +14,7 @@
  */
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { parseCompanySlugFilter } from '@/components/community/JobBoard.tsx';
+import { parseCompanySlugFilter, parseJobRouteSearchFilter } from '@/components/community/JobBoard.tsx';
 import { seededJobMatchesSlug } from '@/hooks/useExpiredJob';
 import type { JobListing } from '@/components/community/JobBoard.tsx';
 
@@ -80,6 +80,27 @@ describe('parseCompanySlugFilter', () => {
       // "azienda-usi" is a company filter; "infermiere-ospedale-lugano" is unrelated
       expect(parseCompanySlugFilter('azienda-usi', [activeJob])).toBe('usi');
     });
+  });
+});
+
+describe('parseJobRouteSearchFilter', () => {
+  it('keeps a normal search landing available when no active job matches', () => {
+    expect(parseJobRouteSearchFilter('ricerca-data-center', [])).toBe('data center');
+  });
+
+  it('does not turn an active job slug into a search filter', () => {
+    const activeJob = makeJob({
+      slug: 'ricerca-e-sviluppo-del-project-manager-ibsa-institut-biochimique-grancia',
+    });
+    expect(parseJobRouteSearchFilter(activeJob.slug, [activeJob])).toBeNull();
+  });
+
+  it('also disambiguates a localized active slug', () => {
+    const activeJob = makeJob({
+      slug: 'project-manager-ibsa-grancia',
+      slugByLocale: { it: 'ricerca-e-sviluppo-del-project-manager-ibsa-institut-biochimique-grancia' },
+    });
+    expect(parseJobRouteSearchFilter(activeJob.slugByLocale!.it!, [activeJob])).toBeNull();
   });
 });
 
