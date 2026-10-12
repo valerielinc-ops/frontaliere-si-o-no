@@ -59,6 +59,27 @@ describe('assisted application checkout client idempotency', () => {
     expect(requestBodyAt(0).requestKey).not.toBe(requestBodyAt(1).requestKey);
   });
 
+  it('accepts an embedded SumUp widget checkout response', async () => {
+    fetchMock.mockImplementationOnce(async () => ({
+      ok: true,
+      json: async () => ({
+        ok: true,
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_client',
+        orderId: 'order-client-sumup',
+      }),
+    }));
+
+    await expect(createAssistedApplicationCheckout(input, {
+      uid: 'user-client-sumup',
+      getIdToken: vi.fn(async () => 'good-token'),
+    })).resolves.toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      checkoutId: 'sumup_checkout_client',
+      orderId: 'order-client-sumup',
+    }));
+  });
+
   it('keeps the request key stable when locale and return path change', async () => {
     const user = { uid: 'user-client-locale', getIdToken: vi.fn(async () => 'good-token') };
 

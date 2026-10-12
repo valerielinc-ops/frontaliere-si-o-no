@@ -81,7 +81,6 @@ const stripeConstructEvent = vi.fn();
 const assistedApplicationPaymentProvider = vi.fn(async () => 'stripe');
 const sumUpCheckoutCreate = vi.fn(async () => ({
   id: 'sumup_checkout_1',
-  url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
 }));
 
 vi.mock('stripe', () => {
@@ -150,7 +149,6 @@ beforeEach(() => {
   assistedApplicationPaymentProvider.mockResolvedValue('stripe');
   sumUpCheckoutCreate.mockImplementation(async () => ({
     id: 'sumup_checkout_1',
-    url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
   }));
 });
 
@@ -234,7 +232,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     }));
   });
 
-  it('can create one SumUp Hosted Checkout without changing the one-application order', async () => {
+  it('can create one SumUp widget checkout without changing the one-application order', async () => {
     assistedApplicationPaymentProvider.mockResolvedValue('sumup');
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
@@ -244,7 +242,8 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       status: 200,
       body: {
         ok: true,
-        url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
         orderId: 'order-1',
       },
     });
@@ -258,6 +257,23 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       paymentStatus: 'pending',
       customerEmail: 'candidate@example.com',
     }));
+    expect(Object.values(store.assisted_application_checkout_requests)[0]).toEqual(expect.objectContaining({
+      paymentProvider: 'sumup',
+      sumupCheckoutId: 'sumup_checkout_1',
+      checkoutUrl: null,
+    }));
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
+  it('reuses the persisted SumUp widget checkout on a retry', async () => {
+    assistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const second = await handleCreateAssistedApplicationCheckout(request());
+
+    expect(second).toEqual(first);
+    expect(sumUpCheckoutCreate).toHaveBeenCalledTimes(1);
     expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
   });
 
@@ -281,7 +297,8 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       status: 200,
       body: {
         ok: true,
-        url: 'https://checkout.sumup.com/pay/sumup_checkout_1',
+        paymentProvider: 'sumup',
+        checkoutId: 'sumup_checkout_1',
         orderId: 'order-2',
       },
     });
