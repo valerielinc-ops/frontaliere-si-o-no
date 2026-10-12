@@ -1,6 +1,6 @@
 {
   "crawlerKey": "neoproconseils",
-  "assembledAt": "2026-10-12T09:15:15.409Z",
+  "assembledAt": "2026-10-12T21:13:06.759Z",
   "jobs": [
     {
       "id": "neoproconseils-14fdde329346",
@@ -33,11 +33,11 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:15:08.417Z",
+      "crawledAt": "2026-10-12T21:12:59.224Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
-      "addressCountry": "Suisse",
-      "country": "Suisse",
+      "addressCountry": "CH",
+      "country": "CH",
       "postalCode": "1201",
       "category": "Altro",
       "contract": "full-time",
@@ -77,9 +77,9 @@
     },
     {
       "id": "neoproconseils-3813e5ada334",
-      "slug": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+      "slug": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
       "slugByLocale": {
-        "it": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+        "it": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
         "en": "electrical-installer-m-f-neo-pro-conseils-sa-geneve-ge",
         "de": "elektroinstallateur-m-w-neo-pro-conseils-sa-geneve-ge",
         "fr": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
@@ -106,11 +106,11 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:15:08.414Z",
+      "crawledAt": "2026-10-12T21:12:59.222Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
-      "addressCountry": "Suisse",
-      "country": "Suisse",
+      "addressCountry": "CH",
+      "country": "CH",
       "postalCode": "1201",
       "category": "Tecnica",
       "contract": "full-time",
@@ -129,14 +129,14 @@
         "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
         "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
         "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
-        "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
+        "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
           "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
-          "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
+          "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
         ]
       },
       "firstSeenAt": "2026-09-23T23:35:57.252Z",
@@ -153,6 +153,74 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "neoproconseils-2d5de1ea0740",
+      "slug": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+      "slugByLocale": {
+        "fr": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+        "it": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+        "en": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch",
+        "de": "macon-coffreur-h-f-geneve-ge-neoproconseils-ch"
+      },
+      "company": "NEO Pro conseils SA",
+      "companyKey": "neoproconseils",
+      "companyDomain": "neoproconseils.ch",
+      "title": "Maçon coffreur (H/F)",
+      "titleByLocale": {
+        "fr": "Maçon coffreur (H/F)",
+        "it": "Maçon coffreur (H/F)",
+        "en": "Maçon coffreur (H/F)",
+        "de": "Maçon coffreur (H/F)"
+      },
+      "description": "Agence de placement fixe et travail temporaire\nNous recrutons un Maçon coffreur pour renforcer les équipes d’une entreprise reconnue du secteur principal de la construction à Genève. Vous interviendrez sur des chantiers où votre savoir-faire technique, votre polyvalence et votre rigueur seront pleinement valorisés. Autonome et vigilant,, vous menez vos missions avec sérieux et précision.\nVos missions\n- Lire et interpréter les plans de coffrage et de béton armé\n- Organiser et préparer le chantier et les zones de travail\n- Réaliser les coffrages traditionnels bois et coffrages métalliques\n- Mettre en place du coffrage pour murs, dalles et piliers\n- Décoffrer les ouvrages et effectuer les retouches si nécessaire\n- Boucher les trous d’ancrage et les ouvertures de montage\n- Exécuter différents types de joints\n- Respecter les normes de qualité, de sécurité et les délais sur chantier\nVotre profil\n- Formation achevée dans le domaine de la maçonnerie\n- Minimum 3 ans d’expérience en tant que maçon coffreur\n- Maîtrise des techniques de coffrage, ferraillage et bétonnage\n- Polyvalent, rigoureux et avec une bonne résistance physique\n- Capacité à travailler en équipe\n- Forte capacité d’adaptation\nNous vous offrons\n- Un suivi personnalisé\n- Un environnement de travail dynamique\n- Des missions diversifiées\n- Des perspectives d’évolution et de formation continue\n- Une rémunération conforme à la branche et à l’expérience",
+      "descriptionByLocale": {
+        "fr": "Agence de placement fixe et travail temporaire\nNous recrutons un Maçon coffreur pour renforcer les équipes d’une entreprise reconnue du secteur principal de la construction à Genève. Vous interviendrez sur des chantiers où votre savoir-faire technique, votre polyvalence et votre rigueur seront pleinement valorisés. Autonome et vigilant,, vous menez vos missions avec sérieux et précision.\nVos missions\n- Lire et interpréter les plans de coffrage et de béton armé\n- Organiser et préparer le chantier et les zones de travail\n- Réaliser les coffrages traditionnels bois et coffrages métalliques\n- Mettre en place du coffrage pour murs, dalles et piliers\n- Décoffrer les ouvrages et effectuer les retouches si nécessaire\n- Boucher les trous d’ancrage et les ouvertures de montage\n- Exécuter différents types de joints\n- Respecter les normes de qualité, de sécurité et les délais sur chantier\nVotre profil\n- Formation achevée dans le domaine de la maçonnerie\n- Minimum 3 ans d’expérience en tant que maçon coffreur\n- Maîtrise des techniques de coffrage, ferraillage et bétonnage\n- Polyvalent, rigoureux et avec une bonne résistance physique\n- Capacité à travailler en équipe\n- Forte capacité d’adaptation\nNous vous offrons\n- Un suivi personnalisé\n- Un environnement de travail dynamique\n- Des missions diversifiées\n- Des perspectives d’évolution et de formation continue\n- Une rémunération conforme à la branche et à l’expérience",
+        "it": "Agence de placement fixe et travail temporaire\nNous recrutons un Maçon coffreur pour renforcer les équipes d’une entreprise reconnue du secteur principal de la construction à Genève. Vous interviendrez sur des chantiers où votre savoir-faire technique, votre polyvalence et votre rigueur seront pleinement valorisés. Autonome et vigilant,, vous menez vos missions avec sérieux et précision.\nVos missions\n- Lire et interpréter les plans de coffrage et de béton armé\n- Organiser et préparer le chantier et les zones de travail\n- Réaliser les coffrages traditionnels bois et coffrages métalliques\n- Mettre en place du coffrage pour murs, dalles et piliers\n- Décoffrer les ouvrages et effectuer les retouches si nécessaire\n- Boucher les trous d’ancrage et les ouvertures de montage\n- Exécuter différents types de joints\n- Respecter les normes de qualité, de sécurité et les délais sur chantier\nVotre profil\n- Formation achevée dans le domaine de la maçonnerie\n- Minimum 3 ans d’expérience en tant que maçon coffreur\n- Maîtrise des techniques de coffrage, ferraillage et bétonnage\n- Polyvalent, rigoureux et avec une bonne résistance physique\n- Capacité à travailler en équipe\n- Forte capacité d’adaptation\nNous vous offrons\n- Un suivi personnalisé\n- Un environnement de travail dynamique\n- Des missions diversifiées\n- Des perspectives d’évolution et de formation continue\n- Une rémunération conforme à la branche et à l’expérience",
+        "en": "Agence de placement fixe et travail temporaire\nNous recrutons un Maçon coffreur pour renforcer les équipes d’une entreprise reconnue du secteur principal de la construction à Genève. Vous interviendrez sur des chantiers où votre savoir-faire technique, votre polyvalence et votre rigueur seront pleinement valorisés. Autonome et vigilant,, vous menez vos missions avec sérieux et précision.\nVos missions\n- Lire et interpréter les plans de coffrage et de béton armé\n- Organiser et préparer le chantier et les zones de travail\n- Réaliser les coffrages traditionnels bois et coffrages métalliques\n- Mettre en place du coffrage pour murs, dalles et piliers\n- Décoffrer les ouvrages et effectuer les retouches si nécessaire\n- Boucher les trous d’ancrage et les ouvertures de montage\n- Exécuter différents types de joints\n- Respecter les normes de qualité, de sécurité et les délais sur chantier\nVotre profil\n- Formation achevée dans le domaine de la maçonnerie\n- Minimum 3 ans d’expérience en tant que maçon coffreur\n- Maîtrise des techniques de coffrage, ferraillage et bétonnage\n- Polyvalent, rigoureux et avec une bonne résistance physique\n- Capacité à travailler en équipe\n- Forte capacité d’adaptation\nNous vous offrons\n- Un suivi personnalisé\n- Un environnement de travail dynamique\n- Des missions diversifiées\n- Des perspectives d’évolution et de formation continue\n- Une rémunération conforme à la branche et à l’expérience",
+        "de": "Agence de placement fixe et travail temporaire\nNous recrutons un Maçon coffreur pour renforcer les équipes d’une entreprise reconnue du secteur principal de la construction à Genève. Vous interviendrez sur des chantiers où votre savoir-faire technique, votre polyvalence et votre rigueur seront pleinement valorisés. Autonome et vigilant,, vous menez vos missions avec sérieux et précision.\nVos missions\n- Lire et interpréter les plans de coffrage et de béton armé\n- Organiser et préparer le chantier et les zones de travail\n- Réaliser les coffrages traditionnels bois et coffrages métalliques\n- Mettre en place du coffrage pour murs, dalles et piliers\n- Décoffrer les ouvrages et effectuer les retouches si nécessaire\n- Boucher les trous d’ancrage et les ouvertures de montage\n- Exécuter différents types de joints\n- Respecter les normes de qualité, de sécurité et les délais sur chantier\nVotre profil\n- Formation achevée dans le domaine de la maçonnerie\n- Minimum 3 ans d’expérience en tant que maçon coffreur\n- Maîtrise des techniques de coffrage, ferraillage et bétonnage\n- Polyvalent, rigoureux et avec une bonne résistance physique\n- Capacité à travailler en équipe\n- Forte capacité d’adaptation\nNous vous offrons\n- Un suivi personnalisé\n- Un environnement de travail dynamique\n- Des missions diversifiées\n- Des perspectives d’évolution et de formation continue\n- Une rémunération conforme à la branche et à l’expérience"
+      },
+      "location": "Genève, GE",
+      "canton": "GE",
+      "url": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/",
+      "source": "NEO Pro conseils SA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-12T21:12:59.220Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-12T16:16:17+02:00",
+      "postedDate": "2026-10-12T16:16:17+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-12T21:12:59.220Z"
     }
   ]
 }

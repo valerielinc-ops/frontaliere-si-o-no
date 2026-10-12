@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-10-12T09:17:07.003Z",
+  "assembledAt": "2026-10-12T21:13:46.982Z",
   "jobs": [
     {
       "id": "gavi-ee86033d5ad4",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:17:00.875Z",
+      "crawledAt": "2026-10-12T21:13:40.854Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -69,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:15:57.742Z",
+      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -114,7 +115,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:16:59.921Z",
+      "crawledAt": "2026-10-12T21:13:40.054Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -144,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-10-05T21:26:05.940Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
