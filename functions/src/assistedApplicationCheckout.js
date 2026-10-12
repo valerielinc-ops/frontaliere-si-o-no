@@ -481,7 +481,21 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const savedCheckoutId = requestRecord?.paymentProvider === SUMUP_PAYMENT_PROVIDER
     ? requestRecord.sumupCheckoutId
     : requestRecord?.stripeCheckoutSessionId;
-  if (requestRecord?.checkoutUrl && savedCheckoutId && requestRecord.checkoutSessionStatus !== 'expired') {
+  const savedCheckoutCanBeReused = savedCheckoutId
+    && requestRecord.checkoutSessionStatus !== 'expired'
+    && (requestRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER || requestRecord.checkoutUrl);
+  if (savedCheckoutCanBeReused) {
+    if (requestRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER) {
+      return {
+        status: 200,
+        body: {
+          ok: true,
+          paymentProvider: SUMUP_PAYMENT_PROVIDER,
+          checkoutId: savedCheckoutId,
+          orderId: requestRecord.orderId,
+        },
+      };
+    }
     return {
       status: 200,
       body: { ok: true, url: requestRecord.checkoutUrl, orderId: requestRecord.orderId },
@@ -493,12 +507,13 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const metadata = metadataForOrder({ ...order, orderId, locale, paymentProvider: checkoutProvider }, userId);
 
   let checkoutUrl;
+  let checkoutId;
   if (checkoutProvider === SUMUP_PAYMENT_PROVIDER) {
     const checkout = await createSumUpAssistedApplicationCheckout({
       orderId,
       redirectUrl: appendOrderId(successUrl, orderId),
     });
-    checkoutUrl = checkout.url;
+    checkoutId = checkout.id;
     await orderRef.set({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
@@ -512,7 +527,9 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
       checkoutExpiresAt: null,
-      checkoutUrl: checkout.url,
+      // The assisted flow uses the embedded Payment Widget. Keep the legacy
+      // URL empty so a retry cannot send the customer back to Hosted Checkout.
+      checkoutUrl: null,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
@@ -561,7 +578,14 @@ export async function handleCreateAssistedApplicationCheckout(req) {
 
   return {
     status: 200,
-    body: { ok: true, url: checkoutUrl, orderId },
+    body: checkoutProvider === SUMUP_PAYMENT_PROVIDER
+      ? {
+        ok: true,
+        paymentProvider: SUMUP_PAYMENT_PROVIDER,
+        checkoutId,
+        orderId,
+      }
+      : { ok: true, url: checkoutUrl, orderId },
   };
 }
 

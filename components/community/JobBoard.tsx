@@ -33,6 +33,7 @@ import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceh
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
+const SumUpPaymentWidget = lazyRetry(() => import('@/components/community/SumUpPaymentWidget'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
 import type { RewardedOfferUnavailableInfo } from '@/components/community/RewardedApplicationOffer';
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
@@ -244,6 +245,7 @@ import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
  getAssistedApplicationCheckoutErrorCode,
+ type AssistedApplicationCheckoutResult,
 } from '@/services/assistedApplicationCheckout';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
@@ -2675,6 +2677,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
+ const [sumUpPayment, setSumUpPayment] = useState<{
+  checkoutId: string;
+  orderId: string;
+  successUrl: string;
+ } | null>(null);
+ const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
@@ -7525,7 +7533,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
   try {
    const currentPath = `${window.location.origin}${window.location.pathname}`;
-   const result = await createAssistedApplicationCheckout({
+   const result: AssistedApplicationCheckoutResult = await createAssistedApplicationCheckout({
     jobId: String(job.id),
     companyId: String(job.companyKey || job.company || 'unknown'),
     jobUrl: String(job.url || job.applyUrl || ''),
@@ -7536,6 +7544,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
+   if (result.paymentProvider === 'sumup') {
+    setAssistedCheckoutBusy(false);
+    setSumUpPaymentBusy(false);
+    setSumUpPayment({
+     checkoutId: result.checkoutId,
+     orderId: result.orderId,
+     successUrl: currentPath,
+    });
+    return;
+   }
    window.location.assign(result.url);
   } catch (error) {
    setAssistedCheckoutBusy(false);
@@ -7559,6 +7577,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
    }
   }
  };
+
+ const closeSumUpPayment = useCallback(() => {
+  if (sumUpPaymentBusy) return;
+  setSumUpPayment(null);
+  setAssistedCheckoutBusy(false);
+  setAssistedCheckoutError(null);
+ }, [sumUpPaymentBusy]);
+
+ const handleSumUpResponse = useCallback((type: string) => {
+  if (!sumUpPayment) return;
+  if (type === 'success') {
+   setSumUpPaymentBusy(true);
+   const returnUrl = new URL(sumUpPayment.successUrl, window.location.origin);
+   returnUrl.searchParams.set('assisted_application_order_id', sumUpPayment.orderId);
+   // SumUp's callback is the client-side completion signal. The destination
+   // page remains locked until the server webhook marks this order as paid.
+   window.location.assign(returnUrl.toString());
+   return;
+  }
+  if (type === 'fail' || type === 'error') {
+   setSumUpPaymentBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   trackAssistedApplicationEvent('checkout_failed', {
+    payment_provider: 'sumup',
+    reason: type === 'fail' ? 'payment_failed' : 'payment_error',
+   });
+  }
+ }, [sumUpPayment, t]);
+
+ const handleSumUpWidgetError = useCallback((error: unknown) => {
+  setSumUpPaymentBusy(false);
+  setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+  trackAssistedApplicationEvent('checkout_failed', {
+   payment_provider: 'sumup',
+   reason: 'widget_load_failed',
+   error_code: getAssistedApplicationCheckoutErrorCode(error),
+  });
+ }, [t]);
 
  // A treatment click can happen on a list card while auth is still resolving.
  // Keep the selected job queued and route it as soon as the detail host is
@@ -8085,7 +8141,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   </div>
  );
 
- const assistedApplicationOfferJsx = assistedApplicationJob && assistedOfferAvailable ? (
+ const assistedApplicationOfferJsx = sumUpPayment ? (
+  <Suspense fallback={applicationOfferCodeLoadingJsx}>
+   <SumUpPaymentWidget
+    checkoutId={sumUpPayment.checkoutId}
+    locale={locale}
+    onResponse={handleSumUpResponse}
+    onError={handleSumUpWidgetError}
+    onClose={closeSumUpPayment}
+    error={assistedCheckoutError}
+    busy={sumUpPaymentBusy}
+   />
+  </Suspense>
+ ) : assistedApplicationJob && assistedOfferAvailable ? (
   <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <AssistedApplicationOffer
     jobId={String(assistedApplicationJob.id)}
@@ -8108,7 +8176,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- const rewardedApplicationOfferJsx = rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
+ const rewardedApplicationOfferJsx = !sumUpPayment && rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
   <Suspense fallback={applicationOfferCodeLoadingJsx}>
    <RewardedApplicationOffer
     jobId={String(rewardedApplicationJob.id)}
