@@ -129,7 +129,10 @@ function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId, payment
   );
   if (currentSessionId && sessionId && currentSessionId !== sessionId) return true;
   if (currentOrder.submissionStatus === 'ready_for_manual_submission') return true;
-  return ['paid', 'failed', 'refunded'].includes(currentOrder.paymentStatus);
+  // A hosted checkout can contain multiple payment attempts. A failed
+  // attempt must remain upgradeable when a later callback for the same
+  // checkout confirms payment.
+  return ['paid', 'refunded'].includes(currentOrder.paymentStatus);
 }
 
 function metadataForOrder(order, userId) {
@@ -153,8 +156,49 @@ function checkoutAttemptFor(value) {
   return Number.isSafeInteger(result) && result > 0 ? result : 1;
 }
 
+function checkoutExpirySeconds(value) {
+  const result = Number(value);
+  return Number.isSafeInteger(result) && result > 0 ? result : null;
+}
+
+function checkoutHasExpired(record) {
+  const expiresAt = checkoutExpirySeconds(record?.checkoutExpiresAt);
+  return expiresAt !== null && expiresAt * 1000 <= Date.now();
+}
+
+function checkoutIdForRecord(record) {
+  return record?.paymentProvider === SUMUP_PAYMENT_PROVIDER
+    ? boundedString(record?.sumupCheckoutId, 200)
+    : boundedString(record?.stripeCheckoutSessionId, 200);
+}
+
+async function persistedStripeCheckoutExpired(record) {
+  if (record?.paymentProvider !== 'stripe') return false;
+  const sessionId = checkoutIdForRecord(record);
+  if (!sessionId) return false;
+  const persistedExpiresAt = checkoutExpirySeconds(record.checkoutExpiresAt);
+  if (persistedExpiresAt !== null) {
+    return persistedExpiresAt * 1000 <= Date.now();
+  }
+
+  try {
+    const stripe = await getStripe();
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    if (session?.status === 'expired') return true;
+    const expiresAt = checkoutExpirySeconds(session?.expires_at);
+    return expiresAt !== null && expiresAt * 1000 <= Date.now();
+  } catch (error) {
+    console.warn(
+      '[assistedApplicationCheckout] Stripe checkout expiry lookup failed',
+      error instanceof Error ? error.message : String(error),
+    );
+    return false;
+  }
+}
+
 function isTerminalCheckoutOrder(order) {
   if (order?.paymentStatus === 'paid') return false;
+  if (checkoutHasExpired(order)) return true;
   return order?.checkoutSessionStatus === 'expired'
     || order?.checkoutSessionStatus === 'failed'
     || order?.paymentStatus === 'failed'
@@ -202,6 +246,7 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     sumupCheckoutId: null,
     sumupTransactionId: null,
     sumupTransactionCode: null,
+    checkoutExpiresAt: null,
     sumupRefundRequestId: null,
     sumupRefundRequestStatus: null,
     sumupRefundRequestedAt: null,
@@ -265,6 +310,36 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   let checkoutAttempt = 1;
   let stripeRequestKey = requestKeyHash;
   let paidOrderResumeId = null;
+  let staleCheckout = null;
+
+  const existingRequestSnapshot = await requestRef.get();
+  if (existingRequestSnapshot.exists) {
+    const existingRecord = existingRequestSnapshot.data() || {};
+    if (
+      existingRecord.userId === userId
+      && existingRecord.requestKeyHash === requestKeyHash
+      && existingRecord.orderId
+    ) {
+      const existingOrderSnapshot = await orderCollection.doc(existingRecord.orderId).get();
+      const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
+      if (
+        existingOrder
+        && sameCanonicalCheckoutOrder(existingOrder, order)
+        && existingOrder.paymentStatus !== 'paid'
+      ) {
+        const checkoutRecord = { ...existingRecord, ...existingOrder };
+        const checkoutExpired = checkoutHasExpired(checkoutRecord)
+          || (!isTerminalCheckoutOrder(existingOrder)
+            && await persistedStripeCheckoutExpired(checkoutRecord));
+        if (checkoutExpired) {
+          staleCheckout = {
+            orderId: existingRecord.orderId,
+            checkoutId: checkoutIdForRecord(checkoutRecord),
+          };
+        }
+      }
+    }
+  }
 
   try {
     await firestore.runTransaction(async (transaction) => {
@@ -287,7 +362,11 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         ) {
           throw new AssistedApplicationRequestConflictError();
         }
-        if (existingOrderSnapshot.exists && !isTerminalCheckoutOrder(existingOrder)) {
+        const stalePersistedCheckout = existingOrderSnapshot.exists
+          && existingOrder.paymentStatus !== 'paid'
+          && staleCheckout?.orderId === existingRecord.orderId
+          && staleCheckout.checkoutId === checkoutIdForRecord(existingRecord);
+        if (existingOrderSnapshot.exists && !isTerminalCheckoutOrder(existingOrder) && !stalePersistedCheckout) {
           requestRecord = { ...existingRecord, payloadHash };
           orderRef = existingOrderRef;
           checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt);
@@ -308,6 +387,16 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           return;
         }
 
+        if (stalePersistedCheckout) {
+          transaction.set(existingOrderRef, {
+            paymentStatus: 'failed',
+            submissionStatus: 'awaiting_payment',
+            checkoutSessionStatus: 'expired',
+            paymentFailureReason: 'checkout_session_expired',
+            updatedAt: FieldValue.serverTimestamp(),
+          }, { merge: true });
+        }
+
         checkoutAttempt = checkoutAttemptFor(existingRecord.checkoutAttempt) + 1;
         orderRef = orderCollection.doc();
         stripeRequestKey = stripeRequestKeyFor(null, requestKeyHash, checkoutAttempt);
@@ -321,6 +410,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           checkoutSessionStatus: 'creating',
           stripeCheckoutSessionId: null,
           sumupCheckoutId: null,
+          checkoutExpiresAt: null,
           checkoutUrl: null,
           updatedAt: FieldValue.serverTimestamp(),
         };
@@ -352,6 +442,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
         checkoutAttempt,
         stripeRequestKey,
         checkoutSessionStatus: 'creating',
+        checkoutExpiresAt: null,
         createdAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       };
@@ -411,6 +502,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     await orderRef.set({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
+      checkoutExpiresAt: null,
       checkoutAttempt,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
@@ -419,6 +511,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       checkoutAttempt,
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
+      checkoutExpiresAt: null,
       checkoutUrl: checkout.url,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
@@ -448,6 +541,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     await orderRef.set({
       paymentProvider: 'stripe',
       stripeCheckoutSessionId: session.id,
+      checkoutExpiresAt: checkoutExpirySeconds(session.expires_at),
       checkoutAttempt,
       stripeRequestKey,
       checkoutSessionStatus: 'open',
@@ -458,6 +552,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       paymentProvider: 'stripe',
       stripeRequestKey,
       stripeCheckoutSessionId: session.id,
+      checkoutExpiresAt: checkoutExpirySeconds(session.expires_at),
       checkoutUrl: session.url,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
