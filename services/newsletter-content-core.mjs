@@ -1175,6 +1175,66 @@ export function buildLocaleBriefingPrompt(ctx) {
 }
 
 /**
+ * Build the single locale-level AI request used by the weekly newsletter.
+ * The response contains the shared editorial briefing and A/B subject
+ * templates in one structured object. Subject templates may use the exact
+ * `{{job_count}}`, `{{job_title}}`, `{{company}}`, and `{{location}}`
+ * placeholders; the sender fills those from the recipient's own matched jobs
+ * after the locale response is received.
+ *
+ * @param {object} ctx — buildLocaleBriefingPrompt context plus `variants`
+ * @returns {{ system: string, user: string, jsonSchema: { name: string, schema: object } }}
+ */
+export function buildLocaleNewsletterContentPrompt(ctx) {
+  const variants = [...new Set(ctx.variants || [])];
+  const briefing = buildLocaleBriefingPrompt(ctx);
+  const subjects = buildSubjectVariantsPrompt({
+    subscriber: { locale: ctx.locale },
+    exchangeRate: ctx.exchangeRate,
+    variants,
+    sharedAcrossLocale: true,
+    subjectTemplate: true,
+  });
+
+  const system = [
+    'Generate the weekly newsletter content for one locale in a single structured response.',
+    'The briefing and every subject template must be based on the same editorial data below. Do not introduce a topic in a subject that is absent from the briefing data.',
+    'The briefing is shared by every reader of the locale. Subject templates are also shared, but the sender replaces the permitted placeholders with each reader\'s own matched jobs before sending.',
+    `BRIEFING REQUIREMENTS:\n${briefing.system}`,
+    `SUBJECT TEMPLATE REQUIREMENTS:\n${subjects.system}`,
+    `OUTPUT CONTRACT: return exactly one JSON object with the keys "briefing" and "subjects". "briefing" must contain only the HTML briefing requested above. "subjects" must be an object with exactly these variant keys: ${variants.map((id) => `"${id}"`).join(', ')}. Each subject value must be a plain-text template, not HTML.`,
+  ].join('\n\n');
+
+  const user = [
+    `EDITORIAL DATA:\n${briefing.user}`,
+    `Use the same editorial data for the subject templates. Allowed personalization placeholders are exactly: {{job_count}}, {{job_title}}, {{company}}, {{location}}. Never put a real employer, job title, or location into the shared template; use a placeholder instead.`,
+    `SUBJECT CONTEXT:\n${subjects.user}`,
+  ].join('\n\n');
+
+  return {
+    system,
+    user,
+    jsonSchema: {
+      name: 'newsletter_locale_content',
+      schema: {
+        type: 'object',
+        properties: {
+          briefing: { type: 'string' },
+          subjects: {
+            type: 'object',
+            properties: subjects.jsonSchema.schema.properties,
+            required: variants,
+            additionalProperties: false,
+          },
+        },
+        required: ['briefing', 'subjects'],
+        additionalProperties: false,
+      },
+    },
+  };
+}
+
+/**
  * The parts buildSubjectPrompt and buildSubjectVariantsPrompt share: language,
  * proven patterns, voice and the user hints.
  */
@@ -1222,7 +1282,25 @@ function subjectPromptParts(ctx) {
       `- News peg: "📰 ${today} : ce qui change entre l'Italie et la Suisse"`,
     ],
   };
-  const examples = (examplesByLocale[locale] || examplesByLocale.it).join('\n');
+  const exampleLines = examplesByLocale[locale] || examplesByLocale.it;
+  const templateJobExamples = {
+    it: '- Job template: "📊 {{job_count}} aziende assumono a {{location}}"',
+    en: '- Job template: "📊 {{job_count}} companies hiring in {{location}}"',
+    de: '- Job template: "📊 {{job_count}} Firmen stellen in {{location}} ein"',
+    fr: '- Job template: "📊 {{job_count}} entreprises recrutent à {{location}}"',
+  };
+  // Variant subjects are shared by every reader of a locale. Keep the
+  // location/job-count pattern only for the placeholder-template prompt;
+  // the ordinary shared prompt must not offer it as a concrete fact to copy.
+  const exampleLinesForPrompt = ctx.subjectTemplate
+    ? [
+      ...exampleLines.filter((line) => !line.startsWith('- Number + location:')),
+      templateJobExamples[locale] || templateJobExamples.it,
+    ]
+    : (ctx.sharedAcrossLocale
+      ? exampleLines.filter((line) => !line.startsWith('- Number + location:'))
+      : exampleLines);
+  const examples = exampleLinesForPrompt.join('\n');
 
   // Voice pronouns per locale to avoid "tu/you" instruction being misread
   const voiceByLocale = {
@@ -1252,18 +1330,27 @@ function subjectPromptParts(ctx) {
     locale,
     langName,
     examples,
+    sharedAcrossLocale: ctx.sharedAcrossLocale === true,
+    subjectTemplate: ctx.subjectTemplate === true,
     voice: voiceByLocale[locale] || voiceByLocale.it,
     user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers',
   };
 }
 
 /** The rules every subject line follows, whether a call asks for one or several. */
-function subjectRules({ langName, voice }) {
+function subjectRules({ langName, voice, sharedAcrossLocale, subjectTemplate }) {
   return [
+    ...(subjectTemplate ? [
+      '- This is a locale-wide subject template. If it refers to a matched job, use only these exact placeholders: {{job_count}}, {{job_title}}, {{company}}, {{location}}.',
+      '- Never invent or write a real employer, job title, or specific location in the template. The sender fills placeholders from the recipient\'s own matched jobs.',
+    ] : sharedAcrossLocale ? [
+      `- This subject is reused for every ${langName}-speaking reader. Do not mention any employer, job title, individual vacancy, vacancy count, or specific job location. Use only newsletter-wide topics and benefits.`,
+    ] : []),
     `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
     `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
     `- ${voice}`,
     `- NO exact numbers (exchange rates, percentages)`,
+    ...(subjectTemplate ? ['- The {{job_count}} placeholder is allowed for the number of matched job offers; do not invent any other exact number.'] : []),
     `- NO generic words like "update", "newsletter", "weekly" or their ${langName} equivalents`,
     `- Do not label the reader or audience as "frontaliere", "frontalier", "Grenzgänger", "cross-border worker" or any local equivalent; lead with the topic or benefit instead`,
     `- ONE hook only. Make the reader NEED to open the email.`,
@@ -1314,18 +1401,35 @@ export function buildSubjectPrompt(ctx) {
  * schema-capable providers (Codex `--output-schema`, Gemini, OpenAI strict)
  * return exactly those keys.
  *
- * @param {object} ctx — as buildSubjectPrompt, plus `variants: string[]`
+ * @param {object} ctx — as buildSubjectPrompt, plus `variants: string[]` and
+ * optional `subjectTemplate: true`. Subject variants are shared by every
+ * reader of the locale; with `subjectTemplate`, job personalization is
+ * expressed only through the permitted placeholders.
  * @returns {{ system: string, user: string, jsonSchema: { name: string, schema: object } }}
  */
 export function buildSubjectVariantsPrompt(ctx) {
-  const parts = subjectPromptParts(ctx);
+  // `composeLocaleSubjects` selects the largest cohort only to coordinate one
+  // call per locale. Never let that representative's jobs or preferences leak
+  // into a subject that will be sent to every reader of the locale; a combined
+  // content call may opt into placeholders instead.
+  const parts = subjectPromptParts({
+    ...ctx,
+    sharedAcrossLocale: true,
+    subjectTemplate: ctx.subjectTemplate === true,
+    matchedJobs: [],
+    briefingSummary: '',
+    subscriber: { locale: ctx.subscriber?.locale },
+  });
   const { locale, langName, examples } = parts;
   const variants = [...new Set(ctx.variants || [])];
   const keys = variants.map((id) => `"${id}"`).join(', ');
+  const lengthRule = parts.subjectTemplate
+    ? 'Write a subject template for each variant. After the sender replaces any placeholders, each rendered subject must be STRICTLY 35-50 characters including the emoji. Do not count the placeholder token spelling itself.'
+    : `Write ${variants.length} email subject lines in ${langName}, one for each A/B variant below. Each one STRICTLY 35-50 characters including emoji. Count carefully.`;
 
   const system = [
     `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
-    `Write ${variants.length} email subject lines in ${langName}, one for each A/B variant below. Each one STRICTLY 35-50 characters including emoji. Count carefully.`,
+    lengthRule,
     `ABSOLUTE LANGUAGE RULE: Every subject MUST be written in ${langName} — NOT Italian, NOT English, NOT any other language. If the target is ${langName} and you output Italian (or any other language), the output will be rejected. All example phrasings below are in ${langName} to make this unambiguous.`,
     ``,
     `PROVEN PATTERNS (pick one for each subject and adapt — stay in ${langName}):`,

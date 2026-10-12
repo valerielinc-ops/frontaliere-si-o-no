@@ -87,6 +87,21 @@ describe('composeCohortBriefings', () => {
     expect(out.aiCohorts).toBe(0);
     expect(out.fallbackCohorts).toBe(4);
   });
+
+  it('keeps combined subject templates beside the shared locale briefing', async () => {
+    const out = await composeCohortBriefings(cohortsFor({ it: 2 }), {
+      locales: ['it'],
+      generate: async () => ({
+        briefing: SHARED('it'),
+        subjects: { concreto: '📊 {{job_count}} aziende a {{location}}' },
+      }),
+      exchangeRate: EXCHANGE,
+    });
+
+    expect(out.localeBriefings.get('it')).toContain('it editorial');
+    expect(out.localeContents.get('it')?.subjects.concreto).toContain('{{location}}');
+    expect(out.briefingMap.get('it:0')).toContain('ruolo-0');
+  });
 });
 
 describe('buildLocaleBriefingPrompt', () => {

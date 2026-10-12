@@ -13,9 +13,9 @@ describe('newsletter AI phases — 700 cohorts, 4 locales, one Codex request at 
   it.each(results.map((r: any) => [r.scenario, r]))('%s: POST stays within the call and time budget', (_id, r: any) => {
     expect(r.post.phase2Calls - r.post.phase2Retries).toBeLessThanOrEqual(4);
     expect(r.post.phase2Retries).toBeLessThanOrEqual(4);
-    expect(r.post.phase3Calls).toBeLessThanOrEqual(4); // one call per locale for both subjects
+    expect(r.post.phase3Calls).toBe(0); // subjects are returned with the briefing
     expect(r.post.phase2Minutes).toBeLessThanOrEqual(r.budgetMinutes);
-    expect(r.post.phase3Minutes).toBeLessThanOrEqual(r.budgetMinutes);
+    expect(r.post.phase3Minutes).toBe(0);
     expect(r.post.subjects).toBe(8);
   });
 
@@ -38,10 +38,10 @@ describe('newsletter AI phases — 700 cohorts, 4 locales, one Codex request at 
     expect(r.post.localesOnAi).toBe(4);
   });
 
-  it('at the Codex ceiling the deadlines close both phases at 30 minutes and every cohort still has a briefing', () => {
+  it('at the Codex ceiling the combined phase closes at 30 minutes and every cohort still has a briefing', () => {
     const r = byId['codex-ceiling-600s-every-first-answer-too-short'];
     expect(r.post.phase2Minutes).toBe(30);
-    expect(r.post.phase3Minutes).toBe(30);
+    expect(r.post.phase3Minutes).toBe(0);
     expect(r.post.phase2DroppedAtDeadline).toBeGreaterThan(0);
     expect(r.post.cohortsOnFallback).toBe(700);
   });

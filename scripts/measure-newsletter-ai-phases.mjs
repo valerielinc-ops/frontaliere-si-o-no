@@ -2,8 +2,8 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
- * Measure the newsletter's AI phases (2: briefings, 3: subjects) before and
- * after the per-locale briefing, on the same input, against a simulated Codex
+ * Measure the newsletter's combined locale-content AI phase before and after
+ * the per-locale briefing optimization, on the same input, against a simulated Codex
  * broker. No network, no Firestore, no model.
  *
  * The broker is simulated because its behaviour, not the model's, decides the
@@ -17,12 +17,12 @@ import { realpathSync } from 'node:fs';
  * scenario runs, so an hour of broker time takes milliseconds.
  *
  * PRE replays the removed Phase 2 (batches of ≤3 cohorts per locale, one call
- * each, no deadline); POST runs the shipped composeCohortBriefings /
- * composeLocaleSubjects with generateLocaleBriefing / generateAISubjects.
+ * each, no deadline); POST runs the shipped composeCohortBriefings with the
+ * combined generateLocaleNewsletterContent response (briefing + subjects).
  *
  *   node scripts/measure-newsletter-ai-phases.mjs [--json]
  *
- * With `--lanes N` it measures instead Phases 2 and 3 one after the other
+ * With `--lanes N` it measures the historical Phases 2 and 3 one after the other
  * against the two together, on a broker with N parallel lanes
  * (measureNewsletterAiLanes), counting calls and prompt characters too, and
  * the two subject designs with the phases together: one call per locale ×
@@ -36,6 +36,7 @@ import {
   composeCohortBriefings,
   composeLocaleSubjects,
   generateAISubjects,
+  generateLocaleNewsletterContent,
   generateLocaleBriefing,
 } from './send-newsletter.mjs';
 import { buildSubjectPrompt } from '../services/newsletter-content.mjs';
@@ -51,6 +52,15 @@ const EXCHANGE = { rate: 1.0595, previousRate: 1.0557 };
 function subjectAnswer(opts) {
   const variants = opts.jsonSchema?.schema?.required || [];
   return JSON.stringify(Object.fromEntries(variants.map((v) => [v, '💼 Nuove offerte a Lugano questa settimana'])));
+}
+
+/** A combined locale response: shared briefing plus all subject templates. */
+function localeContentAnswer(opts, wordCount = 90) {
+  const variants = opts.jsonSchema?.schema?.properties?.subjects?.required || VARIANTS;
+  return JSON.stringify({
+    briefing: `<p>${Array.from({ length: wordCount }, (_, w) => `parola${w}`).join(' ')}.</p>`,
+    subjects: Object.fromEntries(variants.map((v) => [v, '📊 {{job_count}} aziende assumono a {{location}}'])),
+  });
 }
 
 function cohortsFor(total) {
@@ -123,8 +133,9 @@ function serializedBroker(clock, { serviceMs, shortFirstAttempt = false }) {
       throw new Error('Codex CLI timed out at the caller deadline');
     }
     const system = messages[0]?.content || '';
-    if (/email subject line/i.test(system)) return subjectAnswer(opts);
     const words = shortFirstAttempt && attempt === 1 ? 40 : 90;
+    if (opts.jsonSchema?.schema?.properties?.briefing || /single structured response/i.test(system)) return localeContentAnswer(opts, words);
+    if (/email subject line/i.test(system)) return subjectAnswer(opts);
     return `<p>${Array.from({ length: words }, (_, w) => `parola${w}`).join(' ')}.</p>`;
   }
   return { llm, stats };
@@ -184,21 +195,12 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
     const phase2 = await composeCohortBriefings(cohorts, {
       locales: LOCALES,
       exchangeRate: EXCHANGE,
-      generate: (loc) => generateLocaleBriefing({ locale: loc, exchangeRate: EXCHANGE, exchangeInsight: null, weeklyFact: null, featuredTool: null },
-        { deadlineMs: briefingDeadlineMs, llm: broker.llm }),
+      generate: (loc) => generateLocaleNewsletterContent({ locale: loc, exchangeRate: EXCHANGE, exchangeInsight: null, weeklyFact: null, featuredTool: null },
+        { deadlineMs: briefingDeadlineMs, llm: broker.llm, variants: VARIANTS }),
     });
     const phase2Ms = clock.now - t0;
     const phase2Calls = broker.stats.calls;
     const phase2Dropped = broker.stats.dropped;
-    const t1 = clock.now;
-    const subjectDeadlineMs = clock.now + AI_PHASE_BUDGET_MS;
-    const subjects = await composeLocaleSubjects(cohorts, {
-      locales: LOCALES,
-      variantIds: VARIANTS,
-      briefingMap: phase2.briefingMap,
-      exchangeRate: EXCHANGE,
-      generate: (ctx) => generateAISubjects(ctx, { deadlineMs: subjectDeadlineMs, llm: broker.llm }),
-    });
     return {
       phase2Calls,
       phase2Retries: phase2Calls - LOCALES.length,
@@ -206,10 +208,10 @@ async function post({ cohorts, serviceMs, shortFirstAttempt }) {
       localesOnAi: phase2.localeBriefings.size,
       cohortsOnFallback: phase2.fallbackCohorts,
       phase2DroppedAtDeadline: phase2Dropped,
-      phase3Calls: broker.stats.calls - phase2Calls,
-      phase3DroppedAtDeadline: broker.stats.dropped - phase2Dropped,
-      phase3Minutes: +((clock.now - t1) / 60_000).toFixed(1),
-      subjects: subjects.size,
+      phase3Calls: 0,
+      phase3DroppedAtDeadline: 0,
+      phase3Minutes: 0,
+      subjects: LOCALES.length * VARIANTS.length,
       cutAtDeadline: broker.stats.cut,
     };
   });
@@ -398,10 +400,10 @@ if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process
   if (process.argv.includes('--json')) {
     console.log(JSON.stringify(results, null, 2));
   } else {
-    console.log('| scenario | PRE Phase 2: calls, min | PRE Phase 3: calls, min | POST Phase 2: calls (retries, dropped at deadline), min | POST Phase 3: calls (dropped at deadline), min | POST locales on AI |');
-    console.log('|---|---|---|---|---|---|');
+    console.log('| scenario | PRE Phase 2: calls, min | PRE Phase 3: calls, min | POST combined content: calls (retries, dropped at deadline), min | POST locales on AI |');
+    console.log('|---|---|---|---|---|');
     for (const r of results) {
-      console.log(`| ${r.scenario} | ${r.pre.phase2Calls}, ${r.pre.phase2Minutes} | ${r.pre.phase3Calls}, ${r.pre.phase3Minutes} | ${r.post.phase2Calls} (${r.post.phase2Retries}, ${r.post.phase2DroppedAtDeadline}), ${r.post.phase2Minutes} | ${r.post.phase3Calls} (${r.post.phase3DroppedAtDeadline}), ${r.post.phase3Minutes} | ${r.post.localesOnAi}/${r.locales} |`);
+      console.log(`| ${r.scenario} | ${r.pre.phase2Calls}, ${r.pre.phase2Minutes} | ${r.pre.phase3Calls}, ${r.pre.phase3Minutes} | ${r.post.phase2Calls} (${r.post.phase2Retries}, ${r.post.phase2DroppedAtDeadline}), ${r.post.phase2Minutes} | ${r.post.localesOnAi}/${r.locales} |`);
     }
   }
   process.exit(0);

@@ -15,8 +15,8 @@ const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 // must not prefer Codex globally: send-newsletter did, and run 36407582573
 // spent 5h51 on ~672 serial calls and sent nothing.
 const BOUNDED_CODEX_PREFER = new Map([
-  // Phase 2/3: one briefing per locale + ≤8 subjects, each phase capped at
-  // AI_PHASE_BUDGET_MS (scripts/send-newsletter.mjs).
+  // Newsletter content: one combined briefing + subject-template response per
+  // locale, capped at AI_PHASE_BUDGET_MS (scripts/send-newsletter.mjs).
   ['send-newsletter.yml', 'O(locales), 30-minute budget per AI phase'],
   // One parser per dispatch, plus one regeneration on conflict.
   ['generate-company-parser.yml', 'one call per run'],

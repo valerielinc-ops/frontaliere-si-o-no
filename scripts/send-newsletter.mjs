@@ -34,7 +34,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildSubjectVariantsPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildLocaleBriefingPrompt, buildLocaleNewsletterContentPrompt, buildSubjectVariantsPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { inferInterest } from '../services/newsletter-segments.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
@@ -312,17 +312,71 @@ export async function generateLocaleBriefing(ctx, { deadlineMs, llm = callLLM } 
 }
 
 /**
- * Phase 2 composition: one AI briefing per locale (`generate(locale)` → HTML
- * or null), then each cohort's own jobs prepended by injectJobAndCompanyLinks.
- * A locale without an AI briefing uses the static template for its cohorts.
- * AI calls therefore scale with locales, never with cohorts.
+ * Generate the shared locale briefing and every A/B subject template in one
+ * AI call. The subject templates are rendered against each cohort's own jobs
+ * during assembly, so this keeps the locale-level call budget while making a
+ * job named in a subject come from the same data as the recipient's body.
+ * One retry: a malformed structured answer or a short briefing must not put
+ * the whole locale on partially generated content.
+ */
+export async function generateLocaleNewsletterContent(ctx, { deadlineMs, llm = callLLM, variants = listVariantIds() } = {}) {
+  const emptySubjects = Object.fromEntries(variants.map((variant) => [variant, null]));
+  if (!llm || variants.length === 0) return null;
+  const { system, user, jsonSchema } = buildLocaleNewsletterContentPrompt({ ...ctx, variants });
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    if (deadlineMs && Date.now() >= deadlineMs) break;
+    try {
+      const result = await llm([
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ], {
+        temperature: 0.7,
+        maxTokens: 900 + 80 * variants.length,
+        jsonSchema,
+        chain: NEWSLETTER_AI_CHAIN,
+        deadlineMs,
+      });
+      const answer = parseSubjectsAnswer(result);
+      if (!answer || typeof answer.briefing !== 'string') {
+        throw new Error(`no newsletter content object in the answer: ${String(result).slice(0, 120)}`);
+      }
+      const briefing = sanitizeAIBriefingHtml(answer.briefing);
+      if (!briefing) throw new Error('combined newsletter briefing failed quality gate');
+      const subjects = Object.fromEntries(variants.map((variant) => [
+        variant,
+        acceptAISubjectTemplate(answer.subjects?.[variant]),
+      ]));
+      return { briefing, subjects };
+    } catch (e) {
+      console.warn(`⚠️ AI newsletter content (${ctx.locale}) failed:`, e.message?.slice(0, 200));
+    }
+  }
+  return { briefing: null, subjects: emptySubjects };
+}
+
+/**
+ * Phase 2 composition: one AI locale-content response per locale
+ * (`generate(locale)` → HTML/string or `{ briefing, subjects }`), then each
+ * cohort's own jobs prepended by injectJobAndCompanyLinks. A locale without an
+ * AI briefing uses the static template for its cohorts. AI calls therefore
+ * scale with locales, never with cohorts.
  */
 export async function composeCohortBriefings(cohorts, { locales, generate, exchangeRate }) {
   const localeBriefings = new Map();
+  const localeContents = new Map();
   if (generate) {
     await pMap(locales, async (loc) => {
-      const html = await generate(loc);
-      if (html) localeBriefings.set(loc, html);
+      const content = await generate(loc);
+      const html = typeof content === 'string' ? content : content?.briefing;
+      if (content && typeof content === 'object') {
+        localeContents.set(loc, {
+          briefing: html || null,
+          subjects: content.subjects || {},
+        });
+      }
+      if (html) {
+        localeBriefings.set(loc, html);
+      }
     }, Math.min(locales.length, AI_CONCURRENCY));
   }
   const briefingMap = new Map();
@@ -334,7 +388,7 @@ export async function composeCohortBriefings(cohorts, { locales, generate, excha
     else fallbackCohorts++;
     briefingMap.set(key, cohortBriefingHtml(localeHtml, cohort, exchangeRate));
   }
-  return { briefingMap, localeBriefings, aiCohorts, fallbackCohorts };
+  return { briefingMap, localeBriefings, localeContents, aiCohorts, fallbackCohorts };
 }
 
 /**
@@ -401,9 +455,11 @@ export function newsletterSubjectKey(loc, variant) {
 
 /**
  * Phase 3 composition: the subjects of every A/B variant of a locale from ONE
- * AI call, written from the locale's largest cohort; `generate(ctx)` with
- * `ctx.variants` → `{ [variant]: subject | null }`, a null or missing subject
- * falling back to the variant's static subject. One call per locale.
+ * AI call. The largest cohort supplies the shared briefing context, but
+ * `sharedAcrossLocale` tells the prompt builder to exclude its personalized
+ * jobs and subscriber hints. `generate(ctx)` with `ctx.variants` returns
+ * `{ [variant]: subject | null }`, with a null or missing subject falling back
+ * to the variant's static subject. One call per locale.
  * Pass `briefingMap` (finished Phase 2) or `briefingFor` (Phase 2 running
  * alongside, see localeSubjectTheme).
  */
@@ -425,6 +481,7 @@ export async function composeLocaleSubjects(cohorts, { locales, variantIds, brie
       exchangeRate,
       matchedJobs: rep?.matchedJobs || [],
       briefingSummary: await localeSubjectTheme(rep, { briefingMap, briefingFor, exchangeRate }),
+      sharedAcrossLocale: true,
       variants: variantIds,
     });
     for (const variant of variantIds) {
@@ -749,6 +806,8 @@ function sanitizeAIBriefingHtml(raw) {
   return html;
 }
 
+const NEWSLETTER_SUBJECT_TEMPLATE_TOKEN = /\{\{(job_count|job_title|company|location)\}\}/g;
+
 /** An AI subject line as sent, or null when it is unusable. */
 export function acceptAISubject(text) {
   if (typeof text !== 'string') return null;
@@ -767,6 +826,47 @@ export function acceptAISubject(text) {
   // than to ship a grammatically broken one.
   if (raw.length > 55) return null;
   return raw;
+}
+
+/**
+ * An AI subject template, or null when the model returned unsupported
+ * placeholders/markup. The final 10..55 character gate runs after the
+ * recipient's job values have been substituted by renderNewsletterSubject.
+ */
+export function acceptAISubjectTemplate(text) {
+  if (typeof text !== 'string') return null;
+  const raw = text.trim().replace(/^["']|["']$/g, '');
+  if (raw.length < 10 || raw.length > 120 || /[\r\n<>]/.test(raw)) return null;
+  const withoutAllowedTokens = raw.replace(NEWSLETTER_SUBJECT_TEMPLATE_TOKEN, 'dato');
+  if (/\{\{|\}\}|[{}]/.test(withoutAllowedTokens)) return null;
+  if (!/[\p{L}]{3,}/u.test(withoutAllowedTokens)) return null;
+  return raw;
+}
+
+/**
+ * Fill a locale subject template with the exact jobs that will be rendered in
+ * the recipient's body. A malformed/overlong personalized result degrades to
+ * the existing static variant fallback rather than truncating a sentence.
+ */
+export function renderNewsletterSubject(template, { matchedJobs = [], locale = 'it', variant } = {}) {
+  const fallback = getVariantFallback(variant, locale);
+  if (typeof template !== 'string') return fallback;
+  const jobs = Array.isArray(matchedJobs) ? matchedJobs : [];
+  const job = jobs[0] || {};
+  let missingValue = false;
+  const values = {
+    job_count: jobs.length ? String(Math.min(jobs.length, NEWSLETTER_JOB_LIMIT)) : '',
+    job_title: job.title,
+    company: job.company,
+    location: job.location,
+  };
+  const rendered = template.replace(NEWSLETTER_SUBJECT_TEMPLATE_TOKEN, (_, token) => {
+    const value = String(values[token] || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (!value) missingValue = true;
+    return value;
+  });
+  if (missingValue) return fallback;
+  return acceptAISubject(rendered) || fallback;
 }
 
 /** The JSON object of a subjects answer: a string (fenced or not) or an already-parsed object. */
@@ -2486,68 +2586,49 @@ async function main() {
   }
   console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
 
-  // ── Phase 2: ONE AI briefing per locale, jobs paragraph per cohort ──
-  // The model writes only what a locale's readers share (exchange rate, weekly
-  // fact, featured tool); injectJobAndCompanyLinks then prepends each cohort's
-  // own jobs as a deterministic linked paragraph, as it already did for every
-  // fallback cohort. Cohorts are ~1:1 with subscribers because job sets are
-  // personalised (255 → 217, 109 → 96), so the former batches of ≤3 cohorts
-  // meant one serialized Codex call per ~3 recipients: 73 calls and 2h21 for
-  // 255 recipients (run 36230809455), ~700 calls for the 2119 cohorts of a
-  // fresh Monday campaign (run 35582069095).
-  // From the cohorts, so no locale is asked for without a cohort to use it.
+  // ── Phase 2: ONE combined AI content response per locale ──
+  // The model writes the shared editorial briefing and all A/B subject
+  // templates together. injectJobAndCompanyLinks then prepends each cohort's
+  // own jobs, and Phase 5 fills the subject templates from those exact jobs.
+  // This keeps the locale-level call budget even though job sets are
+  // personalised (255 → 217, 109 → 96), instead of returning to the old
+  // per-cohort AI calls that took 73 calls / 2h21 for 255 recipients and ~700
+  // calls for a 2119-cohort Monday campaign.
   const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
 
-  // ── Phase 3: Generate the AI subjects of every A/B variant, 1 call per locale ──
-  // Subject-line A/B test: one subject per (locale, variant) so each subscriber
-  // gets the subject for their deterministically-assigned variant (Phase 5).
-  // One AI call writes every variant of a locale (≤4 calls), not per-sub.
-  //
-  // Phases 2 and 3 run together. A subject reads only the first 100 characters
-  // of its locale's largest cohort briefing, and those are that cohort's jobs
-  // paragraph whenever it has jobs, so it waits for the locale's AI text only
-  // when the Theme depends on it (localeSubjectTheme). With parallel broker
-  // lanes the subjects fill the lanes the briefings leave idle.
   const variantIds = listVariantIds();
   const subjectKey = newsletterSubjectKey;
-  console.log(`🧠 Phase 2: AI briefings (1 per locale: ${locales.join(', ')}), with ✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
+  console.log(`🧠 Phase 2: combined AI content (1 call per locale: ${locales.join(', ')}; ${variantIds.length} subject templates/locale)...`);
   const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
-  const localeBriefingCalls = new Map();
-  // One AI call per locale, shared by Phase 2 and by the subjects that wait for it.
-  const briefingFor = noAI ? null : (loc) => {
-    if (!localeBriefingCalls.has(loc)) {
-      localeBriefingCalls.set(loc, generateLocaleBriefing({
+  const localeContentCalls = new Map();
+  const contentFor = noAI ? null : (loc) => {
+    if (!localeContentCalls.has(loc)) {
+      localeContentCalls.set(loc, generateLocaleNewsletterContent({
         locale: loc,
         exchangeRate, exchangeInsight,
         weeklyFact: getWeeklyFact(loc),
         featuredTool: getFeaturedToolForLocale(loc),
-      }, { deadlineMs: briefingDeadlineMs }));
+      }, { deadlineMs: briefingDeadlineMs, variants: variantIds }));
     }
-    return localeBriefingCalls.get(loc);
+    return localeContentCalls.get(loc);
   };
-  const phase2 = composeCohortBriefings(cohorts, { locales, exchangeRate, generate: briefingFor });
-  const phase3 = (async () => {
-    const subjects = new Map();
-    if (subjectOverride) {
-      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), subjectOverride);
-      return subjects;
+  const { briefingMap, localeBriefings, localeContents, aiCohorts, fallbackCohorts } = await composeCohortBriefings(cohorts, {
+    locales,
+    exchangeRate,
+    generate: contentFor,
+  });
+  const subjectMap = new Map();
+  for (const loc of locales) {
+    for (const variant of variantIds) {
+      const template = localeContents.get(loc)?.subjects?.[variant];
+      subjectMap.set(subjectKey(loc, variant), template || getVariantFallback(variant, loc));
     }
-    if (noAI) {
-      for (const loc of locales) for (const v of variantIds) subjects.set(subjectKey(loc, v), getVariantFallback(v, loc));
-      return subjects;
-    }
-    const subjectDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
-    return composeLocaleSubjects(cohorts, {
-      locales,
-      variantIds,
-      briefingFor,
-      exchangeRate,
-      generate: (subjectCtx) => generateAISubjects(subjectCtx, { deadlineMs: subjectDeadlineMs }),
-    });
-  })();
-  const [{ briefingMap, localeBriefings, aiCohorts, fallbackCohorts }, subjectMap] = await Promise.all([phase2, phase3]);
+  }
+  if (subjectOverride) {
+    for (const loc of locales) for (const variant of variantIds) subjectMap.set(subjectKey(loc, variant), subjectOverride);
+  }
   console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
-  console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
+  console.log(`  ✓ ${subjectMap.size} subject templates: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
   console.log('🔑 Phase 4: Autologin codes (HMAC)...');
@@ -2578,6 +2659,11 @@ async function main() {
   // Per-user send-time (#3798): tally so the dry-run/preview table + the
   // post-send log can report immediate vs scheduled, broken down by source.
   const scheduleTally = { immediate: 0, personal: 0, global: 0 };
+  // Provider-level winner promotion happens after assembly. Keep the already
+  // rendered subject variants by recipient so a promoted variant still uses
+  // that recipient's own jobs, without putting internal data on provider
+  // payloads.
+  const subjectVariantsByEmail = new Map();
 
   for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant, rankingAffinityProfile } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
@@ -2586,8 +2672,17 @@ async function main() {
     // subject, then the variant fallback, so a missing (locale,variant) entry
     // can never leave subject undefined.
     const variant = assignSubjectVariant(subscriber.email, campaignId, { promotedVariant, epsilon: DEFAULT_EPSILON });
-    const subject = subjectMap.get(subjectKey(locale, variant))
-      || subjectMap.get(subjectKey(locale, variantIds[0]))
+    const renderedSubjects = Object.fromEntries(variantIds.map((subjectVariant) => [
+      subjectVariant,
+      renderNewsletterSubject(subjectMap.get(subjectKey(locale, subjectVariant)), {
+        matchedJobs,
+        locale,
+        variant: subjectVariant,
+      }),
+    ]));
+    subjectVariantsByEmail.set(normalizeEmail(subscriber.email), renderedSubjects);
+    const subject = renderedSubjects[variant]
+      || renderedSubjects[variantIds[0]]
       || getVariantFallback(variant, locale);
 
     // Segment content assembly (#4299): engagement level x inferred interest
@@ -2740,7 +2835,7 @@ async function main() {
 
   console.log(`📅 Per-user send-time: ${scheduleTally.personal + scheduleTally.global} scheduled (personal=${scheduleTally.personal}, global=${scheduleTally.global}), ${scheduleTally.immediate} immediate`);
 
-  console.log(`\n🧠 AI stats: ${localeBriefings.size}/${locales.length} locale briefings for ${cohorts.size} cohorts (${fallbackCohorts} on the fallback template), ${subjectMap.size} subjects`);
+  console.log(`\n🧠 AI stats: ${localeBriefings.size}/${locales.length} combined locale responses for ${cohorts.size} cohorts (${fallbackCohorts} on the fallback template), ${subjectMap.size} subject templates`);
 
   // ── Inline QA check on first email ──
   if (emails.length > 0) {
@@ -2812,8 +2907,15 @@ async function main() {
       if (!promoted) return; // nothing significant for this provider → keep default
       const loc = payload.tags?.find((t) => t.name === 'subscriber_locale')?.value || 'it';
       const variant = assignSubjectVariant(email, campaignId, { promotedVariant: promoted, epsilon: DEFAULT_EPSILON });
-      payload.subject = subjectMap.get(subjectKey(loc, variant))
-        || subjectMap.get(subjectKey(loc, variantIds[0]))
+      const renderedSubjects = subjectVariantsByEmail.get(normalizeEmail(email));
+      const fallbackTemplateSubject = renderNewsletterSubject(subjectMap.get(subjectKey(loc, variant)), {
+        locale: loc,
+        variant,
+        matchedJobs: [],
+      });
+      payload.subject = renderedSubjects?.[variant]
+        || renderedSubjects?.[variantIds[0]]
+        || fallbackTemplateSubject
         || getVariantFallback(variant, loc);
       const vtag = payload.tags?.find((t) => t.name === 'variant');
       if (vtag) vtag.value = variant;
