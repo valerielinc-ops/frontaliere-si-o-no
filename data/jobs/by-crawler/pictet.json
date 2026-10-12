@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-12T09:24:20.211Z",
+  "assembledAt": "2026-10-12T21:17:38.977Z",
   "jobs": [
     {
       "id": "pictet-ae25ab40e2d8",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125179&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:14.384Z",
+      "crawledAt": "2026-10-12T21:17:33.355Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -74,7 +74,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "pictet-e5e666c24adc",
@@ -83,7 +84,7 @@
         "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
         "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
-        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+        "fr": "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -107,7 +108,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125183&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:13.398Z",
+      "crawledAt": "2026-10-12T21:17:32.374Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,7 +130,7 @@
       "previousSlugs": [
         "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
         "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+        "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -137,7 +138,7 @@
         ],
         "fr": [
           "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
-          "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+          "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:18:07.156Z",
@@ -163,7 +164,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "fr": "compliance-officer-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -187,7 +188,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125189&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:12.891Z",
+      "crawledAt": "2026-10-12T21:17:31.855Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -208,14 +209,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "compliance-officer-pictet-group-geneva"
+        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "compliance-officer-pictet-group-geneva"
+          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
@@ -264,7 +265,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125195&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:11.804Z",
+      "crawledAt": "2026-10-12T21:17:30.721Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -305,7 +306,237 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "1204",
+      "needsRetranslation": true
+    },
+    {
+      "id": "pictet-0e2e687084f8",
+      "slug": "derivatives-products-reconciliation-specialista-pictet-group-geneva",
+      "slugByLocale": {
+        "it": "derivatives-products-reconciliation-specialista-pictet-group-geneva",
+        "en": "derivatives-products-reconciliation-specialist-pictet-geneva",
+        "de": "derivatives-products-reconciliation-spezialist-pictet-group-geneva",
+        "fr": "derivatives-products-reconciliation-specialiste-pictet-group-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Derivatives Products Reconciliation Specialist",
+      "titleByLocale": {
+        "it": "Derivatives Products Reconciliation Specialista",
+        "en": "Derivatives Products Reconciliation Specialist",
+        "de": "Derivatives Products Reconciliation Spezialist",
+        "fr": "Derivatives Products Reconciliation Spécialiste"
+      },
+      "description": "Your team\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nWithin the Reconciliation Department, you will join the Derivatives Reconciliation team, which is responsible for the daily reconciliation and monitoring of all listed and OTC derivatives transactions, including collateral and the cash movements related to these activities.\n\nYour role\n\n• Perform daily reconciliations and follow up of ETD and OTC derivatives transactions, positions, cash and collateral, and resolve breaks and pending items.\n• Ensure the accuracy, completeness and consistency of all reconciliation outputs.\n• Apply internal procedures and control standards in line with applicable regulatory requirements.\n• Share relevant information with team members and stakeholders in a clear and timely manner.\n• Handle queries related to derivatives reconciliations and provide professional support to internal and external counterparts.\n• Identify and propose process improvements to streamline workflows and strengthen controls.\n• Maintain accurate and up to date procedures, process documentation and reconciliation records.\n• Investigate operational issues, contribute to root cause analyses and support corrective actions.\n• Proactively identify, assess and escalate operational risks linked to derivatives reconciliations.\n\nYour profile\n\n• Bachelor’s degree in finance/economics or equivalent work experience in the financial industry.\n• 3–6 years’ experience in banking operations or asset servicing; previous exposure to derivatives products and/or reconciliations is a strong asset.\n• Strong interest in derivatives and good understanding of their mechanics (listed and OTC).\n• Very good analytical skills, high attention to detail and ability to manage priorities and handle critical situations.\n• Client and service oriented mindset, with the ability to understand stakeholder needs and provide high quality support.\n• Strong team spirit, adaptability and willingness to learn in a changing technological and regulatory environment.\n• Good digital literacy and interest in innovation; keen to use and suggest new technological solutions to improve processes.\n• Fluent in English (spoken and written); any additional language is an advantage.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDPRS/DD/MSC\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "it": "La tua squadra\n\nLe operazioni forniscono un trattamento sicuro ed efficiente delle transazioni bancarie e dei fondi di investimento di Pictet. I nostri team assicurano che tutte le attività seguano le normative e gestiscano i rischi.\nSviluppando e mantenendo un'infrastruttura moderna e robusta, garantiamo servizi affidabili e di alta qualità per la gestione della ricchezza Pictet, la gestione degli asset e i clienti immobiliari.\n\nAll'interno del Dipartimento di Riconciliazione, si unirà al team di Riconciliazione Derivatives, che è responsabile della riconciliazione quotidiana e del monitoraggio di tutte le transazioni derivate OTC e quotate, inclusi i movimenti collaterali e di cassa relativi a queste attività.\n\nIl tuo ruolo\n\n• Eseguire le conciliazioni quotidiane e seguire le transazioni, le posizioni, i contanti e le garanzie dei derivati ETD e OTC e risolvere le rotture e gli elementi in sospeso.\n• Assicurare l'accuratezza, la completezza e la coerenza di tutte le uscite di riconciliazione.\n• Applicare procedure interne e standard di controllo in linea con i requisiti normativi applicabili.\n• Condividi le informazioni pertinenti con i membri del team e gli stakeholder in modo chiaro e tempestivo.\n• Le query della maniglia relative alle conciliazioni dei derivati e forniscono supporto professionale alle controparti interne ed esterne.\n• Identificare e proporre miglioramenti di processo per semplificare i flussi di lavoro e rafforzare i controlli.\n• Mantenere procedure accurate e aggiornate, documentazione di processo e registri di riconciliazione.\n• Indaga le questioni operative, contribuisca ad analizzare e sostenere le azioni correttive.\n• Identificare, valutare ed escalare i rischi operativi legati alle riconciliazione dei derivati.\n\nIl tuo profilo\n\n• Laurea in finanza / economia o esperienza lavorativa equivalente nel settore finanziario.\n• L’esperienza di 3–6 anni nelle operazioni bancarie o nella manutenzione degli asset; l’esposizione precedente ai prodotti derivati e/o alle conciliazioni è un bene forte.\n• Forte interesse nei derivati e buona comprensione della loro meccanica (listed e OTC).\n• Competenze analitiche molto buone, alta attenzione ai dettagli e capacità di gestire le priorità e gestire situazioni critiche.\n• Mindset orientato al cliente e al servizio, con la capacità di comprendere le esigenze degli stakeholder e fornire un supporto di alta qualità.\n• Forte spirito di squadra, adattabilità e disponibilità ad imparare in un ambiente tecnologico e normativo in evoluzione.\n• Buona alfabetizzazione digitale e interesse per l'innovazione; desiderosi di utilizzare e suggerire nuove soluzioni tecnologiche per migliorare i processi.\n• Fluente in inglese (spoken e scritto); qualsiasi lingua aggiuntiva è un vantaggio.\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDPR/DD/MSC\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nWithin the Reconciliation Department, you will join the Derivatives Reconciliation team, which is responsible for the daily reconciliation and monitoring of all listed and OTC derivatives transactions, including collateral and the cash movements related to these activities.\n\nYour role\n\n• Perform daily reconciliations and follow up of ETD and OTC derivatives transactions, positions, cash and collateral, and resolve breaks and pending items.\n• Ensure the accuracy, completeness and consistency of all reconciliation outputs.\n• Apply internal procedures and control standards in line with applicable regulatory requirements.\n• Share relevant information with team members and stakeholders in a clear and timely manner.\n• Handle queries related to derivatives reconciliations and provide professional support to internal and external counterparts.\n• Identify and propose process improvements to streamline workflows and strengthen controls.\n• Maintain accurate and up to date procedures, process documentation and reconciliation records.\n• Investigate operational issues, contribute to root cause analyses and support corrective actions.\n• Proactively identify, assess and escalate operational risks linked to derivatives reconciliations.\n\nYour profile\n\n• Bachelor’s degree in finance/economics or equivalent work experience in the financial industry.\n• 3–6 years’ experience in banking operations or asset servicing; previous exposure to derivatives products and/or reconciliations is a strong asset.\n• Strong interest in derivatives and good understanding of their mechanics (listed and OTC).\n• Very good analytical skills, high attention to detail and ability to manage priorities and handle critical situations.\n• Client and service oriented mindset, with the ability to understand stakeholder needs and provide high quality support.\n• Strong team spirit, adaptability and willingness to learn in a changing technological and regulatory environment.\n• Good digital literacy and interest in innovation; keen to use and suggest new technological solutions to improve processes.\n• Fluent in English (spoken and written); any additional language is an advantage.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDPRS/DD/MSC\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Dein Team\n\nOperationen bieten eine sichere und effiziente Verarbeitung der Bankgeschäfte und Investmentfonds von Pictet. Unsere Teams stellen sicher, dass alle Aktivitäten den Vorschriften entsprechen und Risiken managen.\nDurch die Entwicklung und Pflege einer modernen, robusten Infrastruktur garantieren wir zuverlässige, qualitativ hochwertige Dienstleistungen für Pictet Wealth Management, Asset Management und Immobilienkunden.\n\nInnerhalb der Reconciliation-Abteilung treten Sie dem Derivatives Reconciliation-Team bei, das für den täglichen Abgleich und die Überwachung aller börsennotierten und OTC-Derivatetransaktionen, einschließlich Sicherheiten und der mit diesen Aktivitäten verbundenen Bargeldbewegungen, verantwortlich ist.\n\nDeine Rolle\n\n• Führen Sie tägliche Abgleiche und Follow-up von ETD- und OTC-Derivatetransaktionen, Positionen, Bargeld und Sicherheiten durch und lösen Sie Pausen und ausstehende Posten.\n• Gewährleistung der Genauigkeit, Vollständigkeit und Konsistenz aller Abstimmungsergebnisse.\n• Anwendung interner Verfahren und Kontrollnormen im Einklang mit den geltenden regulatorischen Anforderungen.\n• Teilen Sie relevante Informationen mit Teammitgliedern und Stakeholdern auf klare und zeitnahe Weise.\n• Bearbeitung von Anfragen im Zusammenhang mit Derivateabgleichen und professionelle Unterstützung für interne und externe Partner.\n• Identifizieren und Vorschlagen von Prozessverbesserungen, um Workflows zu optimieren und Kontrollen zu stärken.\n• Pflegen Sie genaue und aktuelle Verfahren, Prozessdokumentation und Abgleichaufzeichnungen.\n• Untersuchen Sie operative Probleme, tragen Sie zu Ursachenanalysen bei und unterstützen Sie Korrekturmaßnahmen.\n• Proaktive Ermittlung, Bewertung und Eskalation operationeller Risiken im Zusammenhang mit Derivateabgleichen.\n\nDein Profil\n\n• Bachelor-Abschluss in Finanzen / Wirtschaft oder gleichwertige Berufserfahrung in der Finanzbranche.\n• 3-6 Jahre Erfahrung im Bankgeschäft oder im Asset Servicing; frühere Risikopositionen gegenüber Derivaten und/oder Abgleichen sind ein starker Vermögenswert.\n• Starkes Interesse an Derivaten und gutes Verständnis ihrer Mechanik (notiert und OTC).\n• Sehr gute analytische Fähigkeiten, hohe Liebe zum Detail und Fähigkeit, Prioritäten zu verwalten und kritische Situationen zu bewältigen.\n• Kunden- und serviceorientierte Denkweise mit der Fähigkeit, die Bedürfnisse der Stakeholder zu verstehen und qualitativ hochwertigen Support zu bieten.\n• Starker Teamgeist, Anpassungsfähigkeit und Lernbereitschaft in einem sich verändernden technologischen und regulatorischen Umfeld.\n• Gute digitale Kompetenz und Interesse an Innovation; daran interessiert, neue technologische Lösungen zur Verbesserung von Prozessen zu nutzen und vorzuschlagen.\n• fließend Englisch (gesprochen und geschrieben); jede zusätzliche Sprache ist von Vorteil.\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nDPRS/DD/MSC\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
+        "fr": "Votre équipe\n\nLes opérations assurent un traitement sûr et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes s'assurent que toutes les activités suivent les règlements et gèrent les risques.\nEn développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et les clients immobiliers de Pictet.\n\nAu sein du Service de réconciliation, vous rejoindrez l'équipe de réconciliation des dérivés, qui est responsable du rapprochement et du suivi quotidiens de toutes les opérations sur dérivés cotées et de gré à gré, y compris les garanties et les mouvements de trésorerie liés à ces activités.\n\nVotre rôle\n\n• Effectuer des rapprochements quotidiens et le suivi des transactions sur dérivés ETD et OTC, des positions, de l'encaisse et des garanties, et résoudre les ruptures et les éléments en attente.\n• Assurer l'exactitude, l'exhaustivité et la cohérence de tous les produits de rapprochement.\n• Appliquer les procédures internes et les normes de contrôle conformément aux exigences réglementaires applicables.\n• Partager l'information pertinente avec les membres de l'équipe et les intervenants de façon claire et opportune.\n• Traiter les questions relatives aux rapprochements de produits dérivés et fournir un soutien professionnel aux homologues internes et externes.\n• Identifier et proposer des améliorations des processus pour rationaliser les flux de travail et renforcer les contrôles.\n• Maintenir des procédures exactes et à jour, la documentation du processus et les dossiers de rapprochement.\n• Étudier les questions opérationnelles, contribuer aux analyses des causes profondes et appuyer les mesures correctives.\n• Identifier, évaluer et augmenter les risques opérationnels liés aux rapprochements dérivés.\n\nVotre profil\n\n• Baccalauréat en finance/économie ou expérience de travail équivalente dans le secteur financier.\n• 3 à 6 ans d'expérience dans les opérations bancaires ou le service d'actifs; l'exposition antérieure aux produits dérivés et/ou aux rapprochements est un actif solide.\n• Intérêt marqué pour les dérivés et bonne compréhension de leur mécanique (énuméré et OTC).\n• De très bonnes compétences analytiques, une grande attention aux détails et la capacité de gérer les priorités et de gérer les situations critiques.\n• L'état d'esprit du client et du service, capable de comprendre les besoins des intervenants et de fournir un soutien de haute qualité.\n• Solide esprit d'équipe, adaptabilité et volonté d'apprendre dans un environnement technologique et réglementaire en évolution.\n• Bonnes connaissances numériques et intérêt pour l'innovation; désireux d'utiliser et de proposer de nouvelles solutions technologiques pour améliorer les processus.\n• Fluent en anglais (parlé et écrit); toute langue supplémentaire est un avantage.\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nRMR/DD/CSM\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-12T21:17:30.208Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
+      "jobReqId": "125203",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "derivatives-products-reconciliation-specialist-pictet-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "derivatives-products-reconciliation-specialist-pictet-geneva"
+        ],
+        "de": [
+          "derivatives-products-reconciliation-specialist-pictet-geneva"
+        ],
+        "fr": [
+          "derivatives-products-reconciliation-specialist-pictet-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-08T21:26:11.126Z",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
       "postalCode": "1204"
+    },
+    {
+      "id": "pictet-cb0dff47dc77",
+      "slug": "medio-ufficiale-forex-securities-pictet-group-geneva",
+      "slugByLocale": {
+        "it": "medio-ufficiale-forex-securities-pictet-group-geneva",
+        "en": "middle-officer-forex-securities-pictet-geneva",
+        "de": "middle-officer-forex-securities-pictet-geneva",
+        "fr": "agent-intermediaire-forex-securities-pictet-group-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Middle Officer - Forex & Securities (12-month fixed-term contract)",
+      "titleByLocale": {
+        "it": "Middle Officer - Forex & Securities (12-month fixed-term contract)",
+        "en": "Middle Officer - Forex & Securities (12-month fixed-term contract)",
+        "de": "Middle Officer - Forex & Wertpapiere",
+        "fr": "Agent intermédiaire - Forex & Securities"
+      },
+      "description": "Your team\n\nPictet Trading & Sales (PTS) provides direct access to global markets, offering bespoke trading solutions across a wide range of asset classes. Our teams of sales traders, IT specialists, strategists and quant analysts are assisted by a full suite of risk and control functions as well as the latest technology.\n\nPTS is looking to hire a Middle Officer – Forex, Securities and Securities Lending for a 12-month period to join a large team of professionals in the middle office of our trading floor. This position combines day-to-day operational responsibilities with a clear mandate to help automate and streamline the activities covered by the role. You will be responsible for booking and controlling PTS securities lending and related collateral activities. In a second step, you will also reconcile FX transactions and positions between the position-keeping system and the booking system, as well as perform troubleshooting.\n\nYour role\n\n• Monitoring and controlling securities lending transactions, positions and returns.\n• Monitoring the receipt and delivery of collateral with counterparties.\n• Investigating and resolving issues on collateral and returns.\n• Contributing to process automation and efficiency improvements using programming and AI-based tools (e.g. for reconciliations, controls and reporting).\n• Providing high-quality service with internal entities such as PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. and Tech & Ops.\n• As a secondary role, supporting FX controls by investigating booking errors, reconciling FX transactions and positions, and helping to ensure STP for FX instruments such as options and NDFs.\n\nYour profile\n\n• Prior professional experience in the banking industry is an asset.\n• Good knowledge of banking operations; knowledge of securities and lending is a plus.\n• Knowledge of Avaloq and Excel.\n• Basic programming skills (e.g. Python, VBA or similar) and strong interest in using data and AI tools to improve processes.\n• Strong organisation and priority-management skills.\n• Diligent and able to work under pressure.\n• Team player.\n• Fluent in French with a good grasp of English.\n\n• Swiss residency or willingness to relocate.\n\nFor this opportunity, we are looking for a conscientious person and strong communicator, motivated to learn more about securities lending as well as Forex activities within a cohesive team, and keen to leverage programming and AI tools in a middle-office environment.\n\nStart date: between October 2026 and January 2027\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "it": "La tua squadra\n\nPictet Trading & Sales (PTS) offre l'accesso diretto ai mercati globali, offrendo soluzioni di trading su misura in una vasta gamma di classi di asset. I nostri team di commercianti di vendita, specialisti IT, strateghi e analisti quantistici sono assistiti da una suite completa di funzioni di rischio e di controllo, così come l'ultima tecnologia.\n\nPTS sta cercando di assumere un Middle Officer – Forex, Securities e Securities Lending per un periodo di 12 mesi per unire un grande team di professionisti nel centro del nostro piano di trading. Questa posizione combina responsabilità operative quotidiane con un chiaro mandato per aiutare a automatizzare e snellire le attività coperte dal ruolo. Sarà responsabile della prenotazione e del controllo dei prestiti titoli PTS e delle relative attività collaterali. In un secondo passo, si riconciliano anche transazioni e posizioni FX tra il sistema di controllo della posizione e il sistema di prenotazione, così come eseguire la risoluzione dei problemi.\n\nIl tuo ruolo\n\n• Monitoraggio e controllo delle operazioni di prestito titoli, posizioni e rendimenti.\n• Monitoraggio della ricezione e consegna di garanzie con controparti.\n• Investigare e risolvere problemi di garanzie e rendimenti.\n• Contribuire al processo di automazione e miglioramento dell'efficienza utilizzando strumenti di programmazione e basati su AI (ad esempio per riconciliazione, controlli e reporting).\n• Fornire un servizio di alta qualità con entità interne come PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. e Tech & Ops.\n• Come ruolo secondario, supportando i controlli FX indagando errori di prenotazione, riconciliando transazioni e posizioni FX, e aiutando a garantire STP per strumenti FX come opzioni e NDF.\n\nIl tuo profilo\n\n• La prima esperienza professionale nel settore bancario è un bene.\n• Buona conoscenza delle operazioni bancarie; la conoscenza dei titoli e dei prestiti è un plus.\n• Conoscenza di Avaloq ed Excel.\n• Competenze di programmazione di base (ad esempio Python, VBA o simili) e forte interesse nell'utilizzo di dati e strumenti AI per migliorare i processi.\n• Forte organizzazione e competenze di gestione prioritaria.\n• Diligente e capace di lavorare sotto pressione.\n• Giocatore di squadra.\n• Fluente in francese con una buona presa di inglese.\n\n• Residenza svizzera o volontà di trasferirsi.\n\nPer questa opportunità, stiamo cercando una persona coscienziosa e un forte comunicatore, motivato a saperne di più sui prestiti di titoli e le attività di Forex all'interno di un team coeso, e desideroso di sfruttare strumenti di programmazione e AI in un ambiente di middle-office.\n\nData di inizio: tra ottobre 2026 e gennaio 2027\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nPictet Trading & Sales (PTS) provides direct access to global markets, offering bespoke trading solutions across a wide range of asset classes. Our teams of sales traders, IT specialists, strategists and quant analysts are assisted by a full suite of risk and control functions as well as the latest technology.\n\nPTS is looking to hire a Middle Officer – Forex, Securities and Securities Lending for a 12-month period to join a large team of professionals in the middle office of our trading floor. This position combines day-to-day operational responsibilities with a clear mandate to help automate and streamline the activities covered by the role. You will be responsible for booking and controlling PTS securities lending and related collateral activities. In a second step, you will also reconcile FX transactions and positions between the position-keeping system and the booking system, as well as perform troubleshooting.\n\nYour role\n\n• Monitoring and controlling securities lending transactions, positions and returns.\n• Monitoring the receipt and delivery of collateral with counterparties.\n• Investigating and resolving issues on collateral and returns.\n• Contributing to process automation and efficiency improvements using programming and AI-based tools (e.g. for reconciliations, controls and reporting).\n• Providing high-quality service with internal entities such as PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. and Tech & Ops.\n• As a secondary role, supporting FX controls by investigating booking errors, reconciling FX transactions and positions, and helping to ensure STP for FX instruments such as options and NDFs.\n\nYour profile\n\n• Prior professional experience in the banking industry is an asset.\n• Good knowledge of banking operations; knowledge of securities and lending is a plus.\n• Knowledge of Avaloq and Excel.\n• Basic programming skills (e.g. Python, VBA or similar) and strong interest in using data and AI tools to improve processes.\n• Strong organisation and priority-management skills.\n• Diligent and able to work under pressure.\n• Team player.\n• Fluent in French with a good grasp of English.\n\n• Swiss residency or willingness to relocate.\n\nFor this opportunity, we are looking for a conscientious person and strong communicator, motivated to learn more about securities lending as well as Forex activities within a cohesive team, and keen to leverage programming and AI tools in a middle-office environment.\n\nStart date: between October 2026 and January 2027\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Dein Team\n\nPictet Trading & Sales (PTS) bietet direkten Zugang zu globalen Märkten und bietet maßgeschneiderte Handelslösungen für eine Vielzahl von Anlageklassen. Unsere Teams aus Vertriebshändlern, IT-Spezialisten, Strategen und Quant-Analysten werden durch eine ganze Reihe von Risiko- und Kontrollfunktionen sowie die neueste Technologie unterstützt.\n\nPTS sucht einen Mittleren Offizier - Forex, Wertpapiere und Wertpapierkredite für einen Zeitraum von 12 Monaten, um einem großen Team von Fachleuten im mittleren Büro unseres Handelssaals beizutreten. Diese Position kombiniert die täglichen operativen Verantwortlichkeiten mit einem klaren Mandat, um die von der Rolle abgedeckten Aktivitäten zu automatisieren und zu rationalisieren. Sie sind für die Buchung und Kontrolle von PTS-Wertpapierleihen und damit verbundenen Sicherheitenaktivitäten verantwortlich. In einem zweiten Schritt werden Sie auch FX-Transaktionen und -Positionen zwischen dem Positionswahrungssystem und dem Buchungssystem abgleichen und eine Fehlerbehebung durchführen.\n\nDeine Rolle\n\n• Überwachung und Kontrolle von Wertpapierleihgeschäften, Positionen und Renditen.\n• Überwachung des Eingangs und der Lieferung von Sicherheiten an die Gegenparteien.\n• Untersuchung und Lösung von Fragen zu Sicherheiten und Renditen.\n• Beitrag zur Prozessautomatisierung und Effizienzsteigerung durch Programmierung und KI-basierte Tools (z.B. für Abgleiche, Kontrollen und Reporting).\n• Bereitstellung von qualitativ hochwertigem Service mit internen Einheiten wie PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. und Tech & Ops.\n• Als sekundäre Rolle unterstützt FX-Kontrollen durch die Untersuchung von Buchungsfehlern, die Abstimmung von FX-Transaktionen und -Positionen und die Sicherstellung von STP für FX-Instrumente wie Optionen und NDFs.\n\nDein Profil\n\n• Berufserfahrung im Bankensektor ist ein Gewinn.\n• Gute Kenntnisse über Bankgeschäfte; Kenntnisse über Wertpapiere und Kreditvergabe sind ein Plus.\n• Kenntnisse von Avaloq und Excel.\n• Grundlegende Programmierkenntnisse (z. B. Python, VBA oder ähnliches) und großes Interesse am Einsatz von Daten und KI-Tools zur Verbesserung von Prozessen.\n• Starke Organisations- und Prioritätsmanagementfähigkeiten.\n• Fleißig und fähig unter Druck zu arbeiten.\n• Teamplayer.\n• Fließend Französisch mit einem guten Verständnis von Englisch.\n\n• Schweizer Wohnsitz oder Umzugsbereitschaft.\n\nFür diese Gelegenheit suchen wir nach einer gewissenhaften Person und einem starken Kommunikator, der motiviert ist, mehr über Wertpapierleihen sowie Forex-Aktivitäten innerhalb eines zusammenhängenden Teams zu erfahren und Programmier- und KI-Tools in einer mittleren Büroumgebung zu nutzen.\n\nStartdatum: zwischen Oktober 2026 und Januar 2027\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
+        "fr": "Votre équipe\n\nPictet Trading & Sales (PTS) offre un accès direct aux marchés mondiaux, offrant des solutions de trading sur mesure pour une large gamme de classes d'actifs. Nos équipes de traders commerciaux, de spécialistes de l'informatique, de stratèges et d'analystes quantiques sont assistées par une gamme complète de fonctions de risque et de contrôle ainsi que par les dernières technologies.\n\nPTS cherche à embaucher un agent intermédiaire – Forex, Securities and Securities Lending pour une période de 12 mois pour rejoindre une grande équipe de professionnels dans le bureau intermédiaire de notre plate-forme de négociation. Ce poste combine les responsabilités opérationnelles quotidiennes avec un mandat clair pour aider à automatiser et à rationaliser les activités visées par le rôle. Vous serez responsable de la réservation et du contrôle des prêts de titres PTS et des activités de garantie connexes. Dans un second temps, vous rapprocherez également les transactions et les positions FX entre le système de gestion des positions et le système de réservation, et effectuerez le dépannage.\n\nVotre rôle\n\n• Surveiller et contrôler les opérations, les positions et les rendements des prêts de titres.\n• Surveillance de la réception et de la livraison des garanties auprès des contreparties.\n• Enquêter et résoudre les problèmes liés aux garanties et aux rendements.\n• Contribuer à l'automatisation des processus et à l'amélioration de l'efficacité à l'aide d'outils de programmation et d'IA (p. ex. pour les rapprochements, les contrôles et les rapports).\n• Fournir un service de haute qualité avec des entités internes comme PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. et Tech & Ops.\n• En tant que rôle secondaire, soutenir les contrôles FX en étudiant les erreurs de réservation, en réconciliant les transactions et les positions FX, et en aidant à assurer le STP pour les instruments FX tels que les options et les NDF.\n\nVotre profil\n\n• Une expérience professionnelle antérieure dans le secteur bancaire est un atout.\n• Bonne connaissance des opérations bancaires; la connaissance des valeurs mobilières et des prêts est un atout.\n• Connaissance de Avaloq et Excel.\n• Compétences de base en programmation (p. ex. Python, VBA ou similaire) et grand intérêt pour l'utilisation des données et des outils d'IA pour améliorer les processus.\n• Fortes compétences en matière d'organisation et de gestion des priorités.\n• Dilient et capable de travailler sous pression.\n• Joueur d'équipe.\n• En français avec une bonne compréhension de l'anglais.\n\n• Résidence suisse ou volonté de déménager.\n\nPour cette occasion, nous recherchons une personne consciencieuse et un communicateur fort, motivé à en apprendre davantage sur le prêt de valeurs mobilières ainsi que sur les activités du Forex au sein d'une équipe cohésive, et soucieux de tirer parti des outils de programmation et d'IA dans un environnement de bureau intermédiaire.\n\nDate de début: entre octobre 2026 et janvier 2027\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-12T21:17:28.903Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
+      "jobReqId": "125229",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "middle-officer-forex-securities-pictet-geneva",
+        "middle-officer-forex-securities-12-month-fixed-term-contract-pictet-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-forex-securities-pictet-geneva",
+          "middle-officer-forex-securities-12-month-fixed-term-contract-pictet-geneva"
+        ],
+        "fr": [
+          "middle-officer-forex-securities-pictet-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-12T09:24:08.820Z",
+      "needsRetranslation": true,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
+    },
+    {
+      "id": "pictet-403ea060ae05",
+      "slug": "project-manager-24-month-fixed-term-contract-pictet-geneva",
+      "slugByLocale": {
+        "en": "project-manager-24-month-fixed-term-contract-pictet-geneva",
+        "it": "project-manager-24-month-fixed-term-contract-pictet-geneva",
+        "de": "project-manager-24-month-fixed-term-contract-pictet-geneva",
+        "fr": "project-manager-24-month-fixed-term-contract-pictet-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Project Manager (24-month fixed-term contract)",
+      "titleByLocale": {
+        "en": "Project Manager (24-month fixed-term contract)",
+        "it": "Project Manager (24-month fixed-term contract)",
+        "de": "Project Manager (24-month fixed-term contract)",
+        "fr": "Project Manager (24-month fixed-term contract)"
+      },
+      "description": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125232&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-12T21:17:27.738Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125232&selected_lang=en_GB",
+      "jobReqId": "125232",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 174500,
+          "maxValue": 306000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-12T21:17:27.738Z"
     },
     {
       "id": "pictet-d644fcbe0361",
@@ -385,166 +616,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
-    },
-    {
-      "id": "pictet-0e2e687084f8",
-      "slug": "derivatives-products-reconciliation-specialista-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "derivatives-products-reconciliation-specialista-pictet-group-geneva",
-        "en": "derivatives-products-reconciliation-specialist-pictet-geneva",
-        "de": "derivatives-products-reconciliation-spezialist-pictet-group-geneva",
-        "fr": "derivatives-products-reconciliation-specialiste-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Derivatives Products Reconciliation Specialist",
-      "titleByLocale": {
-        "it": "Derivatives Products Reconciliation Specialista",
-        "en": "Derivatives Products Reconciliation Specialist",
-        "de": "Derivatives Products Reconciliation Spezialist",
-        "fr": "Derivatives Products Reconciliation Spécialiste"
-      },
-      "description": "Your team\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nWithin the Reconciliation Department, you will join the Derivatives Reconciliation team, which is responsible for the daily reconciliation and monitoring of all listed and OTC derivatives transactions, including collateral and the cash movements related to these activities.\n\nYour role\n\n• Perform daily reconciliations and follow up of ETD and OTC derivatives transactions, positions, cash and collateral, and resolve breaks and pending items.\n• Ensure the accuracy, completeness and consistency of all reconciliation outputs.\n• Apply internal procedures and control standards in line with applicable regulatory requirements.\n• Share relevant information with team members and stakeholders in a clear and timely manner.\n• Handle queries related to derivatives reconciliations and provide professional support to internal and external counterparts.\n• Identify and propose process improvements to streamline workflows and strengthen controls.\n• Maintain accurate and up to date procedures, process documentation and reconciliation records.\n• Investigate operational issues, contribute to root cause analyses and support corrective actions.\n• Proactively identify, assess and escalate operational risks linked to derivatives reconciliations.\n\nYour profile\n\n• Bachelor’s degree in finance/economics or equivalent work experience in the financial industry.\n• 3–6 years’ experience in banking operations or asset servicing; previous exposure to derivatives products and/or reconciliations is a strong asset.\n• Strong interest in derivatives and good understanding of their mechanics (listed and OTC).\n• Very good analytical skills, high attention to detail and ability to manage priorities and handle critical situations.\n• Client and service oriented mindset, with the ability to understand stakeholder needs and provide high quality support.\n• Strong team spirit, adaptability and willingness to learn in a changing technological and regulatory environment.\n• Good digital literacy and interest in innovation; keen to use and suggest new technological solutions to improve processes.\n• Fluent in English (spoken and written); any additional language is an advantage.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDPRS/DD/MSC\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nLe operazioni forniscono un trattamento sicuro ed efficiente delle transazioni bancarie e dei fondi di investimento di Pictet. I nostri team assicurano che tutte le attività seguano le normative e gestiscano i rischi.\nSviluppando e mantenendo un'infrastruttura moderna e robusta, garantiamo servizi affidabili e di alta qualità per la gestione della ricchezza Pictet, la gestione degli asset e i clienti immobiliari.\n\nAll'interno del Dipartimento di Riconciliazione, si unirà al team di Riconciliazione Derivatives, che è responsabile della riconciliazione quotidiana e del monitoraggio di tutte le transazioni derivate OTC e quotate, inclusi i movimenti collaterali e di cassa relativi a queste attività.\n\nIl tuo ruolo\n\n• Eseguire le conciliazioni quotidiane e seguire le transazioni, le posizioni, i contanti e le garanzie dei derivati ETD e OTC e risolvere le rotture e gli elementi in sospeso.\n• Assicurare l'accuratezza, la completezza e la coerenza di tutte le uscite di riconciliazione.\n• Applicare procedure interne e standard di controllo in linea con i requisiti normativi applicabili.\n• Condividi le informazioni pertinenti con i membri del team e gli stakeholder in modo chiaro e tempestivo.\n• Le query della maniglia relative alle conciliazioni dei derivati e forniscono supporto professionale alle controparti interne ed esterne.\n• Identificare e proporre miglioramenti di processo per semplificare i flussi di lavoro e rafforzare i controlli.\n• Mantenere procedure accurate e aggiornate, documentazione di processo e registri di riconciliazione.\n• Indaga le questioni operative, contribuisca ad analizzare e sostenere le azioni correttive.\n• Identificare, valutare ed escalare i rischi operativi legati alle riconciliazione dei derivati.\n\nIl tuo profilo\n\n• Laurea in finanza / economia o esperienza lavorativa equivalente nel settore finanziario.\n• L’esperienza di 3–6 anni nelle operazioni bancarie o nella manutenzione degli asset; l’esposizione precedente ai prodotti derivati e/o alle conciliazioni è un bene forte.\n• Forte interesse nei derivati e buona comprensione della loro meccanica (listed e OTC).\n• Competenze analitiche molto buone, alta attenzione ai dettagli e capacità di gestire le priorità e gestire situazioni critiche.\n• Mindset orientato al cliente e al servizio, con la capacità di comprendere le esigenze degli stakeholder e fornire un supporto di alta qualità.\n• Forte spirito di squadra, adattabilità e disponibilità ad imparare in un ambiente tecnologico e normativo in evoluzione.\n• Buona alfabetizzazione digitale e interesse per l'innovazione; desiderosi di utilizzare e suggerire nuove soluzioni tecnologiche per migliorare i processi.\n• Fluente in inglese (spoken e scritto); qualsiasi lingua aggiuntiva è un vantaggio.\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDPR/DD/MSC\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nOperations provide secure and efficient processing of Pictet’s banking transactions and investment funds. Our teams ensure all activities follow regulations and manage risks.\nBy developing and maintaining a modern, robust infrastructure, we guarantee reliable, high-quality services for Pictet wealth management, asset management and real estate clients.\n\nWithin the Reconciliation Department, you will join the Derivatives Reconciliation team, which is responsible for the daily reconciliation and monitoring of all listed and OTC derivatives transactions, including collateral and the cash movements related to these activities.\n\nYour role\n\n• Perform daily reconciliations and follow up of ETD and OTC derivatives transactions, positions, cash and collateral, and resolve breaks and pending items.\n• Ensure the accuracy, completeness and consistency of all reconciliation outputs.\n• Apply internal procedures and control standards in line with applicable regulatory requirements.\n• Share relevant information with team members and stakeholders in a clear and timely manner.\n• Handle queries related to derivatives reconciliations and provide professional support to internal and external counterparts.\n• Identify and propose process improvements to streamline workflows and strengthen controls.\n• Maintain accurate and up to date procedures, process documentation and reconciliation records.\n• Investigate operational issues, contribute to root cause analyses and support corrective actions.\n• Proactively identify, assess and escalate operational risks linked to derivatives reconciliations.\n\nYour profile\n\n• Bachelor’s degree in finance/economics or equivalent work experience in the financial industry.\n• 3–6 years’ experience in banking operations or asset servicing; previous exposure to derivatives products and/or reconciliations is a strong asset.\n• Strong interest in derivatives and good understanding of their mechanics (listed and OTC).\n• Very good analytical skills, high attention to detail and ability to manage priorities and handle critical situations.\n• Client and service oriented mindset, with the ability to understand stakeholder needs and provide high quality support.\n• Strong team spirit, adaptability and willingness to learn in a changing technological and regulatory environment.\n• Good digital literacy and interest in innovation; keen to use and suggest new technological solutions to improve processes.\n• Fluent in English (spoken and written); any additional language is an advantage.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDPRS/DD/MSC\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nOperationen bieten eine sichere und effiziente Verarbeitung der Bankgeschäfte und Investmentfonds von Pictet. Unsere Teams stellen sicher, dass alle Aktivitäten den Vorschriften entsprechen und Risiken managen.\nDurch die Entwicklung und Pflege einer modernen, robusten Infrastruktur garantieren wir zuverlässige, qualitativ hochwertige Dienstleistungen für Pictet Wealth Management, Asset Management und Immobilienkunden.\n\nInnerhalb der Reconciliation-Abteilung treten Sie dem Derivatives Reconciliation-Team bei, das für den täglichen Abgleich und die Überwachung aller börsennotierten und OTC-Derivatetransaktionen, einschließlich Sicherheiten und der mit diesen Aktivitäten verbundenen Bargeldbewegungen, verantwortlich ist.\n\nDeine Rolle\n\n• Führen Sie tägliche Abgleiche und Follow-up von ETD- und OTC-Derivatetransaktionen, Positionen, Bargeld und Sicherheiten durch und lösen Sie Pausen und ausstehende Posten.\n• Gewährleistung der Genauigkeit, Vollständigkeit und Konsistenz aller Abstimmungsergebnisse.\n• Anwendung interner Verfahren und Kontrollnormen im Einklang mit den geltenden regulatorischen Anforderungen.\n• Teilen Sie relevante Informationen mit Teammitgliedern und Stakeholdern auf klare und zeitnahe Weise.\n• Bearbeitung von Anfragen im Zusammenhang mit Derivateabgleichen und professionelle Unterstützung für interne und externe Partner.\n• Identifizieren und Vorschlagen von Prozessverbesserungen, um Workflows zu optimieren und Kontrollen zu stärken.\n• Pflegen Sie genaue und aktuelle Verfahren, Prozessdokumentation und Abgleichaufzeichnungen.\n• Untersuchen Sie operative Probleme, tragen Sie zu Ursachenanalysen bei und unterstützen Sie Korrekturmaßnahmen.\n• Proaktive Ermittlung, Bewertung und Eskalation operationeller Risiken im Zusammenhang mit Derivateabgleichen.\n\nDein Profil\n\n• Bachelor-Abschluss in Finanzen / Wirtschaft oder gleichwertige Berufserfahrung in der Finanzbranche.\n• 3-6 Jahre Erfahrung im Bankgeschäft oder im Asset Servicing; frühere Risikopositionen gegenüber Derivaten und/oder Abgleichen sind ein starker Vermögenswert.\n• Starkes Interesse an Derivaten und gutes Verständnis ihrer Mechanik (notiert und OTC).\n• Sehr gute analytische Fähigkeiten, hohe Liebe zum Detail und Fähigkeit, Prioritäten zu verwalten und kritische Situationen zu bewältigen.\n• Kunden- und serviceorientierte Denkweise mit der Fähigkeit, die Bedürfnisse der Stakeholder zu verstehen und qualitativ hochwertigen Support zu bieten.\n• Starker Teamgeist, Anpassungsfähigkeit und Lernbereitschaft in einem sich verändernden technologischen und regulatorischen Umfeld.\n• Gute digitale Kompetenz und Interesse an Innovation; daran interessiert, neue technologische Lösungen zur Verbesserung von Prozessen zu nutzen und vorzuschlagen.\n• fließend Englisch (gesprochen und geschrieben); jede zusätzliche Sprache ist von Vorteil.\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nDPRS/DD/MSC\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLes opérations assurent un traitement sûr et efficace des transactions bancaires et des fonds d'investissement de Pictet. Nos équipes s'assurent que toutes les activités suivent les règlements et gèrent les risques.\nEn développant et en maintenant une infrastructure moderne et robuste, nous garantissons des services fiables et de haute qualité pour la gestion de patrimoine, la gestion d'actifs et les clients immobiliers de Pictet.\n\nAu sein du Service de réconciliation, vous rejoindrez l'équipe de réconciliation des dérivés, qui est responsable du rapprochement et du suivi quotidiens de toutes les opérations sur dérivés cotées et de gré à gré, y compris les garanties et les mouvements de trésorerie liés à ces activités.\n\nVotre rôle\n\n• Effectuer des rapprochements quotidiens et le suivi des transactions sur dérivés ETD et OTC, des positions, de l'encaisse et des garanties, et résoudre les ruptures et les éléments en attente.\n• Assurer l'exactitude, l'exhaustivité et la cohérence de tous les produits de rapprochement.\n• Appliquer les procédures internes et les normes de contrôle conformément aux exigences réglementaires applicables.\n• Partager l'information pertinente avec les membres de l'équipe et les intervenants de façon claire et opportune.\n• Traiter les questions relatives aux rapprochements de produits dérivés et fournir un soutien professionnel aux homologues internes et externes.\n• Identifier et proposer des améliorations des processus pour rationaliser les flux de travail et renforcer les contrôles.\n• Maintenir des procédures exactes et à jour, la documentation du processus et les dossiers de rapprochement.\n• Étudier les questions opérationnelles, contribuer aux analyses des causes profondes et appuyer les mesures correctives.\n• Identifier, évaluer et augmenter les risques opérationnels liés aux rapprochements dérivés.\n\nVotre profil\n\n• Baccalauréat en finance/économie ou expérience de travail équivalente dans le secteur financier.\n• 3 à 6 ans d'expérience dans les opérations bancaires ou le service d'actifs; l'exposition antérieure aux produits dérivés et/ou aux rapprochements est un actif solide.\n• Intérêt marqué pour les dérivés et bonne compréhension de leur mécanique (énuméré et OTC).\n• De très bonnes compétences analytiques, une grande attention aux détails et la capacité de gérer les priorités et de gérer les situations critiques.\n• L'état d'esprit du client et du service, capable de comprendre les besoins des intervenants et de fournir un soutien de haute qualité.\n• Solide esprit d'équipe, adaptabilité et volonté d'apprendre dans un environnement technologique et réglementaire en évolution.\n• Bonnes connaissances numériques et intérêt pour l'innovation; désireux d'utiliser et de proposer de nouvelles solutions technologiques pour améliorer les processus.\n• Fluent en anglais (parlé et écrit); toute langue supplémentaire est un avantage.\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nRMR/DD/CSM\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:10.755Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
-      "jobReqId": "125203",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "derivatives-products-reconciliation-specialist-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "derivatives-products-reconciliation-specialist-pictet-geneva"
-        ],
-        "de": [
-          "derivatives-products-reconciliation-specialist-pictet-geneva"
-        ],
-        "fr": [
-          "derivatives-products-reconciliation-specialist-pictet-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T21:26:11.126Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
-    },
-    {
-      "id": "pictet-cb0dff47dc77",
-      "slug": "medio-ufficiale-forex-securities-pictet-group-geneva",
-      "slugByLocale": {
-        "en": "middle-officer-forex-securities-pictet-geneva",
-        "it": "medio-ufficiale-forex-securities-pictet-group-geneva",
-        "de": "middle-officer-forex-securities-pictet-geneva",
-        "fr": "agent-intermediaire-forex-securities-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Middle Officer - Forex & Securities",
-      "titleByLocale": {
-        "en": "Middle Officer - Forex & Securities",
-        "it": "Medio Ufficiale - Forex & Securities",
-        "de": "Middle Officer - Forex & Wertpapiere",
-        "fr": "Agent intermédiaire - Forex & Securities"
-      },
-      "description": "Your team\n\nPictet Trading & Sales (PTS) provides direct access to global markets, offering bespoke trading solutions across a wide range of asset classes. Our teams of sales traders, IT specialists, strategists and quant analysts are assisted by a full suite of risk and control functions as well as the latest technology.\n\nPTS is looking to hire a Middle Officer – Forex, Securities and Securities Lending for a 12-month period to join a large team of professionals in the middle office of our trading floor. This position combines day-to-day operational responsibilities with a clear mandate to help automate and streamline the activities covered by the role. You will be responsible for booking and controlling PTS securities lending and related collateral activities. In a second step, you will also reconcile FX transactions and positions between the position-keeping system and the booking system, as well as perform troubleshooting.\n\nYour role\n\n• Monitoring and controlling securities lending transactions, positions and returns.\n• Monitoring the receipt and delivery of collateral with counterparties.\n• Investigating and resolving issues on collateral and returns.\n• Contributing to process automation and efficiency improvements using programming and AI-based tools (e.g. for reconciliations, controls and reporting).\n• Providing high-quality service with internal entities such as PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. and Tech & Ops.\n• As a secondary role, supporting FX controls by investigating booking errors, reconciling FX transactions and positions, and helping to ensure STP for FX instruments such as options and NDFs.\n\nYour profile\n\n• Prior professional experience in the banking industry is an asset.\n• Good knowledge of banking operations; knowledge of securities and lending is a plus.\n• Knowledge of Avaloq and Excel.\n• Basic programming skills (e.g. Python, VBA or similar) and strong interest in using data and AI tools to improve processes.\n• Strong organisation and priority-management skills.\n• Diligent and able to work under pressure.\n• Team player.\n• Fluent in French with a good grasp of English.\n\n• Swiss residency or willingness to relocate.\n\nFor this opportunity, we are looking for a conscientious person and strong communicator, motivated to learn more about securities lending as well as Forex activities within a cohesive team, and keen to leverage programming and AI tools in a middle-office environment.\n\nStart date: between October 2026 and January 2027\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "en": "Your team\n\nPictet Trading & Sales (PTS) provides direct access to global markets, offering bespoke trading solutions across a wide range of asset classes. Our teams of sales traders, IT specialists, strategists and quant analysts are assisted by a full suite of risk and control functions as well as the latest technology.\n\nPTS is looking to hire a Middle Officer – Forex, Securities and Securities Lending for a 12-month period to join a large team of professionals in the middle office of our trading floor. This position combines day-to-day operational responsibilities with a clear mandate to help automate and streamline the activities covered by the role. You will be responsible for booking and controlling PTS securities lending and related collateral activities. In a second step, you will also reconcile FX transactions and positions between the position-keeping system and the booking system, as well as perform troubleshooting.\n\nYour role\n\n• Monitoring and controlling securities lending transactions, positions and returns.\n• Monitoring the receipt and delivery of collateral with counterparties.\n• Investigating and resolving issues on collateral and returns.\n• Contributing to process automation and efficiency improvements using programming and AI-based tools (e.g. for reconciliations, controls and reporting).\n• Providing high-quality service with internal entities such as PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. and Tech & Ops.\n• As a secondary role, supporting FX controls by investigating booking errors, reconciling FX transactions and positions, and helping to ensure STP for FX instruments such as options and NDFs.\n\nYour profile\n\n• Prior professional experience in the banking industry is an asset.\n• Good knowledge of banking operations; knowledge of securities and lending is a plus.\n• Knowledge of Avaloq and Excel.\n• Basic programming skills (e.g. Python, VBA or similar) and strong interest in using data and AI tools to improve processes.\n• Strong organisation and priority-management skills.\n• Diligent and able to work under pressure.\n• Team player.\n• Fluent in French with a good grasp of English.\n\n• Swiss residency or willingness to relocate.\n\nFor this opportunity, we are looking for a conscientious person and strong communicator, motivated to learn more about securities lending as well as Forex activities within a cohesive team, and keen to leverage programming and AI tools in a middle-office environment.\n\nStart date: between October 2026 and January 2027\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "it": "La tua squadra\n\nPictet Trading & Sales (PTS) offre l'accesso diretto ai mercati globali, offrendo soluzioni di trading su misura in una vasta gamma di classi di asset. I nostri team di commercianti di vendita, specialisti IT, strateghi e analisti quantistici sono assistiti da una suite completa di funzioni di rischio e di controllo, così come l'ultima tecnologia.\n\nPTS sta cercando di assumere un Middle Officer – Forex, Securities e Securities Lending per un periodo di 12 mesi per unire un grande team di professionisti nel centro del nostro piano di trading. Questa posizione combina responsabilità operative quotidiane con un chiaro mandato per aiutare a automatizzare e snellire le attività coperte dal ruolo. Sarà responsabile della prenotazione e del controllo dei prestiti titoli PTS e delle relative attività collaterali. In un secondo passo, si riconciliano anche transazioni e posizioni FX tra il sistema di controllo della posizione e il sistema di prenotazione, così come eseguire la risoluzione dei problemi.\n\nIl tuo ruolo\n\n• Monitoraggio e controllo delle operazioni di prestito titoli, posizioni e rendimenti.\n• Monitoraggio della ricezione e consegna di garanzie con controparti.\n• Investigare e risolvere problemi di garanzie e rendimenti.\n• Contribuire al processo di automazione e miglioramento dell'efficienza utilizzando strumenti di programmazione e basati su AI (ad esempio per riconciliazione, controlli e reporting).\n• Fornire un servizio di alta qualità con entità interne come PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. e Tech & Ops.\n• Come ruolo secondario, supportando i controlli FX indagando errori di prenotazione, riconciliando transazioni e posizioni FX, e aiutando a garantire STP per strumenti FX come opzioni e NDF.\n\nIl tuo profilo\n\n• La prima esperienza professionale nel settore bancario è un bene.\n• Buona conoscenza delle operazioni bancarie; la conoscenza dei titoli e dei prestiti è un plus.\n• Conoscenza di Avaloq ed Excel.\n• Competenze di programmazione di base (ad esempio Python, VBA o simili) e forte interesse nell'utilizzo di dati e strumenti AI per migliorare i processi.\n• Forte organizzazione e competenze di gestione prioritaria.\n• Diligente e capace di lavorare sotto pressione.\n• Giocatore di squadra.\n• Fluente in francese con una buona presa di inglese.\n\n• Residenza svizzera o volontà di trasferirsi.\n\nPer questa opportunità, stiamo cercando una persona coscienziosa e un forte comunicatore, motivato a saperne di più sui prestiti di titoli e le attività di Forex all'interno di un team coeso, e desideroso di sfruttare strumenti di programmazione e AI in un ambiente di middle-office.\n\nData di inizio: tra ottobre 2026 e gennaio 2027\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "de": "Dein Team\n\nPictet Trading & Sales (PTS) bietet direkten Zugang zu globalen Märkten und bietet maßgeschneiderte Handelslösungen für eine Vielzahl von Anlageklassen. Unsere Teams aus Vertriebshändlern, IT-Spezialisten, Strategen und Quant-Analysten werden durch eine ganze Reihe von Risiko- und Kontrollfunktionen sowie die neueste Technologie unterstützt.\n\nPTS sucht einen Mittleren Offizier - Forex, Wertpapiere und Wertpapierkredite für einen Zeitraum von 12 Monaten, um einem großen Team von Fachleuten im mittleren Büro unseres Handelssaals beizutreten. Diese Position kombiniert die täglichen operativen Verantwortlichkeiten mit einem klaren Mandat, um die von der Rolle abgedeckten Aktivitäten zu automatisieren und zu rationalisieren. Sie sind für die Buchung und Kontrolle von PTS-Wertpapierleihen und damit verbundenen Sicherheitenaktivitäten verantwortlich. In einem zweiten Schritt werden Sie auch FX-Transaktionen und -Positionen zwischen dem Positionswahrungssystem und dem Buchungssystem abgleichen und eine Fehlerbehebung durchführen.\n\nDeine Rolle\n\n• Überwachung und Kontrolle von Wertpapierleihgeschäften, Positionen und Renditen.\n• Überwachung des Eingangs und der Lieferung von Sicherheiten an die Gegenparteien.\n• Untersuchung und Lösung von Fragen zu Sicherheiten und Renditen.\n• Beitrag zur Prozessautomatisierung und Effizienzsteigerung durch Programmierung und KI-basierte Tools (z.B. für Abgleiche, Kontrollen und Reporting).\n• Bereitstellung von qualitativ hochwertigem Service mit internen Einheiten wie PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. und Tech & Ops.\n• Als sekundäre Rolle unterstützt FX-Kontrollen durch die Untersuchung von Buchungsfehlern, die Abstimmung von FX-Transaktionen und -Positionen und die Sicherstellung von STP für FX-Instrumente wie Optionen und NDFs.\n\nDein Profil\n\n• Berufserfahrung im Bankensektor ist ein Gewinn.\n• Gute Kenntnisse über Bankgeschäfte; Kenntnisse über Wertpapiere und Kreditvergabe sind ein Plus.\n• Kenntnisse von Avaloq und Excel.\n• Grundlegende Programmierkenntnisse (z. B. Python, VBA oder ähnliches) und großes Interesse am Einsatz von Daten und KI-Tools zur Verbesserung von Prozessen.\n• Starke Organisations- und Prioritätsmanagementfähigkeiten.\n• Fleißig und fähig unter Druck zu arbeiten.\n• Teamplayer.\n• Fließend Französisch mit einem guten Verständnis von Englisch.\n\n• Schweizer Wohnsitz oder Umzugsbereitschaft.\n\nFür diese Gelegenheit suchen wir nach einer gewissenhaften Person und einem starken Kommunikator, der motiviert ist, mehr über Wertpapierleihen sowie Forex-Aktivitäten innerhalb eines zusammenhängenden Teams zu erfahren und Programmier- und KI-Tools in einer mittleren Büroumgebung zu nutzen.\n\nStartdatum: zwischen Oktober 2026 und Januar 2027\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nPictet Trading & Sales (PTS) offre un accès direct aux marchés mondiaux, offrant des solutions de trading sur mesure pour une large gamme de classes d'actifs. Nos équipes de traders commerciaux, de spécialistes de l'informatique, de stratèges et d'analystes quantiques sont assistées par une gamme complète de fonctions de risque et de contrôle ainsi que par les dernières technologies.\n\nPTS cherche à embaucher un agent intermédiaire – Forex, Securities and Securities Lending pour une période de 12 mois pour rejoindre une grande équipe de professionnels dans le bureau intermédiaire de notre plate-forme de négociation. Ce poste combine les responsabilités opérationnelles quotidiennes avec un mandat clair pour aider à automatiser et à rationaliser les activités visées par le rôle. Vous serez responsable de la réservation et du contrôle des prêts de titres PTS et des activités de garantie connexes. Dans un second temps, vous rapprocherez également les transactions et les positions FX entre le système de gestion des positions et le système de réservation, et effectuerez le dépannage.\n\nVotre rôle\n\n• Surveiller et contrôler les opérations, les positions et les rendements des prêts de titres.\n• Surveillance de la réception et de la livraison des garanties auprès des contreparties.\n• Enquêter et résoudre les problèmes liés aux garanties et aux rendements.\n• Contribuer à l'automatisation des processus et à l'amélioration de l'efficacité à l'aide d'outils de programmation et d'IA (p. ex. pour les rapprochements, les contrôles et les rapports).\n• Fournir un service de haute qualité avec des entités internes comme PTS, Pictet Wealth Management, Pictet Asset Services, Pictet Overseas Inc. et Tech & Ops.\n• En tant que rôle secondaire, soutenir les contrôles FX en étudiant les erreurs de réservation, en réconciliant les transactions et les positions FX, et en aidant à assurer le STP pour les instruments FX tels que les options et les NDF.\n\nVotre profil\n\n• Une expérience professionnelle antérieure dans le secteur bancaire est un atout.\n• Bonne connaissance des opérations bancaires; la connaissance des valeurs mobilières et des prêts est un atout.\n• Connaissance de Avaloq et Excel.\n• Compétences de base en programmation (p. ex. Python, VBA ou similaire) et grand intérêt pour l'utilisation des données et des outils d'IA pour améliorer les processus.\n• Fortes compétences en matière d'organisation et de gestion des priorités.\n• Dilient et capable de travailler sous pression.\n• Joueur d'équipe.\n• En français avec une bonne compréhension de l'anglais.\n\n• Résidence suisse ou volonté de déménager.\n\nPour cette occasion, nous recherchons une personne consciencieuse et un communicateur fort, motivé à en apprendre davantage sur le prêt de valeurs mobilières ainsi que sur les activités du Forex au sein d'une équipe cohésive, et soucieux de tirer parti des outils de programmation et d'IA dans un environnement de bureau intermédiaire.\n\nDate de début: entre octobre 2026 et janvier 2027\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-12T09:24:08.820Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
-      "jobReqId": "125229",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-12T09:24:08.820Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "middle-officer-forex-securities-pictet-geneva"
-        ],
-        "fr": [
-          "middle-officer-forex-securities-pictet-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "middle-officer-forex-securities-pictet-geneva"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-802e8cbc742a",
@@ -625,7 +698,7 @@
         }
       },
       "postalCode": "1204",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "pictet-59fac73f309a",
@@ -704,7 +777,7 @@
         }
       },
       "postalCode": "1204",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
