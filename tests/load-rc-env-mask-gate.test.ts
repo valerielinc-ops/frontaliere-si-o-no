@@ -43,11 +43,11 @@ describe('load-rc-env isTrivialSecret', () => {
   });
 });
 
-// The same gate with the key: a plain-word switch is never masked. "legacy" and
-// "single" are six characters long, so by length alone they would be redacted
-// from every later log line of the job.
+// The same gate with the key: a plain-word switch is never masked. "legacy",
+// "single" and "motion" are six or more characters long, so by length alone
+// they would be redacted from every later log line of the job.
 describe('load-rc-env shouldMaskRcValue', () => {
-  const SWITCH_WORDS = ['legacy', 'single', 'separate', 'typst', 'on', 'off'];
+  const SWITCH_WORDS = ['legacy', 'single', 'separate', 'typst', 'on', 'off', 'motion'];
 
   it('never masks the value of a plain-word switch, whatever its length', () => {
     expect(shouldMaskRcValue('legacy', 'ASSISTED_APPLICATION_PDF_RENDERER')).toBe(false);
@@ -82,11 +82,12 @@ describe('load-rc-env shouldMaskRcValue', () => {
     }
   });
 
-  it('exempts the three switches of the assisted application and nothing else', () => {
+  it('exempts the known plain-word switches and nothing else', () => {
     expect([...PLAIN_WORD_RC_KEYS].sort()).toEqual([
       'ASSISTED_APPLICATION_DOCX_INPLACE',
       'ASSISTED_APPLICATION_DOSSIER_MODE',
       'ASSISTED_APPLICATION_PDF_RENDERER',
+      'TIKTOK_VIDEO_CREATIVE_MODE',
     ]);
   });
 });

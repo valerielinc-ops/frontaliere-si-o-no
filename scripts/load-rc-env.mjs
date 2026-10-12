@@ -299,6 +299,11 @@ export const RC_TO_ENV = {
   // browser robot, so retries stay in the same control/treatment arm.
   TIKTOK_MUSIC_MODE:                   ['TIKTOK_MUSIC_MODE'],
   TIKTOK_MUSIC_ROLLOUT_PERCENT:        ['TIKTOK_MUSIC_ROLLOUT_PERCENT'],
+  // TikTok video creative experiment: `off` keeps the existing slide video;
+  // `motion` assigns a stable percentage of queue ids to the animated
+  // motion-graphic renderer.
+  TIKTOK_VIDEO_CREATIVE_MODE:           ['TIKTOK_VIDEO_CREATIVE_MODE'],
+  TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: ['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT'],
   SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],
@@ -523,6 +528,7 @@ export const PLAIN_WORD_RC_KEYS = new Set([
   'ASSISTED_APPLICATION_PDF_RENDERER',
   'ASSISTED_APPLICATION_DOSSIER_MODE',
   'ASSISTED_APPLICATION_DOCX_INPLACE',
+  'TIKTOK_VIDEO_CREATIVE_MODE',
 ]);
 
 /**

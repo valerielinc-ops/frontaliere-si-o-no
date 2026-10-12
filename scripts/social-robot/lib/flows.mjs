@@ -696,6 +696,11 @@ function musicEvidence(music) {
   return `native-sound=${label || 'selected'}`;
 }
 
+function videoCreativeEvidence(video) {
+  const variant = normalize(video?.creativeVariant).replace(/[\r\n]+/g, ' ').slice(0, 80);
+  return `video-creative=${variant || 'legacy'}`;
+}
+
 /** Add a native TikTok recommendation and leave the original-audio control intact. */
 export async function ensureTikTokMusic({ page, musicVariant = 'control', human, snap = async () => {}, guard, step, timeout = TIKTOK_MUSIC_TIMEOUT_MS }) {
   if (musicVariant !== 'treatment') return { variant: 'control', source: 'original' };
@@ -1326,7 +1331,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   }
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
   await snap('ready-to-publish');
-  if (dryRun) return { status: 'dry-run', step: 'post-button', music };
+  if (dryRun) return { status: 'dry-run', step: 'post-button', music, creativeVariant: video?.creativeVariant || 'legacy' };
 
   step.set('publish');
   return pressed(async (markPressed) => {
@@ -1343,13 +1348,13 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
       await guard();
       if (RX.ttConfirmUrl.test(page.url())) {
         await snap('confirmed');
-        return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}; ${musicEvidence(music)}`, music };
+        return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}; ${videoCreativeEvidence(video)}; ${musicEvidence(music)}`, music, creativeVariant: video?.creativeVariant || 'legacy' };
       }
       const text = await findFirst([page.locator(TT_SUCCESS_TOAST).filter({ hasText: RX.ttConfirm })], { timeout: 1_000 });
       if (text) {
         const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
         await snap('confirmed');
-        return { status: 'published', evidence: `${evidence}; ${musicEvidence(music)}`, music };
+        return { status: 'published', evidence: `${evidence}; ${videoCreativeEvidence(video)}; ${musicEvidence(music)}`, music, creativeVariant: video?.creativeVariant || 'legacy' };
       }
       if (Date.now() >= deadline) break;
     }

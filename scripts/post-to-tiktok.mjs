@@ -102,7 +102,13 @@ import {
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
-import { renderCarouselVideo } from './lib/social-carousel-video.mjs';
+import { renderCarouselVideo, renderMotionGraphicVideo } from './lib/social-carousel-video.mjs';
+import {
+  TIKTOK_VIDEO_CREATIVE_VARIANTS,
+  resolveTikTokVideoCreativeVariant,
+  tiktokVideoCreativeLedgerFields,
+  tiktokVideoCreativeLabel,
+} from './lib/tiktok-video-creative.mjs';
 import {
   buildQueueEntry,
   deliverSocialPost,
@@ -181,6 +187,9 @@ async function getAccessToken() {
 // the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
 
 async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, publish }) {
+  const queueLedgerEntries = video?.creativeVariant
+    ? ledgerEntries.map((entry) => ({ ...entry, ...tiktokVideoCreativeLedgerFields(video.creativeVariant) }))
+    : ledgerEntries;
   await deliverSocialPost({
     route,
     label: 'TikTok',
@@ -197,7 +206,7 @@ async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, 
     enqueue: () => {
       enqueuePost(
         QUEUE_PATH,
-        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries }),
+        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries: queueLedgerEntries }),
       );
     },
     // The API covered this kind: an older queued post of it must not reach the robot.
@@ -205,12 +214,25 @@ async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, 
   });
 }
 
-function prepareTikTokVideo(slides, keyPrefix) {
+function prepareTikTokVideo(slides, keyPrefix, queueId) {
   try {
-    const rendered = renderCarouselVideo(slides);
+    const creativeVariant = resolveTikTokVideoCreativeVariant({ queueId });
+    const render = creativeVariant === TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT
+      ? renderMotionGraphicVideo
+      : renderCarouselVideo;
+    const rendered = render(slides);
     const url = uploadCarouselVideo(rendered.buffer, { channel: 'tiktok', keyPrefix });
     if (!url) return null;
-    return { url, bytes: rendered.bytes, sha256: rendered.sha256, durationMs: rendered.durationMs, width: rendered.width, height: rendered.height };
+    console.log(`🎬 TikTok video: ${tiktokVideoCreativeLabel(creativeVariant)} (${creativeVariant})`);
+    return {
+      url,
+      bytes: rendered.bytes,
+      sha256: rendered.sha256,
+      durationMs: rendered.durationMs,
+      width: rendered.width,
+      height: rendered.height,
+      creativeVariant,
+    };
   } catch (err) {
     console.warn(`⚠️  TikTok video unavailable: ${err.message}`);
     return null;
@@ -297,7 +319,8 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
-  const video = route.enqueue ? prepareTikTokVideo(slides, `${kind}-${day}`) : null;
+  const queueId = `${kind}-${day}`;
+  const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
   if (route.enqueue && !video) {
     if (!route.api) {
       console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
@@ -386,7 +409,8 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     console.log('⚠️  one or more carousel images failed to reach the CDN — skipping this post rather than shipping a broken carousel');
     return;
   }
-  const video = route.enqueue ? prepareTikTokVideo(slides, `border-${weekStart}`) : null;
+  const queueId = `border-${weekStart}`;
+  const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
   if (route.enqueue && !video) {
     if (!route.api) {
       console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');

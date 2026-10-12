@@ -89,6 +89,26 @@ non espone una card selezionabile, il trattamento si ferma prima di premere
 `Pubblica` e salva screenshot/HTML: non pubblica in silenzio una variante
 diversa.
 
+### Esperimento video TikTok
+
+I video TikTok hanno ora un secondo test indipendente dall'audio nativo. Il
+controllo resta il video composto dalle slide con dissolvenza; il trattamento
+usa le stesse informazioni ma le presenta come motion graphic verticale, con
+card flottante, forme animate, barra di avanzamento e transizioni più rapide.
+Il renderer è deterministico e non scarica filmati o musica esterna.
+
+| Parametro Firebase | Valori | Default locale |
+|---|---|---|
+| `TIKTOK_VIDEO_CREATIVE_MODE` | `off` / `motion` | `off` |
+| `TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT` | `0`–`100` | `0` |
+
+L'assegnazione usa l'id della coda in uno spazio hash separato da quello
+dell'audio: un retry resta nello stesso braccio e i due esperimenti possono
+essere letti separatamente. La variante finisce sia nel journal locale del Mac
+sia nelle righe del ledger TikTok (`creativeVariant`, `creativeLabel`,
+`creativeFormat`). Per il piano e la regola di lettura dei risultati vedere
+`docs/tiktok-video-creative-experiment.md`.
+
 ## Comandi (sul Mac host agenti, dal checkout del sito)
 
 ```bash

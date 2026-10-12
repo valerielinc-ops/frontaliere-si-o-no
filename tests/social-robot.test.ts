@@ -39,6 +39,11 @@ import {
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
 import { DEFAULT_TIKTOK_MUSIC_MODE, extractTikTokAuthenticatedUsername, resolveTikTokMusicVariant, RobotError } from '../scripts/social-robot/lib/flows.mjs';
+import {
+  DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
+  TIKTOK_VIDEO_CREATIVE_VARIANTS,
+  resolveTikTokVideoCreativeVariant,
+} from '../scripts/lib/tiktok-video-creative.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
@@ -143,6 +148,39 @@ describe('Firebase-configured TikTok native-sound experiment', () => {
     expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '0' } })).toBe('control');
     expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('treatment');
     expect(resolveTikTokMusicVariant({ queueId: '', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('control');
+  });
+});
+
+describe('Firebase-configured TikTok video creative experiment', () => {
+  it('defaults to the existing slide video and maps the RC parameters', () => {
+    expect(DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE).toBe('off');
+    expect(resolveTikTokVideoCreativeVariant({ queueId: 'job-1', env: {} }))
+      .toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_MODE)
+      .toEqual(['TIKTOK_VIDEO_CREATIVE_MODE']);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT)
+      .toEqual(['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT']);
+  });
+
+  it('assigns the same queue id to the same arm and respects rollout bounds', () => {
+    const env = {
+      TIKTOK_VIDEO_CREATIVE_MODE: 'motion',
+      TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '50',
+    };
+    const first = resolveTikTokVideoCreativeVariant({ queueId: 'job-2026-10-12', env });
+    expect(first).toBe(resolveTikTokVideoCreativeVariant({ queueId: 'job-2026-10-12', env }));
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: 'job-2026-10-12',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '0' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: 'job-2026-10-12',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '100' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT);
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: '',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '100' },
+    })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
   });
 });
 
