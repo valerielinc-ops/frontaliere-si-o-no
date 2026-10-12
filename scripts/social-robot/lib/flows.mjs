@@ -648,14 +648,15 @@ function musicSearchCandidates(page) {
  */
 async function findTikTokMusicCard({ page, search, guard, timeout = TIKTOK_MUSIC_TIMEOUT_MS }) {
   const deadline = Date.now() + timeout;
+  const musicPanel = search.locator('xpath=ancestor::div[.//div[@role="listitem"][@data-item-id]][1]');
   for (;;) {
     await guard();
 
     const direct = await findVisible([
-      page.locator('div[role="listitem"][data-item-id]'),
-      page.locator('[data-e2e="music-card"]'),
-      page.locator('[data-testid*="music-card" i]'),
-      page.locator('[data-testid*="sound-card" i]'),
+      musicPanel.locator('div[role="listitem"][data-item-id]'),
+      musicPanel.locator('[data-e2e="music-card"]'),
+      musicPanel.locator('[data-testid*="music-card" i]'),
+      musicPanel.locator('[data-testid*="sound-card" i]'),
     ], { timeout: 0 });
     if (direct) {
       const buttons = direct.locator('button:visible');
