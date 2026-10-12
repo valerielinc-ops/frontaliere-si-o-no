@@ -150,7 +150,7 @@ jobs:
           - Il limite operativo resta di 20 nuovi asset per run; un provider non configurato o non disponibile viene diagnosticato senza interrompere le altre varianti della catena.
 
           ## Non implementato (ancora)
-          - Nessun elemento residuo in questa PR: il mirror dell’engine verso il corpus resta automatico per scelta e il comportamento `article-hero` usa la stessa catena governata.
+          - Il mirror dell’engine verso il corpus resta automatico per scelta. Motivo: questa PR aggiorna soltanto il registro immagini del sito, non l’engine o il suo contratto. Prossimo passo: verificare il mirror e il percorso `article-hero` nella prossima modifica dell’engine.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/event-image-library.json \
