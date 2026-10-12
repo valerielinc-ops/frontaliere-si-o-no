@@ -1693,6 +1693,36 @@
       "findings": [
         "first_lockout_after_zero_baseline"
       ]
+    },
+    {
+      "date": "2026-10-12",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 297,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 1,
+        "noise": 1,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 1,
+        "auth_code_not_yet_valid": 1
+      },
+      "graded": 297,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 294,
+        "legacy": 3
+      },
+      "ageDaysP50": 1,
+      "ageDaysP95": 3,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
     }
   ]
 }
