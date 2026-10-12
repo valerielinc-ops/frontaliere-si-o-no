@@ -16,6 +16,7 @@ import {
   RUN_HISTORY_STATUS_FILTERS,
   RECOVERY_REQUIRED_JOBS,
   assessProvenBranchRecovery,
+  decideRecurrenceHold,
   dropUnprovenRecoveryRuns,
   hasRequiredRecoveryJobs,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
@@ -75,8 +76,47 @@ describe('close-recovered history reads', () => {
       };
     }, { now: Date.parse('2026-10-10T14:30:00Z'), windowHours: 8 });
 
-    expect(filtered.map((item) => item.databaseId)).toEqual([38051163222, 37880634143]);
+    expect(filtered.map((item) => item.databaseId)).toEqual([38051163222]);
     expect(reads).toEqual([38057823907, 38057579086]);
+  });
+
+  it('does not extend publisher recovery streaks with an unverified old green wrapper', () => {
+    const workflow = 'Publish to GitHub Pages (deploy + validate)';
+    const history = [
+      run(31, '2026-10-10T14:00:00Z', 'success'),
+      run(30, '2026-10-10T13:00:00Z', 'success'),
+      run(29, '2026-10-09T03:00:00Z', 'success'),
+    ];
+    const reads: number[] = [];
+    const evidence = assessProvenBranchRecovery(workflow, history, (databaseId) => {
+      reads.push(databaseId);
+      return {
+        jobs: databaseId === 29
+          ? [
+              { name: 'validate-dist / validate-dist-postbuild', conclusion: 'skipped' },
+              { name: 'validate-live / validate-live', conclusion: 'skipped' },
+            ]
+          : [
+              { name: 'validate-dist / validate-dist-postbuild', conclusion: 'success' },
+              { name: 'validate-live / validate-live', conclusion: 'success' },
+            ],
+      };
+    }, {
+      issue: { createdAt: '2026-10-08T09:00:00Z' },
+      scope: { branch: null, event: 'pull_request_target' },
+      now: Date.parse('2026-10-10T14:30:00Z'),
+      windowHours: 8,
+      minGreenStreak: 3,
+    });
+
+    expect(evidence).toMatchObject({ recovered: false, greenStreak: 2, postIssueRuns: 2 });
+    expect(evidence.history.map((item) => item.databaseId)).toEqual([31, 30]);
+    expect(reads).toEqual([31, 30]);
+    expect(decideRecurrenceHold(evidence.history, {
+      now: Date.parse('2026-10-10T14:30:00Z'),
+      windowHours: 8,
+      minGreenStreak: 3,
+    }).streak).toBe(2);
   });
 
   it('retains a full green wrapper and fails closed when its jobs are unreadable', () => {

@@ -1480,9 +1480,10 @@ export function hasRequiredRecoveryJobs(workflowName, jobsPayload) {
  * Remove wrapper-level greens that did not execute the jobs which prove recovery.
  *
  * Jobs API reads stay bounded to the decision prefix and the recurrence window. Once a
- * meaningful deciding run is known, successes older than the window cannot affect the
- * decision, green streak, or failure-rate denominator and need no extra read.
- * Unreadable jobs are not proof: fail closed by excluding that green observation.
+ * meaningful deciding run is known, an older success is not read; because publisher-job
+ * proof is therefore unavailable, it is excluded rather than allowed to extend either
+ * the branch-recovery streak or the recurrence streak. Unreadable jobs are not proof:
+ * fail closed by excluding that green observation.
  */
 export function dropUnprovenRecoveryRuns(workflowName, runs, readJobs, {
   now = Date.now(),
@@ -1501,7 +1502,7 @@ export function dropUnprovenRecoveryRuns(workflowName, runs, readJobs, {
 
     const createdAt = Date.parse(run?.createdAt ?? '');
     const safelyOutsideWindow = Number.isFinite(createdAt) && createdAt < cutoff;
-    if (decidingRunFound && safelyOutsideWindow) return true;
+    if (decidingRunFound && safelyOutsideWindow) return false;
 
     const jobs = typeof readJobs === 'function' ? readJobs(run?.databaseId) : null;
     const proven = hasRequiredRecoveryJobs(workflowName, jobs);
