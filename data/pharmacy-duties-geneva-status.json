@@ -1,8 +1,8 @@
 {
   "_source": "https://pharmageneve.swiss/pharmacie-de-garde/",
   "_sourceKey": "pharmageneve-garde-2026",
-  "_fetchedAt": "2026-10-11T23:42:26.078Z",
-  "_attemptedAt": "2026-10-11T23:42:26.078Z",
+  "_fetchedAt": "2026-10-12T02:43:45.613Z",
+  "_attemptedAt": "2026-10-12T02:43:45.613Z",
   "_timezone": "Europe/Zurich",
   "_scope": {
     "country": "CH",
@@ -30,7 +30,7 @@
     "version": 1,
     "timezone": "Europe/Zurich",
     "state": "fresh",
-    "evaluatedAt": "2026-10-11T23:42:26.078Z",
+    "evaluatedAt": "2026-10-12T02:43:45.613Z",
     "scope": {
       "country": "CH",
       "canton": "GE"
@@ -50,15 +50,15 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-geneva.json",
-        "sha256": "435db6a302faa93b591999607e03f93e1e3f1298777a93fee24f766318e67df9",
-        "fetchedAt": "2026-10-11T23:42:26.078Z"
+        "sha256": "ea4244414afc3cec634905c9df029ccdea91705701f1921dc3b6ba4c62ee632b",
+        "fetchedAt": "2026-10-12T02:43:45.613Z"
       },
       "status": {
         "path": "data/pharmacy-duties-geneva-status.json",
-        "sha256": "7604372c61d42a99921011c662eae2a459384114ba40fb4787fcc3c68d5cce86",
-        "fetchedAt": "2026-10-11T23:42:26.078Z"
+        "sha256": "ac68b7fea2c4456f23a1f71a8c044edd81ef4cd862c928e251342cea44d3617f",
+        "fetchedAt": "2026-10-12T02:43:45.613Z"
       }
     },
-    "releaseId": "pharmacy-geneva-v1-4d5c116681765a48b3456866893da4dd3575dd71362588fa81db5cd2f5197b81"
+    "releaseId": "pharmacy-geneva-v1-3c659b134c5b689cb084e19b82de1d748d23f2b964fc991e491d4ad7ce531b79"
   }
 }
