@@ -412,9 +412,9 @@
       "slug": "hf-fh-m-f-automatico-yellowshark-ag-luzern-lu",
       "slugByLocale": {
         "it": "hf-fh-m-f-automatico-yellowshark-ag-luzern-lu",
-        "en": "automation-technician-hf-fh-m-w-d-yellowshark-ag-luzern",
+        "en": "automatic-hf-fh-m-f-yellowshark-ag-luzern-lu",
         "de": "automatiker-hf-fh-m-w-luzern-lu-yellowshark-ch",
-        "fr": "automaticien-hf-fh-m-w-d-yellowshark-ag-luzern"
+        "fr": "automatique-hf-fh-h-f-yellowshark-ag-luzern-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -460,8 +460,8 @@
       "previousSlugs": [
         "automatiker-hf-fh-m-w-luzern-lu-yellowshark-ch",
         "automatiker-hf-fh-m-w-yellowshark-ag-luzern",
-        "automatic-hf-fh-m-f-yellowshark-ag-luzern-lu",
-        "automatique-hf-fh-h-f-yellowshark-ag-luzern-lu"
+        "automation-technician-hf-fh-m-w-d-yellowshark-ag-luzern",
+        "automaticien-hf-fh-m-w-d-yellowshark-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -469,14 +469,14 @@
         ],
         "en": [
           "automatiker-hf-fh-m-w-luzern-lu-yellowshark-ch",
-          "automatic-hf-fh-m-f-yellowshark-ag-luzern-lu"
+          "automation-technician-hf-fh-m-w-d-yellowshark-ag-luzern"
         ],
         "de": [
           "automatiker-hf-fh-m-w-yellowshark-ag-luzern"
         ],
         "fr": [
           "automatiker-hf-fh-m-w-luzern-lu-yellowshark-ch",
-          "automatique-hf-fh-h-f-yellowshark-ag-luzern-lu"
+          "automaticien-hf-fh-m-w-d-yellowshark-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.789Z",
@@ -27327,9 +27327,9 @@
     },
     {
       "id": "yellowshark-9de6b5fe49ab",
-      "slug": "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-zug",
+      "slug": "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-zug-zg",
       "slugByLocale": {
-        "it": "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-zug",
+        "it": "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-zug-zg",
         "en": "sanitary-heating-installer-m-f-yellowshark-ag-zug-zg",
         "de": "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
         "fr": "installation-sanitaire-chauffage-h-f-yellowshark-ag-zug-zg"
@@ -27377,12 +27377,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
-        "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-zug-zg"
+        "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
-          "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-zug-zg"
+          "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-zug"
         ],
         "en": [
           "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch"
@@ -40119,9 +40119,9 @@
     },
     {
       "id": "yellowshark-7e803dc81df8",
-      "slug": "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-liestal",
+      "slug": "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-liestal-bl",
       "slugByLocale": {
-        "it": "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-liestal",
+        "it": "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-liestal-bl",
         "en": "sanitary-heating-installer-m-f-yellowshark-ag-liestal-bl",
         "de": "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch",
         "fr": "installation-sanitaire-chauffage-h-f-yellowshark-ag-liestal-bl"
@@ -40169,12 +40169,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch",
-        "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-liestal-bl"
+        "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch",
-          "installatore-sanitario-riscaldamento-m-f-yellowshark-ag-liestal-bl"
+          "sanitar-heizungsmonteur-m-w-d-yellowshark-ag-liestal"
         ],
         "en": [
           "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch"
@@ -52108,7 +52108,7 @@
         "it": "plaster-m-f-yellowshark-ag-schwyz",
         "en": "plaster-m-f-yellowshark-ag-schwyz",
         "de": "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "gipser-m-w-d-yellowshark-ag-schwyz"
+        "fr": "plaquette-h-f-yellowshark-ag-schwyz-sz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -52154,7 +52154,7 @@
       "previousSlugs": [
         "gipser-m-w-schwyz-sz-yellowshark-ch",
         "gipser-m-w-yellowshark-ag-schwyz",
-        "plaquette-h-f-yellowshark-ag-schwyz-sz"
+        "gipser-m-w-d-yellowshark-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -52162,7 +52162,7 @@
         ],
         "fr": [
           "gipser-m-w-yellowshark-ag-schwyz",
-          "plaquette-h-f-yellowshark-ag-schwyz-sz"
+          "gipser-m-w-d-yellowshark-ag-schwyz"
         ]
       },
       "needsRetranslation": true,
@@ -53373,7 +53373,7 @@
         "it": "addetto-a-alle-vendite-servizio-interno-m-w-d-yellowshark-ag-uster",
         "en": "sales-associate-innendienst-m-w-d-yellowshark-ag-uster",
         "de": "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "fr": "employe-vente-service-interne-m-w-d-yellowshark-ag-uster"
+        "fr": "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -53418,7 +53418,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
+        "employe-vente-service-interne-m-w-d-yellowshark-ag-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -53429,7 +53429,7 @@
         ],
         "fr": [
           "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-          "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
+          "employe-vente-service-interne-m-w-d-yellowshark-ag-uster"
         ]
       },
       "firstSeenAt": "2026-09-30T21:57:40.139Z",
@@ -59009,7 +59009,7 @@
         "it": "controllore-esperto-80-yellowshark-ag-horgen-zh",
         "en": "experienced-controller-80-yellowshark-ag-horgen-zh",
         "de": "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-        "fr": "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
+        "fr": "controleur-experimente-80-yellowshark-ag-horgen-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -59054,7 +59054,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-        "controleur-experimente-80-yellowshark-ag-horgen-zh"
+        "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59065,7 +59065,7 @@
         ],
         "fr": [
           "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-          "controleur-experimente-80-yellowshark-ag-horgen-zh"
+          "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
         ]
       },
       "needsRetranslation": true,
@@ -70070,11 +70070,11 @@
     },
     {
       "id": "yellowshark-d2a3f8c22e95",
-      "slug": "wirtschaftsinformatiker-projektleiter-erp-yellowshark-ag-sempach",
+      "slug": "business-informatician-project-manager-erp-yellowshark-ag-sempach-lu",
       "slugByLocale": {
-        "it": "wirtschaftsinformatiker-projektleiter-erp-yellowshark-ag-sempach",
-        "en": "business-informatician-project-manager-erp-yellowshark-ag-sempach",
         "de": "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch",
+        "it": "business-informatician-project-manager-erp-yellowshark-ag-sempach-lu",
+        "en": "business-informatician-project-manager-erp-yellowshark-ag-sempach",
         "fr": "business-informatician-project-manager-erp-yellowshark-ag-sempach"
       },
       "company": "yellowshark AG",
@@ -70120,7 +70120,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch"
+          "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch",
+          "wirtschaftsinformatiker-projektleiter-erp-yellowshark-ag-sempach"
         ],
         "en": [
           "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch"
@@ -70130,7 +70131,8 @@
         ]
       },
       "previousSlugs": [
-        "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch"
+        "wirtschaftsinformatiker-projektleiter-erp-sempach-lu-yellowshark-ch",
+        "wirtschaftsinformatiker-projektleiter-erp-yellowshark-ag-sempach"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -71010,12 +71012,12 @@
     },
     {
       "id": "yellowshark-4c229fa6bbc0",
-      "slug": "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss",
+      "slug": "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss-be",
       "slugByLocale": {
-        "it": "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss",
-        "en": "machine-assembly-assemblies-up-to-the-functional-test-100-m-f-yellowshark-ag-lyss",
         "de": "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch",
-        "fr": "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch"
+        "it": "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss-be",
+        "en": "machine-assembly-assemblies-up-to-the-functional-test-100-m-f-yellowshark-ag-lyss-be",
+        "fr": "montage-de-machines-assemblages-jusqu-au-test-fonctionnel-100-h-f-yellowshark-ag-lyss-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71074,14 +71076,21 @@
       "firstSeenAt": "2026-10-11T21:50:01.812Z",
       "previousSlugsByLocale": {
         "it": [
-          "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch"
+          "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch",
+          "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss"
         ],
         "en": [
+          "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch",
+          "machine-assembly-assemblies-up-to-the-functional-test-100-m-f-yellowshark-ag-lyss"
+        ],
+        "fr": [
           "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch"
         ]
       },
       "previousSlugs": [
-        "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch"
+        "maschinenmontage-baugruppen-bis-zum-funktionstest-100-m-w-lyss-be-yellowshark-ch",
+        "montaggio-macchina-assemblaggi-fino-al-test-funzionale-100-m-f-yellowshark-ag-lyss",
+        "machine-assembly-assemblies-up-to-the-functional-test-100-m-f-yellowshark-ag-lyss"
       ]
     },
     {
@@ -71316,12 +71325,12 @@
     },
     {
       "id": "yellowshark-29970ca70d62",
-      "slug": "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren",
+      "slug": "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren-zh",
       "slugByLocale": {
-        "it": "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren",
-        "en": "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
         "de": "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
-        "fr": "support-informatique-de-deuxieme-niveau-d-f-yellowshark-ag-schlieren"
+        "it": "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren-zh",
+        "en": "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
+        "fr": "support-informatique-de-deuxieme-niveau-d-f-yellowshark-ag-schlieren-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71381,14 +71390,18 @@
       "firstSeenAt": "2026-10-11T21:50:01.808Z",
       "previousSlugsByLocale": {
         "it": [
-          "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch"
+          "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
+          "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren"
         ],
         "fr": [
-          "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch"
+          "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
+          "support-informatique-de-deuxieme-niveau-d-f-yellowshark-ag-schlieren"
         ]
       },
       "previousSlugs": [
-        "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch"
+        "2nd-level-it-supporter-d-f-schlieren-zh-yellowshark-ch",
+        "supporto-it-di-secondo-livello-d-f-yellowshark-ag-schlieren",
+        "support-informatique-de-deuxieme-niveau-d-f-yellowshark-ag-schlieren"
       ]
     },
     {
