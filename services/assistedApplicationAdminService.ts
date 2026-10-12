@@ -180,8 +180,9 @@ export interface AssistedApplicationAdminOrder {
   applicantName: string | null;
   applicantEmail: string | null;
   applicantPhone: string | null;
-  /** Stripe checkout email: the only contact before the customer sends materials. */
+  /** Payment-provider checkout email: the only contact before the customer sends materials. */
   customerEmail: string | null;
+  paymentProvider?: 'stripe' | 'sumup' | string;
   locale: string | null;
   hasCv: boolean;
   cvUrl: string | null;
@@ -273,9 +274,9 @@ function errorMessage(error: unknown, status: number): string {
     payment_not_refundable: 'Questo ordine non può essere rimborsato.',
     refund_in_progress: 'Per questo ordine è già in corso un rimborso.',
     refund_state_changed: 'L’ordine è cambiato durante il rimborso; verifica lo stato prima di riprovare.',
-    payment_reference_missing: 'Riferimento Stripe mancante: rimborso non eseguito.',
+    payment_reference_missing: 'Riferimento del pagamento mancante: rimborso non eseguito.',
     already_submitted: 'La candidatura è già stata inviata e non è rimborsabile da questa coda.',
-    stripe_refund_failed: 'Stripe non ha completato il rimborso; nessun dato è stato marcato come rimborsato.',
+    payment_refund_failed: 'Il provider di pagamento non ha completato il rimborso; nessun dato è stato marcato come rimborsato.',
     invalid_cv_file: 'Il file non è un PDF, DOC o DOCX valido (max 5 MB).',
     draft_not_ready: 'La bozza AI non è ancora pronta.',
     changed_meanwhile: 'Il candidato ha cambiato la bozza nel frattempo: ricarica e ripeti la modifica.',

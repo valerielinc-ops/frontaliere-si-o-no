@@ -14,6 +14,8 @@ const mocks = vi.hoisted(() => ({
   getAdminDb: vi.fn(),
   resolveCvLink: vi.fn(),
   getStripe: vi.fn(),
+  retrieveSumUpCheckout: vi.fn(),
+  refundSumUpTransaction: vi.fn(),
 }));
 
 vi.mock('firebase-admin/auth', () => ({
@@ -27,6 +29,11 @@ vi.mock('../functions/src/publisherApplicationsCore.js', () => ({
 }));
 vi.mock('../functions/src/stripePublisherCore.js', () => ({
   getStripe: () => mocks.getStripe(),
+}));
+vi.mock('../functions/src/sumupAssistedApplicationCore.js', () => ({
+  retrieveSumUpCheckout: (...args: unknown[]) => mocks.retrieveSumUpCheckout(...args),
+  refundSumUpTransaction: (...args: unknown[]) => mocks.refundSumUpTransaction(...args),
+  SumUpApiError: class SumUpApiError extends Error {},
 }));
 
 type Store = Record<string, Record<string, any>>;
@@ -150,6 +157,8 @@ describe('handleAssistedApplicationAdmin', () => {
     mocks.resolveCvLink.mockReset();
     mocks.resolveCvLink.mockResolvedValue('https://storage.example.test/signed-cv');
     mocks.getStripe.mockReset();
+    mocks.retrieveSumUpCheckout.mockReset();
+    mocks.refundSumUpTransaction.mockReset();
     signedStripe.refunds.create.mockReset();
     signedStripe.checkout.sessions.retrieve.mockReset();
     mocks.getStripe.mockResolvedValue(signedStripe);
@@ -459,7 +468,7 @@ describe('handleAssistedApplicationAdmin', () => {
       body: { action: 'refund', orderId: 'blocked' },
     }));
 
-    expect(result).toEqual({ status: 502, body: { ok: false, error: 'stripe_refund_failed' } });
+    expect(result).toEqual({ status: 502, body: { ok: false, error: 'payment_refund_failed' } });
     expect(database.store.assisted_applications.blocked).toMatchObject({
       paymentStatus: 'paid',
       submissionStatus: 'in_progress',
@@ -469,5 +478,90 @@ describe('handleAssistedApplicationAdmin', () => {
     });
     expect(database.store.assisted_applications.blocked).not.toHaveProperty('stripeRefundId');
     expect(database.events.blocked || []).toHaveLength(0);
+  });
+
+  it('refunds a SumUp order through its transaction reference', async () => {
+    const database = makeDb({
+      blocked: {
+        paymentProvider: 'sumup',
+        paymentStatus: 'paid',
+        submissionStatus: 'in_progress',
+        sumupCheckoutId: 'sumup_checkout_1',
+        sumupTransactionId: 'sumup_transaction_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+    mocks.refundSumUpTransaction.mockResolvedValue({
+      id: 'sumup_transaction_1',
+      status: 'REFUNDED',
+    });
+
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }));
+
+    expect(result).toMatchObject({
+      status: 200,
+      body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 'sumup_transaction_1' },
+    });
+    expect(mocks.refundSumUpTransaction).toHaveBeenCalledWith('sumup_transaction_1');
+    expect(mocks.getStripe).not.toHaveBeenCalled();
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      paymentStatus: 'refunded',
+      submissionStatus: 'refunded',
+      sumupRefundId: 'sumup_transaction_1',
+    });
+  });
+
+  it('reconciles a SumUp refund after the provider accepts it but the first Firestore commit fails', async () => {
+    const database = makeDb({
+      blocked: {
+        paymentProvider: 'sumup',
+        paymentStatus: 'paid',
+        submissionStatus: 'in_progress',
+        sumupCheckoutId: 'sumup_checkout_1',
+        sumupTransactionId: 'sumup_transaction_1',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+    mocks.retrieveSumUpCheckout.mockResolvedValue({
+      transactions: [{ id: 'sumup_transaction_1', status: 'SUCCESSFUL' }],
+    });
+    mocks.refundSumUpTransaction.mockResolvedValue({ status: 204 });
+
+    const originalRunTransaction = database.db.runTransaction.bind(database.db);
+    let transactionCalls = 0;
+    database.db.runTransaction = async (callback: any) => {
+      transactionCalls += 1;
+      if (transactionCalls === 2) throw new Error('firestore_commit_failed');
+      return originalRunTransaction(callback);
+    };
+
+    await expect(handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }))).rejects.toThrow('firestore_commit_failed');
+
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      refundStatus: 'pending',
+      sumupRefundRequestId: 'sumup_transaction_1',
+      sumupRefundRequestStatus: 'accepted',
+    });
+    const result = await handleAssistedApplicationAdmin(request({
+      method: 'POST',
+      body: { action: 'refund', orderId: 'blocked' },
+    }));
+
+    expect(result).toMatchObject({
+      status: 200,
+      body: { ok: true, orderId: 'blocked', submissionStatus: 'refunded', refundId: 'sumup_transaction_1' },
+    });
+    expect(mocks.refundSumUpTransaction).toHaveBeenCalledTimes(1);
+    expect(database.store.assisted_applications.blocked).toMatchObject({
+      paymentStatus: 'refunded',
+      submissionStatus: 'refunded',
+      sumupRefundId: 'sumup_transaction_1',
+    });
   });
 });

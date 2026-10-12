@@ -2,7 +2,7 @@
  * Admin-only operational queue for one-off assisted applications.
  *
  * GET lists paid orders in the manual-submission lifecycle. POST performs a
- * server-validated submission-status transition, issues a full Stripe refund,
+ * server-validated submission-status transition, issues a full provider refund,
  * or returns a read-only candidate-facing order snapshot. Candidate PII stays
  * behind the same verified owner-email gate used by the other AdminPanel
  * endpoints; CVs are returned only as short-lived signed URLs.
@@ -16,6 +16,11 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import {
+  refundSumUpTransaction,
+  retrieveSumUpCheckout,
+  SumUpApiError,
+} from './sumupAssistedApplicationCore.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import {
   AUTOMATION_ADMIN_ACTIONS,
@@ -43,7 +48,8 @@ const ALL_SUBMISSION_STATUSES = new Set([
   'cancelled',
 ]);
 
-// Refund is deliberately not a generic transition: it must call Stripe first.
+// Refund is deliberately not a generic transition: it must call the payment
+// provider first and only then mark the order refunded.
 const ALLOWED_TRANSITIONS = Object.freeze({
   awaiting_payment: new Set(),
   // Materials that arrive by email (reply to Valerie) move the order on
@@ -63,9 +69,9 @@ const EVENT_FOR_STATUS = Object.freeze({
   blocked: 'manual_submission_blocked',
 });
 
-// A crashed process can leave a reservation behind after Stripe has accepted
-// the idempotent refund request. Let a later owner retry reuse that same Stripe
-// idempotency key while keeping concurrent admin actions serialized.
+// A crashed process can leave a reservation behind after the provider has
+// accepted the refund request. Stripe retries through its idempotency key;
+// SumUp retries reconcile the transaction status before issuing another call.
 const REFUND_RESERVATION_TTL_MS = 15 * 60 * 1000;
 
 class AssistedApplicationAdminError extends Error {
@@ -207,6 +213,7 @@ function serializeOrder(doc, cvUrl) {
     paymentStatus: boundedString(data.paymentStatus, 40),
     amountTotal: amountFor(data),
     currency: boundedString(data.currency || 'eur', 12).toUpperCase(),
+    paymentProvider: boundedString(data.paymentProvider || 'stripe', 40) || 'stripe',
     paidAt: timestampToIso(data.paidAt),
     applicantName: optionalString(data.applicantName, 200) || null,
     applicantEmail: optionalString(data.applicantEmail, 320) || null,
@@ -454,9 +461,47 @@ async function resolvePaymentReference(order, stripe) {
   }
 }
 
-async function reserveRefund(db, orderRef) {
+async function resolveSumUpPaymentReference(order) {
+  const direct = boundedString(order?.sumupTransactionId, 200);
+  if (direct) return { type: 'sumup_transaction', id: direct };
+  const checkoutId = boundedString(order?.sumupCheckoutId, 200);
+  if (!checkoutId) return null;
+  try {
+    const checkout = await retrieveSumUpCheckout(checkoutId);
+    const transaction = Array.isArray(checkout?.transactions)
+      ? checkout.transactions[checkout.transactions.length - 1]
+      : null;
+    const transactionId = boundedString(transaction?.id || checkout?.transaction_id, 200);
+    return transactionId ? { type: 'sumup_transaction', id: transactionId } : null;
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] SumUp payment reference lookup failed', error instanceof Error ? error.message : String(error));
+    return null;
+  }
+}
+
+async function sumUpRefundState(order, transactionId) {
+  const checkoutId = boundedString(order?.sumupCheckoutId, 200);
+  if (!checkoutId) return { available: false, status: null };
+  try {
+    const checkout = await retrieveSumUpCheckout(checkoutId);
+    const transactions = Array.isArray(checkout?.transactions) ? checkout.transactions : [];
+    const transaction = transactions.find((candidate) => candidate?.id === transactionId)
+      || (transactions.length === 1 ? transactions[0] : null);
+    return {
+      available: true,
+      status: boundedString(transaction?.status, 40).toUpperCase() || null,
+    };
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] SumUp refund status lookup failed', error instanceof Error ? error.message : String(error));
+    return { available: false, status: null };
+  }
+}
+
+async function reserveRefund(db, orderRef, { sumUpTransactionId = null } = {}) {
   const reservationId = randomUUID();
   let alreadyRefunded = false;
+  let sumUpRefundRequestAlreadyRecorded = false;
+  let sumUpRefundRequestStatus = null;
   await db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(orderRef);
     if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
@@ -471,39 +516,102 @@ async function reserveRefund(db, orderRef) {
     if (order.submissionStatus === 'submitted') {
       throw new AssistedApplicationAdminError('already_submitted', 409);
     }
-    if (order.refundStatus === 'pending' && !refundReservationIsStale(order.refundPendingAt)) {
+    const existingSumUpRequestId = boundedString(order.sumupRefundRequestId, 200);
+    const existingSumUpRequestStatus = boundedString(order.sumupRefundRequestStatus, 40) || 'requested';
+    const canReconcileAcceptedSumUpRequest = Boolean(
+      sumUpTransactionId
+      && existingSumUpRequestId === sumUpTransactionId
+      && existingSumUpRequestStatus === 'accepted',
+    );
+    if (
+      order.refundStatus === 'pending'
+      && !refundReservationIsStale(order.refundPendingAt)
+      && !canReconcileAcceptedSumUpRequest
+    ) {
       throw new AssistedApplicationAdminError('refund_in_progress', 409);
     }
-    transaction.set(orderRef, {
+    if (sumUpTransactionId) {
+      if (existingSumUpRequestId && existingSumUpRequestId !== sumUpTransactionId) {
+        throw new AssistedApplicationAdminError('payment_reference_changed', 409);
+      }
+      sumUpRefundRequestAlreadyRecorded = Boolean(existingSumUpRequestId);
+      sumUpRefundRequestStatus = existingSumUpRequestId
+        ? existingSumUpRequestStatus
+        : 'requested';
+    }
+    const update = {
       refundStatus: 'pending',
       refundReservationId: reservationId,
       refundPendingAt: new Date(),
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+      // SumUp's refund endpoint has no idempotency key. Persist the
+      // transaction reference before calling it: a later retry can fence off
+      // a second provider request even while SumUp's status is still stale.
+      ...(sumUpTransactionId ? {
+        sumupRefundRequestId: sumUpTransactionId,
+        sumupRefundRequestStatus: sumUpRefundRequestStatus,
+        sumupRefundRequestedAt: order.sumupRefundRequestedAt || new Date(),
+      } : {}),
+    };
+    transaction.set(orderRef, update, { merge: true });
   });
-  return { reservationId, alreadyRefunded };
+  return {
+    reservationId,
+    alreadyRefunded,
+    sumUpRefundRequestAlreadyRecorded,
+    sumUpRefundRequestStatus,
+  };
 }
 
-async function releaseRefundReservation(db, orderRef, reservationId) {
+async function releaseRefundReservation(db, orderRef, reservationId, { clearSumUpRefundRequest = false } = {}) {
   try {
     await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(orderRef);
       const order = snapshot.exists ? snapshot.data() || {} : null;
       if (!order || order.refundStatus !== 'pending' || order.refundReservationId !== reservationId) return;
-      transaction.set(orderRef, {
+      const update = {
         refundStatus: null,
         refundReservationId: null,
         refundPendingAt: null,
         updatedAt: FieldValue.serverTimestamp(),
-      }, { merge: true });
+        ...(clearSumUpRefundRequest ? {
+          sumupRefundRequestId: null,
+          sumupRefundRequestStatus: null,
+          sumupRefundRequestedAt: null,
+          sumupRefundAcceptedAt: null,
+        } : {}),
+      };
+      transaction.set(orderRef, update, { merge: true });
     });
   } catch (error) {
     console.error('[manageAssistedApplicationAdmin] refund reservation release failed', error instanceof Error ? error.message : String(error));
   }
 }
 
+async function markSumUpRefundRequestAccepted(orderRef, reservationId, transactionId) {
+  const snapshot = await orderRef.get();
+  const order = snapshot.exists ? snapshot.data() || {} : null;
+  if (
+    !order
+    || order.refundStatus !== 'pending'
+    || order.refundReservationId !== reservationId
+  ) {
+    throw new AssistedApplicationAdminError('refund_state_changed', 409);
+  }
+  // The reservation serializes owner actions. This journal write is kept
+  // separate from the final state transaction so an unknown final commit does
+  // not erase the fact that SumUp already accepted the request.
+  await orderRef.set({
+    sumupRefundRequestId: transactionId,
+    sumupRefundRequestStatus: 'accepted',
+    sumupRefundAcceptedAt: new Date(),
+    sumupRefundId: transactionId,
+    updatedAt: FieldValue.serverTimestamp(),
+  }, { merge: true });
+}
+
 /**
- * Full Stripe refund of one order, used by the owner queue and by the
+ * Full payment refund of one order, used by the owner queue and by the
  * automated flow when the ad closes before sending (actor 'automation').
  */
 export async function issueAssistedApplicationRefund(db, raw, adminEmail) {
@@ -529,37 +637,120 @@ async function handleRefund(db, raw, adminEmail) {
     throw new AssistedApplicationAdminError('already_submitted', 409);
   }
 
-  const stripe = await getStripe();
-  const reference = await resolvePaymentReference(order, stripe);
+  const sumUpOrder = order.paymentProvider === 'sumup';
+  const staleRefundReservation = order.refundStatus === 'pending'
+    && refundReservationIsStale(order.refundPendingAt);
+  const stripe = sumUpOrder ? null : await getStripe();
+  const reference = sumUpOrder
+    ? await resolveSumUpPaymentReference(order)
+    : await resolvePaymentReference(order, stripe);
   if (!reference) throw new AssistedApplicationAdminError('payment_reference_missing', 409);
 
-  const reservation = await reserveRefund(db, orderRef);
+  const reservation = await reserveRefund(
+    db,
+    orderRef,
+    sumUpOrder ? { sumUpTransactionId: reference.id } : undefined,
+  );
   if (reservation.alreadyRefunded) {
     return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
   }
 
+  let providerRefundConfirmed = false;
+  if (sumUpOrder) {
+    const providerState = await sumUpRefundState(order, reference.id);
+    if (providerState.status === 'REFUNDED') {
+      providerRefundConfirmed = true;
+    } else if (
+      reservation.sumUpRefundRequestAlreadyRecorded
+      && reservation.sumUpRefundRequestStatus === 'accepted'
+    ) {
+      // The previous request already received a successful response. The
+      // provider status can lag behind that response, so never POST again.
+      providerRefundConfirmed = true;
+    } else if (reservation.sumUpRefundRequestAlreadyRecorded) {
+      // A prior process recorded the request but did not receive a durable
+      // success marker. Keep the reservation for reconciliation; a second
+      // POST would be unsafe because SumUp has no refund idempotency key.
+      console.error('[manageAssistedApplicationAdmin] SumUp refund request outcome unresolved; retry postponed', orderId);
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    } else if (staleRefundReservation && !providerState.available) {
+      // The previous attempt may already have reached SumUp. Do not issue a
+      // second refund while the provider status is unavailable; keep this
+      // reservation so a later retry can reconcile it safely.
+      console.error('[manageAssistedApplicationAdmin] SumUp refund status unavailable; retry postponed', orderId);
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    }
+  }
+
   let refund;
   try {
-    refund = await stripe.refunds.create(
-      reference.type === 'charge' ? { charge: reference.id } : { payment_intent: reference.id },
-      { idempotencyKey: `assisted-application-refund:${orderId}` },
-    );
+    refund = providerRefundConfirmed
+      ? { status: 204 }
+      : sumUpOrder
+      ? await refundSumUpTransaction(reference.id)
+      : await stripe.refunds.create(
+        reference.type === 'charge' ? { charge: reference.id } : { payment_intent: reference.id },
+        { idempotencyKey: `assisted-application-refund:${orderId}` },
+      );
   } catch (error) {
-    await releaseRefundReservation(db, orderRef, reservation.reservationId);
-    console.error('[manageAssistedApplicationAdmin] Stripe refund failed', error instanceof Error ? error.message : String(error));
-    return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
+    if (sumUpOrder) {
+      const providerState = await sumUpRefundState(order, reference.id);
+      if (providerState.status === 'REFUNDED') {
+        refund = { status: 204 };
+      } else {
+        // Retain the durable request fence. The owner can reconcile the
+        // provider status later, but this attempt must never POST a second
+        // refund after an ambiguous provider response.
+        if (
+          error instanceof SumUpApiError
+          && error.status >= 400
+          && error.status < 500
+          && ![409, 429].includes(error.status)
+        ) {
+          await releaseRefundReservation(db, orderRef, reservation.reservationId, {
+            clearSumUpRefundRequest: true,
+          });
+        }
+        console.error('[manageAssistedApplicationAdmin] SumUp refund outcome uncertain; retry postponed', orderId);
+        return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+      }
+    } else {
+      await releaseRefundReservation(db, orderRef, reservation.reservationId);
+      console.error('[manageAssistedApplicationAdmin] payment refund failed', error instanceof Error ? error.message : String(error));
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    }
   }
 
-  if (refund?.status !== 'succeeded') {
-    await releaseRefundReservation(db, orderRef, reservation.reservationId);
-    console.error('[manageAssistedApplicationAdmin] Stripe refund did not succeed', refund?.status || 'missing_status');
-    return { status: 502, body: { ok: false, error: 'stripe_refund_failed' } };
+  const refundSucceeded = sumUpOrder
+    ? Boolean(refund && (
+      refund.status === 204
+      || refund.status === 'REFUNDED'
+      || refund.simple_status === 'REFUNDED'
+    ))
+    : refund?.status === 'succeeded';
+  if (!refundSucceeded) {
+    await releaseRefundReservation(db, orderRef, reservation.reservationId, {
+      clearSumUpRefundRequest: sumUpOrder,
+    });
+    console.error('[manageAssistedApplicationAdmin] payment refund did not succeed', refund?.status || 'missing_status');
+    return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
   }
 
-  let alreadyRefunded = false;
+  if (sumUpOrder && reservation.sumUpRefundRequestStatus !== 'accepted') {
+    try {
+      await markSumUpRefundRequestAccepted(orderRef, reservation.reservationId, reference.id);
+    } catch (error) {
+      console.error('[manageAssistedApplicationAdmin] SumUp refund journal write failed', error instanceof Error ? error.message : String(error));
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    }
+  }
+
   const timestamp = FieldValue.serverTimestamp();
-  const refundId = boundedString(refund?.id, 200) || null;
-  try {
+  const refundId = boundedString(refund?.id || refund?.transaction_id, 200)
+    || (sumUpOrder ? reference.id : null);
+
+  const commitRefundState = async () => {
+    let alreadyRefunded = false;
     await db.runTransaction(async (transaction) => {
       const currentSnapshot = await transaction.get(orderRef);
       if (!currentSnapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
@@ -570,7 +761,7 @@ async function handleRefund(db, raw, adminEmail) {
       }
       // The reservation blocks ordinary admin transitions. Keep this check in
       // the final transaction too: an Admin-SDK writer outside this endpoint
-      // must never be overwritten after Stripe has returned.
+      // must never be overwritten after the provider has returned.
       if (current.refundStatus !== 'pending' || current.refundReservationId !== reservation.reservationId) {
         throw new AssistedApplicationAdminError('refund_state_changed', 409);
       }
@@ -581,7 +772,7 @@ async function handleRefund(db, raw, adminEmail) {
         paymentStatus: 'refunded',
         submissionStatus: 'refunded',
         refundStatus: 'completed',
-        stripeRefundId: refundId,
+        ...(sumUpOrder ? { sumupRefundId: refundId } : { stripeRefundId: refundId }),
         refundedAt: timestamp,
         statusChangedAt: timestamp,
         updatedAt: timestamp,
@@ -597,8 +788,22 @@ async function handleRefund(db, raw, adminEmail) {
       transaction.set(orderRef, update, { merge: true });
       transaction.set(orderRef.collection('events').doc(), event);
     });
+    return alreadyRefunded;
+  };
+
+  let alreadyRefunded = false;
+  try {
+    alreadyRefunded = await commitRefundState();
   } catch (error) {
-    return transitionErrorResponse(error);
+    if (sumUpOrder && (await sumUpRefundState(order, reference.id)).status === 'REFUNDED') {
+      try {
+        alreadyRefunded = await commitRefundState();
+      } catch (retryError) {
+        return transitionErrorResponse(retryError);
+      }
+    } else {
+      return transitionErrorResponse(error);
+    }
   }
   if (alreadyRefunded) {
     return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
