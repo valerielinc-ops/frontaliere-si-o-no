@@ -5,6 +5,31 @@
 /* Dark mode color-scheme — fixes native scrollbars, inputs, form controls */
 html.dark { color-scheme: dark; }
 
+/* Leaflet ships its controls with an opaque light palette. Keep the map
+   chrome aligned with the page when the library stylesheet is injected after
+   this entry sheet. */
+html.dark .leaflet-bar a,
+html.dark .leaflet-control-layers,
+html.dark .leaflet-control-attribution,
+html.dark .leaflet-control-scale-line,
+html.dark .leaflet-popup-content-wrapper,
+html.dark .leaflet-popup-tip,
+html.dark .leaflet-tooltip {
+  background-color: var(--_surface);
+  color: var(--_heading);
+  border-color: var(--_edge);
+}
+html.dark .leaflet-bar a:hover,
+html.dark .leaflet-bar a:focus,
+html.dark .leaflet-bar a.leaflet-disabled {
+  background-color: var(--_surface-raised);
+  color: var(--_muted);
+}
+html.dark .leaflet-control-attribution a,
+html.dark .leaflet-container a {
+  color: var(--_link);
+}
+
 /* ── Semantic Design Tokens ──
    Intermediate vars (--_*) hold mode-specific values.
    @theme references them so Tailwind generates utilities:
@@ -105,7 +130,7 @@ html.dark {
   --_strong: #e2e8f0;        /* slate-200 */
   --_heading: #f1f5f9;       /* slate-100 */
   --_edge: #334155;          /* slate-700 */
-  --_link: #7a5af8;          /* stripe-purple-light */
+  --_link: #a78bfa;          /* stripe-purple-light — AA text/link */
   --_accent: #7a5af8;        /* stripe-purple-light */
   --_accent-hover: #9b8afb;  /* stripe-purple-lighter */
   --_success: #34d399;
@@ -169,6 +194,13 @@ html.dark {
   --_chart-area: rgba(167, 139, 250, 0.25);
   --_chart-dot: #e2e8f0;
   --_chart-label: #94a3b8;
+}
+
+/* Text accents need the lighter dark-mode tone for WCAG AA. Solid accent
+   backgrounds keep using --_accent, so buttons do not lose their contrast. */
+html.dark .text-link,
+html.dark .text-accent {
+  color: var(--_link);
 }
 
 /* Hero gradient — decorative radial glow using semantic info + surface tokens */

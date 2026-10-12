@@ -4,6 +4,7 @@ import postcss from 'postcss';
 import { describe, expect, it } from 'vitest';
 
 const CSS_PATH = path.resolve(process.cwd(), 'public/assets/seo-static.css');
+const BRIDGE_CSS_PATH = path.resolve(process.cwd(), 'public/assets/bridge.css');
 const SPA_CSS_PATH = path.resolve(process.cwd(), 'index.css');
 
 describe('seo-static.css', () => {
@@ -23,6 +24,29 @@ describe('seo-static.css', () => {
     expect(selectors.has('.s-XENO3U')).toBe(true);
     expect(selectors.has('.s-rBJXSS')).toBe(true);
     expect(selectors.has('.s-zzuqwx')).toBe(true);
+  });
+
+  it('keeps the static surface palette readable in dark mode', () => {
+    const css = fs.readFileSync(CSS_PATH, 'utf8');
+    const spaCss = fs.readFileSync(SPA_CSS_PATH, 'utf8');
+
+    expect(css).toContain('html.dark {');
+    expect(css).toContain('--_surface-alt: #0f172a;');
+    expect(css).toContain('--_link: #a78bfa;');
+    expect(css).toContain('html.dark .bg-surface-alt');
+    expect(css).toContain('html.dark .leaflet-control-zoom-in');
+    expect(spaCss).toContain('html.dark .leaflet-bar a');
+    expect(css).toContain('.salary-hub-article{max-width:1200px;margin:0 auto;padding:24px 16px;color:var(--color-body)');
+    expect(css).toContain('.jbx-a{display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-surface-raised)');
+  });
+
+  it('gives standalone bridge pages an explicit dark palette', () => {
+    const css = fs.readFileSync(BRIDGE_CSS_PATH, 'utf8');
+
+    expect(css).toMatch(/html\.dark\s*\{[\s\S]*--bridge-page:\s*#0f172a;/);
+    expect(css).toMatch(/body\s*\{[\s\S]*background:\s*var\(--bridge-page\)/);
+    expect(css).toMatch(/\.card\s*\{[\s\S]*background:\s*var\(--bridge-card\)/);
+    expect(css).toMatch(/html\.dark\s*\{[\s\S]*--bridge-footer:\s*#94a3b8;/);
   });
 
   // Regression guard (inverted from the #1249 clip-rect lock): the cluster
