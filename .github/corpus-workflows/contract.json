@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe",
+  "sourceCommit": "5b41ebd1a5407f5ba5d23ce84bcc2b5398b07d15",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe"
+    "sourceCommit": "5b41ebd1a5407f5ba5d23ce84bcc2b5398b07d15"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 625,
+  "crawlerCount": 626,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0dd9e889af27feebc6d7a9765dfffbf66e741e8aa1e4fa499143c15b428df58f",
+    "rosterDigest": "sha256:cfc30d2121214cdd624446f146a86ce3b72fca0fd4e96d13dca1e505dbb63fdc",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -377,6 +377,7 @@
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
+    "scripts/update-my-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
     "scripts/update-neoproconseils-jobs.mjs",
     "scripts/update-nestle-jobs.mjs",
@@ -1445,8 +1446,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "56eb03c357893685586d1b315410c8c0d107b24e6bb609bf1ba75285830150c8",
-      "artifactSha256": "bdd2d83ef943da0ff5072660b9623a84ff15c989fdb6be6b880c228012d99825",
+      "sourceSha256": "13f786c7c436b1fc801773bb5c323943608381d7233d6361fed0eb4b5a6d7a3d",
+      "artifactSha256": "8b66d8655eecae313a45493f25b9e2c05abd4f3e1a94f9975dc353d95966e270",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "albergo-gardenia",
@@ -1474,7 +1475,8 @@
         "confederazione",
         "mediamarkt",
         "pianorm",
-        "rehaklinik-seewis"
+        "rehaklinik-seewis",
+        "my"
       ]
     },
     {
