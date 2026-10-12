@@ -1,7 +1,7 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-10-12T09:44:13.744Z",
+  "generatedAt": "2026-10-12T21:32:53.463Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4318,
-  "avgDurationMs": 4318,
+  "durationMs": 3947,
+  "avgDurationMs": 3947,
   "durationHistory": [
-    4318
+    3947
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,11 +37,11 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:43:59.250Z",
+      "crawledAt": "2026-10-12T21:32:43.213Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
-      "addressCountry": "Schweiz",
-      "country": "Schweiz",
+      "addressCountry": "CH",
+      "country": "CH",
       "postalCode": "8308",
       "streetAddress": "Kempttalstrasse 21",
       "category": "Altro",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }

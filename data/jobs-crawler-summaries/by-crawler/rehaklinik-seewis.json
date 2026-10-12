@@ -1,7 +1,7 @@
 {
   "key": "rehaklinik-seewis",
   "label": "Kurhaus",
-  "generatedAt": "2026-10-12T09:41:04.617Z",
+  "generatedAt": "2026-10-12T21:33:18.209Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9316,
-  "avgDurationMs": 9316,
+  "durationMs": 8697,
+  "avgDurationMs": 8697,
   "durationHistory": [
-    9316
+    8697
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:40:47.580Z",
+      "crawledAt": "2026-10-12T21:33:09.614Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2534979-nachtwache-schlaflabor-epileptologie-20-40?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:40:47.578Z",
+      "crawledAt": "2026-10-12T21:33:09.613Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:40:47.577Z",
+      "crawledAt": "2026-10-12T21:33:09.612Z",
       "addressLocality": "Dussnang",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2568543-assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:40:47.573Z",
+      "crawledAt": "2026-10-12T21:33:09.611Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:40:47.571Z",
+      "crawledAt": "2026-10-12T21:33:09.609Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -236,5 +236,5 @@
       }
     }
   ],
-  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
+  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
 }
