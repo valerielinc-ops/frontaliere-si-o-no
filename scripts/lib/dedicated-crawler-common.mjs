@@ -5686,6 +5686,15 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /^\d+$/.test(parsedUrl?.searchParams.get('company') || '') &&
     /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
   if (isSwissTimingDetail) return true;
+  // Galenica's Solique SPA keeps the localized listing path and identifies a
+  // single vacancy in its hash route. Accept only the exact host, supported
+  // /<locale>/jobs path, and numeric job.id fragment; a generic hash or a
+  // listing URL is not evidence of a vacancy detail.
+  const isGalenicaDetail =
+    host === 'jobs.galenica.com' &&
+    /^\/(?:it|de|fr|en)\/jobs\/?$/.test(parsedUrl?.pathname || '') &&
+    /^#job\.id=\d+(?:\.\d+)?$/i.test(parsedUrl?.hash || '');
+  if (isGalenicaDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;

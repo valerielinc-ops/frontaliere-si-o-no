@@ -7,7 +7,7 @@
  * without ever forging postalCode/streetAddress (the Swatch incident).
  */
 import { describe, it, expect } from 'vitest';
-import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset.mjs';
+import { normalizeParsedJobsForSlice, stampObservedCrawledAt } from '../../scripts/assemble-jobs-dataset.mjs';
 
 interface JobLike {
   companyKey?: string;
@@ -15,6 +15,7 @@ interface JobLike {
   location?: string;
   url?: string;
   applyUrl?: string;
+  crawledAt?: string;
   applicationEmail?: string;
   contactEmail?: string;
   canton?: string;
@@ -88,6 +89,49 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].country).toBeUndefined();
     expect(jobs[0].addressRegion).toBe('VS');
     expect(report.regionDefaulted).toBe(1);
+  });
+
+  it('canonicalizes explicit Swiss country labels without inferring country from missing evidence', () => {
+    const jobs: JobLike[] = [
+      { country: ' Switzerland ', addressCountry: 'Schweiz' },
+      { country: 'Suisse' },
+      { country: 'Svizzera' },
+      { country: 'CH' },
+      { country: '  ', addressCountry: '' },
+      { country: 'LU', addressCountry: 'LU' },
+      { location: 'Remote' },
+    ];
+
+    const report = normalizeParsedJobsForSlice(jobs);
+
+    expect(jobs.slice(0, 4).map((job) => job.country)).toEqual(['CH', 'CH', 'CH', 'CH']);
+    expect(jobs[0].addressCountry).toBe('CH');
+    expect(jobs[4]).not.toHaveProperty('country');
+    expect(jobs[4]).not.toHaveProperty('addressCountry');
+    expect(jobs[5]).toMatchObject({ country: 'LU', addressCountry: 'LU' });
+    expect(jobs[6]).not.toHaveProperty('country');
+    expect(report.countryEvidenceCanonicalized).toBe(4);
+    expect(report.emptyCountryEvidenceRemoved).toBe(2);
+  });
+
+  it('refreshes crawledAt only for records proven present in the current source observation', () => {
+    const observedAt = new Date();
+    const jobs = [
+      { id: 'seen-id', url: 'https://jobs.example.test/seen', crawledAt: '' },
+      { id: 'seen-by-url', url: 'https://jobs.example.test/url', crawledAt: 'invalid' },
+      { id: 'retained', url: 'https://jobs.example.test/retained', crawledAt: '' },
+    ];
+    const observedJobs = [
+      { id: 'seen-id', url: 'https://jobs.example.test/seen' },
+      { id: 'new-id', url: 'https://jobs.example.test/url' },
+    ];
+
+    const refreshed = stampObservedCrawledAt(jobs, observedJobs, observedAt);
+
+    expect(refreshed).toBe(2);
+    expect(jobs[0].crawledAt).toBe(observedAt.toISOString());
+    expect(jobs[1].crawledAt).toBe(observedAt.toISOString());
+    expect(jobs[2].crawledAt).toBe('');
   });
 
   it('reconciles a stale iPersonal canton to its verified structured region', () => {
@@ -166,6 +210,7 @@ describe('normalizeParsedJobsForSlice', () => {
       { url: 'https://jobs.hilcona.com/de/stelle/maschinenfuhrer-123' },
       { url: 'https://jobs.davos.ch/de/stellenangebote/bergbahn_j_12345' },
       { url: 'https://www.tarchinigroup.com/it/work/42/tecnico' },
+      { url: 'https://jobs.galenica.com/it/jobs/#job.id=3136151.4065791' },
       { url: 'https://jobs.example.ch/de/stellenangebote/' },
     ];
 
@@ -174,8 +219,9 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].applyUrl).toBe(jobs[0].url);
     expect(jobs[1].applyUrl).toBe(jobs[1].url);
     expect(jobs[2].applyUrl).toBe(jobs[2].url);
-    expect(jobs[3].applyUrl).toBeUndefined();
-    expect(report.applyUrlBackfilled).toBe(3);
+    expect(jobs[3].applyUrl).toBe(jobs[3].url);
+    expect(jobs[4].applyUrl).toBeUndefined();
+    expect(report.applyUrlBackfilled).toBe(4);
   });
 
   it('replaces a non-HTTPS detail handoff while preserving mailto provenance', () => {

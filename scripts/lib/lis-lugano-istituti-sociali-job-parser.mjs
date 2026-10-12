@@ -421,6 +421,7 @@ export function buildLisJob(url, parsed) {
     postalCode: parsed.location === 'Pregassona' ? '6963' : '6900',
     streetAddress: parsed.streetAddress || 'Via alla Bozzoreda 15',
     description: parsed.description || '',
+    crawledAt: new Date().toISOString(),
     ...mergeSourcePostingDates({}, parsed),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
