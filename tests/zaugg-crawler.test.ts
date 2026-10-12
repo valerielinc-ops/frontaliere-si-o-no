@@ -29,6 +29,27 @@ const OFFICIAL_LISTING_FIXTURE = `
     </a>
   </div>
 `;
+const SOURCE_BACKED_DETAIL_COPY = [
+  'In Eggiwil fertigen Sie Schweisskonstruktionen aus Stahl, Aluminium und Inox nach den Zeichnungen des Arbeitgebers.',
+  'Sie bereiten die Bauteile sorgfältig vor, kontrollieren Masse und Oberflächen und dokumentieren jeden Arbeitsschritt.',
+  'Im Team stimmen Sie die Arbeitsplanung ab, halten Sicherheitsvorgaben ein und unterstützen die Montage bei Bedarf.',
+  'Die Aufgabe verlangt eine zuverlässige Arbeitsweise, praktische Erfahrung und Freude an sauberer handwerklicher Qualität.',
+  'Der offizielle Arbeitsplatz befindet sich in Eggiwil im Kanton Bern und bietet einen abwechslungsreichen Einsatz im Metallbau.',
+].join(' ');
+
+const zauggDetailFixture = ({
+  canonicalUrl = OFFICIAL_DETAIL_URL,
+  dateText = 'Montag 14 Jul 2025',
+  includeDate = true,
+} = {}) => `
+  <!doctype html><html><head>${canonicalUrl
+    ? `<meta property="og:url" content="${canonicalUrl}">`
+    : ''}</head><body>
+    <div class="am_1529"><span itemprop="name">Schweisser:in Stahl/ALU/Inox</span></div>
+    ${includeDate ? `<div class="adate date"><span class="value">${dateText}</span></div>` : ''}
+    <div class="amodule am_1532">${SOURCE_BACKED_DETAIL_COPY}</div>
+  </body></html>
+`;
 
 describe('ZAUGG AG official-source crawler', () => {
   it('uses the official .swiss career page and its source-specific selectors', () => {
@@ -118,6 +139,38 @@ describe('ZAUGG AG official-source crawler', () => {
     });
   });
 
+  it('requires canonical vacancy identity and a valid source posting date', () => {
+    expect(() => parseZauggDetailPage(
+      zauggDetailFixture({ canonicalUrl: '' }),
+      OFFICIAL_DETAIL_URL,
+    )).toThrow(/og:url/u);
+
+    const differentVacancyUrl = OFFICIAL_DETAIL_URL.replace('itemid1541=3728', 'itemid1541=4046');
+    expect(() => parseZauggDetailPage(
+      zauggDetailFixture({ canonicalUrl: differentVacancyUrl }),
+      OFFICIAL_DETAIL_URL,
+    )).toThrow(/different vacancy/u);
+
+    expect(() => parseZauggDetailPage(
+      zauggDetailFixture({ dateText: 'nicht verfügbar' }),
+      OFFICIAL_DETAIL_URL,
+    )).toThrow(/valid source-backed posting date/u);
+    expect(() => parseZauggDetailPage(
+      zauggDetailFixture({ includeDate: false }),
+      OFFICIAL_DETAIL_URL,
+    )).toThrow(/valid source-backed posting date/u);
+
+    const parsed = parseZauggDetailPage(
+      zauggDetailFixture(),
+      OFFICIAL_DETAIL_URL,
+    );
+    expect(parsed.sourceDate).toEqual({
+      datePosted: '2025-07-14',
+      postedDate: '2025-07-14',
+      postingDateSource: 'reported',
+    });
+  });
+
   it('removes contact PII from published copy without dropping role text', () => {
     const description = sanitizeZauggDescription(
       'Aufgaben in Eggiwil. Kontaktieren Sie uns unter metallbau@example.invalid. Arbeiten im Stahlbau bleiben beschrieben.',
@@ -129,6 +182,7 @@ describe('ZAUGG AG official-source crawler', () => {
 
   it('does not publish an incomplete detail page or weaken the shared floor', () => {
     const shortDetail = `
+      <meta property="og:url" content="${OFFICIAL_DETAIL_URL}">
       <div class="am_1529"><span itemprop="name">Schweisser:in Stahl/ALU/Inox</span></div>
       <div class="adate date"><span class="value">Montag 14 Jul 2025</span></div>
       <div class="amodule am_1532">Eggiwil</div>

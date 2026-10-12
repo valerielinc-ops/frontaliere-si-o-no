@@ -162,12 +162,15 @@ export function parseZauggDetailPage(html, detailUrl) {
       throw new Error('ZAUGG detail page does not prove the requested welding role');
     }
 
-    const canonical = document.querySelector('meta[property="og:url"]')?.getAttribute('content');
-    if (canonical) {
-      const canonicalUrl = officialUrl(canonical, detailPageUrl.href);
-      if (detailIdFromUrl(canonicalUrl.href) !== expectedId) {
-        throw new Error('ZAUGG detail canonical URL points to a different vacancy');
-      }
+    const canonical = normalizeSpace(
+      document.querySelector('meta[property="og:url"]')?.getAttribute('content') || '',
+    );
+    if (!canonical) {
+      throw new Error('ZAUGG detail page has no source-backed og:url vacancy identity');
+    }
+    const canonicalUrl = officialUrl(canonical, detailPageUrl.href);
+    if (detailIdFromUrl(canonicalUrl.href) !== expectedId) {
+      throw new Error('ZAUGG detail canonical URL points to a different vacancy');
     }
 
     const descriptionElement = document.querySelector(SOURCE_SELECTORS.detailDescription);
@@ -186,12 +189,16 @@ export function parseZauggDetailPage(html, detailUrl) {
     }
 
     const dateText = normalizeSpace(document.querySelector(SOURCE_SELECTORS.postingDate)?.textContent || '');
+    const sourceDate = parseZauggSourceDate(dateText);
+    if (sourceDate.postingDateSource !== 'reported') {
+      throw new Error('ZAUGG detail page has no valid source-backed posting date');
+    }
     return {
       title,
       description,
       location: SOURCE_LOCATION.city,
       canton,
-      sourceDate: parseZauggSourceDate(dateText),
+      sourceDate,
     };
   } finally {
     dom.window.close();
