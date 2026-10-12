@@ -261,11 +261,13 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('I conteggi riflettono gli annunci attivi disponibili al momento della compilazione');
   });
 
-  it('renders the complete active list without a low-ratio in-feed cadence', () => {
+  it('renders the complete active list with the shared every-three cadence', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
-    const cardCount = (html.match(/<article\b[^>]*\bjc-card\b/g) ?? []).length;
+    const cardMatches = [...html.matchAll(/<article\b[^>]*\bjc-card\b/g)];
+    const cardCount = cardMatches.length;
+    const cardPositions = cardMatches.map((match) => match.index ?? -1);
     const infeedAdCount = (html.match(/\bft-infeed-ad\b/g) ?? []).length;
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));
@@ -274,7 +276,11 @@ describe('employerProfilePagesPlugin', () => {
     // Six valid detail slugs are emitted; the seventh fixture is intentionally
     // slugless and must stay excluded from both the card list and ItemList.
     expect(cardCount).toBe(6);
-    expect(infeedAdCount).toBe(0); // the profile keeps one page-level static unit; Auto Ads remain active
+    expect(infeedAdCount).toBe(1);
+    expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
+    expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
+    expect(html).toContain('company-profile-page');
+    expect(html.indexOf('company-profile-openings')).toBeLessThan(html.indexOf('data-company-follow-mount'));
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
   });
