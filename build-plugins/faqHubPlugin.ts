@@ -866,9 +866,12 @@ function renderEntryPage(
   const categoryLabel = FAQ_HUB_CATEGORY_LABELS[entry.category][locale];
   // Per-entry hero: the question IS the headline on the card, in the JSON-LD
   // caption and in og:image:alt. `entry.id` keys it, so the 416 entry pages
-  // get 416 distinct cards rather than one shared family image.
+  // get 416 distinct cards rather than one shared family image. The wrapper
+  // class belongs in this one binding too, so the rendered image, JSON-LD and
+  // og:image all consume the same hero options.
   const hero: SeoHeroImageOpts = {
     family: 'faq-hub', key: entry.id, locale, headline: question, eyebrow: categoryLabel, alt: question,
+    className: 'fh-entry-cover',
   };
 
   const urlPath = buildFaqEntryPath(locale, entry.id);
@@ -959,7 +962,7 @@ function renderEntryPage(
         <time class="fh-eyebrow" datetime="${esc(dateStamp)}">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</time>
       </div>
     </header>
-    ${renderSeoHeroImage({ ...hero, className: 'fh-entry-cover' })}
+    ${renderSeoHeroImage(hero)}
     <section class="fh-q fh-entry-answer" data-speakable aria-labelledby="fh-answer-title">
       <div class="fh-answer-heading">
         <span class="fh-answer-mark" aria-hidden="true">
