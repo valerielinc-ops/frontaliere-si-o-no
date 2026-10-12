@@ -16,11 +16,15 @@ import { formatDayIt, buildCarouselCaption, buildTikTokCaption, TIKTOK_CAPTION_M
 import { buildQueueEntry, isAllowedImageUrl, isAllowedVideoUrl } from '../scripts/lib/social-publish-queue.mjs';
 import {
   BRAND_VIDEO_BACKGROUND,
+  BRAND_VIDEO_ACCENT,
   TIKTOK_VIDEO_HEIGHT,
   TIKTOK_VIDEO_WIDTH,
   buildCarouselVideoFfmpegArgs,
+  buildMotionGraphicVideoFfmpegArgs,
   renderCarouselVideo,
+  renderMotionGraphicVideo,
 } from '../scripts/lib/social-carousel-video.mjs';
+import { TIKTOK_VIDEO_CREATIVE_VARIANTS } from '../scripts/lib/tiktok-video-creative.mjs';
 import {
   instagramUrl,
   INSTAGRAM_UTM_SOURCE,
@@ -158,6 +162,7 @@ describe('TikTok video queue contract', () => {
     durationMs: 7750,
     width: TIKTOK_VIDEO_WIDTH,
     height: TIKTOK_VIDEO_HEIGHT,
+    creativeVariant: 'motion-graphic-v1',
   };
 
   it('stores the signed video metadata alongside the carousel slides', () => {
@@ -191,6 +196,19 @@ describe('TikTok video queue contract', () => {
     expect(args.at(-1)).toBe('carousel.mp4');
   });
 
+  it('builds a distinct motion-graphic treatment with animated stage and wipe transitions', () => {
+    const args = buildMotionGraphicVideoFfmpegArgs(['slide-1.jpg', 'slide-2.jpg'], 'motion.mp4');
+    const filter = args[args.indexOf('-filter_complex') + 1];
+    expect(filter).toContain('overlay=x=');
+    expect(filter).toContain('drawbox=');
+    expect(filter).toContain(BRAND_VIDEO_ACCENT);
+    expect(filter).toContain('sin(t');
+    expect(filter).toContain("w='max(1,936*t/4)'");
+    expect(filter).toContain('xfade=transition=wipeleft');
+    expect(filter).not.toContain('xfade=transition=fade');
+    expect(args.at(-1)).toBe('motion.mp4');
+  });
+
   it('uploads MP4 with the video MIME type used by the robot download check', () => {
     const uploader = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/upload-cdn-file.sh'), 'utf8');
     expect(uploader).toContain('mp4) printf \'%s\' "video/mp4"');
@@ -221,6 +239,27 @@ describe('TikTok video queue contract', () => {
     expect(audioStream).toMatchObject({ codec_name: 'aac', sample_rate: '44100', channels: 2 });
     expect(Number(parsed.format.duration)).toBeGreaterThan(7);
     expect(Number(parsed.format.duration)).toBeLessThan(8.5);
+  });
+
+  it.skipIf(!hasFfmpeg)('renders the motion treatment with the same safe vertical shape', async () => {
+    const slide = await sharp({
+      create: { width: 1080, height: 1080, channels: 3, background: '#0F2557' },
+    }).jpeg().toBuffer();
+    const rendered = renderMotionGraphicVideo([slide, slide]);
+    expect(rendered).toMatchObject({
+      width: TIKTOK_VIDEO_WIDTH,
+      height: TIKTOK_VIDEO_HEIGHT,
+    });
+    expect(rendered.bytes).toBeGreaterThan(0);
+    expect(rendered.durationMs).toBeGreaterThan(7_000);
+    expect(rendered.durationMs).toBeLessThan(8_500);
+  });
+
+  it('keeps the experiment ids explicit', () => {
+    expect(TIKTOK_VIDEO_CREATIVE_VARIANTS).toEqual({
+      CONTROL: 'carousel-crossfade-v1',
+      TREATMENT: 'motion-graphic-v1',
+    });
   });
 });
 

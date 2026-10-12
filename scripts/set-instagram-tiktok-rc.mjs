@@ -17,6 +17,10 @@ const PARAMS = {
   // TikTok Studio's own "Per te" library; 50% keeps a no-sound control arm.
   TIKTOK_MUSIC_MODE: 'trend',
   TIKTOK_MUSIC_ROLLOUT_PERCENT: '50',
+  // The video experiment keeps the existing slide render as control and
+  // assigns half of new queue ids to the animated motion-graphic treatment.
+  TIKTOK_VIDEO_CREATIVE_MODE: 'motion',
+  TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '50',
 };
 
 const rc = await getRemoteConfig();

@@ -260,6 +260,10 @@ function validateVideoMetadata(video) {
   if (video.width !== TIKTOK_VIDEO_WIDTH || video.height !== TIKTOK_VIDEO_HEIGHT) {
     throw new Error(`queued video must be ${TIKTOK_VIDEO_WIDTH}x${TIKTOK_VIDEO_HEIGHT}`);
   }
+  const creativeVariant = String(video.creativeVariant || '').trim();
+  if (creativeVariant && !/^[a-z0-9][a-z0-9-]{0,79}$/.test(creativeVariant)) {
+    throw new Error('queued video creativeVariant must be a short lowercase id');
+  }
   return {
     url: String(video.url),
     bytes: video.bytes,
@@ -267,6 +271,7 @@ function validateVideoMetadata(video) {
     durationMs: video.durationMs,
     width: video.width,
     height: video.height,
+    ...(creativeVariant ? { creativeVariant } : {}),
   };
 }
 

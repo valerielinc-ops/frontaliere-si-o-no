@@ -362,6 +362,7 @@ export async function runRobot(deps) {
             ledgerEntries: entry.ledgerEntries,
             confirmDispatched: false,
             ...(res.music ? { music: res.music } : {}),
+            ...(res.creativeVariant ? { creativeVariant: res.creativeVariant } : {}),
           };
           journal.attempts.push(attempt);
           journalStore.save(journal);
@@ -376,13 +377,33 @@ export async function runRobot(deps) {
           if (dispatched.ok) attempt.confirmDispatchedAt = new Date(now()).toISOString();
           journalStore.save(journal);
           log.log(`✅ ${channel}: published ${entry.id} (${attempt.evidence})${dispatched.ok ? '' : ` — confirm dispatch failed, retried next run: ${dispatched.reason}`}`);
-          results.push({ channel, outcome: 'published', queueId: entry.id, confirmDispatched: dispatched.ok, ...(res.music ? { music: res.music } : {}) });
+          results.push({
+            channel,
+            outcome: 'published',
+            queueId: entry.id,
+            confirmDispatched: dispatched.ok,
+            ...(res.music ? { music: res.music } : {}),
+            ...(res.creativeVariant ? { creativeVariant: res.creativeVariant } : {}),
+          });
         } else if (res.status === 'dry-run') {
           postsThisRun += 1;
-          journal.attempts.push({ channel, queueId: entry.id, at: new Date(now()).toISOString(), outcome: 'dry-run', ...(res.music ? { music: res.music } : {}) });
+          journal.attempts.push({
+            channel,
+            queueId: entry.id,
+            at: new Date(now()).toISOString(),
+            outcome: 'dry-run',
+            ...(res.music ? { music: res.music } : {}),
+            ...(res.creativeVariant ? { creativeVariant: res.creativeVariant } : {}),
+          });
           journalStore.save(journal);
           log.log(`🧪 ${channel}: ${entry.id} ready at the publish button (not pressed) — screenshot in ${displayPath(diagnostics)}`);
-          results.push({ channel, outcome: 'dry-run', queueId: entry.id, ...(res.music ? { music: res.music } : {}) });
+          results.push({
+            channel,
+            outcome: 'dry-run',
+            queueId: entry.id,
+            ...(res.music ? { music: res.music } : {}),
+            ...(res.creativeVariant ? { creativeVariant: res.creativeVariant } : {}),
+          });
         } else {
           throw new RobotError('unexpected', `flow returned status "${res.status}"`);
         }
