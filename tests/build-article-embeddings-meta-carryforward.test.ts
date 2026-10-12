@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * Regression guard for the evidence-embeddings builder (#main-red 2026-06-11).
@@ -33,7 +34,7 @@ describe('build-article-embeddings — degraded paths preserve perArticle', () =
     expect(occurrences.length).toBe(2);
   });
 
-  it('the committed meta sidecar actually has a non-empty perArticle map', () => {
+  it.skipIf(SKIP_LIVE_DATA)('the committed meta sidecar actually has a non-empty perArticle map', () => {
     const meta = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, '../data/article-embeddings-meta.json'), 'utf8'),
     );

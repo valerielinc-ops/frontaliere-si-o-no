@@ -63,6 +63,9 @@ describe('generated content modules', () => {
   });
 
   it('every module parses as TypeScript', () => {
+    // The parse loop must not turn green vacuously when a sparse checkout has
+    // omitted every generated content module.
+    expect(files.length, 'no generated modules available to parse').toBeGreaterThan(1000);
     const failures: string[] = [];
 
     for (const file of files) {

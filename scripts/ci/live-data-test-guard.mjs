@@ -107,6 +107,14 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/translation-cache/',
   'data/weather-snapshot.json',
   'public/data/',
+  // Sync and topic-hub publishers rewrite these snapshots without a human
+  // choosing their contents. Keep the roots narrow: sitemap-pages.xml is a
+  // code-owned build artifact and remains available to deterministic PR tests.
+  'public/sitemap-articles-archive.xml',
+  'public/sitemap-blog',
+  'public/sitemap-news.xml',
+  'public/sitemap-topics-',
+  'public/sitemap.xml',
   'public/news-ticker-live.json',
 ]);
 
@@ -238,13 +246,13 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // e verifica che il parser conservi i campi aggiunti dal giro meteo. Il dato
   // vivo e` quindi parte intenzionale dell'asserzione: il test va nel monitor,
   // non nel gate riproducibile delle PR.
-  { file: 'tests/weather-canton-capitals.test.ts', roots: ['data/weather-snapshot.json'], since: '2026-10-05', evidence: 'review', runtime: true },
+  { file: 'tests/weather-canton-capitals.test.ts', roots: ['data/weather-snapshot.json'], since: '2026-10-05', evidence: 'replay', runtime: true },
   // `runtime`: il percorso vivo e' costruito su `rootDir`, un alias della root
   // del checkout, e il file crea anche cartelle temporanee: a solo testo ha la
   // forma di una fixture. Traccia del 2026-10-03: sonda
   // `services/locales/blog-meta-it.ts` e `blog-meta-ch-it.ts` e sul corpus
   // esegue i casi che senza corpus salta.
-  { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'], runtime: true },
+  { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'], evidence: 'replay', runtime: true },
   // Reaches the live article corpus transitively through create-article.mjs.
   // The source scanner intentionally does not execute imported modules while
   // building the inventory, so this dependency stays explicit.
@@ -313,86 +321,81 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // valichi) restano nel gate: nessun bot li riscrive.
   // ══════════════════════════════════════════════════════════════════════
   { file: "tests/apleona-schweiz-ag-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/article-author-source-parity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/article-author-source-parity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   // The organization-entity regression also inspects generated static blog
   // SEO modules. Its corpus reads are intentional, but the runtime/source
   // inventory must keep it out of the blocking PR partition.
-  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
+  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "replay", runtime: true },
   // This corpus-backed check landed on main after the previous inventory
   // sweep; the publisher rewrites its inputs, so it belongs in the live
   // partition rather than the blocking PR suite.
-  { file: "tests/blog-cover-ledger.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
+  { file: "tests/blog-cover-ledger.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "replay", runtime: true },
   // Corpus genuinely the subject: this publication contract checks the live
   // article and SEO registries against their dedicated cover assets and ledger.
-  { file: "tests/blog-article-publication-contract.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "review", runtime: true },
-  { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/blog-article-publication-contract.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "replay", runtime: true },
+  { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/blog/assistente-ai-frontalieri.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/build-article-embeddings-meta-carryforward.test.ts", roots: ["data/article-embeddings-meta.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/build-plugins/borderWaitComparison.test.ts", roots: ["data/border-wait-averages.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/build-plugins/companyHubFrontalierContext.test.ts", roots: ["public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/build-plugins/seoHubsPlugin-hub-locale-reciprocity.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/canton-empty-canton-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/canton-ti-misclassification-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/blog/assistente-ai-frontalieri.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/build-plugins/borderWaitComparison.test.ts", roots: ["data/border-wait-averages.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/build-plugins/companyHubFrontalierContext.test.ts", roots: ["public/data/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/build-plugins/seoHubsPlugin-hub-locale-reciprocity.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/canton-empty-canton-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/canton-ti-misclassification-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/crawler-authoritative-empty-zero.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/diesel-pages-seo.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/diesel-pages-seo.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/ete-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/extract-articles-package.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/frontaliere-article-canonical-overrides.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/generated-content-parses.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/healthInsurance.test.ts", roots: ["data/health-premiums/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/information-gain-families-floor.test.ts", roots: ["data/border-wait-averages.json", "data/health-premiums/", "public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/frontaliere-article-canonical-overrides.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/generated-content-parses.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/healthInsurance.test.ts", roots: ["data/health-premiums/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/information-gain-families-floor.test.ts", roots: ["data/border-wait-averages.json", "data/health-premiums/", "public/data/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/ipersonal-source-locale-brand-slug.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/job-locale-completeness.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/job-locale-completeness.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/job-popularity-incremental.test.ts", roots: ["data/job-popularity.meta.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/naturalizzazione-san-gallo-de-content.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/pharmacies-border-dataset.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-ticino-status.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/pharmacy-directory-pages.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/pharmacies-border-dataset.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-ticino-status.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/pharmacy-directory-pages.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacies-ticino-complete.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json", "data/pharmacy-duties-ticino.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/pharmacy-italy-import.test.ts", roots: ["data/pharmacies-italy-border.json"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/pharmacy-italy-release.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/pharmacy-locarnese-parser.test.ts", roots: ["data/pharmacies-ticino-complete.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/pharmacy-italy-release.test.ts", roots: ["data/pharmacies-italy-border.json", "data/pharmacy-duties-italy-status.json", "data/pharmacy-duties-italy.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/pharmacy-locarnese-parser.test.ts", roots: ["data/pharmacies-ticino-complete.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/prospector-location-contract.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/recruitingapp-1123-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/recruitingapp-2649-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/recruitingapp-2677-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/related-articles.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/render-article-hub-pages-narrow-vs-full.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/render-article-pages-single-vs-full.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/scripts/lib/scoring/embeddingStoreBinary.test.ts", roots: ["data/article-embeddings-meta.json", "data/article-embeddings.bin"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/scripts/publish-article-chunks.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/related-articles.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/render-article-hub-pages-narrow-vs-full.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/render-article-pages-single-vs-full.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/scripts/lib/scoring/embeddingStoreBinary.test.ts", roots: ["data/article-embeddings-meta.json", "data/article-embeddings.bin"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/scripts/publish-article-chunks.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/search-console-compat.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/seo-completeness.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/seo-description-length.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/seo/cathedral-expired-tracking-canton.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/seo/cathedral-slug-registry-canton-backfill.test.ts", roots: ["data/slug-registry.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/seo/rate-baseline-internal-consistency.test.ts", roots: ["data/active-jobs-baseline.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/sitemap-hreflang-reciprocity.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/sitemap-retired-paths-absent.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/seo-description-length.test.ts", roots: ["data/exchange-rate-snapshot.json", "packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/seo/cathedral-slug-registry-canton-backfill.test.ts", roots: ["data/slug-registry.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/seo/rate-baseline-internal-consistency.test.ts", roots: ["data/active-jobs-baseline.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/sitemap-hreflang-reciprocity.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/tassi-interesse-svizzera-bassi-de.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
-  { file: "tests/ti-market-snapshot-sector-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/ti-sector-hub-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/ti-weekly-employers-canton-scope.test.ts", roots: ["data/border-wait-averages.json", "data/jobs.json", "public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
+  { file: "tests/ti-market-snapshot-sector-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/ti-sector-hub-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "replay", runtime: true },
+  { file: "tests/ti-weekly-employers-canton-scope.test.ts", roots: ["data/border-wait-averages.json", "data/jobs.json", "public/data/"], since: "2026-09-19", evidence: "replay", runtime: true },
   // ─── Replay del 2026-09-30. Scandisce tutto il corpus degli articoli per
   // verificare le cifre della simulazione fiscale contro il calcolatore: il
   // corpus lo riscrive la sincronizzazione automatica (commit «Sync article …»
   // senza (#N)), e la PR #10308 del 29-09 ha dovuto ripristinare quelle cifre.
   // Stessa natura di irpef-brackets-2026 sopra: il corpus è il soggetto.
   { file: "tests/article-tax-content-guard.test.ts", roots: ["packages/articles/content/", "services/locales/"], since: "2026-09-30", evidence: "replay", runtime: true },
-  // ─── 2026-10-10 / issue 12335: ten runtime imports the scanner previously
-  // missed. They are held in the live monitor because their top-level imports
-  // make the modules depend on generated files at collection time; case-level
-  // replay/splitting remains tracked by issue 12345 (not inferred from imports).
-  { file: 'tests/exchange-rate-fallback-direction.test.tsx', roots: ['data/exchange-rate-snapshot.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-directory-country-spa.test.tsx', roots: ['data/pharmacy-duties-italy.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-duty-week-spa.test.tsx', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-italy-duty-seo.test.ts', roots: ['data/pharmacy-duties-italy.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-seo-runtime.test.ts', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-sources-registry.test.ts', roots: ['data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-swiss-canton-duty.test.ts', roots: ['data/pharmacy-duties-swiss-cantons.json', 'data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/seo-title-parity-factual.test.ts', roots: ['services/locales/'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-enrichment.test.ts', roots: ['data/pharmacy-enrichment-sources.json', 'data/pharmacy-enrichment.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  // ─── 2026-10-10 / issue 12335: runtime imports the scanner previously
+  // missed. Replayed on 2026-10-12 with data/, services/locales/ and article
+  // content absent; module-load failures are retained as replay evidence.
+  { file: 'tests/exchange-rate-fallback-direction.test.tsx', roots: ['data/exchange-rate-snapshot.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-directory-country-spa.test.tsx', roots: ['data/pharmacy-duties-italy.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-duty-week-spa.test.tsx', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-italy-duty-seo.test.ts', roots: ['data/pharmacy-duties-italy.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-seo-runtime.test.ts', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-sources-registry.test.ts', roots: ['data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-swiss-canton-duty.test.ts', roots: ['data/pharmacy-duties-swiss-cantons.json', 'data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/seo-title-parity-factual.test.ts', roots: ['services/locales/'], since: '2026-10-10', evidence: 'replay', runtime: true },
+  { file: 'tests/pharmacy-enrichment.test.ts', roots: ['data/pharmacy-enrichment-sources.json', 'data/pharmacy-enrichment.json'], since: '2026-10-10', evidence: 'replay', runtime: true },
 ]);
 
 /**
@@ -673,9 +676,6 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/whats-new-localization-guard.test.ts", roots: [], since: "2026-09-19", movedFromFullExclusion: true },
   { file: "tests/all-known-job-slugs-store.test.ts", roots: ["data/all-known-job-slugs/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog/svizzera-section-routing.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  // #10686: il caso sui creator ImageObject legge i template SEO statici del
-  // corpus pubblicato; gli altri verificano codice del sito e restano nel gate.
-  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
   // Un solo caso su 22 legge il corpus sincronizzato (esbuild impacchetta i
   // registri pubblicati); gli altri leggono workflow e script. Dal 07-10 il
   // file era nell'inventario per intero: la PR 12251 ha aggiunto un import al
@@ -744,6 +744,14 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // Solo i tre controlli che aprono i registri live sono nel monitor; tutte
   // le prove con dati sintetici restano nel gate bloccante delle PR.
   { file: "tests/published-image-policy.test.ts", roots: ["data/event-image-library.json"], since: "2026-10-10" },
+  // ─── Replay 2026-10-12 / issues 12335 + 12345: code assertions in these
+  // mixed files passed with live roots absent. Live cases now skip only in the
+  // PR gate; the monitor keeps running them against the committed roots.
+  { file: 'tests/build-article-embeddings-meta-carryforward.test.ts', roots: ['data/article-embeddings-meta.json'], since: '2026-10-12', evidence: 'replay', runtime: true },
+  { file: 'tests/extract-articles-package.test.ts', roots: ['packages/articles/content/'], since: '2026-10-12', evidence: 'replay', runtime: true },
+  { file: 'tests/seo/cathedral-expired-tracking-canton.test.ts', roots: ['data/all-known-job-slugs/', 'data/jobs.json'], since: '2026-10-12', evidence: 'replay', runtime: true },
+  { file: 'tests/sitemap-news-canonical.test.ts', roots: ['public/sitemap.xml'], since: '2026-10-12', evidence: 'replay', runtime: true },
+  { file: 'tests/sitemap-retired-paths-absent.test.ts', roots: ['public/sitemap-articles-archive.xml', 'public/sitemap-blog', 'public/sitemap-news.xml', 'public/sitemap-topics-', 'public/sitemap.xml'], since: '2026-10-12', evidence: 'replay', runtime: true },
 ]);
 
 /**
