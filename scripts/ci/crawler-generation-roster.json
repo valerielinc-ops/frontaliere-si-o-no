@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 625,
+  "crawlerCount": 626,
   "groups": {
     "10": [
       "atec-personal",
@@ -413,6 +413,7 @@
       "mcdonald-s-switzerland",
       "mediamarkt",
       "migros-hq",
+      "my",
       "nestle",
       "pantr-ch",
       "pianorm",
@@ -1069,6 +1070,7 @@
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
     "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
+    "my": "data/jobs/by-crawler/my.json",
     "nant": "data/jobs/by-crawler/nant.json",
     "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
@@ -1304,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:0dd9e889af27feebc6d7a9765dfffbf66e741e8aa1e4fa499143c15b428df58f"
+  "digest": "sha256:cfc30d2121214cdd624446f146a86ce3b72fca0fd4e96d13dca1e505dbb63fdc"
 }
