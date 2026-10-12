@@ -202,6 +202,70 @@ function backfillApplyUrlFromDetail(job) {
   return true;
 }
 
+function observationIdentityKeys(job) {
+  const keys = [];
+  const id = String(job?.id || '').trim();
+  if (id) keys.push(`id:${id}`);
+  const url = absoluteJobUrl(job?.url);
+  if (isHttpsJobUrl(url)) keys.push(`url:${url}`);
+  return keys;
+}
+
+/**
+ * Refresh the liveness heartbeat only for records present in this successful
+ * source observation. The persisted slice can also contain retained records
+ * from a partial crawl, so stamping every row at write time would falsely
+ * make unseen vacancies look live.
+ *
+ * @param {object[]} jobs persisted slice rows, mutated in place
+ * @param {object[]} observedJobs rows returned by the current source fetch
+ * @param {Date|string|number} observedAt time of the successful observation
+ * @returns {number} number of persisted rows whose heartbeat was updated
+ */
+export function stampObservedCrawledAt(jobs, observedJobs, observedAt = new Date()) {
+  if (!Array.isArray(jobs) || !Array.isArray(observedJobs) || observedJobs.length === 0) return 0;
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('stampObservedCrawledAt: observedAt must be a valid date');
+  }
+  const timestamp = observedDate.toISOString();
+  const observedKeys = new Set(observedJobs.flatMap(observationIdentityKeys));
+  let refreshed = 0;
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object' || !observationIdentityKeys(job).some((key) => observedKeys.has(key))) continue;
+    if (job.crawledAt !== timestamp) {
+      job.crawledAt = timestamp;
+      refreshed++;
+    }
+  }
+  return refreshed;
+}
+
+const EXPLICIT_SWISS_COUNTRY_LABELS = new Set([
+  'ch', 'che', 'schweiz', 'suisse', 'svizzera', 'switzerland',
+]);
+
+function normalizeExplicitCountryEvidence(job) {
+  let canonicalized = 0;
+  let emptyRemoved = 0;
+  for (const field of ['country', 'addressCountry']) {
+    const value = job[field];
+    if (value === null || (typeof value === 'string' && !value.trim())) {
+      if (field in job) {
+        delete job[field];
+        emptyRemoved++;
+      }
+      continue;
+    }
+    if (typeof value !== 'string') continue;
+    if (EXPLICIT_SWISS_COUNTRY_LABELS.has(value.trim().toLowerCase())) {
+      if (value !== 'CH') canonicalized++;
+      job[field] = 'CH';
+    }
+  }
+  return { canonicalized, emptyRemoved };
+}
+
 /* ── Summary guard — ensures every crawler writes a summary on exit ──── */
 
 let _summaryWritten = false;
@@ -552,10 +616,11 @@ function humanizeCompanyKey(key) {
  *
  * Also deliberately does NOT default `addressCountry` / `country` to 'CH'
  * when absent (#5384): an undeclared country and a declared-Swiss one are
- * different pieces of evidence, and stamping the former as the latter at
- * persist time destroys that distinction at rest — it is unrecoverable once
- * the source listing expires (see #5380, where 898 already-expired jobs could
- * no longer be re-checked because the original absence had been overwritten).
+ * different pieces of evidence. Exact, explicit Swiss labels are canonicalized
+ * to `CH`, while blank values are removed as absent evidence; foreign values
+ * are preserved. Stamping an undeclared country as Swiss would destroy that
+ * distinction at rest — it is unrecoverable once the source listing expires
+ * (see #5380, where 898 already-expired jobs could no longer be re-checked).
  * The "if undeclared, treat as CH" assumption belongs at the point of
  * consumption (`job.addressCountry || 'CH'`), where it is a local, reversible
  * read-time choice, not a persisted assertion.
@@ -572,7 +637,7 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, sourceGeographyReconciled: number, urlNormalized: number, applyUrlBackfilled: number, countryEvidenceCanonicalized: number, emptyCountryEvidenceRemoved: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
@@ -582,8 +647,14 @@ export function normalizeParsedJobsForSlice(jobs) {
   let sourceGeographyReconciled = 0;
   let urlNormalized = 0;
   let applyUrlBackfilled = 0;
+  let countryEvidenceCanonicalized = 0;
+  let emptyCountryEvidenceRemoved = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
+
+    const countryEvidence = normalizeExplicitCountryEvidence(job);
+    countryEvidenceCanonicalized += countryEvidence.canonicalized;
+    emptyCountryEvidenceRemoved += countryEvidence.emptyRemoved;
 
     if (typeof job.url === 'string' && job.url.trim()) {
       const absoluteUrl = absoluteJobUrl(job.url);
@@ -650,6 +721,8 @@ export function normalizeParsedJobsForSlice(jobs) {
     sourceGeographyReconciled,
     urlNormalized,
     applyUrlBackfilled,
+    countryEvidenceCanonicalized,
+    emptyCountryEvidenceRemoved,
   };
 }
 
@@ -2590,6 +2663,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  * @param {boolean} [options.deferShrinkGuardIssue] - Internal: defer creation
  *   of the shrink issue until `writeJobsCrawlerSliceVerified` has corroborated
  *   the removal. The anti-shrink refusal itself is never bypassed.
+ * @param {object[]} [options.observedJobs] - Rows returned by this run's
+ *   successful source fetch; only matching persisted rows get a fresh
+ *   `crawledAt` heartbeat.
  * @param {unknown[]} [options.housekeepingProof] - Definitive route-preserving
  *   evidence for every removed job when accepting a source-verified shrink or
  *   a deliberate thin-source quarantine. Internal callers only; unproven
@@ -2607,9 +2683,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Harden location + backfill safe metadata defaults BEFORE any downstream
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
+  // Only refresh crawledAt for rows supplied by this run's successful source
+  // fetch; retained jobs in a partial slice are not proof of current liveness.
+  const observedCrawledAtRefreshed = stampObservedCrawledAt(jobs, options.observedJobs);
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
+  if (observedCrawledAtRefreshed > 0 || norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.sourceGeographyReconciled > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0 || norm.countryEvidenceCanonicalized > 0 || norm.emptyCountryEvidenceRemoved > 0) {
+    console.log(`  🧭 Upstream normalize: observed crawledAt refreshed ${observedCrawledAtRefreshed}, location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, source geography reconciled ${norm.sourceGeographyReconciled}, country evidence canonicalized ${norm.countryEvidenceCanonicalized}, empty country evidence removed ${norm.emptyCountryEvidenceRemoved}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
