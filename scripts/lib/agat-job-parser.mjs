@@ -95,7 +95,11 @@ export function extractAgatDetailFields(html = '', pageUrl = '') {
   for (const node of article.querySelectorAll('script, style, nav, footer, form')) node.remove();
   const articleHtml = article.innerHTML;
   const articleText = bodyTextOf(articleHtml);
-  const title = normalizeSpace(document.title) || normalizeSpace(base.title);
+  const title = normalizeSpace(
+    article.querySelector('h1, h2, h3')?.textContent
+      || base.title
+      || document.title,
+  );
   const workplaceMatch = AGAT_WORKPLACE_RE.exec(articleText);
   const workplace = workplaceMatch ? `région de ${workplaceMatch[1]}` : '';
   const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;

@@ -23,6 +23,18 @@ describe('AGAT! source-backed crawler', () => {
     expect(detail.canton).toBe('VS');
   });
 
+  it('prefers the vacancy heading over the Wix document title', () => {
+    const detail = extractAgatDetailFields(
+      `<html lang="fr"><head><title>AGAT | Jobs</title></head><body>
+        <main><article><h2>Maçon B H/F/D</h2>
+          <p>Poste située dans la région de Sion.</p>
+        </article></main>
+      </body></html>`,
+      detailUrl,
+    );
+    expect(detail.title).toBe('Maçon B H/F/D');
+  });
+
   it('fails closed when the official detail body contains no source-backed workplace', () => {
     const detail = extractAgatDetailFields(
       '<html><head><title>Installateur Électricien CFC</title></head><body><main><article><p>Offer details.</p></article></main></body></html>',
