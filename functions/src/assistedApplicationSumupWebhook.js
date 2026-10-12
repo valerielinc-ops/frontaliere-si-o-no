@@ -87,6 +87,7 @@ export async function handleAssistedApplicationSumUpWebhook(req) {
         currency: String(checkout.currency || '').toLowerCase(),
         payment_status: String(checkout.status || '').toUpperCase() === 'PAID' ? 'paid' : 'unpaid',
         client_reference_id: orderId,
+        customer_email: boundedString(order.customerEmail, 320) || null,
         sumupTransactionId: transactionId,
         sumupTransactionCode: transactionCode,
         metadata: {

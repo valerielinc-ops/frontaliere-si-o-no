@@ -185,6 +185,7 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
     ...order,
     paymentStatus: 'pending',
     submissionStatus: 'awaiting_payment',
+    customerEmail: presentation.customerEmail || null,
     applicantName: null,
     applicantEmail: null,
     applicantPhone: null,
@@ -248,6 +249,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
 
   const payloadHash = payloadHashFor(order);
   const requestKeyHash = sha256(`${userId}:${requestKey}`);
+  const customerEmail = boundedString(decoded.email, 320) || null;
   const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
   const firestore = db();
   const requestRef = firestore
@@ -293,6 +295,12 @@ export async function handleCreateAssistedApplicationCheckout(req) {
               updatedAt: FieldValue.serverTimestamp(),
             }, { merge: true });
           }
+          if (customerEmail && !existingOrder.customerEmail) {
+            transaction.set(existingOrderRef, {
+              customerEmail,
+              updatedAt: FieldValue.serverTimestamp(),
+            }, { merge: true });
+          }
           return;
         }
 
@@ -321,7 +329,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
             userId,
             requestKeyHash,
             checkoutAttempt,
-            { locale, successUrl },
+            { locale, successUrl, customerEmail },
             configuredPaymentProvider,
           ),
         );
@@ -352,7 +360,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           userId,
           requestKeyHash,
           checkoutAttempt,
-          { locale, successUrl },
+          { locale, successUrl, customerEmail },
           configuredPaymentProvider,
         ),
       );
@@ -579,6 +587,7 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
         ? obj.payment_intent
         : obj.payment_intent?.id || null,
     };
+  const checkoutCustomerEmail = boundedString(obj.customer_details?.email || obj.customer_email, 320);
   const update = {
     paymentStatus,
     submissionStatus: paymentStatus === 'paid' ? 'awaiting_upload' : 'awaiting_payment',
@@ -586,7 +595,7 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     ...providerUpdate,
     amountTotal: typeof obj.amount_total === 'number' ? obj.amount_total : null,
     currency: obj.currency || ASSISTED_APPLICATION_CURRENCY,
-    customerEmail: obj.customer_details?.email || obj.customer_email || null,
+    ...(checkoutCustomerEmail ? { customerEmail: checkoutCustomerEmail } : {}),
     updatedAt: ts,
     ...(paymentStatus === 'paid' ? { paidAt: ts } : {}),
     ...(paymentFailureReason ? { paymentFailureReason } : {}),

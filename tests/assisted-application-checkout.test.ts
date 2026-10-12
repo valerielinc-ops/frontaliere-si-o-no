@@ -239,6 +239,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       paymentProvider: 'sumup',
       sumupCheckoutId: 'sumup_checkout_1',
       paymentStatus: 'pending',
+      customerEmail: 'candidate@example.com',
     }));
     expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
   });

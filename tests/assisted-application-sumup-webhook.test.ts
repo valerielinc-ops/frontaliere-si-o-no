@@ -51,6 +51,7 @@ describe('SumUp assisted-application webhook', () => {
       paymentProvider: 'sumup',
       sumupCheckoutId: 'sumup_checkout_1',
       paymentStatus: 'pending',
+      customerEmail: 'candidate@example.test',
     }));
     mocks.retrieveSumUpCheckout.mockResolvedValue({
       id: 'sumup_checkout_1',
@@ -77,6 +78,7 @@ describe('SumUp assisted-application webhook', () => {
       currency: 'eur',
       payment_status: 'paid',
       client_reference_id: 'order-1',
+      customer_email: 'candidate@example.test',
       sumupTransactionId: 'sumup_transaction_1',
       sumupTransactionCode: 'TX1',
       metadata: {

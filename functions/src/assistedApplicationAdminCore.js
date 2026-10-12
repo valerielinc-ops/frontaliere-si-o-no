@@ -44,7 +44,8 @@ const ALL_SUBMISSION_STATUSES = new Set([
   'cancelled',
 ]);
 
-// Refund is deliberately not a generic transition: it must call Stripe first.
+// Refund is deliberately not a generic transition: it must call the payment
+// provider first and only then mark the order refunded.
 const ALLOWED_TRANSITIONS = Object.freeze({
   awaiting_payment: new Set(),
   // Materials that arrive by email (reply to Valerie) move the order on
@@ -64,9 +65,9 @@ const EVENT_FOR_STATUS = Object.freeze({
   blocked: 'manual_submission_blocked',
 });
 
-// A crashed process can leave a reservation behind after Stripe has accepted
-// the idempotent refund request. Let a later owner retry reuse that same Stripe
-// idempotency key while keeping concurrent admin actions serialized.
+// A crashed process can leave a reservation behind after the provider has
+// accepted the refund request. Stripe retries through its idempotency key;
+// SumUp retries reconcile the transaction status before issuing another call.
 const REFUND_RESERVATION_TTL_MS = 15 * 60 * 1000;
 
 class AssistedApplicationAdminError extends Error {
@@ -474,6 +475,24 @@ async function resolveSumUpPaymentReference(order) {
   }
 }
 
+async function sumUpRefundState(order, transactionId) {
+  const checkoutId = boundedString(order?.sumupCheckoutId, 200);
+  if (!checkoutId) return { available: false, status: null };
+  try {
+    const checkout = await retrieveSumUpCheckout(checkoutId);
+    const transactions = Array.isArray(checkout?.transactions) ? checkout.transactions : [];
+    const transaction = transactions.find((candidate) => candidate?.id === transactionId)
+      || (transactions.length === 1 ? transactions[0] : null);
+    return {
+      available: true,
+      status: boundedString(transaction?.status, 40).toUpperCase() || null,
+    };
+  } catch (error) {
+    console.error('[manageAssistedApplicationAdmin] SumUp refund status lookup failed', error instanceof Error ? error.message : String(error));
+    return { available: false, status: null };
+  }
+}
+
 async function reserveRefund(db, orderRef) {
   const reservationId = randomUUID();
   let alreadyRefunded = false;
@@ -550,6 +569,8 @@ async function handleRefund(db, raw, adminEmail) {
   }
 
   const sumUpOrder = order.paymentProvider === 'sumup';
+  const staleRefundReservation = order.refundStatus === 'pending'
+    && refundReservationIsStale(order.refundPendingAt);
   const stripe = sumUpOrder ? null : await getStripe();
   const reference = sumUpOrder
     ? await resolveSumUpPaymentReference(order)
@@ -561,18 +582,38 @@ async function handleRefund(db, raw, adminEmail) {
     return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
   }
 
+  let providerRefundConfirmed = false;
+  if (sumUpOrder) {
+    const providerState = await sumUpRefundState(order, reference.id);
+    if (providerState.status === 'REFUNDED') {
+      providerRefundConfirmed = true;
+    } else if (staleRefundReservation && !providerState.available) {
+      // The previous attempt may already have reached SumUp. Do not issue a
+      // second refund while the provider status is unavailable; keep this
+      // reservation so a later retry can reconcile it safely.
+      console.error('[manageAssistedApplicationAdmin] SumUp refund status unavailable; retry postponed', orderId);
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    }
+  }
+
   let refund;
   try {
-    refund = sumUpOrder
+    refund = providerRefundConfirmed
+      ? { status: 204 }
+      : sumUpOrder
       ? await refundSumUpTransaction(reference.id)
       : await stripe.refunds.create(
         reference.type === 'charge' ? { charge: reference.id } : { payment_intent: reference.id },
         { idempotencyKey: `assisted-application-refund:${orderId}` },
       );
   } catch (error) {
-    await releaseRefundReservation(db, orderRef, reservation.reservationId);
-    console.error('[manageAssistedApplicationAdmin] payment refund failed', error instanceof Error ? error.message : String(error));
-    return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    if (sumUpOrder && (await sumUpRefundState(order, reference.id)).status === 'REFUNDED') {
+      refund = { status: 204 };
+    } else {
+      await releaseRefundReservation(db, orderRef, reservation.reservationId);
+      console.error('[manageAssistedApplicationAdmin] payment refund failed', error instanceof Error ? error.message : String(error));
+      return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
+    }
   }
 
   const refundSucceeded = sumUpOrder
@@ -588,11 +629,12 @@ async function handleRefund(db, raw, adminEmail) {
     return { status: 502, body: { ok: false, error: 'payment_refund_failed' } };
   }
 
-  let alreadyRefunded = false;
   const timestamp = FieldValue.serverTimestamp();
   const refundId = boundedString(refund?.id || refund?.transaction_id, 200)
     || (sumUpOrder ? reference.id : null);
-  try {
+
+  const commitRefundState = async () => {
+    let alreadyRefunded = false;
     await db.runTransaction(async (transaction) => {
       const currentSnapshot = await transaction.get(orderRef);
       if (!currentSnapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
@@ -630,8 +672,22 @@ async function handleRefund(db, raw, adminEmail) {
       transaction.set(orderRef, update, { merge: true });
       transaction.set(orderRef.collection('events').doc(), event);
     });
+    return alreadyRefunded;
+  };
+
+  let alreadyRefunded = false;
+  try {
+    alreadyRefunded = await commitRefundState();
   } catch (error) {
-    return transitionErrorResponse(error);
+    if (sumUpOrder && (await sumUpRefundState(order, reference.id)).status === 'REFUNDED') {
+      try {
+        alreadyRefunded = await commitRefundState();
+      } catch (retryError) {
+        return transitionErrorResponse(retryError);
+      }
+    } else {
+      return transitionErrorResponse(error);
+    }
   }
   if (alreadyRefunded) {
     return { status: 200, body: { ok: true, orderId, submissionStatus: 'refunded', alreadyRefunded: true } };
