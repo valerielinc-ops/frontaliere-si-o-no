@@ -16,6 +16,36 @@ import { createSign } from 'node:crypto';
 export const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const TOKEN_LIFETIME_SECONDS = 3600;
 
+const QUOTA_TOKEN_EXCHANGE_REASONS = new Set([
+  'rate_limit_exceeded',
+  'quota_exceeded',
+]);
+
+/**
+ * Google's OAuth token endpoint uses the flat RFC 6749 error shape
+ * (`{error, error_description}`). Unknown or malformed bodies stay terminal:
+ * a 403 is retryable only when Google identifies it as a quota rejection.
+ */
+export function extractOAuthErrorReason(bodyText) {
+  try {
+    const { error } = JSON.parse(bodyText) ?? {};
+    return typeof error === 'string' ? error : null;
+  } catch {
+    return null;
+  }
+}
+
+export function isRetryableTokenExchangeStatus(status, reason) {
+  if (status === 429 || status >= 500) return true;
+  return status === 403 && QUOTA_TOKEN_EXCHANGE_REASONS.has(reason);
+}
+
+function isRetryableTokenExchangeError(error) {
+  return error?.name === 'TypeError'
+    || error?.name === 'AbortError'
+    || error?.name === 'TimeoutError';
+}
+
 /**
  * Build a signed JWT assertion for the given service account and scope.
  * @param {{client_email: string, private_key: string}} creds
@@ -62,10 +92,8 @@ export const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
 /**
  * Exchange a signed assertion for an access token.
  *
- * Retries 429/5xx: this call sits directly upstream of the Remote Config
- * fetch in load-rc-env.mjs's REST fallback, and a single transient failure
- * here produces the exact same symptom as one in the RC fetch itself — see
- * isRetryableRcFetchStatus in load-rc-env.mjs, which retries the sibling call.
+ * Retries network/time-out failures, 429/5xx, and recognized OAuth quota
+ * rejections. Credential and grant errors remain terminal.
  * @param {string} assertion
  * @returns {Promise<string>} access token
  */
@@ -84,13 +112,14 @@ export async function exchangeAssertionForToken(assertion) {
         signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
       });
     } catch (err) {
-      // AbortSignal.timeout() rejects the fetch instead of resolving a status —
-      // the status-based retry below never runs, so a slow-but-never-erroring
-      // endpoint would fail on the FIRST timeout instead of spending the
-      // 7-attempt/~63s budget this loop exists to provide. Any other thrown
-      // error (DNS, TLS, etc.) is not something a retry can fix — fail fast.
-      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
-      lastErr = new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`);
+      // fetch rejects rather than returning a status for both time-outs and
+      // transient transport failures (DNS/TLS/connection reset). Restrict the
+      // retry to the error classes fetch uses so unrelated programming errors
+      // are not retried indiscriminately.
+      if (!isRetryableTokenExchangeError(err)) throw err;
+      lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
+        ? new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`)
+        : err;
       if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
         await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
       }
@@ -102,8 +131,9 @@ export async function exchangeAssertionForToken(assertion) {
       return data.access_token;
     }
     const text = await res.text();
-    lastErr = new Error(`OAuth token exchange failed: ${res.status} ${text}`);
-    if (res.status !== 429 && res.status < 500) throw lastErr;
+    const reason = extractOAuthErrorReason(text);
+    lastErr = new Error(`OAuth token exchange failed: ${res.status}${reason ? ` (${reason})` : ''} ${text}`);
+    if (!isRetryableTokenExchangeStatus(res.status, reason)) throw lastErr;
     if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
       await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
     }
