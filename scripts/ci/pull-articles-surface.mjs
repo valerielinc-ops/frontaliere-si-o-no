@@ -17,6 +17,14 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const REQUIRE_SUCCESS = process.argv.includes('--require-success');
 const TEMP_ROOT = fs.mkdtempSync(path.join(os.tmpdir(), 'articles-sync-pair-'));
 
+// These are runtime entrypoints even though the driver runs them in isolated
+// child processes. The checkout analyzer consumes this explicit root-relative
+// declaration so their import closure (including TypeScript) stays materialised.
+export const CHECKOUT_CHILD_ENTRYPOINTS = Object.freeze([
+  'scripts/pull-articles-corpus.mjs',
+  'scripts/pull-articles-api.mjs',
+]);
+
 function readKeyValues(file) {
   if (!fs.existsSync(file)) return {};
   const values = {};

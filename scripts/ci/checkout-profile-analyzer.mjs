@@ -277,6 +277,26 @@ export function inlineModuleEntryPoints(text) {
 }
 
 /**
+ * Root-relative CLI modules executed by a driver through child processes.
+ *
+ * Static imports are not the only way a workflow loads code: a bounded driver
+ * may spawn an existing CLI in a fresh process to isolate its output files and
+ * environment. The driver can opt into the checkout closure with
+ * `CHECKOUT_CHILD_ENTRYPOINTS = Object.freeze(['scripts/foo.mjs'])`; keeping
+ * this declaration explicit avoids guessing arbitrary shell/Node spawns while
+ * preventing a sparse checkout from hiding a real runtime dependency.
+ */
+function checkoutChildEntryPoints(source) {
+  const out = [];
+  const declaration = /\bCHECKOUT_CHILD_ENTRYPOINTS\s*=\s*(?:Object\.freeze\(\s*)?\[([\s\S]*?)\]/g;
+  const pathLiteral = /['"]([\w./@-]+\.(?:mjs|cjs|js|ts|mts|sh|py))['"]/g;
+  for (const block of String(source ?? '').matchAll(declaration)) {
+    for (const match of block[1].matchAll(pathLiteral)) out.push(match[1]);
+  }
+  return out;
+}
+
+/**
  * Testo di tutti gli script npm raggiunti da `npm run <nome>` dentro `text`,
  * seguendo la catena (stessa profondita' di `checkoutEntryPoints`).
  *
@@ -352,6 +372,7 @@ export function transitiveClosure(entries, { staticOnly = false } = {}) {
     for (const re of specRes) {
       for (const m of src.matchAll(re)) specs.add(m[1]);
     }
+    for (const child of checkoutChildEntryPoints(src)) queue.push(child);
     for (const s of specs) {
       const base = path.normalize(path.join(dir, s));
       for (const t of cands(base)) {
