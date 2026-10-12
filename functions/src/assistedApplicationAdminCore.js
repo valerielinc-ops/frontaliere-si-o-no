@@ -549,7 +549,7 @@ async function reserveRefund(db, orderRef, { sumUpTransactionId = null } = {}) {
       // a second provider request even while SumUp's status is still stale.
       ...(sumUpTransactionId ? {
         sumupRefundRequestId: sumUpTransactionId,
-        sumupRefundRequestStatus,
+        sumupRefundRequestStatus: sumUpRefundRequestStatus,
         sumupRefundRequestedAt: order.sumupRefundRequestedAt || new Date(),
       } : {}),
     };
