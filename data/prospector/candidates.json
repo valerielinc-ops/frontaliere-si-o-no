@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-12T12:48:47.137Z",
+  "updatedAt": "2026-10-12T12:49:15.906Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -997784,12 +997784,12 @@
     },
     "seilbahnen.ch": {
       "key": "seilbahnen.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-30T12:21:28.253Z",
-      "updatedAt": "2026-10-12T12:44:26.232Z",
+      "updatedAt": "2026-10-12T12:49:15.882Z",
       "name": "Inauen-Schätti AG",
       "city": "Schwanden",
       "zip": "8762",
@@ -997917,7 +997917,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "12918",
+      "promotionBranch": "prospector/promote-2026-10-12"
     },
     "micarna@landquart": {
       "key": "micarna@landquart",
