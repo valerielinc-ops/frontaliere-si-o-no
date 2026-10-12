@@ -24,7 +24,12 @@ export const ZAUGG_SOURCE_SPEC = JSON.parse(readFileSync(
   'utf8',
 ));
 
-export const ZAUGG_KEY = ZAUGG_SOURCE_SPEC.companyKey;
+// Keep the writer key statically visible to crawler-manifest-slice-key.test.ts;
+// the JSON spec remains the source-backed contract and is checked below.
+export const ZAUGG_KEY = 'zaugg';
+if (ZAUGG_SOURCE_SPEC.companyKey !== ZAUGG_KEY) {
+  throw new Error(`ZAUGG source spec companyKey drifted from ${ZAUGG_KEY}`);
+}
 export const ZAUGG_COMPANY_NAME = ZAUGG_SOURCE_SPEC.companyName;
 export const ZAUGG_COMPANY_DOMAIN = ZAUGG_SOURCE_SPEC.companyHost;
 const CAREER_URL = ZAUGG_SOURCE_SPEC.seedUrls[0];
