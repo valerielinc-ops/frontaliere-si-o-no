@@ -1,7 +1,7 @@
 {
   "key": "lalive",
   "label": "LALIVE",
-  "generatedAt": "2026-10-11T21:20:00.339Z",
+  "generatedAt": "2026-10-12T09:21:51.284Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 9076,
-  "avgDurationMs": 9076,
+  "durationMs": 7920,
+  "avgDurationMs": 7920,
   "durationHistory": [
-    9076
+    7920
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158506",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:19:45.003Z",
+      "crawledAt": "2026-10-12T09:21:32.924Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2644016",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:19:46.903Z",
+      "crawledAt": "2026-10-12T09:21:34.562Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2585737",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T21:19:46.479Z",
+      "crawledAt": "2026-10-12T09:21:34.009Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2412556",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:19:45.995Z",
+      "crawledAt": "2026-10-12T09:21:33.446Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2344646",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:19:45.731Z",
+      "crawledAt": "2026-10-12T09:21:33.141Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158502",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T21:19:44.299Z",
+      "crawledAt": "2026-10-12T09:21:32.368Z",
       "addressLocality": "Zurigo",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1155459",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:19:43.379Z",
+      "crawledAt": "2026-10-12T09:21:31.802Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -315,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
+  "codeCommit": "6538b6456f5c610082a5660e88e1b59f3c741548"
 }
