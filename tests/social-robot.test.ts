@@ -38,7 +38,7 @@ import {
   pausedUntil,
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
-import { extractTikTokAuthenticatedUsername, RobotError } from '../scripts/social-robot/lib/flows.mjs';
+import { DEFAULT_TIKTOK_MUSIC_MODE, extractTikTokAuthenticatedUsername, resolveTikTokMusicVariant, RobotError } from '../scripts/social-robot/lib/flows.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
@@ -125,6 +125,24 @@ describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
     expect(socialPublishRoute({ mode: 'dry', apiReady: false })).toEqual({ api: false, enqueue: true, render: true });
     expect(socialPublishRoute({ mode: 'dry', apiReady: true })).toEqual({ api: true, enqueue: true, render: true });
     expect(socialPublishRoute({ mode: 'live', apiReady: true })).toEqual({ api: false, enqueue: true, render: true });
+  });
+});
+
+describe('Firebase-configured TikTok native-sound experiment', () => {
+  it('defaults to the no-sound control arm and maps the RC parameters', () => {
+    expect(DEFAULT_TIKTOK_MUSIC_MODE).toBe('off');
+    expect(resolveTikTokMusicVariant({ queueId: 'job-1', env: {} })).toBe('control');
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_MUSIC_MODE).toEqual(['TIKTOK_MUSIC_MODE']);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_MUSIC_ROLLOUT_PERCENT).toEqual(['TIKTOK_MUSIC_ROLLOUT_PERCENT']);
+  });
+
+  it('assigns a stable queue id to one arm and respects rollout bounds', () => {
+    const env = { TIKTOK_MUSIC_MODE: 'trend', TIKTOK_MUSIC_ROLLOUT_PERCENT: '50' };
+    const first = resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env });
+    expect(first).toBe(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env }));
+    expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '0' } })).toBe('control');
+    expect(resolveTikTokMusicVariant({ queueId: 'job-2026-10-10', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('treatment');
+    expect(resolveTikTokMusicVariant({ queueId: '', env: { ...env, TIKTOK_MUSIC_ROLLOUT_PERCENT: '100' } })).toBe('control');
   });
 });
 

@@ -69,6 +69,26 @@ community.
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
 
+### Esperimento audio TikTok
+
+Il robot può aprire automaticamente l’editor nativo `Suoni` di TikTok Studio,
+selezionare il primo audio della scheda `Per te` (la libreria raccomandata dalla
+piattaforma), salvarlo e poi pubblicare. Non scarica musica da fonti esterne e
+non inserisce file audio nel video. La selezione resta nel trattamento, mentre
+il controllo conserva l’audio originale del video.
+
+| Parametro Firebase | Valori | Default locale |
+|---|---|---|
+| `TIKTOK_MUSIC_MODE` | `off` / `trend` | `off` |
+| `TIKTOK_MUSIC_ROLLOUT_PERCENT` | `0`–`100` | `0` |
+
+L’assegnazione è deterministica sull’id della coda: un retry resta nello stesso
+braccio. Il journal locale conserva variante e descrizione del suono scelto,
+mentre l’evidence di conferma la porta anche nel ledger. Se la libreria nativa
+non espone una card selezionabile, il trattamento si ferma prima di premere
+`Pubblica` e salva screenshot/HTML: non pubblica in silenzio una variante
+diversa.
+
 ## Comandi (sul Mac host agenti, dal checkout del sito)
 
 ```bash
@@ -80,6 +100,11 @@ node scripts/social-robot/run.mjs --dry-run --platform=instagram
 
 # Pubblicazione: preme solo se Remote Config dice `live`.
 node scripts/social-robot/run.mjs --publish
+
+# Il flag audio viene impostato in Firebase dal maintainer; questa prova mostra
+# il comportamento fino al bottone senza pubblicare.
+TIKTOK_MUSIC_MODE=trend TIKTOK_MUSIC_ROLLOUT_PERCENT=100 \
+  node scripts/social-robot/run.mjs --dry-run --platform=tiktok
 
 # Preview del prossimo Reel (non carica e non accoda nulla).
 npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article

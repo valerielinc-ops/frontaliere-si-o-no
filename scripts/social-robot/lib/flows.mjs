@@ -18,12 +18,17 @@
  * one is missing the robot saves a screenshot and the HTML of the page and
  * stops: it never guesses another button.
  */
+import { createHash } from 'node:crypto';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 export const INSTAGRAM_HOME = 'https://www.instagram.com/';
 export const TIKTOK_UPLOAD = 'https://www.tiktok.com/tiktokstudio/upload';
 export const DEFAULT_TIKTOK_USERNAME = 'frontaliereticino';
+export const TIKTOK_MUSIC_MODES = Object.freeze(['off', 'trend']);
+export const DEFAULT_TIKTOK_MUSIC_MODE = 'off';
+export const DEFAULT_TIKTOK_MUSIC_ROLLOUT_PERCENT = 0;
+export const TIKTOK_MUSIC_TIMEOUT_MS = 20_000;
 
 export const DEFAULT_TIMEOUTS = Object.freeze({
   ui: 20_000, // a control of the page
@@ -58,6 +63,8 @@ export const RX = Object.freeze({
   ttPublicVisibility: EXACT_TEXT_ONE_OF('Tutti', 'Everyone', 'Alle', 'Tout le monde', 'Public', 'Pubblico', 'Öffentlich'),
   ttContentChecksTitle: /Attivare i controlli automatici dei contenuti\?|Turn on automatic content checks\?|Automatische Inhaltsprüfungen aktivieren\?|Automatische Inhaltskontrollen aktivieren\?|Activer les contrôles automatiques du contenu\s*\?/i,
   ttContentChecksCancel: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
+  ttUnsavedDraftTitle: /video.*(?:non è stato salvato|was not saved|wurde nicht gespeichert|n.a pas été enregistré)/i,
+  ttUnsavedDraftDiscard: EXACT_TEXT_ONE_OF('Scarta', 'Discard', 'Verwerfen', 'Supprimer'),
   ttCookieTitle: /Consentire i cookie da TikTok su questo browser\?|Allow cookies from TikTok on this browser\?|Cookies von TikTok in diesem Browser zulassen\?|Autoriser les cookies de TikTok sur ce navigateur\s*\?/i,
   ttCookieDecline: EXACT_TEXT_ONE_OF('Rifiuta i cookie opzionali', 'Reject optional cookies', 'Optionale Cookies ablehnen', 'Refuser les cookies facultatifs'),
   ttTourAction: EXACT_TEXT_ONE_OF('Ok', 'Last', 'Salta', 'Skip', 'Fine', 'Chiudi', 'Next', 'Avanti', 'Continua', 'Continue', 'Suivant', 'Weiter'),
@@ -80,6 +87,20 @@ export const MAX_GUIDED_TOUR_STEPS = 12;
  */
 export const TT_SUCCESS_TOAST = '[role="alert"], [role="status"], [aria-live="polite"], [aria-live="assertive"], [class*="toast" i], [data-e2e*="toast"]';
 export const TT_PROCESSING = '[role="progressbar"], [data-e2e="upload-progress"], [data-e2e*="progress" i]';
+
+/**
+ * Stable Firebase-configured assignment for the TikTok native-sound test.
+ * The queue id is the experiment unit: a retry of the same post cannot move
+ * between control and treatment, and the local default is always control.
+ */
+export function resolveTikTokMusicVariant({ queueId, env = process.env } = {}) {
+  const mode = String(env?.TIKTOK_MUSIC_MODE || DEFAULT_TIKTOK_MUSIC_MODE).trim().toLowerCase();
+  const rollout = Number(env?.TIKTOK_MUSIC_ROLLOUT_PERCENT);
+  if (!queueId || mode !== 'trend' || !Number.isFinite(rollout) || rollout <= 0) return 'control';
+  if (rollout >= 100) return 'treatment';
+  const bucket = createHash('sha256').update(String(queueId)).digest().readUInt32BE(0) % 100;
+  return bucket < Math.floor(rollout) ? 'treatment' : 'control';
+}
 
 export class RobotError extends Error {
   /**
@@ -604,6 +625,126 @@ async function findVisible(candidates, { timeout = DEFAULT_TIMEOUTS.optional, in
   }
 }
 
+const TIKTOK_SOUND_BUTTON = 'button[data-button-name="sounds"]';
+const TIKTOK_SOUND_SEARCH = [
+  'Cerca suoni',
+  'Search sounds',
+  'Suche Sounds',
+  'Rechercher des sons',
+];
+const TIKTOK_SOUND_TAB_FOR_YOU = EXACT_TEXT_ONE_OF('Per te', 'For You', 'Für dich', 'Pour toi');
+const TIKTOK_SOUND_SAVE = EXACT_TEXT_ONE_OF('Salva', 'Save', 'Speichern', 'Enregistrer');
+
+function musicSearchCandidates(page) {
+  return TIKTOK_SOUND_SEARCH.map((placeholder) => page.locator(`input[placeholder="${placeholder}"]`));
+}
+
+/**
+ * TikTok's music cards currently have no stable data-testid. Their contract
+ * does have a stable shape: a cover image, the title/artist text and one or
+ * more buttons, with the final button being the add/replace action. Scope the
+ * structural fallback to the panel column beside the sound search field so a
+ * preview or cover image cannot be mistaken for a track.
+ */
+async function findTikTokMusicCard({ page, search, guard, timeout = TIKTOK_MUSIC_TIMEOUT_MS }) {
+  const deadline = Date.now() + timeout;
+  for (;;) {
+    await guard();
+
+    const direct = await findVisible([
+      page.locator('[data-e2e="music-card"]'),
+      page.locator('[data-testid*="music-card" i]'),
+      page.locator('[data-testid*="sound-card" i]'),
+    ], { timeout: 0 });
+    if (direct) {
+      const buttons = direct.locator('button:visible');
+      if (await buttons.count()) return { card: direct, label: normalize(await direct.innerText().catch(() => '')) };
+    }
+
+    const searchBox = await search.boundingBox().catch(() => null);
+    if (searchBox) {
+      const images = page.locator('img:visible');
+      const count = await images.count().catch(() => 0);
+      const candidates = [];
+      for (let i = 0; i < count; i += 1) {
+        const image = images.nth(i);
+        const card = image.locator('xpath=ancestor::div[.//button][1]');
+        const box = await card.boundingBox().catch(() => null);
+        if (!box || box.y <= searchBox.y + searchBox.height || box.x < searchBox.x - 24 || box.x > searchBox.x + searchBox.width + 24 || box.width < 100 || box.height < 30) continue;
+        const buttons = card.locator('button:visible');
+        if (!(await buttons.count().catch(() => 0))) continue;
+        const label = normalize(await card.innerText().catch(() => ''));
+        if (!label) continue;
+        candidates.push({ card, label, y: box.y });
+      }
+      candidates.sort((a, b) => a.y - b.y);
+      if (candidates[0]) return candidates[0];
+    }
+
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'TikTok did not expose a usable sound in the native “Per te” library', { step: 'music' });
+    }
+    await sleep(Math.min(250, Math.max(1, deadline - Date.now())));
+  }
+}
+
+function musicEvidence(music) {
+  if (!music || music.variant !== 'treatment') return 'native-sound=control';
+  const label = normalize(music.label).replace(/[\r\n]+/g, ' ').slice(0, 160);
+  return `native-sound=${label || 'selected'}`;
+}
+
+/** Add a native TikTok recommendation and leave the original-audio control intact. */
+export async function ensureTikTokMusic({ page, musicVariant = 'control', human, snap = async () => {}, guard, step, timeout = TIKTOK_MUSIC_TIMEOUT_MS }) {
+  if (musicVariant !== 'treatment') return { variant: 'control', source: 'original' };
+
+  step.set('music');
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: DEFAULT_TIMEOUTS.optional });
+  const sounds = await required(step, 'music-button', [
+    page.locator(`${TIKTOK_SOUND_BUTTON}:visible`),
+    page.getByRole('button', { name: TIKTOK_SOUND_TAB_FOR_YOU }),
+    page.getByRole('button', { name: EXACT_TEXT_ONE_OF('Suoni', 'Sounds', 'Töne', 'Sons') }),
+  ], { guard, timeout: DEFAULT_TIMEOUTS.ui });
+  await clickChecked(page, sounds, { step, snap, platform: 'tiktok', label: 'TikTok native sound panel' });
+
+  const search = await required(step, 'music-panel', musicSearchCandidates(page), { guard, timeout });
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: 0 });
+  const forYou = await findVisible([page.getByText(TIKTOK_SOUND_TAB_FOR_YOU)], { timeout: 0 });
+  if (!forYou) {
+    throw new RobotError('selector-missing', 'TikTok native sound panel did not expose the “Per te” tab', { step: 'music' });
+  }
+
+  const selected = await findTikTokMusicCard({ page, search, guard, timeout });
+  const add = selected.card.locator('button:visible').last();
+  if (!(await add.count().catch(() => 0))) {
+    throw new RobotError('selector-missing', 'TikTok sound card has no add control', { step: 'music' });
+  }
+  await snap('music-selection');
+  await clickChecked(page, add, { step, snap, platform: 'tiktok', label: 'TikTok native sound add control' });
+  await human.pause();
+
+  const save = await required(step, 'music-save', [
+    page.getByRole('button', { name: TIKTOK_SOUND_SAVE }),
+    page.locator('button').filter({ hasText: TIKTOK_SOUND_SAVE }),
+  ], { guard, timeout: DEFAULT_TIMEOUTS.ui });
+  await clickChecked(page, save, { step, snap, platform: 'tiktok', label: 'TikTok sound editor save control' });
+
+  const deadline = Date.now() + DEFAULT_TIMEOUTS.ui;
+  for (;;) {
+    await guard();
+    if (!(await search.isVisible().catch(() => false))) break;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'TikTok did not close the native sound editor after saving', { step: 'music' });
+    }
+    await sleep(100);
+  }
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: DEFAULT_TIMEOUTS.optional });
+  const music = { variant: 'treatment', source: 'tiktok-native', tab: 'for_you', label: selected.label.slice(0, 200) };
+  addDiagnosticMetadata(page, { tiktokMusic: music });
+  await snap('music-applied');
+  return music;
+}
+
 /**
  * Interstitials that the robot may close without changing account settings.
  * Dialogs are matched by role plus title; the title alternatives cover the
@@ -635,6 +776,14 @@ export const INTERSTITIAL_REGISTRY = Object.freeze({
       role: 'dialog',
       title: RX.ttContentChecksTitle,
       safeAction: 'cancel-or-close',
+    }),
+    Object.freeze({
+      id: 'tiktok-unsaved-draft',
+      surface: 'dialog',
+      role: 'dialog',
+      title: RX.ttUnsavedDraftTitle,
+      name: RX.ttUnsavedDraftDiscard,
+      safeAction: 'discard-unsaved-draft',
     }),
     Object.freeze({
       id: 'tiktok-guided-tour',
@@ -732,6 +881,18 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe acknowledgement`, { step: step.get() });
     }
     await clickChecked(page, acknowledge, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'discard-unsaved-draft') {
+    const discard = await findVisible([
+      target.root.getByRole('button', { name: entry.name }),
+      target.root.locator('button').filter({ hasText: entry.name }),
+    ], { timeout: 0 });
+    if (!discard) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe discard action`, { step: step.get() });
+    }
+    await clickChecked(page, discard, { step, snap, platform, allowInterstitialRecovery: false, label: `discard action for ${entry.id}` });
     return;
   }
 
@@ -1120,7 +1281,7 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
 }
 
 /** Same contract as instagramFlow. */
-export async function tiktokFlow({ page, files, caption, video, dryRun, human, snap, targetUsername = DEFAULT_TIKTOK_USERNAME, startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
+export async function tiktokFlow({ page, files, caption, video, dryRun, human, snap, targetUsername = DEFAULT_TIKTOK_USERNAME, musicVariant = 'control', startUrl = TIKTOK_UPLOAD, timeouts = {}, step = stepTracker() }) {
   const baseTimeouts = { ...DEFAULT_TIMEOUTS, ...timeouts };
   const t = { ...baseTimeouts, upload: timeoutForTikTokVideo(video, baseTimeouts.upload) };
   const guard = tiktokGuard(page, step);
@@ -1142,6 +1303,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await human.pause();
   await waitForTikTokProcessing(page, { timeout: t.upload, guard });
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
+  const music = await ensureTikTokMusic({ page, musicVariant, human, snap, guard, step, timeout: TIKTOK_MUSIC_TIMEOUT_MS });
 
   const editor = await required(step, 'caption', [
     page.locator('[data-e2e="caption_container"] [contenteditable="true"]'),
@@ -1162,7 +1324,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   }
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
   await snap('ready-to-publish');
-  if (dryRun) return { status: 'dry-run', step: 'post-button' };
+  if (dryRun) return { status: 'dry-run', step: 'post-button', music };
 
   step.set('publish');
   return pressed(async (markPressed) => {
@@ -1179,13 +1341,13 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
       await guard();
       if (RX.ttConfirmUrl.test(page.url())) {
         await snap('confirmed');
-        return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}` };
+        return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}; ${musicEvidence(music)}`, music };
       }
       const text = await findFirst([page.locator(TT_SUCCESS_TOAST).filter({ hasText: RX.ttConfirm })], { timeout: 1_000 });
       if (text) {
         const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
         await snap('confirmed');
-        return { status: 'published', evidence };
+        return { status: 'published', evidence: `${evidence}; ${musicEvidence(music)}`, music };
       }
       if (Date.now() >= deadline) break;
     }

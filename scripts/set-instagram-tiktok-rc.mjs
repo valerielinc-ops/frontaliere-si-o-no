@@ -13,6 +13,10 @@ const PARAMS = {
   INSTAGRAM_USERNAME: 'frontaliereticino',
   INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982',
   TIKTOK_USERNAME: 'frontaliereticino',
+  // Firebase controls the native TikTok sound experiment. `trend` selects
+  // TikTok Studio's own "Per te" library; 50% keeps a no-sound control arm.
+  TIKTOK_MUSIC_MODE: 'trend',
+  TIKTOK_MUSIC_ROLLOUT_PERCENT: '50',
 };
 
 const rc = await getRemoteConfig();
@@ -20,7 +24,7 @@ const template = await fetchRcTemplate(rc);
 
 let changed = 0;
 const today = new Date().toISOString().slice(0, 10);
-const description = `Instagram/TikTok account identifiers, no access token yet (set ${today})`;
+const description = `Instagram/TikTok browser publishing and native-sound experiment settings (set ${today})`;
 for (const [key, value] of Object.entries(PARAMS)) {
   if (stageRcParam(template, key, value, description)) changed++;
 }
