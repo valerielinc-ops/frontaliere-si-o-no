@@ -40,7 +40,7 @@ function exit() {
  position = 2000;
  for (const io of observers.filter((o) => !o.disconnected && !o.options?.rootMargin)) io.cb(io.targets.map((target) => ({ target, isIntersecting: false, intersectionRatio: 0 } as IntersectionObserverEntry)), {} as IntersectionObserver);
 }
-async function mount() { const { default: Banner } = await import('@/components/shared/AdSenseBanner'); return { Banner, ...render(<Banner adSlot="3205029282" placement="joblist-infeed-main-4" />) }; }
+async function mount() { const { default: Banner } = await import('@/components/shared/AdSenseBanner'); return { Banner, ...render(<Banner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} placement="joblist-infeed-main-4" />) }; }
 
 describe('SPA lifecycle and layout owner', () => {
  it.each(['granted', 'denied'])('requests once after %s and preserves a slow fill', async (decision) => {
@@ -70,7 +70,7 @@ describe('SPA lifecycle and layout owner', () => {
   expect(window.adsbygoogle).toHaveLength(1);
   const previous = document.querySelector('ins');
   window.history.replaceState(null, '', '/cerca-lavoro-ticino/infermieri/');
-  rerender(<Banner adSlot="3205029282" placement="joblist-infeed-main-4" />);
+  rerender(<Banner adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot} placement="joblist-infeed-main-4" />);
   expect(document.querySelector('ins')).toBeNull();
   await act(async () => { near(); });
   expect(document.querySelector('ins')).not.toBe(previous);
@@ -93,7 +93,7 @@ describe('static serialized lifecycle', () => {
    expect(slot.getAttribute('data-ad-placement') || STATIC_AD_UNIQUE_PLACEMENTS[signature]).toBe(name.toLowerCase());
   }
   expect(adSlotHtml('JOBDETAIL_TOP_BANNER')).not.toContain('data-ad-placement');
-  expect(adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')).toContain('data-ad-placement="ft_driveby_atf_display"');
+  expect(adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')).not.toContain('data-ad-placement');
  });
  it('reports the top-banner placement from its unique tuple through the external loader', () => {
   const track = vi.fn(); vi.stubGlobal('gtag', track);

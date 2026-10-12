@@ -6,10 +6,9 @@
  * container has measurable width (> 0px).
  *
  * (a) is the viewability contract: an impression served for a unit the visitor
- * never reaches is counted by Active View as non-viewable and drags the whole
- * unit's CPM down. Ad-unit 3205029282 measured 22.1% viewability on mobile
- * (92.7k impressions / 30d) against 62.0% on desktop, where the same unit's
- * only placement sits above the fold — the placements differ, the unit does not.
+ * never reaches is counted by Active View as non-viewable and drags the unit's
+ * measured CPM down. Registry entries stay context-specific so placement
+ * performance remains attributable instead of blending listing and detail data.
  *
  * State machine: idle → waiting_width → loading → waiting_response | filled | unfilled → collapsed
  * `idle` = in the DOM as a reserved box, but not yet requested.
@@ -293,9 +292,10 @@ function AdSenseBannerInstance({
  // pushed at once, thousands of px below the fold. Measured live on
  // /cerca-lavoro-ticino/ at 412×915: 5 units requested together at t≈2.6s with
  // the visitor still at scrollY=0 — 0 of them viewable. That is the 22%
- // mobile viewability on slot 3205029282 (the same unit scores 62% on desktop,
- // where its only placement sits at y=133). Issue: AdSense "Assicurati che i
- // tuoi annunci siano visualizzati" opportunity.
+ // mobile viewability on the former shared in-feed/auth-gate unit. The registry
+ // now keeps listing and detail contexts on separate console units, so this
+ // diagnosis can be made per surface. Issue: AdSense "Assicurati che i tuoi
+ // annunci siano visualizzati" opportunity.
  if (typeof document !== 'undefined' &&
  document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
  loadAdSenseScript();

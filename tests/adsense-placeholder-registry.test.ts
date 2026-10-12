@@ -53,10 +53,8 @@ describe('AD_SLOTS placeholder reserve — registry is the single source of trut
   });
 
   it('the (slot, format, layout) triple is collision-free', () => {
-    // Slot ids are deliberately REUSED across placements (see the "Slot id
-    // REUSES …" notes in the registry): 3205029282 is shared by
-    // JOBLIST_INFEED_MOBILE (336) and JOBDETAIL_TOP_BANNER (100). Resolving by
-    // slot id alone would silently pick one of the two reserves for both.
+    // Each placement now has its own console unit. Keep the triple assertion
+    // because the resolver is intentionally defensive for future migrations.
     const byTriple = new Map<string, Set<number>>();
     for (const [, cfg] of entries) {
       if (typeof cfg.placeholderMinHeight !== 'number') continue;
@@ -68,15 +66,15 @@ describe('AD_SLOTS placeholder reserve — registry is the single source of trut
     expect(collisions).toEqual([]);
   });
 
-  it('slot id alone is NOT a safe key (guards the resolver against regressing to it)', () => {
-    const bySlot = new Map<string, Set<number>>();
-    for (const [, cfg] of entries) {
-      if (typeof cfg.placeholderMinHeight !== 'number') continue;
-      if (!bySlot.has(cfg.slot)) bySlot.set(cfg.slot, new Set());
-      bySlot.get(cfg.slot)!.add(cfg.placeholderMinHeight);
+  it('keeps console slot ids unique for placement attribution', () => {
+    const bySlot = new Map<string, string[]>();
+    for (const [name, cfg] of entries) {
+      const names = bySlot.get(cfg.slot) ?? [];
+      names.push(name);
+      bySlot.set(cfg.slot, names);
     }
-    const ambiguous = [...bySlot].filter(([, v]) => v.size > 1);
-    expect(ambiguous.length).toBeGreaterThan(0);
+    const aliases = [...bySlot.values()].filter((names) => names.length > 1);
+    expect(aliases).toEqual([]);
   });
 
   it('unknown slots fall through to the format heuristic', () => {

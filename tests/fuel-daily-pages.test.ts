@@ -31,6 +31,7 @@ import {
 } from '../build-plugins/fuelDailyPagesPlugin';
 import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
 // target zone + enough copy seeds to clear the 250-word gate).
@@ -193,7 +194,7 @@ describe('fuel-daily page generation — content quality', () => {
       html.indexOf(`${name}=${value}`),
     ].find((position) => position >= 0) ?? -1;
     const top3 = attrPosition('id', 'top3');
-    const driveby = attrPosition('data-ad-slot', '2093992129');
+    const driveby = attrPosition('data-ad-slot', AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot);
     const trend7 = attrPosition('id', 'trend7');
 
     expect(top3).toBeGreaterThanOrEqual(0);

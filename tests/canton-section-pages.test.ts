@@ -43,6 +43,7 @@ import { TOPIC_CLUSTERS } from '../packages/articles/engine/topicTaxonomy';
 import { corpusSectionCdnKey } from '../infra/cloudflare-worker/locale-router.js';
 import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
 import { ORGANIZATION_LD } from '../services/seo/organizationLd';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 configureActiveCantonSections(['BASILEA', 'TI']);
 
@@ -407,10 +408,10 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html).toContain('id="rail-left-root"');
         expect(html).toContain('id="rail-right-root"');
         expect(html.match(/<ins class="adsbygoogle"/g)).toHaveLength(4);
-        expect(html).toContain('data-ad-slot="3205029282"');
-        expect(html).toContain('data-ad-slot="1982411173"');
-        expect(html).toContain('data-ad-slot="6483829128"');
-        expect(html).toContain('data-ad-slot="5196931137"');
+        expect(html).toContain(`data-ad-slot="${AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}"`);
+        expect(html).toContain(`data-ad-slot="${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}"`);
+        expect(html).toContain(`data-ad-slot="${AD_SLOTS.ARTICLE_INLINE_MOBILE_2.slot}"`);
+        expect(html).toContain(`data-ad-slot="${AD_SLOTS.SSG_END_MULTIPLEX.slot}"`);
         expect(html).toContain('data-ad-format="horizontal" data-full-width-responsive="true"');
         expect(html).toContain('data-ad-format="fluid" data-ad-layout="in-article"');
         expect(html).toContain('data-ad-format="autorelaxed" data-ad-placement="ssg_end_multiplex"');

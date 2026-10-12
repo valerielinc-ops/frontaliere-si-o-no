@@ -22,8 +22,9 @@ import { hasEnoughContentForStaticAd } from '../../scripts/adsense-prereview-thr
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
 // Reconstruct unambiguous placements in the shared external loader instead of
-// repeating their names in every HTML page. A reused tuple keeps its explicit
-// marker: slot IDs alone cannot distinguish top banners from in-feed aliases.
+// repeating their names in every HTML page. Registry entries now use distinct
+// console units per context; the explicit marker remains for any future
+// migration that temporarily introduces a non-unique tuple.
 const placementEntries = Object.entries(AD_SLOTS).map(([name, cfg]) => [
   JSON.stringify([cfg.slot, cfg.format, 'layout' in cfg ? cfg.layout : '']),
   name.toLowerCase(),

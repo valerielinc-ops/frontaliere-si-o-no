@@ -12,10 +12,11 @@
  *
  * Expected DOM behavior per placement:
  *
- *   ARTICLE_RAIL_RIGHT        desktop only  — rendered inside `isDesktopLg` block
  *   ARTICLE_INLINE_MOBILE     mobile only   — rendered inside `!isDesktopLg` or `isMobile` block
  *   ARTICLE_END_MULTIPLEX     all devices   — single placement at end of article
+ *   SSG_END_MULTIPLEX         all devices   — single placement at end of static page
  *   JOBLIST_INFEED_DESKTOP    desktop only  — selected via `isMobile ? … : …` ternary
+ *   EVENTS_LIST_INFEED         all devices  — single placement in the event list
  *   JOBLIST_INFEED_MOBILE     mobile only   — selected via `isMobile ? … : …` ternary
  *   JOBDETAIL_SIDEBAR         desktop only  — rendered inside `isDesktopLg` block
  *   JOBDETAIL_END_MULTIPLEX   all devices   — single placement at end of job detail
@@ -35,15 +36,27 @@ const ROOT = path.resolve(__dirname, '..');
 const EXPECTED_CLIENT_ID = 'ca-pub-8628054934855353';
 
 const EXPECTED_SLOTS = {
-  ARTICLE_RAIL_RIGHT:       '9739778973',
   ARTICLE_INLINE_MOBILE:    '1982411173',
+  ARTICLE_INLINE_MOBILE_2:  '6483829128',
+  ARTICLE_INLINE_MOBILE_3:  '1120754984',
+  ARTICLE_INLINE_MOBILE_4:  '3084573347',
+  ARTICLE_INLINE_MOBILE_5:  '4692185947',
   ARTICLE_END_MULTIPLEX:    '5196931137',
-  JOBLIST_INFEED_DESKTOP:   '8164676143',
-  JOBLIST_INFEED_MOBILE:    '3205029282',
+  SSG_END_MULTIPLEX:        '3285339503',
+  JOBLIST_INFEED_DESKTOP:   '4390537615',
+  EVENTS_LIST_INFEED:       '2143648225',
+  JOBLIST_INFEED_MOBILE:    '7562575998',
+  JOBLIST_END_MULTIPLEX:    '8414202909',
+  HOMEPAGE_MID_DISPLAY:     '2093992129',
+  FT_DRIVEBY_ATF_DISPLAY:   '7200533787',
   JOBDETAIL_SIDEBAR:        '8164676143',
   JOBDETAIL_END_MULTIPLEX:  '3205192616',
+  JOBDETAIL_BETWEEN_SECTIONS: '7767335647',
+  JOBDETAIL_TOP_BANNER:     '9881792581',
   JOBDETAIL_AUTH_GATE:      '3205029282',
   AUTHGATE_END_MULTIPLEX:   '5826714385',
+  CALCULATOR_POST_RESULT:   '6082893233',
+  JOBBRIDGE_MULTIPLEX:      '1952076530',
 };
 
 /** Placements that must be mounted mutually exclusive (desktop XOR mobile).
@@ -64,16 +77,6 @@ const MUTUALLY_EXCLUSIVE_PAIRS = [
     desktopToken: 'AD_SLOTS.JOBLIST_INFEED_DESKTOP',
     mobileToken:  'AD_SLOTS.JOBLIST_INFEED_MOBILE',
     mountStyle:   'ternary',
-  },
-  {
-    desktop:      'ARTICLE_RAIL_RIGHT',
-    mobile:       'ARTICLE_INLINE_MOBILE',
-    file:         'components/community/BlogArticles.tsx',
-    desktopToken: 'AD_SLOTS.ARTICLE_RAIL_RIGHT',
-    mobileToken:  'AD_SLOTS.ARTICLE_INLINE_MOBILE',
-    mountStyle:   'guarded-blocks',
-    desktopGuard: 'isDesktop',  // matches isDesktopLg, isDesktopXl, etc.
-    mobileGuard:  'isMobile',
   },
 ];
 
