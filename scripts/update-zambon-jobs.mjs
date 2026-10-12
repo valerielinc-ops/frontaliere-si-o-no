@@ -379,7 +379,6 @@ async function main() {
     parsed: discovered.length,
     written: _sliceJobs.length,
     lastFetchOutcome: 'ok',
-    abortKind: null,
     authoritativeEmptySnapshot,
     authoritativeSnapshotVerified: authoritativeEmptySnapshot,
     ...(authoritativeEmptySnapshot
