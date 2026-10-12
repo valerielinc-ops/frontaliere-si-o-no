@@ -21335,10 +21335,8 @@
         "fr": "Pizzaiolo Polyvalent (Manora) 80%"
       },
       "sourceLang": "fr",
-      "id": "manor-6bbcd198959d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-12T09:31:50.711Z",
       "crawledAt": "2026-10-12T21:29:55.833Z",
+      "id": "manor-6bbcd198959d",
       "salaryMin": 52400,
       "salaryMax": 66000,
       "currency": "CHF",
@@ -21353,7 +21351,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Sierre-Pizzaiolo-Polyvalent-%28Manora%29-80/1368160255/"
+      "applyUrl": "https://positions.manor.ch/job/Sierre-Pizzaiolo-Polyvalent-%28Manora%29-80/1368160255/",
+      "firstSeenAt": "2026-10-12T09:31:50.711Z"
     },
     {
       "title": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%",

@@ -17640,7 +17640,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -17857,7 +17856,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -18116,7 +18114,7 @@
       "id": "usz-3135825dba92",
       "slug": "formatore-trice-professionale-ortottista-sss-60-80-universitatsspital-zurich-usz-zurich-3fa87935de",
       "slugByLocale": {
-        "de": "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch",
+        "de": "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch-lcggmu",
         "it": "formatore-trice-professionale-ortottista-sss-60-80-universitatsspital-zurich-usz-zurich-3fa87935de",
         "en": "vocational-trainer-orthoptist-hf-60-80-universitatsspital-zurich-usz-zurich",
         "fr": "formateur-professionnel-orthoptiste-es-60-80-universitatsspital-zurich-usz-zurich"
@@ -18166,6 +18164,9 @@
         "it": [
           "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch",
           "formatore-trice-professionale-ortottista-sss-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "de": [
+          "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -18380,7 +18381,7 @@
       "slugByLocale": {
         "it": "formatore-trice-professionale-ortottista-sss-60-80-universitatsspital-zurich-usz-zurich-cd30ac319f",
         "en": "vocational-trainer-orthoptist-hf-60-80-universitatsspital-zurich-usz-zurich",
-        "de": "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch",
+        "de": "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch-1vko6m",
         "fr": "formateur-professionnel-orthoptiste-es-60-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -18432,6 +18433,9 @@
         "it": [
           "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch",
           "formatore-trice-professionale-ortottista-sss-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "de": [
+          "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:10.375Z",

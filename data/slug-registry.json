@@ -162467,7 +162467,9 @@
     "canonicalSlug": "business-analyst-h-f-x-80-100-vaudoise-ch",
     "canton": "VD",
     "createdAt": "2026-05-18",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "fr": "business-analyst-h-f-x-80-100-vaudoise-ch"
+    }
   },
   "id|softgarden.io|62554964": {
     "canonicalSlug": "juriste-junior-italophone-h-f-x-60-vaudoise-ch",
@@ -861595,7 +861597,9 @@
     "canonicalSlug": "responsabile-makler-e-verkaufssupport-m-w-d-agenzia-generale-limmattal-die-mobiliar-dietikon",
     "slugByLocale": {
       "it": "responsabile-makler-e-verkaufssupport-m-w-d-agenzia-generale-limmattal-die-mobiliar-dietikon",
-      "de": "leiter-in-makler-und-verkaufssupport-w-m-d-generalagentur-limmattal-mobiliar-ch"
+      "de": "leiter-in-makler-und-verkaufssupport-w-m-d-generalagentur-limmattal-mobiliar-ch",
+      "en": "leiter-in-makler-und-verkaufssupport-w-m-d-generalagentur-limmattal-die-mobiliar-dietikon",
+      "fr": "leiter-in-makler-und-verkaufssupport-w-m-d-generalagentur-limmattal-die-mobiliar-dietikon"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -915591,7 +915595,8 @@
     "canonicalSlug": "sr-communications-business-partner-core-lab-roche-diagnostics-roche-ch",
     "slugByLocale": {
       "en": "sr-communications-business-partner-core-lab-roche-diagnostics-roche-ch",
-      "fr": "partenaire-principal-en-communication-core-lab-roche-diagnostics-roche-rotkreuz"
+      "fr": "partenaire-principal-en-communication-core-lab-roche-diagnostics-roche-rotkreuz",
+      "it": "sr-communications-business-partner-laboratorio-centrale-roche-diagnostics-roche-rotkreuz"
     },
     "createdAt": "2026-10-12",
     "canton": "ZG"
@@ -915709,7 +915714,9 @@
     "canonicalSlug": "business-engineer-document-solutions-m-w-d-zkb-zurich",
     "slugByLocale": {
       "de": "business-engineer-document-solutions-m-w-d-zkb-zurich",
-      "en": "business-engineer-document-solutions-m-w-d-zurcher-kantonalbank-zurich"
+      "en": "business-engineer-document-solutions-m-w-d-zurcher-kantonalbank-zurich",
+      "it": "business-ingegnere-document-solutions-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "business-ingenieur-document-solutions-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-12",
     "canton": "ZH"
@@ -916133,5 +916140,236 @@
     },
     "createdAt": "2026-10-12",
     "canton": "TI"
+  },
+  "id|prospective.ch|a8d954ba-c4c4-43e0-a856-5391004af873": {
+    "canonicalSlug": "medizinische-n-praxisassistent-in-pneumologie-80-sro-langenthal",
+    "slugByLocale": {
+      "de": "medizinische-n-praxisassistent-in-pneumologie-80-sro-langenthal"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "BE"
+  },
+  "url|https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-oftringen-perry-center-67560-de-de": {
+    "canonicalSlug": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-c-a-schweiz-oftringen",
+    "slugByLocale": {
+      "de": "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-c-and-a-schweiz-ch",
+      "it": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-c-a-schweiz-oftringen"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "AG"
+  },
+  "id|ruag.ch|b0939b54-0bfc-4d2d-83f6-8e46f85dd045": {
+    "canonicalSlug": "ict-architect-consulting-80-100-w-m-d-ruag-ag-bern",
+    "slugByLocale": {
+      "de": "ict-architect-consulting-80-100-w-m-d-ruag-ag-bern"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "BE"
+  },
+  "url|https://jobs.smartrecruiters.com/staubligroup/744000155009669-digital-marketing-specialist-m-w-d-?oga=true": {
+    "canonicalSlug": "digital-marketing-specialista-m-w-d-staubli-allschwil-08765acac2",
+    "slugByLocale": {
+      "de": "digital-marketing-specialist-m-w-d-staubli-allschwil-switzerland",
+      "it": "digital-marketing-specialista-m-w-d-staubli-allschwil-08765acac2",
+      "fr": "digital-marketing-specialiste-m-w-d-staubli-allschwil"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "BL"
+  },
+  "url|https://jobs.zfv.ch/betriebsleiterin-de-j4755.html": {
+    "canonicalSlug": "betriebsleiter-in-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "betriebsleiter-in-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4084105": {
+    "canonicalSlug": "transportleiter-m-w-d-planzer-schmerikon",
+    "slugByLocale": {
+      "de": "transportleiter-m-w-d-planzer-schmerikon"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "SG"
+  },
+  "id|belimo.com|1165604255": {
+    "canonicalSlug": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil",
+    "slugByLocale": {
+      "de": "assistant-to-group-general-counsel-paralegal-40-60-belimo-hinwil"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|2595553a-ca00-4fa8-bcc0-e2c63db0e947": {
+    "canonicalSlug": "academic-assistant-80-phd-position-uzh-zurich",
+    "slugByLocale": {
+      "en": "academic-assistant-80-phd-position-uzh-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|7ed1c9fe-f51c-4731-aa7b-d6db825f9cd8": {
+    "canonicalSlug": "computational-biologist-data-scientist-uzh-schlieren",
+    "slugByLocale": {
+      "en": "computational-biologist-data-scientist-universitat-zurich-schlieren",
+      "it": "computational-biologist-data-scientist-uzh-schlieren",
+      "de": "computational-biologist-data-scientist-uzh-schlieren",
+      "fr": "computational-biologist-data-scientist-uzh-schlieren"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|d4ef7c6d-fe95-4afe-9f32-944a562b1019": {
+    "canonicalSlug": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich",
+    "slugByLocale": {
+      "de": "unterstutzung-umsetzung-digitale-barrierefreiheit-e-accessibility-uzh-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11431/pub/2": {
+    "canonicalSlug": "fullstack-devops-engineer-software-architekt-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "fullstack-devops-engineer-software-architekt-m-w-d-zkb-zurich",
+      "en": "fullstack-devops-engineer-software-architekt-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11432/pub/2": {
+    "canonicalSlug": "fullstack-devops-engineer-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "fullstack-devops-engineer-m-w-d-zkb-zurich",
+      "en": "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11430/pub/1": {
+    "canonicalSlug": "ai-devops-solution-engineer-ai-engineer-w-m-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "ai-devops-solution-engineer-ai-engineer-w-m-d-zkb-zurich",
+      "en": "ai-devops-solution-engineer-ai-engineer-w-m-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|straumann.com|22204": {
+    "canonicalSlug": "global-head-of-dso-education-services-straumann-ch",
+    "slugByLocale": {
+      "en": "global-head-of-dso-education-services-straumann-ch"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "BS"
+  },
+  "id|mobiliar.ch|1165603555": {
+    "canonicalSlug": "teamleiter-abteilung-support-per-versicherungsberater-innen-m-w-d-agenzia-generale-zug-die-mobiliar-zug",
+    "slugByLocale": {
+      "de": "teamleiter-abteilung-support-fur-versicherungsberater-innen-w-m-d-generalagentur-zug",
+      "it": "teamleiter-abteilung-support-per-versicherungsberater-innen-m-w-d-agenzia-generale-zug-die-mobiliar-zug"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZG"
+  },
+  "id|mobiliar.ch|1165602555": {
+    "canonicalSlug": "previdenza-coach-privatpersonen-kmu-region-ostschweiz-m-w-d-die-mobiliar-zurich",
+    "slugByLocale": {
+      "de": "vorsorge-coach-privatpersonen-kmu-region-ostschweiz-w-m-d-mobiliar-ch",
+      "it": "previdenza-coach-privatpersonen-kmu-region-ostschweiz-m-w-d-die-mobiliar-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "url|https://climeworks.recruitee.com/o/lead-electrical-engineer-100": {
+    "canonicalSlug": "lead-electrical-engineer-100-climeworks-zurich",
+    "slugByLocale": {
+      "en": "lead-electrical-engineer-100-climeworks-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|softgarden.io|68040267": {
+    "canonicalSlug": "business-analyste-analytics-h-f-x-80-100-vaudoise-ch",
+    "slugByLocale": {
+      "fr": "business-analyste-analytics-h-f-x-80-100-vaudoise-ch"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "VD"
+  },
+  "id|helvetia.com|e6c57a23-adf9-435c-80e1-c5afb31c6713": {
+    "canonicalSlug": "consulente-m-f-x-assicurazione-regione-mannedorf-part-time-full-time-helvetia-versicherungen-mannedorf",
+    "slugByLocale": {
+      "de": "kundenberater-w-m-d-versicherung-region-mannedorf-teilzeit-vollzeit-helvetia-mannedorf",
+      "it": "consulente-m-f-x-assicurazione-regione-mannedorf-part-time-full-time-helvetia-versicherungen-mannedorf",
+      "en": "customer-advisor-m-f-x-insurance-region-mannedorf-part-time-full-time-helvetia-versicherungen-mannedorf",
+      "fr": "conseiller-client-h-f-x-assurance-region-mannedorf-temps-partiel-plein-temps-helvetia-versicherungen-mannedorf"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|helvetia.com|fee0dc22-9ee4-43be-bbba-a3859743316b": {
+    "canonicalSlug": "collaboratore-trice-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-teilzeit-vollzeit-helvetia-versicherungen-horgen",
+    "slugByLocale": {
+      "de": "mitarbeiter-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-a-teilzeit",
+      "it": "collaboratore-trice-verkaufssupport-m-w-d-agentur-zurichsee-in-horgen-affoltern-a-teilzeit-vollzeit-helvetia-versicherungen-horgen"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|pi-asp.de|d90cebd1": {
+    "canonicalSlug": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital",
+    "slugByLocale": {
+      "de": "berufsbildnerin-berufsbildner-auf-der-interdisziplinaren-privatstation-1-spital"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220445": {
+    "canonicalSlug": "working-student-in-procurement-fixed-term-30-40-f-m-d-hitachi-energy-zurich-switzerland",
+    "slugByLocale": {
+      "en": "working-student-in-procurement-fixed-term-30-40-f-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220465": {
+    "canonicalSlug": "team-lead-product-engineering-bimos-m-w-d-hitachi-energy-lenzburg-switzerland",
+    "slugByLocale": {
+      "en": "team-lead-product-engineering-bimos-m-w-d-hitachi-energy-lenzburg-switzerland"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "AG"
+  },
+  "id|hitachienergy.com|jid3-220544": {
+    "canonicalSlug": "project-manager-site-service-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "slugByLocale": {
+      "en": "project-manager-site-service-generator-circuit-breaker-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220546": {
+    "canonicalSlug": "qualitatstechniker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
+    "slugByLocale": {
+      "de": "qualitatstechniker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "AG"
+  },
+  "id|galenica.com|3144407": {
+    "canonicalSlug": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich",
+    "slugByLocale": {
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-zurich"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3144575": {
+    "canonicalSlug": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-courtepin",
+    "slugByLocale": {
+      "fr": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-courtepin"
+    },
+    "createdAt": "2026-10-12",
+    "canton": "FR"
   }
 }

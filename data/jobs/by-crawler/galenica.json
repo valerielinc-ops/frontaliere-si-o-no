@@ -3157,7 +3157,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugs": [
+        "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz-nwkbz9"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-pharmacien-pharmacienne-f-h-d-rennaz-nwkbz9"
+        ]
+      }
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -3516,7 +3524,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
