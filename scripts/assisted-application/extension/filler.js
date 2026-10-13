@@ -24,6 +24,7 @@
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
+  const FILE_UPLOAD_RE = /\b(attach|upload|choose|browse|carica|allega|scegli|seleziona)\b/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -625,6 +626,19 @@
 
   // ---- Filling ----------------------------------------------------------------
 
+  /** Open a portal's upload mode before assigning a file input hidden behind it. */
+  async function prepareFileInput(element) {
+    if (isShown(element)) return true;
+    const scope = element.closest('.form-group, fieldset, [role="group"]') || element.ownerDocument;
+    const upload = buttons(scope).find((button) => FILE_UPLOAD_RE.test(button.text)
+      && !SUBMIT_RE.test(button.text) && !NEXT_RE.test(button.text) && !NOT_ADVANCE_RE.test(button.text));
+    // Some portals keep a file input visually hidden but still submit it; keep
+    // the previous behavior when there is no explicit upload-mode control.
+    if (!upload) return true;
+    press(upload.element);
+    return Boolean(await waitFor(() => isShown(element)));
+  }
+
   /**
    * Fills one entry. getFile(document) resolves to a File, getFiles(document)
    * to the Files of a requested document (the extension downloads them from
@@ -635,6 +649,7 @@
     const { element } = entry;
     switch (entry.kind) {
       case 'file': {
+        if (!await prepareFileInput(element)) return false;
         const files = getFiles ? await getFiles(answer.document) : [await getFile(answer.document)].filter(Boolean);
         if (!files.length) return false;
         const view = element.ownerDocument.defaultView;
