@@ -44,7 +44,7 @@ import {
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
   resolveTikTokVideoCreativeVariant,
 } from '../scripts/lib/tiktok-video-creative.mjs';
-import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
+import { buildIssueDescription, displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 import { runHasErrors } from '../scripts/social-robot/run.mjs';
@@ -686,6 +686,25 @@ describe('runRobot', () => {
     expect(h.calls.dispatch).toEqual([]);
   });
 
+  it('pauses TikTok after an account mismatch and gives the owner a safe recovery path', async () => {
+    const videoEntry = entry('article', '2026-10-03', { channel: 'tiktok' });
+    videoEntry.video = tiktokVideo(videoEntry.id);
+    const h = harness({
+      queue: { pending: [videoEntry] },
+      flow: async () => { throw new RobotError('account-mismatch', 'authenticated as @valerie.linc', { step: 'account' }); },
+    });
+
+    const first = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(first.results[0]).toMatchObject({ channel: 'tiktok', outcome: 'error', errorClass: 'account-mismatch' });
+    expect(pausedUntil(h.journal(), 'tiktok', NOW)).toBe(new Date(NOW + PAUSE_AFTER_BLOCK_HOURS * HOUR).toISOString());
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    expect(h.calls.issues[0].description).toContain('--login --platform=tiktok');
+
+    const second = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(second.results[0]).toMatchObject({ channel: 'tiktok', outcome: 'paused' });
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
   it('pauses a platform after a login wall instead of insisting', async () => {
     const h = harness({ flow: async () => { throw new RobotError('login-required', 'login page', { step: 'open' }); } });
     await runRobot(h.deps());
@@ -801,6 +820,18 @@ describe('runRobot', () => {
 });
 
 describe('robot helpers', () => {
+  it('documents the account-mismatch recovery without suggesting an account switch', () => {
+    const description = buildIssueDescription({
+      channel: 'tiktok',
+      error: new RobotError('account-mismatch', 'authenticated as @valerie.linc', { step: 'account' }),
+      entry: { id: 'job-2026-10-03' },
+      diagnostics: '/Users/tester/Library/Application Support/frontaliere/social-robot/diagnostics/x',
+      mode: 'publish',
+    });
+    expect(description).toContain('--login --platform=tiktok');
+    expect(description).toContain('non cambia account');
+  });
+
   it('extracts the authenticated TikTok handle from escaped Studio context', () => {
     expect(extractTikTokAuthenticatedUsername('&quot;user&quot;:{&quot;uniqueId&quot;:&quot;Frontaliereticino&quot;}')).toBe('frontaliereticino');
     expect(extractTikTokAuthenticatedUsername('{"user":{"uniqueId":"valerie.linc"}}')).toBe('valerie.linc');

@@ -28,10 +28,10 @@ export const TYPING_DELAY_MS = Object.freeze({ min: 25, max: 90 });
 export const BETWEEN_PLATFORMS_MS = Object.freeze({ min: 90_000, max: 360_000 });
 /** Random delay at the start of a scheduled run, so launchd's fixed minute never shows. */
 export const START_JITTER_MAX_MS = 20 * 60_000;
-/** A login wall or a challenge pauses the platform this long: the robot does not insist. */
+/** A login wall, challenge, or account mismatch pauses the platform this long: the robot does not insist. */
 export const PAUSE_AFTER_BLOCK_HOURS = 12;
 /** Error classes that need the owner, not another attempt. */
-export const BLOCKING_ERROR_CLASSES = Object.freeze(['login-required', 'challenge']);
+export const BLOCKING_ERROR_CLASSES = Object.freeze(['login-required', 'challenge', 'account-mismatch']);
 export const JOURNAL_LIMIT = 300;
 export const ROBOT_TIME_ZONE = 'Europe/Zurich';
 
