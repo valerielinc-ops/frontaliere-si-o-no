@@ -23,6 +23,7 @@
 
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
+  const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -57,6 +58,7 @@
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
+  const REQUIRED_RE = /(\*|\brequired\b|\bobbligator[ioa]\b|\bobligatoire\b|\bpflicht(?:ig)?\b|\bobligatorisch\b)/i;
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
   // A generic attachments field: it takes the requested documents (kit.documents.extra).
@@ -163,7 +165,11 @@
   function nearbyText(element) {
     for (let node = element, depth = 0; node && depth < 3; node = node.parentElement, depth += 1) {
       for (let sibling = node.previousElementSibling; sibling; sibling = sibling.previousElementSibling) {
-        if (sibling.matches('input, select, textarea, button') || sibling.querySelector('input, select, textarea, button')) break;
+        // JazzHR places a hidden questionnaire value between the privacy
+        // statement and its visible «I agree» checkbox. It is not a visible
+        // question, so it must not hide the statement from the checkbox.
+        if (sibling.matches('input:not([type="hidden"]), select, textarea, button')
+          || sibling.querySelector('input:not([type="hidden"]), select, textarea, button')) break;
         const text = textOf(sibling);
         if (text) return text;
       }
@@ -251,7 +257,7 @@
       if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
       if (type !== 'file' && !isShown(element)) continue;
-      const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
+      const requiredByAttribute = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
       if (type === 'radio') {
         const key = element.name || element.closest('[role="radiogroup"], fieldset') || element;
         if (!radiosByName.has(key)) radiosByName.set(key, []);
@@ -263,7 +269,8 @@
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
       const label = labelOf(element);
-      entries.push({ kind, element, label, labels: labelsOf(element, label, runnerLabelOf(runner, element)), required, type });
+      const labels = labelsOf(element, label, runnerLabelOf(runner, element));
+      entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)), type });
     }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
@@ -277,7 +284,7 @@
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
-        required: button.getAttribute('aria-required') === 'true' || /\*/.test(label),
+        required: button.getAttribute('aria-required') === 'true' || REQUIRED_RE.test(label),
         type: 'listbox',
       });
     }
@@ -285,13 +292,14 @@
       const question = questionOf(radios[0]);
       const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
       const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
+      const labels = [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))];
       entries.push({
         kind: 'radio',
         element: radios[0],
         options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })),
         label: legend || question,
-        labels: [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))],
-        required: radios.some((radio) => radio.required),
+        labels,
+        required: radios.some((radio) => radio.required) || labels.some((value) => REQUIRED_RE.test(value)),
       });
     }
     // ARIA radios (div role="radio"), grouped under the question they answer.
@@ -454,7 +462,10 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
-      const label = normalize(entry.label);
+      // JazzHR/Resumator (Fincons) puts the required privacy statement in the
+      // label immediately before a separate «I agree» checkbox. Use all the
+      // control's labels, but keep marketing/newsletter opt-ins excluded.
+      const label = normalize((entry.labels || [entry.label]).join(' '));
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
       return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
     }
@@ -728,7 +739,11 @@
   }
   /** The send button: highlighted for Valerie, never pressed. */
   function finalButton(doc) {
-    return buttons(doc).find((button) => SUBMIT_RE.test(button.text) && button.element.tagName !== 'A') || null;
+    // Fincons/JazzHR renders «SUBMIT APPLICATION» as a plain anchor. It is
+    // recognized and highlighted here; content.js only watches it and never
+    // presses a final control.
+    return buttons(doc).find((button) => SUBMIT_RE.test(button.text)
+      && (button.element.tagName !== 'A' || PLAIN_FINAL_RE.test(button.text))) || null;
   }
 
   /**
