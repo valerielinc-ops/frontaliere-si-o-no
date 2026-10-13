@@ -21,7 +21,12 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { INITIAL_PAINT_FRAME_TIMEOUT_MS, waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
+import {
+  INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
+  INITIAL_PAINT_FRAME_TIMEOUT_MS,
+  type InitialPaintBootstrapEnv,
+  waitForInitialPaintOpportunity,
+} from '@/services/initialPaintBootstrap';
 import { adoptStaticFallbackIntoRoot } from '@/services/staticFallbackHandoff';
 
 const ROOT = resolve(__dirname, '..');
@@ -61,10 +66,12 @@ const STATIC_OVERLAY_HUB_BODY = `
   <div id="footer-root"></div>`;
 
 describe('initial SPA bootstrap — mobile first paint', () => {
-  it('waits for a paint opportunity before importing the React runtime', async () => {
+  it('waits for prerendered content to paint before importing the React runtime', async () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
-    const paintGate = entry.indexOf('await waitForInitialPaintOpportunity()');
+    const paintGate = entry.indexOf('await waitForInitialPaintOpportunity({');
     expect(paintGate).toBeGreaterThanOrEqual(0);
+    expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
+    expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
     expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
@@ -72,8 +79,10 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     const frames: FrameRequestCallback[] = [];
     let timerCallback: (() => void) | undefined;
     let clearedTimer = false;
-    const ready = waitForInitialPaintOpportunity({
+    const ready = waitForInitialPaintOpportunity({}, {
       visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
       requestFrame: (callback) => {
         frames.push(callback);
         return frames.length;
@@ -101,8 +110,10 @@ describe('initial SPA bootstrap — mobile first paint', () => {
 
   it('bounds the paint wait when animation frames do not arrive', async () => {
     let timerCallback: (() => void) | undefined;
-    const ready = waitForInitialPaintOpportunity({
+    const ready = waitForInitialPaintOpportunity({}, {
       visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
       requestFrame: () => 1,
       setTimer: (callback) => {
         timerCallback = callback;
@@ -112,6 +123,94 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     });
     timerCallback?.();
     await expect(ready).resolves.toBeUndefined();
+  });
+
+  it('waits for a buffered first-contentful-paint entry on prerendered pages', async () => {
+    let reportPaint: (() => void) | undefined;
+    let stopObserving = false;
+    let timerCallback: (() => void) | undefined;
+    let clearedTimer = false;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: (callback) => {
+        reportPaint = callback;
+        return () => { stopObserving = true; };
+      },
+      requestFrame: () => { throw new Error('FCP routes should not fall back to animation frames'); },
+      setTimer: (callback, ms) => {
+        expect(ms).toBe(INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS);
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => { clearedTimer = true; },
+    };
+
+    const ready = waitForInitialPaintOpportunity({ waitForContentfulPaint: true }, env);
+    expect(reportPaint).toBeTypeOf('function');
+    expect(timerCallback).toBeTypeOf('function');
+    reportPaint?.();
+    await expect(ready).resolves.toBeUndefined();
+    expect(clearedTimer).toBe(true);
+    expect(stopObserving).toBe(true);
+  });
+
+  it('does not wait or install an observer when FCP has already happened', async () => {
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => true,
+      observeContentfulPaint: () => { throw new Error('FCP is already available'); },
+      requestFrame: () => { throw new Error('FCP is already available'); },
+      setTimer: () => { throw new Error('FCP is already available'); },
+      clearTimer: () => {},
+    };
+
+    await expect(waitForInitialPaintOpportunity({ waitForContentfulPaint: true }, env)).resolves.toBeUndefined();
+  });
+
+  it('releases the SPA bootstrap when prerendered content never reaches FCP', async () => {
+    let timerCallback: (() => void) | undefined;
+    let stopObserving = false;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => () => { stopObserving = true; },
+      requestFrame: () => { throw new Error('An active FCP observer owns this wait'); },
+      setTimer: (callback, ms) => {
+        expect(ms).toBe(INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS);
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => {},
+    };
+
+    const ready = waitForInitialPaintOpportunity({ waitForContentfulPaint: true }, env);
+    timerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+    expect(stopObserving).toBe(true);
+  });
+
+  it('keeps the short bounded frame fallback when PerformanceObserver is unavailable', async () => {
+    const frames: FrameRequestCallback[] = [];
+    let timerCallback: (() => void) | undefined;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
+      requestFrame: (callback) => { frames.push(callback); return frames.length; },
+      setTimer: (callback, ms) => {
+        expect(ms).toBe(INITIAL_PAINT_FRAME_TIMEOUT_MS);
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => {},
+    };
+
+    const ready = waitForInitialPaintOpportunity({ waitForContentfulPaint: true }, env);
+    frames.shift()?.(16);
+    frames.shift()?.(32);
+    await expect(ready).resolves.toBeUndefined();
+    expect(timerCallback).toBeTypeOf('function');
   });
 });
 
