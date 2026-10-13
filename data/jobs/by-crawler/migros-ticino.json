@@ -12935,7 +12935,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq",
-        "en": "head-waiter-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq",
+        "en": "head-waiter-100-molino-baden-pizzeria-ristorante-molino-baden",
         "de": "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq",
         "fr": "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq"
       },
@@ -12956,10 +12956,14 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden"
+        ],
+        "en": [
+          "head-waiter-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq"
         ]
       },
       "previousSlugs": [
-        "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden"
+        "chef-de-service-100-molino-baden-pizzeria-ristorante-molino-baden",
+        "head-waiter-100-molino-baden-pizzeria-ristorante-molino-baden-plonyq"
       ],
       "salarySource": "reported",
       "baseSalary": {
