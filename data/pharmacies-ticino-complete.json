@@ -7,7 +7,7 @@
     "https://www.ofct.ch/biasca-e-valli/"
   ],
   "_sourcePublishedAt": "2026-01-15",
-  "_fetchedAt": "2026-10-12T19:25:04.159Z",
+  "_fetchedAt": "2026-10-13T01:34:26.530Z",
   "_userAgent": "FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)",
   "_pharmacyCount": 209,
   "_errors": [],
@@ -28,7 +28,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -49,7 +49,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -70,7 +70,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -92,88 +92,15 @@
       "phone": "+41 91 869 19 16",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.5284456,
-      "longitude": 8.6108544,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3279865558",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3279865558",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6532-farmacia-moesa-arbedo-castione",
@@ -186,7 +113,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -208,7 +135,7 @@
       "phone": "+41 91 829 13 14",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -230,34 +157,15 @@
       "phone": "+41 91 646 55 61",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 45.8740378,
-      "longitude": 8.9464251,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/way/309692459",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/way/309692459",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6612-farmacia-amavita-centro-ascona-ascona",
@@ -270,100 +178,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1560169,
-      "longitude": 8.767642,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/434348272",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/434348272",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/434348272",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.amavita.ch/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "13:30",
-          "closes": "17:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6612-farmacia-ascona-ascona",
@@ -376,7 +199,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -398,88 +221,15 @@
       "phone": "+41 91 780 55 65",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1541141,
-      "longitude": 8.7742173,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/5552984242",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/5552984242",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6612-farmacia-nuova-ascona",
@@ -492,24 +242,14 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.156265,
-      "longitude": 8.7681016,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/434348271",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -524,7 +264,7 @@
       "phone": "+41 58 878 13 50",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -546,7 +286,7 @@
       "phone": "+41 91 683 24 88",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -568,7 +308,7 @@
       "phone": "+41 91 835 42 68",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -590,7 +330,7 @@
       "phone": "+41 91 825 60 45",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -612,24 +352,14 @@
       "phone": "+41 91 825 25 35",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1872087,
-      "longitude": 9.0148651,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2148213041",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -644,7 +374,7 @@
       "phone": "+41 91 825 23 20",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -666,95 +396,15 @@
       "phone": "+41 91 825 16 55",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1909443,
-      "longitude": 9.0225339,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3325785883",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/3325785883",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3325785883",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmacia-nazionale.ch",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-nord-sa-bellinzona",
@@ -768,34 +418,15 @@
       "phone": "+41 91 825 17 36",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 46.1980105,
-      "longitude": 9.0261132,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/6899946575",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/6899946575",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-portone-bellinzona",
@@ -809,7 +440,7 @@
       "phone": "+41 91 826 14 14",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -830,7 +461,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -852,7 +483,7 @@
       "phone": "+41 91 825 36 46",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -874,7 +505,7 @@
       "phone": "+41 91 825 33 43",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -896,7 +527,7 @@
       "phone": "+41 91 825 27 33",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -918,88 +549,15 @@
       "phone": "+41 91 825 81 01",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1912595,
-      "longitude": 9.0213983,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3325785884",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3325785884",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6500-farmacia-ticinese-sa-bellinzona",
@@ -1012,7 +570,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1034,7 +592,7 @@
       "phone": "+41 58 878 20 20",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1056,7 +614,7 @@
       "phone": "+41 91 862 28 28",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1078,7 +636,7 @@
       "phone": "+41 91 862 20 18",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1100,7 +658,7 @@
       "phone": "+41 91 862 55 00",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1122,7 +680,7 @@
       "phone": "+41 91 862 37 35",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1143,7 +701,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1164,7 +722,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1185,7 +743,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1206,24 +764,14 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.9510819,
-      "longitude": 8.964989,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3575546294",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -1238,95 +786,15 @@
       "phone": "+41 91 864 11 16",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.3759207,
-      "longitude": 8.9156355,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2320977379",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/2320977379",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/2320977379",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciepedroni.com/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-farmacia-cinque-vie-breganzona",
@@ -1340,7 +808,7 @@
       "phone": "+41 91 966 35 26",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1362,7 +830,7 @@
       "phone": "+41 91 967 53 41",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1384,7 +852,7 @@
       "phone": "+41 91 966 30 25",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1405,7 +873,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1426,7 +894,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1447,7 +915,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1469,7 +937,7 @@
       "phone": "+41 91 857 54 27",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1490,7 +958,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1511,7 +979,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1532,7 +1000,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1553,7 +1021,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1574,7 +1042,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1596,34 +1064,15 @@
       "phone": "+41 91 646 12 28",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 45.8620326,
-      "longitude": 9.0096376,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/702252236",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/702252236",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-castione-castione",
@@ -1637,24 +1086,14 @@
       "phone": "+41 91 829 45 40",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.2248257,
-      "longitude": 9.0436649,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/1684827330",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -1690,93 +1129,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1842084,
-      "longitude": 8.7175678,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/679015478",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/679015478",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "14:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "14:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "14:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "14:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "14:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "14:00",
-          "closes": "18:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6675-farmacia-della-valle-sagl-cevio",
@@ -1789,7 +1150,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -1811,7 +1172,7 @@
       "phone": "+41 91 697 63 00",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1833,7 +1194,7 @@
       "phone": "+41 91 682 62 76",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1855,70 +1216,15 @@
       "phone": "+41 91 682 86 43",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8376333,
-      "longitude": 9.0230675,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3294336417",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/3294336417",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3294336417",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.quolibet.ch/moderna_ds.html",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:30",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-del-corso-chiasso",
@@ -1932,7 +1238,7 @@
       "phone": "+41 91 683 69 21",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1954,7 +1260,7 @@
       "phone": "+41 91 690 10 50",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1976,7 +1282,7 @@
       "phone": "+41 91 682 53 22",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -1998,7 +1304,7 @@
       "phone": "+41 91 683 20 29",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2020,34 +1326,15 @@
       "phone": "+41 91 683 78 48",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 45.8347168,
-      "longitude": 9.0200464,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3053943937",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/3053943937",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-san-gottardo-chiasso",
@@ -2061,97 +1348,15 @@
       "phone": "+41 91 682 86 77",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.8326181,
-      "longitude": 9.0329268,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3050568436",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3050568436",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/3050568436",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:30",
-          "closes": "12:30"
-        }
-      ],
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-visagno-claro",
@@ -2165,7 +1370,7 @@
       "phone": "+41 91 863 32 42",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2187,24 +1392,14 @@
       "phone": "+41 91 646 49 22",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8566991,
-      "longitude": 8.9879534,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3242633020",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -2219,104 +1414,15 @@
       "phone": "+41 91 646 94 64",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.8545985,
-      "longitude": 8.9922034,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3020411335",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/3020411335",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3020411335",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/3020411335",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciagiardino.com/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ],
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6949-farmacia-di-comano-comano",
@@ -2329,7 +1435,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2350,24 +1456,14 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1502041,
-      "longitude": 8.925713,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/4379469160",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -2381,7 +1477,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2402,7 +1498,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2424,7 +1520,7 @@
       "phone": "+41 91 871 18 18",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2446,7 +1542,7 @@
       "phone": "+41 91 866 13 55",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2459,7 +1555,7 @@
         "address": {
           "url": "https://www.faido.ch/index.php?id_item=51&lng=1&node=498&rif=aa5e41b3ae&vis=3",
           "sourceType": "official",
-          "checkedAt": "2026-10-12T19:25:04.159Z"
+          "checkedAt": "2026-10-13T01:34:26.530Z"
         }
       }
     },
@@ -2475,7 +1571,7 @@
       "phone": "+41 91 866 12 06",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2497,24 +1593,14 @@
       "phone": "+41 91 857 29 29",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1766812,
-      "longitude": 9.0146085,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/12087686361",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -2529,34 +1615,15 @@
       "phone": "+41 91 857 12 51",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 46.1727801,
-      "longitude": 9.0107199,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/1696440564",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/1696440564",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-fenice-giubiasco",
@@ -2570,7 +1637,7 @@
       "phone": "+41 91 840 28 02",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2592,7 +1659,7 @@
       "phone": "+41 91 857 14 65",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2613,7 +1680,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2634,7 +1701,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2655,7 +1722,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2676,7 +1743,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2697,7 +1764,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2718,7 +1785,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2739,7 +1806,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2761,7 +1828,7 @@
       "phone": "+41 91 630 95 10",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -2782,7 +1849,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2803,7 +1870,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2824,88 +1891,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1691704,
-      "longitude": 8.7930246,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2119461427",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/2119461427",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "14:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "10:00",
-          "closes": "11:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-delta-locarno",
@@ -2918,7 +1912,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2939,7 +1933,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2960,7 +1954,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -2981,7 +1975,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3002,72 +1996,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 46.1704824,
-      "longitude": 8.7988822,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2938031716",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/2938031716",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/2938031716",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-soldati-sa-locarno",
@@ -3080,108 +2017,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1696746,
-      "longitude": 8.7815314,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3569481793",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3569481793",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "13:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "13:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "13:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "13:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "13:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-solduno-locarno",
@@ -3194,108 +2038,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1692214,
-      "longitude": 8.7782215,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3569466897",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3569466897",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "07:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "07:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "07:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "07:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "07:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-sole-locarno",
@@ -3308,7 +2059,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3329,7 +2080,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3350,7 +2101,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3371,7 +2122,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3393,7 +2144,7 @@
       "phone": "+41 91 863 44 80",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3414,72 +2165,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 46.1643739,
-      "longitude": 8.768779,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3622428198",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3622428198",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/3622428198",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "20:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:30",
-          "closes": "18:30"
-        }
-      ],
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6616-farmacia-centro-losone-sa-losone",
@@ -3492,32 +2186,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.167619,
-      "longitude": 8.7631381,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2781761072",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/2781761072",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.pharmacieplus.ch/"
+      }
     },
     {
       "id": "ti-ofct-6616-farmacia-san-lorenzo-losone",
@@ -3530,24 +2207,14 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.16479,
-      "longitude": 8.76093,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/806437072",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -3562,41 +2229,15 @@
       "phone": "+41 91 922 96 22",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 46.00294,
-      "longitude": 8.9503163,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/374255995",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/374255995",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/374255995",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmacialugano.com",
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-farmacia-amavita-gianella-lugano",
@@ -3610,32 +2251,15 @@
       "phone": "+41 58 878 28 90",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0069035,
-      "longitude": 8.9524146,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/13944495045",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/13944495045",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.amavita.ch/it/trovare-una-farmacia/farmacia-amavita-gianella"
+      }
     },
     {
       "id": "ti-farmacia-amavita-lugano-lugano",
@@ -3649,7 +2273,7 @@
       "phone": "+41 58 878 26 70",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3671,24 +2295,14 @@
       "phone": "+41 91 971 34 44",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0062588,
-      "longitude": 8.9668817,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3758956632",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -3702,7 +2316,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3731,7 +2345,7 @@
       "phone": "+41 91 923 66 38",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3752,7 +2366,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3774,32 +2388,15 @@
       "phone": "+41 91 922 60 50",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0076156,
-      "longitude": 8.9585636,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/11528060644",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/11528060644",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciachimica.ch"
+      }
     },
     {
       "id": "ti-farmacia-contrada-dei-patrizi-molino-nuovo-lugano",
@@ -3812,7 +2409,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3834,7 +2431,7 @@
       "phone": "+41919721272",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3855,7 +2452,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3877,7 +2474,7 @@
       "phone": "+41 91 922 80 30",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3899,7 +2496,7 @@
       "phone": "+41 91 921 34 34",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3920,7 +2517,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3942,7 +2539,7 @@
       "phone": "+41 91 966 40 83",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -3963,7 +2560,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -3985,70 +2582,15 @@
       "phone": "+41 91 922 28 20",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0044385,
-      "longitude": 8.954287,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/10982817249",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/10982817249",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/10982817249",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://farmaciamigliore.ch",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "09:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "09:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "09:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "09:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "09:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "10:00",
-          "closes": "17:30"
-        }
-      ]
+      }
     },
     {
       "id": "ti-farmacia-farmaempatia-lugano",
@@ -4062,7 +2604,7 @@
       "phone": "+41 91 223 34 02",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4084,7 +2626,7 @@
       "phone": "+41 91 923 87 91",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4106,7 +2648,7 @@
       "phone": "+41 91 994 35 65",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4128,7 +2670,7 @@
       "phone": "+41 91 923 11 77",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4150,63 +2692,15 @@
       "phone": "+41 91 922 78 30",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0015081,
-      "longitude": 8.9496704,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/4741663422",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/4741663422",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:45",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:45",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:45",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:45",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:45",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "09:00",
-          "closes": "12:15"
-        }
-      ]
+      }
     },
     {
       "id": "ti-farmacia-pharmaexpress-lugano",
@@ -4220,7 +2714,7 @@
       "phone": "+41 91 940 13 13",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4242,7 +2736,7 @@
       "phone": "+41 91 923 29 66",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4264,7 +2758,7 @@
       "phone": "+41 91 923 84 55",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4286,7 +2780,7 @@
       "phone": "+41 91 966 07 22",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4308,7 +2802,7 @@
       "phone": "+41 91 966 26 36",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4330,7 +2824,7 @@
       "phone": "+41 91 923 12 28",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4352,7 +2846,7 @@
       "phone": "+41 91 972 11 33",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4374,7 +2868,7 @@
       "phone": "+41 91 972 10 14",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4396,80 +2890,15 @@
       "phone": "+41 58 878 56 00",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 46.227582,
-      "longitude": 7.3596577,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/1049727151",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/1049727151",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/1049727151",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/1049727151",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.sunstore.ch/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "07:00",
-          "closes": "21:00"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali",
-        "Accesso senza barriere"
-      ]
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-farmacia-sun-store-lugano-peri-lugano",
@@ -4483,7 +2912,7 @@
       "phone": "+41 58 878 55 90",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4505,7 +2934,7 @@
       "phone": "+41 91 971 72 73",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4527,7 +2956,7 @@
       "phone": "+41 91 972 11 22",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4549,7 +2978,7 @@
       "phone": "+41 91 971 22 51",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4571,7 +3000,7 @@
       "phone": "+41 91 922 94 88",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4592,7 +3021,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4605,7 +3034,7 @@
         "address": {
           "url": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Farmacie_per_localita_20231204.pdf",
           "sourceType": "official",
-          "checkedAt": "2026-10-12T19:25:04.159Z"
+          "checkedAt": "2026-10-13T01:34:26.530Z"
         }
       }
     },
@@ -4620,7 +3049,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4641,7 +3070,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4662,7 +3091,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4683,7 +3112,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4704,7 +3133,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -4726,7 +3155,7 @@
       "phone": "+41 91 630 56 75",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -4747,80 +3176,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.9542807,
-      "longitude": 8.947261,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/6854137287",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/6854137287",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/6854137287",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/6854137287",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://farmaciamelide.ch/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "16:00"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali",
-        "Accesso senza barriere"
-      ]
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-accademia-mendrisio",
@@ -4834,63 +3198,15 @@
       "phone": "+41 91 646 12 35",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8686578,
-      "longitude": 8.9857439,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3152816583",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3152816583",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-alchemilla-mendrisio",
@@ -4904,97 +3220,15 @@
       "phone": "+41 91 630 00 88",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.8647802,
-      "longitude": 8.9820829,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/11281792359",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/11281792359",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/11281792359",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "09:00",
-          "closes": "12:00"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-amavita-lura-mendrisio",
@@ -5008,63 +3242,15 @@
       "phone": "+41 58 878 19 90",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8704729,
-      "longitude": 8.9863709,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3037562770",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3037562770",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "07:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "07:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "07:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "07:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "07:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "07:30",
-          "closes": "12:30"
-        }
-      ]
+      }
     },
     {
       "id": "ti-contrada-dei-patrizi-mendrisio",
@@ -5078,7 +3264,7 @@
       "phone": "+41 91 973 34 27",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -5100,58 +3286,15 @@
       "phone": "+41 58 878 87 20",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8653126,
-      "longitude": 8.9767599,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/5212252630",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/5212252630",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ferrari-mendrisio",
@@ -5165,79 +3308,15 @@
       "phone": "+41 91 646 17 40",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.8714765,
-      "longitude": 8.9826471,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/11323267713",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/11323267713",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/11323267713",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/11323267713",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciafuoriporta.ch/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "09:00",
-          "closes": "17:00"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ferregutti-mendrisio",
@@ -5251,58 +3330,15 @@
       "phone": "+41 91 646 15 49",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.870175,
-      "longitude": 8.9882833,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3348691375",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3348691375",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-fuoriporta-mendrisio",
@@ -5316,7 +3352,7 @@
       "phone": "+41 91 630 05 22",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -5338,7 +3374,7 @@
       "phone": "+41 91 646 15 74",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -5359,67 +3395,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.8685255,
-      "longitude": 8.9785131,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3657090545",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3657090545",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/3657090545",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6805-farmacia-san-luigi-mezzovico",
@@ -5432,7 +3416,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5453,7 +3437,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5474,7 +3458,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5495,7 +3479,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5516,7 +3500,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5537,7 +3521,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5559,41 +3543,15 @@
       "phone": "+41 91 695 51 51",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 45.8504632,
-      "longitude": 9.0204312,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/11281382187",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/11281382187",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/11281382187",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciasangiorgio.ch",
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-del-lago-muralto",
@@ -5606,58 +3564,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.17196,
-      "longitude": 8.8015968,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/2938031296",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/2938031296",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6600-farmacia-elvetica-muralto",
@@ -5670,72 +3585,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 46.1719477,
-      "longitude": 8.8009424,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/5277788699",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/5277788699",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/5277788699",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "services": [
-        "Accesso senza barriere"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-quisisana-novazzano",
@@ -5749,7 +3607,7 @@
       "phone": "+41 91 682 03 23",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -5771,115 +3629,15 @@
       "phone": "+41 91 683 53 77",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.8424478,
-      "longitude": 8.9886915,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/3266767362",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/3266767362",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/3266767362",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmanicolao.ch",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "17:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "17:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "17:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "17:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "17:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-ofct-6718-farmacia-martinoli-sa-olivone",
@@ -5892,7 +3650,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5913,7 +3671,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -5935,102 +3693,15 @@
       "phone": "+390362503187",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.6386346,
-      "longitude": 9.1673988,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/13653609078",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/13653609078",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/13653609078",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "15:30",
-          "closes": "19:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "15:30",
-          "closes": "19:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "15:30",
-          "closes": "19:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "15:30",
-          "closes": "19:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "15:30",
-          "closes": "19:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:30",
-          "closes": "12:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "15:30",
-          "closes": "19:30"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6902-farmacia-paradiso-sa-paradiso",
@@ -6043,7 +3714,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6065,79 +3736,15 @@
       "phone": "+41 91 994 11 58",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
-        "services": "verified"
-      },
-      "latitude": 45.9914367,
-      "longitude": 8.9470321,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/6635074088",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/6635074088",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/6635074088",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/6635074088",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmacia-sansalvatore.ch/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6946-farmacia-san-giorgio-ponte-capriasca",
@@ -6150,7 +3757,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6171,7 +3778,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6192,7 +3799,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6214,7 +3821,7 @@
       "phone": "+41 91 942 68 21",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6236,7 +3843,7 @@
       "phone": "+41 91 972 12 72",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6258,7 +3865,7 @@
       "phone": "+41 91 972 92 29",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6280,7 +3887,7 @@
       "phone": "+41 91 940 26 26",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6302,7 +3909,7 @@
       "phone": "+41 91 226 39 26",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6323,7 +3930,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6345,24 +3952,14 @@
       "phone": "+41 58 878 34 60",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 45.906073,
-      "longitude": 8.9714879,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/454099808",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
       }
     },
     {
@@ -6376,7 +3973,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6419,7 +4016,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6440,7 +4037,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6461,7 +4058,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6483,88 +4080,15 @@
       "phone": "+41 91 857 62 50",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
         "website": "not_published",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.1856093,
-      "longitude": 8.9919169,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/7557017650",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/7557017650",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "monday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "08:00",
-          "closes": "12:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "13:30",
-          "closes": "18:30"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "08:00",
-          "closes": "12:30"
-        }
-      ]
+      }
     },
     {
       "id": "ti-della-posta-sementina",
@@ -6578,7 +4102,7 @@
       "phone": "+41 91 857 68 73",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6599,7 +4123,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6620,7 +4144,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6642,7 +4166,7 @@
       "phone": "+41 91 647 16 27",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6664,7 +4188,7 @@
       "phone": "+41 91 224 69 98",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6686,7 +4210,7 @@
       "phone": "+41 91 647 39 13",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6707,7 +4231,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6728,7 +4252,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6749,7 +4273,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6770,7 +4294,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6791,34 +4315,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
         "website": "not_published",
-        "coordinates": "verified",
+        "coordinates": "not_published",
         "openingHours": "not_published",
-        "services": "verified"
-      },
-      "latitude": 46.1799205,
-      "longitude": 8.8489716,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/11422726924",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "services": {
-          "url": "https://www.openstreetmap.org/node/11422726924",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "services": [
-        "Dispensazione di medicinali"
-      ]
+        "services": "not_published"
+      }
     },
     {
       "id": "ti-ofct-6950-farmacia-lepori-tesserete",
@@ -6831,7 +4336,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6852,7 +4357,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6874,7 +4379,7 @@
       "phone": "+41 91 683 72 43",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -6895,32 +4400,15 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
-        "website": "verified",
-        "coordinates": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
         "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0253497,
-      "longitude": 8.9368417,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/4368924847",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/4368924847",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciasanmarco.ch/"
+      }
     },
     {
       "id": "ti-ofct-6962-farmacia-benu-viganello-viganello",
@@ -6933,7 +4421,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -6955,70 +4443,15 @@
       "phone": "+41 91 972 11 72",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
-        "website": "verified",
-        "coordinates": "verified",
-        "openingHours": "verified",
+        "website": "not_published",
+        "coordinates": "not_published",
+        "openingHours": "not_published",
         "services": "not_published"
-      },
-      "latitude": 46.0152804,
-      "longitude": 8.9706312,
-      "fieldSources": {
-        "coordinates": {
-          "url": "https://www.openstreetmap.org/node/10219890100",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "website": {
-          "url": "https://www.openstreetmap.org/node/10219890100",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        },
-        "openingHours": {
-          "url": "https://www.openstreetmap.org/node/10219890100",
-          "sourceType": "directory",
-          "checkedAt": "2026-10-12T19:25:04.159Z",
-          "license": "OpenStreetMap contributors, ODbL 1.0"
-        }
-      },
-      "website": "https://www.farmaciacontradadeipatrizi.com/",
-      "openingHours": [
-        {
-          "dayOfWeek": "monday",
-          "opens": "07:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "tuesday",
-          "opens": "07:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "wednesday",
-          "opens": "07:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "thursday",
-          "opens": "07:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "friday",
-          "opens": "07:30",
-          "closes": "19:00"
-        },
-        {
-          "dayOfWeek": "saturday",
-          "opens": "07:30",
-          "closes": "19:00"
-        }
-      ]
+      }
     },
     {
       "id": "ti-farmacia-coop-vitality-viganello-viganello",
@@ -7032,7 +4465,7 @@
       "phone": "+41 58 878 81 70",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "verified",
@@ -7053,7 +4486,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -7074,7 +4507,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -7095,7 +4528,7 @@
       "country": "CH",
       "sourceUrl": "https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf",
       "sourceType": "official",
-      "lastVerifiedAt": "2026-10-12T19:25:04.159Z",
+      "lastVerifiedAt": "2026-10-13T01:34:26.530Z",
       "dataAvailability": {
         "address": "verified",
         "phone": "not_published",
@@ -7124,13 +4557,13 @@
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "791c725877208ba738a43ca4a493a5ad644069ac2fc841de62992ac3d74cde67",
-        "fetchedAt": "2026-10-12T19:25:04.159Z"
+        "sha256": "48bad7b40e23e7c9cb9f89131e2d9fc3eaab2169f9b5e3fa3cbbd5efeb320d9a",
+        "fetchedAt": "2026-10-13T01:34:26.530Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "ce291d1ea9ff856b6e7416e7c23ee6e75d3e2f0c886ad425f7c8044e21eb57b2",
-        "fetchedAt": "2026-10-12T19:24:09.785Z"
+        "sha256": "808e37673726f688cc1be77f79a0b6cc0d20548b19100bc960d5dcbcc79fba5e",
+        "fetchedAt": "2026-10-13T01:33:23.412Z"
       }
     },
     "regions": {
@@ -7138,7 +4571,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-10-12T19:24:09.785Z",
+        "fetchedAt": "2026-10-13T01:33:23.412Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -7148,7 +4581,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-12T19:24:09.785Z",
+        "fetchedAt": "2026-10-13T01:33:23.412Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -7158,7 +4591,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 13,
-        "fetchedAt": "2026-10-12T19:24:09.785Z",
+        "fetchedAt": "2026-10-13T01:33:23.412Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -7168,7 +4601,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-12T19:24:09.785Z",
+        "fetchedAt": "2026-10-13T01:33:23.412Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -7178,13 +4611,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-12T19:24:09.785Z",
+        "fetchedAt": "2026-10-13T01:33:23.412Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-f123c315ed6426c5e70d90c5f3c3027d7a83ce0e365487d96b5694b885550377"
+    "releaseId": "pharmacy-v1-fe1cd73bc7900df1e7301fbca055475d8ae0f4e8e32adbd2c63260f16eee0e14"
   }
 }
