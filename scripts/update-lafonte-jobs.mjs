@@ -36,7 +36,6 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
@@ -53,6 +52,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
+  extractLaFonteApplyUrlFromCardHtml,
   validateLaFonteDescription,
   buildLaFonteDescription,
   scrubLaFonteLegacyFrame,
@@ -64,6 +64,10 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import {
+  buildObservedHttpsApplyUrlHousekeepingProof,
+  partitionByHttpsApplyUrl,
+} from './lib/https-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -246,7 +250,13 @@ function parseListingPage(html) {
       for (const w of validation.warnings) console.warn(`    - ${w}`);
     }
 
-    jobs.push({ title, location, rawDesc, _descDetail: detail });
+    jobs.push({
+      title,
+      location,
+      rawDesc,
+      applyUrl: extractLaFonteApplyUrlFromCardHtml(block),
+      _descDetail: detail,
+    });
   }
 
   return jobs;
@@ -342,7 +352,7 @@ async function fetchLaFonteJobs() {
       canton: HQ.canton,
       country: 'CH',
       url: jobUrl,
-      applyUrl: 'mailto:recruiting@lafonte.ch',
+      applyUrl: listing.applyUrl || null,
       description,
       category: detectCategory(listing.title),
       sector: 'Servizi sociali / Non-profit',
@@ -374,6 +384,12 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
+  const { publishable, quarantined } = partitionByHttpsApplyUrl(discoveredJobs);
+  if (quarantined.length > 0) {
+    console.warn(
+      `  ⛔ La Fonte: quarantining ${quarantined.length} job(s) without an explicit HTTPS application link.`,
+    );
+  }
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
@@ -386,7 +402,7 @@ async function mergeJobs(discoveredJobs) {
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of publishable) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -395,8 +411,8 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== publishable.length) {
+    console.log(`  ↺ Intra-run dedup: ${publishable.length} publishable → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -413,7 +429,12 @@ async function mergeJobs(discoveredJobs) {
       // Card without a body this run: keep the body read from the page on an
       // earlier run, or leave the job out — never a made-up text.
       if (ex && laFonteHasSourceBody(ex)) {
-        merged.push(scrubLaFonteLegacyFrame({ ...ex, ...mergeSourcePostingDates(ex, discovered), url: discovered.url || ex.url }));
+        merged.push(scrubLaFonteLegacyFrame({
+          ...ex,
+          ...mergeSourcePostingDates(ex, discovered),
+          url: discovered.url || ex.url,
+          applyUrl: discovered.applyUrl,
+        }));
         updated++;
       } else {
         withoutSourceBody++;
@@ -434,7 +455,7 @@ async function mergeJobs(discoveredJobs) {
         country: 'CH',
         // The card's URL as this run builds it (same `?role=` identity).
         url: discovered.url || ex.url,
-        applyUrl: discovered.applyUrl || ex.applyUrl,
+        applyUrl: discovered.applyUrl,
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'la-fonte-crawler',
@@ -644,7 +665,8 @@ async function main() {
   console.log('🔍 Fetching La Fonte jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorJobs);
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchLaFonteJobs();
@@ -685,23 +707,31 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
-  if (stats.total === 0) {
-    console.log(
-      'ℹ️ No La Fonte jobs found after crawl. No error — exiting OK.'
-    );
-    return;
-  }
 
   // Phase 7: Validate locale coverage
-  validateLocales();
+  if (stats.total > 0) validateLocales();
+  else console.log('ℹ️ No La Fonte jobs have a verified HTTPS application handoff.');
 
   console.log('\n✅ Fondazione La Fonte crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, { observedJobs: discoveredJobs });
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? partitionByHttpsApplyUrl(_sliceRaw.filter(isTargetJob)).publishable
+    : [];
+  const observedPublishableJobs = partitionByHttpsApplyUrl(discoveredJobs).publishable;
+  const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
+    priorJobs,
+    observedJobs: discoveredJobs,
+    keyFor: jobMatchKey,
+  });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    observedJobs: observedPublishableJobs,
+    housekeepingProof: applyUrlHousekeepingProof,
+    verifyUnprovenHousekeeping: true,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'La Fonte',

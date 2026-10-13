@@ -4,10 +4,39 @@ import { officialPostalCodeForLocation } from '../scripts/lib/swiss-locality-dir
 import { OSCAM_CASTELROTTO_ADDRESS } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
 import { getCantonPostalFallback } from '../scripts/lib/canton-postal-fallback.mjs';
 import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
+import { extractOscamApplicationUrlFromPdfText } from '../scripts/update-oscam-jobs.mjs';
 import {
   oscamCastelrottoMatchKey,
   parseOscamCastelrottoListing,
 } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
+
+describe('OSCAM source-backed application handoff', () => {
+  it('canonicalizes the official HTTPS route when the PDF specifies online application', () => {
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Le candidature sono ammesse esclusivamente online tramite www.oscam.ch/candidature.',
+    )).toBe('https://www.oscam.ch/candidature/');
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Per inviare la candidatura in modalità elettronica: www.oscam.ch /lavoraconnoi/.',
+    )).toBe('https://www.oscam.ch/lavoraconnoi/');
+  });
+
+  it('fails closed for HTTP, unrelated hosts/routes, and email-only instructions', () => {
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su http://www.oscam.ch/candidature.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su https://example.org/candidature.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online su https://www.oscam.ch/altro.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
+      'Inviare documentazione completa a info@oscam.ch.',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(FIXTURE_VICE_PDF)).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(FIXTURE_GENERALE_PDF)).toBeNull();
+  });
+});
 
 describe('OSCAM structured address', () => {
   it('uses the official Ospedale Malcantonese address for every locale payload', () => {

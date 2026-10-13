@@ -36,7 +36,6 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
@@ -63,6 +62,10 @@ import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import {
+  buildObservedHttpsApplyUrlHousekeepingProof,
+  partitionByHttpsApplyUrl,
+} from './lib/https-url.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -111,6 +114,24 @@ function normalizeSpace(text = '') {
   return String(text || '')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/** Extract an official OSCAM application route only when the PDF says it is electronic. */
+export function extractOscamApplicationUrlFromPdfText(text = '') {
+  const source = String(text || '');
+  const routePattern = /(?<![a-z0-9@.-])(?:(https?):\/\/)?(?:www\.)?oscam\.ch\s*\/\s*(candidature|lavoraconnoi)(?:\s*\/)?/gi;
+  let match;
+  while ((match = routePattern.exec(source)) !== null) {
+    const scheme = (match[1] || '').toLowerCase();
+    if (scheme && scheme !== 'https') continue;
+
+    const context = source.slice(Math.max(0, match.index - 240), match.index + match[0].length + 100);
+    if (!/(?:candidatur|application|apply)/i.test(context)
+      || !/(?:online|elettronic|digitale)/i.test(context)) continue;
+
+    return `https://www.oscam.ch/${match[2].toLowerCase()}/`;
+  }
+  return null;
 }
 
 function slugify(text = '', suffix = '') {
@@ -461,7 +482,7 @@ export async function fetchOscamJobs() {
         country: 'CH',
         ...address,
         url: listing.pdfUrl,
-        applyUrl: 'mailto:info@oscam.ch',
+        applyUrl: extractOscamApplicationUrlFromPdfText(pdfText),
         description,
         category: detectCategory(listing.title),
         sector: 'Sanità pubblica / Assistenza anziani',
@@ -493,6 +514,12 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
+  const { publishable, quarantined } = partitionByHttpsApplyUrl(discoveredJobs);
+  if (quarantined.length > 0) {
+    console.warn(
+      `  ⛔ OSCAM: quarantining ${quarantined.length} job(s) without a verified HTTPS application route in the official PDF.`,
+    );
+  }
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
@@ -511,7 +538,7 @@ async function mergeJobs(discoveredJobs) {
   }
 
   const discoveredByKey = new Map();
-  for (const job of discoveredJobs) {
+  for (const job of publishable) {
     discoveredByKey.set(jobMatchKey(job), job);
   }
 
@@ -520,8 +547,8 @@ async function mergeJobs(discoveredJobs) {
   // Iterate the deduped Map values (last occurrence wins) instead of the
   // raw discovered list.
   const dedupedDiscovered = [...discoveredByKey.values()];
-  if (dedupedDiscovered.length !== discoveredJobs.length) {
-    console.log(`  ↺ Intra-run dedup: ${discoveredJobs.length} discovered → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
+  if (dedupedDiscovered.length !== publishable.length) {
+    console.log(`  ↺ Intra-run dedup: ${publishable.length} publishable → ${dedupedDiscovered.length} unique (same posting under multiple keys)`);
   }
 
   let added = 0;
@@ -550,7 +577,7 @@ async function mergeJobs(discoveredJobs) {
         addressRegion: discovered.addressRegion || ex.addressRegion || HQ.addressRegion,
         addressCountry: discovered.addressCountry || ex.addressCountry || 'CH',
         url: discovered.url || ex.url,
-        applyUrl: discovered.applyUrl || ex.applyUrl,
+        applyUrl: discovered.applyUrl,
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'oscam-crawler',
@@ -757,7 +784,8 @@ async function main() {
   console.log('🔍 Fetching OSCAM jobs...');
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(priorJobs);
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchOscamJobs();
@@ -800,23 +828,31 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
-  if (stats.total === 0) {
-    console.log(
-      'ℹ️ No OSCAM jobs found after crawl. No error — exiting OK.'
-    );
-    return;
-  }
 
   // Phase 7: Validate locale coverage
-  validateLocales();
+  if (stats.total > 0) validateLocales();
+  else console.log('ℹ️ No OSCAM jobs have a verified HTTPS application handoff.');
 
   console.log('\n✅ OSCAM crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  const _sliceJobs = Array.isArray(_sliceRaw)
+    ? partitionByHttpsApplyUrl(_sliceRaw.filter(isTargetJob)).publishable
+    : [];
+  const observedPublishableJobs = partitionByHttpsApplyUrl(discoveredJobs).publishable;
+  const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
+    priorJobs,
+    observedJobs: discoveredJobs,
+    keyFor: jobMatchKey,
+  });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
+    isTargetJob,
+    observedJobs: observedPublishableJobs,
+    housekeepingProof: applyUrlHousekeepingProof,
+    verifyUnprovenHousekeeping: true,
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'OSCAM',

@@ -8,6 +8,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
+import { isHttpsUrl as httpsUrl } from '../lib/https-url.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
@@ -46,16 +47,6 @@ function text(value) {
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
-}
-
-function httpsUrl(value) {
-  if (!text(value)) return false;
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' && text(url.hostname);
-  } catch {
-    return false;
-  }
 }
 
 function identityFor(job) {

@@ -180,6 +180,19 @@ describe('Bellinzona crawler — listing HTML parsing', () => {
   it('extracts apply URLs from pi-asp.de', () => {
     const jobs = parseBellinzonaListingHtml(LISTING_HTML_FIXTURE);
     expect(jobs[0].applyUrl).toContain('bellinz.pi-asp.de');
+    expect(jobs[0].applyUrl).toMatch(/^https:\/\/bellinz\.pi-asp\.de\/bewerber-web\//);
+  });
+
+  it('fails closed for HTTP, lookalike hosts, and missing application links', () => {
+    const withHref = (href: string) => LISTING_HTML_FIXTURE.replace(
+      /https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']+/,
+      href,
+    );
+    expect(parseBellinzonaListingHtml(withHref('http://bellinz.pi-asp.de/bewerber-web/apply'))[0].applyUrl).toBeNull();
+    expect(parseBellinzonaListingHtml(withHref('https://bellinz.pi-asp.de.example.com/bewerber-web/apply'))[0].applyUrl).toBeNull();
+
+    const withoutLink = LISTING_HTML_FIXTURE.replace(/<a href="https:\/\/bellinz\.pi-asp\.de[\s\S]*?<\/a>/i, '');
+    expect(parseBellinzonaListingHtml(withoutLink)[0].applyUrl).toBeNull();
   });
 
   it('sets location to Bellinzona', () => {
