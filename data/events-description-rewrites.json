@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-13T00:01:36.461Z",
+  "generatedAt": "2026-10-13T15:00:45.467Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -1280,6 +1280,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T19:15:43.043Z"
     },
+    "ge-agenda:7-peches-capitaux::58ba0a442ca144e53b8442a2d3e5bf265fdc1ace8225970644a7d9f66bc0548d": {
+      "id": "ge-agenda:7-peches-capitaux",
+      "sourceDescriptionHash": "58ba0a442ca144e53b8442a2d3e5bf265fdc1ace8225970644a7d9f66bc0548d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-10-18; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-10-18; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-10-18; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-10-18; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-10-18; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:30.451Z"
+    },
     "ge-agenda:acacias-fete-journee-fete-vernets::428645f098b8b9d27a24c4e7311cc156216de28ce2ff2c3a87a5115d62d3ba41": {
       "id": "ge-agenda:acacias-fete-journee-fete-vernets",
       "sourceDescriptionHash": "428645f098b8b9d27a24c4e7311cc156216de28ce2ff2c3a87a5115d62d3ba41",
@@ -1434,6 +1448,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T19:15:43.065Z"
     },
+    "ge-agenda:alerte-rouge-0::cdcfae2da239d403f102d7e765455aaa9a84f5455aa3a0a1eecf775dc9e8b168": {
+      "id": "ge-agenda:alerte-rouge-0",
+      "sourceDescriptionHash": "cdcfae2da239d403f102d7e765455aaa9a84f5455aa3a0a1eecf775dc9e8b168",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.297Z"
+    },
     "ge-agenda:alerte-rouge::cdcfae2da239d403f102d7e765455aaa9a84f5455aa3a0a1eecf775dc9e8b168": {
       "id": "ge-agenda:alerte-rouge",
       "sourceDescriptionHash": "cdcfae2da239d403f102d7e765455aaa9a84f5455aa3a0a1eecf775dc9e8b168",
@@ -1503,6 +1531,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:07:46.338Z"
+    },
+    "ge-agenda:anima-sana::10a653539f6cedc355cce61a0119781f7caf106fc60e3bffb6e7724bb78e54aa": {
+      "id": "ge-agenda:anima-sana",
+      "sourceDescriptionHash": "10a653539f6cedc355cce61a0119781f7caf106fc60e3bffb6e7724bb78e54aa",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-11-01; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-11-01; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-11-01; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-11-01; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-11-01; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.332Z"
     },
     "ge-agenda:animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203::de51fc27f122334d172739c8e3bff2d342c61e893a936b3b21ddc8a9c5ccbbc2": {
       "id": "ge-agenda:animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203",
@@ -1784,6 +1826,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:01:58.989Z"
     },
+    "ge-agenda:atelier-chocolat-enfants-chocolate-monster-3::38618bf7458d121cfb6d4dd6c9b3904ec60e6380b30db45b54a64b394a0905a9": {
+      "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster-3",
+      "sourceDescriptionHash": "38618bf7458d121cfb6d4dd6c9b3904ec60e6380b30db45b54a64b394a0905a9",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.308Z"
+    },
     "ge-agenda:atelier-chocolat-enfants-chocolate-monster::38618bf7458d121cfb6d4dd6c9b3904ec60e6380b30db45b54a64b394a0905a9": {
       "id": "ge-agenda:atelier-chocolat-enfants-chocolate-monster",
       "sourceDescriptionHash": "38618bf7458d121cfb6d4dd6c9b3904ec60e6380b30db45b54a64b394a0905a9",
@@ -1797,6 +1853,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:14:23.003Z"
+    },
+    "ge-agenda:atelier-collages-lundi-26-octobre-18h30-20h30-villa-freundler-plainpalais-adultes-ados-tarif-materiel-fourni-20::1f93cf45ad00a25fce61f3ea0374d247f24d757bb2532d0f43c6a4a47109095d": {
+      "id": "ge-agenda:atelier-collages-lundi-26-octobre-18h30-20h30-villa-freundler-plainpalais-adultes-ados-tarif-materiel-fourni-20",
+      "sourceDescriptionHash": "1f93cf45ad00a25fce61f3ea0374d247f24d757bb2532d0f43c6a4a47109095d",
+      "description": "È previsto un laboratorio di collage presso Villa Freundler, nel quartiere di Plainpalais a Ginevra, rivolto ad adulti e adolescenti. L’attività prevede l’uso di immagini ritagliate da riviste oppure di fotografie personali stampate in precedenza su carta per fotocopie; il materiale è incluso e la quota è di 20 CHF.",
+      "descriptionByLocale": {
+        "it": "È previsto un laboratorio di collage presso Villa Freundler, nel quartiere di Plainpalais a Ginevra, rivolto ad adulti e adolescenti. L’attività prevede l’uso di immagini ritagliate da riviste oppure di fotografie personali stampate in precedenza su carta per fotocopie; il materiale è incluso e la quota è di 20 CHF.",
+        "en": "A collage workshop will take place at Villa Freundler in Plainpalais, Geneva, for adults and teenagers. Participants can work with images cut from magazines or with their own photographs printed beforehand on photocopy paper; materials are provided, and the fee is CHF 20.",
+        "de": "In der Villa Freundler in Plainpalais in Genf findet ein Collage-Workshop für Erwachsene und Jugendliche statt. Dabei können aus Zeitschriften ausgeschnittene Bilder oder zuvor auf Kopierpapier ausgedruckte eigene Fotos verwendet werden; das Material ist inbegriffen, die Teilnahme kostet 20 CHF.",
+        "fr": "Un atelier de collage est proposé à la Villa Freundler, à Plainpalais, à Genève, pour les adultes et les adolescents. Le travail peut partir de découpages de magazines ou de photographies personnelles préparées sur papier pour photocopie; le matériel est fourni et le tarif s’élève à 20 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:33:10.432Z"
     },
     "ge-agenda:atelier-cosmetique-enfant-fabrication-douche-halloween::bd6bd6d996d9a9ecab3ddc5741277b3e753e2a6cf25d61c2583f15178ffe8995": {
       "id": "ge-agenda:atelier-cosmetique-enfant-fabrication-douche-halloween",
@@ -2162,6 +2232,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T23:26:18.474Z"
     },
+    "ge-agenda:ateliers-ecriture-ecrire-reinventer-quartier::675f9f4008492d249d0f168779b4fda7616c395c34107e2027a612a33dd21732": {
+      "id": "ge-agenda:ateliers-ecriture-ecrire-reinventer-quartier",
+      "sourceDescriptionHash": "675f9f4008492d249d0f168779b4fda7616c395c34107e2027a612a33dd21732",
+      "description": "A Ginevra sono previsti quattro laboratori di scrittura con Typhaine Marc, dedicati ai luoghi che ci circondano. Gli atelier invitano a esplorare e immaginare questi spazi per trasformarli in parole; la partecipazione costa 20 CHF.",
+      "descriptionByLocale": {
+        "it": "A Ginevra sono previsti quattro laboratori di scrittura con Typhaine Marc, dedicati ai luoghi che ci circondano. Gli atelier invitano a esplorare e immaginare questi spazi per trasformarli in parole; la partecipazione costa 20 CHF.",
+        "en": "Geneva hosts four writing workshops with Typhaine Marc, focused on the places around us. The sessions explore and imagine these surroundings and put them into words; the fee is CHF 20.",
+        "de": "In Genf finden vier Schreibwerkstätten mit Typhaine Marc statt, die sich den Orten in unserer Umgebung widmen. Die Workshops regen dazu an, diese Räume zu erkunden, vorzustellen und in Worte zu fassen; die Teilnahme kostet 20 CHF.",
+        "fr": "À Genève, quatre ateliers d’écriture avec Typhaine Marc s’intéressent aux lieux qui nous entourent. Ils proposent de les explorer, de les imaginer et de les mettre en mots; le tarif est de 20 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:43:48.949Z"
+    },
     "ge-agenda:ateliers-gouter-intergenerationnels::a4bc551ec7c0995eeca9c8d5c7d450e24fe9275be9b7acc44d794f5f0964664d": {
       "id": "ge-agenda:ateliers-gouter-intergenerationnels",
       "sourceDescriptionHash": "a4bc551ec7c0995eeca9c8d5c7d450e24fe9275be9b7acc44d794f5f0964664d",
@@ -2386,6 +2470,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:56:54.141Z"
     },
+    "ge-agenda:balades-exploration-urbaine-frontieres::363528e6258329f2baf827e10fc041d250b1419bf05f52f7529128f81f080c21": {
+      "id": "ge-agenda:balades-exploration-urbaine-frontieres",
+      "sourceDescriptionHash": "363528e6258329f2baf827e10fc041d250b1419bf05f52f7529128f81f080c21",
+      "description": "A Ginevra si tiene la prima passeggiata di una serie dedicata all’esplorazione urbana del quartiere. Il percorso combina osservazione, ascolto e fotografia con la raccolta di tracce, suoni e impressioni, ed è gratuito.",
+      "descriptionByLocale": {
+        "it": "A Ginevra si tiene la prima passeggiata di una serie dedicata all’esplorazione urbana del quartiere. Il percorso combina osservazione, ascolto e fotografia con la raccolta di tracce, suoni e impressioni, ed è gratuito.",
+        "en": "The Geneva event opens a series of urban walks focused on exploring a neighbourhood. The activity uses observation, listening and photography to gather traces, sounds and impressions, and attendance is free.",
+        "de": "In Genf eröffnet die Veranstaltung eine Reihe urbaner Erkundungsspaziergänge durch ein Quartier. Dabei werden die Umgebung beobachtet und akustisch wahrgenommen, fotografisch festgehalten sowie Spuren, Geräusche und Eindrücke gesammelt; die Teilnahme ist kostenlos.",
+        "fr": "À Genève, cette activité ouvre une série de promenades consacrées à l’exploration urbaine d’un quartier. Elle associe l’observation, l’écoute et la photographie à la collecte de traces, de sons et d’impressions, et elle est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:43:48.961Z"
+    },
     "ge-agenda:ballet-adultes-niveaux-0::50bb23503084dd8a3b4a81faf6d531a02f44fd3322174e2d3662fb3c3b4c967e": {
       "id": "ge-agenda:ballet-adultes-niveaux-0",
       "sourceDescriptionHash": "50bb23503084dd8a3b4a81faf6d531a02f44fd3322174e2d3662fb3c3b4c967e",
@@ -2582,6 +2680,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T02:14:11.245Z"
     },
+    "ge-agenda:cabinet-emerveille-invite-meg-0::36a40b1dbcd185b38a7aba9367349eb769437fe8cde07163c148ff1822b8c4be": {
+      "id": "ge-agenda:cabinet-emerveille-invite-meg-0",
+      "sourceDescriptionHash": "36a40b1dbcd185b38a7aba9367349eb769437fe8cde07163c148ff1822b8c4be",
+      "description": "Questa animazione unisce arte, gioco libero ed esplorazione sensoriale per i più piccoli da 0 a 8 anni, all’interno di un museo. L’attività si svolge nell’auditorium di Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questa animazione unisce arte, gioco libero ed esplorazione sensoriale per i più piccoli da 0 a 8 anni, all’interno di un museo. L’attività si svolge nell’auditorium di Ginevra e l’ingresso è gratuito.",
+        "en": "This activity combines art, free play and sensory exploration for children from 0 to 8 years old in a museum setting. It takes place in the auditorium in Geneva and admission is free.",
+        "de": "Die Veranstaltung verbindet Kunst, freies Spiel und sinnliche Erkundung für Kinder von 0 bis 8 Jahren in einem Museum. Sie findet im Auditorium in Genf statt und ist kostenlos.",
+        "fr": "L’animation associe art, jeu libre et découverte sensorielle pour les tout-petits de 0 à 8 ans, au musée. L’activité a lieu dans l’auditorium et l’accès est gratuit à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:24:11.099Z"
+    },
     "ge-agenda:cabinet-emerveille-invite-meg-0::8e4b21c1a08de8d451c45c77bf61da68357a0ace169adcf657c656a6ef1606ec": {
       "id": "ge-agenda:cabinet-emerveille-invite-meg-0",
       "sourceDescriptionHash": "8e4b21c1a08de8d451c45c77bf61da68357a0ace169adcf657c656a6ef1606ec",
@@ -2595,6 +2707,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:19:53.846Z"
+    },
+    "ge-agenda:cabinet-emerveille-invite-meg-1::8974de8a35fece5d09dbc7c6f6dbf2f6c0b06fde24b771567523a01738f650b8": {
+      "id": "ge-agenda:cabinet-emerveille-invite-meg-1",
+      "sourceDescriptionHash": "8974de8a35fece5d09dbc7c6f6dbf2f6c0b06fde24b771567523a01738f650b8",
+      "description": "L’animazione al MEG di Ginevra è dedicata ai bambini da 0 a 8 anni e comprende attività artistiche, gioco libero ed esplorazione sensoriale. Si svolge nell’auditorium ed è gratuita.",
+      "descriptionByLocale": {
+        "it": "L’animazione al MEG di Ginevra è dedicata ai bambini da 0 a 8 anni e comprende attività artistiche, gioco libero ed esplorazione sensoriale. Si svolge nell’auditorium ed è gratuita.",
+        "en": "The activity at MEG in Geneva is intended for children aged 0 to 8 and includes art, free play and sensory exploration. It takes place in the auditorium and is free of charge.",
+        "de": "Die Animation im MEG in Genf richtet sich an Kinder von 0 bis 8 Jahren und umfasst Kunst, freies Spiel sowie sensorische Erkundung. Sie findet im Auditorium statt und ist kostenlos.",
+        "fr": "Au MEG, à Genève, l’animation s’adresse aux enfants de 0 à 8 ans et comprend des activités artistiques, du jeu libre et de l’exploration sensorielle. Elle se déroule dans l’auditorium et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:22:55.711Z"
     },
     "ge-agenda:cabinet-emerveille-invite-meg-1::9fcd904538d4b842139cf5f28d9246bd68542f419309523d0dc4d284cb4e11f8": {
       "id": "ge-agenda:cabinet-emerveille-invite-meg-1",
@@ -2624,6 +2750,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T10:25:02.117Z"
     },
+    "ge-agenda:cabinet-emerveille-invite-meg-2::b4ab3920bc694e61d92256b9aad084df31c7dc93adc833c5dea8228348e367b1": {
+      "id": "ge-agenda:cabinet-emerveille-invite-meg-2",
+      "sourceDescriptionHash": "b4ab3920bc694e61d92256b9aad084df31c7dc93adc833c5dea8228348e367b1",
+      "description": "Al MEG è proposta un’animazione per bambini da 0 a 8 anni, con attività artistiche, gioco libero ed esplorazione sensoriale. L’appuntamento si svolge nell’auditorium del museo ed è gratuito.",
+      "descriptionByLocale": {
+        "it": "Al MEG è proposta un’animazione per bambini da 0 a 8 anni, con attività artistiche, gioco libero ed esplorazione sensoriale. L’appuntamento si svolge nell’auditorium del museo ed è gratuito.",
+        "en": "The MEG hosts an activity for children from birth to age eight, combining art, free play and sensory exploration. It takes place in the museum auditorium in Geneva and admission is free.",
+        "de": "Im MEG richtet sich eine Veranstaltung an Kinder von null bis acht Jahren und verbindet Kunst, freies Spiel und sinnliche Erkundung. Sie findet im Auditorium des Museums in Genf statt und ist kostenlos.",
+        "fr": "Au MEG, une animation destinée aux enfants de 0 à 8 ans associe art, jeu libre et exploration sensorielle. Elle se déroule dans l’auditorium du musée à Genève et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:29:25.451Z"
+    },
     "ge-agenda:cabinet-emerveille-invite-meg::5aa337c78be2cd79c1394efcc29250f999b887167695a9aa3155ef7a0e35c34f": {
       "id": "ge-agenda:cabinet-emerveille-invite-meg",
       "sourceDescriptionHash": "5aa337c78be2cd79c1394efcc29250f999b887167695a9aa3155ef7a0e35c34f",
@@ -2637,6 +2777,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:25:24.365Z"
+    },
+    "ge-agenda:cabinet-emerveille-invite-meg::6046a7225d0f94304f51c7788feb9057baa967be467f0255e37c13bde6f59d3a": {
+      "id": "ge-agenda:cabinet-emerveille-invite-meg",
+      "sourceDescriptionHash": "6046a7225d0f94304f51c7788feb9057baa967be467f0255e37c13bde6f59d3a",
+      "description": "L’animazione è pensata per bambine e bambini da 0 a 8 anni e propone esperienze legate all’arte, al gioco autonomo e alla percezione sensoriale. Si svolge nell’auditorium del MEG, a Ginevra, e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’animazione è pensata per bambine e bambini da 0 a 8 anni e propone esperienze legate all’arte, al gioco autonomo e alla percezione sensoriale. Si svolge nell’auditorium del MEG, a Ginevra, e l’ingresso è gratuito.",
+        "en": "This activity is intended for children aged 0 to 8 and combines art, self-directed play and sensory exploration. It takes place in the auditorium of the MEG in Geneva, and admission is free.",
+        "de": "Die Veranstaltung richtet sich an Kinder von 0 bis 8 Jahren und verbindet Kunst, freies Spiel und sinnliche Erkundung. Sie findet im Auditorium des MEG in Genf statt; der Eintritt ist kostenlos.",
+        "fr": "Cette animation propose aux enfants de 0 à 8 ans des activités autour de l’art, du jeu autonome et de la découverte par les sens. Elle a lieu dans l’auditorium du MEG, à Genève, et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:17:54.715Z"
     },
     "ge-agenda:cafe-biblio::96303ceba0545571f7c5f0774be53977076cc56c155ceae545eab6a574145536": {
       "id": "ge-agenda:cafe-biblio",
@@ -3506,6 +3660,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T20:14:32.268Z"
     },
+    "ge-agenda:cours-tango-argentin-debutant::bd4040772cefdf3b2cc11626a58aad5bf4493e8a5ae3bdf3cf865e170e287837": {
+      "id": "ge-agenda:cours-tango-argentin-debutant",
+      "sourceDescriptionHash": "bd4040772cefdf3b2cc11626a58aad5bf4493e8a5ae3bdf3cf865e170e287837",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Danse; organiser: Ville de Genève Agenda; date: 2026-10-13; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Danse; veranstalter: Ville de Genève Agenda; datum: 2026-10-13; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Danse; organisateur: Ville de Genève Agenda; date: 2026-10-13; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.268Z"
+    },
     "ge-agenda:cours-tango-argentin-niveau-debutant-2::c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73": {
       "id": "ge-agenda:cours-tango-argentin-niveau-debutant-2",
       "sourceDescriptionHash": "c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73",
@@ -3898,6 +4066,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:52:17.328Z"
     },
+    "ge-agenda:dimanche-futur-1::0a6795fb46345ba9c43561506b5714a24d27996a2ddd50cb3ce8117146db6ad1": {
+      "id": "ge-agenda:dimanche-futur-1",
+      "sourceDescriptionHash": "0a6795fb46345ba9c43561506b5714a24d27996a2ddd50cb3ce8117146db6ad1",
+      "description": "L’animazione si svolge al MEG ed è dedicata al tema del futuro. Si tratta di un appuntamento ricorrente con cadenza mensile.",
+      "descriptionByLocale": {
+        "it": "L’animazione si svolge al MEG ed è dedicata al tema del futuro. Si tratta di un appuntamento ricorrente con cadenza mensile.",
+        "en": "This event takes place at the MEG and focuses on the future. It is a recurring monthly series.",
+        "de": "Die Veranstaltung findet im MEG statt und widmet sich der Zukunft. Sie ist als monatlich wiederkehrende Reihe angelegt.",
+        "fr": "Cette animation se déroule au MEG et porte sur le thème du futur. Il s’agit d’un rendez-vous récurrent organisé chaque mois."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:52:34.751Z"
+    },
     "ge-agenda:dimanche-futur::0a6795fb46345ba9c43561506b5714a24d27996a2ddd50cb3ce8117146db6ad1": {
       "id": "ge-agenda:dimanche-futur",
       "sourceDescriptionHash": "0a6795fb46345ba9c43561506b5714a24d27996a2ddd50cb3ce8117146db6ad1",
@@ -3968,6 +4150,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:07:46.348Z"
     },
+    "ge-agenda:douce-chataigne-peps-clementine::95c0c8ce26417501ab9a6261e73ed86bc2f2228b0767c9d231b8091acd6243ee": {
+      "id": "ge-agenda:douce-chataigne-peps-clementine",
+      "sourceDescriptionHash": "95c0c8ce26417501ab9a6261e73ed86bc2f2228b0767c9d231b8091acd6243ee",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-11-04; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-11-04; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-11-04; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-11-04; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-11-04; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.344Z"
+    },
     "ge-agenda:du::9af64f4d634ccac370122be099945aa5bdb3f3802cd86b55af99b415024d5f90": {
       "id": "ge-agenda:du",
       "sourceDescriptionHash": "9af64f4d634ccac370122be099945aa5bdb3f3802cd86b55af99b415024d5f90",
@@ -3981,6 +4177,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T21:48:54.251Z"
+    },
+    "ge-agenda:ecrire-vivant-15-saison-3::aa0ba84356bee83746c1aacf167cd22a98116b7e310b8469e71df4a57a1ff515": {
+      "id": "ge-agenda:ecrire-vivant-15-saison-3",
+      "sourceDescriptionHash": "aa0ba84356bee83746c1aacf167cd22a98116b7e310b8469e71df4a57a1ff515",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.321Z"
     },
     "ge-agenda:electron-club-tour::d7f3322302ebc64989c4b73ccbfbfef159c7ab0e8d3043016f80af973d9ac705": {
       "id": "ge-agenda:electron-club-tour",
@@ -4121,6 +4331,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-07T00:36:39.862Z"
+    },
+    "ge-agenda:espace-lecture-histoires-peanser-futur-4::2beed4b17dc80aa11fb77a8450e92fecddb11870442045482744b9fef96db771": {
+      "id": "ge-agenda:espace-lecture-histoires-peanser-futur-4",
+      "sourceDescriptionHash": "2beed4b17dc80aa11fb77a8450e92fecddb11870442045482744b9fef96db771",
+      "description": "L’appuntamento propone in un museo di Ginevra uno spazio per ascoltare storie, giocare e immaginare insieme possibili futuri. L’attività è gratuita ed è organizzata da Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone in un museo di Ginevra uno spazio per ascoltare storie, giocare e immaginare insieme possibili futuri. L’attività è gratuita ed è organizzata da Ville de Genève Agenda.",
+        "en": "This event offers a reading space at a museum in Geneva for listening to stories, playing and imagining possible shared futures. The free activity is organised by Ville de Genève Agenda.",
+        "de": "Die Veranstaltung bietet in einem Museum in Genf einen Lesebereich, in dem Geschichten gehört, gespielt und gemeinsame mögliche Zukünfte vorgestellt werden. Das kostenlose Angebot wird von Ville de Genève Agenda organisiert.",
+        "fr": "Ce rendez-vous propose dans un musée genevois un espace consacré aux histoires, au jeu et à l’imagination de futurs à construire ensemble. L’activité est gratuite et organisée par Ville de Genève Agenda."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:55:57.314Z"
     },
     "ge-agenda:esprits::b7c08d02128c5a2b4459a862371e5c8ac03db90665552cd79892ce95f5b35324": {
       "id": "ge-agenda:esprits",
@@ -4276,6 +4500,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T23:16:33.363Z"
     },
+    "ge-agenda:exposition-concours-architecture-pluridisciplinaire-transformation-centre-sportif-bout-monde::14fdc4c03504efc255ccfe834d5ae1f278df4d84eef84fd325211af986229bd5": {
+      "id": "ge-agenda:exposition-concours-architecture-pluridisciplinaire-transformation-centre-sportif-bout-monde",
+      "sourceDescriptionHash": "14fdc4c03504efc255ccfe834d5ae1f278df4d84eef84fd325211af986229bd5",
+      "description": "L’esposizione presenta progetti elaborati nell’ambito di un concorso di architettura con più discipline. La mostra è gratuita, riguarda la trasformazione di un centro sportivo ginevrino ed è organizzata da Ville de Genève Agenda al Forum Faubourg.",
+      "descriptionByLocale": {
+        "it": "L’esposizione presenta progetti elaborati nell’ambito di un concorso di architettura con più discipline. La mostra è gratuita, riguarda la trasformazione di un centro sportivo ginevrino ed è organizzata da Ville de Genève Agenda al Forum Faubourg.",
+        "en": "The exhibition presents projects developed for a multidisciplinary architecture competition. It concerns the transformation of a sports centre in Geneva, is free of charge and is organised by Ville de Genève Agenda at Forum Faubourg.",
+        "de": "Die Ausstellung zeigt Projekte aus einem interdisziplinären Architekturwettbewerb. Sie befasst sich mit der Umgestaltung eines Sportzentrums in Genf, ist kostenlos und wird von Ville de Genève Agenda im Forum Faubourg organisiert.",
+        "fr": "Cette exposition réunit des projets issus d’un concours d’architecture réunissant plusieurs disciplines. Elle porte sur la transformation d’un centre sportif genevois, est gratuite et est organisée par Ville de Genève Agenda au Forum Faubourg."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:18:50.394Z"
+    },
     "ge-agenda:exposition-marisa-cornejo-taller-fragilidad::7fa324e5aa7e83547b0fa675681f3ab3891935dd391f75d0bac14085421825f8": {
       "id": "ge-agenda:exposition-marisa-cornejo-taller-fragilidad",
       "sourceDescriptionHash": "7fa324e5aa7e83547b0fa675681f3ab3891935dd391f75d0bac14085421825f8",
@@ -4345,6 +4583,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:16:36.737Z"
+    },
+    "ge-agenda:famille-addams::9232dc6e9d4329a3163227a2c02377c473a473d2490ade2441521450384e0a53": {
+      "id": "ge-agenda:famille-addams",
+      "sourceDescriptionHash": "9232dc6e9d4329a3163227a2c02377c473a473d2490ade2441521450384e0a53",
+      "description": "A Ginevra è in programma un cineconcerto dedicato a La Famiglia Addams. Il film sarà proiettato su grande schermo con l’accompagnamento dal vivo dell’Orchestre de la Suisse Romande.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è in programma un cineconcerto dedicato a La Famiglia Addams. Il film sarà proiettato su grande schermo con l’accompagnamento dal vivo dell’Orchestre de la Suisse Romande.",
+        "en": "This concert in Geneva presents The Addams Family in a cinema-concert format. The film is shown on a large screen with live accompaniment by the Orchestre de la Suisse Romande.",
+        "de": "In Genf steht ein Konzert im Kinoformat rund um Die Addams Family auf dem Programm. Der Film wird auf einer großen Leinwand gezeigt und live vom Orchestre de la Suisse Romande begleitet.",
+        "fr": "À Genève, le rendez-vous associe la projection de La Famille Addams à une interprétation musicale en direct. Le film est présenté sur grand écran avec l’accompagnement de l’Orchestre de la Suisse Romande."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:48:44.071Z"
     },
     "ge-agenda:femme-henry-fevrier-orchestre-chambre-geneve-0::bf4c42efcc691bac18b935a5287dee9a2f108566fba221593563dc83ee075ead": {
       "id": "ge-agenda:femme-henry-fevrier-orchestre-chambre-geneve-0",
@@ -4625,6 +4877,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-07T23:32:37.700Z"
+    },
+    "ge-agenda:festival-soir-palexpo::55d62cd7d4b6c7b6ff781c0eaea0f3feb14fad0b557be388c5e67f2d91f43c54": {
+      "id": "ge-agenda:festival-soir-palexpo",
+      "sourceDescriptionHash": "55d62cd7d4b6c7b6ff781c0eaea0f3feb14fad0b557be388c5e67f2d91f43c54",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Clubbing; organizzatore: Ville de Genève Agenda; data: 2026-10-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Clubbing; organizzatore: Ville de Genève Agenda; data: 2026-10-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Clubbing; organiser: Ville de Genève Agenda; date: 2026-10-16; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Clubbing; veranstalter: Ville de Genève Agenda; datum: 2026-10-16; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Clubbing; organisateur: Ville de Genève Agenda; date: 2026-10-16; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:30.440Z"
     },
     "ge-agenda:festival-soir-presente-gims-triangle-bermudes::caff084b0ec2a4ad4a55dbc8c68a4bf835e9f66a5312f582d82ff92c44a21cb6": {
       "id": "ge-agenda:festival-soir-presente-gims-triangle-bermudes",
@@ -5046,6 +5312,48 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T03:22:56.566Z"
     },
+    "ge-agenda:hallomania-atelier-fabrication-fantome-chocolat-geneve::924e305cc100663600d8feeacd1f22b54ad75015a8cd987b13f0c8ece0633b20": {
+      "id": "ge-agenda:hallomania-atelier-fabrication-fantome-chocolat-geneve",
+      "sourceDescriptionHash": "924e305cc100663600d8feeacd1f22b54ad75015a8cd987b13f0c8ece0633b20",
+      "description": "Si tratta di un laboratorio di cioccolato dedicato alla realizzazione di un fantasma. A Ginevra, partecipanti di diverse età apprendono le basi del cioccolato e preparano la propria figura con la guida di un cioccolatiere-torrefattore.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un laboratorio di cioccolato dedicato alla realizzazione di un fantasma. A Ginevra, partecipanti di diverse età apprendono le basi del cioccolato e preparano la propria figura con la guida di un cioccolatiere-torrefattore.",
+        "en": "This chocolate workshop focuses on making a ghost. In Geneva, participants of different ages learn about chocolate and create their own figure with guidance from a chocolatier-roaster.",
+        "de": "Der Workshop widmet sich der Herstellung eines Geistes aus Schokolade. In Genf lernen Teilnehmende unterschiedlichen Alters die Besonderheiten von Schokolade kennen und fertigen unter Anleitung eines Chocolatiers und Rösters ihre eigene Figur an.",
+        "fr": "Cet atelier est consacré à la confection d’un fantôme en chocolat. À Genève, les enfants comme les adultes réalisent leur propre création avec l’accompagnement d’un chocolatier-torréfacteur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:36:55.276Z"
+    },
+    "ge-agenda:hallomania-balade-chandelles-tortures-chatiments-geneve::7ccfe51fa2f2f8b68fd9ef8ce812b0f12fdd0491c3e7502170c778eacf8c3db3": {
+      "id": "ge-agenda:hallomania-balade-chandelles-tortures-chatiments-geneve",
+      "sourceDescriptionHash": "7ccfe51fa2f2f8b68fd9ef8ce812b0f12fdd0491c3e7502170c778eacf8c3db3",
+      "description": "A Ginevra è in programma una visita guidata serale a lume di candela. Il percorso partecipativo affronta torture, punizioni, stregoneria ed esecuzioni.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è in programma una visita guidata serale a lume di candela. Il percorso partecipativo affronta torture, punizioni, stregoneria ed esecuzioni.",
+        "en": "Geneva hosts an evening guided tour by candlelight. The participatory route deals with torture, punishment, witchcraft and executions.",
+        "de": "In Genf findet eine abendliche Führung bei Kerzenlicht statt. Die partizipative Route behandelt Folter, Strafen, Hexerei und Hinrichtungen.",
+        "fr": "À Genève, une visite guidée en soirée se déroule à la lumière des bougies. Le parcours participatif aborde la torture, les châtiments, la sorcellerie et les exécutions."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:41:40.069Z"
+    },
+    "ge-agenda:hallomania-balade-flambeaux-aperitif-terroir-saleve::da5b1ca2d2373e3680e14d56012c122fc7dad6c889442e4263e815cad76a48dc": {
+      "id": "ge-agenda:hallomania-balade-flambeaux-aperitif-terroir-saleve",
+      "sourceDescriptionHash": "da5b1ca2d2373e3680e14d56012c122fc7dad6c889442e4263e815cad76a48dc",
+      "description": "L’appuntamento propone una visita guidata al Salève, illuminata dalla luce delle fiaccole, nel contesto di Halloween. Durante l’esperienza, una guida presenta aspetti della natura e del cielo; segue un aperitivo sotto le stelle, al prezzo di 49 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata al Salève, illuminata dalla luce delle fiaccole, nel contesto di Halloween. Durante l’esperienza, una guida presenta aspetti della natura e del cielo; segue un aperitivo sotto le stelle, al prezzo di 49 CHF.",
+        "en": "This guided visit explores the Salève by torchlight in the context of Halloween. A guide presents aspects of nature and the sky, followed by an aperitif under the stars; the activity costs CHF 49.",
+        "de": "Die Führung findet am Salève im Fackelschein statt und steht im Zeichen von Halloween. Eine Begleitperson informiert über Natur und Himmel; danach folgt ein Apéro unter dem Sternenhimmel zum Preis von 49 CHF.",
+        "fr": "Cette visite guidée propose une découverte nocturne du Salève éclairée par des flambeaux dans le cadre d’Halloween. Un guide présente des éléments liés à la nature et au ciel, puis un apéritif est proposé sous les étoiles; le tarif est de 49 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:26:42.262Z"
+    },
     "ge-agenda:hallomania-chasse-bonbons-char-viticole-atelier-creatif-degustation-vins::f5ba6d13ac2ad7a52e37ee4eb1ddc60cacb641c93ff63df796917731af100316": {
       "id": "ge-agenda:hallomania-chasse-bonbons-char-viticole-atelier-creatif-degustation-vins",
       "sourceDescriptionHash": "f5ba6d13ac2ad7a52e37ee4eb1ddc60cacb641c93ff63df796917731af100316",
@@ -5060,6 +5368,90 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T21:18:19.570Z"
     },
+    "ge-agenda:hallomania-chasse-bonbons-loto-bulle-degustation-satigny::4062778ff2f169521fb0c0de3a3445c4f219512de707ce63c1f0da8241f0158e": {
+      "id": "ge-agenda:hallomania-chasse-bonbons-loto-bulle-degustation-satigny",
+      "sourceDescriptionHash": "4062778ff2f169521fb0c0de3a3445c4f219512de707ce63c1f0da8241f0158e",
+      "description": "A Satigny, questa animazione di Halloween propone una caccia alle caramelle per le famiglie, seguita da una tombola per i bambini e da una degustazione di vini per gli adulti. Il gioco è destinato ai bambini, mentre la degustazione riguarda gli adulti.",
+      "descriptionByLocale": {
+        "it": "A Satigny, questa animazione di Halloween propone una caccia alle caramelle per le famiglie, seguita da una tombola per i bambini e da una degustazione di vini per gli adulti. Il gioco è destinato ai bambini, mentre la degustazione riguarda gli adulti.",
+        "en": "In Satigny, this Halloween activity includes a family candy hunt, followed by bingo for children and a wine tasting for adults. The game is intended for children, while the tasting is for adults.",
+        "de": "In Satigny umfasst diese Halloween-Veranstaltung eine Süssigkeitensuche für Familien, danach ein Lotto-Spiel für Kinder und eine Weinverkostung für Erwachsene. Das Spiel richtet sich an Kinder, die Weinverkostung an Erwachsene.",
+        "fr": "À Satigny, cette animation d’Halloween comprend une chasse aux bonbons en famille, puis un loto pour les enfants et une dégustation de vin pour les adultes. Les enfants sont concernés par le loto, tandis que les adultes prennent part à la dégustation."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:46:13.004Z"
+    },
+    "ge-agenda:hallomania-chasse-bonbons-oies-atelier-creatif-degustation-vins-dardagny::1461903ec07f4ad4c38e046196f453107fdf05d5a6a43c5638afac9c6e86f2a5": {
+      "id": "ge-agenda:hallomania-chasse-bonbons-oies-atelier-creatif-degustation-vins-dardagny",
+      "sourceDescriptionHash": "1461903ec07f4ad4c38e046196f453107fdf05d5a6a43c5638afac9c6e86f2a5",
+      "description": "Presso il Domaine des Crets-Malval, a Dardagny, l’animazione comprende una caccia alle caramelle per famiglie e un incontro con le oche. I bambini possono partecipare a un laboratorio creativo, mentre per gli adulti è prevista una degustazione di vini; il biglietto costa CHF 26.",
+      "descriptionByLocale": {
+        "it": "Presso il Domaine des Crets-Malval, a Dardagny, l’animazione comprende una caccia alle caramelle per famiglie e un incontro con le oche. I bambini possono partecipare a un laboratorio creativo, mentre per gli adulti è prevista una degustazione di vini; il biglietto costa CHF 26.",
+        "en": "At Domaine des Crets-Malval in Dardagny, the event includes a family candy hunt and an encounter with geese. Children can take part in a creative workshop, while adults are offered a wine tasting; admission costs CHF 26.",
+        "de": "Im Domaine des Crets-Malval in Dardagny umfasst die Veranstaltung eine Süssigkeitensuche für Familien und eine Begegnung mit Gänsen. Kinder können an einem Kreativworkshop teilnehmen, während für Erwachsene eine Weinverkostung vorgesehen ist; der Eintritt kostet CHF 26.",
+        "fr": "Au Domaine des Crets-Malval, à Dardagny, l’animation comprend une chasse aux bonbons en famille et une rencontre avec les oies. Les enfants peuvent participer à un atelier créatif, tandis qu’une dégustation de vins est prévue pour les adultes; le tarif est de 26 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:43:44.793Z"
+    },
+    "ge-agenda:hallomania-chasse-momie-bonbons-parc-evaux-onex::61ca55fde34e2df2ebb34e43404fcae329ef5a6527100fbe09ea482bd23c278e": {
+      "id": "ge-agenda:hallomania-chasse-momie-bonbons-parc-evaux-onex",
+      "sourceDescriptionHash": "61ca55fde34e2df2ebb34e43404fcae329ef5a6527100fbe09ea482bd23c278e",
+      "description": "L’evento propone un’animazione a tema con una ricerca di mummie e dolci. Si svolge al Parc des Évaux di Onex durante Halloween e la partecipazione costa 29 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un’animazione a tema con una ricerca di mummie e dolci. Si svolge al Parc des Évaux di Onex durante Halloween e la partecipazione costa 29 CHF.",
+        "en": "This animation event centers on a themed search involving mummies and sweets. It takes place at Parc des Évaux in Onex around Halloween, with participation priced at CHF 29.",
+        "de": "Die Veranstaltung bietet eine thematische Suche rund um Mumien und Süßigkeiten. Sie findet während Halloween im Parc des Évaux in Onex statt; die Teilnahme kostet 29 CHF.",
+        "fr": "Cette animation propose une recherche thématique autour des momies et des bonbons. Elle a lieu au Parc des Évaux à Onex pendant Halloween, au prix de 29 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:47:28.645Z"
+    },
+    "ge-agenda:hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral-0::eb0624f70f79231ee0814c046159a723c5caf429a2a3bee64bba38869da957ae": {
+      "id": "ge-agenda:hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral-0",
+      "sourceDescriptionHash": "eb0624f70f79231ee0814c046159a723c5caf429a2a3bee64bba38869da957ae",
+      "description": "L’evento è indicato come annullato. A Soral erano previste due cacce alle caramelle per Halloween: una nel Domaine de la Mermière e una proposta fluorescente sotto luce nera, con degustazione di vino per gli adulti. Il prezzo indicato era di 30 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento è indicato come annullato. A Soral erano previste due cacce alle caramelle per Halloween: una nel Domaine de la Mermière e una proposta fluorescente sotto luce nera, con degustazione di vino per gli adulti. Il prezzo indicato era di 30 CHF.",
+        "en": "The event is listed as cancelled. In Soral, the Halloween programme was to include two candy hunts: one at the Domaine de la Mermière and a fluorescent version under black light, together with a wine tasting for adults. The listed price was CHF 30.",
+        "de": "Die Veranstaltung ist als abgesagt gekennzeichnet. In Soral waren zu Halloween zwei Süssigkeiten-Suchen vorgesehen: eine auf dem Domaine de la Mermière und eine fluoreszierende Variante unter Schwarzlicht, ergänzt durch eine Weinverkostung für Erwachsene. Der angegebene Preis betrug 30 CHF.",
+        "fr": "L’événement est annoncé comme annulé. À Soral, le programme d’Halloween prévoyait deux chasses aux bonbons : l’une dans le domaine viticole de la Mermière et l’autre sous un éclairage noir avec un dispositif fluorescent, accompagnées d’une dégustation de vin destinée aux adultes. Le tarif indiqué était de 30 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:47:27.331Z"
+    },
+    "ge-agenda:hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral::4fab9b7e701e230e0472b4507110e165b280503290496760ebab19775fb3993a": {
+      "id": "ge-agenda:hallomania-double-chasse-bonbons-vignes-fluo-degustation-vins-soral",
+      "sourceDescriptionHash": "4fab9b7e701e230e0472b4507110e165b280503290496760ebab19775fb3993a",
+      "description": "Il programma di Halloween a Soral comprende due diverse cacce alle caramelle. Una si svolge su un rimorchio tra i vigneti di una tenuta vinicola, mentre l’altra è una caccia fluorescente sotto luce nera; l’evento include anche una degustazione di vini e il prezzo indicato è di 30 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma di Halloween a Soral comprende due diverse cacce alle caramelle. Una si svolge su un rimorchio tra i vigneti di una tenuta vinicola, mentre l’altra è una caccia fluorescente sotto luce nera; l’evento include anche una degustazione di vini e il prezzo indicato è di 30 CHF.",
+        "en": "The Halloween programme in Soral includes two separate candy hunts. One takes place on a trailer among the vineyards of a wine estate, while the other is a fluorescent hunt under black light; the event also includes wine tasting and the listed price is CHF 30.",
+        "de": "Das Halloween-Programm in Soral umfasst zwei verschiedene Suchen nach Süssigkeiten. Eine findet mit einem Anhänger zwischen den Reben eines Weinguts statt, während die andere als fluoreszierende Suche unter Schwarzlicht organisiert ist; zusätzlich gehört eine Weinverkostung dazu, der angegebene Preis beträgt 30 CHF.",
+        "fr": "À Soral, le programme d’Halloween comprend deux chasses aux bonbons distinctes. La première se déroule en remorque dans un domaine viticole, tandis que la seconde prend une forme fluorescente sous lumière noire ; une dégustation de vins est également prévue et le prix indiqué est de 30 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:48:03.906Z"
+    },
+    "ge-agenda:hallomania-soiree-fluo-party-domaine-bossons-satigny::d6e52c901b81ec02e8feac90fae5984dc5a3af7b754f1160255cab9042260bb2": {
+      "id": "ge-agenda:hallomania-soiree-fluo-party-domaine-bossons-satigny",
+      "sourceDescriptionHash": "d6e52c901b81ec02e8feac90fae5984dc5a3af7b754f1160255cab9042260bb2",
+      "description": "Al Domaine des Bossons di Satigny è prevista una serata di clubbing con musica di un DJ. L’evento di Halloween comprende luce nera, trucco, accessori fluorescenti e i vini del Domaine.",
+      "descriptionByLocale": {
+        "it": "Al Domaine des Bossons di Satigny è prevista una serata di clubbing con musica di un DJ. L’evento di Halloween comprende luce nera, trucco, accessori fluorescenti e i vini del Domaine.",
+        "en": "Domaine des Bossons in Satigny hosts a clubbing evening with music by a DJ. The Halloween event includes black light, makeup, fluorescent accessories and wines from the estate.",
+        "de": "Im Domaine des Bossons in Satigny ist ein Clubbing-Abend mit Musik eines DJs vorgesehen. Zur Halloween-Veranstaltung gehören Schwarzlicht, Schminke, fluoreszierende Accessoires und Weine des Weinguts.",
+        "fr": "Au Domaine des Bossons à Satigny, une soirée clubbing est prévue avec la musique d’un DJ. L’événement d’Halloween comprend des lumières noires, du maquillage, des accessoires fluorescents et les vins du Domaine."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:41:40.081Z"
+    },
     "ge-agenda:herbier-feuilles::f78f655b9df4621b9178645da6c6a0df5002de88f358b12e414e4608ec63416a": {
       "id": "ge-agenda:herbier-feuilles",
       "sourceDescriptionHash": "f78f655b9df4621b9178645da6c6a0df5002de88f358b12e414e4608ec63416a",
@@ -5073,6 +5465,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:06:09.243Z"
+    },
+    "ge-agenda:herbier-jean-jacques-rousseau-0::6abc85b93a3d4c195a028957a4e6abee1a804eeeb565bf86b95d845447b786af": {
+      "id": "ge-agenda:herbier-jean-jacques-rousseau-0",
+      "sourceDescriptionHash": "6abc85b93a3d4c195a028957a4e6abee1a804eeeb565bf86b95d845447b786af",
+      "description": "Questa visita guidata a Ginevra è dedicata all’erbario associato a Jean-Jacques Rousseau. Presenta la storia di questo erbario e il contesto della sua realizzazione; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "Questa visita guidata a Ginevra è dedicata all’erbario associato a Jean-Jacques Rousseau. Presenta la storia di questo erbario e il contesto della sua realizzazione; la partecipazione è gratuita.",
+        "en": "This guided visit in Geneva focuses on the herbarium associated with Jean-Jacques Rousseau. It presents the history of the herbarium and the context in which it was created, and admission is free.",
+        "de": "Bei dieser kommentierten Führung in Genf geht es um das Herbarium von Jean-Jacques Rousseau. Erläutert werden die Geschichte des Herbariums und der Kontext seiner Entstehung; die Teilnahme ist kostenlos.",
+        "fr": "Cette visite commentée à Genève porte sur l’herbier associé à Jean-Jacques Rousseau. Elle présente l’histoire de cet herbier et le contexte de sa réalisation; la participation est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:56:54.271Z"
     },
     "ge-agenda:herbier-jean-jacques-rousseau-5::6abc85b93a3d4c195a028957a4e6abee1a804eeeb565bf86b95d845447b786af": {
       "id": "ge-agenda:herbier-jean-jacques-rousseau-5",
@@ -5298,6 +5704,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:15:04.345Z"
     },
+    "ge-agenda:initiation-practica-tango-ginebrina::82c1a3584fcb8088ae86a25a4a6ba85c150551596eef8029440c2dc9cfb95ae5": {
+      "id": "ge-agenda:initiation-practica-tango-ginebrina",
+      "sourceDescriptionHash": "82c1a3584fcb8088ae86a25a4a6ba85c150551596eef8029440c2dc9cfb95ae5",
+      "description": "L’evento di danza comprende un’introduzione al tango e una sessione di pratica. Si svolge a Ginevra e costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento di danza comprende un’introduzione al tango e una sessione di pratica. Si svolge a Ginevra e costa 10 CHF.",
+        "en": "This dance event combines an introduction to tango with a practice session. It takes place in Geneva and costs CHF 10.",
+        "de": "Bei dieser Tanzveranstaltung werden eine Einführung in den Tango und eine anschließende Praxis verbunden. Die Veranstaltung findet in Genf statt und kostet 10 CHF.",
+        "fr": "Cet événement de danse associe une initiation au tango à une séance de pratique. Il a lieu à Genève et coûte 10 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:23:19.456Z"
+    },
     "ge-agenda:intersexes-histoire-encre-invisible-conference-discussion::6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6": {
       "id": "ge-agenda:intersexes-histoire-encre-invisible-conference-discussion",
       "sourceDescriptionHash": "6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6",
@@ -5480,6 +5900,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T00:37:53.904Z"
     },
+    "ge-agenda:journees-verre::d18bace2d2ab15df7b2c44d04999e16fa6578f7ac98266fa76befcef5455ae36": {
+      "id": "ge-agenda:journees-verre",
+      "sourceDescriptionHash": "d18bace2d2ab15df7b2c44d04999e16fa6578f7ac98266fa76befcef5455ae36",
+      "description": "L’incontro-conferenza a Ginevra esplora il vetro da diverse prospettive. Il programma comprende conferenze, visite, una performance, momenti di confronto e un workshop; l’ingresso costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "L’incontro-conferenza a Ginevra esplora il vetro da diverse prospettive. Il programma comprende conferenze, visite, una performance, momenti di confronto e un workshop; l’ingresso costa 10 CHF.",
+        "en": "This conference and meeting in Geneva examines glass from several perspectives. The programme includes talks, visits, a performance, meetings and a workshop; admission costs CHF 10.",
+        "de": "Die Konferenz und Begegnung in Genf beleuchtet Glas aus verschiedenen Perspektiven. Vorgesehen sind Vorträge, Besichtigungen, eine Performance, Gespräche und ein Workshop; der Eintritt kostet 10 CHF.",
+        "fr": "Cette rencontre-conférence à Genève explore le verre sous différents angles. Le programme comprend des conférences, des visites, une performance, des échanges et un atelier ; l’entrée coûte 10 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:41:30.756Z"
+    },
     "ge-agenda:kenkylla-afro-caribbean-soca-dancehall::1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142": {
       "id": "ge-agenda:kenkylla-afro-caribbean-soca-dancehall",
       "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
@@ -5535,6 +5969,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T21:30:49.199Z"
+    },
+    "ge-agenda:langages-sacres-metamorphoses-martin-abega::b16a8e3a47cc90ba8df96fb86651c1cb7d5f5c767ae7866841e907b76e1cf600": {
+      "id": "ge-agenda:langages-sacres-metamorphoses-martin-abega",
+      "sourceDescriptionHash": "b16a8e3a47cc90ba8df96fb86651c1cb7d5f5c767ae7866841e907b76e1cf600",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Exposition; organiser: Ville de Genève Agenda; date: 2026-10-13; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Exposition; veranstalter: Ville de Genève Agenda; datum: 2026-10-13; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Exposition; organisateur: Ville de Genève Agenda; date: 2026-10-13; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:21.281Z"
     },
     "ge-agenda:last-dance-sundance-stompede::9164102d12886c031cd0ccd19211ae1545d1e9f2aa428852468659d6220d1e8a": {
       "id": "ge-agenda:last-dance-sundance-stompede",
@@ -5619,6 +6067,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T22:30:09.700Z"
+    },
+    "ge-agenda:louis-billette-6tet-mohs-feat-fanny-martin-arthur-hnatek::5bf97ddcd8af48de504b4267948d58562bf618023db021019b21aadc5e3cd498": {
+      "id": "ge-agenda:louis-billette-6tet-mohs-feat-fanny-martin-arthur-hnatek",
+      "sourceDescriptionHash": "5bf97ddcd8af48de504b4267948d58562bf618023db021019b21aadc5e3cd498",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:00.728Z"
     },
     "ge-agenda:luther::9eacea59bae25af2ddf26ef6d65b321751dca56edd18ebd50fe9c15093b5c2b6": {
       "id": "ge-agenda:luther",
@@ -5802,6 +6264,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T15:14:34.160Z"
     },
+    "ge-agenda:marie-ducate-simultanes-4::131b34dd18b7e08de218e016fefbc393a81e4050c90a16fbcff603ee0a41b816": {
+      "id": "ge-agenda:marie-ducate-simultanes-4",
+      "sourceDescriptionHash": "131b34dd18b7e08de218e016fefbc393a81e4050c90a16fbcff603ee0a41b816",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-01; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-01; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; organiser: Ville de Genève Agenda; date: 2026-11-01; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; veranstalter: Ville de Genève Agenda; datum: 2026-11-01; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; organisateur: Ville de Genève Agenda; date: 2026-11-01; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:00.739Z"
+    },
     "ge-agenda:martha-stettler-empouvoirement-artiste::413a8a2fbfd49ccab54f403cb70cf4386f896bd965d68825fce80f0aae8d3e46": {
       "id": "ge-agenda:martha-stettler-empouvoirement-artiste",
       "sourceDescriptionHash": "413a8a2fbfd49ccab54f403cb70cf4386f896bd965d68825fce80f0aae8d3e46",
@@ -5816,6 +6292,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T12:14:44.179Z"
     },
+    "ge-agenda:matieres-inflammables::d2c391054d18f817c30c649d60b8b1c3adf78d781218168a41172bdd6ae54d9d": {
+      "id": "ge-agenda:matieres-inflammables",
+      "sourceDescriptionHash": "d2c391054d18f817c30c649d60b8b1c3adf78d781218168a41172bdd6ae54d9d",
+      "description": "La lettura di tre giorni è dedicata alla scrittura contemporanea. L’appuntamento si concentra sui testi che stanno nascendo e su ciò che prende forma nei pensieri e nelle vite, qui e altrove.",
+      "descriptionByLocale": {
+        "it": "La lettura di tre giorni è dedicata alla scrittura contemporanea. L’appuntamento si concentra sui testi che stanno nascendo e su ciò che prende forma nei pensieri e nelle vite, qui e altrove.",
+        "en": "This three-day reading focuses on contemporary writing. It considers texts being created now and what is taking shape in people’s thoughts and lives, both here and elsewhere.",
+        "de": "Die dreitägige Lesung widmet sich dem zeitgenössischen Schreiben. Sie richtet den Blick auf Texte, die gerade entstehen, sowie auf das, was sich in Gedanken und Lebenswelten hier und anderswo entwickelt.",
+        "fr": "Cette lecture de trois jours s’intéresse à l’écriture contemporaine. Elle observe les textes en cours de création et ce qui se développe dans les esprits et les vies, ici comme ailleurs."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:35:55.594Z"
+    },
     "ge-agenda:mediter-mah-confiance::cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8": {
       "id": "ge-agenda:mediter-mah-confiance",
       "sourceDescriptionHash": "cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8",
@@ -5829,6 +6319,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:51:24.692Z"
+    },
+    "ge-agenda:menace-chorale::cfea299c5e54b75458b880cefc7dcfc44fe92bd3893ff673eee3dbebce409c24": {
+      "id": "ge-agenda:menace-chorale",
+      "sourceDescriptionHash": "cfea299c5e54b75458b880cefc7dcfc44fe92bd3893ff673eee3dbebce409c24",
+      "description": "A Ginevra, la Comédie de Genève ospita uno spettacolo teatrale. Gabriel Sparti cura la messinscena di una corale amatoriale, impegnata a prepararsi a un grande evento con una nuova direttrice.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, la Comédie de Genève ospita uno spettacolo teatrale. Gabriel Sparti cura la messinscena di una corale amatoriale, impegnata a prepararsi a un grande evento con una nuova direttrice.",
+        "en": "This theatre production is presented at the Comédie de Genève in Geneva. Gabriel Sparti stages an amateur choir preparing for a major event under the guidance of a new female conductor.",
+        "de": "Die Theateraufführung findet in der Comédie de Genève in Genf statt. Gabriel Sparti inszeniert einen Amateurchor, der sich unter der Leitung einer neuen Dirigentin auf einen bedeutenden Anlass vorbereitet.",
+        "fr": "À Genève, une chorale amateur se prépare à un événement majeur sous la direction d’une nouvelle cheffe. Gabriel Sparti assure la mise en scène de ce spectacle théâtral à la Comédie de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:40:00.700Z"
     },
     "ge-agenda:menagerie-verre::2f82bad251067bf655a80fba3b1c4079f25418ea0d1f83b253400d3fb0a1c5e1": {
       "id": "ge-agenda:menagerie-verre",
@@ -6068,6 +6572,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:18:16.600Z"
     },
+    "ge-agenda:mois-histoire-lgbtiq-2026::6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6": {
+      "id": "ge-agenda:mois-histoire-lgbtiq-2026",
+      "sourceDescriptionHash": "6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6",
+      "description": "L’appuntamento si svolge a Ginevra nell’ottobre 2026 e rientra nella categoria delle conferenze e degli incontri. È organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si svolge a Ginevra nell’ottobre 2026 e rientra nella categoria delle conferenze e degli incontri. È organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "The event takes place in Geneva during October 2026 and belongs to the conference and meeting category. It is organized by Ville de Genève Agenda and admission is free.",
+        "de": "Die Veranstaltung findet im Oktober 2026 in Genf statt und ist als Konferenz und Begegnung eingestuft. Sie wird von Ville de Genève Agenda organisiert und ist kostenlos.",
+        "fr": "L’événement se déroule à Genève en octobre 2026 et relève de la catégorie des conférences et rencontres. Il est organisé par Ville de Genève Agenda et l’accès est gratuit."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:21:33.063Z"
+    },
     "ge-agenda:molt-lluny-away::aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3": {
       "id": "ge-agenda:molt-lluny-away",
       "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
@@ -6166,6 +6684,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T08:19:17.299Z"
     },
+    "ge-agenda:mort-presentation-sarah-joliat-bibliotheque-cite::839069d639cc1dedd1c7bfb1efd2b3ae7412665ee61dbdb62fb17c2d063a2f18": {
+      "id": "ge-agenda:mort-presentation-sarah-joliat-bibliotheque-cite",
+      "sourceDescriptionHash": "839069d639cc1dedd1c7bfb1efd2b3ae7412665ee61dbdb62fb17c2d063a2f18",
+      "description": "Sarah Joliat presenta un nuovo gioco dedicato al tema della morte. L’incontro gratuito alla Bibliothèque de la Cité di Ginevra affronta questo argomento attraverso l’umorismo e la riflessione.",
+      "descriptionByLocale": {
+        "it": "Sarah Joliat presenta un nuovo gioco dedicato al tema della morte. L’incontro gratuito alla Bibliothèque de la Cité di Ginevra affronta questo argomento attraverso l’umorismo e la riflessione.",
+        "en": "Sarah Joliat presents a new game that explores the theme of death. The free event at the Bibliothèque de la Cité in Geneva approaches this subject through humour and reflection.",
+        "de": "Sarah Joliat stellt ein neues Spiel vor, das sich mit dem Tod auseinandersetzt. Die kostenlose Veranstaltung in der Bibliothèque de la Cité in Genf nähert sich diesem Thema über Humor und Reflexion.",
+        "fr": "Sarah Joliat présente un nouveau jeu consacré à la mort. La rencontre gratuite à la Bibliothèque de la Cité, à Genève, aborde ce thème par l’humour et la réflexion."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:51:10.466Z"
+    },
     "ge-agenda:mots-photographies-cohabitation-texte-image-exposition::dc42a75b412f766929be61af95b3628b346164cb547bbd7bd65eb7d1abee3b43": {
       "id": "ge-agenda:mots-photographies-cohabitation-texte-image-exposition",
       "sourceDescriptionHash": "dc42a75b412f766929be61af95b3628b346164cb547bbd7bd65eb7d1abee3b43",
@@ -6193,6 +6725,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-07T23:35:39.098Z"
+    },
+    "ge-agenda:muertos-festival::053b5139555f0d64c6d97e8664b95c3c9fcc338625330901efd998a221374d65": {
+      "id": "ge-agenda:muertos-festival",
+      "sourceDescriptionHash": "053b5139555f0d64c6d97e8664b95c3c9fcc338625330901efd998a221374d65",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Festival; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Festival; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Festival; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:30.473Z"
     },
     "ge-agenda:musee-pages-0::85bcb80db6a3f7a195d031bdb5de9c5165070c1a3a85d3df81a9f443f0086f35": {
       "id": "ge-agenda:musee-pages-0",
@@ -7258,6 +7804,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T01:18:41.502Z"
     },
+    "ge-agenda:ravens-geneve-contre-fribourg-women-league::6c6abba1d62edc93f7c1b49df9c4a4f8f5c107f13c68be09a67797dbd7183be9": {
+      "id": "ge-agenda:ravens-geneve-contre-fribourg-women-league",
+      "sourceDescriptionHash": "6c6abba1d62edc93f7c1b49df9c4a4f8f5c107f13c68be09a67797dbd7183be9",
+      "description": "È in programma una partita di basket femminile della SBL Women league tra Ravens de Genève e Fribourg. L’incontro si svolge a Ginevra e il biglietto costa 2 CHF.",
+      "descriptionByLocale": {
+        "it": "È in programma una partita di basket femminile della SBL Women league tra Ravens de Genève e Fribourg. L’incontro si svolge a Ginevra e il biglietto costa 2 CHF.",
+        "en": "This event is a women’s basketball game in the SBL Women league between Ravens de Genève and Fribourg. It takes place in Geneva, and admission costs CHF 2.",
+        "de": "Die Veranstaltung ist ein Frauenbasketballspiel der SBL Women league zwischen Ravens de Genève und Fribourg. Sie findet in Genf statt, und der Eintritt kostet 2 CHF.",
+        "fr": "Cet événement est un match de basketball féminin de la SBL Women league entre les Ravens de Genève et Fribourg. Il a lieu à Genève et l’entrée coûte 2 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:24:51.053Z"
+    },
     "ge-agenda:redacthon-formation-journalisme-droits-humains::b0baec8754a279cdedc169aa98dfba383439769a3c1b30ea151d898fbe1d7f1e": {
       "id": "ge-agenda:redacthon-formation-journalisme-droits-humains",
       "sourceDescriptionHash": "b0baec8754a279cdedc169aa98dfba383439769a3c1b30ea151d898fbe1d7f1e",
@@ -7313,6 +7873,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T11:14:03.045Z"
+    },
+    "ge-agenda:rencontres-fertiles-christian-clot::22f54da06c4ce2152943c46704f5f45fdaeed4fc6a183d0d9c006bf27005e5c5": {
+      "id": "ge-agenda:rencontres-fertiles-christian-clot",
+      "sourceDescriptionHash": "22f54da06c4ce2152943c46704f5f45fdaeed4fc6a183d0d9c006bf27005e5c5",
+      "description": "L’incontro con Christian Clot è una conferenza dedicata a un modo diverso di considerare il vivente, oltre la prospettiva esclusiva dei dati e dell’emergenza climatica. L’evento si tiene a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’incontro con Christian Clot è una conferenza dedicata a un modo diverso di considerare il vivente, oltre la prospettiva esclusiva dei dati e dell’emergenza climatica. L’evento si tiene a Ginevra e l’ingresso è gratuito.",
+        "en": "This conference event with Christian Clot explores ways of understanding living systems beyond an exclusive focus on data and the climate emergency. The event takes place in Geneva and admission is free.",
+        "de": "Die Konferenz mit Christian Clot widmet sich der Frage, wie das Lebendige jenseits einer ausschließlichen Betrachtung durch Daten und Klimanotstand verstanden werden kann. Die Veranstaltung findet in Genf statt und ist kostenlos.",
+        "fr": "Cette rencontre-conférence avec Christian Clot propose de réfléchir à une autre manière de considérer le vivant, au-delà du seul regard porté sur les données et l’urgence climatique. L’événement a lieu à Genève et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:50:39.004Z"
     },
     "ge-agenda:rendez-citoyens-democratie-augmentee::d3d44b9912b51558042bb5ba92894dd01c184325ca2024f6efb8fe65187ac213": {
       "id": "ge-agenda:rendez-citoyens-democratie-augmentee",
@@ -7453,6 +8027,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T22:30:09.725Z"
+    },
+    "ge-agenda:retour-copaines-edmond-soiree-burlesque-18::89c668098bf141e96784120f0c13c8e7617997fc91ff8e78bf900e1eb6337b12": {
+      "id": "ge-agenda:retour-copaines-edmond-soiree-burlesque-18",
+      "sourceDescriptionHash": "89c668098bf141e96784120f0c13c8e7617997fc91ff8e78bf900e1eb6337b12",
+      "description": "Questo appuntamento teatrale propone uno spettacolo burlesque associato ad Halloween. L’evento si tiene a Ginevra, è destinato a un pubblico di almeno 18 anni ed è organizzato da Ville de Genève Agenda; il prezzo d’ingresso è di 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento teatrale propone uno spettacolo burlesque associato ad Halloween. L’evento si tiene a Ginevra, è destinato a un pubblico di almeno 18 anni ed è organizzato da Ville de Genève Agenda; il prezzo d’ingresso è di 15 CHF.",
+        "en": "This theatre event presents a burlesque show associated with Halloween. It takes place in Geneva, is intended for audiences aged 18 and over, and is organised by Ville de Genève Agenda; admission costs CHF 15.",
+        "de": "Bei dieser Theaterveranstaltung wird eine Burlesque-Show mit Bezug zu Halloween gezeigt. Sie findet in Genf statt, richtet sich an Personen ab 18 Jahren und wird von Ville de Genève Agenda organisiert; der Eintritt kostet 15 CHF.",
+        "fr": "Ce rendez-vous théâtral propose un spectacle burlesque lié à Halloween. Il a lieu à Genève, s’adresse aux personnes de 18 ans et plus et est organisé par Ville de Genève Agenda ; l’entrée coûte 15 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:50:36.233Z"
     },
     "ge-agenda:retrospective-jose-luis-guerin::13c25ff20357f8892f6cf7f073c2734787cb561322a8ba78e38a304a4c48b918": {
       "id": "ge-agenda:retrospective-jose-luis-guerin",
@@ -8028,6 +8616,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:02:33.173Z"
     },
+    "ge-agenda:soiree-soutien::4d7251472d9655fe133e370e47b148eb058526cd28dfd5429a14f6ee05797193": {
+      "id": "ge-agenda:soiree-soutien",
+      "sourceDescriptionHash": "4d7251472d9655fe133e370e47b148eb058526cd28dfd5429a14f6ee05797193",
+      "description": "L’appuntamento è una serata di danza a Ginevra dedicata al sostegno delle persone migranti LGBTIQ+. È organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una serata di danza a Ginevra dedicata al sostegno delle persone migranti LGBTIQ+. È organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "This dance event in Geneva supports LGBTIQ+ migrants and includes their participation. It is organized by Ville de Genève Agenda, and admission is free.",
+        "de": "Die Tanzveranstaltung in Genf unterstützt LGBTIQ+-Migrantinnen und -Migranten und wird von ihnen mitgetragen. Sie wird von Ville de Genève Agenda organisiert, und der Eintritt ist kostenlos.",
+        "fr": "Cette soirée de danse à Genève soutient les personnes migrantes LGBTIQ+ et est conçue avec leur participation. Elle est organisée par Ville de Genève Agenda et son accès est gratuit."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:31:32.064Z"
+    },
     "ge-agenda:soiree-speciale-partenariat-cinemas-grutli::fabcb3099635176644639e75ca5b013242ac5a90422a657ad72356b83d76ab39": {
       "id": "ge-agenda:soiree-speciale-partenariat-cinemas-grutli",
       "sourceDescriptionHash": "fabcb3099635176644639e75ca5b013242ac5a90422a657ad72356b83d76ab39",
@@ -8125,6 +8727,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T21:24:49.163Z"
+    },
+    "ge-agenda:spectacle-improvisation-anglais-renegade-saints-2::8560b8dc7d7a8c62036b706db4c9830b4a6bf3d995a0014469437461f9c2470d": {
+      "id": "ge-agenda:spectacle-improvisation-anglais-renegade-saints-2",
+      "sourceDescriptionHash": "8560b8dc7d7a8c62036b706db4c9830b4a6bf3d995a0014469437461f9c2470d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; organizzatore: Ville de Genève Agenda; data: 2026-10-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; organizzatore: Ville de Genève Agenda; data: 2026-10-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Animation; organiser: Ville de Genève Agenda; date: 2026-10-17; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Animation; veranstalter: Ville de Genève Agenda; datum: 2026-10-17; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Animation; organisateur: Ville de Genève Agenda; date: 2026-10-17; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:00.718Z"
     },
     "ge-agenda:spectacle-improvisation-anglais-renegade-saints::826a1af6cbbf111194e039cc3dc2eea53676d3e5c4791c5d75079e5286971fb8": {
       "id": "ge-agenda:spectacle-improvisation-anglais-renegade-saints",
@@ -8294,6 +8910,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:17:50.088Z"
     },
+    "ge-agenda:sullivan-fortner-trio::d31b262bb40bb7ce6daf69d0e4cdd1ff6ec6ca155a059f8b475bde592bb43047": {
+      "id": "ge-agenda:sullivan-fortner-trio",
+      "sourceDescriptionHash": "d31b262bb40bb7ce6daf69d0e4cdd1ff6ec6ca155a059f8b475bde592bb43047",
+      "description": "Il concerto presenta il trio di Sullivan Fortner all’AMR di Ginevra. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Il concerto presenta il trio di Sullivan Fortner all’AMR di Ginevra. L’ingresso costa 15 CHF.",
+        "en": "This concert presents the Sullivan Fortner trio at AMR in Geneva. Admission costs CHF 15.",
+        "de": "Bei diesem Konzert tritt das Sullivan-Fortner-Trio im AMR in Genf auf. Der Eintritt kostet 15 CHF.",
+        "fr": "Ce concert accueille le trio de Sullivan Fortner à l’AMR, à Genève. Le tarif est de 15 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:50:05.869Z"
+    },
     "ge-agenda:summer-pearl-concert-chat-noir::a53dacd49183667ab0bb7d5e57ab6154a3db22e029c94a9d5803066c15fd9f6b": {
       "id": "ge-agenda:summer-pearl-concert-chat-noir",
       "sourceDescriptionHash": "a53dacd49183667ab0bb7d5e57ab6154a3db22e029c94a9d5803066c15fd9f6b",
@@ -8322,6 +8952,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:20:25.210Z"
     },
+    "ge-agenda:symphonic-disco::e5f4bec98d05969e529ebcd0c0a0a6dc8745d528248223f5b642bc3d48348a3b": {
+      "id": "ge-agenda:symphonic-disco",
+      "sourceDescriptionHash": "e5f4bec98d05969e529ebcd0c0a0a6dc8745d528248223f5b642bc3d48348a3b",
+      "description": "Questo concerto presenta brani da ballo di varie decadi in una rilettura per orchestra sinfonica. L’appuntamento è in programma a Ginevra e rientra nella categoria dei concerti.",
+      "descriptionByLocale": {
+        "it": "Questo concerto presenta brani da ballo di varie decadi in una rilettura per orchestra sinfonica. L’appuntamento è in programma a Ginevra e rientra nella categoria dei concerti.",
+        "en": "This concert offers dance music from several decades in a symphonic arrangement. The event is listed in Geneva as a concert.",
+        "de": "Das Konzert verbindet Tanzmusik aus mehreren Jahrzehnten mit einer sinfonischen Bearbeitung. Die Veranstaltung ist in Genf als Konzert eingetragen.",
+        "fr": "Ce concert propose des morceaux dansants de plusieurs décennies dans une adaptation symphonique. Le rendez-vous est répertorié à Genève dans la catégorie des concerts."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:49:39.041Z"
+    },
     "ge-agenda:table-amour-manon-kruttli-jonas-buhler::10612edc1addeee5b9ded7f87af68e27c5f6f8728fd27d5d1f044c6b77e20c73": {
       "id": "ge-agenda:table-amour-manon-kruttli-jonas-buhler",
       "sourceDescriptionHash": "10612edc1addeee5b9ded7f87af68e27c5f6f8728fd27d5d1f044c6b77e20c73",
@@ -8349,6 +8993,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:26:27.805Z"
+    },
+    "ge-agenda:taloco-grim-dancehall-amapiano::1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142": {
+      "id": "ge-agenda:taloco-grim-dancehall-amapiano",
+      "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
+      "description": "Questo appuntamento di clubbing presenta DJ TALOCO e richiama hip hop, grim, dancehall e amapiano. Si svolge a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento di clubbing presenta DJ TALOCO e richiama hip hop, grim, dancehall e amapiano. Si svolge a Ginevra e l’ingresso è gratuito.",
+        "en": "This clubbing event features DJ TALOCO and the styles hip-hop, grim, dancehall and amapiano. It takes place in Geneva, and admission is free.",
+        "de": "Die Clubbing-Veranstaltung nennt DJ TALOCO sowie Hip-Hop, Grim, Dancehall und Amapiano. Sie findet in Genf statt, und der Eintritt ist frei.",
+        "fr": "Ce rendez-vous de clubbing présente DJ TALOCO et les styles hip-hop, grim, dancehall et amapiano. Il se déroule à Genève et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:37:51.085Z"
     },
     "ge-agenda:tango-sante-2::cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8": {
       "id": "ge-agenda:tango-sante-2",
@@ -8839,6 +9497,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T01:19:46.062Z"
+    },
+    "ge-agenda:visite-musee-sapeurs-pompiers-ville-geneve::e7f3fab3e235b3e938f18b4ac3e6fafe2e10502574c56a00d4abe4e4e7b5df56": {
+      "id": "ge-agenda:visite-musee-sapeurs-pompiers-ville-geneve",
+      "sourceDescriptionHash": "e7f3fab3e235b3e938f18b4ac3e6fafe2e10502574c56a00d4abe4e4e7b5df56",
+      "description": "L’appuntamento propone una visita commentata a un museo dedicato ai vigili del fuoco a Ginevra. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita commentata a un museo dedicato ai vigili del fuoco a Ginevra. L’ingresso è gratuito.",
+        "en": "The event offers a guided visit to a museum dedicated to the fire service in Geneva. Admission is free.",
+        "de": "Die Veranstaltung bietet eine kommentierte Besichtigung eines Feuerwehrmuseums in Genf. Der Eintritt ist kostenlos.",
+        "fr": "Ce rendez-vous propose une visite commentée d’un musée consacré aux sapeurs-pompiers à Genève. L’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:49:54.043Z"
     },
     "ge-agenda:visite-petits-doigts-0::972a65c7f449cd3b1cfe21ec9860895941770c81f0c1f59eedd7bb197af42a0a": {
       "id": "ge-agenda:visite-petits-doigts-0",
@@ -29952,6 +30624,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T19:37:56.866Z"
     },
+    "lu-stadt-agenda:6840403::20bd8dbe06fbe49b6653626b2876953ee32e3e34596e4663b9f431b9c0950ec9": {
+      "id": "lu-stadt-agenda:6840403",
+      "sourceDescriptionHash": "20bd8dbe06fbe49b6653626b2876953ee32e3e34596e4663b9f431b9c0950ec9",
+      "description": "L’evento è una mostra d’arte a Luzern. È organizzato da Stadt Luzern — Termine e si svolge nell’arco di più giorni.",
+      "descriptionByLocale": {
+        "it": "L’evento è una mostra d’arte a Luzern. È organizzato da Stadt Luzern — Termine e si svolge nell’arco di più giorni.",
+        "en": "This event is an art exhibition in Luzern. It is organised by Stadt Luzern — Termine and takes place over several days.",
+        "de": "Bei der Veranstaltung handelt es sich um eine Kunstausstellung in Luzern. Sie wird von Stadt Luzern — Termine organisiert und erstreckt sich über mehrere Tage.",
+        "fr": "Cette manifestation est une exposition d’art à Luzern. Elle est organisée par Stadt Luzern — Termine et s’étend sur plusieurs jours."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:22:24.213Z"
+    },
     "lu-stadt-agenda:7456402::d3024b265a6f5f82c6198f89dff9191c96f0c3daf09e8e2e996887005af30212": {
       "id": "lu-stadt-agenda:7456402",
       "sourceDescriptionHash": "d3024b265a6f5f82c6198f89dff9191c96f0c3daf09e8e2e996887005af30212",
@@ -30022,6 +30708,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T03:33:55.111Z"
     },
+    "lu-stadt-agenda:7648405::dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074": {
+      "id": "lu-stadt-agenda:7648405",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074",
+      "description": "L’incontro propone un’attività Feldenkrais basata su movimenti delicati eseguiti da seduti e in piedi. Il lavoro mira a sostenere la capacità di reazione, la postura, la sicurezza nel camminare e l’equilibrio, ed è rivolto a persone di ogni età e livello di esperienza.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone un’attività Feldenkrais basata su movimenti delicati eseguiti da seduti e in piedi. Il lavoro mira a sostenere la capacità di reazione, la postura, la sicurezza nel camminare e l’equilibrio, ed è rivolto a persone di ogni età e livello di esperienza.",
+        "en": "The event introduces Feldenkrais through gentle movements performed while seated and standing. The exercises address responsiveness, upright posture, walking stability and balance, and are suitable for people of all ages regardless of prior experience or physical condition.",
+        "de": "Die Veranstaltung vermittelt Feldenkrais mit sanften Bewegungen im Sitzen und im Stehen. Die Übungen unterstützen Reaktionsfähigkeit, Aufrichtung, Gangsicherheit und Gleichgewicht und eignen sich für Menschen jeden Alters unabhängig von Vorkenntnissen oder körperlicher Konstitution.",
+        "fr": "Cette rencontre présente la méthode Feldenkrais à travers des mouvements doux réalisés assis et debout. L’activité s’adresse à toute personne, quel que soit son âge, son expérience préalable ou sa condition physique, et travaille la réactivité, l’alignement du corps, l’assurance dans la marche et l’équilibre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:32:45.450Z"
+    },
     "lu-stadt-agenda:7649719::6f23092835b39b3c9b26459e82d544b9405c8c5f4a5d98d79b784d4f7dbd24c6": {
       "id": "lu-stadt-agenda:7649719",
       "sourceDescriptionHash": "6f23092835b39b3c9b26459e82d544b9405c8c5f4a5d98d79b784d4f7dbd24c6",
@@ -30063,6 +30763,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:19:10.032Z"
+    },
+    "lu-stadt-agenda:7729408::f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d": {
+      "id": "lu-stadt-agenda:7729408",
+      "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Luzern; cantone: LU; organizzatore: Stadt Luzern — Termine; data: 2026-10-22; ora: 08:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Luzern; cantone: LU; organizzatore: Stadt Luzern — Termine; data: 2026-10-22; ora: 08:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Luzern; canton: LU; organiser: Stadt Luzern — Termine; date: 2026-10-22; time: 08:15. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Luzern; kanton: LU; veranstalter: Stadt Luzern — Termine; datum: 2026-10-22; uhrzeit: 08:15. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Luzern; canton: LU; organisateur: Stadt Luzern — Termine; date: 2026-10-22; heure: 08:15. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:16:30.460Z"
     },
     "myswitzerland:000612257ad84a8faf9fd5d9a1b6258e::dfcafdd6e9e937e70ec55d1ae4ba4f4eb271cc1fdabc1acb923cddbfb111f5be": {
       "id": "myswitzerland:000612257ad84a8faf9fd5d9a1b6258e",
@@ -60402,6 +61116,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T00:21:03.308Z"
     },
+    "myswitzerland:552fc5272b734763a6b031f7163d3f5d::beb278296a369d859b3f5fc14e2c10a8e852bdb2d436da6009818ae5b6baa284": {
+      "id": "myswitzerland:552fc5272b734763a6b031f7163d3f5d",
+      "sourceDescriptionHash": "beb278296a369d859b3f5fc14e2c10a8e852bdb2d436da6009818ae5b6baa284",
+      "description": "L’evento di Sissach esamina l’influenza culturale della Corea e del Giappone sulle tendenze internazionali e sulla vita quotidiana, con riferimenti a BTS e agli anime. MySwitzerland è indicata come organizzatrice dell’appuntamento.",
+      "descriptionByLocale": {
+        "it": "L’evento di Sissach esamina l’influenza culturale della Corea e del Giappone sulle tendenze internazionali e sulla vita quotidiana, con riferimenti a BTS e agli anime. MySwitzerland è indicata come organizzatrice dell’appuntamento.",
+        "en": "The event in Sissach examines how Korea and Japan influence international trends and everyday life, with references to BTS and anime. MySwitzerland is listed as the organiser.",
+        "de": "Die Veranstaltung in Sissach betrachtet, wie kulturelle Impulse aus Korea und Japan internationale Trends und den Alltag prägen, mit Bezügen zu BTS und Anime. MySwitzerland ist als Organisatorin angegeben.",
+        "fr": "À Sissach, cet événement s’intéresse à l’influence de la Corée et du Japon sur les tendances internationales et la vie quotidienne, avec des références à BTS et à l’anime. MySwitzerland en est l’organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:20:21.142Z"
+    },
     "myswitzerland:5530cb8e24c6440382b93de4a45a700e::f39bcd2fea63fa6c54f066f1f964defb5e8893a0ee65644da3b542ff22789301": {
       "id": "myswitzerland:5530cb8e24c6440382b93de4a45a700e",
       "sourceDescriptionHash": "f39bcd2fea63fa6c54f066f1f964defb5e8893a0ee65644da3b542ff22789301",
@@ -61410,6 +62138,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T08:23:24.364Z"
     },
+    "myswitzerland:57976beec3544a6b87d167ee0db0543e::60463e8fc17be0a50878bedf126b54a1b3e6d5a34732ce756fc8fb8699450e0e": {
+      "id": "myswitzerland:57976beec3544a6b87d167ee0db0543e",
+      "sourceDescriptionHash": "60463e8fc17be0a50878bedf126b54a1b3e6d5a34732ce756fc8fb8699450e0e",
+      "description": "L’evento presenta improvvisazioni della durata di cinque-dieci minuti rivolte ai bambini. Ogni intervento li conduce in ambienti diversi, ispirati a mondi che desidererebbero esplorare.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta improvvisazioni della durata di cinque-dieci minuti rivolte ai bambini. Ogni intervento li conduce in ambienti diversi, ispirati a mondi che desidererebbero esplorare.",
+        "en": "The event presents improvisations lasting five to ten minutes for children. Each segment takes them through varied settings inspired by worlds they would like to explore.",
+        "de": "Die Veranstaltung bietet Improvisationen von fünf bis zehn Minuten für Kinder. Die einzelnen Beiträge führen durch verschiedene Vorstellungswelten, die Kinder gerne entdecken würden.",
+        "fr": "L’événement propose des improvisations de cinq à dix minutes destinées aux enfants. Les séquences les font passer par des univers variés liés à des mondes qu’ils aimeraient découvrir."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:52:34.728Z"
+    },
     "myswitzerland:57b1ee14d101438080442b47d5a7f0c2::9cea5504c9623fc90713c333c6d91acbe7c0102841040053ada744c8d2b24921": {
       "id": "myswitzerland:57b1ee14d101438080442b47d5a7f0c2",
       "sourceDescriptionHash": "9cea5504c9623fc90713c333c6d91acbe7c0102841040053ada744c8d2b24921",
@@ -61788,6 +62530,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T16:22:25.952Z"
     },
+    "myswitzerland:58f5008a8ed640988c113aa736451c4c::2d0a0bfc2f763bbe322a9a908f2110d27b2cc3cc2ffb9047985f9838dad63c9b": {
+      "id": "myswitzerland:58f5008a8ed640988c113aa736451c4c",
+      "sourceDescriptionHash": "2d0a0bfc2f763bbe322a9a908f2110d27b2cc3cc2ffb9047985f9838dad63c9b",
+      "description": "L’appuntamento ricorrente propone una visita serale al Grossmünster di Zurigo, con un’impostazione meditativa. Il percorso si svolge all’interno della chiesa illuminata da candele e crea un’atmosfera mistica.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente propone una visita serale al Grossmünster di Zurigo, con un’impostazione meditativa. Il percorso si svolge all’interno della chiesa illuminata da candele e crea un’atmosfera mistica.",
+        "en": "This recurring event offers a meditative evening tour of Grossmünster in Zurich. The visit takes place inside the church by candlelight and creates a mystical atmosphere.",
+        "de": "Die wiederkehrende Veranstaltung bietet eine meditative Führung am Abend durch das Grossmünster in Zürich. Der Rundgang findet im Kirchenraum bei Kerzenlicht statt und vermittelt eine mystische Atmosphäre.",
+        "fr": "Ce rendez-vous récurrent propose une visite nocturne et méditative du Grossmünster à Zurich. Le parcours se déroule dans l’espace intérieur de l’église à la lumière des bougies et crée une atmosphère mystique."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:41:50.161Z"
+    },
     "myswitzerland:5900b01020214f4f9d3722d9739f9dc8::241585f1fcf47113040bb103bda7ae104495c35f18835492c9bfa2edad6d5cd8": {
       "id": "myswitzerland:5900b01020214f4f9d3722d9739f9dc8",
       "sourceDescriptionHash": "241585f1fcf47113040bb103bda7ae104495c35f18835492c9bfa2edad6d5cd8",
@@ -62137,6 +62893,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:49:20.494Z"
+    },
+    "myswitzerland:5a107aef689f4628b54dc6a3144efcd3::92bc062d976dfd9564453d210f008b34b31659f63ff717b6b061d5f477fe9fe2": {
+      "id": "myswitzerland:5a107aef689f4628b54dc6a3144efcd3",
+      "sourceDescriptionHash": "92bc062d976dfd9564453d210f008b34b31659f63ff717b6b061d5f477fe9fe2",
+      "description": "L’appuntamento ruota attorno a Matilda, una gatta del museo, e al suo incontro con un topo. Il racconto segue le conseguenze di quell’episodio sul suo desiderio di diventare artista.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ruota attorno a Matilda, una gatta del museo, e al suo incontro con un topo. Il racconto segue le conseguenze di quell’episodio sul suo desiderio di diventare artista.",
+        "en": "The event centres on Matilda, a museum cat, and her encounter with a mouse. It considers how this episode affects her wish to become an artist.",
+        "de": "Im Mittelpunkt steht Matilda, eine Museumskatze, die auf eine Maus trifft. Die Veranstaltung thematisiert, wie dieses Erlebnis ihren Wunsch beeinflusst, Künstlerin zu werden.",
+        "fr": "Le rendez-vous suit Matilda, une chatte de musée confrontée à une souris. Il montre quelles conséquences cette rencontre a sur son souhait de devenir artiste."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:23:35.484Z"
     },
     "myswitzerland:5a1b1805d8384114832e8c83dfbec333::ab222216a7fa5a9134e1c526f470d2e83ea3edc742a23183af6f06a17e54b951": {
       "id": "myswitzerland:5a1b1805d8384114832e8c83dfbec333",
@@ -123808,6 +124578,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:25:32.510Z"
     },
+    "tio-agenda:62918::bd2d398828483c1345e3d84145a5f5e0324284eed2f25f181cf7ca7d3bcadee5": {
+      "id": "tio-agenda:62918",
+      "sourceDescriptionHash": "bd2d398828483c1345e3d84145a5f5e0324284eed2f25f181cf7ca7d3bcadee5",
+      "description": "Presso il Buffet Bellavista di Capolago, nel Mendrisiotto, è previsto un brunch a buffet con specialità dolci e salate, prodotti locali e bevande calde e fredde senza alcol. La quota di CHF 59.50 comprende anche il viaggio di andata e ritorno sul trenino a cremagliera tra Capolago e Bellavista.",
+      "descriptionByLocale": {
+        "it": "Presso il Buffet Bellavista di Capolago, nel Mendrisiotto, è previsto un brunch a buffet con specialità dolci e salate, prodotti locali e bevande calde e fredde senza alcol. La quota di CHF 59.50 comprende anche il viaggio di andata e ritorno sul trenino a cremagliera tra Capolago e Bellavista.",
+        "en": "At Buffet Bellavista in Capolago, in the Mendrisiotto region, the event offers a buffet brunch with sweet and savoury foods, local products and hot and cold non-alcoholic drinks. The CHF 59.50 price also includes a return journey on the rack railway between Capolago and Bellavista.",
+        "de": "Im Buffet Bellavista in Capolago im Mendrisiotto umfasst der Brunch ein Buffet mit süssen und salzigen Speisen, lokalen Erzeugnissen sowie heissen und kalten alkoholfreien Getränken. Im Preis von CHF 59.50 ist auch die Hin- und Rückfahrt mit der Zahnradbahn zwischen Capolago und Bellavista enthalten.",
+        "fr": "Au Buffet Bellavista de Capolago, dans le Mendrisiotto, le brunch comprend un buffet avec des préparations sucrées et salées, des produits locaux ainsi que des boissons chaudes et froides sans alcool. Le montant de 59,50 CHF inclut aussi le trajet aller-retour en train à crémaillère entre Capolago et Bellavista."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:43:44.754Z"
+    },
     "tio-agenda:62972::8fe300c8197b27a10e9e0ee3e7591838de67502b23e0aa919a087d3f5a134448": {
       "id": "tio-agenda:62972",
       "sourceDescriptionHash": "8fe300c8197b27a10e9e0ee3e7591838de67502b23e0aa919a087d3f5a134448",
@@ -124325,6 +125109,34 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T20:36:18.434Z"
+    },
+    "tio-agenda:63713::4ea07b40a3bad76f8ecd35c4bc11c17245b2cfb4769e78ee276101a3c5ea0ca2": {
+      "id": "tio-agenda:63713",
+      "sourceDescriptionHash": "4ea07b40a3bad76f8ecd35c4bc11c17245b2cfb4769e78ee276101a3c5ea0ca2",
+      "description": "Al Teatro Foce di Lugano va in scena uno spettacolo di burattini e narrazione dedicato ai bambini dai tre anni. La vicenda segue un lupetto ingenuo alle prese con una mosca chiamata Parapiglia, mentre il pubblico può influenzare lo sviluppo del racconto.",
+      "descriptionByLocale": {
+        "it": "Al Teatro Foce di Lugano va in scena uno spettacolo di burattini e narrazione dedicato ai bambini dai tre anni. La vicenda segue un lupetto ingenuo alle prese con una mosca chiamata Parapiglia, mentre il pubblico può influenzare lo sviluppo del racconto.",
+        "en": "At Teatro Foce in Lugano, this event presents a puppet-and-storytelling performance for children aged three and over. The narrative centres on a naive young wolf whose awkwardness grows when he meets a fly named Parapiglia, while the audience can help determine how the story unfolds.",
+        "de": "Im Teatro Foce in Lugano wird ein Puppen- und Erzähltheater für Kinder ab drei Jahren gezeigt. Im Mittelpunkt steht ein gutgläubiger junger Wolf, der durch die Begegnung mit einer Fliege namens Parapiglia noch unbeholfener wird; zugleich kann das Publikum den Verlauf der Geschichte mitbestimmen.",
+        "fr": "Au Teatro Foce de Lugano, le rendez-vous propose un spectacle de marionnettes accompagné d’un récit pour les enfants dès trois ans. L’histoire suit un jeune loup naïf dont la maladresse s’accentue lorsqu’il rencontre une mouche appelée Parapiglia, tandis que le public peut influer sur son déroulement."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:36:50.778Z"
+    },
+    "tio-agenda:63714::57f8b100ec141c4dc1fd005fbc73893fec83b3e747d88cb80d573267031f85a0": {
+      "id": "tio-agenda:63714",
+      "sourceDescriptionHash": "57f8b100ec141c4dc1fd005fbc73893fec83b3e747d88cb80d573267031f85a0",
+      "description": "Lo spettacolo teatrale al Teatro Foce di Lugano utilizza marionette a fili. Senza parole, unisce musica e movimento delle figure in brevi racconti per un pubblico di tutte le età, compresi i bambini dai quattro anni.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale al Teatro Foce di Lugano utilizza marionette a fili. Senza parole, unisce musica e movimento delle figure in brevi racconti per un pubblico di tutte le età, compresi i bambini dai quattro anni.",
+        "en": "This theatre production at Teatro Foce in Lugano uses string puppets. It has no spoken dialogue and combines music with puppet movement in short stories for all ages, including children aged four and over.",
+        "de": "Die Theateraufführung im Teatro Foce in Lugano arbeitet mit Fadenmarionetten. Ohne gesprochene Sprache verbindet sie Musik und Figurenbewegung in kurzen Geschichten für alle Altersgruppen, auch für Kinder ab vier Jahren.",
+        "fr": "Ce spectacle de théâtre au Teatro Foce à Lugano met en scène des marionnettes à fils. Sans dialogue parlé, il associe musique et mouvement des figures dans de courtes histoires pour tous les âges, notamment les enfants dès quatre ans."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:54:49.527Z"
     },
     "tio-agenda:63754::87a253f12c2b15b2789d888499a0060a9320445660489975949c95bc4ee5e679": {
       "id": "tio-agenda:63754",
@@ -125978,6 +126790,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:56:27.275Z"
     },
+    "tio-agenda:64298::0e4e1d7c5ad1f2358e8beee20ca18537b11b1c6cdb2eafaebbe03950c7886bfc": {
+      "id": "tio-agenda:64298",
+      "sourceDescriptionHash": "0e4e1d7c5ad1f2358e8beee20ca18537b11b1c6cdb2eafaebbe03950c7886bfc",
+      "description": "Alla Hall del LAC di Lugano è presentata un’installazione artistica di Riccardo Benassi, realizzata con uno schermo LED attraversabile dal corpo umano. Il lavoro invita a percepire la propria presenza fisica e quella degli altri visitatori in una dimensione sensoriale condivisa, legata al tema della “morestalgia” nell’era post-Internet.",
+      "descriptionByLocale": {
+        "it": "Alla Hall del LAC di Lugano è presentata un’installazione artistica di Riccardo Benassi, realizzata con uno schermo LED attraversabile dal corpo umano. Il lavoro invita a percepire la propria presenza fisica e quella degli altri visitatori in una dimensione sensoriale condivisa, legata al tema della “morestalgia” nell’era post-Internet.",
+        "en": "Hall del LAC in Lugano presents an art installation by Riccardo Benassi built around an LED screen that people can pass through. The work draws attention to the physical presence of each visitor and others nearby, while addressing “morestalgia,” a form of painful nostalgia associated with the post-Internet era.",
+        "de": "In der Hall des LAC in Lugano ist eine künstlerische Installation von Riccardo Benassi zu sehen, die auf einem von Menschen durchquerbaren LED-Bildschirm beruht. Die Arbeit lenkt den Blick auf die körperliche Präsenz der einzelnen Besucher und der anderen Anwesenden und behandelt „Morestalgia“ als eine mit dem Post-Internet verbundene schmerzhafte Form von Nostalgie.",
+        "fr": "À la Hall del LAC de Lugano, une installation artistique de Riccardo Benassi s’appuie sur un écran LED que le public peut traverser. L’œuvre attire l’attention sur la présence physique de chaque visiteur et des autres personnes présentes, tout en abordant la « morestalgia », une forme de nostalgie douloureuse associée à l’ère post-Internet."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:44:02.500Z"
+    },
     "tio-agenda:64301::df3df6b7cfba4338129eb1efcc1a8a0b7e9c95325f1743a312e0d204ffcdb746": {
       "id": "tio-agenda:64301",
       "sourceDescriptionHash": "df3df6b7cfba4338129eb1efcc1a8a0b7e9c95325f1743a312e0d204ffcdb746",
@@ -126874,6 +127700,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:22:02.739Z"
     },
+    "tio-agenda:64446::95242e26050161c7d6078ffa1d3afbb7b5e71d62e51fcc6ed1f18bae8121c745": {
+      "id": "tio-agenda:64446",
+      "sourceDescriptionHash": "95242e26050161c7d6078ffa1d3afbb7b5e71d62e51fcc6ed1f18bae8121c745",
+      "description": "È in programma un appuntamento di Halloween dedicato alla musica e al ballo latino presso l’ex concessionaria Vonk, nel Locarnese. Il programma prevede ritmi di bachata e salsa, una pista da ballo di circa 200 m² e un premio per la maschera scelta come migliore.",
+      "descriptionByLocale": {
+        "it": "È in programma un appuntamento di Halloween dedicato alla musica e al ballo latino presso l’ex concessionaria Vonk, nel Locarnese. Il programma prevede ritmi di bachata e salsa, una pista da ballo di circa 200 m² e un premio per la maschera scelta come migliore.",
+        "en": "A Halloween event centred on Latin music and dancing is scheduled at the former Vonk dealership in the Locarnese region. The programme includes bachata and salsa, a dance floor of about 200 square metres, and a prize for the best mask.",
+        "de": "Im ehemaligen Vonk-Autohaus im Locarnese findet eine Halloween-Veranstaltung mit lateinamerikanischer Musik und Tanz statt. Vorgesehen sind Bachata und Salsa, eine rund 200 Quadratmeter grosse Tanzfläche sowie ein Preis für die beste Maske.",
+        "fr": "Un rendez-vous d’Halloween consacré à la musique et à la danse latines est prévu dans l’ancienne concession Vonk, dans le Locarnese. Le programme comprend de la bachata et de la salsa, une piste de danse d’environ 200 m² ainsi qu’un prix pour le meilleur masque."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:40:15.771Z"
+    },
     "tio-agenda:64448::15db2662d5883ab84eda1b55f391b4287017e772bc6b68b1b7d60a733457d547": {
       "id": "tio-agenda:64448",
       "sourceDescriptionHash": "15db2662d5883ab84eda1b55f391b4287017e772bc6b68b1b7d60a733457d547",
@@ -126915,6 +127755,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:24:13.555Z"
+    },
+    "tio-agenda:64452::31bb912a2a0fd4d020602602f7c353ea5a4efe6834c29a2f8f4d16a25b099792": {
+      "id": "tio-agenda:64452",
+      "sourceDescriptionHash": "31bb912a2a0fd4d020602602f7c353ea5a4efe6834c29a2f8f4d16a25b099792",
+      "description": "L’atelier è pensato per bambini dai 5 agli 11 anni, che partecipano senza accompagnatore. Al Museo in erba di Lugano, l’attività prende spunto dalla lettura de «Il libro bianco» e presenta disegni che appaiono sulle pagine. La quota è di 20 CHF e la prenotazione è richiesta.",
+      "descriptionByLocale": {
+        "it": "L’atelier è pensato per bambini dai 5 agli 11 anni, che partecipano senza accompagnatore. Al Museo in erba di Lugano, l’attività prende spunto dalla lettura de «Il libro bianco» e presenta disegni che appaiono sulle pagine. La quota è di 20 CHF e la prenotazione è richiesta.",
+        "en": "This workshop is intended for children aged 5 to 11, who attend without an accompanying adult. Held at Museo in erba in Lugano, it draws on a reading of “Il libro bianco” and explores images that appear on the page. The fee is CHF 20, and advance booking is required.",
+        "de": "Der Workshop richtet sich an Kinder von 5 bis 11 Jahren, die ohne Begleitperson teilnehmen. Im Museo in erba in Lugano knüpft die Aktivität an die Lesung von «Il libro bianco» an und widmet sich Bildern, die auf dem Blatt sichtbar werden. Die Teilnahme kostet 20 CHF; eine Anmeldung ist erforderlich.",
+        "fr": "Cet atelier s’adresse aux enfants de 5 à 11 ans, qui y participent sans accompagnateur. Au Museo in erba à Lugano, l’activité s’inspire de la lecture de « Il libro bianco » et explore des images qui apparaissent sur la feuille. La participation coûte 20 CHF et l’inscription est requise."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:36:04.085Z"
     },
     "tio-agenda:64455::e0388de372a09514cdf66689c3cb1899ec6c51457211e182d8035edc2d68099b": {
       "id": "tio-agenda:64455",
@@ -127139,6 +127993,104 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T23:15:55.196Z"
+    },
+    "tio-agenda:64496::6ea079d2dc1eb201ad1a704535a62928c46a1172125951a0b4f1647c96ab800c": {
+      "id": "tio-agenda:64496",
+      "sourceDescriptionHash": "6ea079d2dc1eb201ad1a704535a62928c46a1172125951a0b4f1647c96ab800c",
+      "description": "È un laboratorio di cucito aperto a persone di diversi livelli, dedicato alla realizzazione di un modello semplice di top personalizzabile. L’attività si svolge presso Atelier Manoamano a Lugano e include la colazione; la partecipazione costa 35 CHF.",
+      "descriptionByLocale": {
+        "it": "È un laboratorio di cucito aperto a persone di diversi livelli, dedicato alla realizzazione di un modello semplice di top personalizzabile. L’attività si svolge presso Atelier Manoamano a Lugano e include la colazione; la partecipazione costa 35 CHF.",
+        "en": "This is a sewing workshop for participants with different levels of experience, focused on making a simple customizable top pattern. It takes place at Atelier Manoamano in Lugano and includes breakfast; the participation fee is CHF 35.",
+        "de": "Der Anlass ist ein Nähatelier für Teilnehmende mit unterschiedlichen Vorkenntnissen, bei dem ein einfaches anpassbares Top-Modell entsteht. Die Veranstaltung findet im Atelier Manoamano in Lugano statt und umfasst ein Frühstück; die Teilnahme kostet 35 CHF.",
+        "fr": "Cet atelier de couture s’adresse à des personnes de différents niveaux et porte sur la réalisation d’un modèle simple de top personnalisable. Il a lieu à l’Atelier Manoamano, à Lugano, avec le petit-déjeuner compris ; la participation coûte 35 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:24:51.636Z"
+    },
+    "tio-agenda:64497::b6b8e813b9f116bc9091576d2f2f0a81b37732689e5444d45d3883e3eb08f23e": {
+      "id": "tio-agenda:64497",
+      "sourceDescriptionHash": "b6b8e813b9f116bc9091576d2f2f0a81b37732689e5444d45d3883e3eb08f23e",
+      "description": "L’appuntamento propone un’introduzione pratica alla legatura giapponese, con indicazioni sulla storia del libro giapponese e sulla realizzazione di quaderni cuciti. I partecipanti possono sperimentare motivi di cucitura personali durante una serata con aperitivo e materiali inclusi, presso Atelier Manoamano a Lugano; la quota è di 45 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un’introduzione pratica alla legatura giapponese, con indicazioni sulla storia del libro giapponese e sulla realizzazione di quaderni cuciti. I partecipanti possono sperimentare motivi di cucitura personali durante una serata con aperitivo e materiali inclusi, presso Atelier Manoamano a Lugano; la quota è di 45 CHF.",
+        "en": "This workshop introduces participants to Japanese bookbinding through practical guidance on making sewn notebooks and a brief look at the history of Japanese books. The programme includes an aperitif and materials, with room to develop an individual sewing pattern at Atelier Manoamano in Lugano for a fee of CHF 45.",
+        "de": "Der Termin vermittelt praktische Grundlagen der japanischen Buchbindung und verbindet die Arbeit an genähten Heften mit einem kurzen Einblick in die Geschichte japanischer Bücher. Zum Angebot gehören ein Aperitif und das benötigte Material; eigene Stichmuster können im Atelier Manoamano in Lugano entwickelt werden, die Teilnahme kostet 45 CHF.",
+        "fr": "Cet atelier présente les bases pratiques de la reliure japonaise et aborde la fabrication de cahiers cousus ainsi que quelques repères sur l’histoire du livre japonais. Un apéritif et le matériel sont compris; les participants peuvent concevoir leur propre motif de couture à l’Atelier Manoamano, à Lugano, pour 45 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:20:44.261Z"
+    },
+    "tio-agenda:64502::3209ceed50e4b0b9c3c984fbf9f5e729052ddd5e4873779d3a898f503c040184": {
+      "id": "tio-agenda:64502",
+      "sourceDescriptionHash": "3209ceed50e4b0b9c3c984fbf9f5e729052ddd5e4873779d3a898f503c040184",
+      "description": "L’incontro inaugura un progetto fotografico legato a Rovio. Il lavoro di Nicole Biernath è presentato dal Circolo di cultura Rovio e dintorni nella Sala multiuso.",
+      "descriptionByLocale": {
+        "it": "L’incontro inaugura un progetto fotografico legato a Rovio. Il lavoro di Nicole Biernath è presentato dal Circolo di cultura Rovio e dintorni nella Sala multiuso.",
+        "en": "The event marks the opening of a photographic project connected with Rovio. The work by Nicole Biernath is presented by the Circolo di cultura Rovio e dintorni at the Sala multiuso.",
+        "de": "Die Veranstaltung eröffnet ein fotografisches Projekt mit Bezug zu Rovio. Die Arbeit von Nicole Biernath wird vom Circolo di cultura Rovio e dintorni in der Sala multiuso präsentiert.",
+        "fr": "Le rendez-vous inaugure un projet photographique lié à Rovio. L’œuvre de Nicole Biernath est présentée par le Circolo di cultura Rovio e dintorni à la Sala multiuso."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:23:29.269Z"
+    },
+    "tio-agenda:64504::054109dd9e5e91cb69a7d16082848b24503a221c4bde4621cac50fddae20202d": {
+      "id": "tio-agenda:64504",
+      "sourceDescriptionHash": "054109dd9e5e91cb69a7d16082848b24503a221c4bde4621cac50fddae20202d",
+      "description": "RESEX è un laboratorio esperienziale a Bellinzona che esplora i rapporti, la sessualità e il benessere personale tramite il dialogo e piccole attività. L’incontro è rivolto alle persone dai 18 anni ed è facilitato da Mélanie Gallino e da una rappresentante di creiAMOci; i posti sono limitati e l’iscrizione è obbligatoria.",
+      "descriptionByLocale": {
+        "it": "RESEX è un laboratorio esperienziale a Bellinzona che esplora i rapporti, la sessualità e il benessere personale tramite il dialogo e piccole attività. L’incontro è rivolto alle persone dai 18 anni ed è facilitato da Mélanie Gallino e da una rappresentante di creiAMOci; i posti sono limitati e l’iscrizione è obbligatoria.",
+        "en": "RESEX is an experiential workshop in Bellinzona exploring relationships, sexuality and personal well-being through conversation and small activities. It is for adults aged 18 and above, with Mélanie Gallino and a representative of creiAMOci facilitating the session; places are limited and registration is required.",
+        "de": "RESEX ist ein erfahrungsorientierter Workshop in Bellinzona über Beziehungen, Sexualität und persönliches Wohlbefinden, der Austausch und kurze Aktivitäten verbindet. Er richtet sich an Personen ab 18 Jahren und wird von Mélanie Gallino sowie einer Vertreterin von creiAMOci begleitet; wegen der begrenzten Plätze ist eine Anmeldung erforderlich.",
+        "fr": "RESEX est un atelier expérientiel à Bellinzone qui aborde les relations, la sexualité et le bien-être personnel par le dialogue et de petites activités. Il s’adresse aux personnes de 18 ans et plus et est animé par Mélanie Gallino avec une représentante de creiAMOci; les places étant limitées, l’inscription est obligatoire."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:17:29.608Z"
+    },
+    "tio-agenda:64508::871a1049f3640bd6617f83de292ccb173eca7475048c3c8407ea20016f3df90e": {
+      "id": "tio-agenda:64508",
+      "sourceDescriptionHash": "871a1049f3640bd6617f83de292ccb173eca7475048c3c8407ea20016f3df90e",
+      "description": "Nell’Aula magna di Grono viene proiettato un documentario diretto da Domenico Lucchini. La pellicola racconta la vita di Salman Luban, nonno materno del regista, che fu il primo medico condotto ad arrivare in Calanca dalla Bielorussia; l’ingresso è gratuito e, al termine, è previsto un rinfresco.",
+      "descriptionByLocale": {
+        "it": "Nell’Aula magna di Grono viene proiettato un documentario diretto da Domenico Lucchini. La pellicola racconta la vita di Salman Luban, nonno materno del regista, che fu il primo medico condotto ad arrivare in Calanca dalla Bielorussia; l’ingresso è gratuito e, al termine, è previsto un rinfresco.",
+        "en": "At the Aula magna in Grono, a documentary directed by Domenico Lucchini is screened. It follows Salman Luban, the director’s maternal grandfather, who was the first district doctor to arrive in Calanca from Belarus; admission is free and refreshments follow the screening.",
+        "de": "In der Aula magna in Grono wird ein Dokumentarfilm von Domenico Lucchini gezeigt. Er handelt von Salman Luban, dem Grossvater mütterlicherseits des Regisseurs, der als erster Gemeindearzt aus Belarus nach Calanca kam; der Eintritt ist frei, danach wird ein Imbiss angeboten.",
+        "fr": "À l’Aula magna de Grono, un documentaire réalisé par Domenico Lucchini est projeté. Il retrace le parcours de Salman Luban, grand-père maternel du réalisateur et premier médecin de district arrivé en Calanca depuis la Biélorussie; l’entrée est gratuite et un rafraîchissement est prévu après la séance."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:22:55.725Z"
+    },
+    "tio-agenda:64509::78fe5c2e08903d41fd8492928a433e4fe1449f99d9b18942fb79b14f20ab2ae5": {
+      "id": "tio-agenda:64509",
+      "sourceDescriptionHash": "78fe5c2e08903d41fd8492928a433e4fe1449f99d9b18942fb79b14f20ab2ae5",
+      "description": "Spettacolo per il giovane pubblico, questa rilettura contemporanea e al femminile di una fiaba di Andersen segue una giovane imperatrice sottoposta all’influenza di uno specchio magico. Con linguaggio corporeo e una clownerie poetica e ironica, la messinscena racconta come un abito incantato la conduca a confrontarsi con paure e insicurezze, soffermandosi sui modelli estetici e di genere, sul giudizio sociale e sulla costruzione dell’identità.",
+      "descriptionByLocale": {
+        "it": "Spettacolo per il giovane pubblico, questa rilettura contemporanea e al femminile di una fiaba di Andersen segue una giovane imperatrice sottoposta all’influenza di uno specchio magico. Con linguaggio corporeo e una clownerie poetica e ironica, la messinscena racconta come un abito incantato la conduca a confrontarsi con paure e insicurezze, soffermandosi sui modelli estetici e di genere, sul giudizio sociale e sulla costruzione dell’identità.",
+        "en": "This production for younger audiences offers a contemporary, female-centred take on an Andersen fairy tale, following a young empress whose appearance and conduct are governed by a magical mirror. Through physical expression and poetic, ironic clowning, it shows how an enchanted garment makes her face fear and self-doubt while examining beauty standards, gender expectations, social judgement and the development of an independent identity.",
+        "de": "Die Inszenierung für ein junges Publikum erzählt ein Andersen-Märchen aus zeitgenössischer und weiblicher Perspektive neu und begleitet eine junge Kaiserin, deren Aussehen und Verhalten von einem Zauberspiegel bestimmt werden. Mit körperlichem Ausdruck sowie poetischem und ironischem Clownspiel zeigt sie, wie ein magisches Kleid die Hauptfigur mit Ängsten und Unsicherheiten konfrontiert; zugleich thematisiert sie Schönheits- und Geschlechterbilder, gesellschaftliche Beurteilung und die freie Entwicklung der eigenen Identität.",
+        "fr": "Ce spectacle destiné au jeune public propose une relecture contemporaine et féminine d’un conte d’Andersen, centrée sur une jeune impératrice dont un miroir magique règle l’apparence et la conduite. Le langage du corps et une clownerie poétique et ironique accompagnent le récit d’un vêtement enchanté qui l’oblige à affronter ses peurs et ses doutes, tandis que l’œuvre aborde les normes esthétiques et de genre, le regard social et la construction libre de l’identité."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:35:56.651Z"
+    },
+    "tio-agenda:64516::df21150fcff2513862a4700bfea1ea9fa33b16bd81b4a05a21b65dfa30f48028": {
+      "id": "tio-agenda:64516",
+      "sourceDescriptionHash": "df21150fcff2513862a4700bfea1ea9fa33b16bd81b4a05a21b65dfa30f48028",
+      "description": "Il Bar Convento propone un appuntamento dedicato all’Oktoberfest nella zona del Bellinzonese. Il programma comprende la Gara del Mass, un toro meccanico, gonfiabili, cucina tipica e musica con Andrea Tritelli, Gabri e Diego Croci.",
+      "descriptionByLocale": {
+        "it": "Il Bar Convento propone un appuntamento dedicato all’Oktoberfest nella zona del Bellinzonese. Il programma comprende la Gara del Mass, un toro meccanico, gonfiabili, cucina tipica e musica con Andrea Tritelli, Gabri e Diego Croci.",
+        "en": "Bar Convento hosts an Oktoberfest event in the Bellinzonese area. The programme includes a Masskrug competition, a mechanical bull, inflatables, traditional food and music featuring Andrea Tritelli, Gabri and Diego Croci.",
+        "de": "Im Bar Convento im Bellinzonese findet eine Veranstaltung zum Oktoberfest statt. Vorgesehen sind ein Masskrug-Wettbewerb, ein mechanischer Bulle, aufblasbare Attraktionen, typische Küche sowie Musik mit Andrea Tritelli, Gabri und Diego Croci.",
+        "fr": "Le Bar Convento organise un rendez-vous consacré à l’Oktoberfest dans le Bellinzonese. Le programme prévoit un concours de Maß, un taureau mécanique, des structures gonflables, une cuisine traditionnelle et de la musique avec Andrea Tritelli, Gabri et Diego Croci."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-13T14:22:09.308Z"
     }
   },
   "rejections": {
@@ -127484,6 +128436,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:atelier-creez-chocolat-halloween-2::58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb": {
+      "id": "ge-agenda:atelier-creez-chocolat-halloween-2",
+      "sourceDescriptionHash": "58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:43:33.053Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:atelier-decouverte-nature-enfants-explore-goute-apprends-chataigne::c31f4ceb30327dbda76186a8ba8673f79cbd789cb4038bc9152f9bdaba8f7b44": {
       "id": "ge-agenda:atelier-decouverte-nature-enfants-explore-goute-apprends-chataigne",
       "sourceDescriptionHash": "c31f4ceb30327dbda76186a8ba8673f79cbd789cb4038bc9152f9bdaba8f7b44",
@@ -127508,6 +128469,24 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T20:23:39.750Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:ateliers-numeriques-octobre-permanence-numerique-rive::384c834029cdbbf826e109e68be600b5f39e28153093530a9ade29686ca33b4a": {
+      "id": "ge-agenda:ateliers-numeriques-octobre-permanence-numerique-rive",
+      "sourceDescriptionHash": "384c834029cdbbf826e109e68be600b5f39e28153093530a9ade29686ca33b4a",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:20:20.683Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:balexert-20km-geneve::4d0daeea3c85c1006a0aa9500c12e9c407be3798ffaab2013f89136899274693": {
+      "id": "ge-agenda:balexert-20km-geneve",
+      "sourceDescriptionHash": "4d0daeea3c85c1006a0aa9500c12e9c407be3798ffaab2013f89136899274693",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:54:00.582Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -127607,6 +128586,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-12T00:33:47.352Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:breathcore::e8236dd947d3c5906b2a4f8f7e285782f315b70d9adad7e4afda6e9686bbeb88": {
+      "id": "ge-agenda:breathcore",
+      "sourceDescriptionHash": "e8236dd947d3c5906b2a4f8f7e285782f315b70d9adad7e4afda6e9686bbeb88",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:44:27.075Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -127835,6 +128823,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:danced-stances-aurelie-dupuis-lefevre-lisa-laurent-marie-popall-tyra-wigg-spitting-image::d079eec225a72e80da79afeb074398ca72d373d60135bd2895d104bb5c547900": {
+      "id": "ge-agenda:danced-stances-aurelie-dupuis-lefevre-lisa-laurent-marie-popall-tyra-wigg-spitting-image",
+      "sourceDescriptionHash": "d079eec225a72e80da79afeb074398ca72d373d60135bd2895d104bb5c547900",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:42:52.526Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:democratie-droit-partir-oeuvre-giorgio-agamben::34198d78228ec8a2df91e55721efaab84eae5455341c540f4e3d046123fc84bf": {
       "id": "ge-agenda:democratie-droit-partir-oeuvre-giorgio-agamben",
       "sourceDescriptionHash": "34198d78228ec8a2df91e55721efaab84eae5455341c540f4e3d046123fc84bf",
@@ -127877,6 +128874,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T15:17:48.967Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:dimanches-cite-seniors-chesco::b0065cc161a0ea9b2d9a602bfe920dbf63b6cf883c6645ab52a52ab1ef4c5433": {
+      "id": "ge-agenda:dimanches-cite-seniors-chesco",
+      "sourceDescriptionHash": "b0065cc161a0ea9b2d9a602bfe920dbf63b6cf883c6645ab52a52ab1ef4c5433",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:53:11.315Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -127943,6 +128949,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:emergentia-26-hips-they-switch-cuidado-perrxs-tristes-isam-abad-montalvo::90a0ea3e1bb67e049cad9597f99fb06ed41ac231b8711cbfe8c8dae5be385281": {
+      "id": "ge-agenda:emergentia-26-hips-they-switch-cuidado-perrxs-tristes-isam-abad-montalvo",
+      "sourceDescriptionHash": "90a0ea3e1bb67e049cad9597f99fb06ed41ac231b8711cbfe8c8dae5be385281",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:37:18.057Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:ensemble-ensemble::30a2ed6bb7cc5d3627ff1657b082305217759ede660f44ca06d4d3bf28963ce5": {
       "id": "ge-agenda:ensemble-ensemble",
       "sourceDescriptionHash": "30a2ed6bb7cc5d3627ff1657b082305217759ede660f44ca06d4d3bf28963ce5",
@@ -127985,6 +129000,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T15:42:09.616Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:esprits-0::b07835e59ffb923831c2d0ffc9e147a4b71b80b78e99ad1fb5044a0538092188": {
+      "id": "ge-agenda:esprits-0",
+      "sourceDescriptionHash": "b07835e59ffb923831c2d0ffc9e147a4b71b80b78e99ad1fb5044a0538092188",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:42:06.413Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128033,6 +129057,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:festival-tramways-historiques::0010cbafd65d91b44840d8d5ecdab2d4822d75156470bb9b09e130595660dd80": {
+      "id": "ge-agenda:festival-tramways-historiques",
+      "sourceDescriptionHash": "0010cbafd65d91b44840d8d5ecdab2d4822d75156470bb9b09e130595660dd80",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:55:47.929Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:fete-cloture::739f0276b1fc10cbc38898d5446c393ba38938e4ec38c3c38f0897c94ce2851b": {
       "id": "ge-agenda:fete-cloture",
       "sourceDescriptionHash": "739f0276b1fc10cbc38898d5446c393ba38938e4ec38c3c38f0897c94ce2851b",
@@ -128048,6 +129081,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T01:18:49.860Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:fete-espace-quartier-eaux-vives::b46b05285b680752e7c3fc3b7d848b9ff512dcdbc64ac99d6a50b72aea28b45e": {
+      "id": "ge-agenda:fete-espace-quartier-eaux-vives",
+      "sourceDescriptionHash": "b46b05285b680752e7c3fc3b7d848b9ff512dcdbc64ac99d6a50b72aea28b45e",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:48:15.991Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128120,6 +129162,42 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T20:25:29.318Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:hallomania-chasse-bonbons-leman-jardin-anglais-geneve::42b85ce16639916ac66bc16b761c0b940f28cf151a1c1d47456bfc073aac436d": {
+      "id": "ge-agenda:hallomania-chasse-bonbons-leman-jardin-anglais-geneve",
+      "sourceDescriptionHash": "42b85ce16639916ac66bc16b761c0b940f28cf151a1c1d47456bfc073aac436d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:48:33.773Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:hallomania-enquete-assassin-macchabees-vieille-ville-geneve::327e33452533fc83ba967efba8644a5929c438244055e263f1ed7b2272666b89": {
+      "id": "ge-agenda:hallomania-enquete-assassin-macchabees-vieille-ville-geneve",
+      "sourceDescriptionHash": "327e33452533fc83ba967efba8644a5929c438244055e263f1ed7b2272666b89",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:53:49.399Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:hallomania-grande-chasse-lampions-hallie-vieille-ville-geneve::6bb9160471f95b4894b724b82e07e548341eefe49adbf880aa2b6fd469952c91": {
+      "id": "ge-agenda:hallomania-grande-chasse-lampions-hallie-vieille-ville-geneve",
+      "sourceDescriptionHash": "6bb9160471f95b4894b724b82e07e548341eefe49adbf880aa2b6fd469952c91",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:25:51.485Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:hallomania-murder-party-degustation-gourmande-brasserie-murailles-meinier::f63cd9618fe4855e792a59823a10ad2c30f9e248eba59c28f29f9d264cc0af92": {
+      "id": "ge-agenda:hallomania-murder-party-degustation-gourmande-brasserie-murailles-meinier",
+      "sourceDescriptionHash": "f63cd9618fe4855e792a59823a10ad2c30f9e248eba59c28f29f9d264cc0af92",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:38:47.657Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128219,6 +129297,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T23:20:42.661Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:journee-mondiale-soins-palliatifs::4e4d1ab8392e71dbd2b1995c0eaa6d83c13c89929dc1f5b375c667ed4687e2f2": {
+      "id": "ge-agenda:journee-mondiale-soins-palliatifs",
+      "sourceDescriptionHash": "4e4d1ab8392e71dbd2b1995c0eaa6d83c13c89929dc1f5b375c667ed4687e2f2",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:46:54.715Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128348,6 +129435,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:megalloween-festival-soir::7cd164c224f87f55bdf4b5b1d5cc2f4171e40a891b7e09cd48c09b62146d85f7": {
+      "id": "ge-agenda:megalloween-festival-soir",
+      "sourceDescriptionHash": "7cd164c224f87f55bdf4b5b1d5cc2f4171e40a891b7e09cd48c09b62146d85f7",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:51:35.126Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:midis-durabilite-heds-geneve-sensibilisation-numerique-responsable-soutenable::d9970cc9edc1d796d9c0e70c5198d96261f714887df58166135cc8517caff414": {
       "id": "ge-agenda:midis-durabilite-heds-geneve-sensibilisation-numerique-responsable-soutenable",
       "sourceDescriptionHash": "d9970cc9edc1d796d9c0e70c5198d96261f714887df58166135cc8517caff414",
@@ -128381,6 +129477,24 @@
       "code": "new-name",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-10-12T23:18:25.910Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:mort-nouvelle-naissance-conference-sylvie-dethiollaz-bibliotheque-cite::4866d0fa3f21473408f8c03080262dc83de6a4ba02cb841d5ed22eb8c893e532": {
+      "id": "ge-agenda:mort-nouvelle-naissance-conference-sylvie-dethiollaz-bibliotheque-cite",
+      "sourceDescriptionHash": "4866d0fa3f21473408f8c03080262dc83de6a4ba02cb841d5ed22eb8c893e532",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:52:40.787Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:mort-parlons-table-ronde-sarah-joliat-aurelie-jung-vanessa-maier-juliette-raymond-bibliotheque-cite::4b2a5479dfa1614fe1fba34a8151f7a386a5a6fe8b2fc3739cc0a9e853a63286": {
+      "id": "ge-agenda:mort-parlons-table-ronde-sarah-joliat-aurelie-jung-vanessa-maier-juliette-raymond-bibliotheque-cite",
+      "sourceDescriptionHash": "4b2a5479dfa1614fe1fba34a8151f7a386a5a6fe8b2fc3739cc0a9e853a63286",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:52:10.473Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128444,6 +129558,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:26:54.068Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:night-chat-noir::1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142": {
+      "id": "ge-agenda:night-chat-noir",
+      "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:56:24.739Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128672,6 +129795,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:sami-samira-bernath-souslesmontagnes::e074a32d424d64ba21e2c997ed80d758877d247db451e95a055ca6e9f93df0ff": {
+      "id": "ge-agenda:sami-samira-bernath-souslesmontagnes",
+      "sourceDescriptionHash": "e074a32d424d64ba21e2c997ed80d758877d247db451e95a055ca6e9f93df0ff",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:32:51.303Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:secrets-monde-fongique-decouverte-champignons-jardin-botanique-geneve::a96b627b84b058636b75ea8cfdb73b28f4aa8835ae1d1659c7348ab47c93ad21": {
       "id": "ge-agenda:secrets-monde-fongique-decouverte-champignons-jardin-botanique-geneve",
       "sourceDescriptionHash": "a96b627b84b058636b75ea8cfdb73b28f4aa8835ae1d1659c7348ab47c93ad21",
@@ -128771,6 +129903,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:temoin-gaza-efface::84d5529dd485253b3068a10fae60df7ec49691028fe5242f6a48ceb8aaf0eebd": {
+      "id": "ge-agenda:temoin-gaza-efface",
+      "sourceDescriptionHash": "84d5529dd485253b3068a10fae60df7ec49691028fe5242f6a48ceb8aaf0eebd",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:39:47.602Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:temps-trajet-rapprocher-experience-agees::70caf7200e957730ee565a737f81f76b111a5feb3ba539e424716a8f07fc62f7": {
       "id": "ge-agenda:temps-trajet-rapprocher-experience-agees",
       "sourceDescriptionHash": "70caf7200e957730ee565a737f81f76b111a5feb3ba539e424716a8f07fc62f7",
@@ -128813,6 +129954,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-11T21:27:39.231Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:twist-spectacle-impro-rebondir-histoire::b414a07d60e3b7cdd9ea694bbd760970046657aa8ff3382aeed14f96e4aad858": {
+      "id": "ge-agenda:twist-spectacle-impro-rebondir-histoire",
+      "sourceDescriptionHash": "b414a07d60e3b7cdd9ea694bbd760970046657aa8ff3382aeed14f96e4aad858",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:33:45.996Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -128894,6 +130044,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T09:32:36.661Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:wall::70cbf3388f20d4c6414a39db508d283151fe51b1176fc44d5f3304fb60f1351c": {
+      "id": "ge-agenda:wall",
+      "sourceDescriptionHash": "70cbf3388f20d4c6414a39db508d283151fe51b1176fc44d5f3304fb60f1351c",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:31:00.792Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -129524,6 +130683,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T19:27:21.366Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:A9TYnBa::d5352504b1b15fd26605aa1213e800d747a0fa8d72b15e2a9f9df549169aff05": {
+      "id": "guidle:A9TYnBa",
+      "sourceDescriptionHash": "d5352504b1b15fd26605aa1213e800d747a0fa8d72b15e2a9f9df549169aff05",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:48:26.115Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -131903,6 +133071,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:ASEPnSN::978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553": {
+      "id": "guidle:ASEPnSN",
+      "sourceDescriptionHash": "978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:51:43.095Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ASKENTf::51f663da00ad59b0bd6ac037e20bff022c01be47e5cf20172d0772977470f9d3": {
       "id": "guidle:ASKENTf",
       "sourceDescriptionHash": "51f663da00ad59b0bd6ac037e20bff022c01be47e5cf20172d0772977470f9d3",
@@ -133181,12 +134358,30 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "lu-stadt-agenda:7626901::1e518560a2fe0849763c1236c27ac9be042edd9030dc3fae456221bd20f779a7": {
+      "id": "lu-stadt-agenda:7626901",
+      "sourceDescriptionHash": "1e518560a2fe0849763c1236c27ac9be042edd9030dc3fae456221bd20f779a7",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:25:47.242Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "lu-stadt-agenda:7686649::0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af": {
       "id": "lu-stadt-agenda:7686649",
       "sourceDescriptionHash": "0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af",
       "code": "new-name",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-10-12T21:47:10.703Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "lu-stadt-agenda:7694107::f9ec835b60eb69bc8f17eec6337bf5918b59b495432d955a9ba86ec1f67a60b0": {
+      "id": "lu-stadt-agenda:7694107",
+      "sourceDescriptionHash": "f9ec835b60eb69bc8f17eec6337bf5918b59b495432d955a9ba86ec1f67a60b0",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:30:48.622Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -138554,6 +139749,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "myswitzerland:57cf206c140b457e88ee5af6809c7961::600a89ed2170c8255f9ecacd87cb473e3da1a39294a6c2fe5433ce46b2ce4d7d": {
+      "id": "myswitzerland:57cf206c140b457e88ee5af6809c7961",
+      "sourceDescriptionHash": "600a89ed2170c8255f9ecacd87cb473e3da1a39294a6c2fe5433ce46b2ce4d7d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:40:34.227Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "myswitzerland:57d1ead7cd1b48c6ab8a6be8941cd1ce::1c3cd39c8e37c4fd74add9221453141cc3cceaf33ef36030e2b084424e60ca69": {
       "id": "myswitzerland:57d1ead7cd1b48c6ab8a6be8941cd1ce",
       "sourceDescriptionHash": "1c3cd39c8e37c4fd74add9221453141cc3cceaf33ef36030e2b084424e60ca69",
@@ -139001,6 +140205,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-12T09:43:14.945Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "myswitzerland:61d8f6391a3a401db5af9d5ccc109c65::f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a": {
+      "id": "myswitzerland:61d8f6391a3a401db5af9d5ccc109c65",
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:49:00.532Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149021,6 +150234,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "tio-agenda:63414::0cc3d3b7a48dd082ca257c77090b4e46ff2b7e7d6814e5313e650287acd861d6": {
+      "id": "tio-agenda:63414",
+      "sourceDescriptionHash": "0cc3d3b7a48dd082ca257c77090b4e46ff2b7e7d6814e5313e650287acd861d6",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:38:51.167Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "tio-agenda:63445::ed27d7c5be069eee1de52ee21a25e1be563bfb97277b19f2005bca666016bbcf": {
       "id": "tio-agenda:63445",
       "sourceDescriptionHash": "ed27d7c5be069eee1de52ee21a25e1be563bfb97277b19f2005bca666016bbcf",
@@ -149171,6 +150393,15 @@
       "code": "new-number",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T14:39:01.391Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:63720::36b1c2abd2132413a563524063162612d61de2ac7a87ac26e3b7885e236d0a49": {
+      "id": "tio-agenda:63720",
+      "sourceDescriptionHash": "36b1c2abd2132413a563524063162612d61de2ac7a87ac26e3b7885e236d0a49",
+      "code": "promotional-language",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:45:02.662Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -149678,6 +150909,24 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "tio-agenda:64061::f99c7b4d964be4a895383962f972f73bc7c5e7a5edb180c118026b245c39216e": {
+      "id": "tio-agenda:64061",
+      "sourceDescriptionHash": "f99c7b4d964be4a895383962f972f73bc7c5e7a5edb180c118026b245c39216e",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:40:57.235Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64063::c721c3fee87554cd2e9bcb76502c2a1ce627f5bd4ee08833cf899d190e02c9b5": {
+      "id": "tio-agenda:64063",
+      "sourceDescriptionHash": "c721c3fee87554cd2e9bcb76502c2a1ce627f5bd4ee08833cf899d190e02c9b5",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:42:59.339Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "tio-agenda:64066::0e7d025a73ef8534843657f529585893e0a888ff5bacf7b70d74333a5d0d6249": {
       "id": "tio-agenda:64066",
       "sourceDescriptionHash": "0e7d025a73ef8534843657f529585893e0a888ff5bacf7b70d74333a5d0d6249",
@@ -149792,6 +151041,15 @@
       "code": "new-number",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-12T02:24:00.343Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64181::188784c744288c407f5d4e4b4697fa149fe716f538187709518ac76fa69c780d": {
+      "id": "tio-agenda:64181",
+      "sourceDescriptionHash": "188784c744288c407f5d4e4b4697fa149fe716f538187709518ac76fa69c780d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:42:20.945Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -150458,6 +151716,150 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:20:01.498Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64500::5f3af88e063fd05cf446c3fed4e4034dae34d82649de49e4ee80e9302caf8bdb": {
+      "id": "tio-agenda:64500",
+      "sourceDescriptionHash": "5f3af88e063fd05cf446c3fed4e4034dae34d82649de49e4ee80e9302caf8bdb",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:27:47.249Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64506::d828da3f15f06d0ababed788f3e4ef426fd54af10dfceae882faee29c18d321a": {
+      "id": "tio-agenda:64506",
+      "sourceDescriptionHash": "d828da3f15f06d0ababed788f3e4ef426fd54af10dfceae882faee29c18d321a",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:19:16.414Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64507::2ea70a29a1a34af19a0a6d346d27585d0d3c57db0cfc0cd598096111d17ec210": {
+      "id": "tio-agenda:64507",
+      "sourceDescriptionHash": "2ea70a29a1a34af19a0a6d346d27585d0d3c57db0cfc0cd598096111d17ec210",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:39:03.215Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64510::7c080192b7054f130433d4e7c220a95c3517b17ca27cf61e61eb052ea6101965": {
+      "id": "tio-agenda:64510",
+      "sourceDescriptionHash": "7c080192b7054f130433d4e7c220a95c3517b17ca27cf61e61eb052ea6101965",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:44:27.969Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64512::767860b1a0111b11d2674fce3ee5e33dfbd548d2cbbcaeafd879a5e3411da141": {
+      "id": "tio-agenda:64512",
+      "sourceDescriptionHash": "767860b1a0111b11d2674fce3ee5e33dfbd548d2cbbcaeafd879a5e3411da141",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:38:08.992Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64513::92a0b2141491d499aa0d3cccc7d322e1fd426668c540b42625a212fb18f3b132": {
+      "id": "tio-agenda:64513",
+      "sourceDescriptionHash": "92a0b2141491d499aa0d3cccc7d322e1fd426668c540b42625a212fb18f3b132",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:35:07.732Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64514::7e11c8577b5691748abf286cd6f0cbac46ab8ecd90c00b58982c6b738a23fbbf": {
+      "id": "tio-agenda:64514",
+      "sourceDescriptionHash": "7e11c8577b5691748abf286cd6f0cbac46ab8ecd90c00b58982c6b738a23fbbf",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:45:09.731Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64518::87a39f034af8041e7f29b4bfcd9657d8d3fbbbe75727e363bc2548e54ed87021": {
+      "id": "tio-agenda:64518",
+      "sourceDescriptionHash": "87a39f034af8041e7f29b4bfcd9657d8d3fbbbe75727e363bc2548e54ed87021",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:22:27.326Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64519::e5035e1b037b3511baa0cebb1290e1dcf4a277d4f70dbf48d04b8588c79366c2": {
+      "id": "tio-agenda:64519",
+      "sourceDescriptionHash": "e5035e1b037b3511baa0cebb1290e1dcf4a277d4f70dbf48d04b8588c79366c2",
+      "code": "source-ngram-8",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:31:44.090Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64520::3c277b5d323d44f8c1cca341a4a062e3c53bccdccc00870d6bbe1bb286d4a50b": {
+      "id": "tio-agenda:64520",
+      "sourceDescriptionHash": "3c277b5d323d44f8c1cca341a4a062e3c53bccdccc00870d6bbe1bb286d4a50b",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:21:12.530Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64524::24ca3e7bb2032c8d0f9f649b5a39e41e4b759f9046ca2ad8bd4d5a86802095e6": {
+      "id": "tio-agenda:64524",
+      "sourceDescriptionHash": "24ca3e7bb2032c8d0f9f649b5a39e41e4b759f9046ca2ad8bd4d5a86802095e6",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:21:26.499Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64525::02464a53d41405a43484d9f07b5618ad4ab367593d15e1ea24e7203a69b2ca52": {
+      "id": "tio-agenda:64525",
+      "sourceDescriptionHash": "02464a53d41405a43484d9f07b5618ad4ab367593d15e1ea24e7203a69b2ca52",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:23:14.699Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64527::58b652ae40863fb833e12dcb459196162306bb7579188eee05787bdc08b62ab3": {
+      "id": "tio-agenda:64527",
+      "sourceDescriptionHash": "58b652ae40863fb833e12dcb459196162306bb7579188eee05787bdc08b62ab3",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:19:35.627Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64529::8f4ee6de2276159933139adb46721777a36015db9f201f61750c74f130f42a70": {
+      "id": "tio-agenda:64529",
+      "sourceDescriptionHash": "8f4ee6de2276159933139adb46721777a36015db9f201f61750c74f130f42a70",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:27:54.408Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64530::9f690468b0e8024d52e735152f81b1398d76e6f5e9463ab956552283fb02b3a9": {
+      "id": "tio-agenda:64530",
+      "sourceDescriptionHash": "9f690468b0e8024d52e735152f81b1398d76e6f5e9463ab956552283fb02b3a9",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:26:54.041Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64531::933fb05e45a157e37a9ee49e7ffbfc3ebeaffaea3202b6961597af40c1d57d35": {
+      "id": "tio-agenda:64531",
+      "sourceDescriptionHash": "933fb05e45a157e37a9ee49e7ffbfc3ebeaffaea3202b6961597af40c1d57d35",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-13T14:26:46.542Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
