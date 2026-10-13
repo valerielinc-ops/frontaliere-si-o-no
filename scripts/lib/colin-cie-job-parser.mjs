@@ -1,3 +1,41 @@
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+
+const COLIN_CIE_CITY_GEOGRAPHY = Object.freeze({
+  lugano:       { location: 'Lugano',       canton: 'TI', country: 'CH' },
+  zurich:       { location: 'Zürich',       canton: 'ZH', country: 'CH' },
+  schaffhausen: { location: 'Schaffhausen', canton: 'SH', country: 'CH' },
+  basel:        { location: 'Basel',        canton: 'BS', country: 'CH' },
+  bern:         { location: 'Bern',         canton: 'BE', country: 'CH' },
+  luzern:       { location: 'Luzern',       canton: 'LU', country: 'CH' },
+  zug:          { location: 'Zug',          canton: 'ZG', country: 'CH' },
+  munsbach:     { location: 'Munsbach',     canton: '',   country: 'LU' },
+});
+
+function normalizeColinCieCity(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+/** Accept only a source-tagged country/city pair that resolves to a Swiss office. */
+export function resolveColinCieGeography(row = {}) {
+  const country = String(row.country || '').trim();
+  const city = String(row.city || '').trim();
+  if (!country || !city) return null;
+
+  const mapped = COLIN_CIE_CITY_GEOGRAPHY[normalizeColinCieCity(city)];
+  if (!mapped || mapped.country !== 'CH') return null;
+
+  const sourceGeography = resolveSourceBackedSwissGeography({
+    location: city,
+    addressCountry: country,
+  });
+  if (!sourceGeography || sourceGeography.canton !== mapped.canton) return null;
+  return mapped;
+}
+
 /**
  * Colin&Cie detail page → job description.
  *

@@ -4,10 +4,40 @@ import {
   MUELLER_STEINMAUR_COMPANY_NAME,
   isMuellerSteinmaurJob,
   isTrustedDomain,
+  resolveMuellerSteinmaurGeography,
 } from '../scripts/lib/mueller-steinmaur-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('mueller-steinmaur crawler parser', () => {
+  describe('source-backed country', () => {
+    it('normalizes the official Steinmaur source country to CH', () => {
+      expect(resolveMuellerSteinmaurGeography({
+        location: 'Steinmaur, Zürich',
+        addressLocality: 'Steinmaur',
+        addressRegion: 'Zürich',
+        addressCountry: 'Schweiz',
+        country: 'Schweiz',
+      })).toEqual({
+        location: 'Steinmaur, Zürich',
+        canton: 'ZH',
+        addressCountry: 'CH',
+        country: 'CH',
+      });
+    });
+
+    it('rejects foreign, missing, ambiguous and conflicting source geography', () => {
+      expect(resolveMuellerSteinmaurGeography({
+        location: 'Steinmaur, Zürich', addressRegion: 'Zürich', addressCountry: 'Luxembourg',
+      })).toBeNull();
+      expect(resolveMuellerSteinmaurGeography({ location: 'Steinmaur, Zürich', addressRegion: 'Zürich' })).toBeNull();
+      expect(resolveMuellerSteinmaurGeography({ addressCountry: 'Schweiz' })).toBeNull();
+      expect(resolveMuellerSteinmaurGeography({
+        location: 'Steinmaur, Zürich', addressCountry: 'Schweiz', country: 'Luxembourg',
+      })).toBeNull();
+      expect(resolveMuellerSteinmaurGeography({ location: 'Munsbach', addressCountry: 'Schweiz' })).toBeNull();
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MUELLER_STEINMAUR_KEY).toBe('mueller-steinmaur');

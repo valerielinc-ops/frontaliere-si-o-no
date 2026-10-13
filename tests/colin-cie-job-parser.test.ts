@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { parseColinCieJobDescription } from '../scripts/lib/colin-cie-job-parser.mjs';
+import {
+  parseColinCieJobDescription,
+  resolveColinCieGeography,
+} from '../scripts/lib/colin-cie-job-parser.mjs';
 
 // colin-cie.com/de/karriere/wm-berater-de-luxemburg-07-2024 on 2026-09-29,
 // minimized. The office paragraph is what tells the Luxembourg posting from
@@ -48,5 +51,22 @@ describe('Colin&Cie detail description', () => {
     expect(luxembourg).not.toContain('+41 00');
     expect(zurich).toContain('Colin&Cie in Zürich liegt zentral');
     expect(zurich).not.toBe(luxembourg);
+  });
+});
+
+describe('Colin&Cie source-backed country tags', () => {
+  it('keeps a Swiss office only when both country and mapped city are source-backed', () => {
+    expect(resolveColinCieGeography({ country: 'Schweiz', city: 'Zürich' })).toEqual({
+      location: 'Zürich',
+      canton: 'ZH',
+      country: 'CH',
+    });
+  });
+
+  it('quarantines Luxembourg, missing-country and unresolved-city cards', () => {
+    expect(resolveColinCieGeography({ country: 'Luxemburg', city: 'Munsbach' })).toBeNull();
+    expect(resolveColinCieGeography({ country: '', city: 'Zürich' })).toBeNull();
+    expect(resolveColinCieGeography({ country: 'Schweiz', city: 'Unbekannt' })).toBeNull();
+    expect(resolveColinCieGeography({ country: 'Luxemburg', city: 'Zürich' })).toBeNull();
   });
 });
