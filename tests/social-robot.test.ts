@@ -996,6 +996,7 @@ describe('Mac host launch agent', () => {
       }
     };
     walk('scripts/social-robot/run.mjs');
+    walk('scripts/social-robot/persist-browser-insights.mjs');
     walk('scripts/load-rc-env.mjs');
     const missing = [...seen].filter((rel) => !covered(rel));
     expect(missing).toEqual([]);

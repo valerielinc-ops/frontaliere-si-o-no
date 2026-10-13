@@ -44,7 +44,7 @@ max_log_lines=4000
 # for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/lib/is-invoked-directly.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/lib/is-invoked-directly.mjs scripts/lib/single-flight-lock.mjs scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-community-browser.mjs scripts/lib/instagram-insights-browser.mjs scripts/lib/instagram-insights-snapshot.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/ga4-service-account.mjs scripts/lib/analytics-settled-window.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
