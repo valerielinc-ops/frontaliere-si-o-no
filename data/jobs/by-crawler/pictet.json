@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-12T21:17:38.977Z",
+  "assembledAt": "2026-10-13T09:21:04.323Z",
   "jobs": [
     {
       "id": "pictet-ae25ab40e2d8",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125179&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:33.355Z",
+      "crawledAt": "2026-10-13T09:20:58.155Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -74,7 +74,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "pictet-e5e666c24adc",
@@ -83,7 +84,7 @@
         "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
         "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
-        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+        "fr": "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -107,7 +108,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125183&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:32.374Z",
+      "crawledAt": "2026-10-13T09:20:57.694Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -129,7 +130,7 @@
       "previousSlugs": [
         "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
         "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+        "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -137,7 +138,7 @@
         ],
         "fr": [
           "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
-          "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+          "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:18:07.156Z",
@@ -163,7 +164,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "fr": "compliance-officer-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -187,7 +188,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125189&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:31.855Z",
+      "crawledAt": "2026-10-13T09:20:57.155Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -208,14 +209,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "compliance-officer-pictet-group-geneva"
+        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "compliance-officer-pictet-group-geneva"
+          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
@@ -264,7 +265,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125195&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:30.721Z",
+      "crawledAt": "2026-10-13T09:20:56.079Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -305,7 +306,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "pictet-0e2e687084f8",
@@ -338,7 +340,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:30.208Z",
+      "crawledAt": "2026-10-13T09:20:55.479Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -418,7 +420,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125229&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:28.903Z",
+      "crawledAt": "2026-10-13T09:20:54.327Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -470,8 +472,8 @@
       "id": "pictet-403ea060ae05",
       "slug": "project-manager-24-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
       "slugByLocale": {
-        "en": "project-manager-24-month-fixed-term-contract-pictet-geneva",
         "it": "project-manager-24-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
+        "en": "project-manager-24-month-fixed-term-contract-pictet-geneva",
         "de": "projektleiter-24-monatiger-befristeter-vertrag-pictet-group-geneva",
         "fr": "gestionnaire-de-projet-contrat-a-duree-determinee-de-24-mois-pictet-group-geneva"
       },
@@ -480,15 +482,15 @@
       "companyDomain": "pictet.com",
       "title": "Project Manager (24-month fixed-term contract)",
       "titleByLocale": {
-        "en": "Project Manager (24-month fixed-term contract)",
         "it": "Project Manager (24 mesi contratto a tempo determinato)",
+        "en": "Project Manager (24-month fixed-term contract)",
         "de": "Projektleiter (24-monatiger befristeter Vertrag)",
         "fr": "Gestionnaire de projet (contrat à durée déterminée de 24 mois)"
       },
       "description": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "La tua squadra\n\nPictet Wealth Management (PWM) combina oltre 200 anni di patrimonio bancario svizzero con competenze di investimento globali. Il gruppo di servizi finanziari di proprietà dei partner offre un servizio completo per persone e famiglie ricche, tra cui soluzioni di investimento discrezionali e consultive, così come servizi per l'ufficio di famiglia.\n\nPictet Wealth Management sta cercando di rafforzare il suo team di strategia di Ginevra con un Project Manager altamente motivato su un contratto a tempo determinato 24 mesi.\n\nSegnalandosi al CFO di Pictet Wealth Management, il team di strategia PWM è fondamentale per raggiungere le nostre priorità strategiche e obiettivi finanziari. Nell'ambito di questo team altamente performante, supporterete la nostra gestione senior fornendo informazioni commerciali e finanziarie e contribuire alla pianificazione, monitoraggio e implementazione di iniziative strategiche.\n\nLavorando in team di strategia, finanza, analisi e business più ampi, aiuterete a guidare progetti di pianificazione strategica, monitoraggio delle prestazioni e trasformazione. Questo ruolo offre un'opportunità unica per contribuire direttamente alle priorità del PWM e agli obiettivi di crescita a lungo termine in un ambiente dinamico ed esigente.\n\nIl tuo ruolo\n\n• Sostenere la testa del team e altri membri del team nei loro ruoli e responsabilità\n\n• Aiutare il team a preparare e guidare i processi strategici di PWM e budget/target annuali\n\n• Preparazione degli aggiornamenti per i nostri comitati manageriali sui nostri risultati commerciali e finanziari\n\n• Sostenere l'articolazione delle priorità strategiche e abbatterle in iniziative e progetti, monitorando i progressi e il successo del completamento\n\n• Effettuare analisi finanziarie ad hoc come richiesto dal comitato esecutivo dell'ExBo o del gruppo\n\n• Produrre rapporti regolari, sostenere previsioni finanziarie trimestrali per tutte le zone e contribuire a identificare azioni concrete per garantire obiettivi\n\n• Migliorare strumenti e processi, in particolare attraverso una stretta collaborazione con PWM Pricing e PWM Finance Analytics\n\nIl tuo profilo\n\n• Laurea magistrale o equivalente\n\n• Due anni di esperienza in un ruolo simile nei servizi finanziari o con una società di consulenza (consulenza strategica o finanza aziendale)\n\n• Conoscenza approfondita e interesse nel settore della gestione della ricchezza\n\n• Eccellente capacità analitiche, una mentalità di proprietà, a proprio agio con i numeri e la capacità di costruire relazioni con gli stakeholder\n\n• Proattivo e automotivato, con la capacità di lavorare in modo indipendente e fornire risultati di alta qualità in un ambiente esigente\n\n• Forte giocatore di squadra con un approccio collaborativo e costruttivo\n\n• Capacità di presentazione avanzate (PowerPoint) e competenza negli strumenti analitici\n\n• Fluente in francese e inglese\n\n• Deve essere residente in Svizzera\n\nRif.: PM/SN/TJ\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nPictet Wealth Management (PWM) combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions, as well as family office services.\n\nPictet Wealth Management is seeking to strengthen its Geneva-based Strategy team with a highly motivated Project Manager on a 24-month fixed-term contract.\n\nReporting to the CFO of Pictet Wealth Management, the PWM Strategy team is instrumental in achieving our strategic priorities and financial targets. As part of this high-performing team, you will support our senior management by providing business and financial insights and contributing to the planning, monitoring and implementation of strategic initiatives.\n\nWorking across Strategy, Finance, Analytics and wider business teams, you will help drive strategic planning, performance monitoring and transformation projects. This role offers a unique opportunity to contribute directly to PWM's priorities and long-term growth objectives in a dynamic and demanding environment.\n\nYour role\n\n• Supporting the team head and other team members in their roles and responsibilities\n\n• Helping the team prepare and steer PWM’s strategic-planning and annual budget/target processes\n\n• Preparing updates for our managerial committees on our commercial and financial results\n\n• Supporting the articulation of strategic priorities and breaking them down into initiatives and projects, while monitoring progress and successful completion\n\n• Carrying out ad hoc financial analyses as requested by the ExBo or the Group Executive Committee\n\n• Producing regular reports, supporting quarterly financial forecasting for all zones and helping to identify concrete actions to ensure targets are reached\n\n• Improving tools and processes, notably through close collaboration with PWM Pricing and PWM Finance Analytics\n\nYour profile\n\n• Master’s degree or equivalent\n\n• Two years’ experience in a similar role in financial services or with a consulting firm (strategy consulting or corporate finance)\n\n• In-depth knowledge of and interest in the wealth management industry\n\n• Excellent analytical skills, an ownership mindset, at ease with numbers and the ability to build relationships with stakeholders\n\n• Proactive and self-motivated, with the ability to work independently and deliver high-quality results in a demanding environment\n\n• Strong team player with a collaborative and constructive approach\n\n• Advanced presentation skills (PowerPoint) and proficiency in analytical tools\n\n• Fluent in French and English\n\n• Must be resident in Switzerland\n\nRef: PM/SN/TJ\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "de": "Dein Team\n\nPictet Wealth Management (PWM) verbindet mehr als 200 Jahre Schweizer Bankerbe mit globaler Investmentexpertise. Die Partner-eigene Finanzdienstleistungsgruppe bietet einen umfassenden Service für wohlhabende Einzelpersonen und Familien, einschließlich diskretionärer und beratender Anlagelösungen sowie Family Office-Services.\n\nPictet Wealth Management will sein in Genf ansässiges Strategieteam mit einem hochmotivierten Projektmanager auf einem 24-monatigen befristeten Vertrag stärken.\n\nDas PWM-Strategieteam, das dem CFO von Pictet Wealth Management berichtet, ist maßgeblich an der Erreichung unserer strategischen Prioritäten und finanziellen Ziele beteiligt. Als Teil dieses leistungsstarken Teams unterstützen Sie unsere Geschäftsleitung, indem Sie Geschäfts- und Finanzinformationen bereitstellen und zur Planung, Überwachung und Umsetzung strategischer Initiativen beitragen.\n\nArbeiten über Strategie, Finanzen, Analytics und breitere Business-Teams, werden Sie helfen, strategische Planung, Performance-Monitoring und Transformationsprojekte voranzutreiben. Diese Rolle bietet eine einzigartige Gelegenheit, direkt zu den Prioritäten und langfristigen Wachstumszielen von PWM in einem dynamischen und anspruchsvollen Umfeld beizutragen.\n\nDeine Rolle\n\n• Unterstützung des Teamleiters und anderer Teammitglieder in ihren Rollen und Verantwortlichkeiten\n\n• Unterstützung des Teams bei der Vorbereitung und Steuerung der strategischen Planungs- und jährlichen Budget-/Zielprozesse von PWM\n\n• Vorbereitung von Updates für unsere Managementausschüsse zu unseren kommerziellen und finanziellen Ergebnissen\n\n• Unterstützung der Formulierung strategischer Prioritäten und deren Aufteilung in Initiativen und Projekte bei gleichzeitiger Überwachung der Fortschritte und des erfolgreichen Abschlusses\n\n• Durchführung von Ad-hoc-Finanzanalysen, wie von der ExBo oder dem Group Executive Committee beantragt\n\n• Erstellung regelmäßiger Berichte, Unterstützung der vierteljährlichen Finanzprognosen für alle Zonen und Unterstützung bei der Identifizierung konkreter Maßnahmen, um sicherzustellen, dass die Ziele erreicht werden\n\n• Verbesserung der Tools und Prozesse, insbesondere durch enge Zusammenarbeit mit PWM Pricing und PWM Finance Analytics\n\nDein Profil\n\n• Master-Abschluss oder gleichwertiges Studium\n\n• Zwei Jahre Erfahrung in einer ähnlichen Rolle in Finanzdienstleistungen oder bei einem Beratungsunternehmen (Strategieberatung oder Corporate Finance)\n\n• Tiefes Wissen und Interesse an der Wealth Management Branche\n\n• Ausgezeichnete analytische Fähigkeiten, eine Ownership-Mentalität, mit Zahlen vertraut und die Fähigkeit, Beziehungen zu Stakeholdern aufzubauen\n\n• Proaktiv und selbstmotiviert, mit der Fähigkeit, unabhängig zu arbeiten und qualitativ hochwertige Ergebnisse in einem anspruchsvollen Umfeld zu liefern\n\n• Starker Teamplayer mit kollaborativem und konstruktivem Ansatz\n\n• Erweiterte Präsentationsfähigkeiten (PowerPoint) und Kenntnisse in analytischen Tools\n\n• Fließend in Französisch und Englisch\n\n• Muss in der Schweiz wohnen\n\nRef.: PM/SN/TJ\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
         "fr": "Votre équipe\n\nPictet Wealth Management (PWM) combine plus de 200 ans d'héritage bancaire suisse avec une expertise en investissement mondial. Le groupe de services financiers appartenant à des partenaires offre un service complet aux personnes et aux familles riches, y compris des solutions d'investissement discrétionnaires et consultatives, ainsi que des services de bureau familial.\n\nPictet Wealth Management cherche à renforcer son équipe de stratégie basée à Genève avec un gestionnaire de projet très motivé sur un contrat à durée déterminée de 24 mois.\n\nRelevant du DPF de Pictet Wealth Management, l'équipe de la stratégie du GFP joue un rôle déterminant dans la réalisation de nos priorités stratégiques et de nos objectifs financiers. Dans le cadre de cette équipe hautement performante, vous soutiendrez notre haute direction en lui fournissant des renseignements commerciaux et financiers et en contribuant à la planification, au suivi et à la mise en oeuvre des initiatives stratégiques.\n\nTravaillant à travers la stratégie, les finances, l'analyse et des équipes d'affaires plus larges, vous aiderez à piloter des projets de planification stratégique, de suivi des performances et de transformation. Ce rôle offre une occasion unique de contribuer directement aux priorités de PWM et aux objectifs de croissance à long terme dans un environnement dynamique et exigeant.\n\nVotre rôle\n\n• Soutenir le chef d'équipe et les autres membres de l'équipe dans leurs rôles et responsabilités\n\n• Aider l'équipe à préparer et diriger la planification stratégique et les processus budgétaires/objectifs annuels de la GP\n\n• Préparer des mises à jour pour nos comités de gestion sur nos résultats commerciaux et financiers\n\n• Soutenir l'articulation des priorités stratégiques et les ventiler en initiatives et en projets, tout en assurant le suivi des progrès et des réalisations réussies\n\n• Effectuer des analyses financières ponctuelles à la demande de l ' Organe exécutif ou du Comité exécutif du Groupe\n\n• Produire des rapports réguliers, soutenir les prévisions financières trimestrielles pour toutes les zones et aider à identifier des actions concrètes pour assurer la réalisation des objectifs\n\n• Amélioration des outils et des processus, notamment grâce à une collaboration étroite avec PWM Price et PWM Finance Analytics\n\nVotre profil\n\n• Maîtrise ou équivalent\n\n• Deux ans d'expérience dans un rôle similaire dans les services financiers ou avec une entreprise de conseil (conseil stratégique ou finance d'entreprise)\n\n• Connaissance approfondie et intérêt pour l'industrie de la gestion des richesses\n\n• Excellentes compétences analytiques, un état d'esprit de propriété, à l'aise avec les chiffres et la capacité d'établir des relations avec les intervenants\n\n• Proactive et automotivée, avec la capacité de travailler de façon autonome et de produire des résultats de haute qualité dans un environnement exigeant\n\n• Fort joueur d'équipe avec une approche collaborative et constructive\n\n• Compétences avancées en présentation (PowerPoint) et maîtrise des outils d'analyse\n\n• Fluent en français et anglais\n\n• Doit résider en Suisse\n\nRéf: PM/SN/TJ\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
       },
@@ -497,7 +499,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125232&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:17:27.738Z",
+      "crawledAt": "2026-10-13T09:20:53.810Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -515,9 +517,23 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125232&selected_lang=en_GB",
       "jobReqId": "125232",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "project-manager-24-month-fixed-term-contract-pictet-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ],
+        "fr": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ]
       },
+      "firstSeenAt": "2026-10-12T21:17:27.738Z",
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -531,22 +547,76 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-12T21:17:27.738Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-24-month-fixed-term-contract-pictet-geneva"
-        ],
-        "de": [
-          "project-manager-24-month-fixed-term-contract-pictet-geneva"
-        ],
-        "fr": [
-          "project-manager-24-month-fixed-term-contract-pictet-geneva"
-        ]
+      "postalCode": "1204"
+    },
+    {
+      "id": "pictet-814582543811",
+      "slug": "hedge-funds-advisor-pictet-geneva",
+      "slugByLocale": {
+        "en": "hedge-funds-advisor-pictet-geneva",
+        "it": "hedge-funds-advisor-pictet-geneva",
+        "de": "hedge-funds-advisor-pictet-geneva",
+        "fr": "hedge-funds-advisor-pictet-geneva"
       },
-      "previousSlugs": [
-        "project-manager-24-month-fixed-term-contract-pictet-geneva"
-      ]
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Hedge Funds Advisor",
+      "titleByLocale": {
+        "en": "Hedge Funds Advisor",
+        "it": "Hedge Funds Consulente",
+        "de": "Hedge Funds Berater",
+        "fr": "Hedge Funds Conseiller"
+      },
+      "description": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist with expertise in hedge funds, private equity, global real estate and private debt. Its Geneva- and London-based team constructs, manages and advises on portfolios of alternative investment solutions for institutional and private clients.\n\nPictet has high growth ambitions for Pictet Alternative Advisors for the coming years, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. In view of these developments, PAA is looking to grow its multi-manager hedge funds team and is looking for highly motivated and talented individuals to join.\n\nPAA’s Multi-Manager Hedge Funds franchise comprises 13 professionals across fund analysis and client solutions. The franchise manages USD 10 billion in assets.\n\nYour role\n\nBased in our Geneva office, you will join the Hedge Funds Customised Solutions (HFCS) team and act as a trusted advisor to institutional and private clients on multi-manager hedge fund portfolios and tailored investment solutions. Working closely with investment, portfolio management teams and other stakeholders (bankers, investment specialist, etc) your role will be to:\n\n• Advise institutional and private clients on hedge fund allocations, portfolio construction and customised investment solutions, translating complex investment topics into clear and actionable recommendations;\n\n• Manage and develop client relationships: participate in client meetings and portfolio reviews, and respond to investment, performance, risk and positioning-related queries;\n\n• Partner with hedge fund research and portfolio management teams to maintain a detailed understanding of underlying managers, strategies, portfolio exposures, liquidity and key risk factors;\n\n• Prepare and deliver high-quality client materials, investment proposals, portfolio commentaries, review presentations and responses to requests for proposals and due diligence questionnaires;\n\n• Contribute to the design and ongoing development of tailored hedge fund mandates and multi-manager solutions, taking into account clients’ objectives, constraints and governance requirements;\n\n• Support business development initiatives, including prospect meetings, pitches and follow-up, in close coordination with relationship managers and other internal stakeholders;\n\n• Monitor market and industry developments and communicate relevant insights on hedge fund strategies, managers and portfolio implications to clients and internal partners;\n\n• Coordinate effectively with investment, legal, compliance, operations and reporting teams to ensure a high standard of client service and timely delivery;\n\n• Contribute actively to team discussions, product development and the continued growth of PAA’s multi-manager hedge funds franchise.\n\nYour profile\n\n• University degree from a leading university; the CFA designation or another relevant professional qualification would be an advantage.\n\n• Five years of relevant investment experience, preferably gained in hedge fund investing, fund selection, portfolio management, investment advisory or client solutions within an institutional investor, asset manager, private bank, fund of hedge funds or comparable organisation.\n\n• Strong knowledge of hedge fund strategies, portfolio construction, performance drivers, risk considerations and liquidity terms, combined with the ability to communicate these topics clearly to clients.\n\n• Demonstrated client-facing experience, with excellent relationship management, communication and presentation skills and the confidence to engage with sophisticated institutional and private clients.\n\n• Strong analytical and numerical capabilities, sound investment judgement and an ability to develop clear, well-supported recommendations.\n\n• Excellent writing skills and attention to detail, with the ability to produce concise, high-quality client materials under time constraints.\n\n• Genuine interest in financial markets and alternative investments, with an entrepreneurial, collaborative and solutions-oriented mindset.\n\n• Ability to work independently while contributing effectively within a lean, multidisciplinary team.\n\n• Fluency in English and French is required. Proficiency in any additional language is highly welcome and would be considered an asset.\n\n• The candidate must be residing in Switzerland or willing to relocate.\n\nAs the successful candidate, you will have a unique opportunity to join a long-standing team of hedge fund professionals, advise sophisticated institutional and private clients, and gain exposure to leading global hedge fund managers within one of the world’s foremost private financial institutions. In addition to strong investment and advisory capabilities, you should demonstrate enthusiasm, sound judgement, dynamism and a keen sense of ethics and collaboration. As part of a team with a flat hierarchy, teamwork, information sharing and constructive debate will be key to success.\n\nNote\n\nWe will not accept any CVs via agencies\n\nRef.:HFA/LT/AR\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist with expertise in hedge funds, private equity, global real estate and private debt. Its Geneva- and London-based team constructs, manages and advises on portfolios of alternative investment solutions for institutional and private clients.\n\nPictet has high growth ambitions for Pictet Alternative Advisors for the coming years, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. In view of these developments, PAA is looking to grow its multi-manager hedge funds team and is looking for highly motivated and talented individuals to join.\n\nPAA’s Multi-Manager Hedge Funds franchise comprises 13 professionals across fund analysis and client solutions. The franchise manages USD 10 billion in assets.\n\nYour role\n\nBased in our Geneva office, you will join the Hedge Funds Customised Solutions (HFCS) team and act as a trusted advisor to institutional and private clients on multi-manager hedge fund portfolios and tailored investment solutions. Working closely with investment, portfolio management teams and other stakeholders (bankers, investment specialist, etc) your role will be to:\n\n• Advise institutional and private clients on hedge fund allocations, portfolio construction and customised investment solutions, translating complex investment topics into clear and actionable recommendations;\n\n• Manage and develop client relationships: participate in client meetings and portfolio reviews, and respond to investment, performance, risk and positioning-related queries;\n\n• Partner with hedge fund research and portfolio management teams to maintain a detailed understanding of underlying managers, strategies, portfolio exposures, liquidity and key risk factors;\n\n• Prepare and deliver high-quality client materials, investment proposals, portfolio commentaries, review presentations and responses to requests for proposals and due diligence questionnaires;\n\n• Contribute to the design and ongoing development of tailored hedge fund mandates and multi-manager solutions, taking into account clients’ objectives, constraints and governance requirements;\n\n• Support business development initiatives, including prospect meetings, pitches and follow-up, in close coordination with relationship managers and other internal stakeholders;\n\n• Monitor market and industry developments and communicate relevant insights on hedge fund strategies, managers and portfolio implications to clients and internal partners;\n\n• Coordinate effectively with investment, legal, compliance, operations and reporting teams to ensure a high standard of client service and timely delivery;\n\n• Contribute actively to team discussions, product development and the continued growth of PAA’s multi-manager hedge funds franchise.\n\nYour profile\n\n• University degree from a leading university; the CFA designation or another relevant professional qualification would be an advantage.\n\n• Five years of relevant investment experience, preferably gained in hedge fund investing, fund selection, portfolio management, investment advisory or client solutions within an institutional investor, asset manager, private bank, fund of hedge funds or comparable organisation.\n\n• Strong knowledge of hedge fund strategies, portfolio construction, performance drivers, risk considerations and liquidity terms, combined with the ability to communicate these topics clearly to clients.\n\n• Demonstrated client-facing experience, with excellent relationship management, communication and presentation skills and the confidence to engage with sophisticated institutional and private clients.\n\n• Strong analytical and numerical capabilities, sound investment judgement and an ability to develop clear, well-supported recommendations.\n\n• Excellent writing skills and attention to detail, with the ability to produce concise, high-quality client materials under time constraints.\n\n• Genuine interest in financial markets and alternative investments, with an entrepreneurial, collaborative and solutions-oriented mindset.\n\n• Ability to work independently while contributing effectively within a lean, multidisciplinary team.\n\n• Fluency in English and French is required. Proficiency in any additional language is highly welcome and would be considered an asset.\n\n• The candidate must be residing in Switzerland or willing to relocate.\n\nAs the successful candidate, you will have a unique opportunity to join a long-standing team of hedge fund professionals, advise sophisticated institutional and private clients, and gain exposure to leading global hedge fund managers within one of the world’s foremost private financial institutions. In addition to strong investment and advisory capabilities, you should demonstrate enthusiasm, sound judgement, dynamism and a keen sense of ethics and collaboration. As part of a team with a flat hierarchy, teamwork, information sharing and constructive debate will be key to success.\n\nNote\n\nWe will not accept any CVs via agencies\n\nRef.:HFA/LT/AR\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist with expertise in hedge funds, private equity, global real estate and private debt. Its Geneva- and London-based team constructs, manages and advises on portfolios of alternative investment solutions for institutional and private clients.\n\nPictet has high growth ambitions for Pictet Alternative Advisors for the coming years, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. In view of these developments, PAA is looking to grow its multi-manager hedge funds team and is looking for highly motivated and talented individuals to join.\n\nPAA’s Multi-Manager Hedge Funds franchise comprises 13 professionals across fund analysis and client solutions. The franchise manages USD 10 billion in assets.\n\nYour role\n\nBased in our Geneva office, you will join the Hedge Funds Customised Solutions (HFCS) team and act as a trusted advisor to institutional and private clients on multi-manager hedge fund portfolios and tailored investment solutions. Working closely with investment, portfolio management teams and other stakeholders (bankers, investment specialist, etc) your role will be to:\n\n• Advise institutional and private clients on hedge fund allocations, portfolio construction and customised investment solutions, translating complex investment topics into clear and actionable recommendations;\n\n• Manage and develop client relationships: participate in client meetings and portfolio reviews, and respond to investment, performance, risk and positioning-related queries;\n\n• Partner with hedge fund research and portfolio management teams to maintain a detailed understanding of underlying managers, strategies, portfolio exposures, liquidity and key risk factors;\n\n• Prepare and deliver high-quality client materials, investment proposals, portfolio commentaries, review presentations and responses to requests for proposals and due diligence questionnaires;\n\n• Contribute to the design and ongoing development of tailored hedge fund mandates and multi-manager solutions, taking into account clients’ objectives, constraints and governance requirements;\n\n• Support business development initiatives, including prospect meetings, pitches and follow-up, in close coordination with relationship managers and other internal stakeholders;\n\n• Monitor market and industry developments and communicate relevant insights on hedge fund strategies, managers and portfolio implications to clients and internal partners;\n\n• Coordinate effectively with investment, legal, compliance, operations and reporting teams to ensure a high standard of client service and timely delivery;\n\n• Contribute actively to team discussions, product development and the continued growth of PAA’s multi-manager hedge funds franchise.\n\nYour profile\n\n• University degree from a leading university; the CFA designation or another relevant professional qualification would be an advantage.\n\n• Five years of relevant investment experience, preferably gained in hedge fund investing, fund selection, portfolio management, investment advisory or client solutions within an institutional investor, asset manager, private bank, fund of hedge funds or comparable organisation.\n\n• Strong knowledge of hedge fund strategies, portfolio construction, performance drivers, risk considerations and liquidity terms, combined with the ability to communicate these topics clearly to clients.\n\n• Demonstrated client-facing experience, with excellent relationship management, communication and presentation skills and the confidence to engage with sophisticated institutional and private clients.\n\n• Strong analytical and numerical capabilities, sound investment judgement and an ability to develop clear, well-supported recommendations.\n\n• Excellent writing skills and attention to detail, with the ability to produce concise, high-quality client materials under time constraints.\n\n• Genuine interest in financial markets and alternative investments, with an entrepreneurial, collaborative and solutions-oriented mindset.\n\n• Ability to work independently while contributing effectively within a lean, multidisciplinary team.\n\n• Fluency in English and French is required. Proficiency in any additional language is highly welcome and would be considered an asset.\n\n• The candidate must be residing in Switzerland or willing to relocate.\n\nAs the successful candidate, you will have a unique opportunity to join a long-standing team of hedge fund professionals, advise sophisticated institutional and private clients, and gain exposure to leading global hedge fund managers within one of the world’s foremost private financial institutions. In addition to strong investment and advisory capabilities, you should demonstrate enthusiasm, sound judgement, dynamism and a keen sense of ethics and collaboration. As part of a team with a flat hierarchy, teamwork, information sharing and constructive debate will be key to success.\n\nNote\n\nWe will not accept any CVs via agencies\n\nRef.:HFA/LT/AR\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist with expertise in hedge funds, private equity, global real estate and private debt. Its Geneva- and London-based team constructs, manages and advises on portfolios of alternative investment solutions for institutional and private clients.\n\nPictet has high growth ambitions for Pictet Alternative Advisors for the coming years, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. In view of these developments, PAA is looking to grow its multi-manager hedge funds team and is looking for highly motivated and talented individuals to join.\n\nPAA’s Multi-Manager Hedge Funds franchise comprises 13 professionals across fund analysis and client solutions. The franchise manages USD 10 billion in assets.\n\nYour role\n\nBased in our Geneva office, you will join the Hedge Funds Customised Solutions (HFCS) team and act as a trusted advisor to institutional and private clients on multi-manager hedge fund portfolios and tailored investment solutions. Working closely with investment, portfolio management teams and other stakeholders (bankers, investment specialist, etc) your role will be to:\n\n• Advise institutional and private clients on hedge fund allocations, portfolio construction and customised investment solutions, translating complex investment topics into clear and actionable recommendations;\n\n• Manage and develop client relationships: participate in client meetings and portfolio reviews, and respond to investment, performance, risk and positioning-related queries;\n\n• Partner with hedge fund research and portfolio management teams to maintain a detailed understanding of underlying managers, strategies, portfolio exposures, liquidity and key risk factors;\n\n• Prepare and deliver high-quality client materials, investment proposals, portfolio commentaries, review presentations and responses to requests for proposals and due diligence questionnaires;\n\n• Contribute to the design and ongoing development of tailored hedge fund mandates and multi-manager solutions, taking into account clients’ objectives, constraints and governance requirements;\n\n• Support business development initiatives, including prospect meetings, pitches and follow-up, in close coordination with relationship managers and other internal stakeholders;\n\n• Monitor market and industry developments and communicate relevant insights on hedge fund strategies, managers and portfolio implications to clients and internal partners;\n\n• Coordinate effectively with investment, legal, compliance, operations and reporting teams to ensure a high standard of client service and timely delivery;\n\n• Contribute actively to team discussions, product development and the continued growth of PAA’s multi-manager hedge funds franchise.\n\nYour profile\n\n• University degree from a leading university; the CFA designation or another relevant professional qualification would be an advantage.\n\n• Five years of relevant investment experience, preferably gained in hedge fund investing, fund selection, portfolio management, investment advisory or client solutions within an institutional investor, asset manager, private bank, fund of hedge funds or comparable organisation.\n\n• Strong knowledge of hedge fund strategies, portfolio construction, performance drivers, risk considerations and liquidity terms, combined with the ability to communicate these topics clearly to clients.\n\n• Demonstrated client-facing experience, with excellent relationship management, communication and presentation skills and the confidence to engage with sophisticated institutional and private clients.\n\n• Strong analytical and numerical capabilities, sound investment judgement and an ability to develop clear, well-supported recommendations.\n\n• Excellent writing skills and attention to detail, with the ability to produce concise, high-quality client materials under time constraints.\n\n• Genuine interest in financial markets and alternative investments, with an entrepreneurial, collaborative and solutions-oriented mindset.\n\n• Ability to work independently while contributing effectively within a lean, multidisciplinary team.\n\n• Fluency in English and French is required. Proficiency in any additional language is highly welcome and would be considered an asset.\n\n• The candidate must be residing in Switzerland or willing to relocate.\n\nAs the successful candidate, you will have a unique opportunity to join a long-standing team of hedge fund professionals, advise sophisticated institutional and private clients, and gain exposure to leading global hedge fund managers within one of the world’s foremost private financial institutions. In addition to strong investment and advisory capabilities, you should demonstrate enthusiasm, sound judgement, dynamism and a keen sense of ethics and collaboration. As part of a team with a flat hierarchy, teamwork, information sharing and constructive debate will be key to success.\n\nNote\n\nWe will not accept any CVs via agencies\n\nRef.:HFA/LT/AR\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist with expertise in hedge funds, private equity, global real estate and private debt. Its Geneva- and London-based team constructs, manages and advises on portfolios of alternative investment solutions for institutional and private clients.\n\nPictet has high growth ambitions for Pictet Alternative Advisors for the coming years, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. In view of these developments, PAA is looking to grow its multi-manager hedge funds team and is looking for highly motivated and talented individuals to join.\n\nPAA’s Multi-Manager Hedge Funds franchise comprises 13 professionals across fund analysis and client solutions. The franchise manages USD 10 billion in assets.\n\nYour role\n\nBased in our Geneva office, you will join the Hedge Funds Customised Solutions (HFCS) team and act as a trusted advisor to institutional and private clients on multi-manager hedge fund portfolios and tailored investment solutions. Working closely with investment, portfolio management teams and other stakeholders (bankers, investment specialist, etc) your role will be to:\n\n• Advise institutional and private clients on hedge fund allocations, portfolio construction and customised investment solutions, translating complex investment topics into clear and actionable recommendations;\n\n• Manage and develop client relationships: participate in client meetings and portfolio reviews, and respond to investment, performance, risk and positioning-related queries;\n\n• Partner with hedge fund research and portfolio management teams to maintain a detailed understanding of underlying managers, strategies, portfolio exposures, liquidity and key risk factors;\n\n• Prepare and deliver high-quality client materials, investment proposals, portfolio commentaries, review presentations and responses to requests for proposals and due diligence questionnaires;\n\n• Contribute to the design and ongoing development of tailored hedge fund mandates and multi-manager solutions, taking into account clients’ objectives, constraints and governance requirements;\n\n• Support business development initiatives, including prospect meetings, pitches and follow-up, in close coordination with relationship managers and other internal stakeholders;\n\n• Monitor market and industry developments and communicate relevant insights on hedge fund strategies, managers and portfolio implications to clients and internal partners;\n\n• Coordinate effectively with investment, legal, compliance, operations and reporting teams to ensure a high standard of client service and timely delivery;\n\n• Contribute actively to team discussions, product development and the continued growth of PAA’s multi-manager hedge funds franchise.\n\nYour profile\n\n• University degree from a leading university; the CFA designation or another relevant professional qualification would be an advantage.\n\n• Five years of relevant investment experience, preferably gained in hedge fund investing, fund selection, portfolio management, investment advisory or client solutions within an institutional investor, asset manager, private bank, fund of hedge funds or comparable organisation.\n\n• Strong knowledge of hedge fund strategies, portfolio construction, performance drivers, risk considerations and liquidity terms, combined with the ability to communicate these topics clearly to clients.\n\n• Demonstrated client-facing experience, with excellent relationship management, communication and presentation skills and the confidence to engage with sophisticated institutional and private clients.\n\n• Strong analytical and numerical capabilities, sound investment judgement and an ability to develop clear, well-supported recommendations.\n\n• Excellent writing skills and attention to detail, with the ability to produce concise, high-quality client materials under time constraints.\n\n• Genuine interest in financial markets and alternative investments, with an entrepreneurial, collaborative and solutions-oriented mindset.\n\n• Ability to work independently while contributing effectively within a lean, multidisciplinary team.\n\n• Fluency in English and French is required. Proficiency in any additional language is highly welcome and would be considered an asset.\n\n• The candidate must be residing in Switzerland or willing to relocate.\n\nAs the successful candidate, you will have a unique opportunity to join a long-standing team of hedge fund professionals, advise sophisticated institutional and private clients, and gain exposure to leading global hedge fund managers within one of the world’s foremost private financial institutions. In addition to strong investment and advisory capabilities, you should demonstrate enthusiasm, sound judgement, dynamism and a keen sense of ethics and collaboration. As part of a team with a flat hierarchy, teamwork, information sharing and constructive debate will be key to success.\n\nNote\n\nWe will not accept any CVs via agencies\n\nRef.:HFA/LT/AR\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124147&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-13T09:20:52.814Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124147&selected_lang=en_GB",
+      "jobReqId": "124147",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-13T09:20:52.814Z"
     },
     {
       "id": "pictet-d644fcbe0361",
@@ -623,166 +693,6 @@
           "@type": "QuantitativeValue",
           "minValue": 63000,
           "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "pictet-802e8cbc742a",
-      "slug": "master-s-thesis-gestione-del-portafoglio-discrezionale-12-mesi-di-contratto-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "master-s-thesis-gestione-del-portafoglio-discrezionale-12-mesi-di-contratto-pictet-group-geneva",
-        "en": "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva",
-        "de": "masterarbeit-diskretionares-portfoliomanagement-12-monate-vertrag-pictet-group-geneva",
-        "fr": "memoire-de-master-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Master's Thesis - Discretionary Portfolio Management - (12 months contract)",
-      "titleByLocale": {
-        "it": "Master's Thesis - Gestione del portafoglio discrezionale - (12 mesi di contratto)",
-        "en": "Master's Thesis - Discretionary Portfolio Management - (12 months contract)",
-        "de": "Masterarbeit - Diskretionäres Portfoliomanagement - (12 Monate Vertrag)",
-        "fr": "Mémoire de master - Gestion discrétionnaire de portefeuille - (contrat de 12 mois)"
-      },
-      "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 31 offices in financial centres worldwide, currently employing over 5,500 people.\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nWe are seeking to recruit an Portfolio Construction & Analytics Intern. Your mission will be to assist the PWM Investment Platform (“IP”) and Discretionary Portfolio Management unit (“DPM”) in their daily activities and strategic projects.\n\nYour role\n\n• Take part in deploying artificial intelligence applications such as natural language processing, machine learning and large language models in PWM IP activities and processes.\n• Support PWM IP activities via production of quantitative analytics and portfolio construction research.\n• Contribute actively to working groups and projects related to DPM/IP activities (systematic asset allocation, impact/thematic investing, active risk budgeting).\n\nYour profile\n\n• Master’s student in Finance, Mathematics or Computer Science.\n• A definite interest in financial markets and technology.\n• Proficient in the usual IT tools (MS Office).\n• Programming (Python preferably) and machine learning skills required.\n• Familiarity with generative AI and natural language processing and their application to financial tasks.\n• A strong team player able to work across PWM teams and the bank’s business lines.\n• Perfect command of French and/or English.\n\nStart date: February/March 2027\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nIl Gruppo Pictet è uno dei principali asset manager indipendenti al mondo. Fondato nel 1805 e con sede a Ginevra, in Svizzera, il Gruppo è rappresentato in 31 uffici nei centri finanziari di tutto il mondo, attualmente con oltre 5.500 persone.\n\nPictet Wealth Management combina oltre 220 anni di patrimonio bancario svizzero con competenze di investimento globali. Il gruppo di servizi finanziari di proprietà del Partner offre un servizio completo per persone ricche e famiglie, tra cui soluzioni di investimento discrezionali e consultive e servizi di ufficio familiare.\n\nStiamo cercando di reclutare un Portfolio Construction & Analytics Intern. La vostra missione sarà di assistere la Piattaforma di Investimento PWM (“IP”) e l’unità di gestione del portafoglio discrezionale (“DPM”) nelle loro attività quotidiane e progetti strategici.\n\nIl tuo ruolo\n\n• Partecipate alla distribuzione di applicazioni di intelligenza artificiale come l'elaborazione del linguaggio naturale, l'apprendimento automatico e i modelli di lingua di grandi dimensioni nelle attività e nei processi IP PWM.\n• Supporta le attività IP PWM attraverso la produzione di analisi quantitativa e la ricerca sulla costruzione del portafoglio.\n• Contribuire attivamente a gruppi di lavoro e progetti relativi alle attività DPM/IP (allocazione di asset systematic, investimento di impatto/tematico, budget a rischio attivo).\n\nIl tuo profilo\n\n• Studente di Master in Finanza, Matematica o Scienza Informatica.\n• Un certo interesse per i mercati finanziari e la tecnologia.\n• Proficiente nei soliti strumenti IT (MS Office).\n• Programmazione (Python preferibilmente) e capacità di apprendimento automatico richiesto.\n• Familiarità con l'IA generativa e l'elaborazione del linguaggio naturale e la loro applicazione ai compiti finanziari.\n• Un forte giocatore di squadra in grado di lavorare tra le squadre PWM e le linee di business della banca.\n• Comando perfetto di francese e/o inglese.\n\nData di inizio: febbraio/marzo 2027\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 31 offices in financial centres worldwide, currently employing over 5,500 people.\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nWe are seeking to recruit an Portfolio Construction & Analytics Intern. Your mission will be to assist the PWM Investment Platform (“IP”) and Discretionary Portfolio Management unit (“DPM”) in their daily activities and strategic projects.\n\nYour role\n\n• Take part in deploying artificial intelligence applications such as natural language processing, machine learning and large language models in PWM IP activities and processes.\n• Support PWM IP activities via production of quantitative analytics and portfolio construction research.\n• Contribute actively to working groups and projects related to DPM/IP activities (systematic asset allocation, impact/thematic investing, active risk budgeting).\n\nYour profile\n\n• Master’s student in Finance, Mathematics or Computer Science.\n• A definite interest in financial markets and technology.\n• Proficient in the usual IT tools (MS Office).\n• Programming (Python preferably) and machine learning skills required.\n• Familiarity with generative AI and natural language processing and their application to financial tasks.\n• A strong team player able to work across PWM teams and the bank’s business lines.\n• Perfect command of French and/or English.\n\nStart date: February/March 2027\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nDie Pictet Group ist einer der weltweit führenden unabhängigen Vermögensverwalter. Die 1805 gegründete Gruppe mit Hauptsitz in Genf, Schweiz, ist in 31 Büros in Finanzzentren weltweit vertreten und beschäftigt derzeit über 5.500 Mitarbeiter.\n\nPictet Wealth Management verbindet mehr als 220 Jahre Schweizer Bankerbe mit globaler Investmentexpertise. Die Partner-eigene Finanzdienstleistungsgruppe bietet einen umfassenden Service für wohlhabende Einzelpersonen und Familien, einschließlich diskretionärer und beratender Anlagelösungen und Family Office-Services.\n\nWir suchen einen Portfolio Construction & Analytics Intern. Ihre Mission ist es, die PWM Investment Platform (\"IP\") und die Diskretionary Portfolio Management Unit (\"DPM\") bei ihren täglichen Aktivitäten und strategischen Projekten zu unterstützen.\n\nDeine Rolle\n\n• Beteiligen Sie sich an der Bereitstellung von Anwendungen für künstliche Intelligenz wie Verarbeitung natürlicher Sprache, maschinelles Lernen und große Sprachmodelle in PWM-IP-Aktivitäten und -Prozessen.\n• Unterstützung der PWM IP-Aktivitäten durch die Produktion von quantitativen Analysen und Portfoliokonstruktionsforschung.\n• Aktiver Beitrag zu Arbeitsgruppen und Projekten im Zusammenhang mit DPM/IP-Aktivitäten (systematische Asset Allocation, Impact/Thematic Investing, Active Risk Budgeting).\n\nDein Profil\n\n• Master-Student in Finanzen, Mathematik oder Informatik.\n• Ein klares Interesse an Finanzmärkten und Technologie.\n• Proficient in den üblichen IT-Tools (MS Office).\n• Programmieren (Python vorzugsweise) und maschinelles Lernen erforderlich.\n• Vertrautheit mit generativer KI und natürlicher Sprachverarbeitung und deren Anwendung auf finanzielle Aufgaben.\n• Ein starker Teamplayer, der in der Lage ist, über PWM-Teams und die Geschäftsbereiche der Bank hinweg zu arbeiten.\n• Perfekte Beherrschung von Französisch und / oder Englisch.\n\nStartdatum: Februar/März 2027\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLe groupe Pictet est l'un des leaders mondiaux des gestionnaires de patrimoine et d'actifs indépendants. Fondé en 1805 et ayant son siège social à Genève, le Groupe est représenté dans 31 bureaux de centres financiers du monde entier, employant actuellement plus de 5 500 personnes.\n\nPictet Wealth Management combine plus de 220 ans d'héritage bancaire suisse avec une expertise en investissement mondial. Le groupe de services financiers appartenant à des partenaires offre un service complet aux personnes et aux familles riches, y compris des solutions d'investissement discrétionnaires et consultatives et des services de bureau familial.\n\nNous cherchons à recruter un stagiaire en construction et en analyse de portefeuille. Votre mission sera d'aider le PWM Investment Platform (-) et l'unité de gestion discrétionnaire de portefeuille (-) dans leurs activités quotidiennes et leurs projets stratégiques.\n\nVotre rôle\n\n• Participez au déploiement d'applications d'intelligence artificielle telles que le traitement du langage naturel, l'apprentissage automatique et les grands modèles de langage dans les activités et les processus de PWM IP.\n• Soutenir les activités de PWM en matière de propriété intellectuelle par la production d'analyse quantitative et de recherche sur la construction de portefeuilles.\n• Contribuer activement aux groupes de travail et projets liés aux activités du DPM/IP (allocation systématique des actifs, impact/investissement thématique, budgétisation active des risques).\n\nVotre profil\n\n• Maîtrise en finance, mathématiques ou informatique.\n• Un intérêt certain pour les marchés financiers et la technologie.\n• Compétence des outils informatiques habituels (MS Office).\n• Programmation (Python de préférence) et compétences d'apprentissage automatique requises.\n• Familiarisation avec l'IA générative et le traitement du langage naturel et leur application aux tâches financières.\n• Un puissant joueur d'équipe capable de travailler à travers les équipes PWM et les secteurs d'activité de la banque.\n• Commande parfaite du français et/ou de l'anglais.\n\nDate de début: février/mars 2027\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125174&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:20:26.648Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125174&selected_lang=en_GB",
-      "jobReqId": "125174",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "these-de-maitrise-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva",
-        "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-group-geneva",
-        "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva"
-        ],
-        "fr": [
-          "these-de-maitrise-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva",
-          "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-group-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T21:28:53.408Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "pictet-59fac73f309a",
-      "slug": "master-s-thesis-global-fiduciary-management-12-mesi-di-contratto-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "master-s-thesis-global-fiduciary-management-12-mesi-di-contratto-pictet-group-geneva",
-        "en": "master-s-thesis-global-fiduciary-management-12-months-contract-pictet-geneva",
-        "de": "masterarbeit-globales-treuhandmanagement-12-monate-vertrag-pictet-group-geneva",
-        "fr": "memoire-de-master-gestion-fiduciaire-mondiale-contrat-de-12-mois-pictet-group-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Master's Thesis - Global Fiduciary Management - (12 months contract)",
-      "titleByLocale": {
-        "it": "Master's Thesis - Global Fiduciary Management - (12 mesi di contratto)",
-        "en": "Master's Thesis - Global Fiduciary Management - (12 months contract)",
-        "de": "Masterarbeit - Globales Treuhandmanagement - (12 Monate Vertrag)",
-        "fr": "Mémoire de master - Gestion fiduciaire mondiale - (contrat de 12 mois)"
-      },
-      "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 31 offices in financial centers worldwide, currently employing over 5,500 people.\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nGlobal Fiduciary Management is a multi-asset, multi-manager platform enabling large wealth owners and families to oversee and manage their total wealth in a comprehensive manner.\n\nWe are seeking to recruit a Global Fiduciary Management Trainee. You will complete a 12 months internship in support of the Global Fiduciary Management unit of the Pictet Wealth Management division.This opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nYour role\n\n• Work on projects related to portfolio analysis and monitoring.\n• Production of internal/external portfolio analytics and reporting.\n• Support for the portfolio management and servicing of Global Fiduciary Management mandates.\n\nYour profile\n\n• Master’s student in Finance with very good command of IT (MS Office, Tableau) and programming.\n• A definite interest in portfolio management, in particular in multi-asset portfolios and strategic asset allocation.\n• A strong team player.\n• Perfect command of French and English.\n\nStart date: February / March 2027\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nIl Gruppo Pictet è uno dei principali asset manager indipendenti al mondo. Fondato nel 1805 e con sede a Ginevra, in Svizzera, il Gruppo è rappresentato in 31 uffici nei centri finanziari di tutto il mondo, attualmente impiegando oltre 5.500 persone.\n\nPictet Wealth Management combina oltre 220 anni di patrimonio bancario svizzero con competenze di investimento globali. Il gruppo di servizi finanziari di proprietà del Partner offre un servizio completo per persone ricche e famiglie, tra cui soluzioni di investimento discrezionali e consultive e servizi di ufficio familiare.\n\nGlobal Fiduciary Management è una piattaforma multi-asset, multi-manager che consente ai grandi proprietari di ricchezza e alle famiglie di supervisionare e gestire la loro ricchezza totale in modo completo.\n\nStiamo cercando di reclutare un Global Fiduciary Management Trainee. Completate uno stage di 6 mesi a supporto dell'unità Global Fiduciary Management della divisione Pictet Wealth Management.\n\nIl tuo ruolo\n\n• Lavori su progetti relativi all'analisi e al monitoraggio del portafoglio.\n• Produzione di analisi e report del portafoglio interno/esterno.\n• Supporto per la gestione del portafoglio e la manutenzione dei mandati di Global Fiduciary Management.\n\nIl tuo profilo\n\n• Studente di Master in Finanza con ottimo comando di IT (MS Office, Tableau) e programmazione.\n• Un certo interesse per la gestione del portafoglio, in particolare nei portafogli multi-asset e nell'allocazione strategica degli asset.\n• Un giocatore di squadra forte.\n• Comando perfetto di francese e inglese.\n\nData di inizio: febbraio / marzo 2027\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 31 offices in financial centers worldwide, currently employing over 5,500 people.\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nGlobal Fiduciary Management is a multi-asset, multi-manager platform enabling large wealth owners and families to oversee and manage their total wealth in a comprehensive manner.\n\nWe are seeking to recruit a Global Fiduciary Management Trainee. You will complete a 12 months internship in support of the Global Fiduciary Management unit of the Pictet Wealth Management division.This opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nYour role\n\n• Work on projects related to portfolio analysis and monitoring.\n• Production of internal/external portfolio analytics and reporting.\n• Support for the portfolio management and servicing of Global Fiduciary Management mandates.\n\nYour profile\n\n• Master’s student in Finance with very good command of IT (MS Office, Tableau) and programming.\n• A definite interest in portfolio management, in particular in multi-asset portfolios and strategic asset allocation.\n• A strong team player.\n• Perfect command of French and English.\n\nStart date: February / March 2027\n\nThis opportunity is intended for students completing a Master’s thesis required by their academic programme. Only candidates whose Master’s degree requires an internship are eligible to apply.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nDie Pictet Group ist einer der weltweit führenden unabhängigen Vermögensverwalter. Die 1805 gegründete Gruppe mit Hauptsitz in Genf, Schweiz, ist in 31 Büros in Finanzzentren weltweit vertreten und beschäftigt derzeit über 5.500 Mitarbeiter.\n\nPictet Wealth Management verbindet mehr als 220 Jahre Schweizer Bankerbe mit globaler Investmentexpertise. Die Partner-eigene Finanzdienstleistungsgruppe bietet einen umfassenden Service für wohlhabende Einzelpersonen und Familien, einschließlich diskretionärer und beratender Anlagelösungen und Family Office-Services.\n\nGlobales Treuhandmanagement ist eine Multi-Asset-, Multi-Manager-Plattform, die es großen Vermögenseigentümern und Familien ermöglicht, ihr gesamtes Vermögen umfassend zu überwachen und zu verwalten.\n\nWir suchen einen Global Fiduciary Management Trainee. Sie werden ein 6-monatiges Praktikum zur Unterstützung der Global Fiduciary Management Unit der Pictet Wealth Management Division absolvieren.\n\nDeine Rolle\n\n• Arbeiten an Projekten zur Portfolioanalyse und -überwachung.\n• Erstellung von internen/externen Portfolioanalysen und Reportings.\n• Unterstützung des Portfoliomanagements und der Betreuung von Global Treuhandmandaten.\n\nDein Profil\n\n• Master-Student in Finanzen mit sehr guten Kenntnissen der IT (MS Office, Tableau) und Programmierung.\n• Ein klares Interesse am Portfoliomanagement, insbesondere an Multi-Asset-Portfolios und an der strategischen Asset Allocation.\n• Ein starker Teamplayer.\n• Perfekte Beherrschung von Französisch und Englisch.\n\nStartdatum: Februar / März 2027\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLe groupe Pictet est l'un des leaders mondiaux des gestionnaires de patrimoine et d'actifs indépendants. Fondé en 1805 et ayant son siège social à Genève, le Groupe est représenté dans 31 bureaux dans les centres financiers du monde entier, employant actuellement plus de 5 500 personnes.\n\nPictet Wealth Management combine plus de 220 ans d'héritage bancaire suisse avec une expertise en investissement mondial. Le groupe de services financiers appartenant à des partenaires offre un service complet aux personnes et aux familles riches, y compris des solutions d'investissement discrétionnaires et consultatives et des services de bureau familial.\n\nGlobal Fiduciaire Management est une plateforme multi-actifs et multi-gestionnaires qui permet aux grands propriétaires et aux familles de superviser et de gérer leur patrimoine global de manière globale.\n\nNous cherchons à recruter un stagiaire en gestion fiduciaire mondiale. Vous effectuerez un stage de 6 mois en soutien à l'unité Gestion Fiduciaire Mondiale de la division Gestion de patrimoine Pictet.\n\nVotre rôle\n\n• Travaux sur des projets liés à l'analyse et au suivi du portefeuille.\n• Production d'analyses et de rapports de portefeuille internes et externes.\n• Appui à la gestion du portefeuille et au service des mandats de la Gestion fiduciaire mondiale.\n\nVotre profil\n\n• Maîtrise en finance avec très bonne maîtrise de l'informatique (MS Office, Tableau) et de la programmation.\n• Intérêt certain pour la gestion de portefeuille, en particulier pour les portefeuilles multiactifs et la répartition stratégique des actifs.\n• Un joueur fort.\n• Parfaite maîtrise du français et de l'anglais.\n\nDate de début : février / mars 2027\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125177&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-11T21:20:26.074Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125177&selected_lang=en_GB",
-      "jobReqId": "125177",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "these-de-maitrise-global-fiduciaire-management-contrat-de-12-mois-pictet-group-geneva",
-        "master-s-thesis-global-fiduciary-management-12-months-contract-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "master-s-thesis-global-fiduciary-management-12-months-contract-pictet-geneva"
-        ],
-        "fr": [
-          "these-de-maitrise-global-fiduciaire-management-contrat-de-12-mois-pictet-group-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T21:28:52.798Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
           "unitText": "YEAR"
         }
       },
