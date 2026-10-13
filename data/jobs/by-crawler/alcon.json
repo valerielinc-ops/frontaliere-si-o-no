@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-10-13T09:33:34.516Z",
+  "assembledAt": "2026-10-13T21:33:38.371Z",
   "jobs": [
     {
       "id": "alcon-7e8db3a81169",
@@ -33,7 +33,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:27.892Z",
+      "crawledAt": "2026-10-13T21:33:34.134Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:27.217Z",
+      "crawledAt": "2026-10-13T21:33:33.446Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "slug": "direttore-compensation-alcon-geneva",
       "slugByLocale": {
         "it": "direttore-compensation-alcon-geneva",
-        "en": "director-compensation-alcon-geneva",
+        "en": "director-compensation-alcon-ch",
         "de": "direktor-compensation-alcon-geneva",
         "fr": "directeur-compensation-alcon-geneva"
       },
@@ -195,7 +195,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:26.530Z",
+      "crawledAt": "2026-10-13T21:33:32.373Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -214,10 +214,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49416",
-      "previousSlugs": [
-        "director-compensation-alcon-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "director-compensation-alcon-geneva"
+        ],
         "it": [
           "director-compensation-alcon-ch"
         ],
@@ -226,11 +226,12 @@
         ],
         "fr": [
           "director-compensation-alcon-ch"
-        ],
-        "en": [
-          "director-compensation-alcon-ch"
         ]
       },
+      "previousSlugs": [
+        "director-compensation-alcon-ch",
+        "director-compensation-alcon-geneva"
+      ],
       "firstSeenAt": "2026-09-24T00:08:53.723Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
@@ -279,7 +280,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:33:25.848Z",
+      "crawledAt": "2026-10-13T21:33:31.687Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -360,7 +361,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Field-Service-Engineer--m-f-d----Medical-Devices---German---English-speaking_R-2026-49510-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:25.166Z",
+      "crawledAt": "2026-10-13T21:33:31.012Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -441,7 +442,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Freight-Costs-Control-Manager_R-2026-49866-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:33:24.489Z",
+      "crawledAt": "2026-10-13T21:33:30.332Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -522,7 +523,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/R-2026-48937-Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-50191-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:33:23.808Z",
+      "crawledAt": "2026-10-13T21:33:29.534Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
