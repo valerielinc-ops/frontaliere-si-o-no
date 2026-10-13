@@ -104,6 +104,31 @@ describe('fill extension: JOIN steps', () => {
     expect(form.F.textOf(state.final)).toBe('Bewerben');
   });
 
+  it('recognizes Fincons’ plain final link and its separate required privacy checkbox', async () => {
+    const { F, document } = page(`<form>
+      <div class="form-group">
+        <label id="privacy-label" for="resumator-questionnaire-q722664">I have read the <a href="/privacy">Candidates Privacy Notice</a> and I agree to the processing of my personal data as part of the recruitment process.<i class="asterisk">*</i></label>
+        <input type="hidden" name="resumator-questionnaire[722664]" id="resumator-questionnaire-q722664" value="I agree">
+        <label class="checkbox" for="resumator-checkbox-722664-1"><input type="checkbox" id="resumator-checkbox-722664-1" name="resumator-checkbox-722664-1" value="I agree">I agree</label>
+        <label class="checkbox"><input type="checkbox" id="marketing">Send me the newsletter</label>
+      </div>
+      <a href="#" id="submit-application">SUBMIT APPLICATION</a>
+    </form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const consent = F.collect(document).find((entry: any) => entry.element.id === 'resumator-checkbox-722664-1');
+    const marketing = F.collect(document).find((entry: any) => entry.element.id === 'marketing');
+    expect(consent.required).toBe(true);
+    expect(F.answerFor(consent, kit)).toEqual({ check: true });
+    expect(F.answerFor(marketing, kit)).toBeNull();
+    let pressed = 0;
+    document.getElementById('submit-application')!.addEventListener('click', () => { pressed += 1; });
+    await F.fillPage(document, kit, { getFile: async () => null, attempts: new WeakMap(), uploaded: new Set() });
+    expect((document.getElementById('resumator-checkbox-722664-1') as HTMLInputElement).checked).toBe(true);
+    const state = F.pageState(document, { sawForm: true });
+    expect(state.kind).toBe('final');
+    expect(F.textOf(state.final)).toBe('SUBMIT APPLICATION');
+    expect(pressed).toBe(0);
+  });
+
   // Coop's SuccessFactors form, mapped on 2026-10-03.
   it('chooses in SuccessFactors’ picklists once their options load, and types its UI5 birth date', async () => {
     const sf = page(`<label for="a">* Anrede</label><input id="a" aria-label="Anrede" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="an:_listSelect" aria-required="true" class="rcmpaginatedselectinput"><ul id="an:_listSelect" role="listbox"></ul>
