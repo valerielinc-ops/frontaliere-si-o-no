@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-13T12:22:29.593Z",
+  "updatedAt": "2026-10-13T12:22:56.292Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -649973,12 +649973,12 @@
     },
     "opus-personal-zweigniederlassung-bern@herzogenbuchsee": {
       "key": "opus-personal-zweigniederlassung-bern@herzogenbuchsee",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.337Z",
-      "updatedAt": "2026-10-13T12:21:37.187Z",
+      "updatedAt": "2026-10-13T12:22:56.267Z",
       "name": "Opus Personal AG, Zweigniederlassung Bern",
       "city": "Herzogenbuchsee",
       "zip": "3360",
@@ -650141,7 +650141,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "13047",
+      "promotionBranch": "prospector/promote-2026-10-13"
     },
     "opus-personal-zweigniederlassung-bern@lyss": {
       "key": "opus-personal-zweigniederlassung-bern@lyss",
