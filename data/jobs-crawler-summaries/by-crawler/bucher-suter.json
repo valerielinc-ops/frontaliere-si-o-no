@@ -1,7 +1,7 @@
 {
   "key": "bucher-suter",
   "label": "Bucher + Suter AG",
-  "generatedAt": "2026-10-12T21:41:46.012Z",
+  "generatedAt": "2026-10-13T09:35:55.239Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6297,
-  "avgDurationMs": 6297,
+  "durationMs": 6626,
+  "avgDurationMs": 6626,
   "durationHistory": [
-    6297
+    6626
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:41:33.393Z",
+      "crawledAt": "2026-10-13T09:35:40.945Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
