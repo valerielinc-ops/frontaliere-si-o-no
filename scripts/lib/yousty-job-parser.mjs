@@ -82,7 +82,7 @@ export function htmlFragmentToMarkdown(html = '') {
   return htmlToTextBlock(dom.window.document.body);
 }
 
-export function parseYoustyApprenticeshipHtml(html, profileUrl) {
+export function parseYoustyApprenticeshipHtml(html) {
   const rawHtml = String(html || '');
   const noscriptMatches = [...rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)];
   const noscriptHtml = (
@@ -93,7 +93,7 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl) {
   ).trim();
 
   if (!noscriptHtml) {
-    return { description: '', applyUrl: normalizeSpace(profileUrl) };
+    return { description: '', applyUrl: '' };
   }
 
   const noscriptDom = new JSDOM(`<body>${noscriptHtml}</body>`);
@@ -120,6 +120,6 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl) {
 
   return {
     description,
-    applyUrl: normalizeSpace(profileUrl),
+    applyUrl: '',
   };
 }

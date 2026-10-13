@@ -646,7 +646,7 @@ function normalizeManorSourceDescription(value = '') {
     .trim();
 }
 
-export function parseJobPage(html, url) {
+export function parseJobPage(html, url, { observedAt = new Date() } = {}) {
   // Manor's current SuccessFactors markup exposes the canonical role in
   // og:title, while older templates used itemprop="title". Prefer the
   // structured metadata before falling back to the URL slug.
@@ -667,6 +667,10 @@ export function parseJobPage(html, url) {
 
   // Keep publication evidence with the source value; missing or invalid stays unknown.
   const postingDates = sourcePostingDateFields(readItempropContent(html, 'datePosted'));
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('parseJobPage: observedAt must be a valid crawl timestamp');
+  }
 
   // SuccessFactors currently exposes only a combined `streetAddress` value
   // such as "Chavannes-de-Bogis, CH". Preserve every address signal that is
@@ -683,6 +687,7 @@ export function parseJobPage(html, url) {
     title,
     description: rawDesc,
     descriptionLang: readManorDescriptionLang(html),
+    crawledAt: observedDate.toISOString(),
     ...postingDates,
     location,
     addressLocality,
@@ -721,6 +726,22 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   }
 
   return { location, canton };
+}
+
+export function createManorFallbackPageData(url, city, observedAt) {
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) return null;
+  return {
+    title: extractTitleFromUrl(url),
+    description: '',
+    postedDate: '',
+    crawledAt: observedDate.toISOString(),
+    location: `${city}, CH`,
+    addressLocality: city,
+    addressRegion: '',
+    postalCode: '',
+    streetAddress: '',
+  };
 }
 
 export async function fetchManorJobs() {
@@ -764,6 +785,7 @@ export async function fetchManorJobs() {
     unresolvedCanton: 0,
     missingCareersContext: 0,
     missingSourceContent: 0,
+    invalidCrawlTimestamp: 0,
   };
   const contextUse = {};
   let detailFailures = 0;
@@ -772,27 +794,29 @@ export async function fetchManorJobs() {
   for (let i = 0; i < targetUrls.length; i++) {
     const { url, city } = targetUrls[i];
     const jobId = extractJobId(url) || '';
+    const observedAt = new Date();
+    if (!Number.isFinite(observedAt.getTime())) {
+      skipped.invalidCrawlTimestamp++;
+      console.warn(`  ⚠️  Skipping job ${jobId}: invalid crawl observation timestamp`);
+      continue;
+    }
 
     console.log(`  📄 [${i + 1}/${targetUrls.length}] Fetching: ${url}`);
 
     let pageData;
     try {
       const html = await fetchText(url, timeoutMs);
-      pageData = parseJobPage(html, url);
+      pageData = parseJobPage(html, url, { observedAt });
     } catch (err) {
       detailFailures++;
       console.warn(`  ⚠️  Failed to fetch job detail: ${err?.message || err}`);
       // Still include with minimal data from URL
-      pageData = {
-        title: extractTitleFromUrl(url),
-        description: '',
-        postedDate: '',
-        location: `${city}, CH`,
-        addressLocality: city,
-        addressRegion: '',
-        postalCode: '',
-        streetAddress: '',
-      };
+      pageData = createManorFallbackPageData(url, city, observedAt);
+      if (!pageData) {
+        skipped.invalidCrawlTimestamp++;
+        console.warn(`  ⚠️  Skipping job ${jobId}: fallback has no valid crawl timestamp`);
+        continue;
+      }
     }
 
     const title = pageData.title || extractTitleFromUrl(url);
@@ -860,6 +884,7 @@ export async function fetchManorJobs() {
       employmentType: detectManorEmploymentType(title),
       description,
       descriptionByLocale,
+      crawledAt: pageData.crawledAt,
       ...mergeSourcePostingDates({}, pageData),
       source: 'company-website',
       slug: baseSlug,

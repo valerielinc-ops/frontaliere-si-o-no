@@ -127,6 +127,33 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function trustedHttpsGalenicaUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim());
+    if (url.protocol !== 'https:' || url.username || url.password || !isTrustedDomain(url.href)) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
+  for (const variant of variants) {
+    const sourceValue = String(variant?.textblocks?.applybuttonlink || '').trim();
+    if (!sourceValue) continue;
+
+    // Solique normally supplies the absolute destination directly; accept an
+    // anchor only when the link itself is present in the official source field.
+    const href = sourceValue.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1] || sourceValue;
+    const url = trustedHttpsGalenicaUrl(href);
+    if (url) return url;
+  }
+
+  // Keep only an application destination parsed from the Yousty profile; the
+  // profile page itself is not an application handoff.
+  return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
+}
+
 /* ── Category detection ────────────────────────────────────── */
 function detectCategory(title = '') {
   const t = title.toLowerCase();
@@ -375,22 +402,22 @@ function youstyProfileUrl(variants = []) {
   return variants.find((v) => /yousty\.ch/i.test(String(v?.textblocks?.profilelink || '')))?.textblocks?.profilelink || '';
 }
 
-async function enrichFromYoustyProfile(variants, timeoutMs) {
+export async function enrichFromYoustyProfile(variants, timeoutMs) {
   const profileUrl = youstyProfileUrl(variants);
   if (!profileUrl) return null;
 
   try {
     const html = await fetchText(profileUrl, timeoutMs);
-    const parsed = parseYoustyApprenticeshipHtml(html, profileUrl);
-    if (!parsed.description) return { applyUrl: parsed.applyUrl || profileUrl };
+    const parsed = parseYoustyApprenticeshipHtml(html);
+    if (!parsed.description) return { applyUrl: parsed.applyUrl || '' };
     return {
       description: parsed.description,
       sourceLang: detectLang(parsed.description, 'it'),
-      applyUrl: parsed.applyUrl || profileUrl,
+      applyUrl: parsed.applyUrl || '',
     };
   } catch (err) {
     console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
-    return { applyUrl: profileUrl };
+    return { applyUrl: '' };
   }
 }
 
@@ -424,6 +451,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   const city = workLocation.city;
   const canton = resolveGalenicaCanton(workLocation);
   if (!city || !canton) return { skip: 'source location did not resolve to a Swiss canton' };
+  const applyUrl = resolveGalenicaApplyUrl(variants, youstyEnrichment);
   const sourceLocationCanton = workLocation.sourceLocationCanton === canton
     ? canton
     : '';
@@ -459,7 +487,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
     category,
     description: '',
     descriptionByLocale: {},
-    applyUrl: youstyEnrichment?.applyUrl || '',
+    applyUrl,
     postedDate: preferred.publication?.start
       ? new Date(preferred.publication.start).toISOString().slice(0, 10)
       : '',
