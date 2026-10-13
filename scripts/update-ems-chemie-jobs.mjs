@@ -182,12 +182,16 @@ export async function fetchJobs() {
 
   // Try each career URL until one returns job listings
   let allListings = [];
+  let observedAt = null;
   for (const url of CAREERS_URLS) {
     try {
       const html = await fetchHtml(url, timeoutMs);
       const rawListings = parseListingPage(html);
       console.log(`  📋 ${url} → ${rawListings.length} listing(s)`);
       if (rawListings.length > 0) {
+        // This timestamp belongs to the successful source observation; the
+        // parser never derives crawl freshness from the posting date.
+        observedAt = new Date();
         allListings = rawListings;
         // Follow pagination on the primary careercenter portal (see
         // fetchEmsPage doc comment) so jobs beyond page 1 aren't lost.
@@ -243,6 +247,7 @@ export async function fetchJobs() {
       : '';
     const job = buildJob({
       ...listing,
+      crawlObservedAt: observedAt,
       description: detailDescription,
       sourceLang: detailDescription ? detectLang(detailDescription, 'de') : undefined,
       datePosted: listing.datePosted || detail?.datePosted || '',

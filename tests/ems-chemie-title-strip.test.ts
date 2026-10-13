@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 
 import { stripEmsChemieTitleSuffix, buildJob } from '../scripts/lib/ems-chemie-job-parser.mjs';
 
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+
 /**
  * The EMS career portal appends a " | <Location> | EMS-CHEMIE AG <Location>"
  * suffix (and a sister " | <Location> | EFTEC AG <Location>" suffix on the
@@ -50,6 +52,7 @@ describe('buildJob — slug excludes title suffix', () => {
       location: 'Domat/Ems',
       url: 'https://jobs.ems-group.com/job/leiter-controlling',
       description: 'Ihre Aufgaben: Leitung des Controllings, Budgetierung und Reporting an die Geschäftsleitung. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.',
+      crawlObservedAt: OBSERVED_AT,
     });
     expect(job).not.toBeNull();
     expect(job!.title).toBe('Leiter Controlling (m/w/d) 100%');
@@ -57,5 +60,19 @@ describe('buildJob — slug excludes title suffix', () => {
     // that the bug produced before the suffix-stripping fix.
     expect(job!.slug).not.toContain('ems-chemie-ag-domat-ems-ems-chemie');
     expect(job!.slugByLocale.it).not.toContain('ems-chemie-ag-domat-ems-ems-chemie');
+  });
+
+  it('requires source crawl observation instead of promoting the posting date', () => {
+    const raw = {
+      title: 'Leiter Controlling (m/w/d) 100%',
+      location: 'Domat/Ems',
+      url: 'https://jobs.ems-group.com/job/leiter-controlling',
+      description: 'Ihre Aufgaben: Leitung des Controllings, Budgetierung und Reporting an die Geschäftsleitung. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.',
+      datePosted: '2026-10-02',
+    };
+    expect(buildJob(raw)).toBeNull();
+    const job = buildJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
   });
 });

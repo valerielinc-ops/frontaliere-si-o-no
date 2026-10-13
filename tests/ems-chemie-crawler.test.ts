@@ -13,7 +13,7 @@ import path from 'path';
 import {
   parseListingPage,
   parseDetailPage,
-  buildJob,
+  buildJob as buildEmsJob,
   inferLocation,
   isSwissJob,
   stripHtml,
@@ -33,6 +33,11 @@ import {
   isForeignPortalListing,
   isForeignPortalDetail,
 } from '@/scripts/lib/ems-chemie-job-parser.mjs';
+
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+const buildJob = (raw: any) => raw && typeof raw === 'object'
+  ? buildEmsJob({ ...raw, crawlObservedAt: OBSERVED_AT })
+  : buildEmsJob(raw);
 
 // ─── Fixture: Career listing page (legacy table) ──────────────────
 const LISTING_HTML = `
@@ -300,6 +305,16 @@ describe('isSwissJob', () => {
 const EMS_BODY = 'Ihre Aufgaben: Betreuung der Produktionsanlagen im Schichtbetrieb, Qualitätskontrollen und Dokumentation. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.';
 
 describe('buildJob', () => {
+  it('requires an explicit crawl observation and never substitutes the posting date', () => {
+    const raw = { title: 'Chemist R&D', location: 'Domat/Ems', description: EMS_BODY, datePosted: '2026-10-02' };
+    expect(buildEmsJob(raw)).toBeNull();
+    expect(buildEmsJob({ ...raw, crawlObservedAt: new Date(Number.NaN) })).toBeNull();
+
+    const job = buildEmsJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds complete job object', () => {
     const job = buildJob({
       title: 'Chemist R&D',

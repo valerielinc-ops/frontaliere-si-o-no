@@ -20,6 +20,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 const HQ = getCompanyDefaults('citta-di-lugano');
 const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
@@ -236,6 +237,8 @@ export function parseDetailPage(html) {
  */
 export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
   if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
 
   const title = normalizeSpace(stripHtml(raw.title));
   if (!title || title.length < 3 || isGenericCompetitionTitle(title)) return null;
@@ -268,6 +271,7 @@ export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
     category: detectCategory(title, listingDescription),
     description: finalDescription,
     ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
     source: 'company-website',
     slug,
     slugByLocale: { [lang]: slug },

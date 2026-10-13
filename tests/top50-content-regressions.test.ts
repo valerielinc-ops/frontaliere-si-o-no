@@ -44,7 +44,7 @@ describe('Lugano competition directory is not a job', () => {
     expect(parseDetailPage(`<h1>${title}</h1><p>Elenco dei concorsi</p>`)).toBeNull();
     expect(parseListingPage(`<li><strong>${title}</strong><a href="/directory.pdf">PDF</a></li>`)).toEqual([]);
     expect(buildJob({ title, url: 'https://www.lugano.ch/concorsi/' })).toBeNull();
-    expect(buildJob({ title: 'Educatore della citt&agrave;', url: 'https://www.lugano.ch/educatore.pdf' })?.title).toBe('Educatore della città');
+    expect(buildJob({ title: 'Educatore della citt&agrave;', url: 'https://www.lugano.ch/educatore.pdf', crawlObservedAt: new Date('2026-10-04T12:00:00.000Z') })?.title).toBe('Educatore della città');
   });
   it('maps only the four known malformed directories to equivalent competition landings', () => {
     for (const [from, to] of Object.entries(LEGACY_LUGANO_COMPETITION_REDIRECTS)) {

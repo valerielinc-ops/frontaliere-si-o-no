@@ -9,12 +9,15 @@ import { describe, it, expect } from 'vitest';
 import {
   parseArca24ListingPage,
   parseArca24DetailPage,
-  buildLisJob,
+  buildLisJob as buildLisJobSource,
   normalizeSpace,
   stripHtml,
   slugify,
   extractLisSalary,
 } from '@/scripts/lib/lis-lugano-istituti-sociali-job-parser.mjs';
+
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+const buildLisJob = (url: string, parsed: any) => buildLisJobSource(url, parsed, OBSERVED_AT);
 
 // ── Fixture: Arca24 listing page with 2 job results ──
 
@@ -424,6 +427,19 @@ describe('LIS Arca24 parser — extractLisSalary', () => {
 });
 
 describe('LIS Arca24 parser — buildLisJob', () => {
+  it('requires an explicit source crawl observation instead of the posting date', () => {
+    const parsed = parseArca24DetailPage(DETAIL_HTML, 'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25')!;
+    expect(buildLisJobSource('https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25', parsed)).toBeNull();
+
+    const job = buildLisJobSource(
+      'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25',
+      { ...parsed, datePosted: '2026-10-02' },
+      OBSERVED_AT,
+    );
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds a complete job object from parsed detail data', () => {
     const parsed = parseArca24DetailPage(DETAIL_HTML, 'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25');
     const job = buildLisJob('https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25', parsed!);
