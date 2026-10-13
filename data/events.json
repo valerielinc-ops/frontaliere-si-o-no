@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T21:57:18.142Z",
+  "generatedAt": "2026-10-13T23:56:19.484Z",
   "totalEvents": 12964,
   "events": [
     {
@@ -223807,7 +223807,15 @@
           "comune": "Therwil",
           "slug": "les-voix-jubilaumskonzert-2026-10-18-2"
         }
-      ]
+      ],
+      "description": "Il concerto celebrativo di Les Voix ripercorre 30 anni di canto corale femminile. Il programma comprende brani scelti dalle cantanti e una composizione commissionata di Ola Gjeilo, con Anastasija Raspopova al pianoforte e David Rossel alla direzione musicale.",
+      "descriptionByLocale": {
+        "it": "Il concerto celebrativo di Les Voix ripercorre 30 anni di canto corale femminile. Il programma comprende brani scelti dalle cantanti e una composizione commissionata di Ola Gjeilo, con Anastasija Raspopova al pianoforte e David Rossel alla direzione musicale.",
+        "en": "The anniversary concert marks 30 years of women’s choral singing by Les Voix. It combines pieces selected by the singers with a commissioned composition by Ola Gjeilo, featuring Anastasija Raspopova on piano and David Rossel as musical director.",
+        "de": "Das Jubiläumskonzert würdigt 30 Jahre Frauenchorgesang von Les Voix. Auf dem Programm stehen von den Sängerinnen ausgewählte Lieblingsstücke sowie eine Auftragskomposition von Ola Gjeilo, mit Anastasija Raspopova am Klavier und David Rossel in der musikalischen Leitung.",
+        "fr": "Le concert anniversaire de Les Voix célèbre 30 ans de chant choral féminin. Il réunit des pièces choisies par les chanteuses et une composition commandée à Ola Gjeilo, avec Anastasija Raspopova au piano et David Rossel à la direction musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64017",
@@ -230924,7 +230932,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La proiezione propone un film tratto da un romanzo per ragazzi di Michael Morpurgo. La storia affronta i temi della differenza e della tolleranza in un’avventura pensata per tutta la famiglia.",
+      "descriptionByLocale": {
+        "it": "La proiezione propone un film tratto da un romanzo per ragazzi di Michael Morpurgo. La storia affronta i temi della differenza e della tolleranza in un’avventura pensata per tutta la famiglia.",
+        "en": "This premiere presents a film adapted from a young readers’ novel by Michael Morpurgo. Its adventure story addresses difference and tolerance and is intended for family viewing.",
+        "de": "Bei dieser Vorpremiere wird ein Film gezeigt, der auf einem Jugendroman von Michael Morpurgo beruht. Die Abenteuergeschichte behandelt den Umgang mit Anderssein und Toleranz und richtet sich an ein Familienpublikum.",
+        "fr": "Cette avant-première présente une adaptation d’un roman pour la jeunesse de Michael Morpurgo. Le récit d’aventure aborde la différence et la tolérance et convient à un public familial."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVvcfVi",
@@ -232827,7 +232843,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata tecnica si svolge presso la Niesenbahn, nel cantone di Berna. È rivolta a chi si interessa di tecnologia, ferrovie di montagna e storia.",
+      "descriptionByLocale": {
+        "it": "La visita guidata tecnica si svolge presso la Niesenbahn, nel cantone di Berna. È rivolta a chi si interessa di tecnologia, ferrovie di montagna e storia.",
+        "en": "This technical tour takes place at the Niesenbahn in the canton of Bern. It is intended for people interested in technology, mountain railways and history.",
+        "de": "Die technische Führung findet bei der Niesenbahn im Kanton Bern statt. Sie richtet sich an Interessierte für Technik, Bergbahnen und Geschichte.",
+        "fr": "Cette visite guidée consacrée à la technique a lieu à la Niesenbahn, dans le canton de Berne. Elle s’adresse aux personnes intéressées par la technologie, les chemins de fer de montagne et l’histoire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:91678",
@@ -232955,7 +232979,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone una formazione sull’uso di WebClient per i proprietari di appartamenti e chalet per vacanze. È rivolto a chi affitta queste strutture tramite Gstaad Saanenland Tourismus e la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una formazione sull’uso di WebClient per i proprietari di appartamenti e chalet per vacanze. È rivolto a chi affitta queste strutture tramite Gstaad Saanenland Tourismus e la partecipazione è gratuita.",
+        "en": "The event provides instruction in WebClient for owners of holiday accommodation. It is intended for those who let flats or chalets through Gstaad Saanenland Tourismus, and attendance is free.",
+        "de": "Die Veranstaltung vermittelt Kenntnisse zur Nutzung von WebClient für Eigentümer von Ferienunterkünften. Sie richtet sich an Personen, die Wohnungen oder Chalets über Gstaad Saanenland Tourismus vermieten; die Teilnahme ist kostenlos.",
+        "fr": "Cette manifestation propose une formation à l’utilisation de WebClient pour les propriétaires de logements de vacances. Elle s’adresse aux personnes qui louent des appartements ou des chalets par l’intermédiaire de Gstaad Saanenland Tourismus, et la participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93973",
@@ -239603,7 +239635,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un appuntamento dedicato alla meditazione, ospitato a Urdorf nel Canton Zurigo. Il programma combina momenti di quiete e movimento, invita a raccogliere i pensieri e propone un’esperienza attraverso simboli e un possibile avvicinamento a Dio.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un appuntamento dedicato alla meditazione, ospitato a Urdorf nel Canton Zurigo. Il programma combina momenti di quiete e movimento, invita a raccogliere i pensieri e propone un’esperienza attraverso simboli e un possibile avvicinamento a Dio.",
+        "en": "This event in Urdorf, Zurich, is devoted to meditation in stillness and movement. It offers space to settle the mind, remain attentive to the present, engage with symbols and sense God.",
+        "de": "Die Veranstaltung in Urdorf widmet sich der Meditation in Ruhe und Bewegung. Sie verbindet das Sammeln der Gedanken mit der Aufmerksamkeit für den gegenwärtigen Moment, dem Erleben von Symbolen und einer Ahnung von Gott.",
+        "fr": "Ce rendez-vous à Urdorf, dans le canton de Zurich, est consacré à la méditation dans le calme et le mouvement. Il propose de prendre du recul avec ses pensées, de porter son attention sur le présent, d’explorer des symboles et d’entrevoir Dieu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AqXsLCm",
@@ -239811,7 +239851,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Lo spettacolo teatrale al Teatro Sociale di Bellinzona ripercorre la vicenda della Monteforno attraverso le testimonianze di ex lavoratori e dei loro familiari. Un monologo collega la storia dell’acciaieria ai cambiamenti del mondo del lavoro e alla trasformazione della regione.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale al Teatro Sociale di Bellinzona ripercorre la vicenda della Monteforno attraverso le testimonianze di ex lavoratori e dei loro familiari. Un monologo collega la storia dell’acciaieria ai cambiamenti del mondo del lavoro e alla trasformazione della regione.",
+        "en": "This theatre production at Teatro Sociale in Bellinzona examines Monteforno through accounts from former steelworks employees and their families. A monologue connects the plant’s history with changes in working life and the transformation of the region.",
+        "de": "Die Theaterproduktion im Teatro Sociale in Bellinzona beleuchtet die Geschichte der Monteforno anhand von Berichten ehemaliger Beschäftigter und ihrer Familien. Ein Monolog stellt die Entwicklung des Stahlwerks den Veränderungen der Arbeitswelt und dem Wandel der Region gegenüber.",
+        "fr": "Cette production théâtrale au Teatro Sociale de Bellinzona revient sur l’histoire de la Monteforno à partir de témoignages d’anciens employés et de leurs familles. Un monologue met en relation le parcours de l’aciérie avec les transformations du travail et de la région."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f92b0fe7994b4a028bd37fc3b6af16da",
@@ -247462,7 +247510,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di cabaret è incentrato sul sistema sanitario e su una consultazione. Dopo uno studio accelerato, la premessa è associare ogni soluzione al problema corrispondente; l’appuntamento si svolge al Kulturzentrum Alts Schlachthuus di Laufen, nel cantone di Basilea-Campagna.",
+      "descriptionByLocale": {
+        "it": "L’evento di cabaret è incentrato sul sistema sanitario e su una consultazione. Dopo uno studio accelerato, la premessa è associare ogni soluzione al problema corrispondente; l’appuntamento si svolge al Kulturzentrum Alts Schlachthuus di Laufen, nel cantone di Basilea-Campagna.",
+        "en": "This cabaret event focuses on the healthcare system and an unconventional consultation. After an accelerated course of study, its premise is to match each solution with a corresponding problem; the event takes place at Kulturzentrum Alts Schlachthuus in Laufen, Basel-Landschaft.",
+        "de": "Die Kabarettveranstaltung nimmt das Gesundheitswesen zum Ausgangspunkt und gestaltet daraus eine Sprechstunde. Nach einem kurzen Studium wird für jede Lösung ein passendes Problem gesucht; die Veranstaltung findet im Kulturzentrum Alts Schlachthuus in Laufen im Kanton Basel-Landschaft statt.",
+        "fr": "Ce spectacle de cabaret prend le système de santé comme point de départ et le présente sous la forme d’une consultation. Après une formation accélérée, le principe consiste à associer chaque solution au problème correspondant; le rendez-vous se déroule au Kulturzentrum Alts Schlachthuus, à Laufen, dans le canton de Bâle-Campagne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4QBrut",
@@ -250754,7 +250810,15 @@
           "comune": "__other-events__",
           "slug": "kurs-atem-entspannung-4-wochen-2026-10-23"
         }
-      ]
+      ],
+      "description": "A Wetzikon si svolge un percorso di quattro settimane dedicato alla respirazione e al rilassamento. Il programma presenta esercizi di respirazione consapevole, spunti applicabili nella vita quotidiana e pratiche di rilassamento profondo per favorire maggiore calma e recupero.",
+      "descriptionByLocale": {
+        "it": "A Wetzikon si svolge un percorso di quattro settimane dedicato alla respirazione e al rilassamento. Il programma presenta esercizi di respirazione consapevole, spunti applicabili nella vita quotidiana e pratiche di rilassamento profondo per favorire maggiore calma e recupero.",
+        "en": "A four-week programme takes place in Wetzikon and focuses on breathing and relaxation. It covers mindful breathing, practical ideas for everyday life and deep-relaxation practices intended to support greater calm and recovery.",
+        "de": "In Wetzikon findet eine vierwöchige Veranstaltung zu Atemarbeit und Entspannung statt. Vermittelt werden bewusste Atemübungen, alltagstaugliche Anregungen und Methoden der Tiefenentspannung, die Ruhe und Erholung unterstützen.",
+        "fr": "À Wetzikon, un programme de quatre semaines est consacré à la respiration et à la détente. Il aborde la respiration consciente, des pistes faciles à intégrer au quotidien et des méthodes de relaxation profonde favorisant le calme et la récupération."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64255",
@@ -252325,7 +252389,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’Oktoberfest si svolge presso il Freibad Sonnenfeld di Männedorf. L’evento è organizzato dal Verein Männedörfler Fäschtotter e l’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "L’Oktoberfest si svolge presso il Freibad Sonnenfeld di Männedorf. L’evento è organizzato dal Verein Männedörfler Fäschtotter e l’ingresso costa 15 CHF.",
+        "en": "The Oktoberfest takes place at Freibad Sonnenfeld in Männedorf. It is organized by Verein Männedörfler Fäschtotter, and admission costs CHF 15.",
+        "de": "Das Oktoberfest findet im Freibad Sonnenfeld in Männedorf statt. Die Veranstaltung wird vom Verein Männedörfler Fäschtotter organisiert und kostet 15 CHF.",
+        "fr": "L’Oktoberfest se déroule au Freibad Sonnenfeld, à Männedorf. L’événement est organisé par le Verein Männedörfler Fäschtotter et l’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b50518cfa5f64487b3e10f4012f5ea2c",
@@ -253065,7 +253137,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Festival Salamandre è un evento dedicato alla natura che si svolge a Morges. Ricorrente ogni anno in ottobre, accompagna il pubblico alla scoperta di mondi affascinanti.",
+      "descriptionByLocale": {
+        "it": "Il Festival Salamandre è un evento dedicato alla natura che si svolge a Morges. Ricorrente ogni anno in ottobre, accompagna il pubblico alla scoperta di mondi affascinanti.",
+        "en": "Salamandre Festival is a nature event held in Morges. It returns each October and takes the audience on a journey through fascinating worlds.",
+        "de": "Das Festival Salamandre ist eine Naturveranstaltung in Morges. Es findet jedes Jahr im Oktober statt und führt das Publikum durch faszinierende Welten.",
+        "fr": "Le Festival Salamandre est une manifestation consacrée à la nature qui se déroule à Morges. Organisé chaque année en octobre, il fait découvrir au public des univers fascinants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4KDvbN",
@@ -254112,7 +254192,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento riunisce Marc Sway e la sua band con gli Swiss Orchestra Soloists; partecipa anche un ensemble del Swiss Youth Choir. Il percorso musicale collega Andermatt e Rio de Janeiro.",
+      "descriptionByLocale": {
+        "it": "L’evento riunisce Marc Sway e la sua band con gli Swiss Orchestra Soloists; partecipa anche un ensemble del Swiss Youth Choir. Il percorso musicale collega Andermatt e Rio de Janeiro.",
+        "en": "At Andermatt, the event joins Marc Sway and his band with the Swiss Orchestra Soloists; an ensemble of the Swiss Youth Choir also takes part. Its musical route runs between Andermatt and Rio de Janeiro.",
+        "de": "Die Veranstaltung führt Marc Sway mit seiner Band, den Swiss Orchestra Soloists und einem Ensemble des Swiss Youth Choir zusammen. Sie verbindet Andermatt musikalisch mit Rio de Janeiro.",
+        "fr": "L’événement associe Marc Sway et son groupe aux Swiss Orchestra Soloists; un ensemble du Swiss Youth Choir y participe également. Le programme établit un lien musical entre Andermatt et Rio de Janeiro."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ar9sSR3",
@@ -256391,7 +256479,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nel museo Heimat-und Rebbaumuseum di Spiez, il forno a legna viene usato per cuocere pane e trecce insieme. Si può portare un impasto personale o richiedere piroshki ucraini; i prodotti appena cotti possono essere portati a casa.",
+      "descriptionByLocale": {
+        "it": "Nel museo Heimat-und Rebbaumuseum di Spiez, il forno a legna viene usato per cuocere pane e trecce insieme. Si può portare un impasto personale o richiedere piroshki ucraini; i prodotti appena cotti possono essere portati a casa.",
+        "en": "At the Heimat-und Rebbaumuseum in Spiez, the activity uses a wood-fired oven for baking bread and plaited loaves. Participants can bring their own dough or order Ukrainian piroshkis, and the freshly baked items can be taken home.",
+        "de": "Im Heimat- und Rebbaumuseum in Spiez werden Brot und Zopf gemeinsam im Holzofen gebacken. Es kann eigener Teig mitgebracht oder es können ukrainische Piroshki bestellt werden; die frisch gebackenen Erzeugnisse lassen sich nach Hause mitnehmen.",
+        "fr": "Au Heimat-und Rebbaumuseum de Spiez, l’activité utilise un four à bois pour préparer du pain et de la tresse. On peut apporter sa propre pâte ou commander des piroshkis ukrainiens, puis emporter les produits fraîchement cuits."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AfCM75j",
@@ -263698,7 +263794,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "La chiesa evangelica metodista di Dübendorf presenta un concerto di David Plüss, pianista e compositore. Le sue immagini sonore melodiche accompagnano un appuntamento con ingresso gratuito, una raccolta di offerte e un aperitivo dedicato agli incontri.",
+      "descriptionByLocale": {
+        "it": "La chiesa evangelica metodista di Dübendorf presenta un concerto di David Plüss, pianista e compositore. Le sue immagini sonore melodiche accompagnano un appuntamento con ingresso gratuito, una raccolta di offerte e un aperitivo dedicato agli incontri.",
+        "en": "The Evangelical Methodist Church in Dübendorf hosts a concert by David Plüss, a pianist and composer. His melodic soundscapes are featured, while admission is free and a collection and an aperitif for social exchange are planned.",
+        "de": "In der evangelisch-methodistischen Kirche von Dübendorf gibt David Plüss als Pianist und Komponist ein Konzert. Seine melodischen Klangbilder stehen im Mittelpunkt; der Eintritt ist frei, und eine Kollekte sowie ein Apéro für Begegnungen gehören dazu.",
+        "fr": "L’église évangélique méthodiste de Dübendorf accueille un concert de David Plüss, pianiste et compositeur. Ses paysages sonores mélodiques sont au programme; l’entrée est gratuite, avec une collecte et un apéritif favorisant les rencontres."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVuXBcE",
@@ -264637,7 +264741,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento pubblico a Simplon Dorf è dedicato all’osservazione del cielo. Possono partecipare sia persone alle prime esperienze con l’astronomia sia osservatori esperti, se le condizioni meteorologiche lo consentono.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento pubblico a Simplon Dorf è dedicato all’osservazione del cielo. Possono partecipare sia persone alle prime esperienze con l’astronomia sia osservatori esperti, se le condizioni meteorologiche lo consentono.",
+        "en": "This public evening in Simplon Dorf is dedicated to observing the sky. It is suitable for people with little astronomy experience as well as seasoned skywatchers, provided weather conditions allow it.",
+        "de": "Die öffentliche Veranstaltung in Simplon Dorf widmet sich der Beobachtung des Himmels. Sie richtet sich sowohl an Menschen mit ersten Erfahrungen in der Astronomie als auch an erfahrene Himmelsbeobachter und findet bei geeigneten Wetterbedingungen statt.",
+        "fr": "Ce rendez-vous public à Simplon Dorf est consacré à l’observation du ciel. Il s’adresse aussi bien aux personnes qui découvrent l’astronomie qu’aux observateurs expérimentés, lorsque les conditions météorologiques le permettent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:38f919b9a62e4308866faad4828abd0e",
@@ -266295,7 +266407,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento sportivo si svolge presso l’FC Littau a Lucerna. Le squadre nazionali di autori che giocano a calcio dell’Austria e della Svizzera si affrontano per la settima volta; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento sportivo si svolge presso l’FC Littau a Lucerna. Le squadre nazionali di autori che giocano a calcio dell’Austria e della Svizzera si affrontano per la settima volta; l’ingresso è gratuito.",
+        "en": "The sports event takes place at FC Littau in Lucerne. National teams of football-playing authors from Austria and Switzerland meet for the seventh time, and admission is free.",
+        "de": "Die Sportveranstaltung findet beim FC Littau in Luzern statt. Die Nationalteams fussballspielender Autorinnen und Autoren aus Österreich und der Schweiz treten zum siebten Mal gegeneinander an; der Eintritt ist kostenlos.",
+        "fr": "La manifestation sportive se déroule au FC Littau, à Lucerne. Les équipes nationales d’auteurs et autrices qui jouent au football d’Autriche et de Suisse se rencontrent pour la septième fois, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AuqtWJj",
@@ -266395,7 +266515,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento gratuito si svolge nel Palazzo del Parlamento e consente di visitarne gli spazi interni. Tra le aree accessibili figurano le due sale dei Consigli, la sala della cupola e la sala dei passi perduti.",
+      "descriptionByLocale": {
+        "it": "L’evento gratuito si svolge nel Palazzo del Parlamento e consente di visitarne gli spazi interni. Tra le aree accessibili figurano le due sale dei Consigli, la sala della cupola e la sala dei passi perduti.",
+        "en": "The free event takes place in the parliament building and gives visitors access to its interior. The areas available for viewing include the two council chambers, the dome hall and the Wandelhalle.",
+        "de": "Bei dem kostenlosen Anlass ist eine Besichtigung verschiedener Innenräume des Parlamentsgebäudes möglich. Dazu zählen die beiden Ratssäle sowie die Kuppelhalle und die Wandelhalle.",
+        "fr": "Ce rendez-vous gratuit se tient au Palais du Parlement et permet de découvrir plusieurs espaces intérieurs. La visite inclut les deux salles des conseils, le hall de la coupole ainsi que la salle des pas perdus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1757a45b5f1a4c2e997fc6eee78d7594",
@@ -266831,7 +266959,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento comprende visite guidate aperte al pubblico nelle carceri di Gmünden. Si svolge a Teufen, nel cantone AR.",
+      "descriptionByLocale": {
+        "it": "L’evento comprende visite guidate aperte al pubblico nelle carceri di Gmünden. Si svolge a Teufen, nel cantone AR.",
+        "en": "The event offers public guided tours of the Gmünden prison facilities. It takes place in Teufen, in canton AR.",
+        "de": "Die Veranstaltung umfasst öffentliche Führungen durch die Gefängnisse Gmünden. Sie findet in Teufen im Kanton AR statt.",
+        "fr": "L’événement propose des visites guidées ouvertes au public dans les prisons de Gmünden. Il se déroule à Teufen, dans le canton d’AR."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AaU5j8v",
@@ -266996,7 +267132,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento al Casino Bern è dedicato a Vivaldi e rientra nella musica barocca. Un’orchestra da camera di Amburgo esegue opere della musica classica europea; la direzione musicale è affidata a Tigran Mikaelyan.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Casino Bern è dedicato a Vivaldi e rientra nella musica barocca. Un’orchestra da camera di Amburgo esegue opere della musica classica europea; la direzione musicale è affidata a Tigran Mikaelyan.",
+        "en": "The event at Casino Bern focuses on Vivaldi and is classified as Baroque music. A chamber orchestra from Hamburg performs works from the European classical tradition, with Tigran Mikaelyan as musical director.",
+        "de": "Die Veranstaltung im Casino Bern ist Vivaldi gewidmet und der Barockmusik zugeordnet. Ein Kammerorchester aus Hamburg spielt Werke der europäischen klassischen Tradition; die musikalische Leitung übernimmt Tigran Mikaelyan.",
+        "fr": "Le rendez-vous au Casino Bern est consacré à Vivaldi et s’inscrit dans la musique baroque. Un orchestre de chambre de Hambourg interprète des œuvres de la tradition classique européenne, avec Tigran Mikaelyan à la direction musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0aaf9b5388c6428e971f2ec09395a2b8",
@@ -267426,7 +267570,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Engelberg il programma prevede tre workshop di yoga e breathwork con l’esperta Samira Schmidli. L’accoglienza include la scelta tra uno smoothie e uno shot allo zenzero.",
+      "descriptionByLocale": {
+        "it": "A Engelberg il programma prevede tre workshop di yoga e breathwork con l’esperta Samira Schmidli. L’accoglienza include la scelta tra uno smoothie e uno shot allo zenzero.",
+        "en": "In Engelberg, the programme comprises three yoga and breathwork workshops with expert Samira Schmidli. The welcome includes a smoothie or a ginger shot.",
+        "de": "Das Angebot in Engelberg umfasst drei Workshops zu Yoga und Breathwork mit der Expertin Samira Schmidli. Zur Begrüssung wird ein Smoothie oder ein Ingwer-Shot angeboten.",
+        "fr": "À Engelberg, le programme comprend trois ateliers de yoga et de breathwork avec l’experte Samira Schmidli. L’accueil inclut un smoothie ou un shot au gingembre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1f47e087cda24d6ea3353bf52bc57563",
@@ -267514,7 +267666,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento ricorrente si svolge al tagwerk11 di Soletta ed è dedicato a Elsa Eiskönigin. Prevede un incontro personale con il personaggio e un’esperienza caratterizzata da elementi magici e d’intrattenimento.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si svolge al tagwerk11 di Soletta ed è dedicato a Elsa Eiskönigin. Prevede un incontro personale con il personaggio e un’esperienza caratterizzata da elementi magici e d’intrattenimento.",
+        "en": "This recurring event takes place at tagwerk11 in Solothurn and is dedicated to Elsa Eiskönigin. It includes a personal meeting with the character and an experience shaped by magical and entertaining elements.",
+        "de": "Die wiederkehrende Veranstaltung findet im tagwerk11 in Solothurn statt und ist Elsa Eiskönigin gewidmet. Vorgesehen sind eine persönliche Begegnung mit der Figur sowie ein Erlebnis mit magischen und unterhaltsamen Elementen.",
+        "fr": "Cet événement récurrent se déroule au tagwerk11, à Soleure, et est consacré à Elsa Eiskönigin. Il comprend une rencontre personnelle avec le personnage ainsi qu’une expérience marquée par des éléments magiques et divertissants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ac3b0235deb84edaafb35e82c241c869",
@@ -267691,7 +267851,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto «Sans Cible» di A Bocca Chiusa si svolge al Casino du Brassus. È classificato nella categoria delle altre musiche ed è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "Il concerto «Sans Cible» di A Bocca Chiusa si svolge al Casino du Brassus. È classificato nella categoria delle altre musiche ed è organizzato da Guidle.",
+        "en": "The concert “Sans Cible” by A Bocca Chiusa takes place at Casino du Brassus. It is listed under other music and is organised by Guidle.",
+        "de": "Das Konzert „Sans Cible“ von A Bocca Chiusa findet im Casino du Brassus statt. Es ist der Kategorie „andere Musik“ zugeordnet und wird von Guidle organisiert.",
+        "fr": "Le concert « Sans Cible » d’A Bocca Chiusa a lieu au Casino du Brassus. Il relève de la catégorie des autres musiques et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A3usJSV",
@@ -268528,7 +268696,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta Axel Flóvent a Zurigo. La sua musica accosta l’indie folk malinconico a sonorità nordiche.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta Axel Flóvent a Zurigo. La sua musica accosta l’indie folk malinconico a sonorità nordiche.",
+        "en": "The event features Axel Flóvent in Zurich. His music brings melancholic indie folk together with Nordic sounds.",
+        "de": "Bei dieser Veranstaltung tritt Axel Flóvent in Zürich auf. In seiner Musik verbindet er melancholischen Indie-Folk mit nordisch geprägten Klängen.",
+        "fr": "Le rendez-vous accueille Axel Flóvent à Zurich. Sa musique associe l’indie folk mélancolique à des sonorités nordiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3ff56562387c4a35b5824dbc72c9f476",
@@ -268560,7 +268736,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Zugo si svolge un corso ricorrente di primo soccorso della durata di sei ore, tenuto in inglese e dedicato a neonati e bambini. Il programma offre a genitori e persone che se ne prendono cura esercitazioni sulla rianimazione cardiopolmonare, sul soffocamento e su altre emergenze.",
+      "descriptionByLocale": {
+        "it": "A Zugo si svolge un corso ricorrente di primo soccorso della durata di sei ore, tenuto in inglese e dedicato a neonati e bambini. Il programma offre a genitori e persone che se ne prendono cura esercitazioni sulla rianimazione cardiopolmonare, sul soffocamento e su altre emergenze.",
+        "en": "Zug hosts a recurring six-hour first-aid course conducted in English, focused on babies and children. It gives parents and caregivers practical training in CPR, responses to choking, and other emergency situations.",
+        "de": "Im Kanton Zug findet ein wiederkehrender sechsstündiger Erste-Hilfe-Kurs in englischer Sprache für Notfälle bei Babys und Kindern statt. Eltern und Betreuungspersonen üben dabei Wiederbelebung, Hilfe bei Verschlucken und weitere Notfallmassnahmen.",
+        "fr": "À Zoug, ce rendez-vous récurrent propose une formation de six heures en anglais consacrée aux premiers secours pour les bébés et les enfants. Les parents et les personnes qui s’occupent d’eux y acquièrent une pratique de la réanimation, de la conduite à tenir en cas d’étouffement et d’autres urgences."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64450",
@@ -268645,7 +268829,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Banda di Canobbio propone alla Sala La Grande presso Cpt di Canobbio un concerto di gala dedicato a musiche del repertorio Disney. L’appuntamento riunisce melodie conosciute in una presentazione musicale pensata per ascoltatori di età diverse.",
+      "descriptionByLocale": {
+        "it": "La Banda di Canobbio propone alla Sala La Grande presso Cpt di Canobbio un concerto di gala dedicato a musiche del repertorio Disney. L’appuntamento riunisce melodie conosciute in una presentazione musicale pensata per ascoltatori di età diverse.",
+        "en": "Banda di Canobbio presents a gala concert at Sala La Grande presso Cpt in Canobbio, with a program devoted to music from the Disney repertoire. The event brings together familiar melodies in a musical presentation intended for listeners of different ages.",
+        "de": "Die Banda di Canobbio präsentiert in der Sala La Grande presso Cpt in Canobbio ein Gala-Konzert mit Musik aus dem Disney-Repertoire. Die Veranstaltung verbindet bekannte Melodien mit einer musikalischen Aufführung für ein Publikum unterschiedlichen Alters.",
+        "fr": "La Banda di Canobbio présente à la Sala La Grande presso Cpt de Canobbio un concert de gala consacré à des musiques du répertoire Disney. Le rendez-vous réunit des mélodies connues dans une présentation musicale destinée à un public d’âges différents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnEVJa4",
@@ -268823,7 +269015,15 @@
           "comune": "__other-events__",
           "slug": "blake-eduardo-atoicadabra-2026-10-25"
         }
-      ]
+      ],
+      "description": "A Colombier NE, l’evento presenta Blake Eduardo. Il titolo indicato è Atoicadabra.",
+      "descriptionByLocale": {
+        "it": "A Colombier NE, l’evento presenta Blake Eduardo. Il titolo indicato è Atoicadabra.",
+        "en": "In Colombier NE, the event features Blake Eduardo. Its listed title is Atoicadabra.",
+        "de": "In Colombier NE ist Blake Eduardo bei dieser Veranstaltung vertreten. Der Titel des Programmpunkts lautet Atoicadabra.",
+        "fr": "À Colombier NE, l’événement présente Blake Eduardo. Son intitulé est Atoicadabra."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Amr82Wt",
@@ -271517,7 +271717,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone musica klezmer. La formazione presenta clarinetto, fisarmonica e contrabbasso all’ElfenauPark.",
+      "descriptionByLocale": {
+        "it": "L’evento propone musica klezmer. La formazione presenta clarinetto, fisarmonica e contrabbasso all’ElfenauPark.",
+        "en": "The event presents klezmer music. The ensemble features clarinet, accordion and double bass at ElfenauPark.",
+        "de": "Die Veranstaltung bietet Klezmermusik. Zu hören sind Klarinette, Akkordeon und Kontrabass im ElfenauPark.",
+        "fr": "Cette manifestation propose de la musique klezmer. La formation associe clarinette, accordéon et contrebasse à l’ElfenauPark."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cd58030b19c04fdd8c2b2657bc1844b5",
@@ -272163,7 +272371,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Villars-sur-Glâne l’evento ruota attorno a uno spazio dedicato ai pipistrelli nella foresta di Moncor. Il programma presenta la varietà della foresta e i suoi abitanti, con attività proposte periodicamente dal Musée d’histoire naturelle Fribourg.",
+      "descriptionByLocale": {
+        "it": "A Villars-sur-Glâne l’evento ruota attorno a uno spazio dedicato ai pipistrelli nella foresta di Moncor. Il programma presenta la varietà della foresta e i suoi abitanti, con attività proposte periodicamente dal Musée d’histoire naturelle Fribourg.",
+        "en": "This event in Villars-sur-Glâne centres on a bat shelter in the Moncor forest. It introduces the forest’s variety and its inhabitants, with recurring activities offered by the Musée d’histoire naturelle Fribourg team.",
+        "de": "Die Veranstaltung in Villars-sur-Glâne widmet sich einem Fledermaushaus im Wald von Moncor. Sie macht die Vielfalt des Waldes und seine Bewohner zum Thema; das Team des Musée d’histoire naturelle Fribourg bietet dazu regelmässig verschiedene Aktivitäten an.",
+        "fr": "La manifestation se déroule à Villars-sur-Glâne autour d’un espace consacré aux chauves-souris, situé dans la forêt de Moncor. Elle présente la diversité de ce milieu et ses habitants, tandis que l’équipe du Musée d’histoire naturelle Fribourg y propose des activités à intervalles réguliers."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AqHBqQq",
@@ -273847,7 +274063,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Schaffhauser Herbstmesse è una fiera aperta al pubblico a Schaffhausen. L’evento ricorrente si svolge nel cantone di Sciaffusa.",
+      "descriptionByLocale": {
+        "it": "La Schaffhauser Herbstmesse è una fiera aperta al pubblico a Schaffhausen. L’evento ricorrente si svolge nel cantone di Sciaffusa.",
+        "en": "This public fair takes place in Schaffhausen. It is a recurring event in the canton of Schaffhausen.",
+        "de": "Es handelt sich um eine Publikumsmesse in Schaffhausen. Der Anlass findet wiederkehrend im Kanton Schaffhausen statt.",
+        "fr": "Il s’agit d’une foire ouverte au public à Schaffhouse. Cet événement récurrent a lieu dans le canton de Schaffhouse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:27bbd4c9dd614b59a987bf91f62cf827",
@@ -275483,7 +275707,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È in programma una tombola con premi e cesti al salone parrocchiale di Melano, nel Luganese. L’offerta comprende una buvette con torte e caffè per le persone che arrivano entro il primo giro.",
+      "descriptionByLocale": {
+        "it": "È in programma una tombola con premi e cesti al salone parrocchiale di Melano, nel Luganese. L’offerta comprende una buvette con torte e caffè per le persone che arrivano entro il primo giro.",
+        "en": "A tombola game with prizes and baskets is scheduled at the parish hall in Melano, in the Luganese area. The event includes a refreshment stand with cakes and offers coffee to people who arrive during the first round.",
+        "de": "Im Pfarrsaal in Melano im Luganese findet eine Tombola mit Preisen und Körben statt. Eine Buvette bietet Kuchen an, und Personen, die während der ersten Runde eintreffen, erhalten Kaffee.",
+        "fr": "Une tombola avec des lots et des paniers est prévue au salon paroissial de Melano, dans le Luganese. L’événement comprend une buvette avec des gâteaux et propose du café aux personnes qui arrivent pendant le premier tour."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AeCfJtP",
@@ -278096,7 +278328,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Prinz Pi è l’artista protagonista di questo appuntamento di hip-hop al Komplex457. L’evento rientra nella sua tournée d’addio.",
+      "descriptionByLocale": {
+        "it": "Prinz Pi è l’artista protagonista di questo appuntamento di hip-hop al Komplex457. L’evento rientra nella sua tournée d’addio.",
+        "en": "Prinz Pi is the performer at this hip-hop event at Komplex457. The event is part of his farewell tour.",
+        "de": "Prinz Pi tritt bei dieser Hip-Hop-Veranstaltung im Komplex457 auf. Die Veranstaltung gehört zu seiner Abschiedstour.",
+        "fr": "Prinz Pi est l’artiste programmé pour ce rendez-vous hip-hop au Komplex457. L’événement s’inscrit dans sa tournée d’adieu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:55eeddf1c7014af190184a470f1a9019",
@@ -279686,7 +279926,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro alla Bibliothek Zug affronta il cyberbullismo e le forme di esclusione che si verificano online o offline. I genitori ricevono indicazioni per sostenere il proprio figlio e accompagnarlo in modo sicuro.",
+      "descriptionByLocale": {
+        "it": "L’incontro alla Bibliothek Zug affronta il cyberbullismo e le forme di esclusione che si verificano online o offline. I genitori ricevono indicazioni per sostenere il proprio figlio e accompagnarlo in modo sicuro.",
+        "en": "The event at Bibliothek Zug addresses cyberbullying and exclusion in both online and offline settings. Parents learn ways to support their child and help them stay safe.",
+        "de": "Die Veranstaltung in der Bibliothek Zug behandelt Cybermobbing und Ausgrenzung im digitalen wie im analogen Umfeld. Eltern erfahren, wie sie ihrem Kind beistehen und ihm Sicherheit geben können.",
+        "fr": "Cette rencontre à la Bibliothek Zug traite du cyberharcèlement et de l’exclusion, en ligne comme hors ligne. Les parents y découvrent comment soutenir leur enfant et lui offrir un accompagnement sûr."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:94355d14d0774142890d905b012a8ffe",
@@ -280487,7 +280735,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale al Cinema teatro di Chiasso riflette sull’impotenza davanti agli eventi e sulla difficoltà di trovare le parole giuste. Il tema del silenzio si intreccia con quello del sostegno reciproco quando le parole vengono a mancare.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale al Cinema teatro di Chiasso riflette sull’impotenza davanti agli eventi e sulla difficoltà di trovare le parole giuste. Il tema del silenzio si intreccia con quello del sostegno reciproco quando le parole vengono a mancare.",
+        "en": "The theatre production at Cinema teatro in Chiasso examines the feeling of helplessness that can arise in the face of events and the struggle to find the right words. It connects silence with mutual support when words are missing.",
+        "de": "Die Theateraufführung im Cinema teatro in Chiasso befasst sich mit dem Gefühl der Ohnmacht angesichts von Ereignissen und mit der Suche nach den passenden Worten. Dabei verbindet sie das Thema des Schweigens mit gegenseitiger Unterstützung, wenn Worte fehlen.",
+        "fr": "La représentation théâtrale au Cinema teatro de Chiasso aborde le sentiment d’impuissance face aux événements et la difficulté de trouver les mots appropriés. Elle relie la question du silence à celle du soutien mutuel lorsque les mots manquent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:menace-chorale",
@@ -281441,7 +281697,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento segna l’apertura della stagione con Daniel Hope. L’appuntamento si svolge a Zurigo, nel Canton Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’evento segna l’apertura della stagione con Daniel Hope. L’appuntamento si svolge a Zurigo, nel Canton Zurigo.",
+        "en": "The event marks the opening of the season with Daniel Hope. It takes place in Zurich, in the canton of Zurich.",
+        "de": "Die Veranstaltung eröffnet die Saison gemeinsam mit Daniel Hope. Sie findet in Zürich im Kanton Zürich statt.",
+        "fr": "L’événement marque l’ouverture de la saison avec Daniel Hope. Il se déroule à Zurich, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:seance-dinformation-pour-lecole-de-police-27102026",
