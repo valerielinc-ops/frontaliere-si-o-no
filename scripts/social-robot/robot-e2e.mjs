@@ -273,8 +273,13 @@ $('post-now')?.addEventListener('click', sendPost);
 `);
 }
 
+const tiktokUploadShell = () => page('TikTok Studio', `
+<nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
+<main><div aria-label="Loading">TikTok Studio</div><script id="__Creator_Center_Context__" type="application/json">${JSON.stringify({ user: { uniqueId: 'frontaliereticino' } })}</script></main>`);
+
 function fakePlatforms() {
   const state = { igShares: [], igReels: [], ttPosts: [] };
+  let shellRetryPending = true;
   const server = http.createServer((req, res) => {
     const send = (status, body, type = 'text/html; charset=utf-8', headers = {}) => {
       res.writeHead(status, { 'content-type': type, ...headers });
@@ -314,6 +319,13 @@ function fakePlatforms() {
       case '/ig-logged-out/': return send(302, '', 'text/plain', { location: '/accounts/login/' });
       case '/accounts/login/': return send(200, instagramLogin());
       case '/tiktokstudio/upload': return send(200, tiktokPage());
+      case '/tt-shell-retry/tiktokstudio/upload': {
+        if (shellRetryPending) {
+          shellRetryPending = false;
+          return send(200, tiktokUploadShell());
+        }
+        return send(200, tiktokPage());
+      }
       case '/tt-music/tiktokstudio/upload': return send(200, tiktokPage({ music: true }));
       case '/tt-wrong-account/tiktokstudio/upload': return send(200, tiktokPage({ username: 'valerie.linc' }));
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
@@ -461,6 +473,10 @@ async function main() {
     check(r.result?.status === 'dry-run', `dry run waits for the Post button to enable and stops (${r.error?.message || 'ok'})`);
     check(existsSync(path.join(r.dir, 'ready-to-publish.png')), 'dry run leaves a screenshot of the ready post');
     check(state.ttPosts.length === 0, 'dry run posts nothing');
+
+    r = await run('tiktok', `${base}/tt-shell-retry/tiktokstudio/upload`, { dryRun: true, label: 'tt-shell-retry' });
+    check(r.result?.status === 'dry-run', `an SSR-only upload shell is recovered with one bounded reload (${r.error?.message || 'ok'})`);
+    check(state.ttPosts.length === 0, 'the shell-retry dry run posts nothing');
 
     r = await run('tiktok', `${base}/tt-private/tiktokstudio/upload`, { dryRun: true, label: 'tt-private' });
     check(r.result?.status === 'dry-run', `a remembered private audience is switched to public before publishing (${r.error?.message || 'ok'})`);

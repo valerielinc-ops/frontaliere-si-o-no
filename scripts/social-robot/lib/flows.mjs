@@ -29,6 +29,7 @@ export const TIKTOK_MUSIC_MODES = Object.freeze(['off', 'trend']);
 export const DEFAULT_TIKTOK_MUSIC_MODE = 'off';
 export const DEFAULT_TIKTOK_MUSIC_ROLLOUT_PERCENT = 0;
 export const TIKTOK_MUSIC_TIMEOUT_MS = 20_000;
+const TIKTOK_UPLOAD_SHELL_RETRIES = 1;
 
 export const DEFAULT_TIMEOUTS = Object.freeze({
   ui: 20_000, // a control of the page
@@ -1292,6 +1293,9 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   const baseTimeouts = { ...DEFAULT_TIMEOUTS, ...timeouts };
   const t = { ...baseTimeouts, upload: timeoutForTikTokVideo(video, baseTimeouts.upload) };
   const guard = tiktokGuard(page, step);
+  // A shared browser page can run several queue entries; diagnostics from a
+  // previous entry must not leak into a later TikTok failure.
+  diagnosticMetadata.delete(page);
   step.set('open');
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
   await guard();
@@ -1300,8 +1304,23 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await ensureTikTokAccount({ page, targetUsername, guard, timeout: t.ui });
 
   step.set('upload');
-  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
-  const input = await required(step, 'upload', [page.locator('input[type="file"]')], { guard, timeout: t.ui, state: 'attached' });
+  let input = null;
+  for (let attempt = 0; attempt <= TIKTOK_UPLOAD_SHELL_RETRIES; attempt += 1) {
+    await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: t.optional });
+    input = await findFirst([page.locator('input[type="file"]')], { guard, timeout: t.ui, state: 'attached' });
+    if (input) break;
+    if (attempt === TIKTOK_UPLOAD_SHELL_RETRIES) break;
+
+    // TikTok can answer the initial navigation with the SSR shell while its
+    // Creator Center bundle is still loading. A single bounded reload recovers
+    // that transient state without guessing a new upload control or bypassing
+    // the account/interstitial guards.
+    addDiagnosticMetadata(page, { tiktokUploadShellRetry: true });
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: Math.max(t.ui, 30_000) });
+    await guard();
+    await ensureTikTokAccount({ page, targetUsername, guard, timeout: t.ui });
+  }
+  if (!input) throw new RobotError('selector-missing', 'no control found for step "upload"', { step: 'upload' });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
   if (accept && !/video(?:\/|,|\s|$)/i.test(accept)) {
     throw new RobotError('upload-unsupported', `the upload field does not accept video/*: "${accept}"`, { step: 'upload' });
