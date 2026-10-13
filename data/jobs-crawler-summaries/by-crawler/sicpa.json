@@ -1,7 +1,7 @@
 {
   "key": "sicpa",
   "label": "SICPA SA",
-  "generatedAt": "2026-10-12T21:33:03.921Z",
+  "generatedAt": "2026-10-13T09:38:27.061Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 9478,
-  "avgDurationMs": 9478,
+  "durationMs": 10168,
+  "avgDurationMs": 10168,
   "durationHistory": [
-    9478
+    10168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien-Capteurs/1433994533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:32:46.976Z",
+      "crawledAt": "2026-10-13T09:38:10.148Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Laboratory-Technical-Specialist/1433333033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:32:49.430Z",
+      "crawledAt": "2026-10-13T09:38:12.603Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:32:48.819Z",
+      "crawledAt": "2026-10-13T09:38:11.992Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Sovereign-Data-Program-Intern/1445306733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:32:48.201Z",
+      "crawledAt": "2026-10-13T09:38:11.375Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Operator%2C-Gardening-&-Road/1431520733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:32:47.603Z",
+      "crawledAt": "2026-10-13T09:38:10.800Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Advisor/1418635833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:32:46.344Z",
+      "crawledAt": "2026-10-13T09:38:09.520Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:32:45.709Z",
+      "crawledAt": "2026-10-13T09:38:08.924Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:32:45.106Z",
+      "crawledAt": "2026-10-13T09:38:08.264Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -371,7 +371,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:32:44.505Z",
+      "crawledAt": "2026-10-13T09:38:07.624Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -401,5 +401,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
