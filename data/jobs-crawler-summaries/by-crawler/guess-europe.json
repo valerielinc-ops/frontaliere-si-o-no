@@ -1,18 +1,66 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-13T09:16:57.761Z",
+  "generatedAt": "2026-10-13T21:16:11.143Z",
   "total": 11,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 2906,
-  "avgDurationMs": 2906,
+  "removedCount": 1,
+  "unchangedCount": 9,
+  "durationMs": 2883,
+  "avgDurationMs": 2883,
   "durationHistory": [
-    2906
+    2883
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Buyers Administrator Intern",
+      "slug": "buyers-administrator-intern-guess-europe-sagl-bioggio-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/93BBFE5D5E/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/93BBFE5D5E/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "temporary",
+      "contractType": "temporary",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-13T00:00:00.000Z",
+      "postedDate": "2026-10-13T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-85ea1523e362",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-13T21:15:55.834Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
@@ -56,7 +104,54 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Visual Merchandising Director",
+      "slug": "visual-merchandising-direttore-guess-europe-sagl-bioggio",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/5267660DD1/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/5267660DD1/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-10T00:00:00.000Z",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-8bb54b7d0737",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T23:05:14.146Z",
+      "datePosted": "2026-09-10T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "postalCode": "6934",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Content Production Intern",
@@ -419,52 +514,6 @@
       }
     },
     {
-      "title": "Visual Merchandising Director",
-      "slug": "visual-merchandising-direttore-guess-europe-sagl-bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/5267660DD1/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/5267660DD1/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Bioggio",
-      "addressLocality": "Bioggio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-10T00:00:00.000Z",
-      "validThrough": "",
-      "benefits": [
-        "An International, fresh and dynamic working environment",
-        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
-        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
-        "Training & Development platform and paths",
-        "Discount on our products both online and in stores"
-      ],
-      "id": "guess-europe-8bb54b7d0737",
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-10T23:05:14.146Z",
-      "datePosted": "2026-09-10T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "postalCode": "6934",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Wholesale Area Manager Jewellery",
       "slug": "area-manager-gioielli-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/6E6AA05D9F/",
@@ -511,5 +560,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
