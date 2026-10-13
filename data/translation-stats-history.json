@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-09-21T14:25:09.480Z",
-    "label": "after",
-    "total": 30583,
-    "needsRetranslation": 2305,
-    "suppressed": 218,
-    "incomplete": 2593,
-    "complete": 27990,
-    "slotsPresent": 27990,
-    "flaggedAmongSlotsPresent": 14,
-    "verifiedTranslated": 27976,
-    "sourceCopyExcused": 627,
-    "slotsPresentByLength": 30468,
-    "languageVerified": 28810,
-    "missingByLocale": {
-      "it": 49,
-      "en": 35,
-      "de": 60,
-      "fr": 71
-    },
-    "queueAge": {
-      "count": 2305,
-      "withTimestamp": 2305,
-      "oldestAgeDays": 161.2,
-      "p50AgeDays": 20.7,
-      "p90AgeDays": 109.5,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 327,
-        "2-7d": 54,
-        "0-7d": 381,
-        "7-30d": 1150,
-        "30-90d": 431,
-        "90-180d": 343,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 23,
-      "withTimestamp": 23,
-      "oldestAgeDays": 161.2,
-      "p50AgeDays": 12,
-      "p90AgeDays": 55.7,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 10,
-        "2-7d": 1,
-        "0-7d": 11,
-        "7-30d": 5,
-        "30-90d": 5,
-        "90-180d": 2,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 444,
-      "sampled": 120,
-      "processed": 2,
-      "residual": 0,
-      "residualRate": 0
-    },
-    "topPending": [
-      {
-        "company": "Roche",
-        "pending": 240
-      },
-      {
-        "company": "PEMSA",
-        "pending": 184
-      },
-      {
-        "company": "Sulzer",
-        "pending": 121
-      },
-      {
-        "company": "Manor AG",
-        "pending": 70
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 66
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 56
-      },
-      {
-        "company": "Swiss Life",
-        "pending": 55
-      },
-      {
-        "company": "Anker Swiss Ticino AG",
-        "pending": 52
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 52
-      },
-      {
-        "company": "Galenica AG (Galenica)",
-        "pending": 49
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-21T17:24:45.816Z",
     "label": "before",
     "total": 30305,
@@ -23836,5 +23724,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-13T07:22:35.281Z",
+    "label": "before",
+    "total": 32324,
+    "needsRetranslation": 2986,
+    "suppressed": 167,
+    "incomplete": 3572,
+    "complete": 28752,
+    "slotsPresent": 28752,
+    "flaggedAmongSlotsPresent": 11,
+    "verifiedTranslated": 28741,
+    "sourceCopyExcused": 319,
+    "slotsPresentByLength": 32308,
+    "languageVerified": 30924,
+    "missingByLocale": {
+      "it": 272,
+      "en": 237,
+      "de": 13,
+      "fr": 244
+    },
+    "queueAge": {
+      "count": 2986,
+      "withTimestamp": 2986,
+      "oldestAgeDays": 182.9,
+      "p50AgeDays": 24.7,
+      "p90AgeDays": 101.8,
+      "buckets": {
+        "0-1d": 86,
+        "1-2d": 9,
+        "2-7d": 243,
+        "0-7d": 338,
+        "7-30d": 1178,
+        "30-90d": 992,
+        "90-180d": 468,
+        "180d+": 10
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 999,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "2b49115937dc3143",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 117,
+      "complete": 106
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 704
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 251
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 160
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 148
+      },
+      {
+        "company": "Medbase",
+        "pending": 124
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 109
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 95
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 87
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 86
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 71
+      }
+    ]
   }
 ]

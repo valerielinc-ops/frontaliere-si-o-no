@@ -185,9 +185,9 @@
       },
       "slugByLocale": {
         "de": "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
-        "it": "dottore-doctor-air-force-institute-confederazione-svizzera-dubendorf",
-        "en": "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
-        "fr": "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf"
+        "it": "dottore-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
+        "en": "doctor-doctor-air-force-institute-swiss-armed-forces-vtg-dubendorf",
+        "fr": "docteur-docteur-institut-de-la-force-aerienne-swiss-armed-forces-vtg-dubendorf"
       },
       "id": "confederazione-ticino-3d5a26ab2828",
       "salaryMin": 79000,
@@ -209,7 +209,9 @@
       "previousSlugs": [
         "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf",
         "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
-        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+        "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf",
+        "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
+        "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -218,10 +220,17 @@
           "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
         ],
         "en": [
-          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x"
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
+          "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
         ],
         "fr": [
-          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x"
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-swiss-armed-forces-vtg-dubendorf-s2hv4x",
+          "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf",
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
+        ],
+        "de": [
+          "arztin-arzt-fliegerarztliches-institut-luftwaffe-confederazione-dubendorf"
         ]
       }
     },
@@ -264,9 +273,9 @@
       },
       "slugByLocale": {
         "de": "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc",
-        "it": "specialista-della-gestione-della-qualita-confederazione-svizzera-bern",
-        "en": "quality-management-specialist-confederazione-svizzera-bern",
-        "fr": "specialiste-en-gestion-de-la-qualite-confederazione-svizzera-bern"
+        "it": "specialista-della-gestione-della-qualita-swiss-armed-forces-vtg-bern",
+        "en": "quality-management-specialist-swiss-armed-forces-vtg-bern",
+        "fr": "specialiste-en-gestion-de-la-qualite-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-9dbcb53056a7",
       "salaryMin": 73000,
@@ -288,7 +297,9 @@
       "previousSlugs": [
         "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern",
         "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc",
-        "spezialist-in-qualitatsmanagement-confederazione-bern"
+        "spezialist-in-qualitatsmanagement-confederazione-bern",
+        "quality-management-specialist-confederazione-svizzera-bern",
+        "specialiste-en-gestion-de-la-qualite-confederazione-svizzera-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -297,10 +308,17 @@
           "spezialist-in-qualitatsmanagement-confederazione-bern"
         ],
         "en": [
-          "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc"
+          "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc",
+          "quality-management-specialist-confederazione-svizzera-bern",
+          "spezialist-in-qualitatsmanagement-confederazione-bern"
         ],
         "fr": [
-          "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc"
+          "spezialist-in-qualitatsmanagement-swiss-armed-forces-vtg-bern-mkv7nc",
+          "specialiste-en-gestion-de-la-qualite-confederazione-svizzera-bern",
+          "spezialist-in-qualitatsmanagement-confederazione-bern"
+        ],
+        "de": [
+          "spezialist-in-qualitatsmanagement-confederazione-bern"
         ]
       }
     },
