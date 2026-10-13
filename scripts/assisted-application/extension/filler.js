@@ -24,6 +24,10 @@
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
+  const FILE_UPLOAD_RE = /\b(attach|upload|choose|carica|allega|scegli|seleziona)\b/i;
+  const FILE_BROWSE_RE = /\bbrowse\b/i;
+  const START_DATE_AVAILABILITY_RE = /\b(earliest available|start date|available from|notice period|preavviso|data di inizio|data d entrata|date de debut|date d entree|eintritt|verfugbar ab)\b/i;
+  const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -52,6 +56,8 @@
     ['street', /(\bstreet|\bvia\b|strasse|\badresse|\bindirizzo|\brue\b)/],
     ['country', /\b(paese|country|land|pays|nazione)\b/],
     ['linkedin', /\blinkedin\b/],
+    ['availability', /\b(availability|available|start date|notice period|preavviso|disponibil|verfugbarkeit|verfugbar|eintritt|date de debut|date d entree)\b/],
+    ['salary', /\b(salary|wage|compensation|pay|gehalt|loh(n|nvorstellung)|salario|salarial|stipendio|salary expectations)\b/],
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
@@ -427,6 +433,8 @@
       case 'country': return address.country || (locationParts.length > 1 ? locationParts[locationParts.length - 1] : '');
       case 'linkedin': return id.linkedin;
       case 'birthDate': return kit.profile?.dateOfBirth;
+      case 'availability': return kit.profile?.availability;
+      case 'salary': return kit.profile?.salary;
       default: return '';
     }
   }
@@ -472,6 +480,13 @@
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     const value = family ? identityValue(family, kit) : '';
+    // «Full time»/«Part time» describes the desired workload, not a notice
+    // period or an earliest start date. Keep that candidate value available
+    // for genuine availability fields, but never put it into a start-date
+    // field such as Fincons' optional question.
+    const fieldLabel = normalize((entry.labels || [entry.label]).join(' '));
+    if (family === 'availability' && START_DATE_AVAILABILITY_RE.test(fieldLabel)
+      && WORK_SCHEDULE_ONLY_RE.test(normalize(value))) return null;
     if (value) return { value, family };
     if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
     return null;
@@ -625,6 +640,62 @@
 
   // ---- Filling ----------------------------------------------------------------
 
+  /** Open a portal's upload mode before assigning a file input hidden behind it. */
+  async function prepareFileInput(element) {
+    if (isShown(element)) return true;
+    const scope = element.closest('.form-group, fieldset, [role="group"]') || element.ownerDocument;
+    const label = normalize(labelOf(element) || '');
+    const labelTokens = new Set(label.split(' ').filter((token) => token.length > 3));
+    const genericContext = new Set(['button', 'field', 'file', 'form', 'group', 'input', 'options', 'upload', 'value', 'wrapper']);
+    const contextOf = (node) => {
+      const parts = [];
+      for (let current = node, depth = 0; current && depth < 5; current = current.parentElement, depth += 1) {
+        parts.push(current.id, current.className, current.getAttribute?.('data-upload-for'), current.getAttribute?.('aria-controls'));
+      }
+      return normalize(parts.filter(Boolean).join(' '));
+    };
+    const inputContext = new Set(contextOf(element).split(' ').filter((token) => token.length >= 5 && !genericContext.has(token)));
+    const candidates = buttons(scope)
+      .map((button) => {
+        const text = button.text;
+        const context = contextOf(button.element);
+        const contextTokens = new Set(context.split(' ').filter((token) => token.length >= 5 && !genericContext.has(token)));
+        const strong = FILE_UPLOAD_RE.test(text);
+        const browse = FILE_BROWSE_RE.test(text)
+          && /\b(file|resume|cv|document|upload|attachment|allegat|curriculum)\b/i.test(`${text} ${context}`);
+        if ((!strong && !browse) || SUBMIT_RE.test(text) || NEXT_RE.test(text) || NOT_ADVANCE_RE.test(text)) return null;
+        const sharedContext = [...inputContext].filter((token) => contextTokens.has(token));
+        const labelMatch = [...labelTokens].some((token) => normalize(text).includes(token) || contextTokens.has(token));
+        const directlyTargetsInput = ['for', 'aria-controls', 'data-for', 'data-upload-for', 'data-target']
+          .some((attribute) => button.element.getAttribute(attribute) === element.id);
+        // «Browse jobs» is a normal link, not an upload control. A generic
+        // «Browse» is accepted only when its text or context points at this
+        // file, or when the control shares the input's meaningful context.
+        if (browse && !labelMatch && !sharedContext.length) return null;
+        // A file word alone is not an association: «Choose jobs» and «Upload
+        // portfolio» are both upload-looking, but can belong to another flow.
+        // Keep only controls that point at this input or share its label/context.
+        const associated = directlyTargetsInput || labelMatch || sharedContext.length > 0;
+        if (!associated) return null;
+        return {
+          ...button,
+          score: (strong ? 2 : 1) + sharedContext.length * 5 + (labelMatch ? 5 : 0) + (directlyTargetsInput ? 100 : 0),
+        };
+      })
+      .filter(Boolean);
+    // Every candidate above is associated with this input; an unrelated link
+    // is never a fallback, even when it appears earlier in the same group.
+    const upload = candidates.sort((left, right) => right.score - left.score)[0];
+    // Some portals keep a file input visually hidden but still submit it; keep
+    // the previous behavior when there is no explicit upload-mode control.
+    if (!upload) return true;
+    press(upload.element);
+    // Some portals keep the native input hidden by design but still accept a
+    // DataTransfer. Do not make CSS visibility a prerequisite for assignment.
+    await sleep(config.stepMs);
+    return true;
+  }
+
   /**
    * Fills one entry. getFile(document) resolves to a File, getFiles(document)
    * to the Files of a requested document (the extension downloads them from
@@ -635,6 +706,7 @@
     const { element } = entry;
     switch (entry.kind) {
       case 'file': {
+        if (!await prepareFileInput(element)) return false;
         const files = getFiles ? await getFiles(answer.document) : [await getFile(answer.document)].filter(Boolean);
         if (!files.length) return false;
         const view = element.ownerDocument.defaultView;
@@ -644,7 +716,7 @@
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
-        return true;
+        return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
       case 'checkbox':
         if (!element.checked) press(element);

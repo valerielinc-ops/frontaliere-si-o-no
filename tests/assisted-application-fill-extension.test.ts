@@ -570,6 +570,86 @@ describe('fill extension: other portals', () => {
     expect((document.getElementById('news') as HTMLInputElement).checked).toBe(false);
   });
 
+  it('opens Fincons’ hidden upload mode before assigning the CV', async () => {
+    const { F, document, window } = page(`<style>.none{display:none}</style><form>
+      <div class="form-group">
+        <label for="resumator-resume-value">Resume *</label>
+        <div id="resumator-resume-options"><a id="resumator-choose-upload" href="#">Attach resume</a></div>
+        <div id="resumator-resume-upload-wrapper" class="none"><input id="resumator-resume-value" type="file"></div>
+      </div>
+    </form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const input = document.getElementById('resumator-resume-value') as HTMLInputElement;
+    const wrapper = document.getElementById('resumator-resume-upload-wrapper')!;
+    Object.defineProperty(input, 'files', { value: null, writable: true, configurable: true });
+    (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+    let opened = 0;
+    document.getElementById('resumator-choose-upload')!.addEventListener('click', () => {
+      opened += 1;
+      wrapper.classList.remove('none');
+    });
+    const entry = F.collect(document).find((item: any) => item.element === input);
+    const file = new window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+    const ok = await F.fillEntry(entry, { document: 'cv' }, { getFile: async () => file });
+    expect({ ok, opened, fileName: input.files?.[0]?.name, fileCount: input.files?.length }).toEqual({ ok: true, opened: 1, fileName: 'CV.pdf', fileCount: 1 });
+  });
+
+  it('maps Fincons availability to its optional notice/start-date field', async () => {
+    const { F, document } = page(`<form>
+      <label for="resumator-questionnaire-q3021436">Notice Period / Earliest Available Start Date (optional)</label>
+      <input id="resumator-questionnaire-q3021436" type="text">
+    </form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const input = document.getElementById('resumator-questionnaire-q3021436') as HTMLInputElement;
+    const entry = F.collect(document).find((item: any) => item.element === input);
+    const availabilityKit = { ...kit, answers: [], profile: { ...kit.profile, availability: '2026-11-01', salary: "CHF 100'000" } };
+    expect(F.answerFor(entry, availabilityKit)).toEqual({ value: '2026-11-01', family: 'availability' });
+    await F.fillPage(document, availabilityKit, { getFile: async () => null, attempts: new WeakMap() });
+    expect(input.value).toBe('2026-11-01');
+
+    const scheduleKit = { ...availabilityKit, profile: { ...availabilityKit.profile, availability: 'full time' } };
+    expect(F.answerFor(entry, scheduleKit)).toBeNull();
+
+    const salaryPage = page('<form><label for="salary">Desired salary (CHF per year)</label><input id="salary"></form>');
+    const salaryInput = salaryPage.document.getElementById('salary') as HTMLInputElement;
+    const salaryEntry = salaryPage.F.collect(salaryPage.document).find((item: any) => item.element === salaryInput);
+    expect(salaryPage.F.answerFor(salaryEntry, availabilityKit)).toEqual({ value: "CHF 100'000", family: 'salary' });
+  });
+
+  it('assigns a CV even when the portal keeps the native input hidden', async () => {
+    const { F, document, window } = page(`<style>.none{display:none}</style><form>
+      <div class="form-group">
+        <a id="resumator-choose-upload" href="#">Attach resume</a>
+        <div id="resumator-resume-upload-wrapper" class="none"><input id="resumator-resume-value" type="file"></div>
+      </div>
+    </form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const input = document.getElementById('resumator-resume-value') as HTMLInputElement;
+    Object.defineProperty(input, 'files', { value: null, writable: true, configurable: true });
+    (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+    let opened = 0;
+    document.getElementById('resumator-choose-upload')!.addEventListener('click', () => { opened += 1; });
+    const entry = F.collect(document).find((item: any) => item.element === input);
+    const file = new window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+    const ok = await F.fillEntry(entry, { document: 'cv' }, { getFile: async () => file });
+    expect({ ok, opened, fileName: input.files?.[0]?.name, fileCount: input.files?.length }).toEqual({ ok: true, opened: 1, fileName: 'CV.pdf', fileCount: 1 });
+  });
+
+  it('does not press an unrelated Choose jobs link before the upload control', async () => {
+    const { F, document, window } = page(`<form><div class="form-group">
+      <a id="choose-jobs" href="/jobs">Choose jobs</a>
+      <a id="resumator-choose-upload" href="#">Attach resume</a>
+      <input id="resumator-resume-value" type="file" style="display:none">
+    </div></form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const input = document.getElementById('resumator-resume-value') as HTMLInputElement;
+    Object.defineProperty(input, 'files', { value: null, writable: true, configurable: true });
+    (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+    const pressed: string[] = [];
+    document.getElementById('choose-jobs')!.addEventListener('click', () => pressed.push('choose'));
+    document.getElementById('resumator-choose-upload')!.addEventListener('click', () => pressed.push('upload'));
+    const entry = F.collect(document).find((item: any) => item.element === input);
+    const file = new window.File(['%PDF-1.4'], 'CV.pdf', { type: 'application/pdf' });
+    const ok = await F.fillEntry(entry, { document: 'cv' }, { getFile: async () => file });
+    expect({ ok, pressed, fileName: input.files?.[0]?.name }).toEqual({ ok: true, pressed: ['upload'], fileName: 'CV.pdf' });
+  });
+
   // Rolex 2026-10-02: the posting asks for school reports and aptitude test results besides the CV.
   it('attaches the requested documents to their own fields, and all of them to a generic attachments field', async () => {
     const { F, document, window } = page(`<form>
