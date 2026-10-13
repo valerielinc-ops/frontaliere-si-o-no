@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-13T09:27:44.300Z",
+  "assembledAt": "2026-10-13T12:29:39.631Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -1473,90 +1473,6 @@
         "oberarztin-oberarzt-pdgr-ch",
         "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 110500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "pdgr-138450293b05",
-      "slug": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
-      "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
-        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
-        "de": "oberarztin-oberarzt-pdgr-ch",
-        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "it": "medico senior / medico senior",
-        "en": "Senior physician / senior physician",
-        "de": "Oberärztin / Oberarzt",
-        "fr": "Médecin supérieur / Médecin supérieur"
-      },
-      "description": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in interdisziplinären Teams und gestalten die ambulante und teilstationäre psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie führen selbständig ambulante psychiatrische und psychotherapeutische Diagnostik und Therapien durch und unterstützen Psychologinnen und Psychologen bei pharmakologischen Fragestellungen und Verordnungen.\n\n- Sie behandeln Patientinnen und Patienten mit Erkrankungen aus dem gesamten Diagnosespektrum der Erwachsenenpsychiatrie\n\n- Sie übernehmen Konsilien sowie Liaisonaufgaben\n\n- Sie pflegen Kontakte zu Behandlungspartnern, Angehörigen sowie Behörden und beteiligen sich an Öffentlichkeitsanlässen\n\n- Sie entwickeln das Behandlungsangebot weiter, sichern den Qualitätsstandard und vernetzen sich interdisziplinär\n\nUnser Anforderungsprofil:\n- Sie sind Facharzt/-ärztin für Psychiatrie und Psychotherapie oder in fortgeschrittener Weiterbildung\n\n- Sie arbeiten gerne interdisziplinär und nutzen dies für die optimale und ganzheitliche Betreuung der Patientinnen und Patienten\n\n- Sie sind eine engagierte, eigenverantwortliche und teamfähige Persönlichkeit\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in einem angenehmen und kollegialen Arbeitsklima\n\n- Die Möglichkeit an unserem Entwicklungsprogramm teilzunehmen und werden bei externen Fortbildungen unterstützt\n\n- Die Möglichkeit zum Erwerb von verschiedenen Schwerpunkttiteln\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
-      "descriptionByLocale": {
-        "it": "I dintorni:\nLavorano presso il Centro di Psichiatria Engadina presso le sedi di Samedan e Scuol in team interdisciplinari e contribuiscono attivamente alla cura psichiatrica ambulatoriale e semistazione della regione. Si può aspettare un ambiente collegiale con una buona cooperazione e uno scambio ravvicinato.\n\nI loro compiti:\n- Essi svolgono in modo indipendente la diagnosi psichiatrica e psicoterapeutica ambulatoriale e le terapie e sostengono gli psicologi in domande e prescrizioni farmacologiche.\n\n- Trattano i pazienti con malattie dall'intero spettro diagnostico della psichiatria adulta\n\n- Essi assumono consilienze e compiti di collegamento\n\n- Mantengono contatti con partner di trattamento, parenti e autorità e partecipano ad eventi pubblici\n\n- Sviluppano ulteriormente l'offerta di trattamento, assicurano lo standard di qualità e la rete interdisciplinare\n\nIl nostro profilo di requisito:\n- Sei uno specialista in psichiatria e psicoterapia o in formazione avanzata\n\n- A loro piace lavorare interdisciplinare e usarlo per la cura ottimale e olistica dei pazienti\n\n- Sei una personalità impegnata, responsabile e responsabile del team\n\nVi offriamo:\n- Un'attività interessante e versatile in un ambiente di lavoro piacevole e collegiale\n\n- L'opportunità di partecipare al nostro programma di sviluppo e sono supportati nella formazione esterna\n\n- La possibilità di acquisire vari titoli chiave\n\n- L'opportunità di partecipare alla ricerca e su richiesta il supporto alla vostra dissertazione\n\n- Con modelli di lavoro part-time, orari di lavoro regolari e congedo non retribuito, un equilibrio ottimale della vita lavorativa",
-        "en": "Your surroundings:\nThey work at the Engadin Psychiatry Centre at the Samedan and Scuol locations in interdisciplinary teams and actively contribute to the region’s outpatient and semi-stationary psychiatric care. You can expect a collegial environment with good cooperation and close exchange.\n\nTheir tasks:\n- They independently carry out outpatient psychiatric and psychotherapeutic diagnosis and therapies and support psychologists in pharmacological questions and prescriptions.\n\n- They treat patients with diseases from the entire diagnostic spectrum of adult psychiatry\n\n- They take on consiliencies and liaison tasks\n\n- They maintain contacts with treatment partners, relatives and authorities and participate in public events\n\n- They further develop the treatment offer, secure the quality standard and network interdisciplinary\n\nOur requirement profile:\n- You are a specialist in psychiatry and psychotherapy or in advanced training\n\n- They like to work interdisciplinary and use this for the optimal and holistic care of patients\n\n- You are a committed, self-responsible and team-capable personality\n\nWe offer you:\n- An interesting and versatile activity in a pleasant and collegial working atmosphere\n\n- The opportunity to participate in our development program and are supported in external training\n\n- The possibility of acquiring various key titles\n\n- The opportunity to participate in research and on request support in your dissertation\n\n- With part-time work models, regular working hours and unpaid leave, an optimal work-life balance",
-        "de": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in interdisziplinären Teams und gestalten die ambulante und teilstationäre psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie führen selbständig ambulante psychiatrische und psychotherapeutische Diagnostik und Therapien durch und unterstützen Psychologinnen und Psychologen bei pharmakologischen Fragestellungen und Verordnungen.\n\n- Sie behandeln Patientinnen und Patienten mit Erkrankungen aus dem gesamten Diagnosespektrum der Erwachsenenpsychiatrie\n\n- Sie übernehmen Konsilien sowie Liaisonaufgaben\n\n- Sie pflegen Kontakte zu Behandlungspartnern, Angehörigen sowie Behörden und beteiligen sich an Öffentlichkeitsanlässen\n\n- Sie entwickeln das Behandlungsangebot weiter, sichern den Qualitätsstandard und vernetzen sich interdisziplinär\n\nUnser Anforderungsprofil:\n- Sie sind Facharzt/-ärztin für Psychiatrie und Psychotherapie oder in fortgeschrittener Weiterbildung\n\n- Sie arbeiten gerne interdisziplinär und nutzen dies für die optimale und ganzheitliche Betreuung der Patientinnen und Patienten\n\n- Sie sind eine engagierte, eigenverantwortliche und teamfähige Persönlichkeit\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in einem angenehmen und kollegialen Arbeitsklima\n\n- Die Möglichkeit an unserem Entwicklungsprogramm teilzunehmen und werden bei externen Fortbildungen unterstützt\n\n- Die Möglichkeit zum Erwerb von verschiedenen Schwerpunkttiteln\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
-        "fr": "Votre environnement:\nIls travaillent au Centre de psychiatrie d'Engadin aux emplacements de Samedan et de Scuol dans des équipes interdisciplinaires et contribuent activement aux soins ambulatoires et psychiatriques semi-stationnaires de la région. Vous pouvez vous attendre à un environnement collégial avec une bonne coopération et des échanges étroits.\n\nLeurs tâches:\n- Ils effectuent de manière indépendante des diagnostics et des thérapies psychiatriques et psychothérapeutiques ambulatoires et soutiennent les psychologues dans les questions pharmacologiques et les ordonnances.\n\n- Ils traitent les patients atteints de maladies de tout le spectre diagnostique de la psychiatrie adulte\n\n- Ils assument des fonctions de liaison et de liaison.\n\n- Ils entretiennent des contacts avec les partenaires de traitement, les parents et les autorités et participent à des manifestations publiques\n\n- Ils développent l'offre de traitement, assurent la qualité standard et le réseau interdisciplinaire\n\nNotre profil d'exigence:\n- Vous êtes spécialiste en psychiatrie et psychothérapie ou en formation avancée\n\n- Ils aiment travailler interdisciplinaire et l'utiliser pour les soins optimaux et holistiques des patients\n\n- Vous êtes une personnalité engagée, responsable et capable d'équipe\n\nNous vous offrons:\n- Une activité intéressante et polyvalente dans une atmosphère de travail agréable et collégiale\n\n- L'occasion de participer à notre programme de perfectionnement et sont soutenus dans la formation externe\n\n- La possibilité d'acquérir différents titres clés\n\n- L'occasion de participer à la recherche et sur demande dans votre mémoire\n\n- Avec des modèles de travail à temps partiel, des horaires de travail réguliers et des congés non rémunérés, un équilibre optimal entre le travail et la vie personnelle"
-      },
-      "location": "Samedan / Scuol",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:02.264Z",
-      "addressLocality": "Samedan / Scuol",
-      "postalCode": "7503",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-20",
-      "postedDate": "2026-05-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Erwachsenenpsychiatrie",
-      "facility": "Psychiatrie-Zentrum Engadin",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60 - 100%",
-      "previousSlugs": [
-        "oberarztin-oberarzt-pdgr-ch",
-        "oberarztin-oberarzt-pdgr-ch-t5tsyg",
-        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-pdgr-ch-t5tsyg"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
-        ]
-      },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
