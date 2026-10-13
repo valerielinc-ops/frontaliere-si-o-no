@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-la-plaine",
   "label": "Clinique de la Plaine",
-  "generatedAt": "2026-10-13T09:32:24.049Z",
+  "generatedAt": "2026-10-13T21:38:35.943Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3332,
-  "avgDurationMs": 3332,
+  "durationMs": 4484,
+  "avgDurationMs": 4484,
   "durationHistory": [
-    3332
+    4484
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:32:15.763Z",
+      "crawledAt": "2026-10-13T21:38:23.051Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:32:15.271Z",
+      "crawledAt": "2026-10-13T21:38:22.537Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
