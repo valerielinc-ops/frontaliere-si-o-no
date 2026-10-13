@@ -165,7 +165,7 @@ export const TUNNEL_OFFLINE_STATUS = 530;
 
 /**
  * Vero solo per un 530 su una superficie del tunnel webhook riconosciuta dalla tassonomia
- * condivisa (`gh-default`, `gh-default-agenti` o `gh-nanako` `.frontaliereticino.ch`).
+ * condivisa (`scripts/lib/cf-error-surface.mjs`), che mantiene l'elenco esplicito degli host.
  *
  * ─── Perche' questa riga non conia una issue del sito (site#8839, site#8840) ─
  * Questi host non servono visitatori: il chiamante e' GitHub, e il tunnel

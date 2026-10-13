@@ -30,6 +30,8 @@ export const GH_DEFAULT_TUNNEL_HOST = 'gh-default.frontaliereticino.ch';
 export const GH_DEFAULT_AGENTI_TUNNEL_HOST = 'gh-default-agenti.frontaliereticino.ch';
 /** Cloudflare Tunnel hostname for the nanako local GitHub webhook receiver. */
 export const GH_NANAKO_TUNNEL_HOST = 'gh-nanako.frontaliereticino.ch';
+/** New nanako agents webhook hostname observed in zone analytics. */
+export const GH_NANAKO_AGENTI_TUNNEL_HOST = 'gh-nanako-agenti.frontaliereticino.ch';
 
 /**
  * Path prefixes served by the `frontaliere-locale-router` Worker to the per-locale Pages
@@ -76,6 +78,11 @@ export const SURFACES = {
     cacheRule: null,
     serveStale: false,
   },
+  'github-webhook-nanako-agenti': {
+    origin: 'Cloudflare Tunnel -> nanako agents GitHub webhook receiver',
+    cacheRule: null,
+    serveStale: false,
+  },
   'www-redirect': { origin: 'www -> apex redirect', cacheRule: null, serveStale: false },
   other: { origin: 'unknown', cacheRule: null, serveStale: false },
 };
@@ -85,6 +92,7 @@ export const WEBHOOK_TUNNEL_SURFACES = Object.freeze([
   'github-webhook-default',
   'github-webhook-default-agenti',
   'github-webhook-nanako',
+  'github-webhook-nanako-agenti',
 ]);
 
 /** True only for the explicitly known GitHub webhook tunnel surfaces. */
@@ -92,7 +100,7 @@ export function isWebhookTunnelSurface(surface) {
   return WEBHOOK_TUNNEL_SURFACES.includes(surface);
 }
 
-/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-default-agenti'|'github-webhook-nanako'|'www-redirect'|'other'} SurfaceKey */
+/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-default-agenti'|'github-webhook-nanako'|'github-webhook-nanako-agenti'|'www-redirect'|'other'} SurfaceKey */
 
 /**
  * Classify a request into the surface that served it.
@@ -116,6 +124,7 @@ export function classifySurface(row) {
   if (host === GH_DEFAULT_TUNNEL_HOST) return 'github-webhook-default';
   if (host === GH_DEFAULT_AGENTI_TUNNEL_HOST) return 'github-webhook-default-agenti';
   if (host === GH_NANAKO_TUNNEL_HOST) return 'github-webhook-nanako';
+  if (host === GH_NANAKO_AGENTI_TUNNEL_HOST) return 'github-webhook-nanako-agenti';
   if (host.startsWith('www.')) return 'www-redirect';
   if (host !== APEX_HOST) return 'other';
 
