@@ -315,8 +315,7 @@ export function actionableEntries(appErrors) {
 /**
  * La configurazione della fase «riconcilia» (scripts/lib/monitor-issue-reconcile.mjs)
  * per il report letto. `verdictFor(issue)` misura la firma della issue su
- * QUESTO report; la regola a due conferme (`confirmations: 2`) la applica il
- * modulo condiviso.
+ * QUESTO report; il modulo condiviso chiude alla prima misura completa e pulita.
  *
  * `complete` (la misura vale come prova) solo se:
  *   - il report esiste e `errorHealth.appErrors` e' un array;
@@ -344,7 +343,7 @@ export function appErrorReconcile(report, { minCount = MIN_COUNT } = {}) {
     family: APP_ERROR_FAMILY,
     labels: [APP_ERROR_LABEL],
     titlePrefix: APP_ERROR_TITLE_PREFIX,
-    confirmations: 2,
+    confirmations: 1,
   };
   const incomplete = (evidence) => ({ clean: false, complete: false, evidence, command: RECONCILE_COMMAND });
 
