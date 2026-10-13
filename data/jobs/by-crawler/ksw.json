@@ -3238,9 +3238,9 @@
       "companyDomain": "ksw.ch",
       "title": "Mitarbeiterin / Mitarbeiter Logistik",
       "titleByLocale": {
+        "de": "Mitarbeiterin / Mitarbeiter Logistik",
         "it": "Addetta / Addetto alla logistica",
         "en": "Employee / employee Logistics",
-        "de": "Mitarbeiterin / Mitarbeiter Logistik",
         "fr": "Employé / employé Logistique"
       },
       "description": "Für unsere Versorgungslogistik suchen wir per 01.01.2027 oder nach Vereinbarung eine selbstständige, zuverlässige und dienstleistungsorientierte Persönlichkeit, die unser Team tatkräftig unterstützt.\n\nAufgaben:\n• Du packst in unserer Versorgungslogistik tatkräftig mit an, welches das gesamte Spital mit Verbrauchsmaterialien beliefert\n• Als Wissensträger/-in der Versorgungslogistik schulst du Mitarbeitende und unterstützt sie bei fachlichen Fragen\n• Du unterstützt beim Einrichten und Umbauen von Lagern und stellst deren Ordnung, Sauberkeit und optimale Nutzung sicher\n• Du kontrollierst die täglich eintreffenden Lieferungen, verbuchst die Waren und lagerst sie am richtigen Ort ein oder leitest sie direkt weiter\n• Bei Lieferabweichungen klärst du Sachverhalte selbstständig mit dem Einkauf und weiteren Ansprechpersonen\n• Du nimmst Brief- und Paketsendungen entgegen und stellst deren korrekte Verteilung innerhalb des gesamten Spitals sicher\n\nProfil:\n• Du verfügst über einen Lehrabschluss als Logistiker/-in EFZ oder eine gleichwertige Ausbildung\n• Du bringst mehrere Jahre Berufserfahrung in der Logistik mit, idealerweise im Spitalumfeld\n• Du arbeitest selbstständig, zuverlässig, strukturiert sowie exakt und packst auch körperlich gerne mit an\n• Du bist kunden- und dienstleistungsorientiert, arbeitest speditiv und behältst auch in hektischen Situationen den Überblick\n• Du verfügst über MS-Office-Kenntnisse und sehr gute Deutschkenntnisse\n\nBenefits: Beruf und Privatleben sollen zusammenpassen. Deshalb bietet dir das KSW – wo es der Betrieb ermöglicht – flexible und gleitende Arbeitszeiten, Homeoffice, einen grosszügigen Mutterschaftsurlaub, Vaterschaftsurlaub sowie Beschäftigungsgrade, die sich an unterschiedliche Lebensphasen anpassen lassen.; Entwickle dich fachlich und persönlich weiter: Jährlich stehen dir am KSW rund 40 überfachliche und 50 fachliche Fortbildungen offen. Auch externe Weiterbildungen unterstützen wir – zeitlich und/oder finanziell.; Manchmal braucht es Unterstützung. Bei persönlichen Belastungen, längerer Krankheit oder schwierigen Erlebnissen im Berufs- oder Privatleben stehen dir am KSW verschiedene vertrauliche Gesprächsangebote zur Verfügung.; Am KSW arbeiten wir miteinander und füreinander. Wertschätzung, eine offene und respektvolle Kommunikation sowie die Zusammenarbeit über Berufsgruppen und Abteilungen hinweg prägen unseren Arbeitsalltag. Dabei sollst du dich mit deinen Ideen und Stärken einbringen und entfalten können.; Auch für deine Zukunft ist gesorgt: Du profitierst von sehr guten Sozialleistungen und einer Pensionskassenlösung mit der BVK, die deutlich über dem gesetzlichen Minimum liegt. Auch bei Krankheit oder Unfall bist du als KSW-Mitarbeitende sehr gut abgesichert.; Deine Gesundheit liegt uns am Herzen. Profitiere von Rabatten auf Fitness-Abonnements, internen Trainings und Kursen sowie Vergünstigungen in Apotheken und bei ausgewählten Krankenkassen.; Familie und Beruf lassen sich bei uns gut verbinden. Die Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten liegt direkt neben dem KSW. Zusätzlich unterstützt dich das KSW – abhängig vom Einkommen – finanziell bei den Krippenkosten.; Auch ausserhalb der Arbeit gibt es etwas zu entdecken: Dank unserer Zusammenarbeit mit Kulturpartnern in Winterthur und Umgebung profitierst du regelmässig von Vergünstigungen für Konzerte und Theatervorstellungen.\n\n• Berufsfeld: Betrieb\n• Bereich: Supply Chain Management\n• Pensum: 80-100%",
@@ -3275,9 +3275,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Supply Chain Management",
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
@@ -3289,7 +3286,9 @@
           "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
         ]
       },
-      "firstSeenAt": "2026-10-12T21:15:28.865Z",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-logistik-ksw-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3302,7 +3301,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-12T21:15:28.865Z"
     },
     {
       "id": "ksw-a5db4673f4a3",

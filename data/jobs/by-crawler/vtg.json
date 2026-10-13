@@ -492,6 +492,8 @@
         "doctor-doctor-air-force-institute-confederazione-svizzera-dubendorf",
         "docteur-docteur-institut-de-la-force-aerienne-confederazione-svizzera-dubendorf"
       ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -503,9 +505,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 91500,
-      "salaryMax": 128000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-mkv7nc",
@@ -588,6 +588,8 @@
         "quality-management-specialist-confederazione-svizzera-bern",
         "specialiste-en-gestion-de-la-qualite-confederazione-svizzera-bern"
       ],
+      "salaryMin": 105500,
+      "salaryMax": 185000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -599,9 +601,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 105500,
-      "salaryMax": 185000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-c1pk5u",

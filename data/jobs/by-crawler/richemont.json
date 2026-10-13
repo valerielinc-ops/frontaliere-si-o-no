@@ -13072,6 +13072,21 @@
       "jobReqId": "jr134296",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-08T21:30:11.527Z",
       "previousSlugs": [
         "gestionnaire-de-l-accueil-et-des-installations-van-cleef-arpels-geneva",
         "hospitality-and-facilities-manager-richemont-geneva"
@@ -13087,22 +13102,7 @@
         "de": [
           "hospitality-and-facilities-manager-richemont-geneva"
         ]
-      },
-      "firstSeenAt": "2026-10-08T21:30:11.527Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
+      }
     },
     {
       "id": "richemont-8fcc49ebe82a",

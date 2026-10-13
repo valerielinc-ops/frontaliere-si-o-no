@@ -4276,9 +4276,9 @@
       "crawledAt": "2026-10-13T09:33:25.186Z",
       "firstSeenAt": "2026-10-12T21:28:43.822Z",
       "titleByLocale": {
+        "de": "Polydesigner:in 3D / Dekorateur:in Aussendienst",
         "it": "Polidesigner 3D / decoratore/trice nel servizio esterno",
         "en": "3D Designer / Decorator, Field Service",
-        "de": "Polydesigner:in 3D / Dekorateur:in Aussendienst",
         "fr": "Polydesigner 3D / Décorateur Service mobile"
       },
       "descriptionByLocale": {
@@ -4300,6 +4300,8 @@
       "streetAddress": "Industriestrasse 109",
       "addressRegion": "SG",
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4326,9 +4328,7 @@
       "previousSlugs": [
         "polydesigner-in-3d-dekorateur-in-aussendienst-coop-gossau-aussendienst-ostschweiz-juxofh",
         "polydesigner-in-3d-dekorateur-in-aussendienst-coop-gossau-aussendienst-ostschweiz"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      ]
     },
     {
       "id": "company-pcqn0h",
@@ -44979,11 +44979,11 @@
           "butcher-meat-specialist-meat-specialist-coop-genossenschaft-dielsdorf-ebe845",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-pemkdz"
         ],
-        "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-pemkdz"
-        ],
         "fr": [
           "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-dielsdorf-ebe845",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-pemkdz"
+        ],
+        "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-pemkdz"
         ]
       },
@@ -57882,13 +57882,13 @@
           "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern",
           "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
-        "en": [
-          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
-        ],
         "de": [
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
           "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern",
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+        ],
+        "en": [
+          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
         "fr": [
           "nachwuchskader-vente-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
@@ -60064,12 +60064,12 @@
           "rayon-conductor-staple-food-coop-wadenswil-t6qlfb",
           "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-t6qlfb"
         ],
-        "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-t6qlfb"
-        ],
         "fr": [
           "rayon-conducteur-aliment-de-base-coop-genossenschaft-wadenswil",
           "produits-de-base-du-conducteur-de-rayonne-coop-wadenswil-t6qlfb",
+          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-t6qlfb"
+        ],
+        "de": [
           "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-t6qlfb"
         ]
       },
@@ -86523,12 +86523,12 @@
           "verkaufer-in-food-coop-klosters-serneus-graubunden-209da0",
           "seller-food-coop-genossenschaft-klosters-serneus"
         ],
-        "de": [
-          "verkaufer-in-food-coop-klosters-serneus-graubunden-ls96m6"
-        ],
         "fr": [
           "verkaufer-in-food-coop-klosters-serneus-graubunden-209da0",
           "produits-alimentaires-vendus-coop-genossenschaft-klosters-serneus"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-klosters-serneus-graubunden-ls96m6"
         ]
       },
       "previousSlugs": [

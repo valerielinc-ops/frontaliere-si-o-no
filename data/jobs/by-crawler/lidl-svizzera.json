@@ -710,6 +710,8 @@
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-chur-20x0ti",
         "verkaufer-verkauferin-m-w-d-20-60-chur-lidl-svizzera-chur"
       ],
+      "salaryMin": 34500,
+      "salaryMax": 52200,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -725,9 +727,7 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "firstSeenAt": "2026-10-13T09:41:55.731Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200
+      "firstSeenAt": "2026-10-13T09:41:55.731Z"
     },
     {
       "id": "company-dbgzxv",
