@@ -1535,7 +1535,8 @@ const benignNormEntity = (acronym) => new RegExp(
 export function benignNormEntityBoundary(text, acronym, matchIndex, matchLength = acronym.length, contextWindow = 80) {
   if (typeof text !== 'string' || typeof acronym !== 'string' || !Number.isInteger(matchIndex)) return false;
   const escaped = escapeRegExpLiteral(acronym);
-  const throughMatch = text.slice(Math.max(0, matchIndex - contextWindow), matchIndex + matchLength);
+  const throughStart = Math.max(0, matchIndex - contextWindow);
+  const throughMatch = text.slice(throughStart, matchIndex + matchLength);
   const fromMatch = text.slice(matchIndex, matchIndex + matchLength + 32);
   const prefixedEntity = new RegExp(
     String.raw`\b${BENIGN_NORM_ENTITY_NOUN}\s+["'«‹„“‘(\[]\s*${escaped}$`,
@@ -1545,7 +1546,17 @@ export function benignNormEntityBoundary(text, acronym, matchIndex, matchLength 
     String.raw`^${escaped}(?:\s*["'»›”’)\]])?\s*,?\s+${BENIGN_NORM_CORPORATE_SUFFIX}(?=$|[\s,.;:!?…\)\]])`,
     'iu',
   );
-  return prefixedEntity.test(throughMatch) || suffixedEntity.test(fromMatch);
+  const prefixedMatch = prefixedEntity.exec(throughMatch);
+  const prefixedStart = prefixedMatch ? throughStart + prefixedMatch.index : -1;
+  const prefixedBoundaryIsInOriginalText = prefixedMatch !== null
+    && (prefixedStart === 0 || !/\w/iu.test(text[prefixedStart - 1]));
+
+  const suffixedMatch = suffixedEntity.exec(fromMatch);
+  const suffixedEnd = suffixedMatch ? matchIndex + suffixedMatch[0].length : -1;
+  const suffixBoundaryIsInOriginalText = suffixedMatch !== null
+    && (suffixedEnd === text.length || /[\s,.;:!?…\)\]]/u.test(text[suffixedEnd] ?? ''));
+
+  return prefixedBoundaryIsInOriginalText || suffixBoundaryIsInOriginalText;
 }
 
 // Il tema delle leggi fiscali e del lavoro inventate, nei quattro locali del

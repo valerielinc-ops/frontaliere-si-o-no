@@ -26,6 +26,7 @@ import {
   checkFabricatedInstitutionAcronyms,
   checkFabricatedNormAcronyms,
   FABRICATED_NORM_ACRONYMS,
+  benignNormEntityBoundary,
   checkContradictoryNormDates,
   checkSourceFreshness,
   extractSourceAnchors,
@@ -620,6 +621,16 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(checkFabricatedNormAcronyms(
       'La app LPS aiuta i frontalieri a calcolare lo stipendio netto in Svizzera.',
     )).toEqual([]);
+  });
+
+  it('validates entity boundaries against the original text at truncated context edges', () => {
+    const texts = [
+      `xgroup «${' '.repeat(73)}LFW`,
+      `LFW${' '.repeat(30)}AGX`,
+    ];
+    expect(benignNormEntityBoundary(texts[0], 'LFW', texts[0].indexOf('LFW'), 3, 80)).toBe(false);
+    expect(benignNormEntityBoundary(texts[1], 'LFW', 0, 3, 80)).toBe(false);
+    expect(texts.map((text) => checkFabricatedNormAcronyms(text).length)).toEqual([1, 1]);
   });
 
   // Le forme societarie valgono in ogni locale del corpus: «la société LFW» e
