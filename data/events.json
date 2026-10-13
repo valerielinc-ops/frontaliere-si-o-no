@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T19:04:58.683Z",
+  "generatedAt": "2026-10-13T21:57:18.142Z",
   "totalEvents": 12964,
   "events": [
     {
@@ -194556,7 +194556,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Rifugio Letterario di Massagno ospita un incontro con Barbara Nascioli dedicato a Tulipan. Il libro assume la forma di un diario rivolto al figlio e raccoglie episodi quotidiani, riflessioni, emozioni e incontri; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il Rifugio Letterario di Massagno ospita un incontro con Barbara Nascioli dedicato a Tulipan. Il libro assume la forma di un diario rivolto al figlio e raccoglie episodi quotidiani, riflessioni, emozioni e incontri; l’ingresso è gratuito.",
+        "en": "Il Rifugio Letterario in Massagno hosts a meeting with Barbara Nascioli devoted to Tulipan. The book takes the form of a mother’s diary for her son, bringing together everyday episodes, thoughts, emotions and encounters; admission is free.",
+        "de": "Im Il Rifugio Letterario in Massagno findet ein Treffen mit Barbara Nascioli zu Tulipan statt. Das Buch ist als Tagebuch einer Mutter für ihren Sohn angelegt und verbindet Alltagsszenen mit Gedanken, Gefühlen und Begegnungen; der Eintritt ist frei.",
+        "fr": "Il Rifugio Letterario à Massagno accueille une rencontre avec Barbara Nascioli autour de Tulipan. Le livre prend la forme du journal d’une mère destiné à son fils et réunit des scènes du quotidien, des réflexions, des émotions et des rencontres; l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63495",
@@ -200325,7 +200333,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un pub quiz ospitato dalla Barfuss Brauerei a Bürglen (TG). La manifestazione è organizzata da Patton Barfuss Brauerei GmbH Barfuss Brauerei GmbH.",
+      "descriptionByLocale": {
+        "it": "L’evento è un pub quiz ospitato dalla Barfuss Brauerei a Bürglen (TG). La manifestazione è organizzata da Patton Barfuss Brauerei GmbH Barfuss Brauerei GmbH.",
+        "en": "This event is a pub quiz held at Barfuss Brauerei in Bürglen (TG). It is organized by Patton Barfuss Brauerei GmbH Barfuss Brauerei GmbH.",
+        "de": "Die Veranstaltung ist ein Pub-Quiz in der Barfuss Brauerei in Bürglen (TG). Sie wird von Patton Barfuss Brauerei GmbH Barfuss Brauerei GmbH organisiert.",
+        "fr": "Cet événement est un quiz de pub à la Barfuss Brauerei, à Bürglen (TG). Il est organisé par Patton Barfuss Brauerei GmbH Barfuss Brauerei GmbH."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:redacthon-formation-journalisme-droits-humains",
@@ -200743,7 +200759,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "SLOPE è in programma al KiFF - Kultur in der Futterfabrik di Aarau. L’appuntamento propone sonorità caratterizzate da groove incisivi, energia ruvida e influenze crossover.",
+      "descriptionByLocale": {
+        "it": "SLOPE è in programma al KiFF - Kultur in der Futterfabrik di Aarau. L’appuntamento propone sonorità caratterizzate da groove incisivi, energia ruvida e influenze crossover.",
+        "en": "SLOPE is presented at KiFF – Kultur in der Futterfabrik in Aarau. The event draws on heavy grooves, raw intensity and crossover influences.",
+        "de": "SLOPE tritt im KiFF – Kultur in der Futterfabrik in Aarau auf. Musikalisch steht die Veranstaltung für druckvolle Grooves, raue Energie und Crossover-Einflüsse.",
+        "fr": "SLOPE est au programme du KiFF – Kultur in der Futterfabrik à Aarau. Le rendez-vous s’appuie sur des grooves puissants, une énergie brute et des influences crossover."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:soiree-danse-country-queer",
@@ -201703,7 +201727,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro propone un dialogo informale con la polizia municipale delle Charmilles davanti a un caffè. Le agenti e gli agenti di prossimità partecipano all’appuntamento al Café Frutties, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone un dialogo informale con la polizia municipale delle Charmilles davanti a un caffè. Le agenti e gli agenti di prossimità partecipano all’appuntamento al Café Frutties, a Ginevra.",
+        "en": "The event creates an opportunity to speak with the Charmilles municipal police over coffee. Neighbourhood officers take part at Café Frutties in Geneva.",
+        "de": "Bei diesem Treffen können sich die Teilnehmenden bei einem Kaffee mit der Stadtpolizei von Charmilles austauschen. Einsatzkräfte der Quartierpolizei sind im Café Frutties in Genf dabei.",
+        "fr": "La rencontre permet de dialoguer autour d’un café avec la police municipale des Charmilles. Des agentes et agents de proximité y participent au Café Frutties, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:38fbc6074e02416c821a645c488b81b4",
@@ -202035,7 +202067,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "È un appuntamento di musica pop con Anna Rossinelli al Kulturhaus Rössli di Stäfa. L’ingresso costa 35 CHF e Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento di musica pop con Anna Rossinelli al Kulturhaus Rössli di Stäfa. L’ingresso costa 35 CHF e Guidle è indicato come organizzatore.",
+        "en": "This event presents Anna Rossinelli in a pop music setting at Kulturhaus Rössli in Stäfa. Admission is CHF 35, and Guidle is listed as the organizer.",
+        "de": "Die Pop-Veranstaltung mit Anna Rossinelli findet im Kulturhaus Rössli in Stäfa statt. Der Eintrittspreis beträgt 35 CHF; Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement de musique pop avec Anna Rossinelli a lieu au Kulturhaus Rössli, à Stäfa. Le billet coûte 35 CHF et Guidle est indiqué comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AEqkGhX",
@@ -204935,7 +204975,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento al Pfalzkeller di San Gallo è dedicato a Gallus e alle numerose chiese che portano il suo nome. Jakob Kuratli Hüeblin presenta racconti e leggende legati alle oltre 500 chiese nel mondo da lui visitate, proponendo nuovi punti di vista sul santo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Pfalzkeller di San Gallo è dedicato a Gallus e alle numerose chiese che portano il suo nome. Jakob Kuratli Hüeblin presenta racconti e leggende legati alle oltre 500 chiese nel mondo da lui visitate, proponendo nuovi punti di vista sul santo.",
+        "en": "The event at Pfalzkeller in St. Gallen is devoted to Gallus and the many churches that bear his name. Jakob Kuratli Hüeblin recounts stories and legends from his visits to more than 500 churches around the world and presents further perspectives on the saint.",
+        "de": "Die Veranstaltung im Pfalzkeller in St. Gallen widmet sich Gallus und den zahlreichen Kirchen, die seinen Namen tragen. Jakob Kuratli Hüeblin berichtet von seinen Besuchen in mehr als 500 solchen Kirchen und stellt Geschichten, Legenden sowie neue Sichtweisen auf Gallus vor.",
+        "fr": "Le rendez-vous au Pfalzkeller de Saint-Gall est consacré à Gallus et aux nombreuses églises qui portent son nom. Jakob Kuratli Hüeblin présente des récits et des légendes liés à ses visites de plus de 500 églises dans le monde, avec de nouvelles perspectives sur le saint."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2f9d1870f71345bbb78abd64257e4aaa",
@@ -209207,7 +209255,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il documentario segue Wim Wenders mentre attraversa le strade di Tokyo e ripercorre le tracce di un’opera. La copia digitale restaurata è proiettata alla Cinémathèque suisse di Losanna.",
+      "descriptionByLocale": {
+        "it": "Il documentario segue Wim Wenders mentre attraversa le strade di Tokyo e ripercorre le tracce di un’opera. La copia digitale restaurata è proiettata alla Cinémathèque suisse di Losanna.",
+        "en": "The documentary follows Wim Wenders through the streets of Tokyo as he explores the city in search of traces of a work. A digitally restored copy is presented at the Cinémathèque suisse in Lausanne.",
+        "de": "Der Dokumentarfilm begleitet Wim Wenders durch die Straßen von Tokio, wo er den Spuren eines Werks folgt. Eine digital restaurierte Kopie wird in der Cinémathèque suisse in Lausanne gezeigt.",
+        "fr": "Ce documentaire suit Wim Wenders dans les rues de Tokyo, où il parcourt la ville à la recherche des traces d’une œuvre. Une copie restaurée numériquement est présentée à la Cinémathèque suisse de Lausanne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:222933609da34d6faf11dee8d96280ef",
@@ -209922,7 +209978,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Kreuzlingen, l’appuntamento presenta Wladimir Kaminer. In chiave umoristica, tratta il disordine della vita familiare in rapporto agli eventi mondiali, alle stranezze quotidiane e alle assurdità della vita moderna.",
+      "descriptionByLocale": {
+        "it": "A Kreuzlingen, l’appuntamento presenta Wladimir Kaminer. In chiave umoristica, tratta il disordine della vita familiare in rapporto agli eventi mondiali, alle stranezze quotidiane e alle assurdità della vita moderna.",
+        "en": "The event presents Wladimir Kaminer in Kreuzlingen. With a humorous perspective, it explores family disorder alongside world events, everyday oddities and the absurdities of modern life.",
+        "de": "Die Veranstaltung von Wladimir Kaminer findet in Kreuzlingen statt. Mit Humor beleuchtet sie das Familienleben im Spannungsfeld von Weltgeschehen, alltäglichen Absurditäten und den Widersprüchen der modernen Lebenswelt.",
+        "fr": "À Kreuzlingen, la rencontre met en avant Wladimir Kaminer. Elle aborde avec humour le désordre familial, les événements du monde, les excès du quotidien et les absurdités de la vie moderne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:wonderdays-nature-company-atelier-mobilisation-adaptation",
@@ -210169,7 +210233,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
       "imageCopyrightNotice": "© Makalu",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "description": "L’evento musicale propone un percorso dall’Italia all’Argentina con chitarra, flauto traverso e fisarmonica. Si svolge nella Paritätische Kirche St. Laurentius di Frauenfeld e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale propone un percorso dall’Italia all’Argentina con chitarra, flauto traverso e fisarmonica. Si svolge nella Paritätische Kirche St. Laurentius di Frauenfeld e l’ingresso è gratuito.",
+        "en": "The music event presents a journey from Italy to Argentina featuring guitar, transverse flute and accordion. It is held at the Paritätische Kirche St. Laurentius in Frauenfeld, with free admission.",
+        "de": "Das musikalische Programm reicht von Italien bis nach Argentinien und wird mit Gitarre, Querflöte und Akkordeon gestaltet. Veranstaltungsort ist die Paritätische Kirche St. Laurentius in Frauenfeld; der Eintritt ist kostenlos.",
+        "fr": "Ce rendez-vous musical va de l’Italie à l’Argentine et réunit guitare, flûte traversière et accordéon. Il se déroule à la Paritätische Kirche St. Laurentius, à Frauenfeld, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e9e240aad13d452e8268bd08494143a1",
@@ -211575,7 +211647,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Una mostra a Lucerna esplora cosa accade quando la notte diventa più luminosa e quali conseguenze ciò comporta per animali e persone. Il programma collaterale comprende un’apertura con Glühmost, appuntamenti dedicati al cielo stellato, un’escursione sui pipistrelli e un percorso sull’illuminazione urbana.",
+      "descriptionByLocale": {
+        "it": "Una mostra a Lucerna esplora cosa accade quando la notte diventa più luminosa e quali conseguenze ciò comporta per animali e persone. Il programma collaterale comprende un’apertura con Glühmost, appuntamenti dedicati al cielo stellato, un’escursione sui pipistrelli e un percorso sull’illuminazione urbana.",
+        "en": "An exhibition in Lucerne explores what happens when nights become brighter and how this affects animals and people. Its accompanying programme includes an opening with Glühmost, sessions about the starry sky, a bat excursion and a guided walk on urban lighting.",
+        "de": "Eine Ausstellung in Luzern untersucht, was hellere Nächte für Tiere und Menschen bedeuten. Zum Begleitprogramm gehören eine Eröffnung mit Glühmost, Termine zum Sternenhimmel, eine Fledermaus-Exkursion und ein Rundgang zur städtischen Beleuchtung.",
+        "fr": "Une exposition à Lucerne examine les effets de nuits plus lumineuses sur les animaux et les êtres humains. Le programme associé comprend une ouverture avec du Glühmost, des rendez-vous consacrés au ciel étoilé, une excursion consacrée aux chauves-souris et une visite sur l’éclairage urbain."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:196a61cdd03b42f083202f2d852aaf49",
@@ -213056,7 +213136,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Couture Fashion Night 4.0 è un evento teatrale ricorrente al The Dolder Grand di Zurigo. Si tratta di una serata di moda in forma di gala.",
+      "descriptionByLocale": {
+        "it": "Couture Fashion Night 4.0 è un evento teatrale ricorrente al The Dolder Grand di Zurigo. Si tratta di una serata di moda in forma di gala.",
+        "en": "Couture Fashion Night 4.0 is a recurring theatre event at The Dolder Grand in Zürich. It takes the form of a fashion gala.",
+        "de": "Couture Fashion Night 4.0 ist eine wiederkehrende Theaterveranstaltung im The Dolder Grand in Zürich. Sie ist als Modegala angelegt.",
+        "fr": "Couture Fashion Night 4.0 est un événement de théâtre récurrent au The Dolder Grand, à Zurich. Il prend la forme d’une soirée de gala consacrée à la mode."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ApnqRg8",
@@ -213668,7 +213756,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra presenta opere di Jean Marc Bühler realizzate con tecniche miste su carta e acrilici. Include anche sculture bronzee e in pietra di Marco Piffaretti presso lo Spazio polivalente Arte e Valori di Bellinzona.",
+      "descriptionByLocale": {
+        "it": "La mostra presenta opere di Jean Marc Bühler realizzate con tecniche miste su carta e acrilici. Include anche sculture bronzee e in pietra di Marco Piffaretti presso lo Spazio polivalente Arte e Valori di Bellinzona.",
+        "en": "The exhibition presents works by Jean Marc Bühler created with mixed media on paper and acrylics. It also features bronze and stone sculptures by Marco Piffaretti at Spazio polivalente Arte e Valori in Bellinzona.",
+        "de": "Die Ausstellung zeigt Werke von Jean Marc Bühler in Mischtechnik auf Papier und mit Acrylfarben. Zudem sind Bronze- und Steinskulpturen von Marco Piffaretti im Spazio polivalente Arte e Valori in Bellinzona zu sehen.",
+        "fr": "L’exposition présente des œuvres de Jean Marc Bühler réalisées selon des techniques mixtes sur papier et à l’acrylique. Elle comprend également des sculptures en bronze et en pierre de Marco Piffaretti au Spazio polivalente Arte e Valori de Bellinzone."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACYFQu6",
@@ -218641,7 +218737,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un’attività pratica a favore della natura presso l’Hofgut Schönthal, a Langenbruck, con attenzione a felci e noccioli. Il programma richiede collaborazione sul posto e prevede un pranzo offerto dall’Hofgut Schönthal.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un’attività pratica a favore della natura presso l’Hofgut Schönthal, a Langenbruck, con attenzione a felci e noccioli. Il programma richiede collaborazione sul posto e prevede un pranzo offerto dall’Hofgut Schönthal.",
+        "en": "This event offers practical nature-related work at Hofgut Schönthal in Langenbruck, focusing on ferns and hazel. Participants are expected to provide hands-on support, and Hofgut Schönthal provides lunch.",
+        "de": "Die Veranstaltung umfasst einen praktischen Natureinsatz im Hofgut Schönthal in Langenbruck, bei dem Farne und Haseln eine Rolle spielen. Dafür wird tatkräftige Unterstützung benötigt; das Hofgut Schönthal bietet ein Mittagessen an.",
+        "fr": "Le rendez-vous propose une activité pratique liée à la nature au Hofgut Schönthal, à Langenbruck, autour des fougères et des noisetiers. Une aide active est nécessaire sur place, et le Hofgut Schönthal offre le repas de midi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3f105c07f792408390b31169cda2c9a8",
@@ -219062,7 +219166,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una visita guidata pubblica a un impianto di incenerimento dei rifiuti a Basilea. Viene presentato il primo impianto svizzero certificato «nature-made basic» e viene spiegato come dai rifiuti si possano ottenere calore ed elettricità.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata pubblica a un impianto di incenerimento dei rifiuti a Basilea. Viene presentato il primo impianto svizzero certificato «nature-made basic» e viene spiegato come dai rifiuti si possano ottenere calore ed elettricità.",
+        "en": "This public tour focuses on a waste incineration plant in Basel. It presents the first facility in Switzerland certified «nature-made basic» and explains how waste is used to generate heat and electricity.",
+        "de": "Der öffentliche Rundgang führt durch eine Kehrichtverwertungsanlage in Basel. Vorgestellt wird die erste in der Schweiz mit «nature-made basic» zertifizierte KVA sowie die Nutzung von Abfall zur Erzeugung von Wärme und Strom.",
+        "fr": "Cette visite publique porte sur une usine d’incinération des déchets à Bâle. Elle présente le premier site de Suisse certifié «nature-made basic» et explique comment les déchets servent à produire de la chaleur et de l’électricité."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d1da52cb469f4604843d059d128d100a",
@@ -222203,7 +222315,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma presenta Frank il Castoro, una postazione di gioco d’acqua inserita nel Baby Parcour del Percorso vita a Castel San Pietro. La giornata comprende una cerimonia di inaugurazione, un pranzo condiviso all’aperto e attività accompagnate lungo i percorsi della Collina d’AVRA.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta Frank il Castoro, una postazione di gioco d’acqua inserita nel Baby Parcour del Percorso vita a Castel San Pietro. La giornata comprende una cerimonia di inaugurazione, un pranzo condiviso all’aperto e attività accompagnate lungo i percorsi della Collina d’AVRA.",
+        "en": "The event introduces Frank the Beaver, a water-play station for children within the Baby Parcour at Percorso vita in Castel San Pietro. Its programme includes an inauguration, a shared outdoor picnic and guided activities on the routes of Collina d’AVRA.",
+        "de": "Im Mittelpunkt steht Frank der Biber, eine Wasserspielstation für Kinder im Baby Parcour des Percorso vita in Castel San Pietro. Vorgesehen sind die Einweihung der Anlage, ein gemeinsames Picknick im Freien und begleitete Aktivitäten auf den Wegen der Collina d’AVRA.",
+        "fr": "Le rendez-vous présente Frank le castor, un espace de jeu aquatique destiné aux enfants au Baby Parcour du Percorso vita, à Castel San Pietro. Il prévoit une inauguration, un pique-nique partagé en plein air et des activités accompagnées sur les parcours de la Collina d’AVRA."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c5c8c38556154e11b83127e4518cf441",
@@ -222365,7 +222485,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un percorso ferroviario dedicato agli orologiai e una visita guidata al museo dell’orologio. L’iniziativa ha come punto di riferimento la stazione di La Chaux-de-Fonds e riguarda il mondo dell’orologeria.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un percorso ferroviario dedicato agli orologiai e una visita guidata al museo dell’orologio. L’iniziativa ha come punto di riferimento la stazione di La Chaux-de-Fonds e riguarda il mondo dell’orologeria.",
+        "en": "The event combines a railway journey associated with watchmakers and a guided tour of the Watch Box Museum. It takes place at the railway station in La Chaux-de-Fonds and focuses on the world of watchmaking.",
+        "de": "Die Veranstaltung verbindet eine Fahrt mit einem Uhrmacherzug mit einer Führung durch das Uhrenschachtelmuseum. Ausgangspunkt ist der Bahnhof von La Chaux-de-Fonds; thematisch geht es um die Welt der Uhrmacherei.",
+        "fr": "Le rendez-vous réunit un trajet à bord du Train des Horlogers et une visite guidée du Musée de la Boîte de Montre. Il se déroule à la gare de La Chaux-de-Fonds et fait découvrir l’univers de l’horlogerie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AecDZKq",
@@ -226344,7 +226472,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata riguarda un’esposizione a Zurigo. Durante l’appuntamento vengono illustrati gli oggetti esposti.",
+      "descriptionByLocale": {
+        "it": "La visita guidata riguarda un’esposizione a Zurigo. Durante l’appuntamento vengono illustrati gli oggetti esposti.",
+        "en": "The event is a guided visit to an exhibition in Zurich. The tour focuses on the objects displayed there.",
+        "de": "Die Veranstaltung ist eine Führung durch eine Ausstellung in Zürich. Dabei stehen die in der Ausstellung gezeigten Objekte im Mittelpunkt.",
+        "fr": "Le rendez-vous consiste en une visite guidée d’une exposition à Zurich. La visite porte sur les objets présentés dans l’exposition."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:385a3372f0db4ac4a80f46e15ee19aeb",
@@ -228264,7 +228400,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento presenta Edna Unseld al violino. Si svolge alla Salle de musique de La Chaux-de-Fonds, a La Chaux-de-Fonds, ed è organizzato dalla stessa struttura.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento presenta Edna Unseld al violino. Si svolge alla Salle de musique de La Chaux-de-Fonds, a La Chaux-de-Fonds, ed è organizzato dalla stessa struttura.",
+        "en": "This event features Edna Unseld as a violin performer. It is held at the Salle de musique de La Chaux-de-Fonds in La Chaux-de-Fonds and organized by the venue.",
+        "de": "Bei dieser Veranstaltung steht Edna Unseld mit der Violine im Mittelpunkt. Sie findet in der Salle de musique de La Chaux-de-Fonds in La Chaux-de-Fonds statt und wird von diesem Veranstaltungsort organisiert.",
+        "fr": "L’événement propose une prestation d’Edna Unseld au violon. Il a lieu à la Salle de musique de La Chaux-de-Fonds, à La Chaux-de-Fonds, et est organisé par cette salle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:152e09bc79d9471b9f3cd35e399d9edb",
@@ -228938,7 +229082,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro dedicato alle arti al Bündner Kunstmuseum di Coira riunisce Hans-Ulrich Obrist e Susan Hefuna. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’incontro dedicato alle arti al Bündner Kunstmuseum di Coira riunisce Hans-Ulrich Obrist e Susan Hefuna. L’ingresso è gratuito.",
+        "en": "The art event at the Bündner Kunstmuseum in Chur features Hans-Ulrich Obrist and Susan Hefuna. Admission is free.",
+        "de": "Das Kunstereignis im Bündner Kunstmuseum in Chur bringt Hans-Ulrich Obrist und Susan Hefuna zusammen. Der Eintritt ist frei.",
+        "fr": "Le rendez-vous artistique au Bündner Kunstmuseum de Coire réunit Hans-Ulrich Obrist et Susan Hefuna. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fdcd141fb642423bbf1c577e7ba0539a",
@@ -232043,7 +232195,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata propone un’esibizione dell’Interplay Trio, con pianoforte, contrabbasso e batteria. Il programma comprende anche una jam session e si inserisce nel lancio della seconda stagione di un podcast dedicato alle esperienze dei giovani jazzisti.",
+      "descriptionByLocale": {
+        "it": "La serata propone un’esibizione dell’Interplay Trio, con pianoforte, contrabbasso e batteria. Il programma comprende anche una jam session e si inserisce nel lancio della seconda stagione di un podcast dedicato alle esperienze dei giovani jazzisti.",
+        "en": "The evening features a performance by Interplay Trio, with piano, double bass and drums. It also includes a jam session and is associated with the launch of the second season of a podcast about young jazz musicians and their experiences.",
+        "de": "Der Abend umfasst einen Auftritt des Interplay Trios mit Klavier, Kontrabass und Schlagzeug. Ausserdem steht eine Jam-Session auf dem Programm, verbunden mit dem Start der zweiten Staffel eines Podcasts über die Erfahrungen junger Jazzmusiker.",
+        "fr": "La soirée propose un concert de l’Interplay Trio, avec piano, contrebasse et batterie. Elle comprend également une jam-session et est liée au lancement de la deuxième saison d’un podcast consacré aux expériences de jeunes jazzistes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64439",
@@ -233727,7 +233887,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’iniziativa rientra nell’attività informativa della Lega cancro Ticino a Lugano e tratta aspetti legati alla vita dopo una diagnosi oncologica. L’offerta unisce contenuti di prevenzione, benessere e sostegno, con accesso gratuito.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa rientra nell’attività informativa della Lega cancro Ticino a Lugano e tratta aspetti legati alla vita dopo una diagnosi oncologica. L’offerta unisce contenuti di prevenzione, benessere e sostegno, con accesso gratuito.",
+        "en": "At the Lega cancro Ticino in Lugano, this event provides information about life after a cancer diagnosis. Its subject area also includes prevention, wellbeing and support, and attendance is free.",
+        "de": "Bei der Lega cancro Ticino in Lugano informiert die Veranstaltung über das Leben nach einer Krebsdiagnose. Sie gehört zu einem Angebot, das auch Prävention, Wohlbefinden und Unterstützung thematisiert, und ist kostenlos.",
+        "fr": "À la Lega cancro Ticino de Lugano, le rendez-vous apporte des informations sur la vie après un diagnostic de cancer. Il aborde également la prévention, le bien-être et le soutien, sans frais de participation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:481129870eea4eaba18d505da3819e87",
@@ -234293,7 +234461,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Durante l’appuntamento è possibile osservare sul posto la lavorazione di un cortometraggio nella serra di Villa Oxford, ad Acquarossa. L’incontro si svolge all’aperto, nel parco, durante le riprese organizzate da Moonbird Pictures; gli spettatori devono iscriversi in anticipo e non possono fotografare o filmare durante i ciak.",
+      "descriptionByLocale": {
+        "it": "Durante l’appuntamento è possibile osservare sul posto la lavorazione di un cortometraggio nella serra di Villa Oxford, ad Acquarossa. L’incontro si svolge all’aperto, nel parco, durante le riprese organizzate da Moonbird Pictures; gli spettatori devono iscriversi in anticipo e non possono fotografare o filmare durante i ciak.",
+        "en": "The event offers an opportunity to observe the production of a short film inside the greenhouse at Villa Oxford in Acquarossa. The public watches from the park while Moonbird Pictures works on the film, and advance registration is required because attendance is limited.",
+        "de": "Bei der Veranstaltung lässt sich die Entstehung eines Kurzfilms im Gewächshaus der Villa Oxford in Acquarossa beobachten. Die Zuschauenden verfolgen die Arbeit von Moonbird Pictures vom Park aus; wegen der begrenzten Plätze ist eine vorherige Anmeldung notwendig.",
+        "fr": "La rencontre permet d’observer le tournage d’un court métrage dans la serre de la Villa Oxford, à Acquarossa. Le public suit les prises depuis le parc, tandis que Moonbird Pictures réalise le film ; l’inscription préalable est requise en raison du nombre limité de places."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f201cd9cea574692af9a977cbf441313",
@@ -236455,7 +236631,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una visita guidata in inglese a sezioni di una mostra. Il percorso è condotto da Ion Mihailescu, curatore scientifico.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata in inglese a sezioni di una mostra. Il percorso è condotto da Ion Mihailescu, curatore scientifico.",
+        "en": "This event offers an English-language guided tour of sections of an exhibition. The tour is led by Ion Mihailescu, a scientific curator.",
+        "de": "Die Veranstaltung bietet eine Führung auf Englisch durch ausgewählte Bereiche einer Ausstellung. Geleitet wird sie von Ion Mihailescu, dem wissenschaftlichen Kurator.",
+        "fr": "Cette visite guidée présente en anglais plusieurs sections d’une exposition. Elle est animée par Ion Mihailescu, conservateur scientifique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:391335add5a04fdda6cf31c7f30d9958",
@@ -237684,7 +237868,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un laboratorio creativo inserito nella categoria delle conferenze, che comprende anche workshop, seminari, forum e colloqui, e si svolge con Michal Steinemann e Denis Roueche. Fribourg è indicata come sede e comune, mentre la Bibliothèque cantonale et universitaire è l’organizzatrice; l’attività è artistica ed è presentata sia in francese sia in tedesco.",
+      "descriptionByLocale": {
+        "it": "L’evento è un laboratorio creativo inserito nella categoria delle conferenze, che comprende anche workshop, seminari, forum e colloqui, e si svolge con Michal Steinemann e Denis Roueche. Fribourg è indicata come sede e comune, mentre la Bibliothèque cantonale et universitaire è l’organizzatrice; l’attività è artistica ed è presentata sia in francese sia in tedesco.",
+        "en": "The event is a creative workshop within the conference category, which also covers workshops, seminars, forums and colloquia, and it is held with Michal Steinemann and Denis Roueche. Fribourg is the stated venue and municipality, while the Bibliothèque cantonale et universitaire is the organizer; the activity is artistic and is identified in both French and German.",
+        "de": "Die Veranstaltung ist ein kreativer Workshop in der Kategorie für Konferenzen, die auch Workshops, Seminare, Foren und Kolloquien umfasst, und findet mit Michal Steinemann und Denis Roueche statt. Fribourg ist als Veranstaltungsort und Gemeinde angegeben, während die Bibliothèque cantonale et universitaire als Organisatorin aufgeführt wird; die Aktivität ist künstlerisch und wird auf Französisch sowie Deutsch ausgewiesen.",
+        "fr": "Cet événement est un atelier créatif classé dans la catégorie des conférences, qui comprend aussi les ateliers, séminaires, forums et colloques, et il se déroule avec Michal Steinemann et Denis Roueche. Fribourg est à la fois le lieu et la commune indiqués, tandis que la Bibliothèque cantonale et universitaire est l’organisatrice; l’animation est artistique et proposée en français ainsi qu’en allemand."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4fYS1Z",
@@ -238390,7 +238582,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vaduz si svolge una visita guidata a una mostra temporanea. Il team di mediazione illustra il tema dell’economia del Liechtenstein e fornisce informazioni di contesto.",
+      "descriptionByLocale": {
+        "it": "A Vaduz si svolge una visita guidata a una mostra temporanea. Il team di mediazione illustra il tema dell’economia del Liechtenstein e fornisce informazioni di contesto.",
+        "en": "Vaduz hosts a guided tour of a special exhibition. The mediation team explains the exhibition’s focus on Liechtenstein’s economy and adds background information.",
+        "de": "In Vaduz führt ein Vermittlungsteam durch eine Sonderausstellung. Dabei vermittelt es Hintergrundinformationen zur liechtensteinischen Wirtschaft.",
+        "fr": "À Vaduz, une équipe de médiation accompagne une visite guidée d’une exposition temporaire. Elle apporte des informations de contexte sur l’économie du Liechtenstein présentée dans l’exposition."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b4aa192511674dc3a33862bc36fdc8d4",
@@ -239258,7 +239458,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una scoperta dei funghi del Jardin Botanique de Genève. L’attività si svolge a Chambésy, nel comune di Genève, e presenta il ruolo essenziale di questi organismi.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una scoperta dei funghi del Jardin Botanique de Genève. L’attività si svolge a Chambésy, nel comune di Genève, e presenta il ruolo essenziale di questi organismi.",
+        "en": "The event focuses on discovering fungi at the Jardin Botanique de Genève. It takes place in Chambésy and addresses the essential role of these organisms.",
+        "de": "Die Veranstaltung widmet sich der Entdeckung von Pilzen im Jardin Botanique de Genève. Sie findet in Chambésy statt und thematisiert die wesentliche Bedeutung dieser Organismen.",
+        "fr": "Le rendez-vous propose une découverte des champignons du Jardin Botanique de Genève. Il a lieu à Chambésy et souligne le rôle essentiel de ces organismes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:eaca4cfbc787499eb3697b98f834a6c7",
@@ -239897,7 +240105,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La scheda riguarda un concerto di Radhika Das. L’evento è associato a Genève e si svolge all’Alhambra.",
+      "descriptionByLocale": {
+        "it": "La scheda riguarda un concerto di Radhika Das. L’evento è associato a Genève e si svolge all’Alhambra.",
+        "en": "The event is a concert by Radhika Das. It is associated with Genève and takes place at Alhambra.",
+        "de": "Die Veranstaltung ist ein Konzert mit Radhika Das. Sie ist Genf zugeordnet und findet im Alhambra statt.",
+        "fr": "L’événement est un concert de Radhika Das. Il est associé à Genève et se déroule à l’Alhambra."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ApKL4U8",
@@ -241603,7 +241819,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa performance, presentata in inglese, riguarda i nomi di battesimo e il loro significato. Inua Ellams, poeta, drammaturgo e artista, vi partecipa. L’appuntamento si svolge al Völkerkundemuseum der Universität Zürich, a Zurigo.",
+      "descriptionByLocale": {
+        "it": "Questa performance, presentata in inglese, riguarda i nomi di battesimo e il loro significato. Inua Ellams, poeta, drammaturgo e artista, vi partecipa. L’appuntamento si svolge al Völkerkundemuseum der Universität Zürich, a Zurigo.",
+        "en": "This performance is presented in English and focuses on given names and their meanings. Inua Ellams, a poet, playwright and artist, takes part. The event takes place at the Völkerkundemuseum der Universität Zürich in Zürich.",
+        "de": "Die Veranstaltung ist auf Englisch und befasst sich mit Vornamen und deren Bedeutungen. Inua Ellams, Poet, Dramatiker und Künstler, wirkt an der Performance mit. Sie findet im Völkerkundemuseum der Universität Zürich in Zürich statt.",
+        "fr": "Cette performance, présentée en anglais, porte sur les prénoms et leur signification. Inua Ellams, poète, dramaturge et artiste, y participe. Elle a lieu au Völkerkundemuseum der Universität Zürich, à Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:59a06fc6b48b456ba524f0f1ba907e7b",
@@ -245516,7 +245740,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un omaggio country a Johnny Cash proposto al Theater Rigiblick, nel cantone di Zurigo. È indicato come appuntamento ricorrente, organizzato da Guidle, con un prezzo d’ingresso di 30 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento è un omaggio country a Johnny Cash proposto al Theater Rigiblick, nel cantone di Zurigo. È indicato come appuntamento ricorrente, organizzato da Guidle, con un prezzo d’ingresso di 30 CHF.",
+        "en": "This event is a country tribute to Johnny Cash presented at Theater Rigiblick in the canton of Zurich. It is listed as recurring, organized by Guidle, and has an admission price of CHF 30.",
+        "de": "Die Veranstaltung ist eine Country-Hommage an Johnny Cash im Theater Rigiblick im Kanton Zürich. Sie ist als wiederkehrender Termin aufgeführt, wird von Guidle organisiert und kostet 30 CHF.",
+        "fr": "Cette manifestation est un hommage country à Johnny Cash présenté au Theater Rigiblick, dans le canton de Zurich. Elle est récurrente, organisée par Guidle, et l’entrée coûte 30 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:soiree-decouvrir-tester-jeux-video-bibliotheque-cite",
@@ -248289,7 +248521,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Crazy Diamond è una manifestazione di genere rock presso Eisenwerk, a Frauenfeld. Il prezzo d’ingresso è di 50 CHF.",
+      "descriptionByLocale": {
+        "it": "Crazy Diamond è una manifestazione di genere rock presso Eisenwerk, a Frauenfeld. Il prezzo d’ingresso è di 50 CHF.",
+        "en": "Crazy Diamond is a rock event at Eisenwerk in Frauenfeld. Admission costs CHF 50.",
+        "de": "Crazy Diamond ist eine Rockveranstaltung im Eisenwerk in Frauenfeld. Der Eintrittspreis beträgt 50 CHF.",
+        "fr": "Crazy Diamond est un événement de rock à l’Eisenwerk, à Frauenfeld. Le prix d’entrée est de 50 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:12eccee6b5c6497ba7d1b97530973149",
@@ -249179,7 +249419,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un momento di preghiera per la comunità. Si svolge a Weinfelden.",
+      "descriptionByLocale": {
+        "it": "L’evento è un momento di preghiera per la comunità. Si svolge a Weinfelden.",
+        "en": "The event is a prayer gathering for the community. It takes place in Weinfelden.",
+        "de": "Die Veranstaltung ist ein Gebet für die Gemeinde. Sie findet in Weinfelden statt.",
+        "fr": "L’événement est un moment de prière pour la communauté. Il a lieu à Weinfelden."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:83182",
@@ -252109,7 +252357,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si tiene a Ermatingen, nel cantone di Turgovia, e si svolge su una nave nel porto. Il programma comprende un buffet bavarese, musica affidata a un DJ e due ambienti distinti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si tiene a Ermatingen, nel cantone di Turgovia, e si svolge su una nave nel porto. Il programma comprende un buffet bavarese, musica affidata a un DJ e due ambienti distinti.",
+        "en": "The event takes place in Ermatingen, in the canton of Thurgau, aboard a ship in the harbour. It includes a Bavarian buffet, a DJ party and two separate areas.",
+        "de": "Die Veranstaltung findet in Ermatingen im Kanton Thurgau auf einem Schiff im Hafen statt. Vorgesehen sind ein bayerisches Buffet, eine DJ-Party und zwei getrennte Bereiche.",
+        "fr": "Le rendez-vous se déroule à Ermatingen, dans le canton de Thurgovie, à bord d’un bateau dans le port. Il propose un buffet bavarois, une animation avec DJ et deux espaces distincts."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANGDCkt",
@@ -252552,7 +252808,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il concerto jazz con Rabih Abou-Khalil si svolge nella chiesa di Neumünster, nel cantone di Zurigo. L’ingresso è di 57,20 CHF e la serata mette in primo piano la sua ricerca sonora nell’ambito della musica del mondo.",
+      "descriptionByLocale": {
+        "it": "Il concerto jazz con Rabih Abou-Khalil si svolge nella chiesa di Neumünster, nel cantone di Zurigo. L’ingresso è di 57,20 CHF e la serata mette in primo piano la sua ricerca sonora nell’ambito della musica del mondo.",
+        "en": "The jazz concert with Rabih Abou-Khalil takes place at Neumünster Church in the canton of Zurich. Admission is CHF 57.20, and the event focuses on his exploration of sound within world music.",
+        "de": "Das Jazzkonzert mit Rabih Abou-Khalil findet in der Neumünsterkirche im Kanton Zürich statt. Der Eintritt kostet 57,20 CHF; im Mittelpunkt steht seine klangliche Erkundung im Bereich der Weltmusik.",
+        "fr": "Le concert de jazz de Rabih Abou-Khalil a lieu à l’église de Neumünster, dans le canton de Zurich. Le billet coûte 57,20 CHF et la soirée met l’accent sur sa recherche sonore dans le domaine des musiques du monde."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A2fWtSa",
@@ -259810,7 +260074,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata musicale propone il gruppo FG 85 e il suo rock originale in italiano. L’appuntamento si tiene al Ristorante Hollywood Live Music, nel comune di Lugano.",
+      "descriptionByLocale": {
+        "it": "La serata musicale propone il gruppo FG 85 e il suo rock originale in italiano. L’appuntamento si tiene al Ristorante Hollywood Live Music, nel comune di Lugano.",
+        "en": "The music event features FG 85 and their original rock in Italian. It takes place at Ristorante Hollywood Live Music in Lugano.",
+        "de": "Bei der Musikveranstaltung tritt FG 85 mit eigenem Rock auf Italienisch auf. Der Anlass findet im Ristorante Hollywood Live Music in Lugano statt.",
+        "fr": "Cette manifestation musicale présente FG 85 et un répertoire de rock original en italien. Elle se déroule au Ristorante Hollywood Live Music, à Lugano."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9b8a68c5d5a84ced9b4f094e8c32e4ca",
@@ -262197,7 +262469,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento a tema Halloween si svolge presso Lasergame Schweiz, a Zofingen, e propone un’attività di lasertag. Il prezzo indicato è di 49,70 CHF e Gänsehaut-Garantie è il performer annunciato.",
+      "descriptionByLocale": {
+        "it": "L’evento a tema Halloween si svolge presso Lasergame Schweiz, a Zofingen, e propone un’attività di lasertag. Il prezzo indicato è di 49,70 CHF e Gänsehaut-Garantie è il performer annunciato.",
+        "en": "The Halloween-themed event takes place at Lasergame Schweiz in Zofingen and features a laser-tag activity. Admission is listed at CHF 49.70, with Gänsehaut-Garantie named as the performer.",
+        "de": "Die Halloween-Veranstaltung findet bei Lasergame Schweiz in Zofingen statt und umfasst eine Lasertag-Aktivität. Der angegebene Eintrittspreis beträgt 49,70 CHF; als Performer ist Gänsehaut-Garantie aufgeführt.",
+        "fr": "Cet événement sur le thème d’Halloween se déroule à Lasergame Schweiz, à Zofingen, et propose une activité de laser game. Le prix annoncé est de 49,70 CHF, et Gänsehaut-Garantie est indiqué comme performer."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkMnGaq",
@@ -264007,7 +264287,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’iniziativa si svolge in diverse sedi del Cantone Ticino e permette di visitare circa 70 edifici e spazi attraverso visite guidate gratuite dedicate all’architettura. La manifestazione presenta il patrimonio costruito ticinese collegando contesti urbani, piccoli centri, aree periferiche e paesaggio, con accesso libero.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa si svolge in diverse sedi del Cantone Ticino e permette di visitare circa 70 edifici e spazi attraverso visite guidate gratuite dedicate all’architettura. La manifestazione presenta il patrimonio costruito ticinese collegando contesti urbani, piccoli centri, aree periferiche e paesaggio, con accesso libero.",
+        "en": "The event takes place at several locations across Ticino and offers free guided visits to about 70 buildings and spaces connected with local architecture. Its territorial format presents the canton’s built heritage through urban areas, smaller centres, peripheral zones and landscapes, with free admission.",
+        "de": "Die Veranstaltung findet an verschiedenen Orten im Kanton Tessin statt und bietet kostenlose Führungen durch rund 70 Gebäude und Räume mit Bezug zur regionalen Architektur. Ihr territorialer Ansatz verbindet städtische Gebiete, kleinere Orte, Randregionen und Landschaften; der Zugang ist frei.",
+        "fr": "L’événement se déploie dans plusieurs lieux du canton du Tessin et propose des visites guidées gratuites d’environ 70 bâtiments et espaces liés à l’architecture régionale. Son approche territoriale relie les zones urbaines, les petites localités, les secteurs périphériques et le paysage; l’accès est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64449",
