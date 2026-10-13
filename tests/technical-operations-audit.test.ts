@@ -416,6 +416,35 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('associa il warning ai target di git add, non ai JSON letti dallo stesso step', () => {
+    const source = [
+      'name: reserve-budget',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  reserve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: reserve and commit',
+      '        run: |',
+      '          reservation_path="data/generated-reservation.json"',
+      '          reservation_input="$RUNNER_TEMP/reservation.json"',
+      '          reservation_output="$RUNNER_TEMP/reservation-next.json"',
+      '          git show refs/remotes/reservation/main:"$reservation_path" > "$reservation_input"',
+      '          node scripts/reserve.mjs --config data/sources.json --snapshot data/snapshot.json --catalogue data/catalogue.json',
+      '          cp "$reservation_output" "$reservation_path"',
+      '          git add -- "$reservation_path"',
+      '          git commit -m reservation',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/reserve-budget.yml', source, { root: '/repo' });
+    const writes = findings.filter((item: any) => item.rule === 'workflow.data-write-without-check');
+
+    expect(writes).toHaveLength(1);
+    expect(writes[0].message).toContain('data/generated-reservation.json');
+    expect(writes[0].message).not.toContain('data/sources.json');
+    expect(writes[0].message).not.toContain('data/snapshot.json');
+    expect(writes[0].message).not.toContain('data/catalogue.json');
+  });
+
   it('mantiene il contesto di git add dopo una line-continuation', () => {
     const source = [
       'name: continued-add',

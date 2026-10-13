@@ -359,6 +359,124 @@ function extractDataPaths(run) {
   return [...new Set([...String(run || '').matchAll(DATA_PATH_RE)].map((match) => match[1]))];
 }
 
+function shellDataPathAssignments(source) {
+  const assignments = new Map();
+  const { commands } = parseShellCommands(source);
+  for (const command of commands) {
+    const words = command.name === 'export' ? command.args : [command.nameToken, ...command.args];
+    for (const token of words) {
+      if (!token || token.type !== 'word' || token.quotedOnly) break;
+      const assignment = /^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/.exec(token.value);
+      if (!assignment) break;
+      assignments.set(assignment[1], assignment[2]);
+    }
+  }
+  return assignments;
+}
+
+function resolveShellDataPath(value, assignments, seen = new Set()) {
+  const token = String(value || '').trim();
+  const variable = /^\$(?:\{([A-Za-z_][A-Za-z0-9_]*)\}|([A-Za-z_][A-Za-z0-9_]*))(\/.*)?$/.exec(token);
+  if (variable) {
+    const name = variable[1] || variable[2];
+    if (seen.has(name) || !assignments.has(name)) return null;
+    seen.add(name);
+    return resolveShellDataPath(`${assignments.get(name)}${variable[3] || ''}`, assignments, seen);
+  }
+  const match = /^(?:\.\/)?((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.exec(token);
+  return match?.[1] || null;
+}
+
+function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
+  const token = String(value || '').trim();
+  const variable = /^\$(?:\{([A-Za-z_][A-Za-z0-9_]*)\}|([A-Za-z_][A-Za-z0-9_]*))(\/.*)?$/.exec(token);
+  if (variable) {
+    const name = variable[1] || variable[2];
+    if (seen.has(name)) return false;
+    if (assignments.has(name)) {
+      seen.add(name);
+      return isKnownNonDataShellTarget(`${assignments.get(name)}${variable[3] || ''}`, assignments, seen);
+    }
+    return ['GITHUB_ENV', 'GITHUB_OUTPUT', 'RUNNER_TEMP', 'TMPDIR'].includes(name);
+  }
+  if (/^(?:\.\/)?(?:data|public\/data)(?:\/|$)/i.test(token) || token.includes('$')) return false;
+  return true;
+}
+
+function extractDataWritePaths(run, operationalRun) {
+  const dataPaths = extractDataPaths(operationalRun);
+  if (dataPaths.length === 0 || !/(?:\bgit\s+(?:add|commit)\b|(?:>>?|>\|))/i.test(operationalRun)) return [];
+
+  const assignments = shellDataPathAssignments(run);
+  const { commands } = parseShellCommands(operationalRun);
+  const written = new Set();
+  const staged = new Set();
+  let broadStage = false;
+  let unresolvedTarget = false;
+  let commitWithoutKnownTargets = false;
+
+  for (const command of commands) {
+    if (['>', '>>', '>|'].includes(command.operatorBefore)) {
+      const target = resolveShellDataPath(command.name, assignments);
+      if (target) written.add(target);
+      else if (!isKnownNonDataShellTarget(command.name, assignments)
+        && (/\$|(?:^|\/)data\//.test(command.name) || /\$|(?:^|\/)data\//.test(command.args.map((token) => token.value).join(' ')))) {
+        unresolvedTarget = true;
+      }
+    }
+
+    const words = [command.nameToken, ...command.args]
+      .filter((token) => token?.type === 'word');
+    let commandIndex = 0;
+    while (commandIndex < words.length && /^[A-Za-z_][A-Za-z0-9_]*=/.test(words[commandIndex].value)) {
+      commandIndex += 1;
+    }
+    if (words[commandIndex]?.value !== 'git') continue;
+
+    const subcommand = words[commandIndex + 1]?.value;
+    const args = words.slice(commandIndex + 2).map((token) => token.value);
+    if (subcommand === 'add') {
+      let afterSeparator = false;
+      for (const arg of args) {
+        if (arg === '--' && !afterSeparator) {
+          afterSeparator = true;
+          continue;
+        }
+        if (!afterSeparator && arg.startsWith('-')) {
+          if (['-A', '--all', '-u', '--update'].includes(arg)) broadStage = true;
+          continue;
+        }
+        const target = resolveShellDataPath(arg, assignments);
+        if (target) staged.add(target);
+        else if (arg === '.' || arg === '..' || arg.includes('*') || arg.startsWith('$')) broadStage = true;
+      }
+    }
+
+    if (subcommand === 'commit') {
+      const separator = args.indexOf('--');
+      const commitPathArgs = separator >= 0 ? args.slice(separator + 1) : [];
+      for (const arg of commitPathArgs) {
+        const target = resolveShellDataPath(arg, assignments);
+        if (target) written.add(target);
+        else unresolvedTarget = true;
+      }
+      if (commitPathArgs.length === 0) {
+        if (args.some((arg) => arg === '-a' || arg === '--all') || staged.size === 0) {
+          commitWithoutKnownTargets = true;
+        } else {
+          for (const target of staged) written.add(target);
+        }
+      }
+    }
+  }
+
+  for (const target of staged) written.add(target);
+  if (broadStage || unresolvedTarget || commitWithoutKnownTargets) {
+    for (const candidate of dataPaths) written.add(candidate);
+  }
+  return [...written];
+}
+
 const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
 const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
 const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
@@ -419,6 +537,14 @@ function shellTokens(source) {
     }
     if (escaped) {
       if (char !== '\n') append(char, true, index);
+      else if (value.length === 0) {
+        // A standalone `\` before a continued line is syntax, not an empty
+        // shell word. Keep a preceding word open when the continuation joins
+        // tokens (for example `foo\\\nbar`), but discard this empty token so
+        // a redirection target on the next indented line remains the target.
+        start = -1;
+        unquoted = false;
+      }
       escaped = false;
       continue;
     }
@@ -647,9 +773,14 @@ function shellOperationalText(run, { preserveQuotedWritePaths = false } = {}) {
   };
   const mask = (text) => append([...text].map((char) => char === '\n' ? '\n' : ' ').join(''));
   const quotedPathIsOperational = (content) => {
-    if (!preserveQuotedWritePaths || !/^((?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts))$/i.test(content)) return false;
+    if (!preserveQuotedWritePaths) return false;
     const command = quotePrefix.split(/&&|\|\||[;|]/).at(-1) || '';
-    return /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+    const writeTarget = /\bgit\s+add\b[^\n]*$|(?:>>|>)\s*$/i.test(command);
+    const literalDataPath = /^(?:data|public\/data)\/[A-Za-z0-9_./-]+\.(?:json|jsonl|csv|ts)$/i.test(content);
+    const variableReference = /^\$\{?[A-Za-z_][A-Za-z0-9_]*\}?$/.test(content);
+    const assignmentValue = /^\s*(?:export\s+)?[A-Za-z_][A-Za-z0-9_]*=$/.test(command);
+    return (writeTarget && (literalDataPath || variableReference))
+      || (assignmentValue && literalDataPath);
   };
 
   for (const char of source) {
@@ -1903,12 +2034,10 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
           }
         }
         const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
-        const operationalDataPaths = extractDataPaths(operationalRun);
-        const dataPaths = operationalDataPaths;
-        const writesData = /\bgit\s+(?:add|commit)\b|(?:>>|>)\s*(?:\\\r?\n\s*)*["']?(?:data|public\/data)\//i.test(operationalRun);
+        const dataWritePaths = extractDataWritePaths(rawStep.run, operationalRun);
         const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
-        if (writesData && dataPaths.length > 0 && !hasValidation) {
-          for (const dataPath of dataPaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
+        if (dataWritePaths.length > 0 && !hasValidation) {
+          for (const dataPath of dataWritePaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }
       }
 
