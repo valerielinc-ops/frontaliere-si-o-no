@@ -88,6 +88,7 @@ describe('source publication date conversion across crawler families', () => {
       decodeHtmlEntities: (v: string) => v, stripHtml: (v: string) => v, inferLocation: () => ({ location: 'Lugano', canton: 'TI', country: 'CH' }),
       detectCategory: () => 'finance', detectLang: () => 'it', shouldKeepBancaSempioneJob: () => true,
       wpContentToMarkdown: (v: string) => v, deriveLocalizedSlug: () => 'junior',
+      crawledAtFromObservation: (value: Date) => value.toISOString(),
     })();
     expect((await load('2026-09-23T12:04:12'))[0]).toMatchObject(sourcePostingDateFields('2026-09-23T12:04:12Z'));
     for (const raw of ['', '2026-02-30T12:04:12', '2026-10-03T23:00:00']) expect((await load(raw))[0]).toMatchObject(unknown);

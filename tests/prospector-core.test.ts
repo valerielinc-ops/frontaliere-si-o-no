@@ -2528,9 +2528,13 @@ describe('production spec runtime', () => {
     expect(parsers.length).toBeGreaterThan(0);
     for (const { name, source } of parsers) {
       expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
-      expect(source, name).toMatch(/resolveSourceBackedSwissGeography\(listing(?:\.location)?\)/);
+      // A structured spread is stricter than the legacy location-only call:
+      // the shared resolver also sees country, canton and postal evidence.
+      expect(source, name).toMatch(
+        /resolveSourceBackedSwissGeography\(\s*(?:listing(?:\.location)?|\{\s*\.\.\.listing(?:\s*[,}]))/,
+      );
       expect(source, name).toContain('listing.addressLocality');
-      expect(source, name).toContain('listing.addressRegion');
+      expect(source, name).toMatch(/listing\.addressRegion|addressRegion:\s*(?:geography\.)?canton/);
       expect(source, name).toContain('listing.postalCode');
       expect(source, name).toContain('listing.streetAddress');
       // I parseri prodotti devono scartare anche descrizioni vuote. La forma
