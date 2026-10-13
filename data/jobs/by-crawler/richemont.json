@@ -1196,7 +1196,6 @@
         "directeur-de-la-boutique-cartier-st-moritz"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.685Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -1827,8 +1826,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "richemont-d795e0025431",
@@ -2242,7 +2240,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:57:57.605Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -4072,7 +4069,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:05:32.943Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -5358,7 +5354,6 @@
         "sales-associate-buccellati-geneva"
       ],
       "firstSeenAt": "2026-09-21T16:11:45.788Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -5440,7 +5435,6 @@
         "senior-sales-associate-richemont-geneva"
       ],
       "firstSeenAt": "2026-09-26T14:07:23.438Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -6076,7 +6070,6 @@
         "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
       ],
       "firstSeenAt": "2026-08-18T09:59:08.365Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -6384,7 +6377,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-02T23:18:26.667Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6547,7 +6539,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:59:03.092Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -8010,7 +8001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:59:03.065Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -8203,7 +8193,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -9482,7 +9471,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1752"
+      "postalCode": "1752",
+      "previousSlugs": [
+        "studente-annuale-m-f-richemont-villars-sur-glane",
+        "annualized-student-m-f-richemont-villars-sur-glane",
+        "jahrlicher-student-m-w-richemont-villars-sur-glane"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "studente-annuale-m-f-richemont-villars-sur-glane",
+          "annualized-student-m-f-richemont-villars-sur-glane",
+          "jahrlicher-student-m-w-richemont-villars-sur-glane"
+        ]
+      }
     },
     {
       "id": "richemont-4089a0558ec9",
@@ -9707,7 +9708,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:11:45.756Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10401,7 +10401,6 @@
           "courriel-cartier-manufacture-le-cret-du-locle"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -13171,7 +13170,20 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-08T21:30:11.527Z"
+      "firstSeenAt": "2026-10-08T21:30:11.527Z",
+      "previousSlugs": [
+        "gestione-dell-ospitalita-e-delle-strutture-van-cleef-arpels-geneva",
+        "gestionnaire-de-l-accueil-et-des-installations-van-cleef-arpels-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-dell-ospitalita-e-delle-strutture-van-cleef-arpels-geneva",
+          "gestionnaire-de-l-accueil-et-des-installations-van-cleef-arpels-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-l-accueil-et-des-installations-van-cleef-arpels-geneva"
+        ]
+      }
     },
     {
       "id": "richemont-8be0d37e2c04",

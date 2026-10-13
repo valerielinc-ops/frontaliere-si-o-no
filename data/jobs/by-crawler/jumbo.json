@@ -9837,11 +9837,10 @@
       },
       "postalCode": "6850",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1318,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9925,11 +9924,10 @@
       },
       "postalCode": "6598",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1315,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10112,7 +10110,6 @@
       },
       "postalCode": "6532",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
@@ -10124,7 +10121,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1317,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12330,7 +12327,7 @@
       "id": "jumbo-64ce681a-c01",
       "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur",
         "en": "sales-consultant-deco-jumbo-chur",
         "fr": "consultant-commercial-deco-jumbo-chur"
@@ -12393,14 +12390,15 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -13554,7 +13552,7 @@
       "id": "jumbo-cd336169-823",
       "slug": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-0jz8vr",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
         "en": "deco-sales-consultant-jumbo-chur",
         "fr": "conseiller-de-vente-in-deco-jumbo-chur"
@@ -13618,14 +13616,15 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -18661,7 +18660,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 77500,
       "salaryMax": 118500,

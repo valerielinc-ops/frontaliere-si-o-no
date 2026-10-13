@@ -369,11 +369,19 @@
         ],
         "fr": [
           "vendeur-vendeur-h-f-d-20-60-chur-lidl-svizzera-chur"
+        ],
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-chur",
+          "venditore-venditore-m-f-d-20-60-copertina-lidl-svizzera-chur",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-chur-20x0ti"
         ]
       },
       "previousSlugs": [
         "seller-seller-m-f-d-20-60-chur-lidl-svizzera-chur",
-        "vendeur-vendeur-h-f-d-20-60-chur-lidl-svizzera-chur"
+        "vendeur-vendeur-h-f-d-20-60-chur-lidl-svizzera-chur",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-chur",
+        "venditore-venditore-m-f-d-20-60-copertina-lidl-svizzera-chur",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-chur-20x0ti"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -812,7 +820,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1860",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },
@@ -1486,7 +1493,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "postalCode": "1618",
-      "needsRetranslation": true,
       "salaryMin": 27400,
       "salaryMax": 41600
     },
@@ -3829,7 +3835,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "postalCode": "1214",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300
     },
@@ -11983,7 +11988,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
-        "en": "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
         "fr": "directeur-de-succursale-stv-directeur-de-succursale-stv-h-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       },
@@ -12003,7 +12008,7 @@
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
           "branch-manager-m-f-d-80-100-st-gallen-lidl-svizzera-st-gallen",
-          "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz"
+          "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
         ],
         "de": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66"
@@ -12021,7 +12026,7 @@
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66",
         "gestionnaire-de-succursale-m-f-j-80-100-st-gallen-lidl-svizzera-st-gallen",
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen",
-        "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz"
+        "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       ],
       "salarySource": "reported",
       "baseSalary": {

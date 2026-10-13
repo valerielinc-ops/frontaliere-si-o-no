@@ -392,7 +392,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/2a6256c7-9a90-4927-990a-f12facbe07d6",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-12T21:24:44.303Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-ostermundigen"
@@ -503,7 +502,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/immobilienbewirtschafter-in/fb997dce-391e-4b60-85b1-0761acef61f2",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-12T21:24:56.295Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -5783,7 +5781,7 @@
       "slug": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
       "slugByLocale": {
         "it": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
-        "en": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
+        "en": "railway-safety-engineer-ffs-officine-ferrovie-federali-geneve",
         "de": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
         "fr": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
       },
@@ -5858,6 +5856,9 @@
       "crawledAt": "2026-10-12T21:25:15.319Z",
       "previousSlugsByLocale": {
         "it": [
+          "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
+        ],
+        "en": [
           "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
         ]
       },
@@ -7902,7 +7903,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/f522b594-0f04-45be-88c8-d0ce0428a2a1",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-12T21:25:10.799Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lokfuhrer-in-kat-a40-ffs-officine-ferrovie-federali-basel"
@@ -8463,7 +8463,7 @@
       "id": "sbb-1444e8f8d837",
       "slug": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-2825f0ef31",
       "slugByLocale": {
-        "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-2825f0ef31",
+        "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
         "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
@@ -8531,13 +8531,11 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-11T21:27:04.134Z",
       "previousSlugs": [
-        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne"
+        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne"
+          "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -9208,7 +9206,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/1049e8bc-5bd7-4938-b951-5a2a87f973c3",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-12T21:25:12.294Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lokfuhrer-in-kat-b100-fahrleitungszugmaschine-ffs-officine-ferrovie-federali-dulliken"
@@ -10490,7 +10487,7 @@
       "slug": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
       "slugByLocale": {
         "it": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
-        "en": "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau",
+        "en": "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau",
         "de": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
         "fr": "une-catenaire-speciale-pour-ajusteurs-ffs-officine-ferrovie-federali-arth-goldau"
       },
@@ -10553,7 +10550,7 @@
       "crawledAt": "2026-10-12T09:28:21.850Z",
       "previousSlugs": [
         "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-        "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+        "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10561,7 +10558,7 @@
         ],
         "en": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-          "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+          "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "fr": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
@@ -12279,7 +12276,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",

@@ -533,8 +533,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -590,16 +590,17 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -1678,7 +1679,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1727,8 +1728,7 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1739,7 +1739,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2300,7 +2300,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2351,14 +2351,14 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
-        "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+        "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunsttherapeut-in-pdgr-ch"
         ],
         "en": [
-          "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+          "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:49.979Z",

@@ -3524,7 +3524,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3585,7 +3585,8 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3593,7 +3594,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
@@ -4880,7 +4881,6 @@
           "• Du bringst die Offenheit mit, Neues zu entdecken und mit verschiedenen Menschen zusammenzuarbeiten."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-entwickler-in-digitales-business-vz-vermoegenszentrum-ch"
@@ -4965,7 +4965,6 @@
           "• Sehr gute Deutschkenntnisse sowie gute Französisch- und/oder Englischkenntnisse von Vorteil"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch"
