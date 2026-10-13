@@ -55,7 +55,11 @@ import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { decodeColinCieEntities, parseColinCieJobDescription } from './lib/colin-cie-job-parser.mjs';
+import {
+  decodeColinCieEntities,
+  parseColinCieJobDescription,
+  resolveColinCieGeography,
+} from './lib/colin-cie-job-parser.mjs';
 import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -83,19 +87,6 @@ const USER_AGENTS = [
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 ];
-
-/* city tag → { location, canton, country } */
-const CITY_MAP = {
-  lugano:       { location: 'Lugano',       canton: 'TI', country: 'CH' },
-  zürich:       { location: 'Zürich',       canton: 'ZH', country: 'CH' },
-  zurich:       { location: 'Zürich',       canton: 'ZH', country: 'CH' },
-  schaffhausen: { location: 'Schaffhausen', canton: 'SH', country: 'CH' },
-  basel:        { location: 'Basel',        canton: 'BS', country: 'CH' },
-  bern:         { location: 'Bern',         canton: 'BE', country: 'CH' },
-  luzern:       { location: 'Luzern',       canton: 'LU', country: 'CH' },
-  zug:          { location: 'Zug',          canton: 'ZG', country: 'CH' },
-  munsbach:     { location: 'Munsbach',     canton: '',   country: 'LU' },
-};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback) {
@@ -260,9 +251,8 @@ function inferCategory(rawCategory = '', title = '') {
 }
 
 /* ── Build job object ──────────────────────────────────────── */
-function buildJob(row, description) {
-  const cityKey = normalize(row.city);
-  const geo = CITY_MAP[cityKey] || { location: row.city || 'Schweiz', canton: '', country: 'CH' };
+function buildJob(row, description, geo) {
+  if (!geo) return null;
   const slug = deriveSlug(row.title, row.city);
 
   return {
@@ -400,13 +390,28 @@ async function main() {
     return;
   }
 
+  const swissListings = [];
+  for (const listing of listings) {
+    const geography = resolveColinCieGeography(listing);
+    if (!geography) {
+      console.warn(`  ⏭️ Quarantining non-CH or unresolved listing: ${listing.title} (${listing.country || 'country missing'}, ${listing.city || 'city missing'})`);
+      continue;
+    }
+    swissListings.push({ listing, geography });
+  }
+  if (swissListings.length === 0) {
+    console.warn('⚠️ No source-backed Swiss listings; preserving the current Colin&Cie slice.');
+    return;
+  }
+
   // 2. Fetch detail pages for descriptions
   console.log('\n📥 Fetching job detail pages...');
   const jobs = [];
-  for (const listing of listings) {
+  for (const { listing, geography } of swissListings) {
     console.log(`  🔗 ${listing.detailUrl}`);
     const detail = await fetchJobDetail(listing.detailUrl);
-    jobs.push(buildJob({ ...listing, ...detail }, detail.description));
+    const job = buildJob({ ...listing, ...detail }, detail.description, geography);
+    if (job) jobs.push(job);
     // Small delay between requests
     await new Promise((r) => setTimeout(r, 500));
   }

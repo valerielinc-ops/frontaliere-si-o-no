@@ -3,7 +3,7 @@ import ts from 'typescript';
 import { describe, expect, it } from 'vitest';
 import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
 import { extractJobPostingField } from '../scripts/lib/jobposting-jsonld.mjs';
-import { decodeColinCieEntities, parseColinCieJobDescription } from '../scripts/lib/colin-cie-job-parser.mjs';
+import { decodeColinCieEntities, parseColinCieJobDescription, resolveColinCieGeography } from '../scripts/lib/colin-cie-job-parser.mjs';
 
 function runnerFunction(name: string, dependencies: Record<string, unknown>) {
   const source = readFileSync(new URL('../scripts/update-colin-cie-jobs.mjs', import.meta.url), 'utf8');
@@ -15,11 +15,13 @@ function runnerFunction(name: string, dependencies: Record<string, unknown>) {
 const unknown = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString();
 const constants = { COMPANY_KEY: 'colin-cie', COMPANY_NAME: 'Colin&Cie', COMPANY_DOMAIN: 'colin-cie.com', COMPANY_HOST: 'www.colin-cie.com', CAREERS_URL: 'https://www.colin-cie.com/de/karriere' };
-const row = { title: 'Advisor', city: 'Lugano', category: 'Consulting', detailUrl: 'https://www.colin-cie.com/de/karriere/advisor' };
-const build = runnerFunction('buildJob', {
-  ...constants, normalize: (s: string) => s.toLowerCase(), CITY_MAP: {}, deriveSlug: () => 'advisor-lugano',
+const row = { title: 'Advisor', city: 'Lugano', country: 'Schweiz', category: 'Consulting', detailUrl: 'https://www.colin-cie.com/de/karriere/advisor' };
+const buildJob = runnerFunction('buildJob', {
+  ...constants, normalize: (s: string) => s.toLowerCase(), deriveSlug: () => 'advisor-lugano',
   inferCategory: () => 'consulting', mergeSourcePostingDates,
 });
+const build = (job: Record<string, unknown>, description: string) =>
+  buildJob(job, description, resolveColinCieGeography(job));
 
 describe('Colin&Cie publication evidence through its real runner functions', () => {
   it('does not interpret an unlabelled listing newsDate as publication', () => {
