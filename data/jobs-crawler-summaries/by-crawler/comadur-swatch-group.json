@@ -1,23 +1,23 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-13T09:22:09.564Z",
+  "generatedAt": "2026-10-13T21:23:31.130Z",
   "total": 2,
-  "authoritativeEmptySnapshot": true,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 397044,
-  "avgDurationMs": 397044,
+  "durationMs": 401670,
+  "avgDurationMs": 401670,
   "durationHistory": [
-    397044
+    401670
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-7uc26r",
-      "slug": "revisore-di-qualita-comadur-sa-bad-zurzach",
+      "slug": "qualitatspruferin-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Qualitätsprüferin",
       "location": "Bad ZurZach",
@@ -34,7 +34,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-12T21:25:21.504Z",
+      "crawledAt": "2026-10-13T21:23:16.519Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -44,7 +44,6 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -76,7 +75,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-12T21:25:21.504Z",
+      "crawledAt": "2026-10-13T21:23:16.519Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
       "sourceLang": "de",
       "salaryMin": 62000,
@@ -86,7 +85,6 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -96,5 +94,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
