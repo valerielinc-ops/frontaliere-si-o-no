@@ -255,9 +255,9 @@
       },
       "slugByLocale": {
         "de": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
-        "it": "meccatronico-a-d-automobili-per-veicoli-pesanti-1-confederazione-svizzera-chur",
-        "en": "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur",
-        "fr": "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur"
+        "it": "meccatronico-a-d-automobili-per-veicoli-pesanti-1-swiss-armed-forces-vtg-chur",
+        "en": "automotive-mechatronics-technician-heavy-vehicles-1-swiss-armed-forces-vtg-chur",
+        "fr": "mecatronicien-ne-d-automobiles-vehicules-lourds-1-swiss-armed-forces-vtg-chur"
       },
       "id": "confederazione-ticino-68b9533b722c",
       "salaryMin": 57500,
@@ -279,7 +279,9 @@
       "previousSlugs": [
         "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur",
         "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
-        "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+        "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+        "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur",
+        "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -288,10 +290,17 @@
           "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
         ],
         "en": [
-          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
+          "automotive-mechatronics-technician-heavy-vehicles-1-confederazione-svizzera-chur",
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
         ],
         "fr": [
-          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
+          "mecatronicien-ne-d-automobiles-vehicules-lourds-1-confederazione-svizzera-chur",
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+        ],
+        "de": [
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
         ]
       }
     },
@@ -954,8 +963,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern",
-          "jurist-in-confederazione-svizzera-bern"
+          "jurist-in-confederazione-bern"
         ],
         "fr": [
           "juriste-confederazione-svizzera-bern"
@@ -966,8 +974,6 @@
       },
       "previousSlugs": [
         "jurist-in-confederazione-bern",
-        "avocat-confederazione-svizzera-bern",
-        "jurist-in-confederazione-svizzera-bern",
         "juriste-confederazione-svizzera-bern"
       ],
       "salaryMin": 78500,
@@ -5486,8 +5492,7 @@
       "firstSeenAt": "2026-09-23T23:59:04.439Z",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern",
-          "jurist-in-confederazione-svizzera-bern"
+          "jurist-in-confederazione-bern"
         ],
         "en": [
           "jurist-in-confederazione-bern"
@@ -5497,8 +5502,7 @@
         ]
       },
       "previousSlugs": [
-        "jurist-in-confederazione-bern",
-        "jurist-in-confederazione-svizzera-bern"
+        "jurist-in-confederazione-bern"
       ]
     },
     {
@@ -9811,7 +9815,6 @@
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-confederazione-bern",
-          "giurista-confederazione-svizzera-bern",
           "jurist-in-confederazione-svizzera-bern",
           "jurist-in-confederazione-svizzera-bern-df4dfad7e5"
         ],
@@ -9824,7 +9827,6 @@
       },
       "previousSlugs": [
         "jurist-in-confederazione-bern",
-        "giurista-confederazione-svizzera-bern",
         "jurist-in-confederazione-svizzera-bern",
         "jurist-in-confederazione-svizzera-bern-df4dfad7e5"
       ],

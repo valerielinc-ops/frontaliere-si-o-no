@@ -1,9 +1,10 @@
 {
-  "run": 182,
+  "run": 183,
   "companies": {
     "sintetica": {
-      "sterile": 1,
-      "signature": "843cf5d8920aef14"
+      "sterile": 0,
+      "signature": "843cf5d8920aef14",
+      "skipUntilRun": 186
     }
   }
 }
