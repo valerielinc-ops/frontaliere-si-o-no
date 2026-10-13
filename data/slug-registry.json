@@ -722394,7 +722394,9 @@
     "canonicalSlug": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
     "slugByLocale": {
       "de": "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
-      "fr": "dwh-softwareenginer-80-100-abraxas-informatik-ag-zurich-flughafen"
+      "fr": "dwh-softwareenginer-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "it": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "en": "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
     },
     "createdAt": "2026-09-15",
     "canton": "ZH"
@@ -845480,7 +845482,8 @@
     "canonicalSlug": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
     "slugByLocale": {
       "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
-      "fr": "architecte-de-solutions-logicielles-a-80-100-avec-un-accent-sur-la-prevente-abraxas-informatik-ag-st-gallen"
+      "fr": "architecte-de-solutions-logicielles-a-80-100-avec-un-accent-sur-la-prevente-abraxas-informatik-ag-st-gallen",
+      "it": "architetto-a-di-soluzioni-software-80-100-con-specializzazione-nel-pre-sales-abraxas-informatik-ag-st-gallen"
     },
     "createdAt": "2026-10-04",
     "canton": "SG"
@@ -918026,5 +918029,24 @@
     },
     "createdAt": "2026-10-13",
     "canton": "TI"
+  },
+  "url|https://www.abraxas.ch/de/karriere/offene-stellen/mitarbeiterin-inside-sales-80-100-9338": {
+    "canonicalSlug": "collaboratore-trice-inside-sales-80-100-abraxas-informatik-ag-st-gallen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-inside-sales-80-100-abraxas-informatik-ag-st-gallen",
+      "en": "associate-inside-sales-80-100-abraxas-informatik-ag-st-gallen",
+      "de": "mitarbeiter-in-inside-sales-80-100-abraxas-st-gallen",
+      "fr": "collaborateur-trice-inside-sales-80-100-abraxas-informatik-ag-st-gallen"
+    },
+    "createdAt": "2026-10-13",
+    "canton": "SG"
+  },
+  "url|https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-4754": {
+    "canonicalSlug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
+    "slugByLocale": {
+      "de": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen"
+    },
+    "createdAt": "2026-10-13",
+    "canton": "ZH"
   }
 }
