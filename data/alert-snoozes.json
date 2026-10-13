@@ -2,14 +2,9 @@
   "version": 1,
   "snoozes": {
     "B.2.gsc-fetch-failure": {
-      "consecutiveDays": 10,
-      "lastSeen": "2026-10-12",
-      "snoozedUntil": "2026-10-19"
-    },
-    "B.4.posthog-fetch-failure": {
-      "consecutiveDays": 0,
-      "lastSeen": "2026-10-06",
-      "snoozedUntil": "2026-10-13"
+      "consecutiveDays": 11,
+      "lastSeen": "2026-10-13",
+      "snoozedUntil": "2026-10-20"
     }
   }
 }
