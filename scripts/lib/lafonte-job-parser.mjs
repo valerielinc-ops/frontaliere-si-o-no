@@ -11,6 +11,34 @@
 import { JSDOM } from 'jsdom';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { textFragmentUrl } from './text-fragment-url.mjs';
+import { isHttpsUrl } from './https-url.mjs';
+
+/** Return only an explicit HTTPS application CTA embedded in an official card. */
+export function extractLaFonteApplyUrlFromCardHtml(html = '') {
+  const dom = new JSDOM(`<body>${String(html || '')}</body>`);
+  try {
+    for (const anchor of dom.window.document.querySelectorAll('a[href]')) {
+      const label = [
+        anchor.textContent,
+        anchor.getAttribute('aria-label'),
+        anchor.getAttribute('title'),
+      ].filter(Boolean).join(' ');
+      if (!/candidatur|candidarsi|candidati|bewerb|apply|postuler|invia.{0,24}(?:cv|curriculum)/i.test(label)) {
+        continue;
+      }
+
+      try {
+        const href = new URL(anchor.getAttribute('href'), 'https://www.lafonte.ch').href;
+        if (isHttpsUrl(href)) return href;
+      } catch {
+        // A malformed source href is not an application handoff.
+      }
+    }
+    return null;
+  } finally {
+    dom.window.close();
+  }
+}
 
 // ──────────────────────────────────────────────────────────────
 // HTML → Markdown converter
