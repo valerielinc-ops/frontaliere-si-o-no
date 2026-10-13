@@ -37,4 +37,36 @@ describe('pipeline phase timing', () => {
       rmSync(directory, { recursive: true, force: true });
     }
   });
+
+  it('keeps summary and logger failures observational', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'pipeline-phase-timing-failed-summary-'));
+    try {
+      const lines: string[] = [];
+      let failedSummaryEvents = 0;
+      let elapsed = 100;
+      const finish = startPipelinePhase('dataset', 'failed summary', {
+        now: () => elapsed,
+        log: (line) => {
+          const event = JSON.parse(line.replace(/^\[pipeline-timing\] /u, ''));
+          if (event.event === 'summary-write-failed') {
+            failedSummaryEvents += 1;
+            throw new Error('logger unavailable');
+          }
+          lines.push(line);
+        },
+        summaryPath: directory,
+      });
+
+      elapsed += 250;
+      expect(finish('success')).toBe(250);
+      expect(failedSummaryEvents).toBe(2);
+      const events = lines.map((line) => JSON.parse(line.replace(/^\[pipeline-timing\] /u, '')));
+      expect(events).toEqual([
+        { pipeline: 'dataset', phase: 'failed summary', event: 'start' },
+        { pipeline: 'dataset', phase: 'failed summary', event: 'finish', duration_ms: 250, outcome: 'success' },
+      ]);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
 });

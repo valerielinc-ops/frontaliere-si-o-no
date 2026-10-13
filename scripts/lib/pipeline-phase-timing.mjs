@@ -4,8 +4,12 @@ import { performance } from 'node:perf_hooks';
 const activePhases = new Set();
 let exitHookRegistered = false;
 
-function emit(log, event) {
-  log(`[pipeline-timing] ${JSON.stringify(event)}\n`);
+function emitTimingSafely(log, event) {
+  try {
+    log(`[pipeline-timing] ${JSON.stringify(event)}\n`);
+  } catch {
+    // Timing is observational: a failing log sink must not change pipeline behavior.
+  }
 }
 
 function appendSummary(summaryPath, markdown, log) {
@@ -15,7 +19,7 @@ function appendSummary(summaryPath, markdown, log) {
   } catch {
     // Timing is observational: an unavailable summary file must not change the
     // result of a build, publish, or bounded network command.
-    emit(log, { event: 'summary-write-failed' });
+    emitTimingSafely(log, { event: 'summary-write-failed' });
   }
 }
 
@@ -51,7 +55,7 @@ export function startPipelinePhase(pipeline, phase, {
   let finished = false;
   const heading = `### Pipeline timing — ${markdownLabel(pipeline)} / ${markdownLabel(phase)}\n\n`;
 
-  emit(log, { pipeline, phase, event: 'start' });
+  emitTimingSafely(log, { pipeline, phase, event: 'start' });
   appendSummary(summaryPath, `${heading}- Started; elapsed time pending.\n\n`, log);
 
   const finish = (outcome = 'success') => {
@@ -59,7 +63,7 @@ export function startPipelinePhase(pipeline, phase, {
     finished = true;
     activePhases.delete(finish);
     const durationMs = Math.max(0, Math.round(now() - startedAt));
-    emit(log, { pipeline, phase, event: 'finish', duration_ms: durationMs, outcome });
+    emitTimingSafely(log, { pipeline, phase, event: 'finish', duration_ms: durationMs, outcome });
     appendSummary(
       summaryPath,
       `- Finished: \`${markdownLabel(outcome)}\`; duration: **${durationMs} ms**.\n\n`,
