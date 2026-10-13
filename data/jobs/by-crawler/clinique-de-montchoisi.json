@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-10-12T21:40:30.498Z",
+  "assembledAt": "2026-10-13T09:29:27.664Z",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-bdfb3af7be68",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-de-montchoisi-lausanne",
         "en": "nurse-clinique-de-montchoisi-lausanne",
-        "de": "krankenschwester-clinique-de-montchoisi-lausanne",
+        "de": "infirmier-ere-clinique-de-montchoisi-lausanne",
         "fr": "infirmier-ere-clinique-de-montchoisi"
       },
       "company": "Clinique de Montchoisi",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:40:19.787Z",
+      "crawledAt": "2026-10-13T09:29:16.398Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,14 +55,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-de-montchoisi",
-        "infirmier-ere-clinique-de-montchoisi-lausanne"
+        "krankenschwester-clinique-de-montchoisi-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinique-de-montchoisi"
         ],
         "de": [
-          "infirmier-ere-clinique-de-montchoisi-lausanne"
+          "krankenschwester-clinique-de-montchoisi-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:31:24.492Z",
@@ -79,6 +79,74 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "clinique-de-montchoisi-480e680d951f",
+      "slug": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
+      "slugByLocale": {
+        "fr": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
+        "it": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
+        "en": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
+        "de": "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+      },
+      "company": "Clinique de Montchoisi",
+      "companyKey": "clinique-de-montchoisi",
+      "companyDomain": "swissmedical.net",
+      "title": "Chef(fe) de partie Pâtisserie",
+      "titleByLocale": {
+        "fr": "Chef(fe) de partie Pâtisserie",
+        "it": "Chef(fe) de partie Pâtisserie",
+        "en": "Chef(fe) de partie Pâtisserie",
+        "de": "Chef(fe) de partie Pâtisserie"
+      },
+      "description": "• Organiser, coordonner et contrôler le fonctionnement de sa partie\n\n• Assurer la mise en place de son poste pour les différents services\n\n• Gérer le rangement, le nettoyage et l’hygiène de son poste\n\n• Contrôler les frigos et les marchandises\n\n• Participer et veiller au bon déroulement du service\n\n• Un CFC ou une formation jugée équivalente\n\n• Une expérience confirmée dans le domaine de la restauration\n\n• Une expérience en gastronomie souhaitée\n\n• Un esprit d’équipe, volontaire, avenant, dynamique et une grande flexibilité\n\n• Autonome, très bon sens de l’organisation\n\n• Le goût du détail, du travail bien fait\n\n• Une sensibilité affirmée pour évoluer au sein d’un établissement de santé\n\n• Une activité dans un domaine passionnant, au sein d’une entreprise dynamique, stimulante, en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une rémunération et des conditions sociales motivantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFondée en 1932 et située au cœur de la ville de Lausanne, dans un cadre d’exception face au lac Léman et aux Alpes, la Clinique de Montchoisi a toujours été l’un des établissements les plus réputés du canton de Vaud. Elle regroupe les meilleurs spécialistes de renommée nationale et internationale, notamment dans ses spécialités phares : l’ophtalmologie, l’orthopédie, l’ORL et la radiologie. La clinique met tout en œuvre pour offrir des soins d’excellence ainsi qu’une prise en charge personnalisée, unique et chaleureuse dans un environnement à la pointe de la technologie. En 2003, la Clinique de Montchoisi a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
+      "descriptionByLocale": {
+        "fr": "• Organiser, coordonner et contrôler le fonctionnement de sa partie\n\n• Assurer la mise en place de son poste pour les différents services\n\n• Gérer le rangement, le nettoyage et l’hygiène de son poste\n\n• Contrôler les frigos et les marchandises\n\n• Participer et veiller au bon déroulement du service\n\n• Un CFC ou une formation jugée équivalente\n\n• Une expérience confirmée dans le domaine de la restauration\n\n• Une expérience en gastronomie souhaitée\n\n• Un esprit d’équipe, volontaire, avenant, dynamique et une grande flexibilité\n\n• Autonome, très bon sens de l’organisation\n\n• Le goût du détail, du travail bien fait\n\n• Une sensibilité affirmée pour évoluer au sein d’un établissement de santé\n\n• Une activité dans un domaine passionnant, au sein d’une entreprise dynamique, stimulante, en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une rémunération et des conditions sociales motivantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFondée en 1932 et située au cœur de la ville de Lausanne, dans un cadre d’exception face au lac Léman et aux Alpes, la Clinique de Montchoisi a toujours été l’un des établissements les plus réputés du canton de Vaud. Elle regroupe les meilleurs spécialistes de renommée nationale et internationale, notamment dans ses spécialités phares : l’ophtalmologie, l’orthopédie, l’ORL et la radiologie. La clinique met tout en œuvre pour offrir des soins d’excellence ainsi qu’une prise en charge personnalisée, unique et chaleureuse dans un environnement à la pointe de la technologie. En 2003, la Clinique de Montchoisi a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
+        "it": "• Organiser, coordonner et contrôler le fonctionnement de sa partie\n\n• Assurer la mise en place de son poste pour les différents services\n\n• Gérer le rangement, le nettoyage et l’hygiène de son poste\n\n• Contrôler les frigos et les marchandises\n\n• Participer et veiller au bon déroulement du service\n\n• Un CFC ou une formation jugée équivalente\n\n• Une expérience confirmée dans le domaine de la restauration\n\n• Une expérience en gastronomie souhaitée\n\n• Un esprit d’équipe, volontaire, avenant, dynamique et une grande flexibilité\n\n• Autonome, très bon sens de l’organisation\n\n• Le goût du détail, du travail bien fait\n\n• Une sensibilité affirmée pour évoluer au sein d’un établissement de santé\n\n• Une activité dans un domaine passionnant, au sein d’une entreprise dynamique, stimulante, en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une rémunération et des conditions sociales motivantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFondée en 1932 et située au cœur de la ville de Lausanne, dans un cadre d’exception face au lac Léman et aux Alpes, la Clinique de Montchoisi a toujours été l’un des établissements les plus réputés du canton de Vaud. Elle regroupe les meilleurs spécialistes de renommée nationale et internationale, notamment dans ses spécialités phares : l’ophtalmologie, l’orthopédie, l’ORL et la radiologie. La clinique met tout en œuvre pour offrir des soins d’excellence ainsi qu’une prise en charge personnalisée, unique et chaleureuse dans un environnement à la pointe de la technologie. En 2003, la Clinique de Montchoisi a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
+        "en": "• Organiser, coordonner et contrôler le fonctionnement de sa partie\n\n• Assurer la mise en place de son poste pour les différents services\n\n• Gérer le rangement, le nettoyage et l’hygiène de son poste\n\n• Contrôler les frigos et les marchandises\n\n• Participer et veiller au bon déroulement du service\n\n• Un CFC ou une formation jugée équivalente\n\n• Une expérience confirmée dans le domaine de la restauration\n\n• Une expérience en gastronomie souhaitée\n\n• Un esprit d’équipe, volontaire, avenant, dynamique et une grande flexibilité\n\n• Autonome, très bon sens de l’organisation\n\n• Le goût du détail, du travail bien fait\n\n• Une sensibilité affirmée pour évoluer au sein d’un établissement de santé\n\n• Une activité dans un domaine passionnant, au sein d’une entreprise dynamique, stimulante, en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une rémunération et des conditions sociales motivantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFondée en 1932 et située au cœur de la ville de Lausanne, dans un cadre d’exception face au lac Léman et aux Alpes, la Clinique de Montchoisi a toujours été l’un des établissements les plus réputés du canton de Vaud. Elle regroupe les meilleurs spécialistes de renommée nationale et internationale, notamment dans ses spécialités phares : l’ophtalmologie, l’orthopédie, l’ORL et la radiologie. La clinique met tout en œuvre pour offrir des soins d’excellence ainsi qu’une prise en charge personnalisée, unique et chaleureuse dans un environnement à la pointe de la technologie. En 2003, la Clinique de Montchoisi a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées.",
+        "de": "• Organiser, coordonner et contrôler le fonctionnement de sa partie\n\n• Assurer la mise en place de son poste pour les différents services\n\n• Gérer le rangement, le nettoyage et l’hygiène de son poste\n\n• Contrôler les frigos et les marchandises\n\n• Participer et veiller au bon déroulement du service\n\n• Un CFC ou une formation jugée équivalente\n\n• Une expérience confirmée dans le domaine de la restauration\n\n• Une expérience en gastronomie souhaitée\n\n• Un esprit d’équipe, volontaire, avenant, dynamique et une grande flexibilité\n\n• Autonome, très bon sens de l’organisation\n\n• Le goût du détail, du travail bien fait\n\n• Une sensibilité affirmée pour évoluer au sein d’un établissement de santé\n\n• Une activité dans un domaine passionnant, au sein d’une entreprise dynamique, stimulante, en pleine expansion\n\n• Un cadre de travail agréable\n\n• Une rémunération et des conditions sociales motivantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFondée en 1932 et située au cœur de la ville de Lausanne, dans un cadre d’exception face au lac Léman et aux Alpes, la Clinique de Montchoisi a toujours été l’un des établissements les plus réputés du canton de Vaud. Elle regroupe les meilleurs spécialistes de renommée nationale et internationale, notamment dans ses spécialités phares : l’ophtalmologie, l’orthopédie, l’ORL et la radiologie. La clinique met tout en œuvre pour offrir des soins d’excellence ainsi qu’une prise en charge personnalisée, unique et chaleureuse dans un environnement à la pointe de la technologie. En 2003, la Clinique de Montchoisi a rejoint Swiss Medical Network, l’un des deux principaux groupes suisses de cliniques privées."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
+      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-13T09:29:16.397Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T05:16:41.174Z",
+      "postedDate": "2026-10-13T05:16:41.174Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-13T09:29:16.397Z"
     },
     {
       "id": "clinique-de-montchoisi-c9c29e33dfc8",
@@ -113,7 +181,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:40:19.782Z",
+      "crawledAt": "2026-10-13T09:29:16.395Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
