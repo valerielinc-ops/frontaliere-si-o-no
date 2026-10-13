@@ -16,7 +16,20 @@ import { localizeStaticPageStructuredData } from './shared/localeStaticStructure
 import { editorialModifiedDate, synchronizeSitemapLastmods } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
 import { canonicalizeBorderWaitLinks } from './shared/borderWaitLegacyRedirects';
-import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT, FAVICON_LINKS } from './constants';
+import {
+ BASE_URL,
+ ANALYTICS_SNIPPET,
+ GTAG_SNIPPET,
+ ADSENSE_SNIPPET,
+ PARTNERIZE_TAG_SNIPPET,
+ OFFERWALL_FC_SNIPPET,
+ DARK_MODE_SCRIPT,
+ SEO_STATIC_CSS_LINK,
+ SEO_STATIC_CSS_FILENAME,
+ CDN_PRECONNECT_HINT,
+ ROBOTS_INDEX_ENHANCED_CONTENT,
+ FAVICON_LINKS,
+} from './constants';
 import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
@@ -32,6 +45,15 @@ import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSl
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { compareArticleSourceDates } from '../services/articleSourceDates';
 import { EDITORIAL_TEAM_ID } from '../services/seo/organizationLd';
+
+// SPA pages initialize PostHog from the consent-gated idle path in App.tsx.
+// Keeping the standalone snippet here would initialize it before React and
+// then initialize it again from the SPA path, pulling the recorder and
+// related PostHog assets into the critical startup window. Static-only pages keep
+// ANALYTICS_SNIPPET so they retain their independent pageview bootstrap.
+const SPA_ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
+ ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}`;
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -5926,7 +5948,7 @@ ${hrefTags}
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
- ${ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
+ ${SPA_ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${sdForPage ? `\n <script type="application/ld+json">${sdForPage}</script>` : ''}${speakableLd}${heroImageLd}
