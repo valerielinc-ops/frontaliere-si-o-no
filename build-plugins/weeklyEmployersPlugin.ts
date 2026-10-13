@@ -114,7 +114,7 @@ import {
 } from './shared/cantonSection';
 import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
-import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
+import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
@@ -2574,7 +2574,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
           : copy.deltaZero;
       const href = employerBrandPath(c.employerKey, c.employer, inp.knownSlugs) ?? cityJobsHubPath(locale, 'ticino');
       const logoSlug = c.employerKey || slugifyEmployer(c.employer);
-      const explicitLogo = inp.rootDir ? resolveBrandLogoUrl(inp.rootDir, logoSlug) : null;
+      const explicitLogo = logoUrlForRenderedOutput(inp.rootDir ? resolveBrandLogoUrl(inp.rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: c.employer,
@@ -3027,7 +3027,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
         ? `${cityDisplay} · ${deltaLabel}`
         : cityDisplay;
       const logoSlug = c.employerKey || slugifyEmployer(c.employer);
-      const explicitLogo = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      const explicitLogo = logoUrlForRenderedOutput(rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: c.employer,
@@ -3069,7 +3069,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     }
     const items = stats.newcomers.map((n) => {
       const logoSlug = n.employerKey || slugifyEmployer(n.employer);
-      const explicitLogo = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      const explicitLogo = logoUrlForRenderedOutput(rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null) ?? null;
       return {
         employer: {
           name: n.employer,
@@ -3558,14 +3558,15 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // exactly). Falls back to a local `public/images/brands/{slug}.png` if the
   // registry has no entry, then to the neutral building icon.
   const brandLogoSlug = stats.employerKey || slugifyEmployer(employer);
-  const brandLogoUrl =
+  const brandLogoUrl = logoUrlForRenderedOutput(
     (CRAWLED_COMPANY_LOGOS[brandLogoSlug] as string | undefined) ??
     (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null) ??
     resolveCompanyLogoUrl({
       company: employer,
       companyKey: stats.employerKey,
       companyDomain: stats.companyDomain,
-    });
+    }),
+  );
   // Inline onerror for static HTML (no React handler). Shared LOGO_IMG_ONERROR
   // falls straight to the placeholder — no Clearbit/Google-favicon hop (both
   // produce the broken-looking grey globe). See companyLogoResolver.ts.

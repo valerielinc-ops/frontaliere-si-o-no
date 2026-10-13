@@ -3260,11 +3260,39 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * <title> can never exceed TITLE_MAX_CHARS.
  */
 function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[], dateToken = ''): string {
-  const datedSuffixes = dateToken ? suffixes.map((suffix) => `${suffix} · ${dateToken}`) : suffixes;
+  const datedSuffixes = dateToken
+    ? suffixes.flatMap((suffix) => {
+      const candidates = [`${suffix} · ${dateToken}`];
+      // Once the scheduled date is present, the brand label is less useful
+      // than the place/canton token. Keep the latter as a separate candidate
+      // so long canton names do not force the event title down to a stub.
+      const brandless = suffix.replace(/\s+\|\s+[^|]+$/, '');
+      if (brandless !== suffix) candidates.push(`${brandless} · ${dateToken}`);
+      return candidates;
+    })
+    : suffixes;
   // First suffix candidate that leaves a meaningful title budget wins; when
   // even the bare-comune candidate is squeezed, still use it (the shortest).
-  const suffix = datedSuffixes.find((s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET)
-    ?? datedSuffixes[datedSuffixes.length - 1] ?? '';
+  // Prefer a complete event title whenever one of the useful place candidates
+  // can accommodate it; otherwise retain the most descriptive candidate that
+  // still leaves a meaningful title fragment. This prevents the date token
+  // from truncating a 25-character event title merely to keep a brand label.
+  const rawTitleBudget = esc(rawTitle).length;
+  const firstMeaningfulIndex = datedSuffixes.findIndex(
+    (s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
+  );
+  let suffix = firstMeaningfulIndex >= 0
+    ? datedSuffixes[firstMeaningfulIndex]
+    : datedSuffixes[datedSuffixes.length - 1] ?? '';
+  // The first pair is the same place/canton with and without its brand label.
+  // If the full candidate is meaningful but just too long for the raw event
+  // title, use its paired brandless form when that preserves the title. Do not
+  // scan into the next comune-only candidate: a long canton token is a better
+  // disambiguator than a complete but location-poor title.
+  if (dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
+    const brandless = datedSuffixes[firstMeaningfulIndex + 1];
+    if (brandless && TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
+  }
   const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
   let title = rawTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {

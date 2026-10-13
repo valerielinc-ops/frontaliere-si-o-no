@@ -213,7 +213,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'everest-re': cLogo('everestre.com'),
  // #6504 residual: the official site exposes only a small favicon; this is
  // the published Imerys mark from the company-origin Commons file.
- 'imerys': 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Imerys_logo.png',
+ 'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
  'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
  'fart': gFavicon('fartiamo.ch'),
  'ferring': cLogo('ferring.com'),
@@ -351,7 +351,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'medartis': cLogo('medartis.com'),
  // #6504 residual: keep the visible red MediaMarkt wordmark instead of the
  // stale 48px manifest entry; the Commons SVG is sourced from Media-Saturn.
- 'mediamarkt': 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg',
+ 'mediamarkt': 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg',
  'medics-labor': cLogo('medics.ch'),
  'medtronic': cLogo('medtronic.com'),
  'merian-iselin': cLogo('merianiselin.ch'),
@@ -577,6 +577,30 @@ export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'farmacia-internazionale-dr-merloni',
  'mediamarkt',
 ]);
+
+/**
+ * Stable, non-redirecting render URLs for the two curated Wikimedia assets
+ * still referenced through Special:FilePath in the source registry. The
+ * registry remains the source-of-truth/audit provenance; HTML and JSON-LD
+ * consumers use this map so crawlers do not see the 302 -> 301 chain.
+ */
+export const DIRECT_CURATED_LOGO_URLS: Record<string, string> = {
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png':
+   'https://upload.wikimedia.org/wikipedia/commons/5/5f/Imerys_logo.png',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg':
+   'https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg',
+};
+
+/** Return an emitted logo URL without changing the curated registry value. */
+export function logoUrlForRenderedOutput(url: string | null | undefined): string | null | undefined {
+ if (!url) return url;
+ return DIRECT_CURATED_LOGO_URLS[url] ?? url;
+}
+
+/** Resolve a company logo for an actual HTML/JSON-LD consumer. */
+export function resolveCompanyLogoUrlForRenderedOutput(job: JobLike): string | null {
+ return logoUrlForRenderedOutput(resolveCompanyLogoUrl(job)) ?? null;
+}
 
 // Overlay the locally-mirrored logo paths on top of the registry. Any
 // non-curated slug present in the manifest serves /images/brands/{slug}.{ext}

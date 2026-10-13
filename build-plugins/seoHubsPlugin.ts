@@ -84,6 +84,7 @@ import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -2352,16 +2353,16 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           href: `${sectionRoot}/${COMPANY_ROUTE_PREFIX[locale]}-${hub.slug}/`,
           label: hub.name,
           sub: jobsActiveLabel(locale, hub.jobs),
-          logo: resolveBrandLogoUrl(rootDir, hub.logoKey) ?? crawledLogos[hub.logoKey] ?? null,
+          logo: logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, hub.logoKey) ?? crawledLogos[hub.logoKey] ?? null) ?? null,
           metric: hub.jobs.toString(),
           metricTone: 'accent' as const,
         })) : empArraySorted.map(([empKey, n]) => {
           // Resolve a logo: try the (manifest|crawled) keyed lookup. Keys are
           // short employer keys (e.g. "unispital-basel"); the same key is used
           // for the URL slug here, so no separate lookup is needed.
-          const logoUrl = resolveBrandLogoUrl(rootDir, empKey)
+          const logoUrl = logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, empKey)
             ?? crawledLogos[empKey]
-            ?? null;
+            ?? null) ?? null;
           return {
             href: `${sectionRoot}/azienda-${empKey}/`,
             label: humanizeSlug(empKey),
@@ -2749,11 +2750,11 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         // (e.g. "bps-banca-popolare-di-sondrio-suisse"). The urlToKey reverse
         // map bridges this gap.
         const key = companyUrlToKey.get(slug) ?? slug;
-        const logoUrl = resolveBrandLogoUrl(rootDir, key)
+        const logoUrl = logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, key)
           ?? resolveBrandLogoUrl(rootDir, slug)
           ?? crawledLogos[key]
           ?? crawledLogos[slug]
-          ?? null;
+          ?? null) ?? null;
         items.push({
           href: `${sectionRoot}/azienda-${slug}/`,
           label: humanizeSlug(slug),

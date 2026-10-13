@@ -102,7 +102,7 @@ import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
-import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
+import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
@@ -2483,7 +2483,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const ownLogo = String(job?.companyLogo || '').trim();
  if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
  const key = job?.companyKey || '';
- if (key && CRAWLED_COMPANY_LOGOS[key]) return CRAWLED_COMPANY_LOGOS[key];
+ if (key && CRAWLED_COMPANY_LOGOS[key]) return logoUrlForRenderedOutput(CRAWLED_COMPANY_LOGOS[key]) as string;
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
  // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
  // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
