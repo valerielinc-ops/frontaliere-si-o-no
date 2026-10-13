@@ -98,14 +98,14 @@ export function buildIssueBody(entry, hours = DEFAULT_HOURS) {
       ],
       fix: [
         'Triaging target: `infra/cloudflare-worker/locale-router.js` and the upstream response/body path reached by the failing request.',
-        'A fix is complete only when the status is zero in two consecutive complete monitor windows; a missing or capped Metrics response is not considered clean.',
+        'A fix is complete when the status is zero in one complete monitor window; a missing or capped Metrics response is not considered clean.',
       ],
-      metrica: `prima=${errors} ${status} errors in ${hours}h atteso=0 in due finestre complete consecutive`,
+      metrica: `prima=${errors} ${status} errors in ${hours}h atteso=0 in una finestra completa`,
       comando: DRY_RUN_COMMAND,
       osservatore: [
         '`.github/workflows/cloudflare-worker-errors.yml` runs hourly and uses the same account-level Metrics series as the supplied dashboard.',
         'The workflow queries `scriptThrewException`, `exceededResources`, and `internalError` separately, then deduplicates by this stable title.',
-        'It closes only after two complete clean measurements for this status; API failures, missing rows, and row-cap saturation keep the issue open without writing a false green.',
+        'It closes after one complete clean measurement for this status; API failures, missing rows, and row-cap saturation keep the issue open without writing a false green.',
       ],
       fallimento: `\`${titleFor(entry)}\``,
       note: [
@@ -123,7 +123,7 @@ export function workerReconcile(measurement) {
     // GitHub refuses to create the more specific label during an outage.
     labels: ['stability', ISSUE_FAMILY_LABEL],
     titlePrefix: ISSUE_TITLE_PREFIX,
-    confirmations: 2,
+    confirmations: 1,
     verdictFor: (issue) => {
       const status = statusFromIssue(issue);
       const item = status ? statusMeasurement(measurement, status) : null;
