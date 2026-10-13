@@ -18,8 +18,10 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { withSingleFlightLock } from '../lib/single-flight-lock.mjs';
 
 const DATA_PATH = 'data/instagram-insights.json';
+const GIT_TIMEOUT_MS = 120_000;
 
 function nextValue(argv, index, option) {
   const value = argv[index + 1];
@@ -47,7 +49,8 @@ function git(repo, args, { allowFailure = false } = {}) {
     return execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
-      timeout: 120_000,
+      timeout: GIT_TIMEOUT_MS,
+      killSignal: 'SIGTERM',
     });
   } catch (error) {
     if (allowFailure) return null;
@@ -68,65 +71,93 @@ function readSnapshot(file) {
   return parsed;
 }
 
-function cleanupWorktree(repo, worktree) {
+function cleanupWorktree(repo, worktree, gitFn = git) {
   if (!worktree) return;
-  git(repo, ['worktree', 'remove', '--force', worktree], { allowFailure: true });
+  gitFn(repo, ['worktree', 'remove', '--force', worktree], { allowFailure: true });
   if (existsSync(worktree) && worktree.includes(`${path.sep}.insights-worktree-`)) {
     rmSync(worktree, { recursive: true, force: true });
   }
 }
 
-function materialize(repo, snapshot, { dryRun = false } = {}) {
+function materialize(repo, snapshot, { dryRun = false, gitFn = git } = {}) {
   const root = path.dirname(snapshot);
   const worktree = mkdtempSync(path.join(root, '.insights-worktree-'));
   try {
-    git(repo, ['worktree', 'add', '--detach', '--no-checkout', worktree, 'origin/main']);
-    git(worktree, ['sparse-checkout', 'init', '--no-cone']);
-    git(worktree, ['sparse-checkout', 'set', DATA_PATH]);
+    gitFn(repo, ['worktree', 'add', '--detach', '--no-checkout', worktree, 'origin/main']);
+    gitFn(worktree, ['sparse-checkout', 'init', '--no-cone']);
+    gitFn(worktree, ['sparse-checkout', 'set', DATA_PATH]);
     mkdirSync(path.join(worktree, 'data'), { recursive: true });
     const destination = path.join(worktree, DATA_PATH);
     writeFileSync(destination, `${JSON.stringify(readSnapshot(snapshot), null, 2)}\n`, 'utf8');
-    git(worktree, ['add', '--', DATA_PATH]);
-    const staged = git(worktree, ['diff', '--cached', '--quiet', '--', DATA_PATH], { allowFailure: true });
+    gitFn(worktree, ['add', '--', DATA_PATH]);
+    const staged = gitFn(worktree, ['diff', '--cached', '--quiet', '--', DATA_PATH], { allowFailure: true });
     if (staged !== null) return { status: 'unchanged', worktree };
     if (dryRun) return { status: 'ready', worktree };
-    git(worktree, [
+    gitFn(worktree, [
       '-c', 'user.name=frontaliere-mac-automation',
       '-c', 'user.email=automation@frontaliereticino.ch',
       'commit', '-m', 'chore(instagram): record browser Insights snapshot [skip ci]',
     ]);
     return { status: 'committed', worktree };
   } catch (error) {
-    cleanupWorktree(repo, worktree);
+    cleanupWorktree(repo, worktree, gitFn);
     throw error;
   }
 }
 
-export function persistBrowserInsights({ repo, snapshot, dryRun = false, attempts = 3 } = {}) {
-  readSnapshot(snapshot);
+function refreshMain(repo, gitFn) {
+  try {
+    gitFn(repo, [
+      '-c', 'http.lowSpeedLimit=1000',
+      '-c', 'http.lowSpeedTime=60',
+      'fetch', '-q', 'origin', 'main',
+    ]);
+    return true;
+  } catch {
+    // A valid, slightly stale origin/main is still useful: the push below can
+    // succeed if nobody advanced main, and a rejected push will request a
+    // refresh on the next attempt.
+    return false;
+  }
+}
+
+function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
+  let refreshBeforeAttempt = false;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    git(repo, ['fetch', '-q', 'origin', 'main']);
+    if (refreshBeforeAttempt) {
+      refreshMain(repo, gitFn);
+      refreshBeforeAttempt = false;
+    }
     let result;
     try {
-      result = materialize(repo, snapshot, { dryRun });
+      result = materialize(repo, snapshot, { dryRun, gitFn });
       if (result.status !== 'committed') {
-        cleanupWorktree(repo, result.worktree);
+        cleanupWorktree(repo, result.worktree, gitFn);
         return { status: result.status, attempt };
       }
       try {
-        git(result.worktree, ['push', 'origin', 'HEAD:main']);
-        cleanupWorktree(repo, result.worktree);
+        gitFn(result.worktree, ['push', 'origin', 'HEAD:main']);
+        cleanupWorktree(repo, result.worktree, gitFn);
         return { status: 'pushed', attempt };
       } catch (error) {
-        cleanupWorktree(repo, result.worktree);
+        cleanupWorktree(repo, result.worktree, gitFn);
         if (attempt === attempts) throw error;
+        refreshBeforeAttempt = true;
       }
     } catch (error) {
-      if (result?.worktree) cleanupWorktree(repo, result.worktree);
+      if (result?.worktree) cleanupWorktree(repo, result.worktree, gitFn);
       if (attempt === attempts) throw error;
+      refreshBeforeAttempt = true;
     }
   }
   return { status: 'not-pushed' };
+}
+
+export function persistBrowserInsights({ repo, snapshot, dryRun = false, attempts = 3, gitFn = git } = {}) {
+  readSnapshot(snapshot);
+  const lockPath = path.join(path.dirname(snapshot), '.insights-persist.lock');
+  const run = withSingleFlightLock(lockPath, () => persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }));
+  return run.acquired ? run.value : { status: 'busy' };
 }
 
 function usage() {
