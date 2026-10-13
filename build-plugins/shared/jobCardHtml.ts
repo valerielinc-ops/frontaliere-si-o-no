@@ -68,6 +68,12 @@ export interface JobCardOptions {
   href: string;
   /** Locale for contract/posted/badge labels. */
   locale: JobCardLocale;
+  /** Semantic element used for the visible job title. Defaults to `h2`. */
+  titleTag?: 'h2' | 'h3' | 'div';
+  /** Semantic element used for company/location metadata. Defaults to `p`. */
+  subtitleTag?: 'p' | 'div';
+  /** Omit the logo when the surrounding surface already identifies the employer. */
+  showLogo?: boolean;
   /**
    * Optional locale-aware city linkifier. Receives the raw (unescaped)
    * location and must return *escaped* HTML. When omitted, the location
@@ -326,9 +332,14 @@ export function renderJobCardHtml(
   const fresh = isJobNew(postedRaw);
   const featured = Boolean(job.featured);
 
-  const logoSrc = opts.logoUrl !== undefined && opts.logoUrl !== null
-    ? opts.logoUrl
-    : resolveJobCardLogo(job);
+  const titleTag = opts.titleTag ?? 'h2';
+  const subtitleTag = opts.subtitleTag ?? 'p';
+  const logoSlot = opts.showLogo === false
+    ? ''
+    : renderLogoSlot(
+      job,
+      opts.logoUrl !== undefined && opts.logoUrl !== null ? opts.logoUrl : resolveJobCardLogo(job),
+    );
 
   // Atom class names — see index.css `@layer components` block for the
   // Tailwind @apply mapping. Verbatim utility strings emitted ~900 B per
@@ -377,10 +388,11 @@ export function renderJobCardHtml(
   const relativeHref = href.replace(/^https:\/\/frontaliereticino\.ch/, '');
 
  // Job cards are direct children of the page's listing sections on many SEO
- // landings. Use h2 so a card title never skips from the page h1 to h3 when
- // the listing has no separate section heading; the class keeps the visual
- // treatment unchanged wherever the card is reused.
- return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h2 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h2><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
+ // landings. Use h2 by default so a card title never skips from the page h1 to
+ // h3 when the listing has no separate section heading. Focused employer pages
+ // can opt into a compact div title and omit repeated logos without changing
+ // the visual treatment or the default semantics on other surfaces.
+ return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${logoSlot}<div class="jc-meta"><${titleTag} class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</${titleTag}><${subtitleTag} class="jc-sub">${companyAndLocation}</${subtitleTag}>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────
@@ -392,6 +404,12 @@ export interface JobCardListItem {
 
 export interface JobCardListOptions {
   locale: JobCardLocale;
+  /** Forwarded to each card; defaults preserve the shared h2/p structure. */
+  cardTitleTag?: 'h2' | 'h3' | 'div';
+  /** Forwarded to each card; defaults preserve the shared paragraph metadata. */
+  cardSubtitleTag?: 'p' | 'div';
+  /** Forwarded to each card; defaults to the shared logo renderer. */
+  showLogos?: boolean;
   linkifyLocation?: (raw: string, locale: JobCardLocale) => string;
   /** Optional CSS class applied to the wrapping <ul>. */
   ulClassName?: string;
@@ -432,6 +450,9 @@ export function renderJobCardListHtml(
       const card = `<li>${renderJobCardHtml(job, {
         href,
         locale: opts.locale,
+        titleTag: opts.cardTitleTag,
+        subtitleTag: opts.cardSubtitleTag,
+        showLogo: opts.showLogos,
         linkifyLocation: opts.linkifyLocation,
       })}</li>`;
       // In-feed ad after every Nth card, never after the last one (the

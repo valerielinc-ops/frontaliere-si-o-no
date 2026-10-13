@@ -160,6 +160,20 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     );
   });
 
+  it('supports compact employer cards without repeated logos or headings', () => {
+    const html = renderJobCardHtml(baseJob, {
+      href: '/x/',
+      locale: 'en',
+      titleTag: 'div',
+      subtitleTag: 'div',
+      showLogo: false,
+    });
+    expect(html).toContain('<div class="jc-title">');
+    expect(html).toContain('<div class="jc-sub">');
+    expect(html).not.toMatch(/<h[234]\b/);
+    expect(html).not.toContain('<img ');
+  });
+
   it('renders the featured warning palette when job.featured is true', () => {
     const featured = { ...baseJob, featured: true };
     const html = renderJobCardHtml(featured, { href: '/x/', locale: 'it' });
