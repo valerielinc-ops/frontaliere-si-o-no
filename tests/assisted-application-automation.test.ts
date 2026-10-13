@@ -396,10 +396,15 @@ describe('sweep', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' });
   });
 
-  it('turns a closed posting into the automatic refund path before a reminder', async () => {
+  it('holds required candidate answers before starting the automatic submission clock', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
-    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    const draft = { ...readyDraft(), questions: [
+      { id: 'work_permit', required: true, question: 'Permesso svizzero?', options: ['C', 'B', 'L', 'G', 'none'] },
+      { id: 'relocation_to_ticino', required: true, question: 'Trasferimento in Ticino?', options: ['yes', 'no'] },
+    ] };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft);
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
+    effects = [];
     await applyAutomationEvent({
       db: store.db,
       orderId: ORDER,
@@ -407,16 +412,21 @@ describe('sweep', () => {
       runEffect,
       nowMs: T0 + OWNER_REVIEW_MS,
     });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'candidate_review',
+      heldBy: ['question:work_permit', 'question:relocation_to_ticino'],
+      deadlineAt: null,
+    });
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
+
     effects = [];
-
-    const postingClosed = vi.fn(async () => true);
-    const reminderAt = T0 + OWNER_REVIEW_MS + CANDIDATE_REVIEW_MS - 3 * 60 * 60 * 1000;
-    const result = await runAutomationSweep({ db: store.db, runEffect, postingClosed, nowMs: reminderAt });
-
-    expect(result).toMatchObject({ ticks: 1 });
-    expect(postingClosed).toHaveBeenCalledTimes(1);
-    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
-    expect(effects.map((effect) => effect.type === 'email' ? effect.kind : effect.type)).toEqual(['refund', 'owner_takeover']);
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      ...store.read(`${ORDER_PATH}/automation/flow`),
+      answers: { work_permit: 'C', relocation_to_ticino: 'yes' },
+    });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + OWNER_REVIEW_MS + 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [] });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.deadlineAt).toBe(T0 + OWNER_REVIEW_MS + 1000 + CANDIDATE_REVIEW_MS);
   });
 
   it('re-dispatches a silent run once, then hands the order to Valerie', async () => {
