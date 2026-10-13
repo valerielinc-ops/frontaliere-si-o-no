@@ -72,9 +72,11 @@ describe('assignSubjectVariant', () => {
     }
     for (const id of listVariantIds()) {
       const share = (counts[id] || 0) / N;
-      // 2 variants → ~0.5 each; allow generous tolerance, just no degenerate split.
-      expect(share).toBeGreaterThan(0.30);
-      expect(share).toBeLessThan(0.70);
+      const target = 1 / listVariantIds().length;
+      // The configured arms are uniform (25% each in the live four-arm test);
+      // keep a generous tolerance so this catches only degenerate buckets.
+      expect(share).toBeGreaterThan(target - 0.10);
+      expect(share).toBeLessThan(target + 0.10);
     }
   });
 

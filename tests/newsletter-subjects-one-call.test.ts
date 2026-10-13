@@ -28,6 +28,14 @@ const ctx = (locale: string) => ({
   briefingSummary: 'Contabile presso Azienda0 a Lugano',
   variants: VARIANTS,
 });
+const emptySubjects = () => Object.fromEntries(VARIANTS.map((variant) => [variant, null]));
+const withSubjects = (subjects: Record<string, string | null>) => ({ ...emptySubjects(), ...subjects });
+const VALID_SUBJECTS = {
+  concreto: '📊 3 aziende assumono a Lugano',
+  curioso: '🤔 Permesso G o B? Il calcolo che conta',
+  pratico: '✅ 3 passi per capire il tuo netto',
+  novita: '🆕 Cosa cambia questa settimana?',
+};
 
 describe('buildSubjectVariantsPrompt', () => {
   it.each(LOCALES)('%s: asks for every variant, each with its own style directive, as one JSON object', (locale) => {
@@ -71,36 +79,36 @@ describe('generateAISubjects', () => {
   const run = (answer: unknown) => generateAISubjects(ctx('it'), { llm: async () => answer as string });
 
   it('makes one call with the variants schema and returns every subject', async () => {
-    const llm = vi.fn(async () => JSON.stringify({ concreto: '📊 3 aziende assumono a Lugano', curioso: '🤔 Permesso G o B? Il calcolo che conta' }));
+    const llm = vi.fn(async () => JSON.stringify(VALID_SUBJECTS));
     const out = await generateAISubjects(ctx('it'), { llm });
     expect(llm).toHaveBeenCalledTimes(1);
     expect((llm.mock.calls[0] as any[])[1].jsonSchema.schema.required).toEqual(VARIANTS);
-    expect(out).toEqual({ concreto: '📊 3 aziende assumono a Lugano', curioso: '🤔 Permesso G o B? Il calcolo che conta' });
+    expect(out).toEqual(VALID_SUBJECTS);
   });
 
   it('reads a fenced answer and an already-decoded object', async () => {
-    expect(await run('```json\n{"concreto":"📊 3 aziende assumono a Lugano","curioso":"🤔 Chi assume davvero a Lugano?"}\n```'))
-      .toEqual({ concreto: '📊 3 aziende assumono a Lugano', curioso: '🤔 Chi assume davvero a Lugano?' });
+    const partial = { concreto: '📊 3 aziende assumono a Lugano', curioso: '🤔 Chi assume davvero a Lugano?' };
+    expect(await run(`\`\`\`json\n${JSON.stringify(partial)}\n\`\`\``)).toEqual(withSubjects(partial));
     expect(await run({ concreto: '"📊 3 aziende assumono a Lugano"', curioso: '🤔 Chi assume davvero a Lugano?' }))
-      .toEqual({ concreto: '📊 3 aziende assumono a Lugano', curioso: '🤔 Chi assume davvero a Lugano?' });
+      .toEqual(withSubjects(partial));
   });
 
   it('nulls only the variant that is missing or unusable', async () => {
-    expect(await run('{"concreto":"📊 3 aziende assumono a Lugano"}')).toEqual({ concreto: '📊 3 aziende assumono a Lugano', curioso: null });
-    expect(await run(JSON.stringify({ concreto: '💼', curioso: `🤔 ${'parola '.repeat(12)}` }))).toEqual({ concreto: null, curioso: null });
-    expect(await run({ concreto: '📊 3 aziende assumono a Lugano', curioso: 42 })).toEqual({ concreto: '📊 3 aziende assumono a Lugano', curioso: null });
+    expect(await run('{"concreto":"📊 3 aziende assumono a Lugano"}')).toEqual(withSubjects({ concreto: '📊 3 aziende assumono a Lugano' }));
+    expect(await run(JSON.stringify({ concreto: '💼', curioso: `🤔 ${'parola '.repeat(12)}` }))).toEqual(emptySubjects());
+    expect(await run({ concreto: '📊 3 aziende assumono a Lugano', curioso: 42 })).toEqual(withSubjects({ concreto: '📊 3 aziende assumono a Lugano' }));
   });
 
   it('nulls every variant, with a warning, when the answer has no JSON object or the call fails', async () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     try {
-      expect(await run('📊 3 aziende assumono a Lugano')).toEqual({ concreto: null, curioso: null });
-      expect(await generateAISubjects(ctx('it'), { llm: async () => { throw new Error('quota'); } })).toEqual({ concreto: null, curioso: null });
+      expect(await run('📊 3 aziende assumono a Lugano')).toEqual(emptySubjects());
+      expect(await generateAISubjects(ctx('it'), { llm: async () => { throw new Error('quota'); } })).toEqual(emptySubjects());
       expect(warn).toHaveBeenCalledTimes(2);
     } finally {
       warn.mockRestore();
     }
-    expect(await generateAISubjects(ctx('it'), { llm: null as any })).toEqual({ concreto: null, curioso: null });
+    expect(await generateAISubjects(ctx('it'), { llm: null as any })).toEqual(emptySubjects());
   });
 
   it('accepts the same subjects as before (10..55 characters, a 3-letter word)', () => {

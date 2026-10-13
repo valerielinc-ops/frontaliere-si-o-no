@@ -72,49 +72,69 @@ export function hasEnoughPowerForTest(a, b) {
  * purpose: never promote on thin data or a noisy difference. */
 export const DEFAULT_WINNER_GATES = Object.freeze({
   minSendsPerArm: 200, // each variant must have at least this many sends
-  alpha: 0.05,         // two-sided significance threshold
+  alpha: 0.05,         // two-sided significance threshold after correction
 });
 
 /**
  * Decide the winning variant from pooled per-variant totals.
  *
  * Only returns a winner when EVERY arm has ≥ minSendsPerArm sends AND the best
- * vs the runner-up is significant at `alpha`. Otherwise winner is null (caller
- * should fall back to an even split). Currently expects exactly two arms; with
- * other counts it returns the best by open rate only if significant vs the
- * runner-up (and all arms meet the sample gate).
+ * vs the runner-up is significant at `alpha` after a Bonferroni correction for
+ * the number of possible best-vs-runner comparisons. Otherwise winner is null
+ * (caller should fall back to an even split). For two arms the correction is a
+ * no-op, so the previous decision rule is unchanged.
  *
  * @param {Record<string,{sends:number,opens:number}>} byVariant
  * @param {{minSendsPerArm?:number, alpha?:number}} [gates]
- * @returns {{winner:string|null, openRates:Record<string,number>, pValue:number|null, reason:string}}
+ * @returns {{winner:string|null, openRates:Record<string,number>, pValue:number|null, adjustedPValue:number|null, comparisonCount:number, correction:string, best:string|null, runnerUp:string|null, reason:string}}
  */
 export function pickWinner(byVariant, gates = {}) {
   const { minSendsPerArm, alpha } = { ...DEFAULT_WINNER_GATES, ...gates };
   const ids = Object.keys(byVariant || {});
   const openRates = {};
   for (const id of ids) openRates[id] = openRate(byVariant[id]);
+  const comparisonCount = Math.max(1, ids.length - 1);
+  const correction = comparisonCount > 1 ? 'bonferroni' : 'none';
+  const base = {
+    openRates,
+    pValue: null,
+    adjustedPValue: null,
+    comparisonCount,
+    correction,
+    best: null,
+    runnerUp: null,
+  };
 
-  if (ids.length < 2) return { winner: null, openRates, pValue: null, reason: 'need ≥2 arms' };
+  if (ids.length < 2) return { ...base, winner: null, reason: 'need ≥2 arms' };
   if (ids.some((id) => (byVariant[id]?.sends || 0) < minSendsPerArm)) {
-    return { winner: null, openRates, pValue: null, reason: 'insufficient sample' };
+    return { ...base, winner: null, reason: 'insufficient sample' };
   }
 
   const ranked = [...ids].sort((a, b) => openRates[b] - openRates[a]);
   const best = ranked[0];
   const runnerUp = ranked[1];
   const test = twoProportionTest(byVariant[best], byVariant[runnerUp]);
-  if (!test || test.pValue >= alpha) {
-    return { winner: null, openRates, pValue: test?.pValue ?? null, reason: 'not significant' };
+  const adjustedPValue = test ? Math.min(1, test.pValue * comparisonCount) : null;
+  const result = {
+    ...base,
+    best,
+    runnerUp,
+    pValue: test?.pValue ?? null,
+    adjustedPValue,
+  };
+  if (!test || adjustedPValue >= alpha) {
+    return { ...result, winner: null, reason: 'not significant' };
   }
-  return { winner: best, openRates, pValue: test.pValue, reason: 'significant' };
+  return { ...result, winner: best, reason: 'significant' };
 }
 
 /**
  * Resolve a winning variant per provider plus a global fallback, from a
  * provider × variant cell map (`cells[provider][variant] = {sends,opens}`).
  *
- * Each provider gets its own significant winner (or null); `global` is the
- * winner across all providers pooled. The send pipeline promotes
+ * Each provider gets its own significant winner (or null), using the same
+ * multi-arm correction as `pickWinner`; `global` is the winner across all
+ * providers pooled. The send pipeline promotes
  * `byProvider[p] ?? global` for the provider that actually sends — so a provider
  * with thin data still benefits from the global signal instead of going even.
  *
