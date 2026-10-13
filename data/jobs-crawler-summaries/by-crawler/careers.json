@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-10-13T09:26:37.635Z",
+  "generatedAt": "2026-10-13T21:27:18.914Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3061,
-  "avgDurationMs": 3061,
+  "durationMs": 3925,
+  "avgDurationMs": 3925,
   "durationHistory": [
-    3061
+    3925
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:25.735Z",
+      "crawledAt": "2026-10-13T21:27:03.960Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -69,47 +69,6 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "id": "careers-60f21094e7fe",
-      "slug": "team-leader-leader-delle-piante-100-lepatron-bockten",
-      "company": "lepatron",
-      "companyKey": "careers",
-      "companyDomain": "careers.orior.ch",
-      "title": "Teamleiter:in /Anlagenführer:in, 100%",
-      "location": "Böckten",
-      "canton": "BL",
-      "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
-      "source": "lepatron Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:25.734Z",
-      "addressLocality": "Böckten",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "firstSeenAt": "2026-09-08T13:39:36.514Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "postalCode": "4461",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "id": "careers-74c7232eb1c8",
       "slug": "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten",
       "company": "lepatron",
@@ -121,7 +80,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:25.734Z",
+      "crawledAt": "2026-10-13T21:27:03.959Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -149,7 +108,48 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "id": "careers-60f21094e7fe",
+      "slug": "team-leader-leader-delle-piante-100-lepatron-bockten",
+      "company": "lepatron",
+      "companyKey": "careers",
+      "companyDomain": "careers.orior.ch",
+      "title": "Teamleiter:in /Anlagenführer:in, 100%",
+      "location": "Böckten",
+      "canton": "BL",
+      "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
+      "source": "lepatron Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-13T21:27:03.957Z",
+      "addressLocality": "Böckten",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "firstSeenAt": "2026-09-08T13:39:36.514Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "postalCode": "4461",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
