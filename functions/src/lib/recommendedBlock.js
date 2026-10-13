@@ -40,8 +40,8 @@ import {
   newsletterRecommendedPlacement,
 } from './newsletterPlacements.js';
 import { buildAffiliateHref, safeAffiliateToken } from './affiliateLinks.js';
+import { APPLICATION_CONCIERGE_PATH, directUrl } from './newsletterUrlPaths.js';
 
-const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
 const CARD_BG = '#f8fafc';
@@ -91,7 +91,7 @@ const APPLICATION_CONCIERGE_RECOMMENDATION = {
   id: 'application-concierge',
   name: 'Candidature assistita',
   emoji: '🎯',
-  url: `${BASE_URL}/cerca-lavoro-ticino/?application_concierge=1`,
+  url: directUrl(APPLICATION_CONCIERGE_PATH),
   interests: ['general', 'utility', 'jobs', 'articles'],
   copy: {
     it: { title: 'Candidature assistite per 30 giorni', body: 'Ti proponiamo le posizioni adatte e prepariamo la candidatura solo dopo il tuo via libera. Pagamento unico di 39,99 €, senza rinnovo.', cta: 'Scopri il servizio →' },

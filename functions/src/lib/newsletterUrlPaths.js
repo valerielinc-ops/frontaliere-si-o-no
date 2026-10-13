@@ -32,6 +32,8 @@
  */
 
 const BASE_URL = 'https://frontaliereticino.ch';
+export const JOB_BOARD_PATH = '/cerca-lavoro-ticino';
+export const APPLICATION_CONCIERGE_PATH = `${JOB_BOARD_PATH}/?application_concierge=1`;
 
 export function nlNormLocale(raw) {
   if (!raw) return 'it';
@@ -47,7 +49,7 @@ export function directUrl(path) {
 // Locale-aware path map. IT is the canonical (no prefix); other locales get
 // the /{lang}/ prefix and translated slugs. Keys are the canonical IT paths.
 export const LOCALE_PATH_MAP = {
-  '/cerca-lavoro-ticino': {
+  [JOB_BOARD_PATH]: {
     it: '/cerca-lavoro-ticino',
     en: '/en/find-jobs-ticino',
     de: '/de/jobs-im-tessin',
