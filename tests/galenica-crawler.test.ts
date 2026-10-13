@@ -241,7 +241,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
       .toBe('**Luogo di lavoro:** Amavita, Place du Lignon 19, 1219 Le Lignon');
   });
 
-  it('uses the source-backed HTTPS application link and quarantines untrusted handoffs', () => {
+  it('uses a source-backed HTTPS application link and retains the vacancy when none is trusted', () => {
     const { job } = buildGalenicaJob([SOLIQUE_VACANCY]);
     expect(job.applyUrl).toBe('https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1?lang=ger&source=Galenica%20-%20Internet&srcText=Galenica%20-%20Internet&search=1');
 
@@ -249,7 +249,8 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
       ...SOLIQUE_VACANCY,
       textblocks: { ...SOLIQUE_VACANCY.textblocks, applybuttonlink: 'http://apply.example.test/job/7417' },
     }], { youstyEnrichment: { applyUrl: 'https://apply.example.test/job/7417' } });
-    expect(withoutTrustedHandoff).toEqual({ skip: 'no trusted source-backed HTTPS application URL' });
+    expect(withoutTrustedHandoff.job).toMatchObject({ applyUrl: '' });
+    expect(withoutTrustedHandoff.skip).toBeUndefined();
   });
 
   it('keeps the Yousty text as source-locale content, after the workplace line', () => {

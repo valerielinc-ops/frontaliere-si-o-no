@@ -452,7 +452,6 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   const canton = resolveGalenicaCanton(workLocation);
   if (!city || !canton) return { skip: 'source location did not resolve to a Swiss canton' };
   const applyUrl = resolveGalenicaApplyUrl(variants, youstyEnrichment);
-  if (!applyUrl) return { skip: 'no trusted source-backed HTTPS application URL' };
   const sourceLocationCanton = workLocation.sourceLocationCanton === canton
     ? canton
     : '';
