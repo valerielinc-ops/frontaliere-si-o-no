@@ -1,7 +1,7 @@
 {
   "key": "constellium",
   "label": "Constellium Valais",
-  "generatedAt": "2026-10-13T09:36:31.478Z",
+  "generatedAt": "2026-10-13T21:29:38.295Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9804,
-  "avgDurationMs": 9804,
+  "unchangedCount": 0,
+  "durationMs": 8634,
+  "avgDurationMs": 8634,
   "durationHistory": [
-    9804
+    8634
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "constellium-64f0aaeceb5b",
       "slug": "fabbro-di-funzionamento-m-w-d-in-4-turni-1-constellium-valais-steg",
@@ -32,9 +30,9 @@
       "companyKey": "constellium",
       "companyDomain": "constellium.com",
       "title": "Betriebsschlosser (m/w/d) im 4-Schicht-Betrieb 1",
-      "location": "Steg",
+      "location": "Steg, Valais, CH, 3940",
       "canton": "VS",
-      "addressLocality": "Steg",
+      "addressLocality": "Steg, Valais, CH, 3940",
       "postalCode": "3940",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,7 +50,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:36:16.698Z",
+      "crawledAt": "2026-10-13T21:29:24.684Z",
       "firstSeenAt": "2026-07-08T22:07:31.018Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -73,9 +71,9 @@
       "companyKey": "constellium",
       "companyDomain": "constellium.com",
       "title": "Betriebsschlosser in Tagesarbeit",
-      "location": "Steg",
+      "location": "Steg, Valais, CH, 3940",
       "canton": "VS",
-      "addressLocality": "Steg",
+      "addressLocality": "Steg, Valais, CH, 3940",
       "postalCode": "3940",
       "addressCountry": "CH",
       "country": "CH",
@@ -93,7 +91,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-in-Tagesarbeit-Vala-3940/1386046533/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:36:16.007Z",
+      "crawledAt": "2026-10-13T21:29:23.992Z",
       "firstSeenAt": "2026-07-08T22:07:31.879Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -108,5 +106,7 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

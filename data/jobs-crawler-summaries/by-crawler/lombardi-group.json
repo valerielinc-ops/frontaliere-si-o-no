@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-10-13T09:26:21.097Z",
-  "total": 9,
+  "generatedAt": "2026-10-13T21:23:23.640Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 21105,
-  "avgDurationMs": 21105,
+  "removedCount": 1,
+  "unchangedCount": 6,
+  "durationMs": 20276,
+  "avgDurationMs": 20276,
   "durationHistory": [
-    21105
+    20276
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -95,7 +95,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Co-lead Energy & Water Department",
+      "slug": "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
+      "url": "https://lombardi.group/eng/careers/job?id=81547",
+      "applyUrl": "https://lombardi.group/eng/careers/job?id=81547",
+      "company": "Lombardi Group",
+      "companyKey": "lombardi-group",
+      "companyDomain": "lombardi.group",
+      "location": "Giubiasco",
+      "addressLocality": "Giubiasco",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria civile",
+      "source": "lombardi-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 92000,
+      "salaryMax": 125000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6512",
+      "id": "lombardi-group-26762b52183c",
+      "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Geotechnical Engineer (M/F/X)",
@@ -295,46 +336,6 @@
       }
     },
     {
-      "title": "Co-lead Energy & Water Department",
-      "slug": "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
-      "url": "https://lombardi.group/eng/careers/job?id=81547",
-      "applyUrl": "https://lombardi.group/eng/careers/job?id=81547",
-      "company": "Lombardi Group",
-      "companyKey": "lombardi-group",
-      "companyDomain": "lombardi.group",
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria civile",
-      "source": "lombardi-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "salaryMin": 92000,
-      "salaryMax": 125000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6512",
-      "id": "lombardi-group-26762b52183c",
-      "firstSeenAt": "2026-04-13T22:03:39.621Z",
-      "salarySource": "reported",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "title": "Ingegnere Capo Progetto nella sezione sicurezza ed esercizio (M/F/X)",
       "slug": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=1112",
@@ -375,5 +376,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

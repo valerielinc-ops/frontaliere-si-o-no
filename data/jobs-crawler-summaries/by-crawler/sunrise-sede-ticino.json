@@ -1,20 +1,62 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-10-13T09:20:07.269Z",
-  "total": 22,
+  "generatedAt": "2026-10-13T21:21:31.776Z",
+  "total": 23,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 0,
-  "updatedCount": 18,
+  "newCount": 1,
+  "updatedCount": 17,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 20640,
-  "avgDurationMs": 20640,
+  "unchangedCount": 5,
+  "durationMs": 14295,
+  "avgDurationMs": 14295,
   "durationHistory": [
-    20640
+    14295
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sales Agent Lugano 60%",
+      "slug": "sales-agent-lugano-60-sunrise-lugano",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036862/sales-agent-lugano-60",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Lugano/Sales-Agent-Lugano-60-100-_REQ_30036862/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "2026-10-13T00:00:00.000+00:00",
+      "postedDate": "2026-10-13T00:00:00.000+00:00",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-10-13T21:21:22.181Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "sunrise-sede-ticino-b959d668a4a8",
+      "needsRetranslation": true,
+      "salaryMin": 35400,
+      "salaryMax": 54300,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-13T21:21:22.181Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Uster",
@@ -47,7 +89,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-08-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:40.400Z",
+      "crawledAt": "2026-10-13T21:21:11.266Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -87,7 +129,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:40.779Z",
+      "crawledAt": "2026-10-13T21:21:12.157Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -127,7 +169,7 @@
       "firstSeenAt": "2026-09-03T23:20:00.791Z",
       "datePosted": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:41.153Z",
+      "crawledAt": "2026-10-13T21:21:12.825Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,7 +209,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:42.144Z",
+      "crawledAt": "2026-10-13T21:21:13.233Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -207,7 +249,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:42.535Z",
+      "crawledAt": "2026-10-13T21:21:13.503Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,7 +289,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:43.522Z",
+      "crawledAt": "2026-10-13T21:21:13.902Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -287,7 +329,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:44.461Z",
+      "crawledAt": "2026-10-13T21:21:14.630Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -327,7 +369,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:45.382Z",
+      "crawledAt": "2026-10-13T21:21:14.951Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -368,7 +410,7 @@
       "firstSeenAt": "2026-09-07T15:08:49.479Z",
       "datePosted": "2026-09-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:45.891Z",
+      "crawledAt": "2026-10-13T21:21:15.223Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -408,7 +450,7 @@
       "firstSeenAt": "2026-09-07T15:08:49.479Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:46.663Z",
+      "crawledAt": "2026-10-13T21:21:15.815Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -448,7 +490,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:47.162Z",
+      "crawledAt": "2026-10-13T21:21:16.204Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -488,7 +530,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:48.041Z",
+      "crawledAt": "2026-10-13T21:21:16.831Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -528,7 +570,7 @@
       "firstSeenAt": "2026-08-31T22:33:26.651Z",
       "datePosted": "2026-09-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:48.614Z",
+      "crawledAt": "2026-10-13T21:21:17.137Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -569,7 +611,7 @@
       "firstSeenAt": "2026-09-11T23:11:40.510Z",
       "datePosted": "2026-09-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:49.589Z",
+      "crawledAt": "2026-10-13T21:21:17.494Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -610,48 +652,7 @@
       "firstSeenAt": "2026-09-28T21:37:11.795Z",
       "datePosted": "2026-09-28T00:00:00.000+00:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:49.989Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "1st Level Tech Care Specialist 80-100%",
-      "slug": "1st-level-tech-care-specialist-80-100-sunrise-zurich",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036827/1st-level-tech-care-specialist-80-100",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Zurich-Headquarter/XMLNAME-1st-Level-Engineer-Specialist-80-100-_REQ_30036827-2/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8001",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-10-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "sunrise-sede-ticino-bad8dc466c8e",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-30T21:15:00.808Z",
-      "datePosted": "2026-10-02",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:50.543Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-13T21:21:18.345Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -691,7 +692,7 @@
       "firstSeenAt": "2026-09-27T15:15:21.282Z",
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:52.834Z",
+      "crawledAt": "2026-10-13T21:21:19.585Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -723,7 +724,7 @@
       "datePosted": "2026-10-06T00:00:00.000+00:00",
       "postedDate": "2026-10-06T00:00:00.000+00:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:55.396Z",
+      "crawledAt": "2026-10-13T21:21:21.211Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -745,6 +746,47 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "1st Level Tech Care Specialist 80-100%",
+      "slug": "1st-level-tech-care-specialist-80-100-sunrise-zurich",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036827/1st-level-tech-care-specialist-80-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Zurich-Headquarter/XMLNAME-1st-Level-Engineer-Specialist-80-100-_REQ_30036827-2/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-10-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "sunrise-sede-ticino-bad8dc466c8e",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-30T21:15:00.808Z",
+      "datePosted": "2026-10-02",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-10-13T21:21:18.953Z",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
     {
       "title": "Sales Agent Spreitenbach 60-80%",
       "slug": "agente-di-vendita-spreitenbach-60-80-sunrise-communications-ag-spreitenbach",
@@ -777,7 +819,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:51.741Z",
+      "crawledAt": "2026-10-13T21:21:19.280Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -818,7 +860,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-09-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:53.495Z",
+      "crawledAt": "2026-10-13T21:21:20.269Z",
       "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
@@ -860,7 +902,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:55.014Z",
+      "crawledAt": "2026-10-13T21:21:20.820Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -901,7 +943,7 @@
       "firstSeenAt": "2026-10-01T09:20:00.116Z",
       "datePosted": "2026-10-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T09:19:55.959Z",
+      "crawledAt": "2026-10-13T21:21:21.826Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -911,5 +953,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
