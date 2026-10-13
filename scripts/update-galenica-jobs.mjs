@@ -127,6 +127,33 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function trustedHttpsGalenicaUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim());
+    if (url.protocol !== 'https:' || url.username || url.password || !isTrustedDomain(url.href)) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
+  for (const variant of variants) {
+    const sourceValue = String(variant?.textblocks?.applybuttonlink || '').trim();
+    if (!sourceValue) continue;
+
+    // Solique normally supplies the absolute destination directly; accept an
+    // anchor only when the link itself is present in the official source field.
+    const href = sourceValue.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1] || sourceValue;
+    const url = trustedHttpsGalenicaUrl(href);
+    if (url) return url;
+  }
+
+  // Yousty enrichment is itself fetched from the source profile. Keep it only
+  // when it resolves to a trusted HTTPS destination; never invent a fallback.
+  return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
+}
+
 /* ── Category detection ────────────────────────────────────── */
 function detectCategory(title = '') {
   const t = title.toLowerCase();
@@ -459,7 +486,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
     category,
     description: '',
     descriptionByLocale: {},
-    applyUrl: youstyEnrichment?.applyUrl || '',
+    applyUrl: resolveGalenicaApplyUrl(variants, youstyEnrichment),
     postedDate: preferred.publication?.start
       ? new Date(preferred.publication.start).toISOString().slice(0, 10)
       : '',

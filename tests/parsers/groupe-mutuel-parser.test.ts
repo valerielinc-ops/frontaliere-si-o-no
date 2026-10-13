@@ -12,8 +12,11 @@
  *   - Company domain trust check
  */
 import { describe, it, expect } from 'vitest';
+import { parseCsodJob } from '../../scripts/update-groupe-mutuel-jobs.mjs';
 import { inferSwissTargetCanton } from '../../scripts/lib/target-swiss-locations.mjs';
 import { COMPANY_HQ } from '../../scripts/lib/crawler-location-config.mjs';
+
+const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 
 // ─── Constants (mirroring the crawler script) ─────────────────────────────────
 
@@ -823,6 +826,22 @@ describe('job object construction from CSOD data', () => {
     const city = parseCsodLocation('') || 'Martigny';
     expect(city).toBe('Martigny');
     expect(inferCanton(city)).toBe('VS');
+  });
+});
+
+describe('production CSOD crawl timestamp contract', () => {
+  it('does not substitute crawl time for a missing source publication date', () => {
+    const observedAt = daysAgo(0);
+    const job = parseCsodJob({
+      displayJobTitle: 'Conseiller en assurances',
+      requisitionId: '4371',
+      locations: [{ city: 'Lausanne' }],
+      externalDescription: Array.from({ length: 55 }, (_, index) => `responsabilite${index}`).join(' '),
+    }, observedAt);
+
+    expect(job.crawledAt).toBe(observedAt);
+    expect(job.datePosted).toBe('');
+    expect(job.postedDate).toBe('');
   });
 });
 

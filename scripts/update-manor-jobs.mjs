@@ -646,7 +646,7 @@ function normalizeManorSourceDescription(value = '') {
     .trim();
 }
 
-export function parseJobPage(html, url) {
+export function parseJobPage(html, url, { observedAt = new Date() } = {}) {
   // Manor's current SuccessFactors markup exposes the canonical role in
   // og:title, while older templates used itemprop="title". Prefer the
   // structured metadata before falling back to the URL slug.
@@ -667,6 +667,10 @@ export function parseJobPage(html, url) {
 
   // Keep publication evidence with the source value; missing or invalid stays unknown.
   const postingDates = sourcePostingDateFields(readItempropContent(html, 'datePosted'));
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('parseJobPage: observedAt must be a valid crawl timestamp');
+  }
 
   // SuccessFactors currently exposes only a combined `streetAddress` value
   // such as "Chavannes-de-Bogis, CH". Preserve every address signal that is
@@ -683,6 +687,7 @@ export function parseJobPage(html, url) {
     title,
     description: rawDesc,
     descriptionLang: readManorDescriptionLang(html),
+    crawledAt: observedDate.toISOString(),
     ...postingDates,
     location,
     addressLocality,
@@ -778,7 +783,7 @@ export async function fetchManorJobs() {
     let pageData;
     try {
       const html = await fetchText(url, timeoutMs);
-      pageData = parseJobPage(html, url);
+      pageData = parseJobPage(html, url, { observedAt: new Date() });
     } catch (err) {
       detailFailures++;
       console.warn(`  ⚠️  Failed to fetch job detail: ${err?.message || err}`);
@@ -860,6 +865,7 @@ export async function fetchManorJobs() {
       employmentType: detectManorEmploymentType(title),
       description,
       descriptionByLocale,
+      ...(pageData.crawledAt ? { crawledAt: pageData.crawledAt } : {}),
       ...mergeSourcePostingDates({}, pageData),
       source: 'company-website',
       slug: baseSlug,

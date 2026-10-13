@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { groupeMutuelSourceContent } from '../scripts/lib/groupe-mutuel-job-parser.mjs';
+import { parseCsodJob } from '../scripts/update-groupe-mutuel-jobs.mjs';
+
+const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 
 // CSOD `externalDescription` of requisitions 4373 (German) and 4371 (French)
 // on 2026-09-29: the whole text of the advertisement, over the shared 50-word
@@ -30,6 +33,32 @@ describe('Groupe Mutuel source content', () => {
     expect(groupeMutuelSourceContent({ title: 'Conseiller (h/f)', descriptionText: '  ' })).toBeNull();
     // The first sentence of 4371 alone is not a vacancy body.
     expect(groupeMutuelSourceContent({ title: 'Conseiller (h/f)', descriptionText: FRENCH.split(' Grâce')[0] })).toBeNull();
+  });
+});
+
+describe('Groupe Mutuel crawl observation', () => {
+  it('stamps the fetch observation separately from the source publication date', () => {
+    const observedAt = daysAgo(0);
+    const sourceDate = daysAgo(7).slice(0, 10);
+    const job = parseCsodJob({
+      displayJobTitle: 'Conseiller en assurances',
+      requisitionId: '4371',
+      locations: [{ city: 'Lausanne' }],
+      externalDescription: FRENCH,
+      datePosted: sourceDate,
+    }, observedAt);
+
+    expect(job).toMatchObject({
+      crawledAt: observedAt,
+      postedDate: sourceDate,
+      datePosted: sourceDate,
+    });
+    expect(Date.parse(job.crawledAt)).toBeGreaterThan(Date.parse(job.datePosted));
+  });
+
+  it('rejects an invalid observation timestamp instead of emitting an invalid record', () => {
+    expect(() => parseCsodJob({ displayJobTitle: 'Conseiller en assurances' }, 'invalid'))
+      .toThrow(/observedAt must be a valid crawl timestamp/);
   });
 });
 

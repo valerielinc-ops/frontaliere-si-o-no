@@ -151,6 +151,7 @@ const SOLIQUE_VACANCY = {
     worklocationaddress: '<b>Amavita Apotheke im Bahnhof Thun</b><br/>Seestrasse 2<br/>3600 Thun',
     worklocationbranch: 'Amavita Apotheke im Bahnhof Thun',
     location: '3600 Thun',
+    applybuttonlink: 'https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1?lang=ger&source=Galenica - Internet&srcText=Galenica - Internet&search=1',
     georegion: '',
     canton: '',
     contacttext: 'Ist das die passende Stelle für dich? Dann bewirb dich direkt über unser Online-Tool.',
@@ -236,6 +237,17 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     expect(job.description).toMatch(/^\*\*Arbeitsort:\*\* Amavita Apotheke im Bahnhof Thun, Seestrasse 2, 3600 Thun\n\n## Das kannst du bewirken/);
     expect(galenicaWorkplaceLine({ branch: 'Amavita', street: 'Place du Lignon 19', zip: '1219', city: 'Le Lignon' }, 'it'))
       .toBe('**Luogo di lavoro:** Amavita, Place du Lignon 19, 1219 Le Lignon');
+  });
+
+  it('uses the source-backed HTTPS application link and leaves untrusted handoffs empty', () => {
+    const { job } = buildGalenicaJob([SOLIQUE_VACANCY]);
+    expect(job.applyUrl).toBe('https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1?lang=ger&source=Galenica%20-%20Internet&srcText=Galenica%20-%20Internet&search=1');
+
+    const withoutTrustedHandoff = buildGalenicaJob([{
+      ...SOLIQUE_VACANCY,
+      textblocks: { ...SOLIQUE_VACANCY.textblocks, applybuttonlink: 'http://apply.example.test/job/7417' },
+    }], { youstyEnrichment: { applyUrl: 'https://apply.example.test/job/7417' } });
+    expect(withoutTrustedHandoff.job.applyUrl).toBe('');
   });
 
   it('keeps the Yousty text as source-locale content, after the workplace line', () => {

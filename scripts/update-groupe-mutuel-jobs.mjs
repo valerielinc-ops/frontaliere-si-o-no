@@ -24,7 +24,8 @@ import { sourcePostingDateCandidatesFields } from './lib/source-posting-date.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { fileURLToPath } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -464,7 +465,12 @@ function buildPublicUrl(requisitionId) {
  * Parse a raw CSOD job listing into a normalized job object.
  * CSOD response fields vary by instance — handle multiple field names.
  */
-function parseCsodJob(rawJob) {
+export function parseCsodJob(rawJob, observedAt) {
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) {
+    throw new TypeError('parseCsodJob: observedAt must be a valid crawl timestamp');
+  }
+
   // New CSOD API uses displayJobTitle; old used title/jobTitle
   const title = normalizeSpace(
     rawJob.displayJobTitle || rawJob.title || rawJob.jobTitle || rawJob.requisitionTitle || rawJob.name || ''
@@ -536,6 +542,7 @@ function parseCsodJob(rawJob) {
       en: slugify(title, 'groupe-mutuel'),
     },
     category: detectCategory(title),
+    crawledAt: observedDate.toISOString(),
     ...postingDates,
     source: 'groupe-mutuel-csod-crawler',
     sourceLang: content.sourceLang,
@@ -588,9 +595,10 @@ async function fetchGroupeMutuelJobs() {
   console.log(`\n  📋 Raw job listings from CSOD: ${rawJobs.length}`);
 
   // Step 3: Parse each job
+  const observedAt = new Date();
   const jobs = [];
   for (const rawJob of rawJobs) {
-    const parsed = parseCsodJob(rawJob);
+    const parsed = parseCsodJob(rawJob, observedAt);
     if (parsed) {
       jobs.push(parsed);
     } else {
@@ -920,4 +928,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Groupe Mutuel'));
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Groupe Mutuel'));
+}

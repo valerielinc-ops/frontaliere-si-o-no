@@ -40,6 +40,7 @@ const BIEL_REGRESSION_FIXTURE = {
 };
 const RICKENBACH_URL =
   'https://positions.manor.ch/job/Rickenbach-b_-Wil-Mitarbeiterin-Verkauf-Fashion-40/1364892555/';
+const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 
 describe('Manor jobs2web URL and title parsing', () => {
   it('keeps title words out of the city prefix used by the URL fallback', () => {
@@ -79,6 +80,23 @@ describe('Manor jobs2web URL and title parsing', () => {
       postalCode: '',
       addressRegion: '',
     });
+  });
+
+  it('stamps a successful page observation without replacing the source publication date', () => {
+    const observedAt = daysAgo(0);
+    const sourceDate = daysAgo(7).slice(0, 10);
+    const page = `<meta property="og:title" content="Collaborateur/trice service 50%" />
+      <meta itemprop="datePosted" content="${sourceDate}" />`;
+
+    expect(parseJobPage(page, BIEL_URL, { observedAt })).toMatchObject({
+      crawledAt: observedAt,
+      postedDate: sourceDate,
+      datePosted: sourceDate,
+    });
+  });
+
+  it('fails closed when the crawl observation timestamp is invalid', () => {
+    expect(() => parseJobPage('<h1>Role</h1>', BIEL_URL, { observedAt: 'not-a-date' })).toThrow(/observedAt must be a valid crawl timestamp/);
   });
 
   it('keeps emitted locality and canton aligned with the detail page source', () => {
