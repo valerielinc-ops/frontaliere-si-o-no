@@ -35,8 +35,8 @@ export const LEUKERBAD_CLINIC_COMPANY_DOMAIN = 'leukerbadclinic.ch';
 
 const BASE_URL = 'https://leukerbadclinic.ch';
 const LISTINGS = [
-  { lang: 'de', url: `${BASE_URL}/de/karriere/offene-stellen` },
-  { lang: 'fr', url: `${BASE_URL}/fr/carriere/postes-vacants` },
+  { lang: 'de', url: `${BASE_URL}/de/karriere/offene-stellen` }, // locale-segment-ok: official Leukerbad listing path per locale
+  { lang: 'fr', url: `${BASE_URL}/fr/carriere/postes-vacants` }, // locale-segment-ok: official Leukerbad listing path per locale
 ];
 const DEFAULT_CITY = 'Leukerbad';
 const DEFAULT_POSTAL_CODE = '3954';
