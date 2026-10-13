@@ -77,6 +77,7 @@ jobs:
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/https-url.mjs
             /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l3-job-quality.yml
           sparse-checkout-cone-mode: false

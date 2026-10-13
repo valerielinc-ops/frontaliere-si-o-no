@@ -105,6 +105,23 @@ describe('profili di sparse-checkout', () => {
     expect(problems.filter((p) => p.includes('escluderebbe il codice'))).toEqual([]);
   }, TIMEOUT);
 
+  it('il checkout allow-list di L3 include il helper importato dal runner', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'loop-l3-job-quality.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.audit?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry) => entry.trim());
+    const runner = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/loop-l3-job-quality.mjs'), 'utf8');
+
+    expect(runner).toMatch(/from ['"]\.\.\/lib\/https-url\.mjs['"]/);
+    expect(sparsePaths).toContain('/scripts/lib/https-url.mjs');
+  });
+
   it('estrae solo import veri verso data/public, non stringhe letterali generiche (issue #6149)', () => {
     // `tsc` risolve gli specificatori di import sul disco, non le stringhe
     // passate a `fs.readFileSync` a runtime: quelle le legge il codice quando
