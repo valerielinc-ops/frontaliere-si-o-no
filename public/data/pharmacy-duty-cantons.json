@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T08:13:47.853Z",
+  "generatedAt": "2026-10-13T12:04:21.673Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -8,19 +8,110 @@
       "members": [
         "TI"
       ],
-      "state": "partial",
-      "fetchedAt": "2026-10-13T08:12:46.594Z",
+      "state": "fresh",
+      "fetchedAt": "2026-10-13T12:03:32.818Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
-      "duties": [],
-      "unresolvedDuties": 0
+      "duties": [
+        {
+          "pharmacy": "Moderna",
+          "city": "Bodio",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-09T16:00:00.000Z",
+          "endsAt": "2026-10-16T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Farmacia Pharmaexpress",
+          "city": "Lugano",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-10T06:00:00.000Z",
+          "endsAt": "2026-10-17T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Teatro",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-12T16:30:00.000Z",
+          "endsAt": "2026-10-16T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Ferrari",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-13T06:00:00.000Z",
+          "endsAt": "2026-10-17T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "delle Alpi",
+          "city": "Faido",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-16T16:00:00.000Z",
+          "endsAt": "2026-10-23T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Semine",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-16T16:30:00.000Z",
+          "endsAt": "2026-10-19T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Farmacia Salus",
+          "city": "Lugano",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-17T06:00:00.000Z",
+          "endsAt": "2026-10-24T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Ferregutti",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-17T06:00:00.000Z",
+          "endsAt": "2026-10-20T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "San Rocco",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-19T16:30:00.000Z",
+          "endsAt": "2026-10-23T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Fuoriporta",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-20T06:00:00.000Z",
+          "endsAt": "2026-10-24T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        }
+      ],
+      "unresolvedDuties": 3
     },
     "GE": {
       "members": [
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T08:13:44.684Z",
+      "fetchedAt": "2026-10-13T12:04:20.424Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -104,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T08:13:47.853Z",
+      "fetchedAt": "2026-10-13T12:04:21.673Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -233,7 +324,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T08:13:47.853Z",
+      "fetchedAt": "2026-10-13T12:04:21.673Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -317,7 +408,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T08:13:47.853Z",
+      "fetchedAt": "2026-10-13T12:04:21.673Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -400,39 +491,11 @@
       "members": [
         "SO"
       ],
-      "state": "fresh",
+      "state": "stale",
       "fetchedAt": "2026-10-13T08:13:47.853Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
-      "duties": [
-        {
-          "pharmacy": "Saner Apotheke Dornach",
-          "city": "Dornach",
-          "coverageName": "Dorneck-Thierstein",
-          "dutyType": "holiday",
-          "startsAt": "2026-10-18T07:00:00.000Z",
-          "endsAt": "2026-10-18T10:00:00.000Z",
-          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
-        },
-        {
-          "pharmacy": "Central-Apotheke Olten",
-          "city": "Olten",
-          "coverageName": "Olten",
-          "dutyType": "holiday",
-          "startsAt": "2026-10-18T08:00:00.000Z",
-          "endsAt": "2026-10-18T10:00:00.000Z",
-          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
-        },
-        {
-          "pharmacy": "Medbase Apotheke - Zuchwil",
-          "city": "Zuchwil",
-          "coverageName": "Solothurn",
-          "dutyType": "holiday",
-          "startsAt": "2026-10-18T08:00:00.000Z",
-          "endsAt": "2026-10-18T10:00:00.000Z",
-          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
-        }
-      ],
+      "duties": [],
       "unresolvedDuties": 0
     }
   }
