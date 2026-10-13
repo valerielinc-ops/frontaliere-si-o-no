@@ -26,6 +26,8 @@
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
   const FILE_UPLOAD_RE = /\b(attach|upload|choose|carica|allega|scegli|seleziona)\b/i;
   const FILE_BROWSE_RE = /\bbrowse\b/i;
+  const START_DATE_AVAILABILITY_RE = /\b(earliest available|start date|available from|notice period|preavviso|data di inizio|data d entrata|date de debut|date d entree|eintritt|verfugbar ab)\b/i;
+  const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -478,6 +480,13 @@
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     const value = family ? identityValue(family, kit) : '';
+    // «Full time»/«Part time» describes the desired workload, not a notice
+    // period or an earliest start date. Keep that candidate value available
+    // for genuine availability fields, but never put it into a start-date
+    // field such as Fincons' optional question.
+    const fieldLabel = normalize((entry.labels || [entry.label]).join(' '));
+    if (family === 'availability' && START_DATE_AVAILABILITY_RE.test(fieldLabel)
+      && WORK_SCHEDULE_ONLY_RE.test(normalize(value))) return null;
     if (value) return { value, family };
     if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
     return null;

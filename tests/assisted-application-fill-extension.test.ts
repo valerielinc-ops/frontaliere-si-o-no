@@ -605,6 +605,9 @@ describe('fill extension: other portals', () => {
     await F.fillPage(document, availabilityKit, { getFile: async () => null, attempts: new WeakMap() });
     expect(input.value).toBe('2026-11-01');
 
+    const scheduleKit = { ...availabilityKit, profile: { ...availabilityKit.profile, availability: 'full time' } };
+    expect(F.answerFor(entry, scheduleKit)).toBeNull();
+
     const salaryPage = page('<form><label for="salary">Desired salary (CHF per year)</label><input id="salary"></form>');
     const salaryInput = salaryPage.document.getElementById('salary') as HTMLInputElement;
     const salaryEntry = salaryPage.F.collect(salaryPage.document).find((item: any) => item.element === salaryInput);
