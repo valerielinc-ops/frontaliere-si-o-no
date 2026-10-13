@@ -210,6 +210,19 @@ describe('eventLd canonical', () => {
     expect(ld['@context']).toBe('https://schema.org');
     expect(ld['@type']).toBe('Event');
   });
+
+  it('fills location.name from the resolved municipality when the source has no venue', () => {
+    const withoutVenue = { ...EVENT, venue: '', comune: 'Genève', canton: 'GE' };
+    const ld = eventLd(withoutVenue as never, 'fr') as Record<string, any>;
+    expect(ld.location.name).toBe('Genève');
+    expect(ld.location.address.addressLocality).toBe('Genève');
+  });
+
+  it('never emits an empty location.name when all specific venue fields are absent', () => {
+    const withoutLocation = { ...EVENT, venue: '  ', comune: '', canton: '' };
+    const ld = eventLd(withoutLocation as never, 'it') as Record<string, any>;
+    expect(ld.location.name).toBe('Svizzera');
+  });
 });
 
 describe('eventLd source attribution (#3125)', () => {

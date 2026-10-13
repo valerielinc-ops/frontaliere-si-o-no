@@ -19,7 +19,7 @@
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
  *   - schema.org/Event JSON-LD on indexable live event-detail pages; historical
  *     archive pages remain indexable but omit stale Event rich-result markup
- *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
+ *     (name/startDate/eventStatus/eventAttendanceMode/location.name/location.address.addressLocality/
  *     and, when available, the rewritten description) — deploy-blocking; image, organizer and performer use
  *     source-backed values or deterministic defaults, while offers are always
  *     emitted with a verified amount or the deterministic zero-price fallback.
@@ -1504,7 +1504,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const addressPostalCode = cleanRenderableEventText(event.address?.postalCode);
   const addressRegion = cleanRenderableEventText(event.address?.region);
   const comune = cleanRenderableEventText(event.comune);
-  const venueName = eventVenue(event);
+  // `location.name` is required by Google's Event enhancement even when the
+  // source has no named venue. Keep it source-backed where possible and use
+  // the resolved locality/canton as the deterministic structural fallback.
+  const venueName = eventVenue(event) || comune || (event.canton ? cantonName : 'Svizzera');
   const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;

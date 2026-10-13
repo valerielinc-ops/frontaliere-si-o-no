@@ -4,10 +4,40 @@ import {
   ELPROM_COMPANY_NAME,
   isElpromJob,
   isTrustedDomain,
+  resolveElpromGeography,
 } from '../scripts/lib/elprom-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('elprom crawler parser', () => {
+  describe('source-backed country', () => {
+    it('normalizes the official Wallisellen source country to CH', () => {
+      expect(resolveElpromGeography({
+        location: 'Wallisellen, Zürich',
+        addressLocality: 'Wallisellen',
+        addressRegion: 'Zürich',
+        addressCountry: 'Schweiz',
+        country: 'Schweiz',
+      })).toEqual({
+        location: 'Wallisellen, Zürich',
+        canton: 'ZH',
+        addressCountry: 'CH',
+        country: 'CH',
+      });
+    });
+
+    it('rejects foreign, missing, ambiguous and conflicting source geography', () => {
+      expect(resolveElpromGeography({
+        location: 'Wallisellen, Zürich', addressRegion: 'Zürich', addressCountry: 'Luxembourg',
+      })).toBeNull();
+      expect(resolveElpromGeography({ location: 'Wallisellen, Zürich', addressRegion: 'Zürich' })).toBeNull();
+      expect(resolveElpromGeography({ addressCountry: 'Schweiz' })).toBeNull();
+      expect(resolveElpromGeography({
+        location: 'Wallisellen, Zürich', addressCountry: 'Schweiz', country: 'Luxembourg',
+      })).toBeNull();
+      expect(resolveElpromGeography({ location: 'Munsbach', addressCountry: 'Schweiz' })).toBeNull();
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ELPROM_KEY).toBe('elprom');
