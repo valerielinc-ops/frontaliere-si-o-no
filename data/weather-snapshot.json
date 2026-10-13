@@ -1,59 +1,132 @@
 {
-  "generatedAt": "2026-10-13T11:54:34.341Z",
+  "generatedAt": "2026-10-13T19:22:49.823Z",
   "cities": {
     "lugano": {
       "cityId": "lugano",
       "canton": "TI",
       "name": "Lugano",
       "current": {
-        "temperature": 18.4,
+        "temperature": 14.6,
         "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 62
+        "isDay": false,
+        "windSpeedKmh": 2.9,
+        "humidity": 88,
+        "apparentTemp": 14.8
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 17.9,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 18.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 18.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 18.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 18.2,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 17,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 15.3,
-          "weatherCode": 0,
+          "hour": "2026-10-13T00:00",
+          "temp": 14,
+          "weatherCode": 2,
           "isDay": false
+        },
+        {
+          "hour": "2026-10-13T01:00",
+          "temp": 13.5,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T02:00",
+          "temp": 14.9,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T03:00",
+          "temp": 14.3,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T04:00",
+          "temp": 13.7,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 14.1,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 13.9,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 13.1,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 12.1,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T09:00",
+          "temp": 12.2,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T10:00",
+          "temp": 13.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T11:00",
+          "temp": 15.7,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 17.2,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
+          "temp": 18.1,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
+          "temp": 19,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T15:00",
+          "temp": 19.4,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 19.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T17:00",
+          "temp": 19.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T18:00",
+          "temp": 19.2,
+          "weatherCode": 3,
+          "isDay": true
         },
         {
           "hour": "2026-10-13T18:00:00Z",
@@ -62,46 +135,94 @@
           "isDay": false
         },
         {
+          "hour": "2026-10-13T19:00",
+          "temp": 18.4,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 14,
+          "temp": 14.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 16.8,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00:00Z",
           "temp": 13.6,
-          "weatherCode": 2,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00",
+          "temp": 15,
+          "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T21:00:00Z",
           "temp": 13.4,
-          "weatherCode": 45,
-          "isDay": true
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 13.4,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-13T22:00:00Z",
-          "temp": 13.2,
+          "temp": 12.9,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-13T23:00",
+          "temp": 13.4,
+          "weatherCode": 0,
+          "isDay": false
         },
         {
           "hour": "2026-10-13T23:00:00Z",
-          "temp": 11.9,
+          "temp": 11.7,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T00:00",
+          "temp": 13.4,
+          "weatherCode": 2,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T00:00:00Z",
-          "temp": 11,
+          "temp": 10.8,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T01:00",
+          "temp": 13.2,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T01:00:00Z",
-          "temp": 10.9,
+          "temp": 10.5,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 13.2,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T02:00:00Z",
@@ -110,33 +231,69 @@
           "isDay": true
         },
         {
+          "hour": "2026-10-14T03:00",
+          "temp": 13,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T03:00:00Z",
-          "temp": 10.1,
+          "temp": 9.9,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T04:00",
+          "temp": 12.7,
+          "weatherCode": 0,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T04:00:00Z",
-          "temp": 10.4,
+          "temp": 10.2,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T05:00",
+          "temp": 12.6,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T05:00:00Z",
-          "temp": 10.5,
+          "temp": 10,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T06:00",
+          "temp": 12.3,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T06:00:00Z",
-          "temp": 10.7,
+          "temp": 10.2,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T07:00",
+          "temp": 12.3,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T07:00:00Z",
-          "temp": 12.5,
+          "temp": 12,
           "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00",
+          "temp": 12.6,
+          "weatherCode": 3,
           "isDay": true
         },
         {
@@ -144,351 +301,368 @@
           "temp": 14.6,
           "weatherCode": 45,
           "isDay": true
-        },
-        {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 16.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 18.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 19.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 20.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 20.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 20.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 19.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 18.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 16.6,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 15.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
-          "temp": 15.2,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T21:00:00Z",
-          "temp": 14.2,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 13.9,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 13,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 11.7,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T01:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 11,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 11.6,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 13.2,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 16,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 17.8,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 19.9,
-          "weatherCode": 1,
-          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.7,
-          "tempMin": 11.9,
-          "weatherCode": 0
+          "tempMax": 17.2,
+          "tempMin": 11.85,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:38",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.8,
-          "tempMin": 10.1,
-          "weatherCode": 0
+          "tempMax": 20.75,
+          "tempMin": 11.100000000000001,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:39",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 21.7,
-          "tempMin": 11,
-          "weatherCode": 2
+          "tempMax": 21.9,
+          "tempMin": 12,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.2,
-          "tempMin": 12,
-          "weatherCode": 2
+          "tempMax": 20.85,
+          "tempMin": 10.95,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:42",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 19.6,
-          "tempMin": 14.2,
-          "weatherCode": 2
+          "tempMax": 19.8,
+          "tempMin": 14.149999999999999,
+          "weatherCode": 45,
+          "precipProb": 28,
+          "sunrise": "2026-10-17T07:43",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 14.9,
-          "tempMin": 12.4,
-          "weatherCode": 65
+          "tempMax": 15.600000000000001,
+          "tempMin": 13.100000000000001,
+          "weatherCode": 61,
+          "precipProb": 66,
+          "sunrise": "2026-10-18T07:44",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 15,
-          "tempMin": 13.5,
-          "weatherCode": 65
+          "tempMax": 16.55,
+          "tempMin": 13.6,
+          "weatherCode": 3,
+          "precipProb": 62,
+          "sunrise": "2026-10-19T07:46",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no",
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:24.290Z"
+      "generatedAt": "2026-10-13T19:21:36.580Z"
     },
     "bellinzona": {
       "cityId": "bellinzona",
       "canton": "TI",
       "name": "Bellinzona",
       "current": {
-        "temperature": 18.299999999999997,
-        "weatherCode": 0,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 55
+        "temperature": 14.8,
+        "weatherCode": 1,
+        "isDay": false,
+        "windSpeedKmh": 4,
+        "humidity": 71,
+        "apparentTemp": 14.7
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 18.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 18.9,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 19.2,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 19.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 18.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 16.9,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T18:00:00Z",
-          "temp": 14.4,
+          "hour": "2026-10-13T00:00",
+          "temp": 14,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T19:00:00Z",
-          "temp": 14.4,
-          "weatherCode": 1,
+          "hour": "2026-10-13T01:00",
+          "temp": 14.3,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T20:00:00Z",
+          "hour": "2026-10-13T02:00",
           "temp": 14.2,
-          "weatherCode": 1,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T21:00:00Z",
-          "temp": 14.2,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T22:00:00Z",
+          "hour": "2026-10-13T03:00",
           "temp": 13.9,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T23:00:00Z",
+          "hour": "2026-10-13T04:00",
+          "temp": 13.6,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 13.6,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 13.3,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 12.9,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 11.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T09:00",
+          "temp": 13.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T10:00",
+          "temp": 14.3,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T11:00",
+          "temp": 15.6,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 16.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
+          "temp": 17.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
+          "temp": 18.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T15:00",
+          "temp": 19,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 19,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T17:00",
+          "temp": 19.2,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T18:00",
+          "temp": 18.5,
+          "weatherCode": 3,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T19:00",
+          "temp": 16.9,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T19:00:00Z",
+          "temp": 14.5,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 15.3,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00:00Z",
+          "temp": 14.1,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00",
+          "temp": 15.9,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00:00Z",
+          "temp": 13.9,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 15.5,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00:00Z",
           "temp": 13.5,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T00:00:00Z",
+          "hour": "2026-10-13T23:00",
+          "temp": 16,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T23:00:00Z",
           "temp": 13,
           "weatherCode": 2,
           "isDay": false
         },
         {
+          "hour": "2026-10-14T00:00",
+          "temp": 15.9,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T00:00:00Z",
+          "temp": 12.5,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T01:00",
+          "temp": 16.4,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T01:00:00Z",
-          "temp": 12.8,
-          "weatherCode": 1,
+          "temp": 12.3,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 16.7,
+          "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-14T02:00:00Z",
-          "temp": 12.3,
+          "temp": 11.8,
           "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T03:00",
+          "temp": 15.8,
+          "weatherCode": 3,
           "isDay": false
         },
         {
           "hour": "2026-10-14T03:00:00Z",
-          "temp": 12,
+          "temp": 11.9,
           "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T04:00",
+          "temp": 15.5,
+          "weatherCode": 0,
           "isDay": false
         },
         {
           "hour": "2026-10-14T04:00:00Z",
-          "temp": 12.2,
+          "temp": 11.8,
           "weatherCode": 2,
           "isDay": false
         },
         {
+          "hour": "2026-10-14T05:00",
+          "temp": 15.3,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T05:00:00Z",
-          "temp": 12.1,
+          "temp": 11.7,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T06:00",
+          "temp": 14.8,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-14T06:00:00Z",
-          "temp": 12.1,
+          "temp": 11.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T07:00",
+          "temp": 15.8,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T07:00:00Z",
+          "temp": 14.7,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T07:00:00Z",
-          "temp": 15,
-          "weatherCode": 0,
+          "hour": "2026-10-14T08:00",
+          "temp": 16,
+          "weatherCode": 3,
           "isDay": true
         },
         {
@@ -498,332 +672,337 @@
           "isDay": true
         },
         {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 21.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 22.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 23.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 23.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 22.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 21.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 20.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 18.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 16.1,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 15.4,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
-          "temp": 14.4,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T21:00:00Z",
-          "temp": 13.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 13.4,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 12.8,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 12.3,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T01:00:00Z",
-          "temp": 12.1,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 11.9,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 11.8,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 11.6,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 13.8,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 17.7,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 20.8,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 22.4,
-          "weatherCode": 1,
+          "hour": "2026-10-14T09:00",
+          "temp": 16.4,
+          "weatherCode": 3,
           "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 19.2,
-          "tempMin": 13.5,
-          "weatherCode": 1
+          "tempMax": 16.9,
+          "tempMin": 12.4,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:38",
+          "sunset": "2026-10-13T18:41"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 23.1,
-          "tempMin": 12,
-          "weatherCode": 0
+          "tempMax": 22.35,
+          "tempMin": 11.55,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:39",
+          "sunset": "2026-10-14T18:39"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 23.2,
-          "tempMin": 11.3,
-          "weatherCode": 2
+          "tempMax": 22.3,
+          "tempMin": 10.65,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:37"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 21.4,
-          "tempMin": 10.3,
-          "weatherCode": 2
+          "tempMax": 23.4,
+          "tempMin": 10.15,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:42",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 19.8,
-          "tempMin": 9.5,
-          "weatherCode": 2
+          "tempMax": 20.35,
+          "tempMin": 11.7,
+          "weatherCode": 45,
+          "precipProb": 32,
+          "sunrise": "2026-10-17T07:43",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 13.8,
-          "tempMin": 11.4,
-          "weatherCode": 65
+          "tempMax": 15.1,
+          "tempMin": 12.600000000000001,
+          "weatherCode": 61,
+          "precipProb": 71,
+          "sunrise": "2026-10-18T07:44",
+          "sunset": "2026-10-18T18:32"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 13.5,
-          "tempMin": 12.4,
-          "weatherCode": 63
+          "tempMax": 15.8,
+          "tempMin": 13,
+          "weatherCode": 3,
+          "precipProb": 65,
+          "sunrise": "2026-10-19T07:46",
+          "sunset": "2026-10-19T18:30"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no",
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:26.134Z"
+      "generatedAt": "2026-10-13T19:21:38.602Z"
     },
     "mendrisio": {
       "cityId": "mendrisio",
       "canton": "TI",
       "name": "Mendrisio",
       "current": {
-        "temperature": 16.35,
+        "temperature": 12.6,
         "weatherCode": 2,
-        "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 64
+        "isDay": false,
+        "windSpeedKmh": 3.2,
+        "humidity": 84,
+        "apparentTemp": 11.7
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 16.6,
+          "hour": "2026-10-13T00:00",
+          "temp": 12.4,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T01:00",
+          "temp": 12.1,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T02:00",
+          "temp": 12.5,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T03:00",
+          "temp": 12,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T04:00",
+          "temp": 11.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 10.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 10.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 10.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 8.9,
           "weatherCode": 2,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T12:00:00Z",
+          "hour": "2026-10-13T09:00",
+          "temp": 10.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T10:00",
+          "temp": 13.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T11:00",
+          "temp": 15.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 16.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
+          "temp": 17.4,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
+          "temp": 17.9,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T15:00",
+          "temp": 18.2,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 18.1,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T17:00",
+          "temp": 18,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T18:00",
           "temp": 17.1,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 17.3,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 16.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 15.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 13.9,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T18:00:00Z",
-          "temp": 13.6,
+          "hour": "2026-10-13T19:00",
+          "temp": 15.2,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 13.4,
+          "temp": 13.8,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 13.7,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00:00Z",
-          "temp": 13.2,
+          "temp": 13.4,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00",
+          "temp": 12.8,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T21:00:00Z",
-          "temp": 12.9,
-          "weatherCode": 1,
+          "temp": 13.3,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 11.8,
+          "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T22:00:00Z",
-          "temp": 12.5,
+          "temp": 12.7,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-13T23:00",
+          "temp": 12,
+          "weatherCode": 0,
+          "isDay": false
         },
         {
           "hour": "2026-10-13T23:00:00Z",
-          "temp": 11.4,
+          "temp": 11.9,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T00:00",
+          "temp": 11.5,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T00:00:00Z",
-          "temp": 11.2,
+          "temp": 11.6,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T01:00",
+          "temp": 11.3,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T01:00:00Z",
+          "temp": 11.6,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 11.3,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00:00Z",
           "temp": 11.2,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T02:00:00Z",
-          "temp": 10.8,
-          "weatherCode": 45,
-          "isDay": true
+          "hour": "2026-10-14T03:00",
+          "temp": 11,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T03:00:00Z",
+          "temp": 11.1,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T04:00",
+          "temp": 11.2,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T04:00:00Z",
           "temp": 10.8,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T04:00:00Z",
-          "temp": 10.7,
-          "weatherCode": 45,
-          "isDay": true
+          "hour": "2026-10-14T05:00",
+          "temp": 10.6,
+          "weatherCode": 0,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T05:00:00Z",
@@ -832,302 +1011,277 @@
           "isDay": true
         },
         {
+          "hour": "2026-10-14T06:00",
+          "temp": 10.3,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T06:00:00Z",
           "temp": 10.8,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T07:00",
+          "temp": 10,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T07:00:00Z",
-          "temp": 12.3,
+          "temp": 12.2,
           "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00",
+          "temp": 9,
+          "weatherCode": 3,
           "isDay": true
         },
         {
           "hour": "2026-10-14T08:00:00Z",
-          "temp": 13.8,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 15.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 17.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 18.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 18.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 18.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 18.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 18.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 16.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 15,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 14.3,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
           "temp": 13.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
-          "temp": 13.6,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T21:00:00Z",
-          "temp": 13.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 13,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 12.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 11.7,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T01:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 11.2,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 11.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 13.1,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 15,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 16.5,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 18.3,
-          "weatherCode": 1,
+          "hour": "2026-10-14T09:00",
+          "temp": 10.2,
+          "weatherCode": 3,
           "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.4,
-          "tempMin": 11.4,
-          "weatherCode": 1
+          "tempMax": 16,
+          "tempMin": 10.4,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:37",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.9,
-          "tempMin": 10.7,
-          "weatherCode": 0
+          "tempMax": 19.05,
+          "tempMin": 9.85,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:39",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.9,
-          "tempMin": 11.2,
-          "weatherCode": 2
+          "tempMax": 20.25,
+          "tempMin": 11.3,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19,
-          "tempMin": 11.8,
-          "weatherCode": 3
+          "tempMax": 20,
+          "tempMin": 11.95,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:41",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 18,
-          "tempMin": 13.7,
-          "weatherCode": 61
+          "tempMax": 18.4,
+          "tempMin": 13.45,
+          "weatherCode": 3,
+          "precipProb": 27,
+          "sunrise": "2026-10-17T07:43",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 13.5,
-          "tempMin": 12.8,
-          "weatherCode": 65
+          "tempMax": 15.1,
+          "tempMin": 12.9,
+          "weatherCode": 61,
+          "precipProb": 65,
+          "sunrise": "2026-10-18T07:44",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 13.5,
-          "tempMin": 12.1,
-          "weatherCode": 65
+          "tempMax": 15.65,
+          "tempMin": 11.95,
+          "weatherCode": 3,
+          "precipProb": 62,
+          "sunrise": "2026-10-19T07:46",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no",
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:28.012Z"
+      "generatedAt": "2026-10-13T19:21:40.612Z"
     },
     "locarno": {
       "cityId": "locarno",
       "canton": "TI",
       "name": "Locarno",
       "current": {
-        "temperature": 18.1,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 68
+        "temperature": 15.3,
+        "weatherCode": 2,
+        "isDay": false,
+        "windSpeedKmh": 4.7,
+        "humidity": 80,
+        "apparentTemp": 15.7
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 18,
+          "hour": "2026-10-13T00:00",
+          "temp": 15.5,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T01:00",
+          "temp": 15.5,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T02:00",
+          "temp": 15.9,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T03:00",
+          "temp": 15.2,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T04:00",
+          "temp": 14.6,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 14.4,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 14.1,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 14.1,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 13.3,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T09:00",
+          "temp": 13.6,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T12:00:00Z",
+          "hour": "2026-10-13T10:00",
+          "temp": 15.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T11:00",
+          "temp": 16.2,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 16.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
+          "temp": 17.9,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
           "temp": 18.7,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 19,
+          "hour": "2026-10-13T15:00",
+          "temp": 19.3,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 18.9,
+          "hour": "2026-10-13T16:00",
+          "temp": 19.6,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 18.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 17,
+          "hour": "2026-10-13T17:00",
+          "temp": 20.1,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 15,
+          "hour": "2026-10-13T18:00",
+          "temp": 19.9,
           "weatherCode": 1,
-          "isDay": false
+          "isDay": true
         },
         {
-          "hour": "2026-10-13T18:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 1,
+          "hour": "2026-10-13T19:00",
+          "temp": 18.4,
+          "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 14.8,
+          "temp": 15.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 18.3,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00:00Z",
-          "temp": 14.9,
-          "weatherCode": 45,
-          "isDay": true
+          "temp": 15.3,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00",
+          "temp": 16.2,
+          "weatherCode": 0,
+          "isDay": false
         },
         {
           "hour": "2026-10-13T21:00:00Z",
@@ -1136,392 +1290,457 @@
           "isDay": false
         },
         {
+          "hour": "2026-10-13T22:00",
+          "temp": 15.9,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-13T22:00:00Z",
-          "temp": 14.9,
+          "temp": 15.1,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T23:00:00Z",
-          "temp": 14.6,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T00:00:00Z",
-          "temp": 14.1,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T01:00:00Z",
-          "temp": 14,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T02:00:00Z",
-          "temp": 13.5,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T03:00:00Z",
-          "temp": 13.2,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T04:00:00Z",
-          "temp": 13.3,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T05:00:00Z",
-          "temp": 13.2,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T06:00:00Z",
-          "temp": 13,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T07:00:00Z",
-          "temp": 15.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T08:00:00Z",
-          "temp": 19,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 21.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 22.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 22.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 22.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 22.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 21.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 20.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 18.8,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 16.7,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 16.3,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
-          "temp": 15.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
+          "hour": "2026-10-13T23:00",
           "temp": 15.6,
           "weatherCode": 0,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T21:00:00Z",
+          "hour": "2026-10-13T23:00:00Z",
+          "temp": 14.7,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T00:00",
+          "temp": 16,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T00:00:00Z",
+          "temp": 14.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T01:00",
+          "temp": 16.1,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T01:00:00Z",
+          "temp": 14.1,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 15.6,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00:00Z",
+          "temp": 13.6,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T03:00",
           "temp": 15.4,
-          "weatherCode": 0,
+          "weatherCode": 3,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 15.3,
-          "weatherCode": 0,
+          "hour": "2026-10-14T03:00:00Z",
+          "temp": 13.6,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 0,
+          "hour": "2026-10-14T04:00",
+          "temp": 15.6,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 14,
-          "weatherCode": 0,
+          "hour": "2026-10-14T04:00:00Z",
+          "temp": 13.5,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-15T01:00:00Z",
+          "hour": "2026-10-14T05:00",
+          "temp": 15.6,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T05:00:00Z",
           "temp": 13.3,
-          "weatherCode": 0,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 12.7,
-          "weatherCode": 1,
+          "hour": "2026-10-14T06:00",
+          "temp": 15.4,
+          "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 12.1,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 11.5,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 11,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 10.8,
+          "hour": "2026-10-14T06:00:00Z",
+          "temp": 13.4,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 13.7,
-          "weatherCode": 1,
-          "isDay": true
+          "hour": "2026-10-14T07:00",
+          "temp": 15.6,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 20.4,
+          "hour": "2026-10-14T07:00:00Z",
+          "temp": 16.1,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 21.9,
-          "weatherCode": 1,
+          "hour": "2026-10-14T08:00",
+          "temp": 16.5,
+          "weatherCode": 3,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00:00Z",
+          "temp": 19.3,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T09:00",
+          "temp": 17.2,
+          "weatherCode": 3,
           "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 19,
-          "tempMin": 14.6,
-          "weatherCode": 1
+          "tempMax": 17.700000000000003,
+          "tempMin": 13.95,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:38",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 22.6,
-          "tempMin": 13,
-          "weatherCode": 0
+          "tempMax": 21.9,
+          "tempMin": 13.65,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:40",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 22.6,
-          "tempMin": 10.8,
-          "weatherCode": 2
+          "tempMax": 22,
+          "tempMin": 12.7,
+          "weatherCode": 2,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:41",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.6,
-          "tempMin": 10.8,
-          "weatherCode": 2
+          "tempMax": 22.3,
+          "tempMin": 14.2,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:43",
+          "sunset": "2026-10-16T18:37"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 19.5,
-          "tempMin": 10.1,
-          "weatherCode": 2
+          "tempMax": 19.7,
+          "tempMin": 13.5,
+          "weatherCode": 80,
+          "precipProb": 33,
+          "sunrise": "2026-10-17T07:44",
+          "sunset": "2026-10-17T18:35"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 15,
-          "tempMin": 11.9,
-          "weatherCode": 65
+          "tempMax": 16.25,
+          "tempMin": 14.05,
+          "weatherCode": 61,
+          "precipProb": 73,
+          "sunrise": "2026-10-18T07:45",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 14,
-          "tempMin": 11.5,
-          "weatherCode": 65
+          "tempMax": 16.5,
+          "tempMin": 13.1,
+          "weatherCode": 3,
+          "precipProb": 66,
+          "sunrise": "2026-10-19T07:47",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no",
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:29.680Z"
+      "generatedAt": "2026-10-13T19:21:42.302Z"
     },
     "chiasso": {
       "cityId": "chiasso",
       "canton": "TI",
       "name": "Chiasso",
       "current": {
-        "temperature": 16.9,
+        "temperature": 14.3,
         "weatherCode": 2,
-        "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 61
+        "isDay": false,
+        "windSpeedKmh": 4,
+        "humidity": 80,
+        "apparentTemp": 13.7
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 17.7,
-          "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 18.1,
-          "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 18.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 18.2,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 17.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 16.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 14.5,
-          "weatherCode": 1,
+          "hour": "2026-10-13T00:00",
+          "temp": 13.8,
+          "weatherCode": 3,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T18:00:00Z",
+          "hour": "2026-10-13T01:00",
+          "temp": 13.4,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T02:00",
+          "temp": 14.1,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T03:00",
           "temp": 14,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T04:00",
+          "temp": 13.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 11.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 11.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 11.4,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 10.9,
+          "weatherCode": 3,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T09:00",
+          "temp": 11.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T10:00",
+          "temp": 14.3,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T11:00",
+          "temp": 16.3,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 17.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
+          "temp": 18.6,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
+          "temp": 19.4,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T15:00",
+          "temp": 19.7,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 19.6,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T17:00",
+          "temp": 19.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T18:00",
+          "temp": 19.1,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T19:00",
+          "temp": 16.1,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 13.7,
+          "temp": 14.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 14.7,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00:00Z",
-          "temp": 13.6,
+          "temp": 13.8,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00",
+          "temp": 14.4,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T21:00:00Z",
-          "temp": 13.3,
+          "temp": 13.6,
           "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 13.9,
+          "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T22:00:00Z",
-          "temp": 13,
-          "weatherCode": 1,
+          "temp": 13.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T23:00",
+          "temp": 14.4,
+          "weatherCode": 0,
           "isDay": false
         },
         {
           "hour": "2026-10-13T23:00:00Z",
-          "temp": 12.3,
+          "temp": 12.7,
           "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T00:00",
+          "temp": 13.8,
+          "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-14T00:00:00Z",
-          "temp": 12,
+          "temp": 12.6,
           "weatherCode": 2,
           "isDay": false
         },
         {
+          "hour": "2026-10-14T01:00",
+          "temp": 13.8,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T01:00:00Z",
-          "temp": 11.9,
-          "weatherCode": 45,
-          "isDay": true
+          "temp": 12.6,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 13.3,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T02:00:00Z",
-          "temp": 11.5,
+          "temp": 12.1,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T03:00",
+          "temp": 13.3,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T03:00:00Z",
-          "temp": 11.2,
+          "temp": 11.7,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T04:00",
+          "temp": 12.8,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T04:00:00Z",
@@ -1530,318 +1749,317 @@
           "isDay": true
         },
         {
+          "hour": "2026-10-14T05:00",
+          "temp": 12.4,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T05:00:00Z",
-          "temp": 10.9,
+          "temp": 11,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T06:00",
+          "temp": 11.8,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T06:00:00Z",
-          "temp": 10.9,
+          "temp": 11,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T07:00",
+          "temp": 11.6,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T07:00:00Z",
-          "temp": 12.6,
+          "temp": 12.7,
           "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00",
+          "temp": 11.3,
+          "weatherCode": 3,
           "isDay": true
         },
         {
           "hour": "2026-10-14T08:00:00Z",
-          "temp": 14.9,
+          "temp": 15,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 16.2,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 18.2,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 18.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 19,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 19,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 18.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 15.5,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 14.8,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
-          "temp": 14.3,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
-          "temp": 13.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T21:00:00Z",
-          "temp": 13.5,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 13.2,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 12.8,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 12.2,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T01:00:00Z",
-          "temp": 11.8,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 11.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 11.2,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 11.1,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 11.1,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 11.5,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 13.6,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 16,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 18.8,
-          "weatherCode": 1,
+          "hour": "2026-10-14T09:00",
+          "temp": 12.1,
+          "weatherCode": 3,
           "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.4,
-          "tempMin": 12.3,
-          "weatherCode": 1
+          "tempMax": 17.05,
+          "tempMin": 11.8,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:37",
+          "sunset": "2026-10-13T18:41"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19,
-          "tempMin": 10.9,
-          "weatherCode": 0
+          "tempMax": 19.9,
+          "tempMin": 11.15,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:38",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 20.4,
-          "tempMin": 11.1,
-          "weatherCode": 1
+          "tempMax": 21.049999999999997,
+          "tempMin": 11.5,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.5,
-          "tempMin": 11.7,
-          "weatherCode": 2
+          "tempMax": 20.549999999999997,
+          "tempMin": 11.2,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:41",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 18.1,
-          "tempMin": 13.9,
-          "weatherCode": 3
+          "tempMax": 18.75,
+          "tempMin": 13.600000000000001,
+          "weatherCode": 3,
+          "precipProb": 24,
+          "sunrise": "2026-10-17T07:43",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 14.2,
-          "tempMin": 13.1,
-          "weatherCode": 65
+          "tempMax": 15.85,
+          "tempMin": 13.399999999999999,
+          "weatherCode": 61,
+          "precipProb": 65,
+          "sunrise": "2026-10-18T07:44",
+          "sunset": "2026-10-18T18:32"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 14,
+          "tempMax": 16.25,
           "tempMin": 12.4,
-          "weatherCode": 63
+          "weatherCode": 3,
+          "precipProb": 62,
+          "sunrise": "2026-10-19T07:45",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no",
         "meteo-swiss"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:31.353Z"
+      "generatedAt": "2026-10-13T19:21:43.996Z"
     },
     "como": {
       "cityId": "como",
       "name": "Como",
       "current": {
-        "temperature": 17.8,
-        "weatherCode": 3,
-        "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 61
+        "temperature": 14.850000000000001,
+        "weatherCode": 2,
+        "isDay": false,
+        "windSpeedKmh": 3.3,
+        "humidity": 83,
+        "apparentTemp": 15.6
       },
       "hourly24": [
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 17.8,
+          "hour": "2026-10-13T00:00",
+          "temp": 13.5,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T01:00",
+          "temp": 13.7,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T02:00",
+          "temp": 13.8,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T03:00",
+          "temp": 13.5,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T04:00",
+          "temp": 13,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T05:00",
+          "temp": 12.1,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T06:00",
+          "temp": 12.3,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T07:00",
+          "temp": 12.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T08:00",
+          "temp": 12.6,
           "weatherCode": 3,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 18.2,
+          "hour": "2026-10-13T09:00",
+          "temp": 13.2,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T10:00",
+          "temp": 14.7,
           "weatherCode": 2,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T13:00:00Z",
+          "hour": "2026-10-13T11:00",
+          "temp": 16.3,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T12:00",
+          "temp": 17.6,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T13:00",
           "temp": 18.4,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T14:00",
+          "temp": 19.2,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T15:00",
+          "temp": 19.5,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 19.6,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T17:00",
+          "temp": 19.9,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 18.2,
+          "hour": "2026-10-13T18:00",
+          "temp": 19.4,
           "weatherCode": 0,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 17.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 16.5,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 14.8,
+          "hour": "2026-10-13T18:00:00Z",
+          "temp": 14.3,
           "weatherCode": 1,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T18:00:00Z",
-          "temp": 14.2,
+          "hour": "2026-10-13T19:00",
+          "temp": 18,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 13.9,
+          "temp": 14,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T20:00",
+          "temp": 16,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00:00Z",
-          "temp": 13.8,
+          "temp": 13.7,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T21:00:00Z",
-          "temp": 13.6,
+          "hour": "2026-10-13T21:00",
+          "temp": 15.6,
           "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T21:00:00Z",
+          "temp": 13.5,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 14.8,
+          "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T22:00:00Z",
           "temp": 13.4,
           "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T23:00",
+          "temp": 14.6,
+          "weatherCode": 0,
           "isDay": false
         },
         {
@@ -1851,16 +2069,34 @@
           "isDay": false
         },
         {
+          "hour": "2026-10-14T00:00",
+          "temp": 14.4,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T00:00:00Z",
-          "temp": 12.7,
+          "temp": 12.8,
           "weatherCode": 45,
           "isDay": true
         },
         {
+          "hour": "2026-10-14T01:00",
+          "temp": 13.7,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T01:00:00Z",
-          "temp": 12.7,
+          "temp": 12.6,
           "weatherCode": 45,
           "isDay": true
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 13.4,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T02:00:00Z",
@@ -1869,258 +2105,160 @@
           "isDay": true
         },
         {
+          "hour": "2026-10-14T03:00",
+          "temp": 13.5,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T03:00:00Z",
           "temp": 12,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T04:00:00Z",
-          "temp": 11.9,
-          "weatherCode": 45,
-          "isDay": true
+          "hour": "2026-10-14T04:00",
+          "temp": 13.5,
+          "weatherCode": 3,
+          "isDay": false
         },
         {
-          "hour": "2026-10-14T05:00:00Z",
+          "hour": "2026-10-14T04:00:00Z",
           "temp": 11.8,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T06:00:00Z",
-          "temp": 11.9,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T07:00:00Z",
+          "hour": "2026-10-14T05:00",
           "temp": 13.4,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T05:00:00Z",
+          "temp": 11.5,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-14T08:00:00Z",
-          "temp": 15.1,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T09:00:00Z",
-          "temp": 16.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T10:00:00Z",
-          "temp": 17.6,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T11:00:00Z",
-          "temp": 18.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T12:00:00Z",
-          "temp": 18.7,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T13:00:00Z",
-          "temp": 19,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T14:00:00Z",
-          "temp": 19,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T15:00:00Z",
-          "temp": 18.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T16:00:00Z",
-          "temp": 17.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-14T17:00:00Z",
-          "temp": 16,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T18:00:00Z",
-          "temp": 15.2,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T19:00:00Z",
-          "temp": 14.9,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T20:00:00Z",
-          "temp": 14.5,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T21:00:00Z",
-          "temp": 14.2,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T22:00:00Z",
-          "temp": 13.9,
+          "hour": "2026-10-14T06:00",
+          "temp": 12.3,
           "weatherCode": 1,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T23:00:00Z",
-          "temp": 13.5,
+          "hour": "2026-10-14T06:00:00Z",
+          "temp": 11.7,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-15T00:00:00Z",
-          "temp": 13,
+          "hour": "2026-10-14T07:00",
+          "temp": 11.7,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T07:00:00Z",
+          "temp": 13.2,
           "weatherCode": 45,
           "isDay": true
         },
         {
-          "hour": "2026-10-15T01:00:00Z",
-          "temp": 12.7,
-          "weatherCode": 45,
+          "hour": "2026-10-14T08:00",
+          "temp": 11.7,
+          "weatherCode": 3,
           "isDay": true
         },
         {
-          "hour": "2026-10-15T02:00:00Z",
-          "temp": 12.5,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T03:00:00Z",
-          "temp": 12.4,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T04:00:00Z",
-          "temp": 12.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T05:00:00Z",
-          "temp": 12.3,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T06:00:00Z",
-          "temp": 12.6,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T07:00:00Z",
-          "temp": 14.5,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T08:00:00Z",
-          "temp": 16.1,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T09:00:00Z",
-          "temp": 17.5,
-          "weatherCode": 45,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-15T10:00:00Z",
-          "temp": 18.8,
-          "weatherCode": 2,
+          "hour": "2026-10-14T08:00:00Z",
+          "temp": 15,
+          "weatherCode": 0,
           "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.4,
-          "tempMin": 12.9,
-          "weatherCode": 1
+          "tempMax": 17.1,
+          "tempMin": 12.5,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:37",
+          "sunset": "2026-10-13T18:41"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19,
-          "tempMin": 11.8,
-          "weatherCode": 0
+          "tempMax": 19.95,
+          "tempMin": 11.55,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:38",
+          "sunset": "2026-10-14T18:39"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 20.4,
-          "tempMin": 12.3,
-          "weatherCode": 1
+          "tempMax": 20.95,
+          "tempMin": 12.25,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.5,
-          "tempMin": 12.7,
-          "weatherCode": 3
+          "tempMax": 20.45,
+          "tempMin": 12.100000000000001,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:41",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 18.3,
-          "tempMin": 15,
-          "weatherCode": 3
+          "tempMax": 19,
+          "tempMin": 14.4,
+          "weatherCode": 3,
+          "precipProb": 24,
+          "sunrise": "2026-10-17T07:42",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 14.6,
-          "tempMin": 13.6,
-          "weatherCode": 65
+          "tempMax": 16.2,
+          "tempMin": 13.75,
+          "weatherCode": 61,
+          "precipProb": 65,
+          "sunrise": "2026-10-18T07:44",
+          "sunset": "2026-10-18T18:32"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 14.6,
-          "tempMin": 12.8,
-          "weatherCode": 63
+          "tempMax": 16.65,
+          "tempMin": 12.7,
+          "weatherCode": 3,
+          "precipProb": 62,
+          "sunrise": "2026-10-19T07:45",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:32.976Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:21:45.648Z"
     },
     "varese": {
       "cityId": "varese",
       "name": "Varese",
       "current": {
-        "temperature": 17.05,
+        "temperature": 13.9,
         "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 64,
-        "apparentTemp": 16.9
+        "isDay": false,
+        "windSpeedKmh": 4.2,
+        "humidity": 82,
+        "apparentTemp": 13.9
       },
       "hourly24": [
         {
@@ -2196,20 +2334,8 @@
           "isDay": true
         },
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 16.5,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-10-13T12:00",
           "temp": 16.2,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 16.8,
           "weatherCode": 1,
           "isDay": true
         },
@@ -2220,203 +2346,215 @@
           "isDay": true
         },
         {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 17.3,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
           "hour": "2026-10-13T14:00",
-          "temp": 17.7,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 17.4,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00",
-          "temp": 18,
-          "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 16.9,
-          "weatherCode": 0,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00",
           "temp": 18.1,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 15.8,
-          "weatherCode": 0,
+          "hour": "2026-10-13T15:00",
+          "temp": 18.4,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T16:00",
+          "temp": 18.5,
+          "weatherCode": 1,
           "isDay": true
         },
         {
           "hour": "2026-10-13T17:00",
-          "temp": 17.8,
+          "temp": 18.8,
           "weatherCode": 1,
           "isDay": true
         },
         {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 14,
+          "hour": "2026-10-13T18:00",
+          "temp": 18.3,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-13T19:00",
+          "temp": 16.9,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T18:00",
-          "temp": 17.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T18:00:00Z",
+          "hour": "2026-10-13T19:00:00Z",
           "temp": 13.4,
           "weatherCode": 1,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T19:00",
-          "temp": 16.3,
+          "hour": "2026-10-13T20:00",
+          "temp": 15.7,
           "weatherCode": 0,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T19:00:00Z",
-          "temp": 13.1,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T20:00",
-          "temp": 15.3,
-          "weatherCode": 3,
-          "isDay": false
-        },
-        {
           "hour": "2026-10-13T20:00:00Z",
-          "temp": 12.8,
+          "temp": 12.9,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-13T21:00",
-          "temp": 14.3,
-          "weatherCode": 1,
+          "temp": 14.6,
+          "weatherCode": 0,
           "isDay": false
         },
         {
           "hour": "2026-10-13T21:00:00Z",
-          "temp": 12.4,
+          "temp": 12.7,
           "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T22:00",
-          "temp": 13.7,
-          "weatherCode": 3,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T22:00:00Z",
-          "temp": 11.9,
+          "temp": 14,
           "weatherCode": 1,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T23:00",
-          "temp": 13.4,
-          "weatherCode": 0,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T23:00:00Z",
-          "temp": 11.1,
+          "hour": "2026-10-13T22:00:00Z",
+          "temp": 12.2,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T00:00",
+          "hour": "2026-10-13T23:00",
           "temp": 13.2,
           "weatherCode": 0,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T00:00:00Z",
-          "temp": 10.5,
+          "hour": "2026-10-13T23:00:00Z",
+          "temp": 11.5,
           "weatherCode": 2,
           "isDay": false
         },
         {
-          "hour": "2026-10-14T01:00",
+          "hour": "2026-10-14T00:00",
           "temp": 12.9,
           "weatherCode": 3,
           "isDay": false
         },
         {
+          "hour": "2026-10-14T00:00:00Z",
+          "temp": 11,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T01:00",
+          "temp": 12.8,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T01:00:00Z",
-          "temp": 10.3,
+          "temp": 10.9,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-14T02:00",
-          "temp": 12.7,
+          "temp": 12.8,
           "weatherCode": 3,
           "isDay": false
         },
         {
           "hour": "2026-10-14T02:00:00Z",
-          "temp": 9.9,
-          "weatherCode": 45,
-          "isDay": true
+          "temp": 10.4,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T03:00",
-          "temp": 12.6,
+          "temp": 12.7,
           "weatherCode": 3,
           "isDay": false
         },
         {
           "hour": "2026-10-14T03:00:00Z",
-          "temp": 9.6,
-          "weatherCode": 45,
-          "isDay": true
+          "temp": 10,
+          "weatherCode": 2,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T04:00",
-          "temp": 12.3,
-          "weatherCode": 2,
+          "temp": 12.4,
+          "weatherCode": 3,
           "isDay": false
         },
         {
           "hour": "2026-10-14T04:00:00Z",
-          "temp": 9.6,
-          "weatherCode": 2,
-          "isDay": false
+          "temp": 9.7,
+          "weatherCode": 45,
+          "isDay": true
         },
         {
           "hour": "2026-10-14T05:00",
+          "temp": 12.4,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T05:00:00Z",
+          "temp": 9.4,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T06:00",
           "temp": 12,
           "weatherCode": 1,
           "isDay": false
+        },
+        {
+          "hour": "2026-10-14T06:00:00Z",
+          "temp": 9.3,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T07:00",
+          "temp": 11.6,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T07:00:00Z",
+          "temp": 10.8,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00",
+          "temp": 11.4,
+          "weatherCode": 3,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00:00Z",
+          "temp": 14.1,
+          "weatherCode": 0,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T09:00",
+          "temp": 12.2,
+          "weatherCode": 3,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.75,
-          "tempMin": 10.35,
+          "tempMax": 16.1,
+          "tempMin": 10.5,
           "weatherCode": 3,
           "precipProb": 0,
           "sunrise": "2026-10-13T07:38",
@@ -2424,8 +2562,8 @@
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.25,
-          "tempMin": 10.4,
+          "tempMax": 19.4,
+          "tempMin": 10.350000000000001,
           "weatherCode": 3,
           "precipProb": 0,
           "sunrise": "2026-10-14T07:39",
@@ -2433,8 +2571,8 @@
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.85,
-          "tempMin": 10.6,
+          "tempMax": 20.25,
+          "tempMin": 10.7,
           "weatherCode": 45,
           "precipProb": 0,
           "sunrise": "2026-10-15T07:41",
@@ -2442,7 +2580,7 @@
         },
         {
           "date": "2026-10-16",
-          "tempMax": 18.9,
+          "tempMax": 19.9,
           "tempMin": 11.05,
           "weatherCode": 45,
           "precipProb": 0,
@@ -2452,27 +2590,27 @@
         {
           "date": "2026-10-17",
           "tempMax": 18.35,
-          "tempMin": 12.55,
+          "tempMin": 12.15,
           "weatherCode": 3,
-          "precipProb": 27,
+          "precipProb": 28,
           "sunrise": "2026-10-17T07:43",
           "sunset": "2026-10-17T18:35"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 15.1,
-          "tempMin": 12.350000000000001,
-          "weatherCode": 45,
-          "precipProb": 75,
+          "tempMax": 14.55,
+          "tempMin": 12.600000000000001,
+          "weatherCode": 61,
+          "precipProb": 68,
           "sunrise": "2026-10-18T07:45",
           "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 15.299999999999999,
-          "tempMin": 10.85,
-          "weatherCode": 45,
-          "precipProb": 67,
+          "tempMax": 15.799999999999999,
+          "tempMin": 12.05,
+          "weatherCode": 3,
+          "precipProb": 60,
           "sunrise": "2026-10-19T07:46",
           "sunset": "2026-10-19T18:32"
         }
@@ -2482,18 +2620,18 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:34.641Z"
+      "generatedAt": "2026-10-13T19:21:47.335Z"
     },
     "lecco": {
       "cityId": "lecco",
       "name": "Lecco",
       "current": {
-        "temperature": 18.05,
+        "temperature": 15.25,
         "weatherCode": 2,
-        "isDay": true,
-        "windSpeedKmh": 6.5,
-        "humidity": 65,
-        "apparentTemp": 17.9
+        "isDay": false,
+        "windSpeedKmh": 3.6,
+        "humidity": 79,
+        "apparentTemp": 15.1
       },
       "hourly24": [
         {
@@ -2569,20 +2707,8 @@
           "isDay": true
         },
         {
-          "hour": "2026-10-13T11:00:00Z",
-          "temp": 17.5,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-10-13T12:00",
           "temp": 17.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T12:00:00Z",
-          "temp": 18,
           "weatherCode": 1,
           "isDay": true
         },
@@ -2593,212 +2719,224 @@
           "isDay": true
         },
         {
-          "hour": "2026-10-13T13:00:00Z",
-          "temp": 18.4,
-          "weatherCode": 1,
-          "isDay": true
-        },
-        {
           "hour": "2026-10-13T14:00",
-          "temp": 18.7,
+          "temp": 19,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T14:00:00Z",
-          "temp": 18.4,
-          "weatherCode": 0,
           "isDay": true
         },
         {
           "hour": "2026-10-13T15:00",
-          "temp": 18.9,
+          "temp": 19.3,
           "weatherCode": 2,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T15:00:00Z",
-          "temp": 18,
-          "weatherCode": 0,
           "isDay": true
         },
         {
           "hour": "2026-10-13T16:00",
-          "temp": 19,
+          "temp": 19.3,
           "weatherCode": 1,
-          "isDay": true
-        },
-        {
-          "hour": "2026-10-13T16:00:00Z",
-          "temp": 16.9,
-          "weatherCode": 0,
           "isDay": true
         },
         {
           "hour": "2026-10-13T17:00",
-          "temp": 18.7,
+          "temp": 19.6,
           "weatherCode": 1,
           "isDay": true
-        },
-        {
-          "hour": "2026-10-13T17:00:00Z",
-          "temp": 15.1,
-          "weatherCode": 1,
-          "isDay": false
         },
         {
           "hour": "2026-10-13T18:00",
-          "temp": 18.1,
-          "weatherCode": 1,
+          "temp": 19,
+          "weatherCode": 0,
           "isDay": true
-        },
-        {
-          "hour": "2026-10-13T18:00:00Z",
-          "temp": 14.9,
-          "weatherCode": 2,
-          "isDay": false
         },
         {
           "hour": "2026-10-13T19:00",
           "temp": 16.5,
-          "weatherCode": 1,
+          "weatherCode": 0,
           "isDay": false
         },
         {
           "hour": "2026-10-13T19:00:00Z",
-          "temp": 14.6,
-          "weatherCode": 2,
+          "temp": 14.9,
+          "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-13T20:00",
-          "temp": 15.3,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T20:00:00Z",
-          "temp": 14.4,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T21:00",
-          "temp": 15.2,
-          "weatherCode": 1,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T21:00:00Z",
-          "temp": 14.1,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-13T22:00",
-          "temp": 14.8,
+          "temp": 15.5,
           "weatherCode": 3,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T22:00:00Z",
-          "temp": 13.8,
+          "hour": "2026-10-13T20:00:00Z",
+          "temp": 14.8,
           "weatherCode": 1,
           "isDay": false
         },
         {
-          "hour": "2026-10-13T23:00",
-          "temp": 14.4,
+          "hour": "2026-10-13T21:00",
+          "temp": 15.7,
           "weatherCode": 2,
           "isDay": false
         },
         {
+          "hour": "2026-10-13T21:00:00Z",
+          "temp": 14.4,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00",
+          "temp": 15.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T22:00:00Z",
+          "temp": 14.2,
+          "weatherCode": 2,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-13T23:00",
+          "temp": 15.4,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-13T23:00:00Z",
-          "temp": 13.4,
+          "temp": 13.8,
           "weatherCode": 2,
           "isDay": false
         },
         {
           "hour": "2026-10-14T00:00",
-          "temp": 14.9,
+          "temp": 14.2,
           "weatherCode": 0,
           "isDay": false
         },
         {
           "hour": "2026-10-14T00:00:00Z",
-          "temp": 13.2,
-          "weatherCode": 2,
+          "temp": 13.6,
+          "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-14T01:00",
-          "temp": 13.7,
-          "weatherCode": 3,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T01:00:00Z",
-          "temp": 12.8,
-          "weatherCode": 2,
-          "isDay": false
-        },
-        {
-          "hour": "2026-10-14T02:00",
           "temp": 14,
           "weatherCode": 3,
           "isDay": false
         },
         {
+          "hour": "2026-10-14T01:00:00Z",
+          "temp": 13.2,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T02:00",
+          "temp": 14.8,
+          "weatherCode": 3,
+          "isDay": false
+        },
+        {
           "hour": "2026-10-14T02:00:00Z",
-          "temp": 12.7,
-          "weatherCode": 45,
-          "isDay": true
+          "temp": 12.9,
+          "weatherCode": 1,
+          "isDay": false
         },
         {
           "hour": "2026-10-14T03:00",
-          "temp": 14.4,
+          "temp": 14.7,
           "weatherCode": 3,
           "isDay": false
         },
         {
           "hour": "2026-10-14T03:00:00Z",
-          "temp": 12.4,
+          "temp": 12.6,
           "weatherCode": 45,
           "isDay": true
         },
         {
           "hour": "2026-10-14T04:00",
           "temp": 14.2,
-          "weatherCode": 3,
+          "weatherCode": 1,
           "isDay": false
         },
         {
           "hour": "2026-10-14T04:00:00Z",
           "temp": 12.4,
-          "weatherCode": 2,
-          "isDay": false
+          "weatherCode": 45,
+          "isDay": true
         },
         {
           "hour": "2026-10-14T05:00",
-          "temp": 13.3,
+          "temp": 14,
           "weatherCode": 0,
           "isDay": false
+        },
+        {
+          "hour": "2026-10-14T05:00:00Z",
+          "temp": 12.4,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T06:00",
+          "temp": 13.1,
+          "weatherCode": 0,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T06:00:00Z",
+          "temp": 12.4,
+          "weatherCode": 45,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T07:00",
+          "temp": 12.3,
+          "weatherCode": 1,
+          "isDay": false
+        },
+        {
+          "hour": "2026-10-14T07:00:00Z",
+          "temp": 14.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00",
+          "temp": 12.1,
+          "weatherCode": 2,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T08:00:00Z",
+          "temp": 16.8,
+          "weatherCode": 1,
+          "isDay": true
+        },
+        {
+          "hour": "2026-10-14T09:00",
+          "temp": 13.2,
+          "weatherCode": 3,
+          "isDay": true
         }
       ],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.7,
-          "tempMin": 13.2,
+          "tempMax": 17.25,
+          "tempMin": 13.4,
           "weatherCode": 3,
-          "precipProb": 3,
+          "precipProb": 0,
           "sunrise": "2026-10-13T07:36",
           "sunset": "2026-10-13T18:40"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.450000000000003,
-          "tempMin": 12.7,
+          "tempMax": 20.45,
+          "tempMin": 12.25,
           "weatherCode": 3,
           "precipProb": 0,
           "sunrise": "2026-10-14T07:37",
@@ -2806,8 +2944,8 @@
         },
         {
           "date": "2026-10-15",
-          "tempMax": 21,
-          "tempMin": 13.600000000000001,
+          "tempMax": 21.5,
+          "tempMin": 13.4,
           "weatherCode": 45,
           "precipProb": 0,
           "sunrise": "2026-10-15T07:38",
@@ -2815,17 +2953,17 @@
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.3,
-          "tempMin": 14.6,
+          "tempMax": 21.25,
+          "tempMin": 14.75,
           "weatherCode": 3,
-          "precipProb": 2,
+          "precipProb": 0,
           "sunrise": "2026-10-16T07:40",
           "sunset": "2026-10-16T18:35"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 18.7,
-          "tempMin": 15.3,
+          "tempMax": 18.9,
+          "tempMin": 15.649999999999999,
           "weatherCode": 3,
           "precipProb": 22,
           "sunrise": "2026-10-17T07:41",
@@ -2833,19 +2971,19 @@
         },
         {
           "date": "2026-10-18",
-          "tempMax": 16.6,
-          "tempMin": 14.600000000000001,
-          "weatherCode": 61,
-          "precipProb": 64,
+          "tempMax": 17,
+          "tempMin": 14.75,
+          "weatherCode": 3,
+          "precipProb": 61,
           "sunrise": "2026-10-18T07:42",
           "sunset": "2026-10-18T18:31"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 16.8,
-          "tempMin": 13.149999999999999,
+          "tempMax": 17.45,
+          "tempMin": 14.05,
           "weatherCode": 3,
-          "precipProb": 64,
+          "precipProb": 59,
           "sunrise": "2026-10-19T07:44",
           "sunset": "2026-10-19T18:29"
         }
@@ -2855,44 +2993,44 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:36.303Z"
+      "generatedAt": "2026-10-13T19:21:49.022Z"
     },
     "aarau": {
       "cityId": "aarau",
       "canton": "AG",
       "name": "Aarau",
       "current": {
-        "temperature": 15.5,
+        "temperature": 13.55,
         "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 8.1,
-        "humidity": 66,
-        "apparentTemp": 12.8
+        "windSpeedKmh": 6.2,
+        "humidity": 85,
+        "apparentTemp": 13.5
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 16.75,
-          "tempMin": 8.25,
+          "tempMax": 14.95,
+          "tempMin": 8.049999999999999,
           "weatherCode": 45,
-          "precipProb": 14,
+          "precipProb": 15,
           "sunrise": "2026-10-13T07:43",
           "sunset": "2026-10-13T18:44"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.45,
-          "tempMin": 10.55,
-          "weatherCode": 80,
-          "precipProb": 29,
+          "tempMax": 20.15,
+          "tempMin": 10.2,
+          "weatherCode": 45,
+          "precipProb": 10,
           "sunrise": "2026-10-14T07:44",
           "sunset": "2026-10-14T18:42"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 18.35,
-          "tempMin": 8.95,
+          "tempMax": 19.200000000000003,
+          "tempMin": 8.4,
           "weatherCode": 45,
           "precipProb": 0,
           "sunrise": "2026-10-15T07:46",
@@ -2900,37 +3038,37 @@
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.3,
-          "tempMin": 9.399999999999999,
+          "tempMax": 20.35,
+          "tempMin": 9.7,
           "weatherCode": 45,
-          "precipProb": 4,
+          "precipProb": 7,
           "sunrise": "2026-10-16T07:47",
           "sunset": "2026-10-16T18:38"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 13.05,
-          "tempMin": 8.7,
-          "weatherCode": 45,
-          "precipProb": 71,
-          "sunrise": "2026-10-17T07:49",
+          "tempMax": 13.149999999999999,
+          "tempMin": 9.4,
+          "weatherCode": 61,
+          "precipProb": 69,
+          "sunrise": "2026-10-17T07:48",
           "sunset": "2026-10-17T18:36"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 10.65,
-          "tempMin": 7.050000000000001,
-          "weatherCode": 3,
-          "precipProb": 62,
+          "tempMax": 9.15,
+          "tempMin": 7,
+          "weatherCode": 61,
+          "precipProb": 53,
           "sunrise": "2026-10-18T07:50",
           "sunset": "2026-10-18T18:34"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 10.3,
-          "tempMin": 6.25,
+          "tempMax": 11,
+          "tempMin": 6.050000000000001,
           "weatherCode": 3,
-          "precipProb": 37,
+          "precipProb": 25,
           "sunrise": "2026-10-19T07:51",
           "sunset": "2026-10-19T18:32"
         }
@@ -2940,82 +3078,82 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:37.970Z"
+      "generatedAt": "2026-10-13T19:21:50.716Z"
     },
     "appenzell": {
       "cityId": "appenzell",
       "canton": "AI",
       "name": "Appenzell",
       "current": {
-        "temperature": 14.7,
-        "weatherCode": 3,
+        "temperature": 12.35,
+        "weatherCode": 61,
         "isDay": true,
-        "windSpeedKmh": 6.4,
-        "humidity": 61,
-        "apparentTemp": 12.7
+        "windSpeedKmh": 7,
+        "humidity": 72,
+        "apparentTemp": 11.1
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 15.899999999999999,
-          "tempMin": 5.85,
-          "weatherCode": 80,
-          "precipProb": 90,
+          "tempMax": 13.7,
+          "tempMin": 7,
+          "weatherCode": 61,
+          "precipProb": 98,
           "sunrise": "2026-10-13T07:37",
           "sunset": "2026-10-13T18:38"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 16.65,
-          "tempMin": 8.9,
+          "tempMax": 16.45,
+          "tempMin": 9.35,
           "weatherCode": 80,
-          "precipProb": 94,
+          "precipProb": 75,
           "sunrise": "2026-10-14T07:39",
           "sunset": "2026-10-14T18:36"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 17.95,
-          "tempMin": 6.5,
-          "weatherCode": 45,
+          "tempMax": 18.5,
+          "tempMin": 7.75,
+          "weatherCode": 3,
           "precipProb": 0,
           "sunrise": "2026-10-15T07:40",
-          "sunset": "2026-10-15T18:35"
+          "sunset": "2026-10-15T18:34"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 18.35,
-          "tempMin": 9.35,
+          "tempMax": 19.2,
+          "tempMin": 10.1,
           "weatherCode": 3,
-          "precipProb": 0,
+          "precipProb": 6,
           "sunrise": "2026-10-16T07:42",
           "sunset": "2026-10-16T18:33"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 13.65,
-          "tempMin": 8.15,
-          "weatherCode": 3,
-          "precipProb": 77,
+          "tempMax": 12.35,
+          "tempMin": 7.25,
+          "weatherCode": 61,
+          "precipProb": 70,
           "sunrise": "2026-10-17T07:43",
           "sunset": "2026-10-17T18:31"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.7,
-          "tempMin": 4.449999999999999,
-          "weatherCode": 45,
-          "precipProb": 68,
+          "tempMax": 7.449999999999999,
+          "tempMin": 4.05,
+          "weatherCode": 61,
+          "precipProb": 64,
           "sunrise": "2026-10-18T07:44",
           "sunset": "2026-10-18T18:29"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.35,
-          "tempMin": 4.1000000000000005,
+          "tempMax": 10.55,
+          "tempMin": 3.85,
           "weatherCode": 45,
-          "precipProb": 43,
+          "precipProb": 25,
           "sunrise": "2026-10-19T07:46",
           "sunset": "2026-10-19T18:27"
         }
@@ -3025,44 +3163,44 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:39.642Z"
+      "generatedAt": "2026-10-13T19:21:52.403Z"
     },
     "herisau": {
       "cityId": "herisau",
       "canton": "AR",
       "name": "Herisau",
       "current": {
-        "temperature": 13.7,
+        "temperature": 12.100000000000001,
         "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 8.1,
-        "humidity": 68,
-        "apparentTemp": 12.4
+        "windSpeedKmh": 11.5,
+        "humidity": 73,
+        "apparentTemp": 10.7
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 15.25,
-          "tempMin": 7.45,
+          "tempMax": 13.55,
+          "tempMin": 7.5,
           "weatherCode": 61,
-          "precipProb": 65,
+          "precipProb": 78,
           "sunrise": "2026-10-13T07:38",
           "sunset": "2026-10-13T18:39"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 15.65,
-          "tempMin": 8.85,
+          "tempMax": 15.95,
+          "tempMin": 10.5,
           "weatherCode": 80,
-          "precipProb": 65,
+          "precipProb": 58,
           "sunrise": "2026-10-14T07:39",
           "sunset": "2026-10-14T18:37"
         },
         {
           "date": "2026-10-15",
           "tempMax": 16.6,
-          "tempMin": 8.55,
+          "tempMin": 9.55,
           "weatherCode": 45,
           "precipProb": 0,
           "sunrise": "2026-10-15T07:41",
@@ -3070,38 +3208,38 @@
         },
         {
           "date": "2026-10-16",
-          "tempMax": 16.85,
-          "tempMin": 9.55,
-          "weatherCode": 3,
-          "precipProb": 0,
+          "tempMax": 18.2,
+          "tempMin": 10.15,
+          "weatherCode": 2,
+          "precipProb": 7,
           "sunrise": "2026-10-16T07:42",
           "sunset": "2026-10-16T18:33"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 13.05,
-          "tempMin": 8.3,
-          "weatherCode": 80,
-          "precipProb": 77,
+          "tempMax": 11.4,
+          "tempMin": 7.3,
+          "weatherCode": 61,
+          "precipProb": 75,
           "sunrise": "2026-10-17T07:44",
           "sunset": "2026-10-17T18:31"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.55,
-          "tempMin": 4.9,
-          "weatherCode": 45,
-          "precipProb": 75,
+          "tempMax": 7.3,
+          "tempMin": 4.5,
+          "weatherCode": 61,
+          "precipProb": 65,
           "sunrise": "2026-10-18T07:45",
           "sunset": "2026-10-18T18:29"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8,
-          "tempMin": 4.5,
+          "tempMax": 10.25,
+          "tempMin": 4.2,
           "weatherCode": 45,
-          "precipProb": 43,
-          "sunrise": "2026-10-19T07:46",
+          "precipProb": 30,
+          "sunrise": "2026-10-19T07:47",
           "sunset": "2026-10-19T18:28"
         }
       ],
@@ -3110,84 +3248,84 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:41.303Z"
+      "generatedAt": "2026-10-13T19:21:54.086Z"
     },
     "bern": {
       "cityId": "bern",
       "canton": "BE",
       "name": "Bern",
       "current": {
-        "temperature": 15.100000000000001,
+        "temperature": 13.95,
         "weatherCode": 3,
-        "isDay": true,
-        "windSpeedKmh": 5.6,
-        "humidity": 67,
-        "apparentTemp": 13.7
+        "isDay": false,
+        "windSpeedKmh": 6.2,
+        "humidity": 79,
+        "apparentTemp": 13.4
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 16.7,
-          "tempMin": 7.449999999999999,
+          "tempMax": 15.7,
+          "tempMin": 8.15,
           "weatherCode": 45,
-          "precipProb": 39,
+          "precipProb": 10,
           "sunrise": "2026-10-13T07:45",
           "sunset": "2026-10-13T18:47"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.8,
-          "tempMin": 9.45,
+          "tempMax": 20.4,
+          "tempMin": 9.95,
           "weatherCode": 45,
-          "precipProb": 37,
+          "precipProb": 5,
           "sunrise": "2026-10-14T07:46",
           "sunset": "2026-10-14T18:45"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.4,
-          "tempMin": 8.45,
+          "tempMax": 19.65,
+          "tempMin": 8.6,
           "weatherCode": 45,
           "precipProb": 0,
-          "sunrise": "2026-10-15T07:48",
+          "sunrise": "2026-10-15T07:47",
           "sunset": "2026-10-15T18:43"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.700000000000003,
-          "tempMin": 8.5,
+          "tempMax": 20.200000000000003,
+          "tempMin": 8.2,
           "weatherCode": 45,
-          "precipProb": 6,
+          "precipProb": 17,
           "sunrise": "2026-10-16T07:49",
           "sunset": "2026-10-16T18:41"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 13.25,
-          "tempMin": 8.15,
-          "weatherCode": 45,
-          "precipProb": 67,
+          "tempMax": 11.8,
+          "tempMin": 8.65,
+          "weatherCode": 63,
+          "precipProb": 69,
           "sunrise": "2026-10-17T07:50",
           "sunset": "2026-10-17T18:39"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9.65,
-          "tempMin": 6.449999999999999,
-          "weatherCode": 61,
-          "precipProb": 59,
+          "tempMax": 8.5,
+          "tempMin": 6.1,
+          "weatherCode": 63,
+          "precipProb": 45,
           "sunrise": "2026-10-18T07:52",
           "sunset": "2026-10-18T18:37"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 9.25,
-          "tempMin": 5.85,
+          "tempMax": 9.45,
+          "tempMin": 5.550000000000001,
           "weatherCode": 3,
-          "precipProb": 43,
+          "precipProb": 20,
           "sunrise": "2026-10-19T07:53",
-          "sunset": "2026-10-19T18:36"
+          "sunset": "2026-10-19T18:35"
         }
       ],
       "sources": [
@@ -3195,689 +3333,942 @@
         "met-no"
       ],
       "confidence": "high",
-      "generatedAt": "2026-10-13T11:53:42.925Z"
+      "generatedAt": "2026-10-13T19:21:55.771Z"
     },
     "liestal": {
       "cityId": "liestal",
       "canton": "BL",
       "name": "Liestal",
       "current": {
-        "temperature": 17.9,
-        "weatherCode": 2,
+        "temperature": 14.649999999999999,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 4,
-        "humidity": 56
+        "windSpeedKmh": 4.3,
+        "humidity": 85,
+        "apparentTemp": 15.6
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.3,
-          "tempMin": 13.7,
-          "weatherCode": 3
+          "tempMax": 16,
+          "tempMin": 9.25,
+          "weatherCode": 45,
+          "precipProb": 10,
+          "sunrise": "2026-10-13T07:44",
+          "sunset": "2026-10-13T18:45"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 17.9,
-          "tempMin": 10.5,
-          "weatherCode": 0
+          "tempMax": 19.45,
+          "tempMin": 11.100000000000001,
+          "weatherCode": 45,
+          "precipProb": 28,
+          "sunrise": "2026-10-14T07:46",
+          "sunset": "2026-10-14T18:43"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 18.8,
-          "tempMin": 7.4,
-          "weatherCode": 2
+          "tempMax": 20.25,
+          "tempMin": 7.95,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:47",
+          "sunset": "2026-10-15T18:41"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.3,
-          "tempMin": 9,
-          "weatherCode": 1
+          "tempMax": 21.15,
+          "tempMin": 9.95,
+          "weatherCode": 45,
+          "precipProb": 13,
+          "sunrise": "2026-10-16T07:48",
+          "sunset": "2026-10-16T18:39"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 12.4,
-          "tempMin": 9.8,
-          "weatherCode": 65
+          "tempMax": 14.100000000000001,
+          "tempMin": 9.350000000000001,
+          "weatherCode": 80,
+          "precipProb": 76,
+          "sunrise": "2026-10-17T07:50",
+          "sunset": "2026-10-17T18:37"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9,
-          "tempMin": 7.1,
-          "weatherCode": 65
+          "tempMax": 8.95,
+          "tempMin": 7.35,
+          "weatherCode": 61,
+          "precipProb": 55,
+          "sunrise": "2026-10-18T07:51",
+          "sunset": "2026-10-18T18:35"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.6,
-          "tempMin": 5.5,
-          "weatherCode": 3
+          "tempMax": 11.75,
+          "tempMin": 6.2,
+          "weatherCode": 45,
+          "precipProb": 19,
+          "sunrise": "2026-10-19T07:53",
+          "sunset": "2026-10-19T18:34"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:44.593Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:21:57.459Z"
     },
     "basel": {
       "cityId": "basel",
       "canton": "BS",
       "name": "Basel",
       "current": {
-        "temperature": 17.5,
+        "temperature": 15.25,
         "weatherCode": 3,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 56
+        "isDay": false,
+        "windSpeedKmh": 3.9,
+        "humidity": 80,
+        "apparentTemp": 16.9
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.5,
-          "tempMin": 12.5,
-          "weatherCode": 3
+          "tempMax": 16.25,
+          "tempMin": 10.2,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-13T07:45",
+          "sunset": "2026-10-13T18:45"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.9,
-          "tempMin": 9.3,
-          "weatherCode": 1
+          "tempMax": 20.35,
+          "tempMin": 11.7,
+          "weatherCode": 3,
+          "precipProb": 13,
+          "sunrise": "2026-10-14T07:46",
+          "sunset": "2026-10-14T18:43"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 18.3,
-          "tempMin": 7.3,
-          "weatherCode": 2
+          "tempMax": 20.549999999999997,
+          "tempMin": 9.3,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:48",
+          "sunset": "2026-10-15T18:41"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.2,
-          "tempMin": 9,
-          "weatherCode": 2
+          "tempMax": 21.8,
+          "tempMin": 9.600000000000001,
+          "weatherCode": 80,
+          "precipProb": 9,
+          "sunrise": "2026-10-16T07:49",
+          "sunset": "2026-10-16T18:40"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 12.5,
-          "tempMin": 10,
-          "weatherCode": 65
+          "tempMax": 14.55,
+          "tempMin": 9.75,
+          "weatherCode": 61,
+          "precipProb": 63,
+          "sunrise": "2026-10-17T07:51",
+          "sunset": "2026-10-17T18:38"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.6,
-          "tempMin": 7,
-          "weatherCode": 63
+          "tempMax": 9.05,
+          "tempMin": 7.5,
+          "weatherCode": 61,
+          "precipProb": 62,
+          "sunrise": "2026-10-18T07:52",
+          "sunset": "2026-10-18T18:36"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.8,
-          "tempMin": 5.7,
-          "weatherCode": 3
+          "tempMax": 11.45,
+          "tempMin": 6.7,
+          "weatherCode": 45,
+          "precipProb": 19,
+          "sunrise": "2026-10-19T07:54",
+          "sunset": "2026-10-19T18:34"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:46.215Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:21:59.147Z"
     },
     "fribourg": {
       "cityId": "fribourg",
       "canton": "FR",
       "name": "Fribourg",
       "current": {
-        "temperature": 16.7,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 67
+        "temperature": 14.4,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 6.4,
+        "humidity": 75,
+        "apparentTemp": 13.4
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.8,
-          "tempMin": 12.6,
-          "weatherCode": 2
+          "tempMax": 16.35,
+          "tempMin": 9,
+          "weatherCode": 80,
+          "precipProb": 5,
+          "sunrise": "2026-10-13T07:46",
+          "sunset": "2026-10-13T18:48"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.3,
-          "tempMin": 9.9,
-          "weatherCode": 1
+          "tempMax": 19.95,
+          "tempMin": 10.1,
+          "weatherCode": 45,
+          "precipProb": 8,
+          "sunrise": "2026-10-14T07:47",
+          "sunset": "2026-10-14T18:46"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 18.7,
-          "tempMin": 9.8,
-          "weatherCode": 2
+          "tempMax": 19.6,
+          "tempMin": 8.9,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:49",
+          "sunset": "2026-10-15T18:44"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.6,
-          "tempMin": 11.5,
-          "weatherCode": 0
+          "tempMax": 20.4,
+          "tempMin": 10.15,
+          "weatherCode": 2,
+          "precipProb": 17,
+          "sunrise": "2026-10-16T07:50",
+          "sunset": "2026-10-16T18:42"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 11.8,
-          "tempMin": 9.2,
-          "weatherCode": 65
+          "tempMax": 12.4,
+          "tempMin": 8.45,
+          "weatherCode": 80,
+          "precipProb": 70,
+          "sunrise": "2026-10-17T07:51",
+          "sunset": "2026-10-17T18:41"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 7.8,
-          "tempMin": 4.4,
-          "weatherCode": 63
+          "tempMax": 8.4,
+          "tempMin": 5.550000000000001,
+          "weatherCode": 61,
+          "precipProb": 43,
+          "sunrise": "2026-10-18T07:53",
+          "sunset": "2026-10-18T18:39"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 6.1,
-          "tempMin": 3.1,
-          "weatherCode": 2
+          "tempMax": 9.399999999999999,
+          "tempMin": 5.35,
+          "weatherCode": 45,
+          "precipProb": 22,
+          "sunrise": "2026-10-19T07:54",
+          "sunset": "2026-10-19T18:37"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:47.842Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:00.834Z"
     },
     "geneve": {
       "cityId": "geneve",
       "canton": "GE",
       "name": "Genève",
       "current": {
-        "temperature": 16.8,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 66
+        "temperature": 15.350000000000001,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 2.8,
+        "humidity": 82,
+        "apparentTemp": 16.5
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.3,
-          "tempMin": 13,
-          "weatherCode": 2
+          "tempMax": 16.45,
+          "tempMin": 8.95,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:49",
+          "sunset": "2026-10-13T18:53"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.4,
-          "tempMin": 11.8,
-          "weatherCode": 0
+          "tempMax": 20.95,
+          "tempMin": 11.45,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:50",
+          "sunset": "2026-10-14T18:51"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.5,
-          "tempMin": 10.3,
-          "weatherCode": 1
+          "tempMax": 21.1,
+          "tempMin": 9.95,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:52",
+          "sunset": "2026-10-15T18:49"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.2,
-          "tempMin": 10.3,
-          "weatherCode": 0
+          "tempMax": 21.799999999999997,
+          "tempMin": 9.85,
+          "weatherCode": 45,
+          "precipProb": 3,
+          "sunrise": "2026-10-16T07:53",
+          "sunset": "2026-10-16T18:47"
         },
         {
           "date": "2026-10-17",
           "tempMax": 15.3,
-          "tempMin": 10.7,
-          "weatherCode": 63
+          "tempMin": 11.149999999999999,
+          "weatherCode": 80,
+          "precipProb": 45,
+          "sunrise": "2026-10-17T07:55",
+          "sunset": "2026-10-17T18:45"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 10.9,
-          "tempMin": 7.3,
-          "weatherCode": 63
+          "tempMax": 11.25,
+          "tempMin": 8.55,
+          "weatherCode": 61,
+          "precipProb": 33,
+          "sunrise": "2026-10-18T07:56",
+          "sunset": "2026-10-18T18:44"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 9.5,
-          "tempMin": 6.4,
-          "weatherCode": 3
+          "tempMax": 12.25,
+          "tempMin": 8.5,
+          "weatherCode": 3,
+          "precipProb": 19,
+          "sunrise": "2026-10-19T07:57",
+          "sunset": "2026-10-19T18:42"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:49.465Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:02.482Z"
     },
     "glarus": {
       "cityId": "glarus",
       "canton": "GL",
       "name": "Glarus",
       "current": {
-        "temperature": 19.1,
-        "weatherCode": 1,
+        "temperature": 14.7,
+        "weatherCode": 61,
         "isDay": true,
-        "windSpeedKmh": 7,
-        "humidity": 38
+        "windSpeedKmh": 4.2,
+        "humidity": 74,
+        "apparentTemp": 12.3
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 19.2,
-          "tempMin": 15.1,
-          "weatherCode": 2
+          "tempMax": 15.65,
+          "tempMin": 10.55,
+          "weatherCode": 80,
+          "precipProb": 63,
+          "sunrise": "2026-10-13T07:38",
+          "sunset": "2026-10-13T18:40"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.5,
-          "tempMin": 13.8,
-          "weatherCode": 2
+          "tempMax": 19.9,
+          "tempMin": 11.1,
+          "weatherCode": 3,
+          "precipProb": 33,
+          "sunrise": "2026-10-14T07:40",
+          "sunset": "2026-10-14T18:38"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 22.9,
-          "tempMin": 11.6,
-          "weatherCode": 2
+          "tempMax": 21.35,
+          "tempMin": 10,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:41",
+          "sunset": "2026-10-15T18:36"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 22.3,
-          "tempMin": 14.7,
-          "weatherCode": 3
+          "tempMax": 21.85,
+          "tempMin": 13.8,
+          "weatherCode": 2,
+          "precipProb": 6,
+          "sunrise": "2026-10-16T07:42",
+          "sunset": "2026-10-16T18:34"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 17.9,
-          "tempMin": 10,
-          "weatherCode": 65
+          "tempMax": 15.45,
+          "tempMin": 10.05,
+          "weatherCode": 61,
+          "precipProb": 66,
+          "sunrise": "2026-10-17T07:44",
+          "sunset": "2026-10-17T18:33"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9.1,
-          "tempMin": 5.6,
-          "weatherCode": 65
+          "tempMax": 10.2,
+          "tempMin": 7.35,
+          "weatherCode": 45,
+          "precipProb": 55,
+          "sunrise": "2026-10-18T07:45",
+          "sunset": "2026-10-18T18:31"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 13.7,
-          "tempMin": 6,
-          "weatherCode": 2
+          "tempMax": 15.15,
+          "tempMin": 7.2,
+          "weatherCode": 45,
+          "precipProb": 21,
+          "sunrise": "2026-10-19T07:47",
+          "sunset": "2026-10-19T18:29"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:51.127Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:04.167Z"
     },
     "chur": {
       "cityId": "chur",
       "canton": "GR",
       "name": "Chur",
       "current": {
-        "temperature": 17.5,
-        "weatherCode": 1,
+        "temperature": 14.55,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 4,
-        "humidity": 36
+        "windSpeedKmh": 1.8,
+        "humidity": 60,
+        "apparentTemp": 13.8
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.9,
-          "tempMin": 13.9,
-          "weatherCode": 2
+          "tempMax": 16,
+          "tempMin": 9.4,
+          "weatherCode": 3,
+          "precipProb": 60,
+          "sunrise": "2026-10-13T07:36",
+          "sunset": "2026-10-13T18:38"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.2,
-          "tempMin": 10.4,
-          "weatherCode": 1
+          "tempMax": 20.4,
+          "tempMin": 9.95,
+          "weatherCode": 3,
+          "precipProb": 35,
+          "sunrise": "2026-10-14T07:38",
+          "sunset": "2026-10-14T18:37"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 22.6,
-          "tempMin": 7.1,
-          "weatherCode": 2
+          "tempMax": 22.45,
+          "tempMin": 8.6,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:39",
+          "sunset": "2026-10-15T18:35"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 22.5,
-          "tempMin": 10.4,
-          "weatherCode": 3
+          "tempMax": 22.1,
+          "tempMin": 10.350000000000001,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:40",
+          "sunset": "2026-10-16T18:33"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 18,
-          "tempMin": 8.3,
-          "weatherCode": 2
+          "tempMax": 16.85,
+          "tempMin": 8.65,
+          "weatherCode": 61,
+          "precipProb": 38,
+          "sunrise": "2026-10-17T07:42",
+          "sunset": "2026-10-17T18:31"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.6,
-          "tempMin": 4.3,
-          "weatherCode": 65
+          "tempMax": 12.5,
+          "tempMin": 7,
+          "weatherCode": 3,
+          "precipProb": 35,
+          "sunrise": "2026-10-18T07:43",
+          "sunset": "2026-10-18T18:29"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 12.9,
-          "tempMin": 4,
-          "weatherCode": 2
+          "tempMax": 17.5,
+          "tempMin": 7.95,
+          "weatherCode": 1,
+          "precipProb": 30,
+          "sunrise": "2026-10-19T07:45",
+          "sunset": "2026-10-19T18:27"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:52.749Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:05.850Z"
     },
     "delemont": {
       "cityId": "delemont",
       "canton": "JU",
       "name": "Delémont",
       "current": {
-        "temperature": 18.7,
-        "weatherCode": 2,
+        "temperature": 14.6,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 10,
-        "humidity": 54
+        "windSpeedKmh": 6,
+        "humidity": 93,
+        "apparentTemp": 15.8
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.7,
-          "tempMin": 14,
-          "weatherCode": 3
+          "tempMax": 16.55,
+          "tempMin": 9.05,
+          "weatherCode": 3,
+          "precipProb": 10,
+          "sunrise": "2026-10-13T07:46",
+          "sunset": "2026-10-13T18:46"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.4,
-          "tempMin": 10.1,
-          "weatherCode": 2
+          "tempMax": 19.700000000000003,
+          "tempMin": 10.75,
+          "weatherCode": 45,
+          "precipProb": 13,
+          "sunrise": "2026-10-14T07:47",
+          "sunset": "2026-10-14T18:45"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 20.8,
-          "tempMin": 6.5,
-          "weatherCode": 2
+          "tempMax": 21.35,
+          "tempMin": 8.350000000000001,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:48",
+          "sunset": "2026-10-15T18:43"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 21.2,
-          "tempMin": 9.7,
-          "weatherCode": 1
+          "tempMax": 22.15,
+          "tempMin": 8.4,
+          "weatherCode": 80,
+          "precipProb": 12,
+          "sunrise": "2026-10-16T07:50",
+          "sunset": "2026-10-16T18:41"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 13.3,
-          "tempMin": 9.2,
-          "weatherCode": 65
+          "tempMax": 14.3,
+          "tempMin": 8.75,
+          "weatherCode": 80,
+          "precipProb": 75,
+          "sunrise": "2026-10-17T07:51",
+          "sunset": "2026-10-17T18:39"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 7.7,
-          "tempMin": 6.1,
-          "weatherCode": 65
+          "tempMax": 8.2,
+          "tempMin": 6.65,
+          "weatherCode": 61,
+          "precipProb": 61,
+          "sunrise": "2026-10-18T07:53",
+          "sunset": "2026-10-18T18:37"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8,
-          "tempMin": 4.7,
-          "weatherCode": 3
+          "tempMax": 10.45,
+          "tempMin": 5.95,
+          "weatherCode": 45,
+          "precipProb": 27,
+          "sunrise": "2026-10-19T07:54",
+          "sunset": "2026-10-19T18:35"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:54.372Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:07.540Z"
     },
     "luzern": {
       "cityId": "luzern",
       "canton": "LU",
       "name": "Luzern",
       "current": {
-        "temperature": 15.3,
-        "weatherCode": 0,
+        "temperature": 14.399999999999999,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 69
+        "windSpeedKmh": 3,
+        "humidity": 82,
+        "apparentTemp": 15.3
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.7,
-          "tempMin": 14.2,
-          "weatherCode": 3
+          "tempMax": 15.25,
+          "tempMin": 9.45,
+          "weatherCode": 61,
+          "precipProb": 18,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:43"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.8,
-          "tempMin": 11.4,
-          "weatherCode": 1
+          "tempMax": 19.65,
+          "tempMin": 11.5,
+          "weatherCode": 61,
+          "precipProb": 25,
+          "sunrise": "2026-10-14T07:43",
+          "sunset": "2026-10-14T18:41"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 17.9,
-          "tempMin": 10.6,
-          "weatherCode": 2
+          "tempMax": 19.05,
+          "tempMin": 10,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:44",
+          "sunset": "2026-10-15T18:39"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 17.8,
-          "tempMin": 9.3,
-          "weatherCode": 3
+          "tempMax": 19.85,
+          "tempMin": 10.15,
+          "weatherCode": 45,
+          "precipProb": 8,
+          "sunrise": "2026-10-16T07:46",
+          "sunset": "2026-10-16T18:37"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 12.6,
-          "tempMin": 10.2,
-          "weatherCode": 65
+          "tempMax": 13.149999999999999,
+          "tempMin": 10.05,
+          "weatherCode": 63,
+          "precipProb": 65,
+          "sunrise": "2026-10-17T07:47",
+          "sunset": "2026-10-17T18:36"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.8,
-          "tempMin": 5.4,
-          "weatherCode": 65
+          "tempMax": 9.8,
+          "tempMin": 7,
+          "weatherCode": 61,
+          "precipProb": 55,
+          "sunrise": "2026-10-18T07:48",
+          "sunset": "2026-10-18T18:34"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 5.8,
-          "tempMin": 1.9,
-          "weatherCode": 3
+          "tempMax": 9.95,
+          "tempMin": 5.5,
+          "weatherCode": 45,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:50",
+          "sunset": "2026-10-19T18:32"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:56.035Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:09.230Z"
     },
     "neuchatel": {
       "cityId": "neuchatel",
       "canton": "NE",
       "name": "Neuchâtel",
       "current": {
-        "temperature": 16.7,
-        "weatherCode": 2,
+        "temperature": 15.649999999999999,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 7,
-        "humidity": 70
+        "windSpeedKmh": 5.5,
+        "humidity": 81,
+        "apparentTemp": 15.4
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.1,
-          "tempMin": 14.6,
-          "weatherCode": 3
+          "tempMax": 16.2,
+          "tempMin": 10.95,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-13T07:47",
+          "sunset": "2026-10-13T18:49"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.7,
-          "tempMin": 11.7,
-          "weatherCode": 1
+          "tempMax": 20.299999999999997,
+          "tempMin": 13,
+          "weatherCode": 3,
+          "precipProb": 10,
+          "sunrise": "2026-10-14T07:48",
+          "sunset": "2026-10-14T18:47"
         },
         {
           "date": "2026-10-15",
           "tempMax": 19.4,
-          "tempMin": 11.5,
-          "weatherCode": 2
+          "tempMin": 11.25,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:50",
+          "sunset": "2026-10-15T18:45"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.7,
-          "tempMin": 12.5,
-          "weatherCode": 0
+          "tempMax": 20.799999999999997,
+          "tempMin": 11.85,
+          "weatherCode": 45,
+          "precipProb": 6,
+          "sunrise": "2026-10-16T07:51",
+          "sunset": "2026-10-16T18:43"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 15.1,
-          "tempMin": 10,
-          "weatherCode": 63
+          "tempMax": 15.55,
+          "tempMin": 10.2,
+          "weatherCode": 80,
+          "precipProb": 68,
+          "sunrise": "2026-10-17T07:53",
+          "sunset": "2026-10-17T18:41"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9.5,
-          "tempMin": 6.5,
-          "weatherCode": 63
+          "tempMax": 10.05,
+          "tempMin": 7.75,
+          "weatherCode": 61,
+          "precipProb": 48,
+          "sunrise": "2026-10-18T07:54",
+          "sunset": "2026-10-18T18:39"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 7.7,
-          "tempMin": 5.6,
-          "weatherCode": 2
+          "tempMax": 11.15,
+          "tempMin": 8.1,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:55",
+          "sunset": "2026-10-19T18:38"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:57.706Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:10.925Z"
     },
     "stans": {
       "cityId": "stans",
       "canton": "NW",
       "name": "Stans",
       "current": {
-        "temperature": 16.5,
-        "weatherCode": 0,
+        "temperature": 14.75,
+        "weatherCode": 80,
         "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 63
+        "windSpeedKmh": 1.7,
+        "humidity": 70,
+        "apparentTemp": 13.6
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.4,
-          "tempMin": 15.5,
-          "weatherCode": 2
+          "tempMax": 15.75,
+          "tempMin": 10.75,
+          "weatherCode": 80,
+          "precipProb": 23,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:43"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.5,
-          "tempMin": 13.7,
-          "weatherCode": 1
+          "tempMax": 19.35,
+          "tempMin": 12.85,
+          "weatherCode": 80,
+          "precipProb": 33,
+          "sunrise": "2026-10-14T07:42",
+          "sunset": "2026-10-14T18:41"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 18.7,
-          "tempMin": 12.9,
-          "weatherCode": 2
+          "tempMax": 19.25,
+          "tempMin": 11.6,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:44",
+          "sunset": "2026-10-15T18:39"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19,
-          "tempMin": 13.2,
-          "weatherCode": 3
+          "tempMax": 20.15,
+          "tempMin": 12.600000000000001,
+          "weatherCode": 2,
+          "precipProb": 11,
+          "sunrise": "2026-10-16T07:45",
+          "sunset": "2026-10-16T18:37"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 14.7,
-          "tempMin": 11,
-          "weatherCode": 65
+          "tempMax": 14.1,
+          "tempMin": 10.15,
+          "weatherCode": 63,
+          "precipProb": 70,
+          "sunrise": "2026-10-17T07:47",
+          "sunset": "2026-10-17T18:35"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9.2,
-          "tempMin": 5,
-          "weatherCode": 65
+          "tempMax": 9.35,
+          "tempMin": 6.4,
+          "weatherCode": 61,
+          "precipProb": 61,
+          "sunrise": "2026-10-18T07:48",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 5.6,
-          "tempMin": 2.7,
-          "weatherCode": 3
+          "tempMax": 9.25,
+          "tempMin": 6,
+          "weatherCode": 45,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:49",
+          "sunset": "2026-10-19T18:32"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:53:59.387Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:12.618Z"
     },
     "sarnen": {
       "cityId": "sarnen",
       "canton": "OW",
       "name": "Sarnen",
       "current": {
-        "temperature": 19.9,
-        "weatherCode": 0,
+        "temperature": 14.95,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 41
+        "windSpeedKmh": 3.4,
+        "humidity": 78,
+        "apparentTemp": 14.2
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 20.4,
-          "tempMin": 14.9,
-          "weatherCode": 2
+          "tempMax": 15.7,
+          "tempMin": 11.55,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:43"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.4,
-          "tempMin": 11.9,
-          "weatherCode": 2
+          "tempMax": 19.95,
+          "tempMin": 11.850000000000001,
+          "weatherCode": 80,
+          "precipProb": 33,
+          "sunrise": "2026-10-14T07:43",
+          "sunset": "2026-10-14T18:42"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 22.1,
-          "tempMin": 10.5,
-          "weatherCode": 2
+          "tempMax": 20.8,
+          "tempMin": 10.899999999999999,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:44",
+          "sunset": "2026-10-15T18:40"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 22.3,
-          "tempMin": 11.4,
-          "weatherCode": 2
+          "tempMax": 22.25,
+          "tempMin": 11.850000000000001,
+          "weatherCode": 2,
+          "precipProb": 6,
+          "sunrise": "2026-10-16T07:46",
+          "sunset": "2026-10-16T18:38"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 15.5,
-          "tempMin": 9.1,
-          "weatherCode": 65
+          "tempMax": 14.75,
+          "tempMin": 9.25,
+          "weatherCode": 61,
+          "precipProb": 68,
+          "sunrise": "2026-10-17T07:47",
+          "sunset": "2026-10-17T18:36"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.5,
-          "tempMin": 4.2,
-          "weatherCode": 65
+          "tempMax": 8.95,
+          "tempMin": 6.15,
+          "weatherCode": 51,
+          "precipProb": 63,
+          "sunrise": "2026-10-18T07:49",
+          "sunset": "2026-10-18T18:34"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 7.5,
-          "tempMin": 3,
-          "weatherCode": 2
+          "tempMax": 10.15,
+          "tempMin": 6.05,
+          "weatherCode": 45,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:50",
+          "sunset": "2026-10-19T18:32"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:01.048Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:14.310Z"
     },
     "st-gallen": {
       "cityId": "st-gallen",
@@ -3885,619 +4276,849 @@
       "name": "St. Gallen",
       "current": {
         "temperature": 12.5,
-        "weatherCode": 2,
+        "weatherCode": 61,
         "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 78
+        "windSpeedKmh": 8.8,
+        "humidity": 66,
+        "apparentTemp": 11.1
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 15,
-          "tempMin": 11.2,
-          "weatherCode": 3
+          "tempMax": 13.5,
+          "tempMin": 6.85,
+          "weatherCode": 61,
+          "precipProb": 78,
+          "sunrise": "2026-10-13T07:38",
+          "sunset": "2026-10-13T18:38"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 15.2,
-          "tempMin": 8.1,
-          "weatherCode": 2
+          "tempMax": 16.4,
+          "tempMin": 9.5,
+          "weatherCode": 80,
+          "precipProb": 33,
+          "sunrise": "2026-10-14T07:39",
+          "sunset": "2026-10-14T18:37"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 16,
-          "tempMin": 8.7,
-          "weatherCode": 2
+          "tempMax": 16.55,
+          "tempMin": 8.35,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:40",
+          "sunset": "2026-10-15T18:35"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 15.9,
-          "tempMin": 10,
-          "weatherCode": 2
+          "tempMax": 17.3,
+          "tempMin": 8.45,
+          "weatherCode": 3,
+          "precipProb": 8,
+          "sunrise": "2026-10-16T07:42",
+          "sunset": "2026-10-16T18:33"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 12,
+          "tempMax": 11.95,
           "tempMin": 7.5,
-          "weatherCode": 65
+          "weatherCode": 63,
+          "precipProb": 68,
+          "sunrise": "2026-10-17T07:43",
+          "sunset": "2026-10-17T18:31"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 6.4,
-          "tempMin": 4,
-          "weatherCode": 65
+          "tempMax": 8,
+          "tempMin": 5.3,
+          "weatherCode": 61,
+          "precipProb": 56,
+          "sunrise": "2026-10-18T07:45",
+          "sunset": "2026-10-18T18:29"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 7.4,
-          "tempMin": 2.1,
-          "weatherCode": 3
+          "tempMax": 10.9,
+          "tempMin": 5.2,
+          "weatherCode": 45,
+          "precipProb": 27,
+          "sunrise": "2026-10-19T07:46",
+          "sunset": "2026-10-19T18:27"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:02.721Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:15.955Z"
     },
     "schaffhausen": {
       "cityId": "schaffhausen",
       "canton": "SH",
       "name": "Schaffhausen",
       "current": {
-        "temperature": 13.9,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 10,
-        "humidity": 63
+        "temperature": 13.25,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 9,
+        "humidity": 81,
+        "apparentTemp": 12.9
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 16.3,
-          "tempMin": 11.4,
-          "weatherCode": 2
+          "tempMax": 14.100000000000001,
+          "tempMin": 7.25,
+          "weatherCode": 45,
+          "precipProb": 25,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:41"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 17.7,
-          "tempMin": 7.6,
-          "weatherCode": 1
+          "tempMax": 19.25,
+          "tempMin": 9.850000000000001,
+          "weatherCode": 80,
+          "precipProb": 5,
+          "sunrise": "2026-10-14T07:42",
+          "sunset": "2026-10-14T18:39"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 16.7,
-          "tempMin": 7.5,
-          "weatherCode": 2
+          "tempMax": 17.75,
+          "tempMin": 7.300000000000001,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:44",
+          "sunset": "2026-10-15T18:37"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 15.1,
-          "tempMin": 7.3,
-          "weatherCode": 3
+          "tempMax": 18.25,
+          "tempMin": 8.65,
+          "weatherCode": 45,
+          "precipProb": 9,
+          "sunrise": "2026-10-16T07:45",
+          "sunset": "2026-10-16T18:35"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 10.8,
-          "tempMin": 7.4,
-          "weatherCode": 65
+          "tempMax": 12.05,
+          "tempMin": 8.3,
+          "weatherCode": 61,
+          "precipProb": 60,
+          "sunrise": "2026-10-17T07:47",
+          "sunset": "2026-10-17T18:33"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 7.9,
-          "tempMin": 5.6,
-          "weatherCode": 65
+          "tempMax": 9.45,
+          "tempMin": 6.95,
+          "weatherCode": 61,
+          "precipProb": 55,
+          "sunrise": "2026-10-18T07:48",
+          "sunset": "2026-10-18T18:31"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8,
-          "tempMin": 3.6,
-          "weatherCode": 2
+          "tempMax": 11.5,
+          "tempMin": 6.6499999999999995,
+          "weatherCode": 3,
+          "precipProb": 25,
+          "sunrise": "2026-10-19T07:50",
+          "sunset": "2026-10-19T18:30"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:04.343Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:17.642Z"
     },
     "solothurn": {
       "cityId": "solothurn",
       "canton": "SO",
       "name": "Solothurn",
       "current": {
-        "temperature": 16.2,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 9,
-        "humidity": 64
+        "temperature": 13.45,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 4.4,
+        "humidity": 84,
+        "apparentTemp": 13.5
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.5,
-          "tempMin": 12.7,
-          "weatherCode": 2
+          "tempMax": 14.799999999999999,
+          "tempMin": 7.25,
+          "weatherCode": 45,
+          "precipProb": 10,
+          "sunrise": "2026-10-13T07:45",
+          "sunset": "2026-10-13T18:46"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.1,
-          "tempMin": 8.3,
-          "weatherCode": 1
+          "tempMax": 20.9,
+          "tempMin": 9.45,
+          "weatherCode": 45,
+          "precipProb": 5,
+          "sunrise": "2026-10-14T07:46",
+          "sunset": "2026-10-14T18:44"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.8,
-          "tempMin": 9.2,
-          "weatherCode": 2
+          "tempMax": 20.15,
+          "tempMin": 8.35,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:48",
+          "sunset": "2026-10-15T18:42"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.1,
-          "tempMin": 9.6,
-          "weatherCode": 2
+          "tempMax": 20.65,
+          "tempMin": 8.45,
+          "weatherCode": 45,
+          "precipProb": 6,
+          "sunrise": "2026-10-16T07:49",
+          "sunset": "2026-10-16T18:40"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 11.9,
-          "tempMin": 9.6,
-          "weatherCode": 65
+          "tempMax": 12.45,
+          "tempMin": 9.45,
+          "weatherCode": 61,
+          "precipProb": 66,
+          "sunrise": "2026-10-17T07:50",
+          "sunset": "2026-10-17T18:38"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.6,
-          "tempMin": 5.9,
-          "weatherCode": 65
+          "tempMax": 9.05,
+          "tempMin": 6.95,
+          "weatherCode": 61,
+          "precipProb": 51,
+          "sunrise": "2026-10-18T07:52",
+          "sunset": "2026-10-18T18:37"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.2,
-          "tempMin": 3.8,
-          "weatherCode": 3
+          "tempMax": 10.75,
+          "tempMin": 6.6,
+          "weatherCode": 3,
+          "precipProb": 22,
+          "sunrise": "2026-10-19T07:53",
+          "sunset": "2026-10-19T18:35"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:06.009Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:19.340Z"
     },
     "schwyz": {
       "cityId": "schwyz",
       "canton": "SZ",
       "name": "Schwyz",
       "current": {
-        "temperature": 18.3,
-        "weatherCode": 0,
+        "temperature": 13.850000000000001,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 42
+        "windSpeedKmh": 4.1,
+        "humidity": 67,
+        "apparentTemp": 11.6
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 18.7,
-          "tempMin": 14,
-          "weatherCode": 2
+          "tempMax": 15.700000000000001,
+          "tempMin": 9.6,
+          "weatherCode": 3,
+          "precipProb": 25,
+          "sunrise": "2026-10-13T07:40",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 19.1,
-          "tempMin": 11.7,
-          "weatherCode": 1
+          "tempMax": 19.65,
+          "tempMin": 11.2,
+          "weatherCode": 80,
+          "precipProb": 23,
+          "sunrise": "2026-10-14T07:41",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 21.2,
-          "tempMin": 10,
-          "weatherCode": 2
+          "tempMax": 20.9,
+          "tempMin": 10.4,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:43",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 20.7,
-          "tempMin": 12.6,
-          "weatherCode": 3
+          "tempMax": 21.3,
+          "tempMin": 13.25,
+          "weatherCode": 2,
+          "precipProb": 6,
+          "sunrise": "2026-10-16T07:44",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 15.9,
-          "tempMin": 10.3,
-          "weatherCode": 65
+          "tempMax": 15,
+          "tempMin": 10.05,
+          "weatherCode": 61,
+          "precipProb": 65,
+          "sunrise": "2026-10-17T07:46",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8.4,
-          "tempMin": 4.4,
-          "weatherCode": 65
+          "tempMax": 9.3,
+          "tempMin": 6.55,
+          "weatherCode": 51,
+          "precipProb": 46,
+          "sunrise": "2026-10-18T07:47",
+          "sunset": "2026-10-18T18:32"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 10.5,
-          "tempMin": 4,
-          "weatherCode": 2
+          "tempMax": 12.05,
+          "tempMin": 6.3,
+          "weatherCode": 45,
+          "precipProb": 17,
+          "sunrise": "2026-10-19T07:49",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:07.673Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:21.022Z"
     },
     "frauenfeld": {
       "cityId": "frauenfeld",
       "canton": "TG",
       "name": "Frauenfeld",
       "current": {
-        "temperature": 14.6,
-        "weatherCode": 1,
-        "isDay": true,
-        "windSpeedKmh": 8,
-        "humidity": 68
+        "temperature": 14,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 9.3,
+        "humidity": 73,
+        "apparentTemp": 13.8
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.3,
-          "tempMin": 13.5,
-          "weatherCode": 3
+          "tempMax": 14.45,
+          "tempMin": 7.45,
+          "weatherCode": 61,
+          "precipProb": 40,
+          "sunrise": "2026-10-13T07:40",
+          "sunset": "2026-10-13T18:40"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.1,
-          "tempMin": 9.5,
-          "weatherCode": 1
+          "tempMax": 19.55,
+          "tempMin": 10.3,
+          "weatherCode": 80,
+          "precipProb": 10,
+          "sunrise": "2026-10-14T07:41",
+          "sunset": "2026-10-14T18:38"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 17.1,
-          "tempMin": 8.5,
-          "weatherCode": 2
+          "tempMax": 18.25,
+          "tempMin": 9.3,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:42",
+          "sunset": "2026-10-15T18:36"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 15.8,
-          "tempMin": 9,
-          "weatherCode": 3
+          "tempMax": 19.1,
+          "tempMin": 9.2,
+          "weatherCode": 45,
+          "precipProb": 5,
+          "sunrise": "2026-10-16T07:44",
+          "sunset": "2026-10-16T18:34"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 11.7,
-          "tempMin": 8.9,
-          "weatherCode": 65
+          "tempMax": 11.8,
+          "tempMin": 9.100000000000001,
+          "weatherCode": 63,
+          "precipProb": 70,
+          "sunrise": "2026-10-17T07:45",
+          "sunset": "2026-10-17T18:33"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 8,
-          "tempMin": 5.5,
-          "weatherCode": 65
+          "tempMax": 9.2,
+          "tempMin": 6.85,
+          "weatherCode": 61,
+          "precipProb": 57,
+          "sunrise": "2026-10-18T07:47",
+          "sunset": "2026-10-18T18:31"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 7.6,
-          "tempMin": 3.6,
-          "weatherCode": 3
+          "tempMax": 11.05,
+          "tempMin": 6.3,
+          "weatherCode": 3,
+          "precipProb": 22,
+          "sunrise": "2026-10-19T07:48",
+          "sunset": "2026-10-19T18:29"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:09.334Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:22.711Z"
     },
     "altdorf": {
       "cityId": "altdorf",
       "canton": "UR",
       "name": "Altdorf",
       "current": {
-        "temperature": 19.2,
-        "weatherCode": 0,
+        "temperature": 13.65,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 43
+        "windSpeedKmh": 3.2,
+        "humidity": 69,
+        "apparentTemp": 9.5
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 19.7,
-          "tempMin": 15.5,
-          "weatherCode": 2
+          "tempMax": 16.4,
+          "tempMin": 10.8,
+          "weatherCode": 3,
+          "precipProb": 25,
+          "sunrise": "2026-10-13T07:40",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.2,
-          "tempMin": 12.2,
-          "weatherCode": 2
+          "tempMax": 20.1,
+          "tempMin": 11.35,
+          "weatherCode": 80,
+          "precipProb": 13,
+          "sunrise": "2026-10-14T07:41",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 22.3,
-          "tempMin": 10.5,
-          "weatherCode": 2
+          "tempMax": 21.05,
+          "tempMin": 9.65,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:43",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 21.7,
-          "tempMin": 13.5,
-          "weatherCode": 3
+          "tempMax": 21.85,
+          "tempMin": 14.15,
+          "weatherCode": 2,
+          "precipProb": 5,
+          "sunrise": "2026-10-16T07:44",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 16.9,
-          "tempMin": 10.5,
-          "weatherCode": 65
+          "tempMax": 16.549999999999997,
+          "tempMin": 10.65,
+          "weatherCode": 63,
+          "precipProb": 79,
+          "sunrise": "2026-10-17T07:46",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 9.4,
-          "tempMin": 5.4,
-          "weatherCode": 65
+          "tempMax": 10.15,
+          "tempMin": 7.45,
+          "weatherCode": 61,
+          "precipProb": 80,
+          "sunrise": "2026-10-18T07:47",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 11.2,
-          "tempMin": 5,
-          "weatherCode": 3
+          "tempMax": 12.55,
+          "tempMin": 7.55,
+          "weatherCode": 45,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:48",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:11.008Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:24.415Z"
     },
     "lausanne": {
       "cityId": "lausanne",
       "canton": "VD",
       "name": "Lausanne",
       "current": {
-        "temperature": 16.6,
-        "weatherCode": 1,
+        "temperature": 16.1,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 8,
-        "humidity": 70
+        "windSpeedKmh": 5.4,
+        "humidity": 64,
+        "apparentTemp": 14.2
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.4,
-          "tempMin": 15.5,
-          "weatherCode": 3
+          "tempMax": 16.799999999999997,
+          "tempMin": 12.75,
+          "weatherCode": 3,
+          "precipProb": 3,
+          "sunrise": "2026-10-13T07:47",
+          "sunset": "2026-10-13T18:50"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 20.4,
-          "tempMin": 14.7,
-          "weatherCode": 0
+          "tempMax": 21.299999999999997,
+          "tempMin": 13.899999999999999,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-14T07:49",
+          "sunset": "2026-10-14T18:48"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 19.8,
-          "tempMin": 13.2,
-          "weatherCode": 2
+          "tempMax": 19.950000000000003,
+          "tempMin": 13.25,
+          "weatherCode": 3,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:50",
+          "sunset": "2026-10-15T18:47"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 19.8,
-          "tempMin": 14.4,
-          "weatherCode": 0
+          "tempMax": 20.45,
+          "tempMin": 13.3,
+          "weatherCode": 3,
+          "precipProb": 13,
+          "sunrise": "2026-10-16T07:52",
+          "sunset": "2026-10-16T18:45"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 14.5,
-          "tempMin": 11.6,
-          "weatherCode": 63
+          "tempMax": 15.3,
+          "tempMin": 10.95,
+          "weatherCode": 80,
+          "precipProb": 52,
+          "sunrise": "2026-10-17T07:53",
+          "sunset": "2026-10-17T18:43"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 10.7,
-          "tempMin": 6.9,
-          "weatherCode": 61
+          "tempMax": 10.85,
+          "tempMin": 7.9,
+          "weatherCode": 61,
+          "precipProb": 42,
+          "sunrise": "2026-10-18T07:54",
+          "sunset": "2026-10-18T18:41"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.7,
-          "tempMin": 6.3,
-          "weatherCode": 3
+          "tempMax": 11.7,
+          "tempMin": 8.25,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-19T07:56",
+          "sunset": "2026-10-19T18:39"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:12.631Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:26.098Z"
     },
     "sion": {
       "cityId": "sion",
       "canton": "VS",
       "name": "Sion",
       "current": {
-        "temperature": 21.5,
-        "weatherCode": 0,
-        "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 31
+        "temperature": 15.1,
+        "weatherCode": 3,
+        "isDay": false,
+        "windSpeedKmh": 3.4,
+        "humidity": 65,
+        "apparentTemp": 12.8
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 22.6,
-          "tempMin": 16.3,
-          "weatherCode": 2
+          "tempMax": 16.9,
+          "tempMin": 9.15,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-13T07:44",
+          "sunset": "2026-10-13T18:48"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 24.4,
-          "tempMin": 11.8,
-          "weatherCode": 0
+          "tempMax": 23.35,
+          "tempMin": 11.2,
+          "weatherCode": 3,
+          "precipProb": 3,
+          "sunrise": "2026-10-14T07:46",
+          "sunset": "2026-10-14T18:46"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 26.4,
-          "tempMin": 12.1,
-          "weatherCode": 2
+          "tempMax": 24.700000000000003,
+          "tempMin": 11,
+          "weatherCode": 2,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:47",
+          "sunset": "2026-10-15T18:44"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 25.1,
-          "tempMin": 13.5,
-          "weatherCode": 0
+          "tempMax": 24.8,
+          "tempMin": 12.4,
+          "weatherCode": 0,
+          "precipProb": 0,
+          "sunrise": "2026-10-16T07:48",
+          "sunset": "2026-10-16T18:42"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 20.4,
-          "tempMin": 11.1,
-          "weatherCode": 63
+          "tempMax": 20.549999999999997,
+          "tempMin": 11.399999999999999,
+          "weatherCode": 61,
+          "precipProb": 25,
+          "sunrise": "2026-10-17T07:50",
+          "sunset": "2026-10-17T18:40"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 12,
-          "tempMin": 7.7,
-          "weatherCode": 63
+          "tempMax": 14.45,
+          "tempMin": 9.45,
+          "weatherCode": 61,
+          "precipProb": 29,
+          "sunrise": "2026-10-18T07:51",
+          "sunset": "2026-10-18T18:39"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 12.3,
-          "tempMin": 5.9,
-          "weatherCode": 2
+          "tempMax": 16.4,
+          "tempMin": 9.95,
+          "weatherCode": 3,
+          "precipProb": 25,
+          "sunrise": "2026-10-19T07:52",
+          "sunset": "2026-10-19T18:37"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:14.301Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:27.789Z"
     },
     "zug": {
       "cityId": "zug",
       "canton": "ZG",
       "name": "Zug",
       "current": {
-        "temperature": 15.3,
-        "weatherCode": 0,
+        "temperature": 13.75,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 5,
-        "humidity": 71
+        "windSpeedKmh": 6.2,
+        "humidity": 74,
+        "apparentTemp": 13.3
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.1,
-          "tempMin": 13,
-          "weatherCode": 3
+          "tempMax": 14.350000000000001,
+          "tempMin": 9.4,
+          "weatherCode": 45,
+          "precipProb": 25,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.1,
-          "tempMin": 11.3,
-          "weatherCode": 1
+          "tempMax": 19.2,
+          "tempMin": 12.15,
+          "weatherCode": 80,
+          "precipProb": 18,
+          "sunrise": "2026-10-14T07:42",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 17.7,
+          "tempMax": 18.65,
           "tempMin": 10.3,
-          "weatherCode": 2
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:43",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 17.4,
-          "tempMin": 10.2,
-          "weatherCode": 3
+          "tempMax": 19.7,
+          "tempMin": 9.850000000000001,
+          "weatherCode": 45,
+          "precipProb": 14,
+          "sunrise": "2026-10-16T07:45",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 11.9,
-          "tempMin": 9,
-          "weatherCode": 65
+          "tempMax": 12.75,
+          "tempMin": 9.5,
+          "weatherCode": 80,
+          "precipProb": 66,
+          "sunrise": "2026-10-17T07:46",
+          "sunset": "2026-10-17T18:35"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 7.9,
-          "tempMin": 4.1,
-          "weatherCode": 65
+          "tempMax": 9.350000000000001,
+          "tempMin": 6.55,
+          "weatherCode": 61,
+          "precipProb": 53,
+          "sunrise": "2026-10-18T07:48",
+          "sunset": "2026-10-18T18:33"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 7.1,
-          "tempMin": 1.2,
-          "weatherCode": 3
+          "tempMax": 10.649999999999999,
+          "tempMin": 5.199999999999999,
+          "weatherCode": 45,
+          "precipProb": 17,
+          "sunrise": "2026-10-19T07:49",
+          "sunset": "2026-10-19T18:31"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:15.923Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:29.488Z"
     },
     "zurich": {
       "cityId": "zurich",
       "canton": "ZH",
       "name": "Zürich",
       "current": {
-        "temperature": 15.5,
-        "weatherCode": 0,
+        "temperature": 15.35,
+        "weatherCode": 3,
         "isDay": true,
-        "windSpeedKmh": 6,
-        "humidity": 63
+        "windSpeedKmh": 7,
+        "humidity": 71,
+        "apparentTemp": 15.1
       },
       "hourly24": [],
       "daily7": [
         {
           "date": "2026-10-13",
-          "tempMax": 17.8,
-          "tempMin": 12.8,
-          "weatherCode": 3
+          "tempMax": 15.7,
+          "tempMin": 9.1,
+          "weatherCode": 61,
+          "precipProb": 25,
+          "sunrise": "2026-10-13T07:41",
+          "sunset": "2026-10-13T18:42"
         },
         {
           "date": "2026-10-14",
-          "tempMax": 18.7,
-          "tempMin": 9.9,
-          "weatherCode": 1
+          "tempMax": 19.75,
+          "tempMin": 12.25,
+          "weatherCode": 3,
+          "precipProb": 15,
+          "sunrise": "2026-10-14T07:42",
+          "sunset": "2026-10-14T18:40"
         },
         {
           "date": "2026-10-15",
-          "tempMax": 16.8,
-          "tempMin": 9.1,
-          "weatherCode": 2
+          "tempMax": 18.6,
+          "tempMin": 9.8,
+          "weatherCode": 45,
+          "precipProb": 0,
+          "sunrise": "2026-10-15T07:44",
+          "sunset": "2026-10-15T18:38"
         },
         {
           "date": "2026-10-16",
-          "tempMax": 17.1,
-          "tempMin": 9.3,
-          "weatherCode": 3
+          "tempMax": 19.5,
+          "tempMin": 9.75,
+          "weatherCode": 45,
+          "precipProb": 12,
+          "sunrise": "2026-10-16T07:45",
+          "sunset": "2026-10-16T18:36"
         },
         {
           "date": "2026-10-17",
-          "tempMax": 11.8,
-          "tempMin": 8.5,
-          "weatherCode": 65
+          "tempMax": 13.8,
+          "tempMin": 8.95,
+          "weatherCode": 80,
+          "precipProb": 70,
+          "sunrise": "2026-10-17T07:47",
+          "sunset": "2026-10-17T18:34"
         },
         {
           "date": "2026-10-18",
-          "tempMax": 7.8,
-          "tempMin": 5.3,
-          "weatherCode": 65
+          "tempMax": 9.05,
+          "tempMin": 6.9,
+          "weatherCode": 61,
+          "precipProb": 59,
+          "sunrise": "2026-10-18T07:48",
+          "sunset": "2026-10-18T18:32"
         },
         {
           "date": "2026-10-19",
-          "tempMax": 8.1,
-          "tempMin": 1.9,
-          "weatherCode": 3
+          "tempMax": 11.2,
+          "tempMin": 5.9,
+          "weatherCode": 3,
+          "precipProb": 18,
+          "sunrise": "2026-10-19T07:49",
+          "sunset": "2026-10-19T18:30"
         }
       ],
       "sources": [
+        "open-meteo",
         "met-no"
       ],
-      "confidence": "medium",
-      "generatedAt": "2026-10-13T11:54:17.594Z"
+      "confidence": "high",
+      "generatedAt": "2026-10-13T19:22:31.133Z"
     }
   },
   "alerts": {
