@@ -1,27 +1,70 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-10-13T09:24:06.260Z",
-  "total": 1,
+  "generatedAt": "2026-10-13T21:24:23.170Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7166,
-  "avgDurationMs": 7166,
+  "durationMs": 6492,
+  "avgDurationMs": 6492,
   "durationHistory": [
-    7166
+    6492
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clinique-generale-ste-anne-74f2729df4e5",
+      "slug": "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
+      "company": "Clinique Générale Ste-Anne",
+      "companyKey": "clinique-generale-ste-anne",
+      "companyDomain": "swissmedical.net",
+      "title": "Aide en salle d'opération ou assistant(e) technique spécialisé(e) en salle d'opération (ATSSO)",
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155257330-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155257330-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
+      "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-13T21:24:07.875Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "streetAddress": "Rue Hans-Geiler 6, 1700 Fribourg",
+      "category": "Tecnica",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T13:17:07.369Z",
+      "postedDate": "2026-10-13T13:17:07.369Z",
+      "postingDateSource": "reported",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-07-07T12:16:45.145Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -38,7 +81,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:23:51.420Z",
+      "crawledAt": "2026-10-13T21:24:07.876Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -67,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
