@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T22:02:32.921Z",
+  "generatedAt": "2026-10-13T00:02:43.981Z",
   "totalEvents": 12823,
   "events": [
     {
@@ -189560,7 +189560,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Fondazione Ghisla Art Collection di Locarno presenta una selezione dedicata all’arte moderna e contemporanea. Il percorso riunisce opere legate a diversi movimenti e a figure di rilievo della storia dell’arte.",
+      "descriptionByLocale": {
+        "it": "La Fondazione Ghisla Art Collection di Locarno presenta una selezione dedicata all’arte moderna e contemporanea. Il percorso riunisce opere legate a diversi movimenti e a figure di rilievo della storia dell’arte.",
+        "en": "The Fondazione Ghisla Art Collection in Locarno presents a selection focused on modern and contemporary art. The exhibition follows several artistic movements and includes works associated with important figures in art history.",
+        "de": "Die Fondazione Ghisla Art Collection in Locarno zeigt eine Auswahl zur modernen und zeitgenössischen Kunst. Die Ausstellung stellt verschiedene Kunstrichtungen und Werke bedeutender Persönlichkeiten der Kunstgeschichte vor.",
+        "fr": "La Fondazione Ghisla Art Collection de Locarno présente une sélection consacrée à l’art moderne et contemporain. L’exposition met en relation plusieurs courants artistiques et des œuvres de figures importantes de l’histoire de l’art."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e817310e7fb94f8fa784484212122e30",
@@ -189931,7 +189939,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio propone di creare un videogioco con Bitsy e Marion Bareil. Si svolge presso la Bibliothèque de la Cité di Ginevra ed è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio propone di creare un videogioco con Bitsy e Marion Bareil. Si svolge presso la Bibliothèque de la Cité di Ginevra ed è gratuito.",
+        "en": "This workshop focuses on creating a video game with Bitsy and Marion Bareil. It takes place at the Bibliothèque de la Cité in Geneva and is free of charge.",
+        "de": "Der Workshop widmet sich der Entwicklung eines Videospiels mit Bitsy und Marion Bareil. Er findet in der Bibliothèque de la Cité in Genf statt und ist kostenlos.",
+        "fr": "Cet atelier propose de concevoir un jeu vidéo avec Bitsy, avec Marion Bareil. Il a lieu à la Bibliothèque de la Cité, à Genève, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f02fca424e484228838a67ff01c4d60c",
@@ -190192,7 +190208,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio creativo è annunciato con Caroline Bourrit e Denis Roueche, rientra nella categoria delle conferenze e dei formati affini, tra cui workshop, seminari, forum e convegni, ed è organizzato dalla Bibliothèque cantonale et universitaire. L’attività si svolge a Fribourg, nel comune e nel cantone di Fribourg, e ha un’impostazione artistica.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio creativo è annunciato con Caroline Bourrit e Denis Roueche, rientra nella categoria delle conferenze e dei formati affini, tra cui workshop, seminari, forum e convegni, ed è organizzato dalla Bibliothèque cantonale et universitaire. L’attività si svolge a Fribourg, nel comune e nel cantone di Fribourg, e ha un’impostazione artistica.",
+        "en": "This creative workshop is presented with Caroline Bourrit and Denis Roueche, falls within the category of conferences and related formats, including workshops, seminars, forums, and colloquia, and is organized by the Bibliothèque cantonale et universitaire. It takes place in Fribourg, within the municipality and canton of Fribourg, and has an artistic orientation.",
+        "de": "Dieser kreative Workshop wird mit Caroline Bourrit und Denis Roueche angekündigt, gehört zur Kategorie der Konferenzen und verwandten Formate, darunter Workshops, Seminare, Foren und Kolloquien, und wird von der Bibliothèque cantonale et universitaire organisiert. Er findet in Fribourg, in der Gemeinde und im Kanton Fribourg, statt und hat eine künstlerische Ausrichtung.",
+        "fr": "Cet atelier créatif, annoncé avec Caroline Bourrit et Denis Roueche, relève de la catégorie des conférences et activités apparentées, notamment les workshops, séminaires, forums et colloques, et il est organisé par la Bibliothèque cantonale et universitaire. Il se déroule à Fribourg, dans la commune et le canton de Fribourg, avec une orientation artistique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64372",
@@ -191600,7 +191624,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Judith Hill presenta un concerto di musica pop al Bierhübeli. L’evento si svolge nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "Judith Hill presenta un concerto di musica pop al Bierhübeli. L’evento si svolge nel cantone di Berna.",
+        "en": "Judith Hill performs a pop concert at Bierhübeli. The event takes place in the canton of Bern.",
+        "de": "Judith Hill gibt ein Popkonzert im Bierhübeli. Die Veranstaltung findet im Kanton Bern statt.",
+        "fr": "Judith Hill se produit dans le cadre d’un concert de pop au Bierhübeli. L’événement a lieu dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:86329",
@@ -191997,7 +192029,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Palazzo dei Congressi di Muralto, Stefano Prandi e Giacomo Jori discutono l’edizione 2026 di una raccolta poetica di Giacomo Leopardi pubblicata da Olschki. L’incontro ne considera la configurazione originaria e il rapporto con i testi poi confluiti, con modifiche, nei Canti; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Al Palazzo dei Congressi di Muralto, Stefano Prandi e Giacomo Jori discutono l’edizione 2026 di una raccolta poetica di Giacomo Leopardi pubblicata da Olschki. L’incontro ne considera la configurazione originaria e il rapporto con i testi poi confluiti, con modifiche, nei Canti; l’ingresso è gratuito.",
+        "en": "At Palazzo dei Congressi in Muralto, Stefano Prandi and Giacomo Jori discuss Olschki’s 2026 edition of a poetry collection by Giacomo Leopardi. The meeting examines the book’s original form and the later inclusion, with changes, of some of its poems in Canti; admission is free.",
+        "de": "Im Palazzo dei Congressi in Muralto sprechen Stefano Prandi und Giacomo Jori über eine 2026 bei Olschki veröffentlichte Ausgabe einer Gedichtsammlung von Giacomo Leopardi. Im Mittelpunkt stehen die ursprüngliche Gestalt des Bandes und die spätere Übernahme einzelner Gedichte in die Canti; der Eintritt ist frei.",
+        "fr": "Au Palazzo dei Congressi de Muralto, Stefano Prandi et Giacomo Jori consacrent leur intervention à une édition parue chez Olschki en 2026 d’un recueil poétique de Giacomo Leopardi. La discussion porte sur la forme première du volume et sur des poèmes repris ensuite, avec des changements, dans les Canti; l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:cabinet-emerveille-invite-meg",
@@ -194492,7 +194532,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento sportivo ricorrente coinvolge le ZSC Lions Frauen e Zug alla Swiss Life Arena di Zurigo. Ticketcorner è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Questo evento sportivo ricorrente coinvolge le ZSC Lions Frauen e Zug alla Swiss Life Arena di Zurigo. Ticketcorner è indicato come organizzatore.",
+        "en": "This recurring sports event involves ZSC Lions Frauen and Zug at Swiss Life Arena in Zurich. Ticketcorner is listed as the organiser.",
+        "de": "An dieser wiederkehrenden Sportveranstaltung sind die ZSC Lions Frauen und Zug beteiligt; Austragungsort ist die Swiss Life Arena in Zürich. Ticketcorner ist als Veranstalter angegeben.",
+        "fr": "Cet événement sportif récurrent réunit les ZSC Lions Frauen et Zug à la Swiss Life Arena de Zurich. Ticketcorner est indiqué comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3ea011ca91754fde95accb7a55c94db1",
@@ -196022,7 +196070,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una passeggiata guidata dedicata alla storia degli squat a Les Pâquis, quartiere descritto come pioniere. La guida è Marylou Grinevald e l’attività si svolge a Ginevra gratuitamente.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una passeggiata guidata dedicata alla storia degli squat a Les Pâquis, quartiere descritto come pioniere. La guida è Marylou Grinevald e l’attività si svolge a Ginevra gratuitamente.",
+        "en": "This event is a guided walk about the history of squats in Les Pâquis, a neighbourhood described as pioneering. Marylou Grinevald leads the walk, which takes place in Geneva and is free of charge.",
+        "de": "Die Veranstaltung ist ein geführter Rundgang zur Geschichte der Squats in Les Pâquis, einem als wegweisend beschriebenen Quartier. Marylou Grinevald leitet den Rundgang; er findet in Genf statt und ist kostenlos.",
+        "fr": "Cette activité est une balade guidée consacrée à l’histoire des squats aux Pâquis, un quartier présenté comme précurseur. La balade est menée par Marylou Grinevald, se déroule à Genève et est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:composer-peindre-feminin-memes-combats",
@@ -196189,7 +196245,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Bintou Dembélé tiene una conferenza dedicata alla trasmissione attraverso la danza e alle culture popolari. L'incontro si svolge al Palais Eynard di Ginevra, nell'ambito della Semaine de l'éveil culturel.",
+      "descriptionByLocale": {
+        "it": "Bintou Dembélé tiene una conferenza dedicata alla trasmissione attraverso la danza e alle culture popolari. L'incontro si svolge al Palais Eynard di Ginevra, nell'ambito della Semaine de l'éveil culturel.",
+        "en": "Bintou Dembélé presents a conference on cultural transmission through dance and popular cultures. The event takes place at Palais Eynard in Geneva as part of Semaine de l’éveil culturel.",
+        "de": "Bintou Dembélé hält eine Konferenz über die Weitergabe von Kultur durch Tanz und über populäre Kulturen. Die Veranstaltung findet im Palais Eynard in Genf im Rahmen der Semaine de l’éveil culturel statt.",
+        "fr": "Bintou Dembélé consacre une conférence à la transmission par la danse dans le domaine des cultures populaires. La rencontre a lieu au Palais Eynard à Genève et s'inscrit dans le programme de la Semaine de l'éveil culturel."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:diggi-indie-soul",
@@ -196898,7 +196962,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento teatrale di Frank Richter si svolge al Theater Fauteuil di Basilea. È in programma il 15 ottobre 2026.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento teatrale di Frank Richter si svolge al Theater Fauteuil di Basilea. È in programma il 15 ottobre 2026.",
+        "en": "The theatre event by Frank Richter takes place at Theater Fauteuil in Basel. It is scheduled for 15 October 2026.",
+        "de": "Die Theaterveranstaltung von Frank Richter findet im Theater Fauteuil in Basel statt. Sie ist für den 15. Oktober 2026 angesetzt.",
+        "fr": "Le rendez-vous théâtral de Frank Richter a lieu au Theater Fauteuil à Bâle. Il est programmé le 15 octobre 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:french-amour-s10e2",
@@ -198921,7 +198993,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta della proiezione di un film di finzione. L’evento si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Si tratta della proiezione di un film di finzione. L’evento si svolge a Ginevra.",
+        "en": "The event is a screening of a fiction film. It takes place in Geneva.",
+        "de": "Bei der Veranstaltung wird ein fiktionaler Film gezeigt. Sie findet in Genf statt.",
+        "fr": "Il s’agit de la projection d’un film de fiction. L’événement a lieu à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:nass-ghiwane",
@@ -210752,7 +210832,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Mostra dedicata alla vita notturna e agli effetti dell’illuminazione artificiale su animali e persone, allestita a Lucerna. Il programma di accompagnamento comprende informazioni sugli animali notturni, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana; alcune attività dipendono dalle condizioni meteorologiche o richiedono l’iscrizione.",
+      "descriptionByLocale": {
+        "it": "Mostra dedicata alla vita notturna e agli effetti dell’illuminazione artificiale su animali e persone, allestita a Lucerna. Il programma di accompagnamento comprende informazioni sugli animali notturni, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana; alcune attività dipendono dalle condizioni meteorologiche o richiedono l’iscrizione.",
+        "en": "An exhibition in Lucerne examines the night from different perspectives and considers how artificial light affects animals and people. Its accompanying programme includes information about nocturnal animals, guided views of the starry sky, a bat excursion and a walk explaining the ideas behind the city’s lighting; the sky-watching activity is weather-dependent, while the bat excursion requires registration.",
+        "de": "Die Ausstellung in Luzern beleuchtet die Nacht aus verschiedenen Perspektiven und thematisiert die Auswirkungen künstlicher Beleuchtung auf Tiere und Menschen. Das Begleitprogramm umfasst Informationen über nachtaktive Tiere, Beobachtungen des Sternenhimmels, eine Fledermaus-Exkursion und einen Rundgang zur Stadtbeleuchtung; die Himmelsbeobachtungen finden nur bei trockenem Wetter statt, für die Exkursion ist eine Anmeldung vorgesehen.",
+        "fr": "Cette exposition à Lucerne explore la nuit sous plusieurs angles et examine les effets de l’éclairage artificiel sur les animaux et les personnes. Le programme associé propose des informations sur les animaux nocturnes, l’observation du ciel étoilé, une excursion consacrée aux chauves-souris et une visite consacrée à l’éclairage urbain ; les observations du ciel dépendent d’un temps sec et l’excursion nécessite une inscription."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:196a61cdd03b42f083202f2d852aaf49",
@@ -213734,7 +213822,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Frank D'Amico Blues Band propone un appuntamento musicale al Piccolo Bar di Vaglio, nel comune di Lugano. Il programma unisce il blues a elementi rock.",
+      "descriptionByLocale": {
+        "it": "Frank D'Amico Blues Band propone un appuntamento musicale al Piccolo Bar di Vaglio, nel comune di Lugano. Il programma unisce il blues a elementi rock.",
+        "en": "Frank D'Amico Blues Band presents a musical event at Piccolo Bar in Vaglio, within the municipality of Lugano. The programme combines blues with rock elements.",
+        "de": "Die Frank D'Amico Blues Band tritt bei einer Musikveranstaltung im Piccolo Bar in Vaglio, Lugano, auf. Das Programm verbindet Blues mit Rockelementen.",
+        "fr": "Frank D’Amico Blues Band se produit au Piccolo Bar à Vaglio, dans la commune de Lugano. Le programme associe le blues à des éléments de rock."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AeUe2N2",
@@ -217223,7 +217319,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di musica country con Motel 7 / CH si tiene al Restaurant Rebleuten di Oberhofen am Thunersee. Il gruppo è stato fondato a Thun nel 2010 ed è composto da cinque musicisti, con un repertorio caratterizzato da varietà musicale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di musica country con Motel 7 / CH si tiene al Restaurant Rebleuten di Oberhofen am Thunersee. Il gruppo è stato fondato a Thun nel 2010 ed è composto da cinque musicisti, con un repertorio caratterizzato da varietà musicale.",
+        "en": "The country-music event with Motel 7 / CH takes place at Restaurant Rebleuten in Oberhofen am Thunersee. The group was founded in Thun in 2010 and consists of five musicians whose repertoire reflects musical variety.",
+        "de": "Der Country-Anlass mit Motel 7 / CH findet im Restaurant Rebleuten in Oberhofen am Thunersee statt. Die Gruppe wurde 2010 in Thun gegründet und besteht aus fünf Musikern; ihr Repertoire umfasst unterschiedliche musikalische Stile.",
+        "fr": "Le rendez-vous de musique country avec Motel 7 / CH se tient au Restaurant Rebleuten, à Oberhofen am Thunersee. Le groupe a été fondé à Thoune en 2010 et réunit cinq musiciens dont le répertoire présente une diversité de styles musicaux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:hobbs-style",
@@ -218026,7 +218130,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Questo appuntamento ricorrente è dedicato alla preparazione dei Brätzeli nel forno a legna. Si svolge al Restaurant Aebi di Adelboden.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente è dedicato alla preparazione dei Brätzeli nel forno a legna. Si svolge al Restaurant Aebi di Adelboden.",
+        "en": "This recurring event focuses on baking Brätzeli in a wood-fired oven. It takes place at Restaurant Aebi in Adelboden.",
+        "de": "Die wiederkehrende Veranstaltung widmet sich der Zubereitung von Brätzeli im Holzofen. Sie findet im Restaurant Aebi in Adelboden statt.",
+        "fr": "Ce rendez-vous récurrent est consacré à la cuisson de Brätzeli dans un four à bois. Il se déroule au Restaurant Aebi à Adelboden."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e27863be8dbd4ebcb74d1e2859bd55bd",
@@ -223243,7 +223355,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nel centro storico di Bellinzona si svolge la seconda edizione di un evento dedicato a zucche e produzioni locali. Sono previste proposte gastronomiche, un’esposizione di diverse varietà, attività per bambini a carattere creativo e tre gare con premi di 300 CHF, mentre l’ingresso è libero.",
+      "descriptionByLocale": {
+        "it": "Nel centro storico di Bellinzona si svolge la seconda edizione di un evento dedicato a zucche e produzioni locali. Sono previste proposte gastronomiche, un’esposizione di diverse varietà, attività per bambini a carattere creativo e tre gare con premi di 300 CHF, mentre l’ingresso è libero.",
+        "en": "The historic centre of Bellinzona hosts the event’s second edition, centred on pumpkins and local produce. The programme includes food, an exhibition of different varieties, creative activities for children and three competitions with prizes of CHF 300, while admission is free.",
+        "de": "Im historischen Zentrum von Bellinzona findet die zweite Ausgabe einer Veranstaltung rund um Kürbisse und regionale Erzeugnisse statt. Vorgesehen sind Gastronomie, eine Ausstellung verschiedener Sorten, kreative Aktivitäten für Kinder und drei Wettbewerbe mit Preisen von 300 CHF, wobei der Eintritt frei ist.",
+        "fr": "Le centre historique de Bellinzone accueille la deuxième édition d’un rendez-vous consacré aux courges et aux produits locaux. Le programme prévoit de la gastronomie, une exposition de variétés, des activités créatives pour les enfants et trois concours dotés de prix de 300 CHF, tandis que l’entrée est libre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AAfZXkM",
@@ -226993,7 +227113,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L'evento musicale presenta Nino D'Angelo al Kongresshaus Zürich AG di Zurigo. Si svolge nel Canton Zurigo.",
+      "descriptionByLocale": {
+        "it": "L'evento musicale presenta Nino D'Angelo al Kongresshaus Zürich AG di Zurigo. Si svolge nel Canton Zurigo.",
+        "en": "This music event features Nino D'Angelo at Kongresshaus Zürich AG in Zurich. It takes place in the canton of Zurich.",
+        "de": "Die Musikveranstaltung mit Nino D'Angelo findet im Kongresshaus Zürich AG in Zürich statt. Sie ist dem Kanton Zürich zugeordnet.",
+        "fr": "Ce rendez-vous musical avec Nino D'Angelo se déroule au Kongresshaus Zürich AG, à Zurich. Il a lieu dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dae7ccc21f7647128b0d8a37240df55a",
@@ -227641,7 +227769,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Nuovo Istituto Scolastico di Vernate, la soprano Hilary Aeschliman si esibisce insieme a I Barocchisti, con Diego Fasolis al clavicembalo. Il programma propone arie barocche di Pergolesi e Händel.",
+      "descriptionByLocale": {
+        "it": "Al Nuovo Istituto Scolastico di Vernate, la soprano Hilary Aeschliman si esibisce insieme a I Barocchisti, con Diego Fasolis al clavicembalo. Il programma propone arie barocche di Pergolesi e Händel.",
+        "en": "At Nuovo Istituto Scolastico in Vernate, soprano Hilary Aeschliman appears with I Barocchisti, with Diego Fasolis at the harpsichord. The program features Baroque arias by Pergolesi and Händel.",
+        "de": "Im Nuovo Istituto Scolastico in Vernate tritt die Sopranistin Hilary Aeschliman gemeinsam mit I Barocchisti auf, und Diego Fasolis spielt am Cembalo. Zum Programm gehören barocke Arien von Pergolesi und Händel.",
+        "fr": "Au Nuovo Istituto Scolastico de Vernate, la soprano Hilary Aeschliman se produit avec I Barocchisti, sous la direction de Diego Fasolis au clavecin. Le programme comprend des airs baroques de Pergolèse et de Haendel."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1598781fde654e22b7c3cacc2b97ccee",
@@ -237558,7 +237694,15 @@
           "comune": "__other-events__",
           "slug": "konzert-in-dur-und-moll-2026-10-21"
         }
-      ]
+      ],
+      "description": "Il concerto a Lucerna mette a confronto le sonorità maggiori e minori. I brani evocano un ampio spettro di sentimenti, tra desiderio, luce e ombra.",
+      "descriptionByLocale": {
+        "it": "Il concerto a Lucerna mette a confronto le sonorità maggiori e minori. I brani evocano un ampio spettro di sentimenti, tra desiderio, luce e ombra.",
+        "en": "The concert in Lucerne explores the expressive contrast between major and minor keys. Its sounds reflect a broad range of human feeling, including longing and the imagery of light and shadow.",
+        "de": "Das Konzert in Luzern stellt die klanglichen Gegensätze von Dur und Moll gegenüber. Die Musik greift ein breites Spektrum menschlicher Empfindungen auf, darunter Sehnsucht sowie Licht und Schatten.",
+        "fr": "Ce concert à Lucerne met en regard les qualités expressives du majeur et du mineur. Les sonorités évoquent un vaste éventail de sentiments humains, notamment la nostalgie ainsi que la lumière et l’ombre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:75fdbf67a4a04126aba60176084d5cc6",
