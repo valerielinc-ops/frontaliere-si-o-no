@@ -5,11 +5,49 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
-import { buildBraccoDescriptionFields, dropBraccoFabricatedText } from '../scripts/update-bracco-jobs.mjs';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { buildBraccoDescriptionFields, dropBraccoFabricatedText, fetchBraccoJobs } from '../scripts/update-bracco-jobs.mjs';
 import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 
 const TEXT = fs.readFileSync(path.join(__dirname, 'fixtures', 'bracco', 'workday-description-cadempino.txt'), 'utf8').trim();
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+describe('Bracco crawl provenance', () => {
+  it('propagates the successful Workday listing observation time', async () => {
+    const observedAt = new Date('2026-10-13T10:20:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(observedAt);
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Digital Learning & Training Internship',
+            externalPath: '/job/CHE---Cadempino/Digital-Learning_R1',
+            locationsText: 'Cadempino, Switzerland',
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          title: 'Digital Learning & Training Internship',
+          location: 'Cadempino, Switzerland',
+          jobDescription: TEXT,
+          timeType: 'Full time',
+          jobReqId: 'R1',
+        },
+      }), { status: 200 });
+    }));
+
+    const [job] = await fetchBraccoJobs();
+
+    expect(job.crawledAt).toBe(observedAt.toISOString());
+  });
+});
 
 describe('buildBraccoDescriptionFields', () => {
   it('publishes the Workday text alone, keyed by its language', () => {

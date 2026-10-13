@@ -38,6 +38,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -596,6 +597,9 @@ export async function fetchCapriHoldingsJobs() {
   console.log(`\n  📋 Total Swiss-location candidates across all brands: ${allSwissListings.length}`);
   if (allSwissListings.length === 0) return [];
 
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
+
   const jobs = [];
   for (const listing of allSwissListings) {
     const externalPath = listing.externalPath;
@@ -674,6 +678,7 @@ export async function fetchCapriHoldingsJobs() {
       slug,
       category: detectCategory(title),
       ...workdayPostingDateFields(detail),
+      crawledAt,
       source: 'capri-holdings-workday-crawler',
       employmentType: detectEmploymentType(info.timeType || ''),
       experienceLevel: detectExperienceLevel(title),

@@ -37,6 +37,7 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -388,6 +389,9 @@ export async function fetchBraccoJobs() {
     return [];
   }
 
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
+
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
@@ -470,6 +474,7 @@ export async function fetchBraccoJobs() {
       slug,
       category: detectCategory(title),
       ...workdayPostingDateFields(detail),
+      crawledAt,
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
