@@ -9,6 +9,7 @@ import {
   titleFor,
   workerReconcile,
 } from '../scripts/cloudflare-worker-error-issue-sync.mjs';
+import { decideMonitorIssue } from '../scripts/lib/monitor-issue-reconcile.mjs';
 
 const measurement = {
   worker: 'frontaliere-locale-router',
@@ -44,7 +45,29 @@ describe('Cloudflare Worker error issue reporter', () => {
     expect(body).toContain(DASHBOARD_URL);
     expect(body).toContain('## Scheda');
     expect(body).toContain(DRY_RUN_COMMAND);
+    expect(body).toContain('one complete monitor window');
+    expect(body).toContain('atteso=0 in una finestra completa');
     expect(statusFromIssue({ title: titleFor(entry) })).toBe('scriptThrewException');
+  });
+
+  it('closes after the first complete clean measurement', () => {
+    const clean = {
+      ...measurement,
+      statuses: measurement.statuses.map((item) => ({ ...item, requests: 0, errors: 0, errorRate: 0 })),
+    };
+    const reconcile = workerReconcile(clean);
+    const issue = { title: titleFor(clean.statuses[0]), state: 'OPEN', labels: [] };
+    const verdict = reconcile.verdictFor(issue);
+
+    expect(reconcile.confirmations).toBe(1);
+    expect(decideMonitorIssue({
+      issue,
+      comments: [],
+      events: [],
+      verdict,
+      family: reconcile.family,
+      confirmations: reconcile.confirmations,
+    })).toMatchObject({ action: 'close' });
   });
 
   it('does not declare a clean verdict while any error remains', () => {
