@@ -24,6 +24,10 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
 );
 
+const hasJobBoardPreRenderedPaintContent = (): boolean => !!document.querySelector(
+ 'main.seo-static-content.job-board-static-hub',
+);
+
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
@@ -109,6 +113,12 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
+ // FCP can come from a smaller header/reserve node while the job-board
+ // subtitle is still becoming the LCP candidate; do not evaluate JobBoard.js
+ // until that static candidate has had a quiet paint window.
+ if (hasJobBoardPreRenderedPaintContent()) {
+   await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
+ }
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([

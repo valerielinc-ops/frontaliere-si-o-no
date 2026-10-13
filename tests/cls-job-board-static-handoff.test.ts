@@ -23,7 +23,9 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
+  INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
+  LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
@@ -72,6 +74,9 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(paintGate).toBeGreaterThanOrEqual(0);
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
     expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).toContain('main.seo-static-content.job-board-static-hub');
+    expect(entry).toContain('waitForLargestContentfulPaint: true');
+    expect(entry.indexOf('waitForLargestContentfulPaint: true')).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
     expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
@@ -211,6 +216,40 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     frames.shift()?.(32);
     await expect(ready).resolves.toBeUndefined();
     expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('waits for a quiet largest-contentful-paint candidate on the job-board hub', async () => {
+    let reportLcp: (() => void) | undefined;
+    let quietTimerCallback: (() => void) | undefined;
+    let deadlineTimerCallback: (() => void) | undefined;
+    let stopped = false;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
+      hasLargestContentfulPaint: () => false,
+      observeLargestContentfulPaint: (callback) => {
+        reportLcp = callback;
+        return () => { stopped = true; };
+      },
+      requestFrame: () => { throw new Error('LCP observer owns this wait'); },
+      setTimer: (callback, ms) => {
+        if (ms === INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS) deadlineTimerCallback = callback;
+        if (ms === LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS) quietTimerCallback = callback;
+        return ms;
+      },
+      clearTimer: () => {},
+    };
+
+    const ready = waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true }, env);
+    expect(reportLcp).toBeTypeOf('function');
+    expect(deadlineTimerCallback).toBeTypeOf('function');
+    reportLcp?.();
+    expect(quietTimerCallback).toBeTypeOf('function');
+    expect(stopped).toBe(false);
+    quietTimerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+    expect(stopped).toBe(true);
   });
 });
 
