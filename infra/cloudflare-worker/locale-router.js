@@ -2306,8 +2306,16 @@ const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 async function fetchOriginOnce(upstream, request, cfOpts) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ORIGIN_TIMEOUT_MS);
+  const originRequest = new Request(upstream, request);
+  if (cfOpts) {
+    // GitHub Pages occasionally advertises a compressed body that ends before
+    // the gzip stream is complete. Cloudflare only has to decompress it when
+    // the Worker reads the body, so ask the shard origin for plain bytes and
+    // let the edge compress the response for the visitor afterwards.
+    originRequest.headers.set('Accept-Encoding', 'identity');
+  }
   try {
-    return await fetch(new Request(upstream, request), {
+    return await fetch(originRequest, {
       signal: controller.signal,
       ...(cfOpts ? { cf: cfOpts } : {}),
     });
@@ -2331,6 +2339,20 @@ async function fetchOriginWithRetry(upstream, request, cfOpts) {
     }
   }
   throw lastErr;
+}
+
+// A successful origin response can still fail when its compressed body is
+// decoded by `arrayBuffer()`. Retry that failure through the same bounded
+// origin policy; a non-200 retry is returned to the caller so normal 404/5xx
+// handling and stale-if-error remain in charge.
+async function readShardBodyWithRetry(resp, upstream, request, cfOpts) {
+  try {
+    return { resp, body: await resp.arrayBuffer() };
+  } catch {
+    const retry = await fetchOriginWithRetry(upstream, request, cfOpts);
+    if (retry.status !== 200) return { resp: retry, body: null };
+    return { resp: retry, body: await retry.arrayBuffer() };
+  }
 }
 
 // Stale-if-error. When the shard origin fails (5xx after retries, or a thrown
@@ -2413,10 +2435,55 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
+  // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
+  // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
+  // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
+  // class). Query-string URLs are skipped: not canonical.
+  let body = null;
+  if (request.method === 'GET' && resp.status === 200) {
+    try {
+      ({ resp, body } = await readShardBodyWithRetry(
+        resp,
+        upstream,
+        request,
+        { ...SHARD_ORIGIN_FETCH_CF },
+      ));
+    } catch {
+      const stale = await serveStaleOnError(url, 'origin-body');
+      if (stale) return stale;
+      return new Response('Shard origin body unavailable', {
+        status: 503,
+        headers: { 'Retry-After': '30' },
+      });
+    }
+    if (resp.status >= 500) {
+      const stale = await serveStaleOnError(url, `origin-${resp.status}`);
+      if (stale) return stale;
+    }
+    if (resp.status === 200 && body !== null) {
+      const headers = new Headers(resp.headers);
+      headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      if (ctx && !url.search) {
+        const cacheHeaders = new Headers(resp.headers);
+        cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
+        ctx.waitUntil(
+          caches.default
+            .put(
+              new Request(url.toString(), { method: 'GET' }),
+              new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
+            )
+            .catch(() => {}), // best-effort failover warmup — never fail the live response
+        );
+      }
+      return new Response(body, { status: 200, statusText: resp.statusText, headers });
+    }
+  }
+
   // GitHub Pages 301s a dir path without trailing slash to the slash form. If
   // that Location is absolute on the hidden origin host, rewrite it back to the
   // public apex so the user never leaves frontaliereticino.ch and the origin
-  // host is never exposed.
+  // host is never exposed. This runs after body-read recovery so a retry that
+  // changes 200 into a redirect receives the same host-sanitization.
   const loc = resp.headers.get('location');
   if (loc) {
     let locUrl = null;
@@ -2436,29 +2503,6 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
         headers,
       });
     }
-  }
-
-  // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
-  // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
-  // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
-  // class). Query-string URLs are skipped: not canonical.
-  if (request.method === 'GET' && resp.status === 200) {
-    const headers = new Headers(resp.headers);
-    headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-    const body = await resp.arrayBuffer();
-    if (ctx && !url.search) {
-      const cacheHeaders = new Headers(resp.headers);
-      cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
-      ctx.waitUntil(
-        caches.default
-          .put(
-            new Request(url.toString(), { method: 'GET' }),
-            new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
-          )
-          .catch(() => {}), // best-effort failover warmup — never fail the live response
-      );
-    }
-    return new Response(body, { status: 200, statusText: resp.statusText, headers });
   }
 
   // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug to a
