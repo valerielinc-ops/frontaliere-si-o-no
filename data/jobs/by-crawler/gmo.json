@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-10-12T21:16:17.684Z",
+  "assembledAt": "2026-10-13T09:14:54.128Z",
   "jobs": [
     {
       "id": "gmo-06d32a1fe66e",
@@ -34,7 +34,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.710Z",
+      "crawledAt": "2026-10-13T09:14:50.010Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-expert-18",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.709Z",
+      "crawledAt": "2026-10-13T09:14:50.009Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -136,80 +136,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:39.487Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gmo-785f6aa1a91e",
-      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-      "slugByLocale": {
-        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
-        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
-        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
-        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-      },
-      "slugDisambiguator": "785f6aa1",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin interniste généraliste FMH",
-      "titleByLocale": {
-        "it": "Generalista internista medico FMH",
-        "en": "Generalist internist physician FMH",
-        "de": "Generalist Internist Arzt FMH",
-        "fr": "Médecin interniste généraliste FMH"
-      },
-      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
-      "descriptionByLocale": {
-        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
-        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
-        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
-        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
-      },
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.707Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:15:39.486Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -256,7 +182,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.706Z",
+      "crawledAt": "2026-10-13T09:14:50.008Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -299,38 +225,38 @@
       }
     },
     {
-      "id": "gmo-7911830dc886",
-      "slug": "medico-internista-generale-gmo-1213-onex-7911830d",
+      "id": "gmo-785f6aa1a91e",
+      "slug": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
       "slugByLocale": {
-        "it": "medico-internista-generale-gmo-1213-onex-7911830d",
-        "en": "generalist-internist-doctor-gmo-1213-onex-7911830d",
-        "de": "generalist-internist-arzt-gmo-1213-onex-7911830d",
-        "fr": "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        "it": "generalista-internista-medico-fmh-gmo-1213-onex-785f6aa1",
+        "en": "generalist-internist-physician-fmh-gmo-1213-onex-785f6aa1",
+        "de": "generalist-internist-arzt-fmh-gmo-1213-onex-785f6aa1",
+        "fr": "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
       },
-      "slugDisambiguator": "7911830d",
+      "slugDisambiguator": "785f6aa1",
       "company": "gmo",
       "companyKey": "gmo",
       "companyDomain": "arsante.ch",
-      "title": "Médecin interniste généraliste",
+      "title": "Médecin interniste généraliste FMH",
       "titleByLocale": {
-        "it": "medico internista generale",
-        "en": "Generalist internist doctor",
-        "de": "Generalist Internist Arzt",
-        "fr": "Médecin interniste généraliste"
+        "it": "Generalista internista medico FMH",
+        "en": "Generalist internist physician FMH",
+        "de": "Generalist Internist Arzt FMH",
+        "fr": "Médecin interniste généraliste FMH"
       },
-      "description": "Rejoignez une équipe médicale engagée et bienveillante au sein du Groupe Médical d’Onex , acteur reconnu de la médecine de premier recours à Genève depuis plus de 30 ans. Nous proposons une opportunité d’installation à temps partiel pour un·e médecin généraliste indépendant·e , avec accès à un environnement clinique structuré et une patientèle existante.\nCe que nous offrons :\n- Cabinet partagé avec un·e collègue, dans un espace de médecine générale et spécialisée.\n- Liberté de pratique avec un contrat d’indépendant·e et un accompagnement à l’installation.\n- Reprise de patientèle assurée , suite à plusieurs départs à la retraite.\n- Frais de fonctionnement mutualisés réduits , accès au dossier médical informatisé Mediway et à la plateforme SoKle.\n- Accès direct à un laboratoire, centre d’imagerie sur le site.\n- Possibilité d’activité complémentaire aux urgences adultes (facultatif, à moins de 100 mètres).\n- Cercles de qualité Delta et dynamique de réseau favorisant les échanges cliniques et le développement professionnel.\nProfil recherché :\n- Titre de médecin spécialiste FMH en médecine interne générale ou équivalent reconnu.\n- Volonté de pratiquer dans un esprit de collaboration, d’autonomie et de qualité .\n- Intérêt pour un temps partiel modulable (ex. 2 à 3 jours/semaine), avec ou sans activité aux urgences.\nUn cadre professionnel et humain stimulant :\n- Une communauté médicale soudée , centrée sur les besoins des patients et les valeurs de solidarité.\n- Un environnement urbain agréable , facilement accessible en transports publics ou en voiture.\n- Ouvert également aux jeunes diplômé·e·s FMH ou en fin de formation post-graduée.",
+      "description": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !",
       "descriptionByLocale": {
-        "it": "Unisciti a un team medico impegnato e premuroso all'interno del Gruppo Medico d-Onex , un medico primario riconosciuto a Ginevra per oltre 30 anni. Offriamo un'opportunità di struttura part-time per un professionista generale indipendente con accesso a un ambiente clinico strutturato e un paziente esistente.\nCosa offriamo:\n- Governo condiviso con un collega, in un'area di medicina generale e specializzata.\n- Libertà di pratica con contratto indipendente e supporto di installazione.\n- Ripresa del paziente assicurato, a seguito di diversi pensionati.\n- Riduzione dei costi operativi reciproci, accesso al registro medico computerizzato Mediway e alla piattaforma SoKle.\n- Accesso diretto a un laboratorio, centro di imaging in loco.\n- Possibilità di attività aggiuntive per emergenze adulte (opzionale, entro 100 metri).\n- Cerchi di qualità Delta e rete dinamica che promuovono gli scambi clinici e lo sviluppo professionale.\nProfilo ricercato:\n- Nome di specialista medico FMH in medicina interna generale o equivalente riconosciuto.\n- La volontà di praticare in uno spirito di collaborazione, autonomia e qualità.\n- Interessi a tempo parziale flessibile (ad esempio 2-3 giorni/settimana), con o senza attività di emergenza.\nUn quadro professionale e umano stimolante:\n- Una comunità medica saldata, focalizzata sui bisogni dei pazienti e sui valori di solidarietà.\n- Un ambiente urbano piacevole, facilmente raggiungibile con i mezzi pubblici o in auto.\n- Aperto anche ai giovani laureati FMH o alla fine della formazione post-laurea.",
-        "en": "Join a committed and caring medical team within the Medical Group d-Onex , a recognized primary medical practitioner in Geneva for over 30 years. We offer a part-time facility opportunity for an independent general practitioner with access to a structured clinical environment and an existing patient.\nWhat we offer:\n- Cabinet shared with a colleague, in a general and specialized medicine area.\n- Freedom of practice with independent contract and installation support.\n- Resumption of insured patient, following several retirements.\n- Reduced mutualized operating costs, access to the Mediway computerized medical record and the SoKle platform.\n- Direct access to a laboratory, imaging center on site.\n- Possibility of additional activity for adult emergencies (optional, within 100 metres).\n- Delta quality circles and dynamic network promoting clinical exchanges and professional development.\nProfile sought:\n- Name of medical specialist FMH in general internal medicine or recognized equivalent.\n- Will to practice in a spirit of collaboration, autonomy and quality.\n- Interest in flexible part time (e.g. 2-3 days/week), with or without emergency activity.\nA stimulating professional and humane framework:\n- A welded medical community, focused on patient needs and solidarity values.\n- A pleasant urban environment, easily accessible by public transport or by car.\n- Open also to young FMH graduates or at the end of post-graduate training.",
-        "de": "Treten Sie einem engagierten und fürsorglichen medizinischen Team innerhalb der Medical Group d-Onex bei, einem anerkannten Hausarzt in Genf seit über 30 Jahren. Wir bieten eine Teilzeiteinrichtung für einen unabhängigen Allgemeinmediziner mit Zugang zu einem strukturierten klinischen Umfeld und einem bestehenden Patienten.\nWas wir anbieten:\n- Kabinett mit einem Kollegen geteilt, in einem allgemeinen und spezialisierten Medizinbereich.\n- Freiheit der Praxis mit unabhängigem Vertrag und Installationsunterstützung.\n- Wiederaufnahme des versicherten Patienten nach mehreren Pensionierungen.\n- Reduzierte gemeinsame Betriebskosten, Zugriff auf die computergestützte Mediway-Akte und die SoKle-Plattform.\n- Direkter Zugang zu einem Labor, Imaging-Center vor Ort.\n- Möglichkeit zusätzlicher Aktivitäten für erwachsene Notfälle (optional, innerhalb von 100 Metern).\n- Delta-Qualitätskreise und dynamisches Netzwerk zur Förderung des klinischen Austauschs und der beruflichen Entwicklung.\nGesuchtes Profil:\n- Name des medizinischen Spezialisten FMH in der allgemeinen inneren Medizin oder anerkanntes Äquivalent.\n- Der Wille, im Geiste der Zusammenarbeit, Autonomie und Qualität zu üben.\n- Interesse an flexibler Teilzeit (z. B. 2-3 Tage/Woche), mit oder ohne Notfallaktivität.\nEin anregender professioneller und menschlicher Rahmen:\n- Eine geschweißte medizinische Gemeinschaft, die sich auf die Bedürfnisse der Patienten und Solidaritätswerte konzentriert.\n- Eine angenehme städtische Umgebung, leicht mit öffentlichen Verkehrsmitteln oder mit dem Auto erreichbar.\n- Offen auch für junge FMH-Absolventen oder am Ende der postgradualen Ausbildung.",
-        "fr": "Rejoignez une équipe médicale engagée et bienveillante au sein du Groupe Médical d’Onex , acteur reconnu de la médecine de premier recours à Genève depuis plus de 30 ans. Nous proposons une opportunité d’installation à temps partiel pour un·e médecin généraliste indépendant·e , avec accès à un environnement clinique structuré et une patientèle existante.\nCe que nous offrons :\n- Cabinet partagé avec un·e collègue, dans un espace de médecine générale et spécialisée.\n- Liberté de pratique avec un contrat d’indépendant·e et un accompagnement à l’installation.\n- Reprise de patientèle assurée , suite à plusieurs départs à la retraite.\n- Frais de fonctionnement mutualisés réduits , accès au dossier médical informatisé Mediway et à la plateforme SoKle.\n- Accès direct à un laboratoire, centre d’imagerie sur le site.\n- Possibilité d’activité complémentaire aux urgences adultes (facultatif, à moins de 100 mètres).\n- Cercles de qualité Delta et dynamique de réseau favorisant les échanges cliniques et le développement professionnel.\nProfil recherché :\n- Titre de médecin spécialiste FMH en médecine interne générale ou équivalent reconnu.\n- Volonté de pratiquer dans un esprit de collaboration, d’autonomie et de qualité .\n- Intérêt pour un temps partiel modulable (ex. 2 à 3 jours/semaine), avec ou sans activité aux urgences.\nUn cadre professionnel et humain stimulant :\n- Une communauté médicale soudée , centrée sur les besoins des patients et les valeurs de solidarité.\n- Un environnement urbain agréable , facilement accessible en transports publics ou en voiture.\n- Ouvert également aux jeunes diplômé·e·s FMH ou en fin de formation post-graduée."
+        "it": "Per arricchire la nostra offerta medica e servire meglio la popolazione locale, stiamo cercando un Internist Medical Officer titolare di FMH Generalist, pronto per essere coinvolto nel nostro team dinamico in Cité Generations - Health House in Onex.\nIn qualità di professionista indipendente, avrete l'opportunità di seguire i vostri pazienti nel reparto medicina interna, partecipando alle attività di servizio di emergenza. Questo vi permetterà di diversificare le vostre competenze in un ambiente stimolante.\nIl vostro ambiente di lavoro:\nSe state progettando di passare a una pratica privata, vi offriamo uno spazio multidisciplinare ideale. Vi forniamo tutti gli strumenti necessari per garantire una pratica medica di alta qualità.\n• Flessibilità e autonomia professionale:\n• Scegli il tuo tasso di attività in base alle tue aspirazioni professionali e personali.\n• Richiesto:\n• Diritto di pratica e di autorizzazione ad addebitare AOS\n• Interessante? Inviaci la tua richiesta!",
+        "en": "To enrich our medical offer and better serve the local population, we are looking for an Internist Medical Officer FMH holder Generalist, ready to get involved in our dynamic team in Cité Generations - Health House in Onex.\nAs an independent professional, you will have the opportunity to follow your patients in the internal medicine department while participating in the emergency service activities. This will allow you to diversify your skills in a stimulating environment.\nYour work environment:\nIf you are planning to move to a private practice, we offer you an ideal multidisciplinary space. We provide you with all the necessary tools to guarantee high quality medical practice.\n• Flexibility and professional autonomy:\n• Choose your activity rate according to your professional and personal aspirations.\n• Required:\n• Right of practice and authorisation to charge AOS\n• Interested? Send us your application!",
+        "de": "Um unser medizinisches Angebot zu bereichern und der lokalen Bevölkerung besser zu dienen, suchen wir einen Internist Medical Officer FMH Generalist, der bereit ist, sich in unserem dynamischen Team in Cité Generations - Health House in Onex zu engagieren.\nAls unabhängiger Fachmann haben Sie die Möglichkeit, Ihren Patienten in der internen Medizinabteilung zu folgen, während Sie an den Notfallaktivitäten teilnehmen. Dies ermöglicht es Ihnen, Ihre Fähigkeiten in einer anregenden Umgebung zu diversifizieren.\nIhr Arbeitsumfeld:\nWenn Sie planen, in eine Privatpraxis zu ziehen, bieten wir Ihnen einen idealen multidisziplinären Raum. Wir stellen Ihnen alle notwendigen Werkzeuge zur Verfügung, um eine qualitativ hochwertige medizinische Praxis zu gewährleisten.\n• Flexibilität und berufliche Autonomie:\n• Wählen Sie Ihre Aktivitätsrate nach Ihren beruflichen und persönlichen Ambitionen.\n• Vorgeschrieben:\n• Ausübungsrecht und Ermächtigung zur Erhebung von AOS\n• Interessiert? Schicken Sie uns Ihre Bewerbung!",
+        "fr": "Pour enrichir notre offre médicale et mieux servir la population locale, nous sommes à la recherche d’un·e Médecin Interniste Généraliste titulaire FMH, prêt·e à s’impliquer au sein de notre équipe dynamique à Cité générations - Maison de Santé à Onex.\nEn tant que professionnel·le indépendant·e, vous aurez l'opportunité de suivre vos patient·es au sein du service de médecine interne tout en participant aux activités du service d’urgences. Cela vous permettra de diversifier vos compétences dans un environnement stimulant.\nVotre environnement de travail :\nSi vous envisagez de vous installer en cabinet privé, nous vous offrons un espace pluridisciplinaire idéal. Nous mettons à votre disposition tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Flexibilité et Autonomie professionnelle :\n• Choisissez votre taux d'activité selon vos aspirations professionnelles et personnelles.\n• Requis :\n• Droit de pratique et autorisation de facturer à la charge de l’AOS\n• Intéressé·e ? Envoyez-nous votre candidature !"
       },
       "location": "1213 Onex",
       "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
+      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.701Z",
+      "crawledAt": "2026-10-13T09:14:50.008Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -346,18 +272,18 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+          "medecin-interniste-generaliste-fmh-gmo-1213-onex-785f6aa1"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:15:39.484Z",
+      "firstSeenAt": "2026-09-29T21:15:39.486Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -404,7 +330,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.700Z",
+      "crawledAt": "2026-10-13T09:14:50.005Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -432,6 +358,80 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:15:39.483Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gmo-7911830dc886",
+      "slug": "medico-internista-generale-gmo-1213-onex-7911830d",
+      "slugByLocale": {
+        "it": "medico-internista-generale-gmo-1213-onex-7911830d",
+        "en": "generalist-internist-doctor-gmo-1213-onex-7911830d",
+        "de": "generalist-internist-arzt-gmo-1213-onex-7911830d",
+        "fr": "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+      },
+      "slugDisambiguator": "7911830d",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Médecin interniste généraliste",
+      "titleByLocale": {
+        "it": "medico internista generale",
+        "en": "Generalist internist doctor",
+        "de": "Generalist Internist Arzt",
+        "fr": "Médecin interniste généraliste"
+      },
+      "description": "Rejoignez une équipe médicale engagée et bienveillante au sein du Groupe Médical d’Onex , acteur reconnu de la médecine de premier recours à Genève depuis plus de 30 ans. Nous proposons une opportunité d’installation à temps partiel pour un·e médecin généraliste indépendant·e , avec accès à un environnement clinique structuré et une patientèle existante.\nCe que nous offrons :\n- Cabinet partagé avec un·e collègue, dans un espace de médecine générale et spécialisée.\n- Liberté de pratique avec un contrat d’indépendant·e et un accompagnement à l’installation.\n- Reprise de patientèle assurée , suite à plusieurs départs à la retraite.\n- Frais de fonctionnement mutualisés réduits , accès au dossier médical informatisé Mediway et à la plateforme SoKle.\n- Accès direct à un laboratoire, centre d’imagerie sur le site.\n- Possibilité d’activité complémentaire aux urgences adultes (facultatif, à moins de 100 mètres).\n- Cercles de qualité Delta et dynamique de réseau favorisant les échanges cliniques et le développement professionnel.\nProfil recherché :\n- Titre de médecin spécialiste FMH en médecine interne générale ou équivalent reconnu.\n- Volonté de pratiquer dans un esprit de collaboration, d’autonomie et de qualité .\n- Intérêt pour un temps partiel modulable (ex. 2 à 3 jours/semaine), avec ou sans activité aux urgences.\nUn cadre professionnel et humain stimulant :\n- Une communauté médicale soudée , centrée sur les besoins des patients et les valeurs de solidarité.\n- Un environnement urbain agréable , facilement accessible en transports publics ou en voiture.\n- Ouvert également aux jeunes diplômé·e·s FMH ou en fin de formation post-graduée.",
+      "descriptionByLocale": {
+        "it": "Unisciti a un team medico impegnato e premuroso all'interno del Gruppo Medico d-Onex , un medico primario riconosciuto a Ginevra per oltre 30 anni. Offriamo un'opportunità di struttura part-time per un professionista generale indipendente con accesso a un ambiente clinico strutturato e un paziente esistente.\nCosa offriamo:\n- Governo condiviso con un collega, in un'area di medicina generale e specializzata.\n- Libertà di pratica con contratto indipendente e supporto di installazione.\n- Ripresa del paziente assicurato, a seguito di diversi pensionati.\n- Riduzione dei costi operativi reciproci, accesso al registro medico computerizzato Mediway e alla piattaforma SoKle.\n- Accesso diretto a un laboratorio, centro di imaging in loco.\n- Possibilità di attività aggiuntive per emergenze adulte (opzionale, entro 100 metri).\n- Cerchi di qualità Delta e rete dinamica che promuovono gli scambi clinici e lo sviluppo professionale.\nProfilo ricercato:\n- Nome di specialista medico FMH in medicina interna generale o equivalente riconosciuto.\n- La volontà di praticare in uno spirito di collaborazione, autonomia e qualità.\n- Interessi a tempo parziale flessibile (ad esempio 2-3 giorni/settimana), con o senza attività di emergenza.\nUn quadro professionale e umano stimolante:\n- Una comunità medica saldata, focalizzata sui bisogni dei pazienti e sui valori di solidarietà.\n- Un ambiente urbano piacevole, facilmente raggiungibile con i mezzi pubblici o in auto.\n- Aperto anche ai giovani laureati FMH o alla fine della formazione post-laurea.",
+        "en": "Join a committed and caring medical team within the Medical Group d-Onex , a recognized primary medical practitioner in Geneva for over 30 years. We offer a part-time facility opportunity for an independent general practitioner with access to a structured clinical environment and an existing patient.\nWhat we offer:\n- Cabinet shared with a colleague, in a general and specialized medicine area.\n- Freedom of practice with independent contract and installation support.\n- Resumption of insured patient, following several retirements.\n- Reduced mutualized operating costs, access to the Mediway computerized medical record and the SoKle platform.\n- Direct access to a laboratory, imaging center on site.\n- Possibility of additional activity for adult emergencies (optional, within 100 metres).\n- Delta quality circles and dynamic network promoting clinical exchanges and professional development.\nProfile sought:\n- Name of medical specialist FMH in general internal medicine or recognized equivalent.\n- Will to practice in a spirit of collaboration, autonomy and quality.\n- Interest in flexible part time (e.g. 2-3 days/week), with or without emergency activity.\nA stimulating professional and humane framework:\n- A welded medical community, focused on patient needs and solidarity values.\n- A pleasant urban environment, easily accessible by public transport or by car.\n- Open also to young FMH graduates or at the end of post-graduate training.",
+        "de": "Treten Sie einem engagierten und fürsorglichen medizinischen Team innerhalb der Medical Group d-Onex bei, einem anerkannten Hausarzt in Genf seit über 30 Jahren. Wir bieten eine Teilzeiteinrichtung für einen unabhängigen Allgemeinmediziner mit Zugang zu einem strukturierten klinischen Umfeld und einem bestehenden Patienten.\nWas wir anbieten:\n- Kabinett mit einem Kollegen geteilt, in einem allgemeinen und spezialisierten Medizinbereich.\n- Freiheit der Praxis mit unabhängigem Vertrag und Installationsunterstützung.\n- Wiederaufnahme des versicherten Patienten nach mehreren Pensionierungen.\n- Reduzierte gemeinsame Betriebskosten, Zugriff auf die computergestützte Mediway-Akte und die SoKle-Plattform.\n- Direkter Zugang zu einem Labor, Imaging-Center vor Ort.\n- Möglichkeit zusätzlicher Aktivitäten für erwachsene Notfälle (optional, innerhalb von 100 Metern).\n- Delta-Qualitätskreise und dynamisches Netzwerk zur Förderung des klinischen Austauschs und der beruflichen Entwicklung.\nGesuchtes Profil:\n- Name des medizinischen Spezialisten FMH in der allgemeinen inneren Medizin oder anerkanntes Äquivalent.\n- Der Wille, im Geiste der Zusammenarbeit, Autonomie und Qualität zu üben.\n- Interesse an flexibler Teilzeit (z. B. 2-3 Tage/Woche), mit oder ohne Notfallaktivität.\nEin anregender professioneller und menschlicher Rahmen:\n- Eine geschweißte medizinische Gemeinschaft, die sich auf die Bedürfnisse der Patienten und Solidaritätswerte konzentriert.\n- Eine angenehme städtische Umgebung, leicht mit öffentlichen Verkehrsmitteln oder mit dem Auto erreichbar.\n- Offen auch für junge FMH-Absolventen oder am Ende der postgradualen Ausbildung.",
+        "fr": "Rejoignez une équipe médicale engagée et bienveillante au sein du Groupe Médical d’Onex , acteur reconnu de la médecine de premier recours à Genève depuis plus de 30 ans. Nous proposons une opportunité d’installation à temps partiel pour un·e médecin généraliste indépendant·e , avec accès à un environnement clinique structuré et une patientèle existante.\nCe que nous offrons :\n- Cabinet partagé avec un·e collègue, dans un espace de médecine générale et spécialisée.\n- Liberté de pratique avec un contrat d’indépendant·e et un accompagnement à l’installation.\n- Reprise de patientèle assurée , suite à plusieurs départs à la retraite.\n- Frais de fonctionnement mutualisés réduits , accès au dossier médical informatisé Mediway et à la plateforme SoKle.\n- Accès direct à un laboratoire, centre d’imagerie sur le site.\n- Possibilité d’activité complémentaire aux urgences adultes (facultatif, à moins de 100 mètres).\n- Cercles de qualité Delta et dynamique de réseau favorisant les échanges cliniques et le développement professionnel.\nProfil recherché :\n- Titre de médecin spécialiste FMH en médecine interne générale ou équivalent reconnu.\n- Volonté de pratiquer dans un esprit de collaboration, d’autonomie et de qualité .\n- Intérêt pour un temps partiel modulable (ex. 2 à 3 jours/semaine), avec ou sans activité aux urgences.\nUn cadre professionnel et humain stimulant :\n- Une communauté médicale soudée , centrée sur les besoins des patients et les valeurs de solidarité.\n- Un environnement urbain agréable , facilement accessible en transports publics ou en voiture.\n- Ouvert également aux jeunes diplômé·e·s FMH ou en fin de formation post-graduée."
+      },
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-13T09:14:50.005Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interniste-generaliste-gmo-1213-onex-7911830d"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:15:39.484Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -478,7 +478,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.698Z",
+      "crawledAt": "2026-10-13T09:14:50.004Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -563,7 +563,7 @@
       "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.694Z",
+      "crawledAt": "2026-10-13T09:14:50.003Z",
       "addressLocality": "Le Lignon",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -637,7 +637,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.665Z",
+      "crawledAt": "2026-10-13T09:14:49.987Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -722,7 +722,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.663Z",
+      "crawledAt": "2026-10-13T09:14:49.986Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -801,7 +801,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.661Z",
+      "crawledAt": "2026-10-13T09:14:49.984Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -885,7 +885,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-responsable-a-100-103",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:16:11.637Z",
+      "crawledAt": "2026-10-13T09:14:49.971Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",

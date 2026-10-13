@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-10-12T21:25:25.891Z",
+  "assembledAt": "2026-10-13T09:22:05.308Z",
   "jobs": [
     {
       "id": "company-7uc26r",
@@ -77,7 +77,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7uc26o",
@@ -154,7 +155,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -1,23 +1,23 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-12T21:25:31.184Z",
+  "generatedAt": "2026-10-13T09:22:09.564Z",
   "total": 2,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 405790,
-  "avgDurationMs": 405790,
+  "durationMs": 397044,
+  "avgDurationMs": 397044,
   "durationHistory": [
-    405790
+    397044
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-7uc26r",
-      "slug": "qualitatspruferin-comadur-sa-bad-zurzach",
+      "slug": "revisore-di-qualita-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Qualitätsprüferin",
       "location": "Bad ZurZach",
@@ -44,6 +44,7 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -85,6 +86,7 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
+      "crawlerMissStreak": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,5 +96,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
