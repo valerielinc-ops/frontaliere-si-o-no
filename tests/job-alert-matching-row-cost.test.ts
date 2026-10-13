@@ -576,7 +576,7 @@ describe('bounded live-link shortlist (#9314)', () => {
       ...rankingOptions,
       variant: 'affinity',
       affinityScorer: (attrs: { category: string | null }) => (attrs.category === 'affinity-target' ? 1 : 0),
-      config: { ...JOB_EMAIL_RANKING_DEFAULTS, rollout: 1, affinityWeight: 1 },
+      config: { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true, rollout: 1, affinityWeight: 1 },
     };
     matched[matched.length - 1] = { ...matched[matched.length - 1], category: 'affinity-target' };
     const expected = rankEmailJobs(matched, { ...treatmentRankingOptions, limit: 10 });
