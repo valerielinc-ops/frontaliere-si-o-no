@@ -1,210 +1,120 @@
-import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
-  LEUKERBAD_CLINIC_KEY,
   LEUKERBAD_CLINIC_COMPANY_NAME,
+  LEUKERBAD_CLINIC_KEY,
+  fetchAllLeukerbadClinicJobs,
   isLeukerbadClinicJob,
   isTrustedDomain,
-  fetchAllLeukerbadClinicJobs,
   leukerbadClinicMatchKey,
-  listedJobDocumentIds,
+  parseLeukerbadClinicDetail,
+  parseLeukerbadClinicListing,
 } from '../scripts/lib/leukerbad-clinic-job-parser.mjs';
-import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 
-// Regression (issues #4085 / #4169): Leukerbad's Nuxt/Prismic site renders
-// every job on ONE language-specific listing page (…/fr/page/jobs/,
-// …/de/page/jobs/) — the per-doc detail path 404s, so the parser keeps the
-// listing URL as the source URL. Without a per-job discriminator all N jobs of
-// a locale shared ONE URL; the shared crawler's URL-based fingerprint
-// (canonicalizeJobUrl strips the hash → a bare listing URL collapses to a
-// single key) folded them onto ONE fingerprint in mergeAndDeduplicate. The
-// slice shrank to 2 (fr + de) and the shrink-guard hard-failed the crawler on
-// EVERY run. The fix gives every job a stable per-document token that
-// extractJobIdentityFromUrl reads: first a `#job-<hash>` fragment, since issue
-// 5253 a `?jobid=<hash>` query — the fragment is now the text fragment of the
-// title, which takes the reader to the posting (the `#job-<hash>` anchor
-// named no element of the page, rendered or not).
+const DE_LISTING = 'https://leukerbadclinic.ch/de/karriere/offene-stellen';
+const FR_LISTING = 'https://leukerbadclinic.ch/fr/carriere/postes-vacants';
 
-const PRISMIC_API = 'https://leukerbad-clinic.cdn.prismic.io/api/v2';
-
-function jobDoc(id: string, uid: string, lang: string, titleText: string) {
-  return {
-    id,
-    uid,
-    lang,
-    first_publication_date: '2025-09-01T00:00:00+0000',
-    last_publication_date: '2025-09-25T00:00:00+0000',
-    data: {
-      job_title: [{ type: 'heading1', text: titleText }],
-      time_percentage: '80-100%',
-      workplace: 'Leukerbad',
-      job_description: [
-        {
-          type: 'paragraph',
-          text:
-            'Nous recherchons une personne motivée pour rejoindre notre équipe. ' +
-            'Vous participerez aux soins et au suivi des patients dans un cadre ' +
-            'de réadaptation moderne, en collaboration avec une équipe ' +
-            'pluridisciplinaire engagée et bienveillante au quotidien.',
-        },
-      ],
-    },
-  };
+function listingHtml(lang: 'de' | 'fr', rows: Array<{ slug: string; title: string; conditions: string }>) {
+  const prefix = lang === 'de' ? '/de/karriere/offene-stellen' : '/fr/carriere/postes-vacants';
+  return `<!doctype html><nav><a href="${prefix}/navigation-noise">noise</a></nav>
+    <ul class="offres" data-testid="liste-offres">
+      ${rows.map((row) => `<li><h3><a href="${prefix}/${row.slug}">${row.title}</a></h3><p class="conditions">${row.conditions}</p></li>`).join('')}
+    </ul><footer><a href="${prefix}/footer-noise">noise</a></footer>`;
 }
 
-describe('Leukerbad Clinic (leukerbad-clinic) crawler parser', () => {
-  it('exports valid company key and name', () => {
+function detailHtml(lang: 'de' | 'fr', slug: string, title: string) {
+  const applyPath = lang === 'de' ? '/de/karriere/initiativbewerbung' : '/fr/carriere/candidature-spontanee';
+  return `<!doctype html><main id="contenu"><div class="offre-page"><h1>${title}</h1>
+    <div class="corps-page corps-page--colonne">
+      <section><h2>Aufgaben</h2><p>Wir suchen eine engagierte Fachperson für unser interdisziplinäres Team in Leukerbad. Sie betreuen Patientinnen und Patienten sorgfältig und arbeiten eng mit Medizin, Pflege und Therapie zusammen.</p></section>
+      <section><h2>Profil</h2><p>Sie verfügen über eine anerkannte Ausbildung, arbeiten selbständig, kommunizieren respektvoll und übernehmen Verantwortung. Gute Sprachkenntnisse, Teamgeist und Freude an einer langfristigen Zusammenarbeit ergänzen Ihr Profil.</p></section>
+      <section><h2>Angebot</h2><p>Wir bieten eine strukturierte Einführung, zeitgemässe Arbeitsbedingungen, Weiterbildungsmöglichkeiten und ein professionelles Umfeld in einer spezialisierten Rehabilitationsklinik im Wallis.</p></section>
+    </div><a href="${applyPath}?offre=${slug}">Bewerben</a></div></main>`;
+}
+
+describe('Leukerbad Clinic official HTML crawler', () => {
+  const realFetch = globalThis.fetch;
+
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    vi.restoreAllMocks();
+  });
+
+  it('identifies retired Prismic records but trusts only the live corporate host', () => {
     expect(LEUKERBAD_CLINIC_KEY).toBe('leukerbad-clinic');
     expect(LEUKERBAD_CLINIC_COMPANY_NAME).toBe('Leukerbad Clinic');
+    expect(isLeukerbadClinicJob({ url: 'https://leukerbad-clinic.cdn.prismic.io/api/v2' })).toBe(true);
+    expect(isLeukerbadClinicJob({ url: `${DE_LISTING}/mpa` })).toBe(true);
+    expect(isTrustedDomain(`${DE_LISTING}/mpa`)).toBe(true);
+    expect(isTrustedDomain('https://leukerbad-clinic.cdn.prismic.io/api/v2')).toBe(false);
   });
 
-  describe('isLeukerbadClinicJob', () => {
-    it('matches by companyKey', () => {
-      expect(isLeukerbadClinicJob({ companyKey: 'leukerbad-clinic' })).toBe(true);
-    });
-    it('matches by URL domain', () => {
-      expect(isLeukerbadClinicJob({ url: 'https://leukerbadclinic.ch/fr/page/jobs/#job-abc' })).toBe(true);
-    });
-    it('rejects unrelated jobs', () => {
-      expect(isLeukerbadClinicJob({ companyKey: 'other', url: 'https://other.com/jobs' })).toBe(false);
-    });
-    it('handles null gracefully', () => {
-      expect(isLeukerbadClinicJob(null)).toBe(false);
-    });
+  it('parses only detail links inside the source-owned vacancy list', () => {
+    const rows = parseLeukerbadClinicListing(listingHtml('de', [
+      { slug: 'mpa', title: 'Medizinische/r Praxisassistent/in (m/w)', conditions: '60–100 % · sofort oder nach Vereinbarung' },
+    ]), DE_LISTING, 'de');
+
+    expect(rows).toEqual([{
+      detailUrl: `${DE_LISTING}/mpa`,
+      title: 'Medizinische/r Praxisassistent/in (m/w)',
+      conditions: '60–100 % · sofort oder nach Vereinbarung',
+      sourceLang: 'de',
+    }]);
   });
 
-  describe('isTrustedDomain', () => {
-    it('trusts the corporate domain (with per-job fragment)', () => {
-      expect(isTrustedDomain('https://leukerbadclinic.ch/de/page/jobs/#job-abc')).toBe(true);
-    });
-    it('rejects other domains', () => {
-      expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
-    });
+  it('requires the detail body and explicit source application handoff', () => {
+    const row = { detailUrl: `${DE_LISTING}/mpa`, title: 'Fallback', conditions: '60–100 %', sourceLang: 'de' };
+    const detail = parseLeukerbadClinicDetail(detailHtml('de', 'mpa', 'Medizinische/r Praxisassistent/in (m/w)'), row);
+    expect(detail.title).toBe('Medizinische/r Praxisassistent/in (m/w)');
+    expect(detail.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    expect(detail.applyUrl).toBe('https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=mpa');
+    expect(() => parseLeukerbadClinicDetail('<h1>Thin</h1>', row)).toThrow('50-word source floor');
   });
 
-  describe('fetchAllLeukerbadClinicJobs — Prismic REST API', () => {
-    const realFetch = globalThis.fetch;
+  it('uses the two official Astro listings and never calls the retired Prismic API (issue 13078)', async () => {
+    const pages = new Map([
+      [DE_LISTING, listingHtml('de', [
+        { slug: 'mpa', title: 'Medizinische/r Praxisassistent/in (m/w)', conditions: '60–100 % · sofort oder nach Vereinbarung' },
+        { slug: 'ma-gap', title: 'Verwaltungsmitarbeiter/in – Patientenmanagement', conditions: '100 % · Sofort oder nach Vereinbarung' },
+      ])],
+      [FR_LISTING, listingHtml('fr', [
+        { slug: 'infirmiere', title: 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ∙E (H/F)', conditions: '80–100 % · De suite ou à convenir' },
+      ])],
+      [`${DE_LISTING}/mpa`, detailHtml('de', 'mpa', 'Medizinische/r Praxisassistent/in (m/w)')],
+      [`${DE_LISTING}/ma-gap`, detailHtml('de', 'ma-gap', 'Verwaltungsmitarbeiter/in – Patientenmanagement')],
+      [`${FR_LISTING}/infirmiere`, detailHtml('fr', 'infirmiere', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ∙E (H/F)')],
+    ]);
+    globalThis.fetch = vi.fn(async (input: any) => {
+      const url = String(input);
+      if (url.includes('prismic.io')) return new Response('', { status: 404 });
+      const body = pages.get(url);
+      return body ? new Response(body, { status: 200 }) : new Response('', { status: 404 });
+    }) as any;
 
-    beforeEach(() => {
-      process.env.JOBS_CRAWLER_TIMEOUT_MS = '1000';
-    });
-    afterEach(() => {
-      globalThis.fetch = realFetch;
-      delete process.env.JOBS_CRAWLER_TIMEOUT_MS;
-    });
-
-    // The `jobs` page documents link the positions the site lists; by
-    // default every job document passed in is listed.
-    function jobsPage(lang: string, ids: string[]) {
-      return {
-        id: `page-${lang}`, uid: 'jobs', type: 'page', lang,
-        data: { body: [{ slice_type: 'jobs', items: ids.map((id) => ({ job: { id, type: 'job', link_type: 'Document', isBroken: false } })) }] },
-      };
-    }
-
-    function mockPrismic(docs: any[], listedIds: string[] | null = docs.map((doc) => doc.id)) {
-      globalThis.fetch = vi.fn(async (url: any) => {
-        const u = String(url);
-        if (u.includes('/documents/search') && decodeURIComponent(u).includes('my.page.uid')) {
-          const results = listedIds === null ? [] : [jobsPage('fr-ch', listedIds), jobsPage('de-ch', [])];
-          return new Response(
-            JSON.stringify({ page: 1, total_pages: 1, results_size: results.length, results }),
-            { status: 200, headers: { 'content-type': 'application/json' } },
-          );
-        }
-        if (u === PRISMIC_API) {
-          return new Response(
-            JSON.stringify({
-              refs: [{ ref: 'MASTER_REF', isMasterRef: true }],
-              types: { job: 'Job' },
-            }),
-            { status: 200, headers: { 'content-type': 'application/json' } },
-          );
-        }
-        if (u.includes('/documents/search')) {
-          return new Response(
-            JSON.stringify({ page: 1, total_pages: 1, results_size: docs.length, results: docs }),
-            { status: 200, headers: { 'content-type': 'application/json' } },
-          );
-        }
-        return new Response('', { status: 404 });
-      }) as any;
-    }
-
-    it('gives every job a DISTINCT fingerprint even though all share one listing URL (shrink-guard regression)', async () => {
-      // Multiple distinct job documents on the SAME fr listing page.
-      mockPrismic([
-        jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%'),
-        jobDoc('doc-B', 'assc', 'fr-ch', 'ASSISTANT-E EN SOINS ET SANTE COMMUNAUTAIRE CFC (ASSC)'),
-        jobDoc('doc-C', 'physio', 'fr-ch', 'PHYSIOTHERAPEUTE DIPLOME-E (H/F)'),
-        jobDoc('doc-D', 'mpa', 'de-ch', 'Medizinische/r Praxisassistent/in (m/w)'),
-      ]);
-
-      const jobs = await fetchAllLeukerbadClinicJobs();
-      expect(jobs).toHaveLength(4);
-
-      // Every job carries its per-doc token and the text fragment of its title,
-      // on the live listing of its language.
-      for (const job of jobs) {
-        expect(job.companyKey).toBe('leukerbad-clinic');
-        expect(job.url).toMatch(/^https:\/\/leukerbadclinic\.ch\/(fr|de)\/page\/jobs\/\?jobid=[0-9a-f]{12}#:~:text=/);
-        expect(decodeURIComponent(job.url.split('#:~:text=')[1])).toBe(job.title);
-        expect(isTrustedDomain(job.url)).toBe(true);
-      }
-
-      // The fr jobs share the same path but MUST NOT share a fingerprint —
-      // this is the exact collapse that shrank the slice 15→2 and tripped the
-      // shrink-guard on every run.
-      const fps = jobs.map((j) => fingerprintJob(j));
-      expect(new Set(fps).size).toBe(jobs.length);
-
-      // And each fingerprint resolves via the per-doc token, not the bare
-      // (collapsing) listing URL.
-      for (const fp of fps) {
-        expect(fp).toMatch(/^id\|leukerbadclinic\.ch\|[0-9a-f]{12}$/);
-      }
-    });
-
-    it('produces a stable fragment across runs for the same Prismic doc', async () => {
-      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')]);
-      const first = await fetchAllLeukerbadClinicJobs();
-      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')]);
-      const second = await fetchAllLeukerbadClinicJobs();
-      expect(first[0].url).toBe(second[0].url);
-      expect(fingerprintJob(first[0])).toBe(fingerprintJob(second[0]));
-    });
-
-    it('publishes only the job documents the site lists (issue 5253: MPA, Chefarzt, Verwaltung were Prismic-only)', async () => {
-      mockPrismic([
-        jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%'),
-        jobDoc('doc-D', 'mpa', 'de-ch', 'Medizinische/r Praxisassistent/in (m/w)'),
-      ], ['doc-A']);
-      const jobs = await fetchAllLeukerbadClinicJobs();
-      expect(jobs.map((job) => job.title)).toEqual(['INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%']);
-    });
-
-    it('fails instead of publishing every document when the jobs page cannot be read', async () => {
-      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')], null);
-      await expect(fetchAllLeukerbadClinicJobs()).rejects.toThrow('jobs');
-    });
-
-    it('keeps the stored record identity: merge key is the id, unchanged by the URL', async () => {
-      mockPrismic([jobDoc('doc-A', 'infirmiere', 'fr-ch', 'INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%')]);
-      const [job] = await fetchAllLeukerbadClinicJobs();
-      const stored = { id: job.id, url: 'https://leukerbadclinic.ch/fr/page/jobs/#job-0123456789ab' };
-      expect(leukerbadClinicMatchKey(stored)).toBe(leukerbadClinicMatchKey(job));
-    });
+    const jobs = await fetchAllLeukerbadClinicJobs();
+    expect(jobs).toHaveLength(3);
+    expect((globalThis.fetch as any).mock.calls.some(([url]: [unknown]) => String(url).includes('prismic.io'))).toBe(false);
+    expect(jobs.map((job) => job.url)).toEqual([
+      `${DE_LISTING}/mpa`,
+      `${DE_LISTING}/ma-gap`,
+      `${FR_LISTING}/infirmiere`,
+    ]);
+    expect(jobs.every((job) => job.applyUrl.includes('?offre='))).toBe(true);
+    expect(jobs.every((job) => job.source.includes('official Astro HTML'))).toBe(true);
+    expect(jobs.map((job) => job.sourceLang)).toEqual(['de', 'de', 'fr']);
+    expect(new Set(jobs.map((job) => job.id)).size).toBe(3);
+    expect(leukerbadClinicMatchKey(jobs[0])).toBe(jobs[0].id);
   });
 
-  describe('listedJobDocumentIds', () => {
-    it('reads the job links of the jobs page, not broken links or other documents', () => {
-      const ids = listedJobDocumentIds([{ data: { body: [
-        { primary: { title: [] }, items: [
-          { job: { id: 'A', type: 'job', link_type: 'Document', isBroken: false } },
-          { job: { id: 'B', type: 'job', link_type: 'Document', isBroken: true } },
-          { job: { id: 'C', type: 'page', link_type: 'Document', isBroken: false } },
-        ] },
-      ] } }]);
-      expect([...ids]).toEqual(['A']);
-    });
+  it('fails closed when either locale loses its listing contract', async () => {
+    globalThis.fetch = vi.fn(async (input: any) => {
+      const url = String(input);
+      if (url === DE_LISTING) return new Response(listingHtml('de', [
+        { slug: 'mpa', title: 'Medizinische/r Praxisassistent/in (m/w)', conditions: '60–100 %' },
+      ]), { status: 200 });
+      if (url === FR_LISTING) return new Response('<html><p>redesigned</p></html>', { status: 200 });
+      return new Response('', { status: 404 });
+    }) as any;
+
+    await expect(fetchAllLeukerbadClinicJobs()).rejects.toThrow('listing contract missing');
   });
 });
