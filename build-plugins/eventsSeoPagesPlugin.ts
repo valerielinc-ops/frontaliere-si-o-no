@@ -3259,7 +3259,12 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * pathological place name that overflows the cap even bare — the emitted
  * <title> can never exceed TITLE_MAX_CHARS.
  */
-function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[], dateToken = ''): string {
+function eventDetailMetaTitle(
+  rawTitle: string,
+  suffixes: readonly string[],
+  dateToken = '',
+  preferBrandSuffix = false,
+): string {
   const datedSuffixes = dateToken
     ? suffixes.flatMap((suffix) => {
       const candidates = [`${suffix} · ${dateToken}`];
@@ -3289,7 +3294,7 @@ function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[], dat
   // title, use its paired brandless form when that preserves the title. Do not
   // scan into the next comune-only candidate: a long canton token is a better
   // disambiguator than a complete but location-poor title.
-  if (dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
+  if (!preferBrandSuffix && dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
     const brandless = datedSuffixes[firstMeaningfulIndex + 1];
     if (brandless && TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
   }
@@ -3415,7 +3420,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Advertisement',
   },
   de: {
-    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d),
+    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d, true),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -3497,7 +3502,12 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     // `DETAIL_TITLE_SUFFIXES` doc comment above. #3799: every candidate in
     // the cascade is substituted, so the min-budget check runs against the
     // real canton name at each degradation step too.
-    metaTitle: (t: string, c: string, d?: string) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES[locale](c).map(sub), d),
+    metaTitle: (t: string, c: string, d?: string) => eventDetailMetaTitle(
+      t,
+      DETAIL_TITLE_SUFFIXES[locale](c).map(sub),
+      d,
+      locale === 'de',
+    ),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
     about: (t: string, c: string, w: string, cat: string, venue?: string) => sub(base.about(t, c, w, cat, venue)),
