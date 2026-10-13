@@ -113,6 +113,7 @@ import {
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
+import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPaths.js';
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
@@ -1384,7 +1385,7 @@ export const Analytics = {
  trackApplicationConciergeView: () => {
   const pagePath = typeof window !== 'undefined'
    ? `${window.location.pathname}${window.location.search}`
-   : '/cerca-lavoro-ticino/?application_concierge=1';
+   : APPLICATION_CONCIERGE_PATH;
   logFirebaseOnly('application_concierge_view', {
    page_path: pagePath,
    page_template: 'application_concierge',
@@ -1400,7 +1401,7 @@ export const Analytics = {
  trackApplicationConciergeCheckoutClick: () => {
   const pagePath = typeof window !== 'undefined'
    ? `${window.location.pathname}${window.location.search}`
-   : '/cerca-lavoro-ticino/?application_concierge=1';
+   : APPLICATION_CONCIERGE_PATH;
   logFirebaseOnly('application_concierge_checkout_click', {
    page_path: pagePath,
    page_template: 'application_concierge',
