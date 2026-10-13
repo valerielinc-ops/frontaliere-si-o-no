@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-10-13T09:15:55.496Z",
+  "assembledAt": "2026-10-13T21:12:04.757Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.534Z",
+      "crawledAt": "2026-10-13T21:11:58.109Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.532Z",
+      "crawledAt": "2026-10-13T21:11:58.108Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -156,80 +156,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.102Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-9efca5d71f12",
-      "slug": "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern",
-        "en": "apprenticeship-businesswoman-businessman-efz-for-sports-talents-stadt-bern-bern",
-        "de": "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
-        "fr": "apprentissage-homme-d-affaires-homme-d-affaires-efz-pour-les-talents-sportifs-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle Kauffrau / Kaufmann EFZ für Sporttalente",
-      "titleByLocale": {
-        "it": "Apprendistato donna d'affari / uomo d'affari EFZ per talenti sportivi",
-        "en": "Apprenticeship businesswoman / businessman EFZ for sports talents",
-        "de": "Lehrstelle Kauffrau / Kaufmann EFZ für Sporttalente",
-        "fr": "Apprentissage homme d'affaires / homme d'affaires EFZ pour les talents sportifs"
-      },
-      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Trainingsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Swiss Olympic Talent Card (national oder regional)\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Usa i tuoi talenti e le tue conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna.\n\nCompiti:\n• Si lavora in diverse aree e si occupa di varie attività\n\n• Partecipate a progetti entusiasmanti e contribuite alle vostre idee\n\n• Potrai sviluppare continuamente le tue competenze e beneficiare di un'offerta di corso interno versatile\n\n• Formate attivamente la vostra formazione – accompagnata da apprendisti pratici impegnati e qualificati\n\n• Si beneficiano di orari di lavoro flessibili che sono allineati con il vostro piano di formazione\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Swiss Olympic Talent Card (nazionale o regionale)\n\n• Interessi in politica e attività commerciali\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern.\n\nTasks:\n• You work in different areas and take on varied tasks\n\n• You participate in exciting projects and contribute your ideas\n\n• You will continuously develop your skills and benefit from a versatile internal course offer\n\n• You actively shape your education – accompanied by committed and qualified practical trainees\n\n• You benefit from flexible working hours that are aligned with your training plan\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Swiss Olympic Talent Card (national or regional)\n\n• Interest in politics and commercial activities\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Trainingsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Swiss Olympic Talent Card (national oder regional)\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne.\n\nTâches :\n• Vous travaillez dans différents domaines et prenez des tâches variées\n\n• Vous participez à des projets passionnants et apportez vos idées\n\n• Vous développerez continuellement vos compétences et bénéficierez d'une offre de cours internes polyvalents\n\n• Vous façonnez activement votre éducation – accompagnée de stagiaires engagés et qualifiés\n\n• Vous bénéficiez d'heures de travail flexibles alignées sur votre plan de formation\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Carte des talents olympiques suisses (nationale ou régionale)\n\n• Intérêt pour la politique et les activités commerciales\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.531Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Junkerngasse 47",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.100Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -276,7 +202,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/5e706206-1d96-4fe2-aa53-260f81234372",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.529Z",
+      "crawledAt": "2026-10-13T21:11:58.107Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -335,6 +261,80 @@
       }
     },
     {
+      "id": "stadt-bern-9efca5d71f12",
+      "slug": "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern",
+        "en": "apprenticeship-businesswoman-businessman-efz-for-sports-talents-stadt-bern-bern",
+        "de": "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
+        "fr": "apprentissage-homme-d-affaires-homme-d-affaires-efz-pour-les-talents-sportifs-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Kauffrau / Kaufmann EFZ für Sporttalente",
+      "titleByLocale": {
+        "it": "Apprendistato donna d'affari / uomo d'affari EFZ per talenti sportivi",
+        "en": "Apprenticeship businesswoman / businessman EFZ for sports talents",
+        "de": "Lehrstelle Kauffrau / Kaufmann EFZ für Sporttalente",
+        "fr": "Apprentissage homme d'affaires / homme d'affaires EFZ pour les talents sportifs"
+      },
+      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Trainingsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Swiss Olympic Talent Card (national oder regional)\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "descriptionByLocale": {
+        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Usa i tuoi talenti e le tue conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna.\n\nCompiti:\n• Si lavora in diverse aree e si occupa di varie attività\n\n• Partecipate a progetti entusiasmanti e contribuite alle vostre idee\n\n• Potrai sviluppare continuamente le tue competenze e beneficiare di un'offerta di corso interno versatile\n\n• Formate attivamente la vostra formazione – accompagnata da apprendisti pratici impegnati e qualificati\n\n• Si beneficiano di orari di lavoro flessibili che sono allineati con il vostro piano di formazione\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Swiss Olympic Talent Card (nazionale o regionale)\n\n• Interessi in politica e attività commerciali\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern.\n\nTasks:\n• You work in different areas and take on varied tasks\n\n• You participate in exciting projects and contribute your ideas\n\n• You will continuously develop your skills and benefit from a versatile internal course offer\n\n• You actively shape your education – accompanied by committed and qualified practical trainees\n\n• You benefit from flexible working hours that are aligned with your training plan\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Swiss Olympic Talent Card (national or regional)\n\n• Interest in politics and commercial activities\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Trainingsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Swiss Olympic Talent Card (national oder regional)\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne.\n\nTâches :\n• Vous travaillez dans différents domaines et prenez des tâches variées\n\n• Vous participez à des projets passionnants et apportez vos idées\n\n• Vous développerez continuellement vos compétences et bénéficierez d'une offre de cours internes polyvalents\n\n• Vous façonnez activement votre éducation – accompagnée de stagiaires engagés et qualifiés\n\n• Vous bénéficiez d'heures de travail flexibles alignées sur votre plan de formation\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Carte des talents olympiques suisses (nationale ou régionale)\n\n• Intérêt pour la politique et les activités commerciales\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-13T21:11:58.107Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Junkerngasse 47",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:53.100Z",
+      "salaryMin": 76000,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-9818f07dca9e",
       "slug": "giardiniere-stv-foreman-stadt-bern-bern",
       "slugByLocale": {
@@ -365,7 +365,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-stv-vorarbeiter-in/51c9dc83-883f-4b5a-97a7-35ea33e3aeab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.528Z",
+      "crawledAt": "2026-10-13T21:11:58.106Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -440,7 +440,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.526Z",
+      "crawledAt": "2026-10-13T21:11:58.105Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -515,7 +515,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.525Z",
+      "crawledAt": "2026-10-13T21:11:58.100Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -590,7 +590,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.523Z",
+      "crawledAt": "2026-10-13T21:11:58.100Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -664,7 +664,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.522Z",
+      "crawledAt": "2026-10-13T21:11:58.099Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -741,7 +741,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.520Z",
+      "crawledAt": "2026-10-13T21:11:58.098Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -818,7 +818,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.519Z",
+      "crawledAt": "2026-10-13T21:11:58.097Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -862,80 +862,6 @@
       }
     },
     {
-      "id": "stadt-bern-8852ecd213a9",
-      "slug": "giardinieri-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "giardinieri-stadt-bern-bern",
-        "en": "gardeners-stadt-bern-bern",
-        "de": "gartner-in-stadt-bern-bern",
-        "fr": "jardiniers-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Gärtner*in",
-      "titleByLocale": {
-        "it": "Giardinieri",
-        "en": "Gardeners",
-        "de": "Gärtner*in",
-        "fr": "Jardiniers"
-      },
-      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Ti stiamo cercando a 1. Dicembre o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Lavorare in un team esperto\n\n• Manutenzione e manutenzione dello Schosshaldenfriedhof\n\n• Lavori di taglio, di semina e di cucito\n\n• Guida e manutenzione di veicoli, macchinari e attrezzature\n\nRequisiti\n• Apprendistato professionale come giardiniere* in EFZ, campo di giardinaggio e paesaggistica\n\n• Lavoratori autonomi e affidabili\n\n• Team-ready e responsabile\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you at 1. December or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• Working in an experienced team\n\n• Maintenance and maintenance of the Schosshaldenfriedhof\n\n• Cutting, planting and mowing work\n\n• Driving and maintaining vehicles, machinery and equipment\n\nRequirements\n• Vocational apprenticeship as a gardener*in EFZ, field of gardening and landscaping\n\n• Self-employed and reliable\n\n• Team-ready and responsible\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Nous rendons Berne plus belle, colorée et habitable. Voulez-vous nous soutenir ? Nous vous cherchons à 1. Décembre ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Travailler dans une équipe expérimentée\n\n• Entretien et entretien du Schosshaldenfriedhof\n\n• Travaux de coupe, de plantation et de fauchage\n\n• Conduite et entretien des véhicules, des machines et du matériel\n\nExigences\n• Apprentissage professionnel en tant que jardinier* à EFZ, domaine du jardinage et de l'aménagement paysager\n\n• Travailleurs indépendants et fiables\n\n• Équipe prête et responsable\n\n• Joy du travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.517Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Ostermundigenstrasse 116",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:46:53.597Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-a805d719140d",
       "slug": "capocuoco-stadt-bern-bern",
       "slugByLocale": {
@@ -967,7 +893,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.516Z",
+      "crawledAt": "2026-10-13T21:11:58.096Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1011,6 +937,80 @@
       }
     },
     {
+      "id": "stadt-bern-8852ecd213a9",
+      "slug": "giardinieri-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "giardinieri-stadt-bern-bern",
+        "en": "gardeners-stadt-bern-bern",
+        "de": "gartner-in-stadt-bern-bern",
+        "fr": "jardiniers-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Gärtner*in",
+      "titleByLocale": {
+        "it": "Giardinieri",
+        "en": "Gardeners",
+        "de": "Gärtner*in",
+        "fr": "Jardiniers"
+      },
+      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Ti stiamo cercando a 1. Dicembre o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Lavorare in un team esperto\n\n• Manutenzione e manutenzione dello Schosshaldenfriedhof\n\n• Lavori di taglio, di semina e di cucito\n\n• Guida e manutenzione di veicoli, macchinari e attrezzature\n\nRequisiti\n• Apprendistato professionale come giardiniere* in EFZ, campo di giardinaggio e paesaggistica\n\n• Lavoratori autonomi e affidabili\n\n• Team-ready e responsabile\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you at 1. December or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• Working in an experienced team\n\n• Maintenance and maintenance of the Schosshaldenfriedhof\n\n• Cutting, planting and mowing work\n\n• Driving and maintaining vehicles, machinery and equipment\n\nRequirements\n• Vocational apprenticeship as a gardener*in EFZ, field of gardening and landscaping\n\n• Self-employed and reliable\n\n• Team-ready and responsible\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous rendons Berne plus belle, colorée et habitable. Voulez-vous nous soutenir ? Nous vous cherchons à 1. Décembre ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Travailler dans une équipe expérimentée\n\n• Entretien et entretien du Schosshaldenfriedhof\n\n• Travaux de coupe, de plantation et de fauchage\n\n• Conduite et entretien des véhicules, des machines et du matériel\n\nExigences\n• Apprentissage professionnel en tant que jardinier* à EFZ, domaine du jardinage et de l'aménagement paysager\n\n• Travailleurs indépendants et fiables\n\n• Équipe prête et responsable\n\n• Joy du travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-13T21:11:58.096Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Ostermundigenstrasse 116",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gartner-in-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:46:53.597Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-f23472b5067a",
       "slug": "terziario-professionale-stadt-bern-bern",
       "slugByLocale": {
@@ -1042,7 +1042,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/572bb557-48f2-49ca-97fc-7e96e0ef2eed",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.514Z",
+      "crawledAt": "2026-10-13T21:11:58.095Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1117,7 +1117,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/a3444067-bd28-4778-8f36-51f6f5af4b6a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.513Z",
+      "crawledAt": "2026-10-13T21:11:58.094Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1192,7 +1192,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.511Z",
+      "crawledAt": "2026-10-13T21:11:58.093Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1267,7 +1267,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/ffed49b1-1d18-470a-9912-7d59f74e2d9c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.510Z",
+      "crawledAt": "2026-10-13T21:11:58.091Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1316,9 +1316,9 @@
       "id": "stadt-bern-879b80cbc73d",
       "slug": "cogestione-ciclo-3-stadt-bern-bern",
       "slugByLocale": {
-        "de": "co-schulleitung-zyklus-3-stadt-bern-bern",
         "it": "cogestione-ciclo-3-stadt-bern-bern",
         "en": "co-management-cycle-3-stadt-bern-bern",
+        "de": "co-schulleitung-zyklus-3-stadt-bern-bern",
         "fr": "cogestion-cycle-3-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -1326,17 +1326,17 @@
       "companyDomain": "bern.ch",
       "title": "Co-Schulleitung Zyklus 3",
       "titleByLocale": {
-        "de": "Co-Schulleitung Zyklus 3",
         "it": "Cogestione Ciclo 3",
         "en": "Co-management Cycle 3",
+        "de": "Co-Schulleitung Zyklus 3",
         "fr": "Cogestion Cycle 3"
       },
       "description": "Da einer unserer langjährigen Schulleiter im Sommer 2027 in den Ruhestand tritt, suchen wir eine engagierte Persönlichkeit als Ergänzung für unser Schulleitungsteam im Hochfeld 1. Gemeinsam mit den beiden Co-Schulleiterinnen vor Ort und einer weiteren Co-Schulleiterin im Schulhaus Enge übernimmst du Verantwortung für die Führung und Weiterentwicklung unserer Schule und gestaltest deren Zukunft aktiv mit.<br/>Dein Beschäftigungsgrad würde wie folgt aussehen:<ul><li>35-40% Schulleitung mit MR und Regelschulleitung</li><li>10% Hausvorstand</li><li>ergänzende Unterrichtslektionen falls gewünscht</li><li>Präsenz an mindestens 3 Tagen</li></ul><br/>Die Anstellung erfolgt für den gesamten Schulkreis. Bei Bedarf können zusätzlich zu den ausgeschriebenen Aufgaben weitere Tätigkeiten innerhalb des Schulkreises übertragen werden.\n\nAufgaben:\n• Du entwickelst gemeinsam mit den Co-Schulleiterinnen und dem engagierten Team die Qualität der Schule weiter und greifst aktuelle gesellschaftliche, pädagogische und schulische Entwicklungen auf.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und begeisterst Mitarbeitende für gemeinsame Ziele. Dabei übernimmst du Verantwortung für die Personalführung, auch in anspruchsvollen Situationen.\n\n• Du verantwortest den MR-Bereich sowie einen Teilbereich der Administration und Organisation des operativen Schulbetriebs.\n\n• Du leitest gemeinsam mit den Co-Schulleiterinnen Standort- und Schulhauskonferenzen.\n\n• Die Schulleitungen positionieren die Schule als attraktiven und zukunftsorientierten Lern- und Arbeitsort und pflegen den konstruktiven Austausch mit den relevanten Anspruchsgruppen aus Bildung, Verwaltung und Quartier.\n\n• Du berätst und begleitest Schüler*innen und Erziehungsberechtigte in schulischen Fragen und verantwortest Laufbahnentscheide sowie Themen rund um das Kindswohl.\n\n• Du arbeitest eng mit den Schulleitungen im Schulkreis und der Schulkommission zusammen und bringst dich aktiv ein.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, vorzugsweise im Zyklus 3, sowie über Unterrichtserfahrung und einen Leistungsausweis in der Arbeit mit Jugendlichen im Volksschulalter.\n\n• Du hast eine Schulleitungsausbildung (oder eine vergleichbare Führungsausbildung) bereits abgeschlossen, begonnen oder bist bereit, diese umgehend zu beginnen.\n\n• Erfahrungen im MR-Bereich sind von Vorteil. Andernfalls bringst du die Bereitschaft mit, dich in diesem Bereich weiterzubilden.\n\n• Du bist eine teamorientierte Persönlichkeit mit strategischem Weitblick und der Fähigkeit, Entwicklungsprozesse partizipativ und wirkungsvoll zu gestalten.\n\n• Du schätzt die kollegiale Zusammenarbeit mit den Co-Schulleitenden des Zyklus 3 und bringst dich engagiert, konstruktiv und verlässlich in die gemeinsame Führung ein.\n\n• Du arbeitest vernetzt, lösungsorientiert und behältst auch in herausfordernden Situationen den Überblick.\n\n• Du triffst auch in anspruchsvollen Situationen fundierte Entscheidungen und handelst dabei verbindlich, transparent und verantwortungsbewusst.\n\n• Du begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit, Interesse und Wertschätzung und setzt dich für eine inklusive und respektvolle Schulkultur ein.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Da einer unserer langjährigen Schulleiter im Sommer 2027 in den Ruhestand tritt, suchen wir eine engagierte Persönlichkeit als Ergänzung für unser Schulleitungsteam im Hochfeld 1. Gemeinsam mit den beiden Co-Schulleiterinnen vor Ort und einer weiteren Co-Schulleiterin im Schulhaus Enge übernimmst du Verantwortung für die Führung und Weiterentwicklung unserer Schule und gestaltest deren Zukunft aktiv mit.<br/>Dein Beschäftigungsgrad würde wie folgt aussehen:<ul><li>35-40% Schulleitung mit MR und Regelschulleitung</li><li>10% Hausvorstand</li><li>ergänzende Unterrichtslektionen falls gewünscht</li><li>Präsenz an mindestens 3 Tagen</li></ul><br/>Die Anstellung erfolgt für den gesamten Schulkreis. Bei Bedarf können zusätzlich zu den ausgeschriebenen Aufgaben weitere Tätigkeiten innerhalb des Schulkreises übertragen werden.\n\nAufgaben:\n• Du entwickelst gemeinsam mit den Co-Schulleiterinnen und dem engagierten Team die Qualität der Schule weiter und greifst aktuelle gesellschaftliche, pädagogische und schulische Entwicklungen auf.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und begeisterst Mitarbeitende für gemeinsame Ziele. Dabei übernimmst du Verantwortung für die Personalführung, auch in anspruchsvollen Situationen.\n\n• Du verantwortest den MR-Bereich sowie einen Teilbereich der Administration und Organisation des operativen Schulbetriebs.\n\n• Du leitest gemeinsam mit den Co-Schulleiterinnen Standort- und Schulhauskonferenzen.\n\n• Die Schulleitungen positionieren die Schule als attraktiven und zukunftsorientierten Lern- und Arbeitsort und pflegen den konstruktiven Austausch mit den relevanten Anspruchsgruppen aus Bildung, Verwaltung und Quartier.\n\n• Du berätst und begleitest Schüler*innen und Erziehungsberechtigte in schulischen Fragen und verantwortest Laufbahnentscheide sowie Themen rund um das Kindswohl.\n\n• Du arbeitest eng mit den Schulleitungen im Schulkreis und der Schulkommission zusammen und bringst dich aktiv ein.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, vorzugsweise im Zyklus 3, sowie über Unterrichtserfahrung und einen Leistungsausweis in der Arbeit mit Jugendlichen im Volksschulalter.\n\n• Du hast eine Schulleitungsausbildung (oder eine vergleichbare Führungsausbildung) bereits abgeschlossen, begonnen oder bist bereit, diese umgehend zu beginnen.\n\n• Erfahrungen im MR-Bereich sind von Vorteil. Andernfalls bringst du die Bereitschaft mit, dich in diesem Bereich weiterzubilden.\n\n• Du bist eine teamorientierte Persönlichkeit mit strategischem Weitblick und der Fähigkeit, Entwicklungsprozesse partizipativ und wirkungsvoll zu gestalten.\n\n• Du schätzt die kollegiale Zusammenarbeit mit den Co-Schulleitenden des Zyklus 3 und bringst dich engagiert, konstruktiv und verlässlich in die gemeinsame Führung ein.\n\n• Du arbeitest vernetzt, lösungsorientiert und behältst auch in herausfordernden Situationen den Überblick.\n\n• Du triffst auch in anspruchsvollen Situationen fundierte Entscheidungen und handelst dabei verbindlich, transparent und verantwortungsbewusst.\n\n• Du begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit, Interesse und Wertschätzung und setzt dich für eine inklusive und respektvolle Schulkultur ein.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Da einer unserer langjährigen Schulleiter im Sommer 2027 in den Ruhestand tritt, suchen wir eine engagierte Persönlichkeit als Ergänzung für unser Schulleitungsteam im Hochfeld 1. Gemeinsam mit den beiden Co-Schulleiterinnen vor Ort und einer weiteren Co-Schulleiterin im Schulhaus Enge übernimmst du Verantwortung für die Führung und Weiterentwicklung unserer Schule und gestaltest deren Zukunft aktiv mit.<br/>Dein Beschäftigungsgrad würde wie folgt aussehen:<ul><li>35-40% Schulleitung mit MR und Regelschulleitung</li><li>10% Hausvorstand</li><li>ergänzende Unterrichtslektionen falls gewünscht</li><li>Präsenz an mindestens 3 Tagen</li></ul><br/>Die Anstellung erfolgt für den gesamten Schulkreis. Bei Bedarf können zusätzlich zu den ausgeschriebenen Aufgaben weitere Tätigkeiten innerhalb des Schulkreises übertragen werden.\n\nAufgaben:\n• Du entwickelst gemeinsam mit den Co-Schulleiterinnen und dem engagierten Team die Qualität der Schule weiter und greifst aktuelle gesellschaftliche, pädagogische und schulische Entwicklungen auf.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und begeisterst Mitarbeitende für gemeinsame Ziele. Dabei übernimmst du Verantwortung für die Personalführung, auch in anspruchsvollen Situationen.\n\n• Du verantwortest den MR-Bereich sowie einen Teilbereich der Administration und Organisation des operativen Schulbetriebs.\n\n• Du leitest gemeinsam mit den Co-Schulleiterinnen Standort- und Schulhauskonferenzen.\n\n• Die Schulleitungen positionieren die Schule als attraktiven und zukunftsorientierten Lern- und Arbeitsort und pflegen den konstruktiven Austausch mit den relevanten Anspruchsgruppen aus Bildung, Verwaltung und Quartier.\n\n• Du berätst und begleitest Schüler*innen und Erziehungsberechtigte in schulischen Fragen und verantwortest Laufbahnentscheide sowie Themen rund um das Kindswohl.\n\n• Du arbeitest eng mit den Schulleitungen im Schulkreis und der Schulkommission zusammen und bringst dich aktiv ein.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, vorzugsweise im Zyklus 3, sowie über Unterrichtserfahrung und einen Leistungsausweis in der Arbeit mit Jugendlichen im Volksschulalter.\n\n• Du hast eine Schulleitungsausbildung (oder eine vergleichbare Führungsausbildung) bereits abgeschlossen, begonnen oder bist bereit, diese umgehend zu beginnen.\n\n• Erfahrungen im MR-Bereich sind von Vorteil. Andernfalls bringst du die Bereitschaft mit, dich in diesem Bereich weiterzubilden.\n\n• Du bist eine teamorientierte Persönlichkeit mit strategischem Weitblick und der Fähigkeit, Entwicklungsprozesse partizipativ und wirkungsvoll zu gestalten.\n\n• Du schätzt die kollegiale Zusammenarbeit mit den Co-Schulleitenden des Zyklus 3 und bringst dich engagiert, konstruktiv und verlässlich in die gemeinsame Führung ein.\n\n• Du arbeitest vernetzt, lösungsorientiert und behältst auch in herausfordernden Situationen den Überblick.\n\n• Du triffst auch in anspruchsvollen Situationen fundierte Entscheidungen und handelst dabei verbindlich, transparent und verantwortungsbewusst.\n\n• Du begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit, Interesse und Wertschätzung und setzt dich für eine inklusive und respektvolle Schulkultur ein.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "en": "As one of our long-term principals retires in the summer of 2027, we are looking for a dedicated personality to complement our school management team in High Field 1. Together with the two co-directors on site and another co-director in the school building Enge, you take responsibility for the management and further development of our school and actively shape its future. >Your level of employment would look as follows:<ul><li>35-40% School management with MR and regular school management</li><li>10% House management</li><li>supplementary lessons if desired</li><li>Presence on at least 3 days</li></ul><br/ >The employment is for the entire school circle. If necessary, in addition to the advertised tasks, further activities within the school circle can be transferred.\n\nTasks:\n• Together with the co-directors and the dedicated team, you will continue to develop the quality of the school and take up current social, educational and school developments.\n\n• You lead with clarity, esprit and empathy, provide orientation and inspire employees for common goals. You take responsibility for personnel management, even in demanding situations.\n\n• You are responsible for the MR area as well as a part of the administration and organization of the operative school operation.\n\n• Together with the co-directors, you lead location and schoolhouse conferences.\n\n• School management positions the school as an attractive and future-oriented place to learn and work and fosters a constructive exchange with relevant stakeholders from education, administration and neighbourhoods.\n\n• You advise and accompany students and guardians in school issues and are responsible for career decisions as well as topics related to the child’s well-being.\n\n• You work closely with the school management in the school circle and the school committee and are actively involved.\n\nRequirements\n• You have an educational education, preferably in cycle 3, as well as teaching experience and a track record in working with adolescents of primary school age.\n\n• You have already completed, started or are ready to start school management training (or similar leadership training).\n\n• Experience in the MR area is an advantage. Otherwise, you will bring the willingness to continue your education in this area.\n\n• You are a team-oriented personality with strategic vision and the ability to shape development processes in a participatory and effective way.\n\n• You appreciate the collegial cooperation with the co-school leaders of Cycle 3 and are committed, constructive and reliable in the joint leadership.\n\n• You work in a networked, solution-oriented manner and keep an overview even in challenging situations.\n\n• You also make informed decisions in challenging situations and act in a binding, transparent and responsible manner.\n\n• You will meet different cultures, perspectives and living environments with openness, interest and appreciation and will work for an inclusive and respectful school culture.\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "Comme l'un de nos directeurs à long terme prend sa retraite à l'été de 2027, nous recherchons une personnalité dévouée pour compléter notre équipe de gestion scolaire au High Field 1. Avec les deux co-directeurs sur place et un autre co-directeur dans le bâtiment scolaire Enge, vous assumez la responsabilité de la gestion et du développement de notre école et façonnez activement son avenir. >Votre niveau d'emploi serait le suivant :<ul><li>35-40% Gestion de l'école avec MR et gestion régulière de l'école</li><li>10% Gestion de la maison</li><li>enseignement complémentaire si désiré</li><li> Présence pendant au moins 3 jours</li></ul><br/ > L'emploi concerne l'ensemble du cercle scolaire. Si nécessaire, en plus des tâches annoncées, d'autres activités au sein du cercle scolaire peuvent être transférées.\n\nTâches :\n• Avec les codirecteurs et l'équipe dédiée, vous continuerez à développer la qualité de l'école et à prendre en charge les développements sociaux, éducatifs et scolaires actuels.\n\n• Vous dirigez avec clarté, esprit et empathie, fournissez de l'orientation et inspirez les employés à des objectifs communs. Vous assumez la responsabilité de la gestion du personnel, même dans des situations exigeantes.\n\n• Vous êtes responsable de la zone MR ainsi que de l'administration et de l'organisation de l'opération scolaire.\n\n• En collaboration avec les codirecteurs, vous dirigez des conférences sur les lieux et les écoles.\n\n• La direction de l'école place l'école comme un lieu attrayant et tourné vers l'avenir pour apprendre et travailler et favorise un échange constructif avec les intervenants concernés de l'éducation, de l'administration et des quartiers.\n\n• Vous conseillez et accompagnez les élèves et les tuteurs dans les questions scolaires et êtes responsables des décisions de carrière ainsi que des sujets liés au bien-être de l'enfant.\n\n• Vous travaillez en étroite collaboration avec la direction de l'école dans le cercle scolaire et le comité de l'école et êtes activement impliqué.\n\nExigences\n• Vous avez une éducation, de préférence au troisième cycle, ainsi qu'une expérience pédagogique et une expérience de travail avec des adolescents d'âge primaire.\n\n• Vous avez déjà terminé, commencé ou êtes prêt à commencer la formation en gestion scolaire (ou une formation similaire en leadership).\n\n• L'expérience dans le domaine du MR est un avantage. Sinon, vous apporterez la volonté de poursuivre votre éducation dans ce domaine.\n\n• Vous êtes une personnalité orientée équipe avec une vision stratégique et la capacité de façonner les processus de développement de manière participative et efficace.\n\n• Vous appréciez la collaboration collégiale avec les chefs d'école du cycle 3 et êtes engagé, constructif et fiable dans le leadership conjoint.\n\n• Vous travaillez en réseau, orienté vers la solution et gardez un aperçu même dans des situations difficiles.\n\n• Vous prenez également des décisions éclairées dans des situations difficiles et agissez de manière contraignante, transparente et responsable.\n\n• Vous rencontrerez différentes cultures, perspectives et milieux de vie avec ouverture, intérêt et appréciation et travaillerez pour une culture scolaire inclusive et respectueuse.\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Da einer unserer langjährigen Schulleiter im Sommer 2027 in den Ruhestand tritt, suchen wir eine engagierte Persönlichkeit als Ergänzung für unser Schulleitungsteam im Hochfeld 1. Gemeinsam mit den beiden Co-Schulleiterinnen vor Ort und einer weiteren Co-Schulleiterin im Schulhaus Enge übernimmst du Verantwortung für die Führung und Weiterentwicklung unserer Schule und gestaltest deren Zukunft aktiv mit.<br/>Dein Beschäftigungsgrad würde wie folgt aussehen:<ul><li>35-40% Schulleitung mit MR und Regelschulleitung</li><li>10% Hausvorstand</li><li>ergänzende Unterrichtslektionen falls gewünscht</li><li>Präsenz an mindestens 3 Tagen</li></ul><br/>Die Anstellung erfolgt für den gesamten Schulkreis. Bei Bedarf können zusätzlich zu den ausgeschriebenen Aufgaben weitere Tätigkeiten innerhalb des Schulkreises übertragen werden.\n\nAufgaben:\n• Du entwickelst gemeinsam mit den Co-Schulleiterinnen und dem engagierten Team die Qualität der Schule weiter und greifst aktuelle gesellschaftliche, pädagogische und schulische Entwicklungen auf.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und begeisterst Mitarbeitende für gemeinsame Ziele. Dabei übernimmst du Verantwortung für die Personalführung, auch in anspruchsvollen Situationen.\n\n• Du verantwortest den MR-Bereich sowie einen Teilbereich der Administration und Organisation des operativen Schulbetriebs.\n\n• Du leitest gemeinsam mit den Co-Schulleiterinnen Standort- und Schulhauskonferenzen.\n\n• Die Schulleitungen positionieren die Schule als attraktiven und zukunftsorientierten Lern- und Arbeitsort und pflegen den konstruktiven Austausch mit den relevanten Anspruchsgruppen aus Bildung, Verwaltung und Quartier.\n\n• Du berätst und begleitest Schüler*innen und Erziehungsberechtigte in schulischen Fragen und verantwortest Laufbahnentscheide sowie Themen rund um das Kindswohl.\n\n• Du arbeitest eng mit den Schulleitungen im Schulkreis und der Schulkommission zusammen und bringst dich aktiv ein.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, vorzugsweise im Zyklus 3, sowie über Unterrichtserfahrung und einen Leistungsausweis in der Arbeit mit Jugendlichen im Volksschulalter.\n\n• Du hast eine Schulleitungsausbildung (oder eine vergleichbare Führungsausbildung) bereits abgeschlossen, begonnen oder bist bereit, diese umgehend zu beginnen.\n\n• Erfahrungen im MR-Bereich sind von Vorteil. Andernfalls bringst du die Bereitschaft mit, dich in diesem Bereich weiterzubilden.\n\n• Du bist eine teamorientierte Persönlichkeit mit strategischem Weitblick und der Fähigkeit, Entwicklungsprozesse partizipativ und wirkungsvoll zu gestalten.\n\n• Du schätzt die kollegiale Zusammenarbeit mit den Co-Schulleitenden des Zyklus 3 und bringst dich engagiert, konstruktiv und verlässlich in die gemeinsame Führung ein.\n\n• Du arbeitest vernetzt, lösungsorientiert und behältst auch in herausfordernden Situationen den Überblick.\n\n• Du triffst auch in anspruchsvollen Situationen fundierte Entscheidungen und handelst dabei verbindlich, transparent und verantwortungsbewusst.\n\n• Du begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit, Interesse und Wertschätzung und setzt dich für eine inklusive und respektvolle Schulkultur ein.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "As one of our long-term principals retires in the summer of 2027, we are looking for a dedicated personality to complement our school management team in High Field 1. Together with the two co-directors on site and another co-director in the school building Enge, you take responsibility for the management and further development of our school and actively shape its future. >Your level of employment would look as follows:<ul><li>35-40% School management with MR and regular school management</li><li>10% House management</li><li>supplementary lessons if desired</li><li>Presence on at least 3 days</li></ul><br/ >The employment is for the entire school circle. If necessary, in addition to the advertised tasks, further activities within the school circle can be transferred.\n\nTasks:\n• Together with the co-directors and the dedicated team, you will continue to develop the quality of the school and take up current social, educational and school developments.\n\n• You lead with clarity, esprit and empathy, provide orientation and inspire employees for common goals. You take responsibility for personnel management, even in demanding situations.\n\n• You are responsible for the MR area as well as a part of the administration and organization of the operative school operation.\n\n• Together with the co-directors, you lead location and schoolhouse conferences.\n\n• School management positions the school as an attractive and future-oriented place to learn and work and fosters a constructive exchange with relevant stakeholders from education, administration and neighbourhoods.\n\n• You advise and accompany students and guardians in school issues and are responsible for career decisions as well as topics related to the child’s well-being.\n\n• You work closely with the school management in the school circle and the school committee and are actively involved.\n\nRequirements\n• You have an educational education, preferably in cycle 3, as well as teaching experience and a track record in working with adolescents of primary school age.\n\n• You have already completed, started or are ready to start school management training (or similar leadership training).\n\n• Experience in the MR area is an advantage. Otherwise, you will bring the willingness to continue your education in this area.\n\n• You are a team-oriented personality with strategic vision and the ability to shape development processes in a participatory and effective way.\n\n• You appreciate the collegial cooperation with the co-school leaders of Cycle 3 and are committed, constructive and reliable in the joint leadership.\n\n• You work in a networked, solution-oriented manner and keep an overview even in challenging situations.\n\n• You also make informed decisions in challenging situations and act in a binding, transparent and responsible manner.\n\n• You will meet different cultures, perspectives and living environments with openness, interest and appreciation and will work for an inclusive and respectful school culture.\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Da einer unserer langjährigen Schulleiter im Sommer 2027 in den Ruhestand tritt, suchen wir eine engagierte Persönlichkeit als Ergänzung für unser Schulleitungsteam im Hochfeld 1. Gemeinsam mit den beiden Co-Schulleiterinnen vor Ort und einer weiteren Co-Schulleiterin im Schulhaus Enge übernimmst du Verantwortung für die Führung und Weiterentwicklung unserer Schule und gestaltest deren Zukunft aktiv mit.<br/>Dein Beschäftigungsgrad würde wie folgt aussehen:<ul><li>35-40% Schulleitung mit MR und Regelschulleitung</li><li>10% Hausvorstand</li><li>ergänzende Unterrichtslektionen falls gewünscht</li><li>Präsenz an mindestens 3 Tagen</li></ul><br/>Die Anstellung erfolgt für den gesamten Schulkreis. Bei Bedarf können zusätzlich zu den ausgeschriebenen Aufgaben weitere Tätigkeiten innerhalb des Schulkreises übertragen werden.\n\nAufgaben:\n• Du entwickelst gemeinsam mit den Co-Schulleiterinnen und dem engagierten Team die Qualität der Schule weiter und greifst aktuelle gesellschaftliche, pädagogische und schulische Entwicklungen auf.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und begeisterst Mitarbeitende für gemeinsame Ziele. Dabei übernimmst du Verantwortung für die Personalführung, auch in anspruchsvollen Situationen.\n\n• Du verantwortest den MR-Bereich sowie einen Teilbereich der Administration und Organisation des operativen Schulbetriebs.\n\n• Du leitest gemeinsam mit den Co-Schulleiterinnen Standort- und Schulhauskonferenzen.\n\n• Die Schulleitungen positionieren die Schule als attraktiven und zukunftsorientierten Lern- und Arbeitsort und pflegen den konstruktiven Austausch mit den relevanten Anspruchsgruppen aus Bildung, Verwaltung und Quartier.\n\n• Du berätst und begleitest Schüler*innen und Erziehungsberechtigte in schulischen Fragen und verantwortest Laufbahnentscheide sowie Themen rund um das Kindswohl.\n\n• Du arbeitest eng mit den Schulleitungen im Schulkreis und der Schulkommission zusammen und bringst dich aktiv ein.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, vorzugsweise im Zyklus 3, sowie über Unterrichtserfahrung und einen Leistungsausweis in der Arbeit mit Jugendlichen im Volksschulalter.\n\n• Du hast eine Schulleitungsausbildung (oder eine vergleichbare Führungsausbildung) bereits abgeschlossen, begonnen oder bist bereit, diese umgehend zu beginnen.\n\n• Erfahrungen im MR-Bereich sind von Vorteil. Andernfalls bringst du die Bereitschaft mit, dich in diesem Bereich weiterzubilden.\n\n• Du bist eine teamorientierte Persönlichkeit mit strategischem Weitblick und der Fähigkeit, Entwicklungsprozesse partizipativ und wirkungsvoll zu gestalten.\n\n• Du schätzt die kollegiale Zusammenarbeit mit den Co-Schulleitenden des Zyklus 3 und bringst dich engagiert, konstruktiv und verlässlich in die gemeinsame Führung ein.\n\n• Du arbeitest vernetzt, lösungsorientiert und behältst auch in herausfordernden Situationen den Überblick.\n\n• Du triffst auch in anspruchsvollen Situationen fundierte Entscheidungen und handelst dabei verbindlich, transparent und verantwortungsbewusst.\n\n• Du begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit, Interesse und Wertschätzung und setzt dich für eine inklusive und respektvolle Schulkultur ein.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Comme l'un de nos directeurs à long terme prend sa retraite à l'été de 2027, nous recherchons une personnalité dévouée pour compléter notre équipe de gestion scolaire au High Field 1. Avec les deux co-directeurs sur place et un autre co-directeur dans le bâtiment scolaire Enge, vous assumez la responsabilité de la gestion et du développement de notre école et façonnez activement son avenir. >Votre niveau d'emploi serait le suivant :<ul><li>35-40% Gestion de l'école avec MR et gestion régulière de l'école</li><li>10% Gestion de la maison</li><li>enseignement complémentaire si désiré</li><li> Présence pendant au moins 3 jours</li></ul><br/ > L'emploi concerne l'ensemble du cercle scolaire. Si nécessaire, en plus des tâches annoncées, d'autres activités au sein du cercle scolaire peuvent être transférées.\n\nTâches :\n• Avec les codirecteurs et l'équipe dédiée, vous continuerez à développer la qualité de l'école et à prendre en charge les développements sociaux, éducatifs et scolaires actuels.\n\n• Vous dirigez avec clarté, esprit et empathie, fournissez de l'orientation et inspirez les employés à des objectifs communs. Vous assumez la responsabilité de la gestion du personnel, même dans des situations exigeantes.\n\n• Vous êtes responsable de la zone MR ainsi que de l'administration et de l'organisation de l'opération scolaire.\n\n• En collaboration avec les codirecteurs, vous dirigez des conférences sur les lieux et les écoles.\n\n• La direction de l'école place l'école comme un lieu attrayant et tourné vers l'avenir pour apprendre et travailler et favorise un échange constructif avec les intervenants concernés de l'éducation, de l'administration et des quartiers.\n\n• Vous conseillez et accompagnez les élèves et les tuteurs dans les questions scolaires et êtes responsables des décisions de carrière ainsi que des sujets liés au bien-être de l'enfant.\n\n• Vous travaillez en étroite collaboration avec la direction de l'école dans le cercle scolaire et le comité de l'école et êtes activement impliqué.\n\nExigences\n• Vous avez une éducation, de préférence au troisième cycle, ainsi qu'une expérience pédagogique et une expérience de travail avec des adolescents d'âge primaire.\n\n• Vous avez déjà terminé, commencé ou êtes prêt à commencer la formation en gestion scolaire (ou une formation similaire en leadership).\n\n• L'expérience dans le domaine du MR est un avantage. Sinon, vous apporterez la volonté de poursuivre votre éducation dans ce domaine.\n\n• Vous êtes une personnalité orientée équipe avec une vision stratégique et la capacité de façonner les processus de développement de manière participative et efficace.\n\n• Vous appréciez la collaboration collégiale avec les chefs d'école du cycle 3 et êtes engagé, constructif et fiable dans le leadership conjoint.\n\n• Vous travaillez en réseau, orienté vers la solution et gardez un aperçu même dans des situations difficiles.\n\n• Vous prenez également des décisions éclairées dans des situations difficiles et agissez de manière contraignante, transparente et responsable.\n\n• Vous rencontrerez différentes cultures, perspectives et milieux de vie avec ouverture, intérêt et appréciation et travaillerez pour une culture scolaire inclusive et respectueuse.\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "needsRetranslation": true,
       "location": "Bern",
@@ -1344,7 +1344,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-3/9e256239-a03c-4fd9-b970-697475902627",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.508Z",
+      "crawledAt": "2026-10-13T21:11:58.089Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1363,9 +1363,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-3/9e256239-a03c-4fd9-b970-697475902627",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "co-schulleitung-zyklus-3-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleitung-zyklus-3-stadt-bern-bern"
+        ],
+        "en": [
+          "co-schulleitung-zyklus-3-stadt-bern-bern"
+        ],
+        "fr": [
+          "co-schulleitung-zyklus-3-stadt-bern-bern"
+        ]
       },
+      "firstSeenAt": "2026-10-13T09:15:50.508Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1378,30 +1391,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-13T09:15:50.508Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "co-schulleitung-zyklus-3-stadt-bern-bern"
-        ],
-        "en": [
-          "co-schulleitung-zyklus-3-stadt-bern-bern"
-        ],
-        "fr": [
-          "co-schulleitung-zyklus-3-stadt-bern-bern"
-        ]
-      },
-      "previousSlugs": [
-        "co-schulleitung-zyklus-3-stadt-bern-bern"
-      ]
+      }
     },
     {
       "id": "stadt-bern-601412c09057",
       "slug": "cogestione-ciclo-2-stadt-bern-bern",
       "slugByLocale": {
-        "de": "co-schulleitung-zyklus-2-stadt-bern-bern",
         "it": "cogestione-ciclo-2-stadt-bern-bern",
         "en": "co-management-cycle-2-stadt-bern-bern",
+        "de": "co-schulleitung-zyklus-2-stadt-bern-bern",
         "fr": "deuxieme-cycle-de-cogestion-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -1409,24 +1407,25 @@
       "companyDomain": "bern.ch",
       "title": "Co-Schulleitung Zyklus 2",
       "titleByLocale": {
-        "de": "Co-Schulleitung Zyklus 2",
         "it": "Cogestione Ciclo 2",
         "en": "Co-management Cycle 2",
+        "de": "Co-Schulleitung Zyklus 2",
         "fr": "Deuxième cycle de cogestion"
       },
       "description": "Als Mitglied der Co-Schulleitung gestaltest du gemeinsam mit den zwei anderen Co-Schulleitungen den Schulstandort Länggasse Zyklus 2 mit 450 Schüler*innen und 65 Mitarbeitenden aktiv, kreativ und nachhaltig. Dabei übernimmst du Verantwortung, setzt Impulse und entwickelst die Schule im Team weiter. Du übernimmst als neue Co-Schulleitung die Hauptverantwortung für den Standort und leitest das Grosse Schulhaus.\n\nAufgaben:\n• Du entwickelst gemeinsam mit einem engagierten Team eine zukunftsgerichtete pädagogische Schule und bringst aktuelle gesellschaftliche, pädagogische und schulische Visionen ein.\n\n• Du übernimmst das Controlling und entwickelst die Konzeptarbeit am Standort weiter.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und schaffst es, Mitarbeitende für gemeinsame Ziele zu begeistern – inklusive Verantwortung für Personalführung und schwierige Personalsituationen.\n\n• Du übernimmst die Budget- und Finanzverantwortung für den Standort.\n\n• Du verantwortest die Administration und Organisation des Schulbetriebs, inklusive Stundenplan, Schulraumplanung und Infrastruktur.\n\n• Du leitest Standort- und Schulhauskonferenzen.\n\n• Du positionierst gemeinsam mit deinem Team die Schule überzeugend und attraktiv – gegenüber der Schulkommission, Lehrpersonen, Verwaltungsstellen und dem Quartier, und bist Ansprechperson für Schulamt und Inspektorat.\n\n• Du bist zuständig für Schüler- und Elternanliegen wie Laufbahnentscheide und Kindswohl.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, Unterrichtserfahrung und einen ausgewiesenen Leistungsausweis in der Arbeit mit Kindern im Volksschulalter.\n\n• Du denkst strategisch, erkennst Entwicklungen früh und hast die Initiative, Dinge anzustossen und nachhaltig voranzubringen.\n\n• Du hast eine Schulleitungsausbildung oder eine vergleichbare Führungsausbildung begonnen oder bereits abgeschlossen.\n\n• Du bist ein Teamplayer bzw. eine Teamplayerin, verfügst über ein tragfähiges Netzwerk und hast ein gutes Gespür dafür, Menschen mitzunehmen und gemeinsam etwas zu bewegen.\n\n• Du gehst auf Menschen zu und begegnest ihnen mit Interesse und Empathie.\n\n• Du schätzt die enge Zusammenarbeit auf Augenhöhe mit den zwei Co-Schulleitenden und nimmst dabei eine aktive Rolle ein.\n\n• Du hast Freude an einem anspruchsvollen Umfeld und begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit und Interesse.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Als Mitglied der Co-Schulleitung gestaltest du gemeinsam mit den zwei anderen Co-Schulleitungen den Schulstandort Länggasse Zyklus 2 mit 450 Schüler*innen und 65 Mitarbeitenden aktiv, kreativ und nachhaltig. Dabei übernimmst du Verantwortung, setzt Impulse und entwickelst die Schule im Team weiter. Du übernimmst als neue Co-Schulleitung die Hauptverantwortung für den Standort und leitest das Grosse Schulhaus.\n\nAufgaben:\n• Du entwickelst gemeinsam mit einem engagierten Team eine zukunftsgerichtete pädagogische Schule und bringst aktuelle gesellschaftliche, pädagogische und schulische Visionen ein.\n\n• Du übernimmst das Controlling und entwickelst die Konzeptarbeit am Standort weiter.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und schaffst es, Mitarbeitende für gemeinsame Ziele zu begeistern – inklusive Verantwortung für Personalführung und schwierige Personalsituationen.\n\n• Du übernimmst die Budget- und Finanzverantwortung für den Standort.\n\n• Du verantwortest die Administration und Organisation des Schulbetriebs, inklusive Stundenplan, Schulraumplanung und Infrastruktur.\n\n• Du leitest Standort- und Schulhauskonferenzen.\n\n• Du positionierst gemeinsam mit deinem Team die Schule überzeugend und attraktiv – gegenüber der Schulkommission, Lehrpersonen, Verwaltungsstellen und dem Quartier, und bist Ansprechperson für Schulamt und Inspektorat.\n\n• Du bist zuständig für Schüler- und Elternanliegen wie Laufbahnentscheide und Kindswohl.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, Unterrichtserfahrung und einen ausgewiesenen Leistungsausweis in der Arbeit mit Kindern im Volksschulalter.\n\n• Du denkst strategisch, erkennst Entwicklungen früh und hast die Initiative, Dinge anzustossen und nachhaltig voranzubringen.\n\n• Du hast eine Schulleitungsausbildung oder eine vergleichbare Führungsausbildung begonnen oder bereits abgeschlossen.\n\n• Du bist ein Teamplayer bzw. eine Teamplayerin, verfügst über ein tragfähiges Netzwerk und hast ein gutes Gespür dafür, Menschen mitzunehmen und gemeinsam etwas zu bewegen.\n\n• Du gehst auf Menschen zu und begegnest ihnen mit Interesse und Empathie.\n\n• Du schätzt die enge Zusammenarbeit auf Augenhöhe mit den zwei Co-Schulleitenden und nimmst dabei eine aktive Rolle ein.\n\n• Du hast Freude an einem anspruchsvollen Umfeld und begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit und Interesse.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Come membro della co-direzione, insieme con gli altri due co-direttori, si progetta attivamente, creativamente e in modo sostenibile Länggasse Cycle 2 con 450 studenti e 65 dipendenti. In questo modo, si assume la responsabilità, fornire impulsi e continuare a sviluppare la scuola come squadra. Come nuovo co-direttore, si assume la responsabilità principale per la posizione e gestire il Grosse Schulhaus.\n\nCompiti:\n• Insieme a un team dedicato, svilupperai una scuola educativa orientata al futuro e contribuirai alle attuali visioni sociali, educative e scolastiche.\n\n• Si prende il controllo e sviluppare il lavoro di concetto nella posizione.\n\n• Condurre con chiarezza, esprit ed empatia, fornire orientamento e gestire i dipendenti per obiettivi comuni – compresa la responsabilità per la gestione del personale e situazioni di personale difficili.\n\n• Si assume la responsabilità finanziaria e di bilancio per la posizione.\n\n• Lei è responsabile per l'amministrazione e l'organizzazione della scuola, tra cui il calendario, la pianificazione della scuola e le infrastrutture.\n\n• Tu guida la posizione e le conferenze scolastiche.\n\n• Insieme al vostro team, si posiziona la scuola in modo convincente e attraente – di fronte alla commissione scolastica, insegnanti, uffici amministrativi e il distretto, e sono la persona di contatto per l'ufficio scolastico e l'ispettore.\n\n• Sei responsabile per le preoccupazioni degli studenti e dei genitori, come le decisioni di carriera e il benessere dei bambini.\n\nRequisiti\n• Hai un'educazione educativa, un'esperienza di insegnamento e una comprovata esperienza nel lavorare con i bambini dell'età della scuola primaria.\n\n• Pensate strategicamente, riconoscete gli sviluppi presto e avete l'iniziativa di avviare le cose e promuoverle in modo sostenibile.\n\n• Hai iniziato o già completato una formazione di gestione scolastica o una formazione di leadership paragonabile.\n\n• Sei un giocatore di squadra, hai una rete valida e hai una buona sensazione per portare le persone con te e fare la differenza insieme.\n\n• Ti avvicini alle persone e li incontri con interesse ed empatia.\n\n• Apprezzi la stretta collaborazione con i due leader co-scuola e assume un ruolo attivo.\n\n• Si gode di un ambiente stimolante e si incontrano culture, prospettive e ambienti viventi con apertura e interesse.\n\nOffriamo:\nPer senso e vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "As a member of the co-directorship, together with the two other co-directors, you actively, creatively and sustainably design Länggasse Cycle 2 with 450 students and 65 employees. In doing so, you take on responsibility, provide impulses and continue to develop the school as a team. As the new co-director, you assume the main responsibility for the location and manage the Grosse Schulhaus.\n\nTasks:\n• Together with a dedicated team, you will develop a future-oriented educational school and contribute current social, educational and school visions.\n\n• You take over the controlling and develop the concept work at the location.\n\n• You lead with clarity, esprit and empathy, provide orientation and manage to inspire employees for common goals – including responsibility for personnel management and difficult personnel situations.\n\n• You assume budget and financial responsibility for the location.\n\n• You are responsible for the administration and organization of the school, including the timetable, school room planning and infrastructure.\n\n• You lead location and school conferences.\n\n• Together with your team, you position the school convincingly and attractively – opposite the school commission, teachers, administrative offices and the district, and are the contact person for the school office and the inspectorate.\n\n• You are responsible for student and parental concerns such as career decisions and child welfare.\n\nRequirements\n• You have an educational education, teaching experience and a proven track record in working with children of primary school age.\n\n• You think strategically, recognize developments early on and have the initiative to initiate things and promote them sustainably.\n\n• You have started or already completed a school management training or a comparable leadership training.\n\n• You are a team player, have a viable network and have a good feeling for taking people with you and making a difference together.\n\n• You approach people and meet them with interest and empathy.\n\n• You appreciate the close cooperation on an equal footing with the two co-school leaders and take an active role.\n\n• You enjoy a challenging environment and meet different cultures, perspectives and living environments with openness and interest.\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "En tant que co-directeur, avec les deux autres co-directeurs, vous créez activement, de manière créative et durable Länggasse Cycle 2 avec 450 étudiants et 65 employés. Ce faisant, vous assumez la responsabilité, donnez des impulsions et continuez à développer l'école en équipe. En tant que nouveau codirecteur, vous assumez la responsabilité principale de l'emplacement et de la gestion de la Grosse Schulhaus.\n\nTâches :\n• Avec une équipe dévouée, vous développerez une école éducative orientée vers l'avenir et apporterez des visions sociales, éducatives et scolaires actuelles.\n\n• Vous prenez le contrôle et développez le travail de concept à l'emplacement.\n\n• Vous dirigez avec clarté, esprit et empathie, donnez de l'orientation et réussissez à inspirer les employés à des objectifs communs – y compris la responsabilité de la gestion du personnel et les situations difficiles du personnel.\n\n• Vous assumez la responsabilité budgétaire et financière de l'emplacement.\n\n• Vous êtes responsable de l'administration et de l'organisation de l'école, y compris l'horaire, la planification des salles d'école et l'infrastructure.\n\n• Vous dirigez les conférences scolaires et locales.\n\n• Avec votre équipe, vous placez l'école de manière convaincante et attrayante, en face de la commission scolaire, des enseignants, des bureaux administratifs et du district, et êtes la personne-ressource pour le bureau scolaire et l'inspection.\n\n• Vous êtes responsable des préoccupations des étudiants et des parents comme les décisions de carrière et le bien-être de l'enfant.\n\nExigences\n• Vous avez une éducation, une expérience d'enseignement et une expérience éprouvée dans le travail avec les enfants d'âge primaire.\n\n• Vous pensez stratégiquement, reconnaissez l'évolution rapide et avez l'initiative d'initier les choses et de les promouvoir durablement.\n\n• Vous avez commencé ou déjà terminé une formation de gestion scolaire ou une formation de leadership comparable.\n\n• Vous êtes un joueur d'équipe, avez un réseau viable et avez un bon sentiment pour emmener les gens avec vous et faire une différence ensemble.\n\n• Vous approchez les gens et les rencontrez avec intérêt et empathie.\n\n• Vous appréciez l'étroite coopération sur un pied d'égalité avec les deux chefs de co-école et vous prenez un rôle actif.\n\n• Vous profitez d'un environnement difficile et rencontrez différentes cultures, perspectives et environnements de vie avec ouverture et intérêt.\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Come membro della co-direzione, insieme con gli altri due co-direttori, si progetta attivamente, creativamente e in modo sostenibile Länggasse Cycle 2 con 450 studenti e 65 dipendenti. In questo modo, si assume la responsabilità, fornire impulsi e continuare a sviluppare la scuola come squadra. Come nuovo co-direttore, si assume la responsabilità principale per la posizione e gestire il Grosse Schulhaus.\n\nCompiti:\n• Insieme a un team dedicato, svilupperai una scuola educativa orientata al futuro e contribuirai alle attuali visioni sociali, educative e scolastiche.\n\n• Si prende il controllo e sviluppare il lavoro di concetto nella posizione.\n\n• Condurre con chiarezza, esprit ed empatia, fornire orientamento e gestire i dipendenti per obiettivi comuni – compresa la responsabilità per la gestione del personale e situazioni di personale difficili.\n\n• Si assume la responsabilità finanziaria e di bilancio per la posizione.\n\n• Lei è responsabile per l'amministrazione e l'organizzazione della scuola, tra cui il calendario, la pianificazione della scuola e le infrastrutture.\n\n• Tu guida la posizione e le conferenze scolastiche.\n\n• Insieme al vostro team, si posiziona la scuola in modo convincente e attraente – di fronte alla commissione scolastica, insegnanti, uffici amministrativi e il distretto, e sono la persona di contatto per l'ufficio scolastico e l'ispettore.\n\n• Sei responsabile per le preoccupazioni degli studenti e dei genitori, come le decisioni di carriera e il benessere dei bambini.\n\nRequisiti\n• Hai un'educazione educativa, un'esperienza di insegnamento e una comprovata esperienza nel lavorare con i bambini dell'età della scuola primaria.\n\n• Pensate strategicamente, riconoscete gli sviluppi presto e avete l'iniziativa di avviare le cose e promuoverle in modo sostenibile.\n\n• Hai iniziato o già completato una formazione di gestione scolastica o una formazione di leadership paragonabile.\n\n• Sei un giocatore di squadra, hai una rete valida e hai una buona sensazione per portare le persone con te e fare la differenza insieme.\n\n• Ti avvicini alle persone e li incontri con interesse ed empatia.\n\n• Apprezzi la stretta collaborazione con i due leader co-scuola e assume un ruolo attivo.\n\n• Si gode di un ambiente stimolante e si incontrano culture, prospettive e ambienti viventi con apertura e interesse.\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "As a member of the co-directorship, together with the two other co-directors, you actively, creatively and sustainably design Länggasse Cycle 2 with 450 students and 65 employees. In doing so, you take on responsibility, provide impulses and continue to develop the school as a team. As the new co-director, you assume the main responsibility for the location and manage the Grosse Schulhaus.\n\nTasks:\n• Together with a dedicated team, you will develop a future-oriented educational school and contribute current social, educational and school visions.\n\n• You take over the controlling and develop the concept work at the location.\n\n• You lead with clarity, esprit and empathy, provide orientation and manage to inspire employees for common goals – including responsibility for personnel management and difficult personnel situations.\n\n• You assume budget and financial responsibility for the location.\n\n• You are responsible for the administration and organization of the school, including the timetable, school room planning and infrastructure.\n\n• You lead location and school conferences.\n\n• Together with your team, you position the school convincingly and attractively – opposite the school commission, teachers, administrative offices and the district, and are the contact person for the school office and the inspectorate.\n\n• You are responsible for student and parental concerns such as career decisions and child welfare.\n\nRequirements\n• You have an educational education, teaching experience and a proven track record in working with children of primary school age.\n\n• You think strategically, recognize developments early on and have the initiative to initiate things and promote them sustainably.\n\n• You have started or already completed a school management training or a comparable leadership training.\n\n• You are a team player, have a viable network and have a good feeling for taking people with you and making a difference together.\n\n• You approach people and meet them with interest and empathy.\n\n• You appreciate the close cooperation on an equal footing with the two co-school leaders and take an active role.\n\n• You enjoy a challenging environment and meet different cultures, perspectives and living environments with openness and interest.\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Als Mitglied der Co-Schulleitung gestaltest du gemeinsam mit den zwei anderen Co-Schulleitungen den Schulstandort Länggasse Zyklus 2 mit 450 Schüler*innen und 65 Mitarbeitenden aktiv, kreativ und nachhaltig. Dabei übernimmst du Verantwortung, setzt Impulse und entwickelst die Schule im Team weiter. Du übernimmst als neue Co-Schulleitung die Hauptverantwortung für den Standort und leitest das Grosse Schulhaus.\n\nAufgaben:\n• Du entwickelst gemeinsam mit einem engagierten Team eine zukunftsgerichtete pädagogische Schule und bringst aktuelle gesellschaftliche, pädagogische und schulische Visionen ein.\n\n• Du übernimmst das Controlling und entwickelst die Konzeptarbeit am Standort weiter.\n\n• Du führst mit Klarheit, Esprit und Empathie, gibst Orientierung und schaffst es, Mitarbeitende für gemeinsame Ziele zu begeistern – inklusive Verantwortung für Personalführung und schwierige Personalsituationen.\n\n• Du übernimmst die Budget- und Finanzverantwortung für den Standort.\n\n• Du verantwortest die Administration und Organisation des Schulbetriebs, inklusive Stundenplan, Schulraumplanung und Infrastruktur.\n\n• Du leitest Standort- und Schulhauskonferenzen.\n\n• Du positionierst gemeinsam mit deinem Team die Schule überzeugend und attraktiv – gegenüber der Schulkommission, Lehrpersonen, Verwaltungsstellen und dem Quartier, und bist Ansprechperson für Schulamt und Inspektorat.\n\n• Du bist zuständig für Schüler- und Elternanliegen wie Laufbahnentscheide und Kindswohl.\n\nAnforderungen:\n• Du verfügst über eine pädagogische Ausbildung, Unterrichtserfahrung und einen ausgewiesenen Leistungsausweis in der Arbeit mit Kindern im Volksschulalter.\n\n• Du denkst strategisch, erkennst Entwicklungen früh und hast die Initiative, Dinge anzustossen und nachhaltig voranzubringen.\n\n• Du hast eine Schulleitungsausbildung oder eine vergleichbare Führungsausbildung begonnen oder bereits abgeschlossen.\n\n• Du bist ein Teamplayer bzw. eine Teamplayerin, verfügst über ein tragfähiges Netzwerk und hast ein gutes Gespür dafür, Menschen mitzunehmen und gemeinsam etwas zu bewegen.\n\n• Du gehst auf Menschen zu und begegnest ihnen mit Interesse und Empathie.\n\n• Du schätzt die enge Zusammenarbeit auf Augenhöhe mit den zwei Co-Schulleitenden und nimmst dabei eine aktive Rolle ein.\n\n• Du hast Freude an einem anspruchsvollen Umfeld und begegnest unterschiedlichen Kulturen, Perspektiven und Lebenswelten mit Offenheit und Interesse.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "En tant que co-directeur, avec les deux autres co-directeurs, vous créez activement, de manière créative et durable Länggasse Cycle 2 avec 450 étudiants et 65 employés. Ce faisant, vous assumez la responsabilité, donnez des impulsions et continuez à développer l'école en équipe. En tant que nouveau codirecteur, vous assumez la responsabilité principale de l'emplacement et de la gestion de la Grosse Schulhaus.\n\nTâches :\n• Avec une équipe dévouée, vous développerez une école éducative orientée vers l'avenir et apporterez des visions sociales, éducatives et scolaires actuelles.\n\n• Vous prenez le contrôle et développez le travail de concept à l'emplacement.\n\n• Vous dirigez avec clarté, esprit et empathie, donnez de l'orientation et réussissez à inspirer les employés à des objectifs communs – y compris la responsabilité de la gestion du personnel et les situations difficiles du personnel.\n\n• Vous assumez la responsabilité budgétaire et financière de l'emplacement.\n\n• Vous êtes responsable de l'administration et de l'organisation de l'école, y compris l'horaire, la planification des salles d'école et l'infrastructure.\n\n• Vous dirigez les conférences scolaires et locales.\n\n• Avec votre équipe, vous placez l'école de manière convaincante et attrayante, en face de la commission scolaire, des enseignants, des bureaux administratifs et du district, et êtes la personne-ressource pour le bureau scolaire et l'inspection.\n\n• Vous êtes responsable des préoccupations des étudiants et des parents comme les décisions de carrière et le bien-être de l'enfant.\n\nExigences\n• Vous avez une éducation, une expérience d'enseignement et une expérience éprouvée dans le travail avec les enfants d'âge primaire.\n\n• Vous pensez stratégiquement, reconnaissez l'évolution rapide et avez l'initiative d'initier les choses et de les promouvoir durablement.\n\n• Vous avez commencé ou déjà terminé une formation de gestion scolaire ou une formation de leadership comparable.\n\n• Vous êtes un joueur d'équipe, avez un réseau viable et avez un bon sentiment pour emmener les gens avec vous et faire une différence ensemble.\n\n• Vous approchez les gens et les rencontrez avec intérêt et empathie.\n\n• Vous appréciez l'étroite coopération sur un pied d'égalité avec les deux chefs de co-école et vous prenez un rôle actif.\n\n• Vous profitez d'un environnement difficile et rencontrez différentes cultures, perspectives et environnements de vie avec ouverture et intérêt.\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-2/8665fed7-0cd9-4aaf-b09b-240bc2a50c59",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.506Z",
+      "crawledAt": "2026-10-13T21:11:58.087Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1445,9 +1444,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-2/8665fed7-0cd9-4aaf-b09b-240bc2a50c59",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "co-schulleitung-zyklus-2-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleitung-zyklus-2-stadt-bern-bern"
+        ],
+        "en": [
+          "co-schulleitung-zyklus-2-stadt-bern-bern"
+        ],
+        "fr": [
+          "co-schulleitung-zyklus-2-stadt-bern-bern"
+        ]
       },
+      "firstSeenAt": "2026-10-13T09:15:50.506Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1460,22 +1472,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-13T09:15:50.506Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "co-schulleitung-zyklus-2-stadt-bern-bern"
-        ],
-        "en": [
-          "co-schulleitung-zyklus-2-stadt-bern-bern"
-        ],
-        "fr": [
-          "co-schulleitung-zyklus-2-stadt-bern-bern"
-        ]
-      },
-      "previousSlugs": [
-        "co-schulleitung-zyklus-2-stadt-bern-bern"
-      ]
+      }
     },
     {
       "id": "stadt-bern-41bf60e2f686",
@@ -1509,7 +1506,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/3cfd9219-4568-438a-bb30-e7dda7a96445",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.504Z",
+      "crawledAt": "2026-10-13T21:11:58.084Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1584,7 +1581,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.502Z",
+      "crawledAt": "2026-10-13T21:11:58.082Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1659,7 +1656,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-nutzung-und-betrieb/d4117a12-4cbe-48f2-9ade-bd7a207db253",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.500Z",
+      "crawledAt": "2026-10-13T21:11:58.081Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1736,7 +1733,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.499Z",
+      "crawledAt": "2026-10-13T21:11:58.079Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1813,7 +1810,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.498Z",
+      "crawledAt": "2026-10-13T21:11:58.077Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1897,7 +1894,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/praktikant-in-projekte-portfolio-beratung-administration/02550176-6f15-4ac9-b5e0-ce755ff25c82",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.496Z",
+      "crawledAt": "2026-10-13T21:11:58.075Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1971,7 +1968,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-koordinationsstelle-unesco-weltkulturerbe/d4b97828-ac22-4d7a-987d-af05bca31d84",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.495Z",
+      "crawledAt": "2026-10-13T21:11:58.074Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2051,7 +2048,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/de598e7d-ab8a-4b9a-a36f-cbb94f5f7dba",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.494Z",
+      "crawledAt": "2026-10-13T21:11:58.072Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2134,7 +2131,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/b687f675-3140-4ae6-a1cb-940e78ef2a69",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.490Z",
+      "crawledAt": "2026-10-13T21:11:58.070Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2215,7 +2212,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.489Z",
+      "crawledAt": "2026-10-13T21:11:58.069Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2290,7 +2287,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-erwachsenenschutz/31d8096d-5b2c-411b-85d2-7337ff49ed9f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.488Z",
+      "crawledAt": "2026-10-13T21:11:58.067Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2370,7 +2367,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.487Z",
+      "crawledAt": "2026-10-13T21:11:58.065Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2423,9 +2420,9 @@
       "id": "stadt-bern-c7cae288c926",
       "slug": "educatore-trice-sociale-jolly-stadt-bern-bern",
       "slugByLocale": {
-        "de": "springer-in-sozialpadagogik-stadt-bern-bern",
         "it": "educatore-trice-sociale-jolly-stadt-bern-bern",
-        "en": "relief-social-pedagogue-stadt-bern-bern",
+        "en": "springer-in-sozialpadagogik-stadt-bern",
+        "de": "springer-in-sozialpadagogik-stadt-bern-bern",
         "fr": "remplacant-e-en-pedagogie-sociale-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2433,24 +2430,25 @@
       "companyDomain": "bern.ch",
       "title": "Springer*in Sozialpädagogik",
       "titleByLocale": {
-        "de": "Springer*in Sozialpädagogik",
-        "en": "Relief social pedagogue",
         "it": "Educatore/trice sociale jolly",
+        "en": "Relief social pedagogue",
+        "de": "Springer*in Sozialpädagogik",
         "fr": "Remplaçant·e en pédagogie sociale"
       },
       "description": "Als SpringerIn unterstützt du unsere verschiedenen Angebote und trägst dazu bei, dass die Betreuung der Kinder und Jugendlichen auch bei kurzfristigen personellen Engpässen sichergestellt ist. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nAufgaben:\n• Du begleitest und betreust Kinder und Jugendliche während Tages- und Abenddiensten sowie bei Präsenzdiensten über Nacht\n\n• Du wirkst bei Noteintritten, bei Eintrittsabklärungen und Aufnahmeverfahren mit\n\n• Du arbeitest mit Familien, Schulen und Fachpersonen zusammen\n\n• Du übernimmst anfallende administrative Arbeiten und dokumentierst die pädagogische Arbeit\n\nAnforderungen:\n• Du bist in Ausbildung an einer Höheren Fachschule oder Fachhochschule für Sozialpädagogik oder Soziale Arbeit\n\n• Idealerweise hast du bereits Erfahrung im stationären Bereich mit Kindern und Jugendlichen gesammelt\n\n• Du gehst sicher und ruhig mit anspruchsvollen Situationen um\n\n• Du bringst Flexibilität für unregelmässige und kurzfristige Arbeitseinsätze (Nacht- und Wochenendeinsätze) mit\n\n• Du hast ein Flair für administrative Arbeiten sowie eine zuverlässige und selbständige Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Als SpringerIn unterstützt du unsere verschiedenen Angebote und trägst dazu bei, dass die Betreuung der Kinder und Jugendlichen auch bei kurzfristigen personellen Engpässen sichergestellt ist. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nAufgaben:\n• Du begleitest und betreust Kinder und Jugendliche während Tages- und Abenddiensten sowie bei Präsenzdiensten über Nacht\n\n• Du wirkst bei Noteintritten, bei Eintrittsabklärungen und Aufnahmeverfahren mit\n\n• Du arbeitest mit Familien, Schulen und Fachpersonen zusammen\n\n• Du übernimmst anfallende administrative Arbeiten und dokumentierst die pädagogische Arbeit\n\nAnforderungen:\n• Du bist in Ausbildung an einer Höheren Fachschule oder Fachhochschule für Sozialpädagogik oder Soziale Arbeit\n\n• Idealerweise hast du bereits Erfahrung im stationären Bereich mit Kindern und Jugendlichen gesammelt\n\n• Du gehst sicher und ruhig mit anspruchsvollen Situationen um\n\n• Du bringst Flexibilität für unregelmässige und kurzfristige Arbeitseinsätze (Nacht- und Wochenendeinsätze) mit\n\n• Du hast ein Flair für administrative Arbeiten sowie eine zuverlässige und selbständige Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Come saltatore, supporta le nostre varie offerte e aiuta a garantire la cura dei bambini e dei giovani anche in caso di carenza di personale a breve termine. Ulteriori informazioni sono disponibili su <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch\n\nCompiti:\n• Accompagnate e curate i bambini e gli adolescenti durante i servizi diurni e serali e durante i servizi di presenza durante la notte\n\n• Lavorate con le entrate di emergenza, i controlli di ammissione e le procedure di ammissione\n\n• Lavori con famiglie, scuole e professionisti\n\n• Si prende sul lavoro amministrativo e documenta il lavoro educativo\n\nRequisiti\n• Sei in formazione in una scuola superiore o college per l'istruzione sociale o il lavoro sociale\n\n• Idealmente, hai già esperienza nella zona stazionaria con bambini e adolescenti\n\n• Sei sicuro e tranquillo con situazioni difficili\n\n• Porti flessibilità per incarichi di lavoro irregolari e a breve termine (assegnazione notte e fine settimana)\n\n• Hai un tocco per il lavoro amministrativo e un metodo di lavoro affidabile e indipendente\n\nOffriamo:\nPer senso e vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "As a jumper, you support our various offers and help ensure that the care of children and young people is also ensured in the event of short-term personnel shortages. Further information can be found at <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTasks:\n• You accompany and look after children and adolescents during day and evening services as well as during presence services overnight\n\n• You work with emergency entries, admission checks and admission procedures\n\n• You work with families, schools and professionals\n\n• You take on administrative work and document the educational work\n\nRequirements\n• You are in training at a high school or college for social education or social work\n\n• Ideally, you already have experience in the stationary area with children and adolescents\n\n• You are safe and calm with challenging situations\n\n• You bring flexibility for irregular and short-term work assignments (night and weekend assignments)\n\n• You have a flair for administrative work as well as a reliable and independent working method\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "En tant que sauteur, vous soutenez nos diverses offres et vous aidez à assurer la prise en charge des enfants et des jeunes en cas de pénurie de personnel à court terme. De plus amples informations sont disponibles à l'adresse <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTâches :\n• Vous accompagnez et prenez soin des enfants et des adolescents pendant les services de jour et de soir ainsi que pendant les services de présence pendant la nuit\n\n• Vous travaillez avec les entrées d'urgence, les vérifications d'admission et les procédures d'admission\n\n• Vous travaillez avec des familles, des écoles et des professionnels\n\n• Vous prenez des travaux administratifs et documentez le travail éducatif\n\nExigences\n• Vous êtes en formation dans un lycée ou un collège pour l'éducation sociale ou le travail social\n\n• Idéalement, vous avez déjà de l'expérience dans la zone stationnaire avec enfants et adolescents\n\n• Vous êtes en sécurité et calme avec des situations difficiles\n\n• Vous apportez de la flexibilité pour les tâches irrégulières et de courte durée (affectations de nuit et de fin de semaine)\n\n• Vous avez un style pour le travail administratif ainsi qu'une méthode de travail fiable et indépendante\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Come saltatore, supporta le nostre varie offerte e aiuta a garantire la cura dei bambini e dei giovani anche in caso di carenza di personale a breve termine. Ulteriori informazioni sono disponibili su <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch\n\nCompiti:\n• Accompagnate e curate i bambini e gli adolescenti durante i servizi diurni e serali e durante i servizi di presenza durante la notte\n\n• Lavorate con le entrate di emergenza, i controlli di ammissione e le procedure di ammissione\n\n• Lavori con famiglie, scuole e professionisti\n\n• Si prende sul lavoro amministrativo e documenta il lavoro educativo\n\nRequisiti\n• Sei in formazione in una scuola superiore o college per l'istruzione sociale o il lavoro sociale\n\n• Idealmente, hai già esperienza nella zona stazionaria con bambini e adolescenti\n\n• Sei sicuro e tranquillo con situazioni difficili\n\n• Porti flessibilità per incarichi di lavoro irregolari e a breve termine (assegnazione notte e fine settimana)\n\n• Hai un tocco per il lavoro amministrativo e un metodo di lavoro affidabile e indipendente\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "As a jumper, you support our various offers and help ensure that the care of children and young people is also ensured in the event of short-term personnel shortages. Further information can be found at <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTasks:\n• You accompany and look after children and adolescents during day and evening services as well as during presence services overnight\n\n• You work with emergency entries, admission checks and admission procedures\n\n• You work with families, schools and professionals\n\n• You take on administrative work and document the educational work\n\nRequirements\n• You are in training at a high school or college for social education or social work\n\n• Ideally, you already have experience in the stationary area with children and adolescents\n\n• You are safe and calm with challenging situations\n\n• You bring flexibility for irregular and short-term work assignments (night and weekend assignments)\n\n• You have a flair for administrative work as well as a reliable and independent working method\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Als SpringerIn unterstützt du unsere verschiedenen Angebote und trägst dazu bei, dass die Betreuung der Kinder und Jugendlichen auch bei kurzfristigen personellen Engpässen sichergestellt ist. Weitere Informationen findest du auf <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nAufgaben:\n• Du begleitest und betreust Kinder und Jugendliche während Tages- und Abenddiensten sowie bei Präsenzdiensten über Nacht\n\n• Du wirkst bei Noteintritten, bei Eintrittsabklärungen und Aufnahmeverfahren mit\n\n• Du arbeitest mit Familien, Schulen und Fachpersonen zusammen\n\n• Du übernimmst anfallende administrative Arbeiten und dokumentierst die pädagogische Arbeit\n\nAnforderungen:\n• Du bist in Ausbildung an einer Höheren Fachschule oder Fachhochschule für Sozialpädagogik oder Soziale Arbeit\n\n• Idealerweise hast du bereits Erfahrung im stationären Bereich mit Kindern und Jugendlichen gesammelt\n\n• Du gehst sicher und ruhig mit anspruchsvollen Situationen um\n\n• Du bringst Flexibilität für unregelmässige und kurzfristige Arbeitseinsätze (Nacht- und Wochenendeinsätze) mit\n\n• Du hast ein Flair für administrative Arbeiten sowie eine zuverlässige und selbständige Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "En tant que sauteur, vous soutenez nos diverses offres et vous aidez à assurer la prise en charge des enfants et des jeunes en cas de pénurie de personnel à court terme. De plus amples informations sont disponibles à l'adresse <a href=\"https://www.schlossmatt-bern.ch/\">www.schlossmatt-bern.ch</a>.\n\nTâches :\n• Vous accompagnez et prenez soin des enfants et des adolescents pendant les services de jour et de soir ainsi que pendant les services de présence pendant la nuit\n\n• Vous travaillez avec les entrées d'urgence, les vérifications d'admission et les procédures d'admission\n\n• Vous travaillez avec des familles, des écoles et des professionnels\n\n• Vous prenez des travaux administratifs et documentez le travail éducatif\n\nExigences\n• Vous êtes en formation dans un lycée ou un collège pour l'éducation sociale ou le travail social\n\n• Idéalement, vous avez déjà de l'expérience dans la zone stationnaire avec enfants et adolescents\n\n• Vous êtes en sécurité et calme avec des situations difficiles\n\n• Vous apportez de la flexibilité pour les tâches irrégulières et de courte durée (affectations de nuit et de fin de semaine)\n\n• Vous avez un style pour le travail administratif ainsi qu'une méthode de travail fiable et indépendante\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/springer-in-sozialpaedagogik/fa6109c0-54a8-49da-8561-9626db5b48aa",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.485Z",
+      "crawledAt": "2026-10-13T21:11:58.063Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2469,9 +2467,24 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/springer-in-sozialpaedagogik/fa6109c0-54a8-49da-8561-9626db5b48aa",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "springer-in-sozialpadagogik-stadt-bern-bern",
+        "relief-social-pedagogue-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "springer-in-sozialpadagogik-stadt-bern-bern"
+        ],
+        "en": [
+          "springer-in-sozialpadagogik-stadt-bern-bern",
+          "relief-social-pedagogue-stadt-bern-bern"
+        ],
+        "fr": [
+          "springer-in-sozialpadagogik-stadt-bern-bern"
+        ]
       },
+      "firstSeenAt": "2026-10-13T09:15:50.485Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2484,30 +2497,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-13T09:15:50.485Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "springer-in-sozialpadagogik-stadt-bern-bern"
-        ],
-        "en": [
-          "springer-in-sozialpadagogik-stadt-bern-bern"
-        ],
-        "fr": [
-          "springer-in-sozialpadagogik-stadt-bern-bern"
-        ]
-      },
-      "previousSlugs": [
-        "springer-in-sozialpadagogik-stadt-bern-bern"
-      ]
+      }
     },
     {
       "id": "stadt-bern-b20fea3c78e4",
       "slug": "giardiniere-a-becchino-a-stadt-bern-bern",
       "slugByLocale": {
-        "de": "gartner-in-totengraber-in-stadt-bern-bern",
         "it": "giardiniere-a-becchino-a-stadt-bern-bern",
         "en": "gardener-gravedigger-stadt-bern-bern",
+        "de": "gartner-in-totengraber-in-stadt-bern-bern",
         "fr": "jardinier-ere-fossoyeur-euse-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2515,24 +2513,24 @@
       "companyDomain": "bern.ch",
       "title": "Gärtner*in / Totengräber*in",
       "titleByLocale": {
-        "de": "Gärtner*in / Totengräber*in",
         "it": "Giardiniere/a / becchino/a",
         "en": "Gardener / Gravedigger",
+        "de": "Gärtner*in / Totengräber*in",
         "fr": "Jardinier·ère / Fossoyeur·euse"
       },
       "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Siamo alla ricerca di voi immediatamente o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Fai i funerali e i funerali della terra\n\n• Prenderai il controllo e la cura delle nuove tombe e dei campi di sepoltura assegnati\n\n• Ti interessa e mantieni il cimitero\n\n• Pianta le tombe per stagione\n\n• Opera tutte le macchine disponibili\n\nRequisiti\n• Apprendistato professionale come giardiniere, specializzazione in giardinaggio e paesaggistica o foresta manager/agricoltore\n\n• Interessato al rispetto del trattamento dei defunti e dei superstiti\n\n• Lavoratori autonomi e affidabili\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you immediately or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• You carry out earth funerals and urn funerals\n\n• You will take control and care tours of the new tombs and assigned burial fields\n\n• You care for and maintain the cemetery\n\n• You plant the graves by season\n\n• You operate all available machines\n\nRequirements\n• Vocational apprenticeship as a gardener, specialisation in gardening and landscaping or forest manager/farmer\n\n• Interested in respectful treatment of the deceased and survivors\n\n• Self-employed and reliable\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "Nous rendons Bern plus belle, colorée et vivante. Voulez-vous nous soutenir ? Nous sommes à votre recherche immédiatement ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Vous effectuez des enterrements de terre et des enterrements d'urne\n\n• Vous prendrez le contrôle et le soin des visites des nouvelles tombes et des champs de sépulture assignés\n\n• Vous gardez et maintenez le cimetière\n\n• Vous plantez les tombes par saison\n\n• Vous utilisez toutes les machines disponibles\n\nExigences\n• Apprentissage professionnel en tant que jardinier, spécialisation en jardinage et aménagement paysager ou en gestion forestière/agriculteur\n\n• Intéressé au traitement respectueux du défunt et des survivants\n\n• Travailleurs indépendants et fiables\n\n• Joy de travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie urbaine\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Siamo alla ricerca di voi immediatamente o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Fai i funerali e i funerali della terra\n\n• Prenderai il controllo e la cura delle nuove tombe e dei campi di sepoltura assegnati\n\n• Ti interessa e mantieni il cimitero\n\n• Pianta le tombe per stagione\n\n• Opera tutte le macchine disponibili\n\nRequisiti\n• Apprendistato professionale come giardiniere, specializzazione in giardinaggio e paesaggistica o foresta manager/agricoltore\n\n• Interessato al rispetto del trattamento dei defunti e dei superstiti\n\n• Lavoratori autonomi e affidabili\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you immediately or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• You carry out earth funerals and urn funerals\n\n• You will take control and care tours of the new tombs and assigned burial fields\n\n• You care for and maintain the cemetery\n\n• You plant the graves by season\n\n• You operate all available machines\n\nRequirements\n• Vocational apprenticeship as a gardener, specialisation in gardening and landscaping or forest manager/farmer\n\n• Interested in respectful treatment of the deceased and survivors\n\n• Self-employed and reliable\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous rendons Bern plus belle, colorée et vivante. Voulez-vous nous soutenir ? Nous sommes à votre recherche immédiatement ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Vous effectuez des enterrements de terre et des enterrements d'urne\n\n• Vous prendrez le contrôle et le soin des visites des nouvelles tombes et des champs de sépulture assignés\n\n• Vous gardez et maintenez le cimetière\n\n• Vous plantez les tombes par saison\n\n• Vous utilisez toutes les machines disponibles\n\nExigences\n• Apprentissage professionnel en tant que jardinier, spécialisation en jardinage et aménagement paysager ou en gestion forestière/agriculteur\n\n• Intéressé au traitement respectueux du défunt et des survivants\n\n• Travailleurs indépendants et fiables\n\n• Joy de travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:15:50.477Z",
+      "crawledAt": "2026-10-13T21:11:58.055Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2551,9 +2549,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gartner-in-totengraber-in-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ],
+        "en": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ]
       },
+      "firstSeenAt": "2026-10-13T09:15:50.477Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2566,22 +2577,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-13T09:15:50.477Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ],
-        "en": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ]
-      },
-      "previousSlugs": [
-        "gartner-in-totengraber-in-stadt-bern-bern"
-      ]
+      }
     }
   ]
 }

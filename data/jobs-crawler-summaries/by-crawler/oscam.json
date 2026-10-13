@@ -1,19 +1,21 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-13T09:12:42.373Z",
+  "generatedAt": "2026-10-13T21:12:31.192Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 4720,
-  "avgDurationMs": 4720,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 5483,
+  "avgDurationMs": 5483,
   "durationHistory": [
-    4720
+    5483
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Concorso generale 2026",
       "slug": "concorso-generale-2026-oscam",
@@ -35,7 +37,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-13T09:12:32.277Z",
+      "crawledAt": "2026-10-13T21:12:20.442Z",
       "id": "oscam-90801fb9d04f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -58,51 +60,5 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Concorso generale per medici assistenti 2025-2026",
-      "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
-      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-      "companyKey": "oscam",
-      "location": "Castelrotto",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
-      "applyUrl": "mailto:info@oscam.ch",
-      "category": "general",
-      "sector": "Sanità pubblica / Assistenza anziani",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "source": "oscam-crawler",
-      "postedDate": "",
-      "sourceLang": "it",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Castelrotto"
-      },
-      "crawledAt": "2026-10-12T21:13:12.465Z",
-      "id": "oscam-e59e5b8effd4",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Castelrotto",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-30T21:14:17.301Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "streetAddress": "Nucleo 30",
-      "postalCode": "6980",
-      "addressCountry": "CH",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
