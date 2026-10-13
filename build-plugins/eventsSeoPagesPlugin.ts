@@ -416,8 +416,7 @@ function cleanRenderableEventText(value: unknown): string {
 
 function eventVenue(event: SiteEvent): string {
   return cleanRenderableEventText(event.venue)
-    || cleanRenderableEventText(event.address?.locality)
-    || cleanRenderableEventText(event.comune);
+    || cleanRenderableEventText(event.address?.locality);
 }
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -1508,7 +1507,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // `location.name` is required by Google's Event enhancement even when the
   // source has no named venue. Keep it source-backed where possible and use
   // the resolved locality/canton as the deterministic structural fallback.
-  const venueName = eventVenue(event) || (event.canton ? cantonName : 'Svizzera');
+  const venueName = eventVenue(event) || comune || (event.canton ? cantonName : 'Svizzera');
   const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
