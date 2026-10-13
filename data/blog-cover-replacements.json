@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07",
+  "generatedAt": "2026-10-13",
   "generatedLimit": 150,
   "items": {
     "bollettino-frontaliere-2026-09-27": {
@@ -456,7 +456,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/funivia-monteviasco-orari-corsi.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2562269360370,
+      "priority": 2577804228891,
       "references": [
         {
           "section": "frontaliere",
@@ -479,7 +479,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/confine-italia-svizzera-6-regole-doganali.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2276281644648,
+      "priority": 2296764944024,
       "references": [
         {
           "section": "frontaliere",
@@ -502,7 +502,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/guida-dichiarazione-redditi-frontalieri.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2150212828914,
+      "priority": 2152565498857,
       "references": [
         {
           "section": "frontaliere",
@@ -510,6 +510,26 @@
           "category": "fiscale",
           "date": "2026-02-23T17:37:11.718Z",
           "updatedAt": "2026-09-26",
+          "authorSlug": "marco-ferrari"
+        }
+      ]
+    },
+    "costo-vivere-lugano-trasferirsi": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/costo-vivere-lugano-trasferirsi.webp",
+      "toCover": "/images/blog/costo-vivere-lugano-trasferirsi.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/costo-vivere-lugano-trasferirsi.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 2086750601750,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "costo-vivere-lugano-trasferirsi",
+          "category": "pratico",
+          "date": "2026-02-23T13:54:52.885Z",
+          "updatedAt": "2026-09-25",
           "authorSlug": "marco-ferrari"
         }
       ]
@@ -522,53 +542,13 @@
       "recordFile": "packages/articles/content/image-credits/blog/allentamenti-affitti-brevi-ticino-2025.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2082154961418,
+      "priority": 2084578120118,
       "references": [
         {
           "section": "frontaliere",
           "id": "allentamenti-affitti-brevi-ticino-2025",
           "category": "novita",
           "date": "2026-04-17T23:53:27.435Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "costo-vivere-lugano-trasferirsi": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/costo-vivere-lugano-trasferirsi.webp",
-      "toCover": "/images/blog/costo-vivere-lugano-trasferirsi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/costo-vivere-lugano-trasferirsi.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2076191807730,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "costo-vivere-lugano-trasferirsi",
-          "category": "pratico",
-          "date": "2026-02-23T13:54:52.885Z",
-          "updatedAt": "2026-09-25",
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "mutuo-casa-frontalieri-italia": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/mutuo-casa-frontalieri-italia.webp",
-      "toCover": "/images/blog/mutuo-casa-frontalieri-italia.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/mutuo-casa-frontalieri-italia.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2046189043386,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "mutuo-casa-frontalieri-italia",
-          "category": "pratico",
-          "date": "2026-02-25T15:40:21.209Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
         }
@@ -582,7 +562,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/chiasso-como-cantieri-a9-disagi.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 2036186039047,
+      "priority": 2042639610552,
       "references": [
         {
           "section": "frontaliere",
@@ -594,6 +574,26 @@
         }
       ]
     },
+    "article-nobel-economia-fehr-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-nobel-economia-fehr-2026.webp",
+      "toCover": "/images/blog/article-nobel-economia-fehr-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-nobel-economia-fehr-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1992802017082,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "nobel-economia-fehr-2026",
+          "category": "novita",
+          "date": "2026-10-09T03:22:15.837Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
     "calcolo-pensione-avs-inps": {
       "mode": "generated",
       "status": "queued",
@@ -602,7 +602,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/calcolo-pensione-avs-inps.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1983197872751,
+      "priority": 1987752453058,
       "references": [
         {
           "section": "frontaliere",
@@ -622,7 +622,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/costo-vivere-mappa-comuni.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1976139549187,
+      "priority": 1981743433080,
       "references": [
         {
           "section": "frontaliere",
@@ -642,7 +642,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/costo-vita-svizzera-mappa.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1970284767838,
+      "priority": 1976749819672,
       "references": [
         {
           "section": "frontaliere",
@@ -662,7 +662,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/chiusure-autostrada-a9-lombardia-2026.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1965239402268,
+      "priority": 1970715547892,
       "references": [
         {
           "section": "frontaliere",
@@ -682,33 +682,13 @@
       "recordFile": "packages/articles/content/image-credits/blog/chiasso-grenzubergang.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1952229445583,
+      "priority": 1959744637981,
       "references": [
         {
           "section": "frontaliere",
           "id": "chiasso-grenzubergang",
           "category": "pratico",
           "date": "2026-06-05T05:22:51.147Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "volo-swiss-emergenza-medica-zurigo-boston": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/volo-swiss-emergenza-medica-zurigo-boston.webp",
-      "toCover": "/images/blog/volo-swiss-emergenza-medica-zurigo-boston.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/volo-swiss-emergenza-medica-zurigo-boston.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1951189519231,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "volo-swiss-emergenza-medica-zurigo-boston",
-          "category": "novita",
-          "date": "2026-09-07T09:29:24.668Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -722,7 +702,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/smart-working-frontalieri-2026.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1950700099519,
+      "priority": 1953809548362,
       "references": [
         {
           "section": "frontaliere",
@@ -742,13 +722,33 @@
       "recordFile": "packages/articles/content/image-credits/blog/giro-ditalia-ticino-strade-chiuse.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1948827168206,
+      "priority": 1950433834086,
       "references": [
         {
           "section": "frontaliere",
           "id": "giro-ditalia-ticino-strade-chiuse",
           "category": "pratico",
           "date": "2026-05-07T08:51:38.187Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "educatore-infanzia-ticino-stipendio": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/educatore-infanzia-ticino-stipendio.webp",
+      "toCover": "/images/blog/educatore-infanzia-ticino-stipendio.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/educatore-infanzia-ticino-stipendio.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1935795146252,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "educatore-infanzia-ticino-stipendio",
+          "category": "pratico",
+          "date": "2026-06-05T07:00:39.982Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -774,23 +774,43 @@
         }
       ]
     },
-    "autostrada-a9-disagi-frontalieri": {
+    "guida-contributi-sociali-svizzera": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/autostrada-a9-disagi-frontalieri.webp",
-      "toCover": "/images/blog/autostrada-a9-disagi-frontalieri.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/autostrada-a9-disagi-frontalieri.json",
+      "fromCover": "/images/blog/guida-contributi-sociali-svizzera.webp",
+      "toCover": "/images/blog/guida-contributi-sociali-svizzera.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/guida-contributi-sociali-svizzera.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1920161364198,
+      "priority": 1925461369081,
       "references": [
         {
           "section": "frontaliere",
-          "id": "autostrada-a9-disagi-frontalieri",
+          "id": "guida-contributi-sociali-svizzera",
           "category": "pratico",
-          "date": "2026-03-01T21:09:14.838Z",
-          "updatedAt": null,
+          "date": "2026-02-23T13:27:25.360Z",
+          "updatedAt": "2026-09-24",
           "authorSlug": "redazione"
+        }
+      ]
+    },
+    "mutuo-casa-frontalieri-italia": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/mutuo-casa-frontalieri-italia.webp",
+      "toCover": "/images/blog/mutuo-casa-frontalieri-italia.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/mutuo-casa-frontalieri-italia.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1919189043386,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mutuo-casa-frontalieri-italia",
+          "category": "pratico",
+          "date": "2026-02-25T15:40:21.209Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
         }
       ]
     },
@@ -802,7 +822,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/calcolo-tasse-entro-confine.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1911923946545,
+      "priority": 1917793056082,
       "references": [
         {
           "section": "frontaliere",
@@ -830,7 +850,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/a9-como-chiasso-disagi-notturni.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1911797723601,
+      "priority": 1913472480751,
       "references": [
         {
           "section": "frontaliere",
@@ -842,21 +862,21 @@
         }
       ]
     },
-    "educatore-infanzia-ticino-stipendio": {
+    "educatore-infanzia-ticino-stipendio-requisiti": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/educatore-infanzia-ticino-stipendio.webp",
-      "toCover": "/images/blog/educatore-infanzia-ticino-stipendio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/educatore-infanzia-ticino-stipendio.json",
+      "fromCover": "/images/blog/educatore-infanzia-ticino-stipendio-requisiti.webp",
+      "toCover": "/images/blog/educatore-infanzia-ticino-stipendio-requisiti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/educatore-infanzia-ticino-stipendio-requisiti.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1908212243840,
+      "priority": 1905726357620,
       "references": [
         {
           "section": "frontaliere",
-          "id": "educatore-infanzia-ticino-stipendio",
+          "id": "educatore-infanzia-ticino-stipendio-requisiti",
           "category": "pratico",
-          "date": "2026-06-05T07:00:39.982Z",
+          "date": "2026-05-25T09:54:59.901Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -870,7 +890,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/radar-controlli-velocita-ticino-aprile-2026.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1900918449874,
+      "priority": 1903347405457,
       "references": [
         {
           "section": "frontaliere",
@@ -882,21 +902,41 @@
         }
       ]
     },
-    "asilo-nido-frontaliere-ticino": {
+    "pagamento-multa-stradale-svizzera": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/asilo-nido-frontaliere-ticino.webp",
-      "toCover": "/images/blog/asilo-nido-frontaliere-ticino.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/asilo-nido-frontaliere-ticino.json",
+      "fromCover": "/images/blog/pagamento-multa-stradale-svizzera.webp",
+      "toCover": "/images/blog/pagamento-multa-stradale-svizzera.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/pagamento-multa-stradale-svizzera.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1896196220518,
+      "priority": 1899787328739,
       "references": [
         {
           "section": "frontaliere",
-          "id": "asilo-nido-frontaliere-ticino",
+          "id": "pagamento-multa-stradale-svizzera",
           "category": "pratico",
-          "date": "2026-02-23T18:20:25.212Z",
+          "date": "2026-08-22T13:43:12.637Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "dsm-firmenich-cancella-1000-impieghi": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/dsm-firmenich-cancella-1000-impieghi.webp",
+      "toCover": "/images/blog/dsm-firmenich-cancella-1000-impieghi.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/dsm-firmenich-cancella-1000-impieghi.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1898738456432,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "dsm-firmenich-cancella-1000-impieghi",
+          "category": "novita",
+          "date": "2026-07-31T01:08:30.089Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -910,7 +950,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/naspi-frontaliere-italia-requisiti.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1895201579088,
+      "priority": 1898460877503,
       "references": [
         {
           "section": "frontaliere",
@@ -930,7 +970,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/autostrada-a9-chiude-de-notti-2026.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1894797133811,
+      "priority": 1896570453400,
       "references": [
         {
           "section": "frontaliere",
@@ -942,46 +982,6 @@
         }
       ]
     },
-    "dsm-firmenich-cancella-1000-impieghi": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/dsm-firmenich-cancella-1000-impieghi.webp",
-      "toCover": "/images/blog/dsm-firmenich-cancella-1000-impieghi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/dsm-firmenich-cancella-1000-impieghi.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1893231191351,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "dsm-firmenich-cancella-1000-impieghi",
-          "category": "novita",
-          "date": "2026-07-31T01:08:30.089Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "credito-imposta-doppia-tassazione": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/credito-imposta-doppia-tassazione.webp",
-      "toCover": "/images/blog/credito-imposta-doppia-tassazione.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/credito-imposta-doppia-tassazione.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1891830189960,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "credito-imposta-doppia-tassazione",
-          "category": "fiscale",
-          "date": "2026-02-23T16:13:02.045Z",
-          "updatedAt": "2026-09-25",
-          "authorSlug": "redazione"
-        }
-      ]
-    },
     "frontalieri-ticino-dati-q4-2025": {
       "mode": "generated",
       "status": "queued",
@@ -990,7 +990,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/frontalieri-ticino-dati-q4-2025.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1890775047307,
+      "priority": 1892432876874,
       "references": [
         {
           "section": "frontaliere",
@@ -1002,21 +1002,21 @@
         }
       ]
     },
-    "pagamento-multa-stradale-svizzera": {
+    "manor-licenzia-basilea": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/pagamento-multa-stradale-svizzera.webp",
-      "toCover": "/images/blog/pagamento-multa-stradale-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/pagamento-multa-stradale-svizzera.json",
+      "fromCover": "/images/blog/manor-licenzia-basilea.webp",
+      "toCover": "/images/blog/manor-licenzia-basilea.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/manor-licenzia-basilea.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1886287244236,
+      "priority": 1887569386694,
       "references": [
         {
-          "section": "frontaliere",
-          "id": "pagamento-multa-stradale-svizzera",
-          "category": "pratico",
-          "date": "2026-08-22T13:43:12.637Z",
+          "section": "svizzera",
+          "id": "manor-licenzia-basilea",
+          "category": "novita",
+          "date": "2026-08-26T21:46:28.174Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -1030,7 +1030,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/lavoro-insegnanti-ticino-opportunita.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1884055943379,
+      "priority": 1886794030913,
       "references": [
         {
           "section": "frontaliere",
@@ -1042,43 +1042,23 @@
         }
       ]
     },
-    "riforma-cassa-malati-ticino-2029": {
+    "sostituzione-caldaia-ticino-2026": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/riforma-cassa-malati-ticino-2029.webp",
-      "toCover": "/images/blog/riforma-cassa-malati-ticino-2029.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/riforma-cassa-malati-ticino-2029.json",
+      "fromCover": "/images/blog/sostituzione-caldaia-ticino-2026.webp",
+      "toCover": "/images/blog/sostituzione-caldaia-ticino-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/sostituzione-caldaia-ticino-2026.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1882143957622,
+      "priority": 1885727457610,
       "references": [
         {
           "section": "frontaliere",
-          "id": "riforma-cassa-malati-ticino-2029",
-          "category": "fiscale",
-          "date": "2026-04-15T11:14:49.537Z",
+          "id": "sostituzione-caldaia-ticino-2026",
+          "category": "pratico",
+          "date": "2026-02-18T15:16:44.519Z",
           "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "manor-licenzia-basilea": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/manor-licenzia-basilea.webp",
-      "toCover": "/images/blog/manor-licenzia-basilea.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/manor-licenzia-basilea.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1881792396055,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "manor-licenzia-basilea",
-          "category": "novita",
-          "date": "2026-08-26T21:46:28.174Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
+          "authorSlug": "marco-ferrari"
         }
       ]
     },
@@ -1090,7 +1070,7 @@
       "recordFile": "packages/articles/content/image-credits/blog/lavoro-carceri-ticino.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1881254573209,
+      "priority": 1885556987706,
       "references": [
         {
           "section": "frontaliere",
@@ -1102,23 +1082,1211 @@
         }
       ]
     },
-    "sostituzione-caldaia-ticino-2026": {
+    "riforma-cassa-malati-ticino-2029": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/sostituzione-caldaia-ticino-2026.webp",
-      "toCover": "/images/blog/sostituzione-caldaia-ticino-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/sostituzione-caldaia-ticino-2026.json",
+      "fromCover": "/images/blog/riforma-cassa-malati-ticino-2029.webp",
+      "toCover": "/images/blog/riforma-cassa-malati-ticino-2029.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/riforma-cassa-malati-ticino-2029.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1881098395567,
+      "priority": 1883624710474,
       "references": [
         {
           "section": "frontaliere",
-          "id": "sostituzione-caldaia-ticino-2026",
-          "category": "pratico",
-          "date": "2026-02-18T15:16:44.519Z",
+          "id": "riforma-cassa-malati-ticino-2029",
+          "category": "fiscale",
+          "date": "2026-04-15T11:14:49.537Z",
           "updatedAt": null,
-          "authorSlug": "marco-ferrari"
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-a8-manutenzione-cavalcavia-ottobre-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-a8-manutenzione-cavalcavia-ottobre-2026.webp",
+      "toCover": "/images/blog/article-a8-manutenzione-cavalcavia-ottobre-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-a8-manutenzione-cavalcavia-ottobre-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "a8-manutenzione-cavalcavia-ottobre-2026",
+          "category": "pratico",
+          "date": "2026-10-09T09:14:11.744Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-acof-70-anni-premio-confindustria-varese": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-acof-70-anni-premio-confindustria-varese.webp",
+      "toCover": "/images/blog/article-acof-70-anni-premio-confindustria-varese.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-acof-70-anni-premio-confindustria-varese.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "acof-70-anni-premio-confindustria-varese",
+          "category": "novita",
+          "date": "2026-10-09T08:04:40.702Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-ai-chip-scarzita-prezzi-pc": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-ai-chip-scarzita-prezzi-pc.webp",
+      "toCover": "/images/blog/article-ai-chip-scarzita-prezzi-pc.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ai-chip-scarzita-prezzi-pc.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ai-chip-scarzita-prezzi-pc",
+          "category": "pratico",
+          "date": "2026-10-09T05:00:36.179Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-arresto-cocaina-massagno": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-arresto-cocaina-massagno.webp",
+      "toCover": "/images/blog/article-arresto-cocaina-massagno.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-arresto-cocaina-massagno.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-cocaina-massagno",
+          "category": "novita",
+          "date": "2026-10-09T09:51:04.114Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-attacco-publica-dati-rubati": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-attacco-publica-dati-rubati.webp",
+      "toCover": "/images/blog/article-attacco-publica-dati-rubati.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-attacco-publica-dati-rubati.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "attacco-publica-dati-rubati",
+          "category": "pensione",
+          "date": "2026-10-09T01:39:56.530Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ]
+    },
+    "article-axpo-solare-argovia": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-axpo-solare-argovia.webp",
+      "toCover": "/images/blog/article-axpo-solare-argovia.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-axpo-solare-argovia.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "axpo-solare-argovia",
+          "category": "novita",
+          "date": "2026-10-09T23:11:13.817Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-borse-musica-ticino-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-borse-musica-ticino-2026.webp",
+      "toCover": "/images/blog/article-borse-musica-ticino-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-borse-musica-ticino-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "borse-musica-ticino-2026",
+          "category": "novita",
+          "date": "2026-10-09T11:50:54.986Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-cardano-al-campo-minorenne-arresto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-cardano-al-campo-minorenne-arresto.webp",
+      "toCover": "/images/blog/article-cardano-al-campo-minorenne-arresto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cardano-al-campo-minorenne-arresto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cardano-al-campo-minorenne-arresto",
+          "category": "novita",
+          "date": "2026-10-08T23:26:41.689Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-carne-vino-dogana-mendrisiotto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-carne-vino-dogana-mendrisiotto.webp",
+      "toCover": "/images/blog/article-carne-vino-dogana-mendrisiotto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-carne-vino-dogana-mendrisiotto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "carne-vino-dogana-mendrisiotto",
+          "category": "pratico",
+          "date": "2026-10-09T14:17:30.025Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-caslano-colombera-incidente-moto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-caslano-colombera-incidente-moto.webp",
+      "toCover": "/images/blog/article-caslano-colombera-incidente-moto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-caslano-colombera-incidente-moto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "caslano-colombera-incidente-moto",
+          "category": "novita",
+          "date": "2026-10-09T17:27:51.215Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-cibersicurezza-svizzera-record-segnalazioni": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp",
+      "toCover": "/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cibersicurezza-svizzera-record-segnalazioni.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "cibersicurezza-svizzera-record-segnalazioni",
+          "category": "novita",
+          "date": "2026-10-09T16:39:09.830Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-clan-nazarbayev-ceresio": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-clan-nazarbayev-ceresio.webp",
+      "toCover": "/images/blog/article-clan-nazarbayev-ceresio.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-clan-nazarbayev-ceresio.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "luganistan-clan-ceresio",
+          "category": "novita",
+          "date": "2026-10-09T06:48:32.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        },
+        {
+          "section": "frontaliere",
+          "id": "clan-nazarbayev-ceresio",
+          "category": "novita",
+          "date": "2026-10-07T04:58:11.502Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-concerti-borgo-musicale": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-concerti-borgo-musicale.webp",
+      "toCover": "/images/blog/article-concerti-borgo-musicale.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-concerti-borgo-musicale.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "concerti-borgo-musicale",
+          "category": "novita",
+          "date": "2026-10-09T02:51:10.022Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-controlli-dogana-mendrisiotto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-controlli-dogana-mendrisiotto.webp",
+      "toCover": "/images/blog/article-controlli-dogana-mendrisiotto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-controlli-dogana-mendrisiotto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "controlli-dogana-mendrisiotto",
+          "category": "pratico",
+          "date": "2026-10-09T08:55:22.214Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-corsi-contributi-lucerna": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-corsi-contributi-lucerna.webp",
+      "toCover": "/images/blog/article-corsi-contributi-lucerna.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-corsi-contributi-lucerna.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "corsi-contributi-lucerna",
+          "category": "pratico",
+          "date": "2026-10-10T02:37:57.583Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-economia-svizzera-fiducia-calante": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-economia-svizzera-fiducia-calante.webp",
+      "toCover": "/images/blog/article-economia-svizzera-fiducia-calante.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-economia-svizzera-fiducia-calante.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "economia-svizzera-fiducia-calante",
+          "category": "novita",
+          "date": "2026-10-09T15:01:33.936Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-fiducia-consumatori-svizzeri-settembre": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp",
+      "toCover": "/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fiducia-consumatori-svizzeri-settembre.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fiducia-consumatori-svizzeri-settembre",
+          "category": "pratico",
+          "date": "2026-10-09T08:17:32.970Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-frana-sementina-h13-gudo": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-frana-sementina-h13-gudo.webp",
+      "toCover": "/images/blog/article-frana-sementina-h13-gudo.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frana-sementina-h13-gudo.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frana-sementina-h13-gudo",
+          "category": "pratico",
+          "date": "2026-10-10T02:19:31.649Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-friedli-rinuncia-corsa-federale": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-friedli-rinuncia-corsa-federale.webp",
+      "toCover": "/images/blog/article-friedli-rinuncia-corsa-federale.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-friedli-rinuncia-corsa-federale.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "friedli-rinuncia-corsa-federale",
+          "category": "novita",
+          "date": "2026-10-10T00:22:01.565Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-fuga-dati-publica-cassa": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-fuga-dati-publica-cassa.webp",
+      "toCover": "/images/blog/article-fuga-dati-publica-cassa.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fuga-dati-publica-cassa.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fuga-dati-publica-cassa",
+          "category": "pensione",
+          "date": "2026-10-09T01:53:29.738Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ]
+    },
+    "article-furti-statistica-svizzera-passaporto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-furti-statistica-svizzera-passaporto.webp",
+      "toCover": "/images/blog/article-furti-statistica-svizzera-passaporto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-furti-statistica-svizzera-passaporto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "furti-statistica-svizzera-passaporto",
+          "category": "novita",
+          "date": "2026-10-09T06:26:39.528Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-gestione-emergenze-ticino-lombardia": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-gestione-emergenze-ticino-lombardia.webp",
+      "toCover": "/images/blog/article-gestione-emergenze-ticino-lombardia.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gestione-emergenze-ticino-lombardia.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gestione-emergenze-ticino-lombardia",
+          "category": "novita",
+          "date": "2026-10-09T15:24:27.076Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-guida-voto-cantonale-lucerna": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-guida-voto-cantonale-lucerna.webp",
+      "toCover": "/images/blog/article-guida-voto-cantonale-lucerna.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-guida-voto-cantonale-lucerna.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "guida-voto-cantonale-lucerna",
+          "category": "pratico",
+          "date": "2026-10-09T04:49:15.276Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-incidente-a9-saronno-turate-code": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-incidente-a9-saronno-turate-code.webp",
+      "toCover": "/images/blog/article-incidente-a9-saronno-turate-code.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-incidente-a9-saronno-turate-code.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incidente-a9-saronno-turate-code",
+          "category": "pratico",
+          "date": "2026-10-09T10:34:07.641Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-incidenti-notte-varese": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-incidenti-notte-varese.webp",
+      "toCover": "/images/blog/article-incidenti-notte-varese.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-incidenti-notte-varese.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incidenti-notte-varese",
+          "category": "novita",
+          "date": "2026-10-09T02:15:06.042Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-iniziativa-solari-senza-permesso": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-iniziativa-solari-senza-permesso.webp",
+      "toCover": "/images/blog/article-iniziativa-solari-senza-permesso.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-iniziativa-solari-senza-permesso.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "iniziativa-solari-senza-permesso",
+          "category": "novita",
+          "date": "2026-10-09T13:20:01.685Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-karate-uisp-formazione-arcisate-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-karate-uisp-formazione-arcisate-2026.webp",
+      "toCover": "/images/blog/article-karate-uisp-formazione-arcisate-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-karate-uisp-formazione-arcisate-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "karate-uisp-formazione-arcisate-2026",
+          "category": "novita",
+          "date": "2026-10-09T04:02:21.429Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-lardi-dotlife-chiusura-alberghi-lugano": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-lardi-dotlife-chiusura-alberghi-lugano.webp",
+      "toCover": "/images/blog/article-lardi-dotlife-chiusura-alberghi-lugano.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lardi-dotlife-chiusura-alberghi-lugano.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lardi-dotlife-chiusura-alberghi-lugano",
+          "category": "pratico",
+          "date": "2026-10-09T04:27:22.850Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-lucerna-convocazioni-indennita": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-lucerna-convocazioni-indennita.webp",
+      "toCover": "/images/blog/article-lucerna-convocazioni-indennita.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-convocazioni-indennita.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-convocazioni-indennita",
+          "category": "pratico",
+          "date": "2026-10-09T11:15:58.644Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-lucerna-elezioni-calendario-voto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-lucerna-elezioni-calendario-voto.webp",
+      "toCover": "/images/blog/article-lucerna-elezioni-calendario-voto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-elezioni-calendario-voto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-elezioni-calendario-voto",
+          "category": "pratico",
+          "date": "2026-10-09T08:38:24.657Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-lucerna-polizza-edifici-regole": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-lucerna-polizza-edifici-regole.webp",
+      "toCover": "/images/blog/article-lucerna-polizza-edifici-regole.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-polizza-edifici-regole.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-polizza-edifici-regole",
+          "category": "pratico",
+          "date": "2026-10-10T01:12:10.158Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-luganistan-clan-ceresio": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-luganistan-clan-ceresio.webp",
+      "toCover": "/images/blog/article-luganistan-clan-ceresio.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-luganistan-clan-ceresio.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "luganistan-clan-ceresio",
+          "category": "novita",
+          "date": "2026-10-09T06:48:32.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-marchesi-mendrisiotto-priorita": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-marchesi-mendrisiotto-priorita.webp",
+      "toCover": "/images/blog/article-marchesi-mendrisiotto-priorita.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-marchesi-mendrisiotto-priorita.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "marchesi-mendrisiotto-priorita",
+          "category": "novita",
+          "date": "2026-10-09T10:20:02.882Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-mastercard-pagamenti-rete-assente": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-mastercard-pagamenti-rete-assente.webp",
+      "toCover": "/images/blog/article-mastercard-pagamenti-rete-assente.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mastercard-pagamenti-rete-assente.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "mastercard-pagamenti-rete-assente",
+          "category": "novita",
+          "date": "2026-10-09T20:04:15.079Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-midterm-usa-voto-svizzera": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-midterm-usa-voto-svizzera.webp",
+      "toCover": "/images/blog/article-midterm-usa-voto-svizzera.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-midterm-usa-voto-svizzera.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "midterm-usa-voto-svizzera",
+          "category": "pratico",
+          "date": "2026-10-09T14:00:45.907Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-montegrino-valtravaglia-aggressione-condanna": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-montegrino-valtravaglia-aggressione-condanna.webp",
+      "toCover": "/images/blog/article-montegrino-valtravaglia-aggressione-condanna.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-montegrino-valtravaglia-aggressione-condanna.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "montegrino-valtravaglia-aggressione-condanna",
+          "category": "novita",
+          "date": "2026-10-09T12:24:18.806Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-multe-como-targhe-estere": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-multe-como-targhe-estere.webp",
+      "toCover": "/images/blog/article-multe-como-targhe-estere.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-multe-como-targhe-estere.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "multe-como-targhe-estere",
+          "category": "pratico",
+          "date": "2026-10-10T04:09:02.259Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-operazione-trotta-ebike-monopattini": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-operazione-trotta-ebike-monopattini.webp",
+      "toCover": "/images/blog/article-operazione-trotta-ebike-monopattini.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-operazione-trotta-ebike-monopattini.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "operazione-trotta-ebike-monopattini",
+          "category": "pratico",
+          "date": "2026-10-09T07:39:46.285Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-operazione-upriver-arresti-varese-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-operazione-upriver-arresti-varese-2026.webp",
+      "toCover": "/images/blog/article-operazione-upriver-arresti-varese-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-operazione-upriver-arresti-varese-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "operazione-upriver-arresti-varese-2026",
+          "category": "novita",
+          "date": "2026-10-09T12:58:48.117Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-permesso-edilizio-lucerna": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-permesso-edilizio-lucerna.webp",
+      "toCover": "/images/blog/article-permesso-edilizio-lucerna.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-permesso-edilizio-lucerna.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "permesso-edilizio-lucerna",
+          "category": "pratico",
+          "date": "2026-10-09T03:07:26.294Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-raffica-scontri-varesotto": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-raffica-scontri-varesotto.webp",
+      "toCover": "/images/blog/article-raffica-scontri-varesotto.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-raffica-scontri-varesotto.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "raffica-scontri-varesotto",
+          "category": "novita",
+          "date": "2026-10-10T01:44:21.822Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-rancio-valcuvia-statale-394": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-rancio-valcuvia-statale-394.webp",
+      "toCover": "/images/blog/article-rancio-valcuvia-statale-394.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rancio-valcuvia-statale-394.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "rancio-valcuvia-statale-394",
+          "category": "novita",
+          "date": "2026-10-09T07:21:46.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-referendum-iva-2026-aumento-per-la-tredicesima-pensione": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-referendum-iva-2026-aumento-per-la-tredicesima-pensione.webp",
+      "toCover": "/images/blog/article-referendum-iva-2026-aumento-per-la-tredicesima-pensione.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-iva-2026-aumento-per-la-tredicesima-pensione.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-iva-2026-aumento-per-la-tredicesima-pensione",
+          "category": "novita",
+          "date": "2026-10-09T20:56:51.979Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-referendum-nucleare-svizzera-2027": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-referendum-nucleare-svizzera-2027.webp",
+      "toCover": "/images/blog/article-referendum-nucleare-svizzera-2027.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-nucleare-svizzera-2027.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-nucleare-svizzera-2027",
+          "category": "novita",
+          "date": "2026-10-09T22:31:58.060Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-ricardo-account-esposti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-ricardo-account-esposti.webp",
+      "toCover": "/images/blog/article-ricardo-account-esposti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ricardo-account-esposti.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ricardo-account-esposti",
+          "category": "novita",
+          "date": "2026-10-09T15:39:39.886Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-saronno-manifestazione-palestina-ottobre-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp",
+      "toCover": "/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-saronno-manifestazione-palestina-ottobre-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "saronno-manifestazione-palestina-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-09T05:35:41.804Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-schianto-camerlata-quattro-feriti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-schianto-camerlata-quattro-feriti.webp",
+      "toCover": "/images/blog/article-schianto-camerlata-quattro-feriti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-schianto-camerlata-quattro-feriti.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "schianto-camerlata-quattro-feriti",
+          "category": "novita",
+          "date": "2026-10-10T07:25:28.334Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-seco-cambiamenti-istituzionali-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-seco-cambiamenti-istituzionali-2026.webp",
+      "toCover": "/images/blog/article-seco-cambiamenti-istituzionali-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-seco-cambiamenti-istituzionali-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "seco-cambiamenti-istituzionali-2026",
+          "category": "novita",
+          "date": "2026-10-10T01:31:53.650Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-sgkb-filiali-fisiche": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-sgkb-filiali-fisiche.webp",
+      "toCover": "/images/blog/article-sgkb-filiali-fisiche.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sgkb-filiali-fisiche.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sgkb-filiali-fisiche",
+          "category": "novita",
+          "date": "2026-10-10T03:27:02.646Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-smottamento-sementina-code": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-smottamento-sementina-code.webp",
+      "toCover": "/images/blog/article-smottamento-sementina-code.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-smottamento-sementina-code.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "smottamento-sementina-code",
+          "category": "pratico",
+          "date": "2026-10-09T16:55:33.377Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-spesa-famiglie-inflazione": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-spesa-famiglie-inflazione.webp",
+      "toCover": "/images/blog/article-spesa-famiglie-inflazione.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-spesa-famiglie-inflazione.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "spesa-famiglie-inflazione",
+          "category": "novita",
+          "date": "2026-10-09T18:30:40.205Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-teatro-intred-varese-stagione-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-teatro-intred-varese-stagione-2026.webp",
+      "toCover": "/images/blog/article-teatro-intred-varese-stagione-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-teatro-intred-varese-stagione-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "teatro-intred-varese-stagione-2026",
+          "category": "novita",
+          "date": "2026-10-09T01:29:12.556Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-teatro-locarno-fondi-pubblici": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-teatro-locarno-fondi-pubblici.webp",
+      "toCover": "/images/blog/article-teatro-locarno-fondi-pubblici.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-teatro-locarno-fondi-pubblici.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "teatro-locarno-fondi-pubblici",
+          "category": "novita",
+          "date": "2026-10-09T23:43:17.647Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-trasporti-45-critiche-piano": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-trasporti-45-critiche-piano.webp",
+      "toCover": "/images/blog/article-trasporti-45-critiche-piano.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-trasporti-45-critiche-piano.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "trasporti-45-critiche-piano",
+          "category": "novita",
+          "date": "2026-10-09T10:55:13.917Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-uri-soglia-salariale-controlli": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-uri-soglia-salariale-controlli.webp",
+      "toCover": "/images/blog/article-uri-soglia-salariale-controlli.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-uri-soglia-salariale-controlli.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "uri-soglia-salariale-controlli",
+          "category": "pratico",
+          "date": "2026-10-10T05:33:50.015Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-varese-oltre-400mila-euro-sottratti-da-due-badanti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.webp",
+      "toCover": "/images/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-oltre-400mila-euro-sottratti-da-due-badanti",
+          "category": "novita",
+          "date": "2026-10-09T05:57:28.186Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-vbs-pink-cup-ragazze": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-vbs-pink-cup-ragazze.webp",
+      "toCover": "/images/blog/article-vbs-pink-cup-ragazze.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-vbs-pink-cup-ragazze.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "vbs-pink-cup-ragazze",
+          "category": "novita",
+          "date": "2026-10-09T01:02:39.485Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-viabilita-sacro-monte-varese": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-viabilita-sacro-monte-varese.webp",
+      "toCover": "/images/blog/article-viabilita-sacro-monte-varese.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-viabilita-sacro-monte-varese.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "viabilita-sacro-monte-varese",
+          "category": "pratico",
+          "date": "2026-10-10T03:14:55.151Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-voto-svizzera-esportazione-armi-2026": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-voto-svizzera-esportazione-armi-2026.webp",
+      "toCover": "/images/blog/article-voto-svizzera-esportazione-armi-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-voto-svizzera-esportazione-armi-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1792,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "voto-svizzera-esportazione-armi-2026",
+          "category": "novita",
+          "date": "2026-10-09T17:48:06.308Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ]
     },
@@ -1562,1567 +2730,368 @@
         }
       ]
     },
-    "asilo-carluccio-como-lettera": {
+    "article-aggressione-van-villa-olmo": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/asilo-carluccio-como-lettera.webp",
-      "toCover": "/images/blog/asilo-carluccio-como-lettera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/asilo-carluccio-como-lettera.json",
+      "fromCover": "/images/blog/article-aggressione-van-villa-olmo.webp",
+      "toCover": "/images/blog/article-aggressione-van-villa-olmo.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aggressione-van-villa-olmo.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
           "section": "frontaliere",
-          "id": "asilo-carluccio-como-lettera",
+          "id": "aggressione-van-villa-olmo",
           "category": "novita",
-          "date": "2026-10-04T01:35:02.083Z",
+          "date": "2026-10-07T11:07:36.032Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "assegni-vallese-cassa-domanda": {
+    "article-agrivarese-angera-ottobre-2026": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/assegni-vallese-cassa-domanda.webp",
-      "toCover": "/images/blog/assegni-vallese-cassa-domanda.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/assegni-vallese-cassa-domanda.json",
+      "fromCover": "/images/blog/article-agrivarese-angera-ottobre-2026.webp",
+      "toCover": "/images/blog/article-agrivarese-angera-ottobre-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-agrivarese-angera-ottobre-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "agrivarese-angera-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-08T01:08:40.395Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-aperitivo-solidale-giubiasco": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-aperitivo-solidale-giubiasco.webp",
+      "toCover": "/images/blog/article-aperitivo-solidale-giubiasco.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aperitivo-solidale-giubiasco.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "aperitivo-solidale-giubiasco",
+          "category": "novita",
+          "date": "2026-10-08T14:47:03.662Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-assistenza-sociale-lucerna-requisiti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-assistenza-sociale-lucerna-requisiti.webp",
+      "toCover": "/images/blog/article-assistenza-sociale-lucerna-requisiti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-assistenza-sociale-lucerna-requisiti.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
           "section": "svizzera",
-          "id": "assegni-vallese-cassa-domanda",
+          "id": "assistenza-sociale-lucerna-requisiti",
           "category": "pratico",
-          "date": "2026-09-30T05:43:49.778Z",
+          "date": "2026-10-08T02:16:30.910Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "assemblea-swissaccounting-melide": {
+    "article-auto-elettrica-come-risparmiare-fino-al-50": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/assemblea-swissaccounting-melide.webp",
-      "toCover": "/images/blog/assemblea-swissaccounting-melide.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/assemblea-swissaccounting-melide.json",
+      "fromCover": "/images/blog/article-auto-elettrica-come-risparmiare-fino-al-50.webp",
+      "toCover": "/images/blog/article-auto-elettrica-come-risparmiare-fino-al-50.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-auto-elettrica-come-risparmiare-fino-al-50.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
           "section": "svizzera",
-          "id": "assemblea-swissaccounting-melide",
+          "id": "auto-elettrica-come-risparmiare-fino-al-50",
           "category": "novita",
-          "date": "2026-10-02T21:05:05.730Z",
+          "date": "2026-10-07T07:21:40.889Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "assistenza-sociale-zurigo-domanda": {
+    "article-bally-caslano-moratoria-tagli": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/assistenza-sociale-zurigo-domanda.webp",
-      "toCover": "/images/blog/assistenza-sociale-zurigo-domanda.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/assistenza-sociale-zurigo-domanda.json",
+      "fromCover": "/images/blog/article-bally-caslano-moratoria-tagli.webp",
+      "toCover": "/images/blog/article-bally-caslano-moratoria-tagli.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bally-caslano-moratoria-tagli.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
-          "section": "svizzera",
-          "id": "assistenza-sociale-zurigo-domanda",
+          "section": "frontaliere",
+          "id": "bally-caslano-moratoria-tagli",
+          "category": "novita",
+          "date": "2026-10-08T08:40:15.825Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-bellinzona-nord-svincolo": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-bellinzona-nord-svincolo.webp",
+      "toCover": "/images/blog/article-bellinzona-nord-svincolo.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bellinzona-nord-svincolo.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-nord-svincolo",
           "category": "pratico",
-          "date": "2026-10-04T12:15:27.382Z",
+          "date": "2026-10-08T10:36:56.122Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "automazione-ia-amministrazione-federale": {
+    "article-biasca-17enne-arrestato-accoltellamento": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/automazione-ia-amministrazione-federale.webp",
-      "toCover": "/images/blog/automazione-ia-amministrazione-federale.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/automazione-ia-amministrazione-federale.json",
+      "fromCover": "/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp",
+      "toCover": "/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-biasca-17enne-arrestato-accoltellamento.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
-          "section": "svizzera",
-          "id": "automazione-ia-amministrazione-federale",
+          "section": "frontaliere",
+          "id": "biasca-17enne-arrestato-accoltellamento",
           "category": "novita",
-          "date": "2026-10-02T11:41:29.743Z",
+          "date": "2026-10-07T10:19:58.619Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "avvio-impresa-soletta-adempimenti": {
+    "article-caduta-scala-locate-varesino": {
       "mode": "generated",
       "status": "queued",
-      "fromCover": "/images/blog/avvio-impresa-soletta-adempimenti.webp",
-      "toCover": "/images/blog/avvio-impresa-soletta-adempimenti.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/avvio-impresa-soletta-adempimenti.json",
+      "fromCover": "/images/blog/article-caduta-scala-locate-varesino.webp",
+      "toCover": "/images/blog/article-caduta-scala-locate-varesino.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-caduta-scala-locate-varesino.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "caduta-scala-locate-varesino",
+          "category": "novita",
+          "date": "2026-10-07T12:57:53.001Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-cancro-prostata-assistenza-svizzera": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-cancro-prostata-assistenza-svizzera.webp",
+      "toCover": "/images/blog/article-cancro-prostata-assistenza-svizzera.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cancro-prostata-assistenza-svizzera.json",
       "proofLevel": 6,
       "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
       "priority": 1791,
       "references": [
         {
           "section": "svizzera",
-          "id": "avvio-impresa-soletta-adempimenti",
+          "id": "cancro-prostata-assistenza-svizzera",
           "category": "pratico",
-          "date": "2026-09-29T05:26:33.332Z",
+          "date": "2026-10-07T10:02:14.636Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
       ]
     },
-    "bancarotte-imprese-nove-mesi": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bancarotte-imprese-nove-mesi.webp",
-      "toCover": "/images/blog/bancarotte-imprese-nove-mesi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bancarotte-imprese-nove-mesi.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bancarotte-imprese-nove-mesi",
-          "category": "fiscale",
-          "date": "2026-10-02T11:28:26.706Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "basilea-citta-mobilita-tariffe": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/basilea-citta-mobilita-tariffe.webp",
-      "toCover": "/images/blog/basilea-citta-mobilita-tariffe.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/basilea-citta-mobilita-tariffe.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "basilea-citta-mobilita-tariffe",
-          "category": "pratico",
-          "date": "2026-10-01T02:08:49.379Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "basket-varese-bologna-esordio-lba": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/basket-varese-bologna-esordio-lba.webp",
-      "toCover": "/images/blog/basket-varese-bologna-esordio-lba.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/basket-varese-bologna-esordio-lba.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "basket-varese-bologna-esordio-lba",
-          "category": "novita",
-          "date": "2026-09-27T22:12:14.741Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "bilancio-familiare-lucerna": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bilancio-familiare-lucerna.webp",
-      "toCover": "/images/blog/bilancio-familiare-lucerna.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bilancio-familiare-lucerna.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bilancio-familiare-lucerna",
-          "category": "pratico",
-          "date": "2026-10-02T01:04:22.378Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "bilaterali-iii-esercito-cantoni": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bilaterali-iii-esercito-cantoni.webp",
-      "toCover": "/images/blog/bilaterali-iii-esercito-cantoni.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bilaterali-iii-esercito-cantoni.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bilaterali-iii-esercito-cantoni",
-          "category": "fiscale",
-          "date": "2026-09-30T07:37:00.957Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "bilaterali-iii-svizzera-ue": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bilaterali-iii-svizzera-ue.webp",
-      "toCover": "/images/blog/bilaterali-iii-svizzera-ue.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bilaterali-iii-svizzera-ue.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bilaterali-iii-svizzera-ue",
-          "category": "novita",
-          "date": "2026-09-28T23:32:40.732Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "bns-acquisti-divise-trimestre": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bns-acquisti-divise-trimestre.webp",
-      "toCover": "/images/blog/bns-acquisti-divise-trimestre.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bns-acquisti-divise-trimestre.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bns-acquisti-divise-trimestre",
-          "category": "fiscale",
-          "date": "2026-09-30T11:54:17.007Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-09-28": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-09-28.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-09-28.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-28.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-09-28",
-          "category": "novita",
-          "date": "2026-09-28T11:33:59.805Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-09-29": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-09-29.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-09-29.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-09-29.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-09-29",
-          "category": "novita",
-          "date": "2026-09-29T11:13:29.294Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-10-01": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-01.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-10-01.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-01.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-10-01",
-          "category": "novita",
-          "date": "2026-10-01T11:28:29.677Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-10-02": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-02.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-10-02.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-02.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-10-02",
-          "category": "novita",
-          "date": "2026-10-02T10:58:49.019Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-10-04": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-04.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-10-04.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-04.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-10-04",
-          "category": "novita",
-          "date": "2026-10-04T11:02:04.189Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-10-05": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-05.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-10-05.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-05.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-10-05",
-          "category": "novita",
-          "date": "2026-10-05T12:09:11.088Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "bollettino-frontaliere-2026-10-06": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
-      "toCover": "/images/blog/bollettino-frontaliere-2026-10-06.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bollettino-frontaliere-2026-10-06.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "bollettino-frontaliere-2026-10-06",
-          "category": "novita",
-          "date": "2026-10-06T11:53:20.937Z",
-          "updatedAt": null,
-          "authorSlug": "samuele-valente"
-        }
-      ]
-    },
-    "brunello-fisco-frontaliere": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/brunello-fisco-frontaliere.webp",
-      "toCover": "/images/blog/brunello-fisco-frontaliere.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/brunello-fisco-frontaliere.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "brunello-fisco-frontaliere",
-          "category": "fiscale",
-          "date": "2026-10-02T01:13:50.259Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "budget-familiare-basilea-2026": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/budget-familiare-basilea-2026.webp",
-      "toCover": "/images/blog/budget-familiare-basilea-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/budget-familiare-basilea-2026.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "budget-familiare-basilea-2026",
-          "category": "pratico",
-          "date": "2026-10-01T23:20:03.853Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "budget-svizzero-affitto-zurigo": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/budget-svizzero-affitto-zurigo.webp",
-      "toCover": "/images/blog/budget-svizzero-affitto-zurigo.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/budget-svizzero-affitto-zurigo.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "budget-svizzero-affitto-zurigo",
-          "category": "pratico",
-          "date": "2026-10-01T04:21:58.960Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "busto-saronno-sequestro-giocattoli": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/busto-saronno-sequestro-giocattoli.webp",
-      "toCover": "/images/blog/busto-saronno-sequestro-giocattoli.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/busto-saronno-sequestro-giocattoli.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "busto-saronno-sequestro-giocattoli",
-          "category": "novita",
-          "date": "2026-09-28T05:44:00.905Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "bvg-lucerna-previdenza-2026": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/bvg-lucerna-previdenza-2026.webp",
-      "toCover": "/images/blog/bvg-lucerna-previdenza-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/bvg-lucerna-previdenza-2026.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "bvg-lucerna-previdenza-2026",
-          "category": "pensione",
-          "date": "2026-10-02T22:04:40.257Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "c-basilea-campagna-criteri": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/c-basilea-campagna-criteri.webp",
-      "toCover": "/images/blog/c-basilea-campagna-criteri.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/c-basilea-campagna-criteri.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "c-basilea-campagna-criteri",
-          "category": "pratico",
-          "date": "2026-10-02T02:44:00.678Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cairate-fisco-confine": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cairate-fisco-confine.webp",
-      "toCover": "/images/blog/cairate-fisco-confine.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cairate-fisco-confine.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cairate-fisco-confine",
-          "category": "fiscale",
-          "date": "2026-10-02T02:05:09.932Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "cambi-ripetuti-cassa-malati": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cambi-ripetuti-cassa-malati.webp",
-      "toCover": "/images/blog/cambi-ripetuti-cassa-malati.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cambi-ripetuti-cassa-malati.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cambi-ripetuti-cassa-malati",
-          "category": "pratico",
-          "date": "2026-09-28T07:23:51.621Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cambiare-cassa-malati-risparmio": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cambiare-cassa-malati-risparmio.webp",
-      "toCover": "/images/blog/cambiare-cassa-malati-risparmio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cambiare-cassa-malati-risparmio.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cambiare-cassa-malati-risparmio",
-          "category": "pratico",
-          "date": "2026-09-28T08:28:01.930Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cambio-cassa-sondaggio": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cambio-cassa-sondaggio.webp",
-      "toCover": "/images/blog/cambio-cassa-sondaggio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cambio-cassa-sondaggio.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cambio-cassa-sondaggio",
-          "category": "novita",
-          "date": "2026-10-02T06:43:45.942Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "camere-sessione-autunnale": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/camere-sessione-autunnale.webp",
-      "toCover": "/images/blog/camere-sessione-autunnale.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/camere-sessione-autunnale.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "camere-sessione-autunnale",
-          "category": "novita",
-          "date": "2026-10-02T06:31:38.041Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "canoni-casa-lucerna-2026": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/canoni-casa-lucerna-2026.webp",
-      "toCover": "/images/blog/canoni-casa-lucerna-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/canoni-casa-lucerna-2026.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "canoni-casa-lucerna-2026",
-          "category": "pratico",
-          "date": "2026-10-03T05:29:36.089Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "canottieri-varese-nagano-patto": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/canottieri-varese-nagano-patto.webp",
-      "toCover": "/images/blog/canottieri-varese-nagano-patto.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/canottieri-varese-nagano-patto.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "canottieri-varese-nagano-patto",
-          "category": "novita",
-          "date": "2026-09-28T04:47:15.219Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cantiere-a8-castronno-albizzate": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cantiere-a8-castronno-albizzate.webp",
-      "toCover": "/images/blog/cantiere-a8-castronno-albizzate.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cantiere-a8-castronno-albizzate.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cantiere-a8-castronno-albizzate",
-          "category": "pratico",
-          "date": "2026-09-28T19:01:06.489Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cantiere-cassarate-bozzoreda": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cantiere-cassarate-bozzoreda.webp",
-      "toCover": "/images/blog/cantiere-cassarate-bozzoreda.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cantiere-cassarate-bozzoreda.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cantiere-cassarate-bozzoreda",
-          "category": "novita",
-          "date": "2026-09-28T10:14:23.186Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "caos-a2-mezzovico-migliorie": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/caos-a2-mezzovico-migliorie.webp",
-      "toCover": "/images/blog/caos-a2-mezzovico-migliorie.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/caos-a2-mezzovico-migliorie.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "caos-a2-mezzovico-migliorie",
-          "category": "novita",
-          "date": "2026-10-03T03:52:06.078Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "caronno-ticino-fiscalita": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/caronno-ticino-fiscalita.webp",
-      "toCover": "/images/blog/caronno-ticino-fiscalita.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/caronno-ticino-fiscalita.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "caronno-ticino-fiscalita",
-          "category": "fiscale",
-          "date": "2026-10-01T04:37:45.182Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "cassa-malati-premi-ticino-aumento": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cassa-malati-premi-ticino-aumento.webp",
-      "toCover": "/images/blog/cassa-malati-premi-ticino-aumento.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cassa-malati-premi-ticino-aumento.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cassa-malati-premi-ticino-aumento",
-          "category": "fiscale",
-          "date": "2026-10-02T15:14:14.109Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "cassa-malati-tassa-salute": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cassa-malati-tassa-salute.webp",
-      "toCover": "/images/blog/cassa-malati-tassa-salute.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cassa-malati-tassa-salute.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cassa-malati-tassa-salute",
-          "category": "pratico",
-          "date": "2026-09-28T16:57:04.432Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "premi-cassa-malati-lamal-2026-canton-basilea",
-          "category": "novita",
-          "date": "2026-08-09T23:27:39.924Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        },
-        {
-          "section": "frontaliere",
-          "id": "confusione-tassa-salute-frontalieri",
-          "category": "fiscale",
-          "date": "2026-03-06T00:03:53.612Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "castelseprio-ticino-frontaliere": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/castelseprio-ticino-frontaliere.webp",
-      "toCover": "/images/blog/castelseprio-ticino-frontaliere.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/castelseprio-ticino-frontaliere.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "castelseprio-ticino-frontaliere",
-          "category": "pratico",
-          "date": "2026-09-29T04:46:50.978Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "centri-asilo-ors-subentro-ticino": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/centri-asilo-ors-subentro-ticino.webp",
-      "toCover": "/images/blog/centri-asilo-ors-subentro-ticino.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/centri-asilo-ors-subentro-ticino.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "centri-asilo-ors-subentro-ticino",
-          "category": "novita",
-          "date": "2026-09-28T13:36:03.568Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "centro-premi-salute-2027": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/centro-premi-salute-2027.webp",
-      "toCover": "/images/blog/centro-premi-salute-2027.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/centro-premi-salute-2027.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "centro-premi-salute-2027",
-          "category": "novita",
-          "date": "2026-09-29T19:07:35.881Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "chifra-tabelle-doganali-2026": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/chifra-tabelle-doganali-2026.webp",
-      "toCover": "/images/blog/chifra-tabelle-doganali-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/chifra-tabelle-doganali-2026.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "chifra-tabelle-doganali-2026",
-          "category": "novita",
-          "date": "2026-10-01T05:29:13.871Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "chiusura-scuole-ftan-tarasp": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/chiusura-scuole-ftan-tarasp.webp",
-      "toCover": "/images/blog/chiusura-scuole-ftan-tarasp.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/chiusura-scuole-ftan-tarasp.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "chiusura-scuole-ftan-tarasp",
-          "category": "novita",
-          "date": "2026-09-30T22:52:15.843Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cicli-basilea-campagna": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cicli-basilea-campagna.webp",
-      "toCover": "/images/blog/cicli-basilea-campagna.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cicli-basilea-campagna.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cicli-basilea-campagna",
-          "category": "pratico",
-          "date": "2026-10-02T03:08:58.952Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cioccolato-mercato-svizzera": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cioccolato-mercato-svizzera.webp",
-      "toCover": "/images/blog/cioccolato-mercato-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cioccolato-mercato-svizzera.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cioccolato-mercato-svizzera",
-          "category": "novita",
-          "date": "2026-09-29T11:25:37.889Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "classifica-ompi-alta-tecnologia": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/classifica-ompi-alta-tecnologia.webp",
-      "toCover": "/images/blog/classifica-ompi-alta-tecnologia.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/classifica-ompi-alta-tecnologia.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "classifica-ompi-alta-tecnologia",
-          "category": "novita",
-          "date": "2026-09-29T12:39:48.060Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "collaudo-ponte-comerio": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/collaudo-ponte-comerio.webp",
-      "toCover": "/images/blog/collaudo-ponte-comerio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/collaudo-ponte-comerio.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "collaudo-ponte-comerio",
-          "category": "novita",
-          "date": "2026-09-29T01:39:48.779Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "como-fai-giornate-autunno": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/como-fai-giornate-autunno.webp",
-      "toCover": "/images/blog/como-fai-giornate-autunno.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/como-fai-giornate-autunno.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "como-fai-giornate-autunno",
-          "category": "pratico",
-          "date": "2026-10-03T22:29:15.221Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "como-pusher-consegne-domicilio": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/como-pusher-consegne-domicilio.webp",
-      "toCover": "/images/blog/como-pusher-consegne-domicilio.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/como-pusher-consegne-domicilio.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "como-pusher-consegne-domicilio",
-          "category": "novita",
-          "date": "2026-10-03T19:06:08.176Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "como-rapina-gioielleria-arresti": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/como-rapina-gioielleria-arresti.webp",
-      "toCover": "/images/blog/como-rapina-gioielleria-arresti.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/como-rapina-gioielleria-arresti.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "como-rapina-gioielleria-arresti",
-          "category": "novita",
-          "date": "2026-09-28T00:02:10.265Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "como-scuola-nazario-sauro-lettera": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/como-scuola-nazario-sauro-lettera.webp",
-      "toCover": "/images/blog/como-scuola-nazario-sauro-lettera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/como-scuola-nazario-sauro-lettera.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "como-scuola-nazario-sauro-lettera",
-          "category": "novita",
-          "date": "2026-09-27T14:25:18.654Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "como-sinigaglia-eventi-privati": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/como-sinigaglia-eventi-privati.webp",
-      "toCover": "/images/blog/como-sinigaglia-eventi-privati.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/como-sinigaglia-eventi-privati.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "como-sinigaglia-eventi-privati",
-          "category": "novita",
-          "date": "2026-09-27T10:42:29.430Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "compensi-lvamal-camera-bassa": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/compensi-lvamal-camera-bassa.webp",
-      "toCover": "/images/blog/compensi-lvamal-camera-bassa.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/compensi-lvamal-camera-bassa.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "compensi-lvamal-camera-bassa",
-          "category": "novita",
-          "date": "2026-09-29T08:03:27.238Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "confronto-salari-settori-berna": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/confronto-salari-settori-berna.webp",
-      "toCover": "/images/blog/confronto-salari-settori-berna.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/confronto-salari-settori-berna.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "confronto-salari-settori-berna",
-          "category": "pratico",
-          "date": "2026-10-02T17:59:04.595Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "consiglio-nazionale-terremoti-immobili": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/consiglio-nazionale-terremoti-immobili.webp",
-      "toCover": "/images/blog/consiglio-nazionale-terremoti-immobili.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/consiglio-nazionale-terremoti-immobili.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "consiglio-nazionale-terremoti-immobili",
-          "category": "pratico",
-          "date": "2026-09-30T10:18:55.465Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "consiglio-stati-accordo-sanita-ue": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/consiglio-stati-accordo-sanita-ue.webp",
-      "toCover": "/images/blog/consiglio-stati-accordo-sanita-ue.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/consiglio-stati-accordo-sanita-ue.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "consiglio-stati-accordo-sanita-ue",
-          "category": "novita",
-          "date": "2026-10-01T17:38:48.635Z",
-          "updatedAt": null,
-          "authorSlug": "laura-bianchi"
-        }
-      ]
-    },
-    "consiglio-stati-bilaterali-iii": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/consiglio-stati-bilaterali-iii.webp",
-      "toCover": "/images/blog/consiglio-stati-bilaterali-iii.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/consiglio-stati-bilaterali-iii.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "consiglio-stati-bilaterali-iii",
-          "category": "novita",
-          "date": "2026-09-29T00:42:44.653Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "conti-ticino-disavanzo-2030": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/conti-ticino-disavanzo-2030.webp",
-      "toCover": "/images/blog/conti-ticino-disavanzo-2030.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/conti-ticino-disavanzo-2030.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "conti-ticino-disavanzo-2030",
-          "category": "novita",
-          "date": "2026-09-30T16:42:23.005Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "coop-millesimo-supermercato": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/coop-millesimo-supermercato.webp",
-      "toCover": "/images/blog/coop-millesimo-supermercato.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/coop-millesimo-supermercato.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "coop-millesimo-supermercato",
-          "category": "novita",
-          "date": "2026-09-30T23:06:34.225Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "corpo-lago-como-288-metri": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/corpo-lago-como-288-metri.webp",
-      "toCover": "/images/blog/corpo-lago-como-288-metri.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/corpo-lago-como-288-metri.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "corpo-lago-como-288-metri",
-          "category": "novita",
-          "date": "2026-09-29T11:08:28.214Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "craveggia-ticino-pendolare": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/craveggia-ticino-pendolare.webp",
-      "toCover": "/images/blog/craveggia-ticino-pendolare.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/craveggia-ticino-pendolare.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "craveggia-ticino-pendolare",
-          "category": "fiscale",
-          "date": "2026-09-30T03:16:14.872Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "credito-imposta-spesa-ticino": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/credito-imposta-spesa-ticino.webp",
-      "toCover": "/images/blog/credito-imposta-spesa-ticino.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/credito-imposta-spesa-ticino.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "credito-imposta-spesa-ticino",
-          "category": "fiscale",
-          "date": "2026-09-28T08:02:36.189Z",
-          "updatedAt": null,
-          "authorSlug": "marco-ferrari"
-        }
-      ]
-    },
-    "crescita-part-time-uomini-svizzera": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/crescita-part-time-uomini-svizzera.webp",
-      "toCover": "/images/blog/crescita-part-time-uomini-svizzera.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/crescita-part-time-uomini-svizzera.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "crescita-part-time-uomini-svizzera",
-          "category": "pratico",
-          "date": "2026-09-30T15:12:22.869Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cst-clausola-salvaguardia-tassa": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cst-clausola-salvaguardia-tassa.webp",
-      "toCover": "/images/blog/cst-clausola-salvaguardia-tassa.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cst-clausola-salvaguardia-tassa.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "cst-clausola-salvaguardia-tassa",
-          "category": "novita",
-          "date": "2026-09-29T11:47:01.534Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "custodia-bambini-vallese-sussidi": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/custodia-bambini-vallese-sussidi.webp",
-      "toCover": "/images/blog/custodia-bambini-vallese-sussidi.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/custodia-bambini-vallese-sussidi.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "custodia-bambini-vallese-sussidi",
-          "category": "pratico",
-          "date": "2026-09-30T19:28:17.623Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "cyber-security-month-oversharing-2026": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/cyber-security-month-oversharing-2026.webp",
-      "toCover": "/images/blog/cyber-security-month-oversharing-2026.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/cyber-security-month-oversharing-2026.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "cyber-security-month-oversharing-2026",
-          "category": "pratico",
-          "date": "2026-10-01T16:47:38.792Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "atted-digitale-ticino-cyber-security",
-          "category": "novita",
-          "date": "2026-09-17T02:56:10.959Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "frontaliere",
-          "id": "passaporto-digitale-sicurezza-sociale-ue",
-          "category": "novita",
-          "date": "2026-09-16T00:24:55.990Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "dati-srf-dipendenti-rubati": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/dati-srf-dipendenti-rubati.webp",
-      "toCover": "/images/blog/dati-srf-dipendenti-rubati.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/dati-srf-dipendenti-rubati.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "dati-srf-dipendenti-rubati",
-          "category": "novita",
-          "date": "2026-09-29T21:53:18.107Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "dazi-svizzera-voto": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/dazi-svizzera-voto.webp",
-      "toCover": "/images/blog/dazi-svizzera-voto.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/dazi-svizzera-voto.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "dazi-svizzera-voto",
-          "category": "novita",
-          "date": "2026-10-01T20:06:53.588Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "dazio-ue-pacchi-posta": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/dazio-ue-pacchi-posta.webp",
-      "toCover": "/images/blog/dazio-ue-pacchi-posta.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/dazio-ue-pacchi-posta.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "dazio-ue-pacchi-posta",
-          "category": "novita",
-          "date": "2026-10-03T07:32:47.574Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "decesso-coldrerio-corsia-nord-sud": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/decesso-coldrerio-corsia-nord-sud.webp",
-      "toCover": "/images/blog/decesso-coldrerio-corsia-nord-sud.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/decesso-coldrerio-corsia-nord-sud.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "decesso-coldrerio-corsia-nord-sud",
-          "category": "novita",
-          "date": "2026-10-04T02:50:46.611Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "defr-successore-parmelin-sfide": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/defr-successore-parmelin-sfide.webp",
-      "toCover": "/images/blog/defr-successore-parmelin-sfide.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/defr-successore-parmelin-sfide.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "defr-successore-parmelin-sfide",
-          "category": "novita",
-          "date": "2026-10-02T12:42:35.604Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "deloitte-cambi-assicuratori": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/deloitte-cambi-assicuratori.webp",
-      "toCover": "/images/blog/deloitte-cambi-assicuratori.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/deloitte-cambi-assicuratori.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "deloitte-cambi-assicuratori",
-          "category": "pratico",
-          "date": "2026-10-02T06:07:32.955Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "deloitte-previsione-cambi-cassa-malati": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/deloitte-previsione-cambi-cassa-malati.webp",
-      "toCover": "/images/blog/deloitte-previsione-cambi-cassa-malati.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/deloitte-previsione-cambi-cassa-malati.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "deloitte-previsione-cambi-cassa-malati",
-          "category": "pratico",
-          "date": "2026-10-02T06:54:48.904Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "deposito-cauzionale-basilea": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/deposito-cauzionale-basilea.webp",
-      "toCover": "/images/blog/deposito-cauzionale-basilea.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/deposito-cauzionale-basilea.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "deposito-cauzionale-basilea",
-          "category": "pratico",
-          "date": "2026-10-03T02:52:20.181Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "deposito-modulo-conciliazione": {
-      "mode": "generated",
-      "status": "queued",
-      "fromCover": "/images/blog/deposito-modulo-conciliazione.webp",
-      "toCover": "/images/blog/deposito-modulo-conciliazione.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/deposito-modulo-conciliazione.json",
-      "proofLevel": 6,
-      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
-      "priority": 1791,
-      "references": [
-        {
-          "section": "svizzera",
-          "id": "deposito-modulo-conciliazione",
-          "category": "pratico",
-          "date": "2026-10-03T03:34:59.466Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ]
-    },
-    "139-frontalieri-ticino-special-olympics": {
+    "article-cantello-teatro-dialettale-ottobre-2026": {
       "mode": "generated",
       "status": "generated",
-      "fromCover": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-      "toCover": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-      "recordFile": "packages/articles/content/image-credits/blog/139-frontalieri-ticino-special-olympics.json",
-      "generatedAssetId": "139-frontalieri-ticino-special-olympics",
+      "fromCover": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
+      "toCover": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cantello-teatro-dialettale-ottobre-2026.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sindacati-miazzina-diritti-9-ottobre",
+          "category": "novita",
+          "date": "2026-10-04T11:20:31.538Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "generatedAssetId": "article-cantello-teatro-dialettale-ottobre-2026",
       "provider": "openai-codex",
-      "generatedAt": "2026-10-08T00:13:19.371Z"
+      "generatedAt": "2026-10-07T21:02:15.000Z"
+    },
+    "article-carriere-politica-economica": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-carriere-politica-economica.webp",
+      "toCover": "/images/blog/article-carriere-politica-economica.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-carriere-politica-economica.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "carriere-politica-economica",
+          "category": "pratico",
+          "date": "2026-10-07T22:29:39.311Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-coda-a8-castronno-solbiate": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-coda-a8-castronno-solbiate.webp",
+      "toCover": "/images/blog/article-coda-a8-castronno-solbiate.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-coda-a8-castronno-solbiate.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "coda-a8-castronno-solbiate",
+          "category": "novita",
+          "date": "2026-10-07T22:16:34.106Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-como-bocciato-piano-scuole": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-como-bocciato-piano-scuole.webp",
+      "toCover": "/images/blog/article-como-bocciato-piano-scuole.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-como-bocciato-piano-scuole.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "como-bocciato-piano-scuole",
+          "category": "novita",
+          "date": "2026-10-08T18:56:34.257Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-contributi-formazione-berna-requisiti": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-contributi-formazione-berna-requisiti.webp",
+      "toCover": "/images/blog/article-contributi-formazione-berna-requisiti.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-contributi-formazione-berna-requisiti.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "contributi-formazione-berna-requisiti",
+          "category": "pratico",
+          "date": "2026-10-08T00:53:16.011Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-crescita-lavoro-intelligenza-artificiale": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-crescita-lavoro-intelligenza-artificiale.webp",
+      "toCover": "/images/blog/article-crescita-lavoro-intelligenza-artificiale.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-crescita-lavoro-intelligenza-artificiale.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "crescita-lavoro-intelligenza-artificiale",
+          "category": "novita",
+          "date": "2026-10-08T09:17:54.239Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-domodossola-arresto-hashish-stazione": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-domodossola-arresto-hashish-stazione.webp",
+      "toCover": "/images/blog/article-domodossola-arresto-hashish-stazione.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-domodossola-arresto-hashish-stazione.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "domodossola-arresto-hashish-stazione",
+          "category": "pratico",
+          "date": "2026-10-07T06:58:03.077Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
+    },
+    "article-elettrificazione-ferrovia-albate-molteno": {
+      "mode": "generated",
+      "status": "queued",
+      "fromCover": "/images/blog/article-elettrificazione-ferrovia-albate-molteno.webp",
+      "toCover": "/images/blog/article-elettrificazione-ferrovia-albate-molteno.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/article-elettrificazione-ferrovia-albate-molteno.json",
+      "proofLevel": 6,
+      "reason": "Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.",
+      "priority": 1791,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "elettrificazione-ferrovia-albate-molteno",
+          "category": "novita",
+          "date": "2026-10-08T11:47:10.828Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ]
     }
   },
   "rewrittenArticles": 0,
@@ -3149,36 +3118,94 @@
     "funivia-monteviasco-orari-corsi",
     "confine-italia-svizzera-6-regole-doganali",
     "guida-dichiarazione-redditi-frontalieri",
-    "allentamenti-affitti-brevi-ticino-2025",
     "costo-vivere-lugano-trasferirsi",
-    "mutuo-casa-frontalieri-italia",
+    "allentamenti-affitti-brevi-ticino-2025",
     "chiasso-como-cantieri-a9-disagi",
+    "article-nobel-economia-fehr-2026",
     "calcolo-pensione-avs-inps",
     "costo-vivere-mappa-comuni",
     "costo-vita-svizzera-mappa",
     "chiusure-autostrada-a9-lombardia-2026",
     "chiasso-grenzubergang",
-    "volo-swiss-emergenza-medica-zurigo-boston",
     "smart-working-frontalieri-2026",
     "giro-ditalia-ticino-strade-chiuse",
+    "educatore-infanzia-ticino-stipendio",
     "aprire-conto-bancario-frontaliere",
-    "autostrada-a9-disagi-frontalieri",
+    "guida-contributi-sociali-svizzera",
+    "mutuo-casa-frontalieri-italia",
     "calcolo-tasse-entro-confine",
     "a9-como-chiasso-disagi-notturni",
-    "educatore-infanzia-ticino-stipendio",
+    "educatore-infanzia-ticino-stipendio-requisiti",
     "radar-controlli-velocita-ticino-aprile-2026",
-    "asilo-nido-frontaliere-ticino",
+    "pagamento-multa-stradale-svizzera",
+    "dsm-firmenich-cancella-1000-impieghi",
     "naspi-frontaliere-italia-requisiti",
     "autostrada-a9-chiude-de-notti-2026",
-    "dsm-firmenich-cancella-1000-impieghi",
-    "credito-imposta-doppia-tassazione",
     "frontalieri-ticino-dati-q4-2025",
-    "pagamento-multa-stradale-svizzera",
-    "lavoro-insegnanti-ticino-opportunita",
-    "riforma-cassa-malati-ticino-2029",
     "manor-licenzia-basilea",
-    "lavoro-carceri-ticino",
+    "lavoro-insegnanti-ticino-opportunita",
     "sostituzione-caldaia-ticino-2026",
+    "lavoro-carceri-ticino",
+    "riforma-cassa-malati-ticino-2029",
+    "article-a8-manutenzione-cavalcavia-ottobre-2026",
+    "article-acof-70-anni-premio-confindustria-varese",
+    "article-ai-chip-scarzita-prezzi-pc",
+    "article-arresto-cocaina-massagno",
+    "article-attacco-publica-dati-rubati",
+    "article-axpo-solare-argovia",
+    "article-borse-musica-ticino-2026",
+    "article-cardano-al-campo-minorenne-arresto",
+    "article-carne-vino-dogana-mendrisiotto",
+    "article-caslano-colombera-incidente-moto",
+    "article-cibersicurezza-svizzera-record-segnalazioni",
+    "article-clan-nazarbayev-ceresio",
+    "article-concerti-borgo-musicale",
+    "article-controlli-dogana-mendrisiotto",
+    "article-corsi-contributi-lucerna",
+    "article-economia-svizzera-fiducia-calante",
+    "article-fiducia-consumatori-svizzeri-settembre",
+    "article-frana-sementina-h13-gudo",
+    "article-friedli-rinuncia-corsa-federale",
+    "article-fuga-dati-publica-cassa",
+    "article-furti-statistica-svizzera-passaporto",
+    "article-gestione-emergenze-ticino-lombardia",
+    "article-guida-voto-cantonale-lucerna",
+    "article-incidente-a9-saronno-turate-code",
+    "article-incidenti-notte-varese",
+    "article-iniziativa-solari-senza-permesso",
+    "article-karate-uisp-formazione-arcisate-2026",
+    "article-lardi-dotlife-chiusura-alberghi-lugano",
+    "article-lucerna-convocazioni-indennita",
+    "article-lucerna-elezioni-calendario-voto",
+    "article-lucerna-polizza-edifici-regole",
+    "article-luganistan-clan-ceresio",
+    "article-marchesi-mendrisiotto-priorita",
+    "article-mastercard-pagamenti-rete-assente",
+    "article-midterm-usa-voto-svizzera",
+    "article-montegrino-valtravaglia-aggressione-condanna",
+    "article-multe-como-targhe-estere",
+    "article-operazione-trotta-ebike-monopattini",
+    "article-operazione-upriver-arresti-varese-2026",
+    "article-permesso-edilizio-lucerna",
+    "article-raffica-scontri-varesotto",
+    "article-rancio-valcuvia-statale-394",
+    "article-referendum-iva-2026-aumento-per-la-tredicesima-pensione",
+    "article-referendum-nucleare-svizzera-2027",
+    "article-ricardo-account-esposti",
+    "article-saronno-manifestazione-palestina-ottobre-2026",
+    "article-schianto-camerlata-quattro-feriti",
+    "article-seco-cambiamenti-istituzionali-2026",
+    "article-sgkb-filiali-fisiche",
+    "article-smottamento-sementina-code",
+    "article-spesa-famiglie-inflazione",
+    "article-teatro-intred-varese-stagione-2026",
+    "article-teatro-locarno-fondi-pubblici",
+    "article-trasporti-45-critiche-piano",
+    "article-uri-soglia-salariale-controlli",
+    "article-varese-oltre-400mila-euro-sottratti-da-due-badanti",
+    "article-vbs-pink-cup-ragazze",
+    "article-viabilita-sacro-monte-varese",
+    "article-voto-svizzera-esportazione-armi-2026",
     "a2-coldrerio-incidente-camion",
     "abbonamenti-basilea-zone-tariffe",
     "accessibilita-mezzi-pubblici-uft",
@@ -3201,81 +3228,23 @@
     "argovia-spese-quotidiane-2026",
     "arresto-luino-46enne-violenza-familiare",
     "arresto-rapina-mediaworld-varese",
-    "asilo-carluccio-como-lettera",
-    "assegni-vallese-cassa-domanda",
-    "assemblea-swissaccounting-melide",
-    "assistenza-sociale-zurigo-domanda",
-    "automazione-ia-amministrazione-federale",
-    "avvio-impresa-soletta-adempimenti",
-    "bancarotte-imprese-nove-mesi",
-    "basilea-citta-mobilita-tariffe",
-    "basket-varese-bologna-esordio-lba",
-    "bilancio-familiare-lucerna",
-    "bilaterali-iii-esercito-cantoni",
-    "bilaterali-iii-svizzera-ue",
-    "bns-acquisti-divise-trimestre",
-    "bollettino-frontaliere-2026-09-28",
-    "bollettino-frontaliere-2026-09-29",
-    "bollettino-frontaliere-2026-10-01",
-    "bollettino-frontaliere-2026-10-02",
-    "bollettino-frontaliere-2026-10-04",
-    "bollettino-frontaliere-2026-10-05",
-    "bollettino-frontaliere-2026-10-06",
-    "brunello-fisco-frontaliere",
-    "budget-familiare-basilea-2026",
-    "budget-svizzero-affitto-zurigo",
-    "busto-saronno-sequestro-giocattoli",
-    "bvg-lucerna-previdenza-2026",
-    "c-basilea-campagna-criteri",
-    "cairate-fisco-confine",
-    "cambi-ripetuti-cassa-malati",
-    "cambiare-cassa-malati-risparmio",
-    "cambio-cassa-sondaggio",
-    "camere-sessione-autunnale",
-    "canoni-casa-lucerna-2026",
-    "canottieri-varese-nagano-patto",
-    "cantiere-a8-castronno-albizzate",
-    "cantiere-cassarate-bozzoreda",
-    "caos-a2-mezzovico-migliorie",
-    "caronno-ticino-fiscalita",
-    "cassa-malati-premi-ticino-aumento",
-    "cassa-malati-tassa-salute",
-    "castelseprio-ticino-frontaliere",
-    "centri-asilo-ors-subentro-ticino",
-    "centro-premi-salute-2027",
-    "chifra-tabelle-doganali-2026",
-    "chiusura-scuole-ftan-tarasp",
-    "cicli-basilea-campagna",
-    "cioccolato-mercato-svizzera",
-    "classifica-ompi-alta-tecnologia",
-    "collaudo-ponte-comerio",
-    "como-fai-giornate-autunno",
-    "como-pusher-consegne-domicilio",
-    "como-rapina-gioielleria-arresti",
-    "como-scuola-nazario-sauro-lettera",
-    "como-sinigaglia-eventi-privati",
-    "compensi-lvamal-camera-bassa",
-    "confronto-salari-settori-berna",
-    "consiglio-nazionale-terremoti-immobili",
-    "consiglio-stati-accordo-sanita-ue",
-    "consiglio-stati-bilaterali-iii",
-    "conti-ticino-disavanzo-2030",
-    "coop-millesimo-supermercato",
-    "corpo-lago-como-288-metri",
-    "craveggia-ticino-pendolare",
-    "credito-imposta-spesa-ticino",
-    "crescita-part-time-uomini-svizzera",
-    "cst-clausola-salvaguardia-tassa",
-    "custodia-bambini-vallese-sussidi",
-    "cyber-security-month-oversharing-2026",
-    "dati-srf-dipendenti-rubati",
-    "dazi-svizzera-voto",
-    "dazio-ue-pacchi-posta",
-    "decesso-coldrerio-corsia-nord-sud",
-    "defr-successore-parmelin-sfide",
-    "deloitte-cambi-assicuratori",
-    "deloitte-previsione-cambi-cassa-malati",
-    "deposito-cauzionale-basilea",
-    "deposito-modulo-conciliazione"
+    "article-aggressione-van-villa-olmo",
+    "article-agrivarese-angera-ottobre-2026",
+    "article-aperitivo-solidale-giubiasco",
+    "article-assistenza-sociale-lucerna-requisiti",
+    "article-auto-elettrica-come-risparmiare-fino-al-50",
+    "article-bally-caslano-moratoria-tagli",
+    "article-bellinzona-nord-svincolo",
+    "article-biasca-17enne-arrestato-accoltellamento",
+    "article-caduta-scala-locate-varesino",
+    "article-cancro-prostata-assistenza-svizzera",
+    "article-cantello-teatro-dialettale-ottobre-2026",
+    "article-carriere-politica-economica",
+    "article-coda-a8-castronno-solbiate",
+    "article-como-bocciato-piano-scuole",
+    "article-contributi-formazione-berna-requisiti",
+    "article-crescita-lavoro-intelligenza-artificiale",
+    "article-domodossola-arresto-hashish-stazione",
+    "article-elettrificazione-ferrovia-albate-molteno"
   ]
 }
