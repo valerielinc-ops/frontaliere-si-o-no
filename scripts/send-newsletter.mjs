@@ -1806,11 +1806,12 @@ export function capSubscribersToDailyLimit(subscribers, limit) {
 }
 
 // ─── Subject A/B auto-promotion ─────────────────────────────
-// On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
-// until a recent campaign has a statistically significant winner with enough
-// sample (pickWinner gates), in which case the assignment biases toward it
-// epsilon-greedily while still exploring the other arm.
-const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE !== 'false';
+// The four-arm experiment must remain a clean 25/25/25/25 split while it is
+// collecting evidence. Promotion is therefore explicit opt-in
+// (NEWSLETTER_AB_AUTOPROMOTE=true), not an implicit side effect of a send.
+// When enabled, pickWinner still requires enough data and corrected
+// significance before the epsilon-greedy bias can start.
+const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE === 'true';
 const AB_PROMOTE_LOOKBACK = Math.max(1, intFromEnv('NEWSLETTER_AB_LOOKBACK', 2));
 
 /**
@@ -1826,6 +1827,13 @@ async function resolveWinnersForCampaign(database, campaignId, { persist = false
   try {
     const ids = previousCampaignIds(campaignId, AB_PROMOTE_LOOKBACK);
     const { pooledCells, source } = await loadPooledCampaignVariantTotals(database, campaignId, ids, { persist });
+    const configuredVariants = listVariantIds();
+    const observedVariants = new Set(Object.values(pooledCells).flatMap((variants) => Object.keys(variants || {})));
+    const missingVariants = configuredVariants.filter((variant) => !observedVariants.has(variant));
+    if (missingVariants.length) {
+      console.log(`⚖️  Auto-promote: even split (new arm set not fully observed; missing ${missingVariants.join(', ')}; source: ${source})`);
+      return { byProvider: {}, global: null };
+    }
     const { byProvider, global } = resolveWinnersByProvider(pooledCells);
     const perProvider = Object.entries(byProvider).filter(([, w]) => w).map(([p, w]) => `${p}:${w}`);
     if (global || perProvider.length) {

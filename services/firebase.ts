@@ -56,7 +56,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  JOBGATE_EXPERIMENT_ENABLED: 'false',
  JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
  JOBGATE_EXPERIMENT_FORCE: '',
- ADBLOCK_GATE_EXPERIMENT_ENABLED: 'true',
+ // The custom anti-adblock overlay is retired in favour of Google's Funding
+ // Choices recovery message. Keep the old flag fail-closed for any legacy
+ // caller that still imports AdBlockGate directly.
+ ADBLOCK_GATE_EXPERIMENT_ENABLED: 'false',
  ADBLOCK_GATE_TEST_SHARE: '0.30',
  GOOGLE_MAPS_API_KEY: '',
  GA_MEASUREMENT_ID: '',

@@ -80,11 +80,12 @@ describe('job email ranking — assignment', () => {
     }
   });
 
-  it('defaults to half of the people in affinity', () => {
+  it('defaults to control for everybody while affinity is paused', () => {
+    expect(JOB_EMAIL_RANKING_DEFAULTS.enabled).toBe(false);
     expect(JOB_EMAIL_RANKING_DEFAULTS.rollout).toBe(0.5);
     expect(JOB_EMAIL_RANKING_DEFAULTS.affinityWeight).toBe(0.5);
     const share = emails.filter((email) => assignJobRankingVariant({ subjectId: email }) === 'affinity').length / emails.length;
-    expect(Math.abs(share - 0.5)).toBeLessThan(0.04);
+    expect(share).toBe(0);
   });
 
   it('the kill switch, a zero rollout and a missing address put everybody in control', () => {
@@ -246,7 +247,7 @@ describe('job email ranking — configuration', () => {
   });
 
   it('falls back to the code defaults when absent or malformed, and clamps to [0, 1]', () => {
-    expect(readJobEmailRankingConfig({})).toEqual({ enabled: true, rollout: 0.5, affinityWeight: 0.5 });
+    expect(readJobEmailRankingConfig({})).toEqual({ enabled: false, rollout: 0.5, affinityWeight: 0.5 });
     expect(readJobEmailRankingConfig({
       JOB_EMAIL_RANKING_ENABLED: 'off',
       JOB_EMAIL_RANKING_ROLLOUT: 'not-a-number',

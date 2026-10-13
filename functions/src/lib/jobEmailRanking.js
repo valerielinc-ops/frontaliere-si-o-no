@@ -32,7 +32,9 @@ export const JOB_EMAIL_RANKING_VARIANTS = Object.freeze({
 export const JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED = 'job-email-affinity-2026-10';
 
 export const JOB_EMAIL_RANKING_DEFAULTS = Object.freeze({
-  enabled: true,
+  // Affinity is paused: control is the safe production default until a new
+  // ranking hypothesis is approved and measured.
+  enabled: false,
   rollout: 0.5,
   affinityWeight: 0.5,
 });

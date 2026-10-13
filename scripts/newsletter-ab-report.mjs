@@ -44,6 +44,7 @@
 
 import { listVariantIds } from '../services/newsletter-subject-variants.mjs';
 import {
+  pickWinner,
   twoProportionTest,
   hasEnoughPowerForTest,
   MIN_COMPARISON_SENDS,
@@ -88,11 +89,6 @@ const pct = (n, d) => (d > 0 ? (100 * n / d) : 0);
 
 async function main() {
   const campaignId = argValue('--campaign') || currentWeeklyCampaignId();
-  const variantIds = listVariantIds();
-  if (!JSON_OUT) {
-    console.log(`\n📊 Newsletter subject A/B report — campaign ${campaignId}`);
-    console.log(`   Variants: ${variantIds.join(', ')}\n`);
-  }
 
   const db = await initFirebase();
 
@@ -119,6 +115,23 @@ async function main() {
     process.exit(0);
   }
 
+  // A report for an old campaign must not display newly-added arms as empty
+  // cells. Conversely, a current four-arm campaign keeps every configured arm
+  // that has actually been sent. Persisted unknown ids remain visible rather
+  // than being silently dropped.
+  const configuredVariantIds = listVariantIds();
+  const observedVariantIds = new Set(
+    Object.values(cells).flatMap((variants) => Object.keys(variants || {})),
+  );
+  const variantIds = [
+    ...configuredVariantIds.filter((id) => observedVariantIds.has(id)),
+    ...[...observedVariantIds].filter((id) => !configuredVariantIds.includes(id)),
+  ];
+  if (!JSON_OUT) {
+    console.log(`\n📊 Newsletter subject A/B report — campaign ${campaignId}`);
+    console.log(`   Variants: ${variantIds.join(', ')}\n`);
+  }
+
   // ── 3. Aggregate + winners ──
   const providers = Object.keys(cells).sort();
   const report = { campaignId, generatedAt: new Date().toISOString(), totalSends, providers: {}, byVariant: {} };
@@ -134,11 +147,14 @@ async function main() {
       report.byVariant[v].sends += c.sends;
       report.byVariant[v].opens += c.opens;
     }
-    // Winner = highest open rate among variants with ≥1 send.
-    let winner = null;
+    // Keep the descriptive leader separate from the declared winner. A raw
+    // open-rate leader is not a winner until the corrected decision passes.
+    let bestObserved = null;
     for (const v of variantIds) {
-      if (variants[v].sends > 0 && (!winner || variants[v].openRate > variants[winner].openRate)) winner = v;
+      if (variants[v].sends > 0 && (!bestObserved || variants[v].openRate > variants[bestObserved].openRate)) bestObserved = v;
     }
+    const winnerDecision = pickWinner(variants);
+    const winner = winnerDecision?.winner ?? null;
     let significance = null;
     if (variantIds.length === 2) {
       significance = twoProportionTest(
@@ -146,7 +162,7 @@ async function main() {
         { sends: variants[variantIds[1]].sends, opens: variants[variantIds[1]].opens },
       );
     }
-    report.providers[provider] = { variants, winner, significance };
+    report.providers[provider] = { variants, winner, bestObserved, winnerDecision, significance };
   }
 
   for (const v of variantIds) report.byVariant[v].openRate = pct(report.byVariant[v].opens, report.byVariant[v].sends);
@@ -195,20 +211,26 @@ async function main() {
       const flag = p.winner === v && cell.sends > 0 ? '  ◀ winner' : '';
       console.log(`    ${v.padEnd(10)} sends=${String(cell.sends).padStart(5)}  opens=${String(cell.opens).padStart(5)}  open-rate=${cell.openRate.toFixed(1).padStart(5)}%${flag}`);
     }
-    if (p.significance) {
+    if (p.bestObserved && p.bestObserved !== p.winner) {
+      console.log(`    → miglior open-rate osservato: ${p.bestObserved} (non dichiarato vincitore)`);
+    }
+    const decision = p.winnerDecision;
+    if (decision) {
       const minSends = Math.min(...variantIds.map(v => p.variants[v].sends));
-      // #7342 item 3: below the validity floor the z-test has no sampling
-      // distribution to speak of, so print the arm sizes instead of a p-value
-      // nobody should act on. Same predicate as the send-hour report.
-      const testable = variantIds.length === 2
-        && hasEnoughPowerForTest(p.variants[variantIds[0]], p.variants[variantIds[1]]);
-      if (!testable) {
-        const arms = variantIds.map(v => `${v}=${p.variants[v].sends}`).join(', ');
+      const arms = variantIds.map(v => `${v}=${p.variants[v].sends}`).join(', ');
+      const testable = decision.best && decision.runnerUp
+        && hasEnoughPowerForTest(p.variants[decision.best], p.variants[decision.runnerUp]);
+      if (decision.reason === 'insufficient sample' || !testable) {
         console.log(`    → n insufficiente (${arms}) — no p-value below ${MIN_COMPARISON_SENDS} sends/arm or ${MIN_EXPECTED_PER_CELL} expected opens`);
-      } else {
-        const sig = p.significance.pValue < 0.05 ? '✅ significant (p<0.05)' : `not yet significant (p=${p.significance.pValue.toFixed(2)})`;
+      } else if (decision.pValue != null && decision.adjustedPValue != null) {
+        const correction = decision.correction === 'bonferroni'
+          ? `, Bonferroni ×${decision.comparisonCount}`
+          : '';
+        const sig = decision.winner
+          ? `✅ promotable: ${decision.winner}`
+          : 'not yet significant';
         const note = minSends < 100 ? ' — small sample, keep collecting' : '';
-        console.log(`    → ${sig}${note}`);
+        console.log(`    → ${sig} (p=${decision.pValue.toFixed(4)}, p_adj=${decision.adjustedPValue.toFixed(4)}${correction})${note}`);
       }
     }
     console.log('');
@@ -220,7 +242,7 @@ async function main() {
     console.log(`    ${v.padEnd(10)} sends=${String(b.sends).padStart(5)}  opens=${String(b.opens).padStart(5)}  open-rate=${b.openRate.toFixed(1).padStart(5)}%`);
   }
   if (mismatchVariant > 0) {
-    console.log(`\n⚠️  ${mismatchVariant} send docs had a persisted variant ≠ recomputed (assignment logic changed since send; report uses recomputed).`);
+    console.log(`\n⚠️  ${mismatchVariant} send docs had a persisted variant ≠ the current uniform hash (promotion or a historical arm set); report trusts the persisted variant.`);
   }
   console.log('');
 
