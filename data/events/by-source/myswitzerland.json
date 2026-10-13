@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-12T13:55:35.849Z",
+  "assembledAt": "2026-10-13T13:24:24.169Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -264117,6 +264117,709 @@
         "url": "https://www.myswitzerland.com/en/"
       },
       "sourceDescriptionHash": "237d1a361e012a9b41791977758db0f0d2e24173131ec271e8106df2daea6fb9"
+    },
+    {
+      "id": "myswitzerland:61d8f6391a3a401db5af9d5ccc109c65",
+      "title": "Muséothérapie – Quand le musée fait du bien",
+      "titleByLocale": {
+        "it": "Muséothérapie – Quand le musée fait du bien",
+        "en": "Muséothérapie – Quand le musée fait du bien",
+        "de": "Muséothérapie – Quand le musée fait du bien",
+        "fr": "Muséothérapie – Quand le musée fait du bien"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-16",
+      "startTime": "15:45",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/museotherapie-quand-le-musee-fait-du-bien/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184198,
+        "lng": 6.624533
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a"
+    },
+    {
+      "id": "myswitzerland:61703eb401354bcc83fdff95f7bed880",
+      "title": "Der Kalte Krieg im Schweizer Alltag",
+      "titleByLocale": {
+        "it": "Der Kalte Krieg im Schweizer Alltag",
+        "en": "Der Kalte Krieg im Schweizer Alltag",
+        "de": "Der Kalte Krieg im Schweizer Alltag",
+        "fr": "Der Kalte Krieg im Schweizer Alltag"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/der-kalte-krieg-im-schweizer-alltag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "92339382d8087bc8c68709ca54c1bdb3398726ed9f1519e450f99b305efb25ef"
+    },
+    {
+      "id": "myswitzerland:5ff1e351c44a4f1eb67eabe6ac2b617c",
+      "title": "The World of Tim Burton by Horizons Ensemble",
+      "titleByLocale": {
+        "it": "The World of Tim Burton by Horizons Ensemble",
+        "en": "The World of Tim Burton by Horizons Ensemble",
+        "de": "Das Universum von Tim Burton – präsentiert von Horizons Ensemble",
+        "fr": "L’Univers de Tim Burton par Horizons Ensemble"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Montreux",
+      "comune": "Montreux",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/the-world-of-tim-burton-by-horizons-ensemble/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4295246,
+        "lng": 6.9116758
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Montreux"
+      },
+      "sourceDescriptionHash": "48f3663ad2d06c9543bd145fb75c6a34cf92660230030e681a05989a619666c0"
+    },
+    {
+      "id": "myswitzerland:5e3f3ae05a2848bd8bb4ac6a063e49fa",
+      "title": "Räbeliechtliumzug Schwerzenbach",
+      "titleByLocale": {
+        "it": "Räbeliechtliumzug Schwerzenbach",
+        "en": "Räbeliechtliumzug Schwerzenbach",
+        "de": "Räbeliechtliumzug Schwerzenbach",
+        "fr": "Räbeliechtliumzug Schwerzenbach"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Schwerzenbach",
+      "comune": "Schwerzenbach",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/raebeliechtliumzug-schwerzenbach/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3823678,
+        "lng": 8.6563982
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Klavierbegleitung gesungen"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "96c6f7886292eb3236f1ffde96a59d12c8a737397ff63f990091812d835c0104"
+    },
+    {
+      "id": "myswitzerland:5e382ddf183d4a369f6bb2149de281d6",
+      "title": "Hausführung",
+      "titleByLocale": {
+        "it": "Hausführung",
+        "en": "Hausführung",
+        "de": "Hausführung",
+        "fr": "Hausführung"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-12-05",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Sissach",
+      "comune": "Sissach",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hausfuehrung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4635872,
+        "lng": 7.8125001
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sissach"
+      },
+      "sourceDescriptionHash": "813b3d39378403b9762c0c8a30b1b12ff5328ccee4df089dcaf80503332ebc93"
+    },
+    {
+      "id": "myswitzerland:5dab6e63e56446c38a9030d441ffe010",
+      "title": "Älplerbrunch Brunnihütte",
+      "titleByLocale": {
+        "it": "Älplerbrunch Brunnihütte",
+        "en": "Älplerbrunch Brunnihütte",
+        "de": "Älplerbrunch Brunnihütte",
+        "fr": "Älplerbrunch Brunnihütte"
+      },
+      "startDate": "2027-05-30",
+      "endDate": "2027-09-05",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Engelberg",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/aelplerbrunch-brunnihuette/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8409072,
+        "lng": 8.4106484
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Engelberg"
+      },
+      "sourceDescriptionHash": "95483ef52d3085ceb0e20c651f7240f2309af1b697885fd6fadde8c272bd1a0a"
+    },
+    {
+      "id": "myswitzerland:5d9250a51e8f47cba275a0bac1b7c67c",
+      "title": "«Aline» C. F. Ramuz",
+      "titleByLocale": {
+        "it": "«Aline» C. F. Ramuz",
+        "en": "«Aline» C. F. Ramuz",
+        "de": "«Aline» C. F. Ramuz",
+        "fr": "«Aline» C. F. Ramuz"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-08",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Sissach",
+      "comune": "Sissach",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/aline-c-f-ramuz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4635872,
+        "lng": 7.8125001
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Erzählpassagen, Dialogen, Erinnerungsversuchen, Geräuschen"
+        },
+        {
+          "name": "Musik um"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "7188168ff6b6767a3696ad7e87cda75031ea224145488cb75f40778891b3bc15"
+    },
+    {
+      "id": "myswitzerland:5cf14a21f832490fa263d220c7e5e23e",
+      "title": "Mitten im Leben ...",
+      "titleByLocale": {
+        "it": "Mitten im Leben ...",
+        "en": "Mitten im Leben ...",
+        "de": "Mitten im Leben ...",
+        "fr": "Mitten im Leben ..."
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTime": "17:15",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mitten-im-leben-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5652615,
+        "lng": 9.1119183
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Weinfelden"
+      },
+      "sourceDescriptionHash": "a37e189d3a7cc13421041f60fa2886052eccf47e6da895bb90cf65e6990987db"
+    },
+    {
+      "id": "myswitzerland:5a9ffc9bb4b040debfbf1d2292a4ebba",
+      "title": "LISA LURATI - ALL WE EVER WANTED WAS EVERYTHING",
+      "titleByLocale": {
+        "it": "LISA LURATI - ALL WE EVER WANTED WAS EVERYTHING",
+        "en": "LISA LURATI - ALL WE EVER WANTED WAS EVERYTHING",
+        "de": "LISA LURATI - ALL WE EVER WANTED WAS EVERYTHING",
+        "fr": "LISA LURATI - ALL WE EVER WANTED WAS EVERYTHING"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-24",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Dietikon",
+      "comune": "Dietikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lisa-lurati-all-we-ever-wanted-was-everything/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3996116,
+        "lng": 8.4311095
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Dietikon"
+      },
+      "sourceDescriptionHash": "418763fb1fcfc85db15c1f0d78d53831c9190e66ebf8a20b55c1058d83bb5e93"
+    },
+    {
+      "id": "myswitzerland:5a1dd0e2c5d244dd93cbf1e3367d1c45",
+      "title": "Craft market",
+      "titleByLocale": {
+        "it": "Craft market",
+        "en": "Craft market",
+        "de": "Handwerkmarkt",
+        "fr": "Marché artisanal"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-28",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/craft-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3174896,
+        "lng": 7.9905747
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Brig"
+      },
+      "sourceDescriptionHash": "1e2b1ed998e13ab08d224ca66cec2edf43bcd8e33788c3a232bf4c653167a3a7"
+    },
+    {
+      "id": "myswitzerland:5a107aef689f4628b54dc6a3144efcd3",
+      "title": "Geschichtenfenster – lauschen und entdecken",
+      "titleByLocale": {
+        "it": "Geschichtenfenster – lauschen und entdecken",
+        "en": "Geschichtenfenster – lauschen und entdecken",
+        "de": "Geschichtenfenster – lauschen und entdecken",
+        "fr": "Geschichtenfenster – lauschen und entdecken"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/geschichtenfenster-lauschen-und-entdecken-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "92bc062d976dfd9564453d210f008b34b31659f63ff717b6b061d5f477fe9fe2"
+    },
+    {
+      "id": "myswitzerland:595258267d2a4bdc8114c28f3f28f158",
+      "title": "Make-up Workshop \"Finde deinen Look\"",
+      "titleByLocale": {
+        "it": "Make-up Workshop \"Finde deinen Look\"",
+        "en": "Make-up Workshop \"Finde deinen Look\"",
+        "de": "Make-up Workshop \"Finde deinen Look\"",
+        "fr": "Make-up Workshop \"Finde deinen Look\""
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Bad Ragaz",
+      "comune": "Bad Ragaz",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/make-up-workshop-finde-deinen-look/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9992801,
+        "lng": 9.5048442
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bad Ragaz"
+      },
+      "sourceDescriptionHash": "26890ba4576ca66f4ecf86817e6c94a2633cce72eb77fa4b32e3e6e9e60f9622"
+    },
+    {
+      "id": "myswitzerland:58f5008a8ed640988c113aa736451c4c",
+      "title": "Meditative Nachtführung im Grossmünster",
+      "titleByLocale": {
+        "it": "Meditative Nachtführung im Grossmünster",
+        "en": "Meditative Nachtführung im Grossmünster",
+        "de": "Meditative Nachtführung im Grossmünster",
+        "fr": "Meditative Nachtführung im Grossmünster"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-27",
+      "startTime": "22:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/meditative-nachtfuehrung-im-grossmuenster/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3818149,
+        "lng": 8.5353261
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "2d0a0bfc2f763bbe322a9a908f2110d27b2cc3cc2ffb9047985f9838dad63c9b"
+    },
+    {
+      "id": "myswitzerland:57cf206c140b457e88ee5af6809c7961",
+      "title": "Vollmondbegegnung in Cumbel",
+      "titleByLocale": {
+        "it": "Vollmondbegegnung in Cumbel",
+        "en": "Vollmondbegegnung in Cumbel",
+        "de": "Vollmondbegegnung in Cumbel",
+        "fr": "Vollmondbegegnung in Cumbel"
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2027-01-22",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Cumbel",
+      "comune": "Lumnezia",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vollmondbegegnung-in-cumbel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.725775,
+        "lng": 9.191563
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Cumbel"
+      },
+      "sourceDescriptionHash": "600a89ed2170c8255f9ecacd87cb473e3da1a39294a6c2fe5433ce46b2ce4d7d"
+    },
+    {
+      "id": "myswitzerland:57c5ce27d6234a1fa63679477bf7ccb7",
+      "title": "Ali, Catherine et Ferdinand. L’Escalade vue par Hodler",
+      "titleByLocale": {
+        "it": "Ali, Catherine et Ferdinand. L’Escalade vue par Hodler",
+        "en": "Ali, Catherine et Ferdinand. L’Escalade vue par Hodler",
+        "de": "Ali, Catherine et Ferdinand. L’Escalade vue par Hodler",
+        "fr": "Ali, Catherine et Ferdinand. L’Escalade vue par Hodler"
+      },
+      "startDate": "2026-12-15",
+      "endDate": "2026-12-15",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ali-catherine-et-ferdinand-lescalade-vue-par-hodler/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2013698,
+        "lng": 6.1485431
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "126433b3f2c3d5aa89d294522bbe05604f0e15ad9452c83ff011a411435024b0"
+    },
+    {
+      "id": "myswitzerland:57976beec3544a6b87d167ee0db0543e",
+      "title": "Contes à rebours, contes improvisés",
+      "titleByLocale": {
+        "it": "Contes à rebours, contes improvisés",
+        "en": "Contes à rebours, contes improvisés",
+        "de": "Contes à rebours, contes improvisés",
+        "fr": "Contes à rebours, contes improvisés"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-14",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/contes-a-rebours-contes-improvises/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.193878,
+        "lng": 6.145186
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "60463e8fc17be0a50878bedf126b54a1b3e6d5a34732ce756fc8fb8699450e0e"
+    },
+    {
+      "id": "myswitzerland:57021f485bf444a7bf76e748cbb95973",
+      "title": "Exhibition by Barbara B.",
+      "titleByLocale": {
+        "it": "Exhibition by Barbara B.",
+        "en": "Exhibition by Barbara B.",
+        "de": "Ausstellung von Barbara B.",
+        "fr": "Exposition de Barbara B."
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2027-01-15",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Puidoux",
+      "comune": "Puidoux",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/exhibition-by-barbara-b/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4939447,
+        "lng": 6.779437
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Puidoux"
+      },
+      "sourceDescriptionHash": "c9e917e92f8c4c93156c9a14a3f3bb1cd7fee6c11a24eab2ad977128fc3d5a35"
+    },
+    {
+      "id": "myswitzerland:5687548be5b94c89994aa404b6c10211",
+      "title": "Cherzemeer und Städtligschichte",
+      "titleByLocale": {
+        "it": "Cherzemeer und Städtligschichte",
+        "en": "Cherzemeer und Städtligschichte",
+        "de": "Cherzemeer und Städtligschichte",
+        "fr": "Cherzemeer und Städtligschichte"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-16",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Mellingen",
+      "comune": "Mellingen",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cherzemeer-und-staedtligschichte-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4167614,
+        "lng": 8.275473
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Mellingen"
+      },
+      "sourceDescriptionHash": "8bab76f9085583659aea0e77c743ada6a323dd730b6da80e3d820a17be9b8deb"
+    },
+    {
+      "id": "myswitzerland:55db61bf2b9646a8a1a5798c90ff05be",
+      "title": "Ich war noch niemals in New York - Das Musical",
+      "titleByLocale": {
+        "it": "Ich war noch niemals in New York - Das Musical",
+        "en": "Ich war noch niemals in New York - Das Musical",
+        "de": "Ich war noch niemals in New York - Das Musical",
+        "fr": "Ich war noch niemals in New York - Das Musical"
+      },
+      "startDate": "2027-10-19",
+      "endDate": "2027-11-07",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Zurigo",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ich-war-noch-niemals-in-new-york-das-musical/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.410681,
+        "lng": 8.5496984
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurigo"
+      },
+      "sourceDescriptionHash": "fc1008b16534e0d5d5ec5e98dc2adc354c9038f54a87da5c6cea2e593ded3cb8"
+    },
+    {
+      "id": "myswitzerland:552fc5272b734763a6b031f7163d3f5d",
+      "title": "Von BTS bis Anime",
+      "titleByLocale": {
+        "it": "Von BTS bis Anime",
+        "en": "Von BTS bis Anime",
+        "de": "Von BTS bis Anime",
+        "fr": "Von BTS bis Anime"
+      },
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-16",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Sissach",
+      "comune": "Sissach",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/von-bts-bis-anime/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4635872,
+        "lng": 7.8125001
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sissach"
+      },
+      "sourceDescriptionHash": "beb278296a369d859b3f5fc14e2c10a8e852bdb2d436da6009818ae5b6baa284"
     }
   ]
 }

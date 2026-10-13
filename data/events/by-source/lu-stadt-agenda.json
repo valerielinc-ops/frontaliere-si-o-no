@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-12T14:08:43.502Z",
+  "assembledAt": "2026-10-13T13:38:14.763Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -148,7 +148,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7688353",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -171,7 +171,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7694293",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -194,7 +194,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7463707",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -217,7 +217,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7626901",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -227,7 +227,7 @@
         "@type": "Organization",
         "name": "Stadt Luzern — Termine"
       },
-      "sourceDescriptionHash": "53094c72ba1ae4eb8f48f20398dfa1dfca4f8b139aa62234bc1846adfebe66dc"
+      "sourceDescriptionHash": "1e518560a2fe0849763c1236c27ac9be042edd9030dc3fae456221bd20f779a7"
     },
     {
       "id": "lu-stadt-agenda:7626880",
@@ -240,7 +240,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7626880",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -263,7 +263,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7686649",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -284,7 +284,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7648405",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-12T14:08:43.502Z",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -295,6 +295,75 @@
         "name": "Stadt Luzern — Termine"
       },
       "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7694107",
+      "title": "Winter Qi Gong Inseli",
+      "startDate": "2026-10-20",
+      "startTime": "09:00",
+      "comune": "Ebikon",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7694107",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "f9ec835b60eb69bc8f17eec6337bf5918b59b495432d955a9ba86ec1f67a60b0"
+    },
+    {
+      "id": "lu-stadt-agenda:6840403",
+      "title": "Kunstausstellung Arts Crossroad",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-25",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/6840403",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "20bd8dbe06fbe49b6653626b2876953ee32e3e34596e4663b9f431b9c0950ec9"
+    },
+    {
+      "id": "lu-stadt-agenda:7729408",
+      "title": "28. Sitzung des Grossen Stadtrates von Luzern vom 22. Oktober 2026",
+      "startDate": "2026-10-22",
+      "startTime": "08:15",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7729408",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-13T13:38:14.763Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
     }
   ]
 }
