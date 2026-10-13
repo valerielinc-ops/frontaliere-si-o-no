@@ -7,9 +7,8 @@
  * Metrics are queried once per error status so a saturated account response
  * cannot hide the status that is actually failing.
  */
-import { pathToFileURL } from 'node:url';
-
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import { intFromEnv, positiveIntFromEnv } from './lib/int-from-env.mjs';
 import {
@@ -211,6 +210,6 @@ export async function main({ fetchImpl = fetch, dryRun = process.argv.includes('
   return { measurement, results };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   await main();
 }

@@ -76,21 +76,13 @@ jobs:
       - name: Load Remote Config secrets
         run: node scripts/load-rc-env.mjs
 
-      # Use the App/PAT identity when available so opening or reconciling an
-      # issue can enter the normal issue-triage loop; GITHUB_TOKEN remains a
-      # deliberately explicit last-resort reporting fallback.
-      - name: Mint App token (primary issue identity, PAT fallback)
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
       - name: Sync Cloudflare Worker errors to backlog
         env:
           GH_REPO: ${{ github.repository }}
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          # GITHUB_PAT is loaded from Remote Config and preserves the normal
+          # issue-triage event identity; the Actions token is only a fallback
+          # when the optional RC credential is unavailable.
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           CF_WORKER_ERRORS_HOURS: ${{ inputs.hours || '23' }}
           CF_WORKER_ERRORS_MIN_COUNT: ${{ inputs.min_errors || '1' }}
         run: node scripts/cloudflare-worker-error-issue-sync.mjs
