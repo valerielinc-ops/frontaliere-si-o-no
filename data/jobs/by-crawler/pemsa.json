@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-a-pemsa-geneve",
-        "en": "idraulico-a-pemsa-geneve",
-        "de": "idraulico-a-pemsa-geneve",
-        "fr": "idraulico-a-pemsa-geneve"
+        "en": "hydraulic-a-pemsa-geneve",
+        "de": "hydraulik-a-pemsa-geneve",
+        "fr": "hydraulique-a-pemsa-geneve"
       },
       "id": "pemsa-ca57bacd192b",
       "salaryMin": 71000,
@@ -102,9 +102,9 @@
       },
       "slugByLocale": {
         "it": "copritetto-pemsa-bellinzona",
-        "en": "copritetto-pemsa-bellinzona",
-        "de": "copritetto-pemsa-bellinzona",
-        "fr": "copritetto-pemsa-bellinzona"
+        "en": "cover-pemsa-bellinzona",
+        "de": "abdeckung-pemsa-bellinzona",
+        "fr": "couverture-pemsa-bellinzona"
       },
       "id": "pemsa-6d1de60a140a",
       "salaryMin": 61000,
@@ -3290,7 +3290,7 @@
       "slugByLocale": {
         "it": "caposquadra-montaggio-strutture-metalliche-pemsa-givisiez",
         "en": "metal-structures-mounting-bracket-pemsa-givisiez",
-        "de": "caposquadra-montaggio-strutture-metalliche-pemsa-givisiez",
+        "de": "halterung-fur-metallkonstruktionen-pemsa-givisiez",
         "fr": "support-de-montage-pour-structures-metalliques-pemsa-givisiez"
       },
       "id": "pemsa-fa0f426f1826",
@@ -3309,16 +3309,7 @@
         }
       },
       "postalCode": "1762",
-      "firstSeenAt": "2026-10-08T21:29:38.310Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "halterung-fur-metallkonstruktionen-pemsa-givisiez"
-        ]
-      },
-      "previousSlugs": [
-        "halterung-fur-metallkonstruktionen-pemsa-givisiez"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-08T21:29:38.310Z"
     },
     {
       "title": "Operaio polivalente per lavori speciali – Perforatore",
@@ -4825,7 +4816,7 @@
       "slugByLocale": {
         "it": "carpentiere-afc-m-f-d-pemsa-monthey",
         "en": "carpenters-afc-m-f-d-pemsa-monthey",
-        "de": "carpentiere-afc-m-f-d-pemsa-monthey",
+        "de": "carpenter-afc-m-w-d-pemsa-monthey",
         "fr": "charpentiers-afc-h-f-d-pemsa-monthey"
       },
       "id": "pemsa-93e9703eb748",
@@ -4844,16 +4835,7 @@
         }
       },
       "postalCode": "1870",
-      "firstSeenAt": "2026-10-08T21:29:38.310Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "carpenter-afc-m-w-d-pemsa-monthey"
-        ]
-      },
-      "previousSlugs": [
-        "carpenter-afc-m-w-d-pemsa-monthey"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-08T21:29:38.310Z"
     },
     {
       "title": "Carpentiere AFC M/F/D",
@@ -4895,7 +4877,7 @@
       "slugByLocale": {
         "it": "carpentiere-afc-m-f-d-pemsa-sion",
         "en": "carpenters-afc-m-f-d-pemsa-sion",
-        "de": "carpentiere-afc-m-f-d-pemsa-sion",
+        "de": "carpenter-afc-m-w-d-pemsa-sion",
         "fr": "charpentiers-afc-h-f-d-pemsa-sion"
       },
       "id": "pemsa-6bd4d4cbca01",
@@ -4914,16 +4896,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-10-08T21:29:38.310Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "carpenter-afc-m-w-d-pemsa-sion"
-        ]
-      },
-      "previousSlugs": [
-        "carpenter-afc-m-w-d-pemsa-sion"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-08T21:29:38.310Z"
     },
     {
       "title": "Operatore metallurgico AFC (M/F/D)",
@@ -5330,7 +5303,7 @@
       },
       "slugByLocale": {
         "it": "imbianchino-afc-aep-m-f-pemsa-zurich",
-        "en": "imbianchino-afc-aep-m-f-pemsa-zurich",
+        "en": "painter-efz-aep-m-f-pemsa-zurich",
         "de": "imbianchino-afc-aep-m-f-pemsa-zurich",
         "fr": "imbianchino-afc-aep-m-f-pemsa-zurich"
       },
@@ -5350,16 +5323,7 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-07T21:30:06.760Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "painter-efz-aep-m-f-pemsa-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "painter-efz-aep-m-f-pemsa-zurich"
-      ]
+      "firstSeenAt": "2026-10-07T21:30:06.760Z"
     },
     {
       "title": "Capocantiere nel settore elettrico",
@@ -5827,7 +5791,7 @@
       "slugByLocale": {
         "it": "carpentiere-afc-m-f-d-pemsa-martigny",
         "en": "carpenter-afc-m-f-d-pemsa-martigny",
-        "de": "carpentiere-afc-m-f-d-pemsa-martigny",
+        "de": "carpenter-afc-m-w-d-pemsa-martigny",
         "fr": "charpentier-afc-h-f-d-pemsa-martigny"
       },
       "id": "pemsa-e95ac7d2dda2",
@@ -5849,15 +5813,12 @@
       "firstSeenAt": "2026-09-25T14:52:08.816Z",
       "previousSlugsByLocale": {
         "de": [
-          "zimmermann-efz-m-w-d-pemsa-martigny",
-          "carpenter-afc-m-w-d-pemsa-martigny"
+          "zimmermann-efz-m-w-d-pemsa-martigny"
         ]
       },
       "previousSlugs": [
-        "zimmermann-efz-m-w-d-pemsa-martigny",
-        "carpenter-afc-m-w-d-pemsa-martigny"
-      ],
-      "needsRetranslation": true
+        "zimmermann-efz-m-w-d-pemsa-martigny"
+      ]
     },
     {
       "title": "Elettricista autonomo – Ristrutturazione",
@@ -6204,7 +6165,7 @@
       "slugByLocale": {
         "it": "meccanico-di-macchine-da-cantiere-e-veicoli-industriali-pemsa-fribourg",
         "en": "construction-machinery-and-industrial-vehicles-pemsa-fribourg",
-        "de": "meccanico-di-macchine-da-cantiere-e-veicoli-industriali-pemsa-fribourg",
+        "de": "baumaschinen-und-industriefahrzeuge-pemsa-fribourg",
         "fr": "machines-de-construction-et-vehicules-industriels-pemsa-fribourg"
       },
       "id": "pemsa-976a21846679",
@@ -6223,16 +6184,7 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-10-07T21:30:06.760Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "baumaschinen-und-industriefahrzeuge-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinen-und-industriefahrzeuge-pemsa-fribourg"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-07T21:30:06.760Z"
     },
     {
       "title": "Installatore elettrico con certificazione ATEX",
@@ -8287,7 +8239,7 @@
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-efz-eba-m-f-d-pemsa-reinach-bl",
         "en": "installation-of-heating-systems-efz-eba-m-f-d-pemsa-reinach-bl",
-        "de": "installatore-di-impianti-di-riscaldamento-efz-eba-m-f-d-pemsa-reinach-bl",
+        "de": "heizungsinstallateur-efz-eba-m-w-d-pemsa-reinach-bl",
         "fr": "installation-de-systemes-de-chauffage-efz-eba-h-f-d-pemsa-reinach-bl"
       },
       "id": "pemsa-ebb98dd5838b",
@@ -8308,13 +8260,11 @@
       "firstSeenAt": "2026-10-05T09:22:51.973Z",
       "previousSlugsByLocale": {
         "de": [
-          "installation-von-heizungsanlagen-efz-eba-m-w-d-pemsa-reinach-bl",
-          "heizungsinstallateur-efz-eba-m-w-d-pemsa-reinach-bl"
+          "installation-von-heizungsanlagen-efz-eba-m-w-d-pemsa-reinach-bl"
         ]
       },
       "previousSlugs": [
-        "installation-von-heizungsanlagen-efz-eba-m-w-d-pemsa-reinach-bl",
-        "heizungsinstallateur-efz-eba-m-w-d-pemsa-reinach-bl"
+        "installation-von-heizungsanlagen-efz-eba-m-w-d-pemsa-reinach-bl"
       ]
     },
     {
@@ -10775,7 +10725,7 @@
         "fr": "Assistente Ressources Humaines"
       },
       "descriptionByLocale": {
-        "it": "Altri - Impiegata commerciale / segretaria\nAssistente HR\nA tempo parziale Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nAssistente HR\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Assistente HR\nMissione :\n- Impiego al 50%\n- accoglienza in agenzia e gestione delle chiamate telefoniche\n- trattamento della corrispondenza e delle attività di segreteria\n- registrazione, controllo e monitoraggio dei rapporti ore nel nostro ERP\n- supporto nella preparazione e nel controllo degli elementi variabili dei salari\n- tenuta e aggiornamento dei dossier dei collaboratori\n- supporto nella preparazione dei contratti e dei documenti relativi al personale temporaneo\n- partecipazione alle attività operative quotidiane dell’agenzia\nProfilo :\n- formazione commerciale/amministrativa, oppure percorso ritenuto equivalente\n- esperienza amministrativa, idealmente maturata presso un’agenzia di collocamento, con una buona comprensione dei salari, delle assicurazioni sociali e dei contratti collettivi di lavoro\n- buona padronanza degli strumenti informatici e dimestichezza con un ERP, la conoscenza di Zvoove costituisce un vantaggio\n- senso del servizio, buone capacità comunicative e spirito di squadra\n- capacità di lavorare in modo autonomo\n- domicilio o disponibilità compatibile con un’attività in presenza\n- ottima padronanza dell’italiano, la conoscenza del francese costituisce un vantaggio\nCosa offriamo\n- un team collaborativo e motivato\n- condizioni di lavoro attrattive con vantaggi sociali\n- eventi interni che favoriscono lo spirito di gruppo\n- un’azienda certificata Great Place To Work\n&nbsp;\n- &nbsp;\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nCastione\nTipo di lavoro\nA tempo parziale - Posto fisso\nCandidarsi per questo lavoro\nLavori correlati\nRecruiter\nA tempo pieno , Posto fisso\nTicino\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di {{title_job}}\nCandidarsi per questo lavoro\nIl tuo contatto dedicato\nOezcan Neri\n091 820 09 11\nPemsa Bellinzona\nVia San Gottardo 22A\n6532 Castione\nPer rimanere aggiornato sulle nostre offerte di lavoro a Castione e dintorni, iscriviti al nostro canale WhatsApp\nCONDIZIONI ECCEZIONALI\n- Fornitura di dispositivi di protezione\n- Messa a disposizione di attrezzi/utensili\n- Incoraggiamento alla formazione e relative proposte\n- Promozione di iniziative a tutela della salute e del benessere e consulenza sociale\nUlteriori informazioni\nNessuna offerta di lavoro corrispondente alle tue aspettative?\nInvia il mio CV",
+        "it": "Altri - Impiegata commerciale / segretaria\nAssistente HR\nA tempo parziale Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nAssistente HR\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Assistente HR\nMissione :\n- Impiego al 50%\n- accoglienza in agenzia e gestione delle chiamate telefoniche\n- trattamento della corrispondenza e delle attività di segreteria\n- registrazione, controllo e monitoraggio dei rapporti ore nel nostro ERP\n- supporto nella preparazione e nel controllo degli elementi variabili dei salari\n- tenuta e aggiornamento dei dossier dei collaboratori\n- supporto nella preparazione dei contratti e dei documenti relativi al personale temporaneo\n- partecipazione alle attività operative quotidiane dell’agenzia\nProfilo :\n- formazione commerciale/amministrativa, oppure percorso ritenuto equivalente\n- esperienza amministrativa, idealmente maturata presso un’agenzia di collocamento, con una buona comprensione dei salari, delle assicurazioni sociali e dei contratti collettivi di lavoro\n- buona padronanza degli strumenti informatici e dimestichezza con un ERP, la conoscenza di Zvoove costituisce un vantaggio\n- senso del servizio, buone capacità comunicative e spirito di squadra\n- capacità di lavorare in modo autonomo\n- domicilio o disponibilità compatibile con un’attività in presenza\n- ottima padronanza dell’italiano, la conoscenza del francese costituisce un vantaggio\nCosa offriamo\n- un team collaborativo e motivato\n- condizioni di lavoro attrattive con vantaggi sociali\n- eventi interni che favoriscono lo spirito di gruppo\n- un’azienda certificata Great Place To Work\n \n-  \nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nCastione\nTipo di lavoro\nA tempo parziale - Posto fisso\nCandidarsi per questo lavoro\nLavori correlati\nRecruiter\nA tempo pieno , Posto fisso\nTicino\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di {{title_job}}\nCandidarsi per questo lavoro\nIl tuo contatto dedicato\nOezcan Neri\n091 820 09 11\nPemsa Bellinzona\nVia San Gottardo 22A\n6532 Castione\nPer rimanere aggiornato sulle nostre offerte di lavoro a Castione e dintorni, iscriviti al nostro canale WhatsApp\nCONDIZIONI ECCEZIONALI\n- Fornitura di dispositivi di protezione\n- Messa a disposizione di attrezzi/utensili\n- Incoraggiamento alla formazione e relative proposte\n- Promozione di iniziative a tutela della salute e del benessere e consulenza sociale\nUlteriori informazioni\nNessuna offerta di lavoro corrispondente alle tue aspettative?\nInvia il mio CV",
         "en": "Others - Commercial Use / Secretary\nAssistant HR\nPart time Fixed place\nCandidate\nApply for this job\nAssistant HR\n* indicates mandatory fields\nDo you want the freedom of temporary work and the safety of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for HR Assistant position\nMission:\n- Use at 50%\n- reception in agency and telephone call management\n- processing of correspondence and secretariat activities\n- recording, monitoring and monitoring hours in our ERP\n- support in the preparation and control of variable wage elements\n- keeping and updating employee dossiers\n- support in the preparation of contracts and documents relating to temporary staff\n- participation in the daily operational activities of the agency\nProfile:\n- commercial/administrative training, or route considered equivalent\n- administrative experience, ideally developed at an employment agency, with a good understanding of wages, social insurance and collective employment contracts\n- good mastery of computer tools and familiarize yourself with an ERP, Zvoove knowledge is an advantage\n- sense of service, good communication skills and team spirit\n- ability to work independently\n- domicile or availability compatible with an activity in the presence\n- excellent Italian mastery, French knowledge is an advantage\nWhat we offer\n- a collaborative and motivated team\n- attractive working conditions with social benefits\n- internal events that favor the spirit of group\n- a company certified Great Place To Work\n \n-  \nYour contact person:\nYour contact for this location is Neri. With over 15 years of recruitment experience, you will be able to accompany, advise and answer all your questions about the location. This job isn't exactly what he's looking for, but do you like our values? Do not hesitate to send us your spontaneous application!\nPlace of work\nCastion\nType of work\nPartial time - Fixed place\nApply for this job\nRelated articles\nRecruiter\nFull time, Fixed place\nTicino\nDo you want the freedom of temporary work and the safety of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for position\nApply for this job\nYour dedicated contact\nOezcan Neri\n091 820 09 11\nPemsa Bellinzona\nVia San Gottardo 22A\n6532 Cast Iron\nTo stay up to date on our job offers in Castione and surroundings, sign up for our WhatsApp channel\nECCETIONAL CONDITIONS\n- Supply of protection devices\n- Equipment/tools available\n- Encouragement of training and proposals\n- Promotion of initiatives to protect health and welfare and social advice\nMore information\nAny job offer corresponding to your expectations?\nSend my CV",
         "de": "Sonstige - Kommerzielle Nutzung / Sekretär\nHilfspersonal\nTeilzeit Festplatz\nKandidat\nBewerben Sie sich für diesen Job\nHilfspersonal\n* Angabe von Pflichtfeldern\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für HR Assistant Position bei\nMission:\n- Verwendung bei 50%\n- Empfang in Agentur- und Telefonleitung\n- Bearbeitung von Korrespondenz- und Sekretariatstätigkeiten\n- Erfassung, Überwachung und Überwachung von Stunden in unserem ERP\n- Unterstützung bei der Vorbereitung und Kontrolle variabler Lohnelemente\n- Führen und Aktualisieren von Arbeitnehmerdossiers\n- Unterstützung bei der Ausarbeitung von Verträgen und Dokumenten über Zeitbedienstete\n- Beteiligung an den täglichen operativen Tätigkeiten der Agentur\nProfil:\n- kaufmännische/verwaltungstechnische Ausbildung oder als gleichwertig betrachtete Strecke\n- Verwaltungserfahrung, idealerweise in einer Arbeitsagentur entwickelt, mit einem guten Verständnis von Löhnen, Sozialversicherungen und kollektiven Arbeitsverträgen\n- gute Beherrschung von Computer-Tools und vertraut mit einem ERP, Zvoove Wissen ist ein Vorteil\n- Sinn für Service, gute Kommunikationsfähigkeit und Teamgeist\n- Fähigkeit, unabhängig zu arbeiten\n- Wohnsitz oder Verfügbarkeit, die mit einer Aktivität in der Gegenwart vereinbar ist\n- ausgezeichnete italienische Beherrschung, Französischkenntnisse sind von Vorteil\nWas wir bieten\n- ein kollaboratives und motiviertes Team\n- attraktive Arbeitsbedingungen mit Sozialleistungen\n- interne Ereignisse, die den Geist der Gruppe begünstigen\n- ein zertifiziertes Unternehmen Great Place To Work\n \n-  \nIhre Kontaktperson:\nIhr Ansprechpartner für diesen Standort ist Neri. Mit über 15 Jahren Rekrutierungserfahrung können Sie alle Ihre Fragen zum Standort begleiten, beraten und beantworten. Dieser Job ist nicht genau das, wonach er sucht, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nArbeitsort\nKastration\nArt der Arbeit\nTeilzeit - Fester Ort\nBewerben Sie sich für diesen Job\nVerwandte Artikel\nPersonalvermittler\nVollzeit, fester Ort\nTessin\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für Position bei\nBewerben Sie sich für diesen Job\nIhr engagierter Kontakt\nOezcan Neri\n091 820 09 11\nPemsa Bellinzona\nVia San Gottardo 22A\n6532 Gusseisen\nUm über unsere Stellenangebote in Castione und Umgebung auf dem Laufenden zu bleiben, melden Sie sich für unseren WhatsApp-Kanal an\nEKTIONALE BEDINGUNGEN\n- Lieferung von Schutzeinrichtungen\n- Ausrüstung/Werkzeuge verfügbar\n- Förderung von Schulungen und Vorschlägen\n- Förderung von Initiativen zum Schutz von Gesundheit und Wohlfahrt sowie Sozialberatung\nWeitere Informationen\nIrgendein Stellenangebot, das Ihren Erwartungen entspricht?\nSenden Sie meinen CV",
         "fr": "Autres - Usage commercial / Secrétaire\nAssistant aux ressources humaines\nTemps partiel Lieu fixe\nCandidat\nPostulez à ce poste\nAssistant aux ressources humaines\n* indique les champs obligatoires\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous sommes témoins de centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour un poste d'adjoint aux RH\nMission:\n- Utilisation à 50%\n- réception en agence et gestion des appels téléphoniques\n- traitement de la correspondance et activités du secrétariat\n- des heures d'enregistrement, de surveillance et de surveillance dans notre ERP\n- soutien à la préparation et au contrôle des éléments salariaux variables\n- tenir et mettre à jour les dossiers des employés\n- appui à la préparation des contrats et des documents relatifs au personnel temporaire\n- participation aux activités opérationnelles quotidiennes de l'organisme\nProfil:\n- formation commerciale/administrative, ou itinéraire considéré comme équivalent\n- expérience administrative, idéalement développée dans une agence pour l'emploi, avec une bonne compréhension des salaires, de l'assurance sociale et des contrats de travail collectifs\n- bonne maîtrise des outils informatiques et vous familiariser avec un ERP, la connaissance Zvoove est un avantage\n- sens du service, bonnes compétences en communication et esprit d'équipe\n- capacité à travailler de manière indépendante\n- domicile ou disponibilité compatible avec une activité en présence\n- excellente maîtrise italienne, la connaissance française est un avantage\nCe que nous offrons\n- une équipe collaborative et motivée\n- des conditions de travail attrayantes avec des avantages sociaux\n- événements internes qui favorisent l'esprit de groupe\n- une entreprise certifiée Great Place To Work\n \n-  \nVotre personne-ressource:\nVotre contact pour cet emplacement est Neri. Avec plus de 15 ans d'expérience en recrutement, vous pourrez accompagner, conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce qu'il cherche, mais tu aimes nos valeurs? N'hésitez pas à nous envoyer votre candidature spontanée!\nLieu de travail\nCastion\nType de travail\nTemps partiel - Lieu fixe\nPostulez à ce poste\nArticles connexes\nRecrutement\nÀ temps plein, place fixe\nTessin\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous sommes témoins de centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour poste\nPostulez à ce poste\nVotre contact dédié\nOezcan Neri\n091 820 09 11\nPemsa Bellinzona\nVia San Gottardo 22A\n6532 fonte\nPour rester à jour sur nos offres d'emploi à Castione et ses environs, inscrivez-vous à notre chaîne WhatsApp\nCONDITIONS ECONOMIQUES\n- Fourniture de dispositifs de protection\n- Matériel/outils disponibles\n- Encourager la formation et les propositions\n- Promotion des initiatives de protection de la santé et du bien-être et conseils sociaux\nInformations supplémentaires\nUne offre d'emploi correspondant à vos attentes?\nEnvoyer mon CV"
@@ -11452,7 +11402,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-bellinzona",
         "en": "construction-carpenters-pemsa-bellinzona",
-        "de": "carpentiere-edile-pemsa-bellinzona",
+        "de": "bautischler-pemsa-bellinzona",
         "fr": "charpentiers-de-construction-pemsa-bellinzona"
       },
       "id": "pemsa-1c7afb783aa5",
@@ -11473,16 +11423,7 @@
       "firstSeenAt": "2026-09-29T21:23:04.388Z",
       "datePosted": "2026-09-29T10:31:32+02:00",
       "postingDateSource": "reported",
-      "postalCode": "6500",
-      "previousSlugsByLocale": {
-        "de": [
-          "bautischler-pemsa-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "bautischler-pemsa-bellinzona"
-      ],
-      "needsRetranslation": true
+      "postalCode": "6500"
     },
     {
       "title": "Carpentiere edile",
@@ -11522,7 +11463,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-lugano",
         "en": "construction-carpenters-pemsa-lugano",
-        "de": "carpentiere-edile-pemsa-lugano",
+        "de": "bautischler-pemsa-lugano",
         "fr": "charpentiers-de-construction-pemsa-lugano"
       },
       "id": "pemsa-9175b3ea2bb6",
@@ -11543,16 +11484,7 @@
       "firstSeenAt": "2026-09-29T21:23:04.388Z",
       "datePosted": "2026-09-29T10:30:44+02:00",
       "postingDateSource": "reported",
-      "postalCode": "6900",
-      "previousSlugsByLocale": {
-        "de": [
-          "bautischler-pemsa-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "bautischler-pemsa-lugano"
-      ],
-      "needsRetranslation": true
+      "postalCode": "6900"
     },
     {
       "title": "OPERATORE M2 – ESCAVATORE A CAVO – SUVA A",
@@ -11835,7 +11767,7 @@
       },
       "slugByLocale": {
         "it": "imbianchino-m-f-pemsa-biel-bienne",
-        "en": "imbianchino-m-w-d-pemsa-biel-bienne",
+        "en": "m-f-whitening-pemsa-biel-bienne",
         "de": "imbianchino-m-f-pemsa-biel-bienne",
         "fr": "imbianchino-m-f-pemsa-biel-bienne"
       },
@@ -11860,13 +11792,12 @@
       "postalCode": "2502",
       "previousSlugsByLocale": {
         "en": [
-          "m-f-whitening-pemsa-biel-bienne"
+          "imbianchino-m-w-d-pemsa-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "m-f-whitening-pemsa-biel-bienne"
-      ],
-      "needsRetranslation": true
+        "imbianchino-m-w-d-pemsa-biel-bienne"
+      ]
     },
     {
       "title": "PIASTRELLISTA (M/F)",
@@ -12728,8 +12659,7 @@
       "previousSlugs": [
         "zimmermann-efz-aec-m-w-d-pemsa-basel"
       ],
-      "postalCode": "4001",
-      "needsRetranslation": true
+      "postalCode": "4001"
     },
     {
       "title": "Installatore di tende (m/f/d) – Si cerca un successore per la subentranza nell’azienda (regione di Basilea / Argovia)",
@@ -14009,7 +13939,7 @@
         "it": "muratore-inglese-tedesco-pemsa-fribourg",
         "en": "mason-english-german-pemsa-fribourg",
         "de": "muratore-englisch-tedesco-pemsa-fribourg",
-        "fr": "muratore-inglese-tedesco-pemsa-fribourg"
+        "fr": "mur-anglais-allemand-pemsa-fribourg"
       },
       "id": "pemsa-74182bb8d2b7",
       "salaryMin": 76500,
@@ -14031,16 +13961,13 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "fr": [
-          "macon-anglais-allemand-pemsa-fribourg",
-          "mur-anglais-allemand-pemsa-fribourg"
+          "macon-anglais-allemand-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "macon-anglais-allemand-pemsa-fribourg",
-        "mur-anglais-allemand-pemsa-fribourg"
+        "macon-anglais-allemand-pemsa-fribourg"
       ],
-      "postalCode": "1700",
-      "needsRetranslation": true
+      "postalCode": "1700"
     },
     {
       "title": "Elettricista di rete MT (M/F) – Incarico temporaneo urgente",
@@ -14438,7 +14365,7 @@
         "fr": "Soudeur – Tubiste"
       },
       "descriptionByLocale": {
-        "it": "- Saldatore\nSaldatore – Tubista\nA tempo pieno Interinale A tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nSaldatore - Tubista\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Saldatore – Tubista\nMissione :\n- Saldature in opera per acciaio inox\n- Saldature a banco diversi materiali\n- Saldatura ad angolo e testa a testa\n- Preparazione componenti\n- Controlli non distruttivi (radiografia, liquidi penetranti)\nProfilo :\n- Patentini di saldatura TIG o MIG/MAG (ISO) in corso di validità\n- Comprovata esperinza nel settore di almeno 5 anni\n- Persona automunita\n- Flesibilità e spirito d’iniziativa\n- Residenza di massimo 45 km dal luogo d’incarico\n- &nbsp;Lingua italiana\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Davide. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLugano\nTipo di lavoro\nA tempo pieno - Interinale - A tempo pieno - Interinale\nCandidarsi per questo lavoro\nLavori correlati\nSorry, no content found.\nIl tuo contatto dedicato\nLipari Davide\n091 610 20 62\nPemsa Lugano\nVia Al Mulino 22\n6814 Cadempino\nCONDIZIONI ECCEZIONALI\n- Fornitura di dispositivi di protezione\n- Messa a disposizione di attrezzi/utensili\n- Incoraggiamento alla formazione e relative proposte\n- Promozione di iniziative a tutela della salute e del benessere e consulenza sociale\nUlteriori informazioni\nNessuna offerta di lavoro corrispondente alle tue aspettative?\nInvia il mio CV",
+        "it": "- Saldatore\nSaldatore – Tubista\nA tempo pieno Interinale A tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nSaldatore - Tubista\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Saldatore – Tubista\nMissione :\n- Saldature in opera per acciaio inox\n- Saldature a banco diversi materiali\n- Saldatura ad angolo e testa a testa\n- Preparazione componenti\n- Controlli non distruttivi (radiografia, liquidi penetranti)\nProfilo :\n- Patentini di saldatura TIG o MIG/MAG (ISO) in corso di validità\n- Comprovata esperinza nel settore di almeno 5 anni\n- Persona automunita\n- Flesibilità e spirito d’iniziativa\n- Residenza di massimo 45 km dal luogo d’incarico\n-  Lingua italiana\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Davide. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLugano\nTipo di lavoro\nA tempo pieno - Interinale - A tempo pieno - Interinale\nCandidarsi per questo lavoro\nLavori correlati\nSorry, no content found.\nIl tuo contatto dedicato\nLipari Davide\n091 610 20 62\nPemsa Lugano\nVia Al Mulino 22\n6814 Cadempino\nCONDIZIONI ECCEZIONALI\n- Fornitura di dispositivi di protezione\n- Messa a disposizione di attrezzi/utensili\n- Incoraggiamento alla formazione e relative proposte\n- Promozione di iniziative a tutela della salute e del benessere e consulenza sociale\nUlteriori informazioni\nNessuna offerta di lavoro corrispondente alle tue aspettative?\nInvia il mio CV",
         "en": "- Jumper\nWelder – Tubist\nFull time Interinal Full time Interinal\nCandidate\nApply for this job\nWelder - Tubist\n* indicates mandatory fields\nContact details *\nPrénom\nNo.\nTelephone\nEmail *\nUpload your CV *\nTypes of files accepted: pdf, Max file size: 5 MB.\nPour convert vos fichiers en pdf cliquez ici : https://convertio.co/fr/docx-pdf/\nAutres documents\nI want to send more documents\nAutres documents\nPermis de travail, certifications, lettre de recommandation\nDrag the files here or\nSelect the files\nTypes of files accepted: pdf, Max file size: 10 MB, Max file number: 5.\nSend an email to the candidate\nNo.\nYes\nThis field is hidden when displaying the module\nAppréciation\nJe parle allemand\nOui\nNot yet.\nLevel de pratique de l'Allemand *\nAucune meadows\nBasique\nIntermédiaire\nAvancé\nExpérimenté\nPigs\nDSGVO\nI accept the Terms and Conditions and confirm that I have read the Privacy Policy . *\nConfirm my application\nDo you want the freedom of temporary work and the safety of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Saldatore – Tubista\nMission:\n- Welding for stainless steel\n- Welding different materials\n- Corner and head welding\n- Component preparation\n- Non-destructive controls (radiography, penetrating liquids)\nProfile :\n- Welding licences TIG or MIG/MAG (ISO) valid\n- Experience in the field of at least 5 years\n- Self-municipal person\n- Flexibility and spirit of initiative\n- Residence of up to 45 km from the place of appointment\n- Italian language\nYour contact person:\nYour contact for this position is David. With over 15 years of recruitment experience, you will be able to accompany, advise and answer all your questions about the location. This job isn't exactly what he's looking for, but do you like our values? Do not hesitate to send us your spontaneous application!\nPlace of work\nLugano\nType of work\nFull time - Interinal - Full time - Interinal\nApply for this job\nRelated articles\nSorry, no content found.\nYour dedicated contact\nLipari David\n091 610 20 62\nPemsa Lugano\nVia Al Mulino 22\n6814 Falling\nECJECTIVES\n- Supply of protection devices\n- Equipment/ tools available\n- Encouragement of training and proposals\n- Promotion of initiatives to protect health and welfare and social advice\nMore information\nAny job offer corresponding to your expectations?\nSend my CV",
         "de": "- Springer\nWelder — Tubist\nVollzeit Interinal Vollzeit Interinal\nKandidat\nBewerben Sie sich für diesen Job\nWelder — Tubist\n* Angabe von Pflichtfeldern\nKontaktangaben *\nPrénomen\nNein.\nTelefon\nE-Mail *\nLaden Sie Ihren CV hoch *\nArten von Dateien akzeptiert: pdf, Max Dateigröße: 5 MB.\nPour convert vos fichiers en pdf cliquez ici : https://convertio.co/fr/docx-pdf/\nAutres-Dokumente\nIch möchte mehr Dokumente senden\nAutres-Dokumente\nPermis de travail, Zertifizierungen, lettre de recommandation\nZiehen Sie die Dateien hier oder\nWählen Sie die Dateien aus\nAkzeptierte Dateitypen: PDF, Max Dateigröße: 10 MB, Max Dateinummer: 5.\nSenden Sie eine E-Mail an den Kandidaten\nNein.\nJa\nDieses Feld wird beim Anzeigen des Moduls ausgeblendet\nWertschätzung\nJe parle allesand\nOui\nNoch nicht.\nLevel de pratique de l'Allemand *\nAucune-Wiesen\nBasique\nIntermédiaire\nAvancé\nExpérimenté\nSchweine\nDSGVO\nIch akzeptiere die Allgemeinen Geschäftsbedingungen und bestätige, dass ich die Datenschutzerklärung gelesen habe. *\nBestätigen Sie meine Bewerbung\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer dauerhaften Arbeit?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position von Saldatore - Tubista bei\nMission:\n- Schweißen für nichtrostenden Stahl\n- Schweißen verschiedener Materialien\n- Eck- und Kopfschweißen\n- Komponentenzubereitung\n- Zerstörungsfreie Kontrollen (Radiographie, eindringende Flüssigkeiten)\nProfil :\n- Schweißlizenzen TIG oder MIG/MAG (ISO) gültig\n- Erfahrung im Bereich von mindestens 5 Jahren\n- Selbstkommunale Person\n- Flexibilität und Initiativgeist\n- Wohnsitz von bis zu 45 km vom Ort der Vereinbarung\n- Italienische Sprache\nIhre Kontaktperson:\nIhr Ansprechpartner für diese Position ist David. Mit über 15 Jahren Erfahrung in der Rekrutierung können Sie alle Ihre Fragen zum Standort begleiten, beraten und beantworten. Dieser Job ist nicht genau das, wonach er sucht, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nArbeitsort\nLugano\nArt der Arbeit\nVollzeit - Interinal - Vollzeit - Interinal\nBewerben Sie sich für diesen Job\nVerwandte Artikel\nSorry, kein Inhalt gefunden.\nIhr engagierter Kontakt\nLipari David\n091 610 20 62\nPemsa Lugano\nVia Al Mulino 22\n6814 Fallen\nEKJEKTIVEN\n- Lieferung von Schutzvorrichtungen\n- Ausrüstung/Werkzeuge verfügbar\n- Förderung von Schulungen und Vorschlägen\n- Förderung von Initiativen zum Schutz von Gesundheit und Wohlfahrt sowie Sozialberatung\nWeitere Informationen\nIrgendein Stellenangebot, das Ihren Erwartungen entspricht?\nSenden Sie meinen CV",
         "fr": "- Sauteur\nSoudeur – Tubiste\nTemps plein Interinal Temps plein Interinal\nCandidat\nPostulez à ce poste\nSoudeur - Tubiste\n* indique les champs obligatoires\nCoordonnées *\nPrénom\nC'est pas vrai.\nTéléphone\nCourriel *\nTéléchargez votre CV *\nTypes de fichiers acceptés: pdf, taille maximale du fichier: 5 MB.\nPour convertir vos fichiers en pdf cliquez ici : https://convertio.co/fr/docx-pdf/\nAutres documents\nJe veux envoyer plus de documents\nAutres documents\nPermis de travail, certifications, lettre de recommandation\nFaites glisser les fichiers ici ou\nSélectionnez les fichiers\nTypes de fichiers acceptés: pdf, Taille du fichier max: 10 MB, Numéro de fichier max: 5.\nEnvoyer un courriel au candidat\nC'est pas vrai.\nOui\nCe champ est caché lors de l'affichage du module\nÉvaluation\nJe parle allemand\nOui\nPas encore.\nNiveau de pratique de l'Allemagne *\nPrairies d'Aucune\nBasique\nIntermédiaire\nAvancé\nExpérimenté\nPorcs\nDSGVO\nJ'accepte les conditions générales et confirme que j'ai lu la Politique de confidentialité. *\nConfirmer ma demande\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de Saldatore – Tubista\nMission :\n- Soudage pour acier inoxydable\n- Soudage de matériaux différents\n- Soudage du coin et de la tête\n- Préparation des composantes\n- Commandes non destructives (radiographie, liquides pénétrants)\nProfil :\n- Licences de soudage valides TIG ou MIG/MAG (ISO)\n- Expérience dans le domaine d'au moins 5 ans\n- Automunicipalité\n- Flexibilité et esprit d'initiative\n- Résidence jusqu'à 45 km du lieu de rendez-vous\n- Langue italienne\nVotre personne-ressource:\nVotre contact pour ce poste est David. Avec plus de 15 ans d'expérience de recrutement, vous pourrez accompagner, conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce qu'il cherche, mais tu aimes nos valeurs ? N'hésitez pas à nous envoyer votre candidature spontanée!\nLieu de travail\nLugano\nType de travail\nTemps plein - Interinal - Temps plein - Interinal\nPostulez à ce poste\nArticles connexes\nDésolé, aucun contenu trouvé.\nVotre contact dédié\nLipari David\n091 610 20 62\nPemsa Lugano\nVia Al Mulino 22\n6814 Chute\nECJECTIFS\n- Fourniture de dispositifs de protection\n- Matériel/outils disponibles\n- Encourager la formation et les propositions\n- Promotion d'initiatives visant à protéger la santé, le bien-être et les conseils sociaux\nInformations supplémentaires\nUne offre d'emploi correspondant à vos attentes ?\nEnvoyer mon CV"
@@ -14872,9 +14799,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m6-pemsa-nyon",
-        "en": "m6-machinery-operator-pemsa-nyon",
-        "de": "m6-maschinenfuhrer-pemsa-nyon",
-        "fr": "operateur-de-machinerie-m6-pemsa-nyon"
+        "en": "earrings-m6-pemsa-nyon",
+        "de": "ohrringe-m6-pemsa-nyon",
+        "fr": "boucles-d-oreilles-m6-pemsa-nyon"
       },
       "id": "pemsa-6a7b415e0709",
       "salaryMin": 74500,
@@ -14894,19 +14821,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "earrings-m6-pemsa-nyon"
+          "m6-machinery-operator-pemsa-nyon"
         ],
         "de": [
-          "ohrringe-m6-pemsa-nyon"
+          "m6-maschinenfuhrer-pemsa-nyon"
         ],
         "fr": [
-          "boucles-d-oreilles-m6-pemsa-nyon"
+          "operateur-de-machinerie-m6-pemsa-nyon"
         ]
       },
       "previousSlugs": [
-        "earrings-m6-pemsa-nyon",
-        "ohrringe-m6-pemsa-nyon",
-        "boucles-d-oreilles-m6-pemsa-nyon"
+        "m6-machinery-operator-pemsa-nyon",
+        "m6-maschinenfuhrer-pemsa-nyon",
+        "operateur-de-machinerie-m6-pemsa-nyon"
       ],
       "datePosted": "2026-09-10T17:22:14+02:00",
       "postingDateSource": "reported",
@@ -14949,9 +14876,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m5-pemsa-gland",
-        "en": "m5-operator-pemsa-gland",
-        "de": "m5-maschinenfuhrer-pemsa-gland",
-        "fr": "operateur-m5-pemsa-gland"
+        "en": "knife-m5-pemsa-gland",
+        "de": "messer-m5-pemsa-gland",
+        "fr": "couteau-m5-pemsa-gland"
       },
       "id": "pemsa-de8971539cbe",
       "salaryMin": 74500,
@@ -14971,19 +14898,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "knife-m5-pemsa-gland"
+          "m5-operator-pemsa-gland"
         ],
         "de": [
-          "messer-m5-pemsa-gland"
+          "m5-maschinenfuhrer-pemsa-gland"
         ],
         "fr": [
-          "couteau-m5-pemsa-gland"
+          "operateur-m5-pemsa-gland"
         ]
       },
       "previousSlugs": [
-        "knife-m5-pemsa-gland",
-        "messer-m5-pemsa-gland",
-        "couteau-m5-pemsa-gland"
+        "m5-operator-pemsa-gland",
+        "m5-maschinenfuhrer-pemsa-gland",
+        "operateur-m5-pemsa-gland"
       ],
       "datePosted": "2026-09-10T17:18:14+02:00",
       "postingDateSource": "reported",
@@ -15026,9 +14953,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m3-pemsa-montreux",
-        "en": "m3-machine-operator-pemsa-montreux",
-        "de": "m3-maschinenfuhrer-pemsa-montreux",
-        "fr": "operateur-m3-pemsa-montreux"
+        "en": "knife-m3-pemsa-montreux",
+        "de": "messer-m3-pemsa-montreux",
+        "fr": "couteau-m3-pemsa-montreux"
       },
       "id": "pemsa-6a7a7bd8551c",
       "salaryMin": 74500,
@@ -15048,19 +14975,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "knife-m3-pemsa-montreux"
+          "m3-machine-operator-pemsa-montreux"
         ],
         "de": [
-          "messer-m3-pemsa-montreux"
+          "m3-maschinenfuhrer-pemsa-montreux"
         ],
         "fr": [
-          "couteau-m3-pemsa-montreux"
+          "operateur-m3-pemsa-montreux"
         ]
       },
       "previousSlugs": [
-        "knife-m3-pemsa-montreux",
-        "messer-m3-pemsa-montreux",
-        "couteau-m3-pemsa-montreux"
+        "m3-machine-operator-pemsa-montreux",
+        "m3-maschinenfuhrer-pemsa-montreux",
+        "operateur-m3-pemsa-montreux"
       ],
       "datePosted": "2026-09-10T17:16:14+02:00",
       "postingDateSource": "reported",
@@ -15103,9 +15030,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m2-pemsa-morges",
-        "en": "m2-machine-operator-pemsa-morges",
-        "de": "m2-maschinenfuhrer-pemsa-morges",
-        "fr": "operateur-m2-pemsa-morges"
+        "en": "knife-m2-pemsa-morges",
+        "de": "messer-m2-pemsa-morges",
+        "fr": "couteau-m2-pemsa-morges"
       },
       "id": "pemsa-d3b667bc3dd5",
       "salaryMin": 74500,
@@ -15125,19 +15052,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "knife-m2-pemsa-morges"
+          "m2-machine-operator-pemsa-morges"
         ],
         "de": [
-          "messer-m2-pemsa-morges"
+          "m2-maschinenfuhrer-pemsa-morges"
         ],
         "fr": [
-          "couteau-m2-pemsa-morges"
+          "operateur-m2-pemsa-morges"
         ]
       },
       "previousSlugs": [
-        "knife-m2-pemsa-morges",
-        "messer-m2-pemsa-morges",
-        "couteau-m2-pemsa-morges"
+        "m2-machine-operator-pemsa-morges",
+        "m2-maschinenfuhrer-pemsa-morges",
+        "operateur-m2-pemsa-morges"
       ],
       "datePosted": "2026-09-10T17:11:56+02:00",
       "postingDateSource": "reported",
@@ -15719,7 +15646,7 @@
       "slugByLocale": {
         "it": "installatore-di-isolanti-termici-installatore-di-sistemi-antincendio-m-f-pemsa-fribourg",
         "en": "thermal-insulation-installer-fire-systems-installer-m-f-pemsa-fribourg",
-        "de": "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg",
+        "de": "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg",
         "fr": "installateur-d-isolation-thermique-installateur-de-systemes-d-incendie-h-f-pemsa-fribourg"
       },
       "id": "pemsa-f2d6e8b2b2a5",
@@ -15740,11 +15667,11 @@
       "firstSeenAt": "2026-09-05T12:46:35.883Z",
       "previousSlugsByLocale": {
         "de": [
-          "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg"
+          "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg"
+        "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg"
       ],
       "datePosted": "2026-09-04T21:09:03+02:00",
       "postingDateSource": "reported",
@@ -15787,7 +15714,7 @@
       },
       "slugByLocale": {
         "it": "muratore-specializzato-in-finiture-m-f-pemsa-fribourg",
-        "en": "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg",
+        "en": "wall-specializing-in-m-f-finishes-pemsa-fribourg",
         "de": "wand-spezialisiert-auf-m-w-oberflachen-pemsa-fribourg",
         "fr": "mur-specialise-dans-les-finitions-h-f-pemsa-fribourg"
       },
@@ -15809,11 +15736,11 @@
       "firstSeenAt": "2026-09-05T12:46:35.883Z",
       "previousSlugsByLocale": {
         "en": [
-          "wall-specializing-in-m-f-finishes-pemsa-fribourg"
+          "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "wall-specializing-in-m-f-finishes-pemsa-fribourg"
+        "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg"
       ],
       "datePosted": "2026-09-04T21:03:57+02:00",
       "postingDateSource": "reported",
@@ -16122,8 +16049,7 @@
       "firstSeenAt": "2026-09-26T14:03:31.544Z",
       "datePosted": "2026-09-04T20:29:50+02:00",
       "postingDateSource": "reported",
-      "postalCode": "1470",
-      "needsRetranslation": true
+      "postalCode": "1470"
     },
     {
       "title": "Aiuto piastrellista (M/F)",
@@ -16428,8 +16354,7 @@
       "firstSeenAt": "2026-09-04T23:05:28.491Z",
       "datePosted": "2026-09-04T20:06:25+02:00",
       "postingDateSource": "reported",
-      "postalCode": "1700",
-      "needsRetranslation": true
+      "postalCode": "1700"
     },
     {
       "title": "Tecnico della qualità – Responsabile del controllo (M/F/D)",
@@ -16529,9 +16454,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-paradiso",
-        "en": "plumber-pemsa-paradiso",
-        "de": "heizungs-und-sanitartechniker-pemsa-paradiso",
-        "fr": "plombier-pemsa-paradiso"
+        "en": "idraulation-pemsa-paradiso",
+        "de": "idraulierung-pemsa-paradiso",
+        "fr": "l-idraulation-pemsa-paradiso"
       },
       "id": "pemsa-d2caffc23702",
       "salaryMin": 58000,
@@ -16551,19 +16476,19 @@
       "firstSeenAt": "2026-09-04T13:36:36.597Z",
       "previousSlugsByLocale": {
         "en": [
-          "idraulation-pemsa-paradiso"
+          "plumber-pemsa-paradiso"
         ],
         "de": [
-          "idraulierung-pemsa-paradiso"
+          "heizungs-und-sanitartechniker-pemsa-paradiso"
         ],
         "fr": [
-          "l-idraulation-pemsa-paradiso"
+          "plombier-pemsa-paradiso"
         ]
       },
       "previousSlugs": [
-        "idraulation-pemsa-paradiso",
-        "idraulierung-pemsa-paradiso",
-        "l-idraulation-pemsa-paradiso"
+        "plumber-pemsa-paradiso",
+        "heizungs-und-sanitartechniker-pemsa-paradiso",
+        "plombier-pemsa-paradiso"
       ],
       "datePosted": "2026-09-04T07:40:56+02:00",
       "postingDateSource": "reported",
@@ -16606,8 +16531,8 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "en": "plumber-sanitary-systems-pemsa-mendrisio",
-        "de": "klempner-sanitaranlagen-pemsa-mendrisio",
+        "en": "hydraulic-health-plants-pemsa-mendrisio",
+        "de": "hydraulische-heilpflanzen-pemsa-mendrisio",
         "fr": "installations-sanitaires-hydrauliques-pemsa-mendrisio"
       },
       "id": "pemsa-75ca3af84f9d",
@@ -16629,11 +16554,11 @@
       "previousSlugsByLocale": {
         "en": [
           "hydraulic-sanitary-systems-pemsa-lugano",
-          "hydraulic-health-plants-pemsa-mendrisio"
+          "plumber-sanitary-systems-pemsa-mendrisio"
         ],
         "de": [
           "klempner-sanitaranlagen-pemsa-lugano",
-          "hydraulische-heilpflanzen-pemsa-mendrisio"
+          "klempner-sanitaranlagen-pemsa-mendrisio"
         ],
         "it": [
           "plombier-installations-sanitaires-et-chauffage-pemsa-lugano",
@@ -16656,8 +16581,8 @@
         "idraulico-impianti-sanitari-pemsa-lugano",
         "plombier-pour-installations-sanitaires-pemsa-mendrisio",
         "plumber-for-sanitary-systems-pemsa-mendrisio",
-        "hydraulic-health-plants-pemsa-mendrisio",
-        "hydraulische-heilpflanzen-pemsa-mendrisio"
+        "plumber-sanitary-systems-pemsa-mendrisio",
+        "klempner-sanitaranlagen-pemsa-mendrisio"
       ],
       "datePosted": "2026-09-04T07:34:32+02:00",
       "postingDateSource": "reported",
@@ -17676,9 +17601,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-rivera",
-        "en": "welder-tubier-pemsa-rivera",
-        "de": "schwei-er-tubier-pemsa-rivera",
-        "fr": "soudeur-tubier-pemsa-rivera"
+        "en": "sauce-tubist-pemsa-rivera",
+        "de": "sauce-tubist-pemsa-rivera",
+        "fr": "sauce-tubiste-pemsa-rivera"
       },
       "id": "pemsa-45dfd4d41b44",
       "salaryMin": 55500,
@@ -17698,18 +17623,19 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "en": [
-          "sauce-tubist-pemsa-rivera"
+          "welder-tubier-pemsa-rivera"
         ],
         "de": [
-          "sauce-tubist-pemsa-rivera"
+          "schwei-er-tubier-pemsa-rivera"
         ],
         "fr": [
-          "sauce-tubiste-pemsa-rivera"
+          "soudeur-tubier-pemsa-rivera"
         ]
       },
       "previousSlugs": [
-        "sauce-tubist-pemsa-rivera",
-        "sauce-tubiste-pemsa-rivera"
+        "welder-tubier-pemsa-rivera",
+        "schwei-er-tubier-pemsa-rivera",
+        "soudeur-tubier-pemsa-rivera"
       ],
       "datePosted": "2026-08-27T14:50:04+02:00",
       "postingDateSource": "reported",
@@ -17814,7 +17740,7 @@
       "slugByLocale": {
         "it": "applicatore-di-resina-pemsa-lausanne",
         "en": "resin-applicator-pemsa-lausanne",
-        "de": "harzanwender-pemsa-lausanne",
+        "de": "harzapplikator-pemsa-lausanne",
         "fr": "applicateur-de-resine-pemsa-lausanne"
       },
       "id": "pemsa-5eae3fb0bd53",
@@ -17835,11 +17761,11 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
-          "harzapplikator-pemsa-lausanne"
+          "harzanwender-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "harzapplikator-pemsa-lausanne"
+        "harzanwender-pemsa-lausanne"
       ],
       "datePosted": "2026-08-10T10:49:14+02:00",
       "postingDateSource": "reported",
@@ -18519,7 +18445,7 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
         "en": "electrical-project-manager-federal-expert-diploma-required-pemsa-lausanne",
-        "de": "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
+        "de": "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne",
         "fr": "responsable-de-projet-dans-le-secteur-electrique-diplome-federal-d-expert-requis-pemsa-lausanne"
       },
       "id": "pemsa-b5c506039f6c",
@@ -18541,11 +18467,11 @@
       "firstSeenAt": "2026-09-03T23:26:09.342Z",
       "previousSlugs": [
         "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne-7113075e73",
-        "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne"
+        "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne"
+          "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
         ],
         "it": [
           "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne-7113075e73"
@@ -18712,7 +18638,7 @@
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
         "en": "versatile-electromechanical-technician-agricultural-and-green-care-machinery-pemsa-lausanne",
-        "de": "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
+        "de": "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne",
         "fr": "technicien-electromecanique-polyvalent-machines-agricoles-et-equipements-d-entretien-des-espaces-verts-pemsa-lausanne"
       },
       "id": "pemsa-9fff7c18c197",
@@ -18733,11 +18659,11 @@
       "firstSeenAt": "2026-09-01T23:16:38.648Z",
       "previousSlugsByLocale": {
         "de": [
-          "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne"
+          "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne"
+        "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
       ],
       "datePosted": "2026-07-29T10:04:04+02:00",
       "postingDateSource": "reported",
@@ -18927,8 +18853,8 @@
       "slugByLocale": {
         "it": "elettricista-industriale-pemsa-montreux",
         "en": "industrial-electricity-pemsa-montreux",
-        "de": "industrieelektriker-pemsa-montreux",
-        "fr": "electricien-industriel-pemsa-montreux"
+        "de": "industriestrom-pemsa-montreux",
+        "fr": "electricite-industrielle-pemsa-montreux"
       },
       "id": "pemsa-eb9447a2b0ec",
       "salaryMin": 74500,
@@ -18950,15 +18876,15 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "de": [
-          "industriestrom-pemsa-montreux"
+          "industrieelektriker-pemsa-montreux"
         ],
         "fr": [
-          "electricite-industrielle-pemsa-montreux"
+          "electricien-industriel-pemsa-montreux"
         ]
       },
       "previousSlugs": [
-        "industriestrom-pemsa-montreux",
-        "electricite-industrielle-pemsa-montreux"
+        "industrieelektriker-pemsa-montreux",
+        "electricien-industriel-pemsa-montreux"
       ],
       "postalCode": "1820"
     },
@@ -19060,9 +18986,9 @@
       },
       "slugByLocale": {
         "it": "operario-addetto-alla-gru-a-torre-pemsa-fribourg",
-        "en": "operario-associate-alla-gru-a-torre-pemsa-fribourg",
-        "de": "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg",
-        "fr": "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
+        "en": "tower-crane-operator-pemsa-fribourg",
+        "de": "turmkranfuhrer-pemsa-fribourg",
+        "fr": "operateur-de-grue-a-tour-pemsa-fribourg"
       },
       "id": "pemsa-7fac9c3fc3c4",
       "salaryMin": 76500,
@@ -19082,19 +19008,19 @@
       "firstSeenAt": "2026-08-31T17:09:18.558Z",
       "previousSlugsByLocale": {
         "en": [
-          "tower-crane-operator-pemsa-fribourg"
+          "operario-associate-alla-gru-a-torre-pemsa-fribourg"
         ],
         "de": [
-          "turmkranfuhrer-pemsa-fribourg"
+          "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg"
         ],
         "fr": [
-          "operateur-de-grue-a-tour-pemsa-fribourg"
+          "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "tower-crane-operator-pemsa-fribourg",
-        "turmkranfuhrer-pemsa-fribourg",
-        "operateur-de-grue-a-tour-pemsa-fribourg"
+        "operario-associate-alla-gru-a-torre-pemsa-fribourg",
+        "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg",
+        "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
       ],
       "datePosted": "2026-07-24T12:07:16+02:00",
       "postingDateSource": "reported",
@@ -19198,9 +19124,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-copritetto-pemsa-fribourg",
-        "en": "milking-machine-copratet-pemsa-fribourg",
-        "de": "melkmaschine-copratet-pemsa-fribourg",
-        "fr": "machine-a-traite-copratet-pemsa-fribourg"
+        "en": "roofing-and-plastering-specialist-pemsa-fribourg",
+        "de": "dachzieher-und-plasterer-pemsa-fribourg",
+        "fr": "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
       },
       "id": "pemsa-7adb184e5f31",
       "salaryMin": 76500,
@@ -19220,19 +19146,19 @@
       "firstSeenAt": "2026-09-02T13:42:58.107Z",
       "previousSlugsByLocale": {
         "en": [
-          "roofing-and-plastering-specialist-pemsa-fribourg"
+          "milking-machine-copratet-pemsa-fribourg"
         ],
         "de": [
-          "dachzieher-und-plasterer-pemsa-fribourg"
+          "melkmaschine-copratet-pemsa-fribourg"
         ],
         "fr": [
-          "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
+          "machine-a-traite-copratet-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "roofing-and-plastering-specialist-pemsa-fribourg",
-        "dachzieher-und-plasterer-pemsa-fribourg",
-        "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
+        "milking-machine-copratet-pemsa-fribourg",
+        "melkmaschine-copratet-pemsa-fribourg",
+        "machine-a-traite-copratet-pemsa-fribourg"
       ],
       "datePosted": "2026-07-24T08:40:35+02:00",
       "postingDateSource": "reported",
@@ -19642,7 +19568,7 @@
       "slugByLocale": {
         "it": "aiuto-carpentiere-pemsa-fribourg",
         "en": "carpentry-aid-pemsa-fribourg",
-        "de": "aiuto-carpentiere-pemsa-fribourg",
+        "de": "schreinereibeihilfe-pemsa-fribourg",
         "fr": "aides-a-la-menuiserie-pemsa-fribourg"
       },
       "id": "pemsa-bd4769fd2d78",
@@ -19663,16 +19589,7 @@
       "firstSeenAt": "2026-08-31T17:09:18.558Z",
       "datePosted": "2026-07-21T09:22:19+02:00",
       "postingDateSource": "reported",
-      "postalCode": "1700",
-      "previousSlugsByLocale": {
-        "de": [
-          "schreinereibeihilfe-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "schreinereibeihilfe-pemsa-fribourg"
-      ],
-      "needsRetranslation": true
+      "postalCode": "1700"
     },
     {
       "title": "Installatori di binari di alimentazione / Strutture metalliche",
@@ -19895,7 +19812,7 @@
       "slugByLocale": {
         "it": "pavimentista-posatore-di-pavimenti-pemsa-fribourg",
         "en": "floor-pavimentist-floor-dispenser-pemsa-fribourg",
-        "de": "floor-pavimentist-floor-dispenser-pemsa-fribourg",
+        "de": "flooring-specialist-parquet-installer-pemsa-fribourg",
         "fr": "pavageur-de-sol-distributeur-de-sol-pemsa-fribourg"
       },
       "id": "pemsa-470331a2026f",
@@ -19916,11 +19833,11 @@
       "firstSeenAt": "2026-09-02T13:42:58.107Z",
       "previousSlugsByLocale": {
         "de": [
-          "flooring-specialist-parquet-installer-pemsa-fribourg"
+          "floor-pavimentist-floor-dispenser-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "flooring-specialist-parquet-installer-pemsa-fribourg"
+        "floor-pavimentist-floor-dispenser-pemsa-fribourg"
       ],
       "datePosted": "2026-07-17T10:02:58+02:00",
       "postingDateSource": "reported",
@@ -20293,7 +20210,7 @@
         "it": "subacqueo-esperto-pemsa-lausanne",
         "en": "diver-expert-pemsa-lausanne",
         "de": "taucherexperte-pemsa-lausanne",
-        "fr": "subacqueo-esperto-pemsa-lausanne"
+        "fr": "expert-plongeur-pemsa-lausanne"
       },
       "id": "pemsa-ea2fe58b3e19",
       "salaryMin": 60500,
@@ -20315,15 +20232,11 @@
         "de": [
           "sachverstandigengruppe-pemsa-lausanne",
           "erfahrener-tauchexperte-pemsa-lausanne"
-        ],
-        "fr": [
-          "expert-plongeur-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
         "sachverstandigengruppe-pemsa-lausanne",
-        "erfahrener-tauchexperte-pemsa-lausanne",
-        "expert-plongeur-pemsa-lausanne"
+        "erfahrener-tauchexperte-pemsa-lausanne"
       ],
       "datePosted": "2026-07-13T10:35:04+02:00",
       "postingDateSource": "reported",
@@ -20366,8 +20279,8 @@
       },
       "slugByLocale": {
         "it": "lattoniere-pemsa-tafers",
-        "en": "milking-machine-pemsa-tafers",
-        "de": "melkmaschine-pemsa-tafers",
+        "en": "tinsmith-pemsa-tafers",
+        "de": "dachdecker-pemsa-tafers",
         "fr": "latteniere-pemsa-tafers"
       },
       "id": "pemsa-77b7b0c9321b",
@@ -20388,15 +20301,15 @@
       "firstSeenAt": "2026-08-31T17:09:18.558Z",
       "previousSlugsByLocale": {
         "en": [
-          "tinsmith-pemsa-tafers"
+          "milking-machine-pemsa-tafers"
         ],
         "de": [
-          "dachdecker-pemsa-tafers"
+          "melkmaschine-pemsa-tafers"
         ]
       },
       "previousSlugs": [
-        "tinsmith-pemsa-tafers",
-        "dachdecker-pemsa-tafers"
+        "milking-machine-pemsa-tafers",
+        "melkmaschine-pemsa-tafers"
       ],
       "datePosted": "2026-07-13T09:05:27+02:00",
       "postingDateSource": "reported",
@@ -20684,7 +20597,7 @@
       "slugByLocale": {
         "it": "tecnico-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
         "en": "specialized-technician-in-bituminous-waterproofing-pemsa-lausanne",
-        "de": "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
+        "de": "spezialist-fur-bituminose-dichtung-pemsa-lausanne",
         "fr": "technicien-specialise-en-etancheite-bitumineuse-pemsa-lausanne"
       },
       "id": "pemsa-8bc01fdd31bd",
@@ -20704,11 +20617,11 @@
       "firstSeenAt": "2026-08-12T10:23:47.343Z",
       "previousSlugsByLocale": {
         "de": [
-          "spezialist-fur-bituminose-dichtung-pemsa-lausanne"
+          "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "spezialist-fur-bituminose-dichtung-pemsa-lausanne"
+        "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
       ],
       "salarySource": "reported",
       "datePosted": "2026-07-09T13:52:07+02:00",
@@ -20874,9 +20787,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "en": "knife-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "de": "messer-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "fr": "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "en": "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "de": "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "fr": "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
       },
       "id": "pemsa-843c3ee54b8d",
       "salaryMin": 60500,
@@ -20900,22 +20813,22 @@
           "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "en": [
-          "driver-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "knife-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "de": [
-          "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "messer-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "fr": [
-          "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
         "but-m1-m2-m3-m6-m7-pemsa-lausanne",
         "m1-m2-m3-m6-m7-pemsa-lausanne",
         "mais-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "knife-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "messer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
       ],
       "salarySource": "reported",
       "datePosted": "2026-06-29T09:22:33+02:00",

@@ -1211,7 +1211,7 @@
         "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
         "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
+        "fr": "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1261,7 +1261,7 @@
       "previousSlugs": [
         "laboratoire-de-biologie-50-kanton-aargau-zofingen",
         "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+        "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1269,7 +1269,7 @@
         ],
         "fr": [
           "laboratoire-de-biologie-50-kanton-aargau-zofingen",
-          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+          "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:59.638Z",
@@ -1788,7 +1788,7 @@
       "slug": "medico-a-50-kanton-aargau-stein",
       "slugByLocale": {
         "it": "medico-a-50-kanton-aargau-stein",
-        "en": "mediothekarin-mediothekar-50-kanton-aargau-stein",
+        "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
         "fr": "mediothecaire-mediothecaire-50-kanton-aargau-stein"
       },
@@ -1838,14 +1838,14 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "mediothekarin-mediothekar-50-kanton-aargau-ch",
-        "mediothecarin-mediothecar-50-kanton-aargau-stein"
+        "mediothekarin-mediothekar-50-kanton-aargau-stein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
         ],
         "en": [
-          "mediothecarin-mediothecar-50-kanton-aargau-stein"
+          "mediothekarin-mediothekar-50-kanton-aargau-stein"
         ],
         "fr": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
@@ -3090,9 +3090,9 @@
     },
     {
       "id": "kanton-aargau-450249a4f2da",
-      "slug": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+      "slug": "housekeeper-governante-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+        "it": "housekeeper-governante-80-kanton-aargau-aarau",
         "en": "housekeeper-roomkeeper-80-kanton-aargau-aarau",
         "de": "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
         "fr": "femme-de-chambre-femme-de-chambre-80-kanton-aargau-aarau"
@@ -3142,12 +3142,12 @@
       "department": "Generalsekretariat GKA",
       "previousSlugs": [
         "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-        "housekeeper-governante-80-kanton-aargau-aarau"
+        "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-          "housekeeper-governante-80-kanton-aargau-aarau"
+          "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
         ],
         "en": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch"
@@ -3830,7 +3830,7 @@
         "it": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
         "en": "legal-trainee-kanton-aargau-muri-und-zofingen",
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
+        "fr": "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3880,7 +3880,7 @@
       "previousSlugs": [
         "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
         "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3888,7 +3888,7 @@
         ],
         "fr": [
           "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
-          "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-02T21:20:59.739Z",
@@ -5175,9 +5175,9 @@
     },
     {
       "id": "kanton-aargau-aa5b05cb11b9",
-      "slug": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+      "slug": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+        "it": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
         "en": "lawyer-lawyer-prison-90-kanton-aargau-aarau",
         "de": "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
         "fr": "avocat-prison-avocat-90-kanton-aargau-aarau"
@@ -5227,12 +5227,12 @@
       "department": "Amt für Justizvollzug",
       "previousSlugs": [
         "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-        "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+        "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-          "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+          "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
         ],
         "en": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch"
@@ -5918,9 +5918,9 @@
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+      "slug": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+        "it": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
         "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
@@ -5973,13 +5973,13 @@
       "previousSlugs": [
         "esperto-di-strategia-politica-80-kanton-aargau-aarau",
         "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "esperto-di-strategia-politica-80-kanton-aargau-aarau",
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:38.497Z",
@@ -6084,12 +6084,12 @@
     },
     {
       "id": "kanton-aargau-075325008ced",
-      "slug": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch",
+      "slug": "prigionieri-prigioni-distrettuali-65-kanton-aargau-zofingen",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch",
-        "it": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch"
+        "it": "prigionieri-prigioni-distrettuali-65-kanton-aargau-zofingen",
+        "en": "prisoners-prisoners-district-prison-65-kanton-aargau-zofingen",
+        "fr": "prisonniers-prison-de-district-65-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6149,16 +6149,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:26:43.922Z"
+      "firstSeenAt": "2026-10-13T09:26:43.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-65-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-316234cdc9b4",
-      "slug": "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch",
+      "slug": "amministratore-trice-di-sistema-ingegnere-di-sistema-supporto-di-2-3-livello-80-100-kanton-aargau-schafisheim-buchs-ag",
       "slugByLocale": {
         "de": "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch",
-        "it": "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch",
-        "en": "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch",
-        "fr": "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch"
+        "it": "amministratore-trice-di-sistema-ingegnere-di-sistema-supporto-di-2-3-livello-80-100-kanton-aargau-schafisheim-buchs-ag",
+        "en": "system-administrator-systems-engineer-2nd-3rd-level-support-80-100-kanton-aargau-schafisheim-buchs-ag",
+        "fr": "administrateur-rice-systeme-ingenieur-e-systeme-support-de-2e-3e-niveau-80-100-kanton-aargau-schafisheim-buchs-ag"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6177,7 +6191,6 @@
         "en": "Exciting tasks await:\n• They provide 2nd- and 3rd-level support for workplaces, servers and network infrastructure and solve complex disruptions sustainably.\n• They operate, monitor and optimize the network and firewall infrastructure, especially with FortiGate (rules, VPN, segmentation, changes and troubleshooting).\n• You administer Active Directory (users, groups, GPO, permissions, certificates, DNS/DHCP).\n• They operate Windows and Linux servers (installation, configuration, patching, monitoring, backup/restore).\n• They provide weekly cooking services (approximately every 6 weeks) and occasionally out of office hours (maintenance windows, troubleshooting).\n\nWhat you bring:\n• Completed training as computer scientist (EFZ) (systems engineering), vocational examination/higher specialist examination, HF/FH) of advantage or equivalent training\n• In-depth knowledge of Active Directory, Group Policy and Windows Server/Client\n• Very good network knowledge (TCP/IP, VLAN, routing, DNS, DHCP, VPN)\n• Analytical, structured and solution-oriented working method\n• High reliability, discretion and a high sense of responsibility\n\nWe are committed to the cantonal police Aargau for the safety of the almost 740,000 inhabitants in the canton Aargau.\n\nBenefits\nWorking flexibly\n• Part-time (almost) always possible\n• Usually around 3 paid bridge days per year\n• Possibility to extend the holidays by up to 10 days\n• Flexible work such as in the home office\nStay healthy\n• Holistic occupational health management to promote physical, mental and social well-being\n• Various sports activities\n\n• Pensum: 80 - 100%\n• Employment: indefinite\n• Department: Cantonal Police\n• Place of work: Schafisheim/Buchs AG",
         "fr": "Des tâches passionnantes attendent :\n• Ils fournissent un soutien de deuxième et troisième niveaux pour les lieux de travail, les serveurs et l'infrastructure réseau et résolvent durablement les perturbations complexes.\n• Ils exploitent, surveillent et optimisent l'infrastructure réseau et pare-feu, en particulier avec FortiGate (règles, VPN, segmentation, modifications et dépannage).\n• Vous administrez Active Directory (utilisateurs, groupes, GPO, autorisations, certificats, DNS/DHCP).\n• Ils exploitent des serveurs Windows et Linux (installation, configuration, patching, surveillance, sauvegarde/restauration).\n• Ils offrent des services de cuisine hebdomadaire (environ toutes les 6 semaines) et parfois hors des heures de bureau (fenêtres d'entretien, dépannage).\n\nCe que vous apportez:\n• Formation complète en informatique (EFZ) (ingénierie des systèmes), examen professionnel/examen spécialisé supérieur, HF/FH) d'avantage ou formation équivalente\n• Connaissance approfondie de Active Directory, Group Policy et Windows Server/Client\n• Très bonne connaissance du réseau (TCP/IP, VLAN, routage, DNS, DHCP, VPN)\n• Méthode de travail analytique, structurée et orientée vers la solution\n• Haute fiabilité, discrétion et sens élevé des responsabilités\n\nNous nous engageons auprès de la police cantonale Aargau pour la sécurité des près de 740 000 habitants du canton Aargau.\n\nAvantages\nTravail flexible\n• Temps partiel (presque) toujours possible\n• Environ 3 jours de pont payés par an\n• Possibilité de prolonger les vacances jusqu'à 10 jours\n• Travail flexible comme dans le bureau à domicile\nRestez en bonne santé\n• Gestion holistique de la santé au travail pour promouvoir le bien-être physique, mental et social\n• Diverses activités sportives\n\n• Pensum: 80 - 100%\n• Emploi: indéfini\n• Département: Police cantonale\n• Lieu de travail: Schafisheim/Buchs AG"
       },
-      "needsRetranslation": true,
       "location": "Schafisheim/Buchs AG",
       "canton": "AG",
       "url": "https://jobs.ag.ch/offene-stellen/systemadministrator-in-systemengineer-2nd-3rd-level-support-80/a1afe1cd-a2e1-47b4-bef4-c3cfa6119093",
@@ -6219,16 +6232,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:26:43.399Z"
+      "firstSeenAt": "2026-10-13T09:26:43.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "systemadministrator-in-systemengineer-2nd-3rd-level-support-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-b40dc8d85e23",
-      "slug": "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch",
+      "slug": "case-handler-case-handler-reporting-agency-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch",
+        "it": "case-handler-case-handler-reporting-agency-80-100-kanton-aargau-aarau",
         "en": "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch"
+        "fr": "agent-de-traitement-de-traitement-de-cas-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6289,14 +6316,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:26:42.808Z"
+      "firstSeenAt": "2026-10-13T09:26:42.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-meldestelle-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-c2b21e672d30",
       "slug": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
       "slugByLocale": {
         "it": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen",
+        "en": "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
         "de": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "fr": "professeur-de-mathematiques-60-80-kanton-aargau-wohlen"
       },
@@ -6348,7 +6386,7 @@
       "previousSlugs": [
         "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "mathematics-teacher-60-80-kanton-aargau-wohlen",
-        "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+        "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6357,7 +6395,7 @@
         "en": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
           "mathematics-teacher-60-80-kanton-aargau-wohlen",
-          "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
         ],
         "fr": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"

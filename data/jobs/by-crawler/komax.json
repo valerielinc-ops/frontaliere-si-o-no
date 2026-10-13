@@ -158,7 +158,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -369,7 +370,7 @@
       "title": "Development Engineer Electronics with EMV lead",
       "titleByLocale": {
         "de": "Development Ingenieur Electronics with EMV lead",
-        "en": "Development Engineer Electronics with EMV lead",
+        "en": "Development Engineer Electronics with EMC lead",
         "it": "Development Ingegnere Electronics with EMV lead",
         "fr": "Development Ingénieur Electronics with EMV lead"
       },
@@ -434,7 +435,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-38b4439706fb",
@@ -443,7 +445,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -492,7 +494,7 @@
         "facility-manager-w-m-d-komax-ch-ji9uhd",
         "facility-manager-m-w-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch",
-        "gestionnaire-d-installations-h-f-d-komax-dierikon"
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -502,7 +504,7 @@
         ],
         "fr": [
           "facility-manager-m-w-d-komax-dierikon",
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "localeMismatchSuppressed": true,

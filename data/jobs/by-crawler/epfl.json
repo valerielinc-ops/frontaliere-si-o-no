@@ -3287,11 +3287,11 @@
     },
     {
       "id": "epfl-496435dd94ca",
-      "slug": "assistant-e-administratif-ve-sgm-epfl-lausanne",
+      "slug": "assistente-amministrativo-epfl-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-sgm-epfl-lausanne",
-        "it": "assistant-e-administratif-ve-sgm-epfl-lausanne",
-        "en": "assistant-e-administratif-ve-sgm-epfl-lausanne",
+        "it": "assistente-amministrativo-epfl-lausanne",
+        "en": "administrative-assistant-epfl-lausanne",
         "de": "assistant-e-administratif-ve-sgm-epfl-lausanne"
       },
       "company": "EPFL",
@@ -3353,7 +3353,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-13T09:17:04.843Z"
+      "firstSeenAt": "2026-10-13T09:17:04.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-sgm-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-sgm-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-sgm-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-c9e9d3bd366e",

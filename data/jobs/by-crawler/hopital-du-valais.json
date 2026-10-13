@@ -152,7 +152,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:17:23.769Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -5508,12 +5507,12 @@
     },
     {
       "id": "hopital-du-valais-e58a27621abd",
-      "slug": "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de",
+      "slug": "infermiera-tra-80-100-per-un-periodo-fisso-di-5-mesi-per-i-servizi-medici-presso-l-ospedale-martigny-hopital-du-valais",
       "slugByLocale": {
         "fr": "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de",
-        "it": "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de",
-        "en": "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de",
-        "de": "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de"
+        "it": "infermiera-tra-80-100-per-un-periodo-fisso-di-5-mesi-per-i-servizi-medici-presso-l-ospedale-martigny-hopital-du-valais",
+        "en": "nurse-between-80-100-for-a-fixed-period-of-5-months-for-medical-services-at-martigny-hospital-hopital-du-valais-martigny",
+        "de": "krankenschwester-zwischen-80-100-fur-einen-festen-zeitraum-von-5-monaten-fur-medizinische-leistungen-im-krankenhaus"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5573,7 +5572,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-13T09:19:20.157Z"
+      "firstSeenAt": "2026-10-13T09:19:20.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de"
+        ],
+        "en": [
+          "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de"
+        ],
+        "de": [
+          "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-entre-80-100-pour-une-duree-determinee-de-5-mois-pour-les-services-de"
+      ]
     },
     {
       "id": "hopital-du-valais-0ba99df424ca",

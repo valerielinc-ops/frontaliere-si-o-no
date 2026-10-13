@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-baaa1d27c093",
-      "slug": "spitex-pool-haushilfen-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slug": "pool-spitex-di-aiuti-domestici-e-assistenti-alla-cura-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht",
-        "it": "spitex-pool-haushilfen-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht"
+        "it": "pool-spitex-di-aiuti-domestici-e-assistenti-alla-cura-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "spitex-pool-home-and-care-assistance-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "spitex-pool-aide-a-la-maison-et-aux-soins-srk-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -61,11 +61,19 @@
       "pensum": "10%",
       "previousSlugsByLocale": {
         "it": [
+          "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht",
+          "spitex-pool-haushilfen-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
           "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht"
         ]
       },
       "previousSlugs": [
-        "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht"
+        "spitex-pool-haushilfen-und-pflegehilfen-srk-gesundheitsnetz-kuesnacht-kusnacht",
+        "spitex-pool-haushilfen-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -84,12 +92,12 @@
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d57f96a7ee8f",
-      "slug": "aktivierungsfachperson-hf-o-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slug": "specialista-dell-attivazione-sss-o-fage-fabe-socioculturale-centro-diurno-lun-ven-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz",
-        "it": "aktivierungsfachperson-hf-o-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz",
-        "fr": "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz"
+        "it": "specialista-dell-attivazione-sss-o-fage-fabe-socioculturale-centro-diurno-lun-ven-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "activation-specialist-hf-or-fage-fabe-socioculture-day-home-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "specialiste-de-l-activation-hf-ou-fage-fabe-socioculture-day-home-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -141,11 +149,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz",
+          "aktivierungsfachperson-hf-o-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz"
+        ],
+        "fr": [
           "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz"
         ]
       },
       "previousSlugs": [
-        "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz"
+        "aktivierungsfachperson-hf-oder-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz",
+        "aktivierungsfachperson-hf-o-fage-fabe-soziokultur-tagesheim-mo-fr-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

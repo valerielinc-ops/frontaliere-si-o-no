@@ -326,7 +326,7 @@ function DataRow({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export default function AssistedApplicationAdmin() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
   // undefined until the queue has loaded once: nothing is said about the renderer before.
   const [pdfRenderer, setPdfRenderer] = useState<AssistedApplicationPdfRendererCheck | null | undefined>(undefined);
@@ -376,11 +376,15 @@ export default function AssistedApplicationAdmin() {
   };
 
   useEffect(() => {
+    // Firebase restores a persisted session asynchronously. Do not make the
+    // first admin request with a null user: that turns a valid owner session
+    // into a permanent "not authenticated" queue until the page is refreshed.
+    if (authLoading) return;
     void loadOrders();
-    // The queue is loaded once when its admin section is mounted; the explicit
-    // refresh button handles later reads without refetching on every render.
+    // The explicit refresh button handles later reads without refetching on
+    // every render; user is included so the restored owner session is used.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [authLoading, user]);
 
   const counts = useMemo(() => {
     const result: Record<AssistedApplicationAdminStatus, number> = {

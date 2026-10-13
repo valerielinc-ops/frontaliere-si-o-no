@@ -3370,12 +3370,12 @@
     },
     {
       "id": "spital-maennedorf-7035cb1cbee2",
-      "slug": "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf",
+      "slug": "pulizia-dei-dipendenti-60-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "mitarbeiterin-reinigung-60-m-w-d-spital-maennedorf-ch",
-        "it": "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf",
-        "en": "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf"
+        "it": "pulizia-dei-dipendenti-60-m-f-d-spital-mannedorf-mannedorf",
+        "en": "employee-cleaning-60-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "nettoyage-des-employes-60-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3425,11 +3425,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-reinigung-60-m-w-d-spital-maennedorf-ch"
+          "mitarbeiterin-reinigung-60-m-w-d-spital-maennedorf-ch",
+          "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-reinigung-60-m-w-d-spital-maennedorf-ch"
+        "mitarbeiterin-reinigung-60-m-w-d-spital-maennedorf-ch",
+        "mitarbeiterin-reinigung-60-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 49800,
       "salaryMax": 75600,

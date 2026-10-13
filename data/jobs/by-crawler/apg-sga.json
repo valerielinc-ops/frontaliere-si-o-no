@@ -138,7 +138,6 @@
         ]
       },
       "firstSeenAt": "2026-10-06T09:24:16.689Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -155,10 +154,10 @@
     },
     {
       "id": "apg-sga-8767885183bf",
-      "slug": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
+      "slug": "servizio-interno-di-gestione-partner-100-losanna-apg-sga-lausanne",
       "slugByLocale": {
         "fr": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
-        "it": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
+        "it": "servizio-interno-di-gestione-partner-100-losanna-apg-sga-lausanne",
         "en": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
         "de": "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
       },
@@ -218,7 +217,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:28:57.769Z"
+      "firstSeenAt": "2026-10-13T09:28:57.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
+      ]
     },
     {
       "id": "apg-sga-3f432eae69c5",
@@ -271,7 +278,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-12T09:25:55.791Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -345,7 +351,6 @@
         ]
       },
       "firstSeenAt": "2026-10-05T09:26:38.537Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -510,8 +515,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "apg-sga-5d253cecb8cd",
@@ -591,11 +595,11 @@
     },
     {
       "id": "apg-sga-71d38bea80b0",
-      "slug": "afficheur-in-60-winterthur-apg-sga-ch",
+      "slug": "addetto-a-alle-affissioni-60-winterthur-apg-sga-winterthur",
       "slugByLocale": {
         "de": "afficheur-in-60-winterthur-apg-sga-ch",
-        "it": "afficheur-in-60-winterthur-apg-sga-ch",
-        "en": "afficheur-in-60-winterthur-apg-sga-ch",
+        "it": "addetto-a-alle-affissioni-60-winterthur-apg-sga-winterthur",
+        "en": "billposter-60-winterthur-apg-sga-winterthur",
         "fr": "afficheur-in-60-winterthur-apg-sga-ch"
       },
       "company": "APG|SGA",
@@ -641,7 +645,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -655,7 +658,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:28:54.565Z"
+      "firstSeenAt": "2026-10-13T09:28:54.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "afficheur-in-60-winterthur-apg-sga-ch"
+        ],
+        "en": [
+          "afficheur-in-60-winterthur-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "afficheur-in-60-winterthur-apg-sga-ch"
+      ]
     },
     {
       "id": "apg-sga-7ed32eb9e6f0",
@@ -722,7 +736,6 @@
         ]
       },
       "firstSeenAt": "2026-10-12T21:26:41.244Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

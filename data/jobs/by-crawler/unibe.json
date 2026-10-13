@@ -1046,7 +1046,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1093,14 +1093,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+        "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+          "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
@@ -1281,7 +1281,7 @@
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
         "it": "artigiano-specializzato-ii-universitat-bern-bern",
-        "en": "spezialhandwerker-in-ii-universitat-bern",
+        "en": "specialist-skilled-worker-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
         "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
       },
@@ -1333,7 +1333,7 @@
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
         "spezialhandwerker-in-ii-universitat-bern-bern",
-        "specialist-skilled-worker-ii-universitat-bern-bern"
+        "spezialhandwerker-in-ii-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1343,7 +1343,7 @@
         ],
         "en": [
           "spezialhandwerker-in-ii-universitat-bern-bern",
-          "specialist-skilled-worker-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-universitat-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
@@ -1536,7 +1536,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1584,7 +1584,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1595,7 +1595,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -2266,9 +2266,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -2318,13 +2318,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -4218,12 +4218,12 @@
     },
     {
       "id": "unibe-7bffb797b3e0",
-      "slug": "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz",
+      "slug": "odontoiatra-specializzato-a-in-ortodonzia-universitat-bern-bern-bumpliz",
       "slugByLocale": {
         "de": "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz",
-        "it": "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz",
-        "en": "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz",
-        "fr": "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz"
+        "it": "odontoiatra-specializzato-a-in-ortodonzia-universitat-bern-bern-bumpliz",
+        "en": "specialist-dentist-orthodontist-universitat-bern-bern-bumpliz",
+        "fr": "orthodontiste-specialiste-universitat-bern-bern-bumpliz"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4242,7 +4242,6 @@
         "en": "The UniBE is in the middle of it.\nWith us you benefit from the central location and conveniently located locations.\n\n## What we offer\n• zmk bern is a world-leading teaching, research and service center for dentistry.\n• We offer you a varied dental activity in a modern university dental clinic in an international and socially competent team in a culturally attractive city in the heart of Switzerland.\n• The post shall be filled on a temporary basis, depending on the qualifications. Position and endowment are based on the previous qualifications.\n• We would particularly welcome applications from female candidates.\n\n## Have we aroused your interest?\nThen submit your application by 30. November 2026 by\n(Managing Director of zmk bern and Head of szk bern)\nTeam-oriented work\nApplication and contact\nPlease send your application to Katja Imme z.Hd. Prof. by 30.11.2026. Dr. Meyer-Lückel (Managing Director of zmk bern and Head of szk bern)\nWith us, you create value.\nFor themselves and society.\n\n## This is waiting for you\nThe school dental clinic Bern (szk bern) of the dental clinics of\nUniversity of Bern (zmk bern) is looking for a\n• who would like to participate with great interest and commitment in the patient care of the school dental clinic Bern (szk bern).\n• The field of orthodontics is technically guided by the Director of the Clinic of Orthodontics, Prof. Dr. Katsaros, and organizationally by Prof. Dr Meyer-Lückel.\n• The place of work will be in szk bern in Bern-Bümpliz, but a close cooperation with the university orthodontics of zmk bern is guaranteed.\nWhat we offer\n\n## Have we aroused your interest?\nJob subscription\nApplication procedure\n\n## Your Benefits\nMeaningful work and fair remuneration\nHealthy corporate culture and good working environment\nCentral location in the heart of Bern\n\n## Working on the UniBE\nThe University of Bern not only offers exciting tasks, but also an environment that actively promotes development, diversity and equal opportunities. Discover what distinguishes us as an employer and how you get ahead with us.\nCareer page\nJob vacancies\nApplication and contact",
         "fr": "L'UniBE est au milieu.\nAvec nous, vous bénéficiez de l'emplacement central et idéalement situé.\n\n## Ce que nous offrons\n• zmk bern est un centre d'enseignement, de recherche et de service de pointe pour la dentisterie.\n• Nous vous offrons une activité dentaire variée dans une clinique dentaire universitaire moderne dans une équipe internationale et socialement compétente dans une ville culturellement attractive au cœur de la Suisse.\n• Le poste est pourvu à titre temporaire, selon les qualifications. Le poste et la dotation sont fondés sur les qualifications antérieures.\n• Nous serions particulièrement heureux de recevoir des candidatures de candidates.\n\n## Avons-nous suscité votre intérêt ?\nEnsuite, soumettez votre demande d'ici 30. novembre 2026 par\n(Directeur délégué de zmk bern et chef de szk bern)\nTravaux axés sur l ' équipe\nDemande et contact\nVeuillez envoyer votre candidature à Katja Imme z.Hd. Prof. au plus tard le 30.11.2026. M. Meyer-Lückel (directeur général de zmk bern et chef de szk bern)\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Ça vous attend.\nLa clinique dentaire de l'école Bern (szk bern) des cliniques dentaires\nUniversité de Berne (zmk bern) est à la recherche d'un\n• qui souhaite participer avec beaucoup d'intérêt et d'engagement aux soins des patients de la clinique dentaire de l'école Bern (szk bern).\n• Le domaine de l'orthodontie est techniquement guidé par le Directeur de la Clinique d'orthodontie, Prof. Dr Katsaros, et organisationnellement par Prof. Dr Meyer-Lückel.\n• Le lieu de travail sera à szk bern à Berne-Bümpliz, mais une coopération étroite avec l'orthodontie universitaire de zmk bern est garantie.\nCe que nous offrons\n\n## Avons-nous suscité votre intérêt ?\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nTravail utile et rémunération équitable\nCulture d'entreprise saine et bon environnement de travail\nSituation centrale au coeur de Berne\n\n## Travail sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants\nDemande et contact"
       },
-      "needsRetranslation": true,
       "location": "Bern-Bümpliz",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/fachzahnarzt-fachzahnaerztin-kieferorthopaedie/16938191-c611-4f9f-9401-f32527fede5e",
@@ -4283,7 +4282,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:35:57.200Z"
+      "firstSeenAt": "2026-10-13T09:35:57.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz"
+        ],
+        "en": [
+          "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz"
+        ],
+        "fr": [
+          "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz"
+        ]
+      },
+      "previousSlugs": [
+        "fachzahnarzt-fachzahnarztin-kieferorthopadie-unibe-bern-bumpliz"
+      ]
     }
   ]
 }

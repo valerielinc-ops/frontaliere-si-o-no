@@ -1135,7 +1135,7 @@
           "underwriter-facultative-property-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-09T21:20:26.292Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1224,8 +1224,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }

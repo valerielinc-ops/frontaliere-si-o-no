@@ -396,6 +396,39 @@ describe('sweep', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' });
   });
 
+  it('holds required candidate answers before starting the automatic submission clock', async () => {
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    const draft = { ...readyDraft(), questions: [
+      { id: 'work_permit', required: true, question: 'Permesso svizzero?', options: ['C', 'B', 'L', 'G', 'none'] },
+      { id: 'relocation_to_ticino', required: true, question: 'Trasferimento in Ticino?', options: ['yes', 'no'] },
+    ] };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft);
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
+    effects = [];
+    await applyAutomationEvent({
+      db: store.db,
+      orderId: ORDER,
+      event: { type: 'tick' },
+      runEffect,
+      nowMs: T0 + OWNER_REVIEW_MS,
+    });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      state: 'candidate_review',
+      heldBy: ['question:work_permit', 'question:relocation_to_ticino'],
+      deadlineAt: null,
+    });
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
+
+    effects = [];
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      ...store.read(`${ORDER_PATH}/automation/flow`),
+      answers: { work_permit: 'C', relocation_to_ticino: 'yes' },
+    });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + OWNER_REVIEW_MS + 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [] });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.deadlineAt).toBe(T0 + OWNER_REVIEW_MS + 1000 + CANDIDATE_REVIEW_MS);
+  });
+
   it('re-dispatches a silent run once, then hands the order to Valerie', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     effects = [];

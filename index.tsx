@@ -20,6 +20,14 @@ const HOME_CRITICAL_PATHS = new Set([
 
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
 
+const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
+ '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
+);
+
+const hasJobBoardPreRenderedPaintContent = (): boolean => !!document.querySelector(
+ 'main.seo-static-content.job-board-static-hub',
+);
+
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
@@ -97,11 +105,20 @@ const hasPlateAuctionStaticFallback = (): boolean =>
 let recoverFromBootFailure: ((error: unknown) => void) | undefined;
 
 const bootstrapApp = async () => {
- // The job-board and other static SEO pages already contain useful HTML.
- // Give it a frame before React's large shared runtime starts parsing and
- // evaluating on the main thread (particularly costly under mobile CPU
- // throttling). The handoff below still waits for its normal FCP/route gates.
- await waitForInitialPaintOpportunity();
+ // Static SEO pages already contain useful HTML. Wait for its actual FCP before
+ // importing React's large shared runtime: two rAF callbacks can run before a
+ // contentful frame when mobile CPU work is saturated. Empty SPA shells keep
+ // the short frame-only wait so their runtime is never waiting for a paint it
+ // must create itself.
+ await waitForInitialPaintOpportunity({
+   waitForContentfulPaint: hasPreRenderedPaintContent(),
+ });
+ // FCP can come from a smaller header/reserve node while the job-board
+ // subtitle is still becoming the LCP candidate; do not evaluate JobBoard.js
+ // until that static candidate has had a quiet paint window.
+ if (hasJobBoardPreRenderedPaintContent()) {
+   await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
+ }
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([

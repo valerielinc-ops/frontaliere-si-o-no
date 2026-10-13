@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -4494,7 +4494,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4537,7 +4537,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4547,7 +4547,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -5513,7 +5513,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -5557,12 +5557,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -6429,7 +6433,7 @@
         "it": "global-lead-soft-services-ed-esperienze-roche-basel",
         "en": "global-lead-soft-services-experiences-roche-ch",
         "de": "global-lead-soft-services-erlebnisse-roche-basel",
-        "fr": "global-lead-soft-services-experiences-roche-ch"
+        "fr": "leader-mondial-services-et-experiences-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6475,6 +6479,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "global-lead-soft-services-experiences-roche-ch"
+        ],
+        "fr": [
           "global-lead-soft-services-experiences-roche-ch"
         ]
       },
@@ -6818,8 +6825,8 @@
       "slugByLocale": {
         "de": "technischer-experte-fur-reinstmedien-anlagen-roche-ch",
         "it": "esperto-tecnico-per-sistemi-multimediali-puliti-roche-kaiseraugst",
-        "en": "technischer-experte-fur-reinstmedien-anlagen-roche-kaiseraugst",
-        "fr": "technischer-experte-fur-reinstmedien-anlagen-roche-kaiseraugst"
+        "en": "technical-expert-for-clean-media-systems-roche-kaiseraugst",
+        "fr": "expert-technique-pour-les-systemes-de-medias-propres-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6862,24 +6869,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "technischer-experte-fur-reinstmedien-anlagen-roche-ch",
           "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst"
         ],
         "en": [
-          "technical-expert-for-clean-media-systems-roche-kaiseraugst"
+          "technischer-experte-fur-reinstmedien-anlagen-roche-kaiseraugst"
         ],
         "fr": [
-          "expert-technique-pour-les-systemes-de-medias-propres-roche-kaiseraugst"
+          "technischer-experte-fur-reinstmedien-anlagen-roche-kaiseraugst"
         ]
       },
       "previousSlugs": [
         "technischer-experte-fur-reinstmedien-anlagen-roche-ch",
-        "technical-expert-for-clean-media-systems-roche-kaiseraugst",
-        "expert-technique-pour-les-systemes-de-medias-propres-roche-kaiseraugst",
-        "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst"
+        "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst",
+        "technischer-experte-fur-reinstmedien-anlagen-roche-kaiseraugst"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -7352,8 +7357,8 @@
       "slugByLocale": {
         "en": "portfolio-strategy-and-insights-interns-basel-up-to-12-months-roche-ch",
         "it": "portfolio-strategy-and-insights-interns-basel-up-to-12-months-roche-ch",
-        "de": "portfolio-strategy-and-insights-interns-basel-up-to-12-months-roche-ch",
-        "fr": "portfolio-strategy-and-insights-interns-basel-up-to-12-months-roche-ch"
+        "de": "portfoliostrategie-und-insights-praktikanten-basel-bis-zu-12-monate-roche-basel",
+        "fr": "strategie-de-portefeuille-et-bilan-des-stagiaires-bale-jusqu-a-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7481,12 +7486,12 @@
     },
     {
       "id": "roche-516b07aa258f",
-      "slug": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
+      "slug": "direttore-principale-programma-regolatore-dispositivi-e-prodotti-combinazione-roche-basel",
       "slugByLocale": {
         "en": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
-        "it": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
+        "it": "direttore-principale-programma-regolatore-dispositivi-e-prodotti-combinazione-roche-basel",
         "de": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
-        "fr": "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
+        "fr": "directeur-principal-du-programme-de-reglementation-appareils-et-produits-combines-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7545,7 +7550,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-13T09:12:30.055Z"
+      "firstSeenAt": "2026-10-13T09:12:30.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
+        ],
+        "fr": [
+          "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
+      ]
     },
     {
       "id": "roche-0bd536d26fae",
