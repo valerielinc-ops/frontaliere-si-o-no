@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-13T12:21:56.829Z",
+  "updatedAt": "2026-10-13T12:22:29.593Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -659805,7 +659805,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-12T12:48:47.109Z",
+      "updatedAt": "2026-10-13T12:22:29.157Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -997899,12 +997899,12 @@
     },
     "seilbahnen.ch": {
       "key": "seilbahnen.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-30T12:21:28.253Z",
-      "updatedAt": "2026-10-13T10:46:43.672Z",
+      "updatedAt": "2026-10-13T12:22:29.563Z",
       "name": "Inauen-Schätti AG",
       "city": "Schwanden",
       "zip": "8762",
@@ -998034,7 +998034,8 @@
         }
       ],
       "promotionPr": "12918",
-      "promotionBranch": "prospector/promote-2026-10-12"
+      "promotionBranch": "prospector/promote-2026-10-12",
+      "promotedAt": "2026-10-13T12:22:29.563Z"
     },
     "micarna@landquart": {
       "key": "micarna@landquart",
