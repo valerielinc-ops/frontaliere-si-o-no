@@ -487,7 +487,7 @@ describe('posthog-error-issue-sync.mjs (GA4 source since decision H9, 2026-10-05
 
     await run([]);
     expect(createCalls()).toHaveLength(0);
-    expect(ghCalls().filter((args) => args[0] === 'issue' && args[1] === 'list')).toHaveLength(1);
+    expect(ghCalls().filter((args) => args[0] === 'api' && String(args[1]).includes('issues?state=open'))).toHaveLength(1);
   });
 
   it('abstains when the GA4 report throws or cannot authenticate (null), never reading it as zero errors', async () => {

@@ -119,7 +119,7 @@ describe('regola a un report pulito e completo', () => {
     expect(evidence).toContain('0 hit negli ultimi 7 giorni');
     expect(evidence).toContain('40 nella finestra del report');
     expect(evidence).toContain(`ultima volta ${daysAgo(15)}`);
-    expect(evidence).toContain(`report-${daysAgo(7)}`);
+    expect(evidence).toContain(`report del ${daysAgo(7)}`);
   });
 
   it('una firma sopra soglia nella misura corrente non chiude', async () => {
@@ -295,7 +295,7 @@ describe('main() passa dalla fase «riconcilia» anche quando non conia niente',
     delete process.env.GH_REPO;
   });
 
-  it('nessuna firma sopra soglia: la issue aperta riceve la prima nota pulita', async () => {
+  it('nessuna firma sopra soglia: la issue aperta riceve evidenza e chiusura', async () => {
     const sig = entry({ errorMessage: 'guarito', count: 40, last7d: 0 });
     const issue = {
       number: 41, title: titleFor(sig), state: 'OPEN', labels: ['stability', 'app-error'],
@@ -317,6 +317,7 @@ describe('main() passa dalla fase «riconcilia» anche quando non conia niente',
     expect(ghArgs.filter((a) => a[0] === 'issue' && a[1] === 'create')).toEqual([]);
     const comment = ghArgs.find((a) => a[0] === 'issue' && a[1] === 'comment');
     expect(comment?.[2]).toBe('41');
-    expect(comment?.[comment.indexOf('--body') + 1]).toContain('MONITOR_CLEAN: family=app-error');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('Criterio della scheda soddisfatto');
+    expect(ghArgs.some((a) => a[0] === 'issue' && a[1] === 'close' && a[2] === '41')).toBe(true);
   });
 });
