@@ -1,7 +1,7 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-10-13T09:35:32.702Z",
+  "generatedAt": "2026-10-13T21:33:45.547Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -14,58 +14,16 @@
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1578,
-  "avgDurationMs": 1578,
+  "durationMs": 1100,
+  "avgDurationMs": 1100,
   "durationHistory": [
-    1578
+    1100
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "protectas-01bf4e1f2262",
-      "slug": "agente-di-sicurezza-ausiliario-luganese-contratto-orario-ronde-sorveglianza-lugano",
-      "company": "Protectas SA",
-      "companyKey": "protectas-sa",
-      "companyDomain": "protectas.com",
-      "title": "Agente di sicurezza ausiliario - Luganese - contratto orario - Ronde & Sorveglianza",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
-      "source": "Protectas SA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-12T21:37:03.419Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza fisica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
-      "firstSeenAt": "2026-09-30T15:48:36.865Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "postalCode": "6900",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
