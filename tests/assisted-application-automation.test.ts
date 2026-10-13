@@ -396,6 +396,29 @@ describe('sweep', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' });
   });
 
+  it('turns a closed posting into the automatic refund path before a reminder', async () => {
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
+    await applyAutomationEvent({
+      db: store.db,
+      orderId: ORDER,
+      event: { type: 'tick' },
+      runEffect,
+      nowMs: T0 + OWNER_REVIEW_MS,
+    });
+    effects = [];
+
+    const postingClosed = vi.fn(async () => true);
+    const reminderAt = T0 + OWNER_REVIEW_MS + CANDIDATE_REVIEW_MS - 3 * 60 * 60 * 1000;
+    const result = await runAutomationSweep({ db: store.db, runEffect, postingClosed, nowMs: reminderAt });
+
+    expect(result).toMatchObject({ ticks: 1 });
+    expect(postingClosed).toHaveBeenCalledTimes(1);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
+    expect(effects.map((effect) => effect.type === 'email' ? effect.kind : effect.type)).toEqual(['refund', 'owner_takeover']);
+  });
+
   it('re-dispatches a silent run once, then hands the order to Valerie', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     effects = [];

@@ -481,9 +481,12 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         }
         continue;
       }
-      // The flow decides whether a reminder to the candidate is still due (the tick): it may have moved since the look.
-      const postingExpired = closedPostings.has(doc.id);
-      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
+      // A closed posting is a terminal business event, not a tick annotation:
+      // transition() only acts on the event type. Keep the liveness result
+      // behind the same transaction as the state change so the refund and the
+      // owner notice cannot be replaced by a candidate reminder.
+      const event = closedPostings.has(doc.id) ? { type: 'posting_closed' } : { type: 'tick' };
+      const result = await applyAutomationEvent({ db, orderId: doc.id, event, actor: 'clock', runEffect, nowMs });
       if (result.ok) summary.ticks += 1;
       else {
         summary.ignored += 1;
