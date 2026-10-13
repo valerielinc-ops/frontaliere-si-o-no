@@ -22,8 +22,8 @@ export const WORKER_ERROR_STATUSES = Object.freeze([
 export const WORKER_INVOCATIONS_QUERY = `
 query GetWorkersInvocationErrors(
   $accountTag: string!
-  $datetimeStart: string!
-  $datetimeEnd: string!
+  $datetimeStart: Time!
+  $datetimeEnd: Time!
   $scriptName: string!
   $status: string!
   $limit: Int!

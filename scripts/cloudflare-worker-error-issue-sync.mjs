@@ -149,6 +149,13 @@ export function workerReconcile(measurement) {
   };
 }
 
+export function alertEntries(measurement, minErrors = DEFAULT_MIN_ERRORS) {
+  return (measurement?.statuses || [])
+    .filter((item) => item.errors >= minErrors)
+    .sort((a, b) => b.errors - a.errors)
+    .map((item) => ({ ...item, worker: measurement.worker }));
+}
+
 function emptyMeasurement(reason, hours) {
   const now = new Date().toISOString();
   return {
@@ -191,10 +198,7 @@ export async function main({ fetchImpl = fetch, dryRun = process.argv.includes('
     );
   }
 
-  const entries = measurement.statuses
-    .filter((item) => item.complete && item.errors >= minErrors)
-    .sort((a, b) => b.errors - a.errors)
-    .map((item) => ({ ...item, worker: measurement.worker }));
+  const entries = alertEntries(measurement, minErrors);
   const results = await syncErrorIssues({
     entries,
     maxIssues,

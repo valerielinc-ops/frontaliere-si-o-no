@@ -76,13 +76,18 @@ jobs:
       - name: Load Remote Config secrets
         run: node scripts/load-rc-env.mjs
 
+      - name: Require backlog write token
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot create or reconcile backlog issues. The workflow token is intentionally not a fallback because it suppresses downstream issues.opened triage."
+            exit 1
+          fi
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+
       - name: Sync Cloudflare Worker errors to backlog
         env:
           GH_REPO: ${{ github.repository }}
-          # GITHUB_PAT is loaded from Remote Config and preserves the normal
-          # issue-triage event identity; the Actions token is only a fallback
-          # when the optional RC credential is unavailable.
-          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           CF_WORKER_ERRORS_HOURS: ${{ inputs.hours || '23' }}
           CF_WORKER_ERRORS_MIN_COUNT: ${{ inputs.min_errors || '1' }}
         run: node scripts/cloudflare-worker-error-issue-sync.mjs

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   DASHBOARD_URL,
   DRY_RUN_COMMAND,
+  alertEntries,
   buildIssueBody,
   statusFromIssue,
   titleFor,
@@ -65,5 +66,32 @@ describe('Cloudflare Worker error issue reporter', () => {
 
     expect(cleanVerdict).toMatchObject({ complete: true, clean: true });
     expect(incompleteVerdict.complete).toBe(false);
+  });
+
+  it('reports a nonzero capped series while keeping it ineligible for clean closure', () => {
+    const incomplete = {
+      ...measurement,
+      complete: false,
+      statuses: measurement.statuses.map((item) => ({ ...item, errors: 0, requests: 0, errorRate: 0 })),
+    };
+    incomplete.statuses[0] = {
+      ...incomplete.statuses[0],
+      errors: 3,
+      requests: 3,
+      complete: false,
+    };
+
+    expect(alertEntries(incomplete, 1)).toEqual([
+      expect.objectContaining({
+        status: 'scriptThrewException',
+        errors: 3,
+        complete: false,
+        worker: 'frontaliere-locale-router',
+      }),
+    ]);
+    expect(workerReconcile(incomplete).verdictFor({ title: titleFor(incomplete.statuses[0]) })).toMatchObject({
+      clean: false,
+      complete: false,
+    });
   });
 });
