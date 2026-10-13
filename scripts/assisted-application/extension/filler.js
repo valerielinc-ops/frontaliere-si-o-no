@@ -659,27 +659,24 @@
         const labelMatch = [...labelTokens].some((token) => normalize(text).includes(token) || contextTokens.has(token));
         const directlyTargetsInput = ['for', 'aria-controls', 'data-for', 'data-upload-for', 'data-target']
           .some((attribute) => button.element.getAttribute(attribute) === element.id);
-        const fileCue = /\b(file|resume|cv|document|attachment|allegat|curriculum)\b/i.test(`${text} ${context}`);
         // «Browse jobs» is a normal link, not an upload control. A generic
         // «Browse» is accepted only when its text or context points at this
         // file, or when the control shares the input's meaningful context.
         if (browse && !labelMatch && !sharedContext.length) return null;
-        // Prefer an explicit upload control over an unrelated «Browse jobs» link
-        // in the same group; the file input remains the source of truth.
+        // A file word alone is not an association: «Choose jobs» and «Upload
+        // portfolio» are both upload-looking, but can belong to another flow.
+        // Keep only controls that point at this input or share its label/context.
+        const associated = directlyTargetsInput || labelMatch || sharedContext.length > 0;
+        if (!associated) return null;
         return {
           ...button,
-          associated: directlyTargetsInput || labelMatch || sharedContext.length > 0 || fileCue,
           score: (strong ? 2 : 1) + sharedContext.length * 5 + (labelMatch ? 5 : 0) + (directlyTargetsInput ? 100 : 0),
         };
       })
       .filter(Boolean);
-    // If several upload-looking controls share the group, an unassociated
-    // «Choose jobs»/«Upload portfolio» must not win by DOM order. A lone
-    // generic control remains a safe fallback for portals with no labels.
-    const upload = (candidates.filter((candidate) => candidate.associated).length
-      ? candidates.filter((candidate) => candidate.associated)
-      : candidates.length === 1 ? candidates : [])
-      .sort((left, right) => right.score - left.score)[0];
+    // Every candidate above is associated with this input; an unrelated link
+    // is never a fallback, even when it appears earlier in the same group.
+    const upload = candidates.sort((left, right) => right.score - left.score)[0];
     // Some portals keep a file input visually hidden but still submit it; keep
     // the previous behavior when there is no explicit upload-mode control.
     if (!upload) return true;
