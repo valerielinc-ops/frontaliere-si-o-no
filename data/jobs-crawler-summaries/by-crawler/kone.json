@@ -1,7 +1,7 @@
 {
   "key": "kone",
   "label": "KONE",
-  "generatedAt": "2026-10-13T09:40:55.580Z",
+  "generatedAt": "2026-10-13T21:37:10.258Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7591,
-  "avgDurationMs": 7591,
+  "durationMs": 8819,
+  "avgDurationMs": 8819,
   "durationHistory": [
-    7591
+    8819
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Sachbearbeiter-in-HR-People---Communications-Generalist-50-_R0663358",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:40:42.245Z",
+      "crawledAt": "2026-10-13T21:36:53.776Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-in-Aufzge--Gebiet-Luzern_R0662101",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:40:42.976Z",
+      "crawledAt": "2026-10-13T21:36:54.579Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:40:41.454Z",
+      "crawledAt": "2026-10-13T21:36:52.984Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:40:40.542Z",
+      "crawledAt": "2026-10-13T21:36:52.185Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:40:39.712Z",
+      "crawledAt": "2026-10-13T21:36:51.422Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -242,5 +242,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }
