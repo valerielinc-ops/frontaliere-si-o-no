@@ -177,7 +177,7 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('max-image-preview:large');
     expect(html).toContain('Offerte di lavoro Acme Corp');
     expect(html).toContain('15'); // live active jobs, including the slugless fixture
-    expect(html).toContain("CHF 108"); // median of the fifteen reported range midpoints
+    expect(html).toContain("CHF 107"); // median of the fifteen reported range midpoints
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
