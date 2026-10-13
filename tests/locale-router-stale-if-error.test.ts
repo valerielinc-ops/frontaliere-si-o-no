@@ -121,4 +121,41 @@ describe('locale-router stale-if-error', () => {
     expect(res.headers.get('X-Served-Stale')).toBeNull();
     expect(await res.text()).toBe('<html>fresh</html>');
   });
+
+  it('retries when reading a shard body fails and pins the subrequest to identity encoding', async () => {
+    const truncated = new Response(null, { status: 200 });
+    vi.spyOn(truncated, 'arrayBuffer').mockRejectedValue(new Error('gzip truncated'));
+    const originRequests: Request[] = [];
+    let calls = 0;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      originRequests.push(input instanceof Request ? input : new Request(input));
+      calls += 1;
+      return calls === 1 ? truncated : new Response('<html>recovered</html>', { status: 200 });
+    });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/articoli-frontaliere/tutti/retry-body/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('<html>recovered</html>');
+    expect(calls).toBe(2);
+    expect(originRequests.every((req) => req.headers.get('Accept-Encoding') === 'identity')).toBe(true);
+  });
+
+  it('serves stale when the retried shard body is still unreadable', async () => {
+    const path = `${APEX}/articoli-frontaliere/tutti/body-error/`;
+    seedCache(path, '<html>last-good body</html>');
+    const unreadable = new Response(null, { status: 200 });
+    vi.spyOn(unreadable, 'arrayBuffer').mockRejectedValue(new Error('gzip truncated'));
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(unreadable);
+
+    const res = await worker.fetch(new Request(path), {}, ctx);
+
+    expect(res.status).toBe(200);
+    expect(res.headers.get('X-Served-Stale')).toBe('origin-body');
+    expect(await res.text()).toBe('<html>last-good body</html>');
+  });
 });
