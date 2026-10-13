@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sygnum-a2df755d0627",
-      "slug": "senior-engineering-manager-sygnum-zurich",
+      "slug": "responsabile-senior-dell-ingegneria-sygnum-bank-zurich",
       "slugByLocale": {
         "en": "senior-engineering-manager-sygnum-zurich",
-        "it": "senior-engineering-manager-sygnum-zurich",
+        "it": "responsabile-senior-dell-ingegneria-sygnum-bank-zurich",
         "de": "senior-engineering-manager-sygnum-zurich",
-        "fr": "senior-engineering-manager-sygnum-zurich"
+        "fr": "directeur-principal-de-l-ingenierie-sygnum-bank-zurich"
       },
       "company": "Sygnum Bank",
       "companyKey": "sygnum",
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:25:54.641Z"
+      "firstSeenAt": "2026-10-13T09:25:54.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-engineering-manager-sygnum-zurich"
+        ],
+        "fr": [
+          "senior-engineering-manager-sygnum-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-engineering-manager-sygnum-zurich"
+      ]
     },
     {
       "id": "sygnum-8e82aad2d346",

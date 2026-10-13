@@ -779,7 +779,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -846,7 +846,7 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
@@ -2536,9 +2536,9 @@
     },
     {
       "id": "ksw-265156035163",
-      "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
         "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur"
@@ -2588,13 +2588,15 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
         "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
           "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -2622,7 +2624,7 @@
       "id": "ksw-fce9482fcf5c",
       "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
+        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur-ca7442",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur-ca7442"

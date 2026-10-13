@@ -642,12 +642,12 @@
     },
     {
       "id": "planzer-ff7bda2e2720",
-      "slug": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
+      "slug": "carico-generale-ausiliario-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "it": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "en": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "fr": "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+        "it": "carico-generale-ausiliario-m-f-d-planzer-seewen",
+        "en": "auxiliary-general-cargo-m-f-d-planzer-seewen",
+        "fr": "fret-general-auxiliaire-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -706,16 +706,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-6f875474074c",
-      "slug": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
+      "slug": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "it": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "en": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon",
-        "fr": "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
+        "it": "lavoro-meccanico-tuttofare-m-f-d-planzer-dallikon",
+        "en": "all-rounder-mechanical-work-m-f-d-planzer-dallikon",
+        "fr": "ouvrage-mecanique-complet-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -774,7 +788,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-mechanische-arbeiten-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-b9400eaa33a7",

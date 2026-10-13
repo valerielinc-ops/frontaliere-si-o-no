@@ -202,7 +202,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -263,7 +263,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -271,7 +271,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -8036,7 +8036,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8093,14 +8093,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8125,7 +8125,7 @@
         "it": "hr-business-partner-emmi-ch-2",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8183,11 +8183,11 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8212,7 +8212,7 @@
         "de": "senior-product-manager-emmi-caffe-latte-emmi-ch",
         "it": "senior-product-manager-emmi-caffe-latte-emmi-ch",
         "en": "senior-product-manager-emmi-caffe-latte-emmi-ch",
-        "fr": "senior-product-manager-emmi-caffe-latte-emmi-ch"
+        "fr": "directeur-principal-des-produits-emmi-caffe-latte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8289,12 +8289,12 @@
     },
     {
       "id": "emmi-631f0fdf0d16",
-      "slug": "vendeur-vendeuse-emmi-crissier",
+      "slug": "venditore-emmi-crissier-vaud",
       "slugByLocale": {
         "fr": "vendeur-vendeuse-emmi-ch",
-        "it": "vendeur-vendeuse-emmi-crissier",
-        "en": "vendeur-vendeuse-emmi-ch",
-        "de": "vendeur-vendeuse-emmi-ch"
+        "it": "venditore-emmi-crissier-vaud",
+        "en": "seller-emmi-crissier-vaud",
+        "de": "verkaufer-emmi-crissier-vaud"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8351,11 +8351,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-vendeuse-emmi-ch",
+          "vendeur-vendeuse-emmi-crissier"
+        ],
+        "en": [
+          "vendeur-vendeuse-emmi-ch"
+        ],
+        "de": [
           "vendeur-vendeuse-emmi-ch"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-emmi-ch"
+        "vendeur-vendeuse-emmi-ch",
+        "vendeur-vendeuse-emmi-crissier"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

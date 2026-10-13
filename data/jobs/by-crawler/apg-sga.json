@@ -154,10 +154,10 @@
     },
     {
       "id": "apg-sga-8767885183bf",
-      "slug": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
+      "slug": "servizio-interno-di-gestione-partner-100-losanna-apg-sga-lausanne",
       "slugByLocale": {
         "fr": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
-        "it": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
+        "it": "servizio-interno-di-gestione-partner-100-losanna-apg-sga-lausanne",
         "en": "partnermanagement-service-interne-100-lausanne-apg-sga-ch",
         "de": "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
       },
@@ -217,7 +217,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:28:57.769Z"
+      "firstSeenAt": "2026-10-13T09:28:57.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "partnermanagement-service-interne-100-lausanne-apg-sga-ch"
+      ]
     },
     {
       "id": "apg-sga-3f432eae69c5",
@@ -587,11 +595,11 @@
     },
     {
       "id": "apg-sga-71d38bea80b0",
-      "slug": "afficheur-in-60-winterthur-apg-sga-ch",
+      "slug": "addetto-a-alle-affissioni-60-winterthur-apg-sga-winterthur",
       "slugByLocale": {
         "de": "afficheur-in-60-winterthur-apg-sga-ch",
-        "it": "afficheur-in-60-winterthur-apg-sga-ch",
-        "en": "afficheur-in-60-winterthur-apg-sga-ch",
+        "it": "addetto-a-alle-affissioni-60-winterthur-apg-sga-winterthur",
+        "en": "billposter-60-winterthur-apg-sga-winterthur",
         "fr": "afficheur-in-60-winterthur-apg-sga-ch"
       },
       "company": "APG|SGA",
@@ -650,7 +658,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:28:54.565Z"
+      "firstSeenAt": "2026-10-13T09:28:54.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "afficheur-in-60-winterthur-apg-sga-ch"
+        ],
+        "en": [
+          "afficheur-in-60-winterthur-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "afficheur-in-60-winterthur-apg-sga-ch"
+      ]
     },
     {
       "id": "apg-sga-7ed32eb9e6f0",

@@ -2295,7 +2295,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2344,7 +2344,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2354,7 +2354,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4534,10 +4534,10 @@
     },
     {
       "id": "spitaeler-schaffhausen-3e5aa6777746",
-      "slug": "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-5ed91fb47e",
+      "slug": "mpa-ambulatorium-centrale-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
-        "it": "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-5ed91fb47e",
+        "it": "mpa-ambulatorium-centrale-spitaler-schaffhausen-schaffhausen",
         "en": "mpa-central-ambulatorium-spitaler-schaffhausen-schaffhausen",
         "fr": "mpa-ambulateur-central-spitaler-schaffhausen-schaffhausen"
       },
@@ -4586,12 +4586,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
-          "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen"
+          "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen",
+          "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-5ed91fb47e"
         ]
       },
       "previousSlugs": [
         "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
-        "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen"
+        "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen",
+        "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-5ed91fb47e"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4612,7 +4614,7 @@
       "id": "spitaeler-schaffhausen-07664661acfa",
       "slug": "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-2465e84f55",
       "slugByLocale": {
-        "it": "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen-2465e84f55",
+        "it": "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen",
         "en": "mpa-central-ambulatorium-spitaler-schaffhausen-schaffhausen",
         "de": "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
         "fr": "mpa-ambulateur-central-spitaler-schaffhausen-schaffhausen"
@@ -4660,13 +4662,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
-        "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen"
+        "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen",
-          "mpa-zentrales-ambulatorium-spitaler-schaffhausen-schaffhausen"
+          "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-17T07:28:05.122Z",

@@ -14756,12 +14756,12 @@
     },
     {
       "id": "lonza-7a0e2102c12f",
-      "slug": "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch",
+      "slug": "apparecchiature-qc-scienziate-qualifica-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "en": "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch",
-        "it": "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch",
-        "de": "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch",
-        "fr": "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch"
+        "it": "apparecchiature-qc-scienziate-qualifica-80-100-m-f-d-lonza-visp",
+        "de": "wissenschaftler-qc-ausrustung-qualifikation-80-100-m-w-d-lonza-visp",
+        "fr": "scientifique-qc-equipement-et-qualification-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14820,16 +14820,30 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-13T09:21:21.159Z"
+      "firstSeenAt": "2026-10-13T09:21:21.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch"
+        ],
+        "de": [
+          "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-qc-equipment-qualification-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-f5def3814fe1",
-      "slug": "teamlead-downstream-processing-lonza-ch",
+      "slug": "lavorazione-a-valle-lonza-visp",
       "slugByLocale": {
         "en": "teamlead-downstream-processing-lonza-ch",
-        "it": "teamlead-downstream-processing-lonza-ch",
+        "it": "lavorazione-a-valle-lonza-visp",
         "de": "teamlead-downstream-processing-lonza-ch",
-        "fr": "teamlead-downstream-processing-lonza-ch"
+        "fr": "traitement-en-aval-par-teamleader-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14888,7 +14902,18 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-13T09:21:20.385Z"
+      "firstSeenAt": "2026-10-13T09:21:20.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamlead-downstream-processing-lonza-ch"
+        ],
+        "fr": [
+          "teamlead-downstream-processing-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamlead-downstream-processing-lonza-ch"
+      ]
     },
     {
       "id": "lonza-452d61ce16aa",

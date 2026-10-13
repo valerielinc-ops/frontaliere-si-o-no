@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-de-montchoisi-lausanne",
         "en": "nurse-clinique-de-montchoisi-lausanne",
-        "de": "infirmier-ere-clinique-de-montchoisi-lausanne",
+        "de": "krankenschwester-clinique-de-montchoisi-lausanne",
         "fr": "infirmier-ere-clinique-de-montchoisi"
       },
       "company": "Clinique de Montchoisi",
@@ -55,14 +55,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-de-montchoisi",
-        "krankenschwester-clinique-de-montchoisi-lausanne"
+        "infirmier-ere-clinique-de-montchoisi-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinique-de-montchoisi"
         ],
         "de": [
-          "krankenschwester-clinique-de-montchoisi-lausanne"
+          "infirmier-ere-clinique-de-montchoisi-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:31:24.492Z",
@@ -82,12 +82,12 @@
     },
     {
       "id": "clinique-de-montchoisi-480e680d951f",
-      "slug": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
+      "slug": "capo-della-pasticceria-del-partito-clinique-de-montchoisi-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
-        "it": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
-        "en": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
-        "de": "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+        "it": "capo-della-pasticceria-del-partito-clinique-de-montchoisi-lausanne",
+        "en": "head-of-party-pastry-clinique-de-montchoisi-lausanne",
+        "de": "parteichef-geback-clinique-de-montchoisi-lausanne"
       },
       "company": "Clinique de Montchoisi",
       "companyKey": "clinique-de-montchoisi",
@@ -145,7 +145,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:29:16.397Z"
+      "firstSeenAt": "2026-10-13T09:29:16.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+        ],
+        "en": [
+          "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+        ],
+        "de": [
+          "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-partie-patisserie-clinique-de-montchoisi"
+      ]
     },
     {
       "id": "clinique-de-montchoisi-c9c29e33dfc8",

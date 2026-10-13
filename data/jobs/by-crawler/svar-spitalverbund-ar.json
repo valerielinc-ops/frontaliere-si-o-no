@@ -623,12 +623,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-2a40555c66fb",
-      "slug": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
+      "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "it": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "en": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "fr": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
+        "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -687,16 +687,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:16:45.452Z"
+      "firstSeenAt": "2026-10-13T09:16:45.452Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-f741e0b7c5b0",
-      "slug": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "responsabile-delle-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "responsabile-delle-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "application-manager-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "gestionnaire-d-application-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -755,7 +769,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:04:31.479Z"
+      "firstSeenAt": "2026-09-09T23:04:31.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-1ac2ff021771",

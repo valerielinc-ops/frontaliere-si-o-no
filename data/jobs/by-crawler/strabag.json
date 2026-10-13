@@ -986,12 +986,12 @@
     },
     {
       "id": "strabag-fb787232e9fc",
-      "slug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
+      "slug": "responsabile-di-cantiere-per-lavori-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",
       "slugByLocale": {
         "de": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
-        "it": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
-        "en": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
-        "fr": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        "it": "responsabile-di-cantiere-per-lavori-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",
+        "en": "construction-manager-civil-engineering-and-road-construction-strabag-ag-bern",
+        "fr": "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1039,11 +1039,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern"
+        ],
+        "en": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        ],
+        "fr": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern"
       ],
       "salaryMin": 76500,
       "salaryMax": 97000,

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-uqt5wh",
-      "slug": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
+      "slug": "meccatronico-a-d-automobili-per-veicoli-pesanti-1-swiss-armed-forces-vtg-chur",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobilmechatroniker/-in schwere Fahrzeuge 1",
       "location": "Chur",
@@ -44,10 +44,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
-        "en": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
+        "it": "meccatronico-a-d-automobili-per-veicoli-pesanti-1-swiss-armed-forces-vtg-chur",
+        "en": "automotive-mechatronics-technician-heavy-vehicles-1-swiss-armed-forces-vtg-chur",
         "de": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh",
-        "fr": "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
+        "fr": "mecatronicien-ne-d-automobiles-vehicules-lourds-1-swiss-armed-forces-vtg-chur"
       },
       "sourceLang": "de",
       "postalCode": "7000",
@@ -57,21 +57,25 @@
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur",
-          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
         ],
         "en": [
-          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
         ],
         "de": [
           "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
         ],
         "fr": [
-          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+          "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
         ]
       },
       "previousSlugs": [
         "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur",
-        "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur"
+        "automobilmechatroniker-in-schwere-fahrzeuge-1-confederazione-chur",
+        "automobilmechatroniker-in-schwere-fahrzeuge-1-swiss-armed-forces-vtg-chur-uqt5wh"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -90,7 +94,7 @@
     },
     {
       "id": "company-7l9sl7",
-      "slug": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7",
+      "slug": "meccanico-a-di-apparecchiature-di-trasmissione-swiss-armed-forces-vtg-bronschhofen-sg",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Übermittlungsgerätemechaniker/-in",
       "location": "Bronschhofen (SG)",
@@ -130,10 +134,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7",
-        "en": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7",
+        "it": "meccanico-a-di-apparecchiature-di-trasmissione-swiss-armed-forces-vtg-bronschhofen-sg",
+        "en": "communications-equipment-mechanic-swiss-armed-forces-vtg-bronschhofen-sg",
         "de": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7",
-        "fr": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7"
+        "fr": "mecanicien-ne-d-appareils-de-transmission-swiss-armed-forces-vtg-bronschhofen-sg"
       },
       "sourceLang": "de",
       "postalCode": "9552",
@@ -142,11 +146,19 @@
       "streetAddress": "Amp-Strasse 12",
       "previousSlugsByLocale": {
         "it": [
-          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg"
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg",
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7"
+        ],
+        "en": [
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7"
+        ],
+        "fr": [
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7"
         ]
       },
       "previousSlugs": [
-        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg"
+        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg",
+        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bronschhofen-sg-7l9sl7"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -12729,7 +12741,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -12737,8 +12749,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -12748,8 +12759,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

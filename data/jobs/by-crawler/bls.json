@@ -2046,12 +2046,12 @@
     },
     {
       "id": "bls-fc8a37461496",
-      "slug": "baufuhrer-in-bahntechnik-bls-ch",
+      "slug": "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern",
       "slugByLocale": {
         "de": "baufuhrer-in-bahntechnik-bls-ch",
-        "it": "baufuhrer-in-bahntechnik-bls-ch",
-        "en": "baufuhrer-in-bahntechnik-bls-ch",
-        "fr": "baufuhrer-in-bahntechnik-bls-ch"
+        "it": "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern",
+        "en": "construction-manager-railway-technology-bls-ag-bern",
+        "fr": "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2128,7 +2128,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-13T09:26:06.677Z"
+      "firstSeenAt": "2026-10-13T09:26:06.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ],
+        "en": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ],
+        "fr": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-bahntechnik-bls-ch"
+      ]
     },
     {
       "id": "bls-3ee678e4a035",

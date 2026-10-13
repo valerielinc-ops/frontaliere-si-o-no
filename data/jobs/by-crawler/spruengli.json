@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spruengli-0b683dde8bcc",
-      "slug": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich",
+      "slug": "rilievo-di-natale-in-vari-rami-80-100-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich",
-        "it": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich",
-        "en": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich",
-        "fr": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich"
+        "it": "rilievo-di-natale-in-vari-rami-80-100-confiserie-sprungli-ag-zurich",
+        "en": "christmas-relief-in-various-branches-80-100-confiserie-sprungli-ag-zurich",
+        "fr": "relief-de-noel-dans-differentes-branches-80-100-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -70,16 +70,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:21:39.433Z"
+      "firstSeenAt": "2026-10-13T09:21:39.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich"
+        ],
+        "en": [
+          "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich"
+        ],
+        "fr": [
+          "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-aargau-spruengli-zurich"
+      ]
     },
     {
       "id": "spruengli-6e0390076493",
-      "slug": "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden",
+      "slug": "rilievo-di-natale-80-100-stazione-ferroviaria-di-basilea-confiserie-sprungli-ag-aargau",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-80-100-bahnhof-basel-spruengli-aargau",
-        "it": "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden",
-        "en": "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden",
-        "fr": "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden"
+        "it": "rilievo-di-natale-80-100-stazione-ferroviaria-di-basilea-confiserie-sprungli-ag-aargau",
+        "en": "christmas-relief-80-100-basel-train-station-confiserie-sprungli-ag-aargau",
+        "fr": "relief-de-noel-80-100-gare-de-bale-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -129,11 +143,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-80-100-bahnhof-basel-spruengli-aargau"
+          "weihnachtsaushilfe-80-100-bahnhof-basel-spruengli-aargau",
+          "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden"
+        ],
+        "en": [
+          "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-80-100-bahnhof-basel-spruengli-aargau"
+        "weihnachtsaushilfe-80-100-bahnhof-basel-spruengli-aargau",
+        "weihnachtsaushilfe-80-100-bahnhof-basel-confiserie-sprungli-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

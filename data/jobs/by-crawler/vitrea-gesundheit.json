@@ -660,12 +660,12 @@
     },
     {
       "id": "vitrea-gesundheit-d74a65ef58e3",
-      "slug": "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "personale-di-accompagnamento-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "personale-di-accompagnamento-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "accompanying-staff-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "personnel-d-accompagnement-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -723,7 +723,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:12:11.273Z"
+      "firstSeenAt": "2026-10-13T09:12:11.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
+          "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-begleitdienst-a-50-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-b43d67b3bdf4",

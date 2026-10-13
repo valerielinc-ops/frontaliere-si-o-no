@@ -1576,12 +1576,12 @@
     },
     {
       "id": "spital-davos-391df091b826",
-      "slug": "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch",
+      "slug": "infermiere-a-addetto-a-al-posizionamento-ops-inverno-febbraio-aprile-2027-80-100-spital-davos-davos",
       "slugByLocale": {
         "de": "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch",
-        "it": "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch",
+        "it": "infermiere-a-addetto-a-al-posizionamento-ops-inverno-febbraio-aprile-2027-80-100-spital-davos-davos",
         "en": "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch",
-        "fr": "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch"
+        "fr": "infirmier-ere-en-positionnement-au-bloc-operatoire-hiver-fevrier-avril-2027-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1644,7 +1644,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-13T09:33:03.037Z"
+      "firstSeenAt": "2026-10-13T09:33:03.037Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch"
+        ],
+        "fr": [
+          "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ops-lagerungspfleger-in-winter-februar-april-2027-80-100-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-3f3aac543872",

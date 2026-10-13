@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "igroove-612edf8c2c46",
-      "slug": "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon",
+      "slug": "responsabile-senior-delle-operazioni-e-degli-affari-aziendali-m-f-d-igroove-ag-pfaffikon",
       "slugByLocale": {
         "en": "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon",
-        "it": "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon",
+        "it": "responsabile-senior-delle-operazioni-e-degli-affari-aziendali-m-f-d-igroove-ag-pfaffikon",
         "de": "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon",
-        "fr": "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon"
+        "fr": "directeur-principal-des-operations-et-des-affaires-h-f-d-igroove-ag-pfaffikon"
       },
       "company": "iGroove AG",
       "companyKey": "igroove",
@@ -70,7 +70,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:29:28.253Z"
+      "firstSeenAt": "2026-10-13T09:29:28.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon"
+        ],
+        "fr": [
+          "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon"
+        ]
+      },
+      "previousSlugs": [
+        "senior-operations-business-affairs-manager-m-f-d-igroove-pfaffikon"
+      ]
     }
   ]
 }

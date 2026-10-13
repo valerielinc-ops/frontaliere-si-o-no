@@ -561,12 +561,12 @@
     },
     {
       "id": "ameos-ch-5ce75a1e244c",
-      "slug": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+      "slug": "dipl-specialista-di-cura-m-f-d-stazione-di-letto-interdisciplinare-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "it": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "en": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "fr": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        "it": "dipl-specialista-di-cura-m-f-d-stazione-di-letto-interdisciplinare-ameos-schweiz-einsiedeln",
+        "en": "dipl-care-specialist-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln",
+        "fr": "dipl-specialiste-des-soins-h-f-d-poste-de-lit-interdisciplinaire-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -624,7 +624,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T10:54:43.374Z"
+      "firstSeenAt": "2026-05-20T10:54:43.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "en": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c0a673d90dfa",

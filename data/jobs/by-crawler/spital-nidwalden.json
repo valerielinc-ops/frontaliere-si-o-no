@@ -809,12 +809,12 @@
     },
     {
       "id": "spital-nidwalden-a25ed5821709",
-      "slug": "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans",
+      "slug": "specialista-clinica-specialista-clinico-in-ortopedia-e-chirurgia-traumatologica-90-100-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-amp-unfallchirurgie-90-100",
-        "it": "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans",
-        "en": "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans",
-        "fr": "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans"
+        "it": "specialista-clinica-specialista-clinico-in-ortopedia-e-chirurgia-traumatologica-90-100-spital-nidwalden-stans",
+        "en": "clinical-specialist-clinical-specialist-orthopaedics-trauma-surgery-90-100-spital-nidwalden-stans",
+        "fr": "specialiste-clinique-specialiste-clinique-orthopedie-et-chirurgie-des-traumatismes-90-100-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -862,11 +862,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-amp-unfallchirurgie-90-100"
+          "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-amp-unfallchirurgie-90-100",
+          "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans"
+        ],
+        "en": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans"
+        ],
+        "fr": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans"
         ]
       },
       "previousSlugs": [
-        "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-amp-unfallchirurgie-90-100"
+        "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-amp-unfallchirurgie-90-100",
+        "klinische-fachspezialistin-klinischer-fachspezialist-orthopadie-unfallchirurgie-90-100-spital-nidwalden-stans"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

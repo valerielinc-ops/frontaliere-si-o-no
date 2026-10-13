@@ -315,8 +315,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital",
         "it": "mitarbeiterin-collaboratore-trice-arztsekretariat-medizinisches-berichtswesen-middle-office-spital-zollikerberg",
-        "en": "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital",
-        "fr": "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital"
+        "en": "employee-medical-secretariat-medical-reporting-middle-office-spital-zollikerberg-zollikerberg",
+        "fr": "employe-secretariat-medical-rapports-medicaux-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -365,6 +365,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-arztsekretariat-medizinisches-berichtswesen-middle-office-spital"
         ]
       },
       "previousSlugs": [
@@ -391,8 +397,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg",
         "it": "fachfrau-fachmann-betreuung-cfc-con-specializzazione-menschen-im-alter-spital-zollikerberg",
-        "en": "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg",
-        "fr": "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg"
+        "en": "specialist-specialist-support-efz-with-specialisation-people-in-old-age-spital-zollikerberg-zollikerberg",
+        "fr": "specialiste-specialiste-soutien-efz-avec-specialisation-personnes-agees-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -439,6 +445,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg"
+        ],
+        "fr": [
           "fachfrau-fachmann-betreuung-efz-mit-fachrichtung-menschen-im-alter-spital-zollikerberg"
         ]
       },

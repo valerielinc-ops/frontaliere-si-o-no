@@ -241,7 +241,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -285,14 +285,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-05-28T12:29:52.777Z",
@@ -9237,12 +9237,12 @@
     },
     {
       "id": "eth-zurich-f025a3ad90f9",
-      "slug": "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-nella-modellazione-dei-sistemi-di-processo-e-di-energia-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch",
-        "it": "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch",
-        "de": "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch",
-        "fr": "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch"
+        "it": "posizione-post-dottorale-nella-modellazione-dei-sistemi-di-processo-e-di-energia-eth-zurich-zurich",
+        "de": "postdoc-stelle-in-prozess-und-energiesystemmodellierung-eth-zurich-zurich",
+        "fr": "position-postdoctorale-dans-la-modelisation-des-systemes-de-procedes-et-d-energie-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9300,16 +9300,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-13T09:34:45.945Z"
+      "firstSeenAt": "2026-10-13T09:34:45.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-process-energy-systems-modeling-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-fcaca2b86374",
-      "slug": "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch",
+      "slug": "business-engineer-azienda-formatrice-digitale-automazione-dei-flussi-di-lavoro-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch",
-        "it": "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch",
-        "en": "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch",
-        "fr": "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch"
+        "it": "business-engineer-azienda-formatrice-digitale-automazione-dei-flussi-di-lavoro-m-f-d-eth-zurich-zurich",
+        "en": "business-engineer-digital-teaching-operations-workflow-automation-m-f-d-eth-zurich-zurich",
+        "fr": "business-engineer-formation-numerique-automatisation-des-flux-de-travail-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9367,7 +9381,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-13T09:34:45.448Z"
+      "firstSeenAt": "2026-10-13T09:34:45.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch"
+        ],
+        "en": [
+          "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-engineer-digitaler-lehrbetrieb-workflow-automatisierung-w-m-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ae1a30c7fb57",

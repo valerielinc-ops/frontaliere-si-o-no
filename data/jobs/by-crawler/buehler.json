@@ -82,7 +82,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberater-buhler-group-uzwil",
+        "de": "rechtsberatung-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -130,14 +130,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberatung-buhler-group-uzwil"
+        "rechtsberater-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberatung-buhler-group-uzwil"
+          "rechtsberater-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
@@ -1403,12 +1403,12 @@
     },
     {
       "id": "buehler-382a6a9d12c1",
-      "slug": "customer-relationship-manager-buehler-uzwil",
+      "slug": "responsabile-relazioni-con-i-clienti-buhler-group-uzwil",
       "slugByLocale": {
         "de": "customer-relationship-manager-buehler-uzwil",
-        "it": "customer-relationship-manager-buehler-uzwil",
+        "it": "responsabile-relazioni-con-i-clienti-buhler-group-uzwil",
         "en": "customer-relationship-manager-buhler-group-uzwil",
-        "fr": "customer-relationship-manager-buehler-uzwil"
+        "fr": "gestionnaire-de-relations-client-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1468,7 +1468,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T09:26:43.256Z"
+      "firstSeenAt": "2026-10-13T09:26:43.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-relationship-manager-buehler-uzwil"
+        ],
+        "fr": [
+          "customer-relationship-manager-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "customer-relationship-manager-buehler-uzwil"
+      ]
     }
   ]
 }
