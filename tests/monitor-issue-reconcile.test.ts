@@ -42,15 +42,16 @@ const markerComment = (measure: string, hour: number) => ({
 /** Una storia letta e vuota: con `confirmations > 1` va passata esplicitamente. */
 const noHistory = { comments: [], events: [] };
 
-describe('regola generale (due misure pulite di run diverse)', () => {
-  it('prima misura pulita e completa → annota, non chiude', () => {
+describe('regola predefinita (una misura pulita completa)', () => {
+  it('prima misura pulita e completa → chiude', () => {
     expect(decideMonitorIssue({ issue: issue(), ...noHistory, verdict: clean('m1'), family: FAMILY }).action)
-      .toBe('note-first-clean');
+      .toBe('close');
   });
 
   it("seconda misura pulita di un'ALTRA misura → chiude", () => {
     const d = decideMonitorIssue({
       issue: issue(), comments: [markerComment('m1', 0)], events: [], verdict: clean('m2'), family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('close');
   });
@@ -58,13 +59,14 @@ describe('regola generale (due misure pulite di run diverse)', () => {
   it('la stessa misura rieseguita due volte non è una seconda conferma', () => {
     const d = decideMonitorIssue({
       issue: issue(), comments: [markerComment('m1', 0)], events: [], verdict: clean('m1'), family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('keep');
   });
 
   it('un marker di UN\'ALTRA famiglia non conta', () => {
     const other = { body: cleanMarker({ family: 'altra', at: at(0), measure: 'm1' }), created_at: at(0) };
-    expect(decideMonitorIssue({ issue: issue(), comments: [other], events: [], verdict: clean('m2'), family: FAMILY }).action)
+    expect(decideMonitorIssue({ issue: issue(), comments: [other], events: [], verdict: clean('m2'), family: FAMILY, confirmations: 2 }).action)
       .toBe('note-first-clean');
   });
 
@@ -75,6 +77,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
       events: [],
       verdict: clean('m2'),
       family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('note-first-clean');
   });
@@ -86,6 +89,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
       events: [{ event: 'reopened', created_at: at(3) }],
       verdict: clean('m2'),
       family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('note-first-clean');
   });
@@ -97,6 +101,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
       events: [],
       verdict: clean('m2'),
       family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('close');
   });
@@ -107,6 +112,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
       comments: [markerComment('m1', 0)],
       verdict: { clean: true, complete: false, evidence: 'report assente', measure: 'm2' },
       family: FAMILY,
+      confirmations: 2,
     });
     expect(d.action).toBe('keep');
   });
@@ -129,6 +135,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
     // riapertura dopo la prima misura pulita: «non so», mai «vuota».
     const d = decideMonitorIssue({
       issue: issue(), ...(history as object), verdict: clean('m2'), family: FAMILY,
+      confirmations: 2,
     });
     expect(d).toEqual({ action: 'keep', reason: expect.stringContaining('storia della issue illeggibile') });
   });
@@ -216,14 +223,14 @@ describe('reconcileMonitorIssues — le scritture', () => {
     const first = fakeIo([issue()]);
     await reconcileMonitorIssues({
       family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io: first.io, log: quiet,
-      verdictFor: () => clean('m1'), now: T0,
+      verdictFor: () => clean('m1'), now: T0, confirmations: 2,
     });
     expect(first.writes).toEqual([expect.stringMatching(/^comment #1: 🟢/)]);
 
     const second = fakeIo([issue()], { comments: [markerComment('m1', 0)] });
     await reconcileMonitorIssues({
       family: FAMILY, labels: ['fam'], titlePrefix: 'Fam:', io: second.io, log: quiet,
-      verdictFor: () => clean('m2'), now: T0 + 86_400_000,
+      verdictFor: () => clean('m2'), now: T0 + 86_400_000, confirmations: 2,
     });
     expect(second.writes.at(-1)).toBe('close #1');
   });

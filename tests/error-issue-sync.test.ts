@@ -31,6 +31,7 @@ const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatte
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
 const posthogSync = await import('../scripts/posthog-error-issue-sync.mjs');
 const cfSync = await import('../scripts/cf-5xx-issue-sync.mjs');
+const { decideMonitorIssue } = await import('../scripts/lib/monitor-issue-reconcile.mjs');
 
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
@@ -461,6 +462,32 @@ describe('posthog-error-issue-sync.mjs (GA4 source since decision H9, 2026-10-05
 
     expect(createCalls()).toHaveLength(1);
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('reconciles a disappeared signature after one complete live report', async () => {
+    issueListEmptyThenCreate(207);
+    const issue = { title: posthogSync.titleFor(row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/')) };
+    const reconcile = posthogSync.posthogReconcile([], { windowDays: 7, minCount: 5 });
+    const verdict = reconcile.verdictFor(issue);
+    const activeVerdict = posthogSync.posthogReconcile([
+      row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/'),
+    ], { windowDays: 7, minCount: 5 }).verdictFor(issue);
+
+    expect(reconcile.confirmations).toBe(1);
+    expect(verdict).toMatchObject({ complete: true, clean: true });
+    expect(activeVerdict).toMatchObject({ complete: true, clean: false });
+    expect(decideMonitorIssue({
+      issue: { ...issue, state: 'OPEN', labels: [] },
+      comments: [],
+      events: [],
+      verdict,
+      family: reconcile.family,
+      confirmations: reconcile.confirmations,
+    })).toMatchObject({ action: 'close' });
+
+    await run([]);
+    expect(createCalls()).toHaveLength(0);
+    expect(ghCalls().filter((args) => args[0] === 'api' && args.some((arg) => arg.includes('issues?state=open')))).toHaveLength(1);
   });
 
   it('abstains when the GA4 report throws or cannot authenticate (null), never reading it as zero errors', async () => {

@@ -23,14 +23,9 @@
  *   zero scritture (non chiude e non annota).
  *
  * ─── Regola ─────────────────────────────────────────────────────────────────
- * Generale (famiglie senza un criterio sostenuto proprio, `confirmations: 2`):
- * prima misura pulita e completa → commento con il marker
- * `<!-- MONITOR_CLEAN: family=<f> at=<iso> measure=<id> -->`, nessuna
- * chiusura; misura pulita di un'ALTRA misura (altro `measure`) senza un `🔁`
- * di riconferma né un evento `reopened` dopo il marker → chiusura.
- * `confirmations: 1` è per le famiglie il cui `verdict.clean` è già un
- * criterio sostenuto (i 5xx: `checkUrlClean`, 7 snapshot completi e freschi):
- * chiusura alla prima misura pulita.
+ * Generale (default `confirmations: 1`): una misura pulita e completa →
+ * commento con l'evidenza e chiusura. `confirmations: 2` resta disponibile
+ * solo come opt-in per una famiglia che abbia un criterio storico proprio.
  *
  * La chiusura passa dal NUMERO riletto dell'issue DOPO un commento con
  * l'evidenza (misura, comando, finestra). Tetto di `MAX_CLOSES_PER_RUN`
@@ -121,7 +116,7 @@ export function skipReason(issue) {
  * @param {Array<{event:string,createdAt?:string,created_at?:string}>|null} [opts.events]
  * @param {{clean:boolean,complete:boolean,evidence:string,measuredAt?:string,measure?:string}|null} opts.verdict
  * @param {string} opts.family
- * @param {number} [opts.confirmations]  2 = regola generale; 1 = criterio già sostenuto.
+ * @param {number} [opts.confirmations]  1 = default; 2 = opt-in per un criterio storico.
  * @param {boolean} [opts.measuredNow]   il conio di questa run ha misurato il difetto sopra soglia.
  * @returns {{action:'close'|'note-first-clean'|'keep'|'skip', reason:string}}
  */
@@ -131,7 +126,7 @@ export function decideMonitorIssue({
   events,
   verdict,
   family,
-  confirmations = 2,
+  confirmations = 1,
   measuredNow = false,
 }) {
   const skip = skipReason(issue);
@@ -173,7 +168,7 @@ function evidenceLines(verdict) {
   ].filter(Boolean);
 }
 
-/** Il commento della prima misura pulita: evidenza + marker, nessuna chiusura. */
+/** Il commento della prima misura pulita quando una famiglia opta per `confirmations > 1`. */
 export function firstCleanComment({ family, verdict, now }) {
   return [
     `🟢 Prima misura pulita e completa del monitor \`${family}\`. Nessuna chiusura: la chiude la prossima misura pulita di un'altra run, se nel frattempo non arriva una riconferma.`,
@@ -308,7 +303,7 @@ export function ghReconcileIo() {
  * @param {string[]} opts.labels         la prima è la label di famiglia usata per l'elenco.
  * @param {string} opts.titlePrefix      solo i titoli con questo prefisso sono della famiglia.
  * @param {(issue:object)=>object|Promise<object>} opts.verdictFor
- * @param {number} [opts.confirmations]
+ * @param {number} [opts.confirmations]  1 = default; 2 = opt-in per una storia distinta.
  * @param {Set<string>} [opts.measuredTitles]    titoli misurati sopra soglia in questa run (lista COMPLETA).
  * @param {Set<string>} [opts.reconfirmedTitles] titoli che il conio ha appena riconfermato.
  * @param {boolean} [opts.dryRun]
@@ -324,7 +319,7 @@ export async function reconcileMonitorIssues({
   labels = [],
   titlePrefix = '',
   verdictFor,
-  confirmations = 2,
+  confirmations = 1,
   measuredTitles = new Set(),
   reconfirmedTitles = new Set(),
   dryRun = false,

@@ -35,11 +35,47 @@ export function truncate(value, n) {
 }
 
 export const SOURCE_LABEL = 'GA4 `app_error`/`exception` events (production host)';
+export const POSTHOG_ERROR_FAMILY = 'posthog-errors';
+export const POSTHOG_ISSUE_TITLE_PREFIX = 'GA4 Exception: ';
+export const POSTHOG_RECONCILE_COMMAND = 'node scripts/posthog-error-issue-sync.mjs --dry-run';
 
 // Issue-creation deny-list (self-healed transients / confirmed-benign noise
 // kept in telemetry for dashboards but not worth a GitHub ticket) is shared
 // with the GA4 feeder — see ISSUE_DENY_PATTERNS in ./lib/error-issue-sync.mjs
 // (#3762, #3758/#3759/#3761).
+
+export function titleFor(e) {
+  return `${POSTHOG_ISSUE_TITLE_PREFIX}${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`;
+}
+
+/**
+ * A live GA4 report is complete once the liveness guard has passed and the
+ * error query returned an array. Entries are the complete filtered set, so a
+ * title absent from it is below threshold or deliberately denied and can
+ * close after this one clean measurement.
+ */
+export function posthogReconcile(entries, { windowDays = 7, minCount = 5 } = {}) {
+  const measuredTitles = new Set((entries || []).map(titleFor).filter(Boolean));
+  return {
+    family: POSTHOG_ERROR_FAMILY,
+    labels: ['app-error'],
+    titlePrefix: POSTHOG_ISSUE_TITLE_PREFIX,
+    confirmations: 1,
+    verdictFor: (issue) => {
+      const title = String(issue?.title ?? '');
+      const active = measuredTitles.has(title);
+      return {
+        clean: !active,
+        complete: true,
+        evidence: active
+          ? `${title} remains above the GA4 threshold in the last ${windowDays}d`
+          : `${title} is absent from GA4 errors above ${minCount} occurrence(s) in the last ${windowDays}d`,
+        measure: `ga4:${windowDays}d:${minCount}`,
+        command: POSTHOG_RECONCILE_COMMAND,
+      };
+    },
+  };
+}
 
 /** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
 export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', minCount = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5)) {
@@ -69,18 +105,18 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
           'vincolo di mirror.',
         ],
         metrica: `prima=${e.count} occorrenze in ${windowDays}d atteso=<${minCount} (sotto la soglia del feeder)`,
-        comando: 'node scripts/posthog-error-issue-sync.mjs --dry-run',
+        comando: POSTHOG_RECONCILE_COMMAND,
         note: [
           'Il comando rigira la stessa query GA4 e stampa le issue che coniera senza',
-          "coniarle: la issue si chiude quando questa firma non compare piu' nell'output.",
+          "coniarle: con una sorgente viva, la issue si chiude alla prima misura completa in cui questa firma non compare piu' nell'output.",
           'Vuole il service account GA4 (sola lettura) — dalla root del workspace, `source bin/rc-env.sh`.',
         ],
         osservatore: [
-          '`.github/workflows/posthog-error-monitor.yml`, che rigira la misura e ricommenta',
-          "sulla issue canonica finche' la firma resta sopra soglia. Non esiste un closer",
-          "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+          '`.github/workflows/posthog-error-monitor.yml`, che rigira la misura e riconcilia',
+          "la issue canonica finche' la firma resta sopra soglia. Una misura completa",
+          "sotto soglia la chiude; una sorgente GA4 non misurabile non produce una chiusura.",
         ],
-        fallimento: `\`GA4 Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}\``,
+        fallimento: `\`${titleFor(e)}\``,
       }),
     ].join('\n');
 }
@@ -148,12 +184,7 @@ export async function main({
     // message itself is generic (e.g. a RangeError).
     .filter((e) => !isIssueDenied(e.message, e.type));
 
-  if (!entries.length) {
-    console.log(`[posthog-error-issue-sync] no GA4 app_error/exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — nothing to sync`);
-    return;
-  }
-
-  return syncErrorIssues({
+  const syncOptions = {
     entries,
     dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
@@ -162,9 +193,16 @@ export async function main({
     priorityFor: (e) => (e.count >= MIN_COUNT * 10 ? 2 : 3),
     // `GA4 Exception:` is the prefix the issues opened by the old fallback
     // branch already carry: keeping it keeps the dedup on the same titles.
-    titleFor: (e) => `GA4 Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
+    titleFor,
     bodyFor: (e) => buildIssueBody(e, WINDOW_DAYS, MIN_COUNT),
-  });
+    reconcile: posthogReconcile(entries, { windowDays: WINDOW_DAYS, minCount: MIN_COUNT }),
+  };
+
+  if (!entries.length) {
+    console.log(`[posthog-error-issue-sync] no GA4 app_error/exception above MIN_COUNT=${MIN_COUNT} in last ${WINDOW_DAYS}d — reconciling existing issues`);
+  }
+
+  return syncErrorIssues(syncOptions);
 }
 
 // Run only when invoked directly (not when imported by the test suite), so

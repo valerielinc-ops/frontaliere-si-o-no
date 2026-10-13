@@ -2,14 +2,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 /**
  * Il chiuditore del feeder `App Error:` (scripts/app-error-issue-sync.mjs →
- * `appErrorReconcile`, regola a due conferme di
+ * `appErrorReconcile`, regola a una conferma di
  * scripts/lib/monitor-issue-reconcile.mjs).
  *
  * Prima di questo file il feeder coniava e riconfermava ma non chiudeva mai:
  * 7919 e 8773 sono rimaste aperte per settimane con la firma ormai sotto
  * soglia e sono state chiuse a mano il 2026-10-03. Se uno di questi test
  * diventa rosso, il titolo del guasto è:
- * «Feeder app-error: issue aperta con la firma sotto soglia in due report consecutivi»
+ * «Feeder app-error: issue aperta con la firma sotto soglia in un report completo»
  * — oppure, nel verso opposto, un chiuditore che chiude su uno zero prodotto
  * da un filtro o da un elenco tagliato.
  */
@@ -99,35 +99,33 @@ function fakeGithub(issues: Array<Entry>) {
 const closeComment = (gh: ReturnType<typeof fakeGithub>, n: number) =>
   (gh.comments.get(n) ?? []).map((c) => c.body).find((b) => b.startsWith('✅')) ?? '';
 
-describe('regola a due report puliti e completi', () => {
+describe('regola a un report pulito e completo', () => {
   const sig = entry({ errorMessage: 'guarito', count: 40, last7d: 0, lastSeen: daysAgo(15) });
   const issue = { number: 11, title: titleFor(sig), body: buildIssueBody(sig, { errorRate: 0.3, healthStatus: 'ok' }) };
 
-  it('primo report pulito → nota; stesso report rieseguito → niente; report di un altro giorno → chiusura con l\'evidenza', async () => {
+  it('primo report pulito → chiude con l\'evidenza; una run successiva non la rielenca', async () => {
     const gh = fakeGithub([issue]);
     const first = reportOf(daysAgo(7), [sig]);
 
     await gh.run(first);
-    expect(gh.writes).toEqual([expect.stringMatching(/^comment #11: 🟢/)]);
+    expect(gh.writes).toEqual([
+      expect.stringMatching(/^comment #11: ✅/),
+      'close #11',
+    ]);
 
     await gh.run(first);
-    expect(gh.writes).toHaveLength(1);
-
-    await gh.run(reportOf(daysAgo(0), [sig]));
-    expect(gh.writes.slice(1)).toEqual([expect.stringMatching(/^comment #11: ✅/), 'close #11']);
+    expect(gh.writes).toHaveLength(2);
     const evidence = closeComment(gh, 11);
     expect(evidence).toContain('0 hit negli ultimi 7 giorni');
     expect(evidence).toContain('40 nella finestra del report');
     expect(evidence).toContain(`ultima volta ${daysAgo(15)}`);
-    expect(evidence).toContain(`report-${daysAgo(7)}`);
-    expect(evidence).toContain(`report-${daysAgo(0)}`);
+    expect(evidence).toContain(`report del ${daysAgo(7)}`);
   });
 
-  it('una firma tornata sopra soglia fra i due report non chiude', async () => {
+  it('una firma sopra soglia nella misura corrente non chiude', async () => {
     const gh = fakeGithub([issue]);
-    await gh.run(reportOf(daysAgo(7), [sig]));
     await gh.run(reportOf(daysAgo(0), [{ ...sig, last7d: 9, lastSeen: daysAgo(0) }]));
-    expect(gh.writes).toEqual([expect.stringMatching(/^comment #11: 🟢/)]);
+    expect(gh.writes).toEqual([]);
   });
 });
 
@@ -297,7 +295,7 @@ describe('main() passa dalla fase «riconcilia» anche quando non conia niente',
     delete process.env.GH_REPO;
   });
 
-  it('nessuna firma sopra soglia: la issue aperta riceve la prima nota pulita', async () => {
+  it('nessuna firma sopra soglia: la issue aperta riceve evidenza e chiusura', async () => {
     const sig = entry({ errorMessage: 'guarito', count: 40, last7d: 0 });
     const issue = {
       number: 41, title: titleFor(sig), state: 'OPEN', labels: ['stability', 'app-error'],
@@ -319,6 +317,7 @@ describe('main() passa dalla fase «riconcilia» anche quando non conia niente',
     expect(ghArgs.filter((a) => a[0] === 'issue' && a[1] === 'create')).toEqual([]);
     const comment = ghArgs.find((a) => a[0] === 'issue' && a[1] === 'comment');
     expect(comment?.[2]).toBe('41');
-    expect(comment?.[comment.indexOf('--body') + 1]).toContain('MONITOR_CLEAN: family=app-error');
+    expect(comment?.[comment.indexOf('--body') + 1]).toContain('Criterio della scheda soddisfatto');
+    expect(ghArgs.some((a) => a[0] === 'issue' && a[1] === 'close' && a[2] === '41')).toBe(true);
   });
 });
