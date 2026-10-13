@@ -936,7 +936,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  throw err;
  }
  }
- const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+ // Body and FAQ values are emitted both as ordinary quoted strings and as
+ // template literals. The latter are valid corpus output (and are used by
+ // recent articles); ignoring them silently removes the visible body and
+ // prevents the corresponding FAQPage schema from being rendered.
+ const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
@@ -953,7 +957,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // `faq` is JSON and keeps its escapes verbatim for JSON.parse; body text
  // is markdown, where a leftover literal `\n` is legacy corpus damage that
  // renders as a visible backslash. See repairLegacyDoubleEscapedBreaks.
- const decoded = unescapeTsStringRaw(m[3]);
+ const decoded = unescapeTsStringRaw(m[3] ?? m[4]);
  const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
