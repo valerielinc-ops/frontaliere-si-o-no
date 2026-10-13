@@ -1,0 +1,96 @@
+name: Cloudflare Worker Errors Monitor
+
+# Reports the invocation statuses shown by the locale-router Worker's
+# Cloudflare Metrics "Errors" chart. This is deliberately separate from the
+# zone-wide cf-5xx monitor: a Worker exception can be invisible in the zone
+# status report, while a handled 503 is not a Worker invocation exception.
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Look-back window in hours (maximum 23.9)'
+        required: false
+        type: string
+        default: '23'
+      min_errors:
+        description: 'Minimum errors per invocation status to open/reconfirm an issue'
+        required: false
+        type: string
+        default: '1'
+
+concurrency:
+  group: cloudflare-worker-errors-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Use the App/PAT identity when available so opening or reconciling an
+      # issue can enter the normal issue-triage loop; GITHUB_TOKEN remains a
+      # deliberately explicit last-resort reporting fallback.
+      - name: Mint App token (primary issue identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Sync Cloudflare Worker errors to backlog
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          CF_WORKER_ERRORS_HOURS: ${{ inputs.hours || '23' }}
+          CF_WORKER_ERRORS_MIN_COUNT: ${{ inputs.min_errors || '1' }}
+        run: node scripts/cloudflare-worker-error-issue-sync.mjs
