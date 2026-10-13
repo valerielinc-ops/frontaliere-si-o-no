@@ -61,6 +61,11 @@ describe('fill extension: patterns', () => {
     expect(APPLY_RE.test('candidatura manuale')).toBe(false);
   });
 
+  it('does not mistake a plain «Apply» start link for a final send link', () => {
+    const posting = page('<form><a href="/apply">Apply</a></form>');
+    expect(posting.F.pageState(posting.document, { sawForm: true }).kind).not.toBe('final');
+  });
+
   it('declares only what it needs and opens the queue bridge on the owner page alone', () => {
     const manifest = JSON.parse(readFileSync(resolve(extension, 'manifest.json'), 'utf8'));
     expect(manifest.manifest_version).toBe(3);
