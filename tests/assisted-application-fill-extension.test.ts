@@ -593,6 +593,19 @@ describe('fill extension: other portals', () => {
     expect({ ok, opened, fileName: input.files?.[0]?.name, fileCount: input.files?.length }).toEqual({ ok: true, opened: 1, fileName: 'CV.pdf', fileCount: 1 });
   });
 
+  it('maps Fincons availability to its optional notice/start-date field', async () => {
+    const { F, document } = page(`<form>
+      <label for="resumator-questionnaire-q3021436">Notice Period / Earliest Available Start Date (optional)</label>
+      <input id="resumator-questionnaire-q3021436" type="text">
+    </form>`, 'https://fincons.applytojob.com/apply/O3FNxzBcRn/Senior-Frontend-Engineer-React');
+    const input = document.getElementById('resumator-questionnaire-q3021436') as HTMLInputElement;
+    const entry = F.collect(document).find((item: any) => item.element === input);
+    const availabilityKit = { ...kit, answers: [], profile: { ...kit.profile, availability: '2026-11-01', salary: "CHF 100'000" } };
+    expect(F.answerFor(entry, availabilityKit)).toEqual({ value: '2026-11-01', family: 'availability' });
+    await F.fillPage(document, availabilityKit, { getFile: async () => null, attempts: new WeakMap() });
+    expect(input.value).toBe('2026-11-01');
+  });
+
   // Rolex 2026-10-02: the posting asks for school reports and aptitude test results besides the CV.
   it('attaches the requested documents to their own fields, and all of them to a generic attachments field', async () => {
     const { F, document, window } = page(`<form>

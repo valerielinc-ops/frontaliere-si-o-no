@@ -53,6 +53,8 @@
     ['street', /(\bstreet|\bvia\b|strasse|\badresse|\bindirizzo|\brue\b)/],
     ['country', /\b(paese|country|land|pays|nazione)\b/],
     ['linkedin', /\blinkedin\b/],
+    ['availability', /\b(availability|available|start date|notice period|preavviso|disponibil|verfugbarkeit|verfugbar|eintritt|date de debut|date d entree)\b/],
+    ['salary', /\b(salary|wage|compensation|pay|gehalt|loh(n|nvorstellung)|salario|salariale|stipendio|salary expectations)\b/],
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
@@ -428,6 +430,8 @@
       case 'country': return address.country || (locationParts.length > 1 ? locationParts[locationParts.length - 1] : '');
       case 'linkedin': return id.linkedin;
       case 'birthDate': return kit.profile?.dateOfBirth;
+      case 'availability': return kit.profile?.availability;
+      case 'salary': return kit.profile?.salary;
       default: return '';
     }
   }
