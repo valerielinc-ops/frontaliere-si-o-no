@@ -634,6 +634,22 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(checkFabricatedNormAcronyms(text)).toEqual([]);
   });
 
+  it.each([
+    ['it quoted', 'Il gruppo «LFW», AG ha aperto una filiale per i frontalieri.'],
+    ['de suffix', 'LPS GmbH sucht Grenzgängerinnen und Grenzgänger im Tessin.'],
+    ['fr suffix', 'LCO S.A. recrute des frontaliers près de la frontière.'],
+    ['fr accented suffix', 'LMA Sàrl conseille les travailleurs frontaliers.'],
+    ['en suffix', 'LRF Ltd. provides payroll services to cross-border workers.'],
+  ])('leaves a real company name with a %s boundary alone', (_case, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
+  it('does not treat legal punctuation as a corporate suffix', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Secondo la LFW, art. 2, il datore di lavoro deve registrare ogni ora supplementare.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
   it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {
     expect(codes(checkFabricatedNormAcronyms(
       'Secondo la LFW, il datore di lavoro deve registrare ogni ora supplementare.',
