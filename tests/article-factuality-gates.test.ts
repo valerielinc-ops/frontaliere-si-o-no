@@ -26,6 +26,7 @@ import {
   checkFabricatedInstitutionAcronyms,
   checkFabricatedNormAcronyms,
   FABRICATED_NORM_ACRONYMS,
+  benignNormEntityBoundary,
   checkContradictoryNormDates,
   checkSourceFreshness,
   extractSourceAnchors,
@@ -622,6 +623,16 @@ describe('checkFabricatedNormAcronyms', () => {
     )).toEqual([]);
   });
 
+  it('validates entity boundaries against the original text at truncated context edges', () => {
+    const texts = [
+      `xgroup «${' '.repeat(73)}LFW`,
+      `LFW${' '.repeat(30)}AGX`,
+    ];
+    expect(benignNormEntityBoundary(texts[0], 'LFW', texts[0].indexOf('LFW'), 3, 80)).toBe(false);
+    expect(benignNormEntityBoundary(texts[1], 'LFW', 0, 3, 80)).toBe(false);
+    expect(texts.map((text) => checkFabricatedNormAcronyms(text).length)).toEqual([1, 1]);
+  });
+
   // Le forme societarie valgono in ogni locale del corpus: «la société LFW» e
   // «die Gesellschaft LPS» sono la stessa entita' di «il gruppo LFW».
   it.each([
@@ -632,6 +643,22 @@ describe('checkFabricatedNormAcronyms', () => {
     ['en', 'The firm LCO hired cross-border commuters in Ticino.'],
   ])('leaves a %s company name using the sigla alone', (_locale, text) => {
     expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
+  it.each([
+    ['it quoted', 'Il gruppo «LFW», AG ha aperto una filiale per i frontalieri.'],
+    ['de suffix', 'LPS GmbH sucht Grenzgängerinnen und Grenzgänger im Tessin.'],
+    ['fr suffix', 'LCO S.A. recrute des frontaliers près de la frontière.'],
+    ['fr accented suffix', 'LMA Sàrl conseille les travailleurs frontaliers.'],
+    ['en suffix', 'LRF Ltd. provides payroll services to cross-border workers.'],
+  ])('leaves a real company name with a %s boundary alone', (_case, text) => {
+    expect(checkFabricatedNormAcronyms(text)).toEqual([]);
+  });
+
+  it('does not treat legal punctuation as a corporate suffix', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Secondo la LFW, art. 2, il datore di lavoro deve registrare ogni ora supplementare.',
+    ))).toContain('fabricated-norm-acronym');
   });
 
   it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {

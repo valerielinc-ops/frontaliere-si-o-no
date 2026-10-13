@@ -1520,11 +1520,44 @@ const NORM_CITATION_CUE =
 // scartiamo soltanto forme esplicitamente da nome di entita'/prodotto, che e'
 // l'intento anti-falso-positivo della meta' corpus senza aprire quel buco.
 // Le forme societarie coprono i quattro locali del corpus, accenti compresi:
-// `soci[eé]t[aàeé]` tiene società/societa e société/societe.
+// `soci[eé]t[aàeé]` tiene società/societa e société/societe. Il controllo non
+// puo' fermarsi a `entita + sigla`: nomi reali compaiono anche tra virgolette
+// (`gruppo «LFW»`) o come ragione sociale (`LFW AG`, `LPS S.A.`). La funzione
+// guarda solo il confine dell'occorrenza corrente, cosi' una menzione societaria
+// precedente non assolve una citazione normativa successiva della stessa sigla.
+const BENIGN_NORM_ENTITY_NOUN = String.raw`(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)`;
+const BENIGN_NORM_CORPORATE_SUFFIX = String.raw`(?:AG|GmbH|S\.?\s*A\.?|S[àa]rl|Srl|S\.?\s*p\.?\s*A\.?|Ltd\.?|Limited|Inc\.?|LLC|Corp\.?|SAS|SNC)`;
 const benignNormEntity = (acronym) => new RegExp(
-  String.raw`\b(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)\s+${acronym}$`,
+  String.raw`\b${BENIGN_NORM_ENTITY_NOUN}\s+${acronym}$`,
   'i',
 );
+
+export function benignNormEntityBoundary(text, acronym, matchIndex, matchLength = acronym.length, contextWindow = 80) {
+  if (typeof text !== 'string' || typeof acronym !== 'string' || !Number.isInteger(matchIndex)) return false;
+  const escaped = escapeRegExpLiteral(acronym);
+  const throughStart = Math.max(0, matchIndex - contextWindow);
+  const throughMatch = text.slice(throughStart, matchIndex + matchLength);
+  const fromMatch = text.slice(matchIndex, matchIndex + matchLength + 32);
+  const prefixedEntity = new RegExp(
+    String.raw`\b${BENIGN_NORM_ENTITY_NOUN}\s+["'«‹„“‘(\[]\s*${escaped}$`,
+    'iu',
+  );
+  const suffixedEntity = new RegExp(
+    String.raw`^${escaped}(?:\s*["'»›”’)\]])?\s*,?\s+${BENIGN_NORM_CORPORATE_SUFFIX}(?=$|[\s,.;:!?…\)\]])`,
+    'iu',
+  );
+  const prefixedMatch = prefixedEntity.exec(throughMatch);
+  const prefixedStart = prefixedMatch ? throughStart + prefixedMatch.index : -1;
+  const prefixedBoundaryIsInOriginalText = prefixedMatch !== null
+    && (prefixedStart === 0 || !/\w/iu.test(text[prefixedStart - 1]));
+
+  const suffixedMatch = suffixedEntity.exec(fromMatch);
+  const suffixedEnd = suffixedMatch ? matchIndex + suffixedMatch[0].length : -1;
+  const suffixBoundaryIsInOriginalText = suffixedMatch !== null
+    && (suffixedEnd === text.length || /[\s,.;:!?…\)\]]/u.test(text[suffixedEnd] ?? ''));
+
+  return prefixedBoundaryIsInOriginalText || suffixBoundaryIsInOriginalText;
+}
 
 // Il tema delle leggi fiscali e del lavoro inventate, nei quattro locali del
 // corpus. Serve alle sigle che hanno un omonimo reale in un altro dominio
@@ -1794,8 +1827,9 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
     let m;
     while ((m = scan.exec(text)) !== null) {
       if (m[0] === '') { scan.lastIndex += 1; continue; }
+      const w = contextWindow ?? 80;
+      if (benignNormEntityBoundary(text, acronym, m.index, m[0].length, w)) continue;
       if (context || benign || veto) {
-        const w = contextWindow ?? 80;
         const nearby = text.slice(Math.max(0, m.index - w), m.index + m[0].length + w);
         // Il cue benigno deve terminare sulla occorrenza CORRENTE: cercarlo
         // nell'intera finestra farebbe assolvere una seconda citazione legale
