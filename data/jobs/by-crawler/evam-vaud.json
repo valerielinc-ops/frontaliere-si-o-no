@@ -666,12 +666,12 @@
     },
     {
       "id": "evam-vaud-8529729",
-      "slug": "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch",
+      "slug": "educatore-sociale-per-la-casa-delle-donne-80-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch",
-        "it": "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch",
-        "en": "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch",
-        "de": "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch"
+        "it": "educatore-sociale-per-la-casa-delle-donne-80-cdi-evam-lausanne",
+        "en": "social-educator-for-women-s-home-80-cdi-evam-lausanne",
+        "de": "sozialpadagoge-fur-frauenheim-80-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -727,14 +727,28 @@
         }
       },
       "applyUrl": "https://emploi.evam.ch/jobs/8529729-educateur-trice-social-e-pour-le-foyer-femmes-80-cdi",
-      "firstSeenAt": "2026-10-12T21:40:58.046Z"
+      "firstSeenAt": "2026-10-12T21:40:58.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "educateur-trice-social-e-pour-le-foyer-femmes-80-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8530843",
-      "slug": "gestionnaire-d-accueil-50-cdi-evam-vevey",
+      "slug": "host-manager-50-cdi-evam-vevey",
       "slugByLocale": {
         "fr": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
-        "it": "gestionnaire-d-accueil-50-cdi-evam-vevey",
+        "it": "host-manager-50-cdi-evam-vevey",
         "en": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
         "de": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
       },
@@ -780,11 +794,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+          "gestionnaire-d-accueil-50-cdi-evam-vevey"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+        "gestionnaire-d-accueil-50-cdi-evam-vevey"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -804,10 +820,10 @@
     },
     {
       "id": "evam-vaud-8530918",
-      "slug": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+      "slug": "host-manager-50-cdi-evam-yverdon-les-bains",
       "slugByLocale": {
         "fr": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
-        "it": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+        "it": "host-manager-50-cdi-evam-yverdon-les-bains",
         "en": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2",
         "de": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2"
       },
@@ -853,11 +869,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2"
+          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2",
+          "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2"
+        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch-2",
+        "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -877,10 +895,10 @@
     },
     {
       "id": "evam-vaud-8532556",
-      "slug": "assistant-e-social-e-100-cdi-evam-vaud-ch",
+      "slug": "assistente-sociale-100-cdi-evam-vevey",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdi-evam-vaud-ch",
+        "it": "assistente-sociale-100-cdi-evam-vevey",
         "en": "assistant-e-social-e-100-cdi-evam-vaud-ch",
         "de": "assistant-e-social-e-100-cdi-evam-vaud-ch"
       },
@@ -938,7 +956,15 @@
         }
       },
       "applyUrl": "https://emploi.evam.ch/jobs/8532556-assistant-e-social-e-100-cdi",
-      "firstSeenAt": "2026-10-12T21:40:57.961Z"
+      "firstSeenAt": "2026-10-12T21:40:57.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8509599",

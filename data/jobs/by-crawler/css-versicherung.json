@@ -2902,12 +2902,12 @@
     },
     {
       "id": "css-versicherung-41425f485dfd",
-      "slug": "collaboratore-trice-kundenservice-zug-80-100-css-versicherung-zug",
+      "slug": "collaboratore-trice-del-servizio-clienti-zugo-80-100-css-versicherung-zug",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug",
-        "it": "collaboratore-trice-kundenservice-zug-80-100-css-versicherung-zug",
-        "en": "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug",
-        "fr": "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug"
+        "it": "collaboratore-trice-del-servizio-clienti-zugo-80-100-css-versicherung-zug",
+        "en": "customer-service-employee-zug-80-100-css-versicherung-zug",
+        "fr": "collaborateur-trice-du-service-clientele-a-zoug-80-100-css-versicherung-zug"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2955,11 +2955,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug",
+          "collaboratore-trice-kundenservice-zug-80-100-css-versicherung-zug"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug"
+        "mitarbeiter-in-kundenservice-zug-80-100-css-versicherung-zug",
+        "collaboratore-trice-kundenservice-zug-80-100-css-versicherung-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

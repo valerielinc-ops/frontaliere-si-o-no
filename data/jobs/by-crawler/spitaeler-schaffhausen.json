@@ -2283,7 +2283,7 @@
       "id": "spitaeler-schaffhausen-48d9983c43dc",
       "slug": "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-32848bf7b4",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-32848bf7b4",
+        "it": "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen",
         "en": "dipl-care-professional-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
         "fr": "dipl-soins-professionnels-hf-spitaler-schaffhausen-schaffhausen"
@@ -2445,7 +2445,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2494,7 +2494,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2504,7 +2504,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4117,7 +4117,7 @@
       "id": "spitaeler-schaffhausen-7444220e561a",
       "slug": "infermiere-a-diplomato-a-hf-spitaler-schaffhausen-schaffhausen-dfa6e35536",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-hf-spitaler-schaffhausen-schaffhausen-dfa6e35536",
+        "it": "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen",
         "en": "logi-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
         "fr": "pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen"
@@ -4167,15 +4167,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
         "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-0ae6bbc253",
-        "dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung-spitaeler-schaffhausen",
-        "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
+        "dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung-spitaeler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
           "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-0ae6bbc253",
-          "dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung-spitaeler-schaffhausen",
-          "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
+          "dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung-spitaeler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-07T15:18:14.965Z",
@@ -4604,12 +4602,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-77a06b3dde7e",
-      "slug": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen",
+      "slug": "medico-senior-pediatrico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen",
-        "it": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen",
-        "en": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen"
+        "it": "medico-senior-pediatrico-spitaler-schaffhausen-schaffhausen",
+        "en": "senior-physician-pediatrics-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-principal-pediatre-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4668,7 +4666,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:22:10.655Z"
+      "firstSeenAt": "2026-09-10T23:22:10.655Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-padiatrie-spitaeler-schaffhausen-schaffhausen"
+      ]
     }
   ]
 }

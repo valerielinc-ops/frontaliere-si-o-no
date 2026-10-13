@@ -104,7 +104,7 @@
       "slugByLocale": {
         "it": "progetto-di-mercato-creative-omega-sa-biel-bienne",
         "en": "creative-mission-omega-sa-biel-bienne",
-        "de": "creative-marketing-project-manager-omega-sa-biel-bienne",
+        "de": "kreativer-vermarktungsprojektmanager-omega-sa-biel-bienne",
         "fr": "creative-marketing-project-manager-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -176,7 +176,7 @@
       "previousSlugs": [
         "creative-marketing-project-manager-omega-biel-bienne",
         "projektmanager-fur-kreatives-marketing-omega-sa-biel-bienne",
-        "kreativer-vermarktungsprojektmanager-omega-sa-biel-bienne"
+        "creative-marketing-project-manager-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -188,7 +188,7 @@
         "de": [
           "creative-marketing-project-manager-omega-biel-bienne",
           "projektmanager-fur-kreatives-marketing-omega-sa-biel-bienne",
-          "kreativer-vermarktungsprojektmanager-omega-sa-biel-bienne"
+          "creative-marketing-project-manager-omega-sa-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-19T23:18:05.824Z",
@@ -597,8 +597,8 @@
       "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
-        "de": "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne",
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne",
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -665,18 +665,18 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "operational-learning-omega-sa-biel-bienne",
-        "betriebliches-lernen-omega-sa-biel-bienne"
+        "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
+        "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ],
         "en": [
-          "operational-learning-omega-sa-biel-bienne"
+          "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne"
         ],
         "de": [
-          "betriebliches-lernen-omega-sa-biel-bienne"
+          "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
@@ -1091,12 +1091,12 @@
     },
     {
       "id": "omega-33442",
-      "slug": "spare-parts-purchaser-omega-biel-bienne",
+      "slug": "ricambi-acquisto-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "spare-parts-purchaser-omega-biel-bienne",
-        "it": "spare-parts-purchaser-omega-biel-bienne",
+        "it": "ricambi-acquisto-omega-sa-biel-bienne",
         "en": "spare-parts-purchaser-omega-biel-bienne",
-        "de": "spare-parts-purchaser-omega-biel-bienne"
+        "de": "ersatzteilkauf-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -1169,7 +1169,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:43:43.972Z"
+      "firstSeenAt": "2026-10-12T21:43:43.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spare-parts-purchaser-omega-biel-bienne"
+        ],
+        "de": [
+          "spare-parts-purchaser-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "spare-parts-purchaser-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-33345",

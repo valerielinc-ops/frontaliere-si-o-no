@@ -735,7 +735,7 @@
       "slug": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
       "slugByLocale": {
         "it": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen",
+        "en": "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
         "de": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "fr": "professeur-de-mathematiques-60-80-kanton-aargau-wohlen"
       },
@@ -787,7 +787,7 @@
       "previousSlugs": [
         "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "mathematics-teacher-60-80-kanton-aargau-wohlen",
-        "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+        "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -796,7 +796,7 @@
         "en": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
           "mathematics-teacher-60-80-kanton-aargau-wohlen",
-          "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
         ],
         "fr": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
@@ -1381,7 +1381,7 @@
         "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
         "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
+        "fr": "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1431,7 +1431,7 @@
       "previousSlugs": [
         "laboratoire-de-biologie-50-kanton-aargau-zofingen",
         "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+        "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1439,7 +1439,7 @@
         ],
         "fr": [
           "laboratoire-de-biologie-50-kanton-aargau-zofingen",
-          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+          "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:59.638Z",
@@ -1958,7 +1958,7 @@
       "slug": "medico-a-50-kanton-aargau-stein",
       "slugByLocale": {
         "it": "medico-a-50-kanton-aargau-stein",
-        "en": "mediothekarin-mediothekar-50-kanton-aargau-stein",
+        "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
         "fr": "mediothecaire-mediothecaire-50-kanton-aargau-stein"
       },
@@ -2008,14 +2008,14 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "mediothekarin-mediothekar-50-kanton-aargau-ch",
-        "mediothecarin-mediothecar-50-kanton-aargau-stein"
+        "mediothekarin-mediothekar-50-kanton-aargau-stein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
         ],
         "en": [
-          "mediothecarin-mediothecar-50-kanton-aargau-stein"
+          "mediothekarin-mediothekar-50-kanton-aargau-stein"
         ],
         "fr": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
@@ -3260,9 +3260,9 @@
     },
     {
       "id": "kanton-aargau-450249a4f2da",
-      "slug": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+      "slug": "housekeeper-governante-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+        "it": "housekeeper-governante-80-kanton-aargau-aarau",
         "en": "housekeeper-roomkeeper-80-kanton-aargau-aarau",
         "de": "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
         "fr": "femme-de-chambre-femme-de-chambre-80-kanton-aargau-aarau"
@@ -3312,12 +3312,12 @@
       "department": "Generalsekretariat GKA",
       "previousSlugs": [
         "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-        "housekeeper-governante-80-kanton-aargau-aarau"
+        "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-          "housekeeper-governante-80-kanton-aargau-aarau"
+          "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
         ],
         "en": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch"
@@ -4090,7 +4090,7 @@
         "it": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
         "en": "legal-trainee-kanton-aargau-muri-und-zofingen",
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
+        "fr": "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4140,7 +4140,7 @@
       "previousSlugs": [
         "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
         "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4148,7 +4148,7 @@
         ],
         "fr": [
           "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
-          "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-02T21:20:59.739Z",
@@ -5430,9 +5430,9 @@
     },
     {
       "id": "kanton-aargau-aa5b05cb11b9",
-      "slug": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+      "slug": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+        "it": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
         "en": "lawyer-lawyer-prison-90-kanton-aargau-aarau",
         "de": "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
         "fr": "avocat-prison-avocat-90-kanton-aargau-aarau"
@@ -5482,12 +5482,12 @@
       "department": "Amt für Justizvollzug",
       "previousSlugs": [
         "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-        "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+        "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-          "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+          "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
         ],
         "en": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch"
@@ -6010,9 +6010,9 @@
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+      "slug": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+        "it": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
         "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
@@ -6065,13 +6065,13 @@
       "previousSlugs": [
         "esperto-di-strategia-politica-80-kanton-aargau-aarau",
         "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "esperto-di-strategia-politica-80-kanton-aargau-aarau",
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:38.497Z",
@@ -6169,12 +6169,12 @@
     },
     {
       "id": "kanton-aargau-da02024973e2",
-      "slug": "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-aarau",
+      "slug": "disegno-disegno-infrastrutture-50-70-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch",
-        "it": "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-aarau",
-        "en": "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch",
-        "fr": "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch"
+        "it": "disegno-disegno-infrastrutture-50-70-kanton-aargau-aarau",
+        "en": "drawing-drawing-infrastructure-50-70-kanton-aargau-aarau",
+        "fr": "infrastructure-de-dessin-de-dessin-50-70-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6224,11 +6224,19 @@
       "department": "Abteilung Tiefbau",
       "previousSlugsByLocale": {
         "it": [
+          "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch",
+          "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-aarau"
+        ],
+        "en": [
+          "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch"
+        ],
+        "fr": [
           "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch"
+        "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-ch",
+        "zeichnerin-zeichner-infrastrukturbau-50-70-kanton-aargau-aarau"
       ],
       "salaryMin": 43400,
       "salaryMax": 65800,

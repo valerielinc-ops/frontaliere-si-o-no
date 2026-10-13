@@ -241,7 +241,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -285,14 +285,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-05-28T12:29:52.777Z",
@@ -8602,12 +8602,12 @@
     },
     {
       "id": "eth-zurich-a60af6529762",
-      "slug": "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch",
+      "slug": "dottorato-in-glaciologia-e-hazards-glaciali-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch",
-        "it": "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch",
-        "de": "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch",
-        "fr": "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch"
+        "it": "dottorato-in-glaciologia-e-hazards-glaciali-eth-zurich-zurich",
+        "de": "doktorandin-in-glaziologie-und-gletschergefahren-eth-zurich-zurich",
+        "fr": "etudiante-au-doctorat-en-glaciologie-et-risques-glaciaires-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8665,7 +8665,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-12T21:36:39.282Z"
+      "firstSeenAt": "2026-10-12T21:36:39.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-student-in-glaciology-and-glacial-hazards-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-bf5e1d8d6f6a",
@@ -8831,8 +8845,8 @@
       "slugByLocale": {
         "de": "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch",
         "it": "ict-system-spezialist-in-m-w-d-con-schwerpunkt-netzwerkdienste-e-devops-eth-zurich",
-        "en": "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch",
-        "fr": "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch"
+        "en": "ict-systems-specialist-m-f-d-specializing-in-network-services-and-devops-eth-zurich-zurich",
+        "fr": "specialiste-systemes-ict-h-f-d-specialise-e-dans-les-services-reseau-et-le-devops-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8877,6 +8891,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch"
+        ],
+        "en": [
+          "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch"
+        ],
+        "fr": [
           "ict-system-spezialist-in-m-w-d-mit-schwerpunkt-netzwerkdienste-und-devops-eth-zurich-ch"
         ]
       },

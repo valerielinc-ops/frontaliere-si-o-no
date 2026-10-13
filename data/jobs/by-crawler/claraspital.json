@@ -566,7 +566,7 @@
         "it": "medico-specializzando-aim-st-claraspital-basel",
         "en": "medical-internist-assistant-st-claraspital-basel",
         "de": "assistenzarztin-assistenzarzt-aim-claraspital-basel",
-        "fr": "medecin-adjoint-aim-st-claraspital-basel"
+        "fr": "assistant-en-medecine-interne-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -639,7 +639,7 @@
         "assistenzarztin-assistenzarzt-aim-claraspital-basel",
         "assistente-medico-aim-st-claraspital-basel",
         "assistant-physician-aim-st-claraspital-basel",
-        "assistant-en-medecine-interne-st-claraspital-basel"
+        "medecin-adjoint-aim-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -650,7 +650,7 @@
           "assistant-physician-aim-st-claraspital-basel"
         ],
         "fr": [
-          "assistant-en-medecine-interne-st-claraspital-basel"
+          "medecin-adjoint-aim-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.142Z",
@@ -673,7 +673,7 @@
       "slug": "amb-case-manager-in-urologie-mpa-claraspital-basel",
       "slugByLocale": {
         "it": "amb-case-manager-in-urologie-mpa-claraspital-basel",
-        "en": "amb-case-manager-in-urologie-mpa-st-claraspital-basel",
+        "en": "outpatient-case-manager-urology-mpa-st-claraspital-basel",
         "de": "amb-case-manager-in-urologie-mpa-claraspital-basel",
         "fr": "amb-gestionnaire-de-cas-en-urologie-mpa-st-claraspital-basel"
       },
@@ -722,11 +722,11 @@
       "firstSeenAt": "2026-07-01T21:57:18.950Z",
       "previousSlugsByLocale": {
         "en": [
-          "outpatient-case-manager-urology-mpa-st-claraspital-basel"
+          "amb-case-manager-in-urologie-mpa-st-claraspital-basel"
         ]
       },
       "previousSlugs": [
-        "outpatient-case-manager-urology-mpa-st-claraspital-basel"
+        "amb-case-manager-in-urologie-mpa-st-claraspital-basel"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -1915,7 +1915,7 @@
       "slug": "case-manager-stazionario-r-limitato-al-31-12-2026-st-claraspital-basel",
       "slugByLocale": {
         "it": "case-manager-stazionario-r-limitato-al-31-12-2026-st-claraspital-basel",
-        "en": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel",
+        "en": "inpatient-case-manager-fixed-term-until-december-31-2026-st-claraspital-basel",
         "de": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
         "fr": "gestionnaire-de-cas-fixe-r-limite-au-31-12-2026-st-claraspital-basel"
       },
@@ -1963,7 +1963,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
-        "inpatient-case-manager-fixed-term-until-december-31-2026-st-claraspital-basel"
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1971,7 +1971,7 @@
         ],
         "en": [
           "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
-          "inpatient-case-manager-fixed-term-until-december-31-2026-st-claraspital-basel"
+          "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T23:13:19.279Z",
@@ -1995,8 +1995,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-rezeption-claraspital-basel",
         "it": "collaboratore-trice-rezeption-st-claraspital-basel",
-        "en": "mitarbeiter-in-rezeption-claraspital-basel",
-        "fr": "mitarbeiter-in-rezeption-claraspital-basel"
+        "en": "receptionist-st-claraspital-basel",
+        "fr": "collaborateur-trice-a-la-reception-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2044,6 +2044,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-rezeption-claraspital-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-rezeption-claraspital-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-rezeption-claraspital-basel"
         ]
       },

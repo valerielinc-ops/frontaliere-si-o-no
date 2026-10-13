@@ -1567,12 +1567,12 @@
     },
     {
       "id": "asana-spital-a025cfdb5972",
-      "slug": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
+      "slug": "assistente-medico-50-100-medicina-interna-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
-        "it": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
-        "en": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
-        "fr": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        "it": "assistente-medico-50-100-medicina-interna-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "assistant-doctor-50-100-internal-medicine-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "medecin-adjoint-50-100-medecine-interne-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -1631,7 +1631,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T23:24:16.038Z"
+      "firstSeenAt": "2026-07-22T23:24:16.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+      ]
     }
   ]
 }

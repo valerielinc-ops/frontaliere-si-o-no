@@ -672,8 +672,8 @@
       "slugByLocale": {
         "de": "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis",
         "it": "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-ag-affoltern-am-albis",
-        "en": "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis",
-        "fr": "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis"
+        "en": "deputy-head-of-housekeeping-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "responsable-adjoint-e-de-l-intendance-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -721,6 +721,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis"
+        ],
+        "en": [
+          "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis"
+        ],
+        "fr": [
+          "stv-leiterin-leiter-hauswirtschaft-spital-affoltern-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
@@ -743,12 +749,12 @@
     },
     {
       "id": "spital-affoltern-80d2c38ec163",
-      "slug": "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis",
+      "slug": "operatore-trice-sociosanitario-a-afc-reparto-di-degenza-1-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis",
-        "it": "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis",
-        "en": "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis",
-        "fr": "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis"
+        "it": "operatore-trice-sociosanitario-a-afc-reparto-di-degenza-1-spital-affoltern-ag-affoltern-am-albis",
+        "en": "health-professional-efz-bed-station-1-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "poste-de-lit-efz-professionnel-de-la-sante-1-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -806,7 +812,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:23:25.717Z"
+      "firstSeenAt": "2026-10-12T21:23:25.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-bettenstation-1-spital-affoltern-affoltern-am-albis"
+      ]
     },
     {
       "id": "spital-affoltern-f9b96b13b2c0",
@@ -1309,8 +1329,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur",
         "it": "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis",
-        "en": "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur",
-        "fr": "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur"
+        "en": "senior-physician-in-the-palliative-department-villa-sonnenberg-in-the-competence-center-for-age-medicine-and-palliative",
+        "fr": "medecin-principal-au-departement-palliatif-villa-sonnenberg-au-centre-de-competence-en-medecine-de-l-age-et-soins"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1357,6 +1377,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur"
+        ],
+        "fr": [
           "oberarztin-oberarzt-auf-der-palliativabteilung-villa-sonnenberg-im-kompetenzzentrum-fur"
         ]
       },
@@ -1636,8 +1662,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital",
         "it": "oberarztin-oberarzt-geriatrie-zentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis",
-        "en": "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital",
-        "fr": "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital"
+        "en": "senior-physician-geriatric-center-for-aging-medicine-and-palliative-care-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "medecin-principal-centre-de-geriatrie-pour-la-medecine-du-vieillissement-et-les-soins-palliatifs-spital-affoltern-ag"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1684,6 +1710,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital"
+        ],
+        "en": [
+          "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital"
+        ],
+        "fr": [
           "oberarztin-oberarzt-geriatrie-zentrum-fur-altersmedizin-und-palliative-care-spital"
         ]
       },

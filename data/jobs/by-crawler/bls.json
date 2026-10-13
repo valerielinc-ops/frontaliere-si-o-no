@@ -2142,12 +2142,12 @@
     },
     {
       "id": "bls-3ee678e4a035",
-      "slug": "quereinsteiger-in-disposition-bls-ch",
+      "slug": "candidato-a-in-riqualificazione-disposition-bls-ag-bern",
       "slugByLocale": {
         "de": "quereinsteiger-in-disposition-bls-ch",
-        "it": "quereinsteiger-in-disposition-bls-ch",
-        "en": "quereinsteiger-in-disposition-bls-ch",
-        "fr": "quereinsteiger-in-disposition-bls-ch"
+        "it": "candidato-a-in-riqualificazione-disposition-bls-ag-bern",
+        "en": "career-changer-in-dispatch-bls-ag-bern",
+        "fr": "personne-en-reconversion-professionnelle-dans-la-planification-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2222,7 +2222,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-12T21:21:29.685Z"
+      "firstSeenAt": "2026-10-12T21:21:29.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-disposition-bls-ch"
+        ],
+        "en": [
+          "quereinsteiger-in-disposition-bls-ch"
+        ],
+        "fr": [
+          "quereinsteiger-in-disposition-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quereinsteiger-in-disposition-bls-ch"
+      ]
     }
   ]
 }

@@ -1727,7 +1727,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel",
+        "en": "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       },
@@ -1775,7 +1775,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-        "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1784,7 +1784,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-          "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
@@ -10683,12 +10683,12 @@
     },
     {
       "id": "unispital-basel-96200319a18d",
-      "slug": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+      "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "it": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
         "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
-        "fr": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10735,11 +10735,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "plattformmanagerin-plattformmanager-op-unispital-basel-ch"
+          "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
+          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "plattformmanagerin-plattformmanager-op-unispital-basel-ch"
+        "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

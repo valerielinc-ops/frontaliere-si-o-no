@@ -83,7 +83,7 @@
         "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
         "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
-        "fr": "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -129,7 +129,7 @@
       "previousSlugs": [
         "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
         "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+        "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -137,7 +137,7 @@
         ],
         "fr": [
           "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
-          "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+          "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:18:07.156Z",
@@ -163,7 +163,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "compliance-officer-pictet-group-geneva"
+        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -208,14 +208,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "compliance-officer-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+          "compliance-officer-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
@@ -468,12 +468,12 @@
     },
     {
       "id": "pictet-403ea060ae05",
-      "slug": "project-manager-24-month-fixed-term-contract-pictet-geneva",
+      "slug": "project-manager-24-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
       "slugByLocale": {
         "en": "project-manager-24-month-fixed-term-contract-pictet-geneva",
-        "it": "project-manager-24-month-fixed-term-contract-pictet-geneva",
-        "de": "project-manager-24-month-fixed-term-contract-pictet-geneva",
-        "fr": "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        "it": "project-manager-24-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
+        "de": "projektleiter-24-monatiger-befristeter-vertrag-pictet-group-geneva",
+        "fr": "gestionnaire-de-projet-contrat-a-duree-determinee-de-24-mois-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -532,7 +532,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-12T21:17:27.738Z"
+      "firstSeenAt": "2026-10-12T21:17:27.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ],
+        "fr": [
+          "project-manager-24-month-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-24-month-fixed-term-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-d644fcbe0361",

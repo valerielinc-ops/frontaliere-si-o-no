@@ -2259,12 +2259,12 @@
     },
     {
       "id": "swica-c1b94079f61d",
-      "slug": "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur",
+      "slug": "gestione-delle-prestazioni-del-personale-uvg-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur",
-        "it": "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur",
-        "en": "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur",
-        "fr": "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur"
+        "it": "gestione-delle-prestazioni-del-personale-uvg-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "personnel-performance-management-uvg-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "gestion-du-rendement-du-personnel-uvg-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2322,7 +2322,21 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur"
+        ],
+        "en": [
+          "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur"
+        ],
+        "fr": [
+          "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-leistungsmanagement-uvg-alle-swica-winterthur"
+      ]
     }
   ]
 }
