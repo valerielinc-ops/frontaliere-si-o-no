@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-13T09:29:36.873Z",
+  "generatedAt": "2026-10-13T21:23:22.811Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,59 +12,16 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 14633,
-  "avgDurationMs": 14633,
+  "durationMs": 6388,
+  "avgDurationMs": 6388,
   "durationHistory": [
-    14633
+    6388
   ],
-  "newJobs": [
-    {
-      "id": "clinique-de-montchoisi-480e680d951f",
-      "slug": "chef-fe-de-partie-patisserie-clinique-de-montchoisi",
-      "company": "Clinique de Montchoisi",
-      "companyKey": "clinique-de-montchoisi",
-      "companyDomain": "swissmedical.net",
-      "title": "Chef(fe) de partie Pâtisserie",
-      "needsRetranslation": true,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
-      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:29:16.397Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13T05:16:41.174Z",
-      "postedDate": "2026-10-13T05:16:41.174Z",
-      "postingDateSource": "reported",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-13T09:29:16.397Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "clinique-de-montchoisi-bdfb3af7be68",
@@ -80,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:29:16.398Z",
+      "crawledAt": "2026-10-13T21:23:01.105Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -107,6 +64,48 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "id": "clinique-de-montchoisi-480e680d951f",
+      "slug": "capo-della-pasticceria-del-partito-clinique-de-montchoisi-lausanne",
+      "company": "Clinique de Montchoisi",
+      "companyKey": "clinique-de-montchoisi",
+      "companyDomain": "swissmedical.net",
+      "title": "Chef(fe) de partie Pâtisserie",
+      "needsRetranslation": false,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
+      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-13T21:23:01.103Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T05:16:41.174Z",
+      "postedDate": "2026-10-13T05:16:41.174Z",
+      "postingDateSource": "reported",
+      "firstSeenAt": "2026-10-13T09:29:16.397Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
   "removedJobs": [],
@@ -125,7 +124,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T09:29:16.395Z",
+      "crawledAt": "2026-10-13T21:23:01.107Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -154,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

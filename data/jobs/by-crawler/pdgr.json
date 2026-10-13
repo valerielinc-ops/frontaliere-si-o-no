@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-13T12:29:39.631Z",
+  "assembledAt": "2026-10-13T21:25:32.789Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:22.349Z",
+      "crawledAt": "2026-10-13T21:25:25.605Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7206",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:21.223Z",
+      "crawledAt": "2026-10-13T21:25:24.371Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:20.096Z",
+      "crawledAt": "2026-10-13T21:25:23.248Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:18.989Z",
+      "crawledAt": "2026-10-13T21:25:22.080Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:17.900Z",
+      "crawledAt": "2026-10-13T21:25:20.863Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:16.793Z",
+      "crawledAt": "2026-10-13T21:25:19.658Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -533,8 +533,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -558,7 +558,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:15.695Z",
+      "crawledAt": "2026-10-13T21:25:18.502Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -590,17 +590,16 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -649,7 +648,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:14.608Z",
+      "crawledAt": "2026-10-13T21:25:17.338Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -730,7 +729,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:13.506Z",
+      "crawledAt": "2026-10-13T21:25:16.180Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -781,7 +780,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -807,7 +806,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:12.379Z",
+      "crawledAt": "2026-10-13T21:25:15.047Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -837,7 +836,7 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "senior-physician-psychiatrische-dienste-graubunden-cazis"
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -850,7 +849,7 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-t5tvx5",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "senior-physician-psychiatrische-dienste-graubunden-cazis"
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -899,7 +898,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:11.271Z",
+      "crawledAt": "2026-10-13T21:25:13.861Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1011,7 +1010,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:10.161Z",
+      "crawledAt": "2026-10-13T21:25:12.673Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1111,7 +1110,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:07.914Z",
+      "crawledAt": "2026-10-13T21:25:10.399Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1136,9 +1135,7 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch-t5txek",
           "oberarztin-oberarzt-pdgr-ch-5xlho7",
-          "oberarztin-oberarzt-pdgr-ch-t5ts7t",
           "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
           "oberarztin-oberarzt-pdgr-ch-2",
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
@@ -1155,7 +1152,9 @@
           "psychiatrist-psychiatrische-dienste-graubunden-chur",
           "senior-physician-psychiatrische-dienste-graubunden-chur",
           "psychiatre-psychiatrische-dienste-graubunden-chur",
-          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-pdgr-ch-t5txek",
+          "oberarztin-oberarzt-pdgr-ch-t5ts7t"
         ],
         "en": [
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur"
@@ -1182,7 +1181,6 @@
         "medecin-superieur-psychiatrische-dienste-graubunden-chur",
         "oberarztin-oberarzt-pdgr-ch-t5txek",
         "oberarztin-oberarzt-pdgr-ch-5xlho7",
-        "oberarztin-oberarzt-pdgr-ch-t5ts7t",
         "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
         "oberarztin-oberarzt-pdgr-ch-2",
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
@@ -1209,7 +1207,8 @@
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz",
         "oberarztin-oberarzt-pdgr-ch-3",
-        "oberarztin-oberarzt-pdgr-ch-4"
+        "oberarztin-oberarzt-pdgr-ch-4",
+        "oberarztin-oberarzt-pdgr-ch-t5ts7t"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1258,7 +1257,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:06.804Z",
+      "crawledAt": "2026-10-13T21:25:09.276Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1310,9 +1309,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1336,7 +1335,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:04.593Z",
+      "crawledAt": "2026-10-13T21:25:06.923Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1371,12 +1370,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "senior-physician-psychiatrische-dienste-graubunden-chur"
+          "psychiatrist-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+          "psychiatre-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1384,8 +1383,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "senior-physician-psychiatrische-dienste-graubunden-chur",
-        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1407,7 +1406,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1434,7 +1433,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:03.476Z",
+      "crawledAt": "2026-10-13T21:25:05.767Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1461,7 +1460,8 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "primario-psychiatrische-dienste-graubunden-ilanz"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1470,7 +1470,8 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1492,7 +1493,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1519,7 +1520,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:27:00.278Z",
+      "crawledAt": "2026-10-13T21:25:03.333Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1547,7 +1548,8 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch"
+        "ergotherapeut-in-pdgr-ch",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1555,7 +1557,8 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch"
+          "ergotherapeut-in-pdgr-ch",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1585,13 +1588,94 @@
       "addressRegion": "GR"
     },
     {
+      "id": "pdgr-039f9e3594ea",
+      "slug": "oberarztin-oberarzt-pdgr-ch-2",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-pdgr-ch",
+        "it": "oberarztin-oberarzt-pdgr-ch-2",
+        "en": "oberarztin-oberarzt-pdgr-ch-2",
+        "fr": "oberarztin-oberarzt-pdgr-ch-2"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Oberärztin / Oberarzt",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt",
+        "it": "Oberärztin / Oberarzt",
+        "en": "Oberärztin / Oberarzt",
+        "fr": "Oberärztin / Oberarzt"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "it": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "en": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "fr": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation"
+      },
+      "location": "Samedan / Scuol",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-9-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-13T21:25:01.981Z",
+      "addressLocality": "Samedan / Scuol",
+      "postalCode": "7503",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-01",
+      "postedDate": "2026-06-01",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-9-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Kinder- und Jugendpsychiatrie",
+      "facility": "Psychiatrie-Zentrum Engadin / Südbünden",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch-t5ts7t"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdgr-ch-t5ts7t"
+      ]
+    },
+    {
       "id": "pdgr-64ca7e8caecd",
       "slug": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1615,7 +1699,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:58.251Z",
+      "crawledAt": "2026-10-13T21:25:00.851Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1640,7 +1724,8 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch"
+        "psychologiepraktikant-in-pdgr-ch",
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1651,7 +1736,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1704,7 +1789,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:57.250Z",
+      "crawledAt": "2026-10-13T21:24:59.711Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1782,7 +1867,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:56.271Z",
+      "crawledAt": "2026-10-13T21:24:58.590Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1864,7 +1949,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:52.813Z",
+      "crawledAt": "2026-10-13T21:24:56.332Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1986,7 +2071,7 @@
       "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:51.586Z",
+      "crawledAt": "2026-10-13T21:24:55.170Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2073,7 +2158,7 @@
       "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:50.477Z",
+      "crawledAt": "2026-10-13T21:24:54.016Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2152,7 +2237,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:49.332Z",
+      "crawledAt": "2026-10-13T21:24:52.881Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -2238,7 +2323,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:48.186Z",
+      "crawledAt": "2026-10-13T21:24:51.730Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2316,7 +2401,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:47.068Z",
+      "crawledAt": "2026-10-13T21:24:50.570Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2400,7 +2485,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:45.928Z",
+      "crawledAt": "2026-10-13T21:24:49.452Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2480,7 +2565,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:44.819Z",
+      "crawledAt": "2026-10-13T21:24:48.304Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -2557,7 +2642,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:43.721Z",
+      "crawledAt": "2026-10-13T21:24:47.141Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2635,7 +2720,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:42.616Z",
+      "crawledAt": "2026-10-13T21:24:45.971Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2712,7 +2797,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:41.482Z",
+      "crawledAt": "2026-10-13T21:24:44.826Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2789,7 +2874,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:40.367Z",
+      "crawledAt": "2026-10-13T21:24:43.651Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2867,7 +2952,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:39.244Z",
+      "crawledAt": "2026-10-13T21:24:42.504Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2944,7 +3029,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:38.152Z",
+      "crawledAt": "2026-10-13T21:24:41.344Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3036,7 +3121,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:35.963Z",
+      "crawledAt": "2026-10-13T21:24:39.017Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3114,7 +3199,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:34.854Z",
+      "crawledAt": "2026-10-13T21:24:37.886Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3202,7 +3287,7 @@
       "url": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:26:33.737Z",
+      "crawledAt": "2026-10-13T21:24:36.735Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
