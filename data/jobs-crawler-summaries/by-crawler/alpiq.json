@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-10-13T09:34:37.299Z",
+  "generatedAt": "2026-10-13T21:39:22.950Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 10527,
-  "avgDurationMs": 10527,
+  "durationMs": 12692,
+  "avgDurationMs": 12692,
   "durationHistory": [
-    10527
+    12692
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +42,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:34:22.954Z",
+      "crawledAt": "2026-10-13T21:39:06.232Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -81,7 +81,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:34:22.971Z",
+      "crawledAt": "2026-10-13T21:39:06.250Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -120,7 +120,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=125&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:34:22.974Z",
+      "crawledAt": "2026-10-13T21:39:06.255Z",
       "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -159,7 +159,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=138&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:34:22.977Z",
+      "crawledAt": "2026-10-13T21:39:06.257Z",
       "firstSeenAt": "2026-10-07T09:41:55.800Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -198,7 +198,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:34:22.979Z",
+      "crawledAt": "2026-10-13T21:39:06.258Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -237,7 +237,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:34:22.982Z",
+      "crawledAt": "2026-10-13T21:39:06.264Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -252,5 +252,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-10-13T09:32:57.399Z",
+  "assembledAt": "2026-10-13T21:37:05.529Z",
   "jobs": [
     {
       "id": "sulzer-afada70e7cca",
@@ -33,7 +33,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:32:49.663Z",
+      "crawledAt": "2026-10-13T21:36:57.769Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:32:48.773Z",
+      "crawledAt": "2026-10-13T21:36:57.018Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:32:47.959Z",
+      "crawledAt": "2026-10-13T21:36:56.347Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:32:47.173Z",
+      "crawledAt": "2026-10-13T21:36:55.625Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T09:32:46.366Z",
+      "crawledAt": "2026-10-13T21:36:54.948Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -393,6 +393,75 @@
         }
       },
       "postalCode": "8400"
+    },
+    {
+      "id": "sulzer-c6542682419b",
+      "slug": "engineering-software-analytics-engineer-sulzer-ch",
+      "slugByLocale": {
+        "en": "engineering-software-analytics-engineer-sulzer-ch",
+        "it": "engineering-software-analytics-engineer-sulzer-ch",
+        "de": "engineering-software-analytics-engineer-sulzer-ch",
+        "fr": "engineering-software-analytics-engineer-sulzer-ch"
+      },
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Engineering Software & Analytics Engineer",
+      "titleByLocale": {
+        "en": "Engineering Software & Analytics Engineer",
+        "it": "Engineering Software & Analytics Ingegnere",
+        "de": "Engineering Software & Analytics Ingenieur",
+        "fr": "Engineering Software & Analytics Ingénieur"
+      },
+      "description": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for an Engineering Software & Analytics Engineer to join our R&D team developing digital solutions for pumping systems and flow-related equipment. In this role, you will combine engineering knowledge, software development, data analytics, and cloud technologies to create innovative applications and analytical tools that deliver business-critical capabilities and customer value by improving equipment performance, reliability, and efficiency.\n\nYou will work closely with engineering experts, software developers, and product teams to develop, deploy, and support digital solutions throughout their lifecycle.\n\nKey Responsibilities\n\n• Develop and maintain engineering software applications, algorithms, and digital solutions for pumping systems and flow-related equipment.\n\n• Participate in the full software development lifecycle, including design, implementation, testing, deployment, and maintenance.\n\n• Contribute to the development of cloud-based applications and digital platforms.\n\n• Develop and apply statistical, machine learning, and AI-based methods for diagnostics, performance analysis, and reliability improvement.\n\n• Support root cause investigations and engineering studies through data-driven analysis.\n\n• Prototype and evaluate new digital technologies and analytical approaches.\n\n• Collaborate with multidisciplinary teams across engineering, service, and product development.\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Computer Science, Data Science, Software Engineering, or a related technical field.\n\n• 2-3 years of experience in software development, data analytics, engineering applications, or a related field.\n\n• Experience with industrial equipment, manufacturing processes, or rotating machinery is an advantage.\n\n• Programming experience in Python; knowledge of other languages, such as C#/.NET, is an asset.\n\n• Knowledge of software development practices, version control systems, and testing methodologies.\n\n• Understanding and application of data analytics, statistical methods, and machine learning concepts.\n\n• Exposure to cloud platforms and data processing technologies is desirable.\n\n• Curious mindset and willingness to learn new technologies and methods.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "descriptionByLocale": {
+        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for an Engineering Software & Analytics Engineer to join our R&D team developing digital solutions for pumping systems and flow-related equipment. In this role, you will combine engineering knowledge, software development, data analytics, and cloud technologies to create innovative applications and analytical tools that deliver business-critical capabilities and customer value by improving equipment performance, reliability, and efficiency.\n\nYou will work closely with engineering experts, software developers, and product teams to develop, deploy, and support digital solutions throughout their lifecycle.\n\nKey Responsibilities\n\n• Develop and maintain engineering software applications, algorithms, and digital solutions for pumping systems and flow-related equipment.\n\n• Participate in the full software development lifecycle, including design, implementation, testing, deployment, and maintenance.\n\n• Contribute to the development of cloud-based applications and digital platforms.\n\n• Develop and apply statistical, machine learning, and AI-based methods for diagnostics, performance analysis, and reliability improvement.\n\n• Support root cause investigations and engineering studies through data-driven analysis.\n\n• Prototype and evaluate new digital technologies and analytical approaches.\n\n• Collaborate with multidisciplinary teams across engineering, service, and product development.\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Computer Science, Data Science, Software Engineering, or a related technical field.\n\n• 2-3 years of experience in software development, data analytics, engineering applications, or a related field.\n\n• Experience with industrial equipment, manufacturing processes, or rotating machinery is an advantage.\n\n• Programming experience in Python; knowledge of other languages, such as C#/.NET, is an asset.\n\n• Knowledge of software development practices, version control systems, and testing methodologies.\n\n• Understanding and application of data analytics, statistical methods, and machine learning concepts.\n\n• Exposure to cloud platforms and data processing technologies is desirable.\n\n• Curious mindset and willingness to learn new technologies and methods.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for an Engineering Software & Analytics Engineer to join our R&D team developing digital solutions for pumping systems and flow-related equipment. In this role, you will combine engineering knowledge, software development, data analytics, and cloud technologies to create innovative applications and analytical tools that deliver business-critical capabilities and customer value by improving equipment performance, reliability, and efficiency.\n\nYou will work closely with engineering experts, software developers, and product teams to develop, deploy, and support digital solutions throughout their lifecycle.\n\nKey Responsibilities\n\n• Develop and maintain engineering software applications, algorithms, and digital solutions for pumping systems and flow-related equipment.\n\n• Participate in the full software development lifecycle, including design, implementation, testing, deployment, and maintenance.\n\n• Contribute to the development of cloud-based applications and digital platforms.\n\n• Develop and apply statistical, machine learning, and AI-based methods for diagnostics, performance analysis, and reliability improvement.\n\n• Support root cause investigations and engineering studies through data-driven analysis.\n\n• Prototype and evaluate new digital technologies and analytical approaches.\n\n• Collaborate with multidisciplinary teams across engineering, service, and product development.\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Computer Science, Data Science, Software Engineering, or a related technical field.\n\n• 2-3 years of experience in software development, data analytics, engineering applications, or a related field.\n\n• Experience with industrial equipment, manufacturing processes, or rotating machinery is an advantage.\n\n• Programming experience in Python; knowledge of other languages, such as C#/.NET, is an asset.\n\n• Knowledge of software development practices, version control systems, and testing methodologies.\n\n• Understanding and application of data analytics, statistical methods, and machine learning concepts.\n\n• Exposure to cloud platforms and data processing technologies is desirable.\n\n• Curious mindset and willingness to learn new technologies and methods.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for an Engineering Software & Analytics Engineer to join our R&D team developing digital solutions for pumping systems and flow-related equipment. In this role, you will combine engineering knowledge, software development, data analytics, and cloud technologies to create innovative applications and analytical tools that deliver business-critical capabilities and customer value by improving equipment performance, reliability, and efficiency.\n\nYou will work closely with engineering experts, software developers, and product teams to develop, deploy, and support digital solutions throughout their lifecycle.\n\nKey Responsibilities\n\n• Develop and maintain engineering software applications, algorithms, and digital solutions for pumping systems and flow-related equipment.\n\n• Participate in the full software development lifecycle, including design, implementation, testing, deployment, and maintenance.\n\n• Contribute to the development of cloud-based applications and digital platforms.\n\n• Develop and apply statistical, machine learning, and AI-based methods for diagnostics, performance analysis, and reliability improvement.\n\n• Support root cause investigations and engineering studies through data-driven analysis.\n\n• Prototype and evaluate new digital technologies and analytical approaches.\n\n• Collaborate with multidisciplinary teams across engineering, service, and product development.\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Computer Science, Data Science, Software Engineering, or a related technical field.\n\n• 2-3 years of experience in software development, data analytics, engineering applications, or a related field.\n\n• Experience with industrial equipment, manufacturing processes, or rotating machinery is an advantage.\n\n• Programming experience in Python; knowledge of other languages, such as C#/.NET, is an asset.\n\n• Knowledge of software development practices, version control systems, and testing methodologies.\n\n• Understanding and application of data analytics, statistical methods, and machine learning concepts.\n\n• Exposure to cloud platforms and data processing technologies is desirable.\n\n• Curious mindset and willingness to learn new technologies and methods.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for an Engineering Software & Analytics Engineer to join our R&D team developing digital solutions for pumping systems and flow-related equipment. In this role, you will combine engineering knowledge, software development, data analytics, and cloud technologies to create innovative applications and analytical tools that deliver business-critical capabilities and customer value by improving equipment performance, reliability, and efficiency.\n\nYou will work closely with engineering experts, software developers, and product teams to develop, deploy, and support digital solutions throughout their lifecycle.\n\nKey Responsibilities\n\n• Develop and maintain engineering software applications, algorithms, and digital solutions for pumping systems and flow-related equipment.\n\n• Participate in the full software development lifecycle, including design, implementation, testing, deployment, and maintenance.\n\n• Contribute to the development of cloud-based applications and digital platforms.\n\n• Develop and apply statistical, machine learning, and AI-based methods for diagnostics, performance analysis, and reliability improvement.\n\n• Support root cause investigations and engineering studies through data-driven analysis.\n\n• Prototype and evaluate new digital technologies and analytical approaches.\n\n• Collaborate with multidisciplinary teams across engineering, service, and product development.\n\nYour profile:\n\n• Bachelor's or Master's degree in Mechanical Engineering, Computer Science, Data Science, Software Engineering, or a related technical field.\n\n• 2-3 years of experience in software development, data analytics, engineering applications, or a related field.\n\n• Experience with industrial equipment, manufacturing processes, or rotating machinery is an advantage.\n\n• Programming experience in Python; knowledge of other languages, such as C#/.NET, is an asset.\n\n• Knowledge of software development practices, version control systems, and testing methodologies.\n\n• Understanding and application of data analytics, statistical methods, and machine learning concepts.\n\n• Exposure to cloud platforms and data processing technologies is desirable.\n\n• Curious mindset and willingness to learn new technologies and methods.\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Engineering-Software---Analytics-Engineer_JR105177",
+      "source": "Sulzer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-13T21:36:54.173Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13",
+      "postedDate": "2026-10-13",
+      "postingDateSource": "reported",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Engineering-Software---Analytics-Engineer_JR105177",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "JR105177",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-10-13T21:36:54.173Z"
     }
   ]
 }
