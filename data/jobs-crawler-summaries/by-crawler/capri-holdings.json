@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-10-12T21:39:12.210Z",
+  "generatedAt": "2026-10-13T09:41:59.952Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 24552,
-  "avgDurationMs": 24552,
+  "durationMs": 27467,
+  "avgDurationMs": 27467,
   "durationHistory": [
-    24552
+    27467
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,6 +35,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
+      "crawledAt": "2026-10-13T09:41:50.538Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -47,7 +48,6 @@
       },
       "id": "capri-holdings-3d3f64b95ee9",
       "firstSeenAt": "2026-09-11T23:21:22.496Z",
-      "crawledAt": "2026-10-12T21:39:05.188Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -61,5 +61,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
