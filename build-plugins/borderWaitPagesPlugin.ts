@@ -187,8 +187,8 @@ export function buildBorderWaitLeafTitle(
   const place = route ? `${route} — ${corridor}` : corridor;
   const candidatesByLocale: Record<BorderWaitLocale, string[]> = {
     it: route
-      ? [`Tempi attesa ${place}`, `Dogana ${place}`]
-      : [`Tempi attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi attesa ${place}`],
+      ? [`Tempi di attesa ${place}`, `Dogana ${place}`]
+      : [`Tempi di attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi di attesa ${place}`],
     en: route
       ? [`${place} border wait`, `Border crossing ${place}`]
       : [`${place} border wait`, `Border crossing ${place}`, `Border wait ${place}`],
@@ -776,11 +776,11 @@ interface Copy {
 
 const COPY: Record<BorderWaitLocale, Copy> = {
   it: {
-    leafH1: (c, d) => `Tempi attesa alla dogana ${c} — oggi ${d}`,
+    leafH1: (c, _d) => `Tempi di attesa dogana ${c}: coda live oggi`,
     rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
     intro: (c, s, d) =>
-      `Aggiornamento del ${d}: il valico di ${c} presenta un'attesa ${s}. Dati aggiornati ogni 15 minuti nelle ore di punta (06:00–10:00 e 16:00–20:00 CET) dalla nostra pipeline di monitoraggio.`,
+      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta.`,
     advice: {
       eyebrow: 'Consiglio',
       ok: (bestHour) =>
@@ -1385,6 +1385,48 @@ function renderCommuterContextProse(
 }
 
 /**
+ * Compact replacement for the former multi-paragraph commuter essay. The
+ * page already exposes the live card, charts, webcam and comparison table;
+ * this sentence-sized editorial bridge keeps the useful interpretation while
+ * avoiding repeated pipeline, tax and employer claims on every leaf.
+ */
+function renderCompactCommuterContextProse(
+  locale: BorderWaitLocale,
+  crossingLabel: string,
+  region: BorderCrossingRegion,
+  bestHour: string,
+  worstHour: string,
+): string {
+  const regionDisplay = regionLabel(COPY[locale], region);
+  const ticinoNote = isTicinoRegion(region)
+    ? locale === 'it'
+      ? ` Sul corridoio Ticino–Italia, confronta il percorso dall'A2 e da Lugano o Mendrisio con alternative locali come Crociale dei Mulini.`
+      : locale === 'en'
+        ? ` On the Ticino–Italy corridor, compare the A2 route from Lugano or Mendrisio with local alternatives such as Crociale dei Mulini.`
+        : locale === 'de'
+          ? ` Auf der Strecke Tessin–Italien vergleiche die A2-Route ab Lugano oder Mendrisio mit lokalen Alternativen wie Crociale dei Mulini.`
+          : ` Sur le corridor Tessin–Italie, comparez l'itinéraire par l'A2 depuis Lugano ou Mendrisio avec des alternatives locales comme Crociale dei Mulini.`
+    : '';
+  const headline =
+    locale === 'it' ? `Pianificare la coda alla dogana ${crossingLabel}`
+    : locale === 'en' ? `Planning the queue at ${crossingLabel}`
+    : locale === 'de' ? `Die Warteschlange bei ${crossingLabel} planen`
+    : `Planifier la file au passage ${crossingLabel}`;
+  const paragraph =
+    locale === 'it'
+      ? `Il tempo di attesa alla dogana ${crossingLabel} segue il traffico dei frontalieri, i controlli e gli eventi sulla strada. Nella zona ${regionDisplay}, lo storico degli ultimi 30 giorni indica ${bestHour} come fascia con meno coda e ${worstHour} come fascia più congestionata. Controlla il dato live e la webcam prima di partire: la situazione alla frontiera può cambiare rapidamente.${ticinoNote}`
+      : locale === 'en'
+        ? `Wait time at ${crossingLabel} follows commuter traffic, checks and road events. In the ${regionDisplay} area, the last 30 days show ${bestHour} as the quietest window and ${worstHour} as the busiest. Check the live reading and webcam before leaving: border traffic can change quickly.${ticinoNote}`
+        : locale === 'de'
+          ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.${ticinoNote}`
+          : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.${ticinoNote}`;
+  return `<section class="s-6B_yvh">
+    <h2 style="${H2_STYLE}">${esc(headline)}</h2>
+    <p class="s-KwuhOL">${esc(paragraph)}</p>
+  </section>`;
+}
+
+/**
  * Renders an additional planning-oriented prose block for per-crossing leaf
  * pages. Compensates for the ~2 KB of HTML mass added by the live-hydration
  * data attributes (data-bw-crossing, data-bw-field, data-bw-live-badge) and
@@ -1488,6 +1530,38 @@ function renderLeafLivePlanningProse(
       <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
   </section>`;
+}
+
+/** Keep one concise, page-specific note below the comparison and FAQ blocks. */
+function renderCompactLeafLivePlanningProse(
+  locale: BorderWaitLocale,
+  crossingLabel: string,
+  region: BorderCrossingRegion,
+  peakWindow: string,
+  altLabels: readonly string[],
+): string {
+  const regionDisplay = regionLabel(COPY[locale], region);
+  const alternatives = altLabels.length > 0
+    ? altLabels.join(' · ')
+    : locale === 'it' ? 'i valichi alternativi della stessa zona'
+      : locale === 'de' ? 'die alternativen Übergänge derselben Zone'
+        : locale === 'fr' ? 'les passages alternatifs de la même zone'
+          : 'the alternative crossings in the same area';
+  const peak = peakWindow || (
+    locale === 'it' ? 'le fasce di punta indicate nello storico'
+      : locale === 'de' ? 'die im Verlauf angegebenen Spitzenzeiten'
+        : locale === 'fr' ? 'les heures de pointe indiquées dans l’historique'
+          : 'the peak windows shown in the history'
+  );
+  const paragraph =
+    locale === 'it'
+      ? `Il dato live della dogana ${crossingLabel} può cambiare dopo l'apertura: verifica l'ora e la fonte accanto ai minuti di attesa. La misura copre avvicinamento e checkpoint, non il tragitto fino alla frontiera. Nella zona ${regionDisplay} le fasce di punta sono ${peak}; se la coda aumenta, confronta ${alternatives} e scegli il valico con il tempo di attesa più basso.`
+      : locale === 'en'
+        ? `The live reading for ${crossingLabel} can change after the page opens: check the time and source beside the wait minutes. It covers the approach and checkpoint, not the journey to the border. In the ${regionDisplay} area, peak windows are ${peak}; if the queue grows, compare ${alternatives} and choose the crossing with the shortest wait.`
+        : locale === 'de'
+          ? `Der Live-Wert für ${crossingLabel} kann sich nach dem Öffnen ändern: Prüfe Uhrzeit und Quelle neben den Warteminuten. Er umfasst Annäherung und Kontrollpunkt, nicht die Fahrt bis zur Grenze. Im Gebiet ${regionDisplay} gelten ${peak} als Spitzenzeiten; bei wachsender Schlange vergleiche ${alternatives} und wähle den Übergang mit der kürzesten Wartezeit.`
+          : `La mesure live de ${crossingLabel} peut changer après l'ouverture : vérifiez l'heure et la source à côté des minutes d'attente. Elle couvre l'approche et le contrôle, pas le trajet jusqu'à la frontière. Dans la zone ${regionDisplay}, les pics sont ${peak} ; si la file augmente, comparez ${alternatives} et choisissez le passage le plus rapide.`;
+  return `<p class="s-KwuhOL">${esc(paragraph)}</p>`;
 }
 
 /**
@@ -2015,7 +2089,13 @@ function renderLeafPage(inp: LeafInputs): string {
     adviceTemplates,
     ` data-bw-for="${esc(crossing)}"`,
   );
-  const paragraph = copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour);
+  const decisionNote = locale === 'it'
+    ? `Prima di partire controlla il tempo di attesa live alla dogana ${crossingDisplay}, la webcam e la coda dei valichi vicini.`
+    : locale === 'de'
+      ? `Prüfe vor der Abfahrt die Live-Wartezeit bei ${crossingDisplay}, die Webcam und die Schlange an den nahegelegenen Übergängen.`
+      : locale === 'fr'
+        ? `Avant de partir, vérifiez le temps d'attente live à ${crossingDisplay}, la webcam et les files aux passages voisins.`
+        : `Before leaving, check the live wait at ${crossingDisplay}, the webcam and queues at nearby crossings.`;
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
@@ -2164,8 +2244,15 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // FAQ
   const faqItems = copy.faq;
+  const leafFaqTitle = locale === 'it'
+    ? `Domande frequenti sulla dogana ${crossingDisplay}`
+    : locale === 'de'
+      ? `Häufige Fragen zum Übergang ${crossingDisplay}`
+      : locale === 'fr'
+        ? `Questions fréquentes sur le passage ${crossingDisplay}`
+        : `Frequently asked questions about ${crossingDisplay}`;
   const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="bwFaq">
-    <h2 id="bwFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    <h2 id="bwFaq" style="${H2_STYLE}">${esc(leafFaqTitle)}</h2>
     ${faqItems
       .map(
         (f) =>
@@ -2358,8 +2445,8 @@ function renderLeafPage(inp: LeafInputs): string {
   ${alternativeRoutesHtml}
   ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
-  ${renderCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
-  ${renderLeafLivePlanningProse(
+  ${renderCompactCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
+  ${renderCompactLeafLivePlanningProse(
     locale,
     crossingDisplay,
     region,
@@ -2368,8 +2455,8 @@ function renderLeafPage(inp: LeafInputs): string {
       .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
       .filter(Boolean),
   )}
-  <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
-    <p class="s-yOfiVn">${esc(paragraph)}</p>
+  <section class="s-GCEyQg" aria-label="${esc(leafFaqTitle)}">
+    <p class="s-yOfiVn">${esc(decisionNote)}</p>
   </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}

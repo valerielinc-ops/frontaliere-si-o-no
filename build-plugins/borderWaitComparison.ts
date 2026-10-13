@@ -24,7 +24,6 @@ import {
 import { nearestComparablePlaces, formatDistanceKm } from './shared/nearestMunicipalityComparison';
 import {
   H2_STYLE,
-  H3_STYLE,
   LINK_ACCENT_STYLE,
   TABLE_CELL_CLASS,
   TABLE_CLASS,
@@ -295,6 +294,7 @@ export function renderBorderWaitComparison(params: {
     formatValue: (value) => `${Math.round(value)} min`,
     higherIsBetter: false,
     sourceNote: rankingCopy.sourceNote,
+    maxProseSentences: 2,
   });
   const rows: Array<{ slug: BorderCrossingSlug; crossing: BorderCrossing; distanceKm: number; entry: BorderWaitComparisonEntry | undefined; isCurrent: boolean }> = [
     {
@@ -356,7 +356,6 @@ export function renderBorderWaitComparison(params: {
       </table>
     </div>
     <p class="s-gu2hlZ">${escapeHtml(copy.note)}</p>
-    <h3 style="${H3_STYLE}">${escapeHtml(copy.historyHeading)}</h3>
     <p class="s-sau7he">${escapeHtml(copy.historyLead)}</p>
     <div class="s-card" style="overflow-x:auto;padding:0">
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:520px">

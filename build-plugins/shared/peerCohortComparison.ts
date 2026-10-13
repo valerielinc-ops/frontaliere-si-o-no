@@ -340,8 +340,20 @@ export function renderPeerComparison(params: {
   windowSize?: number;
   /** Extra provenance line for family-specific figures. */
   sourceNote?: string;
+  /** Keep a data-driven comparison scannable when the host page is already long. */
+  maxProseSentences?: number;
 }): string {
-  const { locale, currentKey, rows, labels, formatValue, higherIsBetter = true, windowSize = 2, sourceNote } = params;
+  const {
+    locale,
+    currentKey,
+    rows,
+    labels,
+    formatValue,
+    higherIsBetter = true,
+    windowSize = 2,
+    sourceNote,
+    maxProseSentences,
+  } = params;
   // Validate at the public boundary, before a short/missing cohort can return
   // an empty string and silently skip the German dative contract.
   assertPeerNounContract(locale, labels.peerNoun);
@@ -349,8 +361,11 @@ export function renderPeerComparison(params: {
   if (ranked.length < 3 || !ranked.some((row) => row.key === currentKey)) return '';
 
   const sentences = buildPeerProse({ locale, ranked, currentKey, labels, formatValue, higherIsBetter, windowSize });
-  if (sentences.length === 0) return '';
-  const prose = sentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
+  const visibleSentences = typeof maxProseSentences === 'number'
+    ? sentences.slice(0, Math.max(0, Math.floor(maxProseSentences)))
+    : sentences;
+  if (visibleSentences.length === 0) return '';
+  const prose = visibleSentences.map((s) => `<p class="mt-2 text-sm text-body">${esc(s)}</p>`).join('\n        ');
 
   const tableRows = peerWindow(ranked, currentKey, windowSize)
     .map((row) => {
