@@ -1,21 +1,64 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-12T21:13:26.422Z",
-  "total": 2,
+  "generatedAt": "2026-10-13T09:12:42.373Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5777,
-  "avgDurationMs": 5777,
+  "updatedCount": 1,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4720,
+  "avgDurationMs": 4720,
   "durationHistory": [
-    5777
+    4720
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
+    {
+      "title": "Concorso generale 2026",
+      "slug": "concorso-generale-2026-oscam",
+      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+      "companyKey": "oscam",
+      "location": "Castelrotto",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
+      "applyUrl": "https://www.oscam.ch/candidature/",
+      "category": "general",
+      "sector": "Sanità pubblica / Assistenza anziani",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "source": "oscam-crawler",
+      "postedDate": "",
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Castelrotto"
+      },
+      "crawledAt": "2026-10-13T09:12:32.277Z",
+      "id": "oscam-90801fb9d04f",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Nucleo 30",
+      "postalCode": "6980",
+      "addressLocality": "Castelrotto",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-17T10:50:46.725Z",
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
       "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
@@ -58,50 +101,8 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "title": "Concorso generale 2026",
-      "slug": "concorso-generale-2026-oscam",
-      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-      "companyKey": "oscam",
-      "location": "Castelrotto",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
-      "applyUrl": "mailto:info@oscam.ch",
-      "category": "general",
-      "sector": "Sanità pubblica / Assistenza anziani",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "source": "oscam-crawler",
-      "postedDate": "",
-      "sourceLang": "it",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Castelrotto"
-      },
-      "crawledAt": "2026-10-12T21:13:12.265Z",
-      "id": "oscam-90801fb9d04f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Nucleo 30",
-      "postalCode": "6980",
-      "addressLocality": "Castelrotto",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-17T10:50:46.725Z",
-      "salarySource": "estimated",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "unchangedJobs": [],
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }

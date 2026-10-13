@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-12T21:11:50.987Z",
+  "generatedAt": "2026-10-13T09:12:22.957Z",
   "total": 15,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 8724,
-  "avgDurationMs": 8724,
+  "durationMs": 8054,
+  "avgDurationMs": 8054,
   "durationHistory": [
-    8724
+    8054
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -254,46 +254,6 @@
       }
     },
     {
-      "title": "Sanitär- und Heizungstechniker/in",
-      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-29T22:00:00Z",
-      "validThrough": "2026-11-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-7ef1058e63a6",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-18T21:36:14.124Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "datePosted": "2026-09-29T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
       "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
@@ -329,6 +289,46 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Sanitär- und Heizungstechniker/in",
+      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-29T22:00:00Z",
+      "validThrough": "2026-11-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-7ef1058e63a6",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -614,5 +614,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
