@@ -213,7 +213,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'everest-re': cLogo('everestre.com'),
  // #6504 residual: the official site exposes only a small favicon; this is
  // the published Imerys mark from the company-origin Commons file.
- 'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
+ 'imerys': 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Imerys_logo.png',
  'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
  'fart': gFavicon('fartiamo.ch'),
  'ferring': cLogo('ferring.com'),
@@ -351,7 +351,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'medartis': cLogo('medartis.com'),
  // #6504 residual: keep the visible red MediaMarkt wordmark instead of the
  // stale 48px manifest entry; the Commons SVG is sourced from Media-Saturn.
- 'mediamarkt': 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg',
+ 'mediamarkt': 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg',
  'medics-labor': cLogo('medics.ch'),
  'medtronic': cLogo('medtronic.com'),
  'merian-iselin': cLogo('merianiselin.ch'),

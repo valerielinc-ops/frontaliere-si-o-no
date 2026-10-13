@@ -13071,7 +13071,7 @@ ${staticAnalyticsHtml}
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
- const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">`;
+ const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">`;
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache).
  //

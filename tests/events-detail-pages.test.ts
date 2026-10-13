@@ -505,6 +505,8 @@ describe('renderEventDetailPage', () => {
   });
   it('uses the art-directed hero and one contextual AdSense slot on indexable details', () => {
     expect(page.html).toContain('ev-hero-backdrop');
+    expect(page.html).toContain('style="background-image:url(');
+    expect(page.html).not.toMatch(/ev-hero-backdrop[^>]*\bsrc=/);
     expect(page.html).toContain('ev-hero-surface');
     expect(page.html).toContain('prefers-reduced-motion:reduce');
     expect(page.html.match(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`, 'g'))).toHaveLength(1);
@@ -689,6 +691,40 @@ describe('renderEventDetailPage', () => {
     for (const seg of ['/eventi/ticino/lugano/', '/en/events/ticino/lugano/', '/de/veranstaltungen/tessin/lugano/', '/fr/evenements/tessin/lugano/']) {
       expect(page.html).toContain(seg);
     }
+  });
+
+  it('distinguishes same-titled event dates in the title and visible H1', () => {
+    const laterEvent = { ...EVENT, id: 'tio-agenda:later', startDate: '2026-07-11', endDate: '2026-07-11' };
+    const firstPage = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const laterPage = renderEventDetailPage({
+      locale: 'it',
+      event: laterEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(laterEvent),
+      sameComuneEvents: [laterEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const firstTitle = firstPage.html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    const laterTitle = laterPage.html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    const firstH1 = firstPage.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? '';
+    const laterH1 = laterPage.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1] ?? '';
+    expect(firstTitle).not.toBe(laterTitle);
+    expect(firstH1).not.toBe(laterH1);
+    expect(firstTitle).toContain('2026-07-04');
+    expect(laterTitle).toContain('2026-07-11');
+    expect(firstH1).toContain('2026-07-04');
+    expect(laterH1).toContain('2026-07-11');
   });
 
   it('truncates an overlong crawled event title (word-aware) so <title> stays within the 66-char SERP cap, keeping the comune suffix (audit:title-length regression: eventi 707>340 offenders)', () => {

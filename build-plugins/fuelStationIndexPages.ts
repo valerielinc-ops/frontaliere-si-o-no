@@ -699,7 +699,7 @@ function renderCompactStationGroup(
   const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
   const rows = group.anchors.map((anchor) => {
     const logo = anchor.logoUrl
-      ? `<img src="${esc(anchor.logoUrl)}" alt="" width="32" height="32" loading="lazy" decoding="async">`
+      ? `<img src="${esc(anchor.logoUrl)}" alt="${esc(anchor.label)}" width="32" height="32" loading="lazy" decoding="async">`
       : '';
     const subtitle = anchor.subtitle
       ? `<small>${esc(anchor.subtitle)}</small>`

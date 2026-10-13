@@ -21,6 +21,22 @@ describe('locale-router apex legacy routes', () => {
     ['/de/partner-dienste/', '/de/'],
     ['/fr/services-partenaires/', '/fr/'],
     ['/job-board/', '/cerca-lavoro-svizzera/'],
+    ['/calcola-stipendio/confronta-permesso-g-vs-b/', '/guida-frontaliere/confronta-permesso-g-vs-b/'],
+    ['/guida-frontaliere/comuni-di-frontiera/', '/vivere-in-ticino/comuni-di-frontiera/'],
+    ['/vivere-in-ticino/vivere-in-svizzera/', '/vivere-in-ticino/'],
+    ['/statistiche/traffico-dogane/', '/traffico-dogane/'],
+    ['/guida-frontaliere/tempi-attesa-dogana/', '/traffico-dogane/'],
+    ['/guida-frontaliere/diritto-lavoro-frontalieri/', '/guida-frontaliere/'],
+    ['/tfr-calculator/', '/tfr-liquidazione-frontaliere/'],
+    ['/calcolatore/', '/calcola-stipendio/'],
+    ['/guida-frontaliere/diritto-opzione-lamal/', '/guida-frontaliere/lamal-frontalieri/'],
+    ['/statistiche/confronta-premi/', '/statistiche/premi-malattia-comuni/'],
+    ['/stipendi-frontalieri-ticino/', '/statistiche/confronta-stipendi/'],
+    ['/tredicesima-svizzera/', '/calcolo-tredicesima-frontaliere/'],
+    ['/comparatori/cambio-valuta/', '/compara-servizi/cambio-franco-euro/'],
+    ['/costo-della-vita/', '/compara-servizi/costo-della-vita/'],
+    ['/guida-frontaliere/nuova-legge-frontalieri-2024/', '/guida-frontaliere/'],
+    ['/fisco-frontalieri/', '/tasse-e-pensione/'],
   ])('301s %s to %s', async (from, target) => {
     const response = apexLegacyResponse(new URL(`${APEX}${from}`));
     expect(response?.status).toBe(301);
@@ -44,7 +60,7 @@ describe('locale-router apex legacy routes', () => {
 
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(9);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(25);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {

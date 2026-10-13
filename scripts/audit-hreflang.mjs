@@ -7,7 +7,7 @@
  * Semrush Site Audit (2026-04-24) reported 10 pages with "bad hreflang links
  * within page source code". The existing `validate-hreflang.mjs` only walked
  * the sitemap URLs — pages missing from the sitemap slipped through. This
- * script walks the full `dist/` tree and enforces 4 invariants:
+ * script walks the full `dist/` tree and enforces 5 invariants:
  *
  *   1. Every HTML page with any hreflang MUST have >= 5 entries
  *      (4 locales: it, en, de, fr + x-default).
@@ -23,6 +23,10 @@
  *      post-deploy dist assembled from shards, a missing target on an explicit
  *      noindex historical page is retained as an advisory corpus measurement;
  *      it never masks a defect on an indexable page.
+ *   5. Every own-host alternate target that is present in the parsed closure
+ *      of an indexable page MUST link back to the source page (reciprocal
+ *      return-link invariant). Explicit noindex bridge pages are excluded:
+ *      they intentionally copy the destination cluster's alternates.
  *
  * Pages without ANY hreflang tags are skipped — many utility pages (404.html,
  * bridge redirects, etc.) legitimately have none. Missing-hreflang checks
@@ -74,6 +78,7 @@ import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runn
 import { readHeadOrAll } from './lib/readHead.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { findHreflangReciprocityFailures, normalizeHreflangUrl } from './lib/hreflang-reciprocity.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -208,6 +213,30 @@ function targetExists(href, distFiles) {
   return false;
 }
 
+/** Return the concrete HTML file for an own-host target, if it exists. */
+function targetFileFor(href, distFiles) {
+  if (isExternallyServedUrl(href)) return null;
+  const target = urlToDistFile(href);
+  if (!target) return null;
+  if (distFiles.has(target)) return target;
+  const alt = target.endsWith(`${path.sep}index.html`)
+    ? target.slice(0, -`${path.sep}index.html`.length) + '.html'
+    : path.join(path.dirname(target), path.basename(target, '.html'), 'index.html');
+  if (distFiles.has(alt)) return alt;
+  if (!target.endsWith('.html') && (existsSync(target) || existsSync(alt))) return existsSync(target) ? target : alt;
+  return null;
+}
+
+function fileToPublicUrl(file, html) {
+  const canonical = html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
+  if (canonical) return canonical;
+  const rel = path.relative(DIST, file).split(path.sep).join('/');
+  if (rel === 'index.html') return `${BASE_URL}/`;
+  if (rel.endsWith('/index.html')) return `${BASE_URL}/${rel.slice(0, -'/index.html'.length)}/`;
+  if (rel.endsWith('.html')) return `${BASE_URL}/${rel.slice(0, -'.html'.length)}`;
+  return `${BASE_URL}/${rel}`;
+}
+
 async function main() {
   if (!existsSync(DIST)) {
     console.error(`audit-hreflang: dist/ does not exist at ${DIST}`);
@@ -268,6 +297,8 @@ async function main() {
     xDefaultMismatch: [],
     /** hreflang target is missing from dist/. */
     missingTarget: [],
+    /** an emitted own-host target does not link back to its source. */
+    missingReturn: [],
   };
   const historicalFailures = {
     /** Missing targets on explicit noindex pages are measured, not blocking. */
@@ -277,6 +308,8 @@ async function main() {
   const historicalPagesWithFailure = new Set();
   let scanned = 0;
   let withHreflang = 0;
+  const reciprocitySources = [];
+  const reciprocityTargets = new Map();
 
   // Bounded-concurrency scan. Each lane pulls the next file off a shared
   // cursor; the per-file body below is byte-for-byte the previous sequential
@@ -296,6 +329,25 @@ async function main() {
       const rel = path.relative(DIST, file);
       const historical = isNoindexPage(html);
       if (historical) historicalPagesWithHreflang.add(rel);
+
+      // Bridge pages intentionally inherit the canonical target's alternate
+      // block. They are measured for missing targets below, but are not
+      // sources in the reciprocal cluster invariant: the canonical page must
+      // not link back to a noindex bridge.
+      if (!historical) {
+        reciprocitySources.push({
+          url: fileToPublicUrl(file, html),
+          relPath: rel,
+          alternates,
+        });
+        for (const href of alternates.values()) {
+          if (!href.startsWith(BASE_URL) || isExternallyServedUrl(href)) continue;
+          const targetFile = targetFileFor(href, distFiles);
+          if (!targetFile) continue;
+          const key = normalizeHreflangUrl(href, BASE_URL);
+          if (key && !reciprocityTargets.has(key)) reciprocityTargets.set(key, { href, file: targetFile });
+        }
+      }
 
       if (alternates.size < 5) {
         failures.tooFew.push(
@@ -344,6 +396,43 @@ async function main() {
     Array.from({ length: Math.min(IN_FLIGHT, sampled.length) }, () => lane()),
   );
 
+  // Read the target closure of the sampled source pages before checking the
+  // return-link invariant. This keeps sampled runs bounded while still
+  // checking both sides of every alternate edge they inspect; a full run
+  // naturally closes over the entire local graph.
+  const targetEntries = [...reciprocityTargets.values()];
+  let targetCursor = 0;
+  const targetLane = async () => {
+    while (targetCursor < targetEntries.length) {
+      const target = targetEntries[targetCursor++];
+      const html = await readHeadOrAll(target.file);
+      if (html === null) continue;
+      reciprocityTargets.set(normalizeHreflangUrl(target.href, BASE_URL), {
+        ...target,
+        html,
+        alternates: extractAlternates(html),
+      });
+    }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(IN_FLIGHT, targetEntries.length) }, () => targetLane()),
+  );
+
+  const reciprocityPages = [
+    ...reciprocitySources,
+    ...[...reciprocityTargets.values()]
+      .filter((target) => target.alternates && !isNoindexPage(target.html ?? ''))
+      .map((target) => ({ url: target.href, relPath: path.relative(DIST, target.file), alternates: target.alternates })),
+  ];
+  for (const issue of findHreflangReciprocityFailures(reciprocityPages, {
+    baseUrl: BASE_URL,
+    skipTarget: isExternallyServedUrl,
+  })) {
+    failures.missingReturn.push(
+      flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),
+    );
+  }
+
   // Lanes complete out of order, so sort each bucket to keep the CI log (and
   // the audit report) stable between runs over identical input.
   for (const list of Object.values(failures)) list.sort();
@@ -352,7 +441,8 @@ async function main() {
     failures.tooFew.length +
     failures.invalidPair.length +
     failures.xDefaultMismatch.length +
-    failures.missingTarget.length;
+    failures.missingTarget.length +
+    failures.missingReturn.length;
   const totalHistoricalFailures = historicalFailures.missingTarget.length;
   const historicalFailureRate = historicalPagesWithFailure.size / Math.max(withHreflang, 1);
   const historicalCorpusRate = historicalPagesWithFailure.size / Math.max(scanned, 1);

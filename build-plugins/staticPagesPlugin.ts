@@ -1265,6 +1265,58 @@ export const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; labe
  ],
 };
 
+// The 2026-10 crawl found these sitemap pages with zero incoming links in the
+// scanned graph. They are real, indexable landings (not aliases or bridges),
+// so keep them reachable from the same shallow discovery rail instead of
+// treating the crawler finding as harmless sampling noise.
+const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; label: string }>> = {
+ it: [],
+ en: [
+  { href: '/en/living-in-ticino/', label: 'Living in Ticino' },
+  { href: '/en/statistics/', label: 'Ticino statistics' },
+  { href: '/en/taxes-and-pension/tax-return-guide/', label: 'Cross-border tax return guide' },
+  { href: '/en/taxes-and-pension/tax-deadlines/', label: 'Swiss tax deadlines' },
+  { href: '/en/taxes-and-pension/simulate-third-pillar/', label: 'Third-pillar simulator' },
+  { href: '/en/taxes-and-pension/tax-refunds/', label: 'Tax refunds for cross-border workers' },
+  { href: '/en/living-in-ticino/cross-border-transport/', label: 'Cross-border transport' },
+  { href: '/en/calculate-salary/net-salary-60000-chf/', label: 'Net salary CHF 60,000' },
+  { href: '/en/calculate-salary/net-salary-80000-chf/', label: 'Net salary CHF 80,000' },
+  { href: '/en/calculate-salary/net-salary-100000-chf/', label: 'Net salary CHF 100,000' },
+  { href: '/en/calculate-salary/net-salary-120000-chf/', label: 'Net salary CHF 120,000' },
+  { href: '/en/taxes-and-pension/ticino-public-holidays/', label: 'Ticino public holidays' },
+  { href: '/en/taxes-and-pension/tax-quiz/', label: 'Cross-border tax quiz' },
+ ],
+ de: [
+  { href: '/de/leben-im-tessin/', label: 'Leben im Tessin' },
+  { href: '/de/statistiken/', label: 'Statistiken zum Tessin' },
+  { href: '/de/steuern-und-vorsorge/steuererklaerung/', label: 'Leitfaden zur Steuererklärung' },
+  { href: '/de/steuern-und-vorsorge/steuerfristen/', label: 'Steuerfristen' },
+  { href: '/de/steuern-und-vorsorge/dritte-saeule-simulieren/', label: 'Säule-3a-Simulator' },
+  { href: '/de/steuern-und-vorsorge/steuerrueckerstattung/', label: 'Steuerrückerstattung' },
+  { href: '/de/leben-im-tessin/grenzpendler-verkehr/', label: 'Grenzpendler-Verkehr' },
+  { href: '/de/gehalt-berechnen/nettogehalt-60000-chf/', label: 'Nettogehalt CHF 60.000' },
+  { href: '/de/gehalt-berechnen/nettogehalt-80000-chf/', label: 'Nettogehalt CHF 80.000' },
+  { href: '/de/gehalt-berechnen/nettogehalt-100000-chf/', label: 'Nettogehalt CHF 100.000' },
+  { href: '/de/gehalt-berechnen/nettogehalt-120000-chf/', label: 'Nettogehalt CHF 120.000' },
+  { href: '/de/steuern-und-vorsorge/tessin-feiertage/', label: 'Feiertage im Tessin' },
+  { href: '/de/steuern-und-vorsorge/steuer-quiz/', label: 'Steuer-Quiz für Grenzgänger' },
+ ],
+ fr: [
+  { href: '/fr/vivre-au-tessin/', label: 'Vivre au Tessin' },
+  { href: '/fr/statistiques/', label: 'Statistiques du Tessin' },
+  { href: '/fr/impots-et-retraite/declaration-revenus/', label: 'Guide de déclaration fiscale' },
+  { href: '/fr/impots-et-retraite/echeances-fiscales/', label: 'Échéances fiscales' },
+  { href: '/fr/impots-et-retraite/simuler-troisieme-pilier/', label: 'Simulateur du troisième pilier' },
+  { href: '/fr/impots-et-retraite/ristornes-fiscaux/', label: 'Ristournes fiscales' },
+  { href: '/fr/vivre-au-tessin/transports-frontaliers/', label: 'Transports frontaliers' },
+  { href: '/fr/calculer-salaire/salaire-net-60000-chf/', label: 'Salaire net CHF 60 000' },
+  { href: '/fr/calculer-salaire/salaire-net-80000-chf/', label: 'Salaire net CHF 80 000' },
+  { href: '/fr/calculer-salaire/salaire-net-100000-chf/', label: 'Salaire net CHF 100 000' },
+  { href: '/fr/calculer-salaire/salaire-net-120000-chf/', label: 'Salaire net CHF 120 000' },
+  { href: '/fr/impots-et-retraite/jours-feries-tessin/', label: 'Jours fériés au Tessin' },
+ ],
+};
+
 const escAttr = (s: string): string => s
  .replace(/&/g, '&amp;')
  .replace(/</g, '&lt;')
@@ -1273,8 +1325,8 @@ const escAttr = (s: string): string => s
 
 /**
  * The anchor-pill row shared by the homepage related-guides rail and the
- * locale main nav below: the same nine declarations, differing only in
- * font-weight (500 for the rail, 600 for the nav).
+ * locale main nav below. The two consumers can carry different link sets,
+ * differing only in font-weight (500 for the rail, 600 for the nav).
  *
  * Written once. Two copies of the same inline style list is what CLAUDE.md
  * non-negotiable #6 forbids, and the reason is not tidiness: the next restyle
@@ -1291,7 +1343,10 @@ function renderPillAnchors(
 }
 
 function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
- const links = ORPHAN_PILLAR_LINKS[locale] ?? ORPHAN_PILLAR_LINKS.it;
+ const links = [
+  ...(ORPHAN_PILLAR_LINKS[locale] ?? ORPHAN_PILLAR_LINKS.it),
+  ...(REPORTED_ORPHAN_LINKS[locale] ?? []),
+ ];
  if (links.length === 0) return '';
  const heading = locale === 'en' ? 'In-depth guides'
    : locale === 'de' ? 'Vertiefende Leitfäden'
@@ -4535,7 +4590,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Come scegliere: flusso decisionale consigliato</h2>`,
  `Per una famiglia di frontalieri il percorso decisionale consigliato è in quattro passaggi. <strong>Primo</strong>: usare il comparatore per filtrare le strutture in base al comune di residenza italiano (Como, Varese, Luino, Ponte Tresa) oppure al comune svizzero se si detiene un permesso B, ordinate per costo mensile stimato sul reddito familiare reale. <strong>Secondo</strong>: verificare la lista d'attesa con una telefonata diretta o e-mail al servizio infanzia del Comune; nei nidi comunali ticinesi conviene iscriversi almeno 9-12 mesi prima della data di ingresso desiderata. <strong>Terzo</strong>: calcolare il costo netto sottraendo le detrazioni IRPEF italiane (fino a 632 € a figlio) e il Bonus Asilo Nido INPS (fino a 3.000 €/anno con ISEE basso) oppure, in caso di nido svizzero, le deduzioni fiscali ticinesi per spese di custodia. <strong>Quarto</strong>: valutare i costi accessori di trasporto quotidiano — se il nido è a Lugano e si vive a Como, il tempo aggiuntivo mattutino e l'abbonamento Arcobaleno o il consumo di benzina possono spostare il break-even di 200-400 CHF al mese.`,
  `Le spese per il nido vanno integrate nel budget familiare senza presumere una deduzione in entrambi gli Stati. Per i frontalieri fiscali dell’accordo la tassazione ordinaria ulteriore svizzera (TOU) non è disponibile; le detrazioni italiane richiedono la verifica dei requisiti applicabili e della propria posizione fiscale. Il <a href="/calcola-stipendio/">simulatore stipendio</a> offre una stima, ma non determina il diritto alle singole agevolazioni. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">ESTV / AFC</a>.`,
- `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www4.ti.ch/das" rel="noopener">Divisione azione sociale Ticino</a> · <a class="s-OsohZU" href="https://www.inps.it" rel="noopener">INPS — Bonus Asilo Nido</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate — detrazioni asilo nido</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www4.ti.ch/dss/dasf/ricerca" rel="noopener">Divisione dell'azione sociale e delle famiglie Ticino</a> · <a class="s-OsohZU" href="https://www.inps.it" rel="noopener">INPS — Bonus Asilo Nido</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate — detrazioni asilo nido</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/trasporti-frontalieri')) {
  // H.5: guida treni/auto/car-sharing dettagliata
