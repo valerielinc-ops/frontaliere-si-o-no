@@ -532,6 +532,22 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('Storico in accumulo');
   });
 
+  it('keeps the Italian Gaggiolo leaf concise and keyword-aligned', () => {
+    const html = pages[buildOggiPath('it', 'gaggiolo')];
+    const paragraphCount = (html.match(/<p(?:\s|>)/g) || []).length;
+
+    expect(html).toContain(
+      '>Tempi di attesa dogana Gaggiolo (Cantello-Stabio): coda live oggi</h1>',
+    );
+    expect(html).toContain('coda live');
+    expect(html).toContain('webcam');
+    expect(html).toContain('frontalieri');
+    expect(html).not.toContain('Nuovo Accordo Fiscale Italia–Svizzera');
+    expect((html.match(/<h2(?:\s|>)/g) || []).length).toBeLessThanOrEqual(7);
+    expect((html.match(/<h3(?:\s|>)/g) || []).length).toBeLessThanOrEqual(3);
+    expect(paragraphCount).toBeLessThanOrEqual(30);
+  });
+
   it('every locale has a root hub, every regional hub, and every crossing leaf', () => {
     for (const loc of BORDER_WAIT_LOCALES) {
       expect(pages[buildRootHubPath(loc)]).toBeDefined();
