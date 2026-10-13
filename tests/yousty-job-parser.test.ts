@@ -32,7 +32,7 @@ const SAMPLE_HTML = `
 
 describe('parseYoustyApprenticeshipHtml', () => {
   it('extracts the real apprenticeship description from the noscript block', () => {
-    const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML, 'https://www.yousty.ch/de-CH/lehrstellen/profile/12692138');
+    const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
 
     expect(parsed.description).toContain('Sei interessato a svolgere un apprendistato come impiegato/a in logistica AFC?');
     expect(parsed.description).toContain('Cosa ti aspetta da noi');
@@ -41,9 +41,9 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parsed.description).not.toContain('Dein Arbeitsort');
   });
 
-  it('uses the profile page as the apply URL', () => {
-    const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML, 'https://www.yousty.ch/de-CH/lehrstellen/profile/12692138');
-    expect(parsed.applyUrl).toBe('https://www.yousty.ch/de-CH/lehrstellen/profile/12692138');
+  it('does not treat the profile page as an application URL when no handoff is parsed', () => {
+    const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
+    expect(parsed.applyUrl).toBe('');
   });
 });
 
@@ -63,7 +63,7 @@ describe('inline markup stays inside its sentence', () => {
 
   it('reads the French profile heading ("Description de l\'apprentissage")', () => {
     const html = `<noscript><h1>Places d’apprentissage chez Amavita à Le Lignon</h1><h2>Description de l&#39;apprentissage</h2><div><p>Nous offrons une place d’apprentissage variée et captivante de Assistant/e en pharmacie CFC.</p></div><h2>Ta façon de travailler</h2><div>Place du Lignon 19, 1219 Le Lignon</div></noscript>`;
-    const parsed = parseYoustyApprenticeshipHtml(html, 'https://www.yousty.ch/fr-CH/places-d-apprentissage/profils/12692283');
+    const parsed = parseYoustyApprenticeshipHtml(html);
     expect(parsed.description).toBe('Nous offrons une place d’apprentissage variée et captivante de Assistant/e en pharmacie CFC.');
   });
 });

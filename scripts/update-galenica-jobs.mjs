@@ -149,8 +149,8 @@ function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
     if (url) return url;
   }
 
-  // Yousty enrichment is itself fetched from the source profile. Keep it only
-  // when it resolves to a trusted HTTPS destination; never invent a fallback.
+  // Keep only an application destination parsed from the Yousty profile; the
+  // profile page itself is not an application handoff.
   return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
 }
 
@@ -402,22 +402,22 @@ function youstyProfileUrl(variants = []) {
   return variants.find((v) => /yousty\.ch/i.test(String(v?.textblocks?.profilelink || '')))?.textblocks?.profilelink || '';
 }
 
-async function enrichFromYoustyProfile(variants, timeoutMs) {
+export async function enrichFromYoustyProfile(variants, timeoutMs) {
   const profileUrl = youstyProfileUrl(variants);
   if (!profileUrl) return null;
 
   try {
     const html = await fetchText(profileUrl, timeoutMs);
-    const parsed = parseYoustyApprenticeshipHtml(html, profileUrl);
-    if (!parsed.description) return { applyUrl: parsed.applyUrl || profileUrl };
+    const parsed = parseYoustyApprenticeshipHtml(html);
+    if (!parsed.description) return { applyUrl: parsed.applyUrl || '' };
     return {
       description: parsed.description,
       sourceLang: detectLang(parsed.description, 'it'),
-      applyUrl: parsed.applyUrl || profileUrl,
+      applyUrl: parsed.applyUrl || '',
     };
   } catch (err) {
     console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
-    return { applyUrl: profileUrl };
+    return { applyUrl: '' };
   }
 }
 

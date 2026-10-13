@@ -11,11 +11,12 @@
  * `process.argv[1] === fileURLToPath(import.meta.url)`, so importing it for
  * `isSwissGalenicaItem` does not trigger a live crawl.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 
 import {
   buildGalenicaJob,
   buildGalenicaSoliqueDescription,
+  enrichFromYoustyProfile,
   galenicaWorkLocation,
   galenicaWorkplaceLine,
   isGalenicaCompanyBlurb,
@@ -27,6 +28,11 @@ import {
 import { SWISS_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
 
 const TRUSTED_TEST_APPLY_URL = 'https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
   it('rejects a populated non-Swiss state even when the city aliases a Swiss canton', () => {
@@ -207,7 +213,7 @@ function apprenticeship(id: string, street: string, zip: string) {
 }
 
 const withYousty = (variants: ReturnType<typeof apprenticeship>) => buildGalenicaJob(variants, {
-  youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'fr', applyUrl: variants[0].textblocks.profilelink },
+  youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'fr', applyUrl: '' },
 });
 
 describe('Galenica Solique content (flat 243/249: the blurb replaced the posting)', () => {
@@ -251,6 +257,22 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     }], { youstyEnrichment: { applyUrl: 'https://apply.example.test/job/7417' } });
     expect(withoutTrustedHandoff.job).toMatchObject({ applyUrl: '' });
     expect(withoutTrustedHandoff.skip).toBeUndefined();
+  });
+
+  it('keeps a valid Yousty vacancy with an empty applyUrl when the profile has no application handoff', async () => {
+    const variants = apprenticeship('12692302', 'Rue de Bourg 8', '1003');
+    const profileUrl = variants[0].textblocks.profilelink;
+    const profileHtml = `<noscript><h2>Lehrstellenbeschreibung</h2><div>${YOUSTY_TEXT}</div></noscript>`;
+    const fetchMock = vi.fn(async () => new Response(profileHtml, { status: 200, headers: { 'content-type': 'text/html' } }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const youstyEnrichment = await enrichFromYoustyProfile(variants, 1000);
+    const result = buildGalenicaJob(variants, { youstyEnrichment });
+
+    expect(fetchMock).toHaveBeenCalledWith(profileUrl, expect.objectContaining({ method: 'GET' }));
+    expect(result.skip).toBeUndefined();
+    expect(result.job.description).toContain('Tu t’intéresses à une place d’apprentissage');
+    expect(result.job.applyUrl).toBe('');
   });
 
   it('keeps the Yousty text as source-locale content, after the workplace line', () => {
