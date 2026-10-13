@@ -1,6 +1,6 @@
 {
   "crawlerKey": "asana-spital",
-  "assembledAt": "2026-10-12T21:26:48.021Z",
+  "assembledAt": "2026-10-13T09:29:01.321Z",
   "jobs": [
     {
       "id": "asana-spital-351aa06cbc98",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/studierende-studierender-pflege-hf/80f68056-9fab-4a32-beee-ad8ae7e0842e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.221Z",
+      "crawledAt": "2026-10-13T09:28:41.292Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-interdisziplinaere-akutstation/c515e33d-bbc9-499b-947c-2a0136f226c4",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.220Z",
+      "crawledAt": "2026-10-13T09:28:41.291Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -298,7 +298,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-fachfrau-fachmann-operationstechnik-hf-toa/de8a7f89-96b4-4037-8ec9-5842cb6a5d7e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.218Z",
+      "crawledAt": "2026-10-13T09:28:41.290Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -390,7 +390,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachaerztin-facharzt-allgemeine-innere-medizin-hausarztpraxis/b6b08327-5c89-45e3-bada-937341594cf4",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.213Z",
+      "crawledAt": "2026-10-13T09:28:41.287Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/2b9fed32-5d08-44fc-b38e-6b9e06cbf6ed",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.212Z",
+      "crawledAt": "2026-10-13T09:28:41.285Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -542,6 +542,83 @@
       }
     },
     {
+      "id": "asana-spital-5e2ab441263f",
+      "slug": "dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-fh-50-80-per-servizio-notturno-su-un-unita-di",
+      "slugByLocale": {
+        "it": "dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-fh-50-80-per-servizio-notturno-su-un-unita-di",
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-hf-fh-50-80-for-night-service-on-an-interdisciplinary-acute-care-unit",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-hf-fh-50-80-pour-le-service-de-nuit-dans"
+      },
+      "company": "asana Spital AG (Menziken / Leuggern)",
+      "companyKey": "asana-spital",
+      "companyDomain": "asana-gruppe.ch",
+      "title": "Dipl. Pflegefachfrau / dipl. Pflegefachmann HF/FH (50-80%), für Nachtdienst auf interdisziplinärer Akutstation",
+      "titleByLocale": {
+        "it": "Dipl. Infermieristica professionale / dipl. Specialista infermieristico HF/FH (50-80%), per servizio notturno su un'unità di cura acuta interdisciplinare",
+        "en": "Dipl. Nursing professional / dipl. Nursing specialist HF/FH (50-80%), for night service on an interdisciplinary acute care unit",
+        "de": "Dipl. Pflegefachfrau / dipl. Pflegefachmann HF/FH (50-80%), für Nachtdienst auf interdisziplinärer Akutstation",
+        "fr": "Dipl. Professionnels des soins infirmiers / dipl. Spécialiste des soins infirmiers HF/FH (50-80%), pour le service de nuit dans une unité interdisciplinaire de soins actifs"
+      },
+      "description": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Arbeitest du gerne in der Nacht und möchtest unser Team der Station 1 ergänzen? Wir suchen per 1. Juli 2026 oder nach Vereinbarung dich als\n\n## Abteilungsbeschrieb\nUnsere neu gestaltete Station 1 wird interdisziplinär geführt und umfasst 41 Betten. Das Team betreut Patientinnen und Patienten aus den Bereichen Allgemeine Innere Medizin, Allgemein- und Unfallchirurgie, Orthopädie, Urologie, ORL, Viszeralchirurgie, plastische und Wiederherstellungschirurgie, Handchirurgie und Gynäkologie.\nWas Dich erwartet\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\nEs erwartet dich ein wertschätzendes Arbeitsklima in einem familiären, zukunftsgerichteten Spital und ein engagiertes, kompetentes und aufgeschlossenes Pflegeteam.\n\n## Deine Aufgaben\n• Erstklassige Pflege und Betreuung von Patientinnen und Patienten verschiedener Fachgebiete, vorwiegend im Nachtdienst\n• Sicherstellung eines reibungslosen Stationsablaufes\n• Unterstützung und Förderung der engen interprofessionellen Zusammenarbeit\n\n## Dein Profil\n• Abgeschlossene Pflegeausbildung Stufe HF oder FH und Berufserfahrung in der Akutpflege\n• Engagierte Persönlichkeit mit hohem Verantwortungsbewusstsein und Empathie\n• Flexibilität, Belastbarkeit, Zuverlässigkeit und organisatorisches Geschick\n• Teamfähigkeit und eine positive Grundhaltung\n• Bereitschaft bei Bedarf auch im Spätdienst zu unterstützen\n• Professionelles Pflegeverständnis, zukunftsorientiertes Denken und Handeln sowie eine hohe Kundenorientierung\nArbeitsort",
+      "descriptionByLocale": {
+        "it": "Asana Spital Denuggern è il centro sanitario innovativo di Zurzibiet. In un'atmosfera familiare, garantiamo l'assistenza medica di base di alta qualità della regione. Siamo un datore di lavoro a misura di famiglia con condizioni di lavoro progressivo per circa 450 dipendenti. Ti piace lavorare di notte e vuoi completare il nostro team alla stazione 1? Vi stiamo cercando a partire dal 1° luglio 2026 o d'accordo\n\n## Descrizione del reparto\nLa nostra nuova stazione 1 è gestita interdisciplinare e comprende 41 posti letto. Il team si occupa di pazienti dai campi della medicina interna generale, chirurgia generale e trauma, ortopedia, urologia, ORL, chirurgia viscerale, chirurgia plastica e restauro, chirurgia mano e ginecologia.\nCosa aspettarsi\n\n## Prestazioni sociali e salariali\n• Assegni attraenti per la notte, il fine settimana e il lavoro di festa pubblica e per l'imbottitura\n• Fondo pensione finanziariamente sano con benefici extracompulsori e il contributo del datore di lavoro del 60 per cento con opzione per il risparmio volontario\n• In caso di malattia, infortunio e maternità e congedo di paternità\n• Copertura degli infortuni aggiuntivi (Private Department Worldwide)\n\n## Ambiente di lavoro\n• Atmosfera familiare con du-culture\n• Cultura aziendale aperta e apprezzata\n• Percorsi decisionali brevi\n• Moderne infrastrutture e strumenti di lavoro\n• Regolari eventi e eventi del personale (snow, giornata escursionistica, evento di squadra, aperitivo di Natale, ...)\n• Ambiente di lavoro rurale\n• Collegamento dei trasporti pubblici\n\n## Sviluppo\n• Ampia offerta di corsi interni\n• Sostegno finanziario e di tempo generoso alla formazione esterna\n• Promozione dei dipendenti\n• Spazio per propria iniziativa\n\n## Salute e prevenzione\n• Gestione della salute sul lavoro (BGM)\n• Misure regolari per la salute e la prevenzione\n• Elevate norme in materia di sicurezza e tutela della salute sul lavoro\n\n## Servizi aggiuntivi\n• Parcheggio vicino all'ospedale\n• Cibo scontato nella caffetteria\n• Acqua minerale libera\n• Riduzione della ricezione del denaro REKA\n• Attenzione agli eventi personali\n• Varie pergamene interessanti\n• Sala ospedaliera in classe di cura superiore con ricovero\nSi può aspettare un'atmosfera di lavoro apprezzata in un ospedale familiare e un team di cura impegnato, competente e aperto.\n\n## I tuoi compiti\n• Cura di prima classe e cura di pazienti di varie specialità, principalmente sul servizio notturno\n• Garantire un funzionamento regolare della stazione\n• Sostegno e promozione di una stretta cooperazione interprofessionale\n\n## Il tuo profilo\n• Formazione completa HF o FH e esperienza professionale in cura acuta\n• Personalità impegnata con un alto senso di responsabilità ed empatia\n• Flessibilità, resilienza, affidabilità e capacità organizzativa\n• Lavoro di squadra e atteggiamento positivo\n• Volontà a sostegno anche in servizio tardivo se necessario\n• Comprensione professionale della cura, del pensiero orientato al futuro e dell'azione, nonché un alto livello di orientamento del cliente\nLuogo di lavoro",
+        "en": "Asana Spital Denuggern is the innovative health centre in Zurzibiet. In a family atmosphere, we guarantee the high-quality basic medical care of the region. We are a family-friendly employer with progressive employment conditions for around 450 employees. Do you like working at night and would like to complement our team at Station 1? We are looking for you as from 1 July 2026 or by agreement\n\n## Departmental Description\nOur newly designed Station 1 is managed interdisciplinary and comprises 41 beds. The team takes care of patients from the fields of general internal medicine, general and trauma surgery, orthopaedics, urology, ORL, visceral surgery, plastic and restoration surgery, hand surgery and gynecology.\nWhat to expect\n\n## Wage and social benefits\n• Attractive allowances for night, weekend and public holiday work and for piketting\n• Financially healthy pension fund with over-compulsory benefits and 60 percent employer contribution with option for voluntary additional savings\n• Generous continued pay in the event of sickness, accident and maternity and paternity leave\n• Additional Accident Coverage (Private Department Worldwide)\n\n## Working environment\n• Family working atmosphere with du-culture\n• Open, appreciative corporate culture\n• Short decision paths\n• Modern infrastructure and working instruments\n• Regular staff events and events (snow, hiking day, team event, Christmas aperitif, ...)\n• Inviting, rural work environment\n• Close public transport connection\n\n## Development\n• Broad internal course offering\n• Generous financial and time support for external training\n• Promotion of employees\n• Space for own initiative\n\n## Health and prevention\n• Occupational Health Management (BGM)\n• Regular measures for health and prevention\n• High standards in occupational safety and health protection\n\n## Additional services\n• Cheap parking near hospital\n• Discounted food in the cafeteria\n• Free mineral water\n• Reduced receipt of REKA money\n• Attention to personal events\n• Various interesting perks\n• Hospital room in higher nursing class with hospitalization\nYou can expect an appreciative working atmosphere in a family-oriented hospital and a committed, competent and open-minded nursing team.\n\n## Your tasks\n• First-class care and care of patients of various specialties, mainly on night service\n• Ensuring smooth station operation\n• Support and promotion of close interprofessional cooperation\n\n## Your profile\n• Completed nursing training level HF or FH and professional experience in acute care\n• Engaged personality with a high sense of responsibility and empathy\n• Flexibility, resilience, reliability and organisational skill\n• Teamwork and a positive attitude\n• Willingness to support also in late service if necessary\n• Professional understanding of care, future-oriented thinking and acting as well as a high level of customer orientation\nPlace of work",
+        "de": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Arbeitest du gerne in der Nacht und möchtest unser Team der Station 1 ergänzen? Wir suchen per 1. Juli 2026 oder nach Vereinbarung dich als\n\n## Abteilungsbeschrieb\nUnsere neu gestaltete Station 1 wird interdisziplinär geführt und umfasst 41 Betten. Das Team betreut Patientinnen und Patienten aus den Bereichen Allgemeine Innere Medizin, Allgemein- und Unfallchirurgie, Orthopädie, Urologie, ORL, Viszeralchirurgie, plastische und Wiederherstellungschirurgie, Handchirurgie und Gynäkologie.\nWas Dich erwartet\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\nEs erwartet dich ein wertschätzendes Arbeitsklima in einem familiären, zukunftsgerichteten Spital und ein engagiertes, kompetentes und aufgeschlossenes Pflegeteam.\n\n## Deine Aufgaben\n• Erstklassige Pflege und Betreuung von Patientinnen und Patienten verschiedener Fachgebiete, vorwiegend im Nachtdienst\n• Sicherstellung eines reibungslosen Stationsablaufes\n• Unterstützung und Förderung der engen interprofessionellen Zusammenarbeit\n\n## Dein Profil\n• Abgeschlossene Pflegeausbildung Stufe HF oder FH und Berufserfahrung in der Akutpflege\n• Engagierte Persönlichkeit mit hohem Verantwortungsbewusstsein und Empathie\n• Flexibilität, Belastbarkeit, Zuverlässigkeit und organisatorisches Geschick\n• Teamfähigkeit und eine positive Grundhaltung\n• Bereitschaft bei Bedarf auch im Spätdienst zu unterstützen\n• Professionelles Pflegeverständnis, zukunftsorientiertes Denken und Handeln sowie eine hohe Kundenorientierung\nArbeitsort",
+        "fr": "Asana Spital Denuggern est le centre de santé innovant de Zurzibiet. Dans une ambiance familiale, nous garantissons les soins médicaux de base de haute qualité de la région. Nous sommes un employeur favorable à la famille avec des conditions d'emploi progressives pour environ 450 employés. Vous aimez travailler la nuit et compléter notre équipe à la Station 1 ? Nous vous recherchons à partir du 1er juillet 2026 ou par accord\n\n## Description ministérielle\nNotre nouvelle station 1 est gérée interdisciplinaire et comprend 41 lits. L'équipe s'occupe des patients des domaines de la médecine interne générale, chirurgie générale et trauma, orthopédie, urologie, ORL, chirurgie viscérale, chirurgie plastique et de restauration, chirurgie manuelle et gynécologie.\nÀ quoi s'attendre\n\n## Prestations salariales et sociales\n• Allocations attrayantes pour les travaux de nuit, de week-end et de jour férié et pour le vol\n• Caisse de retraite en bonne santé financière avec prestations trop obligatoires et 60 % de cotisations de l'employeur avec option d'épargne volontaire supplémentaire\n• Rémunération prolongée en cas de maladie, d ' accident et de congé de maternité et de paternité\n• Couverture supplémentaire des accidents (Département privé mondial)\n\n## Environnement de travail\n• Ambiance de travail familiale avec du-culture\n• Culture d'entreprise ouverte et appréciée\n• Voies de décision courtes\n• Infrastructures modernes et instruments de travail\n• Événements et événements réguliers du personnel (neige, journée de randonnée, événement d'équipe, apéritif de Noël, ...)\n• Invitation, milieu de travail rural\n• Fermer les transports en commun\n\n## Développement\n• Large offre de cours internes\n• Un soutien financier et temporel généreux pour la formation externe\n• Promotion des salariés\n• Espace pour l'initiative\n\n## Santé et prévention\n• Gestion de la santé au travail\n• Mesures régulières de santé et de prévention\n• Normes élevées en matière de sécurité et de protection de la santé au travail\n\n## Services supplémentaires\n• Parking pas cher près de l'hôpital\n• Nourriture réduite à la cafétéria\n• Eau minérale libre\n• Réduction de la réception de l'argent REKA\n• Attention aux événements personnels\n• Divers avantages intéressants\n• Salle d'hôpital en classe supérieure avec hospitalisation\nVous pouvez vous attendre à une atmosphère de travail reconnaissante dans un hôpital familial et une équipe de soins infirmiers dévouée, compétente et ouverte d'esprit.\n\n## Vos tâches\n• Soins de première classe et soins aux patients de diverses spécialités, principalement en service de nuit\n• Assurer le bon fonctionnement des stations\n• Soutien et promotion d'une coopération interprofessionnelle étroite\n\n## Votre profil\n• Niveau de formation infirmier complet HF ou FH et expérience professionnelle en soins actifs\n• Personnalité engagée avec un sens élevé des responsabilités et de l'empathie\n• Flexibilité, résilience, fiabilité et compétences organisationnelles\n• Travail d'équipe et attitude positive\n• Volonté de soutenir aussi en service tardif si nécessaire\n• Compréhension professionnelle des soins, de la pensée et de l'action orientées vers l'avenir ainsi qu'un niveau élevé d'orientation des clients\nLieu de travail"
+      },
+      "needsRetranslation": false,
+      "location": "Leuggern",
+      "canton": "AG",
+      "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-nachtdienst-auf-interdisziplinaerer-akutstation/6e6bdd48-2b55-4e5e-b623-6cb9ba9b1c19",
+      "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-13T09:28:41.284Z",
+      "addressLocality": "Leuggern",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5316",
+      "streetAddress": "Kommendeweg 12",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-22",
+      "postedDate": "2026-07-22",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-nachtdienst-auf-interdisziplinaerer-akutstation/6e6bdd48-2b55-4e5e-b623-6cb9ba9b1c19",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-per-nachtdienst-auf-interdisziplinarer-akutstation-asana-spital-ag-menziken-leuggern",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-per-nachtdienst-auf-interdisziplinarer-akutstation-asana-spital-ag-menziken-leuggern",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T23:24:16.043Z",
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "asana-spital-896b62eedd78",
       "slug": "dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-80-100-unita-interdisciplinare-acuta-con-letto",
       "slugByLocale": {
@@ -573,7 +650,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-interdisziplinaere-akutstation-mit-wochenbett/fbf1cc31-b089-47d0-8215-fcba9353b772",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.211Z",
+      "crawledAt": "2026-10-13T09:28:41.281Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -636,83 +713,6 @@
       }
     },
     {
-      "id": "asana-spital-5e2ab441263f",
-      "slug": "dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-fh-50-80-per-servizio-notturno-su-un-unita-di",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-specialista-infermieristico-hf-fh-50-80-per-servizio-notturno-su-un-unita-di",
-        "en": "dipl-nursing-professional-dipl-nursing-specialist-hf-fh-50-80-for-night-service-on-an-interdisciplinary-acute-care-unit",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer",
-        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-hf-fh-50-80-pour-le-service-de-nuit-dans"
-      },
-      "company": "asana Spital AG (Menziken / Leuggern)",
-      "companyKey": "asana-spital",
-      "companyDomain": "asana-gruppe.ch",
-      "title": "Dipl. Pflegefachfrau / dipl. Pflegefachmann HF/FH (50-80%), für Nachtdienst auf interdisziplinärer Akutstation",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / dipl. Specialista infermieristico HF/FH (50-80%), per servizio notturno su un'unità di cura acuta interdisciplinare",
-        "en": "Dipl. Nursing professional / dipl. Nursing specialist HF/FH (50-80%), for night service on an interdisciplinary acute care unit",
-        "de": "Dipl. Pflegefachfrau / dipl. Pflegefachmann HF/FH (50-80%), für Nachtdienst auf interdisziplinärer Akutstation",
-        "fr": "Dipl. Professionnels des soins infirmiers / dipl. Spécialiste des soins infirmiers HF/FH (50-80%), pour le service de nuit dans une unité interdisciplinaire de soins actifs"
-      },
-      "description": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Arbeitest du gerne in der Nacht und möchtest unser Team der Station 1 ergänzen? Wir suchen per 1. Juli 2026 oder nach Vereinbarung dich als\n\n## Abteilungsbeschrieb\nUnsere neu gestaltete Station 1 wird interdisziplinär geführt und umfasst 41 Betten. Das Team betreut Patientinnen und Patienten aus den Bereichen Allgemeine Innere Medizin, Allgemein- und Unfallchirurgie, Orthopädie, Urologie, ORL, Viszeralchirurgie, plastische und Wiederherstellungschirurgie, Handchirurgie und Gynäkologie.\nWas Dich erwartet\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\nEs erwartet dich ein wertschätzendes Arbeitsklima in einem familiären, zukunftsgerichteten Spital und ein engagiertes, kompetentes und aufgeschlossenes Pflegeteam.\n\n## Deine Aufgaben\n• Erstklassige Pflege und Betreuung von Patientinnen und Patienten verschiedener Fachgebiete, vorwiegend im Nachtdienst\n• Sicherstellung eines reibungslosen Stationsablaufes\n• Unterstützung und Förderung der engen interprofessionellen Zusammenarbeit\n\n## Dein Profil\n• Abgeschlossene Pflegeausbildung Stufe HF oder FH und Berufserfahrung in der Akutpflege\n• Engagierte Persönlichkeit mit hohem Verantwortungsbewusstsein und Empathie\n• Flexibilität, Belastbarkeit, Zuverlässigkeit und organisatorisches Geschick\n• Teamfähigkeit und eine positive Grundhaltung\n• Bereitschaft bei Bedarf auch im Spätdienst zu unterstützen\n• Professionelles Pflegeverständnis, zukunftsorientiertes Denken und Handeln sowie eine hohe Kundenorientierung\nArbeitsort",
-      "descriptionByLocale": {
-        "it": "Asana Spital Denuggern è il centro sanitario innovativo di Zurzibiet. In un'atmosfera familiare, garantiamo l'assistenza medica di base di alta qualità della regione. Siamo un datore di lavoro a misura di famiglia con condizioni di lavoro progressivo per circa 450 dipendenti. Ti piace lavorare di notte e vuoi completare il nostro team alla stazione 1? Vi stiamo cercando a partire dal 1° luglio 2026 o d'accordo\n\n## Descrizione del reparto\nLa nostra nuova stazione 1 è gestita interdisciplinare e comprende 41 posti letto. Il team si occupa di pazienti dai campi della medicina interna generale, chirurgia generale e trauma, ortopedia, urologia, ORL, chirurgia viscerale, chirurgia plastica e restauro, chirurgia mano e ginecologia.\nCosa aspettarsi\n\n## Prestazioni sociali e salariali\n• Assegni attraenti per la notte, il fine settimana e il lavoro di festa pubblica e per l'imbottitura\n• Fondo pensione finanziariamente sano con benefici extracompulsori e il contributo del datore di lavoro del 60 per cento con opzione per il risparmio volontario\n• In caso di malattia, infortunio e maternità e congedo di paternità\n• Copertura degli infortuni aggiuntivi (Private Department Worldwide)\n\n## Ambiente di lavoro\n• Atmosfera familiare con du-culture\n• Cultura aziendale aperta e apprezzata\n• Percorsi decisionali brevi\n• Moderne infrastrutture e strumenti di lavoro\n• Regolari eventi e eventi del personale (snow, giornata escursionistica, evento di squadra, aperitivo di Natale, ...)\n• Ambiente di lavoro rurale\n• Collegamento dei trasporti pubblici\n\n## Sviluppo\n• Ampia offerta di corsi interni\n• Sostegno finanziario e di tempo generoso alla formazione esterna\n• Promozione dei dipendenti\n• Spazio per propria iniziativa\n\n## Salute e prevenzione\n• Gestione della salute sul lavoro (BGM)\n• Misure regolari per la salute e la prevenzione\n• Elevate norme in materia di sicurezza e tutela della salute sul lavoro\n\n## Servizi aggiuntivi\n• Parcheggio vicino all'ospedale\n• Cibo scontato nella caffetteria\n• Acqua minerale libera\n• Riduzione della ricezione del denaro REKA\n• Attenzione agli eventi personali\n• Varie pergamene interessanti\n• Sala ospedaliera in classe di cura superiore con ricovero\nSi può aspettare un'atmosfera di lavoro apprezzata in un ospedale familiare e un team di cura impegnato, competente e aperto.\n\n## I tuoi compiti\n• Cura di prima classe e cura di pazienti di varie specialità, principalmente sul servizio notturno\n• Garantire un funzionamento regolare della stazione\n• Sostegno e promozione di una stretta cooperazione interprofessionale\n\n## Il tuo profilo\n• Formazione completa HF o FH e esperienza professionale in cura acuta\n• Personalità impegnata con un alto senso di responsabilità ed empatia\n• Flessibilità, resilienza, affidabilità e capacità organizzativa\n• Lavoro di squadra e atteggiamento positivo\n• Volontà a sostegno anche in servizio tardivo se necessario\n• Comprensione professionale della cura, del pensiero orientato al futuro e dell'azione, nonché un alto livello di orientamento del cliente\nLuogo di lavoro",
-        "en": "Asana Spital Denuggern is the innovative health centre in Zurzibiet. In a family atmosphere, we guarantee the high-quality basic medical care of the region. We are a family-friendly employer with progressive employment conditions for around 450 employees. Do you like working at night and would like to complement our team at Station 1? We are looking for you as from 1 July 2026 or by agreement\n\n## Departmental Description\nOur newly designed Station 1 is managed interdisciplinary and comprises 41 beds. The team takes care of patients from the fields of general internal medicine, general and trauma surgery, orthopaedics, urology, ORL, visceral surgery, plastic and restoration surgery, hand surgery and gynecology.\nWhat to expect\n\n## Wage and social benefits\n• Attractive allowances for night, weekend and public holiday work and for piketting\n• Financially healthy pension fund with over-compulsory benefits and 60 percent employer contribution with option for voluntary additional savings\n• Generous continued pay in the event of sickness, accident and maternity and paternity leave\n• Additional Accident Coverage (Private Department Worldwide)\n\n## Working environment\n• Family working atmosphere with du-culture\n• Open, appreciative corporate culture\n• Short decision paths\n• Modern infrastructure and working instruments\n• Regular staff events and events (snow, hiking day, team event, Christmas aperitif, ...)\n• Inviting, rural work environment\n• Close public transport connection\n\n## Development\n• Broad internal course offering\n• Generous financial and time support for external training\n• Promotion of employees\n• Space for own initiative\n\n## Health and prevention\n• Occupational Health Management (BGM)\n• Regular measures for health and prevention\n• High standards in occupational safety and health protection\n\n## Additional services\n• Cheap parking near hospital\n• Discounted food in the cafeteria\n• Free mineral water\n• Reduced receipt of REKA money\n• Attention to personal events\n• Various interesting perks\n• Hospital room in higher nursing class with hospitalization\nYou can expect an appreciative working atmosphere in a family-oriented hospital and a committed, competent and open-minded nursing team.\n\n## Your tasks\n• First-class care and care of patients of various specialties, mainly on night service\n• Ensuring smooth station operation\n• Support and promotion of close interprofessional cooperation\n\n## Your profile\n• Completed nursing training level HF or FH and professional experience in acute care\n• Engaged personality with a high sense of responsibility and empathy\n• Flexibility, resilience, reliability and organisational skill\n• Teamwork and a positive attitude\n• Willingness to support also in late service if necessary\n• Professional understanding of care, future-oriented thinking and acting as well as a high level of customer orientation\nPlace of work",
-        "de": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Arbeitest du gerne in der Nacht und möchtest unser Team der Station 1 ergänzen? Wir suchen per 1. Juli 2026 oder nach Vereinbarung dich als\n\n## Abteilungsbeschrieb\nUnsere neu gestaltete Station 1 wird interdisziplinär geführt und umfasst 41 Betten. Das Team betreut Patientinnen und Patienten aus den Bereichen Allgemeine Innere Medizin, Allgemein- und Unfallchirurgie, Orthopädie, Urologie, ORL, Viszeralchirurgie, plastische und Wiederherstellungschirurgie, Handchirurgie und Gynäkologie.\nWas Dich erwartet\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\nEs erwartet dich ein wertschätzendes Arbeitsklima in einem familiären, zukunftsgerichteten Spital und ein engagiertes, kompetentes und aufgeschlossenes Pflegeteam.\n\n## Deine Aufgaben\n• Erstklassige Pflege und Betreuung von Patientinnen und Patienten verschiedener Fachgebiete, vorwiegend im Nachtdienst\n• Sicherstellung eines reibungslosen Stationsablaufes\n• Unterstützung und Förderung der engen interprofessionellen Zusammenarbeit\n\n## Dein Profil\n• Abgeschlossene Pflegeausbildung Stufe HF oder FH und Berufserfahrung in der Akutpflege\n• Engagierte Persönlichkeit mit hohem Verantwortungsbewusstsein und Empathie\n• Flexibilität, Belastbarkeit, Zuverlässigkeit und organisatorisches Geschick\n• Teamfähigkeit und eine positive Grundhaltung\n• Bereitschaft bei Bedarf auch im Spätdienst zu unterstützen\n• Professionelles Pflegeverständnis, zukunftsorientiertes Denken und Handeln sowie eine hohe Kundenorientierung\nArbeitsort",
-        "fr": "Asana Spital Denuggern est le centre de santé innovant de Zurzibiet. Dans une ambiance familiale, nous garantissons les soins médicaux de base de haute qualité de la région. Nous sommes un employeur favorable à la famille avec des conditions d'emploi progressives pour environ 450 employés. Vous aimez travailler la nuit et compléter notre équipe à la Station 1 ? Nous vous recherchons à partir du 1er juillet 2026 ou par accord\n\n## Description ministérielle\nNotre nouvelle station 1 est gérée interdisciplinaire et comprend 41 lits. L'équipe s'occupe des patients des domaines de la médecine interne générale, chirurgie générale et trauma, orthopédie, urologie, ORL, chirurgie viscérale, chirurgie plastique et de restauration, chirurgie manuelle et gynécologie.\nÀ quoi s'attendre\n\n## Prestations salariales et sociales\n• Allocations attrayantes pour les travaux de nuit, de week-end et de jour férié et pour le vol\n• Caisse de retraite en bonne santé financière avec prestations trop obligatoires et 60 % de cotisations de l'employeur avec option d'épargne volontaire supplémentaire\n• Rémunération prolongée en cas de maladie, d ' accident et de congé de maternité et de paternité\n• Couverture supplémentaire des accidents (Département privé mondial)\n\n## Environnement de travail\n• Ambiance de travail familiale avec du-culture\n• Culture d'entreprise ouverte et appréciée\n• Voies de décision courtes\n• Infrastructures modernes et instruments de travail\n• Événements et événements réguliers du personnel (neige, journée de randonnée, événement d'équipe, apéritif de Noël, ...)\n• Invitation, milieu de travail rural\n• Fermer les transports en commun\n\n## Développement\n• Large offre de cours internes\n• Un soutien financier et temporel généreux pour la formation externe\n• Promotion des salariés\n• Espace pour l'initiative\n\n## Santé et prévention\n• Gestion de la santé au travail\n• Mesures régulières de santé et de prévention\n• Normes élevées en matière de sécurité et de protection de la santé au travail\n\n## Services supplémentaires\n• Parking pas cher près de l'hôpital\n• Nourriture réduite à la cafétéria\n• Eau minérale libre\n• Réduction de la réception de l'argent REKA\n• Attention aux événements personnels\n• Divers avantages intéressants\n• Salle d'hôpital en classe supérieure avec hospitalisation\nVous pouvez vous attendre à une atmosphère de travail reconnaissante dans un hôpital familial et une équipe de soins infirmiers dévouée, compétente et ouverte d'esprit.\n\n## Vos tâches\n• Soins de première classe et soins aux patients de diverses spécialités, principalement en service de nuit\n• Assurer le bon fonctionnement des stations\n• Soutien et promotion d'une coopération interprofessionnelle étroite\n\n## Votre profil\n• Niveau de formation infirmier complet HF ou FH et expérience professionnelle en soins actifs\n• Personnalité engagée avec un sens élevé des responsabilités et de l'empathie\n• Flexibilité, résilience, fiabilité et compétences organisationnelles\n• Travail d'équipe et attitude positive\n• Volonté de soutenir aussi en service tardif si nécessaire\n• Compréhension professionnelle des soins, de la pensée et de l'action orientées vers l'avenir ainsi qu'un niveau élevé d'orientation des clients\nLieu de travail"
-      },
-      "needsRetranslation": false,
-      "location": "Leuggern",
-      "canton": "AG",
-      "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-nachtdienst-auf-interdisziplinaerer-akutstation/6e6bdd48-2b55-4e5e-b623-6cb9ba9b1c19",
-      "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.211Z",
-      "addressLocality": "Leuggern",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5316",
-      "streetAddress": "Kommendeweg 12",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-22",
-      "postedDate": "2026-07-22",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-nachtdienst-auf-interdisziplinaerer-akutstation/6e6bdd48-2b55-4e5e-b623-6cb9ba9b1c19",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-per-nachtdienst-auf-interdisziplinarer-akutstation-asana-spital-ag-menziken-leuggern",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-per-nachtdienst-auf-interdisziplinarer-akutstation-asana-spital-ag-menziken-leuggern",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-50-80-fur-nachtdienst-auf-interdisziplinarer"
-        ]
-      },
-      "firstSeenAt": "2026-07-22T23:24:16.043Z",
-      "salaryMin": 70400,
-      "salaryMax": 98400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70400,
-          "maxValue": 98400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "asana-spital-1034e45fa6ea",
       "slug": "dipl-paramedic-dipl-paramedici-50-100-con-la-cura-dell-anestesia-a-doppia-funzione-asana-spital-ag-menziken-leuggern",
       "slugByLocale": {
@@ -744,7 +744,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-rettungssanitaeterin-dipl-rettungssanitaeter-mit-doppelfunktion-anaesthesiepflege/5e84e38f-894e-4075-9d4a-3926f30fc26a",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.210Z",
+      "crawledAt": "2026-10-13T09:28:41.280Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -834,7 +834,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/studierende-studierenden-fuer-die-ausbildung-zur-zum-dipl-rettungssanitaeterin-dipl-rettungssanitaeter-hf-2-jaehrige-verkuerzte-ausbildung/67ef28c8-c556-467e-bade-29be5d98cfbe",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.208Z",
+      "crawledAt": "2026-10-13T09:28:41.278Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -927,7 +927,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/unterassistentin-unterassistent-medizin/952d1554-ef2d-4e6d-bd31-29fef547dbb0",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.200Z",
+      "crawledAt": "2026-10-13T09:28:41.266Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1019,7 +1019,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fuer-pflegepool/c814edc8-b652-4bc9-9263-c2b9bff28a3d",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.199Z",
+      "crawledAt": "2026-10-13T09:28:41.265Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1096,7 +1096,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-oder-dipl-pflegefachperson-hf-ph-eiche/928cb831-c721-4ad6-b660-99ff8eb3a57a",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.198Z",
+      "crawledAt": "2026-10-13T09:28:41.259Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1173,7 +1173,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-expertin-expertin-anaesthesiepflege-nds-hf/6bff1921-df7f-4b4d-ad29-91b805af10fa",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.197Z",
+      "crawledAt": "2026-10-13T09:28:41.254Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1265,7 +1265,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-expertin-notfallpflege-dipl-experte-notfallpflege-nds-hf/f7e52cff-ea4e-4a93-bc86-a86de5237788",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.196Z",
+      "crawledAt": "2026-10-13T09:28:41.253Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1360,7 +1360,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-interdisziplinaere-akutstation/abaff13c-aae4-4e39-b650-a591ea13470d",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.195Z",
+      "crawledAt": "2026-10-13T09:28:41.251Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1435,7 +1435,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-oder-dipl-pflegefachperson-hf-ph-linde/43610ec2-c821-4b31-977b-2a1d985edd1e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.193Z",
+      "crawledAt": "2026-10-13T09:28:41.249Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1516,7 +1516,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin/a3c85d17-c8c6-4cf0-b45b-3df3756b4db1",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.192Z",
+      "crawledAt": "2026-10-13T09:28:41.247Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1569,9 +1569,9 @@
       "id": "asana-spital-a025cfdb5972",
       "slug": "assistente-medico-50-100-medicina-interna-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
-        "de": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
         "it": "assistente-medico-50-100-medicina-interna-asana-spital-ag-menziken-leuggern-leuggern",
         "en": "assistant-doctor-50-100-internal-medicine-asana-spital-ag-menziken-leuggern-leuggern",
+        "de": "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern",
         "fr": "medecin-adjoint-50-100-medecine-interne-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
@@ -1579,16 +1579,16 @@
       "companyDomain": "asana-gruppe.ch",
       "title": "Assistenzärztin / Assistenzarzt (50-100%), Innere Medizin",
       "titleByLocale": {
-        "de": "Assistenzärztin / Assistenzarzt (50-100%), Innere Medizin",
         "it": "Assistente medico (50-100%), medicina interna",
         "en": "Assistant doctor (50-100%), internal medicine",
+        "de": "Assistenzärztin / Assistenzarzt (50-100%), Innere Medizin",
         "fr": "Médecin adjoint (50-100%), médecine interne"
       },
       "description": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Zur Verstärkung unseres Teams suchen wir dich als erfahrene/n Assistenzärztin / Assistenzarzt nach Vereinbarung.\n\n## Abteilungsbeschrieb\nUnsere interdisziplinäre Notfallstation betreut und behandelt jährlich rund 12'000 Patienten jeden Alters und ist die zentrale Anlaufstelle für die Bevölkerung unserer Region.\nIm stationären Bereich werden jährlich rund 4500 Patienten aufgenommen.\nMit dem im Haus integrierten Institut für Radiologie des Kantonsspitals Baden stellen wir eine umfassende Diagnostik sicher.\n\n## Was Dich erwartet\n• Vielseitiges Arbeitsspektrum mit erfahrenen Kaderärzten und einem interdisziplinären Team von Belegärztinnen und Belegärzten aus verschiedenen Spezialfachrichtungen\n• Regelmässige interne Weiterbildungen und Finanzierung externe Weiterbildung z.B. Dienstarztkurs (SGNOR)\n• Ultraschallausbildung\n• Gründliche Einarbeitung und enge Betreuung\n• Mitarbeit durch Rotation in speziellen Sprechstunden möglich (z.B. Orthopädie oder Urologie)\n• Erwerb eines grossen Erfahrungsschatzes durch die Arbeit auf der interdisziplinären Notfallstation\n• Interdisziplinärer Behandlungsansatz\nAnerkennung: Allgemeine Innere Medizin 1 Jahr (Kat. C), Allgemeine Chirurgie 1 Jahr (Kat. B1).\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Arbeit und Freizeit\n• Wochenarbeitszeit: 42h und 46h für Assistenzärzte bzw. 46-50h für Kaderärzte\n• Möglichkeit zu Home-Office\n• Mind. 5 Wochen Ferien (altersabhängig)\n• Möglichkeit zu unbezahltem Urlaub sowie Ferienkauf\n• Unterstützung von Teilzeitarbeit (auch in Führungspositionen)\n• Gute Vereinbarkeit von Beruf und Privatleben (UND-zertifiziert)\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\n\n## Deine Aufgaben\n• Arbeit auf der interdisziplinären Notfallstation\n• Betreuung der stationären Patienten mit internistischen und angrenzenden Krankheitsbildern\n\n## Dein Profil\n• Interesse an der breitgefächerten Arbeit in den medizinischen und angrenzenden Gebieten\n• Ein Jahr klinische Erfahrung ist wünschenswert, aber keine Voraussetzung\n• Teamfähigkeit, Belastbarkeit und hohe Kundenorientierung\n• Freude an interdisziplinärer Versorgung der Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Sprachniveau C1)\nArbeitsort",
       "descriptionByLocale": {
-        "de": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Zur Verstärkung unseres Teams suchen wir dich als erfahrene/n Assistenzärztin / Assistenzarzt nach Vereinbarung.\n\n## Abteilungsbeschrieb\nUnsere interdisziplinäre Notfallstation betreut und behandelt jährlich rund 12'000 Patienten jeden Alters und ist die zentrale Anlaufstelle für die Bevölkerung unserer Region.\nIm stationären Bereich werden jährlich rund 4500 Patienten aufgenommen.\nMit dem im Haus integrierten Institut für Radiologie des Kantonsspitals Baden stellen wir eine umfassende Diagnostik sicher.\n\n## Was Dich erwartet\n• Vielseitiges Arbeitsspektrum mit erfahrenen Kaderärzten und einem interdisziplinären Team von Belegärztinnen und Belegärzten aus verschiedenen Spezialfachrichtungen\n• Regelmässige interne Weiterbildungen und Finanzierung externe Weiterbildung z.B. Dienstarztkurs (SGNOR)\n• Ultraschallausbildung\n• Gründliche Einarbeitung und enge Betreuung\n• Mitarbeit durch Rotation in speziellen Sprechstunden möglich (z.B. Orthopädie oder Urologie)\n• Erwerb eines grossen Erfahrungsschatzes durch die Arbeit auf der interdisziplinären Notfallstation\n• Interdisziplinärer Behandlungsansatz\nAnerkennung: Allgemeine Innere Medizin 1 Jahr (Kat. C), Allgemeine Chirurgie 1 Jahr (Kat. B1).\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Arbeit und Freizeit\n• Wochenarbeitszeit: 42h und 46h für Assistenzärzte bzw. 46-50h für Kaderärzte\n• Möglichkeit zu Home-Office\n• Mind. 5 Wochen Ferien (altersabhängig)\n• Möglichkeit zu unbezahltem Urlaub sowie Ferienkauf\n• Unterstützung von Teilzeitarbeit (auch in Führungspositionen)\n• Gute Vereinbarkeit von Beruf und Privatleben (UND-zertifiziert)\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\n\n## Deine Aufgaben\n• Arbeit auf der interdisziplinären Notfallstation\n• Betreuung der stationären Patienten mit internistischen und angrenzenden Krankheitsbildern\n\n## Dein Profil\n• Interesse an der breitgefächerten Arbeit in den medizinischen und angrenzenden Gebieten\n• Ein Jahr klinische Erfahrung ist wünschenswert, aber keine Voraussetzung\n• Teamfähigkeit, Belastbarkeit und hohe Kundenorientierung\n• Freude an interdisziplinärer Versorgung der Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Sprachniveau C1)\nArbeitsort",
         "it": "Asana Spital Denuggern è il centro sanitario innovativo di Zurzibiet. In un'atmosfera familiare, garantiamo l'assistenza medica di base di alta qualità della regione. Siamo un datore di lavoro a misura di famiglia con condizioni di lavoro progressivo per circa 450 dipendenti. Per rafforzare il nostro team, ti stiamo cercando come assistente esperto / assistente medico su appuntamento.\n\n## Descrizione del reparto\nIl nostro reparto di emergenza interdisciplinare serve e tratta ogni anno circa 12.000 pazienti di tutte le età ed è il punto centrale di contatto per la popolazione della nostra regione.\nOgni anno circa 4.500 pazienti vengono iscritte nell'area del paziente.\nCon l'Istituto di Radiologia dell'Ospedale cantonale di Baden, che è integrato nell'edificio, garantiamo una diagnostica completa.\n\n## Cosa aspettarsi\n• Versatile gamma di lavoro con medici quadri esperti e un team interdisciplinare di medici documentari di varie specialità\n• Formazione interna regolare e finanziamento di formazione esterna, ad esempio corso medico (SGNOR)\n• Formazione ultrasuoni\n• Formazione approfondita e sostegno ravvicinato\n• Cooperazione possibile mediante rotazione in orari di consultazione speciali (ad esempio ortopedia o urologia)\n• Acquisizione di una ricchezza di esperienza lavorando al reparto di emergenza interdisciplinare\n• Approccio di trattamento interdisciplinare\nRiconoscimento: Medicina interna generale 1 anno (cat. C), Chirurgia generale 1 anno (cat. B1).\n\n## Prestazioni sociali e salariali\n• Assegni attraenti per la notte, il fine settimana e il lavoro di festa pubblica e per l'imbottitura\n• Fondo pensione finanziariamente sano con benefici extracompulsori e il contributo del datore di lavoro del 60 per cento con opzione per il risparmio volontario\n• In caso di malattia, infortunio e maternità e congedo di paternità\n• Copertura degli infortuni aggiuntivi (Private Department Worldwide)\n\n## Ambiente di lavoro\n• Atmosfera familiare con du-culture\n• Cultura aziendale aperta e apprezzata\n• Percorsi decisionali brevi\n• Moderne infrastrutture e strumenti di lavoro\n• Regolari eventi e eventi del personale (snow, giornata escursionistica, evento di squadra, aperitivo di Natale, ...)\n• Ambiente di lavoro rurale\n• Collegamento dei trasporti pubblici\n\n## Sviluppo\n• Ampia offerta di corsi interni\n• Sostegno finanziario e di tempo generoso alla formazione esterna\n• Promozione dei dipendenti\n• Spazio per propria iniziativa\n\n## Lavoro e tempo libero\n• Ore lavorative settimanali: 42h e 46h per i medici assistenti 46-50h per i medici cadre\n• Possibilità di Home Office\n• Mente. 5 settimane vacanze (a seconda dell'età)\n• Possibilità di congedo non retribuito e acquisto vacanza\n• Supporto per il lavoro a tempo parziale (compreso nelle posizioni di gestione)\n• Buon equilibrio tra vita lavorativa (certificato UND)\n\n## Salute e prevenzione\n• Gestione della salute sul lavoro (BGM)\n• Misure regolari per la salute e la prevenzione\n• Elevate norme in materia di sicurezza e tutela della salute sul lavoro\n\n## Servizi aggiuntivi\n• Parcheggio vicino all'ospedale\n• Cibo scontato nella caffetteria\n• Acqua minerale libera\n• Riduzione della ricezione del denaro REKA\n• Attenzione agli eventi personali\n• Varie pergamene interessanti\n• Sala ospedaliera in classe di cura superiore con ricovero\n\n## I tuoi compiti\n• Lavoro presso il reparto di emergenza interdisciplinare\n• Cura degli ospedali con immagini cliniche interne e adiacenti\n\n## Il tuo profilo\n• Interessi nella vasta gamma di lavori nei campi medici e adiacenti\n• Un anno di esperienza clinica è auspicabile, ma non un requisito\n• Lavoro di squadra, resilienza e alto orientamento del cliente\n• Godimento della cura interdisciplinare dei pazienti\n• Conoscenza molto buona del tedesco in parola e scrittura (livello C1)\nLuogo di lavoro",
         "en": "Asana Spital Denuggern is the innovative health centre in Zurzibiet. In a family atmosphere, we guarantee the high-quality basic medical care of the region. We are a family-friendly employer with progressive employment conditions for around 450 employees. To strengthen our team, we are looking for you as an experienced assistant / assistant doctor by appointment.\n\n## Departmental Description\nOur interdisciplinary emergency department serves and treats around 12,000 patients of all ages every year and is the central point of contact for the population of our region.\nAround 4,500 patients are enrolled in the inpatient area every year.\nWith the Institute of Radiology of the Cantonal Hospital Baden, which is integrated in the building, we ensure comprehensive diagnostics.\n\n## What to expect\n• Versatile range of work with experienced cadre doctors and an interdisciplinary team of documentary doctors from various specialties\n• Regular internal training and financing of external training e.g. medical course (SGNOR)\n• Ultrasound training\n• In-depth training and close support\n• Cooperation possible through rotation in special consultation hours (e.g. orthopaedics or urology)\n• Acquisition of a wealth of experience by working on the interdisciplinary emergency department\n• Interdisciplinary treatment approach\nRecognition: General internal medicine 1 year (cat. C), General surgery 1 year (cat. B1).\n\n## Wage and social benefits\n• Attractive allowances for night, weekend and public holiday work and for piketting\n• Financially healthy pension fund with over-compulsory benefits and 60 percent employer contribution with option for voluntary additional savings\n• Generous continued pay in the event of sickness, accident and maternity and paternity leave\n• Additional Accident Coverage (Private Department Worldwide)\n\n## Working environment\n• Family working atmosphere with du-culture\n• Open, appreciative corporate culture\n• Short decision paths\n• Modern infrastructure and working instruments\n• Regular staff events and events (snow, hiking day, team event, Christmas aperitif, ...)\n• Inviting, rural work environment\n• Close public transport connection\n\n## Development\n• Broad internal course offering\n• Generous financial and time support for external training\n• Promotion of employees\n• Space for own initiative\n\n## Work and leisure\n• Weekly working hours: 42h and 46h for assistant doctors 46-50h for cadre doctors\n• Possibility to Home Office\n• Mind. 5 weeks holidays (depending on age)\n• Possibility of unpaid leave and holiday purchase\n• Support for part-time work (including in management positions)\n• Good work-life balance (UND-certified)\n\n## Health and prevention\n• Occupational Health Management (BGM)\n• Regular measures for health and prevention\n• High standards in occupational safety and health protection\n\n## Additional services\n• Cheap parking near hospital\n• Discounted food in the cafeteria\n• Free mineral water\n• Reduced receipt of REKA money\n• Attention to personal events\n• Various interesting perks\n• Hospital room in higher nursing class with hospitalization\n\n## Your tasks\n• Work at the interdisciplinary emergency department\n• Care of inpatients with internistic and adjacent clinical pictures\n\n## Your profile\n• Interest in the wide range of work in the medical and adjacent fields\n• One year of clinical experience is desirable, but not a requirement\n• Teamwork, resilience and high customer orientation\n• Enjoyment of interdisciplinary patient care\n• Very good knowledge of German in word and writing (language level C1)\nPlace of work",
+        "de": "Das Asana Spital Leuggern ist das innovative Gesundheitszentrum im Zurzibiet. In familiärer Atmosphäre gewährleisten wir die qualitativ hochstehende medizinische Grundversorgung der Region. Dabei sind wir eine familienfreundliche Arbeitgeberin mit fortschrittlichen Anstellungsbedingungen für rund 450 Mitarbeitende. Zur Verstärkung unseres Teams suchen wir dich als erfahrene/n Assistenzärztin / Assistenzarzt nach Vereinbarung.\n\n## Abteilungsbeschrieb\nUnsere interdisziplinäre Notfallstation betreut und behandelt jährlich rund 12'000 Patienten jeden Alters und ist die zentrale Anlaufstelle für die Bevölkerung unserer Region.\nIm stationären Bereich werden jährlich rund 4500 Patienten aufgenommen.\nMit dem im Haus integrierten Institut für Radiologie des Kantonsspitals Baden stellen wir eine umfassende Diagnostik sicher.\n\n## Was Dich erwartet\n• Vielseitiges Arbeitsspektrum mit erfahrenen Kaderärzten und einem interdisziplinären Team von Belegärztinnen und Belegärzten aus verschiedenen Spezialfachrichtungen\n• Regelmässige interne Weiterbildungen und Finanzierung externe Weiterbildung z.B. Dienstarztkurs (SGNOR)\n• Ultraschallausbildung\n• Gründliche Einarbeitung und enge Betreuung\n• Mitarbeit durch Rotation in speziellen Sprechstunden möglich (z.B. Orthopädie oder Urologie)\n• Erwerb eines grossen Erfahrungsschatzes durch die Arbeit auf der interdisziplinären Notfallstation\n• Interdisziplinärer Behandlungsansatz\nAnerkennung: Allgemeine Innere Medizin 1 Jahr (Kat. C), Allgemeine Chirurgie 1 Jahr (Kat. B1).\n\n## Lohn und Sozialleistungen\n• Attraktive Zulagen für Nacht-, Wochenend- und Feiertagsarbeit sowie Pikettdienst\n• Finanziell gesunde Pensionskasse mit überobligatorischen Leistungen sowie 60 Prozent Arbeitgeberbeitrag mit Möglichkeit für freiwilliges Zusatzsparen\n• Grosszügige Lohnfortzahlung bei Krankheit, Unfall sowie Mutterschafts- und Vaterschaftsurlaub\n• Unfallzusatzdeckung (Privatabteilung weltweit)\n\n## Arbeitsumfeld\n• Familiäre Arbeitsatmosphäre mit Du-Kultur\n• Offene, wertschätzende Unternehmenskultur\n• Kurze Entscheidungswege\n• Moderne Infrastruktur und Arbeitsinstrumente\n• Regelmässige Personalanlässe und Events (Schneetag, Wandertag, Teamanlass, Weihnachtsapéro, ...)\n• Einladende, ländliche Arbeitsumgebung\n• Nahe ÖV-Anbindung\n\n## Entwicklung\n• Breites internes Kursangebot\n• Grosszügige finanzielle und zeitliche Unterstützung bei externer Fort- und Weiterbildung\n• Mitarbeitendenförderung\n• Raum für Eigeninitiative\n\n## Arbeit und Freizeit\n• Wochenarbeitszeit: 42h und 46h für Assistenzärzte bzw. 46-50h für Kaderärzte\n• Möglichkeit zu Home-Office\n• Mind. 5 Wochen Ferien (altersabhängig)\n• Möglichkeit zu unbezahltem Urlaub sowie Ferienkauf\n• Unterstützung von Teilzeitarbeit (auch in Führungspositionen)\n• Gute Vereinbarkeit von Beruf und Privatleben (UND-zertifiziert)\n\n## Gesundheit und Prävention\n• Betriebliches Gesundheitsmanagement (BGM)\n• Regelmässige Massnahmen für Gesundheit und Prävention\n• Hoher Standard in Arbeitssicherheit und Gesundheitsschutz\n\n## Zusatzleistungen\n• Günstige Parkmöglichkeit in Spitalnähe\n• Vergünstigte Verpflegung in der Cafeteria\n• Kostenloses Mineralwasser\n• Reduzierter Bezug REKA-Geld\n• Aufmerksamkeiten bei persönlichen Ereignissen\n• Diverse interessante Vergünstigungen\n• Spitalzimmer in höherer Pflegeklasse bei Hospitalisation\n\n## Deine Aufgaben\n• Arbeit auf der interdisziplinären Notfallstation\n• Betreuung der stationären Patienten mit internistischen und angrenzenden Krankheitsbildern\n\n## Dein Profil\n• Interesse an der breitgefächerten Arbeit in den medizinischen und angrenzenden Gebieten\n• Ein Jahr klinische Erfahrung ist wünschenswert, aber keine Voraussetzung\n• Teamfähigkeit, Belastbarkeit und hohe Kundenorientierung\n• Freude an interdisziplinärer Versorgung der Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Sprachniveau C1)\nArbeitsort",
         "fr": "Asana Spital Denuggern est le centre de santé innovant de Zurzibiet. Dans une ambiance familiale, nous garantissons les soins médicaux de base de haute qualité de la région. Nous sommes un employeur favorable à la famille avec des conditions d'emploi progressives pour environ 450 employés. Pour renforcer notre équipe, nous vous recherchons en tant qu'assistant/médecin adjoint expérimenté sur rendez-vous.\n\n## Description ministérielle\nNotre service d'urgence interdisciplinaire sert et traite environ 12 000 patients de tous âges chaque année et est le point de contact central pour la population de notre région.\nEnviron 4 500 patients sont inscrits chaque année dans le secteur hospitalier.\nAvec l'Institut de radiologie de l'Hôpital cantonal de Baden, intégré dans le bâtiment, nous assurons un diagnostic complet.\n\n## À quoi s'attendre\n• Gamme polyvalente de travail avec des médecins cadres expérimentés et une équipe interdisciplinaire de médecins documentaires de diverses spécialités\n• Formation interne régulière et financement de la formation externe, par exemple cours de médecine (SGNOR)\n• Formation par ultrasons\n• Formation approfondie et soutien étroit\n• Coopération possible par rotation en heures de consultation spéciales (par exemple orthopédie ou urologie)\n• Acquisition d'une riche expérience en travaillant sur le service interdisciplinaire d'urgence\n• Approche de traitement interdisciplinaire\nReconnaissance: Médecine interne générale 1 an (catégorie C), Chirurgie générale 1 an (catégorie B1).\n\n## Prestations salariales et sociales\n• Allocations attrayantes pour les travaux de nuit, de week-end et de jour férié et pour le vol\n• Caisse de retraite en bonne santé financière avec prestations trop obligatoires et 60 % de cotisations de l'employeur avec option d'épargne volontaire supplémentaire\n• Rémunération prolongée en cas de maladie, d ' accident et de congé de maternité et de paternité\n• Couverture supplémentaire des accidents (Département privé mondial)\n\n## Environnement de travail\n• Ambiance de travail familiale avec du-culture\n• Culture d'entreprise ouverte et appréciée\n• Voies de décision courtes\n• Infrastructures modernes et instruments de travail\n• Événements et événements réguliers du personnel (neige, journée de randonnée, événement d'équipe, apéritif de Noël, ...)\n• Invitation, milieu de travail rural\n• Fermer les transports en commun\n\n## Développement\n• Large offre de cours internes\n• Un soutien financier et temporel généreux pour la formation externe\n• Promotion des salariés\n• Espace pour l'initiative\n\n## Travail et loisirs\n• Heures de travail hebdomadaires: 42h et 46h pour les médecins adjoints 46-50h pour les médecins cadres\n• Possibilité d'accueil\n• Esprit. 5 semaines de vacances (selon l'âge)\n• Possibilité de congé sans solde et achat de vacances\n• Soutien au travail à temps partiel (y compris aux postes de direction)\n• Un bon équilibre entre le travail et la vie personnelle (certifié par l'UND)\n\n## Santé et prévention\n• Gestion de la santé au travail\n• Mesures régulières de santé et de prévention\n• Normes élevées en matière de sécurité et de protection de la santé au travail\n\n## Services supplémentaires\n• Parking pas cher près de l'hôpital\n• Nourriture réduite à la cafétéria\n• Eau minérale libre\n• Réduction de la réception de l'argent REKA\n• Attention aux événements personnels\n• Divers avantages intéressants\n• Salle d'hôpital en classe supérieure avec hospitalisation\n\n## Vos tâches\n• Travail au service interdisciplinaire des urgences\n• Soins aux malades hospitalisés avec des photos cliniques internes et adjacentes\n\n## Votre profil\n• Intérêt pour le large éventail de travaux dans les domaines médical et adjacent\n• Une année d'expérience clinique est souhaitable, mais pas une exigence\n• Travail d'équipe, résilience et grande orientation client\n• Appréciation des soins interdisciplinaires aux patients\n• Très bonne connaissance de l'allemand en parole et en écriture (niveau de langue C1)\nLieu de travail"
       },
       "location": "Leuggern",
@@ -1596,7 +1596,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/6a041c8c-d476-49e8-b279-a25c868691f0",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-12T21:26:23.186Z",
+      "crawledAt": "2026-10-13T09:28:41.240Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1615,9 +1615,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitalleuggern.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/6a041c8c-d476-49e8-b279-a25c868691f0",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
+        ]
       },
+      "firstSeenAt": "2026-07-22T23:24:16.038Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1630,22 +1643,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-22T23:24:16.038Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-50-100-innere-medizin-asana-spital-leuggern"
-      ]
+      }
     }
   ]
 }
