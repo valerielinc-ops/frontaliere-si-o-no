@@ -28,7 +28,7 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *
  * Gates:
  *   - SKIP_ORPHAN_LANDINGS=1 → fast-path exit, no files generated.
- *   - MAX_ORPHAN_LANDINGS (default 500) caps total pages per build.
+ *   - MAX_ORPHAN_LANDINGS (default 1000) caps total pages per build.
  *
  * The plugin DEGRADES GRACEFULLY when the clusters file is missing —
  * it logs a warning and returns without failing the build.
@@ -91,7 +91,13 @@ import {
 } from './nursingLandingsData';
 
 const MIN_MATCHING_JOBS = 3;
-const DEFAULT_MAX_LANDINGS = 500;
+/**
+ * Bounded cohort expansion: clusters are sorted by GSC impressions upstream,
+ * so doubling the default admits more demand-backed candidates without
+ * turning the build into an unbounded long-tail page generator. The per-page
+ * matching-job and word-count gates below still decide indexability.
+ */
+export const DEFAULT_MAX_LANDINGS = 1000;
 
 export function buildOrphanLandingHubPath(locale: OrphanLandingLocale): string {
   const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];

@@ -212,14 +212,16 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
 // Hoisting the invariants out of the (clusters x jobs) pair loop
 //
 // `orphanQueryLandingPlugin` calls `filterMatchingJobs(jobs, cluster, 15)` once
-// per cluster — 500 clusters (DEFAULT_MAX_LANDINGS) over ~26k jobs = ~13M
+// per cluster — 1000 clusters (DEFAULT_MAX_LANDINGS) over ~26k jobs = ~26M
 // (job, cluster) pairs per build, twice (the emission pass and the hub-hreflang
 // availability pass both go through `renderClusterPage`). Deploy 31065272867
 // measured the `it` leg at wall_s=190.98 cpu_s=197.50 while the plugin's own
 // emit is 0.7 s — i.e. essentially the whole plugin is this pair loop.
 //
 // A local profile over the committed corpus (25,658 jobs x 500 clusters =
-// 12.8M pairs, 222.5 s) split the per-pair body as:
+// 12.8M pairs, 222.5 s) split the per-pair body as. The default cohort is now
+// 1000 clusters; the memoised index keeps this bounded expansion linear in the
+// additional cluster count rather than repeating the expensive job derivation:
 //     isJobActiveForLocale -> wordCount(description)   16.39 s   75.0 %
 //     titleTokens Set (3x normalizeTokens)              4.43 s   20.3 %
 //     locTokens   Set (2x normalizeTokens)              0.97 s    4.5 %
@@ -309,7 +311,7 @@ interface JobMatchIndex {
 }
 
 // Keyed on the jobs ARRAY identity: the plugin loads the corpus once and then
-// loops, so one index serves all 500 clusters and both passes. A WeakMap means
+// loops, so one index serves all 1000 clusters and both passes. A WeakMap means
 // the index dies with the array (no build-lifetime leak), and `length` is
 // re-checked so a caller that swaps the corpus can never read a stale index.
 const jobIndexCache = new WeakMap<object, JobMatchIndex>();

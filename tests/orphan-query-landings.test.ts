@@ -25,6 +25,8 @@ import {
   buildOrphanLandingHubUrl,
   buildNursingOrphanCanonicalBridge,
   renderOrphanLandingHubHreflang,
+  DEFAULT_MAX_LANDINGS,
+  __renderOrphanLandingPage,
 } from '../build-plugins/orphanQueryLandingPlugin';
 
 import {
@@ -52,6 +54,10 @@ const ROOT = path.resolve(__dirname, '..');
 
 // ─── Path helpers ────────────────────────────────────────────
 describe('orphanQueryData — path helpers', () => {
+  it('expands the default demand cohort without changing the page-quality gates', () => {
+    expect(DEFAULT_MAX_LANDINGS).toBe(1000);
+  });
+
   it('exposes exactly 4 locales', () => {
     expect(ORPHAN_LANDING_LOCALES).toEqual(['it', 'en', 'de', 'fr']);
   });
@@ -110,6 +116,28 @@ describe('orphanQueryData — path helpers', () => {
     expect(html).toContain('hreflang="de" href="https://frontaliereticino.ch/de/suche/"');
     expect(html).toContain('hreflang="en" href="https://frontaliereticino.ch/en/search/"');
     expect(html).not.toContain('https:/frontaliereticino.ch');
+  });
+
+  it('keeps sparse expanded-cohort pages enriched but noindex', () => {
+    const cluster = makeCluster('it', 'assistente-mensa-lugano', 12, ['assist'], ['lugano']);
+    const knownSlugsByLocale = new Map(
+      ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()]),
+    );
+    knownSlugsByLocale.get('it')?.add(cluster.canonicalSlug);
+
+    const rendered = __renderOrphanLandingPage({
+      cluster,
+      matchingJobs: [],
+      strings: {},
+      dateStamp: '2026-10-13',
+      knownSlugsByLocale,
+    });
+
+    expect(rendered.indexable).toBe(false);
+    expect(rendered.html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(rendered.html).toContain('Domande frequenti');
+    expect(rendered.html).toContain('assistente mensa lugano');
+    expect(rendered.wordCount).toBeGreaterThanOrEqual(50);
   });
 
   // Regression guard for the per-locale matrix-build hreflang bug (deploy
