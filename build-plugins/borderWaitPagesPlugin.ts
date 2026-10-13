@@ -1398,6 +1398,15 @@ function renderCompactCommuterContextProse(
   worstHour: string,
 ): string {
   const regionDisplay = regionLabel(COPY[locale], region);
+  const ticinoNote = isTicinoRegion(region)
+    ? locale === 'it'
+      ? ` Sul corridoio Ticino–Italia, confronta il percorso dall'A2 e da Lugano o Mendrisio con alternative locali come Crociale dei Mulini.`
+      : locale === 'en'
+        ? ` On the Ticino–Italy corridor, compare the A2 route from Lugano or Mendrisio with local alternatives such as Crociale dei Mulini.`
+        : locale === 'de'
+          ? ` Auf der Strecke Tessin–Italien vergleiche die A2-Route ab Lugano oder Mendrisio mit lokalen Alternativen wie Crociale dei Mulini.`
+          : ` Sur le corridor Tessin–Italie, comparez l'itinéraire par l'A2 depuis Lugano ou Mendrisio avec des alternatives locales comme Crociale dei Mulini.`
+    : '';
   const headline =
     locale === 'it' ? `Pianificare la coda alla dogana ${crossingLabel}`
     : locale === 'en' ? `Planning the queue at ${crossingLabel}`
@@ -1405,12 +1414,12 @@ function renderCompactCommuterContextProse(
     : `Planifier la file au passage ${crossingLabel}`;
   const paragraph =
     locale === 'it'
-      ? `Il tempo di attesa alla dogana ${crossingLabel} segue il traffico dei frontalieri, i controlli e gli eventi sulla strada. Nella zona ${regionDisplay}, lo storico degli ultimi 30 giorni indica ${bestHour} come fascia con meno coda e ${worstHour} come fascia più congestionata. Controlla il dato live e la webcam prima di partire: la situazione alla frontiera può cambiare rapidamente.`
+      ? `Il tempo di attesa alla dogana ${crossingLabel} segue il traffico dei frontalieri, i controlli e gli eventi sulla strada. Nella zona ${regionDisplay}, lo storico degli ultimi 30 giorni indica ${bestHour} come fascia con meno coda e ${worstHour} come fascia più congestionata. Controlla il dato live e la webcam prima di partire: la situazione alla frontiera può cambiare rapidamente.${ticinoNote}`
       : locale === 'en'
-        ? `Wait time at ${crossingLabel} follows commuter traffic, checks and road events. In the ${regionDisplay} area, the last 30 days show ${bestHour} as the quietest window and ${worstHour} as the busiest. Check the live reading and webcam before leaving: border traffic can change quickly.`
+        ? `Wait time at ${crossingLabel} follows commuter traffic, checks and road events. In the ${regionDisplay} area, the last 30 days show ${bestHour} as the quietest window and ${worstHour} as the busiest. Check the live reading and webcam before leaving: border traffic can change quickly.${ticinoNote}`
         : locale === 'de'
-          ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.`
-          : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.`;
+          ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.${ticinoNote}`
+          : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.${ticinoNote}`;
   return `<section class="s-6B_yvh">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     <p class="s-KwuhOL">${esc(paragraph)}</p>
