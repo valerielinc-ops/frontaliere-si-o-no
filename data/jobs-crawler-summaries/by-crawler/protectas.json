@@ -1,30 +1,29 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-10-12T21:37:16.923Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-10-13T09:35:32.702Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3330,
-  "avgDurationMs": 3330,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1578,
+  "avgDurationMs": 1578,
   "durationHistory": [
-    3330
+    1578
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "protectas-01bf4e1f2262",
       "slug": "agente-di-sicurezza-ausiliario-luganese-contratto-orario-ronde-sorveglianza-lugano",
@@ -67,5 +66,6 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "unchangedJobs": [],
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
