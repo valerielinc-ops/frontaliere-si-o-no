@@ -105,6 +105,37 @@ describe('Leukerbad Clinic official HTML crawler', () => {
     expect(leukerbadClinicMatchKey(jobs[0])).toBe(jobs[0].id);
   });
 
+  it('classifies the source workload separately for part-time vacancies', async () => {
+    const rows = [
+      { slug: 'pflege-50', title: 'Pflegefachperson', conditions: '50 % · sofort' },
+      { slug: 'pflege-80', title: 'Pflegefachperson', conditions: '80 % · sofort' },
+    ];
+    const pages = new Map([
+      [DE_LISTING, listingHtml('de', rows)],
+      [FR_LISTING, listingHtml('fr', [
+        { slug: 'plein-temps', title: 'Infirmier diplômé', conditions: '100 % · De suite' },
+      ])],
+      ...rows.map((row) => [
+        `${DE_LISTING}/${row.slug}`,
+        detailHtml('de', row.slug, row.title),
+      ] as const),
+      [`${FR_LISTING}/plein-temps`, detailHtml('fr', 'plein-temps', 'Infirmier diplômé')],
+    ]);
+    globalThis.fetch = vi.fn(async (input: any) => {
+      const body = pages.get(String(input));
+      return body ? new Response(body, { status: 200 }) : new Response('', { status: 404 });
+    }) as any;
+
+    const jobs = await fetchAllLeukerbadClinicJobs();
+    expect(jobs.filter((job) => job.url.includes('/pflege-')).map((job) => ({
+      employmentType: job.employmentType,
+      contract: job.contract,
+    }))).toEqual([
+      { employmentType: 'PART_TIME', contract: 'part-time' },
+      { employmentType: 'PART_TIME', contract: 'part-time' },
+    ]);
+  });
+
   it('fails closed when either locale loses its listing contract', async () => {
     globalThis.fetch = vi.fn(async (input: any) => {
       const url = String(input);

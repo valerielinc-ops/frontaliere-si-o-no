@@ -152,7 +152,7 @@ function buildJob(row, detail) {
   const identity = new URL(row.detailUrl).pathname.replace(/\/$/, '');
   const urlHash = createHash('sha1').update(identity).digest('hex').slice(0, 12);
   const slug = slugify(`${detail.title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${DEFAULT_CITY}`);
-  const employmentType = detectHealthcareEmploymentType(`${timePct} ${detail.title}`);
+  const employmentType = detectHealthcareEmploymentType(detail.title, timePct);
 
   return {
     id: `${LEUKERBAD_CLINIC_KEY}-${urlHash}`,
