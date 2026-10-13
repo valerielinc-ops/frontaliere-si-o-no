@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { buildPath, preloadBlogData, type AppRoute } from '../services/router';
 import { loadAllLocaleChunks, loadBlogMeta, mergeArticleMetaOverlay, setLocale, type Locale } from '../services/i18n';
+import miazzinaFrenchBody from '../packages/articles/content/blog-body/fr/miazzina-pendolare-fisco-ticino';
 
 const { updateMetaTags } = await vi.importActual<typeof import('../services/seoService')>('../services/seoService');
 
@@ -65,5 +66,23 @@ describe('article prompt-placeholder robots protection after SEO hydration', () 
  await updateMetaTags(`blog-${BODY4_PLACEHOLDER_ARTICLE}`);
 
  expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toBe('noindex, follow');
+ });
+
+ it('keeps the corrected Miazzina French article indexable after SEO hydration', async () => {
+ await preloadBlogData();
+ await loadAllLocaleChunks('fr');
+ setLocale('fr');
+ await loadBlogMeta('frontaliere');
+ mergeArticleMetaOverlay('fr', miazzinaFrenchBody);
+ const route: AppRoute = {
+ activeTab: 'blog',
+ blogArticle: 'miazzina-pendolare-fisco-ticino' as AppRoute['blogArticle'],
+ };
+ window.history.replaceState({}, '', buildPath(route, 'fr'));
+ await updateMetaTags('blog-miazzina-pendolare-fisco-ticino');
+
+ const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content') || '';
+ expect(robots).toContain('index');
+ expect(robots).not.toContain('noindex');
  });
 });
