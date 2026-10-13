@@ -84,6 +84,13 @@ describe('classifySurface — the split that was missing', () => {
     expect(classifyCfErrorUrl('frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/')).toBe('worker-shard');
   });
 
+  it('classifies the new nanako agents webhook host as its own tunnel surface', () => {
+    expect(classifyCfErrorUrl('gh-nanako-agenti.frontaliereticino.ch/github/webhook')).toBe('github-webhook-nanako-agenti');
+    expect(classifySurface({ host: 'gh-nanako-agenti.frontaliereticino.ch', path: '/github/webhook' })).toBe(
+      'github-webhook-nanako-agenti',
+    );
+  });
+
   it('marks serve_stale as present ONLY on the surface that actually has the rule', () => {
     // If this ever flips silently, the "could serve_stale have helped" metric starts lying.
     expect(SURFACES['cdn-r2'].serveStale).toBe(true);
@@ -95,6 +102,7 @@ describe('classifySurface — the split that was missing', () => {
 describe('isSynthesizedByEdge — origin dead vs origin erroring', () => {
   it('treats originResponseStatus 0 as synthesised', () => {
     expect(isSynthesizedByEdge({ edgeStatus: 502, originStatus: 0 })).toBe(true);
+    expect(isSynthesizedByEdge({ edgeStatus: 520, originStatus: 0 })).toBe(true);
     expect(isSynthesizedByEdge({ edgeStatus: 503, originStatus: null })).toBe(true);
   });
 

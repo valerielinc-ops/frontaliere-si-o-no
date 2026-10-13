@@ -397,6 +397,36 @@ describe('la fase «riconcilia» gira anche quando non c\'è niente da coniare',
   });
 });
 
+describe('new nanako-agenti endpoint (#13033)', () => {
+  const url = 'gh-nanako-agenti.frontaliereticino.ch/github/webhook';
+
+  it('routes the endpoint diagnosis to the workspace receiver surface', () => {
+    const body = buildIssueBody({ url, status: 502, count: 23, shape: undefined });
+    expect(body).toContain('Host/path classification: `github-webhook-nanako-agenti`');
+    expect(body).toContain('**REPO**: workspace');
+    expect(body).not.toContain('**REPO**: sito');
+  });
+
+  it('filters only tunnel-offline 530 while retaining a 502 for this host', async () => {
+    const rows = [
+      { status: 530, url, count: 30 },
+      { status: 502, url, count: 23 },
+    ];
+    mockReport({
+      detail: rows,
+      detailByHourComplete: true,
+      detailByHour: rows.map((row) => ({ ...row, hour: '2026-08-06T06:00:00Z' })),
+    });
+
+    await cfSync.main();
+
+    expect(cfSync.isTunnelOffline530({ status: 530, url })).toBe(true);
+    expect(cfSync.isTunnelOffline530({ status: 502, url })).toBe(false);
+    expect(createCalls()).toHaveLength(1);
+    expect(createCalls()[0][createCalls()[0].indexOf('--body') + 1]).toContain('**Status:** 502');
+  });
+});
+
 describe('the gate cannot be disarmed silently', () => {
   it('asks cf-status-report for the hourly rows', async () => {
     mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS, detailByHourComplete: true });
