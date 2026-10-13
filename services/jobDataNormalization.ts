@@ -578,6 +578,30 @@ export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'mediamarkt',
 ]);
 
+/**
+ * Stable, non-redirecting render URLs for the two curated Wikimedia assets
+ * still referenced through Special:FilePath in the source registry. The
+ * registry remains the source-of-truth/audit provenance; HTML and JSON-LD
+ * consumers use this map so crawlers do not see the 302 -> 301 chain.
+ */
+export const DIRECT_CURATED_LOGO_URLS: Record<string, string> = {
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png':
+   'https://upload.wikimedia.org/wikipedia/commons/5/5f/Imerys_logo.png',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg':
+   'https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg',
+};
+
+/** Return an emitted logo URL without changing the curated registry value. */
+export function logoUrlForRenderedOutput(url: string | null | undefined): string | null | undefined {
+ if (!url) return url;
+ return DIRECT_CURATED_LOGO_URLS[url] ?? url;
+}
+
+/** Resolve a company logo for an actual HTML/JSON-LD consumer. */
+export function resolveCompanyLogoUrlForRenderedOutput(job: JobLike): string | null {
+ return logoUrlForRenderedOutput(resolveCompanyLogoUrl(job)) ?? null;
+}
+
 // Overlay the locally-mirrored logo paths on top of the registry. Any
 // non-curated slug present in the manifest serves /images/brands/{slug}.{ext}
 // instead of the upstream URL — eliminating broken-image issues for the SPA

@@ -442,6 +442,16 @@ export default function JournalistDashboardPage(): React.ReactElement {
   };
 
   /** Shared thumbnail button for both keyword-suggested and browse-all-catalog grids. */
+  const catalogImageAlt = (imagePath: string): string => {
+    const fileName = imagePath
+      .split('/')
+      .pop()
+      ?.replace(/\.[^.]+$/, '')
+      .replace(/[-_]+/g, ' ')
+      .trim();
+    return fileName || 'Immagine catalogo';
+  };
+
   const renderCatalogImageButton = (candidate: CatalogImageCandidate) => {
     const isSelected = candidate.path === image;
     return (
@@ -455,7 +465,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
           isSelected ? 'border-accent ring-2 ring-accent' : 'border-edge hover:ring-2 hover:ring-accent'
         }`}
       >
-        <img src={cdnBlogImage(candidate.path)} alt="" width={1200} height={675} loading="lazy" className="w-full h-20 object-cover" />
+        <img src={cdnBlogImage(candidate.path)} alt={catalogImageAlt(candidate.path)} width={1200} height={675} loading="lazy" className="w-full h-20 object-cover" />
         {isSelected && (
           <span className="absolute top-1 right-1 rounded-full bg-accent text-on-accent p-0.5">
             <CheckCircle2 className="w-4 h-4" />

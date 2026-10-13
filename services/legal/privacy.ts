@@ -5,7 +5,7 @@ import { legalLinks, type LegalDocument, type LegalLocale } from './types';
 // Preserve the full policy in each locale; the interactive CMP remains a separate block.
 const PRIVACY_DOCUMENTS: Record<LegalLocale, (links: ReturnType<typeof legalLinks>) => LegalDocument> = {
   it: links => ({
-    title: "Privacy Policy",
+    title: "Informativa sulla privacy",
     description: "Informativa sul trattamento dei dati personali di Frontaliere Ticino.",
     updated: "3 ottobre 2026",
     introHtml: `<p>La tua privacy è importante per noi. Questa informativa descrive in modo trasparente quali dati trattiamo, per quali finalità e su quali basi giuridiche quando utilizzi <strong> Frontaliere Ticino</strong> (frontaliereticino.ch), e quali diritti puoi esercitare.</p><p>L'informativa è redatta per essere conforme ai principali quadri normativi applicabili a livello internazionale: il <strong>Regolamento (UE) 2016/679 (GDPR)</strong> e il D.Lgs. 196/2003 (Codice Privacy italiano), la <strong>nuova Legge federale svizzera sulla protezione dei dati (nLPD/revLPD)</strong>, la <strong>UK GDPR</strong>, il <strong>California Consumer Privacy Act (CCPA/CPRA)</strong> e altre normative locali (LGPD brasiliana, PIPEDA canadese, Legge 25 del Québec). Ove più normative siano applicabili, riconosciamo all'utente il livello di tutela più favorevole tra quelli previsti.</p>`,

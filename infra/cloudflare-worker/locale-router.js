@@ -1520,6 +1520,25 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/de/partner-dienste/': '/de/',
   '/fr/services-partenaires/': '/fr/',
   '/job-board/': '/cerca-lavoro-svizzera/',
+  // Legacy IT URLs reported by the SEO crawl. These routes already have
+  // canonical destinations in legacyRedirectsPlugin; handling them here
+  // prevents the static bridge from becoming a 200/noindex page at the apex.
+  '/calcola-stipendio/confronta-permesso-g-vs-b/': '/guida-frontaliere/confronta-permesso-g-vs-b/',
+  '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
+  '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
+  '/statistiche/traffico-dogane/': '/traffico-dogane/',
+  '/guida-frontaliere/tempi-attesa-dogana/': '/traffico-dogane/',
+  '/guida-frontaliere/diritto-lavoro-frontalieri/': '/guida-frontaliere/',
+  '/tfr-calculator/': '/tfr-liquidazione-frontaliere/',
+  '/calcolatore/': '/calcola-stipendio/',
+  '/guida-frontaliere/diritto-opzione-lamal/': '/guida-frontaliere/lamal-frontalieri/',
+  '/statistiche/confronta-premi/': '/statistiche/premi-malattia-comuni/',
+  '/stipendi-frontalieri-ticino/': '/statistiche/confronta-stipendi/',
+  '/tredicesima-svizzera/': '/calcolo-tredicesima-frontaliere/',
+  '/comparatori/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
+  '/costo-della-vita/': '/compara-servizi/costo-della-vita/',
+  '/guida-frontaliere/nuova-legge-frontalieri-2024/': '/guida-frontaliere/',
+  '/fisco-frontalieri/': '/tasse-e-pensione/',
 });
 
 // `/calcolatore-5x1000/` has no current page or supported replacement. A

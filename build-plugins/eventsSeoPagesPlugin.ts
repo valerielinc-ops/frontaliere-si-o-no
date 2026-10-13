@@ -3157,7 +3157,7 @@ export function renderOverflowLadderPage(params: {
 // as an outbound "official site" CTA + JSON-LD `sameAs`.
 
 interface DetailCopy {
-  metaTitle: (title: string, comune: string) => string;
+  metaTitle: (title: string, comune: string, dateToken?: string) => string;
   metaDesc: (title: string, comune: string, when: string) => string;
   whenLabel: string;
   whereLabel: string;
@@ -3259,11 +3259,45 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * pathological place name that overflows the cap even bare — the emitted
  * <title> can never exceed TITLE_MAX_CHARS.
  */
-function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[]): string {
+function eventDetailMetaTitle(
+  rawTitle: string,
+  suffixes: readonly string[],
+  dateToken = '',
+  preferBrandSuffix = false,
+): string {
+  const datedSuffixes = dateToken
+    ? suffixes.flatMap((suffix) => {
+      const candidates = [`${suffix} · ${dateToken}`];
+      // Once the scheduled date is present, the brand label is less useful
+      // than the place/canton token. Keep the latter as a separate candidate
+      // so long canton names do not force the event title down to a stub.
+      const brandless = suffix.replace(/\s+\|\s+[^|]+$/, '');
+      if (brandless !== suffix) candidates.push(`${brandless} · ${dateToken}`);
+      return candidates;
+    })
+    : suffixes;
   // First suffix candidate that leaves a meaningful title budget wins; when
   // even the bare-comune candidate is squeezed, still use it (the shortest).
-  const suffix = suffixes.find((s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET)
-    ?? suffixes[suffixes.length - 1] ?? '';
+  // Prefer a complete event title whenever one of the useful place candidates
+  // can accommodate it; otherwise retain the most descriptive candidate that
+  // still leaves a meaningful title fragment. This prevents the date token
+  // from truncating a 25-character event title merely to keep a brand label.
+  const rawTitleBudget = esc(rawTitle).length;
+  const firstMeaningfulIndex = datedSuffixes.findIndex(
+    (s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
+  );
+  let suffix = firstMeaningfulIndex >= 0
+    ? datedSuffixes[firstMeaningfulIndex]
+    : datedSuffixes[datedSuffixes.length - 1] ?? '';
+  // The first pair is the same place/canton with and without its brand label.
+  // If the full candidate is meaningful but just too long for the raw event
+  // title, use its paired brandless form when that preserves the title. Do not
+  // scan into the next comune-only candidate: a long canton token is a better
+  // disambiguator than a complete but location-poor title.
+  if (!preferBrandSuffix && dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
+    const brandless = datedSuffixes[firstMeaningfulIndex + 1];
+    if (brandless && TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
+  }
   const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
   let title = rawTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
@@ -3279,6 +3313,25 @@ function eventDetailMetaTitle(rawTitle: string, suffixes: readonly string[]): st
     out = truncateHeadline(composed, max);
   }
   return out;
+}
+
+/** Stable, compact date token used to distinguish recurring event titles that
+ * differ only by their scheduled day. The slug already uses this ISO form, so
+ * the token is language-neutral and remains unambiguous in every locale. */
+function eventDateToken(startDate: string): string {
+  return /^(\d{4}-\d{2}-\d{2})$/.exec(startDate.trim())?.[1] ?? '';
+}
+
+const EVENT_H1_MAX_CHARS = 120;
+
+/** The visible heading carries the two facts that distinguish same-titled
+ * events in the crawl: scheduled date and municipality. Keep the source title
+ * intact unless the combined heading would become an unusable wall of text. */
+function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
+  const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
+  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length);
+  const visibleTitle = rawTitle.length > titleBudget ? truncateHeadline(rawTitle, titleBudget) : rawTitle;
+  return `${visibleTitle}${suffix}`;
 }
 
 /** Per-locale event-detail `<title>` suffix templates (comune + region +
@@ -3307,7 +3360,7 @@ const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
 
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c)),
+    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c), d),
     metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
@@ -3337,7 +3390,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Pubblicità',
   },
   en: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c)),
+    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c), d),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
     whenLabel: 'When',
     whereLabel: 'Where',
@@ -3367,7 +3420,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Advertisement',
   },
   de: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c)),
+    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d, true),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -3397,7 +3450,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Werbung',
   },
   fr: {
-    metaTitle: (t, c) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c)),
+    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c), d),
     metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
@@ -3449,7 +3502,12 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     // `DETAIL_TITLE_SUFFIXES` doc comment above. #3799: every candidate in
     // the cascade is substituted, so the min-budget check runs against the
     // real canton name at each degradation step too.
-    metaTitle: (t: string, c: string) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES[locale](c).map(sub)),
+    metaTitle: (t: string, c: string, d?: string) => eventDetailMetaTitle(
+      t,
+      DETAIL_TITLE_SUFFIXES[locale](c).map(sub),
+      d,
+      locale === 'de',
+    ),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
     about: (t: string, c: string, w: string, cat: string, venue?: string) => sub(base.about(t, c, w, cat, venue)),
@@ -3528,7 +3586,7 @@ function renderEventHero(event: SiteEvent, locale: Locale, title: string, catego
   const foreground = `<img class="ev-heroimg" src="${esc(imageSrc)}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="${esc(imageAlt)}">`;
   return `<figure class="ev-in ev-hero">
     <div class="ev-hero-stage" data-hero-mode="image">
-      <img class="ev-hero-backdrop" src="${esc(imageSrc)}" width="1200" height="675" loading="lazy" decoding="async" alt="" aria-hidden="true">
+      <div class="ev-hero-backdrop" style="background-image:url('${esc(imageSrc)}')" aria-hidden="true"></div>
       <div class="ev-hero-surface">
         ${foreground}
       </div>
@@ -3580,6 +3638,8 @@ export function renderEventDetailPage(params: {
     : cleanRenderableEventText(comune) || cantonDisplayLabel(canton, locale);
   const venue = eventVenue(event);
   const when = humanDate(event.startDate, locale);
+  const dateToken = eventDateToken(event.startDate);
+  const heading = eventDetailHeading(title, dateToken, displayComune);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
   // Was 6 — raised alongside the hub/digest list caps above (same
@@ -3616,7 +3676,7 @@ export function renderEventDetailPage(params: {
         ${event.recurring ? `<span class="ev-tag2">${esc(dc.recurringLabel)}</span>` : ''}
         ${event.eventStatus ? `<span class="ev-tag2">${esc(EVENT_STATUS_LABEL[event.eventStatus][locale])}</span>` : ''}
       </div>
-      <h1 class="ev-h1">${esc(title)}</h1>
+      <h1 class="ev-h1">${esc(heading)}</h1>
       <p class="ev-lede">${esc(dc.lede(when, time, venue, displayComune))}</p>
       ${description ? `<p class="ev-p-sm3">${esc(description)}</p>` : ''}
     </header>
@@ -3714,7 +3774,7 @@ export function renderEventDetailPage(params: {
   const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyWithAds })}`;
   const html = buildSeoPageHtml({
     locale,
-    title: dc.metaTitle(title, displayComune),
+    title: dc.metaTitle(title, displayComune, dateToken),
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),

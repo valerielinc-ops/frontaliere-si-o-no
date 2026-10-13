@@ -2203,7 +2203,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  companies: {
  title: 'Aziende che Assumono in Ticino 2026: Lista Settori',
- h1: 'Aziende che assumono in Ticino — lista per settore, sede (Lugano, Mendrisio, Chiasso) e stipendi medi frontalieri 2026',
+ h1: 'Aziende che assumono in Ticino 2026 — settori e stipendi',
  description: 'Aziende che assumono in Ticino 2026: lista per settore (banche, farmaceutico, industria, ICT) con sede Lugano/Mendrisio/Chiasso e stipendi medi frontalieri.',
  keywords: 'aziende che assumono in ticino, nomi ditte in svizzera che assumono, aziende canton ticino, aziende ticino lavoro, aziende che assumono svizzera italiana, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino, lista aziende ticino',
  ogTitle: 'Aziende che Assumono in Ticino 2026 | Lista per Settore',

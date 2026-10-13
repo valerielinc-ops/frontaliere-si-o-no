@@ -51,6 +51,22 @@ routes = [
   { pattern = "frontaliereticino.ch/de/partner-dienste*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr/services-partenaires*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/job-board*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/comuni-di-frontiera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/vivere-in-ticino/vivere-in-svizzera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/statistiche/traffico-dogane*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/diritto-lavoro-frontalieri*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/tfr-calculator*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/calcolatore*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/diritto-opzione-lamal*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/statistiche/confronta-premi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/stipendi-frontalieri-ticino*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/tredicesima-svizzera*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/comparatori/cambio-valuta*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/costo-della-vita*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/guida-frontaliere/nuova-legge-frontalieri-2024*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fisco-frontalieri*", zone_name = "frontaliereticino.ch" },
   # Explicit Ticino section entry (IT apex prefix) → origin-ticino-it (one shard
   # repo per locale; see locale-router.js SECTION_ORIGIN.ticino). The apex
   # wildcard also covers this prefix; matchSection remains authoritative, so

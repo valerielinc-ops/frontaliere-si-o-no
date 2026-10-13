@@ -92,7 +92,7 @@ function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLa
  {job?.logoUrl ? (
  <img
  src={job?.logoUrl}
- alt=""
+ alt={`Logo ${job?.company ?? 'Azienda'}`}
  width={24}
  height={24}
  className="w-6 h-6 object-contain"

@@ -478,7 +478,7 @@ export const FollowedCompaniesPage: React.FC = () => {
                       {logoUrl ? (
                         <img
                           src={logoUrl}
-                          alt=""
+                          alt={`Logo ${companyLabelFromSlug(slug)}`}
                           width={24}
                           height={24}
                           loading="lazy"
@@ -585,7 +585,7 @@ export const FollowedCompaniesPage: React.FC = () => {
                     {logoUrl ? (
                       <img
                         src={logoUrl}
-                        alt=""
+                        alt={`Logo ${label}`}
                         width={24}
                         height={24}
                         loading="lazy"

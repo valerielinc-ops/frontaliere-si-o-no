@@ -417,7 +417,7 @@ export function buildCanonicalBridgePage(options: {
  <body>
  <main class="card">
  <div class="logo">
- <img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>${title}</h1>
@@ -476,7 +476,7 @@ export function buildFlatRedirect(
  <body>
  <main class="card">
  <div class="logo">
- <img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">
+ <img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>Versione canonica disponibile</h1>

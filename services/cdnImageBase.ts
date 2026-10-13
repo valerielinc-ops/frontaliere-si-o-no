@@ -43,6 +43,17 @@
 
 import { cdnDataBase } from './cdnDataBase';
 
+// Wikimedia's Special:FilePath is convenient as a source reference but emits
+// a redirect chain. Keep the registry provenance intact and canonicalize the
+// two curated assets at the final image transport boundary as well, covering
+// every SPA caller that already flows through cdnImageUrl().
+const DIRECT_CURATED_LOGO_URLS: Record<string, string> = {
+  'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png':
+    'https://upload.wikimedia.org/wikipedia/commons/5/5f/Imerys_logo.png',
+  'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg':
+    'https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg',
+};
+
 // Path prefixes that the deploy pushes to the CDN and the offload script deletes
 // from dist (scripts/offload-generated-images-cdn.mjs IMAGE_TARGETS). MUST stay
 // in sync with that list. `/images/places/` is intentionally NOT here — it stays
@@ -72,16 +83,18 @@ export const CDN_OFFLOADED_IMAGE_PREFIXES = [
  */
 export function cdnImageUrl<T extends string | null | undefined>(path: T): T {
   if (!path) return path;
+  const renderedPath = DIRECT_CURATED_LOGO_URLS[path] ?? path;
+  if (renderedPath !== path) return renderedPath as T;
   // Only same-origin absolute paths are candidates; never touch external URLs.
-  if (path[0] !== '/') return path;
+  if (renderedPath[0] !== '/') return renderedPath as T;
   let offloadable = false;
   for (const prefix of CDN_OFFLOADED_IMAGE_PREFIXES) {
-    if (path.startsWith(prefix)) {
+    if (renderedPath.startsWith(prefix)) {
       offloadable = true;
       break;
     }
   }
-  if (!offloadable) return path;
+  if (!offloadable) return renderedPath as T;
   const base = cdnDataBase();
-  return (base ? base + path : path) as T;
+  return (base ? base + renderedPath : renderedPath) as T;
 }

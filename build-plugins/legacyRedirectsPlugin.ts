@@ -30,6 +30,39 @@ import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippa
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import { isSafeDistPath } from './shared/distPathSafety';
+
+// These legacy URLs are intercepted by the apex Worker with a real 301. Keep
+// their static fallback free of a second, weaker redirect mechanism: the
+// origin may still serve the canonical bridge, but must not advertise a
+// meta-refresh for a route whose HTTP contract is already server-side.
+const EDGE_HTTP_REDIRECT_PATHS = new Set([
+ '/job-board/',
+ '/calcola-stipendio/confronta-permesso-g-vs-b/',
+ '/guida-frontaliere/comuni-di-frontiera/',
+ '/vivere-in-ticino/vivere-in-svizzera/',
+ '/statistiche/traffico-dogane/',
+ '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/diritto-lavoro-frontalieri/',
+ '/tfr-calculator/',
+ '/calcolatore/',
+ '/guida-frontaliere/diritto-opzione-lamal/',
+ '/statistiche/confronta-premi/',
+ '/stipendi-frontalieri-ticino/',
+ '/tredicesima-svizzera/',
+ '/comparatori/cambio-valuta/',
+ '/costo-della-vita/',
+ '/guida-frontaliere/nuova-legge-frontalieri-2024/',
+ '/fisco-frontalieri/',
+]);
+
+function addLegacyBridgeHead(html: string, from: string, to: string, extraHead = ''): string {
+ const normalizedFrom = from === '/' ? from : `${from.replace(/\/+$/, '')}/`;
+ const refresh = EDGE_HTTP_REDIRECT_PATHS.has(normalizedFrom)
+   ? ''
+   : ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n`;
+ return html.replace('</head>', `${refresh}${extraHead}\n </head>`);
+}
+
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
  hreflang: string;
@@ -631,12 +664,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return '\n' + hreflangLinksHtml(entries);
  };
 
- // Auto-redirect users to the canonical target (issue #2996, owner decision):
- // a 0-second meta-refresh lands the visitor on the live page without a manual
- // click, and — combined with the canonical link + noindex already on the page —
- // is treated as a 301-equivalent by crawlers. Same pattern already used by
- // cantonOrphanRedirectsPlugin and cfHot404BridgePlugin (cluster redirects).
- const buildCompatHtml = (from: string, to: string, kind: string) => buildCanonicalBridgePage({
+ // Static fallback for aliases that do not have an edge-owned HTTP redirect.
+ // The 0-second meta-refresh helps a browser reach the canonical page, but it
+ // is intentionally weaker than a server-side 301; the 16 audited aliases
+ // handled by the apex Worker are excluded by addLegacyBridgeHead().
+ const buildCompatHtml = (from: string, to: string, kind: string) => addLegacyBridgeHead(buildCanonicalBridgePage({
  canonicalUrl: `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina archiviata | Frontaliere Ticino',
@@ -645,7 +677,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n </head>`);
+ }), from, to);
 
  for (const [fromRaw, toRaw] of Object.entries(redirects)) {
  const from = withSlash(fromRaw);
@@ -682,7 +714,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  description: `Pagina legacy reindirizzata verso ${to}`,
  inLanguage: 'it',
  });
- const html = buildCanonicalBridgePage({
+ const html = addLegacyBridgeHead(buildCanonicalBridgePage({
  canonicalUrl: redirectCanonicalOverride.get(fromRaw) ?? `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina spostata',
@@ -691,16 +723,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
  hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
- // Auto-redirect users to the canonical (issue #2996, owner decision): a
- // 0-second meta-refresh is a 301-equivalent for crawlers (with the canonical
- // link + noindex) and an instant redirect for users — no dead-end click.
- // Same pattern as cantonOrphanRedirectsPlugin / cfHot404BridgePlugin.
- }).replace('</head>', ` <meta http-equiv="refresh" content="0; url=${BASE_URL}${to}">\n <script type="application/ld+json">${redirectLd}</script>\n </head>`);
+ // Keep a browser fallback for aliases that are not intercepted by the edge.
+ // It is not a substitute for an HTTP 301; edge-owned aliases are emitted
+ // without this tag by addLegacyBridgeHead().
+ }), from, to, ` <script type="application/ld+json">${redirectLd}</script>`);
 
  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
  // Also write a flat .html twin so GitHub Pages serves it for the extension-less
  // URL too. The SPA auth-action script is stripped from the flat file, but the
- // meta-refresh above is intentionally KEPT so the flat twin redirects as well.
+ // meta-refresh is intentionally kept for bridges that still need the static
+ // fallback; edge-owned aliases are already real 301s before this HTML runs.
  const flatPath = from.replace(/\/+$/, '');
  if (flatPath) {
  const flatFile = path.join(distDir, flatPath.slice(1) + '.html');

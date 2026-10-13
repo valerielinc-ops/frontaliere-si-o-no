@@ -2268,9 +2268,9 @@ input[type=number] { -moz-appearance: textfield; }
   .ev-hero-backdrop {
     position: absolute;
     inset: -1rem;
-    width: calc(100% + 2rem);
-    height: calc(100% + 2rem);
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     filter: blur(18px) saturate(1.12);
     opacity: .44;
     transform: scale(1.06);

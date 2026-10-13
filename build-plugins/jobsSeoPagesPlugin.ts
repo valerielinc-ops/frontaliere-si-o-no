@@ -102,7 +102,7 @@ import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
-import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
+import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
@@ -2481,9 +2481,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const companyLogo = (job: any): string => {
  // Publisher-provided logo (projected from the publish form, https-only).
  const ownLogo = String(job?.companyLogo || '').trim();
- if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
+ if (/^https:\/\/\S+$/i.test(ownLogo)) return logoUrlForRenderedOutput(ownLogo) as string;
  const key = job?.companyKey || '';
- if (key && CRAWLED_COMPANY_LOGOS[key]) return CRAWLED_COMPANY_LOGOS[key];
+ if (key && CRAWLED_COMPANY_LOGOS[key]) return logoUrlForRenderedOutput(CRAWLED_COMPANY_LOGOS[key]) as string;
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
  // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
  // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
@@ -13071,7 +13071,7 @@ ${staticAnalyticsHtml}
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
- const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">`;
+ const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="Frontaliere Ticino" loading="eager" decoding="async">`;
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache).
  //

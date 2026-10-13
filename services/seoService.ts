@@ -14,7 +14,7 @@ import { fetchJobsForCanton } from './jobsService';
 import { JOB_CANTON_MANIFEST_PATH, resolveCantonShardKey, type CantonShardManifest } from './jobCantonShards';
 import { selectJobBoardInventory } from './jobBoardInventory';
 import { buildJobBoardListingMetadata, getRenderedJobBoardCount } from './seo/jobBoardListingMetadata';
-import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
+import { resolveCompanyLogoUrlForRenderedOutput, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
@@ -230,7 +230,7 @@ function compactSeoDescription(input: string, maxChars = 320): string {
 }
 
 function companyLogoFromJob(job: any): string {
- const logo = resolveCompanyLogoUrl({
+ const logo = resolveCompanyLogoUrlForRenderedOutput({
  company: String(job?.company || ''),
  companyKey: String(job?.companyKey || ''),
  companyDomain: String(job?.companyDomain || ''),
