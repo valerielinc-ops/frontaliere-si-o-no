@@ -1,61 +1,61 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-12T12:15:35.773Z",
+  "lastRunAt": "2026-10-13T11:59:24.076Z",
   "findings": {
     "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/",
-      "consecutiveRuns": 8,
+      "consecutiveRuns": 9,
       "firstSeenAt": "2026-10-05T11:41:40.986Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-daac6e/",
-      "consecutiveRuns": 8,
-      "firstSeenAt": "2026-10-05T11:41:40.986Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     },
     "jobposting-missing|https://frontaliereticino.ch/de/jobs-im-wallis/personalberater-80-100-canton-du-valais-sion/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/de/jobs-im-wallis/personalberater-80-100-canton-du-valais-sion/",
-      "consecutiveRuns": 4,
+      "consecutiveRuns": 5,
       "firstSeenAt": "2026-10-09T11:27:04.758Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     },
     "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-bern/internship-in-assisted-living-interessengemeinschaft-sozialpsychiatrie-bern-bern/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/en/find-jobs-bern/internship-in-assisted-living-interessengemeinschaft-sozialpsychiatrie-bern-bern/",
-      "consecutiveRuns": 6,
+      "consecutiveRuns": 7,
       "firstSeenAt": "2026-10-07T11:12:45.595Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
+      "detail": null
+    },
+    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-thurgau/autista-addetto-raccolta-dati-in-kreuzlingen-switzerland-tsmg-kreuzlingen-1433c2dd/": {
+      "code": "jobposting-missing",
+      "url": "https://frontaliereticino.ch/en/find-jobs-thurgau/autista-addetto-raccolta-dati-in-kreuzlingen-switzerland-tsmg-kreuzlingen-1433c2dd/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-13T11:59:24.076Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     },
     "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/",
-      "consecutiveRuns": 3,
+      "consecutiveRuns": 4,
       "firstSeenAt": "2026-10-10T10:44:43.598Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     },
     "sitemap-noindex|https://frontaliereticino.ch/fr/articles-frontalier/miazzina-tessin-frontalier/": {
       "code": "sitemap-noindex",
       "url": "https://frontaliereticino.ch/fr/articles-frontalier/miazzina-tessin-frontalier/",
-      "consecutiveRuns": 5,
+      "consecutiveRuns": 6,
       "firstSeenAt": "2026-10-08T11:31:27.015Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     },
     "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-soleure/mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/fr/trouver-emploi-soleure/mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen/",
-      "consecutiveRuns": 7,
+      "consecutiveRuns": 8,
       "firstSeenAt": "2026-10-06T11:24:31.557Z",
-      "lastSeenAt": "2026-10-12T12:15:35.773Z",
+      "lastSeenAt": "2026-10-13T11:59:24.076Z",
       "detail": null
     }
   },
