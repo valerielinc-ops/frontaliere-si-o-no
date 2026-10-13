@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T01:34:13.895Z",
+  "generatedAt": "2026-10-13T08:13:47.853Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -8,110 +8,19 @@
       "members": [
         "TI"
       ],
-      "state": "fresh",
-      "fetchedAt": "2026-10-13T01:33:23.412Z",
+      "state": "partial",
+      "fetchedAt": "2026-10-13T08:12:46.594Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
-      "duties": [
-        {
-          "pharmacy": "Moderna",
-          "city": "Bodio",
-          "coverageName": "Biasca e Valli",
-          "dutyType": "day",
-          "startsAt": "2026-10-09T16:00:00.000Z",
-          "endsAt": "2026-10-16T16:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
-        },
-        {
-          "pharmacy": "Dr.Camponovo",
-          "city": "Balerna",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-10-10T06:00:00.000Z",
-          "endsAt": "2026-10-13T06:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
-        },
-        {
-          "pharmacy": "Farmacia Pharmaexpress",
-          "city": "Lugano",
-          "coverageName": "Luganese",
-          "dutyType": "day",
-          "startsAt": "2026-10-10T06:00:00.000Z",
-          "endsAt": "2026-10-17T06:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/luganese/"
-        },
-        {
-          "pharmacy": "Teatro",
-          "city": "Bellinzona",
-          "coverageName": "Bellinzonese",
-          "dutyType": "day",
-          "startsAt": "2026-10-12T16:30:00.000Z",
-          "endsAt": "2026-10-16T16:30:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
-        },
-        {
-          "pharmacy": "Ferrari",
-          "city": "Mendrisio",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-10-13T06:00:00.000Z",
-          "endsAt": "2026-10-17T06:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
-        },
-        {
-          "pharmacy": "delle Alpi",
-          "city": "Faido",
-          "coverageName": "Biasca e Valli",
-          "dutyType": "day",
-          "startsAt": "2026-10-16T16:00:00.000Z",
-          "endsAt": "2026-10-23T16:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
-        },
-        {
-          "pharmacy": "Semine",
-          "city": "Bellinzona",
-          "coverageName": "Bellinzonese",
-          "dutyType": "day",
-          "startsAt": "2026-10-16T16:30:00.000Z",
-          "endsAt": "2026-10-19T16:30:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
-        },
-        {
-          "pharmacy": "Farmacia Salus",
-          "city": "Lugano",
-          "coverageName": "Luganese",
-          "dutyType": "day",
-          "startsAt": "2026-10-17T06:00:00.000Z",
-          "endsAt": "2026-10-24T06:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/luganese/"
-        },
-        {
-          "pharmacy": "Ferregutti",
-          "city": "Mendrisio",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-10-17T06:00:00.000Z",
-          "endsAt": "2026-10-20T06:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
-        },
-        {
-          "pharmacy": "San Rocco",
-          "city": "Bellinzona",
-          "coverageName": "Bellinzonese",
-          "dutyType": "day",
-          "startsAt": "2026-10-19T16:30:00.000Z",
-          "endsAt": "2026-10-23T16:30:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
-        }
-      ],
-      "unresolvedDuties": 3
+      "duties": [],
+      "unresolvedDuties": 0
     },
     "GE": {
       "members": [
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T01:34:11.566Z",
+      "fetchedAt": "2026-10-13T08:13:44.684Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -195,7 +104,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T01:34:13.895Z",
+      "fetchedAt": "2026-10-13T08:13:47.853Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -216,15 +125,6 @@
           "startsAt": "2026-10-10T06:00:00.000Z",
           "endsAt": "2026-10-17T06:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/planning-mars-2026-fev-2027_V5.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-10-12T16:30:00.000Z",
-          "endsAt": "2026-10-13T06:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         },
         {
           "pharmacy": "Centre Coop",
@@ -333,7 +233,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T01:34:13.895Z",
+      "fetchedAt": "2026-10-13T08:13:47.853Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -417,7 +317,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T01:34:13.895Z",
+      "fetchedAt": "2026-10-13T08:13:47.853Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -501,7 +401,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-13T01:34:13.895Z",
+      "fetchedAt": "2026-10-13T08:13:47.853Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
