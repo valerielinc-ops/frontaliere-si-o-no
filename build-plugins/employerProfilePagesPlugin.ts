@@ -52,6 +52,7 @@ import { renderJobCardListHtml, localizedContract, type JobCardJob } from './sha
 import { buildJobListEntry } from './shared/jobListEntry';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
+import { LOGO_IMG_ONERROR, resolveJobLogoSrc } from './shared/companyLogoResolver';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { escHtml as esc } from './shared/htmlEscape';
 import { WriteCollector } from './batchWrite';
@@ -66,7 +67,6 @@ import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
-import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 import {
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
@@ -88,12 +88,11 @@ const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${loc
 const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);
 
 /**
- * Max active jobs rendered as cards and ItemList entries per
- * profile page. Derive the boundary from the shared in-feed cadence: the
- * trailing card keeps the slot after the last eligible position renderable,
- * while the full active count remains visible in the stat tile and heading.
+ * Max active jobs rendered as cards and ItemList entries per profile page.
+ * Employer pages are a concise preview: the full active count remains visible
+ * in the stat tile and heading, while the latest roles keep the page focused.
  */
-const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
+const MAX_JOBS_LISTED = 12;
 
 export interface EmployerProfile {
   slug: string;
@@ -127,13 +126,12 @@ const HOME_LABEL: Record<Locale, string> = { it: 'Home', en: 'Home', de: 'Starts
 const HUB_LABEL: Record<Locale, string> = { it: 'Aziende', en: 'Companies', de: 'Unternehmen', fr: 'Entreprises' };
 
 // Visible methodology copy for indexable profiles. It explains the boundary
-// of the corpus-derived facts and gives the page useful context even when an
-// employer has many ad slots but only a compact set of cards.
+// of the corpus-derived facts without competing with the active-job list.
 const PROFILE_METHOD_NOTE: Record<Locale, string> = {
-  it: 'I conteggi riflettono gli annunci attivi disponibili al momento della compilazione; sedi, salari e contratti compaiono solo quando il dato è pubblicato nella fonte dell’offerta. Per candidarti, verifica sempre l’annuncio originale.',
-  en: 'The counts reflect active postings available when this page was built; locations, salaries and contract types appear only when the job source publishes them. For an application, always check the original posting.',
-  de: 'Die Zählungen beziehen sich auf aktive Stellen, die beim Seitenaufbau verfügbar waren; Standorte, Gehälter und Vertragsarten erscheinen nur, wenn die Stellenquelle sie veröffentlicht. Vor einer Bewerbung bitte die Originalanzeige prüfen.',
-  fr: 'Les totaux correspondent aux annonces actives disponibles lors de la génération de la page; lieux, salaires et types de contrat apparaissent uniquement si la source de l’offre les publie. Pour postuler, vérifiez toujours l’annonce originale.',
+  it: 'I conteggi riflettono gli annunci attivi al momento della compilazione; verifica sede, salario e contratto nell’annuncio originale.',
+  en: 'Counts reflect active postings at build time; verify location, salary and contract details in the original listing.',
+  de: 'Die Zählungen zeigen aktive Stellen zum Zeitpunkt des Aufbaus; prüfen Sie Standort, Gehalt und Vertrag in der Originalanzeige.',
+  fr: 'Les totaux reflètent les annonces actives lors de la génération; vérifiez lieu, salaire et contrat dans l’annonce originale.',
 };
 
 // ── <title> / <h1>: aligned to the phrase people actually type ─────────────
@@ -285,14 +283,11 @@ const SECTOR_LABEL: Record<Locale, string> = {
 const NEW_ROLES_LABEL: Record<Locale, string> = {
   it: 'Nuove offerte', en: 'New postings', de: 'Neue Stellen', fr: 'Nouvelles annonces',
 };
-const JOBS_HEADING: Record<Locale, string> = {
-  it: 'Offerte di lavoro attive', en: 'Active job openings', de: 'Aktive Stellenangebote', fr: 'Offres d’emploi actives',
-};
-const OPENINGS_LEAD: Record<Locale, string> = {
-  it: 'Confronta ruolo, sede e contratto, poi apri l’annuncio originale per candidarti.',
-  en: 'Compare role, location and contract, then open the original listing to apply.',
-  de: 'Vergleichen Sie Rolle, Standort und Vertrag und öffnen Sie danach die Originalanzeige.',
-  fr: 'Comparez le poste, le lieu et le contrat, puis ouvrez l’annonce originale pour postuler.',
+const JOBS_HEADING: Record<Locale, (name: string, count: number) => string> = {
+  it: (name, count) => `Offerte di lavoro attive per ${name} (${count})`,
+  en: (name, count) => `Active jobs at ${name} (${count})`,
+  de: (name, count) => `Aktive Stellen bei ${name} (${count})`,
+  fr: (name, count) => `Postes ouverts chez ${name} (${count})`,
 };
 const VIEW_OPENINGS_CTA: Record<Locale, (count: number) => string> = {
   it: (count) => `Vedi ${count} offerte`,
@@ -538,7 +533,7 @@ function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
  * Does not guarantee every one of the ~1860 profiles clears the 10% floor
  * (a handful with no contract/salary data at all get none of the two new
  * sentences); see PR body for the honest remaining gap. */
-export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
+function introProseParts(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string[] {
   const t = PROSE_TEMPLATES[locale];
   const median = reportedSalarySummary(jobs).medianChf;
   const sal = median ? fmtChf(median) : null;
@@ -553,11 +548,34 @@ export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: 
     contractMixProse(jobs, locale),
     salaryRangeProse(jobs, locale),
     t.outro,
-  ].filter(Boolean).join(' ');
+  ].filter(Boolean);
+}
+
+export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
+  return introProseParts(profile, jobs, locale).join(' ');
 }
 
 function statTile(label: string, value: string): string {
   return `<div class="company-profile-stat"><div class="company-profile-stat-label">${esc(label)}</div><div class="company-profile-stat-value">${value}</div></div>`;
+}
+
+/** Resolve the brand image used by the employer-profile hero. The same chain
+ * as job cards is intentionally reused: curated assets first, then a stable
+ * company monogram, and finally the local placeholder. This means every
+ * emitted profile has a visible identity even when the corpus has no logo. */
+export function employerProfileLogoSrc(profile: EmployerProfile, jobs: CorpusJob[] = []): string {
+  const representative = jobs.find((job) => job.companyDomain || job.url || job.companyKey) ?? jobs[0];
+  return resolveJobLogoSrc({
+    company: profile.name,
+    companyKey: profile.companyKey ?? representative?.companyKey,
+    companyDomain: representative?.companyDomain,
+    url: representative?.url,
+  });
+}
+
+function employerProfileLogoHtml(profile: EmployerProfile, jobs: CorpusJob[]): string {
+  const logoSrc = employerProfileLogoSrc(profile, jobs);
+  return `<div class="company-profile-brand"><img class="company-profile-brand-image" src="${esc(logoSrc)}" alt="${esc(`Logo ${profile.name}`)}" width="80" height="80" loading="eager" fetchpriority="high" decoding="async" onerror="${LOGO_IMG_ONERROR}"></div>`;
 }
 
 function breadcrumbHtml(locale: Locale, name: string): string {
@@ -585,12 +603,11 @@ function exploreLinksHtml(profile: EmployerProfile, locale: Locale): string {
   const items = links
     .map((l) => `<li><a href="${esc(l.href)}" class="text-sm font-semibold text-link">${esc(l.label)} →</a></li>`)
     .join('\n');
-  return `<section class="mt-8" aria-label="${esc(EXPLORE_HEADING[locale])}">
-<h2 class="text-base font-bold text-strong mb-3">${esc(EXPLORE_HEADING[locale])}</h2>
+  return `<nav class="mt-8" aria-label="${esc(EXPLORE_HEADING[locale])}">
 <ul class="space-y-2 list-none p-0 m-0">
 ${items}
 </ul>
-</section>`;
+</nav>`;
 }
 
 interface ProfileRenderOptions {
@@ -610,7 +627,12 @@ function renderProfileBody(
   options: ProfileRenderOptions = {},
 ): string {
   const name = profile.name;
-  const profileIntro = introProse(profile, allActiveJobs, locale);
+  const profileIntroParts = introProseParts(profile, allActiveJobs, locale);
+  const profileLede = profileIntroParts[0] ?? '';
+  // The lede already states the employer and live total. Keep the full facts
+  // below the opening list, but do not repeat that first sentence or the CTA
+  // outro a second time.
+  const profileContext = profileIntroParts.slice(1, -1).join(' ');
   const salarySummary = reportedSalarySummary(allActiveJobs);
   const tiles = [
     statTile(OPEN_ROLES_LABEL[locale], String(profile.activeJobs)),
@@ -660,9 +682,12 @@ function renderProfileBody(
 ${breadcrumbHtml(locale, name)}
 <header class="company-profile-hero">
 <div class="company-profile-hero-top">
-<div>
+<div class="company-profile-identity">
+${employerProfileLogoHtml(profile, allActiveJobs)}
+<div class="company-profile-identity-copy">
 <h1 class="company-profile-title">${esc(employerHeadline(locale, name))}</h1>
-<p class="company-profile-lede">${esc(profileIntro.split('. ')[0])}.</p>
+<p class="company-profile-lede">${esc(profileLede)}</p>
+</div>
 </div>
 <a class="company-profile-primary-action" href="#company-openings">${esc(VIEW_OPENINGS_CTA[locale](profile.activeJobs))}<span aria-hidden="true"> →</span></a>
 </div>
@@ -672,15 +697,12 @@ ${reportedSalaryNote(locale, salarySummary)}
 ${employerProfileMidAdHtml}
 <section id="company-openings" class="company-profile-openings mb-2" aria-labelledby="company-openings-title">
 <div class="company-profile-openings-head">
-<div>
-<h2 id="company-openings-title" class="company-profile-openings-title">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
-<p class="company-profile-openings-lead">${esc(OPENINGS_LEAD[locale])}</p>
-</div>
+<h2 id="company-openings-title" class="company-profile-openings-title">${esc(JOBS_HEADING[locale](name, profile.activeJobs))}</h2>
 </div>
 ${jobListHtml}
 </section>
 ${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
-<section class="company-profile-context mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(profileIntro)}</p><details class="company-profile-method"><summary>${esc(METHOD_SUMMARY[locale])}</summary><p>${esc(PROFILE_METHOD_NOTE[locale])}</p></details></section>
+<section class="company-profile-context mb-7">${profileContext ? `<p class="my-2.5 leading-relaxed text-body">${esc(profileContext)}</p>` : ''}<details class="company-profile-method"><summary>${esc(METHOD_SUMMARY[locale])}</summary><p>${esc(PROFILE_METHOD_NOTE[locale])}</p></details></section>
 ${exploreLinksHtml(profile, locale)}
 ${renderEmployerCtaBlock(locale, 'employer_profile')}
 </main>`;
