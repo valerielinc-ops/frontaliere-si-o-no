@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-10-12T21:11:59.931Z",
+  "generatedAt": "2026-10-13T09:15:41.251Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4785,
-  "avgDurationMs": 4785,
+  "unchangedCount": 1,
+  "durationMs": 5084,
+  "avgDurationMs": 5084,
   "durationHistory": [
-    4785
+    5084
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "clariant-e621ca88dbc5",
       "slug": "senior-responsabile-governance-nazionale-fiscale-e-fiscale-clariant-pratteln",
@@ -37,7 +35,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:11:51.342Z",
+      "crawledAt": "2026-10-13T09:15:27.605Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -67,7 +65,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "clariant-d6a32aa77d6b",
       "slug": "tirocinante-ai-for-sustainability-reporting-clariant-pratteln",
@@ -80,7 +81,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-12T21:11:50.763Z",
+      "crawledAt": "2026-10-13T09:15:27.070Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -111,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
