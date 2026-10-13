@@ -9,6 +9,8 @@ import { buildJob as buildLugano } from '../scripts/lib/citta-di-lugano-job-pars
 import { buildJob as buildEms } from '../scripts/lib/ems-chemie-job-parser.mjs';
 import { sourceRssPostingDateFields } from '../scripts/lib/source-posting-date.mjs';
 
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+
 const state = vi.hoisted(() => ({ publication: '', modified: '', body: 'We are looking for a qualified professional to join our team and support reliable services for our customers. You will work closely with colleagues across departments, document your work carefully and contribute practical ideas to improve our processes. The role requires relevant professional experience, strong communication skills and a structured approach to solving problems. We offer a collaborative workplace, continuing education and opportunities to take responsibility for meaningful projects.' }));
 vi.mock('../scripts/lib/crawler-template.mjs', async importOriginal => ({
   ...await importOriginal<Record<string, unknown>>(),
@@ -65,12 +67,12 @@ for (const [name, fetchJobs] of [
 for (const [name, build] of [['Cerbios', buildCerbios], ['Lugano', buildLugano], ['EMS', buildEms]] as const) {
   describe(`${name} builder provenance`, () => {
     it.each(['', '2025-02-30'])('does not invent publication for %j', datePosted => {
-      const job = build({ title: 'Operations Specialist', url: 'https://example.com/job/12345/', location: 'Lugano', description: state.body, datePosted });
+      const job = build({ title: 'Operations Specialist', url: 'https://example.com/job/12345/', location: 'Lugano', description: state.body, datePosted, crawlObservedAt: OBSERVED_AT });
       expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
     it('carries an authentic source date with explicit provenance', () => {
       const datePosted = new Date(Date.now() - 7 * 86400000).toISOString();
-      const job = build({ title: 'Operations Specialist', url: 'https://example.com/job/12345/', location: 'Lugano', description: state.body, datePosted });
+      const job = build({ title: 'Operations Specialist', url: 'https://example.com/job/12345/', location: 'Lugano', description: state.body, datePosted, crawlObservedAt: OBSERVED_AT });
       expect(job).toMatchObject({ datePosted, postedDate: datePosted, postingDateSource: 'reported' });
     });
   });

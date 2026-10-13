@@ -37,6 +37,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
 import { normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
@@ -402,9 +403,12 @@ export async function fetchLisDetailPage(url, { userAgent = DEFAULT_UA, timeoutM
 
 /**
  * Build a job object compatible with the shared crawler pipeline from parsed data.
+ * @param {Date} observedAt capture time after the successful detail response
  */
-export function buildLisJob(url, parsed) {
+export function buildLisJob(url, parsed, observedAt) {
   if (!parsed || !parsed.title) return null;
+  const crawledAt = crawledAtFromObservation(observedAt);
+  if (!crawledAt) return null;
   const slug = slugify(parsed.title);
   if (!slug || slug.length < 3) return null;
 
@@ -421,7 +425,7 @@ export function buildLisJob(url, parsed) {
     postalCode: parsed.location === 'Pregassona' ? '6963' : '6900',
     streetAddress: parsed.streetAddress || 'Via alla Bozzoreda 15',
     description: parsed.description || '',
-    crawledAt: new Date().toISOString(),
+    crawledAt,
     ...mergeSourcePostingDates({}, parsed),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',

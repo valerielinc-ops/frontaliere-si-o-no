@@ -9,12 +9,17 @@ import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
-  buildJob,
+  buildJob as buildCittaJob,
   parseSwissDate,
   stripHtml,
   normalizeSpace,
   CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE,
 } from '@/scripts/lib/citta-di-lugano-job-parser.mjs';
+
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
+const buildJob = (raw: any, options?: { description?: string; sourceLang?: string }) => raw && typeof raw === 'object'
+  ? buildCittaJob({ ...raw, crawlObservedAt: OBSERVED_AT }, options)
+  : buildCittaJob(raw, options);
 
 // ─── Fixture: Concorsi pubblici listing page ───────────────
 const LISTING_HTML = `
@@ -148,6 +153,16 @@ describe('parseSwissDate', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('buildJob', () => {
+  it('requires an explicit crawl observation and never substitutes the competition date', () => {
+    const raw = { title: 'Architetto/a progettista', url: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf', datePosted: '2026-03-30' };
+    expect(buildCittaJob(raw)).toBeNull();
+    expect(buildCittaJob({ ...raw, crawlObservedAt: new Date(Number.NaN) })).toBeNull();
+
+    const job = buildCittaJob({ ...raw, crawlObservedAt: OBSERVED_AT });
+    expect(job!.crawledAt).toBe(OBSERVED_AT.toISOString());
+    expect(job!.crawledAt).not.toBe(job!.datePosted);
+  });
+
   it('builds a complete job object', () => {
     const job = buildJob({
       title: 'Architetto/a progettista',

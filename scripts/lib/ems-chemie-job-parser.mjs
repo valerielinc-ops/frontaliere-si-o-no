@@ -22,6 +22,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 /* ── Text helpers ──────────────────────────────────────────── */
 
@@ -440,6 +441,8 @@ export function parseDetailPage(html) {
 
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
 
   const title = stripEmsChemieTitleSuffix(normalizeSpace(raw.title));
   if (!title || title.length < 3) return null;
@@ -475,6 +478,7 @@ export function buildJob(raw) {
     descriptionByLocale: { [sourceLang]: description },
     sourceLang,
     ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
     source: 'company-website',
     slug: slugify(`${title}-ems-chemie-${location}`),
     slugByLocale: {

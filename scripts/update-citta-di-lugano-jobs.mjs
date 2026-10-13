@@ -123,12 +123,16 @@ async function fetchJobs() {
     console.error(`❌ Failed to fetch career page: ${err?.message || err}`);
     throw err;
   }
+  // Capture the observation only after the official listing response arrived;
+  // the parser never treats a competition/publication date as crawl time.
+  const observedAt = html ? new Date() : null;
 
   const rawListings = parseListingPage(html);
   console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
 
   const jobs = [];
   for (const listing of rawListings) {
+    listing.crawlObservedAt = observedAt;
     let job = buildJob(listing);
     if (!job) continue;
 

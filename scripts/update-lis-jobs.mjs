@@ -1019,7 +1019,9 @@ export async function crawlArca24Direct() {
       timeoutMs: 15000,
     });
     if (detail) {
-      const job = buildLisJob(listing.url, detail);
+      // The detail response is the source observation for this job. Keep the
+      // clock capture in the runner, never inside buildLisJob's pure builder.
+      const job = buildLisJob(listing.url, detail, new Date());
       if (job) {
         console.log(`  ✅ ${detail.title} → ${detail.location || 'unknown'} [${(detail.description || '').length} chars]`);
         parsedJobs.push(job);

@@ -26,7 +26,7 @@ describe('LIS custom runner persistence boundary', () => {
     transport('2026-10-02T08:30:00+02:00');
     const result = await crawlArca24Direct();
     expect(result).toMatchObject({ discovered: 1, parsed: 1, merged: 1 });
-    expect(storage.writes[0]).toEqual([expect.objectContaining({ url, datePosted: '2026-10-02T08:30:00+02:00', postedDate: '2026-10-02T08:30:00+02:00', postingDateSource: 'reported' })]);
+    expect(storage.writes[0]).toEqual([expect.objectContaining({ url, datePosted: '2026-10-02T08:30:00+02:00', postedDate: '2026-10-02T08:30:00+02:00', postingDateSource: 'reported', crawledAt: '2026-10-04T12:00:00.000Z' })]);
   });
   it('persists unknown without promoting a valid-looking legacy stored alias', async () => {
     storage.previous = [{ url, companyKey: 'lis-lugano-istituti-sociali', datePosted: '2026-09-01', title: 'Capireparto' }];

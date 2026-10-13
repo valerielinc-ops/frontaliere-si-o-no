@@ -7,6 +7,7 @@ const detailUrl = 'https://recrutement.chuv.ch/vacancy/infirmier-123.html';
 const lisUrl = 'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto&language=it';
 const lisHtml = (raw: string) => `<h1 itemprop="title">Capireparto</h1><strong itemprop="datePosted">${raw}</strong><span itemprop="validThrough">31/12/2030</span><div itemprop="description">${body}</div>`;
 const urlOf = (input: string | URL | Request) => typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
 
 beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date('2026-10-04T12:00:00Z')); });
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.useRealTimers(); });
@@ -44,13 +45,13 @@ describe('LIS fetched detail into actual builder', () => {
     const fetcher = vi.fn(async () => new Response(lisHtml(raw)));
     vi.stubGlobal('fetch', fetcher);
     const parsed = await fetchLisDetailPage(lisUrl);
-    const job = buildLisJob(lisUrl, parsed);
+    const job = buildLisJob(lisUrl, parsed, OBSERVED_AT);
     expect(job).toMatchObject({ title: 'Capireparto', url: lisUrl, datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown', validThrough: '2030-12-31' });
     expect(job?.description).toContain('professionnels assurent');
     expect(job?.slug).toBe('capireparto');
     expect(fetcher).toHaveBeenCalledTimes(1);
   });
   it('does not promote a legacy parsed alias lacking evidence', () => {
-    expect(buildLisJob(lisUrl, { title: 'Capireparto', description: body, datePosted: '2026-09-01' })).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    expect(buildLisJob(lisUrl, { title: 'Capireparto', description: body, datePosted: '2026-09-01' }, OBSERVED_AT)).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown', crawledAt: OBSERVED_AT.toISOString() });
   });
 });
