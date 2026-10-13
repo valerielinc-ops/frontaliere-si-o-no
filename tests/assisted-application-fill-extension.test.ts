@@ -612,7 +612,7 @@ describe('fill extension: other portals', () => {
   });
 
   it('assigns a CV even when the portal keeps the native input hidden', async () => {
-    const { F, document, window } = page(`<form>
+    const { F, document, window } = page(`<style>.none{display:none}</style><form>
       <div class="form-group">
         <a id="resumator-choose-upload" href="#">Attach resume</a>
         <div id="resumator-resume-upload-wrapper" class="none"><input id="resumator-resume-value" type="file"></div>
