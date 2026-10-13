@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-12T21:35:49.949Z",
+  "generatedAt": "2026-10-13T09:33:19.798Z",
   "total": 12,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15635,
-  "avgDurationMs": 15635,
+  "durationMs": 11435,
+  "avgDurationMs": 11435,
   "durationHistory": [
-    15635
+    11435
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:23.621Z",
+      "crawledAt": "2026-10-13T09:33:02.240Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:24.762Z",
+      "crawledAt": "2026-10-13T09:33:02.921Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:25.959Z",
+      "crawledAt": "2026-10-13T09:33:03.732Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:27.097Z",
+      "crawledAt": "2026-10-13T09:33:04.525Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:28.073Z",
+      "crawledAt": "2026-10-13T09:33:05.350Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:29.165Z",
+      "crawledAt": "2026-10-13T09:33:06.138Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -300,7 +300,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:30.153Z",
+      "crawledAt": "2026-10-13T09:33:06.942Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -342,7 +342,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:31.085Z",
+      "crawledAt": "2026-10-13T09:33:07.605Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -384,7 +384,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:32.186Z",
+      "crawledAt": "2026-10-13T09:33:08.402Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -426,7 +426,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:33.280Z",
+      "crawledAt": "2026-10-13T09:33:09.213Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -468,7 +468,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:34.380Z",
+      "crawledAt": "2026-10-13T09:33:10.037Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -513,7 +513,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-12T21:35:35.500Z",
+      "crawledAt": "2026-10-13T09:33:10.847Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -523,5 +523,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
