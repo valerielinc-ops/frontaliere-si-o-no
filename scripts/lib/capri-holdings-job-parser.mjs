@@ -55,6 +55,7 @@ export const WORKDAY_SITES = [
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -82,10 +83,13 @@ function stripHtml(html = '') {
  * Workday SSR pages contain JSON-LD and structured HTML.
  *
  * @param {string} html - Raw HTML of a job detail page
- * @returns {{ title: string, body: string, location: string, brand: string } | null}
+ * @param {Date} [observedAt] - Capture time of the successful detail response
+ * @returns {{ title: string, body: string, location: string, brand: string, crawledAt?: string } | null}
  */
-export function parseCapriHoldingsDetailPage(html = '') {
+export function parseCapriHoldingsDetailPage(html = '', observedAt) {
   if (!html) return null;
+
+  const crawledAt = crawledAtFromObservation(observedAt);
 
   const titleSource = stripScriptsAndStyles(html);
   const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
@@ -117,7 +121,7 @@ export function parseCapriHoldingsDetailPage(html = '') {
 
   if (!title && !body) return null;
 
-  return { title, body, location, brand };
+  return { title, body, location, brand, ...(crawledAt ? { crawledAt } : {}) };
 }
 
 /**

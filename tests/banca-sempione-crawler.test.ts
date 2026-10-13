@@ -1,9 +1,35 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  fetchBancaSempioneJobs,
   inferLocation,
   shouldKeepBancaSempioneJob,
   wpContentToMarkdown,
 } from '../scripts/update-banca-sempione-jobs.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+describe('banca sempione crawl provenance', () => {
+  it('propagates the successful WordPress observation time, not the posting date', async () => {
+    const observedAt = new Date('2026-10-13T10:15:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(observedAt);
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify([{
+      status: 'publish',
+      title: { rendered: 'Junior crediti' },
+      link: 'https://www.bancasempione.ch/job/junior/',
+      content: { rendered: 'Lugano' },
+      date_gmt: '2026-09-23T14:04:12',
+    }]), { status: 200 })));
+
+    const [job] = await fetchBancaSempioneJobs();
+
+    expect(job.crawledAt).toBe(observedAt.toISOString());
+    expect(job.crawledAt).not.toBe(job.postedDate);
+  });
+});
 
 describe('banca sempione crawler location guards', () => {
   it('classifies explicit Middle East roles as Dubai even if the body mentions Lugano headquarters', () => {

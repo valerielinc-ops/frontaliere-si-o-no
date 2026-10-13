@@ -26,6 +26,7 @@ import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-confi
 import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import fs from 'node:fs';
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -249,6 +250,9 @@ export async function fetchBancaSempioneJobs() {
     return [];
   }
 
+  const crawledAt = crawledAtFromObservation(new Date());
+  if (!crawledAt) return [];
+
   console.log(`📋 WP REST API returned ${wpJobs.length} job listing(s).`);
   warnIfListingAtCap({ label: 'Banca del Sempione listing', count: wpJobs.length, cap: LISTING_PAGE_CAP });
 
@@ -313,6 +317,7 @@ export async function fetchBancaSempioneJobs() {
       // stored (truncated) source text over the fresh one.
       descriptionByLocale: { [sourceLang]: description },
       ...sourcePostingDateFields(postedDate),
+      crawledAt,
       source: 'company-website',
       slug: baseSlug,
       slugByLocale: {

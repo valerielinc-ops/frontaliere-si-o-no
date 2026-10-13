@@ -373,6 +373,38 @@ describe('Capri Workday brand sites', () => {
     expect(requested.length).toBeGreaterThan(0);
     expect(requested.every((url) => url.includes('/Michael_Kors/'))).toBe(true);
   });
+
+  it('propagates the successful Workday listing observation time', async () => {
+    const observedAt = new Date('2026-10-13T10:25:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(observedAt);
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Warehouse Operator',
+            externalPath: '/job/Mendrisio/Warehouse-Operator_R1',
+            locationsText: 'Mendrisio, Switzerland',
+            bulletFields: ['Mendrisio'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          title: 'Warehouse Operator',
+          location: 'Mendrisio, Switzerland',
+          country: { alpha2Code: 'CH', descriptor: 'Switzerland' },
+          jobDescription: Array(8).fill('Warehouse operations and stock handling responsibilities in the Swiss logistics centre.').join(' '),
+          timeType: 'Full time',
+        },
+      }), { status: 200 });
+    }));
+
+    const [job] = await fetchCapriHoldingsJobs();
+
+    expect(job.crawledAt).toBe(observedAt.toISOString());
+  });
 });
 
 // ─── Fixture: Workday detail page (Mendrisio) ───
@@ -444,6 +476,14 @@ describe('parseCapriHoldingsDetailPage', () => {
     const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
     expect(result).not.toBeNull();
     expect(result.title).toBe('Warehouse Operator');
+  });
+
+  it('propagates only an explicit detail-page observation time', () => {
+    const observedAt = new Date('2026-10-13T10:30:00.000Z');
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt)?.crawledAt)
+      .toBe(observedAt.toISOString());
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt.toISOString()))
+      .not.toHaveProperty('crawledAt');
   });
 
   it('extracts location from JSON-LD', () => {
