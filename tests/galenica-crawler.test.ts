@@ -26,6 +26,8 @@ import {
 } from '../scripts/update-galenica-jobs.mjs';
 import { SWISS_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
 
+const TRUSTED_TEST_APPLY_URL = 'https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1';
+
 describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
   it('rejects a populated non-Swiss state even when the city aliases a Swiss canton', () => {
     // "Lugano" resolves to TI via the shared inferAnyCanton fuzzy city-name
@@ -103,7 +105,7 @@ describe('Galenica source city/state consistency (issue #11049)', () => {
     const location = galenicaWorkLocation(SION_SOURCE_STATE_MISMATCH);
     expect(location).toMatchObject({ city: 'Sion', state: 'VD' });
     expect(resolveGalenicaCanton(location)).toBe('VS');
-    expect(buildGalenicaJob([SION_SOURCE_STATE_MISMATCH]).job).toMatchObject({
+    expect(buildGalenicaJob([SION_SOURCE_STATE_MISMATCH], { youstyEnrichment: { applyUrl: TRUSTED_TEST_APPLY_URL } }).job).toMatchObject({
       location: 'Sion',
       canton: 'VS',
       addressRegion: 'VS',
@@ -114,7 +116,7 @@ describe('Galenica source city/state consistency (issue #11049)', () => {
     const location = galenicaWorkLocation(MOUTIER_SOURCE_STATE_MISMATCH);
     expect(location).toMatchObject({ city: 'Moutier', state: 'BE' });
     expect(resolveGalenicaCanton(location)).toBe('JU');
-    expect(buildGalenicaJob([MOUTIER_SOURCE_STATE_MISMATCH]).job).toMatchObject({
+    expect(buildGalenicaJob([MOUTIER_SOURCE_STATE_MISMATCH], { youstyEnrichment: { applyUrl: TRUSTED_TEST_APPLY_URL } }).job).toMatchObject({
       location: 'Moutier',
       canton: 'JU',
       addressRegion: 'JU',
@@ -239,7 +241,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
       .toBe('**Luogo di lavoro:** Amavita, Place du Lignon 19, 1219 Le Lignon');
   });
 
-  it('uses the source-backed HTTPS application link and leaves untrusted handoffs empty', () => {
+  it('uses the source-backed HTTPS application link and quarantines untrusted handoffs', () => {
     const { job } = buildGalenicaJob([SOLIQUE_VACANCY]);
     expect(job.applyUrl).toBe('https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1?lang=ger&source=Galenica%20-%20Internet&srcText=Galenica%20-%20Internet&search=1');
 
@@ -247,7 +249,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
       ...SOLIQUE_VACANCY,
       textblocks: { ...SOLIQUE_VACANCY.textblocks, applybuttonlink: 'http://apply.example.test/job/7417' },
     }], { youstyEnrichment: { applyUrl: 'https://apply.example.test/job/7417' } });
-    expect(withoutTrustedHandoff.job.applyUrl).toBe('');
+    expect(withoutTrustedHandoff).toEqual({ skip: 'no trusted source-backed HTTPS application URL' });
   });
 
   it('keeps the Yousty text as source-locale content, after the workplace line', () => {
@@ -262,7 +264,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
 
   it('retains the source canton for the Seewen homonym after locality normalization', () => {
     const { job } = buildGalenicaJob(SEEWEN_HOMONYM_VARIANTS, {
-      youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'it', applyUrl: 'x' },
+      youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'it', applyUrl: TRUSTED_TEST_APPLY_URL },
     });
     expect(job.location).toBe('Seewen');
     expect(job.addressLocality).toBe('Seewen');
@@ -273,7 +275,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
   });
 
   it('never builds a blurb: no source text → flagged, empty description', () => {
-    const result = buildGalenicaJob(APPRENTICESHIP_VARIANTS, { youstyEnrichment: { applyUrl: 'x' } });
+    const result = buildGalenicaJob(APPRENTICESHIP_VARIANTS, { youstyEnrichment: { applyUrl: TRUSTED_TEST_APPLY_URL } });
     expect(result.noSourceDescription).toBe(true);
     expect(result.job.description).toBe('');
     expect(result.job.descriptionByLocale).toEqual({});
@@ -281,7 +283,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
 
   it('flags a source text under 50 words as thin', () => {
     const short = buildGalenicaJob(APPRENTICESHIP_VARIANTS, {
-      youstyEnrichment: { description: 'Wir bieten eine abwechslungsreiche und spannende Lehrstelle als Drogist/in EFZ.', sourceLang: 'de', applyUrl: 'x' },
+      youstyEnrichment: { description: 'Wir bieten eine abwechslungsreiche und spannende Lehrstelle als Drogist/in EFZ.', sourceLang: 'de', applyUrl: TRUSTED_TEST_APPLY_URL },
     });
     expect(short.thinSourceDescription).toBe(true);
   });
@@ -301,8 +303,8 @@ describe('Galenica run partition and merge', () => {
     const fresh = withYousty(apprenticeship('12692278', 'Route des Plaines-du-Loup 2', '1018'));
     const kept = withYousty(apprenticeship('12692200', 'Place St-François 5', '1003'));
     const republished = withYousty(apprenticeship('12692299', 'Place St-François 5', '1003'));
-    const noText = buildGalenicaJob(apprenticeship('12692300', 'Rue de Bourg 8', '1003'), { youstyEnrichment: { applyUrl: 'x' } });
-    const blurbOnly = buildGalenicaJob(apprenticeship('12692301', 'Rue du Petit-Chêne 38', '1003'), { youstyEnrichment: { applyUrl: 'x' } });
+    const noText = buildGalenicaJob(apprenticeship('12692300', 'Rue de Bourg 8', '1003'), { youstyEnrichment: { applyUrl: TRUSTED_TEST_APPLY_URL } });
+    const blurbOnly = buildGalenicaJob(apprenticeship('12692301', 'Rue du Petit-Chêne 38', '1003'), { youstyEnrichment: { applyUrl: TRUSTED_TEST_APPLY_URL } });
     const stored = [
       { ...fresh.job, description: LEGACY_BLURB, descriptionByLocale: { it: LEGACY_BLURB, fr: LEGACY_BLURB }, sourceLang: 'it', slug: 'old-12692278' },
       { ...kept.job, slug: 'kept-12692200' },

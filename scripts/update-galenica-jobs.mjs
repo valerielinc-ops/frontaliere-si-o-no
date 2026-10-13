@@ -451,6 +451,8 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   const city = workLocation.city;
   const canton = resolveGalenicaCanton(workLocation);
   if (!city || !canton) return { skip: 'source location did not resolve to a Swiss canton' };
+  const applyUrl = resolveGalenicaApplyUrl(variants, youstyEnrichment);
+  if (!applyUrl) return { skip: 'no trusted source-backed HTTPS application URL' };
   const sourceLocationCanton = workLocation.sourceLocationCanton === canton
     ? canton
     : '';
@@ -486,7 +488,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
     category,
     description: '',
     descriptionByLocale: {},
-    applyUrl: resolveGalenicaApplyUrl(variants, youstyEnrichment),
+    applyUrl,
     postedDate: preferred.publication?.start
       ? new Date(preferred.publication.start).toISOString().slice(0, 10)
       : '',

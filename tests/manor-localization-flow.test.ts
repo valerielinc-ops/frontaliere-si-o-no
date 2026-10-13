@@ -10,8 +10,9 @@ describe('Manor dedicated crawler localization flow', () => {
     );
 
     expect(source).toContain('runDedicatedBaseCrawler');
-    expect(source).toContain('parseJobPage(html, url, { observedAt: new Date() })');
-    expect(source).toContain('...(pageData.crawledAt ? { crawledAt: pageData.crawledAt } : {})');
+    expect(source).toContain('parseJobPage(html, url, { observedAt })');
+    expect(source).toContain('pageData = createManorFallbackPageData(url, city, observedAt)');
+    expect(source).toContain('crawledAt: pageData.crawledAt,');
     expect(source).toContain("console.log('🚀 Running shared crawler for AI localization...')");
     expect(source).toContain('await runBaseCrawler();');
 

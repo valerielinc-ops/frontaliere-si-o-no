@@ -728,6 +728,22 @@ export function resolveManorLocation(pageData = {}, urlCity = '') {
   return { location, canton };
 }
 
+export function createManorFallbackPageData(url, city, observedAt) {
+  const observedDate = observedAt instanceof Date ? observedAt : new Date(observedAt);
+  if (!Number.isFinite(observedDate.getTime())) return null;
+  return {
+    title: extractTitleFromUrl(url),
+    description: '',
+    postedDate: '',
+    crawledAt: observedDate.toISOString(),
+    location: `${city}, CH`,
+    addressLocality: city,
+    addressRegion: '',
+    postalCode: '',
+    streetAddress: '',
+  };
+}
+
 export async function fetchManorJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const delayMs = Number(process.env.MANOR_CRAWL_DELAY_MS) || 1500;
@@ -769,6 +785,7 @@ export async function fetchManorJobs() {
     unresolvedCanton: 0,
     missingCareersContext: 0,
     missingSourceContent: 0,
+    invalidCrawlTimestamp: 0,
   };
   const contextUse = {};
   let detailFailures = 0;
@@ -777,27 +794,29 @@ export async function fetchManorJobs() {
   for (let i = 0; i < targetUrls.length; i++) {
     const { url, city } = targetUrls[i];
     const jobId = extractJobId(url) || '';
+    const observedAt = new Date();
+    if (!Number.isFinite(observedAt.getTime())) {
+      skipped.invalidCrawlTimestamp++;
+      console.warn(`  ⚠️  Skipping job ${jobId}: invalid crawl observation timestamp`);
+      continue;
+    }
 
     console.log(`  📄 [${i + 1}/${targetUrls.length}] Fetching: ${url}`);
 
     let pageData;
     try {
       const html = await fetchText(url, timeoutMs);
-      pageData = parseJobPage(html, url, { observedAt: new Date() });
+      pageData = parseJobPage(html, url, { observedAt });
     } catch (err) {
       detailFailures++;
       console.warn(`  ⚠️  Failed to fetch job detail: ${err?.message || err}`);
       // Still include with minimal data from URL
-      pageData = {
-        title: extractTitleFromUrl(url),
-        description: '',
-        postedDate: '',
-        location: `${city}, CH`,
-        addressLocality: city,
-        addressRegion: '',
-        postalCode: '',
-        streetAddress: '',
-      };
+      pageData = createManorFallbackPageData(url, city, observedAt);
+      if (!pageData) {
+        skipped.invalidCrawlTimestamp++;
+        console.warn(`  ⚠️  Skipping job ${jobId}: fallback has no valid crawl timestamp`);
+        continue;
+      }
     }
 
     const title = pageData.title || extractTitleFromUrl(url);
@@ -865,7 +884,7 @@ export async function fetchManorJobs() {
       employmentType: detectManorEmploymentType(title),
       description,
       descriptionByLocale,
-      ...(pageData.crawledAt ? { crawledAt: pageData.crawledAt } : {}),
+      crawledAt: pageData.crawledAt,
       ...mergeSourcePostingDates({}, pageData),
       source: 'company-website',
       slug: baseSlug,

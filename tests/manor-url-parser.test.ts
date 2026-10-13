@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import {
   buildManorCompanyContext,
   buildManorJobDescriptions,
+  createManorFallbackPageData,
   dedupeManorReposts,
   keepStoredManorDescriptionsByKey,
   MANOR_CAREERS_SOURCES,
@@ -97,6 +98,15 @@ describe('Manor jobs2web URL and title parsing', () => {
 
   it('fails closed when the crawl observation timestamp is invalid', () => {
     expect(() => parseJobPage('<h1>Role</h1>', BIEL_URL, { observedAt: 'not-a-date' })).toThrow(/observedAt must be a valid crawl timestamp/);
+  });
+
+  it('stamps fallback rows with the crawl observation and quarantines invalid timestamps', () => {
+    const observedAt = new Date('2026-10-13T00:00:00.000Z');
+    expect(createManorFallbackPageData(BIEL_URL, 'Biel', observedAt)).toMatchObject({
+      title: extractTitleFromUrl(BIEL_URL),
+      crawledAt: observedAt.toISOString(),
+    });
+    expect(createManorFallbackPageData(BIEL_URL, 'Biel', 'not-a-date')).toBeNull();
   });
 
   it('keeps emitted locality and canton aligned with the detail page source', () => {

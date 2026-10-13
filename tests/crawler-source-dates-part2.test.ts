@@ -13,7 +13,7 @@ import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC } from '../scripts/lib/lidl-job-parser.mjs';
 
 type Job = Record<string, unknown>;
-type Builder = (input: Job) => Job;
+type Builder = (input: Job, observedAt?: string) => Job;
 const noop = () => undefined;
 const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
 
@@ -148,11 +148,12 @@ describe('crawler publication evidence at source and merge boundaries', () => {
       detectExperienceLevel: () => 'mid', GROUPE_MUTUEL_COMPANY_NAME: 'Groupe Mutuel', GROUPE_MUTUEL_KEY: 'groupe-mutuel',
     });
     const base = { title: 'Conseiller', city: 'Sion', id: '123' };
-    expectUnknown(build({ ...base, startDate: daysAgo(2), createdDate: daysAgo(3) }));
+    const observedAt = '2026-10-13T00:00:00.000Z';
+    expectUnknown(build({ ...base, startDate: daysAgo(2), createdDate: daysAgo(3) }, observedAt));
     const iso = daysAgo(8);
     const [year, month, day] = iso.split('-');
-    expect(build({ ...base, datePosted: 'not-a-date', postingDate: iso })).toMatchObject(sourcePostingDateFields(iso));
-    expect(build({ ...base, datePosted: 'not-a-date', postingDate: 'invalid', postingEffectiveDate: `${day}/${month}/${year}` })).toMatchObject({
+    expect(build({ ...base, datePosted: 'not-a-date', postingDate: iso }, observedAt)).toMatchObject(sourcePostingDateFields(iso));
+    expect(build({ ...base, datePosted: 'not-a-date', postingDate: 'invalid', postingEffectiveDate: `${day}/${month}/${year}` }, observedAt)).toMatchObject({
       postedDate: iso, datePosted: iso, postingDateSource: 'reported',
     });
   });
