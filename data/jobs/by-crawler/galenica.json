@@ -1012,7 +1012,10 @@
       "id": "galenica-1d4b8f105211",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
+          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
+          "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-winterthur-nx1laf",
+          "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern-nx1laf",
+          "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-winterthur"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
@@ -1022,7 +1025,10 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur"
+        "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-winterthur",
+        "farmacista-farmacista-in-sostituzione-m-f-d-galenica-galenica-winterthur-nx1laf",
+        "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern-nx1laf",
+        "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3498,7 +3504,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -9233,7 +9240,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-prilly-lausanne",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-prilly-lausanne",
-        "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-prilly-lausanne",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne",
         "de": "apothekenassistent-afc-sun-store-apotheke-galenica-prilly-lausanne",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-prilly-lausanne"
       },
@@ -9247,11 +9254,12 @@
       "postingDateSource": "unknown",
       "id": "galenica-5247d22bf51a",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-prilly-lausanne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne"
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-prilly-lausanne"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-prilly-lausanne"
@@ -9592,7 +9600,7 @@
       "slug": "galenica-amavita-assistente-di-farmacia-afc-davos-platz",
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-davos-platz",
-        "en": "assistant-di-farmacia-afc-amavita-galenica-davos-platz",
+        "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz",
         "de": "pharmaassistent-in-efz-amavita-galenica-davos-platz",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-platz"
       },
@@ -9611,12 +9619,13 @@
         ],
         "en": [
           "afc-pharmacy-assistant-amavita-galenica-davos-platz",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz"
+          "assistant-di-farmacia-afc-amavita-galenica-davos-platz"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz",
-        "afc-pharmacy-assistant-amavita-galenica-davos-platz"
+        "afc-pharmacy-assistant-amavita-galenica-davos-platz",
+        "assistant-di-farmacia-afc-amavita-galenica-davos-platz"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
@@ -9887,7 +9896,7 @@
       "slug": "galenica-amavita-assistente-di-farmacia-afc-cheseaux-lausanne",
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-cheseaux-lausanne",
-        "en": "afc-pharmacy-assistant-amavita-galenica-cheseaux-lausanne",
+        "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
         "de": "apothekenhelferin-afc-amavita-galenica-cheseaux-lausanne",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-cheseaux-lausanne"
       },
@@ -9907,7 +9916,8 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
         "afc-pharmacy-assistant-amavita-galenica-lausanne",
         "apothekenassistent-afc-amavita-galenica-lausanne",
-        "aide-a-la-recherche-agricole-amavita-galenica-lausanne"
+        "aide-a-la-recherche-agricole-amavita-galenica-lausanne",
+        "afc-pharmacy-assistant-amavita-galenica-cheseaux-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9921,7 +9931,7 @@
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
           "afc-pharmacy-assistant-amavita-galenica-lausanne",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne"
+          "afc-pharmacy-assistant-amavita-galenica-cheseaux-lausanne"
         ],
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
@@ -14139,7 +14149,7 @@
       "slug": "galenica-amavita-assistente-di-farmacia-afc-davos-dorf",
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-davos-dorf",
-        "en": "afc-pharmacy-assistant-amavita-galenica-davos-dorf",
+        "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf",
         "de": "pharma-assistent-in-afc-amavita-galenica-davos-dorf",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-dorf"
       },
@@ -14157,11 +14167,12 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf"
         ],
         "en": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf"
+          "afc-pharmacy-assistant-amavita-galenica-davos-dorf"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf",
+        "afc-pharmacy-assistant-amavita-galenica-davos-dorf"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
@@ -14494,7 +14505,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-montagny-yverdon",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-montagny-yverdon",
-        "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-montagny-yverdon",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon",
         "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-montagny-yverdon"
       },
@@ -14508,11 +14519,11 @@
       "postingDateSource": "unknown",
       "id": "galenica-ecaee67b5ad6",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon"
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-montagny-yverdon"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montagny-yverdon"
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-montagny-yverdon"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -15357,7 +15368,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bussigny-lausanne",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bussigny-lausanne",
-        "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-bussigny-lausanne",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne",
         "de": "apothekenassistent-afc-sun-store-apotheke-galenica-bussigny-lausanne",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bussigny-lausanne"
       },
@@ -15371,11 +15382,12 @@
       "postingDateSource": "unknown",
       "id": "galenica-bfab207b3c77",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-bussigny-lausanne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne"
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-bussigny-lausanne"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bussigny-lausanne"
@@ -16866,7 +16878,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romanel-s-lausanne",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-romanel-s-lausanne",
-        "en": "assistant-di-farmacia-afc-sun-store-apotheke-galenica-romanel-s-lausanne",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romanel-s-lausanne",
         "de": "apothekenhelfer-afc-sun-store-apotheke-galenica-romanel-s-lausanne",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-romanel-s-lausanne"
       },
@@ -16883,7 +16895,8 @@
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romanel-s-lausanne",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
+        "assistant-di-farmacia-afc-sun-store-apotheke-galenica-romanel-s-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16893,7 +16906,7 @@
         ],
         "en": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romanel-s-lausanne"
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-romanel-s-lausanne"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-romanel-s-lausanne"
@@ -19474,7 +19487,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-cossonay-ville",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-cossonay-ville",
-        "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-cossonay-ville",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville",
         "de": "apothekenhelfer-afc-sun-store-apotheke-galenica-cossonay-ville",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-cossonay-ville"
       },
@@ -19488,11 +19501,12 @@
       "postingDateSource": "unknown",
       "id": "galenica-4de22390d72d",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-cossonay-ville"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville"
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-cossonay-ville"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cossonay-ville"
@@ -20826,7 +20840,7 @@
       "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-avry-sur-matran",
       "slugByLocale": {
         "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-avry-sur-matran",
-        "en": "afc-pharmacy-assistant-sun-store-apotheke-galenica-avry-sur-matran",
+        "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran",
         "de": "apothekenassistent-afc-sun-store-apotheke-galenica-avry-sur-matran",
         "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-avry-sur-matran"
       },
@@ -20840,11 +20854,12 @@
       "postingDateSource": "unknown",
       "id": "galenica-adcd4d93994e",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-avry-sur-matran"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran"
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-avry-sur-matran"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-avry-sur-matran"

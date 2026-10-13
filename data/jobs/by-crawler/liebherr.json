@@ -91,7 +91,7 @@
         "it": "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
         "en": "sales-assistant-m-f-d-liebherr-nussbaumen",
         "de": "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "fr": "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
+        "fr": "assistant-commercial-m-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -138,7 +138,7 @@
       "liebherrSourceJobId": "82726",
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistant-commercial-m-f-d-liebherr-nussbaumen"
+        "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -149,7 +149,7 @@
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "assistant-commercial-m-f-d-liebherr-nussbaumen"
+          "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.388Z",
@@ -721,7 +721,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:32:13.231Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1153,7 +1152,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:03:37.896Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1238,7 +1236,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:04:00.181Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -1321,7 +1318,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:03:38.306Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2363,7 +2359,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.418Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3417,8 +3412,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630",
-      "needsRetranslation": true
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-a8f54b3c2fa1",
@@ -3666,7 +3660,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.374Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -5170,8 +5163,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400",
-      "needsRetranslation": true
+      "postalCode": "5400"
     },
     {
       "id": "liebherr-6d60ffba63df",
@@ -5523,7 +5515,7 @@
         "it": "acquirente-di-materie-prime-m-w-d-liebherr-bulle",
         "en": "commodity-buyer-m-f-x-liebherr-bulle",
         "de": "rohstoffeinkaufer-m-w-d-liebherr-bulle",
-        "fr": "commodity-buyer-m-w-d-liebherr-bulle"
+        "fr": "acheteur-de-marchandises-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5572,9 +5564,7 @@
         "commodity-buyer-m-w-d-liebherr-bulle",
         "commodity-buyer-m-f-x-liebherr-bulle",
         "commerciante-di-merci-m-f-d-liebherr-bulle",
-        "warenkaufer-m-w-x-liebherr-bulle",
-        "acheteur-de-marchandises-h-f-x-liebherr-bulle",
-        "rohstoffeinkaufer-m-w-d-liebherr-bulle"
+        "warenkaufer-m-w-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5587,7 +5577,7 @@
           "warenkaufer-m-w-x-liebherr-bulle"
         ],
         "fr": [
-          "acheteur-de-marchandises-h-f-x-liebherr-bulle"
+          "commodity-buyer-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-09-24T14:54:53.500Z",

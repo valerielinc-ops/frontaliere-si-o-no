@@ -158,7 +158,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -369,7 +370,7 @@
       "title": "Development Engineer Electronics with EMV lead",
       "titleByLocale": {
         "de": "Development Ingenieur Electronics with EMV lead",
-        "en": "Development Engineer Electronics with EMV lead",
+        "en": "Development Engineer Electronics with EMC lead",
         "it": "Development Ingegnere Electronics with EMV lead",
         "fr": "Development Ingénieur Electronics with EMV lead"
       },
@@ -434,7 +435,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-38b4439706fb",

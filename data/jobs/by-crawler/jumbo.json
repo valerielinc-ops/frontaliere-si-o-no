@@ -9837,11 +9837,10 @@
       },
       "postalCode": "6850",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1318,
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9925,11 +9924,10 @@
       },
       "postalCode": "6598",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1315,
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10110,7 +10108,6 @@
       },
       "postalCode": "6532",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
@@ -10122,7 +10119,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1317,
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12231,7 +12228,7 @@
       "id": "jumbo-64ce681a-c01",
       "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur",
         "en": "sales-consultant-deco-jumbo-chur",
         "fr": "consultant-commercial-deco-jumbo-chur"
@@ -12294,14 +12291,15 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -13263,7 +13261,7 @@
       "id": "jumbo-cd336169-823",
       "slug": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-0jz8vr",
+        "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
         "en": "deco-sales-consultant-jumbo-chur",
         "fr": "conseiller-de-vente-in-deco-jumbo-chur"
@@ -13327,14 +13325,15 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur-0jz8vr"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -16689,7 +16688,6 @@
           "• Stilsicheres Deutsch in Wort und Schrift sowie gute Französisch- und Englischkenntnisse"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "leiter-warenflusssteuerung-jumbo-dietlikon"
@@ -18664,7 +18662,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -18746,7 +18743,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -18837,7 +18833,6 @@
           "• Deutsch beherrschst du sehr gut – mündlich und schriftlich."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -18930,7 +18925,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -18952,7 +18946,7 @@
       "slug": "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz-c277ff168a",
       "slugByLocale": {
         "de": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "it": "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz-c277ff168a",
+        "it": "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz",
         "en": "rayon-conductor-do-it-incl-deputy-management-jumbo-eyholz",
         "fr": "rayon-chef-do-it-incl-gestion-adjointe-jumbo-eyholz"
       },
@@ -19017,14 +19011,12 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
-        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-        "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz"
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
-          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
-          "rayon-direttore-do-it-incl-gestione-aggiunto-jumbo-eyholz"
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
         ],
         "en": [
           "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz"
