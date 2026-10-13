@@ -55,7 +55,7 @@
     ['country', /\b(paese|country|land|pays|nazione)\b/],
     ['linkedin', /\blinkedin\b/],
     ['availability', /\b(availability|available|start date|notice period|preavviso|disponibil|verfugbarkeit|verfugbar|eintritt|date de debut|date d entree)\b/],
-    ['salary', /\b(salary|wage|compensation|pay|gehalt|loh(n|nvorstellung)|salario|salariale|stipendio|salary expectations)\b/],
+    ['salary', /\b(salary|wage|compensation|pay|gehalt|loh(n|nvorstellung)|salario|salarial|stipendio|salary expectations)\b/],
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;

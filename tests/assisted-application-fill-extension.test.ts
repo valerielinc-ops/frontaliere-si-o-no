@@ -604,6 +604,11 @@ describe('fill extension: other portals', () => {
     expect(F.answerFor(entry, availabilityKit)).toEqual({ value: '2026-11-01', family: 'availability' });
     await F.fillPage(document, availabilityKit, { getFile: async () => null, attempts: new WeakMap() });
     expect(input.value).toBe('2026-11-01');
+
+    const salaryPage = page('<form><label for="salary">Desired salary (CHF per year)</label><input id="salary"></form>');
+    const salaryInput = salaryPage.document.getElementById('salary') as HTMLInputElement;
+    const salaryEntry = salaryPage.F.collect(salaryPage.document).find((item: any) => item.element === salaryInput);
+    expect(salaryPage.F.answerFor(salaryEntry, availabilityKit)).toEqual({ value: "CHF 100'000", family: 'salary' });
   });
 
   // Rolex 2026-10-02: the posting asks for school reports and aptitude test results besides the CV.
