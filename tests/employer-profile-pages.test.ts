@@ -230,7 +230,7 @@ describe('employerProfilePagesPlugin', () => {
     const html = read('aziende/acme-corp/index.html');
     const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
     expect(main).toMatch(/<img[^>]*alt=["']Logo Acme Corp["'][^>]*width=["']?80/);
-    expect(main.match(/\bjc-logoimg\b/g) ?? []).toHaveLength(15);
+    expect(main.match(/\bjc-logoimg\b/g) ?? []).toHaveLength(14);
   });
 
   it('has a renderable logo source for every committed employer profile', () => {
@@ -290,11 +290,11 @@ describe('employerProfilePagesPlugin', () => {
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
 
-    // Fifteen valid detail slugs are emitted; the sixteenth fixture is
+    // Fourteen valid detail slugs are emitted; the fifteenth fixture is
     // intentionally slugless and stays excluded from both the card list and
     // ItemList. The shared cadence places an ad after positions 3, 6, 9 and
     // 12, but not after the final card.
-    expect(cardCount).toBe(15);
+    expect(cardCount).toBe(14);
     expect(infeedAdCount).toBe(4);
     expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
     expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
