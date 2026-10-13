@@ -25,7 +25,7 @@
       "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
     },
     "sector": "IT / SAP / AI Consulting",
-    "expiredAt": "2026-10-13T09:13:17.628Z",
+    "expiredAt": "2026-10-13T21:12:20.058Z",
     "previousSlugs": [
       "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
       "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
@@ -53,8 +53,20 @@
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-    "firstSeenAt": "2026-09-04T22:55:58.547Z"
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429",
+    "firstSeenAt": "2026-09-04T22:55:58.547Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429",
+        "firstSeenAt": "2026-09-04T22:55:58.547Z",
+        "title": "AI Platform Engineer — Plugins & Marketplace"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+        "firstSeenAt": "2026-09-04T22:55:58.547Z",
+        "title": "AI Platform Engineer — Plugins & Marketplace"
+      }
+    ]
   },
   {
     "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
@@ -82,7 +94,7 @@
       "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
     },
     "sector": "IT / SAP / AI Consulting",
-    "expiredAt": "2026-10-13T09:13:17.628Z",
+    "expiredAt": "2026-10-13T21:12:20.058Z",
     "previousSlugs": [
       "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
     ],
@@ -97,8 +109,64 @@
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-    "firstSeenAt": "2026-10-03T09:10:26.715Z"
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249",
+    "firstSeenAt": "2026-10-03T09:10:26.715Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249",
+        "firstSeenAt": "2026-10-03T09:10:26.715Z",
+        "title": "Consultant Expert SAP CRM F/H"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+        "firstSeenAt": "2026-10-03T09:10:26.715Z",
+        "title": "Consultant Expert SAP CRM F/H"
+      }
+    ]
+  },
+  {
+    "slug": "senior-java-platform-ingegnere-talan-geneve",
+    "title": "Senior Java Platform Engineer",
+    "titleByLocale": {
+      "it": "Ingegnere di piattaforma Java senior",
+      "en": "Senior Java Platform Engineer",
+      "de": "Senior Java Platform+",
+      "fr": "Senior Java Platform Ingénieur"
+    },
+    "company": "Talan",
+    "companyKey": "talan",
+    "location": "Genève, , Switzerland",
+    "addressLocality": "Genève",
+    "descriptionByLocale": {
+      "it": "All'interno del team IT, sarai responsabile della progettazione, dello sviluppo e del funzionamento dei servizi backend e API, principalmente in ambiente Java.\n\n• Progettare e sviluppare servizi backend con Java, Spring e Spring Boot.\n\n• Sviluppare e mantenere le API REST e SOAP e la loro documentazione tramite OpenAPI / Swagger.\n\n• Sviluppare interfacce di amministrazione con Vue.js o Angular.\n\n• Integra i database Oracle e MS SQL Server con JPA/Hibernate, SQL/PL-SQL e Liquibase.\n\n• Implementare e mantenere le tubazioni CI/CD con Maven e Git, inclusi test automatizzati e controlli di qualità.\n\n• Applicare buone pratiche di sicurezza delle applicazioni e gestire i meccanismi di autenticazione e autorizzazione.\n\n• Partecipa alla strategia di test automatizzata: unità, integrazione e BDD/ATDD.\n\n• Fornire supporto alla produzione, analisi degli incidenti e delle prestazioni e migliorare l'affidabilità.\n\n• Documento API, architettura e procedure operative, in particolare in JIRA.\n\n• Collabora con i team aziendali e IT per garantire l'allineamento dell'architettura con le esigenze aziendali e gli standard della piattaforma.\n\nProfilo ricercato:\n\n• Esperienza da 7 a 15 anni nello sviluppo del software\n\n• Solida padronanza di Java, primavera, avvio di primavera e progettazione di REST/SOAP API.\n\n• Buona conoscenza di Oracle, MS SQL Server, JPA/Hibernate, SQL e Liquibase.\n\n• Esperienza in CI/CD e DevOps: Git, Maven, YAML pipelines e testing automation.\n\n• Mastery delle pratiche di sicurezza delle applicazioni: OAuth2/OIDC, Kerberos, OWASP e Secure Coding.\n\n• Esperienza in test automatizzati: JUnit, Mockito, Cucumber.\n\n• Conoscenza in View.js o Angular.\n\n• Buona architettura del software, documentazione e capacità di risoluzione degli incidenti di produzione.\n\n• Inglese comune, francese apprezzato.\n\n• Profilo indipendente, strutturato, affidabile e collaborativo.\nBeni\n\n• BPMN / Drools, Node.js, E2E test, JMeter.\n\n• Esperienza in un ambiente bancario o finanziario regolamentato.",
+      "en": "Description Within the IT team, you will be in charge of the design, development and operation of backend and d,API services, mainly in Java environment.\n\n- Design and develop backend services with Java, Spring and Spring Bot. - Develop and maintain REST and SOAP APIs, as well as documentation via OpenAPI / Swagger. - Develop ad hoc interfaces with Vue.js or Angular. - Integrate Oracle and MS SQL Server databases with JPA/Hibernate, SQL/PL-SQL and Liquibase. - Set up and maintain CI/CD pipelines with Maven and Git, including automated tests and quality controls.\n\n- Applying good application security practices and managing mechanisms d, authentication and d, authorization. - Participating in the automated testing strategy: unitary, integration and BDD/ATDD. - Providing production support, l, incident and performance analysis, as well as improved reliability. - Document APIs, architecture and operational procedures, notably in JIRA. - Working with business and IT teams to ensure the alignment of architecture with the business needs and standards of the platform.\n\nProfile sought - 7 to 15 years d, experience in software development - Solid mastery of Java, Spring, Spring Bot and design of,API REST/SOAP. - Good knowledge of Oracle, MS SQL Server, JPA/Hibernate, SQL and Liquibase. - Experience in CI/CD and Dev Ops: Git, Maven, YAML pipelines and testing automation. - Mastery of application security practices: OAuth2/OIDC, Kerberos, OWASP and Secure Coding. - Experience in automated tests: JUnit, Mockito, Cucumber. - Knowledge in View.js or Angular.\n\n- Good software architecture, documentation and resolution of production incidents. - Common English, French appreciated. - Self-contained, structured, reliable and collaborative profile.\n\nAtouts - BPMN / Drools, Node.js, tests E2E, JMeter. - Experience in regulated banking or financial environment.",
+      "de": "Innerhalb des IT-Teams sind Sie verantwortlich für das Design, die Entwicklung und den Betrieb von Backend- und API-Services, hauptsächlich in Java-Umgebungen.\n\n• Design und Entwicklung von Backend-Services mit Java, Spring und Spring Boot.\n\n• Entwicklung und Pflege von REST- und SOAP-APIs und deren Dokumentation über OpenAPI / Swagger.\n\n• Entwickeln Sie Verwaltungsschnittstellen mit Vue.js oder Angular.\n\n• Integrieren Sie Oracle und MS SQL Server Datenbanken mit JPA/Hibernate, SQL/PL-SQL und Liquibase.\n\n• Implementieren und pflegen Sie CI/CD-Pipelines mit Maven und Git, einschließlich automatisierter Tests und Qualitätskontrollen.\n\n• Anwendung guter Anwendungssicherheitspraktiken und Verwaltung von Authentifizierungs- und Autorisierungsmechanismen.\n\n• Beteiligen Sie sich an der automatisierten Teststrategie: Einheit, Integration und BDD/ATDD.\n\n• Bereitstellung von Produktionsunterstützung, Incident- und Performance-Analyse und Verbesserung der Zuverlässigkeit.\n\n• Dokument APIs, Architektur und operative Verfahren, insbesondere in JIRA.\n\n• Arbeiten Sie mit Geschäfts- und IT-Teams zusammen, um die Ausrichtung der Architektur auf die Geschäftsanforderungen und Plattformstandards sicherzustellen.\n\nGesuchtes Profil:\n\n• 7 bis 15 Jahre Erfahrung in der Softwareentwicklung\n\n• Solide Beherrschung von Java, Spring, Spring Boot und Design von REST / SOAP API.\n\n• Gute Kenntnisse in Oracle, MS SQL Server, JPA/Hibernate, SQL und Liquibase.\n\n• Erfahrung in CI/CD und DevOps: Git, Maven, YAML Pipelines und Testautomatisierung.\n\n• Beherrschung der Anwendungssicherheitspraktiken: OAuth2/OIDC, Kerberos, OWASP und Secure Coding.\n\n• Erfahrung im automatisierten Testen: JUnit, Mockito, Gurke.\n\n• Wissen in View.js oder Angular.\n\n• Gute Software-Architektur, Dokumentation und Auflösung von Produktionsvorfällen.\n\n• Englisch, Französisch geschätzt.\n\n• Unabhängiges, strukturiertes, zuverlässiges und kollaboratives Profil.\nVermögenswerte\n\n• BPMN / Drools, Node.js, E2E Tests, JMeter.\n\n• Erfahrung in einem regulierten Banken- oder Finanzumfeld.",
+      "fr": "Au sein de l’équipe IT, vous serez en charge de la conception, du développement et de l’exploitation de services backend et d’API, principalement en environnement Java.\n\n• Concevoir et développer des services backend avec Java, Spring et Spring Boot.\n\n• Développer et maintenir des API REST et SOAP, ainsi que leur documentation via OpenAPI / Swagger.\n\n• Développer ponctuellement des interfaces d’administration avec Vue.js ou Angular.\n\n• Intégrer les bases de données Oracle et MS SQL Server avec JPA/Hibernate, SQL/PL-SQL et Liquibase.\n\n• Mettre en place et maintenir les pipelines CI/CD avec Maven et Git, incluant les tests automatisés et contrôles qualité.\n\n• Appliquer les bonnes pratiques de sécurité applicative et gérer les mécanismes d’authentification et d’autorisation.\n\n• Participer à la stratégie de tests automatisés : unitaires, intégration et BDD/ATDD.\n\n• Assurer le support de production, l’analyse des incidents et des performances, ainsi que l’amélioration de la fiabilité.\n\n• Documenter les API, l’architecture et les procédures opérationnelles, notamment dans JIRA.\n\n• Collaborer avec les équipes métier et IT afin de garantir l’alignement de l’architecture avec les besoins business et les standards de la plateforme.\n\nProfil recherché:\n\n• 7 à 15 ans d’expérience en développement logiciel\n\n• Solide maîtrise de Java, Spring, Spring Boot et conception d’API REST/SOAP.\n\n• Bonne connaissance de Oracle, MS SQL Server, JPA/Hibernate, SQL et Liquibase.\n\n• Expérience en CI/CD et DevOps : Git, Maven, pipelines YAML et automatisation des tests.\n\n• Maîtrise des pratiques de sécurité applicative : OAuth2/OIDC, Kerberos, OWASP et Secure Coding.\n\n• Expérience en tests automatisés : JUnit, Mockito, Cucumber.\n\n• Connaissances en Vue.js ou Angular.\n\n• Bonnes capacités en architecture logicielle, documentation et résolution d’incidents de production.\n\n• Anglais courant, français apprécié.\n\n• Profil autonome, structuré, fiable et collaboratif.\nAtouts\n\n• BPMN / Drools, Node.js, tests E2E, JMeter.\n\n• Expérience en environnement bancaire ou financier réglementé."
+    },
+    "slugByLocale": {
+      "it": "senior-java-platform-ingegnere-talan-geneve",
+      "en": "senior-java-platform-engineer-talan-geneve-switzerland",
+      "de": "senior-java-platform-ingenieur-talan-geneve",
+      "fr": "senior-java-platform-engineer-talan-geneve-switzerland"
+    },
+    "sector": "IT / SAP / AI Consulting",
+    "expiredAt": "2026-10-13T21:12:20.058Z",
+    "previousSlugs": [
+      "senior-java-platform-engineer-talan-geneve-switzerland"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-java-platform-engineer-talan-geneve-switzerland"
+      ]
+    },
+    "postalCode": "1201",
+    "streetAddress": "Place Ruth-Bösiger 6",
+    "salaryMin": 97500,
+    "salaryMax": 165500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000144775714-senior-java-platform-engineer?oga=true",
+    "firstSeenAt": "2026-08-21T21:26:00.515Z"
   },
   {
     "slug": "analizzatore-sql-developer-talan-geneve-switzerland",
