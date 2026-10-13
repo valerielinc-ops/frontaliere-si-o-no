@@ -134,7 +134,7 @@ describe('orphanQueryData — path helpers', () => {
     });
 
     expect(rendered.indexable).toBe(false);
-    expect(rendered.html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(rendered.html).toMatch(/<meta(?=[^>]*\bname=["']?robots["']?)(?=[^>]*\bcontent=["']?noindex,follow)/i);
     expect(rendered.html).toContain('Domande frequenti');
     expect(rendered.html).toContain('assistente mensa lugano');
     expect(rendered.wordCount).toBeGreaterThanOrEqual(50);
