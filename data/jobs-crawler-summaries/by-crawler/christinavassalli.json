@@ -1,7 +1,7 @@
 {
   "key": "christinavassalli",
   "label": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
-  "generatedAt": "2026-10-13T09:35:44.684Z",
+  "generatedAt": "2026-10-13T21:38:56.035Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7147,
-  "avgDurationMs": 7147,
+  "durationMs": 7086,
+  "avgDurationMs": 7086,
   "durationHistory": [
-    7147
+    7086
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:35:33.390Z",
+      "crawledAt": "2026-10-13T21:38:42.219Z",
       "addressLocality": "Wollerau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://christinavassalli.ch/job/telefonistin-20-40-zuerich/",
       "source": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:35:33.391Z",
+      "crawledAt": "2026-10-13T21:38:42.221Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

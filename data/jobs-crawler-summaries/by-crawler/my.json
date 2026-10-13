@@ -1,7 +1,7 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-13T09:44:17.123Z",
+  "generatedAt": "2026-10-13T21:36:43.600Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4124,
-  "avgDurationMs": 4124,
+  "unchangedCount": 1,
+  "durationMs": 3328,
+  "avgDurationMs": 3328,
   "durationHistory": [
-    4124
+    3328
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "my-d79151f26e85",
       "slug": "apprendista-commercio-al-dettaglio-afc-mobili-m-f-100-teo-jakob-ag-bern",
@@ -35,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:44:04.103Z",
+      "crawledAt": "2026-10-13T21:36:30.190Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -66,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

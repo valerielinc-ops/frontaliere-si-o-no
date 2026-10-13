@@ -1,7 +1,7 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-10-13T09:36:05.676Z",
+  "generatedAt": "2026-10-13T21:36:33.263Z",
   "total": 2,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7935,
-  "avgDurationMs": 7935,
+  "durationMs": 7860,
+  "avgDurationMs": 7860,
   "durationHistory": [
-    7935
+    7860
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46131",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:35:53.048Z",
+      "crawledAt": "2026-10-13T21:36:20.082Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46132",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:35:53.047Z",
+      "crawledAt": "2026-10-13T21:36:20.081Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
+  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
 }

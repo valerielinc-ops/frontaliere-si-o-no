@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-13T09:43:36.707Z",
+  "assembledAt": "2026-10-13T21:38:05.568Z",
   "jobs": [
     {
       "id": "pantr-ch-71516d1b8477",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-finanzen-controlling-134/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.449Z",
+      "crawledAt": "2026-10-13T21:38:00.242Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.447Z",
+      "crawledAt": "2026-10-13T21:38:00.241Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
         "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountants-pantr-gmbh-zurich-fa865fd8b331",
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "fr": "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
+        "fr": "financial-accountant-pantr-gmbh-zurich"
       },
       "slugDisambiguator": "fa865fd8b331",
       "company": "Pantr GmbH",
@@ -196,7 +196,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.446Z",
+      "crawledAt": "2026-10-13T21:38:00.240Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-accountant-pantr-gmbh-zurich"
+        "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -231,7 +231,7 @@
         "fr": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
           "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-          "financial-accountant-pantr-gmbh-zurich"
+          "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
@@ -281,7 +281,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.445Z",
+      "crawledAt": "2026-10-13T21:38:00.239Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.444Z",
+      "crawledAt": "2026-10-13T21:38:00.238Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,7 +443,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.443Z",
+      "crawledAt": "2026-10-13T21:38:00.237Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -526,7 +526,7 @@
       "url": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.442Z",
+      "crawledAt": "2026-10-13T21:38:00.236Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -608,7 +608,7 @@
       "url": "https://pantr.ch/jobs/senior-business-controller-196/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.441Z",
+      "crawledAt": "2026-10-13T21:38:00.234Z",
       "addressLocality": "Oberkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -684,7 +684,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.440Z",
+      "crawledAt": "2026-10-13T21:38:00.232Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -765,7 +765,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.439Z",
+      "crawledAt": "2026-10-13T21:38:00.230Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -843,7 +843,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-finanzen-255/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T09:43:30.437Z",
+      "crawledAt": "2026-10-13T21:38:00.228Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -891,87 +891,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "pantr-ch-9bb03bc2169d",
-      "slug": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-      "slugByLocale": {
-        "it": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "en": "business-controllers-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "de": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "fr": "controleur-d-entreprise-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
-      },
-      "slugDisambiguator": "9bb03bc2169d",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Business Controller",
-      "titleByLocale": {
-        "it": "Controllore di affari",
-        "en": "Business controllers",
-        "de": "Business Controller",
-        "fr": "Contrôleur d'entreprise"
-      },
-      "description": "Für eine führende, zukunftsorientierte Unternehmensgruppe im Bereich moderner Infrastrukturlösungen suchen wir eine analytisch starke Persönlichkeit mit vernetztem Denkvermögen. In dieser anspruchsvollen Funktion verbindest du Controlling, Business Intelligence und Digitalisierung, um komplexe Projekte finanziell transparent zu steuern. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas bewirkst du in dieser Funktion:\n- Projektcontrolling & Analyse: Finanziell transparente Steuerung von Projekten sowie die Erstellung von Soll-Ist-Vergleichen und fundierten Abweichungsanalysen zur Ermittlung von Ursachen.\n- Planung & Steuerung: Erarbeitung von verlässlichen Forecasts, Budgets und Finanzplanungen als fundierte Entscheidungsgrundlage sowie die frühzeitige Identifikation von Chancen, Risiken und Optimierungspotenzialen.\n- Reporting & Business Intelligence: Weiterentwicklung von Kennzahlen, Dashboards und Management-Reports sowie die aktive Mitgestaltung moderner Reporting-Lösungen mittels Power BI zur Weiterentwicklung der internen BI-Landschaft.\n- Schnittstelle & Beratung: Enge Zusammenarbeit und Beratung des CFOs, der Geschäftsleitung sowie der Projektleitenden bei finanziellen Fragestellungen mittels aussagekräftiger Analysen.\n- Prozessoptimierung: Aktive Mitwirkung bei Digitalisierungs- und Automatisierungsprojekten zur Effizienzsteigerung der finanzspezifischen Prozesse.\nDas bringt dich zur perfekten Ergänzung:\n- Ausbildung: Abgeschlossenes Studium (FH, HF, Universität) mit Schwerpunkt Finanzen, Controlling, Betriebswirtschaft oder eine vergleichbare höhere Fachausbildung.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung im Controlling, idealerweise mit klarem Fokus auf das Projektcontrolling sowie Praxis in den Bereichen Budgetierung, Forecasting und Kostenrechnung.\n- IT-Skills: Versierter Umgang mit ERP-Systemen (idealerweise Abacus) sowie fundierte Praxis mit Power BI oder vergleichbaren Business-Intelligence-Lösungen, um Daten verständlich aufzubereiten.\n- Persönlichkeit: Strukturierte, präzise Arbeitsweise, rasche Auffassungsgabe für komplexe Zusammenhänge sowie eine klare, adressatengerechte Kommunikation gegenüber unterschiedlichen Anspruchsgruppen.\nDas erwartet dich beim Kunden:\n- Arbeitsplatz & Infrastruktur: Ein top ausgestattetes, modernes Gebäude mit innovativen Büros, zahlreichen Parkmöglichkeiten direkt vor Ort sowie ein eigenes Personalrestaurant für entspannte Pausen.\n- Entwicklung & Karriere: Individuelle Karrierewege mit der Option, zusätzliche Verantwortung zu übernehmen, sowie vielfältige interne und externe Weiterbildungsangebote.\n- Kultur & Benefits: Ein offenes, kollegiales Arbeitsklima mit regelmässigen Teamevents (z. B. eine jährliche Aktivwoche) sowie Zugang zu einer kostenlosen, betrieblichen Sozialberatung bei persönlichen, familiären oder finanziellen Herausforderungen.",
-      "descriptionByLocale": {
-        "it": "Per un gruppo leader e orientato al futuro di aziende nel campo delle moderne soluzioni infrastrutturali, stiamo cercando una personalità analiticamente forte con competenze di pensiero in rete. In questa funzione stimolante, si combina il controllo, l'intelligenza aziendale e la digitalizzazione per gestire progetti complessi in modo finanziariamente trasparente. Immediatamente o con accordo, ti stiamo cercando!\nQuesto è ciò che fai in questa funzione:\n- Controllo e analisi dei progetti: controllo finanziario e trasparente dei progetti, nonché la creazione di confronti obiettivi e analisi di deviazione ben fondate per determinare le cause.\n- Pianificazione e controllo: sviluppo di previsioni, budget e pianificazione finanziaria affidabili come base solida per il processo decisionale, nonché l'identificazione precoce di opportunità, rischi e potenziale di ottimizzazione.\n- Reporting & Business Intelligence: ulteriore sviluppo di figure chiave, dashboard e rapporti di gestione, nonché la co-design attiva di soluzioni di reportistica moderne che utilizzano Power BI per sviluppare ulteriormente il paesaggio interno BI.\n- Interface & Consulting: stretta collaborazione e consulenza del CFO, della gestione e dei project manager su questioni finanziarie attraverso analisi significative.\n- Ottimizzazione dei processi: Partecipazione attiva ai progetti di digitalizzazione e automazione per aumentare l'efficienza dei processi finanziari.\nQuesto ti porta al complemento perfetto:\n- Istruzione: studi completi (FH, HF, università) con un focus sulla finanza, il controllo, l'amministrazione aziendale o una formazione specialistica comparabile superiore.\n- Esperienza: Diversi anni di esperienza professionale nel controllo, idealmente con una chiara attenzione al controllo del progetto e la pratica nei settori di bilancio, previsione e contabilità dei costi.\n- Competenze IT: Adept use of ERP systems (idely Abacus) e la pratica ben fondata con Power BI o soluzioni di business intelligence comparabili per elaborare i dati in modo comprensibile.\n- Personalità: metodo di lavoro strutturato e preciso, rapida comprensione delle relazioni complesse e una comunicazione chiara e orientata al destinatario a diversi stakeholder.\nQuesto è ciò che vi aspetta dal cliente:\n- Workplace & Infrastructure: un edificio moderno e ben attrezzato con uffici innovativi, numerosi parcheggi direttamente in loco e il suo ristorante personale per soggiorni rilassanti.\n- Sviluppo & Carriera: percorsi di carriera individuali con la possibilità di assumersi ulteriori responsabilità, così come una vasta gamma di offerte di formazione interna ed esterna.\n- Cultura e vantaggi: Un ambiente di lavoro aperto e collegiale con eventi di squadra regolari (ad esempio una settimana attiva annuale) e l'accesso alla consulenza sociale aziendale gratuita per sfide personali, familiari o finanziarie.",
-        "en": "For a leading, future-oriented group of companies in the field of modern infrastructure solutions, we are looking for an analytically strong personality with networked thinking skills. In this challenging function, you combine controlling, business intelligence and digitalization to manage complex projects in a financially transparent manner. Immediately or by agreement, we are looking for you!\nThis is what you do in this function:\n- Project Controlling & Analysis: Financially transparent control of projects as well as the creation of target-actual comparisons and well-founded deviation analyses to determine causes.\n- Planning & Control: Development of reliable forecasts, budgets and financial planning as a sound basis for decision-making as well as the early identification of opportunities, risks and optimization potential.\n- Reporting & Business Intelligence: Further development of key figures, dashboards and management reports as well as the active co-design of modern reporting solutions using Power BI to further develop the internal BI landscape.\n- Interface & Consulting: Close cooperation and advice of the CFO, the management and the project managers on financial issues through meaningful analyses.\n- Process optimization: Active participation in digitalization and automation projects to increase the efficiency of financial processes.\nThis brings you to the perfect complement:\n- Education: Completed studies (FH, HF, university) with a focus on finance, controlling, business administration or a comparable higher specialist training.\n- Experience: Several years of professional experience in controlling, ideally with a clear focus on project controlling as well as practice in the areas of budgeting, forecasting and cost accounting.\n- IT skills: Adept use of ERP systems (ideally Abacus) as well as well-founded practice with Power BI or comparable business intelligence solutions to process data in an understandable way.\n- Personality: Structured, precise working method, quick understanding of complex relationships as well as a clear, addressee-oriented communication to different stakeholders.\nThis is what awaits you from the customer:\n- Workplace & Infrastructure: A well-equipped, modern building with innovative offices, numerous parking facilities directly on site and its own staff restaurant for relaxing breaks.\n- Development & Career: Individual career paths with the option to take on additional responsibility, as well as a wide range of internal and external training offers.\n- Culture & Benefits: An open, collegial working environment with regular team events (e.g. an annual active week) as well as access to free, company social counselling for personal, family or financial challenges.",
-        "de": "Für eine führende, zukunftsorientierte Unternehmensgruppe im Bereich moderner Infrastrukturlösungen suchen wir eine analytisch starke Persönlichkeit mit vernetztem Denkvermögen. In dieser anspruchsvollen Funktion verbindest du Controlling, Business Intelligence und Digitalisierung, um komplexe Projekte finanziell transparent zu steuern. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas bewirkst du in dieser Funktion:\n- Projektcontrolling & Analyse: Finanziell transparente Steuerung von Projekten sowie die Erstellung von Soll-Ist-Vergleichen und fundierten Abweichungsanalysen zur Ermittlung von Ursachen.\n- Planung & Steuerung: Erarbeitung von verlässlichen Forecasts, Budgets und Finanzplanungen als fundierte Entscheidungsgrundlage sowie die frühzeitige Identifikation von Chancen, Risiken und Optimierungspotenzialen.\n- Reporting & Business Intelligence: Weiterentwicklung von Kennzahlen, Dashboards und Management-Reports sowie die aktive Mitgestaltung moderner Reporting-Lösungen mittels Power BI zur Weiterentwicklung der internen BI-Landschaft.\n- Schnittstelle & Beratung: Enge Zusammenarbeit und Beratung des CFOs, der Geschäftsleitung sowie der Projektleitenden bei finanziellen Fragestellungen mittels aussagekräftiger Analysen.\n- Prozessoptimierung: Aktive Mitwirkung bei Digitalisierungs- und Automatisierungsprojekten zur Effizienzsteigerung der finanzspezifischen Prozesse.\nDas bringt dich zur perfekten Ergänzung:\n- Ausbildung: Abgeschlossenes Studium (FH, HF, Universität) mit Schwerpunkt Finanzen, Controlling, Betriebswirtschaft oder eine vergleichbare höhere Fachausbildung.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung im Controlling, idealerweise mit klarem Fokus auf das Projektcontrolling sowie Praxis in den Bereichen Budgetierung, Forecasting und Kostenrechnung.\n- IT-Skills: Versierter Umgang mit ERP-Systemen (idealerweise Abacus) sowie fundierte Praxis mit Power BI oder vergleichbaren Business-Intelligence-Lösungen, um Daten verständlich aufzubereiten.\n- Persönlichkeit: Strukturierte, präzise Arbeitsweise, rasche Auffassungsgabe für komplexe Zusammenhänge sowie eine klare, adressatengerechte Kommunikation gegenüber unterschiedlichen Anspruchsgruppen.\nDas erwartet dich beim Kunden:\n- Arbeitsplatz & Infrastruktur: Ein top ausgestattetes, modernes Gebäude mit innovativen Büros, zahlreichen Parkmöglichkeiten direkt vor Ort sowie ein eigenes Personalrestaurant für entspannte Pausen.\n- Entwicklung & Karriere: Individuelle Karrierewege mit der Option, zusätzliche Verantwortung zu übernehmen, sowie vielfältige interne und externe Weiterbildungsangebote.\n- Kultur & Benefits: Ein offenes, kollegiales Arbeitsklima mit regelmässigen Teamevents (z. B. eine jährliche Aktivwoche) sowie Zugang zu einer kostenlosen, betrieblichen Sozialberatung bei persönlichen, familiären oder finanziellen Herausforderungen.",
-        "fr": "Pour un groupe d'entreprises leader et orienté vers l'avenir dans le domaine des solutions d'infrastructure modernes, nous recherchons une personnalité analytique forte avec des compétences de pensée en réseau. Dans cette fonction difficile, vous combinez le contrôle, l'intelligence d'affaires et la numérisation pour gérer des projets complexes d'une manière transparente financièrement. Immédiatement ou d'accord, nous vous recherchons !\nVoici ce que vous faites dans cette fonction:\n- Contrôle et analyse des projets : Contrôle financier transparent des projets, établissement de comparaisons objectives et d'analyses d'écarts bien fondées pour déterminer les causes.\n- Planification et contrôle : élaboration de prévisions fiables, de budgets et de planification financière comme base solide pour la prise de décisions ainsi que l'identification précoce des possibilités, des risques et du potentiel d'optimisation.\n- Reporting & Business Intelligence: Développement ultérieur de chiffres clés, de tableaux de bord et de rapports de gestion ainsi que la co-conception active de solutions modernes de reporting utilisant Power BI pour développer le paysage interne BI.\n- Interface & Conseil: Coopération étroite et conseils du DPF, de la direction et des gestionnaires de projets sur les questions financières grâce à des analyses significatives.\n- Optimisation des processus : Participation active à des projets de numérisation et d'automatisation pour accroître l'efficacité des processus financiers.\nCela vous amène au complément parfait:\n- Études : Études terminées (FH, HF, université) mettant l'accent sur la finance, le contrôle, l'administration des entreprises ou une formation supérieure comparable.\n- Expérience : Plusieurs années d'expérience professionnelle dans le contrôle, idéalement en mettant clairement l'accent sur le contrôle des projets ainsi que sur la pratique dans les domaines de la budgétisation, des prévisions et de la comptabilité des coûts.\n- Compétences en TI : Utilisation appropriée des systèmes ERP (idéalement Abacus) ainsi que pratique bien fondée avec Power BI ou solutions de veille commerciale comparables pour traiter les données de manière compréhensible.\n- Personnalité : méthode de travail structurée, précise, compréhension rapide des relations complexes ainsi qu'une communication claire et axée sur le destinataire aux différents intervenants.\nC'est ce qui vous attend du client :\n- Workplace & Infrastructure: Un bâtiment moderne et bien équipé avec des bureaux innovants, de nombreux parkings directement sur place et son propre restaurant pour des pauses relaxantes.\n- Développement et carrière : cheminements de carrière individuels avec possibilité d'assumer des responsabilités supplémentaires, ainsi qu'un large éventail d'offres de formation interne et externe.\n- Culture et avantages : Un environnement de travail ouvert et collégial avec des événements d'équipe réguliers (par exemple une semaine active annuelle) ainsi que l'accès gratuit aux conseils sociaux de l'entreprise pour les défis personnels, familiaux ou financiers."
-      },
-      "location": "Münchenstein, Basel-Stadt",
-      "canton": "BL",
-      "url": "https://pantr.ch/jobs/business-controller-132/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-12T09:41:25.639Z",
-      "addressLocality": "Münchenstein",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-08T15:21:35+00:00",
-      "postedDate": "2026-07-08T15:21:35+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://pantr.ch/jobs/business-controller-132/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
-        ],
-        "en": [
-          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
-        ],
-        "fr": [
-          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T21:52:19.213Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4142",
-      "crawlerMissStreak": 2
     }
   ]
 }
