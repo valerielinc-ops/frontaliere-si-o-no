@@ -1,14 +1,14 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-12T21:33:39.476Z",
+  "assembledAt": "2026-10-13T09:22:43.648Z",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -49,7 +49,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:34.002Z",
+      "crawledAt": "2026-10-13T09:22:39.447Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -77,8 +78,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -86,10 +87,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -154,7 +155,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:34.001Z",
+      "crawledAt": "2026-10-13T09:22:39.446Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -171,78 +172,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-bb90df116e65",
-      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
-      "titleByLocale": {
-        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
-        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
-        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
-        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
-      },
-      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
-        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
-        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
-        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/FbUuocJWF",
-      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:34.000Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -304,7 +233,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:33.999Z",
+      "crawledAt": "2026-10-13T09:22:39.445Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -330,30 +259,30 @@
       }
     },
     {
-      "id": "ghol-cd19adb46d26",
-      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-bb90df116e65",
+      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
       "titleByLocale": {
-        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
-        "en": "Assistant physician in practice – FoRCab MFE, West Region",
-        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
-        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
+        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
+        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
+        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
       },
-      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
+      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
       "descriptionByLocale": {
-        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
-        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
-        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
-        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
+        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
+        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
+        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
+        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -362,7 +291,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "healthcare-medical",
+      "category": "healthcare-nursing",
       "sector": "Salute / Ospedale",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -372,20 +301,21 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/I_TEMIvLa",
-      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
+      "url": "https://app.beehire.com/invite/FbUuocJWF",
+      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:33.998Z",
+      "crawledAt": "2026-10-13T09:22:39.445Z",
+      "needsRetranslation": false,
       "previousSlugs": [
-        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:24:46.269Z",
+      "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -447,7 +377,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:33.997Z",
+      "crawledAt": "2026-10-13T09:22:39.443Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],
@@ -463,6 +393,77 @@
         ]
       },
       "firstSeenAt": "2026-10-08T09:27:09.484Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-cd19adb46d26",
+      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+      "titleByLocale": {
+        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
+        "en": "Assistant physician in practice – FoRCab MFE, West Region",
+        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
+        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+      },
+      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
+        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
+        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
+        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/I_TEMIvLa",
+      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-13T09:22:39.443Z",
+      "previousSlugs": [
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -524,7 +525,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:33:33.996Z",
+      "crawledAt": "2026-10-13T09:22:39.442Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],

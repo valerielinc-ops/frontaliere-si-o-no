@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-12T21:30:56.843Z",
+  "generatedAt": "2026-10-13T09:23:17.211Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10653,
-  "avgDurationMs": 10653,
+  "durationMs": 14732,
+  "avgDurationMs": 14732,
   "durationHistory": [
-    10653
+    14732
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Business Analyst - Payments and Fintech",
       "slug": "business-analyst-payments-and-fintech-chiasso",
@@ -53,9 +54,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Data Engineer",
       "slug": "data-engineer-chiasso",
@@ -304,5 +303,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
