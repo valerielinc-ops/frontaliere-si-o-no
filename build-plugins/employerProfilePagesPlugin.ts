@@ -67,6 +67,7 @@ import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
 import {
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
@@ -89,10 +90,11 @@ const profilePath = (locale: Locale, slug: string): string => buildEmployerProfi
 
 /**
  * Max active jobs rendered as cards and ItemList entries per profile page.
- * Employer pages are a concise preview: the full active count remains visible
- * in the stat tile and heading, while the latest roles keep the page focused.
+ * Derive the boundary from the shared in-feed cadence: the trailing card keeps
+ * the slot after the last eligible position renderable, while the full active
+ * count remains visible in the stat tile and heading.
  */
-const MAX_JOBS_LISTED = 12;
+const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
 export interface EmployerProfile {
   slug: string;

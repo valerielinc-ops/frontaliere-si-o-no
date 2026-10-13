@@ -230,7 +230,7 @@ describe('employerProfilePagesPlugin', () => {
     const html = read('aziende/acme-corp/index.html');
     const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
     expect(main).toMatch(/<img[^>]*alt=["']Logo Acme Corp["'][^>]*width=["']?80/);
-    expect(main.match(/\bjc-logoimg\b/g) ?? []).toHaveLength(12);
+    expect(main.match(/\bjc-logoimg\b/g) ?? []).toHaveLength(15);
   });
 
   it('has a renderable logo source for every committed employer profile', () => {
@@ -278,7 +278,7 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('I conteggi riflettono gli annunci attivi al momento della compilazione');
   });
 
-  it('renders a concise active-job preview with the shared every-three cadence', () => {
+  it('renders the active-job preview with the shared every-three cadence', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
@@ -290,11 +290,12 @@ describe('employerProfilePagesPlugin', () => {
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
 
-    // Twelve valid detail slugs are emitted; the fifteenth fixture is
+    // Fifteen valid detail slugs are emitted; the sixteenth fixture is
     // intentionally slugless and stays excluded from both the card list and
-    // ItemList.
-    expect(cardCount).toBe(12);
-    expect(infeedAdCount).toBe(3);
+    // ItemList. The shared cadence places an ad after positions 3, 6, 9 and
+    // 12, but not after the final card.
+    expect(cardCount).toBe(15);
+    expect(infeedAdCount).toBe(4);
     expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
     expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
     expect(html).toContain('company-profile-page');
@@ -325,7 +326,7 @@ describe('employerProfilePagesPlugin', () => {
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
     const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/employerProfilePagesPlugin.ts'), 'utf8');
-    expect(source).toContain('const MAX_JOBS_LISTED = 12;');
+    expect(source).toContain('const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
     expect(source).toContain('const listed = group.slice(0, MAX_JOBS_LISTED);');
     expect(source).toContain('${esc(JOBS_HEADING[locale](name, profile.activeJobs))}');
   });
