@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   htmlToMarkdown,
+  extractLaFonteApplyUrlFromCardHtml,
   validateLaFonteDescription,
   buildLaFonteDescription,
   isLaFonteLegacyFrame,
@@ -11,6 +12,26 @@ import {
 } from '../scripts/lib/lafonte-job-parser.mjs';
 import { checkSourceDetailsBatch, sourceDetailSamplesForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
+
+describe('La Fonte application handoff', () => {
+  it('accepts an explicit HTTPS application CTA from the source card', () => {
+    expect(extractLaFonteApplyUrlFromCardHtml(
+      '<a href="https://jobs.example.ch/apply/123">Invia la candidatura</a>',
+    )).toBe('https://jobs.example.ch/apply/123');
+  });
+
+  it('rejects email-only, HTTP, and generic source links', () => {
+    expect(extractLaFonteApplyUrlFromCardHtml(
+      '<a href="mailto:recruiting@lafonte.ch">Invia la candidatura</a>',
+    )).toBeNull();
+    expect(extractLaFonteApplyUrlFromCardHtml(
+      '<a href="http://jobs.example.ch/apply/123">Candidati</a>',
+    )).toBeNull();
+    expect(extractLaFonteApplyUrlFromCardHtml(
+      '<a href="https://www.lafonte.ch/inizia-con-noi">Scopri di più</a>',
+    )).toBeNull();
+  });
+});
 
 // ──────────────────────────────────────────────────────────────
 // Real fixture: Operatore/trice socioassistenziale 60%

@@ -19,11 +19,27 @@ import { JSDOM } from 'jsdom';
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { isHttpsUrl } from './https-url.mjs';
 
 const HQ = getCompanyDefaults('citta-di-bellinzona');
 
 const CAREERS_URL = 'https://www.bellinzona.ch/assunzioni';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+function verifiedApplicationPortalUrl(value) {
+  const href = decodeHtmlEntities(value || '');
+  if (!isHttpsUrl(href)) return null;
+  try {
+    const url = new URL(href);
+    return url.hostname.toLowerCase() === 'bellinz.pi-asp.de'
+      && !url.port
+      && url.pathname.startsWith('/bewerber-web/')
+      ? url.href
+      : null;
+  } catch {
+    return null;
+  }
+}
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -189,9 +205,27 @@ export function parseBellinzonaListingHtml(html) {
       || contextBlock.match(/Bando di concorso[\s\S]*?<a\s+href="((?![^"]*pi-asp)[^"#]+)"/i);
     const pdfUrl = pdfMatch ? new URL(pdfMatch[1], 'https://www.bellinzona.ch').href : null;
 
-    // Extract apply URL (pi-asp.de)
-    const applyMatch = contextBlock.match(/href="(https?:\/\/bellinz[^"]*pi-asp[^"]+)"/i);
-    const applyUrl = applyMatch ? decodeHtmlEntities(applyMatch[1]) : null;
+    // Only the official HTTPS application portal is a proven handoff. A PDF,
+    // the careers page, HTTP, and lookalike hosts are not application URLs.
+    const applyMatch = contextBlock.match(
+      /<a\b[^>]*href=["'](https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']*)["'][^>]*>([\s\S]*?)<\/a>/i,
+    );
+    const readApplyAttribute = (name) => {
+      const attribute = applyMatch?.[0].match(
+        new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, 'i'),
+      );
+      return decodeHtmlEntities(attribute?.[1] ?? attribute?.[2] ?? '');
+    };
+    const applyLabel = applyMatch
+      ? normalizeSpace([
+        stripHtml(applyMatch[2]),
+        readApplyAttribute('aria-label'),
+        readApplyAttribute('title'),
+      ].filter(Boolean).join(' '))
+      : '';
+    const applyUrl = /candidatur|application|bewerb|\bapply\b/i.test(applyLabel)
+      ? verifiedApplicationPortalUrl(applyMatch[1])
+      : null;
 
     const slug = slugify(title, 'bellinzona');
     const id = `citta-di-bellinzona-${slug}`;
