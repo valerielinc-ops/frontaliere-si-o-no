@@ -120,7 +120,7 @@ beforeAll(async () => {
   fs.writeFileSync(
     path.join(root, 'data', 'jobs.json'),
     JSON.stringify([
-      ...Array.from({ length: 6 }, (_, i) => job(i + 1)),
+      ...Array.from({ length: 14 }, (_, i) => job(i + 1)),
       ...Array.from({ length: 6 }, (_, i) => eocJob(i + 1)),
       // Slugless job: must be skipped by BOTH the card renderer and the
       // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
@@ -176,8 +176,8 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('name=robots content="index, follow');
     expect(html).toContain('max-image-preview:large');
     expect(html).toContain('Offerte di lavoro Acme Corp');
-    expect(html).toContain('6'); // active jobs
-    expect(html).toContain("CHF 104"); // median of the seven reported range midpoints
+    expect(html).toContain('15'); // live active jobs, including the slugless fixture
+    expect(html).toContain("CHF 107"); // median of the fifteen reported range midpoints
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
@@ -252,16 +252,16 @@ describe('employerProfilePagesPlugin', () => {
   // set (not just the ≤8 cards shown), genuinely new visible text.
   it('adds a real contract-mix and salary-range sentence from the full active-job set', () => {
     const html = read('aziende/acme-corp/index.html');
-    // All 7 seeded jobs are 'full-time' → unanimous contract-mix sentence.
+    // All 15 seeded jobs are 'full-time' → unanimous contract-mix sentence.
     expect(html).toContain('Tutte le posizioni attive sono a tempo pieno.');
-    // salaryMin/salaryMax vary 81'000..127'000 across the 7 jobs — a real
+    // salaryMin/salaryMax vary 81'000..134'000 across the 15 jobs — a real
     // range distinct from the single CHF 100'000 median stat tile.
     expect(html).toContain('CHF 81');
-    expect(html).toContain('CHF 127');
-    expect(html).toContain('I conteggi riflettono gli annunci attivi disponibili al momento della compilazione');
+    expect(html).toContain('CHF 134');
+    expect(html).toContain('I conteggi riflettono gli annunci attivi al momento della compilazione');
   });
 
-  it('renders the complete active list with the shared every-three cadence', () => {
+  it('renders a concise active-job preview with the shared every-three cadence', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
@@ -273,16 +273,26 @@ describe('employerProfilePagesPlugin', () => {
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
 
-    // Six valid detail slugs are emitted; the seventh fixture is intentionally
-    // slugless and must stay excluded from both the card list and ItemList.
-    expect(cardCount).toBe(6);
-    expect(infeedAdCount).toBe(1);
+    // Twelve valid detail slugs are emitted; the fifteenth fixture is intentionally
+    // slugless and stays excluded from both the card list and ItemList.
+    expect(cardCount).toBe(12);
+    expect(infeedAdCount).toBe(3);
     expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
     expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
     expect(html).toContain('company-profile-page');
     expect(html.indexOf('company-profile-openings')).toBeLessThan(html.indexOf('data-company-follow-mount'));
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
+  });
+
+  it('keeps employer pages concise without repeating the company logo or card headings', () => {
+    const html = read('aziende/acme-corp/index.html');
+    const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
+    expect(main).toContain('Offerte di lavoro attive per Acme Corp (15)');
+    expect(main.match(/<h[1-3]\b/g) ?? []).toHaveLength(2);
+    expect(main).not.toMatch(/<h[234]\b[^>]*class=["']?jc-title/);
+    expect(main).not.toContain('<img ');
+    expect(main).not.toContain('<p class="jc-sub">');
   });
 
   it('adds the opt-in mid unit only to the EOC treatment profile', () => {
@@ -307,9 +317,9 @@ describe('employerProfilePagesPlugin', () => {
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
     const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/employerProfilePagesPlugin.ts'), 'utf8');
-    expect(source).toContain('const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;');
+    expect(source).toContain('const MAX_JOBS_LISTED = 12;');
     expect(source).toContain('const listed = group.slice(0, MAX_JOBS_LISTED);');
-    expect(source).toContain('${esc(JOBS_HEADING[locale])} (${profile.activeJobs})');
+    expect(source).toContain('${esc(JOBS_HEADING[locale](name, profile.activeJobs))}');
   });
 
   it('links each visible position without emitting JobPosting on an employer list', () => {
