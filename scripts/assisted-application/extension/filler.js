@@ -635,17 +635,37 @@
   async function prepareFileInput(element) {
     if (isShown(element)) return true;
     const scope = element.closest('.form-group, fieldset, [role="group"]') || element.ownerDocument;
+    const label = normalize(labelOf(element) || '');
+    const labelTokens = new Set(label.split(' ').filter((token) => token.length > 3));
+    const genericContext = new Set(['button', 'field', 'file', 'form', 'group', 'input', 'options', 'upload', 'value', 'wrapper']);
+    const contextOf = (node) => {
+      const parts = [];
+      for (let current = node, depth = 0; current && depth < 5; current = current.parentElement, depth += 1) {
+        parts.push(current.id, current.className, current.getAttribute?.('data-upload-for'), current.getAttribute?.('aria-controls'));
+      }
+      return normalize(parts.filter(Boolean).join(' '));
+    };
+    const inputContext = new Set(contextOf(element).split(' ').filter((token) => token.length >= 5 && !genericContext.has(token)));
     const upload = buttons(scope)
       .map((button) => {
         const text = button.text;
-        const context = `${button.element.id || ''} ${button.element.className || ''} ${button.element.parentElement?.id || ''}`;
+        const context = contextOf(button.element);
+        const contextTokens = new Set(context.split(' ').filter((token) => token.length >= 5 && !genericContext.has(token)));
         const strong = FILE_UPLOAD_RE.test(text);
         const browse = FILE_BROWSE_RE.test(text)
           && /\b(file|resume|cv|document|upload|attachment|allegat|curriculum)\b/i.test(`${text} ${context}`);
         if ((!strong && !browse) || SUBMIT_RE.test(text) || NEXT_RE.test(text) || NOT_ADVANCE_RE.test(text)) return null;
+        const sharedContext = [...inputContext].filter((token) => contextTokens.has(token));
+        const labelMatch = [...labelTokens].some((token) => normalize(text).includes(token) || contextTokens.has(token));
+        const directlyTargetsInput = ['for', 'aria-controls', 'data-for', 'data-upload-for', 'data-target']
+          .some((attribute) => button.element.getAttribute(attribute) === element.id);
+        // «Browse jobs» is a normal link, not an upload control. A generic
+        // «Browse» is accepted only when its text or context points at this
+        // file, or when the control shares the input's meaningful context.
+        if (browse && !labelMatch && !sharedContext.length) return null;
         // Prefer an explicit upload control over an unrelated «Browse jobs» link
         // in the same group; the file input remains the source of truth.
-        return { ...button, score: strong ? 2 : 1 };
+        return { ...button, score: (strong ? 2 : 1) + sharedContext.length * 5 + (labelMatch ? 5 : 0) + (directlyTargetsInput ? 100 : 0) };
       })
       .filter(Boolean)
       .sort((left, right) => right.score - left.score)[0];
