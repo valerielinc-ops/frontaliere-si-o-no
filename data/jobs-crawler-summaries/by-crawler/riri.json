@@ -1,7 +1,7 @@
 {
   "key": "riri",
   "label": "Riri Group",
-  "generatedAt": "2026-10-12T21:18:17.809Z",
+  "generatedAt": "2026-10-13T09:23:33.272Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4074,
-  "avgDurationMs": 4074,
+  "durationMs": 3849,
+  "avgDurationMs": 3849,
   "durationHistory": [
-    4074
+    3849
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-12T21:18:04.132Z",
+      "crawledAt": "2026-10-13T09:23:22.659Z",
       "firstSeenAt": "2026-09-09T23:09:36.396Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "a9476bfe72f252113dcd01bb36e401174082183d"
+  "codeCommit": "99259ae204729e5d7bf6b90575f2739f6be0baf5"
 }
