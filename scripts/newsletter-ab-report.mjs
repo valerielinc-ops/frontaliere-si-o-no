@@ -147,12 +147,14 @@ async function main() {
       report.byVariant[v].sends += c.sends;
       report.byVariant[v].opens += c.opens;
     }
-    // Winner = highest open rate among variants with ≥1 send.
-    let winner = null;
+    // Keep the descriptive leader separate from the declared winner. A raw
+    // open-rate leader is not a winner until the corrected decision passes.
+    let bestObserved = null;
     for (const v of variantIds) {
-      if (variants[v].sends > 0 && (!winner || variants[v].openRate > variants[winner].openRate)) winner = v;
+      if (variants[v].sends > 0 && (!bestObserved || variants[v].openRate > variants[bestObserved].openRate)) bestObserved = v;
     }
     const winnerDecision = pickWinner(variants);
+    const winner = winnerDecision?.winner ?? null;
     let significance = null;
     if (variantIds.length === 2) {
       significance = twoProportionTest(
@@ -160,7 +162,7 @@ async function main() {
         { sends: variants[variantIds[1]].sends, opens: variants[variantIds[1]].opens },
       );
     }
-    report.providers[provider] = { variants, winner, winnerDecision, significance };
+    report.providers[provider] = { variants, winner, bestObserved, winnerDecision, significance };
   }
 
   for (const v of variantIds) report.byVariant[v].openRate = pct(report.byVariant[v].opens, report.byVariant[v].sends);
@@ -208,6 +210,9 @@ async function main() {
       const cell = p.variants[v];
       const flag = p.winner === v && cell.sends > 0 ? '  ◀ winner' : '';
       console.log(`    ${v.padEnd(10)} sends=${String(cell.sends).padStart(5)}  opens=${String(cell.opens).padStart(5)}  open-rate=${cell.openRate.toFixed(1).padStart(5)}%${flag}`);
+    }
+    if (p.bestObserved && p.bestObserved !== p.winner) {
+      console.log(`    → miglior open-rate osservato: ${p.bestObserved} (non dichiarato vincitore)`);
     }
     const decision = p.winnerDecision;
     if (decision) {
