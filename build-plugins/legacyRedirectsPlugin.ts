@@ -36,6 +36,7 @@ import { isSafeDistPath } from './shared/distPathSafety';
 // origin may still serve the canonical bridge, but must not advertise a
 // meta-refresh for a route whose HTTP contract is already server-side.
 const EDGE_HTTP_REDIRECT_PATHS = new Set([
+ '/job-board/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/',
  '/guida-frontaliere/comuni-di-frontiera/',
  '/vivere-in-ticino/vivere-in-svizzera/',

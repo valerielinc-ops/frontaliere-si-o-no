@@ -2481,7 +2481,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const companyLogo = (job: any): string => {
  // Publisher-provided logo (projected from the publish form, https-only).
  const ownLogo = String(job?.companyLogo || '').trim();
- if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
+ if (/^https:\/\/\S+$/i.test(ownLogo)) return logoUrlForRenderedOutput(ownLogo) as string;
  const key = job?.companyKey || '';
  if (key && CRAWLED_COMPANY_LOGOS[key]) return logoUrlForRenderedOutput(CRAWLED_COMPANY_LOGOS[key]) as string;
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
