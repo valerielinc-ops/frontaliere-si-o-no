@@ -96,6 +96,10 @@ const MIN_MATCHING_JOBS = 3;
  * so doubling the default admits more demand-backed candidates without
  * turning the build into an unbounded long-tail page generator. The per-page
  * matching-job and word-count gates below still decide indexability.
+ *
+ * Production-like validation: the IT/base shard completed successfully with
+ * the 1,000-cluster cap; the emitter took 48.88s and emitted all 1,000 pages
+ * (507 indexable, 493 noindex) plus two canonical bridges.
  */
 export const DEFAULT_MAX_LANDINGS = 1000;
 
