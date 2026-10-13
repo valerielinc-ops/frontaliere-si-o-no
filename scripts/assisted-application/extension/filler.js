@@ -24,7 +24,8 @@
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
   const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
-  const FILE_UPLOAD_RE = /\b(attach|upload|choose|browse|carica|allega|scegli|seleziona)\b/i;
+  const FILE_UPLOAD_RE = /\b(attach|upload|choose|carica|allega|scegli|seleziona)\b/i;
+  const FILE_BROWSE_RE = /\bbrowse\b/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bcandidatura\s+online\b|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -634,13 +635,28 @@
   async function prepareFileInput(element) {
     if (isShown(element)) return true;
     const scope = element.closest('.form-group, fieldset, [role="group"]') || element.ownerDocument;
-    const upload = buttons(scope).find((button) => FILE_UPLOAD_RE.test(button.text)
-      && !SUBMIT_RE.test(button.text) && !NEXT_RE.test(button.text) && !NOT_ADVANCE_RE.test(button.text));
+    const upload = buttons(scope)
+      .map((button) => {
+        const text = button.text;
+        const context = `${button.element.id || ''} ${button.element.className || ''} ${button.element.parentElement?.id || ''}`;
+        const strong = FILE_UPLOAD_RE.test(text);
+        const browse = FILE_BROWSE_RE.test(text)
+          && /\b(file|resume|cv|document|upload|attachment|allegat|curriculum)\b/i.test(`${text} ${context}`);
+        if ((!strong && !browse) || SUBMIT_RE.test(text) || NEXT_RE.test(text) || NOT_ADVANCE_RE.test(text)) return null;
+        // Prefer an explicit upload control over an unrelated «Browse jobs» link
+        // in the same group; the file input remains the source of truth.
+        return { ...button, score: strong ? 2 : 1 };
+      })
+      .filter(Boolean)
+      .sort((left, right) => right.score - left.score)[0];
     // Some portals keep a file input visually hidden but still submit it; keep
     // the previous behavior when there is no explicit upload-mode control.
     if (!upload) return true;
     press(upload.element);
-    return Boolean(await waitFor(() => isShown(element)));
+    // Some portals keep the native input hidden by design but still accept a
+    // DataTransfer. Do not make CSS visibility a prerequisite for assignment.
+    await sleep(config.stepMs);
+    return true;
   }
 
   /**
@@ -663,7 +679,7 @@
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
-        return true;
+        return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
       case 'checkbox':
         if (!element.checked) press(element);
