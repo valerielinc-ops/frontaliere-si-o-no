@@ -183,6 +183,18 @@ describe('Bellinzona crawler — listing HTML parsing', () => {
     expect(jobs[0].applyUrl).toMatch(/^https:\/\/bellinz\.pi-asp\.de\/bewerber-web\//);
   });
 
+  it('recognizes an icon-only official application CTA by aria-label or title', () => {
+    const iconOnly = (attribute: string) => LISTING_HTML_FIXTURE.replace(
+      '<a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100">Modulo di candidatura online</a>',
+      `<a href="https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100" ${attribute}></a>`,
+    );
+
+    expect(parseBellinzonaListingHtml(iconOnly('aria-label="Candidatura online"'))[0].applyUrl)
+      .toBe('https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100');
+    expect(parseBellinzonaListingHtml(iconOnly('title="Candidatura online"'))[0].applyUrl)
+      .toBe('https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&id=100&pId=100');
+  });
+
   it('fails closed for HTTP, lookalike hosts, and missing application links', () => {
     const withHref = (href: string) => LISTING_HTML_FIXTURE.replace(
       /https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']+/,

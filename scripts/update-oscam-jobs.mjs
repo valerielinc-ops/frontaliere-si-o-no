@@ -124,6 +124,10 @@ export function extractOscamApplicationUrlFromPdfText(text = '') {
   while ((match = routePattern.exec(source)) !== null) {
     const scheme = (match[1] || '').toLowerCase();
     if (scheme && scheme !== 'https') continue;
+    const prefix = source.slice(Math.max(0, match.index - 40), match.index);
+    // A bare "HTTP oscam.ch/..." is an explicit, malformed HTTP handoff—not
+    // evidence that the source intended HTTPS. Do not repair it by guessing.
+    if (!scheme && /\bhttps?\s*:?\s*$/i.test(prefix)) continue;
 
     const context = source.slice(Math.max(0, match.index - 240), match.index + match[0].length + 100);
     if (!/(?:candidatur|application|apply)/i.test(context)

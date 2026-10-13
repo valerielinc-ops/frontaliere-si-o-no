@@ -210,7 +210,19 @@ export function parseBellinzonaListingHtml(html) {
     const applyMatch = contextBlock.match(
       /<a\b[^>]*href=["'](https:\/\/bellinz\.pi-asp\.de\/bewerber-web\/[^"']*)["'][^>]*>([\s\S]*?)<\/a>/i,
     );
-    const applyLabel = applyMatch ? normalizeSpace(stripHtml(applyMatch[2])) : '';
+    const readApplyAttribute = (name) => {
+      const attribute = applyMatch?.[0].match(
+        new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`, 'i'),
+      );
+      return decodeHtmlEntities(attribute?.[1] ?? attribute?.[2] ?? '');
+    };
+    const applyLabel = applyMatch
+      ? normalizeSpace([
+        stripHtml(applyMatch[2]),
+        readApplyAttribute('aria-label'),
+        readApplyAttribute('title'),
+      ].filter(Boolean).join(' '))
+      : '';
     const applyUrl = /candidatur|application|bewerb|\bapply\b/i.test(applyLabel)
       ? verifiedApplicationPortalUrl(applyMatch[1])
       : null;

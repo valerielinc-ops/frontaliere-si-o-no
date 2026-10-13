@@ -25,6 +25,9 @@ describe('OSCAM source-backed application handoff', () => {
       'Candidatura online su http://www.oscam.ch/candidature.',
     )).toBeNull();
     expect(extractOscamApplicationUrlFromPdfText(
+      'Candidatura online via HTTP oscam.ch/candidature/',
+    )).toBeNull();
+    expect(extractOscamApplicationUrlFromPdfText(
       'Candidatura online su https://example.org/candidature.',
     )).toBeNull();
     expect(extractOscamApplicationUrlFromPdfText(
