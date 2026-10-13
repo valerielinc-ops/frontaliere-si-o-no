@@ -838,6 +838,9 @@ function sdValidateEvent(schema, filePath) {
   if (!schema.location || typeof schema.location !== 'object') {
     errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
   } else {
+    if (!sdIsNonEmpty(schema.location.name)) {
+      errors.push({ file: filePath, type: 'Event', field: 'location.name', message: 'Event missing "location.name"' });
+    }
     const addr = schema.location.address;
     if (!addr || !sdIsNonEmpty(addr.addressLocality)) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
