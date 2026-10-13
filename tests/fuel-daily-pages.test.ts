@@ -313,13 +313,13 @@ describe('fuel-daily page generation — content quality', () => {
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
     expect(itRegional).toMatch(/<title>Diesel Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
-    expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);
+    expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel oggi in Ticino: stazioni di servizio/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
     // visible H1 and WebPage JSON-LD name stay on the existing source label.
     expect(itBenzinaRegional).toMatch(/<title>Benzina Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
-    expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina Svizzera oggi/i);
-    expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina Svizzera oggi — Ticino"');
+    expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi in Ticino: stazioni di servizio/i);
+    expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina oggi in Ticino: stazioni di servizio"');
     for (const [path, html] of Object.entries(pages)) {
       if (path === '/prezzi-benzina/oggi/') continue;
       expect(html, `unexpected regional benzina title on ${path}`).not.toMatch(
@@ -329,6 +329,18 @@ describe('fuel-daily page generation — content quality', () => {
     for (const html of Object.values(pages)) {
       expect(html).not.toMatch(/\sdark:[a-z-]+/);
     }
+  });
+
+  it('uses fuel-specific H1/H2/H3 language on the Italian benzina zone page', () => {
+    const bellinzona = pages['/prezzi-benzina/bellinzona/oggi/'];
+    expect(bellinzona).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi a Bellinzona: stazioni di servizio/i);
+    expect(bellinzona).toContain('Valutazione editoriale del prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Le 3 stazioni più economiche per fare rifornimento di benzina a Bellinzona');
+    expect(bellinzona).toContain('Andamento storico del prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Domande frequenti sul prezzo della benzina a Bellinzona');
+    expect(bellinzona).toContain('Fonte e metodo del confronto sul prezzo della benzina');
+    expect(bellinzona).toContain('Esempio di calcolo del pieno di benzina');
+    expect(bellinzona).toContain('Altre zone: prezzi benzina e diesel');
   });
 
   it('labels its fill-up calculation as an example and uses the displayed price', () => {

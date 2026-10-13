@@ -399,8 +399,8 @@ const COPY: Record<LinkLocale, Copy> = {
     headings: {
       nav: 'Correlati',
       siblingGeneric: 'Pagine correlate',
-      siblingFuelZones: 'Altre zone del Ticino',
-      siblingFuelStations: 'Altre stazioni nella zona',
+      siblingFuelZones: 'Altre zone: prezzi benzina e diesel',
+      siblingFuelStations: 'Altre stazioni di servizio nella zona',
       siblingItalianCities: 'Altre città italiane al confine',
       siblingCities: 'Altre città del Ticino',
       siblingCompanyCities: 'Stessa azienda in altre città',
@@ -444,8 +444,8 @@ const COPY: Record<LinkLocale, Copy> = {
     headings: {
       nav: 'Related',
       siblingGeneric: 'Related pages',
-      siblingFuelZones: 'Other Ticino areas',
-      siblingFuelStations: 'Other stations in the area',
+      siblingFuelZones: 'Other areas: gasoline and diesel prices',
+      siblingFuelStations: 'Other fuel stations in the area',
       siblingItalianCities: 'Other Italian border cities',
       siblingCities: 'Other Ticino cities',
       siblingCompanyCities: 'Same employer in other cities',
@@ -489,7 +489,7 @@ const COPY: Record<LinkLocale, Copy> = {
     headings: {
       nav: 'Verwandt',
       siblingGeneric: 'Verwandte Seiten',
-      siblingFuelZones: 'Weitere Tessin-Regionen',
+      siblingFuelZones: 'Weitere Tessiner Regionen: Benzin- und Dieselpreise',
       siblingFuelStations: 'Weitere Tankstellen in der Region',
       siblingItalianCities: 'Weitere italienische Grenzstädte',
       siblingCities: 'Weitere Tessiner Städte',
@@ -534,8 +534,8 @@ const COPY: Record<LinkLocale, Copy> = {
     headings: {
       nav: 'Liens utiles',
       siblingGeneric: 'Pages similaires',
-      siblingFuelZones: 'Autres zones du Tessin',
-      siblingFuelStations: 'Autres stations dans la zone',
+      siblingFuelZones: 'Autres zones : prix essence et gasoil',
+      siblingFuelStations: 'Autres stations-service dans la zone',
       siblingItalianCities: 'Autres villes italiennes frontalières',
       siblingCities: 'Autres villes du Tessin',
       siblingCompanyCities: 'Même employeur dans d\'autres villes',

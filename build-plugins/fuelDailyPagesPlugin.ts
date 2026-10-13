@@ -627,10 +627,11 @@ interface FuelCopy {
   avgLabel: string;
   vsYesterday: string;
   vs7d: string;
-  top3Label: string;
-  trendLabel: string;
+  reviewHeading: (fuelLabel: string, where: string) => string;
+  top3Label: (fuelLabel: string, where: string) => string;
+  trendLabel: (fuelLabel: string, where: string) => string;
   trendEmpty: string;
-  faqTitle: string;
+  faqTitle: (fuelLabel: string, where: string) => string;
   regionalLabel: string;
   archiveLabel: string;
   breadcrumbHome: string;
@@ -654,22 +655,23 @@ interface FuelCopy {
 
 const COPY: Record<FuelDailyLocale, FuelCopy> = {
   it: {
-    regionalH1: (f) => `Prezzo ${f} Svizzera oggi — Ticino`,
-    zoneH1: (f, z) => `Prezzo ${f} oggi a ${z}`,
+    regionalH1: (f) => `Prezzo ${f} oggi in Ticino: stazioni di servizio`,
+    zoneH1: (f, z) => `Prezzo ${f} oggi a ${z}: stazioni di servizio`,
     intro: (f, where, priceFmt, date) =>
-      `Prezzo medio ${itFuelGenitive(f)} ${where} il ${date}: ${priceFmt} CHF/litro. Confronta le stazioni del campione TCS e controlla la data di acquisizione.`,
+      `Prezzo medio ${itFuelGenitive(f)} ${where} il ${date}: ${priceFmt} CHF/litro. Confronta le stazioni di servizio del campione TCS e controlla la data di acquisizione e il prezzo alla pompa.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Oggi ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
+      `Oggi ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dai distributori e dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche, verifica il prezzo alla pompa e osserva l'andamento della settimana per pianificare il pieno durante il pendolarismo da frontaliere.`,
     historySection:
       "Il grafico qui sotto mostra l'andamento del prezzo nel tempo — utile per capire se conviene rifornirsi oggi o aspettare. Usa i pulsanti per cambiare l'intervallo (1 mese, 3 mesi, 6 mesi, 1 anno, 5 anni). Lo storico si popola giorno per giorno: gli intervalli più lunghi diventano disponibili man mano che raccogliamo nuovi dati.",
     updatedLabel: 'Aggiornamento',
     avgLabel: 'Prezzo medio rilevato',
     vsYesterday: 'vs ieri',
     vs7d: 'vs 7 giorni fa',
-    top3Label: 'Le 3 stazioni più economiche',
-    trendLabel: 'Andamento storico del prezzo',
+    reviewHeading: (f, where) => `Valutazione editoriale del prezzo ${itFuelGenitive(f)} ${where}`,
+    top3Label: (f, where) => `Le 3 stazioni più economiche per fare rifornimento di ${f.toLowerCase()} ${where}`,
+    trendLabel: (f, where) => `Andamento storico del prezzo ${itFuelGenitive(f)} ${where}`,
     trendEmpty: 'Storico in costruzione: il grafico si aggiorna ogni giorno a partire da oggi.',
-    faqTitle: 'Domande frequenti',
+    faqTitle: (f, where) => `Domande frequenti sul prezzo ${itFuelGenitive(f)} ${where}`,
     regionalLabel: 'Tutto il Ticino',
     archiveLabel: 'Archivio mensile',
     breadcrumbHome: 'Home',
@@ -699,8 +701,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     ],
   },
   en: {
-    regionalH1: (f) => `${f} price Switzerland today — Ticino`,
-    zoneH1: (f, z) => `${f} price today in ${z}`,
+    regionalH1: (f) => `${f} price in Ticino today: service stations`,
+    zoneH1: (f, z) => `${f} price today in ${z}: service stations`,
     intro: (f, where, priceFmt, date) =>
       `Average ${f.toLowerCase()} price ${where} on ${date}: ${priceFmt} CHF per litre. The 3 cheapest stations near the border, updated every morning from TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
@@ -711,10 +713,11 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Average observed price',
     vsYesterday: 'vs yesterday',
     vs7d: 'vs 7 days ago',
-    top3Label: 'Top 3 cheapest stations',
-    trendLabel: 'Historical price trend',
+    reviewHeading: (f, where) => `Editorial assessment of the ${f.toLowerCase()} price ${where}`,
+    top3Label: (f, where) => `Top 3 cheapest ${f.toLowerCase()} service stations ${where}`,
+    trendLabel: (f, where) => `Historical ${f.toLowerCase()} price trend ${where}`,
     trendEmpty: 'History is being collected: the chart fills in day by day.',
-    faqTitle: 'Frequently asked questions',
+    faqTitle: (f, where) => `Frequently asked questions about ${f.toLowerCase()} prices ${where}`,
     regionalLabel: 'All of Ticino',
     archiveLabel: 'Monthly archive',
     breadcrumbHome: 'Home',
@@ -744,8 +747,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     ],
   },
   de: {
-    regionalH1: (f) => `${f}preis Schweiz heute — Tessin`,
-    zoneH1: (f, z) => `${f}preis heute in ${z}`,
+    regionalH1: (f) => `${f}preis im Tessin heute: Tankstellen`,
+    zoneH1: (f, z) => `${f}preis heute in ${z}: Tankstellen`,
     intro: (f, where, priceFmt, date) =>
       `Durchschnittlicher ${f}preis ${where} am ${date}: ${priceFmt} CHF pro Liter. Die 3 günstigsten Tankstellen nahe der Grenze, täglich von TCS aktualisiert.`,
     paragraph: (f, z, price, dYest, d7) =>
@@ -756,10 +759,11 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Erfasster Durchschnittspreis',
     vsYesterday: 'vs gestern',
     vs7d: 'vs 7 Tage',
-    top3Label: 'Top 3 günstigste Tankstellen',
-    trendLabel: 'Historischer Preisverlauf',
+    reviewHeading: (f, where) => `Redaktionelle Bewertung des ${f}preises ${where}`,
+    top3Label: (f, where) => `Die 3 günstigsten Tankstellen für ${f} ${where}`,
+    trendLabel: (f, where) => `Historischer ${f}preisverlauf ${where}`,
     trendEmpty: 'Historie wird aufgebaut: das Diagramm füllt sich Tag für Tag.',
-    faqTitle: 'Häufige Fragen',
+    faqTitle: (f, where) => `Häufige Fragen zum ${f}preis ${where}`,
     regionalLabel: 'Ganzes Tessin',
     archiveLabel: 'Monatsarchiv',
     breadcrumbHome: 'Startseite',
@@ -789,8 +793,8 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     ],
   },
   fr: {
-    regionalH1: (f) => `Prix ${frFuelOf(f)} en Suisse aujourd'hui — Tessin`,
-    zoneH1: (f, z) => `Prix ${frFuelOf(f)} aujourd'hui à ${z}`,
+    regionalH1: (f) => `Prix ${frFuelOf(f)} au Tessin aujourd'hui : stations-service`,
+    zoneH1: (f, z) => `Prix ${frFuelOf(f)} aujourd'hui à ${z} : stations-service`,
     intro: (f, where, priceFmt, date) =>
       `Prix moyen ${frFuelOf(f)} ${where} le ${date} : ${priceFmt} CHF par litre. Les 3 stations les moins chères près de la frontière, actualisées chaque matin par TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
@@ -801,10 +805,11 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Prix moyen observé',
     vsYesterday: 'vs hier',
     vs7d: 'vs 7 jours',
-    top3Label: 'Top 3 stations les moins chères',
-    trendLabel: 'Tendance historique du prix',
+    reviewHeading: (f, where) => `Évaluation du prix ${frFuelOf(f)} ${where}`,
+    top3Label: (f, where) => `Les 3 stations-service les moins chères pour ${frFuelOf(f)} ${where}`,
+    trendLabel: (f, where) => `Évolution historique du prix ${frFuelOf(f)} ${where}`,
     trendEmpty: 'Historique en cours de construction : le graphique se remplit jour par jour.',
-    faqTitle: 'Questions fréquentes',
+    faqTitle: (f, where) => `Questions fréquentes sur le prix ${frFuelOf(f)} ${where}`,
     regionalLabel: 'Tout le Tessin',
     archiveLabel: 'Archive mensuelle',
     breadcrumbHome: 'Accueil',
@@ -1392,35 +1397,35 @@ function renderFuelTodayMethodologyAndScenarios(args: {
   const exampleCost = Number.isFinite(numericPrice) ? (numericPrice * 50).toFixed(2) : '—';
   const copy = {
     it: {
-      heading: 'Fonte e metodo del confronto',
+      heading: (f: string) => `Fonte e metodo del confronto sul prezzo ${itFuelGenitive(f)}`,
       body: `La media e l’intervallo ${fuelLabel.toLowerCase()} riguardano soltanto le stazioni del campione in ${zoneLabel}. Le stazioni presenti per più comuni vengono contate una sola volta. Il radar TCS raccoglie prezzi segnalati dagli utenti: non è un registro federale e non garantisce copertura completa o un prezzo ancora valido alla pompa. La data di acquisizione indica quando abbiamo letto la fonte, non quando il gestore ha cambiato il listino. Per il diesel, la media corrente usa soltanto prezzi diesel disponibili, senza ricavarli dal prezzo della benzina. Lo storico conserva snapshot giornalieri; un intervallo senza dati non equivale a un prezzo invariato. Confronta stazioni dello stesso carburante e considera la distanza effettiva dal percorso prima di decidere.`,
-      scenario: 'Esempio di calcolo, non una previsione di spesa',
+      scenario: (f: string) => `Esempio di calcolo del pieno di ${f.toLowerCase()}`,
       calculation: `Ipotizzando un rifornimento di 50 litri al prezzo medio mostrato di ${priceFmt} CHF/l, il costo è ${exampleCost} CHF. Il costo effettivo dipende dal prezzo della stazione scelta e dai litri erogati. Per confrontare l’Italia occorrono il prezzo italiano dello stesso carburante e un cambio CHF/EUR con data nota. Dal risparmio lordo sottrai il carburante della deviazione e gli altri costi del viaggio. Non esiste una soglia universale di convenienza valida per ogni tragitto.`,
     },
     en: {
-      heading: 'Source and comparison method',
+      heading: (f: string) => `${f} price source and comparison method`,
       body: `The ${fuelLabel.toLowerCase()} average and range cover only sampled stations in ${zoneLabel}. Stations appearing for several municipalities are counted once. The TCS radar collects user-reported prices: it is not a federal registry and does not guarantee full coverage or that a price remains valid at the pump. Collection time is when we read the source, not when the operator changed its price. The current diesel average uses available diesel prices only, without deriving them from petrol. History stores daily snapshots; a gap does not mean prices stayed unchanged. Compare the same fuel and consider the actual distance from your route before choosing a station.`,
-      scenario: 'Calculation example, not a spending forecast',
+      scenario: (f: string) => `${f} fill-up calculation example, not a spending forecast`,
       calculation: `Assuming a 50-litre fill at the displayed average of ${priceFmt} CHF/l, the cost is CHF ${exampleCost}. Actual cost depends on the selected station and litres dispensed. An Italian comparison needs the same fuel and a dated CHF/EUR exchange rate. Subtract detour fuel and other travel costs from gross savings. There is no universal break-even threshold for every journey.`,
     },
     de: {
-      heading: 'Quelle und Vergleichsmethode',
+      heading: (f: string) => `Quelle und Methode des ${f}preisvergleichs`,
       body: `Mittelwert und Spanne für ${fuelLabel} beziehen sich nur auf die erfassten Tankstellen in ${zoneLabel}. Für mehrere Gemeinden aufgeführte Tankstellen werden einmal gezählt. Der TCS-Radar sammelt Meldungen von Nutzern: Er ist kein Bundesregister und garantiert weder vollständige Abdeckung noch einen weiterhin gültigen Zapfsäulenpreis. Die Abrufzeit bezeichnet das Lesen der Quelle, nicht die Preisänderung durch den Betreiber. Der aktuelle Dieselmittelwert verwendet nur vorhandene Dieselpreise und keine Ableitung aus Benzinpreisen. Die Historie enthält tägliche Momentaufnahmen; eine Datenlücke bedeutet keinen unveränderten Preis. Vergleichen Sie denselben Kraftstoff und berücksichtigen Sie die tatsächliche Entfernung von Ihrer Route.`,
-      scenario: 'Rechenbeispiel, keine Ausgabenprognose',
+      scenario: (f: string) => `Rechenbeispiel für einen ${f}-Tankvorgang, keine Ausgabenprognose`,
       calculation: `Bei angenommenen 50 Litern zum angezeigten Mittelwert von ${priceFmt} CHF/l ergeben sich CHF ${exampleCost}. Der tatsächliche Betrag hängt von Tankstelle und getankten Litern ab. Für Italien benötigen Sie den Preis desselben Kraftstoffs und einen datierten CHF/EUR-Kurs. Ziehen Sie den Kraftstoff für den Umweg und weitere Fahrtkosten von der Bruttoersparnis ab. Eine allgemeingültige Rentabilitätsschwelle für jede Strecke gibt es nicht.`,
     },
     fr: {
-      heading: 'Source et méthode de comparaison',
+      heading: (f: string) => `Source et méthode de comparaison du prix ${frFuelOf(f)}`,
       body: `La moyenne et la plage ${fuelLabel.toLowerCase()} concernent seulement les stations observées en ${zoneLabel}. Une station présente pour plusieurs communes compte une seule fois. Le radar TCS recueille les prix signalés par les utilisateurs : ce n’est pas un registre fédéral et il ne garantit ni une couverture complète ni un prix encore valable à la pompe. L’heure d’acquisition indique la lecture de la source, pas la modification du tarif par la station. La moyenne actuelle du diesel utilise uniquement les prix diesel disponibles, sans les déduire de l’essence. L’historique conserve des instantanés quotidiens ; une lacune ne signifie pas que le prix est resté identique. Comparez le même carburant et la distance réelle depuis votre trajet.`,
-      scenario: 'Exemple de calcul, pas une prévision de dépense',
+      scenario: (f: string) => `Exemple de calcul d’un plein de ${frFuelOf(f)}, pas une prévision de dépense`,
       calculation: `Pour un plein supposé de 50 litres à la moyenne affichée de ${priceFmt} CHF/l, le coût est de ${exampleCost} CHF. Le montant réel dépend de la station et des litres délivrés. Comparer l’Italie nécessite le même carburant et un taux CHF/EUR daté. Déduisez le carburant du détour et les autres frais de trajet de l’économie brute. Il n’existe pas de seuil de rentabilité universel pour tous les trajets.`,
     },
   }[locale];
   return `<section class="s-ziawP1" aria-labelledby="fuelTodayMethodology">
-    <h2 id="fuelTodayMethodology" class="s-h2">${esc(copy.heading)}</h2>
+    <h2 id="fuelTodayMethodology" class="s-h2">${esc(copy.heading(fuelLabel))}</h2>
     <p class="s-E7ZJqo">${esc(copy.body)} <a href="https://benzin.tcs.ch/" rel="noopener noreferrer" target="_blank">TCS Benzinpreis</a></p>
   </section><section class="s-ziawP1" aria-labelledby="fuelTodayScenario">
-    <h2 id="fuelTodayScenario" class="s-h2">${esc(copy.scenario)}</h2>
+    <h2 id="fuelTodayScenario" class="s-h2">${esc(copy.scenario(fuelLabel))}</h2>
     <p class="s-E7ZJqo">${esc(copy.calculation)}</p>
   </section>`;
 }
@@ -1538,10 +1543,10 @@ function renderPage(inp: PageInputs): string {
     : `${formatFuelDateDisplay(referenceDate)}: ${deltaYestFmt} ${comparisonLabel(1)}.`;
   const currentHeading = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const h1 = observedToday ? currentHeading : ({
-    it: `Prezzo ${fuelLabel.toLowerCase()} ${zone ? `a ${zoneLabel}` : 'in Ticino'} — ultima rilevazione`,
-    en: `${fuelLabel} price ${zone ? `in ${zoneLabel}` : 'in Ticino'} — latest observation`,
-    de: `${fuelLabel}preis ${zone ? `in ${zoneLabel}` : 'im Tessin'} — letzte Erhebung`,
-    fr: `Prix ${frFuelOf(fuelLabel)} ${zone ? `à ${zoneLabel}` : 'au Tessin'} — dernier relevé`,
+    it: `Prezzo ${fuelLabel.toLowerCase()} ${zone ? `a ${zoneLabel}` : 'in Ticino'}: stazioni di servizio — ultima rilevazione`,
+    en: `${fuelLabel} price ${zone ? `in ${zoneLabel}` : 'in Ticino'}: service stations — latest observation`,
+    de: `${fuelLabel}preis ${zone ? `in ${zoneLabel}` : 'im Tessin'}: Tankstellen — letzte Erhebung`,
+    fr: `Prix ${frFuelOf(fuelLabel)} ${zone ? `à ${zoneLabel}` : 'au Tessin'} : stations-service — dernier relevé`,
   })[locale];
   const whereLabel = fuelWhere(locale, zoneLabel, Boolean(zone));
   const observationStamp = observationDate
@@ -1647,7 +1652,7 @@ function renderPage(inp: PageInputs): string {
   );
   const historyCard = renderFuelHistoryCard({
     locale,
-    trendLabel: copy.trendLabel,
+    trendLabel: copy.trendLabel(fuelLabel, whereLabel),
     idPrefix: `${fuel}-${zone ?? 'regional'}`,
     buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, whereLabel, avgFmt),
     seriesByRange: swissSeriesByRange,
@@ -1695,7 +1700,7 @@ function renderPage(inp: PageInputs): string {
   // FAQ section
   const faqItems = copy.faq;
   const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="fuelDailyFaq">
-    <h2 id="fuelDailyFaq" class="s-h2">${esc(copy.faqTitle)}</h2>
+    <h2 id="fuelDailyFaq" class="s-h2">${esc(copy.faqTitle(fuelLabel, whereLabel))}</h2>
     ${faqItems
       .map(
         (f) => `<details class="s-card" style="margin-bottom:8px">
@@ -1792,23 +1797,23 @@ function renderPage(inp: PageInputs): string {
   ${unavailableNoteHtml}
   ${renderAboveFoldJobCta(locale)}
   <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
-    <h2 id="fuelReview" class="s-h2">${esc(editorialAssessment.heading)}</h2>
+    <h2 id="fuelReview" class="s-h2">${esc(copy.reviewHeading(fuelLabel, whereLabel))}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
   </section>
   <section class="s-ziawP1" aria-labelledby="top3">
-    <h2 id="top3" class="s-h2">${esc(copy.top3Label)}</h2>
+    <h2 id="top3" class="s-h2">${esc(copy.top3Label(fuelLabel, whereLabel))}</h2>
     ${stationsHtml}
   </section>
   ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="trend7">
-    <h2 id="trend7" class="s-h2">${esc(copy.trendLabel)}</h2>
+    <h2 id="trend7" class="s-h2">${esc(copy.trendLabel(fuelLabel, whereLabel))}</h2>
     <p class="s-C63fWv">${esc(historyCopy)}</p>
     ${historyCard}
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
   ${faqHtml}
-  <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle)}">
+  <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle(fuelLabel, whereLabel))}">
     <p class="s-kvHUMU">${esc(intro)}</p>
     <p class="s-yOfiVn">${esc(paragraph)}</p>
   </section>
