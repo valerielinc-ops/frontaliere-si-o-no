@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-10-14T07:54:09.320Z",
+  "generatedAt": "2026-10-14T09:16:26.307Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5084,
-  "avgDurationMs": 5084,
+  "durationMs": 6251,
+  "avgDurationMs": 6251,
   "durationHistory": [
-    5084
+    6251
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T07:53:54.797Z",
+      "crawledAt": "2026-10-14T09:16:10.695Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://apply.refline.ch/640332/0066/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T07:53:54.365Z",
+      "crawledAt": "2026-10-14T09:16:10.278Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T07:53:53.937Z",
+      "crawledAt": "2026-10-14T09:16:09.851Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T07:53:53.510Z",
+      "crawledAt": "2026-10-14T09:16:09.430Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,7 +215,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T07:53:53.049Z",
+      "crawledAt": "2026-10-14T09:16:07.917Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,5 +248,5 @@
       }
     }
   ],
-  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

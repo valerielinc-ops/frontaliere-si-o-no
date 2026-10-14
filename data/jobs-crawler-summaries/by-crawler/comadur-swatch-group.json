@@ -1,17 +1,17 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-14T07:57:16.162Z",
+  "generatedAt": "2026-10-14T09:22:59.705Z",
   "total": 2,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 402006,
-  "avgDurationMs": 402006,
+  "durationMs": 409951,
+  "avgDurationMs": 409951,
   "durationHistory": [
-    402006
+    409951
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -96,5 +96,5 @@
       }
     }
   ],
-  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
