@@ -42,6 +42,7 @@ import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import fs from 'node:fs';
 import np from 'node:path';
 import { readBorderWaitArchive } from '../scripts/lib/border-wait-monthly-archive.mjs';
+import { htmlHasIndexableRobots } from './shared/incrementalHtmlReuse.mjs';
 import {
   BASE_URL,
   BUILD_ID,
@@ -3355,7 +3356,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     title,
     description,
     canonicalUrl,
-    robots: 'index,follow',
+    robots: overallAvg === null ? 'noindex,follow' : 'index,follow',
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     jsonLdScripts: [breadcrumbLd, webPageLd],
@@ -3677,7 +3678,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
-        sitemapPaths.push(path);
+        if (htmlHasIndexableRobots(html)) sitemapPaths.push(path);
         archivesWritten++;
       }
 

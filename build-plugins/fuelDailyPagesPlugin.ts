@@ -28,6 +28,7 @@ import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
 import { readFuelArchive } from '../scripts/lib/fuel-monthly-archive.mjs';
+import { htmlHasIndexableRobots } from './shared/incrementalHtmlReuse.mjs';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -2074,7 +2075,7 @@ function renderArchive(inp: ArchiveInputs): string {
     title,
     description,
     canonicalUrl,
-    robots: 'index,follow',
+    robots: prices.length > 0 ? 'index,follow' : 'noindex,follow',
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     jsonLdScripts: [breadcrumbLd, webPageLd],
@@ -5323,7 +5324,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
-        sitemapPaths.push(path);
+        if (htmlHasIndexableRobots(html)) sitemapPaths.push(path);
         archivesWritten++;
       }
 

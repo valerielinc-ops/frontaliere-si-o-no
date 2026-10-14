@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
 import { compactBorderWaitArchiveDay, readBorderWaitArchive, writeBorderWaitArchive } from '../scripts/lib/border-wait-monthly-archive.mjs';
 import { generateBorderWaitArchives } from '../build-plugins/borderWaitPagesPlugin';
+import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 const today = new Date();
 const monthStart = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1));
 const previousDay = new Date(monthStart.getTime() - 86400000).toISOString().slice(0, 10);
@@ -13,6 +14,17 @@ const now = today.toISOString().slice(0, 10);
 const row = (date = previousDay, avg = 12) => ({ date, perCrossing: { gaggiolo: Array.from({ length: 24 }, () => ({ avg, min: 0, max: 20, samples: 3 })) } });
 
 describe('durable border-wait monthly facts', () => {
+  it('indexes an observed zero but not crossings with no observations in the month', () => {
+    const pages = generateBorderWaitArchives({ history: [row(previousDay, 0)], today });
+    expect(Object.keys(pages)).toHaveLength(20);
+    for (const [url, html] of Object.entries(pages)) {
+      expect(htmlHasIndexableRobots(html), url).toBe(url.includes('/gaggiolo/'));
+      expect(html).toContain(`https://frontaliereticino.ch${url}`);
+    }
+    const source = fs.readFileSync(new URL('../build-plugins/borderWaitPagesPlugin.ts', import.meta.url), 'utf8');
+    const writer = source.slice(source.indexOf('for (const [path, html] of Object.entries(archives))'));
+    expect(writer).toContain('if (htmlHasIndexableRobots(html)) sitemapPaths.push(path)');
+  });
   it('stages monthly facts in every active workflow that directly invokes a collector entry point', () => {
     const workflowsDir = new URL('../.github/workflows/', import.meta.url);
     const writers = fs.readdirSync(workflowsDir).filter((file) => /\.ya?ml$/.test(file)).map((file) => {

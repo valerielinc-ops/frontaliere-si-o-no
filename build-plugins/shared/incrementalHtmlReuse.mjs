@@ -2,6 +2,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
+import { readAttr } from '../../scripts/lib/html-attr.mjs';
 import {
   computeInputHash,
   JOB_DIGEST_ALGORITHM_VERSION,
@@ -1147,8 +1148,12 @@ export function refreshHtmlBuildId(html, buildId) {
 }
 
 export function htmlHasIndexableRobots(html) {
-  const tag = String(html).match(/<meta\b[^>]*\bname\s*=\s*["']robots["'][^>]*>/i)?.[0] || '';
-  return !!tag && !/\bnoindex\b/i.test(tag);
+  for (const [tag] of String(html).matchAll(/<meta\b[^>]*>/gi)) {
+    if (readAttr(tag, 'name').toLowerCase() !== 'robots') continue;
+    const content = readAttr(tag, 'content').trim();
+    return !!content && !content.toLowerCase().split(/[\s,]+/).includes('noindex');
+  }
+  return false;
 }
 
 function htmlAssetReferenceList(html) {

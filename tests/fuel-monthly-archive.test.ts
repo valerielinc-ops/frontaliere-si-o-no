@@ -7,11 +7,25 @@ import { compactFuelArchiveDay, readFuelArchive, writeFuelArchive } from '../scr
 import { generateFuelArchivePages } from '../build-plugins/fuelDailyPagesPlugin';
 import { FUEL_ZONES } from '../build-plugins/shared/fuelRouteSlugs.mjs';
 import type { FuelZone } from '../build-plugins/fuelDailyData';
+import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 const today = new Date();
 const day = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 0)).toISOString().slice(0, 10);
 const row = () => ({ date: day, diesel: { source: 'api' as const }, zones: Object.fromEntries(FUEL_ZONES.map((zone) => [zone, { benzina: 1.8, diesel: 1.9 }])) as Record<FuelZone, { benzina: number; diesel: number }> });
 
 describe('durable fuel monthly facts', () => {
+  it('keeps unknown diesel archives reachable but only petrol observations indexable', () => {
+    const snapshot = compactFuelArchiveDay({ ...row(), diesel: { source: 'mixed' } });
+    const pages = generateFuelArchivePages({ history: [snapshot], today });
+    expect(Object.keys(pages)).toHaveLength(40);
+    for (const [url, html] of Object.entries(pages)) {
+      const diesel = /diesel|gasoil/.test(url);
+      expect(htmlHasIndexableRobots(html), url).toBe(!diesel);
+      expect(html).toContain(`https://frontaliereticino.ch${url}`);
+    }
+    const source = fs.readFileSync(new URL('../build-plugins/fuelDailyPagesPlugin.ts', import.meta.url), 'utf8');
+    const writer = source.slice(source.indexOf('for (const [path, html] of Object.entries(archives))'));
+    expect(writer).toContain('if (htmlHasIndexableRobots(html)) sitemapPaths.push(path)');
+  });
   it('retains observed prices without reviving synthetic or unknown diesel', () => {
     const api = compactFuelArchiveDay({ ...row(), stations: { private: 'discard' } });
     expect(api.zones.chiasso.diesel).toBe(1.9);
