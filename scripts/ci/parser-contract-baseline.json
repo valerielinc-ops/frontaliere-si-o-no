@@ -4,7 +4,7 @@
     "R3": 23,
     "R4": 18,
     "R5": 139,
-    "R6": 15
+    "R6": 12
   },
   "files": {
     "scripts/lib/a-plus-plus-job-parser.mjs": {
@@ -197,9 +197,6 @@
     },
     "scripts/lib/vz-vermoegenszentrum-job-parser.mjs": {
       "R4": 1
-    },
-    "scripts/lib/yellowshark-job-parser.mjs": {
-      "R6": 3
     },
     "scripts/lib/yousty-job-parser.mjs": {
       "R5": 1
