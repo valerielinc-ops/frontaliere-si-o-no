@@ -152,13 +152,30 @@ export const ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE = 0.05;
 // instrumentation fix in tests/job-alert-impression-contract.test.tsx). The
 // error-rate goal is person-scoped too (`totalUsers`). `viaGa4: false` keeps
 // the historical PostHog wording ("persone") for records written before H9.
-export function alertFunnelOutcome({ created, shown, viaGa4 = false, ctaSurfaceNotSetShare = null }) {
+export function alertFunnelOutcome({
+  created,
+  shown,
+  viaGa4 = false,
+  ctaSurfaceNotSetShare = null,
+  surfaceBreakdown = null,
+}) {
   const shownN = Number(shown) || 0;
   const createdN = Number(created) || 0;
   const rate = shownN > 0 ? createdN / shownN : null;
   const unit = viaGa4 ? 'utenti' : 'persone';
   const coverageDetail = viaGa4 && ctaSurfaceNotSetShare !== null
     ? `, cta_surface (not set) ${fmtPct(ctaSurfaceNotSetShare)}`
+    : '';
+  const surfaceTable = viaGa4 && Array.isArray(surfaceBreakdown)
+    ? [
+      'Le righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.',
+      '',
+      '| cta_surface | shown users | created users | rate |',
+      '| --- | ---: | ---: | ---: |',
+      `| aggregate | ${shownN} | ${createdN} | ${fmtPct(rate)} |`,
+      ...surfaceBreakdown.map(({ surface, shown: surfaceShown, created: surfaceCreated, rate: surfaceRate }) =>
+        `| ${surface} | ${surfaceShown} | ${surfaceCreated} | ${fmtPct(surfaceRate)} |`),
+    ].join('\n')
     : '';
   return {
     passed: rate !== null && rate >= 0.05,
@@ -167,9 +184,11 @@ export function alertFunnelOutcome({ created, shown, viaGa4 = false, ctaSurfaceN
       created: createdN,
       shown: shownN,
       ...(viaGa4 && ctaSurfaceNotSetShare !== null ? { ctaSurfaceNotSetShare } : {}),
+      ...(viaGa4 && Array.isArray(surfaceBreakdown) ? { surfaceBreakdown } : {}),
     },
     targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', GA4' : ''})`,
-    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4]' : ''}`,
+    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4]' : ''}`
+      + (surfaceTable ? `\n\n${surfaceTable}` : ''),
   };
 }
 
@@ -190,19 +209,32 @@ export async function evalAlertFunnelConversionGa4({
   const preflight = await checkAlertCtaSurfaceDimension(accessToken, 14, { runReportImpl, logImpl });
   if (!preflight.ready) return { unmeasurable: true, note: preflight.reason };
   // `totalUsers` broken down by eventName = distinct users who fired that
-  // event: the person-scoped count the funnel needs.
-  const counts = await ga4EventCountByName(
-    accessToken,
-    ALERT_FUNNEL_EVENT_NAMES,
-    14,
-    'totalUsers',
-    { dimensionFilter: buildAlertFunnelGa4Filter(), runReportImpl },
-  );
+  // event: the person-scoped count the funnel needs. Keep it separate from
+  // the surface rows because users can appear in more than one surface.
+  const [counts, surfaceReport] = await Promise.all([
+    ga4EventCountByName(
+      accessToken,
+      ALERT_FUNNEL_EVENT_NAMES,
+      14,
+      'totalUsers',
+      { dimensionFilter: buildAlertFunnelGa4Filter(), runReportImpl },
+    ),
+    runReportImpl(accessToken, {
+      dimensions: [
+        { name: 'eventName' },
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(),
+      windowDays: 14,
+    }),
+  ]);
   return alertFunnelOutcome({
     created: counts.get('job_alert_created') || 0,
     shown: counts.get('job_alert_cta_shown') || 0,
     viaGa4: true,
     ctaSurfaceNotSetShare: preflight.notSetShare,
+    surfaceBreakdown: inspectAlertFunnelSurfaceBreakdown(surfaceReport),
   });
 }
 
@@ -619,6 +651,27 @@ export function inspectAlertCtaSurfaceReport({
     allowlistedUsers: safeAllowlistedUsers,
     notSetShare: safeTotalUsers > 0 ? safeNotSetUsers / safeTotalUsers : null,
   };
+}
+
+/** Return the alert funnel's two user counts in allowlist order, including empty surfaces. */
+export function inspectAlertFunnelSurfaceBreakdown(report) {
+  const countsBySurface = new Map(
+    ALERT_CTA_SURFACES.map((surface) => [surface, { shown: 0, created: 0 }]),
+  );
+  for (const row of report?.rows || []) {
+    const eventName = row.dimensionValues?.[0]?.value;
+    const surface = row.dimensionValues?.[1]?.value;
+    const users = Number(row.metricValues?.[0]?.value || 0);
+    if (!ALERT_FUNNEL_EVENT_NAMES.includes(eventName) || !countsBySurface.has(surface)) continue;
+    if (!Number.isFinite(users) || users < 0) continue;
+    const eventMetric = eventName === 'job_alert_cta_shown' ? 'shown' : 'created';
+    countsBySurface.get(surface)[eventMetric] = users;
+  }
+
+  return ALERT_CTA_SURFACES.map((surface) => {
+    const { shown, created } = countsBySurface.get(surface);
+    return { surface, shown, created, rate: shown > 0 ? created / shown : null };
+  });
 }
 
 /**

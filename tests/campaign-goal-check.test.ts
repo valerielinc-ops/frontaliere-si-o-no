@@ -629,15 +629,65 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
           { dimensionValues: [{ value: 'job_alert_cta_shown' }], metricValues: [{ value: '100' }] },
           { dimensionValues: [{ value: 'job_alert_created' }], metricValues: [{ value: '10' }] },
         ],
+      })
+      .mockResolvedValueOnce({
+        rows: [
+          {
+            dimensionValues: [
+              { value: 'job_alert_cta_shown' },
+              { value: 'inline_card' },
+            ],
+            metricValues: [{ value: '80' }],
+          },
+          {
+            dimensionValues: [
+              { value: 'job_alert_created' },
+              { value: 'inline_card' },
+            ],
+            metricValues: [{ value: '8' }],
+          },
+          {
+            dimensionValues: [
+              { value: 'job_alert_cta_shown' },
+              { value: 'sticky_banner' },
+            ],
+            metricValues: [{ value: '40' }],
+          },
+          {
+            dimensionValues: [
+              { value: 'job_alert_created' },
+              { value: 'sticky_banner' },
+            ],
+            metricValues: [{ value: '2' }],
+          },
+        ],
       });
     const logImpl = vi.fn();
     const result = await evalAlertFunnelConversionGa4({ token: 'token', runReportImpl, logImpl });
 
     expect(result.unmeasurable).toBeUndefined();
+    expect(result.passed).toBe(true);
+    expect(result.targetDescription).toContain('>= 5%');
     expect(result.value).toMatchObject({ created: 10, shown: 100, rate: 0.1, ctaSurfaceNotSetShare: ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE });
     expect(result.detail).toContain('cta_surface (not set) 5.00%');
+    expect(result.detail).toContain('10/100 utenti = 10.00%');
+    expect(result.detail).toContain('righe per superficie possono sovrapporsi');
+    expect(result.detail).toContain('| aggregate | 100 | 10 | 10.00% |');
+    expect(result.value.surfaceBreakdown.map(({ surface }) => surface)).toEqual(ALERT_CTA_SURFACES);
+    expect(result.value.surfaceBreakdown[0]).toEqual({
+      surface: 'inline_card', shown: 80, created: 8, rate: 0.1,
+    });
+    expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'sticky_banner')).toEqual({
+      surface: 'sticky_banner', shown: 40, created: 2, rate: 0.05,
+    });
+    expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'end_card')).toEqual({
+      surface: 'end_card', shown: 0, created: 0, rate: null,
+    });
+    expect(result.detail).toContain('| inline_card | 80 | 8 | 10.00% |');
+    expect(result.detail).toContain('| sticky_banner | 40 | 2 | 5.00% |');
+    expect(result.detail).toContain('| end_card | 0 | 0 | n/a |');
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('5/100'));
-    expect(runReportImpl).toHaveBeenCalledTimes(5);
+    expect(runReportImpl).toHaveBeenCalledTimes(6);
     expect(runReportImpl.mock.calls[1][1]).toMatchObject({
       dimensions: [],
       metrics: ['totalUsers'],
@@ -680,6 +730,15 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     });
     expect(runReportImpl.mock.calls[4][1].dimensionFilter).not.toEqual({
       filter: { fieldName: 'eventName', inListFilter: { values: ALERT_FUNNEL_EVENT_NAMES } },
+    });
+    expect(runReportImpl.mock.calls[5][1]).toMatchObject({
+      dimensions: [
+        { name: 'eventName' },
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(),
+      windowDays: 14,
     });
   });
 });
