@@ -26,6 +26,7 @@ import {
   resolveGalenicaCanton,
 } from '../scripts/update-galenica-jobs.mjs';
 import { SWISS_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
+import { buildObservedHttpsApplyUrlHousekeepingProof } from '../scripts/lib/https-url.mjs';
 
 const TRUSTED_TEST_APPLY_URL = 'https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1';
 
@@ -213,7 +214,7 @@ function apprenticeship(id: string, street: string, zip: string) {
 }
 
 const withYousty = (variants: ReturnType<typeof apprenticeship>) => buildGalenicaJob(variants, {
-  youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'fr', applyUrl: '' },
+  youstyEnrichment: { description: YOUSTY_TEXT, sourceLang: 'fr', applyUrl: TRUSTED_TEST_APPLY_URL, sourceObserved: true },
 });
 
 describe('Galenica Solique content (flat 243/249: the blurb replaced the posting)', () => {
@@ -247,7 +248,7 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
       .toBe('**Luogo di lavoro:** Amavita, Place du Lignon 19, 1219 Le Lignon');
   });
 
-  it('uses a source-backed HTTPS application link and retains the vacancy when none is trusted', () => {
+  it('uses a source-backed HTTPS application link and quarantines a source-confirmed missing handoff', () => {
     const { job } = buildGalenicaJob([SOLIQUE_VACANCY]);
     expect(job.applyUrl).toBe('https://recruitingapp-2883.umantis.com/Vacancies/7417/Application/CheckLogin/1?lang=ger&source=Galenica%20-%20Internet&srcText=Galenica%20-%20Internet&search=1');
 
@@ -257,9 +258,13 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     }], { youstyEnrichment: { applyUrl: 'https://apply.example.test/job/7417' } });
     expect(withoutTrustedHandoff.job).toMatchObject({ applyUrl: '' });
     expect(withoutTrustedHandoff.skip).toBeUndefined();
+    expect(withoutTrustedHandoff.quarantine).toMatchObject({
+      reason: 'official source has no trusted HTTPS application destination',
+      job: { applyUrl: '' },
+    });
   });
 
-  it('keeps a valid Yousty vacancy with an empty applyUrl when the profile has no application handoff', async () => {
+  it('quarantines a Yousty vacancy only after its source profile confirms no application handoff', async () => {
     const variants = apprenticeship('12692302', 'Rue de Bourg 8', '1003');
     const profileUrl = variants[0].textblocks.profilelink;
     const profileHtml = `<noscript><h2>Lehrstellenbeschreibung</h2><div>${YOUSTY_TEXT}</div></noscript>`;
@@ -273,6 +278,15 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     expect(result.skip).toBeUndefined();
     expect(result.job.description).toContain('Tu t’intéresses à une place d’apprentissage');
     expect(result.job.applyUrl).toBe('');
+    expect(result.quarantine).toMatchObject({ job: { applyUrl: '' } });
+  });
+
+  it('does not treat a failed Yousty profile fetch as proof that the handoff is missing', () => {
+    const result = buildGalenicaJob(apprenticeship('12692303', 'Rue de Bourg 8', '1003'), {
+      youstyEnrichment: { applyUrl: '', sourceObserved: false },
+    });
+    expect(result.noSourceDescription).toBe(true);
+    expect(result.quarantine).toBeUndefined();
   });
 
   it('keeps the Yousty text as source-locale content, after the workplace line', () => {
@@ -313,6 +327,47 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
 });
 
 describe('Galenica run partition and merge', () => {
+  it('removes a previously published vacancy only when the official source observed it without HTTPS handoff', () => {
+    const candidate = buildGalenicaJob([{
+      ...SOLIQUE_VACANCY,
+      textblocks: { ...SOLIQUE_VACANCY.textblocks, applybuttonlink: '' },
+    }]);
+    expect(candidate.quarantine).toBeDefined();
+
+    const prior = { ...candidate.job, slug: 'galenica-previous-slug' };
+    const { jobs, stats } = mergeGalenicaRecords([prior], {
+      jobs: [],
+      quarantined: [candidate.job],
+    });
+    expect(jobs).toEqual([]);
+    expect(stats.quarantined).toEqual([candidate.job]);
+
+    const proof = buildObservedHttpsApplyUrlHousekeepingProof({
+      priorJobs: [prior],
+      observedJobs: [candidate.job],
+      keyFor: (job) => job.url,
+    });
+    expect(proof).toHaveLength(1);
+    expect(proof[0]).toMatchObject({ job: prior, definitive: true });
+  });
+
+  it('preserves a previously trusted handoff when the Yousty detail fetch failed', () => {
+    const candidate = buildGalenicaJob(apprenticeship('12692304', 'Rue de Bourg 8', '1003'), {
+      youstyEnrichment: { applyUrl: '', sourceObserved: false },
+    });
+    const prior = {
+      ...candidate.job,
+      applyUrl: TRUSTED_TEST_APPLY_URL,
+      description: YOUSTY_TEXT,
+      sourceLang: 'fr',
+      descriptionByLocale: { fr: YOUSTY_TEXT },
+    };
+    const { jobs } = mergeGalenicaRecords([prior], {
+      noSource: [candidate.job],
+    });
+    expect(jobs[0].applyUrl).toBe(TRUSTED_TEST_APPLY_URL);
+  });
+
   it('keeps distinct branches of one city apart and collapses a true republication onto the lowest id', () => {
     const a = withYousty(apprenticeship('12692278', 'Route des Plaines-du-Loup 2', '1018'));
     const b = withYousty(apprenticeship('12692200', 'Place St-François 5', '1003'));

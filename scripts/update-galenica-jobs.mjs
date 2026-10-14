@@ -33,7 +33,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
-  writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
@@ -62,6 +62,8 @@ import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { createSourceRecordQuarantine } from './lib/source-record-quarantine.mjs';
+import { buildObservedHttpsApplyUrlHousekeepingProof } from './lib/https-url.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -409,15 +411,16 @@ export async function enrichFromYoustyProfile(variants, timeoutMs) {
   try {
     const html = await fetchText(profileUrl, timeoutMs);
     const parsed = parseYoustyApprenticeshipHtml(html);
-    if (!parsed.description) return { applyUrl: parsed.applyUrl || '' };
+    if (!parsed.description) return { applyUrl: parsed.applyUrl || '', sourceObserved: false };
     return {
       description: parsed.description,
       sourceLang: detectLang(parsed.description, 'it'),
       applyUrl: parsed.applyUrl || '',
+      sourceObserved: true,
     };
   } catch (err) {
     console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
-    return { applyUrl: '' };
+    return { applyUrl: '', sourceObserved: false };
   }
 }
 
@@ -452,6 +455,12 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   const canton = resolveGalenicaCanton(workLocation);
   if (!city || !canton) return { skip: 'source location did not resolve to a Swiss canton' };
   const applyUrl = resolveGalenicaApplyUrl(variants, youstyEnrichment);
+  // Solique vacancy bodies are part of the fully fetched listing record. For
+  // apprenticeships, absence of a handoff is conclusive only after the Yousty
+  // profile itself was fetched and parsed; a failed detail fetch is not proof.
+  const handoffSourceObserved = variants.some((variant) =>
+    Boolean(buildGalenicaSoliqueDescription(variant?.textblocks)))
+    || youstyEnrichment?.sourceObserved === true;
   const sourceLocationCanton = workLocation.sourceLocationCanton === canton
     ? canton
     : '';
@@ -507,6 +516,20 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
       fr: titleFr,
     },
   };
+  const outcome = (extra = {}) => ({
+    job,
+    id: preferred.id,
+    firm,
+    city,
+    ...(handoffSourceObserved ? { handoffSourceObserved: true } : {}),
+    ...(!applyUrl && handoffSourceObserved ? {
+      quarantine: {
+        job,
+        reason: 'official source has no trusted HTTPS application destination',
+      },
+    } : {}),
+    ...extra,
+  });
 
   const soliqueDescription = buildGalenicaSoliqueDescription(textblocks);
   const sourceContent = soliqueDescription
@@ -517,7 +540,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   if (!sourceContent) {
     // No text read from the source this run: the caller keeps the text a
     // previous run read, or does not publish the job. Never a made-up blurb.
-    return { job, id: preferred.id, firm, city, noSourceDescription: true };
+    return outcome({ noSourceDescription: true });
   }
   const sourceLang = ['it', 'en', 'de', 'fr'].includes(sourceContent.sourceLang)
     ? sourceContent.sourceLang
@@ -536,10 +559,10 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   // Shared word floor (Non-Negotiable #4) on what is published: the branch
   // line plus the source body.
   if (!meetsSourceBodyFloor(description)) {
-    return { job, id: preferred.id, firm, city, thinSourceDescription: true };
+    return outcome({ thinSourceDescription: true });
   }
 
-  return { job, id: preferred.id, firm, city };
+  return outcome();
 }
 
 async function fetchGalenicaJobs() {
@@ -578,6 +601,9 @@ async function fetchGalenicaJobs() {
   console.log(`📋 Unique Swiss job IDs: ${byId.size}`);
 
   const built = [];
+  const observedJobs = [];
+  const quarantined = [];
+  const handoffGate = createSourceRecordQuarantine({ label: 'Galenica HTTPS handoff', total: byId.size });
 
   for (const [id, variants] of byId) {
     // Apprenticeship items carry no vacancy textblocks: their content lives
@@ -589,15 +615,33 @@ async function fetchGalenicaJobs() {
       console.log(`⚠️  Skipping job ID ${id}: ${result.skip}`);
       continue;
     }
+    if (result.handoffSourceObserved) {
+      handoffGate.observe();
+      observedJobs.push(result.job);
+    }
+    if (result.quarantine) {
+      handoffGate.reject(id, result.quarantine.reason);
+      quarantined.push(result.job);
+      console.log(`  🚫 ${result.job.title} — no trusted HTTPS handoff (id: ${id})`);
+      continue;
+    }
     console.log(`  ✅ ${result.job.title} — ${result.firm} @ ${result.city} (id: ${id})`);
     built.push(result);
   }
 
+  const settled = handoffGate.settle(built);
+  const handoffQuarantineBlocked = handoffGate.rejectedCount > 0 && settled.length === 0;
   const discovery = partitionGalenicaJobs(built);
+  discovery.observedJobs = observedJobs;
+  discovery.quarantined = quarantined;
+  discovery.handoffObservedCount = observedJobs.length;
+  discovery.handoffQuarantineCount = quarantined.length;
+  discovery.handoffQuarantineBlocked = handoffQuarantineBlocked;
   console.log(
     `📋 Total unique Galenica Swiss jobs discovered: ${built.length} `
     + `(${discovery.jobs.length} with source text, ${discovery.noSource.length} without, `
-    + `${discovery.thin.length} thin, ${discovery.dropped.length} republication(s) collapsed)`,
+    + `${discovery.thin.length} thin, ${discovery.dropped.length} republication(s) collapsed, `
+    + `${discovery.handoffQuarantineCount}/${discovery.handoffObservedCount} without trusted HTTPS handoff)`,
   );
   return discovery;
 }
@@ -673,7 +717,7 @@ export function storedGalenicaSourceText(record) {
  * Pure merge of one run into the stored Galenica records (no I/O).
  * @returns {{ jobs: object[], stats: { added: number, updated: number, removed: number, unpublished: object[], collapsed: number, legacyBlurbRecords: number } }}
  */
-export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJobs = [], noSource = [], thin = [], dropped = [] } = {}) {
+export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJobs = [], noSource = [], thin = [], dropped = [], quarantined = [] } = {}) {
   const existingByKey = new Map(existingGalenicaJobs.map((j) => [galenicaStableKey(j), j]));
 
   // Without source text this run: keep what a previous run read from the
@@ -681,7 +725,11 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
   const discoveredJobs = [...freshJobs];
   const unpublished = [];
   for (const job of [...noSource, ...thin]) {
-    const previous = storedGalenicaSourceText(existingByKey.get(galenicaStableKey(job)));
+    const existing = existingByKey.get(galenicaStableKey(job));
+    const previous = storedGalenicaSourceText(existing);
+    // A detail-page fetch failure is not evidence that the old application
+    // handoff disappeared. Preserve only a previously trusted HTTPS URL.
+    if (!job.applyUrl) job.applyUrl = trustedHttpsGalenicaUrl(existing?.applyUrl);
     if (!previous) {
       unpublished.push(job);
       continue;
@@ -713,7 +761,7 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
     if (stored && survivor) captureLostSlugs(survivor, stored.slugByLocale || {}, stored.slug || '', 20);
   }
 
-  const removeKeys = new Set([...unpublished, ...dropped.map((d) => d.dropped)].map(galenicaStableKey));
+  const removeKeys = new Set([...unpublished, ...dropped.map((d) => d.dropped), ...quarantined].map(galenicaStableKey));
   let legacyBlurbRecords = 0;
   const jobs = merged.filter((job) => {
     if (removeKeys.has(galenicaStableKey(job))) return false;
@@ -742,6 +790,7 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
       updated,
       removed: [...existingKeys].filter((k) => !finalKeys.has(k)).length,
       unpublished,
+      quarantined,
       collapsed: dropped.length,
       legacyBlurbRecords,
     },
@@ -917,10 +966,18 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
 
   // Snapshot before
-  const beforeMap = snapshotJobSlugs(readExistingCrawlerJobs(GALENICA_KEY, DATA_JOBS).filter(isGalenicaJob))
+  const priorJobs = readExistingCrawlerJobs(GALENICA_KEY, DATA_JOBS).filter(isGalenicaJob);
+  const beforeMap = snapshotJobSlugs(priorJobs);
 
   // Phase 1: discover jobs from Solique data.json
   const discoveredJobs = await fetchGalenicaJobs();
+
+  if (discoveredJobs.handoffQuarantineBlocked) {
+    throw new Error(
+      `Galenica handoff quarantine reached the systemic/empty-publication guard `
+      + `(${discoveredJobs.handoffQuarantineCount}/${discoveredJobs.handoffObservedCount}); prior slice left untouched.`,
+    );
+  }
 
   const discoveredCount = discoveredJobs.jobs.length + discoveredJobs.noSource.length + discoveredJobs.thin.length;
   if (discoveredCount === 0) {
@@ -961,7 +1018,21 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isGalenicaJob) : [];
-  writeJobsCrawlerSlice(GALENICA_KEY, _sliceJobs);
+  const invalidHandoffs = _sliceJobs.filter((job) => !trustedHttpsGalenicaUrl(job?.applyUrl));
+  if (invalidHandoffs.length > 0) {
+    throw new Error(`Galenica final slice still has ${invalidHandoffs.length} job(s) without a trusted HTTPS handoff; refusing to publish.`);
+  }
+  const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
+    priorJobs,
+    observedJobs: discoveredJobs.observedJobs,
+    keyFor: galenicaStableKey,
+  });
+  await writeJobsCrawlerSliceVerified(GALENICA_KEY, _sliceJobs, {
+    isTargetJob: isGalenicaJob,
+    ...(applyUrlHousekeepingProof.length > 0
+      ? { housekeepingProof: applyUrlHousekeepingProof, verifyUnprovenHousekeeping: true }
+      : {}),
+  });
   writeSummaryCrawlerSlice({
     key: GALENICA_KEY,
     label: 'Galenica',
