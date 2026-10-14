@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-13T21:25:48.256Z",
+  "generatedAt": "2026-10-14T09:36:28.895Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6006,
-  "avgDurationMs": 6006,
+  "durationMs": 5947,
+  "avgDurationMs": 5947,
   "durationHistory": [
-    6006
+    5947
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:25:35.933Z",
+      "crawledAt": "2026-10-14T09:36:17.815Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -64,7 +64,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:25:35.933Z",
+      "crawledAt": "2026-10-14T09:36:17.815Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -90,46 +90,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Junior Legal – Banca del Sempione (Lugano)",
-      "company": "Banca del Sempione",
-      "companyKey": "banca-sempione",
-      "url": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "category": "legal",
-      "descriptionIt": "Il ruolo:\n\nCome parte del nostro team Legal, facente capo all’ Area Legal & Compliance che si occupa delle pratiche legali e di contenzioso della Banca, curando l’emissione delle normative interne e della contrattualistica bancaria e con i fornitori esterni e fornendo consulenza puntuale ai vari organi della Banca sulle tematiche di competenza.\n\nLe responsabilità:\n\n- gestione delle pratiche di successione, curatele, tutele, ecc;\n- gestione dei reclami;\n- redazione e aggiornamento della formularistica bancaria;\n- redazione e revisione dei contratti con controparti o fornitori, curandone la revisione;\n- consulenza legale alle altre funzioni della Banca;\n- cura delle procedure di contenzioso e recupero crediti della Banca.\n\nIl profilo:\n\n- sei appassionato/a di diritto svizzero e internazionale e cerchi un’opportunità per mettere a frutto la tua formazione all’interno di una solida realtà finanziaria radicata in Ticino;\n- hai conseguito un Bachelor/Master in Giurisprudenza in Svizzera oppure in Italia con specializzazione in diritto svizzero; un’esperienza lavorativa pregressa o di praticantato legale sono considerati un plus;\n- possiedi una spiccata attitudine all’apprendimento e all’approfondimento delle tematiche;\n- possiedi eccellenti capacità organizzative e di problem solving;\n- sei una persona motivata e intraprendente, desiderosa di crescere professionalmente;\n- sei madrelingua Italiano con ottima conoscenza della lingua inglese. Tedesco e/o francese sono considerati un plus.\n\nModalità di candidatura: Inviare il CV e la lettera di motivazione in italiano cliccando sul pulsante “CANDIDATI”",
-      "datePosted": "2026-09-15T14:39:41Z",
-      "postedDate": "2026-09-15T14:39:41Z",
-      "postingDateSource": "reported",
-      "source": "company-website",
-      "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
-      "sourceLang": "it",
-      "id": "banca-sempione-00a6adcf50af",
-      "firstSeenAt": "2026-09-19T23:02:49.693Z",
-      "crawledAt": "",
-      "salaryMin": 45000,
-      "salaryMax": 76500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
