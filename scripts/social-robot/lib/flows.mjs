@@ -213,24 +213,30 @@ async function hasVisibleLoading(root) {
   return false;
 }
 
-async function hasVisibleDialogLoading(page) {
-  const dialogs = page.locator('[role="dialog"]');
-  const count = await dialogs.count().catch(() => 0);
-  for (let i = 0; i < count; i += 1) {
-    const dialog = dialogs.nth(i);
-    if (await dialog.isVisible().catch(() => false) && await hasVisibleLoading(dialog)) return true;
-  }
-  return false;
+function activeInstagramComposerDialog(page) {
+  if (!page || typeof page.locator !== 'function') return null;
+  // The Create flow mounts its composer as the first visible dialog; notices
+  // and other secondary dialogs must not broaden the loading signal.
+  const dialogs = page.locator('[role="dialog"]:visible');
+  return typeof dialogs.first === 'function' ? dialogs.first() : null;
 }
 
-async function waitForDialogControl(page, candidates, { timeout = DEFAULT_TIMEOUTS.dialogLoading, state = 'visible', guard, step, name } = {}) {
+export async function hasVisibleDialogLoading(dialog) {
+  if (!dialog || typeof dialog.isVisible !== 'function') return false;
+  if (!await dialog.isVisible().catch(() => false)) return false;
+  return hasVisibleLoading(dialog);
+}
+
+export async function waitForDialogControl(page, candidates, { timeout = DEFAULT_TIMEOUTS.dialogLoading, state = 'visible', guard, step, name, dialog = null } = {}) {
   const deadline = Date.now() + timeout;
+  const composer = dialog || activeInstagramComposerDialog(page);
   for (;;) {
     if (guard) await guard();
     const control = await findFirst(candidates, { timeout: 0, state });
     if (control) return control;
-    if (!await hasVisibleDialogLoading(page)) return null;
+    const loading = await hasVisibleDialogLoading(composer);
     if (Date.now() >= deadline) {
+      if (!loading) return null;
       throw new RobotError(
         'ui-loading-timeout',
         `the dialog remained in a loading state for ${timeout}ms before step "${name}"`,
@@ -239,6 +245,22 @@ async function waitForDialogControl(page, candidates, { timeout = DEFAULT_TIMEOU
     }
     await sleep(Math.min(100, Math.max(1, deadline - Date.now())));
   }
+}
+
+const TIKTOK_UPLOAD_SURFACE_SELECTORS = Object.freeze([
+  '#upload',
+  '[data-e2e="upload"]',
+  '[data-e2e*="upload" i]',
+  '[data-testid*="upload" i]',
+  '[class*="upload" i]',
+]);
+
+async function findTikTokUploadSurface(page) {
+  for (const selector of TIKTOK_UPLOAD_SURFACE_SELECTORS) {
+    const candidate = page.locator(selector).first();
+    if ((await candidate.count().catch(() => 0)) > 0 && await candidate.isVisible().catch(() => false)) return candidate;
+  }
+  return page.locator('main').first();
 }
 
 async function waitForLoadingToSettle(root, { timeout = DEFAULT_TIMEOUTS.dialogLoading, guard, step, label } = {}) {
@@ -1069,6 +1091,7 @@ async function required(step, name, candidates, opts = {}) {
       guard: findOpts.guard,
       step: name,
       name,
+      dialog: waitForDialog.dialog,
     });
     if (early) return early;
   }
@@ -1150,7 +1173,7 @@ export async function ensureTikTokPublicVisibility({ page, step, snap, guard, ti
   }
 }
 
-export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload }) {
+export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload, dialog = null }) {
   step.set('reel-next-preview');
   const deadline = Date.now() + timeout;
   const candidates = [page.getByRole('button', { name: RX.igNext })];
@@ -1161,7 +1184,7 @@ export async function waitForInstagramReelPreview({ page, step, snap, guard, tim
     const next = await findFirst(candidates, { guard, timeout: 0 });
     if (next) return next;
     if (Date.now() >= deadline) {
-      if (await hasVisibleDialogLoading(page)) {
+      if (await hasVisibleDialogLoading(dialog || activeInstagramComposerDialog(page))) {
         throw new RobotError('ui-loading-timeout', `the Instagram Reel preview dialog remained in a loading state for ${timeout}ms`, { step: 'reel-next-preview' });
       }
       throw new RobotError('selector-missing', 'no control found for step "reel-next-preview"', { step: 'reel-next-preview' });
@@ -1174,7 +1197,7 @@ export async function waitForInstagramReelPreview({ page, step, snap, guard, tim
 async function instagramReelFlow({ page, files, caption, dryRun, human, snap, startUrl = INSTAGRAM_HOME, timeouts = {}, step = stepTracker() }) {
   const t = { ...DEFAULT_TIMEOUTS, ...timeouts };
   const guard = instagramGuard(page, step);
-  const dialogWait = { page, timeout: t.dialogLoading };
+  const dialogWait = { page, timeout: t.dialogLoading, dialog: activeInstagramComposerDialog(page) };
   step.set('open');
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
   await guard();
@@ -1241,7 +1264,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   // Video processing can outlast the ordinary UI timeout. Waiting for the
   // first transition with the bounded upload timeout keeps slow valid uploads
   // alive without allowing the flow to wait indefinitely.
-  const firstNext = await waitForInstagramReelPreview({ page, step, snap, guard, timeout: t.upload });
+  const firstNext = await waitForInstagramReelPreview({ page, step, snap, guard, timeout: t.upload, dialog: dialogWait.dialog });
   await clickChecked(page, firstNext, { step, snap, platform: 'instagram', label: 'Instagram Reel preview next' });
   await human.pause();
 
@@ -1300,7 +1323,7 @@ export async function instagramFlow(opts) {
 async function instagramPostFlow({ page, files, caption, dryRun, human, snap, startUrl = INSTAGRAM_HOME, timeouts = {}, step = stepTracker() }) {
   const t = { ...DEFAULT_TIMEOUTS, ...timeouts };
   const guard = instagramGuard(page, step);
-  const dialogWait = { page, timeout: t.dialogLoading };
+  const dialogWait = { page, timeout: t.dialogLoading, dialog: activeInstagramComposerDialog(page) };
   step.set('open');
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
   await guard();
@@ -1407,7 +1430,8 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
     // TikTok's upload route has no Create dialog; retain the bounded SSR-shell
     // reload above, then distinguish a persistent loading surface from a
     // genuinely missing file control before failing the retryable run.
-    await waitForLoadingToSettle(page, { timeout: t.dialogLoading, guard, step: 'upload', label: 'TikTok upload surface' });
+    const uploadSurface = await findTikTokUploadSurface(page);
+    await waitForLoadingToSettle(uploadSurface, { timeout: t.dialogLoading, guard, step: 'upload', label: 'TikTok upload surface' });
     throw new RobotError('selector-missing', 'no control found for step "upload"', { step: 'upload' });
   }
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');

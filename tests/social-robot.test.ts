@@ -38,7 +38,15 @@ import {
   pausedUntil,
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
-import { DEFAULT_TIKTOK_MUSIC_MODE, extractTikTokAuthenticatedUsername, resolveTikTokMusicVariant, RobotError } from '../scripts/social-robot/lib/flows.mjs';
+import {
+  DEFAULT_TIMEOUTS,
+  DEFAULT_TIKTOK_MUSIC_MODE,
+  extractTikTokAuthenticatedUsername,
+  hasVisibleDialogLoading,
+  resolveTikTokMusicVariant,
+  RobotError,
+  waitForDialogControl,
+} from '../scripts/social-robot/lib/flows.mjs';
 import {
   DEFAULT_TIKTOK_VIDEO_CREATIVE_MODE,
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
@@ -108,6 +116,81 @@ function reelEntry(overrides: Record<string, unknown> = {}) {
     now: NOW,
   });
 }
+
+function absentLocator() {
+  const locator = {
+    first: () => locator,
+    count: async () => 0,
+    isVisible: async () => false,
+  };
+  return locator;
+}
+
+function dialogLocator(isLoading: () => boolean) {
+  const indicator = { isVisible: async () => isLoading() };
+  return {
+    isVisible: async () => true,
+    getAttribute: async () => null,
+    locator: () => ({
+      count: async () => (isLoading() ? 1 : 0),
+      nth: () => indicator,
+    }),
+  };
+}
+
+describe('Instagram dialog loading wait', () => {
+  it('keeps observing after a marker-free probe and reports upload loading timeout past t.ui', async () => {
+    vi.useFakeTimers();
+    try {
+      const startedAt = Date.now();
+      const dialog = dialogLocator(() => Date.now() - startedAt >= 100);
+      const pending = waitForDialogControl({ locator: () => ({ count: async () => 0 }) }, [absentLocator()], {
+        dialog,
+        state: 'attached',
+        timeout: DEFAULT_TIMEOUTS.dialogLoading,
+        step: 'upload',
+        name: 'upload',
+      });
+      let settled = false;
+      pending.then(() => { settled = true; }, () => { settled = true; });
+
+      await vi.advanceTimersByTimeAsync(DEFAULT_TIMEOUTS.ui + 100);
+      expect(settled).toBe(false);
+      await vi.advanceTimersByTimeAsync(DEFAULT_TIMEOUTS.dialogLoading - DEFAULT_TIMEOUTS.ui - 100);
+
+      await expect(pending).rejects.toMatchObject({ errorClass: 'ui-loading-timeout', step: 'upload' });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('ignores a spinner in a secondary dialog when the composer selector is missing', async () => {
+    vi.useFakeTimers();
+    try {
+      const composer = dialogLocator(() => false);
+      const secondary = dialogLocator(() => true);
+      expect(await hasVisibleDialogLoading(composer)).toBe(false);
+      expect(await hasVisibleDialogLoading(secondary)).toBe(true);
+
+      const page = {
+        locator: (selector: string) => selector.includes(':visible')
+          ? { first: () => composer }
+          : { count: async () => 2, nth: (index: number) => [composer, secondary][index] },
+      };
+      const pending = waitForDialogControl(page, [absentLocator()], {
+        state: 'attached',
+        timeout: 100,
+        step: 'upload',
+        name: 'upload',
+      });
+      await vi.advanceTimersByTimeAsync(100);
+
+      await expect(pending).resolves.toBeNull();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
 
 describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
   it('reads absent, empty and unknown values as the safe dry run', () => {
