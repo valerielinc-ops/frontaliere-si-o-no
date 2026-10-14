@@ -1,6 +1,6 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { Loader2, X } from 'lucide-react';
+import { AlertCircle, CreditCard, Loader2, ShieldCheck, X } from 'lucide-react';
 import { useTranslation, type Locale } from '@/services/i18n';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/services/assistedApplicationExperiment';
 
@@ -98,9 +98,16 @@ export default function SumUpPaymentWidget({
   const { t } = useTranslation();
   const generatedId = useId();
   const containerId = `sumup-card-${generatedId.replace(/:/g, '')}`;
+  const titleId = `${containerId}-title`;
+  const descriptionId = `${containerId}-description`;
   const responseRef = useRef(onResponse);
   const errorRef = useRef(onError);
   const [sdkLoading, setSdkLoading] = useState(true);
+  const formattedAmount = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 2,
+  }).format(ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100);
 
   useEffect(() => {
     responseRef.current = onResponse;
@@ -161,41 +168,106 @@ export default function SumUpPaymentWidget({
     };
   }, [checkoutId, containerId, locale]);
 
+  const handleBackdropMouseDown = (event: MouseEvent<HTMLDivElement>) => {
+    if (!busy && event.target === event.currentTarget) onClose();
+  };
+
   const modal = (
     <div
-      className="fixed inset-0 z-[1000] flex min-h-[100dvh] items-center justify-center overflow-y-auto bg-black/55 px-3 py-4 backdrop-blur-sm sm:px-4 sm:py-6"
+      className="fixed inset-0 z-[1000] flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-0 py-0 backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
+      onMouseDown={handleBackdropMouseDown}
       data-testid="sumup-payment-widget"
     >
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="sumup-payment-widget-title"
-        className="relative my-auto w-full max-w-md rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:p-6"
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        aria-busy={sdkLoading || busy}
+        className="relative flex max-h-[min(760px,calc(100dvh-1rem))] w-full max-w-lg flex-col overflow-hidden rounded-t-xl border border-edge bg-surface shadow-stripe-xl sm:max-h-[calc(100dvh-3rem)] sm:rounded-stripe"
       >
-        <div className="flex items-start justify-between gap-4">
-          <h2 id="sumup-payment-widget-title" className="text-xl font-semibold font-display text-heading">
-            {t('jobBoard.assisted.title')}
-          </h2>
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={busy}
-            className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-            aria-label={t('common.close')}
-            data-testid="sumup-payment-widget-close"
-          >
-            <X className="h-5 w-5" aria-hidden="true" />
-          </button>
-        </div>
+        <header className="shrink-0 border-b border-edge bg-surface px-4 pb-4 pt-4 sm:px-6 sm:pb-5 sm:pt-5">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex min-w-0 items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-stripe bg-accent-subtle text-accent">
+                <CreditCard className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div className="min-w-0">
+                <h2 id={titleId} className="font-display text-lg font-semibold text-heading sm:text-xl">
+                  {t('jobBoard.assisted.title')}
+                </h2>
+                <p className="mt-1 text-sm text-subtle">SumUp</p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              disabled={busy}
+              className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              aria-label={t('common.close')}
+              data-testid="sumup-payment-widget-close"
+            >
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
 
-        <div className="mt-5 min-h-[180px]" id={containerId} />
-        {error && <p role="alert" aria-live="assertive" className="mt-3 text-sm leading-relaxed text-danger">{error}</p>}
-        {(sdkLoading || busy) && (
-          <p role="status" aria-live="polite" className="mt-3 flex items-center justify-center gap-2 text-sm text-subtle">
-            <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden="true" />
-            {t('jobBoard.assisted.paidLoading')}
-          </p>
-        )}
+          <div
+            id={descriptionId}
+            className="mt-4 flex items-center justify-between gap-4 rounded-stripe border border-accent/20 bg-accent-subtle/50 px-3 py-3"
+          >
+            <span className="text-sm font-medium text-subtle">{t('jobBoard.assisted.priceNote')}</span>
+            <span className="shrink-0 text-lg font-semibold tabular-nums text-heading">{formattedAmount}</span>
+          </div>
+        </header>
+
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-5 pt-4 sm:px-6 sm:pb-6">
+          <div className="rounded-stripe border border-edge bg-surface-alt p-3 sm:p-4">
+            <div className="relative min-h-[240px]" aria-busy={sdkLoading}>
+              {sdkLoading && (
+                <div
+                  className="absolute inset-0 space-y-3 rounded-stripe bg-surface-alt p-3"
+                  aria-hidden="true"
+                >
+                  <div className="h-4 w-32 animate-pulse rounded bg-surface-raised motion-reduce:animate-none" />
+                  <div className="h-11 w-full animate-pulse rounded-stripe bg-surface-raised motion-reduce:animate-none" />
+                  <div className="h-11 w-full animate-pulse rounded-stripe bg-surface-raised motion-reduce:animate-none" />
+                  <div className="ml-auto h-11 w-28 animate-pulse rounded-stripe bg-surface-raised motion-reduce:animate-none" />
+                </div>
+              )}
+              <div
+                id={containerId}
+                className={sdkLoading ? 'min-h-[240px] opacity-0' : 'min-h-[240px] opacity-100 transition-opacity duration-200'}
+              />
+            </div>
+          </div>
+
+          {error && (
+            <div
+              role="alert"
+              aria-live="assertive"
+              className="mt-4 flex items-start gap-3 rounded-stripe border border-danger/20 bg-danger-subtle px-3 py-3 text-sm leading-relaxed text-danger"
+            >
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <p>{error}</p>
+            </div>
+          )}
+
+          {(sdkLoading || busy) && (
+            <p role="status" aria-live="polite" className="mt-4 flex items-center justify-center gap-2 rounded-stripe bg-accent-subtle/40 px-3 py-2.5 text-sm text-subtle">
+              <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden="true" />
+              {t('jobBoard.assisted.paidLoading')}
+            </p>
+          )}
+
+          <div className="mt-4 flex items-start gap-2 border-t border-edge pt-4 text-xs leading-relaxed text-muted">
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+            <p>
+              <span className="font-semibold text-subtle">SumUp</span>
+              {' · '}
+              {t('jobBoard.assisted.priceNote')}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
