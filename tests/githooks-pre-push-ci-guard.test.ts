@@ -5,9 +5,10 @@
 // content straight to main. The strict sibling gate rejected every article
 // push (run 29090019854: 13 generated files → 10871 sibling candidates →
 // exit 1 → "Article is LOST" ×10 attempts), zeroing article production.
-// The guard skips the gate ONLY when running under GitHub Actions AND every
-// pushed ref targets main; dev pushes (local) and Actions pushes to claude/*
-// branches (issue-fix agents — the gate's designed audience) still run it.
+// The guard skips the gate ONLY when running under GitHub Actions or an
+// explicitly named automated data writer, AND every pushed ref targets main;
+// dev pushes (local) and pushes to claude/* branches (issue-fix agents — the
+// gate's designed audience) still run it.
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -24,13 +25,18 @@ const ZERO_SHA = '0'.repeat(40);
 // check-sibling-patterns.mjs (multi-minute on this repo) never executes; the
 // stub exits 42, letting us assert *whether* the gate would have run without
 // paying its cost.
-function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRefs: string }) {
+function runHook({
+  automatedDataPush,
+  githubActions,
+  stdinRefs,
+}: { automatedDataPush?: string; githubActions?: string; stdinRefs: string }) {
   const stubDir = mkdtempSync(join(tmpdir(), 'pre-push-guard-'));
   const marker = join(stubDir, 'gate-ran');
   const argsFile = join(stubDir, 'gate-args');
+  const oldHistoryMarker = join(stubDir, 'old-history-ran');
   writeFileSync(
     join(stubDir, 'node'),
-    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
+    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
   try {
@@ -41,6 +47,7 @@ function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRe
         cwd: ROOT,
         env: {
           PATH: `${stubDir}:${process.env.PATH}`,
+          ...(automatedDataPush !== undefined ? { FRONTALIERE_AUTOMATED_DATA_PUSH: automatedDataPush } : {}),
           ...(githubActions !== undefined ? { GITHUB_ACTIONS: githubActions } : {}),
         },
         input: stdinRefs,
@@ -52,6 +59,7 @@ function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRe
       stdout = (e.stdout?.toString() ?? '') + (e.stderr?.toString() ?? '');
     }
     let gateRan = false;
+    let oldHistoryRan = false;
     let args: string[] = [];
     try {
       gateRan = readFileSync(marker, 'utf8').includes('ran');
@@ -59,11 +67,16 @@ function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRe
       gateRan = false;
     }
     try {
+      oldHistoryRan = readFileSync(oldHistoryMarker, 'utf8').includes('ran');
+    } catch {
+      oldHistoryRan = false;
+    }
+    try {
       args = readFileSync(argsFile, 'utf8').split('\n').filter(Boolean);
     } catch {
       args = [];
     }
-    return { code, stdout, gateRan, args };
+    return { code, stdout, gateRan, oldHistoryRan, args };
   } finally {
     rmSync(stubDir, { recursive: true, force: true });
   }
@@ -182,10 +195,11 @@ const BRANCH_REF =
 
 describe('.githooks/pre-push CI automation guard', () => {
   it('skips the sibling gate for a GitHub Actions push to main (data-refresh/article path)', () => {
-    const { code, stdout, gateRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF });
+    const { code, stdout, gateRan, oldHistoryRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF });
     expect(code).toBe(0);
     expect(stdout).toMatch(/skipped/);
     expect(gateRan).toBe(false);
+    expect(oldHistoryRan).toBe(true);
   });
 
   it('still runs the gate for a GitHub Actions push to a claude/* branch (issue-fix agents)', () => {
@@ -202,9 +216,31 @@ describe('.githooks/pre-push CI automation guard', () => {
   });
 
   it('still runs the gate for a local dev push to main (GITHUB_ACTIONS unset)', () => {
-    const { code, gateRan } = runHook({ stdinRefs: MAIN_REF });
+    const { code, gateRan, oldHistoryRan } = runHook({ stdinRefs: MAIN_REF });
     expect(gateRan).toBe(true);
+    expect(oldHistoryRan).toBe(true);
     expect(code).toBe(42);
+  });
+
+  it('skips only the sibling gate for a named automated data push to main', () => {
+    const { code, stdout, gateRan, oldHistoryRan } = runHook({
+      automatedDataPush: 'social-robot-insights',
+      stdinRefs: MAIN_REF,
+    });
+    expect(code).toBe(0);
+    expect(stdout).toContain('sibling-gate: skipped (automated data push to main: social-robot-insights)');
+    expect(gateRan).toBe(false);
+    expect(oldHistoryRan).toBe(true);
+  });
+
+  it('runs the sibling gate for a named automated data push to a non-main branch', () => {
+    const { code, gateRan, oldHistoryRan } = runHook({
+      automatedDataPush: 'social-robot-insights',
+      stdinRefs: BRANCH_REF,
+    });
+    expect(code).toBe(42);
+    expect(gateRan).toBe(true);
+    expect(oldHistoryRan).toBe(true);
   });
 
   it('still runs the gate when stdin lists no refs (nothing to classify — fail closed)', () => {

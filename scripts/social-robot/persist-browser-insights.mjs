@@ -44,7 +44,7 @@ export function parseArgs(argv = []) {
   return options;
 }
 
-function git(repo, args, { allowFailure = false } = {}) {
+function git(repo, args, { allowFailure = false, env } = {}) {
   try {
     execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
@@ -54,6 +54,7 @@ function git(repo, args, { allowFailure = false } = {}) {
       stdio: ['ignore', 'ignore', 'inherit'],
       timeout: GIT_TIMEOUT_MS,
       killSignal: 'SIGTERM',
+      ...(env ? { env: { ...process.env, ...env } } : {}),
     });
     return true;
   } catch (error) {
@@ -140,7 +141,9 @@ function persistUnlocked({ repo, snapshot, dryRun, attempts, gitFn }) {
         return { status: result.status, attempt };
       }
       try {
-        gitFn(result.worktree, ['push', 'origin', 'HEAD:main']);
+        gitFn(result.worktree, ['push', 'origin', 'HEAD:main'], {
+          env: { FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' },
+        });
         cleanupWorktree(repo, result.worktree, gitFn);
         return { status: 'pushed', attempt };
       } catch (error) {

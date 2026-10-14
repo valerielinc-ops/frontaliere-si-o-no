@@ -56,7 +56,8 @@ if [ -n "$push_input" ]; then
   done <<< "$push_input"
 fi
 
-# ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
+# ── CI/data-writer automation guard (article-generation outage 2026-07-08→10)
+# ────────────────────────────────────────────────────────────────────────────
 # npm ci's `prepare` script sets core.hooksPath=.githooks inside EVERY GitHub
 # Actions job as well, so this gate also fired on data-refresh workflows that
 # push generated content (articles, crawler data) straight to main. Those are
@@ -64,10 +65,11 @@ fi
 # services/** whose boilerplate is shared by every sibling article file, so
 # the strict gate rejected the push 10/10 times (run 29090019854: 10871
 # candidates → exit 1 → "Article is LOST") and article production dropped to
-# zero. Skip the gate when running under GitHub Actions AND every pushed ref
-# targets main — issue-fix agents push claude/* branches, so the gate keeps
-# firing for the pre-PR pushes it was designed for.
-if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+# zero. Skip the gate when running under GitHub Actions, or for an explicitly
+# named automated data writer, AND every pushed ref targets main. Issue-fix
+# agents push claude/* branches, so the gate keeps firing for the pre-PR pushes
+# it was designed for.
+if [ "${GITHUB_ACTIONS:-}" = "true" ] || [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH:-}" ]; then
   any_ref=0
   all_main=1
   while read -r _local_ref _local_sha remote_ref _remote_sha; do
@@ -76,7 +78,11 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
     if [ "$remote_ref" != "refs/heads/main" ]; then all_main=0; fi
   done <<< "$push_input"
   if [ "$any_ref" = "1" ] && [ "$all_main" = "1" ]; then
-    echo "sibling-gate: skipped (GitHub Actions automated push to main)"
+    if [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH:-}" ]; then
+      echo "sibling-gate: skipped (automated data push to main: ${FRONTALIERE_AUTOMATED_DATA_PUSH})"
+    else
+      echo "sibling-gate: skipped (GitHub Actions automated push to main)"
+    fi
     exit 0
   fi
 fi
