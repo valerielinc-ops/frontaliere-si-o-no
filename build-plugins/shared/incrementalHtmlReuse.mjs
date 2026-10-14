@@ -1148,12 +1148,17 @@ export function refreshHtmlBuildId(html, buildId) {
 }
 
 export function htmlHasIndexableRobots(html) {
-  for (const [tag] of String(html).matchAll(/<meta\b[^>]*>/gi)) {
+  let found = false;
+  for (const [rawTag] of String(html).matchAll(/<meta\b[^>]*>/gi)) {
+    // Keep an authored self-closing delimiter out of unquoted directives.
+    // Normalize only this metadata probe, never arbitrary URL attributes.
+    const tag = rawTag.replace(/\/>$/, ' />');
     if (readAttr(tag, 'name').toLowerCase() !== 'robots') continue;
     const content = readAttr(tag, 'content').trim();
-    return !!content && !content.toLowerCase().split(/[\s,]+/).includes('noindex');
+    if (!content || content.toLowerCase().split(/[\s,]+/).includes('noindex')) return false;
+    found = true;
   }
-  return false;
+  return found;
 }
 
 function htmlAssetReferenceList(html) {
