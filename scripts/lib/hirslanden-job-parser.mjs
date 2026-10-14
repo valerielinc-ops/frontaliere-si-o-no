@@ -26,7 +26,7 @@
  *
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -128,6 +128,19 @@ export function parseLocation(raw = '') {
     city: normalizeSpace(m[1]) || 'Zürich',
     postalCode: m[2] || '',
   };
+}
+
+/** Normalize the SuccessFactors `datePosted` microdata value without using
+ * crawl time or a listing/start date as a publication-date substitute. */
+function normalizeSuccessFactorsDatePosted(raw = '') {
+  const value = normalizeSpace(raw);
+  const match = /^(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{2}):(\d{2}):(\d{2})\s+(?:UTC|GMT)\s+(\d{4})$/i.exec(value);
+  if (!match) return value;
+  const month = {
+    jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+    jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
+  }[match[1].toLowerCase()];
+  return month ? `${match[6]}-${month}-${String(match[2]).padStart(2, '0')}T${match[3]}:${match[4]}:${match[5]}Z` : value;
 }
 
 /* ── Listing page parser ──────────────────────────────────── */
@@ -345,7 +358,7 @@ export function descriptionBodyToMarkdown(bodyHtml = '') {
 
 /**
  * Parse a Hirslanden job detail page (SuccessFactors j2w).
- * Returns { title, description, location, applyUrl }.
+ * Returns { title, description, location, postedDate, applyUrl }.
  *
  * Title + description come from the SF microdata (`itemprop="title"` /
  * `itemprop="description"`) which carries the REAL per-job content. The old
@@ -416,6 +429,19 @@ export function parseDetailPage(html) {
   }
   if (location && /[<="']|viewport|content|width|home-?office/i.test(location)) location = '';
 
+  // SuccessFactors exposes the employer's publication timestamp as
+  // `meta[itemprop="datePosted"]` inside the JobPosting microdata scope. The
+  // tile listing does not carry this field, so read the scoped detail value
+  // before the caller falls back to the listing date.
+  const jobPostingScope = doc.querySelector('[itemscope][itemtype*="JobPosting"]') || doc;
+  const datePostedEl = jobPostingScope.querySelector('[itemprop="datePosted"]');
+  const postedDate = normalizeSuccessFactorsDatePosted(
+    datePostedEl?.getAttribute('content')
+      || datePostedEl?.getAttribute('datetime')
+      || datePostedEl?.textContent
+      || '',
+  );
+
   return {
     title,
     description,
@@ -423,6 +449,7 @@ export function parseDetailPage(html) {
     locationEvidence,
     region: structuredLocation?.region || '',
     postalCode: structuredLocation?.postalCode || '',
+    postedDate,
     applyUrl,
   };
 }
@@ -656,7 +683,7 @@ export async function fetchAllHirslandenJobs() {
         experienceLevel: detectExperienceLevel(title),
         currency: 'CHF',
         featured: false,
-        ...sourcePostingDateFields(listing.postedDate),
+        ...sourcePostingDateCandidatesFields([detail?.postedDate, listing.postedDate]),
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',

@@ -39,6 +39,7 @@ import {
   inferTsmgRegion,
   inferTsmgCategory,
   buildTsmgLocalizedContent,
+  fetchTsmgPostingPublication,
 } from './lib/tsmg-job-parser.mjs';
 import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { isSystemicRejection, systemicRatio } from './lib/source-record-quarantine.mjs';
@@ -306,6 +307,19 @@ function buildJob(job) {
   };
 }
 
+async function buildJobsWithSourcePostingDates(rawJobs = []) {
+  const jobs = [];
+  for (const rawJob of rawJobs) {
+    const job = buildJob(rawJob);
+    // Lever's `createdAt` is record creation, not proof of the employer's
+    // publication date. Read the title-matched JobPosting JSON-LD on the
+    // vacancy page; a failed/absent read stays explicitly unknown.
+    const publication = await fetchTsmgPostingPublication(job.url, rawJob.text || job.title);
+    jobs.push({ ...job, ...publication });
+  }
+  return jobs;
+}
+
 function jobMatchKey(job = {}) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
@@ -426,7 +440,7 @@ async function main() {
   if (authoritativeEmptySnapshot) {
     console.log('✅ Lever complete snapshot contains no target-canton postings — publishing the verified empty result.');
   }
-  const discoveredJobs = target.map(buildJob);
+  const discoveredJobs = await buildJobsWithSourcePostingDates(target);
   const { total, added, updated, diff} = mergeJobs(discoveredJobs);
   updateAdapterConfig(discoveredJobs);
 

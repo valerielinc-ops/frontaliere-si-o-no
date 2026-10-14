@@ -3,6 +3,17 @@ import { JSDOM } from 'jsdom';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { fetchIdentifiedPostingPublication, identifiedPostingPublication } from './identified-posting-publication.mjs';
+
+/** Read only the title-matched employer date from a TSMG Lever detail page. */
+export function parseTsmgPostingPublication(html, requestedUrl, expectedTitle) {
+  return identifiedPostingPublication(html, requestedUrl, expectedTitle);
+}
+
+/** Fetch the TSMG detail page used by the crawler and preserve unknown dates. */
+export function fetchTsmgPostingPublication(url, expectedTitle, options = {}) {
+  return fetchIdentifiedPostingPublication(url, expectedTitle, options);
+}
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();

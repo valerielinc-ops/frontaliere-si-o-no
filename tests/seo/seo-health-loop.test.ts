@@ -133,6 +133,22 @@ describe('SEO health contract', () => {
     }).map(({ code }) => code)).toEqual(['jobposting-missing']);
   });
 
+  it('withholds unknown-date JobPosting pages as an observation only when the seed proves provenance', () => {
+    const url = 'https://fixture.test/cerca-lavoro-ticino/job/';
+    const canonical = `<link rel="canonical" href="${url}">`;
+    const withheld = `${canonical}<script>window.__JOB_SEED__=${JSON.stringify({ postingDateSource: 'unknown' })};</script>`;
+    expect(findingsForProbe({ url, status: 200, body: withheld })).toMatchObject([
+      { code: 'jobposting-withheld-unverified-date', postingDateSource: 'unknown' },
+    ]);
+    expect(isSeoIssueActionable({ code: 'jobposting-withheld-unverified-date' })).toBe(false);
+
+    const reported = `${canonical}<script>window.__JOB_SEED__=${JSON.stringify({ postingDateSource: 'reported' })};</script>`;
+    expect(findingsForProbe({ url, status: 200, body: reported })).toMatchObject([
+      { code: 'jobposting-missing', postingDateSource: 'reported' },
+    ]);
+    expect(findingsForProbe({ url, status: 200, body: canonical }).map(({ code }) => code)).toEqual(['jobposting-missing']);
+  });
+
   it('does not turn an unavailable source into a healthy empty source', () => {
     expect(sourceResult({ name: 'ga4', rows: 0 })).toMatchObject({ available: false, error: 'empty result' });
     expect(sourceResult({ name: 'ga4', rows: 10, skipped: true })).toMatchObject({ available: false, error: 'skipped' });
@@ -204,6 +220,7 @@ describe('SEO health contract', () => {
 
   it('keeps sampled-out Cloudflare evidence observable without opening an SEO issue', () => {
     expect(isSeoIssueActionable({ code: 'cloudflare-5xx-unverified' })).toBe(false);
+    expect(isSeoIssueActionable({ code: 'jobposting-withheld-unverified-date' })).toBe(false);
     expect(isSeoIssueActionable({ code: 'cloudflare-5xx-persistent' })).toBe(true);
   });
 });

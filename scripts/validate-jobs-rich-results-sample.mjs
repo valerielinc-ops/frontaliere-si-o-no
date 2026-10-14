@@ -247,6 +247,7 @@ function main() {
     localeChecks: 0,
     filesMissing: 0,
     jobPostingMissing: 0,
+    jobPostingWithheldUnverifiedDate: 0,
     publicationDateUnverified: 0,
     eligibleLocaleChecks: 0,
     parseErrors: 0,
@@ -286,9 +287,19 @@ function main() {
       const reportedDate = resolveReportedPostingDate(job);
       if (!reportedDate) {
         report.publicationDateUnverified += 1;
-        if (jobPosting) {
+        if (jobPosting || job?.postingDateSource === 'reported') {
           report.errors += 1;
-          report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'jobposting_without_reported_publication_date' });
+          const issue = jobPosting ? 'jobposting_without_reported_publication_date' : 'jobposting_missing';
+          if (issue === 'jobposting_missing') report.jobPostingMissing += 1;
+          report.details.push({
+            slug: job.slug,
+            locale: loc.code,
+            level: 'error',
+            issue,
+          });
+        } else {
+          report.jobPostingWithheldUnverifiedDate += 1;
+          report.details.push({ slug: job.slug, locale: loc.code, level: 'info', issue: 'jobposting-withheld-unverified-date' });
         }
         continue;
       }
@@ -330,6 +341,7 @@ function main() {
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
   console.log(`Publication date unverified (JobPosting must be absent): ${report.publicationDateUnverified}`);
+  console.log(`JobPosting withheld (unverified publication): ${report.jobPostingWithheldUnverifiedDate}`);
   console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);
 

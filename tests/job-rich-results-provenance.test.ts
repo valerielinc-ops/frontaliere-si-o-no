@@ -34,6 +34,7 @@ describe('rich-result eligibility validation', () => {
     const result = validate(source, null);
     expect(result.status, result.stdout + result.stderr).toBe(0);
     expect(result.stdout).toContain('Publication date unverified (JobPosting must be absent): 4');
+    expect(result.stdout).toContain('JobPosting withheld (unverified publication): 4');
   });
   it('requires missing legacy provenance to remain ineligible', () => {
     expect(validate(undefined, posting).status).toBe(1);
