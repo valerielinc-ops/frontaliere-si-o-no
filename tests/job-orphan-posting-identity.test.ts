@@ -38,6 +38,9 @@ describe('inferred orphan aliases require positive posting identity', () => {
       sourceIdentityHistory: [{ sourceIdentity: `url:${url}#job.id=2` }],
     })).toEqual(new Set([url, `${url}#job.id=1`, `${url}#job.id=2`]));
   });
+  it('treats an explicit null historical record as having no source URLs', () => {
+    expect(sourcePostingUrlHrefs(null)).toEqual(new Set());
+  });
   it('also leaves identity-less expired fuzzy matches archived', () => {
     const active = { url, slug: 'software-entwickler-backend-rotation', company: 'Acme', companyKey: 'acme' };
     const expired = { slug: 'software-entwickler-backend', company: 'Acme', companyKey: 'acme' };

@@ -125,8 +125,9 @@ export function sourcePostingUrlHref(value) {
  * Keeps path case and fragments, matching the positive-identity guard.
  */
 export function sourcePostingUrlHrefs(historical = {}) {
-  const sourceUrls = [historical.sourceUrl, historical.url];
-  const identities = [historical.sourceIdentity, ...safeArray(historical.sourceIdentityHistory).map((entry) => entry?.sourceIdentity)];
+  const source = historical && typeof historical === 'object' ? historical : {};
+  const sourceUrls = [source.sourceUrl, source.url];
+  const identities = [source.sourceIdentity, ...safeArray(source.sourceIdentityHistory).map((entry) => entry?.sourceIdentity)];
   for (const identity of identities) {
     if (typeof identity === 'string' && identity.startsWith('url:')) sourceUrls.push(identity.slice(4));
   }
