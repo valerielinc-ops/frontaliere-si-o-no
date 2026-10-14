@@ -31,8 +31,8 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
-      'jobBoard.concierge.offerLink': 'Cerchi più posizioni? Scopri il servizio di 30 giorni',
-      'jobBoard.concierge.offerLinkHint': 'Ti proponiamo internamente le posizioni adatte e prepariamo la candidatura solo dopo la tua approvazione.',
+      'jobBoard.concierge.offerLink': 'Cerchi più posizioni? Automatizza la tua ricerca di lavoro',
+      'jobBoard.concierge.offerLinkHint': 'Cerchiamo le posizioni adatte, prepariamo candidature su misura e le inviamo dopo il tuo via libera.',
     }[key] || key),
   }),
 }));
@@ -81,8 +81,8 @@ describe('AssistedApplicationOffer', () => {
   it('links the concierge offer to the job-board service entry instead of the current job URL', () => {
     renderOffer();
 
-    expect(screen.getByRole('link', { name: 'Cerchi più posizioni? Scopri il servizio di 30 giorni' }))
-      .toHaveAttribute('href', '/cerca-lavoro-ticino/?application_concierge=1');
+    expect(screen.getByRole('link', { name: 'Cerchi più posizioni? Automatizza la tua ricerca di lavoro' }))
+      .toHaveAttribute('href', '/automatizza-ricerca-lavoro-svizzera/');
   });
 
   it.each([

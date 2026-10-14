@@ -2086,10 +2086,36 @@ const AUTHOR_PATH_SEGMENT: Record<Locale, string> = {
   fr: 'auteurs',
 };
 
+// Public landing for the 30-day application concierge. Keep this outside the
+// generic job-board slug table: the service is a distinct SEO surface, while
+// the legacy `?application_concierge=1` entry URL remains supported below.
+export const APPLICATION_CONCIERGE_PATHS: Readonly<Record<Locale, string>> = {
+  it: '/automatizza-ricerca-lavoro-svizzera',
+  en: '/en/automate-job-search-switzerland',
+  de: '/de/arbeitssuche-schweiz-automatisieren',
+  fr: '/fr/automatiser-recherche-emploi-suisse',
+};
+
+export function getApplicationConciergePath(locale: Locale = getLocale()): string {
+  return `${APPLICATION_CONCIERGE_PATHS[locale]}/`;
+}
+
+export function isApplicationConciergePath(pathname: string): boolean {
+  const normalized = String(pathname || '').replace(/\/+$/, '').toLowerCase() || '/';
+  return Object.values(APPLICATION_CONCIERGE_PATHS).some((path) => path === normalized);
+}
+
 export function parsePath(pathname: string): ParseResult {
  const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
  const allParts = path.split('/').filter(Boolean);
  const [locale, parts] = detectLocaleFromPath(allParts);
+
+ // The clean service landing is a real SPA page, not the generic job-board
+ // listing. Returning the job-board tab keeps the existing shell and lazy
+ // loading behaviour while App.tsx mounts the concierge entry surface.
+ if (isApplicationConciergePath(path)) {
+   return { route: { activeTab: 'job-board' }, locale };
+ }
 
  // Public petition landing: it is a real SPA page, so keep staticOverlay
  // false and let the interactive auth/consent form hydrate in place.
@@ -4168,6 +4194,13 @@ export function updatePathForLocale(newLocale: Locale): void {
  const currentPath = window.location.pathname;
  const search = window.location.search;
  const { route } = parsePath(currentPath);
+ if (isApplicationConciergePath(currentPath)) {
+   const newPath = getApplicationConciergePath(newLocale);
+   if (currentPath !== newPath) {
+     history.replaceState({ route }, '', newPath + search);
+   }
+   return;
+ }
  // Static SEO overlay routes (per-station, per-canton, etc.) are matched
  // against URLs that ALREADY canonicalise the page in the visited locale.
  // Rewriting them on locale boot would resurrect the bait-and-switch bug

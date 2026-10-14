@@ -3636,6 +3636,94 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+ applicationConcierge: {
+ title: 'Automatizza la ricerca di lavoro in Svizzera | Frontaliere Ticino',
+ h1: 'Automatizza la tua ricerca di lavoro in Svizzera',
+ description: 'Automatizza la ricerca di lavoro in Svizzera: troviamo ruoli adatti e prepariamo candidature su misura. Può aumentare le probabilità di ottenere un colloquio.',
+ keywords: 'automatizza ricerca lavoro Svizzera, automazione ricerca lavoro, candidature su misura, candidatura automatica, trovare lavoro in Svizzera, colloquio di lavoro',
+ ogTitle: 'Automatizza la ricerca di lavoro in Svizzera',
+ ogDescription: 'Troviamo ruoli adatti e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio.',
+ canonicalPath: '/automatizza-ricerca-lavoro-svizzera/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automatizzazione della ricerca di lavoro in Svizzera",
+ "serviceType": "Servizio di candidatura assistita",
+ "url": `${BASE_URL}/automatizza-ricerca-lavoro-svizzera/`,
+ "description": "Per 30 giorni cerchiamo posizioni compatibili con il profilo e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio, senza garantire risposte o assunzioni.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/automatizza-ricerca-lavoro-svizzera/` },
+ "inLanguage": "it"
+ }
+ },
+
+ applicationConciergeEn: {
+ title: 'Automate Your Job Search in Switzerland | Frontaliere Ticino',
+ h1: 'Automate your job search in Switzerland',
+ description: 'Automate your job search in Switzerland: we find suitable roles and prepare tailored applications. This can improve your chances of reaching an interview.',
+ keywords: 'automate job search Switzerland, automated job search, tailored applications, automatic job applications, find a job in Switzerland, job interview',
+ ogTitle: 'Automate your job search in Switzerland',
+ ogDescription: 'We find suitable roles and prepare tailored applications. A targeted application can improve your chances of reaching an interview.',
+ canonicalPath: '/en/automate-job-search-switzerland/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automated job search in Switzerland",
+ "serviceType": "Assisted job application service",
+ "url": `${BASE_URL}/en/automate-job-search-switzerland/`,
+ "description": "For 30 days we find positions that match your profile and prepare tailored applications. A targeted application can improve your chances of reaching an interview, without guaranteeing replies or hiring.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/en/automate-job-search-switzerland/` },
+ "inLanguage": "en"
+ }
+ },
+
+ applicationConciergeDe: {
+ title: 'Automatisiere deine Jobsuche in der Schweiz | Frontaliere Ticino',
+ h1: 'Automatisiere deine Jobsuche in der Schweiz',
+ description: 'Automatisiere deine Jobsuche in der Schweiz: Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Das kann deine Chancen auf ein Vorstellungsgespräch verbessern.',
+ keywords: 'Jobsuche Schweiz automatisieren, automatisierte Jobsuche, Bewerbung nach Mass, automatische Bewerbung, Arbeit in der Schweiz finden, Vorstellungsgespräch',
+ ogTitle: 'Automatisiere deine Jobsuche in der Schweiz',
+ ogDescription: 'Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann deine Chancen auf ein Vorstellungsgespräch verbessern.',
+ canonicalPath: '/de/arbeitssuche-schweiz-automatisieren/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Automatisierte Jobsuche in der Schweiz",
+ "serviceType": "Unterstützung bei Bewerbungen",
+ "url": `${BASE_URL}/de/arbeitssuche-schweiz-automatisieren/`,
+ "description": "30 Tage lang finden wir passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann die Chancen auf ein Vorstellungsgespräch verbessern, ohne Antworten oder eine Anstellung zu garantieren.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/de/arbeitssuche-schweiz-automatisieren/` },
+ "inLanguage": "de"
+ }
+ },
+
+ applicationConciergeFr: {
+ title: 'Automatisez votre recherche d’emploi en Suisse | Frontaliere Ticino',
+ h1: 'Automatisez votre recherche d’emploi en Suisse',
+ description: 'Automatisez votre recherche d’emploi en Suisse : nous trouvons des postes adaptés et préparons des candidatures sur mesure. Cela peut augmenter vos chances d’obtenir un entretien.',
+ keywords: 'automatiser recherche emploi Suisse, recherche emploi automatisée, candidature sur mesure, candidature automatique, trouver travail Suisse, entretien emploi',
+ ogTitle: 'Automatisez votre recherche d’emploi en Suisse',
+ ogDescription: 'Nous trouvons des postes adaptés et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien.',
+ canonicalPath: '/fr/automatiser-recherche-emploi-suisse/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Recherche d’emploi automatisée en Suisse",
+ "serviceType": "Service d’accompagnement aux candidatures",
+ "url": `${BASE_URL}/fr/automatiser-recherche-emploi-suisse/`,
+ "description": "Pendant 30 jours, nous trouvons des postes adaptés à votre profil et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien, sans garantir de réponse ni d’embauche.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL },
+ "areaServed": { "@type": "Country", "name": "Switzerland" },
+ "offers": { "@type": "Offer", "price": "39.99", "priceCurrency": "EUR", "url": `${BASE_URL}/fr/automatiser-recherche-emploi-suisse/` },
+ "inLanguage": "fr"
+ }
+ },
+
  // ─── Glossario SEO ──────────────────────────────────────────────────────,
 
  glossario: {

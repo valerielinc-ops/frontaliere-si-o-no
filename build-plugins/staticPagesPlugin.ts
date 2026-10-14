@@ -5776,6 +5776,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, ...statsSlugs, ...blogSlugs, ...vitaSlugs,
  'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
   'dialetto-ticinese', 'mappa-del-sito', 'supporto', ...GLOSSARY_SECTION_SLUGS,
+ 'automatizza-ricerca-lavoro-svizzera', 'automate-job-search-switzerland',
+ 'arbeitssuche-schweiz-automatisieren', 'automatiser-recherche-emploi-suisse',
  'petizione-dosso-stabio', 'stabio-speed-bump-petition',
  'petition-geschwindigkeitsrampe-stabio', 'petition-dos-d-ane-stabio',
  ];

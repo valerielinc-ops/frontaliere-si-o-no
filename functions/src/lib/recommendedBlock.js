@@ -89,15 +89,15 @@ export const NEWSLETTER_SPONSORS = [];
 const APPLICATION_CONCIERGE_RECOMMENDATION = {
   kind: 'internal',
   id: 'application-concierge',
-  name: 'Candidature assistita',
+  name: 'Ricerca lavoro automatizzata',
   emoji: '🎯',
   url: directUrl(APPLICATION_CONCIERGE_PATH),
   interests: ['general', 'utility', 'jobs', 'articles'],
   copy: {
-    it: { title: 'Candidature assistite per 30 giorni', body: 'Ti proponiamo le posizioni adatte e prepariamo la candidatura solo dopo il tuo via libera. Pagamento unico di 39,99 €, senza rinnovo.', cta: 'Scopri il servizio →' },
-    en: { title: 'Assisted applications for 30 days', body: 'We propose suitable positions and prepare an application only after your approval. One-off €39.99 payment, no renewal.', cta: 'See the service →' },
-    de: { title: 'Unterstützte Bewerbungen für 30 Tage', body: 'Wir schlagen passende Stellen vor und bereiten die Bewerbung erst nach deiner Zustimmung vor. Einmalig 39,99 €, keine Verlängerung.', cta: 'Service ansehen →' },
-    fr: { title: 'Candidatures assistées pendant 30 jours', body: 'Nous proposons des postes adaptés et préparons la candidature après votre accord. Paiement unique de 39,99 €, sans renouvellement.', cta: 'Découvrir le service →' },
+    it: { title: 'Automatizza la ricerca di lavoro in Svizzera', body: 'Troviamo posizioni compatibili e prepariamo candidature su misura. Una candidatura mirata può aumentare le probabilità di ottenere un colloquio. 39,99 € una tantum, senza rinnovo.', cta: 'Scopri il servizio →' },
+    en: { title: 'Automate your job search in Switzerland', body: 'We find compatible positions and prepare tailored applications. A targeted application can improve your chances of reaching an interview. One-off €39.99 payment, no renewal.', cta: 'See the service →' },
+    de: { title: 'Automatisiere deine Jobsuche in der Schweiz', body: 'Wir finden passende Stellen und erstellen Bewerbungen nach Mass. Eine gezielte Bewerbung kann deine Chancen auf ein Vorstellungsgespräch verbessern. Einmalig 39,99 €, keine Verlängerung.', cta: 'Service ansehen →' },
+    fr: { title: 'Automatisez votre recherche d’emploi en Suisse', body: 'Nous trouvons les postes compatibles et préparons des candidatures sur mesure. Une candidature ciblée peut augmenter vos chances d’obtenir un entretien. Paiement unique de 39,99 €, sans renouvellement.', cta: 'Découvrir le service →' },
   },
 };
 
