@@ -11468,12 +11468,13 @@ ${staticAnalyticsHtml}
        `<section class="s-IE_H9o" data-canton-editorial>${editorialHtml}</section>`;
 
      // ── BFS-depth closure (Group A2) — "Esplora" navigator ─────────────
-     // Phase 8a introduced ~250 sub-pages per canton (city hubs, category
-     // hubs, editorial slot pages) that the canton hub did NOT link to,
-     // pushing them to BFS depth>4 from `/`. This block surfaces:
-     //   - 5-8 top city hubs           → /{section}/{citySlug}/
-     //   - up to 6 category hubs       → /{section}/{catPrefix}-{slug}/
-     //   - 4 editorial slot pages      → today / nurses / part-time / clinics
+     // Phase 8a introduced sub-pages per canton (city hubs, category hubs,
+     // editorial slot pages) that the canton hub did NOT link to, pushing
+     // them to BFS depth>4 from `/`. This block surfaces every emitted city
+     // hub plus the bounded category/editorial families:
+     //   - every canonical city hub → /{section}/{citySlug}/
+     //   - up to 6 category hubs    → /{section}/{catPrefix}-{slug}/
+     //   - editorial slot pages     → today / nurses / part-time / clinics
      // Emitted BELOW the listing grid (mobile-first per #16/#17). The city
      // emitter records every canonical municipality, so link the complete
      // set from each non-TI root. TI is filtered out at the cantonsToEmit loop
@@ -11481,35 +11482,11 @@ ${staticAnalyticsHtml}
      let exploreSection = '';
      if (entry.key !== AGGREGATE_KEY) {
        const exploreSectionBase = sectionBase; // already trailing-slashed canton-aware section
-       // Top cities by job count (max 8). Normalise via shared helper so the
-       // URL matches the citySlug emitted by the city-hub block earlier in
-       // this plugin (Phase 8a). Skip empty / "—" buckets.
-       const topCityHubs: Array<{ slug: string; label: string }> = [];
-       const seenCitySlugs = new Set<string>();
-       for (const [cityRaw, count] of [...cityCounts.entries()].sort((a, b) => b[1] - a[1])) {
-         if (topCityHubs.length >= 8) break;
-         if (!cityRaw || cityRaw === '—' || count < 1) continue;
-         const slug = normalizeCitySlug(cityRaw);
-         if (!slug || seenCitySlugs.has(slug)) continue;
-         seenCitySlugs.add(slug);
-         topCityHubs.push({ slug, label: cityRaw });
-       }
-       // BFS-depth closure (2026-06-11): every OTHER emitted municipality
-       // city hub for this canton (beyond the top-8 featured above). The
-       // per-canton city-hub emit (Phase 3.1) writes a static page for EVERY
-       // canon municipality — incl. 0-job ones — but the navigator only
-       // linked the top 8, leaving the long tail (e.g. argovia/suhr,
-       // argovia/wettingen) BFS-orphaned in sitemap-jobs.xml. Link the exact
-       // emitted set (recorded at emit time, same gate + same slugs → no
-       // 404 risk) so each city page reaches BFS depth ≤ (canton hub + 1).
-       // Deduped against the featured top-8 via the shared seenCitySlugs set
-       // so no URL is linked twice (Squirrel identical-links a11y).
-       const otherCityHubs: Array<{ slug: string; label: string }> = [];
-       for (const c of emittedCantonCityHubs.get(entry.key) ?? []) {
-         if (!c.slug || seenCitySlugs.has(c.slug)) continue;
-         seenCitySlugs.add(c.slug);
-         otherCityHubs.push(c);
-       }
+       // Link the exact emitted set, without a top-city cap. The city-hub
+       // emitter records every canonical municipality (including 0-job ones)
+       // with the same slug resolver used for the files and sitemap, so every
+       // URL published there receives an inbound anchor from its canton root.
+       const allCityHubs = emittedCantonCityHubs.get(entry.key) ?? [];
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
@@ -11667,10 +11644,6 @@ ${staticAnalyticsHtml}
            default: return `Esplora più offerte in ${display}`;
          }
        })();
-       const colByCityLabel = entry.locale === 'en' ? 'Top cities'
-         : entry.locale === 'de' ? 'Top-Städte'
-         : entry.locale === 'fr' ? 'Villes principales'
-         : 'Città principali';
        const colAllCitiesLabel = entry.locale === 'en' ? `All municipalities in ${display}`
          : entry.locale === 'de' ? `Alle Gemeinden in ${display}`
          : entry.locale === 'fr' ? `Toutes les communes en ${display}`
@@ -11697,11 +11670,14 @@ ${staticAnalyticsHtml}
            .map((it) => `<a href="${exploreSectionBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
            .join('');
        const blocks: string[] = [];
-       if (topCityHubs.length > 0) {
+       if (allCityHubs.length > 0) {
+         const cityIndexLinks = allCityHubs
+           .map((it) => `<a href="${exploreSectionBase}${it.slug}/">${esc(it.label)}</a>`)
+           .join(' · ');
          blocks.push(
            `<div class="s-h0CoDf" data-explore-cities>` +
-           `<h3 class="s-8S_vke">${esc(colByCityLabel)}</h3>` +
-           `<div>${renderLinks(topCityHubs)}</div>` +
+           `<h3 class="s-8S_vke">${esc(colAllCitiesLabel)}</h3>` +
+           `<div style="font-size:14px;line-height:1.9;color:var(--color-link)">${cityIndexLinks}</div>` +
            `</div>`,
          );
        }
@@ -11710,25 +11686,6 @@ ${staticAnalyticsHtml}
            `<div class="s-h0CoDf" data-explore-categories>` +
            `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
            `<div>${renderLinks(topCategoryHubs)}</div>` +
-           `</div>`,
-         );
-       }
-       // BFS-depth closure (2026-06-11): link every remaining emitted
-       // municipality city hub so the long tail is no longer BFS-orphaned.
-       // Rendered as a lightweight comma-free wrapped link list (NOT the
-       // per-link pill style above) because a big canton (Bern ~334
-       // municipalities) would otherwise add ~90 KB of repeated inline-style
-       // bytes to the hub and crowd the flat 215 KB page-weight cap. Plain
-       // anchors inherit the seo-static link color; one container style does
-       // the spacing for the whole block.
-       if (otherCityHubs.length > 0) {
-         const cityIndexLinks = otherCityHubs
-           .map((it) => `<a href="${exploreSectionBase}${it.slug}/">${esc(it.label)}</a>`)
-           .join(' · ');
-         blocks.push(
-           `<div class="s-h0CoDf" data-explore-all-cities>` +
-           `<h3 class="s-8S_vke">${esc(colAllCitiesLabel)}</h3>` +
-           `<div style="font-size:14px;line-height:1.9;color:var(--color-link)">${cityIndexLinks}</div>` +
            `</div>`,
          );
        }
