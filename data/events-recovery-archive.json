@@ -3,6 +3,11 @@
   "source": "gsc-coverage-2026-10-14",
   "sourceSnapshots": [
     {
+      "commit": "52e2fafa7788ce6b6ea4c94ada64a89a0e62b3de",
+      "generatedAt": "2026-10-08T23:37:45.060Z",
+      "matchedRecords": 1
+    },
+    {
       "commit": "afb8f06d16bcf0c6394d0e19812e40da4b424f4e",
       "generatedAt": "2026-08-16T06:44:47.417Z",
       "matchedRecords": 1
@@ -40,7 +45,7 @@
     {
       "commit": "182932629dd5e5e9657781832753c280399caa54",
       "generatedAt": "2026-09-16T11:04:04.615Z",
-      "matchedRecords": 146
+      "matchedRecords": 147
     },
     {
       "commit": "1d67b6d1de63ac7a27682744e45b031a72c2df8c",
@@ -13091,6 +13096,53 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "le-to-theatre-de-lorangerie-saison-2026-2026-08-29"
+        }
+      ]
+    },
+    {
+      "id": "classicascona:next-generation-xix-ascona-choral-academy-evensong",
+      "title": "Next Generation XIX | Ascona Choral Academy | Evensong",
+      "startDate": "2026-10-09",
+      "startTime": "17:30",
+      "canton": "TI",
+      "comune": "Ascona",
+      "url": "https://classicascona.ch/concerti/next-generation-xix-ascona-choral-academy-evensong/",
+      "sourceKey": "classicascona",
+      "sourceName": "classicAscona — Settimane Musicali di Ascona",
+      "category": "musica",
+      "venue": "Chiesa del Collegio Papio, Ascona",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Ascona",
+          "slug": "next-generation-xix-ascona-choral-academy-2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "guidle:AcQt5tE",
+      "title": "Fakt oder Fake?",
+      "titleByLocale": {
+        "it": "Fakt oder Fake?",
+        "en": "Fakt oder Fake?",
+        "de": "Fakt oder Fake?",
+        "fr": "Fakt oder Fake?"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "19:00",
+      "canton": "ZG",
+      "comune": "Zug",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/fakt-oder-fake_AcQt5tE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "category": "Informatica / Internet",
+      "venue": "Bibliothek Zug",
+      "previousRoutes": [
+        {
+          "canton": "ZG",
+          "comune": "Zug",
+          "slug": "fakt-oder-fake-2026-09-23"
         }
       ]
     }
