@@ -62,5 +62,8 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
     expect(source.slice(start, end)).toContain("if (!hasRealTitle) return '';");
+    const search = source.slice(source.indexOf('// --- Search suggestions ---'), source.indexOf('// --- Frontalier info section:'));
+    expect(search.match(/hasRealTitle && jobLocation/g)).toHaveLength(4);
+    expect(source).toContain("${recordedIdentity ? `${copy.nextBody} ` : ''}");
   });
 });

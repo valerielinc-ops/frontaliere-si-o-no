@@ -13627,15 +13627,15 @@ ${staticAnalyticsHtml}
  if (locale === 'it') {
  const searchSugParts: string[] = [];
  if (jobCompany) searchSugParts.push(`<p>Scopri tutte le <a href="${listingPath}">posizioni aperte</a> sul nostro job board.</p>`);
- if (jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${listingPath}">Lavoro in ${esc(displayCanton)}</a></p>`);
+ if (hasRealTitle && jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${listingPath}">Lavoro in ${esc(displayCanton)}</a></p>`);
  searchSugParts.push(`<p>Torna alla <a href="${listingPath}">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
  staticBodyParts.push(`<section><h2>Cerca offerte in ${esc(displayCanton)}</h2>${searchSugParts.join('\n')}</section>`);
  } else if (locale === 'en') {
- staticBodyParts.push(`<section><h2>Find jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a>.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
+ staticBodyParts.push(`<section><h2>Find jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a>.</p>${hasRealTitle && jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
  } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>Stellen suchen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
+ staticBodyParts.push(`<section><h2>Stellen suchen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a>.</p>${hasRealTitle && jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
  } else {
- staticBodyParts.push(`<section><h2>Chercher des offres au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
+ staticBodyParts.push(`<section><h2>Chercher des offres au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a>.</p>${hasRealTitle && jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
  }
 
  // --- Frontalier info section: extended with permit-mechanics, gross-to-net
@@ -15208,7 +15208,7 @@ ${staticAnalyticsHtml}
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
     : `<section><h2>${copy.original}</h2><p>${copy.noDescription}</p></section>`,
    `<section><h2>${recordedIdentity ? copy.details : unknownCopy.details}</h2><ul>${detailItems}</ul></section>`,
-   `<section><h2>${copy.next}</h2><p>${copy.nextBody} <a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
+   `<section><h2>${copy.next}</h2><p>${recordedIdentity ? `${copy.nextBody} ` : ''}<a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
    `<p><small>Historical slug: <code>${esc(slugKey)}</code></small></p>`,
   ].join('\n');
   const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${notice}`);
