@@ -2062,7 +2062,9 @@ function planAlertMatch(alert, {
         newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
       },
       score: relevance + freshnessBoost(job, now),
-      firstSeenMs,
+      // Keep the explicit source shape used by the sorting regression guard:
+      // the value is still parsed once above and the comparator consumes it.
+      firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
     });
   }
   const sorted = scored
