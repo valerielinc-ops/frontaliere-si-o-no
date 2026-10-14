@@ -62,9 +62,17 @@ function runPersistenceCli(root: string, { failPush = false } = {}) {
 }
 
 function fakeGit({ pushFailures = 0, fetchFailures = 0 } = {}) {
-  const calls: Array<{ repo: string; args: string[] }> = [];
-  const git = (repo: string, args: string[], options: { allowFailure?: boolean } = {}) => {
-    calls.push({ repo, args: [...args] });
+  const calls: Array<{
+    repo: string;
+    args: string[];
+    options: { allowFailure?: boolean; env?: Record<string, string> };
+  }> = [];
+  const git = (
+    repo: string,
+    args: string[],
+    options: { allowFailure?: boolean; env?: Record<string, string> } = {},
+  ) => {
+    calls.push({ repo, args: [...args], options });
     if (args[0] === 'fetch' || args.includes('fetch')) {
       if (fetchFailures > 0) {
         fetchFailures -= 1;
@@ -110,6 +118,10 @@ describe('persistBrowserInsights', () => {
 
     expect(result).toEqual({ status: 'pushed', attempt: 1 });
     expect(fake.calls.some(({ args }) => args.includes('fetch'))).toBe(false);
+    const pushCalls = fake.calls.filter(({ args }) => args[0] === 'push');
+    expect(pushCalls).toHaveLength(1);
+    expect(pushCalls[0].options.env).toEqual({ FRONTALIERE_AUTOMATED_DATA_PUSH: 'social-robot-insights' });
+    expect(fake.calls.filter(({ args }) => args[0] !== 'push').every(({ options }) => !options.env)).toBe(true);
     expect(fs.existsSync(path.join(root, '.insights-persist.lock'))).toBe(false);
   });
 
