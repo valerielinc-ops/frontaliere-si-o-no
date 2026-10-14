@@ -144,9 +144,9 @@ import {
 } from './shared/weeklyEmployersProfiler';
 
 const WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS = {
-  // Stable name-derived @ids distinguish unknown employers without inventing
-  // profile URLs or conflating them with the site's Organization identity.
-  allowNameOnlyOrganizationIds: true,
+  // An employer without an exact registry identity stays anonymous. A
+  // normalized name is not enough to anchor it to an Organization.
+  allowNameOnlyOrganizationIds: false,
 } as const;
 
 // ── Canton-aware section helpers (P2.S1) ────────────────────────
@@ -2751,17 +2751,11 @@ function employerBrandPath(
   knownSlugs?: ReadonlySet<string>,
 ): string | null {
   if (!employerKey) return null;
-  const key = String(employerKey).toLowerCase();
+  const key = String(employerKey).trim().toLowerCase();
   // Priority 1: EMPLOYER_BRANDS curated registry.
-  for (const brand of Object.values(EMPLOYER_BRANDS)) {
-    if (
-      brand.brandKey === key ||
-      brand.brandKey === key.replace(/-/g, '') ||
-      key.includes(brand.brandKey) ||
-      brand.brandKey.includes(key.split('-')[0])
-    ) {
-      return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
-    }
+  const brand = Object.values(EMPLOYER_BRANDS).find((candidate) => candidate.brandKey === key);
+  if (brand) {
+    return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
   }
   // Priority 2: canonical page registry (all-known-job-slugs.json).
   if (knownSlugs && employerName) {

@@ -544,6 +544,54 @@ describe('renderWeeklyEmployersPage', () => {
     });
   });
 
+  it('requires an exact employer identity for a weekly Organization @id', () => {
+    const nearMatch = {
+      // Invented name: it shares only the EOC prefix with a curated key.
+      employer: 'EOC Forge SA',
+      employerKey: 'eoc-forge-sa',
+      active: 4,
+      delta: 0,
+    };
+    const recognized = {
+      employer: 'Northstar Atelier SA',
+      employerKey: 'northstar-atelier-sa',
+      active: 3,
+      delta: 1,
+    };
+    const knownSlugs = new Set(['northstar-atelier-sa']);
+    const knownEmployerProfileSlugs = new Set(['northstar-atelier-sa']);
+
+    const html = renderWeeklyEmployersPage({
+      locale: 'it',
+      city: 'lugano',
+      variant: 'current',
+      weekNum: 17,
+      year: 2026,
+      stats: {
+        city: 'lugano',
+        activeJobsCount: 7,
+        topCompanies: [nearMatch, recognized],
+        newcomers: [],
+        topRoles: [],
+      },
+      hasHistoricalDelta: true,
+      canonicalPath: buildCurrentWeekPath('it', 'lugano'),
+      today: new Date('2026-04-20T12:00:00Z'),
+      indexable: true,
+      knownSlugs,
+      knownEmployerProfileSlugs,
+    });
+    const organizations = extractOrganizationItems(html);
+
+    expect(organizations[0]).toMatchObject({ '@type': 'Organization', name: nearMatch.employer });
+    expect(organizations[0]).not.toHaveProperty('@id');
+    expect(organizations[0]).not.toHaveProperty('url');
+    expect(organizations[1]).toMatchObject({
+      '@id': 'https://frontaliereticino.ch/aziende/northstar-atelier-sa/#organization',
+      url: 'https://frontaliereticino.ch/aziende/northstar-atelier-sa/',
+    });
+  });
+
   it('uses cold-start copy when no historical delta is available', () => {
     const stats = {
       city: 'stabio' as WeeklyEmployersCity,
