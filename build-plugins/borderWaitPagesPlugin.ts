@@ -71,6 +71,7 @@ import {
   TOP_5_CROSSINGS,
   buildArchivePath,
   buildOggiPath,
+  parseBorderWaitPath,
   buildRegionalHubPath,
   buildRootHubPath,
   type BorderCrossingRegion,
@@ -761,6 +762,7 @@ interface Copy {
   open24h: string;
   hoursLabel: string;
   historicalAvg: string;
+  monthlyArchivesTitle: string;
   /**
    * `isTicinoCorridor` is passed EXPLICITLY rather than inferred from
    * `country.name === 'Italia'`, which is what these answers used to do.
@@ -857,6 +859,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Aperto 24h',
     hoursLabel: 'Orari',
     historicalAvg: 'Media storica',
+    monthlyArchivesTitle: 'Archivi mensili dei tempi di attesa',
     faq: [
       {
         q: (c) => `A che ora passa meno coda a ${c}?`,
@@ -966,6 +969,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Open 24/7',
     hoursLabel: 'Hours',
     historicalAvg: 'Historical average',
+    monthlyArchivesTitle: 'Monthly wait-time archives',
     faq: [
       {
         q: (c) => `When is ${c} least congested?`,
@@ -1075,6 +1079,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Rund um die Uhr geöffnet',
     hoursLabel: 'Öffnungszeiten',
     historicalAvg: 'Historischer Durchschnitt',
+    monthlyArchivesTitle: 'Monatliche Wartezeitarchive',
     faq: [
       {
         q: (c) => `Wann ist die Wartezeit bei ${c} am kürzesten?`,
@@ -1184,6 +1189,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     open24h: 'Ouvert 24h/24',
     hoursLabel: 'Horaires',
     historicalAvg: 'Moyenne historique',
+    monthlyArchivesTitle: 'Archives mensuelles des temps d’attente',
     faq: [
       {
         q: (c) => `Quelle est l'heure la moins chargée à ${c} ?`,
@@ -1925,6 +1931,7 @@ interface LeafInputs {
   crossing: BorderCrossingSlug;
   current: BorderWaitCurrent;
   history: BorderWaitHistoryDay[];
+  archiveMonths: readonly string[];
   today: Date;
   alternates: Record<BorderWaitLocale, string>;
   /** dist directory for entry-asset resolution (omit in tests). */
@@ -1990,7 +1997,7 @@ function renderAdviceBanner(
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
+  const { locale, crossing, current, history, archiveMonths, today, alternates, distDir, ogImageUrl } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
@@ -2183,6 +2190,15 @@ function renderLeafPage(inp: LeafInputs): string {
     ${weeklySparse ? accruingCaptionHtml : ''}
   </section>`
     : `<p class="s-Wnl1Ux">${esc(copy.noHistory)}</p>`;
+
+  const archiveLinksHtml = archiveMonths.length > 0
+    ? `<section aria-labelledby="monthlyArchives">
+      <h2 id="monthlyArchives" style="${H2_STYLE}">${esc(copy.monthlyArchivesTitle)}</h2>
+      <ul>${archiveMonths.map((month) =>
+        `<li><a href="${buildArchivePath(locale, crossing, month)}">${esc(month)}</a></li>`,
+      ).join('')}</ul>
+    </section>`
+    : '';
 
   // Static crossing info
   const infoRows: string[] = [];
@@ -2443,6 +2459,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${webcamHtml}
   ${hourlyHtml}
   ${weeklyHtml}
+  ${archiveLinksHtml}
   ${infoHtml}
   ${alternativeRoutesHtml}
   ${DRIVEBY_AD_SNIPPET}
@@ -3460,6 +3477,8 @@ export function getWebcamOgImageUrl(
 export function generateBorderWaitPages(opts: {
   current: BorderWaitCurrent;
   history?: BorderWaitHistoryDay[];
+  /** Generated archive HTML; only indexable pages are linked from their leaf. */
+  archivePages?: Readonly<Record<string, string>>;
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
@@ -3472,8 +3491,22 @@ export function generateBorderWaitPages(opts: {
 }): Record<string, string> {
   const current = opts.current;
   const history = opts.history ?? [];
+  const archivePages = opts.archivePages ?? {};
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const archiveMonthsByLeaf = new Map<string, string[]>();
+  for (const [archivePath, html] of Object.entries(archivePages)) {
+    const parsed = parseBorderWaitPath(archivePath);
+    if (!parsed?.isArchive || !parsed.crossing || !parsed.monthKey) continue;
+    if (countHtmlBodyWords(html) < MIN_INDEXABLE_WORDS || !htmlHasIndexableRobots(html)) continue;
+    const key = `${parsed.locale}:${parsed.crossing}`;
+    const months = archiveMonthsByLeaf.get(key) ?? [];
+    months.push(parsed.monthKey);
+    archiveMonthsByLeaf.set(key, months);
+  }
+  for (const months of archiveMonthsByLeaf.values()) {
+    months.sort((a, b) => b.localeCompare(a));
+  }
   const resolveOgImage =
     opts.ogImageUrlResolver ?? ((c: BorderCrossingSlug) => getWebcamOgImageUrl(c, distDir));
   const pages: Record<string, string> = {};
@@ -3521,11 +3554,13 @@ export function generateBorderWaitPages(opts: {
 
     // Per-crossing leaf pages
     for (const crossing of BORDER_WAIT_CROSSINGS) {
+      const archiveMonths = archiveMonthsByLeaf.get(`${locale}:${crossing}`) ?? [];
       pages[buildOggiPath(locale, crossing)] = renderLeafPage({
         locale,
         crossing,
         current,
         history,
+        archiveMonths,
         today,
         alternates: buildCrossingAlternates(crossing),
         distDir,
@@ -3637,12 +3672,12 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         );
       }
 
-      const pages = generateBorderWaitPages({ current, history, today, distDir });
       const archivedHistory = readBorderWaitArchive(
         np.join(rootDir, 'data', 'border-wait-archive'),
         np.join(rootDir, 'data', 'border-wait-recovery-archive.json'),
       );
       const archives = generateBorderWaitArchives({ history: [...archivedHistory, ...history], today, distDir });
+      const pages = generateBorderWaitPages({ current, history, archivePages: archives, today, distDir });
 
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitPagesPlugin' });
       let pagesWritten = 0;
