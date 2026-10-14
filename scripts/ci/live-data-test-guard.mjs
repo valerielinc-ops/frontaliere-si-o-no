@@ -596,6 +596,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
   },
   {
+    file: 'tests/data-refresh-pr-wiring.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'every data/jobs path is written and asserted inside a mkdtemp git repository; the checkout read is limited to the refresh workflow and publisher wiring under test',
+  },
+  {
     file: 'tests/open-data-refresh-checkout.test.ts',
     roots: ['packages/articles/content/'],
     reason: 'the same fixture as merge-open-data-refresh: packages/articles/content/body.ts is written and symlinked inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the five refresh scripts under test (#10754)',

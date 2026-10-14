@@ -239,7 +239,7 @@ check_old_history_ref() {
 check_old_history_ref HEAD
 
 # Read the lease before changing the local checkout. A stable branch may back
-# an open PR; its tree must be the base for this run instead of the workflow's
+# an open PR, while an orphaned branch must be replaced from the workflow's
 # main snapshot. The lease still protects the final push from a concurrent run.
 REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch" \
   git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
@@ -260,6 +260,8 @@ REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
 REFRESH_PUBLISH_WORKTREE=""
 REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
+RESET_STALE_STABLE_BRANCH=false
+STALE_REMOTE_HEAD=""
 
 # Non-compat publishes never select the stable branch in the source checkout.
 # Compat retains its existing restore behavior after tree-level reconciliation.
@@ -375,11 +377,27 @@ else
 fi
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
-# of opening an unbounded queue of equivalent data PRs. Start from the remote
-# tree when it exists, then apply this run's commit on top of it. This keeps
-# earlier append-only/state records in an unmerged PR without changing the
-# workflow checkout for non-compat refreshes.
-if [ -n "$REMOTE_HEAD" ]; then
+# of opening an unbounded queue of equivalent data PRs. A branch left behind
+# without that PR is not an in-flight snapshot: its generated files may be
+# older than the current main tree. Start that run from main and replace the
+# orphaned tip with a lease, rather than carrying the stale tree forward.
+if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
+  OPEN_PR="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR before reconciliation" \
+    gh pr list \
+    --repo "$REPOSITORY" \
+    --state open \
+    --base main \
+    --head "$BRANCH" \
+    --json number \
+    --jq '.[0].number // empty')"
+  if [ -z "$OPEN_PR" ]; then
+    RESET_STALE_STABLE_BRANCH=true
+    STALE_REMOTE_HEAD="$REMOTE_HEAD"
+    echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot instead of stale tip ${REMOTE_HEAD}."
+  fi
+fi
+
+if [ -n "$REMOTE_HEAD" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   # The workflow checkout is intentionally shallow. The non-compat path needs
   # a filtered graph for its path-aware reconciler; compat only needs the
   # stable tip and fetches its merge base explicitly below.
@@ -464,7 +482,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
     COMPAT_MAIN_BASE="$(compat_merge_base "$REFRESH_BASE" "$COMPAT_MAIN_HEAD" "compatibility main compare")"
     reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main
   fi
-elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
+elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
   # JSONL histories and Telegram ledgers union both runs, while complete
@@ -501,7 +519,8 @@ elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
   fi
 fi
 
-if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
+if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] \
+  && [ "$RECONCILE_COMPAT" = false ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh main" \
     git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
   MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
@@ -631,6 +650,12 @@ while :; do
   sleep "$((push_attempt - 1))"
   REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch retry" \
     git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+  if [ "$RESET_STALE_STABLE_BRANCH" = true ] && [ -n "$REMOTE_HEAD" ] \
+    && [ "$REMOTE_HEAD" != "$STALE_REMOTE_HEAD" ]; then
+    # A concurrent run won the orphan reset lease. Preserve its newer stable
+    # tree on the bounded retry, just as for an ordinary pending PR.
+    RESET_STALE_STABLE_BRANCH=false
+  fi
   if [ "$REMOTE_BASE_CREATED" = true ]; then
     if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
       # Still the base this run created: no other run wrote to the branch, so

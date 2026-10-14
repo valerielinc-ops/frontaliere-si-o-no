@@ -102,7 +102,14 @@ function fixture() {
   const bin = path.join(directory, 'bin');
   fs.mkdirSync(bin);
   const gh = path.join(bin, 'gh');
-  fs.writeFileSync(gh, `#!/bin/sh\nif [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi\nif [ "$1 $2" = "pr list" ]; then echo 42; fi\nif [ "$1" = "api" ]; then echo ${base}; fi\n`);
+  fs.writeFileSync(gh, [
+    '#!/bin/sh',
+    'if [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi',
+    'if [ "$1 $2" = "pr list" ] && [ "${REFRESH_FIXTURE_OPEN_PR:-1}" = 1 ]; then echo 42; fi',
+    'if [ "$1 $2" = "pr create" ]; then echo created; fi',
+    `if [ "$1" = "api" ]; then echo ${base}; fi`,
+    '',
+  ].join('\n'));
   fs.chmodSync(gh, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
@@ -129,6 +136,7 @@ function publish(
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
       GIT_CONFIG_GLOBAL: setup.gitConfig,
       REFRESH_FIXTURE_GH_FAIL: fail ? '1' : '0',
+      REFRESH_FIXTURE_OPEN_PR: '1',
       ...extraEnv,
     },
   });
@@ -530,7 +538,27 @@ describe('data publisher preserves its source checkout', () => {
       .toBe('{"source":"base"}');
   });
 
-  it('uses current helper dependencies and preserves source code across consecutive publishes', () => {
+  it('rebuilds an orphaned stable branch from main when no refresh PR is open', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"main"}\n');
+    git(setup.repo, ['add', 'data/cache.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'current main generated data']);
+    const mainHead = git(setup.repo, ['rev-parse', 'HEAD']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    const result = publish(setup, false, [], { REFRESH_FIXTURE_OPEN_PR: '0' });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('No open refresh PR for chore/refresh');
+    expect(result.stdout).toContain('created');
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh^'])).toBe(mainHead);
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
+    expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
+    expect(git(setup.remote, ['ls-tree', '-r', '--name-only', 'chore/refresh'])).not.toContain('data/pending-only.json');
+  });
+
+  it('keeps the stable branch as base when a refresh PR is open', () => {
     const setup = fixture();
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
     write(setup.repo, 'data/history.jsonl', '{"run":"base"}\n{"run":"current"}\n');
@@ -539,6 +567,7 @@ describe('data publisher preserves its source checkout', () => {
     const first = publish(setup);
     expect(first.stderr, first.stdout).not.toContain('ERR_MODULE_NOT_FOUND');
     expect(first.status, first.stderr).toBe(0);
+    expect(first.stdout).not.toContain('No open refresh PR');
     expect(git(setup.repo, ['branch', '--show-current'])).toBe('main');
     expect(execFileSync(process.execPath, ['scripts/crawler.mjs'], { cwd: setup.repo, encoding: 'utf8' }).trim()).toBe('current crawler');
     expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
