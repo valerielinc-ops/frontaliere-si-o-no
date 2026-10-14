@@ -283,6 +283,14 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     expect(text).toMatch(/Profil\s+• Erste Erfahrung/);
     expect(text.split('Sie schätzen den täglichen Kontakt')).toHaveLength(2);
   });
+
+  it("does not accept OTTO'S wrapper class prefixes as job content", () => {
+    const detail = `<div class="tasks-benefits-wrapper-shell">
+  <h3 class="subtitle">Noise</h3><ul><li>not job content</li></ul>
+</div>`;
+
+    expect(extractSoliqueDetailContent(detail)).toBe('');
+  });
 });
 
 // ─── JS-error-string sanitizer (issues #1682 / #1741) ────────────────────────

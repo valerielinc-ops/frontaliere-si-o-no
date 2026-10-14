@@ -349,17 +349,23 @@ function extractBalancedSectionById(html, idValue) {
 }
 
 /**
- * Return the inner HTML of the first `<div>` whose `class` attribute is
- * exactly `className` (no other tokens), balancing nested `<div>` tags —
+ * Return the inner HTML of the first `<div>` whose `class` attribute contains
+ * the complete `className` token, balancing nested `<div>` tags —
  * same rationale as `extractBalancedSectionById` above, but for tenants
  * whose detail page has NO `<section>` tags at all (OTTO'S AG), where the
  * job body instead lives inside a balanced `<div class="…-wrapper">`
  * container. Returns '' when no matching open tag is found.
  * @param {string} html
- * @param {string} className exact class value to match (e.g. `tasks-profile-wrapper`)
+ * @param {string} className complete class token to match (e.g. `tasks-profile-wrapper`)
  */
 function extractBalancedDivByClass(html, className) {
-  const open = new RegExp(`<div\\s+[^>]*class=["']?${className}["']?[^>]*>`, 'i').exec(html);
+  const openTagRx = /<div\b[^>]*>/gi;
+  let open;
+  while ((open = openTagRx.exec(html))) {
+    const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i.exec(open[0]);
+    const classValue = classAttr?.[1] ?? classAttr?.[2] ?? classAttr?.[3] ?? '';
+    if (classValue.split(/\s+/).includes(className)) break;
+  }
   if (!open) return '';
   const start = open.index + open[0].length;
   const tagRx = /<(\/?)div\b[^>]*>/gi;
