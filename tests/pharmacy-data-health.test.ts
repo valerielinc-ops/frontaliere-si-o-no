@@ -16,7 +16,9 @@ import {
   findBorderOutOfScopeRecords,
   findBorderSourceMismatches,
   normalizeIdentityField,
+  observeItalyDutyHorizon,
   observeSwissCantonDutyCoverage,
+  ITALY_REQUIRED_DUTY_HORIZON_DAYS,
   formatReport,
   loadDatasets,
   parseIsoDurationMs,
@@ -25,6 +27,8 @@ import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import borderSources from '../data/pharmacy-border-sources.json';
 import borderDuties from '../data/pharmacy-duties-ticino.json';
+import italyDuties from '../data/pharmacy-duties-italy.json';
+import italyDutySources from '../data/pharmacy-duties-italy-sources.json';
 import liveSourceRegistry from '../data/pharmacy-sources-registry.json';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
@@ -195,6 +199,67 @@ describe('observeSwissCantonDutyCoverage', () => {
   });
 });
 
+describe('observeItalyDutyHorizon', () => {
+  const sources = {
+    scope: { country: 'IT', provinces: ['CO', 'VA', 'VB'] },
+    sources: [
+      { province: 'CO' },
+      { province: 'VA' },
+      { province: 'VB', publication: 'best-effort' },
+    ],
+  };
+  const release = (duties: Array<Record<string, unknown>>) => ({
+    _fetchedAt: '2026-10-14T09:44:15.672Z',
+    _release: { state: 'fresh' },
+    duties,
+  });
+
+  it('allows empty weeks between verified duties when the final horizon is long', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([
+        { province: 'CO', status: 'verified', endsAt: '2026-10-20T06:30:00.000Z' },
+        { province: 'CO', status: 'verified', endsAt: '2027-01-10T06:30:00.000Z' },
+        { province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' },
+      ]),
+      sources,
+    });
+
+    expect(observed.problems).toEqual([]);
+    expect(observed.entries).toMatchObject([
+      { province: 'CO', verifiedDutyCount: 2, horizonDays: ITALY_REQUIRED_DUTY_HORIZON_DAYS, healthy: true },
+      { province: 'VA', verifiedDutyCount: 1, horizonDays: ITALY_REQUIRED_DUTY_HORIZON_DAYS, healthy: true },
+    ]);
+  });
+
+  it('flags a fresh required province whose final verified duty is too close to the fetch', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([
+        { province: 'CO', status: 'verified', endsAt: '2026-11-01T06:30:00.000Z' },
+        { province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' },
+      ]),
+      sources,
+    });
+
+    expect(observed.problems).toHaveLength(1);
+    expect(observed.problems[0]).toContain('CO: ultimo turno verificato');
+    expect(observed.problems[0]).toContain(`soglia di ${ITALY_REQUIRED_DUTY_HORIZON_DAYS} giorni`);
+  });
+
+  it('flags a fresh required province with no verified duty', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([{ province: 'VA', status: 'verified', endsAt: '2027-01-12T06:30:00.000Z' }]),
+      sources,
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.entries.find((entry) => entry.province === 'CO')).toMatchObject({
+      verifiedDutyCount: 0,
+      latestVerifiedAt: null,
+      healthy: false,
+    });
+  });
+});
+
 // Derived from the same nightly snapshot the monitor reads (see the comment
 // on the first live-data case): pinned literals went red at 749 -> 751.
 const italyCount = (code: string) => (italy.pharmacies as Array<{ province?: string }>).filter((p) => p.province === code).length;
@@ -208,6 +273,8 @@ describe('evaluateBorderHealth', () => {
       ticino,
       italy,
       duties: borderDuties,
+      italyDuties,
+      italySources: italyDutySources,
       nowMs: Date.parse(ticino._fetchedAt) + 3600e3,
     });
     expect(health.jurisdictions).toMatchObject([
@@ -223,6 +290,11 @@ describe('evaluateBorderHealth', () => {
     expect(health.identityCollisions).toEqual([]);
     expect(health.missingSecondaryProvenance).toEqual([]);
     expect(health.validationErrors).toEqual([]);
+    expect(health.italyDutyHorizon.problems).toEqual([]);
+    expect(health.italyDutyHorizon.entries).toMatchObject([
+      { province: 'CO', healthy: true },
+      { province: 'VA', healthy: true },
+    ]);
     expect(health.jurisdictions[1].maxAgeHours).toBe(24 * BORDER_SLA_TOLERANCE);
   });
 
@@ -537,12 +609,16 @@ describe('report payload consumed by the workflow', () => {
         ticino: { ...ticino, _fetchedAt: iso(1) },
         italy: { ...italy, _fetchedAt: iso(1) },
         duties: borderDuties,
+        italyDuties,
+        italySources: italyDutySources,
       },
     });
     expect(report.healthy).toBe(true);
     expect(report.border).toMatchObject({ totalRecords: BORDER_TOTAL, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
     expect(report.dashboard.join('\n')).toContain(`Perimetro operativo: 4 giurisdizioni · ${BORDER_TOTAL} record`);
     expect(report.dashboard.join('\n')).toContain(`IT-CO [active] — ${italyCount('CO')} record`);
+    expect(report.dashboard.join('\n')).toContain(`Orizzonte turni Italia: soglia ${ITALY_REQUIRED_DUTY_HORIZON_DAYS}g`);
+    expect(report.dashboard.join('\n')).toContain('IT-CO [required] — ultimo turno');
     expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
     expect(report.dashboard.join('\n')).toContain('Record nella snapshot della fonte errata: 0');
   });
