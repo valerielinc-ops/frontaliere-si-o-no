@@ -78,11 +78,11 @@ describe('AssistedApplicationOffer', () => {
     );
   });
 
-  it('links the concierge offer to the published job-board service entry instead of the current job URL', () => {
+  it('links the concierge offer to the canonical public landing', () => {
     renderOffer();
 
     expect(screen.getByRole('link', { name: 'Cerchi più posizioni? Automatizza la tua ricerca di lavoro' }))
-      .toHaveAttribute('href', '/cerca-lavoro-ticino/?application_concierge=1');
+      .toHaveAttribute('href', '/automatizza-ricerca-lavoro-svizzera/');
   });
 
   it.each([
