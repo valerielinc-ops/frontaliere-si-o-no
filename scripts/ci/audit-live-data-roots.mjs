@@ -110,14 +110,129 @@ function run(bin, args, options = {}) {
   });
 }
 
-function ghJson(args) {
-  const output = run(process.env.TRUSTED_GH_BIN || 'gh', args);
-  return JSON.parse(output || '[]');
+// A transient GitHub answer (502 from GraphQL, a dropped connection) must not
+// decide the audit: retry the same read a bounded number of times, then fail
+// loudly as before.
+const GH_READ_ATTEMPTS = 3;
+const GH_RETRY_DELAYS_MS = [2_000, 5_000];
+
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+export function ghJson(args, { exec = run, sleep = sleepSync } = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= GH_READ_ATTEMPTS; attempt += 1) {
+    try {
+      const output = exec(process.env.TRUSTED_GH_BIN || 'gh', args);
+      return JSON.parse(output || '[]');
+    } catch (error) {
+      lastError = error;
+      if (attempt < GH_READ_ATTEMPTS) sleep(GH_RETRY_DELAYS_MS[attempt - 1]);
+    }
+  }
+  throw lastError;
 }
 
 function daysAgoDate(days, now = new Date()) {
   const from = new Date(now.getTime() - days * 24 * 60 * 60 * 1000);
   return from.toISOString().slice(0, 10);
+}
+
+/** Every calendar day (UTC, YYYY-MM-DD) from `sinceDate` to `now`, inclusive. */
+export function dayWindows(sinceDate, now = new Date()) {
+  const last = now.toISOString().slice(0, 10);
+  const days = [];
+  for (let day = new Date(sinceDate + 'T00:00:00Z'); ; day = new Date(day.getTime() + 24 * 60 * 60 * 1000)) {
+    const iso = day.toISOString().slice(0, 10);
+    if (iso > last) break;
+    days.push(iso);
+  }
+  return days;
+}
+
+// One search per day, restricted to titles carrying `chore` (the token every
+// AUTOMATED_PR_TITLE starts with), and WITHOUT `files`. The first version asked
+// for the files of every PR of 30 days in one query: 3536 PRs on 2026-10-14,
+// beyond the 1000 a search can list, and GraphQL answered 502 even for a single
+// day as long as the files of large data PRs were in the query. So the audit
+// threw on every run since it landed and the live-data tests behind it never
+// ran. A day holds ~55 such PRs; the per-window cap keeps completeness.
+export const PR_WINDOW_LIMIT = 1000;
+
+export function listPullRequestsByDay({ repo, sinceDate, now = new Date(), read = ghJson }) {
+  const byNumber = new Map();
+  for (const day of dayWindows(sinceDate, now)) {
+    const listed = read([
+      'pr', 'list', '--repo', repo, '--state', 'all', '--limit', String(PR_WINDOW_LIMIT),
+      '--search', 'created:' + day + ' in:title chore',
+      '--json', 'number,title,author,createdAt,state',
+    ]);
+    if (!Array.isArray(listed) || listed.length >= PR_WINDOW_LIMIT) {
+      throw new Error('PR list del ' + day + ' ha raggiunto il limite di ' + PR_WINDOW_LIMIT
+        + ': copertura incompleta, nessun audit parziale viene riportato');
+    }
+    for (const pr of listed) byNumber.set(pr.number, pr);
+  }
+  return [...byNumber.values()];
+}
+
+/** Paths of every squash commit `... (#N)` in the git-log format of the audit, by PR number. */
+export function squashCommitPathsByPullNumber(log = '') {
+  const byNumber = new Map();
+  let current = null;
+  for (const line of String(log).split(/\r?\n/u)) {
+    if (line.startsWith('@@')) {
+      const subject = line.slice(2).split('|').slice(1).join('|');
+      const match = /\(#([0-9]+)\)$/u.exec(subject);
+      current = match ? Number(match[1]) : null;
+      if (current !== null && !byNumber.has(current)) byNumber.set(current, new Set());
+      continue;
+    }
+    if (current === null) continue;
+    const file = validRepoPath(line);
+    if (file) byNumber.get(current).add(file);
+  }
+  return new Map([...byNumber].map(([number, paths]) => [number, [...paths].sort()]));
+}
+
+/**
+ * Attach the complete file list to each automated PR without asking GraphQL
+ * for it: a merged PR's files are its squash commit on main (already in the
+ * audited history), an open PR's come from the paginated REST endpoint, and a
+ * PR closed without merging never wrote to main, so it has nothing to audit.
+ * A merged PR whose commit is missing stops the audit: the list would be
+ * partial.
+ */
+export function resolveAutomatedPullRequestFiles(candidates, { squashPaths, repo, readOpenFiles }) {
+  const resolved = [];
+  let skippedClosed = 0;
+  for (const pr of candidates) {
+    const state = String(pr.state || '').toUpperCase();
+    if (state === 'MERGED') {
+      const files = squashPaths.get(pr.number);
+      if (!files) {
+        throw new Error('PR #' + pr.number + ' mergiata ma senza commit (#' + pr.number
+          + ') nella storia della finestra: l’audit non può assumere una lista completa');
+      }
+      resolved.push({ ...pr, files });
+    } else if (state === 'OPEN') {
+      resolved.push({ ...pr, files: readOpenFiles(repo, pr.number) });
+    } else if (state === 'CLOSED') {
+      skippedClosed += 1;
+    } else {
+      throw new Error('PR #' + pr.number + ' con stato sconosciuto ' + JSON.stringify(pr.state));
+    }
+  }
+  return { resolved, skippedClosed };
+}
+
+function readOpenPullRequestFiles(repo, number) {
+  const pages = ghJson([
+    'api', '-X', 'GET', '--paginate', '--slurp',
+    'repos/' + repo + '/pulls/' + number + '/files?per_page=100',
+  ]);
+  return pages.flat().map((file) => file?.filename).filter(Boolean);
 }
 
 async function main(argv = process.argv.slice(2)) {
@@ -142,22 +257,15 @@ async function main(argv = process.argv.slice(2)) {
     'log', historyRef, '--since=' + since, '--format=@@%an|%s', '--name-only',
   ]);
   const commitPaths = directBotCommitPaths(log);
-  const listed = ghJson([
-    'pr', 'list', '--repo', repo, '--state', 'all', '--limit', '1000',
-    '--search', 'created:>=' + sinceDate,
-    '--json', 'number,title,author,createdAt,files',
-  ]);
-  if (!Array.isArray(listed) || listed.length >= 1000) {
-    throw new Error('PR list ha raggiunto il limite di 1000: copertura incompleta, nessun audit parziale viene riportato');
-  }
-  const { candidates, paths: pullRequestPaths } = automatedPullRequestPaths(listed);
-  for (const pr of candidates) {
-    if (!Array.isArray(pr.files)) {
-      throw new Error('PR #' + pr.number + ' senza elenco file; l’audit non può assumere una lista completa');
-    }
-    if (pr.files.length >= 100) {
-      throw new Error('PR #' + pr.number + ' ha raggiunto il limite file della query; l’audit non può assumere una lista completa');
-    }
+  const listed = listPullRequestsByDay({ repo, sinceDate });
+  const { resolved, skippedClosed } = resolveAutomatedPullRequestFiles(
+    listed.filter(isAutomatedDataPullRequest),
+    { squashPaths: squashCommitPathsByPullNumber(log), repo, readOpenFiles: readOpenPullRequestFiles },
+  );
+  const { candidates, paths: pullRequestPaths } = automatedPullRequestPaths(resolved);
+  if (skippedClosed) {
+    console.log('live-data-root-audit: ' + skippedClosed
+      + ' PR automatiche chiuse senza merge, nulla su main da verificare');
   }
   const audit = auditLiveDataRoots({ directPaths: commitPaths, pullRequestPaths });
   const runUrl = process.env.GITHUB_RUN_ID && process.env.GITHUB_SERVER_URL
