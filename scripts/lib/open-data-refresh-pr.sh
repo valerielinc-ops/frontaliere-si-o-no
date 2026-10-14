@@ -386,9 +386,38 @@ if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ]; then
   fi
 fi
 
+reset_orphaned_stable_branch_to_main() {
+  local main_head remote_after_failure
+  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch current main for orphaned stable branch" \
+    git fetch --no-tags --depth=1 "$PUSH_URL" \
+    "+refs/heads/main:refs/remotes/origin/main"
+  main_head="$(git rev-parse refs/remotes/origin/main)"
+  echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot ${main_head} instead of stale tip ${STALE_REMOTE_HEAD}."
+
+  if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push orphaned stable branch ${BRANCH} to current main snapshot" \
+    git -c http.https://github.com/.extraheader= push \
+    --force-with-lease="refs/heads/${BRANCH}:${STALE_REMOTE_HEAD}" \
+    "$PUSH_URL" "${main_head}:${BRANCH}"; then
+    echo "Synchronized ${BRANCH} with the current main snapshot ${main_head}; no refresh PR will be opened."
+    return 0
+  fi
+
+  if ! remote_after_failure="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote orphaned stable branch after lease loss" \
+    git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"; then
+    echo "::error::Unable to determine whether the orphaned stable branch lease was lost" >&2
+    return 1
+  fi
+  if [ -n "$remote_after_failure" ] && [ "$remote_after_failure" != "$STALE_REMOTE_HEAD" ]; then
+    echo "::notice::The orphaned stable branch lease was lost to a concurrent run; leaving tip ${remote_after_failure} untouched and skipping the refresh PR."
+    return 0
+  fi
+  echo "::error::The orphaned stable branch still had lease ${STALE_REMOTE_HEAD}, but its reset push failed" >&2
+  return 1
+}
+
 if git diff --cached --quiet; then
   if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
-    echo "No open refresh PR for ${BRANCH}; no refresh changes to publish, leaving stale tip ${REMOTE_HEAD} unpublished."
+    reset_orphaned_stable_branch_to_main
     exit 0
   fi
   if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
