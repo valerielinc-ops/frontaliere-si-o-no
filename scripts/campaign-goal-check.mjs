@@ -883,6 +883,14 @@ async function defaultCreateIssue({ title, description }) {
   });
 }
 
+// A goal re-evaluated as passed closes its own stable «Campaign goal FAILED:
+// <id>» issue: without this the issue opened on a failing run stayed open after
+// the goal was met (same opener-without-closer class as issue 11547).
+async function defaultResolveIssue({ title }) {
+  const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return resolveGithubIssue(title, { exactTitle: true, workflow: 'Campaign Goal Check' });
+}
+
 // ---------------------------------------------------------------------------
 // Orchestration — injectable for tests (goals/now/state I/O/issue creator).
 // ---------------------------------------------------------------------------
@@ -895,6 +903,7 @@ export async function runCampaignGoalCheck({
   loadStateImpl = loadState,
   saveStateImpl = (path, state) => writeJsonAtomic(path, state),
   createIssueImpl = defaultCreateIssue,
+  resolveIssueImpl = defaultResolveIssue,
   checkLivenessImpl = checkGa4Liveness,
   dryRun = false,
 } = {}) {
@@ -963,6 +972,15 @@ export async function runCampaignGoalCheck({
     if (action === 'skip-passed') {
       results.push({ id: goal.id, state: 'passed', detail: prior.detail || '(già superato, non rivalutato)', matureAt });
       state.goals[goal.id] = { ...prior, ...base, state: 'passed' };
+      // Do not re-evaluate terminal goals, but reconcile a FAILED issue left
+      // open by a run before the closer existed (issue 11547 class).
+      if (!dryRun) {
+        try {
+          await resolveIssueImpl({ title: `Campaign goal FAILED: ${goal.id}` });
+        } catch (err) {
+          console.error(`[campaign-goal-check] ${goal.id}: could not close the FAILED issue: ${err.message}`);
+        }
+      }
       continue;
     }
 
@@ -1005,6 +1023,13 @@ export async function runCampaignGoalCheck({
           targetDescription: outcome.targetDescription, lastCheckAt: now.toISOString(), passedAt: now.toISOString(),
         };
         results.push({ id: goal.id, state: 'passed', detail: outcome.detail, matureAt });
+        if (!dryRun) {
+          try {
+            await resolveIssueImpl({ title: `Campaign goal FAILED: ${goal.id}` });
+          } catch (err) {
+            console.error(`[campaign-goal-check] ${goal.id}: could not close the FAILED issue: ${err.message}`);
+          }
+        }
         continue;
       }
 

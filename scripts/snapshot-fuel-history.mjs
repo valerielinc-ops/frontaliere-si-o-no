@@ -17,6 +17,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildStationSlug } from './lib/fuel-station-slug.mjs';
+import { FUEL_ZONES } from '../build-plugins/shared/fuelRouteSlugs.mjs';
+import { writeFuelArchive } from './lib/fuel-monthly-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,7 +26,7 @@ const FUEL_DATA_PATH = path.join(ROOT, 'data', 'fuel-prices.json');
 const HISTORY_DIR = path.join(ROOT, 'data', 'fuel-prices-history');
 const RETENTION_DAYS = 90;
 
-const ZONES = ['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno'];
+const ZONES = FUEL_ZONES;
 // Italian curated cities — must mirror FUEL_ITALIAN_CITIES in
 // build-plugins/fuelDailyData.ts. matchKey is the lowercase municipality
 // name as it appears in data/fuel-prices.json (`municipality` field).
@@ -241,6 +243,7 @@ function main() {
   const out = path.join(HISTORY_DIR, `${today}.json`);
   fs.writeFileSync(out, JSON.stringify(snapshot, null, 2), 'utf-8');
 
+  writeFuelArchive(HISTORY_DIR, path.join(ROOT, 'data', 'fuel-prices-archive'), today);
   const pruned = pruneOldSnapshots();
   const zoneList = Object.entries(snapshot.zones)
     .map(([z, v]) => `${z}: diesel=${v.diesel} benzina=${v.benzina}`)

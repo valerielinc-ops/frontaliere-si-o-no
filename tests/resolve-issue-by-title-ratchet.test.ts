@@ -101,6 +101,22 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'il conteggio iscritti cambiato entro la soglia chiude il titolo stabile STABLE_ISSUE_TITLE della stagnazione che lo stesso monitor apre',
   },
+  'scripts/campaign-goal-check.mjs': {
+    calls: 1,
+    why: 'obiettivo rivalutato superato → chiude il titolo stabile esatto «Campaign goal FAILED: <id>» che lo stesso script apre (classe della issue 11547); nessun numero valutato',
+  },
+  'scripts/monitor-seo-ctr-by-template.mjs': {
+    calls: 1,
+    why: 'famiglia tornata sopra il target su un controllo conteggiato → chiude il titolo stabile esatto «SEO CTR sotto soglia: template <famiglia>» che lo stesso monitor apre (classe della issue 11547); nessun numero valutato',
+  },
+  'scripts/reconcile-here-usage.mjs': {
+    calls: 1,
+    why: 'uso HERE di nuovo sotto budget → chiude i titoli stabili esatti del mese corrente e del precedente che lo stesso script apre (classe della issue 11547); nessun numero valutato',
+  },
+  'scripts/monitor-translation-coverage.mjs': {
+    calls: 1,
+    why: 'metrica misurata e rientrata (MA3 o coorte 24-48 h) → chiude i titoli stabili esatti che lo stesso monitor apre, uno per tipo (issue 11547); nessun numero valutato',
+  },
   'scripts/monitor-gcp-costs.mjs': {
     calls: 1,
     why: 'nessun driver sopra soglia → chiude il titolo stabile del monitor costi',

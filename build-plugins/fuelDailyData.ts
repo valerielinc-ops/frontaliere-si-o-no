@@ -13,6 +13,7 @@
 import {
   FUEL_INDEX_TERMINAL_SLUGS as SHARED_FUEL_INDEX_TERMINAL_SLUGS,
   FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG,
+  FUEL_ZONES as SHARED_FUEL_ZONES,
 } from './shared/fuelRouteSlugs.mjs';
 
 export type FuelDailyLocale = 'it' | 'en' | 'de' | 'fr';
@@ -21,13 +22,7 @@ export type FuelZone = 'chiasso' | 'mendrisio' | 'lugano' | 'bellinzona' | 'loca
 
 export const FUEL_DAILY_LOCALES: readonly FuelDailyLocale[] = ['it', 'en', 'de', 'fr'] as const;
 export const FUEL_TYPES: readonly FuelType[] = ['diesel', 'benzina'] as const;
-export const FUEL_ZONES: readonly FuelZone[] = [
-  'chiasso',
-  'mendrisio',
-  'lugano',
-  'bellinzona',
-  'locarno',
-] as const;
+export const FUEL_ZONES: readonly FuelZone[] = SHARED_FUEL_ZONES;
 
 /**
  * Child sitemaps owned by the fuel page emitter.

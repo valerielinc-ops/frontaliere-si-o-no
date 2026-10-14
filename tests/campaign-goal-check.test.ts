@@ -131,7 +131,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
   it('marks immature goals as observing without calling evaluate', async () => {
     const evaluate = vi.fn();
     const goals = [{ id: 'g1', title: 'G1', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
-    const { results, state } = await runCampaignGoalCheck({
+    const { results, state } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(1), // matures in 13 days
@@ -149,7 +149,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const evaluate = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd' });
     const goals = [{ id: 'g2', title: 'G2', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const createIssueImpl = vi.fn();
-    const { results, state } = await runCampaignGoalCheck({
+    const { results, state } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -163,11 +163,36 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(createIssueImpl).not.toHaveBeenCalled();
   });
 
+  it('closes the stable FAILED issue of a goal that passes again, never in dry run (11547 class)', async () => {
+    const evaluate = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd' });
+    const goals = [{ id: 'g2b', title: 'G2b', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const common = {
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: { g2b: { state: 'failing' } } }),
+      saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
+      createIssueImpl: vi.fn(),
+    };
+    const resolveIssueImpl = vi.fn().mockResolvedValue({ number: 7 });
+    await runCampaignGoalCheck({ ...common, resolveIssueImpl });
+    expect(resolveIssueImpl).toHaveBeenCalledWith({ title: 'Campaign goal FAILED: g2b' });
+
+    const dryResolve = vi.fn();
+    await runCampaignGoalCheck({ ...common, resolveIssueImpl: dryResolve, dryRun: true });
+    expect(dryResolve).not.toHaveBeenCalled();
+
+    const failingResolve = vi.fn().mockRejectedValue(new Error('lookup unreliable'));
+    const { results } = await runCampaignGoalCheck({ ...common, resolveIssueImpl: failingResolve });
+    expect(results[0].state).toBe('passed');
+  });
+
   it('opens an issue and marks failing when a mature goal misses target', async () => {
     const evaluate = vi.fn().mockResolvedValue({ passed: false, value: { x: 0 }, targetDescription: 't', detail: 'd' });
     const goals = [{ id: 'g3', title: 'G3', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const createIssueImpl = vi.fn().mockResolvedValue({ number: 1 });
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -185,7 +210,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const evaluate = vi.fn();
     const goals = [{ id: 'g4', title: 'G4', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const priorState = { goals: { g4: { state: 'passed', lastValue: { x: 1 }, detail: 'ok' } } };
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -199,6 +224,32 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(results[0].detail).toBe('ok');
   });
 
+  it('reconciles the stable FAILED issue for a goal already marked passed', async () => {
+    const evaluate = vi.fn();
+    const goals = [{ id: 'g4b', title: 'G4b', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const openTitles = new Set(['Campaign goal FAILED: g4b']);
+    const resolveIssueImpl = vi.fn(async ({ title }: { title: string }) => {
+      openTitles.delete(title);
+    });
+
+    const { results } = await runCampaignGoalCheck({
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: { g4b: { state: 'passed', detail: 'ok' } } }),
+      saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
+      createIssueImpl: vi.fn(),
+      resolveIssueImpl,
+    });
+
+    expect(evaluate).not.toHaveBeenCalled();
+    expect(results[0].state).toBe('passed');
+    expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
+    expect(resolveIssueImpl).toHaveBeenCalledWith({ title: 'Campaign goal FAILED: g4b' });
+    expect(openTitles).toEqual(new Set());
+  });
+
   it('marks error state without opening an issue on a provider failure', async () => {
     const failing = vi.fn().mockRejectedValue(new Error('boom'));
     const ok = vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' });
@@ -207,7 +258,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       { id: 'g6', title: 'G6', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate: ok },
     ];
     const createIssueImpl = vi.fn();
-    const { results, deadSources } = await runCampaignGoalCheck({
+    const { results, deadSources } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -235,7 +286,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       { id: 'gsc1', title: 'GSC1', source: 'gsc', matureAfterDays: 14, issueRef: '#2', evaluate: vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' }) },
     ];
     const createIssueImpl = vi.fn();
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -261,7 +312,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     // abstains would pass the abstention test for the wrong reason.
     const evaluate = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd [GA4]' });
     const checkLivenessImpl = vi.fn(aliveSource);
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals: [{ id: 'ga2', title: 'GA2', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate }],
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -294,7 +345,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const retired = GOALS.filter((g) => ['dead_clicks_reduction', 'calc_deeplink_input_start'].includes(g.id));
     expect(retired.map((g) => g.id).sort()).toEqual(['calc_deeplink_input_start', 'dead_clicks_reduction']);
     const createIssueImpl = vi.fn();
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals: retired,
       now: NOW,
       campaignStart: isoDaysAgo(60),
@@ -316,7 +367,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 
   it('keeps a goal already passed under PostHog as passed (state file compatibility)', async () => {
     const evaluate = vi.fn();
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals: [{ id: 'old', title: 'Old', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate }],
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -335,7 +386,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     // finestra PostHog morta. Senza sorgente nessuno puo' riconfermarlo.
     const createIssueImpl = vi.fn();
     const deadClicks = GOALS.find((g: { id: string }) => g.id === 'dead_clicks_reduction');
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals: [deadClicks],
       now: NOW,
       campaignStart: isoDaysAgo(60),
@@ -355,7 +406,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       { id: 'g7', title: 'G7', source: 'gsc', matureAfterDays: 14, issueRef: '#1', evaluate: failing },
       { id: 'g8', title: 'G8', source: 'gsc', matureAfterDays: 14, issueRef: '#1', evaluate: failing },
     ];
-    const { deadSources } = await runCampaignGoalCheck({
+    const { deadSources } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -371,7 +422,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const evaluate = vi.fn().mockResolvedValue({ unmeasurable: true, note: 'endpoint not available' });
     const goals = [{ id: 'g9', title: 'G9', source: 'bing', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const createIssueImpl = vi.fn();
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
@@ -389,7 +440,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const goals = [{ id: 'g10', title: 'G10', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const saveStateImpl = vi.fn();
     const createIssueImpl = vi.fn();
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals,
       now: NOW,
       campaignStart: isoDaysAgo(20),
