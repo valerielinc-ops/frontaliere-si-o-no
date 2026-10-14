@@ -1642,6 +1642,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
   '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
   '/statistiche/traffico-dogane/': '/traffico-dogane/',
+  // Exact mixed-language URL observed in GSC; same crossing and live-day page.
+  '/en/border-traffic/gaggiolo/oggi/': '/en/border-wait/gaggiolo/today/',
   '/guida-frontaliere/tempi-attesa-dogana/': '/traffico-dogane/',
   '/guida-frontaliere/diritto-lavoro-frontalieri/': '/guida-frontaliere/',
   '/tfr-calculator/': '/tfr-liquidazione-frontaliere/',

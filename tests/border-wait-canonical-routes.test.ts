@@ -26,6 +26,7 @@ describe('border-wait canonical route migration', () => {
       ['/guida-frontaliere/tempi-attesa-dogana/novazzano/', '/traffico-dogane/bizzarone-novazzano/oggi/'],
       ['/guida-frontaliere/tempi-attesa-dogana/stabio/', '/traffico-dogane/gaggiolo/oggi/'],
       ['/tempi-attesa-confine/chiasso-brogeda/', '/traffico-dogane/chiasso-brogeda/oggi/'],
+      ['/en/border-traffic/gaggiolo/oggi/', '/en/border-wait/gaggiolo/today/'],
     ]);
 
     for (const [from, to] of aliases) {

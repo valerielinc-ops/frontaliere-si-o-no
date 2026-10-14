@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-13T21:11:26.068Z",
+  "generatedAt": "2026-10-14T07:55:03.152Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5425,
-  "avgDurationMs": 5425,
+  "durationMs": 5277,
+  "avgDurationMs": 5277,
   "durationHistory": [
-    5425
+    5277
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-e16a4cb12d98",
-      "slug": "intern-rdi-academy-product-development-straumann-ch",
+      "slug": "tirocinante-rdi-academy-product-development-straumann-basel",
       "company": "Straumann",
       "companyKey": "straumann",
       "companyDomain": "straumann.com",
@@ -34,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:12.863Z",
+      "crawledAt": "2026-10-14T07:54:49.162Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -51,21 +52,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T21:11:12.863Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-13T21:11:12.863Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-ede36e57fc6e",
       "slug": "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel",
@@ -78,7 +76,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:11:11.680Z",
+      "crawledAt": "2026-10-14T07:54:47.610Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -123,7 +121,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:11:12.584Z",
+      "crawledAt": "2026-10-14T07:54:48.607Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -164,7 +162,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:12.275Z",
+      "crawledAt": "2026-10-14T07:54:48.304Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -205,7 +203,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:11.964Z",
+      "crawledAt": "2026-10-14T07:54:47.991Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -236,5 +234,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
 }

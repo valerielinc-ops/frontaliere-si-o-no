@@ -991,12 +991,19 @@ describe('submit mode', () => {
       codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30),
       log: (...parts: unknown[]) => { logged.push(parts.join(' ')); },
       // The portal's form asks the same, in its own words, and one thing only the candidate knows.
-      readPortalQuestions: async () => [
-        { id: 'portal_hai_un_diploma_sup', question: 'Hai un diploma SUP?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
-        { id: 'portal_turni_notturni', question: 'Sei disponibile per i turni notturni?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
-      ],
+      // Its required attachment must be proposed in the same first review, not discovered after a failed submit.
+      readPortalRequirements: async () => ({
+        questions: [
+          { id: 'portal_hai_un_diploma_sup', question: 'Hai un diploma SUP?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
+          { id: 'portal_turni_notturni', question: 'Sei disponibile per i turni notturni?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
+        ],
+        documents: [{ id: 'portal_document_references', label: 'Arbeitszeugnisse', kind: 'reference', required: true, quote: 'Arbeitszeugnisse hochladen', keywords: ['Arbeitszeugnisse'] }],
+      }),
     } as any);
-    expect(draft.requiredDocuments).toMatchObject([{ id: 'diploma_sup', label: 'Diploma SUP', required: true }]);
+    expect(draft.requiredDocuments).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'diploma_sup', label: 'Diploma SUP', required: true }),
+      expect.objectContaining({ id: 'portal_document_references', label: 'Arbeitszeugnisse', required: true }),
+    ]));
     const ids = draft.questions.map((item: any) => item.id);
     expect(ids).toEqual(expect.arrayContaining(['ward_years', 'salary_expectation', 'portal_turni_notturni']));
     expect(ids).not.toContain('sup_diploma');
@@ -1006,7 +1013,7 @@ describe('submit mode', () => {
       'question answered by a required document portal_hai_un_diploma_sup diploma_sup',
     ]);
     // The document holds the send, once: no question beside it.
-    expect(evaluateRedFlags(draft, { ward_years: '5', salary_expectation: 'CHF 80k', portal_turni_notturni: 'Sì' })).toMatchObject({ candidate: [], documents: ['diploma_sup'] });
+    expect(evaluateRedFlags(draft, { ward_years: '5', salary_expectation: 'CHF 80k', portal_turni_notturni: 'Sì' })).toMatchObject({ candidate: [], documents: ['diploma_sup', 'portal_document_references'] });
     // The model is told what the candidate uploads.
     const matchPrompt = (codex.mock.calls as any[]).map(([request]) => request).find((request) => request.schema === MATCH_SCHEMA).prompt;
     expect(matchPrompt).toContain('"requestedDocuments":[{"document":"Diploma SUP","required":true}]');

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migrolino",
-  "assembledAt": "2026-10-13T21:17:41.359Z",
+  "assembledAt": "2026-10-14T07:54:34.554Z",
   "jobs": [
     {
       "id": "migrolino-7b06c8446cb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1eb4e3ed-5d04-432f-bc43-5f42a04c48fd",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:35.962Z",
+      "crawledAt": "2026-10-14T07:54:28.843Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -46,8 +46,8 @@
       "sector": "Retail / Convenience Store",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-20T07:30:45+02:00",
-      "postedDate": "2026-08-20T07:30:45+02:00",
+      "datePosted": "2026-08-20T06:11:02+02:00",
+      "postedDate": "2026-08-20T06:11:02+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1eb4e3ed-5d04-432f-bc43-5f42a04c48fd",
       "requirements": [],
@@ -89,7 +89,7 @@
           "personnel-de-vente-migrolino-wilderswil-1abf98"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-20T21:31:54.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -103,17 +103,16 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "migrolino-fa41171abbf1",
       "slug": "assistente-alle-vendite-migrolino-dietikon",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-dietikon",
+        "it": "assistente-alle-vendite-migrolino-dietikon",
         "en": "sales-staff-migrolino-dietikon",
         "de": "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "fr": "personnel-de-vente-migrolino-dietikon"
+        "fr": "assistant-aux-ventes-migrolino-dietikon"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -137,7 +136,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7726d43f-a023-4c4f-a74b-e7e93e4359d9",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:35.319Z",
+      "crawledAt": "2026-10-14T07:54:28.333Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofplatz 8",
@@ -159,12 +158,14 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
         "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "assistant-aux-ventes-migrolino-dietikon"
+        "personale-di-vendita-migrolino-dietikon",
+        "personnel-de-vente-migrolino-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "verkaufsmitarbeiter-in-migrolino-dietikon"
+          "verkaufsmitarbeiter-in-migrolino-dietikon",
+          "personale-di-vendita-migrolino-dietikon"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v"
@@ -174,7 +175,7 @@
         ],
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "assistant-aux-ventes-migrolino-dietikon"
+          "personnel-de-vente-migrolino-dietikon"
         ]
       },
       "firstSeenAt": "2026-08-25T21:34:52.249Z",
@@ -223,7 +224,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/car-wash-beraterin/0c1a54fe-a115-43b0-a03c-718932e715da",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:34.671Z",
+      "crawledAt": "2026-10-14T07:54:27.804Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
@@ -251,6 +252,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:24:55.892Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -296,7 +298,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/2591c09a-83a5-4ce4-a9d8-0fd2f35b52be",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:33.733Z",
+      "crawledAt": "2026-10-14T07:54:27.081Z",
       "addressLocality": "Thayngen",
       "addressRegion": "SH",
       "streetAddress": "Grenzstrasse 72",
@@ -369,7 +371,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/18f8831e-9f75-41af-a842-88dc7d75b4f0",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:32.202Z",
+      "crawledAt": "2026-10-14T07:54:25.914Z",
       "addressLocality": "Ipsach",
       "addressRegion": "BE",
       "streetAddress": "Hauptstrasse 87",
@@ -442,7 +444,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin-im-stundenlohn/54131c29-9149-4732-82ad-bdfbe97cf913",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:31.714Z",
+      "crawledAt": "2026-10-14T07:54:25.478Z",
       "addressLocality": "Ipsach",
       "addressRegion": "BE",
       "streetAddress": "Hauptstrasse 87",
@@ -515,7 +517,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/4d8a716d-679f-4c45-a7c2-dd39da73312f",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:31.255Z",
+      "crawledAt": "2026-10-14T07:54:25.012Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Lindenallee 98",
@@ -610,7 +612,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/14d265d1-a23e-41b5-9482-06fc092a05b2",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:30.771Z",
+      "crawledAt": "2026-10-14T07:54:24.596Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Bahnhofstrasse 2",
@@ -623,8 +625,8 @@
       "sector": "Retail / Convenience Store",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-25T02:21:30+02:00",
-      "postedDate": "2026-09-25T02:21:30+02:00",
+      "datePosted": "2026-09-25T00:41:18+02:00",
+      "postedDate": "2026-09-25T00:41:18+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/14d265d1-a23e-41b5-9482-06fc092a05b2",
       "requirements": [],
@@ -683,7 +685,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/selbstandiger-franchisepartnerin-fur-migrolino-shop-lugano/7d058826-a381-4151-8b65-e19c6e67e0fb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:30.310Z",
+      "crawledAt": "2026-10-14T07:54:24.171Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "Piazzale della Stazione",
@@ -716,7 +718,7 @@
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-in-lugano-migrolino-lugano"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-29T09:13:38.983Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -730,8 +732,7 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "migrolino-1885e3187a77",
@@ -764,7 +765,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/dff799cb-4396-47ff-badb-481627862e74",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:29.667Z",
+      "crawledAt": "2026-10-14T07:54:23.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hofwiesenstrasse 369",
@@ -842,7 +843,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8c712097-2414-4b67-8c62-e4310b34b722",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:29.022Z",
+      "crawledAt": "2026-10-14T07:54:23.108Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "streetAddress": "Flüelerstrasse 154",
@@ -915,7 +916,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/bau-projektleiterin/11578065-cb60-4d2c-bee4-04ec9d18a694",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:28.330Z",
+      "crawledAt": "2026-10-14T07:54:22.558Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -995,7 +996,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:17:27.682Z",
+      "crawledAt": "2026-10-14T07:54:22.033Z",
       "addressLocality": "Brügg",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 8",

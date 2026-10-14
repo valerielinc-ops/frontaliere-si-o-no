@@ -23,7 +23,8 @@ import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, portalPassRecord, redactStopReport } from './lib/portal/stop-report.mjs';
-import { dedupePortalQuestions, portalQuestionKey, readPortalQuestions } from './lib/portal/portal.mjs';
+import { dedupePortalQuestions, portalQuestionKey, readPortalRequirements } from './lib/portal/portal.mjs';
+import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../functions/src/assistedApplicationExtraDocuments.js';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -178,8 +179,8 @@ async function main() {
         order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
-        // A single-page portal form read ahead: its questions reach the first review.
-        readPortalQuestions,
+        // A portal form read ahead: its questions and required file fields reach the first review.
+        readPortalRequirements,
       });
       await writeDraft({ orderRef, bucket, draft, previousDraft });
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
@@ -277,16 +278,40 @@ async function main() {
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);
     if (factCheckPatch && !dryRun) await orderRef.collection('ai_drafts').doc('current').set(factCheckPatch, { merge: true });
-    // Questions a portal asked become part of the draft, so the review page
-    // shows them and the flow waits for the answers.
-    if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
+    // Questions and file fields a portal asked become part of the draft, so
+    // the review page shows them and the flow waits for the answers/uploads.
+    // The event keeps every unresolved id, not only newly discovered ones: a
+    // question already present in the draft can still be unanswered after a
+    // live re-check.
+    if (!dryRun && event.type === 'submit_needs_candidate'
+      && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
       const existing = dedupePortalQuestions(submitDraft.questions || []);
+      const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
+      const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
+      const incoming = dedupePortalQuestions(rawQuestions.filter((question) => question && typeof question === 'object' && question.question));
       const known = new Set(existing.map((question) => portalQuestionKey(question.question, question.context) || question.id));
-      const incoming = dedupePortalQuestions(event.questions);
       const added = incoming.filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id));
       const questions = dedupePortalQuestions([...existing, ...added]);
-      await orderRef.collection('ai_drafts').doc('current').set({ questions }, { merge: true });
-      event.questions = added.map((question) => ({ id: question.id }));
+
+      const incomingDocuments = rawDocuments.filter((document) => document && typeof document === 'object');
+      const requiredDocuments = mergeRequiredDocuments(submitDraft.requiredDocuments || [], incomingDocuments);
+      const documentIdFor = (raw) => {
+        if (typeof raw === 'string') return raw;
+        const candidate = requiredDocumentsOf({ requiredDocuments: [raw] })[0];
+        if (!candidate) return '';
+        const folded = candidate.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+        const normalized = requiredDocumentLabelKey(candidate.label);
+        return requiredDocuments.find((document) => document.id === candidate.id
+          || (normalized && requiredDocumentLabelKey(document.label) === normalized)
+          || document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === folded)?.id || '';
+      };
+      const documentIds = [...new Set(rawDocuments.map(documentIdFor).filter(Boolean))];
+      const patch = {};
+      if (incoming.length || added.length) patch.questions = questions;
+      if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
+      if (Object.keys(patch).length) await orderRef.collection('ai_drafts').doc('current').set(patch, { merge: true });
+      event.questions = rawQuestions.map((question) => typeof question === 'string' ? question : question?.id).filter(Boolean);
+      event.documents = documentIds;
     }
     await report(event);
   } catch (error) {
