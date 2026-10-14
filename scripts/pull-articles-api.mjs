@@ -48,9 +48,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import {
-  validateGeneratedImageRecord,
-} from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import {
@@ -61,6 +58,7 @@ import {
 import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired-urls.mjs';
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
+import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -669,12 +667,8 @@ if (!credits || credits.schema !== 1 || credits.section !== 'blog'
   fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
-  const validation = validateGeneratedImageRecord(record);
-  const wrongScope = record?.scope !== 'article-hero';
-  const imageUrlMismatch = record?.imageUrl !== imageUrl;
+  const validation = validatePublishedBlogImageEvidence(imageUrl, record);
   const errors = [...validation.errors];
-  if (wrongScope) errors.push('scope is not article-hero');
-  if (imageUrlMismatch) errors.push('imageUrl does not match the record key');
   if (errors.length > 0) {
     fail(`${BLOG_CREDITS_ARTIFACT} has invalid article image evidence for ${imageUrl}: ${errors.join('; ')}`);
   }

@@ -9,11 +9,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
-import {
-  validateGeneratedImageRecord,
-  validateGeneratedImageRegistry,
-} from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isExplicitInferredCover } from '../lib/blog-cover-decisions.mjs';
+import { validatePublishedBlogImageEvidence } from '../lib/published-blog-image-evidence.mjs';
 
 const ROOT = process.cwd();
 const REGISTRIES = [
@@ -75,13 +73,16 @@ function main() {
         errors.push('published generated-image evidence commit differs from the corpus baseline');
       }
       for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
-        const validation = validateGeneratedImageRecord(record);
-        if (!validation.valid || record?.scope !== 'article-hero' || record?.imageUrl !== imageUrl) {
+        const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+        if (!validation.valid) {
           errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length
             ? `: ${validation.errors.join('; ')}`
-            : ' (scope or imageUrl does not match the published article-hero evidence key)'}`);
+            : ''}`);
           continue;
         }
+        // `place` is valid reader-facing evidence for the static fallback, but
+        // it is not a site-owned article-hero registry entry to reconcile.
+        if (record.scope !== 'article-hero') continue;
         const existing = generatedByUrl.get(imageUrl);
         if (existing && existing.sha256 !== record.sha256) {
           errors.push(`${imageUrl}: published and site generated registries disagree on sha256`);

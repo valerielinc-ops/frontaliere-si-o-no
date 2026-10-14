@@ -173,6 +173,47 @@ const validGeneratedCover = () => {
   };
 };
 
+/** The real governed static fallback published by the corpus blog index. */
+const validLuganoPlaceFallback = () => ({
+  schema: 1,
+  assetId: 'lugano-view',
+  provider: 'openai-codex',
+  model: 'gpt-image-2.5',
+  executorModel: 'gpt-5.6-luna',
+  promptVersion: 'frontaliereticino.generated-image-policy.v1',
+  promptHash: 'a552b810810cf3e04267e7c17af799c7a182a0cda5732e97212ee0b1d9e0cecb',
+  license: 'generated-provider',
+  licenseUrl: 'https://openai.com/policies/terms-of-use/',
+  credit: 'frontaliereticino.ch',
+  sha256: 'feb0ec2c59872a3d1ccb23dba22a436ca1d747d5e909b142cd4a593c550b6a96',
+  bytes: 169332,
+  width: 1200,
+  height: 675,
+  format: 'webp',
+  generatedAt: '2026-10-06T19:26:04.084Z',
+  verifiedAt: '2026-10-06T19:26:14.671Z',
+  restrictions: [
+    'illustrative-only',
+    'no-real-recognizable-foreground-person',
+    'no-public-figure-face',
+    'no-logo-brand-or-text',
+    'no-specific-real-event-photojournalism',
+  ],
+  scope: 'place',
+  imageUrl: '/images/places/lugano-view.webp',
+  area: 'Canton Ticino e regione di confine',
+  season: 'luce diurna equilibrata',
+  variant: 'place-hero',
+  vision: {
+    ok: true,
+    contains_text: false,
+    contains_logo: false,
+    contains_recognizable_face: false,
+    looks_like_specific_real_event: false,
+    notes: 'Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event.',
+  },
+});
+
 const validPrivateGrantCover = () => ({
   schema: 1,
   assetId: 'test-private-grant-cover',
@@ -747,6 +788,24 @@ describe('pull-articles-api: generated cover evidence', () => {
       .toEqual({ [generated.imageUrl]: generated });
   });
 
+  it('accepts the published governed place fallback as blog image evidence', async () => {
+    const record = validLuganoPlaceFallback();
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 article image evidence records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [record.imageUrl]: record });
+  });
+
   it.each([
     ['private-grant', validPrivateGrantCover],
     ['licensed Pexels photo', validPexelsCover],
@@ -783,6 +842,25 @@ describe('pull-articles-api: generated cover evidence', () => {
 
     expect(code).toBe(1);
     expect(out).toContain('imageUrl does not match the record key');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+  });
+
+  it('still refuses schema-valid evidence outside the published blog scopes', async () => {
+    const record = validGeneratedCover();
+    record.scope = 'event-library';
+    record.imageUrl = '/images/events/library/test-generated-cover.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [record.imageUrl]: record },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('scope is not article-hero or place');
     expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
   });
 

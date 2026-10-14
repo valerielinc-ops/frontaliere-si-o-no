@@ -62,6 +62,48 @@ function generatedRecord(sha = sha256(IMAGE_BYTES)) {
   };
 }
 
+function placeFallbackRecord() {
+  return {
+    schema: 1,
+    assetId: 'lugano-view',
+    provider: 'openai-codex',
+    model: 'gpt-image-2.5',
+    executorModel: 'gpt-5.6-luna',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a552b810810cf3e04267e7c17af799c7a182a0cda5732e97212ee0b1d9e0cecb',
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'feb0ec2c59872a3d1ccb23dba22a436ca1d747d5e909b142cd4a593c550b6a96',
+    bytes: 169332,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: '2026-10-06T19:26:04.084Z',
+    verifiedAt: '2026-10-06T19:26:14.671Z',
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'place',
+    imageUrl: '/images/places/lugano-view.webp',
+    area: 'Canton Ticino e regione di confine',
+    season: 'luce diurna equilibrata',
+    variant: 'place-hero',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      notes: 'Original generic illustrated landscape; no readable text, logos, signatures, recognizable faces, or specific real event.',
+    },
+  };
+}
+
 function validPrivateGrantEvidence() {
   const record: Record<string, unknown> = {
     ...generatedRecord(),
@@ -233,7 +275,22 @@ describe('sync-published-blog-covers', () => {
     expect(JSON.parse(output)).toMatchObject({ errors: 0 });
   });
 
-  it('still rejects schema-valid published evidence outside the article-hero scope', () => {
+  it('accepts the governed place fallback without treating it as an article-hero registry entry', () => {
+    const root = fixture();
+    clearPublishedArticleCovers(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
+    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
+    const record = placeFallbackRecord();
+    evidence.generated[record.imageUrl] = record;
+    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
+
+    const output = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(JSON.parse(output)).toMatchObject({ generated: 0, errors: 0 });
+  });
+
+  it('still rejects schema-valid published evidence outside the published blog scopes', () => {
     const root = fixture();
     clearPublishedArticleCovers(root);
     fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
