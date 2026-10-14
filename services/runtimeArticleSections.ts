@@ -146,7 +146,10 @@ export function isLiveCantonArticleSectionCached(section: string): boolean {
 export function refreshCantonSectionRegistry(): void {
   registryPromise = null;
   liveSectionsPromise = null;
-  liveSectionIds = new Set();
+  // Keep the last known-good live set while a release retry is in flight. A
+  // transient registry/Pages skew must not make the router reject valid
+  // canton paths for the rest of the SPA lifetime; a subsequent
+  // loadLiveCantonArticleSections() still replaces this set atomically.
 }
 
 /** Localize the registry result without another network request. */
@@ -164,4 +167,5 @@ export function localizeCantonArticleSections(
 /** Test seam: the next consumer re-reads the edge registry. */
 export function __resetRuntimeArticleSections(): void {
   refreshCantonSectionRegistry();
+  liveSectionIds = new Set();
 }

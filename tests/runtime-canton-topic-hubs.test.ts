@@ -3,7 +3,11 @@ import {
   __resetRuntimeCantonTopicHubs,
   loadCantonTopicHub,
 } from '../services/runtimeCantonTopicHubs';
-import { __resetRuntimeArticleSections } from '../services/runtimeArticleSections';
+import {
+  __resetRuntimeArticleSections,
+  isLiveCantonArticleSectionCached,
+  loadLiveCantonArticleSections,
+} from '../services/runtimeArticleSections';
 
 const COMMIT = 'a'.repeat(40);
 const HASH = 'b'.repeat(64);
@@ -121,6 +125,8 @@ describe('runtime canton thematic hubs', () => {
       }), { status: 200, headers: { 'content-type': 'application/json' } });
     }));
 
+    await expect(loadLiveCantonArticleSections()).resolves.toHaveLength(1);
+    expect(isLiveCantonArticleSectionCached('canton-zh')).toBe(true);
     await expect(loadCantonTopicHub('canton-zh', 'carburanti', 'it')).resolves.toMatchObject({
       canton: 'ZH',
       topic: 'carburanti',
@@ -128,6 +134,7 @@ describe('runtime canton thematic hubs', () => {
     });
     expect(registryReads).toBe(2);
     expect(fetch).toHaveBeenCalledTimes(4);
+    expect(isLiveCantonArticleSectionCached('canton-zh')).toBe(true);
   });
 
   it('rejects a Pages payload whose release commit differs from the edge registry', async () => {
