@@ -27,6 +27,7 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
+const SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS = new Set(['yellowshark', 'tether', 'bitfinex']);
 
 function finiteDate(value) {
   const time = Date.parse(value);
@@ -114,7 +115,7 @@ function validateActivePartition(summary, prefix, issues) {
   }
 }
 
-function jobIssues(job, prefix, now) {
+function jobIssues(job, prefix, now, requireSwissCountry = false) {
   const issues = [];
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
     return ['job is not an object'];
@@ -125,7 +126,11 @@ function jobIssues(job, prefix, now) {
   if (!text(job.title)) issues.push('title is missing');
   if (!text(job.company) && !text(job.companyKey)) issues.push('company identity is missing');
   if (!text(job.source)) issues.push('source is missing');
-  if (job.country !== undefined && job.country !== 'CH') issues.push('country is not CH');
+  if (requireSwissCountry) {
+    if (job.country !== 'CH') issues.push('country is missing or not CH');
+  } else if (job.country !== undefined && job.country !== 'CH') {
+    issues.push('country is not CH');
+  }
   const crawledAt = finiteDate(job.crawledAt);
   if (job.crawledAt !== undefined && !crawledAt) issues.push('crawledAt is invalid');
   const firstSeenAt = finiteDate(job.firstSeenAt);
@@ -316,7 +321,12 @@ export function validateJobSummaries(summaries, {
       for (const [index, job] of (summary[section] || []).entries()) {
         jobsInspected += 1;
         const jobPrefix = `${prefix}.${section}[${index}]`;
-        const rowIssues = jobIssues(job, jobPrefix, now);
+        const rowIssues = jobIssues(
+          job,
+          jobPrefix,
+          now,
+          SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS.has(summaryKey),
+        );
         const identity = identityFor(job);
         if (identity) {
           const previous = identities.get(identity);

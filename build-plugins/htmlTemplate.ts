@@ -154,13 +154,15 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * Empty `#root` for SPA-shell SEO pages, with a first-paint header-height
  * reservation spacer.
  *
- * The crawler-facing SEO content lives in a `<main class="seo-static-content">`
+ * Most crawler-facing SEO content lives in a `<main class="seo-static-content">`
  * body-sibling OUTSIDE `#root`; React mounts the SPA chrome (the sticky nav
  * header, `h-14 md:h-20` = 56/80px) INTO `#root`, which — starting empty — would
  * shove that sibling content down by the header height on mount (live: ~0.08
  * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
  * in `shared/criticalCss.ts`'s `ROOT_HEADER_RESERVE_CSS`) holds the header height
- * from first paint so nothing jumps. `createRoot().render()` REPLACES #root's
+ * from first paint so nothing jumps. The job-board hub is the deliberate
+ * exception: its static main is passed as `innerHtml` so content and reserve
+ * share one root before React mounts. `createRoot().render()` REPLACES #root's
  * children (client render, not hydration), so the spacer leaves no residue and
  * the real same-height header takes its place shift-free.
  *
@@ -178,10 +180,10 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * sit as a PERMANENT 56/80px empty band above the indexed SEO content
  * instead of degrading to a plain empty `#root` (0px, content at top).
  */
-export function rootShell(hasSpaBundle: boolean): string {
+export function rootShell(hasSpaBundle: boolean, innerHtml = ''): string {
   return hasSpaBundle
-    ? '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div></div>'
-    : '<div id="root"></div>';
+    ? `<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div>${innerHtml}</div>`
+    : `<div id="root">${innerHtml}</div>`;
 }
 
 /** HTML escape for attribute values and text content. */

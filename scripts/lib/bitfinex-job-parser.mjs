@@ -26,7 +26,11 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { findSwissRecruiteeLocation } from './recruitee-country-guard.mjs';
+import {
+  attachRecruiteeCountrySnapshot,
+  findSwissRecruiteeLocation,
+  hasOnlyExplicitlyForeignRecruiteeLocations,
+} from './recruitee-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -273,7 +277,10 @@ export async function fetchAllBitfinexJobs() {
   const { offers, origin } = await fetchJobListings();
   if (!offers || offers.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    return attachRecruiteeCountrySnapshot([], {
+      complete: Boolean(origin),
+      offerCount: 0,
+    });
   }
 
   const detailUrlBase = `${origin || API_ORIGINS[0]}/o`;
@@ -281,9 +288,27 @@ export async function fetchAllBitfinexJobs() {
   console.log(`  📋 Offers found: ${offers.length}`);
 
   const jobs = [];
+  const acceptedDetailUrls = [];
+  const rejectedDetailUrls = [];
+  const unclassifiedDetailUrls = [];
+  let acceptedOfferCount = 0;
+  let rejectedOfferCount = 0;
+  let unclassifiedOfferCount = 0;
   for (const offer of offers) {
     const title = normalizeSpace(offer.title || '');
-    if (!title || title.length < 3) continue;
+    const slug = normalizeSpace(offer.slug);
+    const sourceDetailUrl = slug ? detailUrlBase + '/' + slug : '';
+    if (!title || title.length < 3) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
+
+    if (!Array.isArray(offer.locations)) {
+      unclassifiedOfferCount += 1;
+      if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      continue;
+    }
 
     // Combine all description sections (description + requirements + education + experience)
     const combinedHtml = combineDescriptionSections(offer);
@@ -293,9 +318,18 @@ export async function fetchAllBitfinexJobs() {
     // country fallback for a worldwide/ambiguous remote offer.
     const firstLoc = findSwissRecruiteeLocation(offer.locations);
     if (!firstLoc) {
+      if (hasOnlyExplicitlyForeignRecruiteeLocations(offer.locations)) {
+        rejectedOfferCount += 1;
+        if (sourceDetailUrl) rejectedDetailUrls.push(sourceDetailUrl);
+      } else {
+        unclassifiedOfferCount += 1;
+        if (sourceDetailUrl) unclassifiedDetailUrls.push(sourceDetailUrl);
+      }
       console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${title}`);
       continue;
     }
+    acceptedOfferCount += 1;
+    if (sourceDetailUrl) acceptedDetailUrls.push(sourceDetailUrl);
     const city = normalizeSpace(firstLoc.city);
     const sourceState = normalizeSpace(firstLoc.state || '');
     const state = sourceState;
@@ -382,5 +416,14 @@ export async function fetchAllBitfinexJobs() {
     console.log(`  🧹 Deduplicated ${jobs.length - deduped.length} duplicate listing(s) (kept most-recent per role)`);
   }
   console.log(`\n📋 Total Bitfinex jobs discovered: ${deduped.length}`);
-  return deduped;
+  return attachRecruiteeCountrySnapshot(deduped, {
+    complete: Boolean(origin),
+    offerCount: offers.length,
+    acceptedOfferCount,
+    rejectedOfferCount,
+    unclassifiedOfferCount,
+    acceptedDetailUrls,
+    rejectedDetailUrls,
+    unclassifiedDetailUrls,
+  });
 }

@@ -121,21 +121,24 @@ describe('index.tsx mount order', () => {
   const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
   const mountApp = entry.slice(entry.indexOf('const mountApp = async'));
 
-  it('waits for the static first paint and JobBoard evaluation before the handoff hide', () => {
+  it('paints the adopted JobBoard fallback before module evaluation and keeps legacy handoff order', () => {
     const awaitAt = mountApp.indexOf('await staticFirstPaint');
     const startAt = mountApp.indexOf('waitForStaticFirstPaint()');
     const warmAt = mountApp.indexOf("await import('@/components/community/JobBoard')");
     const adoptAt = mountApp.indexOf('adoptStaticFallbackIntoRoot(rootElement, fallback)');
+    const paintAt = mountApp.indexOf('await waitForFirstPaint()', adoptAt);
     const hideAt = mountApp.indexOf('hideRootForCrossfade(rootElement)');
 
     expect(startAt).toBeGreaterThan(-1);
     expect(awaitAt).toBeGreaterThan(startAt);
-    expect(warmAt).toBeGreaterThan(awaitAt);
     expect(adoptAt).toBeGreaterThan(awaitAt);
-    expect(adoptAt).toBeGreaterThan(warmAt);
+    expect(paintAt).toBeGreaterThan(adoptAt);
+    expect(warmAt).toBeGreaterThan(paintAt);
+    expect(adoptAt).toBeLessThan(warmAt);
     expect(hideAt).toBeGreaterThan(awaitAt);
     expect(hideAt).toBeGreaterThan(warmAt);
-    expect(mountApp.slice(awaitAt, adoptAt)).toContain("parsedRoute.activeTab === 'job-board'");
+    expect(mountApp.slice(awaitAt, adoptAt)).toContain("const isJobBoardRoute = parsedRoute.activeTab === 'job-board'");
+    expect(mountApp.slice(adoptAt, paintAt)).toContain('if (isJobBoardRoute)');
   });
 
   it('hides #root only through hideRootForCrossfade (no direct opacity 0 that skips the mark)', () => {

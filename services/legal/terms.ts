@@ -110,6 +110,9 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
           },
           {
             "html": "<p> <strong>6.7 Responsabilità.</strong> Nei limiti consentiti dalla legge, la nostra responsabilità per il servizio è limitata all&apos;importo pagato, salvo dolo o colpa grave. </p>"
+          },
+          {
+            "html": "<p> <strong>6.8 Ricerca automatizzata.</strong> Il servizio da 39,99 € è un incarico una tantum senza rinnovo automatico: resta disponibile per 30 giorni dall&apos;accredito e comprende al massimo 10 posizioni accettate. Il sistema può usare il CV per cercare e ordinare le offerte pubblicate, ma ogni proposta resta soggetta alla tua scelta; il caricamento o l&apos;analisi del CV non costituiscono una promessa di candidatura o di assunzione. Per ogni posizione che accetti, il mandato comprende la preparazione e l&apos;invio a tuo nome, la creazione di un account se necessaria e l&apos;accettazione delle sole condizioni e informative privacy necessarie a ricevere la candidatura; non comprende mai consensi facoltativi. Il servizio da 0,99 € resta limitato all&apos;annuncio indicato. </p>"
           }
         ]
       },
@@ -237,6 +240,9 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
           },
           {
             "html": "<p><strong>6.7 Liability.</strong> To the extent permitted by law, our liability for the service is limited to the amount paid, except in cases of intent or gross negligence.</p>"
+          },
+          {
+            "html": "<p><strong>6.8 Automated search service.</strong> The €39.99 service is a one-off engagement with no automatic renewal: it remains available for 30 days after payment and includes up to 10 positions you accept. The system may use your CV to search and rank published listings, but every proposal remains subject to your choice; uploading or analysing the CV is not a promise of an application or employment. For every position you accept, the mandate covers preparing and sending the application in your name, creating an account if necessary, and accepting only the terms and privacy notices necessary to receive the application; it never covers optional consents. The €0.99 service remains limited to the listing identified.</p>"
           }
         ]
       },
@@ -364,6 +370,9 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
           },
           {
             "html": "<p><strong>6.7 Haftung.</strong> Soweit gesetzlich zulässig, ist unsere Haftung für die Dienstleistung auf den gezahlten Betrag begrenzt, ausgenommen Vorsatz oder grobe Fahrlässigkeit.</p>"
+          },
+          {
+            "html": "<p><strong>6.8 Automatisierte Jobsuche.</strong> Der Dienst für 39,99 € ist ein einmaliger Auftrag ohne automatische Verlängerung: Er bleibt ab Zahlung 30 Tage verfügbar und umfasst bis zu 10 Stellen, die du annimmst. Das System darf deinen Lebenslauf verwenden, um veröffentlichte Stellen zu suchen und zu ordnen; jeder Vorschlag bleibt jedoch deiner Entscheidung überlassen. Das Hochladen oder die Analyse des Lebenslaufs verspricht weder eine Bewerbung noch eine Anstellung. Für jede angenommene Stelle umfasst der Auftrag die Vorbereitung und den Versand der Bewerbung in deinem Namen, die Erstellung eines erforderlichen Kontos und die Annahme nur der für den Empfang der Bewerbung notwendigen Bedingungen und Datenschutzhinweise; freiwillige Einwilligungen sind nie umfasst. Der Dienst für 0,99 € bleibt auf die angegebene Stelle beschränkt.</p>"
           }
         ]
       },
@@ -491,6 +500,9 @@ const DOCUMENTS: Record<LegalLocale, LegalDocument> = {
           },
           {
             "html": "<p><strong>6.7 Responsabilité.</strong> Dans les limites autorisées par la loi, notre responsabilité pour le service est limitée au montant payé, sauf en cas de dol ou de faute grave.</p>"
+          },
+          {
+            "html": "<p><strong>6.8 Recherche automatisée.</strong> Le service de 39,99 € est une prestation unique sans renouvellement automatique : il reste disponible pendant 30 jours après le paiement et comprend jusqu’à 10 postes que vous acceptez. Le système peut utiliser votre CV pour rechercher et classer les offres publiées, mais chaque proposition reste soumise à votre choix ; le téléversement ou l’analyse du CV ne promet ni candidature ni embauche. Pour chaque poste accepté, le mandat couvre la préparation et l’envoi de la candidature en votre nom, la création d’un compte si nécessaire et l’acceptation des seules conditions et notices de confidentialité nécessaires à la réception de la candidature ; il ne couvre jamais les consentements facultatifs. Le service de 0,99 € reste limité à l’offre indiquée.</p>"
           }
         ]
       },

@@ -86,6 +86,8 @@ import {
   handleManageApplicationConcierge,
   expireApplicationConciergeServices,
 } from './src/applicationConciergeCore.js';
+import { enrichCandidateProfileFromCv } from './src/candidateCvProfile.js';
+import { runApplicationConciergeMatching } from './src/applicationConciergeMatching.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
@@ -2487,6 +2489,69 @@ export const startAssistedApplicationAutomation = onDocumentWritten(
       if (result.started) console.log('[startAssistedApplicationAutomation] started', event.params.orderId);
     } catch (error) {
       console.error('[startAssistedApplicationAutomation]', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// A CV uploaded for the one-off assisted application enriches the same
+// private user profile used by the 30-day concierge. The original file stays
+// in the existing private storage namespace; only a safe profile projection
+// is shared between the two flows.
+export const enrichAssistedApplicationProfile = onDocumentWritten(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120, document: 'assisted_applications/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() : null;
+    const data = after.data() || {};
+    if (data.billingMode === 'application_concierge' || !data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
+    try {
+      const result = await enrichCandidateProfileFromCv({
+        db: getAdminDb(),
+        userId: data.userId,
+        sourceId: event.params.orderId,
+        sourceType: 'assisted_application',
+        cvStorageKey: data.cvStorageKey,
+        applicantEmail: data.applicantEmail || data.customerEmail || '',
+        uploadedAt: data.cvUploadedAt || null,
+      });
+      console.log('[enrichAssistedApplicationProfile]', event.params.orderId, result.status);
+    } catch (error) {
+      console.error('[enrichAssistedApplicationProfile]', event.params.orderId, error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// Uploading a CV starts the candidate-specific workflow: enrich the private
+// profile, then scan the published Swiss job index and create explainable
+// proposals. Every proposal remains pending until the candidate accepts it.
+export const processApplicationConciergeCv = onDocumentWritten(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120, document: 'application_concierge_services/{serviceId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return;
+    const before = event.data?.before?.exists ? event.data.before.data() : null;
+    const data = after.data() || {};
+    if (!data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
+    try {
+      const db = getAdminDb();
+      const result = await enrichCandidateProfileFromCv({
+        db,
+        userId: data.userId,
+        sourceId: event.params.serviceId,
+        sourceType: 'application_concierge',
+        cvStorageKey: data.cvStorageKey,
+        applicantEmail: data.applicantEmail || data.customerEmail || '',
+        uploadedAt: data.cvUploadedAt || null,
+      });
+      if (result.status === 'ready') {
+        const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
+        console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
+      } else {
+        console.log('[processApplicationConciergeCv]', event.params.serviceId, result.status);
+      }
+    } catch (error) {
+      console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));
     }
   },
 );

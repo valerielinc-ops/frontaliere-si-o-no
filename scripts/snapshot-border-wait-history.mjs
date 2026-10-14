@@ -8,8 +8,9 @@ import { realpathSync } from 'node:fs';
  *
  *  1. CLI: `node scripts/snapshot-border-wait-history.mjs` — initializes
  *     Firebase Admin (via GOOGLE_APPLICATION_CREDENTIALS), runs the snapshot,
- *     and exits. This preserves the historical workflow contract used by
- *     `update-border-wait-history.yml`.
+ *     and exits. The scheduled writer is `traffic-scheduler.yml`, which
+ *     invokes this helper through `scripts/collect-traffic.mjs`; there is
+ *     no separate scheduled CLI workflow.
  *
  *  2. Programmatic: `import { snapshotBorderWaitFiles } from …` — the live
  *     traffic collector (`scripts/collect-traffic.mjs`) reuses this helper
@@ -37,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeBorderWaitArchive } from './lib/border-wait-monthly-archive.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -208,7 +210,8 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
     'utf-8',
   );
 
-  // 3. Optional prune.
+  // 3. Preserve published monthly facts before optional daily-window pruning.
+  writeBorderWaitArchive(historyDir, path.join(repoRoot, 'data', 'border-wait-archive'), today);
   if (opts.prune !== false) {
     const days = typeof opts.prune === 'number' && opts.prune > 0 ? opts.prune : 90;
     pruneOldHistory(historyDir, days);

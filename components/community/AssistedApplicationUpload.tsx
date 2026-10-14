@@ -32,6 +32,7 @@ interface AssistedApplicationOrder {
   consentVersion?: string | null;
   consentedAt?: unknown;
   cvStorageKey?: string | null;
+  cvFileName?: string | null;
   cvUploadedAt?: unknown;
   applicantName?: string | null;
   applicantEmail?: string | null;
@@ -107,8 +108,10 @@ export default function AssistedApplicationUpload({
   const [consent, setConsent] = useState(false);
   const [consentPersisted, setConsentPersisted] = useState(false);
   const [consentSaving, setConsentSaving] = useState(false);
+  const [detailsSaved, setDetailsSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
+  const [cvFileName, setCvFileName] = useState<string | null>(null);
   const [submitBusy, setSubmitBusy] = useState(false);
   const paymentCompletionTracked = useRef(false);
 
@@ -142,6 +145,7 @@ export default function AssistedApplicationUpload({
       setName((value) => value || data.applicantName || '');
       setEmail((value) => value || data.applicantEmail || '');
       setCvStorageKey(data.cvStorageKey || null);
+      setCvFileName(data.cvFileName || null);
       // A mandate given under v1 still counts: the rules keep the stored version immutable.
       const hasPersistedConsent = hasAssistedApplicationConsent(data);
       setConsent(hasPersistedConsent);
@@ -216,7 +220,7 @@ export default function AssistedApplicationUpload({
     );
   }, [orderId]);
 
-  const handleConsentChange = async (checked: boolean) => {
+  const handleConsentChange = (checked: boolean) => {
     if (!checked) {
       if (consentPersisted) {
         setConsent(true);
@@ -225,11 +229,15 @@ export default function AssistedApplicationUpload({
       setConsent(false);
       return;
     }
-    if (order?.paymentStatus !== 'paid') return;
     if (consentPersisted) {
       setConsent(true);
       return;
     }
+    setConsent(true);
+  };
+
+  const handleConfirmConsent = async () => {
+    if (!consent || consentPersisted || order?.paymentStatus !== 'paid') return;
     setConsentSaving(true);
     setError(null);
     try {
@@ -241,6 +249,11 @@ export default function AssistedApplicationUpload({
       });
       setConsent(true);
       setConsentPersisted(true);
+      setOrder((current) => current ? {
+        ...current,
+        consentVersion: ASSISTED_APPLICATION_CONSENT_VERSION,
+        consentedAt: new Date().toISOString(),
+      } : current);
       trackAssistedApplicationEvent('consent_confirmed', {
         ...orderEventContext(order),
         consent_type: 'assisted_application_mandate',
@@ -254,8 +267,33 @@ export default function AssistedApplicationUpload({
     }
   };
 
+  const handleSaveDetails = async () => {
+    if (!order || order.paymentStatus !== 'paid' || !consentPersisted) return;
+    if (!name.trim() || !isValidEmail(email)) {
+      setError(t('jobBoard.assisted.formError'));
+      return;
+    }
+    setConsentSaving(true);
+    setError(null);
+    try {
+      const firestoreModule = await import('firebase/firestore');
+      await updateOrder({
+        applicantName: name.trim(),
+        applicantEmail: email.trim().toLowerCase(),
+        applicantPhone: phone.trim() || null,
+        updatedAt: firestoreModule.serverTimestamp(),
+      });
+      setOrder((current) => current ? { ...current, applicantName: name.trim(), applicantEmail: email.trim().toLowerCase(), applicantPhone: phone.trim() || null } : current);
+      setDetailsSaved(true);
+    } catch {
+      setError(t('jobBoard.assisted.dataSaveError'));
+    } finally {
+      setConsentSaving(false);
+    }
+  };
+
   const handleFileChange = async (file: File | undefined) => {
-    if (!file || !consent || order?.paymentStatus !== 'paid' || cvStorageKey) return;
+    if (!file || !consentPersisted || order?.paymentStatus !== 'paid' || cvStorageKey) return;
     const contentType = fileTypeFor(file);
     if (!contentType || file.size >= MAX_FILE_SIZE) {
       setError(t('jobBoard.assisted.fileError'));
@@ -281,10 +319,12 @@ export default function AssistedApplicationUpload({
       const fullPath = snapshot.metadata.fullPath || path;
       await updateOrder({
         cvStorageKey: fullPath,
+        cvFileName: safeFileName(file.name),
         cvUploadedAt: firestoreModule.serverTimestamp(),
         updatedAt: firestoreModule.serverTimestamp(),
       });
       setCvStorageKey(fullPath);
+      setCvFileName(safeFileName(file.name));
       trackAssistedApplicationEvent('cv_upload_completed', orderEventContext(order));
     } catch {
       setError(t('jobBoard.assisted.uploadError'));
@@ -296,7 +336,7 @@ export default function AssistedApplicationUpload({
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!order || order.paymentStatus !== 'paid' || !consent || !cvStorageKey) return;
+    if (!order || order.paymentStatus !== 'paid' || !consentPersisted || !cvStorageKey) return;
     if (!name.trim() || !isValidEmail(email)) {
       setError(t('jobBoard.assisted.formError'));
       return;
@@ -385,41 +425,73 @@ export default function AssistedApplicationUpload({
                   </div>
                 </div>
 
-                <label className="flex items-start gap-3 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-body">
-                  <input
-                    type="checkbox"
-                    checked={consent}
-                    onChange={(event) => { void handleConsentChange(event.target.checked); }}
-                    disabled={consentPersisted || consentSaving || uploading || submitBusy}
-                    className="mt-1 h-4 w-4 shrink-0"
-                  />
-                  <span>{t('jobBoard.assisted.consent', { jobTitle, companyName: order.companyName || '' })}</span>
-                </label>
-                <AssistedApplicationLegalLinks className="-mt-3 block px-4 text-xs text-muted" />
+                {consentPersisted ? (
+                  <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-body">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+                      <div>
+                        <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
+                        <p className="mt-1 text-xs leading-5">{t('jobBoard.assisted.consentCvLabel')} {cvFileName || (cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta'))}</p>
+                      </div>
+                    </div>
+                    <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
+                  </div>
+                ) : (
+                  <>
+                    <label className="flex items-start gap-3 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-body">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(event) => handleConsentChange(event.target.checked)}
+                        disabled={consentSaving || uploading || submitBusy}
+                        className="mt-1 h-4 w-4 shrink-0"
+                      />
+                      <span>{t('jobBoard.assisted.consent', { jobTitle, companyName: order.companyName || '' })}</span>
+                    </label>
+                    <AssistedApplicationLegalLinks className="-mt-3 block px-4 text-xs text-muted" />
+                    <button
+                      type="button"
+                      onClick={() => { void handleConfirmConsent(); }}
+                      disabled={!consent || consentSaving || uploading || submitBusy}
+                      className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                      {t('jobBoard.assisted.confirmConsent')}
+                    </button>
+                  </>
+                )}
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="text-sm font-medium text-body">
                     {t('jobBoard.assisted.name')}
-                    <input value={name} onChange={(event) => setName(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
+                    <input value={name} onChange={(event) => { setName(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
                   </label>
                   <label className="text-sm font-medium text-body">
                     {t('jobBoard.assisted.email')}
-                    <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
+                    <input type="email" value={email} onChange={(event) => { setEmail(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
                   </label>
                 </div>
                 <label className="block text-sm font-medium text-body">
                   {t('jobBoard.assisted.phone')}
-                  <input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
+                  <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
                 </label>
 
+                <div className="flex flex-wrap items-center gap-3">
+                  <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
+                    {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                    {t('jobBoard.assisted.saveData')}
+                  </button>
+                  {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
+                </div>
+
                 <div className="rounded-xl border border-dashed border-accent-border p-4">
-                  <label className={`flex cursor-pointer items-center gap-3 text-sm font-semibold ${consent ? 'text-accent' : 'cursor-not-allowed text-muted'}`}>
+                  <label className={`flex cursor-pointer items-center gap-3 text-sm font-semibold ${consentPersisted ? 'text-accent' : 'cursor-not-allowed text-muted'}`}>
                     <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
                     <span>{cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta')}</span>
                     <input
                       type="file"
                       accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      disabled={!consent || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                      disabled={!consent || Boolean(cvStorageKey) || !consentPersisted || consentSaving || uploading || submitBusy}
                       onChange={(event) => { void handleFileChange(event.target.files?.[0]); }}
                       className="sr-only"
                     />
@@ -436,7 +508,7 @@ export default function AssistedApplicationUpload({
 
                 <button
                   type="submit"
-                  disabled={!consent || !cvStorageKey || consentSaving || uploading || submitBusy}
+                  disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
                   className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}

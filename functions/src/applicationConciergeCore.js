@@ -125,6 +125,10 @@ function serializeProposal(doc) {
     acceptedAt: timestampToIso(data.acceptedAt),
     declinedAt: timestampToIso(data.declinedAt),
     childApplicationId: optionalString(data.childApplicationId, 200),
+    matchScore: Number.isFinite(Number(data.matchScore)) ? Number(data.matchScore) : null,
+    matchReasons: Array.isArray(data.matchReasons) ? data.matchReasons.map((value) => boundedString(value, 180)).filter(Boolean).slice(0, 6) : [],
+    matchedAt: timestampToIso(data.matchedAt),
+    source: optionalString(data.source, 80),
   };
 }
 
@@ -153,6 +157,15 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     applicantPhone: optionalString(data.applicantPhone, 80),
     hasConsent: data.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(data.consentedAt) > 0,
     hasCv: Boolean(cvKeyForService(serviceId, data.cvStorageKey)),
+    consentedAt: timestampToIso(data.consentedAt),
+    cvUploadedAt: timestampToIso(data.cvUploadedAt),
+    cvFileName: optionalString(data.cvFileName, 180) || (cvKeyForService(serviceId, data.cvStorageKey)?.split('/').pop() || null),
+    cvProfileStatus: optionalString(data.cvProfileStatus, 40),
+    matchingStatus: optionalString(data.matchingStatus, 40),
+    matchingJobCount: Number.isFinite(Number(data.matchingJobCount)) ? Number(data.matchingJobCount) : null,
+    matchingStartedAt: timestampToIso(data.matchingStartedAt),
+    matchingCompletedAt: timestampToIso(data.matchingCompletedAt),
+    matchingError: optionalString(data.matchingError, 80),
     proposals: proposalDocs.map(serializeProposal),
     ...(admin ? {
       userId: optionalString(data.userId, 200),
@@ -187,9 +200,6 @@ function assertProfileInput(body) {
   const email = boundedString(body.applicantEmail, 320).toLowerCase();
   const phone = optionalString(body.applicantPhone, 80);
   if (!name || !EMAIL_RE.test(email)) throw new ApplicationConciergeError('invalid_candidate_details', 400);
-  if (body.consent !== true) {
-    throw new ApplicationConciergeError('consent_required', 400);
-  }
   return { name, email, phone };
 }
 
@@ -199,11 +209,20 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
   assertCandidateOwns(service, uid);
   assertActive(service);
   const { name, email, phone } = assertProfileInput(body);
+  const hasConsent = service.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(service.consentedAt) > 0;
+  // `consent: false` was used by the first client version as an explicit
+  // attempt to save the whole form. Keep that request fail-closed when the
+  // service has never been authorized, while an omitted consent field means
+  // the new data-only save action.
+  if (body.consent === false && !hasConsent) throw new ApplicationConciergeError('consent_required', 400);
   const currentKey = cvKeyForService(serviceId, service.cvStorageKey);
   const requestedKey = body.cvStorageKey === undefined
     ? currentKey
     : cvKeyForService(serviceId, body.cvStorageKey);
   if (body.cvStorageKey && !requestedKey) throw new ApplicationConciergeError('invalid_cv_reference', 400);
+  if (requestedKey && requestedKey !== currentKey && !hasConsent && body.consent !== true) {
+    throw new ApplicationConciergeError('consent_required', 400);
+  }
   if (requestedKey && requestedKey !== currentKey) {
     const bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
     const [exists] = await bucket.file(requestedKey).exists();
@@ -214,16 +233,48 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
     }
   }
   const now = Timestamp.now();
+  const consentPatch = body.consent === true && !hasConsent
+    ? { consentVersion: APPLICATION_CONCIERGE_CONSENT_VERSION, consentedAt: now }
+    : {};
   await ref.set({
     applicantName: name,
     applicantEmail: email,
     applicantPhone: phone,
-    consentVersion: service.consentVersion || APPLICATION_CONCIERGE_CONSENT_VERSION,
-    consentedAt: service.consentedAt || now,
+    ...consentPatch,
     ...(requestedKey ? {
       cvStorageKey: requestedKey,
-      ...(requestedKey !== currentKey ? { cvUploadedAt: now } : {}),
+      ...(requestedKey !== currentKey ? {
+        cvUploadedAt: now,
+        cvFileName: optionalString(body.cvFileName, 180) || requestedKey.split('/').pop() || null,
+        cvProfileStatus: 'queued',
+        matchingStatus: 'queued',
+        matchingJobCount: null,
+        matchingError: null,
+      } : {}),
     } : {}),
+    updatedAt: FieldValue.serverTimestamp(),
+  }, { merge: true });
+  const fresh = await loadService(db, serviceId);
+  return serializeApplicationConciergeService(fresh.snapshot, fresh.proposals);
+}
+
+async function recordCandidateConsent(db, serviceId, uid, body) {
+  if (body.consent !== true) throw new ApplicationConciergeError('consent_required', 400);
+  const { ref, snapshot } = await loadService(db, serviceId);
+  const service = snapshot.data() || {};
+  assertCandidateOwns(service, uid);
+  assertActive(service);
+  const { name, email, phone } = assertProfileInput(body);
+  const alreadyRecorded = service.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION
+    && timestampMillis(service.consentedAt) > 0;
+  await ref.set({
+    applicantName: name,
+    applicantEmail: email,
+    applicantPhone: phone,
+    ...(alreadyRecorded ? {} : {
+      consentVersion: APPLICATION_CONCIERGE_CONSENT_VERSION,
+      consentedAt: Timestamp.now(),
+    }),
     updatedAt: FieldValue.serverTimestamp(),
   }, { merge: true });
   const fresh = await loadService(db, serviceId);
@@ -371,6 +422,20 @@ async function declineProposal(db, serviceId, proposalId, uid) {
 
 async function handleCandidateGet(db, req, uid) {
   const serviceId = serviceIdFromRequest(req);
+  if (!serviceId) {
+    const collection = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION);
+    const query = typeof collection.where === 'function' ? collection.where('userId', '==', uid) : collection;
+    const snapshot = await query.get();
+    const services = await Promise.all((snapshot.docs || [])
+      .filter((doc) => (doc.data() || {}).userId === uid)
+      .map(async (doc) => {
+        const serviceRef = doc.ref || doc;
+        const proposals = await serviceRef.collection('proposals').get();
+        return serializeApplicationConciergeService(doc, proposals.docs || []);
+      }));
+    services.sort((left, right) => String(right.createdAt || '').localeCompare(String(left.createdAt || '')));
+    return { status: 200, body: { ok: true, services } };
+  }
   const fresh = await loadService(db, serviceId);
   assertCandidateOwns(fresh.snapshot.data() || {}, uid);
   return { status: 200, body: { ok: true, service: serializeApplicationConciergeService(fresh.snapshot, fresh.proposals) } };
@@ -388,6 +453,10 @@ export async function handleApplicationConcierge(req) {
     const action = boundedString(req.body?.action, 40);
     if (action === 'saveProfile') {
       const service = await saveCandidateProfile(db, serviceId, decoded.uid, req.body || {});
+      return { status: 200, body: { ok: true, service } };
+    }
+    if (action === 'recordConsent') {
+      const service = await recordCandidateConsent(db, serviceId, decoded.uid, req.body || {});
       return { status: 200, body: { ok: true, service } };
     }
     const proposalId = proposalIdFromRequest(req);

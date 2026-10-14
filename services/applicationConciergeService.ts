@@ -14,6 +14,10 @@ export interface ApplicationConciergeProposal {
   acceptedAt?: string | null;
   declinedAt?: string | null;
   childApplicationId?: string | null;
+  matchScore?: number | null;
+  matchReasons?: string[];
+  matchedAt?: string | null;
+  source?: string | null;
 }
 
 export interface ApplicationConciergeService {
@@ -32,6 +36,15 @@ export interface ApplicationConciergeService {
   applicantPhone?: string | null;
   hasConsent: boolean;
   hasCv: boolean;
+  consentedAt?: string | null;
+  cvUploadedAt?: string | null;
+  cvFileName?: string | null;
+  cvProfileStatus?: 'queued' | 'processing' | 'ready' | 'needs_review' | string | null;
+  matchingStatus?: 'queued' | 'running' | 'complete' | 'needs_review' | 'failed' | string | null;
+  matchingJobCount?: number | null;
+  matchingStartedAt?: string | null;
+  matchingCompletedAt?: string | null;
+  matchingError?: string | null;
   proposals: ApplicationConciergeProposal[];
   userId?: string | null;
   consentVersion?: string | null;
@@ -46,11 +59,11 @@ function errorCode(value: unknown): string {
 async function callApplicationConcierge(
   user: any,
   method: 'GET' | 'POST',
-  serviceId: string,
+  serviceId?: string | null,
   body?: Record<string, unknown>,
 ): Promise<any> {
   const token = await user.getIdToken();
-  const url = method === 'GET'
+  const url = method === 'GET' && serviceId
     ? `${APPLICATION_CONCIERGE_URL}?serviceId=${encodeURIComponent(serviceId)}`
     : APPLICATION_CONCIERGE_URL;
   const response = await fetch(url, {
@@ -59,7 +72,7 @@ async function callApplicationConcierge(
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    ...(method === 'POST' ? { body: JSON.stringify({ serviceId, ...body }) } : {}),
+    ...(method === 'POST' ? { body: JSON.stringify({ ...(serviceId ? { serviceId } : {}), ...body }) } : {}),
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data?.ok) throw new Error(errorCode(data?.error));
@@ -71,6 +84,11 @@ export async function fetchApplicationConciergeService(user: any, serviceId: str
   return data.service as ApplicationConciergeService;
 }
 
+export async function fetchApplicationConciergeServices(user: any): Promise<ApplicationConciergeService[]> {
+  const data = await callApplicationConcierge(user, 'GET');
+  return Array.isArray(data.services) ? data.services as ApplicationConciergeService[] : [];
+}
+
 export async function saveApplicationConciergeProfile(
   user: any,
   serviceId: string,
@@ -78,11 +96,21 @@ export async function saveApplicationConciergeProfile(
     applicantName: string;
     applicantEmail: string;
     applicantPhone?: string;
-    consent: boolean;
+    consent?: boolean;
     cvStorageKey?: string;
+    cvFileName?: string;
   },
 ): Promise<ApplicationConciergeService> {
   const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'saveProfile', ...input });
+  return data.service as ApplicationConciergeService;
+}
+
+export async function recordApplicationConciergeConsent(
+  user: any,
+  serviceId: string,
+  input: { applicantName: string; applicantEmail: string; applicantPhone?: string },
+): Promise<ApplicationConciergeService> {
+  const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recordConsent', consent: true, ...input });
   return data.service as ApplicationConciergeService;
 }
 

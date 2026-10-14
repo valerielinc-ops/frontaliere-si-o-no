@@ -264,4 +264,73 @@ describe('application concierge candidate API', () => {
       body: { ok: false, error: 'consent_required' },
     });
   });
+
+  it('saves editable candidate details without rewriting an existing consent', async () => {
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'saveProfile',
+        applicantName: 'Candidate Updated',
+        applicantEmail: 'updated@example.test',
+        applicantPhone: '+41 79 000 00 00',
+      },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toEqual(expect.objectContaining({
+      applicantName: 'Candidate Updated',
+      applicantEmail: 'updated@example.test',
+      consentVersion: 'application-concierge-v1',
+    }));
+  });
+
+  it('records concierge consent as a separate idempotent action', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.consentVersion = null;
+    service.consentedAt = null;
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'recordConsent',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        consent: true,
+      },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect((result.body as any).service.hasConsent).toBe(true);
+    const firstConsent = mocks.documents.get('application_concierge_services/service-1')!.consentedAt;
+
+    const second = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'recordConsent',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        consent: true,
+      },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(second.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')!.consentedAt).toBe(firstConsent);
+  });
+
+  it('lists the candidate-owned services when no service id is supplied', async () => {
+    const result = await handleApplicationConcierge({
+      method: 'GET',
+      query: {},
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect((result.body as any).services).toHaveLength(1);
+    expect((result.body as any).services[0].serviceId).toBe('service-1');
+  });
 });

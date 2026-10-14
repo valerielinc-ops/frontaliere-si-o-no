@@ -84,6 +84,25 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.snapshot.outcomes).toMatchObject({ eligibleJobSessions: 120, validHandoffs: 90 });
   });
 
+  it('requires the CH country field for the three quarantined Swiss-only producers', () => {
+    for (const key of ['yellowshark', 'tether', 'bitfinex']) {
+      const verdict = validateJobSummaries([
+        summary({ key, newJobs: [job({ country: undefined })] }),
+      ], { outcomes: outcomes(), now: NOW });
+
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('country is missing or not CH');
+    }
+  });
+
+  it('keeps country optional for unrelated crawler summaries', () => {
+    const verdict = validateJobSummaries([
+      summary({ newJobs: [job({ country: undefined })] }),
+    ], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict.ok).toBe(true);
+  });
+
   it('does not treat a numerically complete export as independent without its provenance contract', () => {
     const verdict = validateJobSummaries([summary()], {
       outcomes: outcomes({ independent: false }),
