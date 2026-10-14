@@ -25,7 +25,7 @@ export function normalizeHreflangUrl(value, baseUrl = DEFAULT_BASE_URL) {
 }
 
 function alternateEntries(alternates) {
-  if (alternates instanceof Map) return [...alternates.entries()];
+  if (alternates instanceof Map) return alternates.entries();
   if (alternates && typeof alternates === 'object') return Object.entries(alternates);
   return [];
 }
@@ -39,23 +39,29 @@ function isOwnHostUrl(value, baseUrl) {
 }
 
 /**
- * @param {Array<{url: string, relPath?: string, alternates: Map<string,string>|Record<string,string>}>} pages
- * @param {{baseUrl?: string, skipTarget?: (href: string) => boolean}} options
+ * @param {Iterable<{url?: string, href?: string, relPath?: string, alternates: Map<string,string>|Record<string,string>}>} pages
+ * @param {{baseUrl?: string, skipTarget?: (href: string) => boolean, pageIndex?: Map<string, object>, getPagePath?: (page: object) => string|undefined}} options
  * @returns {Array<{source: string, target: string, hreflang: string, sourcePath: string, targetPath: string}>}
  */
 export function findHreflangReciprocityFailures(pages, options = {}) {
   const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL;
   const skipTarget = options.skipTarget ?? (() => false);
-  const pageByUrl = new Map();
+  // Large dist audits can pass their already-built target Map here. Rebuilding
+  // the same million-entry URL index would duplicate the dominant data shape
+  // at the end of the scan, exactly when the heap is closest to its limit.
+  const pageByUrl = options.pageIndex ?? new Map();
+  const pageList = (options.pageIndex || Array.isArray(pages)) ? pages : [...pages];
 
-  for (const page of pages) {
-    const url = normalizeHreflangUrl(page?.url, baseUrl);
-    if (url) pageByUrl.set(url, page);
+  if (!options.pageIndex) {
+    for (const page of pageList) {
+      const url = normalizeHreflangUrl(page?.url ?? page?.href, baseUrl);
+      if (url) pageByUrl.set(url, page);
+    }
   }
 
   const failures = [];
-  for (const page of pages) {
-    const source = normalizeHreflangUrl(page?.url, baseUrl);
+  for (const page of pageList) {
+    const source = normalizeHreflangUrl(page?.url ?? page?.href, baseUrl);
     if (!source) continue;
 
     for (const [hreflang, href] of alternateEntries(page?.alternates)) {
@@ -66,16 +72,21 @@ export function findHreflangReciprocityFailures(pages, options = {}) {
       // file into two failures or claim reciprocity for a page not parsed.
       if (!targetPage) continue;
 
-      const returnsToSource = alternateEntries(targetPage.alternates)
-        .some(([, targetHref]) => normalizeHreflangUrl(targetHref, baseUrl) === source);
+      let returnsToSource = false;
+      for (const [, targetHref] of alternateEntries(targetPage.alternates)) {
+        if (normalizeHreflangUrl(targetHref, baseUrl) === source) {
+          returnsToSource = true;
+          break;
+        }
+      }
       if (returnsToSource) continue;
 
       failures.push({
         source,
         target,
         hreflang,
-        sourcePath: page.relPath ?? source,
-        targetPath: targetPage.relPath ?? target,
+        sourcePath: page.relPath ?? options.getPagePath?.(page) ?? source,
+        targetPath: targetPage.relPath ?? options.getPagePath?.(targetPage) ?? target,
       });
     }
   }

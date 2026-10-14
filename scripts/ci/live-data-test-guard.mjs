@@ -48,8 +48,9 @@ const ROOT = path.resolve(__dirname, '..', '..');
 
 /**
  * Radici scritte automaticamente da pipeline, commit bot diretti o PR bot.
- * Non ci sono le baseline (`data/*-baseline.json`), che cambiano solo quando
- * qualcuno decide di cambiarle — quello e' un dato pinnato, non un dato vivo.
+ * Le baseline di soglia restano fuori: sono policy pinnata, non dato vivo.
+ * `active-jobs-baseline.json` e' l'eccezione operativa: il deploy la ratchetta
+ * automaticamente verso l'alto e il suo controllo e' gia' nel monitor live.
  */
 export const LIVE_DATA_ROOTS = Object.freeze([
   'services/locales/',
@@ -76,6 +77,7 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/article-embeddings',
   'data/article-performance.json',
   'data/border-wait',
+  'data/active-jobs-baseline.json',
   'data/employer-profiles.json',
   'data/events.json',
   'data/events/',
@@ -84,13 +86,17 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/gsc-orphan-queries',
   'data/health-premiums/',
   'data/job-popularity',
+  'data/jobs-snapshots-history/',
   'data/orphan-enriched-data/',
   // Pharmacy snapshots rewritten by unattended workflows or their bot PRs.
   // Keep these exact: data/pharmacies-ticino.json is curated and has no live
   // writer, so the former broad "data/pharmac" prefix misclassified it.
   'data/pharmacies-ticino-complete.json',
+  'data/pharmacies-italy-border.json',
   'data/pharmacy-duties-ticino.json',
+  'data/pharmacy-duties-ticino-status.json',
   'data/pharmacy-duties-italy.json',
+  'data/pharmacy-duties-italy-status.json',
   'data/pharmacy-duties-swiss-cantons.json',
   'data/pharmacy-sources-registry.json',
   // These are emitted only by unattended data PRs (not direct main commits).
@@ -112,6 +118,7 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   // code-owned build artifact and remains available to deterministic PR tests.
   'public/sitemap-articles-archive.xml',
   'public/sitemap-blog',
+  'public/sitemap-guides.xml',
   'public/sitemap-news.xml',
   'public/sitemap-topics-',
   'public/sitemap.xml',
