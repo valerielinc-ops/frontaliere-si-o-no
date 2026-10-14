@@ -815689,7 +815689,9 @@
     "canonicalSlug": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
     "slugByLocale": {
       "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-      "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+      "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+      "it": "libraio-a-70-90-a-orell-fussli-thalia-bern",
+      "fr": "libraire-70-90-a-orell-fussli-thalia-bern"
     },
     "createdAt": "2026-09-29",
     "canton": "BE"
@@ -918498,7 +918500,9 @@
   "id|implenia.com|13899-de_de": {
     "canonicalSlug": "contact-center-platform-specialist-m-w-d-winterthur-80-100-implenia-ch",
     "slugByLocale": {
-      "de": "contact-center-platform-specialist-m-w-d-winterthur-80-100-implenia-ch"
+      "de": "contact-center-platform-specialist-m-w-d-winterthur-80-100-implenia-ch",
+      "it": "contact-center-platform-specialista-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm",
+      "fr": "contact-center-platform-specialiste-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm"
     },
     "createdAt": "2026-10-14",
     "canton": "ZH"
@@ -919033,7 +919037,8 @@
     "slugByLocale": {
       "en": "functional-manager-control-and-protection-engineering-80-100-f-m-d-hitachi-energy-baden-switzerland",
       "it": "gestione-funzionale-controllo-e-protezione-ingegneria-80-100-m-f-d-hitachi-energy-baden-switzerland",
-      "fr": "gestionnaire-fonctionnel-ingenierie-de-controle-et-de-protection-80-100-h-f-d-hitachi-energy-baden-switzerland"
+      "fr": "gestionnaire-fonctionnel-ingenierie-de-controle-et-de-protection-80-100-h-f-d-hitachi-energy-baden-switzerland",
+      "de": "funktionsleiter-control-and-protection-engineering-80-100-m-w-d-hitachi-energy-baden"
     },
     "createdAt": "2026-10-14",
     "canton": "AG"
@@ -919121,5 +919126,361 @@
     },
     "createdAt": "2026-10-14",
     "canton": "BS"
+  },
+  "id|implenia.com|13898-de_de": {
+    "canonicalSlug": "workforce-manager-m-w-d-winterthur-80-100-implenia-ch",
+    "slugByLocale": {
+      "de": "workforce-manager-m-w-d-winterthur-80-100-implenia-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "url|https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-5197": {
+    "canonicalSlug": "ki-consultant-80-100-abraxas-st-gallen",
+    "slugByLocale": {
+      "de": "ki-consultant-80-100-abraxas-st-gallen"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "SG"
+  },
+  "id|helsana.ch|1446748533": {
+    "canonicalSlug": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich",
+    "slugByLocale": {
+      "de": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10087952-2": {
+    "canonicalSlug": "quality-control-specialist-l-novartis-ch",
+    "slugByLocale": {
+      "en": "quality-control-specialist-l-novartis-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "AG"
+  },
+  "url|https://joinus.decathlon.ch/fr_ch/annonce/4645429-warehouse-3pl-manager-logistics-wmd-bern": {
+    "canonicalSlug": "warehouse-3pl-manager-logistics-w-m-d-decathlon-ch",
+    "slugByLocale": {
+      "en": "warehouse-3pl-manager-logistics-w-m-d-decathlon-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "id|buhlergroup.com|c0c745cb-ce95-49b7-9988-cf157121ebff": {
+    "canonicalSlug": "mechanical-development-engineer-simulation-buehler-uzwil",
+    "slugByLocale": {
+      "en": "mechanical-development-engineer-simulation-buehler-uzwil"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "SG"
+  },
+  "url|https://jobs.senevita.ch/mitarbeiterin-service-60-100-de-j5497.html": {
+    "canonicalSlug": "collaboratore-trice-service-100-senevita-be-munsingen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-service-100-senevita-be-munsingen",
+      "en": "employee-service-100-senevita-be-munsingen",
+      "de": "mitarbeiter-in-service-100-senevita-be-munsingen",
+      "fr": "service-aux-employes-100-senevita-be-munsingen"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/praktikantin-pflege-80-100-de-j5338.html": {
+    "canonicalSlug": "praktikant-in-pflege-80-100-senevita-be-ittigen",
+    "slugByLocale": {
+      "de": "praktikant-in-pflege-80-100-senevita-be-ittigen"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "url|https://jobs.senevita.ch/spitex-verantwortlicher-medikamentenmanagement-50-de-j5002.html": {
+    "canonicalSlug": "spitex-verantwortliche-r-medikamentenmanagement-50-senevita-zh-zurich",
+    "slugByLocale": {
+      "de": "spitex-verantwortliche-r-medikamentenmanagement-50-senevita-zh-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "url|https://jobs.senevita.ch/srk-pflegehelfer-in-80-100-de-j5238.html": {
+    "canonicalSlug": "srk-pflegehelfer-in-80-100-senevita-zh-zurich",
+    "slugByLocale": {
+      "de": "srk-pflegehelfer-in-80-100-senevita-zh-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|ruag.ch|a737b6e7-132d-41e3-aa1e-4c22fd9c31cb": {
+    "canonicalSlug": "system-engineer-tactical-datalinks-100-f-m-d-ruag-ag-wangen-bruttisellen",
+    "slugByLocale": {
+      "en": "system-engineer-tactical-datalinks-100-f-m-d-ruag-ag-wangen-bruttisellen"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|ruag.ch|9b90c1ea-1660-4278-8786-b22583582a3c": {
+    "canonicalSlug": "flugzeugmechanikerin-technician-mechanical-f-a-18-80-100-w-m-d-ruag-ag-emmen",
+    "slugByLocale": {
+      "de": "flugzeugmechanikerin-technician-mechanical-f-a-18-80-100-w-m-d-ruag-ag-emmen"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "LU"
+  },
+  "id|bcv.ch|1446742433": {
+    "canonicalSlug": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle",
+    "slugByLocale": {
+      "fr": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "VD"
+  },
+  "id|bcv.ch|1447087233": {
+    "canonicalSlug": "conseiller-a-distance-niveau-1-579-bcv-lausanne",
+    "slugByLocale": {
+      "fr": "conseiller-a-distance-niveau-1-579-bcv-lausanne"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "VD"
+  },
+  "id|prospective.ch|57d8c177-8dfe-417f-b901-01e59bde79c2": {
+    "canonicalSlug": "specialista-esperto-di-stoccaggio-del-paziente-80-100-sro-ag-spital-region-oberaargau-langenthal-7575fd878d",
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-patientenlagerung-80-100-sro-langenthal",
+      "it": "specialista-esperto-di-stoccaggio-del-paziente-80-100-sro-ag-spital-region-oberaargau-langenthal-7575fd878d",
+      "en": "specialist-expert-patient-storage-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "fr": "stockage-expert-specialiste-80-100-sro-ag-spital-region-oberaargau-langenthal"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "id|bcv.ch|1446605833": {
+    "canonicalSlug": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne",
+    "slugByLocale": {
+      "fr": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "VD"
+  },
+  "id|prospective.ch|2cbd43c4-8cbf-4514-8ed7-7b17b42a0df7": {
+    "canonicalSlug": "infermiera-avanzata-apn-centro-per-l-alimentazione-disturbi-e-obesita-60-sro-ag-spital-region-oberaargau-langenthal",
+    "slugByLocale": {
+      "de": "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal",
+      "it": "infermiera-avanzata-apn-centro-per-l-alimentazione-disturbi-e-obesita-60-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "advanced-practice-nurse-apn-centre-for-eating-disorders-and-obesity-60-sro-ag-spital-region-oberaargau-langenthal",
+      "fr": "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-region"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "id|concordia.ch|5bbc4571-1545-41ea-b48f-e6d47bf61a14": {
+    "canonicalSlug": "consulente-clienti-60-100-a-langenthal-concordia-langenthal",
+    "slugByLocale": {
+      "de": "kundenberater-in-60-100-in-langenthal-concordia-langenthal",
+      "it": "consulente-clienti-60-100-a-langenthal-concordia-langenthal",
+      "en": "customer-advisor-60-100-in-langenthal-concordia-langenthal",
+      "fr": "conseiller-client-60-100-en-langenthal-concordia-langenthal"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "id|concordia.ch|50d2155d-a2fb-4467-a8f4-1ca66f4af55d": {
+    "canonicalSlug": "capo-dell-agenzia-100-in-biel-concordia-biel",
+    "slugByLocale": {
+      "de": "agenturleiter-in-100-in-biel-concordia-biel",
+      "it": "capo-dell-agenzia-100-in-biel-concordia-biel",
+      "en": "head-of-agency-100-in-biel-concordia-biel",
+      "fr": "chef-de-l-agence-100-a-biel-concordia-biel"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BE"
+  },
+  "id|zurzachcare.ch|1447086433": {
+    "canonicalSlug": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach",
+    "slugByLocale": {
+      "de": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "AG"
+  },
+  "id|zurzachcare.ch|1446772533": {
+    "canonicalSlug": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
+    "slugByLocale": {
+      "de": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "AG"
+  },
+  "id|zurzachcare.ch|1447133233": {
+    "canonicalSlug": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BS"
+  },
+  "url|https://apply.refline.ch/163206/2788/pub/1/index.html": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-reinigung-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich-rheinau",
+    "slugByLocale": {
+      "de": "mitarbeiterin-mitarbeiter-reinigung-am-standort-rheinau-grenze-zu-schaffhausen-puk-zuerich",
+      "it": "mitarbeiterin-collaboratore-trice-reinigung-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich-rheinau",
+      "en": "mitarbeiterin-mitarbeiter-reinigung-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich",
+      "fr": "mitarbeiterin-mitarbeiter-reinigung-am-standort-rheinau-grenze-zu-schaffhausen-psychiatrische-universitatsklinik-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11385/pub/2": {
+    "canonicalSlug": "spezialist-in-payment-investigation-zkb-zurich",
+    "slugByLocale": {
+      "de": "spezialist-in-payment-investigation-zkb-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4085088": {
+    "canonicalSlug": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
+    "slugByLocale": {
+      "de": "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4085094": {
+    "canonicalSlug": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems",
+    "slugByLocale": {
+      "de": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "GR"
+  },
+  "id|solique.ch|4085082": {
+    "canonicalSlug": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+    "slugByLocale": {
+      "it": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+      "de": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4085085": {
+    "canonicalSlug": "collaboratore-trice-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
+    "slugByLocale": {
+      "it": "collaboratore-trice-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
+      "de": "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4083339": {
+    "canonicalSlug": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy",
+    "slugByLocale": {
+      "fr": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "GE"
+  },
+  "id|solique.ch|4085125": {
+    "canonicalSlug": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+    "slugByLocale": {
+      "it": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+      "de": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4085122": {
+    "canonicalSlug": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
+    "slugByLocale": {
+      "de": "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/486538/0887/pub/1/index.html": {
+    "canonicalSlug": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202609-122957-1": {
+    "canonicalSlug": "digital-biomarker-science-technology-neuroscience-lead-roche-ch",
+    "slugByLocale": {
+      "en": "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BS"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202608-121748-1": {
+    "canonicalSlug": "asset-excellence-manager-temporaneo-2-anni-roche-kaiseraugst",
+    "slugByLocale": {
+      "de": "asset-excellence-manager-befristet-2-jahre-roche-ch",
+      "it": "asset-excellence-manager-temporaneo-2-anni-roche-kaiseraugst",
+      "fr": "gestionnaire-d-excellence-des-actifs-temporaire-2-ans-roche-kaiseraugst"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "AG"
+  },
+  "id|roche.wd3.myworkdayjobs.com|202610-125889-1": {
+    "canonicalSlug": "ai-engineer-roche-ch",
+    "slugByLocale": {
+      "en": "ai-engineer-roche-ch"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "BS"
+  },
+  "id|uzh.ch|72544900-e23b-4922-81e7-a28fecd8f338": {
+    "canonicalSlug": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
+    "slugByLocale": {
+      "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
+      "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
+      "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
+      "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|thelivingcircle.ch|68078391": {
+    "canonicalSlug": "assistant-restaurant-manager-80-100-all-genders-the-living-circle-thalwil",
+    "slugByLocale": {
+      "de": "assistant-restaurant-manager-80-100-all-genders-the-living-circle-thalwil"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220815": {
+    "canonicalSlug": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-5963f137e6",
+    "slugByLocale": {
+      "it": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-5963f137e6",
+      "en": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220885": {
+    "canonicalSlug": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-80679096f4",
+    "slugByLocale": {
+      "it": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-80679096f4",
+      "en": "project-manager-primary-engineering-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220943": {
+    "canonicalSlug": "team-leader-customer-quality-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "slugByLocale": {
+      "en": "team-leader-customer-quality-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220990": {
+    "canonicalSlug": "commissioning-team-leader-80-100-f-m-d-hitachi-energy-baden-switzerland",
+    "slugByLocale": {
+      "en": "commissioning-team-leader-80-100-f-m-d-hitachi-energy-baden-switzerland"
+    },
+    "createdAt": "2026-10-14",
+    "canton": "AG"
   }
 }
