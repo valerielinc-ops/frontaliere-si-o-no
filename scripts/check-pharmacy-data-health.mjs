@@ -348,24 +348,41 @@ function requiredItalyDutyProvinces(sources) {
   const configuredScope = sources && typeof sources === 'object' && Array.isArray(sources.scope?.provinces)
     ? sources.scope.provinces
     : [];
-  const normalizedConfiguredScope = [...new Set(configuredScope
-    .filter((province) => typeof province === 'string')
-    .map((province) => province.toUpperCase()))];
+  const normalizeProvince = (province) => {
+    if (typeof province !== 'string') return null;
+    const normalized = province.trim().toUpperCase();
+    return normalized || null;
+  };
+  const normalizedConfiguredScope = configuredScope.map(normalizeProvince);
   // Uno scope assente, vuoto o con codici non riconosciuti non può restringere
   // il controllo: il perimetro canonico resta required finché il registry non
-  // dichiara esplicitamente una provincia `best-effort`.
+  // dichiara esplicitamente una provincia `best-effort`. Un valore non stringa
+  // non va filtrato via: altrimenti uno scope misto potrebbe perdere le altre
+  // province canoniche ancora prima di valutare il registry delle fonti.
   const scope = normalizedConfiguredScope.length > 0
-    && normalizedConfiguredScope.every((province) => BORDER_ITALY_PROVINCES.has(province))
-    ? normalizedConfiguredScope
+    && normalizedConfiguredScope.every((province) => province && BORDER_ITALY_PROVINCES.has(province))
+    ? [...new Set(normalizedConfiguredScope)]
     : [...BORDER_ITALY_PROVINCES];
-  const byProvince = new Map(rawSources
-    .filter((source) => source && typeof source.province === 'string')
-    .map((source) => [source.province.toUpperCase(), source]));
-  return scope.filter((province) => {
-    // Voce assente o publication malformata = required; solo l'esenzione
-    // esplicita può togliere una provincia dall'orizzonte osservato.
-    return byProvince.get(province)?.publication !== 'best-effort';
-  });
+  const byProvince = new Map();
+  for (const source of rawSources) {
+    const province = normalizeProvince(source?.province);
+    if (!province) continue;
+    const entries = byProvince.get(province) ?? [];
+    entries.push(source);
+    byProvince.set(province, entries);
+  }
+  const registryProblems = [...byProvince.entries()]
+    .filter(([province, entries]) => scope.includes(province) && entries.length > 1)
+    .map(([province]) => `${province}: registro fonti Italia duplicato; la provincia resta required`);
+  return {
+    requiredProvinces: scope.filter((province) => {
+      const entries = byProvince.get(province) ?? [];
+      // Voce assente o publication malformata = required; solo una voce unica
+      // con esenzione esplicita può togliere una provincia dall'orizzonte.
+      return entries.length !== 1 || entries[0].publication !== 'best-effort';
+    }),
+    registryProblems,
+  };
 }
 
 /**
@@ -388,7 +405,8 @@ export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_R
     ? horizonDays
     : ITALY_REQUIRED_DUTY_HORIZON_DAYS;
   const rows = Array.isArray(snapshot.duties) ? snapshot.duties : [];
-  const entries = requiredItalyDutyProvinces(sources).map((province) => {
+  const { requiredProvinces, registryProblems } = requiredItalyDutyProvinces(sources);
+  const entries = requiredProvinces.map((province) => {
     const verifiedRows = rows.filter((row) => row?.province === province && row?.status === 'verified');
     const latest = verifiedRows.reduce((candidate, row) => {
       const endsAt = typeof row?.endsAt === 'string' ? Date.parse(row.endsAt) : NaN;
@@ -429,7 +447,7 @@ export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_R
     fetchedAt,
     horizonDays: thresholdDays,
     entries,
-    problems: entries.flatMap((entry) => entry.problems),
+    problems: [...registryProblems, ...entries.flatMap((entry) => entry.problems)],
   };
 }
 

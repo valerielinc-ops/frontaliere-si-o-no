@@ -269,6 +269,32 @@ describe('observeItalyDutyHorizon', () => {
     expect(observed.entries).toMatchObject([{ province: 'CO', healthy: false }]);
   });
 
+  it('treats duplicate source declarations as required, even when the last is best-effort', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: {
+        scope: { country: 'IT', provinces: ['CO'] },
+        sources: [
+          { province: 'CO', publication: 'required' },
+          { province: 'CO', publication: 'best-effort' },
+        ],
+      },
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.problems).toContain('CO: registro fonti Italia duplicato; la provincia resta required');
+    expect(observed.entries).toMatchObject([{ province: 'CO', healthy: false }]);
+  });
+
+  it('does not narrow the canonical scope around a non-string province value', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: { scope: { country: 'IT', provinces: ['CO', null] }, sources: [] },
+    });
+
+    expect(observed.entries.map((entry) => entry.province)).toEqual(['CO', 'VA', 'VB']);
+  });
+
   it('falls back to the canonical Italy scope when the source registry has no usable scope', () => {
     const observed = observeItalyDutyHorizon({ duties: release([]), sources: { sources: [] } });
 
