@@ -263,6 +263,49 @@ function locationDescriptor(value) {
   return value?.descriptor || value?.location || value?.name || '';
 }
 
+function normalizeFacilityLocations(facilityLocations = {}) {
+  if (facilityLocations === null || facilityLocations === undefined) return new Map();
+  if (typeof facilityLocations !== 'object' || Array.isArray(facilityLocations)) {
+    throw new Error('createWorkdaySwissParser: facilityLocations must be an object');
+  }
+  const normalized = new Map();
+  for (const [descriptor, entry] of Object.entries(facilityLocations)) {
+    const key = normalizeSpace(descriptor).toLowerCase();
+    if (!key) throw new Error('createWorkdaySwissParser: facilityLocations has an empty descriptor key');
+    if (normalized.has(key)) {
+      throw new Error('createWorkdaySwissParser: facilityLocations has duplicate descriptor "' + descriptor + '"');
+    }
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      throw new Error('createWorkdaySwissParser: facilityLocations["' + descriptor + '"] must be an object');
+    }
+    const locality = normalizeSpace(entry.locality);
+    const evidence = normalizeSpace(entry.evidence);
+    if (!locality) {
+      throw new Error('createWorkdaySwissParser: facilityLocations["' + descriptor + '"] requires a non-empty locality');
+    }
+    if (!evidence) {
+      throw new Error('createWorkdaySwissParser: facilityLocations["' + descriptor + '"] requires non-empty evidence');
+    }
+    normalized.set(key, { locality, evidence });
+  }
+  return normalized;
+}
+
+function facilityLocationFor(info, facilityLocations) {
+  if (!facilityLocations?.size || !workdayStructuredPrimaryCountryIsSwiss(info)) return null;
+  const descriptor = locationDescriptor(info?.location);
+  const entry = facilityLocations.get(normalizeSpace(descriptor).toLowerCase());
+  return entry ? { descriptor, ...entry } : null;
+}
+
+function structuredPrimaryCountryLabel(info = {}) {
+  for (const country of [info?.jobRequisitionLocation?.country, info?.country]) {
+    const label = normalizeSpace(locationDescriptor(country) || country?.alpha2Code || '');
+    if (label) return label;
+  }
+  return '(unknown)';
+}
+
 /**
  * Resolve the Swiss city a req may be PUBLISHED under, from its OWN primary
  * workplace (`jobPostingInfo.location`), or `''`.
@@ -285,11 +328,14 @@ function locationDescriptor(value) {
  * Exported so a call site cannot drift back to the union without breaking the
  * test that names this rule.
  */
-export function resolveWorkdayPrimarySwissLocation(info = {}) {
+export function resolveWorkdayPrimarySwissLocation(info = {}, { facilityLocations = new Map(), onFacilityMatch } = {}) {
   const raw = locationDescriptor(info?.location);
   if (!raw || isLocationExplicitlyForeign(raw)) return '';
-  const cleaned = cleanWorkdayLocation(raw);
-  return cleaned && swissCantonOf(cleaned, info).canton ? cleaned : '';
+  const facility = facilityLocationFor(info, facilityLocations);
+  const cleaned = facility?.locality || cleanWorkdayLocation(raw);
+  if (!cleaned || !swissCantonOf(cleaned, info).canton) return '';
+  if (facility && typeof onFacilityMatch === 'function') onFacilityMatch(facility);
+  return cleaned;
 }
 
 /**
@@ -550,6 +596,9 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string} config.defaultCanton
  * @param {string} config.defaultCity
  * @param {string} [config.defaultPostalCode]
+ * @param {Record<string, { locality: string, evidence: string }>} [config.facilityLocations]
+ *   Tenant facility descriptors whose Swiss primary location can be mapped to
+ *   a municipality with explicit evidence.
  * @param {string} [config.sector='Altro']
  * @param {string} [config.defaultSourceLang='en']
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
@@ -609,6 +658,7 @@ export function createWorkdaySwissParser(config) {
     proveForeignOnlyBoardEmpty = false,
     includeCareerSiteSidebar = false,
   } = config;
+  const facilityLocations = normalizeFacilityLocations(config.facilityLocations);
 
   if (!companyKey || !companyName || !tenantHost || !sitePath || !defaultCanton) {
     throw new Error('createWorkdaySwissParser: missing required config (companyKey, companyName, tenantHost, sitePath, defaultCanton)');
@@ -905,6 +955,7 @@ export function createWorkdaySwissParser(config) {
 
     const jobs = [];
     let missingDetailUrlCount = 0;
+    let facilityLocationResolvedCount = 0;
     // Listings whose detail was fetched AND states a foreign primary country.
     // Counted before any drop decision; the proof below needs it to equal the
     // whole board, so a skipped listing, a failed detail fetch or a req with
@@ -963,7 +1014,15 @@ export function createWorkdaySwissParser(config) {
         jobRequisitionLocation: detailInfo.jobRequisitionLocation,
         country: detailInfo.country,
       };
-      const detailLocation = resolveWorkdayPrimarySwissLocation(primaryInfo);
+      const primaryDescriptor = normalizeSpace(locationDescriptor(primaryLocationField)) || '(empty)';
+      const primaryCountry = structuredPrimaryCountryLabel(detailInfo);
+      let facilityLocationResolved = false;
+      const detailLocation = resolveWorkdayPrimarySwissLocation(primaryInfo, {
+        facilityLocations,
+        onFacilityMatch: () => {
+          facilityLocationResolved = true;
+        },
+      });
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
@@ -1024,7 +1083,8 @@ export function createWorkdaySwissParser(config) {
       // recover the CH location from, so drop the posting instead of
       // guessing HQ.
       if (!cleaned) {
-        console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation} — ${title}`);
+        console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation || '(empty)'} `
+          + `— primary=${primaryDescriptor}; country=${primaryCountry} — ${title}`);
         continue;
       }
       const location = cleaned;
@@ -1113,9 +1173,11 @@ export function createWorkdaySwissParser(config) {
       };
       if (listing.jobReqId) job.jobReqId = listing.jobReqId;
 
+      if (facilityLocationResolved) facilityLocationResolvedCount += 1;
       jobs.push(job);
     }
 
+    console.log(`  🧭 Facility location table resolved: ${facilityLocationResolvedCount} listing(s).`);
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     Object.defineProperty(jobs, 'missingDetailUrlCount', {
       value: missingDetailUrlCount,

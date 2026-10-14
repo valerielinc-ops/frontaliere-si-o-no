@@ -3,6 +3,7 @@ import { realpathSync } from 'node:fs';
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
+import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -11,7 +12,7 @@ import { pathToFileURL } from 'node:url';
  *
  * Checks:
  *  1. H1 tag: every page must have exactly 1 non-empty <h1>, not inside <noscript>
- *  2. Schema markup: all ld+json blocks must be valid JSON with no conflicting primary schemas
+ *  2. Schema markup: all ld+json blocks must be valid JSON, with no duplicate and no conflicting primary schemas
  *  3. HTML lang attribute: <html> must have correct lang for the page locale
  *  4. Meta viewport: must be present
  *  5. Title tag: must be present and non-empty
@@ -63,7 +64,7 @@ const FULL_CHECK_DIRS = [
   'apotheken',
 ];
 
-// Primary schema types that conflict with each other on the same object
+// Primary schema types whose duplicate definitions are blocking
 const PRIMARY_SCHEMAS = new Set([
   'Article',
   'NewsArticle',
@@ -83,6 +84,10 @@ const PRIMARY_SCHEMAS = new Set([
   'ProfilePage',
   'SearchResultsPage',
 ]);
+
+// Primary types that frame or accompany the page's main entity instead of
+// competing with it (see the conflict rule in validateSchemas).
+const COEXISTING_PRIMARY_SCHEMAS = new Set(['WebPage', 'Organization', 'FAQPage']);
 
 // Supplementary schemas that can coexist with any primary schema
 const SUPPLEMENTARY_SCHEMAS = new Set([
@@ -168,15 +173,62 @@ function extractH1Tags(html) {
   });
 }
 
-// Extract and validate ld+json blocks
+// Blank out HTML comments with spaces (newlines kept, so offsets and line
+// numbers survive), but only in markup: the body of a raw-text element
+// (`<script>`, `<style>`) is copied verbatim, because a JSON-LD string value
+// or a script may legitimately contain `<!--` / `-->` and masking across it
+// would delete real JSON or real tags.
+const RAW_TEXT_OR_COMMENT_RX = /<!--|<(script|style)\b/gi;
+export function maskHtmlCommentsOutsideRawText(html) {
+  const source = String(html || '');
+  let out = '';
+  let cursor = 0;
+  RAW_TEXT_OR_COMMENT_RX.lastIndex = 0;
+  let match;
+  while ((match = RAW_TEXT_OR_COMMENT_RX.exec(source))) {
+    const start = match.index;
+    out += source.slice(cursor, start);
+    if (match[0] === '<!--') {
+      const close = source.indexOf('-->', start + 4);
+      const end = close < 0 ? source.length : close + 3;
+      out += source.slice(start, end).replace(/[^\n]/g, ' ');
+      cursor = end;
+    } else {
+      const closing = new RegExp(`</${match[1]}\\s*>`, 'i');
+      const rest = closing.exec(source.slice(start));
+      const end = rest ? start + rest.index + rest[0].length : source.length;
+      out += source.slice(start, end);
+      cursor = end;
+    }
+    RAW_TEXT_OR_COMMENT_RX.lastIndex = cursor;
+  }
+  return out + source.slice(cursor);
+}
+
+// Extract and validate ld+json blocks. HTML comments can contain literal
+// `<script type="application/ld+json">` examples; mask comments before asking
+// the tag scanner for real script elements so the example cannot consume the
+// following real block.
+function extractLdJsonBlocks(html) {
+  const commentMaskedHtml = maskHtmlCommentsOutsideRawText(html);
+  const blocks = [];
+  for (const { raw, end } of scanStartTags(commentMaskedHtml, 'script')) {
+    if (readAttr(raw, 'type').toLowerCase() !== 'application/ld+json') continue;
+    const closing = /<\/script\s*>/i.exec(commentMaskedHtml.slice(end));
+    if (!closing) continue;
+    blocks.push(commentMaskedHtml.slice(end, end + closing.index));
+  }
+  return blocks;
+}
+
 function validateSchemas(html) {
   const issues = [];
-  const ldJsonMatches = [...html.matchAll(/<script\s+type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  const ldJsonBlocks = extractLdJsonBlocks(html);
 
   const primaryTypes = [];
 
-  for (let i = 0; i < ldJsonMatches.length; i++) {
-    const raw = ldJsonMatches[i][1].trim();
+  for (let i = 0; i < ldJsonBlocks.length; i++) {
+    const raw = ldJsonBlocks[i].trim();
     let parsed;
     try {
       parsed = JSON.parse(raw);
@@ -209,18 +261,19 @@ function validateSchemas(html) {
     }
   }
 
-  // Check for conflicting primary schemas
-  const uniquePrimary = [...new Set(primaryTypes)];
-  if (uniquePrimary.length > 1) {
-    // WebPage + another primary type is common and acceptable in @graph
-    // Only flag if there are truly conflicting content types
-    const contentTypes = uniquePrimary.filter(t => t !== 'WebPage' && t !== 'Organization');
-    if (contentTypes.length > 1) {
-      issues.push({
-        type: 'conflicting-schemas',
-        detail: `Multiple primary schemas: ${uniquePrimary.join(', ')}`,
-      });
-    }
+  // Two different main entities on one page still conflict (Article +
+  // JobPosting, NewsArticle + BlogPosting). WebPage and Organization frame
+  // every page, and an FAQPage block sits next to the main entity by design:
+  // a job detail emits JobPosting + FAQPage + WebPage, a glossary detail
+  // DefinedTerm + FAQPage. Counting FAQPage as a second main entity is what
+  // flagged 524,254 pages of run 38419879372 — the measure, not the pages.
+  const contentTypes = [...new Set(primaryTypes)]
+    .filter((t) => !COEXISTING_PRIMARY_SCHEMAS.has(t));
+  if (contentTypes.length > 1) {
+    issues.push({
+      type: 'conflicting-schemas',
+      detail: `Multiple primary schemas: ${[...new Set(primaryTypes)].join(', ')}`,
+    });
   }
 
   // Check for FAQPage microdata alongside JSON-LD FAQPage (causes Google "campo duplicato")
@@ -271,20 +324,22 @@ function extractTypes(obj) {
 
 // Check HTML lang attribute
 function checkLangAttribute(html, expectedLocale) {
-  const langMatch = html.match(/<html[^>]*\slang\s*=\s*["']([^"']+)["']/i);
-  if (!langMatch) {
+  const htmlTag = scanStartTags(maskHtmlCommentsOutsideRawText(html), 'html')[0];
+  const langValue = htmlTag ? readAttr(htmlTag.raw, 'lang').trim() : '';
+  if (!langValue) {
     return { error: 'missing-lang', detail: 'No lang attribute on <html> tag' };
   }
-  const lang = langMatch[1].split('-')[0].toLowerCase();
+  const lang = langValue.split('-')[0].toLowerCase();
   if (lang !== expectedLocale) {
-    return { error: 'wrong-lang', detail: `Expected lang="${expectedLocale}", found lang="${langMatch[1]}"` };
+    return { error: 'wrong-lang', detail: `Expected lang="${expectedLocale}", found lang="${langValue}"` };
   }
   return null;
 }
 
 // Check meta viewport
 function hasMetaViewport(html) {
-  return /<meta[^>]*name\s*=\s*["']viewport["']/i.test(html);
+  return scanStartTags(maskHtmlCommentsOutsideRawText(html), 'meta')
+    .some(({ raw }) => readAttr(raw, 'name').toLowerCase() === 'viewport');
 }
 
 // Extract <title> tag content
@@ -307,16 +362,25 @@ function extractMetaDescription(html) {
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
 function hasNoindex(html) {
-  const match = html.match(/<meta[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?([^"'>]*)/i)
-    || html.match(/<meta[^>]*content\s*=\s*["']?([^"'>]*)["']?[^>]*name\s*=\s*["']?robots["']?/i);
-  if (!match) return false;
-  return match[1].toLowerCase().includes('noindex');
+  return readMetaContent(maskHtmlCommentsOutsideRawText(html), 'robots')
+    .toLowerCase()
+    .includes('noindex');
 }
 
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
-  return /<meta[^>]*http-equiv\s*=\s*["']refresh["']/i.test(withoutNoscript);
+  return scanStartTags(maskHtmlCommentsOutsideRawText(withoutNoscript), 'meta')
+    .some(({ raw }) => readAttr(raw, 'http-equiv').toLowerCase() === 'refresh');
+}
+
+// `buildCanonicalBridgePage` embeds this marker in intentional redirect
+// shells. They may use the correct locale for their visible copy, but their
+// noindex/meta-refresh contract must not be judged as an indexable content
+// page by this gate.
+function isIntentionalRedirectPage(html) {
+  return String(html || '').includes(REDIRECT_STUB_MARKER)
+    && (hasNoindex(html) || hasMetaRefresh(html));
 }
 
 function decodeHtmlEntities(value) {
@@ -354,7 +418,7 @@ function isIndexablePage(html) {
 }
 
 function validateBestPracticeSeo(html, pagePath) {
-  if (!isIndexablePage(html)) return [];
+  if (!isIndexablePage(html) || isIntentionalRedirectPage(html)) return [];
 
   const issues = [];
   const pageUrl = pageUrlForPath(pagePath);
@@ -511,6 +575,8 @@ function main() {
   for (const page of pagesToCheck) {
     const html = readFileSync(page.filePath, 'utf-8');
     const locale = detectLocale(page.pagePath);
+
+    if (isIntentionalRedirectPage(html)) continue;
 
     // 1. H1 validation
     const h1Tags = extractH1Tags(html);
@@ -724,6 +790,14 @@ function printWarningGroup(label, entries, limit) {
   console.log();
 }
 
-export { collectHtmlFiles, validateBestPracticeSeo };
+export {
+  collectHtmlFiles,
+  validateBestPracticeSeo,
+  validateSchemas,
+  checkLangAttribute,
+  hasMetaViewport,
+  hasMetaRefresh,
+  isIntentionalRedirectPage,
+};
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

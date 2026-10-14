@@ -25,6 +25,7 @@ import {
   postingAtsRedirect,
   resolveApplyUrl,
   resolvesToPublicHost,
+  successFactorsApplyUrlFromPosting,
   workdayPostingApiUrl,
 } from '../functions/src/assistedApplicationAiJob.js';
 
@@ -370,6 +371,35 @@ describe('apply redirect (Coop: Prospective.ch → SAP SuccessFactors)', () => {
     // A network error keeps the posting.
     const failing = async () => { throw new Error('ECONNRESET'); };
     await expect(resolveApplyUrl(posting, { fetchImpl: failing as any, resolve: publicHost })).resolves.toEqual({ applyUrl: posting, via: '' });
+  });
+});
+
+describe('Jobs2Web application route (ORIOR: employer page → SAP SuccessFactors)', () => {
+  const posting = 'https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/';
+  const application = 'https://career5.successfactors.eu/career?company=Orior&career_job_req_id=2190&lang=it_IT&career_ns=job_application';
+  const publicHost = async () => [{ address: '93.184.216.34', family: 4 }];
+  const html = `<script>
+    j2w.init({ ssoCompanyId : 'Orior', ssoUrl : 'https://career5.successfactors.eu', locale : 'it_IT' });
+    j2w.Apply.init({ jobID: 1408373633, applyWithLinkedIn2Config: {"internalId":"2190-it_IT"} });
+  </script>`;
+
+  it('builds the normal public SuccessFactors account/application route from the page config', () => {
+    expect(successFactorsApplyUrlFromPosting(html)).toBe(application);
+  });
+
+  it('uses that route when the employer Apply endpoint is not usable', async () => {
+    const calls: string[] = [];
+    const fetchImpl = async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      return new Response(html, { status: 200, headers: { 'content-type': 'text/html' } });
+    };
+    await expect(resolveApplyUrl(posting, { fetchImpl: fetchImpl as any, resolve: publicHost })).resolves.toEqual({ applyUrl: application, via: 'successfactors' });
+    expect(calls).toEqual([`GET ${posting}`]);
+  });
+
+  it('does not turn an untrusted or malformed page config into an application URL', () => {
+    expect(successFactorsApplyUrlFromPosting(html.replace('career5.successfactors.eu', 'evil.example'))).toBe('');
+    expect(successFactorsApplyUrlFromPosting(html.replace('2190-it_IT', 'not-a-requisition'))).toBe('');
   });
 });
 

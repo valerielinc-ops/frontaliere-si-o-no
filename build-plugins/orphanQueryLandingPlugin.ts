@@ -28,8 +28,8 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *
  * Gates:
  *   - SKIP_ORPHAN_LANDINGS=1 → fast-path exit, no files generated.
- *   - MAX_ORPHAN_LANDINGS (default 1000) lowers the validated total-page cap
- *     per build; values above the validated cap are bounded back to 1000.
+ *   - MAX_ORPHAN_LANDINGS opts into a smaller preview cohort, bounded by
+ *     the safety ceiling; default builds reject oversized input explicitly.
  *
  * The plugin DEGRADES GRACEFULLY when the clusters file is missing —
  * it logs a warning and returns without failing the build.
@@ -93,20 +93,18 @@ import {
 
 const MIN_MATCHING_JOBS = 3;
 /**
- * Bounded cohort expansion: clusters are sorted by GSC impressions upstream,
- * so doubling the default admits more demand-backed candidates without
- * turning the build into an unbounded long-tail page generator. The per-page
- * matching-job and word-count gates below still decide indexability.
+ * Sanity ceiling above the current demand-qualified input (3,780 clusters).
+ * A ranking cap removed previously published URLs when their row moved past
+ * the cap. Default builds must retain the whole input or fail before replacing
+ * a live shard. Per-page job and word-count gates still decide indexability.
  *
- * Production-like validation: the IT/base shard completed successfully with
- * the 1,000-cluster cap; the emitter took 48.88s and emitted all 1,000 pages
- * (507 indexable, 493 noindex) plus two canonical bridges.
+ * Previous measured baseline: 1,000 clusters took 48.88s on the IT/base shard.
+ * The first deploy of the full cohort must be checked against that baseline.
  */
-export const DEFAULT_MAX_LANDINGS = 1000;
+export const DEFAULT_MAX_LANDINGS = 5000;
 
 /**
- * Resolve the build cap without allowing an unmeasured env override to reopen
- * the performance regression that this bounded cohort is meant to prevent.
+ * Explicit preview limits remain bounded by the same sanity ceiling.
  */
 export function resolveMaxOrphanLandings(maxEnv: number): number {
   const requested = Number.isFinite(maxEnv) && maxEnv > 0 ? Math.floor(maxEnv) : DEFAULT_MAX_LANDINGS;
@@ -884,6 +882,9 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
 
       const maxEnv = intFromEnv('MAX_ORPHAN_LANDINGS', 0);
       const maxLandings = resolveMaxOrphanLandings(maxEnv);
+      if (!(maxEnv > 0) && parsed.clusters.length > maxLandings) {
+        throw new Error(`[orphan-query-landings] ${parsed.clusters.length} known URLs exceed the ${maxLandings} safety ceiling; refusing to silently drop published pages`);
+      }
 
       const jobs = loadAllJobs(rootDir);
       console.log(`\x1b[36m[orphan-query-landings]\x1b[0m loaded ${jobs.length} jobs, ${parsed.clusters.length} clusters (cap ${maxLandings})`);

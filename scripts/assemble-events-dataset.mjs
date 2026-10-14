@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -104,6 +103,32 @@ export function loadEventImageLibrary(filePath = EVENT_IMAGE_LIBRARY_PATH) {
 }
 import { applyDescriptionRewrite, loadEventDescriptionRewriteCache, sanitizeEventForPublication } from './lib/event-description-policy.mjs';
 import { applyEditorialOverride, loadEditorialOverrides } from './lib/event-editorial-overrides.mjs';
+
+/** Keep published past records when a source slice is replaced or removed. */
+export function retainPublishedPastEvents(current, previous, todayIso = new Date().toISOString().slice(0, 10)) {
+  const byId = new Map(current.map((event) => [event.id, event]));
+  const publicPrevious = previous.filter((event) => event?.id && event.title && !isPrivateEventRecord(event) && !eventDateIssues(event).length);
+  const routes = publishedEventRoutes(publicPrevious, todayIso);
+  for (const raw of publicPrevious) {
+    const prior = sanitizeEventForPublication(stripUnauthorizedEventImage(raw));
+    const route = routes.get(prior.id);
+    const published = route ? {
+      ...prior,
+      __historySlug: route.slug,
+      __historyCanton: route.canton,
+      __historyComune: route.comune,
+    } : prior;
+    const fresh = byId.get(prior.id);
+    if (fresh) {
+      byId.set(prior.id, preserveEventHistory(fresh, [published]));
+    } else if ((prior.endDate || prior.startDate) < todayIso) {
+      // Explicit history also survives cross-source dedup below, which carries
+      // previousRoutes from losing ids rather than guessing their old slugs.
+      byId.set(prior.id, { ...prior, previousRoutes: [...(prior.previousRoutes || []), route].filter(Boolean) });
+    }
+  }
+  return [...byId.values()];
+}
 
 function readSlices(sliceDir = EVENTS_SLICE_DIR) {
   if (!existsSync(sliceDir)) return [];
@@ -739,10 +764,16 @@ export function assemble({
   sliceDir = EVENTS_SLICE_DIR,
   datasetPath = EVENTS_DATASET_PATH,
   rewriteCachePath = path.join(path.dirname(datasetPath), 'events-description-rewrites.json'),
+  recoveryArchivePath = path.join(path.dirname(datasetPath), 'events-recovery-archive.json'),
 } = {}) {
   const editorialOverrides = loadEditorialOverrides(path.join(path.dirname(datasetPath), 'event-editorial-overrides.json'));
   const priorDataset = loadEventsDataset(datasetPath);
-  const priorEvents = priorDataset.events.map(sanitizeEventForPublication);
+  const recovery = existsSync(recoveryArchivePath) ? JSON.parse(readFileSync(recoveryArchivePath, 'utf8')) : { events: [] };
+  if (!Array.isArray(recovery.events)) throw new Error('Invalid event recovery archive: expected events array');
+  const priorEvents = retainPublishedPastEvents(
+    priorDataset.events.map(sanitizeEventForPublication),
+    recovery.events,
+  );
   const priorById = new Map(priorEvents.map((event) => [event.id, event]));
   const priorRoutes = publishedEventRoutes(priorEvents, priorDataset.generatedAt?.slice(0, 10));
   const slices = readSlices(sliceDir);
@@ -781,7 +812,7 @@ export function assemble({
   }
 
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
-  const fuzzy = dedupeFuzzy(merged);
+  const fuzzy = dedupeFuzzy(retainPublishedPastEvents(merged, priorEvents));
   const twins = dedupeSupersededTwins(fuzzy.events);
   const organizer = dedupeOrganizerAgainstTio(twins.events);
   const deduped = organizer.events;

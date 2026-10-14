@@ -89,7 +89,6 @@ import {
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
-import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
 import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -318,6 +317,19 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 // helpers; the emitted format is unchanged.
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+/**
+ * Old job URLs stay useful for bookmarks and crawlers, but only the current
+ * canonical detail may compete in search. Reuse the canonical HTML for the
+ * bridge UX, replacing its robots directive at the last moment so incremental
+ * HTML reuse cannot resurrect an indexable alias.
+ */
+function noindexJobAliasHtml(html: string): string {
+  const noindexTag = ROBOTS_NOINDEX_FOLLOW.trim();
+  const robotsMeta = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots["']?)[^>]*>/i;
+  if (robotsMeta.test(html)) return html.replace(robotsMeta, noindexTag);
+  return html.replace('</head>', ` ${noindexTag}\n </head>`);
+}
 
 /**
  * Build the canonical detail path shared by the legacy job sitemap allowlist
@@ -3693,6 +3705,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Surrogate-safe 5000-cap: this string is the JSON-LD JobPosting.description;
  // a raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
  const jobPostingDescriptionHtml = truncateCodeUnits(descriptionHtmlParts.join(''), 5000);
+ // Keep a quality signal that excludes the generic fallback prose below. A
+ // complete canonical job can have its anonymous preview gated while still
+ // carrying enough real parsed source material (summary, requirements or
+ // canonical sections) to be a useful search landing.
+ const sourceDetailText = [
+  localizedDescriptionRaw,
+  ...descriptionParagraphs,
+  ...requirements,
+  ...canonicalSummary,
+  ...canonicalResponsibilities,
+  ...canonicalRequirements,
+  ...canonicalBenefits,
+  ...canonicalProcess,
+  ...canonicalKeywords,
+  ...canonicalSections.flatMap((section) => [...section.paragraphs, ...section.bullets]),
+ ].join(' ');
+ const sourceDetailWordCount = countHtmlBodyWords(sourceDetailText);
  // Keep the structured-data fallback self-contained: the meta-description
  // composer owns the SERP candidate, while JobPosting still needs the same
  // localized intro when the assembled HTML body is genuinely empty.
@@ -3853,8 +3882,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
  const jobBodyHtml = `${renderJobDescriptionGate(localizedDescriptionRaw, locale)}${jobFaqHtml}`;
- const jobRobotsTag = localizedDescription
+ const previewRobotsTag = localizedDescription
   ? robotsMetaEnhancedForContent(jobBodyHtml)
+  : ROBOTS_NOINDEX_FOLLOW;
+ const selfCanonicalDetail = effectiveCanonicalUrl === canonicalUrl;
+ const completeCanonicalDetail = sourceDetailWordCount >= MIN_INDEXABLE_WORDS;
+ // Recover only a complete, self-canonical detail. An active page whose
+ // canonical resolves to an employer hub or another canton remains noindex;
+ // an already-good anonymous preview keeps its existing indexable behavior.
+ const jobRobotsTag = selfCanonicalDetail && (
+  previewRobotsTag === ROBOTS_INDEX_ENHANCED || completeCanonicalDetail
+ )
+  ? ROBOTS_INDEX_ENHANCED
   : ROBOTS_NOINDEX_FOLLOW;
  html = `<!doctype html>
 <html lang="${locale}">
@@ -4252,7 +4291,7 @@ ${staticAnalyticsHtml}
  recordEmit('active-job', __tActiveJob);
 
  // Legacy bridge: if non-IT locale and Italian slug differs from the
- // locale-canonical slug, emit a FULL-CONTENT bridge at the legacy URL
+ // locale-canonical slug, emit a FULL-CONTENT noindex bridge at the legacy URL
  // (Italian slug under non-IT locale prefix → e.g.
  // /de/jobs-im-tessin/<it-slug>/) using the locale-canonical HTML.
  //
@@ -4261,20 +4300,17 @@ ${staticAnalyticsHtml}
  // `noindex,follow` and a `location.replace` script, served bundle-less
  // pages that flashed a placeholder UI before redirecting. Same pattern
  // as the previousSlugs bridge (jobsSeoPagesPlugin.ts:7264-7271):
- //   - reuse the locale-canonical `html` verbatim (full content, SPA
+ //   - reuse the locale-canonical `html` (full content, SPA
  //     bundle inside, JSON-LD, hreflang, breadcrumbs, everything)
  //   - inject __BRIDGE_TARGET_SLUG__ so the SPA looks the job up by the
  //     canonical slug after hydration (the URL stays at the legacy slug;
  //     `<link rel="canonical">` inside `html` already points at the
  //     locale-canonical URL, so Google consolidates link equity)
  //
- // Robots: index,follow (the default inside `html`). The previous
- // `noindex,follow` was a workaround against title-uniqueness duplication
- // when sister-city jobs share the same translated role; with the
- // canonical pointing at the locale-canonical URL, Google folds equity
- // and the Semrush title-uniqueness audit treats the bridge and canonical
- // as the same indexable surface. Trade-off accepted to give the user
- // full content immediately at the legacy URL.
+ // Robots: noindex,follow. This URL is an old alias; the current
+ // locale-canonical detail remains the only indexable surface. The alias
+ // still carries the full content and the canonical link so bookmarks and
+ // crawlers reach the right posting without creating a duplicate result.
  //
  // Activejob guard: if another job's canonical in this locale already
  // claimed this exact path (cross-job IT-slug = locale-slug collision —
@@ -4307,8 +4343,9 @@ ${staticAnalyticsHtml}
   legacyIndexHtml = jobsSeoReuse.reusedHtml(legacyReuse, STATIC_PAGE_BUILD_ID) || legacyReuse.html;
  } else {
   const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
-  legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+  legacyIndexHtml = noindexJobAliasHtml(html.replace('</head>', ` ${bridgeScript}\n </head>`));
  }
+ legacyIndexHtml = noindexJobAliasHtml(legacyIndexHtml);
  jobsSeoReuse?.finish(legacyReuse, legacyIndexHtml);
  const legacyDir = np.join(distDir, legacyRel);
  _md(legacyDir);
@@ -4366,8 +4403,9 @@ ${staticAnalyticsHtml}
   legacyTIIndexHtml = jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html;
  } else {
   const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(perLocaleSlug[locale])};</script>`;
-  legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+  legacyTIIndexHtml = noindexJobAliasHtml(html.replace('</head>', ` ${bridgeScript}\n </head>`));
  }
+ legacyTIIndexHtml = noindexJobAliasHtml(legacyTIIndexHtml);
  jobsSeoReuse?.finish(legacyTIReuse, legacyTIIndexHtml);
  const legacyTIDir = np.join(distDir, legacyTIRel);
  _md(legacyTIDir);
@@ -5732,8 +5770,8 @@ ${companyFollowHtml}
  // hard 404, no bridge/redirect. The canton-root job-board hub
  // (buildCantonAwareSection(locale, canton)) is emitted unconditionally for
  // every canton at every locale regardless of job count -- see the P2.S2
- // canton-index loop below, which ships `noindex,follow` under-threshold but
- // never skips the emit -- so it is always a live target to bridge to.
+ // canton-index loop below, which now ships a complete `index,follow` page
+ // rather than a threshold-gated bridge -- so it is always a live target.
  let editorialBelowFloorBridges = 0;
  const emitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {
  const section = buildCantonAwareSection(locale, canton);
@@ -7535,11 +7573,11 @@ ${staticAnalyticsHtml}
  withSlash(`${localePrefix[locale]}/${sharedResolveCantonSection(locale, canton)}/${companyRoutePrefix[locale]}-${companySlug}-${citySlug}`.replace(/\/+/g, '/'));
 
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
-  * Additive: for every non-TI canton with >= MIN_JOBS_FOR_CANTON_PAGE jobs,
-  * emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for EVERY canon city in the
-  * canton (data/canton-municipalities.json), regardless of whether the
-  * city currently has active jobs. Cities with 0 jobs render with the
-  * canton-wide latest jobs as a "0 results → expand to canton" fallback,
+  * Additive: for every non-TI canton, emit /cerca-lavoro-{cantonSlug}/
+  * {citySlug}/ for EVERY canonical city in the canton
+  * (data/canton-municipalities.json), regardless of the current job count.
+  * Cities with 0 jobs render with the canton-wide latest jobs as a
+  * "0 results → expand to canton" fallback,
   * so the URL is never a dead end. This closes the blank-page bug where
   * the router treats every canon city as a city hub
   * (isKnownCityHub → staticOverlay:true) and the 404 fallback served the
@@ -7605,19 +7643,15 @@ ${staticAnalyticsHtml}
  const dispByCity = cityDisplayByCantonCity.get(canton)!;
  if (!dispByCity.has(citySlug)) dispByCity.set(citySlug, canonical.display);
  }
- // Also compute total active jobs per canton (gate by MIN_JOBS_FOR_CANTON_PAGE)
- // and a canton-wide latest-jobs feed used as the fallback list on 0-jobs
+ // Also compute total active jobs per canton and a canton-wide latest-jobs
+ // feed used as the fallback list on 0-jobs
  // city pages ("nessuna offerta a {city}, ecco le ultime nel Canton {X}").
- const cantonJobTotals: Map<string, number> = new Map();
  const cantonLatestJobs: Map<string, typeof validJobs> = new Map();
  for (const [canton, byCity] of jobsByCantonCity) {
- let total = 0;
  const flat: typeof validJobs = [] as typeof validJobs;
  for (const arr of byCity.values()) {
-   total += arr.length;
    for (const j of arr) flat.push(j);
  }
- cantonJobTotals.set(canton, total);
  flat.sort((a: any, b: any) => {
    const da = firstParsableMs(b.crawledAt, b.datePosted);
    const db = firstParsableMs(a.crawledAt, a.datePosted);
@@ -7634,23 +7668,10 @@ ${staticAnalyticsHtml}
  const CITY_HUB_JOB_LIST_CAP = 30;
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
- const cantonTotal = cantonJobTotals.get(canton) ?? 0;
- const byCity = jobsByCantonCity.get(canton);
- if (!byCity) continue;
- // #2347 follow-up (#2348): the job-detail city link is now ALWAYS
- // canton-semantic (`/cerca-lavoro-{canton}/{city}/`) for EVERY canton,
- // including those below MIN_JOBS_FOR_CANTON_PAGE. This loop used to
- // `continue` on sub-threshold cantons, so a hard-load of such a link
- // (Google crawler, shared URL) hit GH Pages' 404 → SPA shell with no
- // static `<main class="seo-static-content">` body → blank page (the
- // exact dead-end this Phase-3.1 emit was built to repair, but only above
- // threshold). Mirror the canton-root gate (line ~8722): emit the hub even
- // sub-threshold, but `noindex,follow` (don't index the thin hub of a
- // barely-populated canton — non-negotiable #1/#4) and ONLY for cities
- // with ≥1 active job (the URLs actually linked from job detail), never
- // the full municipality list, so dist/ isn't flooded with thin 0-job
- // noindex pages for low-volume cantons.
- const meetsCantonThreshold = cantonTotal >= MIN_JOBS_FOR_CANTON_PAGE;
+ const byCity = jobsByCantonCity.get(canton) ?? new Map<string, typeof validJobs>();
+ // Every canonical municipality gets the complete city template. The current
+ // inventory changes the cards and the canton-wide fallback, never the
+ // existence or indexability of the canonical city URL.
  // Emit one hub per canon-canton city, regardless of whether it has
  // active jobs. Previously gated on cityJobs.length > 0, which meant
  // URLs like /cerca-lavoro-basilea/pratteln/ for cities with 0 jobs
@@ -7663,26 +7684,12 @@ ${staticAnalyticsHtml}
  const allCantonLatest = cantonLatestJobs.get(canton) ?? ([] as typeof validJobs);
  const cantonCityList: Array<{ citySlug: string; cityDisplay: string }> = [];
  const seenCitySlugs = new Set<string>();
- if (meetsCantonThreshold) {
-   // Above-threshold: emit a hub for EVERY canon municipality (incl. 0-job
-   // ones) so the canton-hub navigator can link them without BFS orphans.
-   for (const cityName of getCantonCities(canton)) {
-     const citySlug = normalizeCitySlug(cityName);
-     if (!citySlug || seenCitySlugs.has(citySlug)) continue;
-     seenCitySlugs.add(citySlug);
-     const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
-     cantonCityList.push({ citySlug, cityDisplay });
-   }
- } else {
-   // Sub-threshold: only cities with ≥1 active job (the job-detail-linked
-   // URLs). These are noindex,follow 404-rescue pages, never sitemapped or
-   // navigator-linked — see the loop header comment.
-   for (const citySlug of byCity.keys()) {
-     if (!citySlug || seenCitySlugs.has(citySlug)) continue;
-     seenCitySlugs.add(citySlug);
-     const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? citySlug;
-     cantonCityList.push({ citySlug, cityDisplay });
-   }
+ for (const cityName of getCantonCities(canton)) {
+   const citySlug = normalizeCitySlug(cityName);
+   if (!citySlug || seenCitySlugs.has(citySlug)) continue;
+   seenCitySlugs.add(citySlug);
+   const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
+   cantonCityList.push({ citySlug, cityDisplay });
  }
  // Sort cities: jobs desc first, then alphabetical for 0-job cities.
  cantonCityList.sort((a, b) => {
@@ -7807,7 +7814,7 @@ ${staticAnalyticsHtml}
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
  const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
- const cityHubIndexable = meetsCantonThreshold && !isCityEmpty;
+ const cityHubIndexable = true;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -7831,21 +7838,15 @@ ${staticAnalyticsHtml}
  canonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- // Noindex rescue pages stay live for users and job-detail links, but rich
- // JSON-LD on a blocked page creates a schema/noindex conflict in crawlers.
- // Keep the collection schema on indexable city hubs only.
+ // Every emitted city page is a complete indexable landing, including the
+ // zero-result variant whose body explains the canton-wide fallback.
  jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],
  bodyHtml,
  hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
  distDir,
- // 0-job city pages exist as 404-rescue fallbacks (so the SPA-overlay
- // route doesn't render blank) but offer no city-specific signal to
- // Google. Flip to noindex,follow so they don't compete for indexing
- // with the canton hub. Pages with ≥1 active job stay index,follow —
- // EXCEPT when the whole canton is below MIN_JOBS_FOR_CANTON_PAGE: its
- // canton hub already ships noindex,follow (line ~8722), so keep the
- // sub-threshold city hubs consistent (thin canton → noindex, #2348).
- robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',
+ // Zero-result city pages still carry the city identity, the fallback
+ // inventory and the commuter context, so they are not thin rescue pages.
+ robots: 'index,follow',
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
@@ -7865,16 +7866,10 @@ ${staticAnalyticsHtml}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  cityHubCantonPagesCount++;
  }
- // Sitemap entry (priority 0.85 mirroring TI city hubs). Only emit
- // for cities with >=1 active job -- 0-job city pages are noindex,follow
- // 404-rescue fallbacks (above) and would land as orphans in
- // sitemap-jobs.xml because the canton hub's "Esplora" navigator only
- // links the top 8 city hubs. Adding all canon-city URLs to the sitemap
- // without inbound links violated audit:orphan-sitemap-pages and
- // audit:max-bfs-depth gates (PR #463 follow-up). Sub-threshold canton
- // hubs (#2348) are noindex,follow 404-rescue pages with no inbound link
- // (their noindex canton hub doesn't run the navigator) -- keep them out.
- if (!isCityEmpty && meetsCantonThreshold) {
+ // Sitemap entry (priority 0.85 mirroring TI city hubs). Publish every
+ // canonical municipality; the canton navigator links the exact emitted set
+ // below, keeping these entries reachable as well as complete.
+ {
  const itSection = sharedResolveCantonSection('it', canton);
  const itPath = `/${itSection}/${citySlug}/`.replace(/\/+/g, '/');
  const localePaths = new Map<typeof localeList[number], string>();
@@ -10926,7 +10921,6 @@ ${staticAnalyticsHtml}
    const cantonJobCounts = listingJobCounts;
    const archiveSnapshot = readJobsData(fs, path, rootDir);
    let cantonIndexIndexable = 0;
-   let cantonIndexNoindex = 0;
 
    // Build the URL list for the sharded sitemap. One entry per (group, locale)
    // = 4 × group-count entries. Detail URLs use the same canton-aware path
@@ -11174,27 +11168,17 @@ ${staticAnalyticsHtml}
      const display = getCantonDisplayLabel(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
      const canonicalUrl = `${BASE_URL}${path}`;
-     // T2.6 — MIN_JOBS gate. The aggregator (svizzera, AGGREGATE_KEY) always
-     // ships index,follow regardless of count; per-canton pages need at least
-     // MIN_JOBS_FOR_CANTON_PAGE canonical jobs. TI is filtered out earlier
-     // (owned by staticPagesPlugin), so it never reaches this branch.
+     // Every emitted non-TI canton landing is a complete page. The active-job
+     // count remains visible in the body and metadata, but no longer gates
+     // indexability: low-volume cantons are still useful geographic entry
+     // points for the jobs that do exist and for future inventory.
      const cantonCount = cantonJobCounts.get(entry.key) ?? 0;
-     const meetsThreshold = entry.key === AGGREGATE_KEY || cantonCount >= MIN_JOBS_FOR_CANTON_PAGE;
-     const robotsValue: 'index,follow' | 'noindex,follow' = meetsThreshold ? 'index,follow' : 'noindex,follow';
-     if (meetsThreshold) cantonIndexIndexable++; else cantonIndexNoindex++;
-     // BFS-depth closure (2026-05-21): publish the noindex decision to the
-     // cross-plugin registry so `seoHubsPlugin.emitThinCantonHubs` can skip
-     // emitting `/tutti/`, `/settori/`, `/aziende/` sub-hubs for cantons
-     // whose parent landing ships `noindex,follow`. Otherwise the sub-hubs
-     // become BFS-orphaned (audit-bfs-depth.mjs treats noindex as a dead
-     // end — see line 276 of that script).
-     if (!meetsThreshold) markCantonNoindex(entry.key);
-     // Sitemap coverage (#3518): the hub-root landing itself was never pushed
-     // into the sharded sitemaps — only its child job URLs were — leaving all
-     // non-TI canton hubs (and their locale variants) out of every sub-sitemap
-     // despite being emitted index,follow with self-canonicals. Push indexable
-     // roots only: a noindex URL in a sitemap trips audit:sitemap-canonicals.
-     if (meetsThreshold) {
+     const robotsValue: 'index,follow' = 'index,follow';
+     cantonIndexIndexable++;
+     // Sitemap coverage (#3518): publish every complete canton root and its
+     // reciprocal locale group. No noindex parent is registered because these
+     // pages are now valid indexable entry points by construction.
+     {
        shardUrls.push({ loc: canonicalUrl, changefreq: 'daily', priority: 0.7, _canton: entry.key,
          alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}` }),
        });
@@ -11460,7 +11444,7 @@ ${staticAnalyticsHtml}
      const cantonTotalPages = entry.key === AGGREGATE_KEY ? 1 : Math.max(1, cantonArchivePageCount(
        archiveSnapshot.cantonJobCounts.get(entry.key) ?? 0,
        archiveSnapshot.cantonJobs.get(entry.key) ?? [],
-       meetsThreshold,
+       true,
      ));
      const editorialEntries = buildCantonHubEditorial({
        canton: entry.key,
@@ -11484,49 +11468,25 @@ ${staticAnalyticsHtml}
        `<section class="s-IE_H9o" data-canton-editorial>${editorialHtml}</section>`;
 
      // ── BFS-depth closure (Group A2) — "Esplora" navigator ─────────────
-     // Phase 8a introduced ~250 sub-pages per canton (city hubs, category
-     // hubs, editorial slot pages) that the canton hub did NOT link to,
-     // pushing them to BFS depth>4 from `/`. This block surfaces:
-     //   - 5-8 top city hubs           → /{section}/{citySlug}/
-     //   - up to 6 category hubs       → /{section}/{catPrefix}-{slug}/
-     //   - 4 editorial slot pages      → today / nurses / part-time / clinics
-     // Emitted BELOW the listing grid (mobile-first per #16/#17). Gated on
-     // the same MIN_JOBS threshold used by the page itself (`meetsThreshold`)
-     // so thin pages don't sprout link farms. TI is filtered out at the
-     // cantonsToEmit loop entry (`code === 'TI' continue`), so this block
-     // never affects the byte-identical TI hub owned by staticPagesPlugin.
+     // Phase 8a introduced sub-pages per canton (city hubs, category hubs,
+     // editorial slot pages) that the canton hub did NOT link to, pushing
+     // them to BFS depth>4 from `/`. This block surfaces every emitted city
+     // hub plus the bounded category/editorial families:
+     //   - every canonical city hub → /{section}/{citySlug}/
+     //   - up to 6 category hubs    → /{section}/{catPrefix}-{slug}/
+     //   - editorial slot pages     → today / nurses / part-time / clinics
+     // Emitted BELOW the listing grid (mobile-first per #16/#17). The city
+     // emitter records every canonical municipality, so link the complete
+     // set from each non-TI root. TI is filtered out at the cantonsToEmit loop
+     // entry (`code === 'TI' continue`) and remains owned by staticPagesPlugin.
      let exploreSection = '';
-     if (meetsThreshold && entry.key !== AGGREGATE_KEY) {
+     if (entry.key !== AGGREGATE_KEY) {
        const exploreSectionBase = sectionBase; // already trailing-slashed canton-aware section
-       // Top cities by job count (max 8). Normalise via shared helper so the
-       // URL matches the citySlug emitted by the city-hub block earlier in
-       // this plugin (Phase 8a). Skip empty / "—" buckets.
-       const topCityHubs: Array<{ slug: string; label: string }> = [];
-       const seenCitySlugs = new Set<string>();
-       for (const [cityRaw, count] of [...cityCounts.entries()].sort((a, b) => b[1] - a[1])) {
-         if (topCityHubs.length >= 8) break;
-         if (!cityRaw || cityRaw === '—' || count < 1) continue;
-         const slug = normalizeCitySlug(cityRaw);
-         if (!slug || seenCitySlugs.has(slug)) continue;
-         seenCitySlugs.add(slug);
-         topCityHubs.push({ slug, label: cityRaw });
-       }
-       // BFS-depth closure (2026-06-11): every OTHER emitted municipality
-       // city hub for this canton (beyond the top-8 featured above). The
-       // per-canton city-hub emit (Phase 3.1) writes a static page for EVERY
-       // canon municipality — incl. 0-job ones — but the navigator only
-       // linked the top 8, leaving the long tail (e.g. argovia/suhr,
-       // argovia/wettingen) BFS-orphaned in sitemap-jobs.xml. Link the exact
-       // emitted set (recorded at emit time, same gate + same slugs → no
-       // 404 risk) so each city page reaches BFS depth ≤ (canton hub + 1).
-       // Deduped against the featured top-8 via the shared seenCitySlugs set
-       // so no URL is linked twice (Squirrel identical-links a11y).
-       const otherCityHubs: Array<{ slug: string; label: string }> = [];
-       for (const c of emittedCantonCityHubs.get(entry.key) ?? []) {
-         if (!c.slug || seenCitySlugs.has(c.slug)) continue;
-         seenCitySlugs.add(c.slug);
-         otherCityHubs.push(c);
-       }
+       // Link the exact emitted set, without a top-city cap. The city-hub
+       // emitter records every canonical municipality (including 0-job ones)
+       // with the same slug resolver used for the files and sitemap, so every
+       // URL published there receives an inbound anchor from its canton root.
+       const allCityHubs = emittedCantonCityHubs.get(entry.key) ?? [];
        // Top categories by job count (max 6). Mirror the category slug
        // tables from the category-listing block (~line 5742-5752); kept
        // inline to avoid hoisting a nested scope across thousands of lines.
@@ -11684,10 +11644,6 @@ ${staticAnalyticsHtml}
            default: return `Esplora più offerte in ${display}`;
          }
        })();
-       const colByCityLabel = entry.locale === 'en' ? 'Top cities'
-         : entry.locale === 'de' ? 'Top-Städte'
-         : entry.locale === 'fr' ? 'Villes principales'
-         : 'Città principali';
        const colAllCitiesLabel = entry.locale === 'en' ? `All municipalities in ${display}`
          : entry.locale === 'de' ? `Alle Gemeinden in ${display}`
          : entry.locale === 'fr' ? `Toutes les communes en ${display}`
@@ -11714,11 +11670,14 @@ ${staticAnalyticsHtml}
            .map((it) => `<a href="${exploreSectionBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
            .join('');
        const blocks: string[] = [];
-       if (topCityHubs.length > 0) {
+       if (allCityHubs.length > 0) {
+         const cityIndexLinks = allCityHubs
+           .map((it) => `<a href="${exploreSectionBase}${it.slug}/">${esc(it.label)}</a>`)
+           .join(' · ');
          blocks.push(
            `<div class="s-h0CoDf" data-explore-cities>` +
-           `<h3 class="s-8S_vke">${esc(colByCityLabel)}</h3>` +
-           `<div>${renderLinks(topCityHubs)}</div>` +
+           `<h3 class="s-8S_vke">${esc(colAllCitiesLabel)}</h3>` +
+           `<div style="font-size:14px;line-height:1.9;color:var(--color-link)">${cityIndexLinks}</div>` +
            `</div>`,
          );
        }
@@ -11727,25 +11686,6 @@ ${staticAnalyticsHtml}
            `<div class="s-h0CoDf" data-explore-categories>` +
            `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
            `<div>${renderLinks(topCategoryHubs)}</div>` +
-           `</div>`,
-         );
-       }
-       // BFS-depth closure (2026-06-11): link every remaining emitted
-       // municipality city hub so the long tail is no longer BFS-orphaned.
-       // Rendered as a lightweight comma-free wrapped link list (NOT the
-       // per-link pill style above) because a big canton (Bern ~334
-       // municipalities) would otherwise add ~90 KB of repeated inline-style
-       // bytes to the hub and crowd the flat 215 KB page-weight cap. Plain
-       // anchors inherit the seo-static link color; one container style does
-       // the spacing for the whole block.
-       if (otherCityHubs.length > 0) {
-         const cityIndexLinks = otherCityHubs
-           .map((it) => `<a href="${exploreSectionBase}${it.slug}/">${esc(it.label)}</a>`)
-           .join(' · ');
-         blocks.push(
-           `<div class="s-h0CoDf" data-explore-all-cities>` +
-           `<h3 class="s-8S_vke">${esc(colAllCitiesLabel)}</h3>` +
-           `<div style="font-size:14px;line-height:1.9;color:var(--color-link)">${cityIndexLinks}</div>` +
            `</div>`,
          );
        }
@@ -11839,7 +11779,7 @@ ${staticAnalyticsHtml}
 
        // Top employers by live job count. Always unlinked (href: null) —
        // the existing per-canton company-hub navigator (companyHubs, above)
-       // is block-scoped to `if (meetsThreshold && entry.key !== AGGREGATE_KEY)`
+       // is block-scoped to the per-canton explore section
        // and unreachable from here; recomputing its MIN_JOBS_PER_CANTON_COMPANY
        // threshold locally would duplicate a drift-prone constant (AGENTS.md
        // sibling-pattern rule), so this list stays independent plain text.
@@ -11907,7 +11847,7 @@ ${staticAnalyticsHtml}
        listingGrid,
        // BFS-depth closure — link Phase 8a sub-pages from the canton hub
        // (top cities, top categories, editorial slot pages). Empty string
-       // when meetsThreshold === false or canton === AGGREGATE_KEY. Sits
+       // when canton === AGGREGATE_KEY. Sits
        // ABOVE the prose so internal navigation stays close to the data
        // area; the long filler stays after.
        exploreSection,
@@ -11931,8 +11871,7 @@ ${staticAnalyticsHtml}
      // (/cerca-lavoro-ticino/, owned by staticPagesPlugin via seo-pages.ts)
      // ships CollectionPage + ItemList. Mirror TI here so every INDEXABLE canton
      // landing carries a CollectionPage wrapping an ItemList of its most-recent
-     // jobs. Gated on `meetsThreshold` + jobs present: thin/noindex pages stay
-     // breadcrumb-only (CLAUDE.md #4 — no rich schema on thin content). Items
+     // jobs whenever the live inventory has jobs. Items
      // are ListItem→url (not nested JobPosting): a partial JobPosting would
      // violate NON-NEGOTIABLE #3 (all 9 mandatory fields), and the listing
      // page's correct primary type is CollectionPage, exactly as TI. The list
@@ -11942,7 +11881,7 @@ ${staticAnalyticsHtml}
      // back to a fresh validJobs sample for AGGREGATE_KEY (see the
      // realDataJobPool comment above) so the Svizzera hub gets a real
      // ItemList instead of silently shipping breadcrumb-only schema.
-     const cantonCollectionLd = (meetsThreshold && collectionListJobs.length > 0)
+     const cantonCollectionLd = (collectionListJobs.length > 0)
        ? inlineScriptJson({
            '@context': 'https://schema.org',
            '@type': 'CollectionPage',
@@ -11992,7 +11931,7 @@ ${staticAnalyticsHtml}
        canonicalUrl,
        title: labels.title,
        hreflangHtml: buildLocaleAlternateBlock({
-         eligibleLocales: meetsThreshold ? localeList : [],
+         eligibleLocales: localeList,
          hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}`,
        }),
        description: cantonMetaDescription,
@@ -12000,11 +11939,9 @@ ${staticAnalyticsHtml}
        bodyHtml,
        distDir,
        jsonLdScripts: [cantonBreadcrumbLd, cantonCollectionLd].filter(Boolean),
-       // T2.6 — robots set by MIN_JOBS gate above. Pages with ≥ 5 canonical
-       // jobs from the cathedral flip to 'index,follow'; thin pages stay
-       // 'noindex,follow' (CLAUDE.md #4 — no thin content gets indexed). The
-       // aggregator (svizzera) is always 'index,follow'. Pages still hydrate
-       // via the SPA shell so the visitor lands on the real React JobBoard.
+       // All canton roots use the complete body above and are indexable. Pages
+       // still hydrate via the SPA shell so the visitor lands on the real
+       // React JobBoard.
        robots: robotsValue,
      });
      const outDir = np.join(distDir, path.slice(1).replace(/\/$/, ''));
@@ -12044,7 +11981,7 @@ ${staticAnalyticsHtml}
      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1.11 wrote ${shardPaths.length} canton sitemap shards + ${np.relative(distDir, indexPath)}`);
    }
    console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.B1+B2+B3 emitted ${cantonIndexEmitted} locale-variant pages + ${shardPaths.length} sitemap shards`);
-   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.S2 canton index emit: ${cantonIndexIndexable} indexable / ${cantonIndexNoindex} thin (threshold: ${MIN_JOBS_FOR_CANTON_PAGE})`);
+   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P2.S2 canton index emit: ${cantonIndexIndexable} complete indexable roots`);
  } catch (err) {
    // Defensive: P1.11 additions must not break the legacy emit. Log + continue.
    console.warn('[jobs-seo-pages] P1.11 canton-aware emit failed (legacy output unaffected):', err instanceof Error ? err.message : String(err));
@@ -14347,10 +14284,11 @@ ${staticAnalyticsHtml}
  }));
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
- // Serve identical full-content pages at old URLs (bookmarks, search engines).
- // The only difference: <link rel="canonical"> points to the current slug URL,
- // and window.__BRIDGE_TARGET_SLUG__ tells the SPA to use the current slug.
- // No redirect, no countdown — user sees full job content immediately.
+ // Serve full-content noindex pages at old URLs (bookmarks, search engines).
+ // The only SEO surface that may be indexed is the current canonical slug:
+ // <link rel="canonical"> points there, and window.__BRIDGE_TARGET_SLUG__
+ // tells the SPA to use the current slug. No redirect, no countdown — users
+ // still see the job content immediately.
  //
  // Uses locale-aware previousSlugsByLocale when available:
  // - previousSlugsByLocale[locale] → bridge pages only under that locale's prefix
@@ -14620,7 +14558,8 @@ ${staticAnalyticsHtml}
  //
  // Reuse the full active page HTML — canonical already points to the
  // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
- // use the current slug for data lookup instead of parsing the old URL.
+ // use the current slug for data lookup instead of parsing the old URL, then
+ // force noindex on the alias after either a fresh render or cache reuse.
  // Tiered emission: filter consults evidence-index.json + hourly
  // thin-page-promotions-active.json. Decision applies to BOTH the
  // primary emit and the legacy-TI mirror emit below so the bridge
@@ -14680,6 +14619,7 @@ ${staticAnalyticsHtml}
  } else {
   indexHtml = ensureBridgeHtml(__brAction).indexHtml;
  }
+ indexHtml = noindexJobAliasHtml(indexHtml);
  jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
  // Real bytes saved per file emit (counter above tracks decisions
  // only, not byte deltas — see PR #729 lesson).
@@ -14761,15 +14701,16 @@ ${staticAnalyticsHtml}
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
   ? jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html
   : indexHtml;
- jobsSeoReuse?.finish(legacyTIReuse, legacyTIHtml);
+ const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);
+ jobsSeoReuse?.finish(legacyTIReuse, noindexLegacyTIHtml);
  _md(legacyTIOutDir);
- _qw(np.join(legacyTIOutDir, 'index.html'), legacyTIHtml);
+ _qw(np.join(legacyTIOutDir, 'index.html'), noindexLegacyTIHtml);
  if (incrementalManifests) {
   registerIncrementalPage(locale, legacyTIRelPath, 'previous-slugs-full-content', legacyTIReuseInput);
  }
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
- _qwFlat(legacyTIFlatFile, legacyTIHtml);
+ _qwFlat(legacyTIFlatFile, noindexLegacyTIHtml);
  bridgeBytesSaved += __brDelta * 2;
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);

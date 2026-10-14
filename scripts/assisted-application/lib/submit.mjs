@@ -364,8 +364,9 @@ export async function submitApplication(ctx) {
   // or anything it must not bypass ends in the career-ops handoff below.
   let applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
   let channelType = channel.type;
-  // A draft from before the ATS redirect was resolved (Coop's first order,
-  // 2026-10-02): the runner starts on the ATS, not on the career page in front of it.
+  // A draft from before the ATS route was resolved (Coop's first order,
+  // 2026-10-02, or an ORIOR Jobs2Web draft): the runner starts on the ATS,
+  // not on the career page in front of it.
   if (channel.type === 'employer_site' && !channel.via && applyUrl && ctx.codex) {
     const target = await resolveApplyUrl(applyUrl, { fetchImpl: ctx.fetchImpl || fetch, resolve: ctx.resolve });
     if (target.via) {

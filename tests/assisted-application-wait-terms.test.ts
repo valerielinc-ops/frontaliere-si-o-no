@@ -37,18 +37,20 @@ describe('the candidate\'s three rounds are the drafts they were shown', () => {
     expect(roundsShown(null)).toEqual([1]);
   });
 
-  it('does not charge the candidate for a draft the owner had written again before it reached them', () => {
+  it('does not charge the candidate for owner-held drafts before the first clean draft reaches them', () => {
     // As startAutomation writes it: nothing shown yet.
     let flow: any = { state: 'drafting', round: 1, shownRounds: [] };
     const step = (event: any, draft: any, at: number) => { flow = transition(flow, event, { draft, nowMs: at }).flow; return flow; };
-    step({ type: 'draft_ready' }, clean, T0);
-    // Twice the owner asks for a new draft from her own review: the number grows, so that older links die.
-    step({ type: 'owner_regenerate' }, clean, T0 + 1);
-    step({ type: 'draft_ready' }, { ...clean, round: 2 }, T0 + 2);
-    step({ type: 'owner_regenerate' }, { ...clean, round: 2 }, T0 + 3);
+    const ownerHeld = { ...clean, factCheck: { ok: false, unsupported: [{ field: 'letter', kind: 'number', token: '99' }] } };
+    step({ type: 'draft_ready' }, ownerHeld, T0);
+    // Twice the owner asks for a new draft from her own flagged review: the number grows, while no draft has
+    // reached the candidate yet.
+    step({ type: 'owner_regenerate' }, ownerHeld, T0 + 1);
+    step({ type: 'draft_ready' }, { ...ownerHeld, round: 2 }, T0 + 2);
+    step({ type: 'owner_regenerate' }, { ...ownerHeld, round: 2 }, T0 + 3);
     expect(flow).toMatchObject({ state: 'regenerating', round: 3, shownRounds: [] });
+    // The clean draft goes directly to the candidate; there is no owner approval step to spend another hour.
     step({ type: 'draft_ready' }, { ...clean, round: 3 }, T0 + 4);
-    step({ type: 'owner_approve' }, { ...clean, round: 3 }, T0 + 5);
     // «Round 3» is the first draft the candidate sees.
     expect(flow).toMatchObject({ state: 'candidate_review', round: 3, shownRounds: [3] });
 
@@ -59,7 +61,6 @@ describe('the candidate\'s three rounds are the drafts they were shown', () => {
     flow = rejected.flow;
     for (const round of [4, 5]) {
       step({ type: 'draft_ready' }, { ...clean, round }, T0 + 10 * round);
-      step({ type: 'owner_approve' }, { ...clean, round }, T0 + 10 * round + 1);
       rejected = transition(flow, { type: 'candidate_reject', feedback: 'ancora' }, { draft: { ...clean, round }, nowMs: T0 + 10 * round + 2 });
       if (round === 4) flow = rejected.flow;
     }

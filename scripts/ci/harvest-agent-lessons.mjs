@@ -770,6 +770,35 @@ export function isCrawlerParserFinding(text) {
   return paths.length > 0 && paths.every((p) => CRAWLER_PARSER_PATH_RE.test(p));
 }
 
+// `postalCode` e `baseSalary` sono campi del JobPosting, ma sono anche nomi
+// comuni di campi e funzioni fuori dallo schema: il CAP letto da un CV nella
+// candidatura assistita (#12555 `explicitPostalCode()`), i campi d'indirizzo
+// con cui si riconosce un annuncio ripubblicato (#12207), l'evidenza di
+// localita' del prospector (#12033). Nella riapertura di 12816 del 2026-10-14
+// quei tre facevano meta' dei sei finding dopo il cutoff. Un termine di campo
+// conta nel bucket solo se la frase del finding nomina anche lo schema, o se il
+// finding e' localizzato su un emettitore del sito. I segmenti degli emettitori
+// sono scritti come parole per lo stesso motivo di CRAWLER_PARSER_PATH_RE.
+const STRUCTURED_DATA_SCHEMA_CONTEXT_RE = /structured\s?data|json-?ld|jobposting|hiringorganization|schema\.org|@type|microdata|rich\s+(?:result|snippet)s?/i;
+const STRUCTURED_DATA_FIELD_TERM_RE = /basesalary|postalcode/i;
+
+function isSiteEmitterPath(p) {
+  const segments = String(p).split('/');
+  return segments[0] === 'build-plugins' || segments.includes('seo');
+}
+
+/**
+ * True when a `STRUCTURED_DATA_RE` match is about structured data: the finding
+ * statement names the schema, or a bare field term sits on a site emitter.
+ * @param {string} text
+ */
+export function isStructuredDataFinding(text) {
+  const statement = stripFindingLocationLabel(text);
+  if (STRUCTURED_DATA_SCHEMA_CONTEXT_RE.test(statement)) return true;
+  return STRUCTURED_DATA_FIELD_TERM_RE.test(statement)
+    && findingLocationPaths(text).some(isSiteEmitterPath);
+}
+
 /**
  * Removes only the leading review location (`path:L<n>:` or `PR body:L<n>:`).
  * The location is an address, not reviewer prose, so process-bucket guards can
@@ -819,6 +848,7 @@ export function bucketFinding(text) {
     }
     if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
     if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
+    if (t.key === 'structured-data' && !isStructuredDataFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
     // provide the workflow/auth context for an unrelated finding.

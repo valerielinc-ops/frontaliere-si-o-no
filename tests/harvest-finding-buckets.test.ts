@@ -566,6 +566,62 @@ describe('bucketFinding — structured-data separa emettitori del sito e parser 
   });
 });
 
+// Verbatim (troncate poco dopo il token del bucket) dalle review dei sei esempi
+// della riapertura di 12816 del 2026-10-14. Tre nominano lo schema; gli altri
+// tre entravano nel bucket solo per un campo `postalCode` fuori dallo schema:
+// il CAP di un CV, l'identita' di un annuncio ripubblicato, l'evidenza di
+// localita' del prospector.
+const STRUCTURED_DATA_SCHEMA_FINDINGS: Array<[string, string]> = [
+  ['#12351', "packages/articles/content/blog-meta-ch-it.ts:L7905, packages/articles/content/seo/seo-blog-ch.ts:L99599: 🔴 Important: [funnel] L'excerpt del nuovo articolo e le descrizioni SEO/OG/NewsArticle sono salvate come Markdown (`## In breve - ... - ...`), quindi card, meta description, Open Graph e structured data espongono marcatori di formattazione in"],
+  ['#12204', "build-plugins/weeklyEmployersPlugin.ts:L3697: 🔴 Important: [correctness] The weekly-employer detail renderer still calls `inlineScriptJson` with the default name-only fallback around `jobToJsonLd(job, employer, ...)`, and its `buildSeo"],
+  ['#12617', "build-plugins/shared/seoPageShell.ts:L176: 🔴 Important: [correctness] `canonicalizeSiteOrganizationCreator(record)` repairs a site Organization and then the generic `stableOrganizationId` branch at L198 still runs. Accettazione: input JSON-LD `{\"@type\":\"Organization\"`"],
+];
+
+const STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS: Array<[string, string]> = [
+  ['#12555', "scripts/assisted-application/lib/portal/residence-address.mjs:L99: 🔴 Important: [correctness] `explicitPostalCode()` accepts any single five-digit number"],
+  ['#12207', "scripts/backfill-prev-slugs-from-loss-events.mjs:L182: 🔴 Important: [funnel] `jobsShareRepublishedIdentity()` treats same-host records with equal company/title/body/address fields as the same source posting even when they are distinct vacancies. Accettazione: two same-host records with identical `title`, `description`, `location`, `postalCode`, and `streetAddress` but different sta"],
+  ['#12033', "scripts/lib/prospector/location-evidence.mjs:L236: 🔴 Important: [regression] `localityIsRelevant` still bypasses the target-canton `isCantonRelevant(...)` guard for postal-backed unique registry hits through `isKnownSwissMunicipalityInCanton(...)`; `{location: 'Zürich', postalCode: '8000'}` is therefore accepted as geog"],
+];
+
+describe('bucketFinding — un campo del JobPosting fuori dallo schema non è structured-data (12816)', () => {
+  for (const [pr, line] of STRUCTURED_DATA_SCHEMA_FINDINGS) {
+    it(`${pr}: un finding che nomina lo schema resta structured-data`, () => {
+      expect(bucketFinding(line)).toBe('structured-data');
+    });
+  }
+
+  for (const [pr, line] of STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS) {
+    it(`${pr}: \`postalCode\` senza schema né emettitore esce dal bucket`, () => {
+      expect(bucketFinding(line)).not.toMatch(/^structured-data/);
+    });
+  }
+
+  it('un termine di campo su un emettitore del sito conta anche senza la parola «schema»', () => {
+    expect(bucketFinding('build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: `baseSalary` perde la valuta.')).toBe('structured-data');
+    expect(bucketFinding('services/seo/jobPostingLd.ts:L4: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data');
+  });
+
+  it('il path non presta il contesto di schema alla frase del finding', () => {
+    // `seo-` nel nome del file non è un segmento `seo`, e la posizione non è prosa.
+    expect(bucketFinding('scripts/lib/structured-data-audit.mjs:L3: 🔴 Important: `explicitPostalCode()` accetta cinque cifre qualsiasi.')).not.toMatch(/^structured-data/);
+  });
+
+  it('i campi del parser crawler restano nel loro bucket', () => {
+    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data-parser');
+  });
+
+  it('la tally conta tre finding su sei, con la soglia invariata', () => {
+    const all = [...STRUCTURED_DATA_SCHEMA_FINDINGS, ...STRUCTURED_DATA_FIELD_NAME_ONLY_FINDINGS];
+    const prs = all.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-10-11T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['structured-data']).toBe(STRUCTURED_DATA_SCHEMA_FINDINGS.length);
+  });
+});
+
 // Verbatim (troncate dopo i token che decidono il bucket) dalle review di 11 PR
 // dopo il cutoff della riapertura di 10112 del 2026-10-04. Due PR su
 // undici violano UNA regola, lo slash finale del canonicalPath che il generatore
