@@ -13,7 +13,9 @@ import {
   imageObjectLdDocument,
   resolveHttpUrl,
   SITE_LICENSE_PAGE,
+  type ImageCreator,
 } from '@/services/seo/imageObjectLd';
+import type { ArticleImageObjectInput } from '@/packages/articles/engine/siteShell';
 
 const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'] as const;
 const CANONICAL_SITE_ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
@@ -75,10 +77,27 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
   });
 
   it('keeps a site creator with array types attached to the canonical organization', () => {
-    const creator = { '@type': ['NewsMediaOrganization', 'Organization'] as const, name: 'Frontaliere Ticino', url: 'https://frontaliereticino.ch/' };
-    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+    const input: ArticleImageObjectInput = {
+      contentUrl: 'https://example.com/image.jpg',
+      creator: {
+        '@type': ['NewsMediaOrganization', 'Organization'],
+        name: 'Frontaliere Ticino',
+        url: 'https://frontaliereticino.ch/',
+      },
+    };
+    const creator = input.creator!;
+    expect(imageObjectLd(input).creator)
       .toEqual({ ...creator, '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization' });
     expect(creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
+  });
+
+  it('rejects an empty creator @type array before emitting the ImageObject', () => {
+    const creator = {
+      '@type': [],
+      name: 'Invalid creator',
+    } as unknown as ImageCreator;
+    expect(() => imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }))
+      .toThrow('imageObjectLd: creator.@type must contain at least one type');
   });
 
   it.each([
