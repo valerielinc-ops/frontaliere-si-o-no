@@ -1,7 +1,7 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-10-13T21:19:44.302Z",
+  "generatedAt": "2026-10-14T09:17:54.562Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 10051,
-  "avgDurationMs": 10051,
+  "durationMs": 12974,
+  "avgDurationMs": 12974,
   "durationHistory": [
-    10051
+    12974
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Investigations-Officer_R-018720",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:27.687Z",
+      "crawledAt": "2026-10-14T09:17:36.061Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Crude-Trader_R-018866",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:26.280Z",
+      "crawledAt": "2026-10-14T09:17:34.615Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:32.179Z",
+      "crawledAt": "2026-10-14T09:17:41.978Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:31.250Z",
+      "crawledAt": "2026-10-14T09:17:41.274Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:30.526Z",
+      "crawledAt": "2026-10-14T09:17:40.522Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:29.846Z",
+      "crawledAt": "2026-10-14T09:17:39.833Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Head-of-Treasury---Payments-Technology_R-018663",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:29.153Z",
+      "crawledAt": "2026-10-14T09:17:38.053Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Business-Developer_R-018703",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:28.361Z",
+      "crawledAt": "2026-10-14T09:17:36.862Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -378,7 +378,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Trade-Finance--Automation-Lead_R-018841",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:26.992Z",
+      "crawledAt": "2026-10-14T09:17:35.361Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -409,5 +409,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
