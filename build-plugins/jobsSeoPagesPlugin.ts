@@ -3925,10 +3925,8 @@ ${hreflangHtml}
  ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
 ${staticAnalyticsHtml}
- </head>
- <body>
- ${rootShell(hasSpaBundle)}
- <main class="seo-static-content static-job-page">
+ </head>`;
+ const staticJobMainHtml = `<main class="seo-static-content static-job-page">
  <div class="job-detail-top-row">
  <nav class="bn"><a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
  <div class="job-detail-top-banner-reserve" aria-hidden="true"></div>
@@ -4255,7 +4253,9 @@ ${staticAnalyticsHtml}
  return ` · <a href="${cPath}" class="lnk-acc">${esc(job.company)} &rarr;</a>`;
  })()}
  </nav>
- </main>
+ </main>`;
+ html += `<body>
+ ${rootShell(hasSpaBundle, staticJobMainHtml)}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
