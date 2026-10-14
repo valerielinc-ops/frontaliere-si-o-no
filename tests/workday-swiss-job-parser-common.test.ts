@@ -752,6 +752,121 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
   });
 });
 
+describe('createWorkdaySwissParser — tenant facility location table', () => {
+  const ORIGINAL_FETCH = global.fetch;
+  const FACILITY_EVIDENCE = 'https://cancercare.siemens-healthineers.com/about-us/about/company-locations/baden-dättwil/';
+  const facilityLocations = {
+    'DWL T': { locality: 'Baden', evidence: FACILITY_EVIDENCE },
+  };
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  const makeParser = (overrides: Record<string, unknown> = {}) => createWorkdaySwissParser({
+    companyKey: 'testco',
+    companyName: 'Test Co',
+    companyDomain: 'testco.com',
+    tenantHost: 'testco.wd3.myworkdayjobs.com',
+    sitePath: 'Test_Careers',
+    defaultCanton: 'ZH',
+    defaultCity: 'Zurich',
+    facilityLocations,
+    ...overrides,
+  });
+
+  function mockSinglePosting(detailInfo: Record<string, unknown>) {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Facility-coded role',
+            externalPath: '/job/DWL-T/Facility-coded-role_JR1',
+            locationsText: 'DWL T',
+            postedOn: 'Posted Today',
+            bulletFields: ['JR1'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: { ...detailInfo, jobDescription: ROLE_BODY },
+      }), { status: 200 });
+    }) as any;
+  }
+
+  it('publishes a mapped Swiss primary as Baden / AG and reports the match', async () => {
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockSinglePosting({
+      location: ' dwl   t ',
+      jobRequisitionLocation: {
+        descriptor: 'DWL T',
+        country: { descriptor: 'Switzerland', alpha2Code: 'CH' },
+      },
+    });
+
+    const jobs = await makeParser().fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Baden', canton: 'AG' });
+    expect(logs.mock.calls.flat().some((line) => String(line).includes('Facility location table resolved: 1'))).toBe(true);
+  });
+
+  it('does not use the mapped code when it is only an additional foreign-posting location', async () => {
+    mockSinglePosting({
+      location: 'Frankfurt, Germany',
+      additionalLocations: [{ descriptor: 'DWL T' }],
+      jobRequisitionLocation: {
+        descriptor: 'Frankfurt, Germany',
+        country: { descriptor: 'United Kingdom', alpha2Code: 'GB' },
+      },
+    });
+
+    expect(await makeParser().fetchAllJobs()).toHaveLength(0);
+  });
+
+  it('does not use the mapped code for a foreign primary country', async () => {
+    mockSinglePosting({
+      location: 'DWL T',
+      jobRequisitionLocation: {
+        descriptor: 'DWL T',
+        country: { descriptor: 'Germany', alpha2Code: 'DE' },
+      },
+    });
+
+    expect(await makeParser().fetchAllJobs()).toHaveLength(0);
+  });
+
+  it('keeps dropping an unmapped facility code and logs its primary descriptor and country', async () => {
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockSinglePosting({
+      location: 'NEW SITE',
+      jobRequisitionLocation: {
+        descriptor: 'NEW SITE',
+        country: { descriptor: 'Switzerland', alpha2Code: 'CH' },
+      },
+    });
+
+    expect(await makeParser().fetchAllJobs()).toHaveLength(0);
+    const unresolvedLog = logs.mock.calls
+      .flat()
+      .map((line) => String(line))
+      .find((line) => line.includes('Skipped unresolved'));
+    expect(unresolvedLog).toContain('primary=NEW SITE');
+    expect(unresolvedLog).toContain('country=Switzerland');
+  });
+
+  it('rejects a facility entry without non-empty evidence', () => {
+    expect(() => makeParser({
+      facilityLocations: {
+        'DWL T': { locality: 'Baden', evidence: '  ' },
+      },
+    })).toThrow(/facilityLocations.*evidence/i);
+  });
+});
+
 /**
  * Issue #9651 (siemens-healthineers). The Swiss facet returns only reqs that
  * are cross-posted to a Swiss site while their PRIMARY workplace is abroad
