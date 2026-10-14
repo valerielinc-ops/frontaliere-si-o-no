@@ -1,7 +1,7 @@
 import { matchContentLinks } from './contentLinkVocabulary.mjs';
 
 /** Link prose with a shared article budget; preserve existing anchors, code and headings. */
-export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled = () => true, destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
+export function linkContentKeywords(text, locale = 'it', { matcher = matchContentLinks, enabledIds, isEnabled = () => true, destinations = {}, maxLinks = 3, usedIds = new Set() } = {}) {
  if (!text) return text;
 
  // 1. Build a stripped copy (no * chars) with a position map back to the original
@@ -32,6 +32,7 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  // gets wrapped again, nesting a [word](nav:action) inside the existing brackets and
  // corrupting the markdown.
  const existingLinkSpans = [];
+ const existingTargets = new Set();
  const usedActions = usedIds;
  const navLinkRe = /\[([^\]]+)\]\(nav:([a-z0-9\-]+)\)/g;
  let nlm;
@@ -43,6 +44,7 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  let ulm;
  while ((ulm = urlLinkRe.exec(text)) !== null) {
  existingLinkSpans.push([ulm.index, ulm.index + ulm[0].length]);
+ existingTargets.add(ulm[0].slice(ulm[0].lastIndexOf("](") + 2, -1));
  for (const [id, destination] of Object.entries(destinations)) {
    if (ulm[0].endsWith(`](${destination})`)) usedActions.add(id);
  }
@@ -58,7 +60,7 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  // 4. Match keyword patterns against the stripped text
  const matches = [];
 
- for (const m of matchContentLinks(stripped, locale)) {
+ for (const m of matcher(stripped, locale)) {
  const action = m.id;
  if (usedActions.has(action)) continue;
  if (enabledIds && !enabledIds.includes(action)) continue;
@@ -89,7 +91,9 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  if (matches.some(prev => origStart < prev.origEnd && origEnd > prev.origStart)) continue;
  if (existingLinkSpans.some(([ls, le]) => origStart < le && origEnd > ls)) continue;
 
- matches.push({ origStart, origEnd, action, linkText });
+ const target = destinations[action] || m.target;
+ if (target && (!/^\/(?!\/)/.test(target) || /[\s<>"'()]/.test(target) || existingTargets.has(target))) continue;
+ matches.push({ origStart, origEnd, action, linkText, target });
  usedActions.add(action);
  }
 
@@ -97,7 +101,7 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  matches.sort((a, b) => b.origStart - a.origStart);
  let result = text;
  for (const m of matches) {
- result = result.slice(0, m.origStart) + `[${m.linkText}](${destinations[m.action] || `nav:${m.action}`})` + result.slice(m.origEnd);
+ result = result.slice(0, m.origStart) + `[${m.linkText}](${m.target || `nav:${m.action}`})` + result.slice(m.origEnd);
  }
  return result;
 }

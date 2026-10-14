@@ -1,3 +1,4 @@
+import { linkContentKeywords } from '../packages/articles/engine/shared/linkContentKeywords.mjs';
 import { describe, it, expect } from 'vitest';
 import { createContentKeywordMatcher, rankContentDestinations } from '../packages/articles/engine/shared/contentKeywordMatcher.mjs';
 import { matchContentLinks } from '../packages/articles/engine/shared/contentLinkVocabulary.mjs';
@@ -64,3 +65,12 @@ describe('multilingual content matching', () => {
     expect(autoLinkKeywords('Le coût de la vie augmente.', nav, 'fr')).toContain('[coût de la vie](nav:cost-of-living)');
   });
 });
+
+ it('links arbitrary catalogue content from multilingual pair/triple matches', () => {
+   const matcher = createContentKeywordMatcher([{ id: 'guide', target: '/en/guide/',
+     combinations: { en: [[['Swiss'], ['salary'], ['calculator']]] } }]);
+   expect(linkContentKeywords('A Swiss net salary calculator helps.', 'en', { matcher }))
+     .toBe('A [Swiss net salary calculator](/en/guide/) helps.');
+   const unsafe = createContentKeywordMatcher([{ id: 'unsafe', target: 'javascript:alert(1)', aliases: { en: ['unsafe'] } }]);
+   expect(linkContentKeywords('unsafe', 'en', { matcher: unsafe })).toBe('unsafe');
+ });
