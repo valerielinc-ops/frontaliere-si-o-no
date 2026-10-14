@@ -46,8 +46,8 @@ describe('known orphan-query URLs survive ranking changes', () => {
     expect((await renderClusters(2)).lastExists).toBe(false);
   });
 
-  it('rejects an oversized input before silently deleting the tail', async () => {
-    vi.stubEnv('MAX_ORPHAN_LANDINGS', '0');
+  it.each(['0', '-1', '1.9', 'invalid'])('rejects oversized input with a default or invalid override (%s)', async (raw) => {
+    vi.stubEnv('MAX_ORPHAN_LANDINGS', raw);
     vi.stubEnv('SKIP_ORPHAN_LANDINGS', '0');
     await expect(renderClusters(DEFAULT_MAX_LANDINGS + 1)).rejects.toThrow('refusing to silently drop published pages');
   });

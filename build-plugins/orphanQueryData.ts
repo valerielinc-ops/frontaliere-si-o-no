@@ -212,8 +212,9 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
 // Hoisting the invariants out of the (clusters x jobs) pair loop
 //
 // `orphanQueryLandingPlugin` calls `filterMatchingJobs(jobs, cluster, 15)` once
-// per cluster — 1000 clusters (DEFAULT_MAX_LANDINGS) over ~26k jobs = ~26M
-// (job, cluster) pairs per build, twice (the emission pass and the hub-hreflang
+// per selected cluster — cohortSize × jobCount pair checks per pass, bounded
+// by DEFAULT_MAX_LANDINGS in the owning plugin (not a fixed 1,000-row cohort).
+// Both passes (the emission pass and the hub-hreflang
 // availability pass both go through `renderClusterPage`). Deploy 31065272867
 // measured the `it` leg at wall_s=190.98 cpu_s=197.50 while the plugin's own
 // emit is 0.7 s — i.e. essentially the whole plugin is this pair loop.
