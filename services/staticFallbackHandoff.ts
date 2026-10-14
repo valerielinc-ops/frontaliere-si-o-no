@@ -1,16 +1,18 @@
 /**
  * SPA-takeover handoff of a body-level crawler fallback into `#root` (CLS).
  *
- * SPA-owned routes (router `staticOverlay` falsy — the job board, job detail,
- * search…) ship their crawler-facing `<main class="seo-static-content">` (or
- * `main.cluster-seo-prose`) OUTSIDE `#root`, usually wrapped in the build-time
- * `.ft-rail-grid`. index.tsx moves it INTO `#root` right before
- * `createRoot().render()`, so React replaces it in place under the reserved
- * height instead of App.tsx collapsing it from outside.
+ * SPA-owned routes (router `staticOverlay` falsy — job detail, search, and
+ * legacy job-board HTML…) ship their crawler-facing `<main
+ * class="seo-static-content">` (or `main.cluster-seo-prose`) OUTSIDE `#root`,
+ * usually wrapped in the build-time `.ft-rail-grid`. index.tsx moves it INTO
+ * `#root` right before `createRoot().render()`, so React replaces it in place
+ * under the reserved height instead of App.tsx collapsing it from outside.
+ * The current job-board generator emits its static main inside `#root` and
+ * therefore does not need this runtime move.
  *
- * The hub pages (`/cerca-lavoro-ticino/` and its locale twins) also emit the
- * static hub sub-nav `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN
- * `#root` and the fallback. Moving only the fallback reorders the document:
+ * Legacy generic hub fallbacks can also emit the static hub sub-nav
+ * `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN `#root` and the
+ * fallback. Moving only the fallback reorders the document:
  * the fallback jumps above the sub-nav, and the 100px sub-nav is thrown from
  * just under the header to below the whole listing — a 0.106 layout shift on
  * desktop measured with Playwright attribution against production (#8868).
@@ -201,14 +203,17 @@ const isBetween = (before: Node, node: Node, after: Node): boolean =>
   && Boolean(node.compareDocumentPosition(after) & Node.DOCUMENT_POSITION_FOLLOWING);
 
 /**
- * Move `fallback` (and the body-level static hub sub-nav painted above it) to
- * the end of `root`, preserving their visual order, and hide the now-empty
- * `.ft-rail-grid` wrapper the fallback came from.
+ * Move an outside-`#root` `fallback` (and the body-level static hub sub-nav
+ * painted above it) to the end of `root`, preserving their visual order, and
+ * hide the now-empty `.ft-rail-grid` wrapper the fallback came from. Static
+ * hubs emitted inside `#root` are already adopted and remain in place.
  */
 export function adoptStaticFallbackIntoRoot(
   root: HTMLElement,
   fallback: HTMLElement,
 ): StaticFallbackAdoption {
+  if (root.contains(fallback)) return { subnav: null, railWrap: null };
+
   const doc = root.ownerDocument;
   const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
   const anchor = railWrap ?? fallback;

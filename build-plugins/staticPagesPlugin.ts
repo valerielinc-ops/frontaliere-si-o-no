@@ -5962,7 +5962,10 @@ ${hubChromeSplit?.bodyHtml ?? ''}
  const isBareArticleIndex =
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
- ? `${rootShell(hasSpaBundle)}
+ ? isJobBoardHub
+   ? `${rootShell(hasSpaBundle, staticHubMainHtml)}
+ <div id="footer-root"></div>`
+   : `${rootShell(hasSpaBundle)}
 ${staticHubSubnavHtml}
 ${isJobBoardHub ? '' : railGridOpen}
 ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}

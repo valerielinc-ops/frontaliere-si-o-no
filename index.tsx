@@ -24,6 +24,11 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
 );
 
+const JOB_BOARD_STATIC_CONTENT_SELECTOR = 'main.seo-static-content.job-board-static-hub';
+
+const hasJobBoardPreRenderedPaintContent = (): boolean =>
+ !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
+
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
@@ -109,6 +114,12 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
+ if (hasJobBoardPreRenderedPaintContent()) {
+   await waitForInitialPaintOpportunity({
+     waitForLargestContentfulPaint: true,
+     largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR,
+   });
+ }
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([
@@ -173,15 +184,18 @@ const bootstrapApp = async () => {
  await i18n.itReady;
  }
 
- // CLS handoff fix: SPA-takeover pages (router staticOverlay=false — job detail,
- // search, …) emit their crawler fallback <main class="seo-static-content"> as a
- // sibling OUTSIDE #root, which paints at SSG time then App.tsx hides post-
- // hydration — collapsing ~800px and jumping the footer (live desktop CLS ~0.2
- // job detail, up to ~0.9 thin search). MOVE the fallback into #root so React+s
- // createRoot().render() replaces it IN-PLACE (reusing the reserve+crossfade
- // below) instead of an external collapse. parsePath is dynamic-imported (NOT a
- // static entry import) so router+s heavy route registries stay out of the entry
- // chunk — it is already loaded with App above, so this resolves from cache.
+ // CLS handoff fix: most SPA-takeover pages (router staticOverlay=false — job
+ // detail, search, and legacy job-board HTML) emit their crawler fallback
+ // <main class="seo-static-content"> as a sibling OUTSIDE #root, which paints
+ // at SSG time then App.tsx hides post-hydration — collapsing ~800px and
+ // jumping the footer (live desktop CLS ~0.2 job detail, up to ~0.9 thin
+ // search). MOVE that fallback into #root so React+s createRoot().render()
+ // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
+ // external collapse. The current job-board generator already emits its main
+ // inside #root, so it skips this move and keeps its painted DOM stable.
+ // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
+ // route registries stay out of the entry chunk — it is already loaded with App
+ // above, so this resolves from cache.
  // Gated by the shared route/fallback ownership decision so true static
  // landings and article/topic snapshots keep their body; crawlers (no JS)
  // still get the fallback verbatim.

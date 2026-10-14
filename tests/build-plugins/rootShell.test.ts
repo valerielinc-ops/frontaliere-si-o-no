@@ -21,11 +21,25 @@ describe('rootShell — header-reserve spacer is gated on the SPA bundle', () =>
     expect(html).not.toMatch(/<main/);
   });
 
+  it('keeps supplied static content inside the root after the reserve', () => {
+    const html = rootShell(true, '<main class="seo-static-content job-board-static-hub"></main>');
+    expect(html).toBe(
+      '<div id="root"><div class="ft-hdr-reserve" aria-hidden="true"></div>'
+      + '<main class="seo-static-content job-board-static-hub"></main></div>',
+    );
+  });
+
   it('emits a plain empty #root when there is NO bundle (no permanent gap)', () => {
     const html = rootShell(false);
     expect(html).toBe('<div id="root"></div>');
     // critically: NO spacer, so a never-mounting page degrades to 0px #root,
     // not a permanent header-height empty band.
+    expect(html).not.toContain('ft-hdr-reserve');
+  });
+
+  it('keeps supplied static content when no bundle is available', () => {
+    const html = rootShell(false, '<main class="seo-static-content job-board-static-hub"></main>');
+    expect(html).toBe('<div id="root"><main class="seo-static-content job-board-static-hub"></main></div>');
     expect(html).not.toContain('ft-hdr-reserve');
   });
 });
