@@ -34,6 +34,7 @@ describe('le team sa source-backed crawler', () => {
 
   it('uses the official category listing plus the currently applyable official detail URL', () => {
     const spec = loadSpec(LE_TEAM_KEY);
+    expect(spec.candidateKey).toBe('le-team@delemont');
     expect(spec.seedUrls).toContain('https://team.jobs/fr/jobs?professionCategoryIds=5');
     expect(spec.seedUrls).toContain(detailUrl);
     expect(spec.listingCandidateText).toBe('maçon');

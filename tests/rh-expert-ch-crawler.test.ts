@@ -40,6 +40,8 @@ describe('RH-Expert source-backed detail extraction', () => {
 
   it('keeps the official RH-Expert spec and rejects marketplace URLs', () => {
     const spec = loadSpec(RH_EXPERT_CH_KEY);
+    expect(spec.candidateKey).toBe('rh-expert@geneve');
+    expect(spec.revalidateRejectedWithSourceAdapter).toBe(true);
     expect(spec.companyHost).toBe('rh-expert.ch');
     expect(spec.listingCandidateText).toBe('commis de salle');
     expect(spec.sampleTitles).toEqual(['Commis de salle']);

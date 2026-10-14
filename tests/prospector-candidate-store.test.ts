@@ -11,6 +11,7 @@ import {
   MAX_REJECTED_TOMBSTONES,
   isTraceRetryDue,
   pruneTerminal,
+  reopenRejectedCandidate,
   reviveRetryableDeadCandidate,
   scheduleTraceRetry,
   saveCandidates,
@@ -96,6 +97,46 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(setStatus(store, key, 'new', { name: 'Recovered' }, null)).toEqual(before);
     expect(store.candidates[key]).toEqual(before);
     expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+  });
+
+  it('reopens only after a new source-adapter validation and only once per version', () => {
+    const key = 'rh-expert.ch';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'rejected',
+        rejectedAt: OLD,
+        updatedAt: OLD,
+        validationHistory: [{ verdict: 'bad', sourceAdapterVersion: null }],
+      },
+    }, { [key]: { rejectedAt: OLD } });
+
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null)).toBeNull();
+    expect(store.rejectedTombstones[key]).toEqual({ rejectedAt: OLD });
+
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v1',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null))
+      .toMatchObject({ status: 'validated', reopenedSourceAdapterVersion: 'rh-expert-ch-dedicated-v1' });
+    expect(store.rejectedTombstones[key]).toBeUndefined();
+    expect(store.candidates[key].rejectedAt).toBeUndefined();
+
+    setStatus(store, key, 'rejected', { validationHistory: store.candidates[key].validationHistory }, null);
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v1',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v1', null)).toBeNull();
+    expect(store.rejectedTombstones[key]).toBeDefined();
+
+    store.candidates[key].validationHistory.push({
+      verdict: 'good',
+      sourceAdapterVersion: 'rh-expert-ch-dedicated-v2',
+    });
+    expect(reopenRejectedCandidate(store, key, 'rh-expert-ch-dedicated-v2', null))
+      .toMatchObject({ status: 'validated', reopenedSourceAdapterVersion: 'rh-expert-ch-dedicated-v2' });
   });
 
   it('persists legacy tombstones without carrying diagnostic payload', () => {
