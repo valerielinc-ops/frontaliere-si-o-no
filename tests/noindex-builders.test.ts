@@ -121,17 +121,16 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('expiredRobotsTag');
     });
 
-    it('legacy slug bridge pages serve full locale-canonical HTML (indexable, BRIDGE_TARGET_SLUG injected)', () => {
+    it('legacy slug bridge pages serve full locale-canonical HTML but stay noindex', () => {
       // Phase 4 (2026-04-30): replaces the previous thin
       // buildCanonicalBridgePage redirect — those were noindex,follow with
       // a `location.replace` placeholder UI. The new bridge reuses the
       // full locale-canonical `html` (same pattern as the previousSlugs
       // bridge at jobsSeoPagesPlugin:7264-7271): `<link rel="canonical">`
       // inside `html` already points at the locale-canonical URL, so
-      // Google folds equity. Robots stays at the canonical's default
-      // (index,follow) — the previous noindex was a workaround for
-      // title-uniqueness duplication that the canonical signal already
-      // handles. The page is now SPA-hydratable (bundle inside `html`),
+      // Google folds equity. The old URL stays noindex so only the
+      // canonical detail can compete in search. The page is still
+      // SPA-hydratable (bundle inside `html`),
       // monetised (ADSENSE_SNIPPET inherited), and auth-gated for real
       // users while bypassing for crawlers via `isCrawlerVisitor`.
       // Anchor on the `if` statement, not the comment, so the comment block
@@ -143,7 +142,7 @@ describe('SEO builder noindex guards', () => {
       const block = source.slice(start, end);
       // Reuses the locale-canonical html, NOT the thin redirect builder.
       expect(block).not.toContain('buildCanonicalBridgePage');
-      expect(block).not.toContain('noindex: true');
+      expect(block).toContain('noindexJobAliasHtml');
       // Hooks: __BRIDGE_TARGET_SLUG__ for the SPA's lookup, plus the
       // canonical html as the source.
       expect(block).toContain('__BRIDGE_TARGET_SLUG__');
@@ -151,6 +150,29 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('html.replace(\'</head>\'');
       // Cross-job collision guard: don't clobber another job's canonical.
       expect(block).toContain('activeJobDirs.has');
+    });
+
+    it('previous-slug bridges force noindex after fresh render or cache reuse', () => {
+      const start = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+      const end = source.indexOf('if (bridgeCount > 0)', start);
+      const block = source.slice(start, end);
+      expect(start).toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      expect(block).toContain('indexHtml = noindexJobAliasHtml(indexHtml);');
+      expect(block).toContain('const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);');
+    });
+
+    it('recovers only complete self-canonical job details from the noindex quality gate', () => {
+      const start = source.indexOf('const jobPostingDescriptionHtml =');
+      const end = source.indexOf('<!doctype html>', start);
+      const block = source.slice(start, end);
+      expect(start).toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      expect(block).toContain('sourceDetailWordCount');
+      expect(block).toContain('effectiveCanonicalUrl === canonicalUrl');
+      expect(block).toContain('completeCanonicalDetail');
+      expect(block).toContain('ROBOTS_INDEX_ENHANCED');
+      expect(block).toContain('ROBOTS_NOINDEX_FOLLOW');
     });
 
     it('company slug alias pages serve full canonical content (no thin stub, no noindex)', () => {

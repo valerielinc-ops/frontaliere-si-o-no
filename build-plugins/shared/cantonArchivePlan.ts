@@ -3,7 +3,6 @@ import type fsT from 'node:fs';
 import type npT from 'node:path';
 import { resolveJobCanton } from './cantonSection';
 import { JOBS_PAGE_SIZE } from '../seoHubsData';
-import { MIN_JOBS_FOR_CANTON_PAGE } from '../weeklyEmployersData';
 
 function slugifyEmployer(value: string): string {
   return String(value || '').toLowerCase().normalize('NFD')
@@ -107,19 +106,27 @@ export function readJobsData(
   return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
 }
 
-/** Zero means only the below-floor canonical bridge will be emitted. */
+/**
+ * Return the archive pages for a complete canton hub.
+ *
+ * Canton roots and their `tutti/settori/aziende` children are valid landing
+ * pages even when the current snapshot is small or empty: the renderer carries
+ * the geographic context, navigation and fallback copy in that case. The
+ * caller may still pass `parentIndexable = false` for a genuinely disabled
+ * parent, but job-count and deduplication floors must not turn a live URL into
+ * a noindex bridge.
+ */
 export function cantonArchivePageCount(
   total: number,
   jobs: readonly CantonJobEntry[],
   parentIndexable: boolean,
 ): number {
-  if (!parentIndexable || total < MIN_JOBS_FOR_CANTON_PAGE || jobs.length < MIN_JOBS_FOR_CANTON_PAGE) return 0;
-  const dedupKeys = new Set<string>();
-  for (const job of jobs) {
-    const role = String(job.role || '').toLowerCase().replace(/\s+/g, ' ').trim();
-    const employer = String(job.employerKey || job.employer || '').toLowerCase().replace(/\s+/g, ' ').trim();
-    dedupKeys.add(`tc|${role}|${employer}`);
-  }
-  if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) return 0;
-  return Math.max(1, Math.ceil(jobs.length / JOBS_PAGE_SIZE));
+  if (!parentIndexable) return 0;
+  // `total` is the live visible count, while `jobs` is the snapshot that is
+  // actually rendered into archive cards. Keep pagination tied to the latter
+  // so a stale count cannot create empty page-N URLs; one complete page still
+  // exists when the snapshot is empty.
+  void total;
+  const itemCount = Math.max(0, jobs.length);
+  return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
 }

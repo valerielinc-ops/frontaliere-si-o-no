@@ -7,6 +7,7 @@ import { JSDOM } from 'jsdom';
 import { jobsSeoPagesPlugin } from '../../build-plugins/jobsSeoPagesPlugin';
 import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
 import { hubSlugFor } from '../../build-plugins/seoHubsData';
+import { normalizeCitySlug } from '../../build-plugins/shared/cantonCities';
 import { employerProfilePagesPlugin } from '../../build-plugins/employerProfilePagesPlugin';
 import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
 import { getActiveJobCountsByLocale } from '../../build-plugins/jobBoardSeo';
@@ -140,6 +141,23 @@ describe('job-board emitted output', () => {
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
       }
       expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, '_AGGREGATE_').length);
+    }
+  });
+
+  it('keeps low-volume canton roots and every canonical city hub indexable', () => {
+    const emptyCity = normalizeCitySlug('Altstätten');
+    const populatedCity = normalizeCitySlug('St. Gallen');
+    for (const locale of locales) {
+      for (const relative of [
+        hubPath(locale, 'SG'),
+        `${hubPath(locale, 'SG')}${emptyCity}/`,
+        `${hubPath(locale, 'SG')}${populatedCity}/`,
+      ]) {
+        const document = htmlDoc(relative);
+        expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).not.toMatch(/noindex/i);
+        expect(document.querySelector('main.seo-static-content')).toBeTruthy();
+      }
+      expect(htmlDoc(`${hubPath(locale, 'SG')}${emptyCity}/`).body.textContent).toContain('Altstatten');
     }
   });
 
