@@ -358,7 +358,7 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
   });
 
-  it('noindex rescue hubs do not emit rich JSON-LD', async () => {
+  it('complete city hubs emit rich JSON-LD and stay indexable', async () => {
     const { readFileSync } = await import('fs');
     const { resolve } = await import('path');
     const src = readFileSync(
@@ -369,13 +369,12 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     const anchorEnd = src.indexOf('Static paginated listing pages');
     const block = src.slice(anchorStart, anchorEnd);
 
-    // Sub-threshold/empty city hubs intentionally remain live as 404-rescue
-    // pages, but their noindex directive must agree with their structured-data
-    // surface. Emitting CollectionPage/ItemList on those pages triggers the
-    // crawler's schema-noindex-conflict rule.
-    expect(block).toContain('const cityHubIndexable = meetsCantonThreshold && !isCityEmpty;');
+    // Every canonical city URL now carries the complete geographic template,
+    // including the empty/low-inventory variant, so it may expose its
+    // CollectionPage/ItemList and remains indexable.
+    expect(block).toContain('const cityHubIndexable = true;');
     expect(block).toContain('jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],');
-    expect(block).toContain("robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',");
+    expect(block).toContain("robots: 'index,follow',");
   });
 
   // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin
