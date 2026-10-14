@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-10-14T06:14:55.238Z",
+  "generatedAt": "2026-10-14T09:36:49.953Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5573,
-  "avgDurationMs": 5573,
+  "durationMs": 5437,
+  "avgDurationMs": 5437,
   "durationHistory": [
-    5573
+    5437
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154361959-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T06:14:38.849Z",
+      "crawledAt": "2026-10-14T09:36:35.765Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T06:14:38.847Z",
+      "crawledAt": "2026-10-14T09:36:35.764Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "182153242d5d490914d68a5e7e33e3272ec69510"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

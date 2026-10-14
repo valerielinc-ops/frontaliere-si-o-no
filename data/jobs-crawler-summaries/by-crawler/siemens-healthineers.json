@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-14T06:13:31.329Z",
+  "generatedAt": "2026-10-14T09:33:55.626Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6942,
-  "avgDurationMs": 6942,
+  "durationMs": 6480,
+  "avgDurationMs": 6480,
   "durationHistory": [
-    6942
+    6480
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "siemens-healthineers-f64c15516f90",
-      "slug": "information-systems-engineer-siemens-healthineers-ch",
+      "slug": "information-systems-ingegnere-siemens-healthineers-baden",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -35,7 +36,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T06:13:11.462Z",
+      "crawledAt": "2026-10-14T09:33:41.157Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -52,11 +53,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "jobReqId": "R-29335",
+      "firstSeenAt": "2026-10-14T06:13:11.462Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
       "postalCode": "5400",
-      "firstSeenAt": "2026-10-14T06:13:11.462Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,7 +79,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Usability-Engineer_R-31377-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T06:13:10.772Z",
+      "crawledAt": "2026-10-14T09:33:40.468Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -95,11 +96,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Usability-Engineer_R-31377-1",
       "jobReqId": "R-31377",
+      "firstSeenAt": "2026-10-14T06:13:10.772Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
       "postalCode": "5400",
-      "firstSeenAt": "2026-10-14T06:13:10.772Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -110,7 +111,7 @@
     },
     {
       "id": "siemens-healthineers-235b60d2d69a",
-      "slug": "qa-engineer-siemens-healthineers-ch",
+      "slug": "qa-ingegnere-siemens-healthineers-baden",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -121,7 +122,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T06:13:10.051Z",
+      "crawledAt": "2026-10-14T09:33:39.780Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -151,8 +152,7 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "182153242d5d490914d68a5e7e33e3272ec69510"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
