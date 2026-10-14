@@ -541,7 +541,9 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'zurzach-care': cLogo('zurzachcare.ch'),
  // Logo backlog #6504: five batches consolidated because they share this
  // registry and the same audit/download path (#6918–#6922).
- 'fachkraft': cLogo('fachkraft.ch'),
+ // Official header logo from https://www.fachkraft.ch/ (1024x160 PNG):
+ // https://assets01.sdd1.ch/assets/lbwp-cdn/fachkraft/files/1733403255/fachkraft_logo-e1773931199857.png
+ 'fachkraft': '/images/brands/fachkraft.png',
  'stadt-zuerich': cLogo('stadt-zuerich.ch'),
  'kanton-aargau': '/images/brands/kanton-aargau.png',
  'ksml': gFavicon('be.ch'),
