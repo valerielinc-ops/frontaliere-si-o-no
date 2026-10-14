@@ -15,6 +15,7 @@ import {
   resolveAutomatedPullRequestFiles,
   squashCommitPathsByPullNumber,
 } from '../scripts/ci/audit-live-data-roots.mjs';
+import { LIVE_DATA_ROOTS } from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('audit periodico delle radici dati automatiche', () => {
   it('isola i percorsi dei commit bot diretti, escludendo i merge di PR', () => {
@@ -85,6 +86,21 @@ describe('audit periodico delle radici dati automatiche', () => {
     expect(audit.directOnly).toEqual(['docs/generated/report.json']);
     expect(audit.pullRequestOnly).toEqual(['data/pr-only.json']);
     expect(audit.both).toEqual(['data/new.json']);
+  });
+
+  it('non segnala radici live già coperte dai test con replay', () => {
+    const paths = [
+      'data/ai-channel-history.jsonl',
+      'data/adsense-format-ab-history.jsonl',
+      'data/pharmacy-duties-geneva.json',
+      'data/pharmacy-duties-geneva-status.json',
+    ];
+    const audit = auditLiveDataRoots({
+      directPaths: paths,
+    });
+
+    expect(LIVE_DATA_ROOTS).toEqual(expect.arrayContaining(paths));
+    expect(audit.uncovered).toEqual([]);
   });
 
   it('genera un report stabile con la finestra e tutti i percorsi scoperti', () => {

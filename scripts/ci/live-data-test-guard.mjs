@@ -78,6 +78,9 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/article-performance.json',
   'data/border-wait',
   'data/active-jobs-baseline.json',
+  // Scheduled analytics/report workflows append these replay-backed histories.
+  'data/ai-channel-history.jsonl',
+  'data/adsense-format-ab-history.jsonl',
   'data/employer-profiles.json',
   'data/events.json',
   'data/events/',
@@ -93,6 +96,8 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   // writer, so the former broad "data/pharmac" prefix misclassified it.
   'data/pharmacies-ticino-complete.json',
   'data/pharmacies-italy-border.json',
+  'data/pharmacy-duties-geneva.json',
+  'data/pharmacy-duties-geneva-status.json',
   'data/pharmacy-duties-ticino.json',
   'data/pharmacy-duties-ticino-status.json',
   'data/pharmacy-duties-italy.json',

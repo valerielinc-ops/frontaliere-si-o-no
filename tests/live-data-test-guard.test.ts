@@ -210,6 +210,16 @@ describe('il rilevatore', () => {
       .toEqual(['data/active-jobs-baseline.json']);
   });
 
+  it('registra ogni radice data dichiarata dai test live', () => {
+    const uncovered = [...KNOWN_LIVE_DATA_TESTS, ...LIVE_DATA_PARTIAL_TESTS]
+      .flatMap(({ file, roots }) => roots
+        .filter((root) => root.startsWith('data/')
+          && !LIVE_DATA_ROOTS.some((registered) => root.startsWith(registered)))
+        .map((root) => `${file} → ${root}`));
+
+    expect(uncovered).toEqual([]);
+  });
+
   it('lega le radici del bot inventory ai test live, incluso il reciprocity guard SEO', () => {
     const contracts = [
       { file: 'tests/seo/rate-baseline-internal-consistency.test.ts', root: 'data/active-jobs-baseline.json' },
