@@ -1,25 +1,25 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-13T21:20:32.198Z",
-  "total": 3,
+  "generatedAt": "2026-10-14T09:27:55.145Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5554,
-  "avgDurationMs": 5554,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 5127,
+  "avgDurationMs": 5127,
   "durationHistory": [
-    5554
+    5127
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152146630-care-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:20:20.791Z",
+      "crawledAt": "2026-10-14T09:27:44.846Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -66,50 +66,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "klinik-siloah-6fe47603b42b",
-      "slug": "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-69487c519a",
-      "company": "Privatklinik Siloah",
-      "companyKey": "klinik-siloah",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Pflegefachperson HF/FH mit Berufsbildnerfunktion 80%-100%",
-      "needsRetranslation": false,
-      "location": "Muri bei Bern",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
-      "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:20:20.792Z",
-      "addressLocality": "Muri bei Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3074",
-      "streetAddress": "Worbstrasse 324, 3073 Gümligen",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13T06:34:45.021Z",
-      "postedDate": "2026-10-13T06:34:45.021Z",
-      "postingDateSource": "reported",
-      "firstSeenAt": "2026-09-30T21:17:08.487Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
+  "removedJobs": [
     {
       "id": "klinik-siloah-413d55e1439a",
       "slug": "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-77fb4f250c",
@@ -154,5 +111,49 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "unchangedJobs": [
+    {
+      "id": "klinik-siloah-6fe47603b42b",
+      "slug": "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-69487c519a",
+      "company": "Privatklinik Siloah",
+      "companyKey": "klinik-siloah",
+      "companyDomain": "swissmedical.net",
+      "title": "Dipl. Pflegefachperson HF/FH mit Berufsbildnerfunktion 80%-100%",
+      "needsRetranslation": false,
+      "location": "Muri bei Bern",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
+      "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T09:27:44.845Z",
+      "addressLocality": "Muri bei Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3074",
+      "streetAddress": "Worbstrasse 324, 3073 Gümligen",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T06:34:45.021Z",
+      "postedDate": "2026-10-13T06:34:45.021Z",
+      "postingDateSource": "reported",
+      "firstSeenAt": "2026-09-30T21:17:08.487Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
