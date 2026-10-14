@@ -130,6 +130,29 @@ function checkConfirmedFabricatedInstitutionNames(text: string): string[] {
     .map(({ label }) => label);
 }
 
+const MAX_REPORTED_FABRICATED_INSTITUTIONS = 20;
+
+interface ConfirmedFabricatedInstitutionOffender {
+  articleId: string;
+  locale: string;
+  name: string;
+}
+
+function formatConfirmedFabricatedInstitutionOffenders(
+  total: number,
+  offenders: readonly ConfirmedFabricatedInstitutionOffender[],
+): string {
+  const reported = offenders.slice(0, MAX_REPORTED_FABRICATED_INSTITUTIONS);
+  return [
+    `Found ${total} confirmed fabricated institution name(s).`,
+    `First ${reported.length} of ${total}:`,
+    ...reported.map(
+      ({ articleId, locale, name }) =>
+        ` - article=${articleId}; locale=${locale}; name=${name}`,
+    ),
+  ].join('\n');
+}
+
 const LOCALE_INSTITUTION_NOUN: Record<string, string> = {
   en: String.raw`(?:Office|Offices|Agency|Department|Commission|Institute|Authority|Secretariat|Directorate|Administration|Observatory|Bureau)`,
   de: String.raw`(?:[A-Za-zÄÖÜäöüß]*(?:amt|amtes|amts)|Departement|Departements|Kommission|Institut|Instituts|Behörde|Sekretariat|Sekretariats|Direktion|Verwaltung|Agentur)`,
@@ -291,13 +314,36 @@ describe('article fabrication guard', () => {
   });
 
   it('rejects confirmed fabricated institution names in every locale', () => {
-    const offenders: string[] = [];
+    let offenderCount = 0;
+    const offenders: ConfirmedFabricatedInstitutionOffender[] = [];
     for (const file of fileTexts) {
       for (const evidence of checkConfirmedFabricatedInstitutionNames(unescapeTsString(file.text))) {
-        offenders.push(`${file.id}: ${evidence}`);
+        offenderCount += 1;
+        if (offenders.length < MAX_REPORTED_FABRICATED_INSTITUTIONS) {
+          offenders.push({ articleId: file.id, locale: file.locale, name: evidence });
+        }
       }
     }
-    expect(offenders).toEqual([]);
+    expect(
+      offenderCount,
+      formatConfirmedFabricatedInstitutionOffenders(offenderCount, offenders),
+    ).toBe(0);
+  }, 60_000);
+
+  it('bounds confirmed-fabrication failure diagnostics', () => {
+    const offenders = Array.from(
+      { length: MAX_REPORTED_FABRICATED_INSTITUTIONS + 1 },
+      (_, index) => ({
+        articleId: `blog-body/it/article-${index}`,
+        locale: 'it',
+        name: `Fabricated Institution ${index}`,
+      }),
+    );
+    const report = formatConfirmedFabricatedInstitutionOffenders(21, offenders);
+
+    expect(report).toContain('Found 21 confirmed fabricated institution name(s).');
+    expect(report).toContain('article=blog-body/it/article-19; locale=it; name=Fabricated Institution 19');
+    expect(report).not.toContain('article=blog-body/it/article-20');
   });
 
   it('recognises each translated confirmed-fabrication fixture', () => {
