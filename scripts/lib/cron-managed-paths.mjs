@@ -51,6 +51,7 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
   'data/border-wait-current.json',
   'data/border-wait-history/*',
   'public/data/switzerland-unemployment-rate.json',
+  'public/data/plate-auctions-archive/*',
   // Avvisi ufficiali cantonali (crawl-canton-notices.yml, 3 giri al giorno) e
   // riassunto dei turni farmacia per il corpus (sync-pharmacies-border.yml).
   'data/canton-notices.json',

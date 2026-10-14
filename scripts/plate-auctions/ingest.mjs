@@ -37,6 +37,7 @@ import {
   recognizeTimedCatalogueTurnover,
 } from '../../functions/src/plateAuctionQualityCore.js';
 import { isExplicitlyEmptyCatalogue } from '../../functions/src/plateAuctionsCore.js';
+import { writePlateAuctionArchive } from '../lib/plate-auction-archive.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
@@ -439,6 +440,7 @@ export async function collectPlateAuctions({
 
 export async function writePlateAuctionSnapshot(snapshot, outputPath = DEFAULT_OUTPUT) {
   mkdirSync(dirname(outputPath), { recursive: true });
+  writePlateAuctionArchive(snapshot, resolve(dirname(outputPath), 'plate-auctions-archive'));
   writeFileSync(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
 }
 
