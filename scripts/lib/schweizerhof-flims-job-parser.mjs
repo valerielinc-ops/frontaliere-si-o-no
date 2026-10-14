@@ -141,21 +141,14 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/**
- * Read the source-owned tenant heading from the HCM4all job body.
- *
- * The current portal places the target identity in a vacancy-body heading
- * (`main > section > h2`), while the generic structured payload carries the
- * same employer text inside the description and contact block. The old
- * `Schweizerhof Flims` discriminator therefore depended on incidental contact
- * text and made the 25 unrelated tenant details look like a broken snapshot.
- * Keep the selector scoped to the JobPosting body/main; never use email,
- * phone, footer or whole-page first-match text as tenant evidence.
- *
- * @param {string} html
- * @returns {string}
- */
-function extractSchweizerhofTenantHeading(html = '') {
+function removeSchweizerhofExcludedMarkup(html = '') {
+  return String(html || '')
+    .replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bitemprop\s*=\s*(['"])(?:email|telephone)\2[^>]*>[\s\S]*?<\/\1>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bhref\s*=\s*(['"])(?:mailto:|tel:)[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function extractSchweizerhofJobMain(html = '') {
   const source = String(html || '');
   const jobBody = scanStartTags(source, 'div').find(({ raw }) =>
     /\bjob-ad-body\b/i.test(readAttr(raw, 'class')),
@@ -163,7 +156,61 @@ function extractSchweizerhofTenantHeading(html = '') {
   if (!jobBody) return '';
 
   const body = extractBalancedTagBlock(source.slice(jobBody.end), 'div');
-  const main = /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(body)?.[1] || '';
+  return removeSchweizerhofExcludedMarkup(
+    /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(body)?.[1] || '',
+  ).replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function normalizeSchweizerhofEvidence(value = '') {
+  return stripHtml(String(value || ''))
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function hasSchweizerhofFlimsLocation(detail = {}) {
+  const candidates = [
+    detail.location,
+    detail.addressLocality,
+    detail.postalCode,
+    ...(Array.isArray(detail.locationCandidates)
+      ? detail.locationCandidates.flatMap((candidate) => [
+        candidate?.location,
+        candidate?.addressLocality,
+        candidate?.postalCode,
+      ])
+      : []),
+  ];
+  return candidates.some((value) => {
+    const normalized = normalizeSchweizerhofEvidence(value);
+    return /\bflims(?:\s+(?:waldhaus|dorf))?\b/u.test(normalized)
+      || /\b701[78]\b/u.test(normalized);
+  });
+}
+
+function hasSchweizerhofFlimsIdentity(html, detail) {
+  const mainText = normalizeSchweizerhofEvidence(extractSchweizerhofJobMain(html));
+  return mainText.includes('schweizerhof flims') || hasSchweizerhofFlimsLocation(detail);
+}
+
+/**
+ * Read the source-owned tenant heading from the HCM4all job body.
+ *
+ * The current portal places a generic tenant heading in the vacancy body
+ * (`main > section > h2`). A bare `Schweizerhof` is not enough on this
+ * multi-tenant portal: the caller exposes the complete `Schweizerhof Flims`
+ * identity only after source-backed Flims locality/address evidence or the
+ * complete phrase in the sanitized JobPosting body. Never use email, phone,
+ * footer or whole-page first-match text as tenant evidence.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function extractSchweizerhofTenantHeading(html = '') {
+  const main = extractSchweizerhofJobMain(html);
   const headings = [...main.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)]
     .map((match) => stripHtml(match[1]).replace(/\s+/g, ' ').trim())
     .filter(Boolean);
@@ -179,12 +226,22 @@ function extractSchweizerhofTenantHeading(html = '') {
  * @returns {Record<string, any>}
  */
 export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts = {}) {
-  const detail = extractRuntimeDetailFields({}, html, url, { recordUrl: opts.recordUrl });
+  const detail = extractRuntimeDetailFields(
+    {},
+    removeSchweizerhofExcludedMarkup(html),
+    url,
+    { recordUrl: opts.recordUrl },
+  );
   const heading = extractSchweizerhofTenantHeading(html);
-  if (!heading) return detail;
+  const workplaceLabels = [
+    ...(detail.workplaceLabels || []),
+    ...(heading ? [heading] : []),
+    ...(hasSchweizerhofFlimsIdentity(html, detail) ? ['Schweizerhof Flims'] : []),
+  ].filter((label, index, labels) => labels.indexOf(label) === index);
+  if (!workplaceLabels.length) return detail;
   return {
     ...detail,
-    workplaceLabels: [...(detail.workplaceLabels || []), heading],
+    workplaceLabels,
   };
 }
 

@@ -39,7 +39,7 @@ describe('Schweizerhof crawler parser', () => {
       seedUrls: [seed],
       detailTemplate: '/list/*',
       detailEnrichment: true,
-      detailCandidateText: 'Schweizerhof',
+      detailCandidateText: 'Schweizerhof Flims',
     } as any, {
       fetchImpl,
       detailExtractor: extractSchweizerhofFlimsDetailFields,
@@ -51,6 +51,46 @@ describe('Schweizerhof crawler parser', () => {
 
     expect(rows).toHaveLength(1);
     expect(rows[0]).toMatchObject({ title: 'Portier Housekeeping (m/w/d)', location: 'Flims, Graubünden' });
+  });
+
+  it('rejects a generic Schweizerhof heading when the source locality is Grindelwald BE', async () => {
+    const seed = 'https://romantik.example/list/?l=de';
+    const detailUrl = 'https://romantik.example/list/19839';
+    const detailHtml = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'schweizerhof-flims', 'detail-tenant-heading.html'),
+      'utf8',
+    )
+      .replaceAll('Flims', 'Grindelwald')
+      .replaceAll('Graubünden', 'Bern')
+      .replaceAll('7018', '3818')
+      .replace('</main>', '<footer>Schweizerhof Flims</footer></main>');
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(`<a href="${detailUrl}">Portier Housekeeping</a>`);
+      if (url === detailUrl) return new Response(detailHtml);
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims',
+      companyName: 'Schweizerhof',
+      companyHost: 'romantik.example',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/list/*',
+      detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      detailExtractor: extractSchweizerhofFlimsDetailFields,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+    });
+
+    expect(rows).toHaveLength(0);
   });
 
   // ── Constants ──
@@ -134,7 +174,7 @@ describe('Schweizerhof crawler parser', () => {
     expect(spec.seedUrls).toEqual(['https://romantikhotels.hcm4all.de/list/?l=de']);
     expect(spec.detailTemplate).toBe('/list/*');
     expect(spec.listingCandidateText).toBeUndefined();
-    expect(spec.detailCandidateText).toBe('Schweizerhof');
+    expect(spec.detailCandidateText).toBe('Schweizerhof Flims');
     expect(spec.rescueOnEmptyListing).toBe(true);
   });
 
