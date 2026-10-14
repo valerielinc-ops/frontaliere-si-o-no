@@ -32,7 +32,7 @@ import {
   categoryLabel,
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
-import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
@@ -1653,10 +1653,21 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
 
   it('keeps the old published tie slug indexable through a canonical bridge', () => {
     const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/');
+    const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
     expect(html).not.toContain('noindex');
     expect(html).toContain('max-image-preview:large');
+    expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
+  });
+
+  it('keeps every localized old-event bridge above the indexable content floor', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');
+      const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
+      expect(html, locale).not.toContain('noindex');
+      expect(countHtmlBodyWords(main), locale).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    }
   });
 });
 
