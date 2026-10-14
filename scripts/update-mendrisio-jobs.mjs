@@ -60,6 +60,11 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -77,9 +82,9 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const HQ = getCompanyDefaults('mendrisio');
 const MENDRISIO_COMPANY_NAME = 'Città di Mendrisio';
 const MENDRISIO_HOST = 'mendrisio.ch';
-const MENDRISIO_CAREERS_URL =
+export const MENDRISIO_CAREERS_URL =
   'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro.html';
-const MENDRISIO_AJAX_URL =
+export const MENDRISIO_AJAX_URL =
   'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro/content/04.html?ajax=true';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -245,17 +250,277 @@ async function fetchPage(url, timeoutMs = 20000) {
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
+    const body = await res.text();
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
+      return { status: res.status, body };
     }
-    return await res.text();
+    return { status: res.status, body };
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
-    return null;
+    return { status: null, body: '', error: err };
   } finally {
     clearTimeout(timer);
   }
+}
+
+function normalizeFetchedPage(result) {
+  if (result && typeof result === 'object' && !Array.isArray(result) && 'body' in result) {
+    return {
+      status: result.status == null
+        ? null
+        : (Number.isFinite(Number(result.status)) ? Number(result.status) : null),
+      body: typeof result.body === 'string' ? result.body : '',
+      error: result.error,
+    };
+  }
+  return { status: 200, body: typeof result === 'string' ? result : '', error: null };
+}
+
+function isEmptyMendrisioAjaxContainer(html = '') {
+  const dom = new JSDOM(String(html || ''));
+  try {
+    const elements = [...dom.window.document.body.children];
+    if (elements.length !== 1 || elements[0].tagName.toLowerCase() !== 'div') return false;
+    const container = elements[0];
+    if (container.querySelector('article, [class*="document"]')) return false;
+    const withoutComments = container.innerHTML.replace(/<!--[\s\S]*?-->/g, '');
+    return withoutComments.replace(/\s+/g, '').length === 0;
+  } finally {
+    dom.window.close();
+  }
+}
+
+function stripHtmlComments(html = '') {
+  return String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+}
+
+/**
+ * Remove JavaScript comments without treating `//` inside a quoted URL as a
+ * comment. The loader is inspected as source text, so preserving strings is
+ * enough here; the DOM itself has already removed HTML comments.
+ */
+function stripJavaScriptComments(source = '') {
+  let output = '';
+  let state = 'code';
+  let quote = '';
+  let escaped = false;
+
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    const next = source[index + 1];
+
+    if (state === 'line-comment') {
+      if (char === '\n' || char === '\r') {
+        output += char;
+        state = 'code';
+      }
+      continue;
+    }
+
+    if (state === 'block-comment') {
+      if (char === '*' && next === '/') {
+        output += '  ';
+        index += 1;
+        state = 'code';
+      } else if (char === '\n' || char === '\r') {
+        output += char;
+      } else {
+        output += ' ';
+      }
+      continue;
+    }
+
+    if (state === 'string') {
+      output += char;
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        state = 'code';
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      output += '  ';
+      index += 1;
+      state = 'line-comment';
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      output += '  ';
+      index += 1;
+      state = 'block-comment';
+      continue;
+    }
+    if (char === '\'' || char === '"' || char === '`') {
+      state = 'string';
+      quote = char;
+    }
+    output += char;
+  }
+
+  return output;
+}
+
+function extractBalancedBlock(source, openIndex, openChar, closeChar) {
+  let depth = 0;
+  let state = 'code';
+  let quote = '';
+  let escaped = false;
+
+  for (let index = openIndex; index < source.length; index += 1) {
+    const char = source[index];
+
+    if (state === 'string') {
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        state = 'code';
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '\'' || char === '"' || char === '`') {
+      state = 'string';
+      quote = char;
+      continue;
+    }
+    if (char === openChar) depth += 1;
+    if (char === closeChar) {
+      depth -= 1;
+      if (depth === 0) {
+        return {
+          body: source.slice(openIndex + 1, index),
+          end: index + 1,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+function mendrisioUrlMatches(rawUrl = '') {
+  if (!rawUrl) return false;
+  try {
+    const candidate = new URL(decodeHtmlEntities(rawUrl).trim(), MENDRISIO_CAREERS_URL);
+    const expected = new URL(MENDRISIO_AJAX_URL);
+    return candidate.hostname === expected.hostname
+      && candidate.pathname === expected.pathname
+      && candidate.search === expected.search;
+  } catch {
+    return false;
+  }
+}
+
+function callbackWritesMendrisioResponse(source = '', callbackType = 'success') {
+  const callbackRe = callbackType === 'success'
+    ? /\bsuccess\s*:\s*(?:function\s*\(\s*([A-Za-z_$][\w$]*)\s*\)|\(\s*([A-Za-z_$][\w$]*)\s*\)\s*=>|([A-Za-z_$][\w$]*)\s*=>)\s*\{/gi
+    : /\.then\s*\(\s*(?:function\s*\(\s*([A-Za-z_$][\w$]*)\s*\)|\(\s*([A-Za-z_$][\w$]*)\s*\)\s*=>|([A-Za-z_$][\w$]*)\s*=>)\s*\{/gi;
+  const target = String.raw`(?:\$\s*\(\s*['"]#simapItems1['"]\s*\)|document\s*\.\s*(?:querySelector\s*\(\s*['"]#simapItems1['"]\s*\)|getElementById\s*\(\s*['"]simapItems1['"]\s*\)))`;
+
+  let match;
+  while ((match = callbackRe.exec(source)) !== null) {
+    const responseName = match[1] || match[2] || match[3];
+    const callback = extractBalancedBlock(source, callbackRe.lastIndex - 1, '{', '}');
+    if (!callback) continue;
+    const response = responseName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const writeRe = new RegExp(
+      `${target}\\s*(?:\\.\\s*(?:html|text|append|replaceWith)\\s*\\(\\s*${response}\\s*\\)|\\.\\s*innerHTML\\s*=\\s*${response}\\b)`,
+      'i',
+    );
+    if (writeRe.test(callback.body)) return true;
+  }
+  return false;
+}
+
+function ajaxCallHasExpectedUrl(callBody = '') {
+  const urlMatch = callBody.match(/\burl\s*:\s*(['"])([\s\S]*?)\1/i);
+  return Boolean(urlMatch && mendrisioUrlMatches(urlMatch[2]));
+}
+
+function fetchCallHasExpectedUrl(callBody = '') {
+  const urlMatch = callBody.match(/^\s*(['"])([\s\S]*?)\1/);
+  return Boolean(urlMatch && mendrisioUrlMatches(urlMatch[2]));
+}
+
+/**
+ * The endpoint is evidence only when the page contains the actual inline
+ * loader: its target exists in the DOM, the expected URL is an AJAX/fetch
+ * argument resolved against the careers page, and that request's callback
+ * writes its response into #simapItems1.
+ */
+export function hasMendrisioAjaxUrl(html = '') {
+  const dom = new JSDOM(stripHtmlComments(html));
+  try {
+    if (!dom.window.document.getElementById('simapItems1')) return false;
+
+    const scripts = [...dom.window.document.querySelectorAll('script:not([src])')]
+      .map((script) => stripJavaScriptComments(script.textContent || ''));
+    for (const script of scripts) {
+      const callRe = /\$\s*\.\s*ajax\s*\(|\bfetch\s*\(/gi;
+      let callMatch;
+      while ((callMatch = callRe.exec(script)) !== null) {
+        const openIndex = script.indexOf('(', callMatch.index);
+        const call = extractBalancedBlock(script, openIndex, '(', ')');
+        if (!call) continue;
+
+        const isAjax = /\$\s*\.\s*ajax\s*\(/i.test(callMatch[0]);
+        const hasExpectedUrl = isAjax
+          ? ajaxCallHasExpectedUrl(call.body)
+          : fetchCallHasExpectedUrl(call.body);
+        if (!hasExpectedUrl) continue;
+
+        if (isAjax && callbackWritesMendrisioResponse(call.body, 'success')) return true;
+        const afterFetch = script.slice(call.end);
+        if (!isAjax && /^\s*\.\s*then\s*\(/.test(afterFetch)
+          && callbackWritesMendrisioResponse(afterFetch, 'then')) return true;
+      }
+    }
+    return false;
+  } finally {
+    dom.window.close();
+  }
+}
+
+function attachFetchDiagnostics(jobs, fetchOutcome, fetchFailureReason) {
+  Object.defineProperties(jobs, {
+    fetchOutcome: { value: fetchOutcome, enumerable: false },
+    fetchFailureReason: { value: fetchFailureReason, enumerable: false },
+  });
+  return jobs;
+}
+
+function mendrisioFetchOutcome(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxLoader) {
+  const statuses = [ajaxResponse, pageResponse].map((response) => response.status);
+  if (statuses.some((status) => [403, 406, 415, 451].includes(status))) return 'anti_bot_block';
+  if (statuses.some((status) => status === null)) return 'connection_error';
+  if (statuses.some((status) => status !== 200)) return 'feed_endpoint_unavailable';
+  if (!ajaxEmpty || !pageHasAjaxLoader) return 'selector_miss';
+  return 'ok';
+}
+
+function mendrisioEmptyFailureReason(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxLoader) {
+  if (ajaxResponse.status !== 200) {
+    return `Endpoint AJAX ${MENDRISIO_AJAX_URL}: osservato HTTP ${ajaxResponse.status ?? 'unknown'}${ajaxResponse.error ? ` (${ajaxResponse.error.message})` : ''}; atteso HTTP 200 con contenitore vuoto.`;
+  }
+  if (!ajaxEmpty) {
+    return `Endpoint AJAX ${MENDRISIO_AJAX_URL}: HTTP 200 ma corpo AJAX inatteso; atteso contenitore vuoto senza blocchi annuncio.`;
+  }
+  if (pageResponse.status !== 200) {
+    return `Pagina principale ${MENDRISIO_CAREERS_URL}: osservato HTTP ${pageResponse.status ?? 'unknown'}${pageResponse.error ? ` (${pageResponse.error.message})` : ''}; atteso HTTP 200 con URL AJAX atteso.`;
+  }
+  if (!pageHasAjaxLoader) {
+    return `Pagina principale ${MENDRISIO_CAREERS_URL}: HTTP 200 ma l'URL AJAX atteso nel caricatore inline ${MENDRISIO_AJAX_URL} è mancante.`;
+  }
+  return 'Sorgente Mendrisio senza blocchi annuncio, ma prova del vuoto incompleta.';
 }
 
 /* ── HTML parsing — AJAX endpoint (pi-ASP jobs) ──────────── */
@@ -454,20 +719,35 @@ function parseStaticJobs(html) {
 }
 
 /* ── Fetch and parse all Mendrisio jobs ──────────────────── */
-export async function fetchMendrisioJobs() {
+export async function fetchMendrisioJobs({
+  fetchPageImpl = fetchPage,
+  extractPdfContentImpl = extractPdfJobContentFromUrl,
+} = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
   console.log(`🔍 Fetching Città di Mendrisio jobs...`);
 
   // Phase 1: AJAX endpoint (pi-ASP jobs)
   console.log(`  📡 AJAX endpoint: ${MENDRISIO_AJAX_URL}`);
-  const ajaxHtml = await fetchPage(MENDRISIO_AJAX_URL, timeoutMs);
+  let ajaxResponse;
+  try {
+    ajaxResponse = normalizeFetchedPage(await fetchPageImpl(MENDRISIO_AJAX_URL, timeoutMs));
+  } catch (error) {
+    ajaxResponse = { status: null, body: '', error };
+  }
+  const ajaxHtml = ajaxResponse.status === 200 ? ajaxResponse.body : '';
   const ajaxJobs = ajaxHtml ? parseAjaxJobs(ajaxHtml) : [];
   console.log(`  📋 AJAX jobs found: ${ajaxJobs.length}`);
 
   // Phase 2: Static page listings
   console.log(`  📄 Main page: ${MENDRISIO_CAREERS_URL}`);
-  const pageHtml = await fetchPage(MENDRISIO_CAREERS_URL, timeoutMs);
+  let pageResponse;
+  try {
+    pageResponse = normalizeFetchedPage(await fetchPageImpl(MENDRISIO_CAREERS_URL, timeoutMs));
+  } catch (error) {
+    pageResponse = { status: null, body: '', error };
+  }
+  const pageHtml = pageResponse.status === 200 ? pageResponse.body : '';
   const staticJobs = pageHtml ? parseStaticJobs(pageHtml) : [];
   console.log(`  📋 Static jobs found: ${staticJobs.length}`);
 
@@ -485,12 +765,36 @@ export async function fetchMendrisioJobs() {
   const allParsed = [...ajaxJobs, ...uniqueStaticJobs];
   console.log(`\n📋 Total unique Mendrisio jobs discovered: ${allParsed.length}`);
 
+  if (allParsed.length === 0) {
+    const ajaxEmpty = ajaxResponse.status === 200 && isEmptyMendrisioAjaxContainer(ajaxResponse.body);
+    const pageHasAjaxLoader = pageResponse.status === 200 && hasMendrisioAjaxUrl(pageResponse.body);
+    if (ajaxEmpty && pageHasAjaxLoader) {
+      const evidence = `Mendrisio AJAX HTTP 200 at ${MENDRISIO_AJAX_URL}: contenitore vuoto senza blocchi annuncio; pagina principale HTTP 200 at ${MENDRISIO_CAREERS_URL}: URL AJAX atteso nel caricatore inline presente.`;
+      console.log(`  🧩 Source-proven zero: ${evidence}`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
+    const fetchFailureReason = mendrisioEmptyFailureReason(
+      ajaxResponse,
+      pageResponse,
+      ajaxEmpty,
+      pageHasAjaxLoader,
+    );
+    const fetchOutcome = mendrisioFetchOutcome(
+      ajaxResponse,
+      pageResponse,
+      ajaxEmpty,
+      pageHasAjaxLoader,
+    );
+    console.warn(`⚠️ No Mendrisio jobs discovered: ${fetchFailureReason}`);
+    return attachFetchDiagnostics([], fetchOutcome, fetchFailureReason);
+  }
+
   // Build job objects
   const jobs = await Promise.all(allParsed.map(async (parsed) => {
     const slug = slugify(parsed.title, 'mendrisio');
     const canonicalUrl = parsed.pdfUrl || `${MENDRISIO_CAREERS_URL}#${slug}`;
     const pdfContent = parsed.pdfUrl
-      ? await extractPdfJobContentFromUrl(parsed.pdfUrl)
+      ? await extractPdfContentImpl(parsed.pdfUrl)
       : { text: '', error: '' };
 
     // Title–PDF overlap check: warn if job title keywords aren't in the PDF
@@ -860,7 +1164,13 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(MENDRISIO_KEY, 'Città di Mendrisio');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(MENDRISIO_KEY, 'Città di Mendrisio', summaryCounts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  Città di Mendrisio — Dedicated Crawler');
@@ -868,16 +1178,61 @@ async function main() {
   console.log(`  Careers page: ${MENDRISIO_CAREERS_URL}\n`);
 
   // Snapshot before
-  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS).filter(isMendrisioJob))
+  const priorTargetJobs = readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS).filter(isMendrisioJob);
+  const beforeSnapshot = snapshotJobSlugs(priorTargetJobs);
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchMendrisioJobs();
+  summaryCounts.parsed = discoveredJobs.length;
+  if (Reflect.get(discoveredJobs, 'fetchOutcome')) {
+    summaryCounts.lastFetchOutcome = Reflect.get(discoveredJobs, 'fetchOutcome');
+  }
+  const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discoveredJobs);
+
+  if (authoritativeEmptySnapshot) {
+    const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+    writeJobsCrawlerSlice(MENDRISIO_KEY, [], {
+      skipShrinkGuard: true,
+      preserveExistingSlugs: true,
+    });
+    const archived = archiveRemovedJobsToSlice(priorTargetJobs, MENDRISIO_KEY);
+    printCrawlChangeSummary(emptyDiff, MENDRISIO_COMPANY_NAME);
+    writeCrawlChangeSummaryToGH(emptyDiff, MENDRISIO_COMPANY_NAME);
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: MENDRISIO_KEY,
+      label: MENDRISIO_COMPANY_NAME,
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      lastFetchOutcome: 'ok',
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      authoritativeEmptyEvidence: Reflect.get(discoveredJobs, 'authoritativeEmptyEvidence'),
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: emptyDiff.removedJobs.length,
+      unchangedCount: 0,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: emptyDiff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+    });
+    await assembleJobsDataset();
+    console.log(`ℹ️ Persisted authoritative Mendrisio zero; archived ${archived} expired route(s).`);
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    const fetchFailureReason = Reflect.get(discoveredJobs, 'fetchFailureReason');
     console.log('\n⚠️ No Mendrisio jobs discovered.');
-    console.log(
-      '   The concorsi page may have changed structure or have no current openings.'
-    );
+    console.log(`   ${fetchFailureReason || 'The concorsi page may have changed structure or have no current openings.'}`);
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     // The stored jobs are kept, without the text the crawler once wrote
     // into them (the merge would have removed it).
