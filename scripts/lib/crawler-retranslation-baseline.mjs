@@ -39,11 +39,12 @@
  * (first read of every crawler runner) and the seed record it; first record
  * per key wins, later records are ignored by construction.
  *
- * Dependency-free (node:crypto only) so dedicated-crawler-common and the
- * assembler can both import it without an import cycle; the completeness
- * verdict is injected by the caller.
+ * Dependency-free (node:crypto and the zero-dependency description clean-up
+ * only) so dedicated-crawler-common and the assembler can both import it
+ * without an import cycle; the completeness verdict is injected by the caller.
  */
 import { createHash } from 'node:crypto';
+import { cleanCrawlerArtifacts, normalizeDescriptionBullets } from './description-artifacts.mjs';
 
 /** @type {Map<string, Map<string, { flagged: boolean, hash: string }>>} */
 const baselines = new Map();
@@ -61,10 +62,21 @@ function normalizeSourceText(value) {
 }
 
 /**
- * Hash of the text a translation is made FROM: source language, title and
- * description, normalised so a whitespace / markup / case rewrite of the same
- * words hashes identically (the "formal only" class of change).
+ * The description as writeJobsCrawlerSlice stores it: the same two idempotent
+ * clean-up steps it applies before writing. The baseline is a stored slice,
+ * already cleaned; the records judged against it are this run's crawl, not
+ * yet cleaned. Hashing them raw made every description the clean-up rewrites
+ * — inline bullets split onto their own lines, section headers moved to a line
+ * start, a duplicated paragraph dropped — look like a changed source
+ * (2026-10-14, Decathlon: 45 of 45 live descriptions hashed differently raw,
+ * 0 of 45 after the clean-up; the crawler flagged them and the slice writer
+ * kept the flags as "source changed").
  */
+function writtenDescription(value) {
+  const text = String(value ?? '');
+  return normalizeDescriptionBullets(cleanCrawlerArtifacts(text)) || '';
+}
+
 /**
  * The description's paragraphs, normalised and sorted: the same paragraphs in
  * a different order are the same source. Staffing agencies serve their
@@ -73,17 +85,24 @@ function normalizeSourceText(value) {
  * one crawl wave); an order-sensitive hash re-raised `needsRetranslation` on
  * all of them every crawl. The baseline is recomputed in-process from the
  * stored slice with this same function, so the change raises no flag by
- * itself.
+ * itself. A paragraph repeated is the same source too: crawled bodies carry
+ * repeated lines that the stored slice no longer has (2026-10-14, Senevita:
+ * 198 of 204 live descriptions equal the stored ones as a set of paragraphs,
+ * not as a list), and a repeated line is no new wording to translate.
  */
 function normalizeSourceParagraphs(value) {
-  return String(value ?? '')
+  const paragraphs = String(writtenDescription(value))
     .split(/\n+/)
     .map(normalizeSourceText)
-    .filter(Boolean)
-    .sort()
-    .join('\n');
+    .filter(Boolean);
+  return [...new Set(paragraphs)].sort().join('\n');
 }
 
+/**
+ * Hash of the text a translation is made FROM: source language, title and
+ * description, normalised so a whitespace / markup / case rewrite of the same
+ * words hashes identically (the "formal only" class of change).
+ */
 export function retranslationSourceHash(job) {
   const sourceLang = String(job?.sourceLang || 'it').trim().toLowerCase() || 'it';
   const title = job?.title || job?.titleByLocale?.[sourceLang] || '';
