@@ -21,7 +21,9 @@ import {
   publishedSlugsForIds,
   runtimeArticleRecords,
   staticArticleForSlug,
+  recoverArticleBodyParts,
 } from '@/services/runtimeArticleResolution';
+import { needsArticleBodyRecovery } from '@/services/articleBodyRecovery';
 import {
   cleanupArticleBodySections,
   renderArticleDerivedSectionsHtml,
@@ -36,7 +38,7 @@ import {
 } from '@/services/staticArticleFallback';
 import { tryRenderMdTable } from '@/components/community/BlogArticles';
 import { renderImageCreditHtml } from '../packages/articles/engine/shared/imageCredits.mjs';
-import { t } from '@/services/i18n';
+import { t, mergeArticleMetaOverlay } from '@/services/i18n';
 import { learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, resolveBlogSlug, resolveSwissSlug, buildPath } from '@/services/router';
 
 // ── the published documents, in the shape the corpus actually emits ─────────
@@ -490,6 +492,69 @@ describe('articleBodyPartsFromStaticArticle', () => {
 });
 
 describe('publishRuntimeArticleBody', () => {
+  it('recovers a bundled ellipsis without overwriting valid body, FAQ or metadata', async () => {
+    const id = 'runtime-bundled-placeholder';
+    mergeArticleMetaOverlay('it', {
+      [`blog.article.${id}.body1`]: '...',
+      [`blog.article.${id}.body2`]: 'Testo valido già presente.',
+      [`blog.article.${id}.title`]: 'Titolo originale',
+      [`blog.article.${id}.faq`]: 'FAQ originale',
+    });
+    expect(needsArticleBodyRecovery(['...', 'Testo valido già presente.'])).toBe(true);
+    const path = pathFor(id);
+    visit(path);
+    document.body.innerHTML = renderStaticArticle(['Testo riparato dal corpus.', 'Altro testo dalla rete.']);
+    stashStaticArticleFallback(document.querySelector('main')!, path);
+    document.body.innerHTML = '<div id="root"></div>';
+    const fetch = stubFetch(() => ({ ok: false }));
+    const parts = await recoverArticleBodyParts(path);
+    expect(fetch).not.toHaveBeenCalled();
+    expect(publishRuntimeArticleBody(id, 'it', parts)).toBe(1);
+    expect(t(`blog.article.${id}.body1`)).toContain('Testo riparato dal corpus.');
+    expect(t(`blog.article.${id}.body2`)).toBe('Testo valido già presente.');
+    expect(t(`blog.article.${id}.title`)).toBe('Titolo originale');
+    expect(t(`blog.article.${id}.faq`)).toBe('FAQ originale');
+  });
+
+  it('recovers a client-side destination, never the previous article stash', async () => {
+    const oldPath = pathFor('runtime-old-stash');
+    visit(oldPath);
+    document.body.innerHTML = renderStaticArticle(['CORPO DI UN ALTRO ARTICOLO']);
+    stashStaticArticleFallback(document.querySelector('main')!, oldPath);
+    const path = pathFor('runtime-client-repair');
+    visit(path);
+    const fetch = stubFetch((url) => url === path
+      ? { text: renderStaticArticle(['Corpo della destinazione.']) }
+      : { ok: false });
+    expect((await recoverArticleBodyParts(path)).join(' ')).toContain('Corpo della destinazione.');
+    expect(fetch).toHaveBeenCalledWith(path, expect.any(Object));
+  });
+
+  it('does not assign compacted recovery to different existing body positions', () => {
+    const id = 'runtime-partial-recovery';
+    mergeArticleMetaOverlay('it', { [`blog.article.${id}.body1`]: '...', [`blog.article.${id}.body2`]: 'Secondo paragrafo.' });
+    expect(publishRuntimeArticleBody(id, 'it', ['Solo secondo paragrafo.'])).toBe(0);
+    expect(t(`blog.article.${id}.body1`)).toBe('...');
+    expect(publishRuntimeArticleBody(id, 'it', ['…', 'Secondo dalla rete.'])).toBe(0);
+    expect(t(`blog.article.${id}.body2`)).toBe('Secondo paragrafo.');
+  });
+
+  it('does not replace an Italian placeholder with a recovered foreign translation', () => {
+    const id = 'runtime-locale-repair';
+    mergeArticleMetaOverlay('it', { [`blog.article.${id}.body1`]: '...' });
+    mergeArticleMetaOverlay('de', { [`blog.article.${id}.body1`]: '...' });
+    expect(publishRuntimeArticleBody(id, 'de', ['Deutscher reparierter Text.'])).toBe(1);
+    expect(t(`blog.article.${id}.body1`)).toBe('...');
+  });
+
+  it('recognizes only absent or punctuation-only segments as incomplete', () => {
+    expect(needsArticleBodyRecovery([])).toBe(true);
+    for (const placeholder of ['', ' ', '...', ' … ', '. . .']) {
+      expect(needsArticleBodyRecovery([placeholder, 'Un testo valido.'])).toBe(true);
+    }
+    expect(needsArticleBodyRecovery(['Un testo… che continua.', 'Testo valido.'])).toBe(false);
+  });
+
   it('publishes under the same keys the bundled chunks use', () => {
     publishRuntimeArticleBody('articolo-runtime-1', 'it', ['## Uno\nTesto uno.', 'Testo due.']);
     expect(t('blog.article.articolo-runtime-1.body1')).toBe('## Uno\nTesto uno.');

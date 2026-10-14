@@ -7,7 +7,8 @@ import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/servic
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
-import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
+import { runtimeArticleRecords, recoverArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
+import { needsArticleBodyRecovery } from '@/services/articleBodyRecovery';
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, learnRuntimeCantonSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
@@ -1494,12 +1495,15 @@ function BlogArticlesContent({
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
  if (!selectedArticle) { setBodyReady(false); return; }
+ let cancelled = false;
+ const bodyLocale = getLocale();
  setBodyReady(false);
  // The section's cover credits (P14), started with the body so they have
  // normally landed by `bodyReady`. One request per section per session;
  // fail-open (services/imageCredits.ts).
  void fetchImageCredits(section);
  loadArticleBody(selectedArticle, section).then(async () => {
+ if (cancelled) return;
  // The body chunks are compiled in, so an article published after this
  // build has none: `loadBlogBodyChunk` resolves to null, `bodyReady` flips
  // true and the article renders with a title and nothing under it. That is
@@ -1509,21 +1513,24 @@ function BlogArticlesContent({
  // The corpus API publishes metadata, slugs, sitemaps and feeds but not
  // bodies, so rather than invent an endpoint we re-read the page the shard
  // is already serving for this exact URL and recover the body from its
- // static HTML. Costs one request, only for an article the bundle lacks,
+ // static HTML. Existing punctuation-only placeholders also need recovery.
+ // Direct arrivals reuse the URL-bound clone; client navigation costs one request,
  // and returns [] on every failure — in which case nothing is merged and
  // the render is exactly what it is today.
- if (collectArticleBodySegments(selectedArticle, translate).length === 0) {
+ if (needsArticleBodyRecovery(collectArticleBodySegments(selectedArticle, translate))) {
  const route = section === 'svizzera'
  ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
  : isCantonArticleSection(section)
  ? { activeTab: 'blog' as const, blogSection: section, cantonArticle: selectedArticle }
  : { activeTab: 'blog' as const, blogArticle: selectedArticle as BlogArticleId };
- const parts = await fetchArticleBodyParts(buildPath(route)).catch(() => [] as string[]);
- publishRuntimeArticleBody(selectedArticle, getLocale(), parts);
+ const parts = await recoverArticleBodyParts(buildPath(route)).catch(() => [] as string[]);
+ if (cancelled) return;
+ publishRuntimeArticleBody(selectedArticle, bodyLocale, parts);
  }
- setBodyReady(true);
+ if (!cancelled) setBodyReady(true);
  }).catch(() => {});
  trackArticleView(selectedArticle);
+ return () => { cancelled = true; };
  }, [selectedArticle, section, locale]);
 
  // Admin-set byline reassignment (see AdminPanel "Redazione" section), CSR-only.

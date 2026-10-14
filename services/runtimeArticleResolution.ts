@@ -28,7 +28,8 @@
 
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchArticleOverlay, type OverlayArticle, type OverlaySection } from '@/services/articlesOverlay';
-import { mergeArticleMetaOverlay } from '@/services/i18n';
+import { mergeArticleMetaOverlay, mergeRecoveredArticleBody } from '@/services/i18n';
+import { isArticleBodyPlaceholder } from '@/services/articleBodyRecovery';
 import type { Locale } from '@/services/i18n';
 import { articlesApiBase as corpusArticlesApiBase } from '@/services/articlesApiBase';
 import {
@@ -381,9 +382,6 @@ function inlineMarkdown(node: Node): string {
   return rule ? rule[1](inner, el) : inner;
 }
 
-/** A truncation marker is not content — carrying it over would be noise. */
-const ELLIPSIS_ONLY = /^[…\s.]*$/;
-
 /**
  * The positional wrapper labels ogPagesPlugin puts on each bodyN section
  * ("Contesto", "Operative Details", …), in every locale — the same strings
@@ -470,7 +468,7 @@ function blockMarkdown(el: Element, headingState?: HeadingRecoveryState): string
   if (tag === 'TABLE') return tableMarkdown(el);
   if (tag === 'P') {
     const text = inlineMarkdown(el).trim();
-    return text && !ELLIPSIS_ONLY.test(text) ? text : null;
+    return text && !isArticleBodyPlaceholder(text) ? text : null;
   }
   if (tag === 'UL' || tag === 'OL') {
     const items = Array.from(el.children)
@@ -591,21 +589,27 @@ export async function fetchArticleBodyParts(path: string): Promise<string[]> {
   }
 }
 
+/** The URL-bound published copy is already available on a direct arrival. */
+export async function recoverArticleBodyParts(path: string): Promise<string[]> {
+  const parts = articleBodyPartsFromStaticArticle(staticArticleElement(path));
+  return parts.length > 0 ? parts : fetchArticleBodyParts(path);
+}
+
 /**
  * Publish a recovered body under the same `blog.article.<id>.bodyN` keys the
  * bundled chunks use, so every existing call site (`collectArticleBodySegments`,
  * `estimateReadingMinutes`, the JSON-LD builder) works unchanged.
  *
- * `mergeArticleMetaOverlay` never overwrites a key that is already present, so
- * this cannot damage an article whose real body the bundle does ship.
+ * Existing prose remains authoritative; only absent or punctuation-only body
+ * keys may be recovered. Metadata is never overwritten by body recovery.
  */
 export function publishRuntimeArticleBody(id: string, locale: Locale, parts: string[]): number {
   if (parts.length === 0) return 0;
   const translations: Record<string, string> = {};
   parts.forEach((part, i) => { translations[`blog.article.${id}.body${i + 1}`] = part; });
-  let added = mergeArticleMetaOverlay(locale, translations);
+  let added = mergeRecoveredArticleBody(locale, id, parts);
   // Italian is the fallback every article view falls back to on a missing key.
-  if (locale !== 'it') added += mergeArticleMetaOverlay('it', translations);
+  if (locale !== 'it' && added > 0) added += mergeArticleMetaOverlay('it', translations);
   return added;
 }
 
