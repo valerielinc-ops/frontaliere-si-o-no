@@ -102,10 +102,8 @@ export function attachRecruiteeCountrySnapshot(jobs, {
   const unclassifiedDetailPaths = [...new Set(
     unclassifiedDetailUrls.map(recruiteeDetailPath).filter(Boolean),
   )];
-  const quarantinedDetailPaths = [...new Set([
-    ...rejectedDetailPaths,
-    ...(acceptedOfferCount > 0 ? unclassifiedDetailPaths : []),
-  ])].filter((detailPath) => !acceptedPaths.has(detailPath));
+  const quarantinedDetailPaths = rejectedDetailPaths
+    .filter((detailPath) => !acceptedPaths.has(detailPath));
 
   Object.defineProperty(jobs, RECRUITEE_COUNTRY_SNAPSHOT_PROPERTY, {
     enumerable: false,
@@ -140,6 +138,7 @@ export function validateRecruiteeSwissEmptySnapshot(jobs, partialVerdict) {
     !Array.isArray(jobs)
     || snapshot?.complete !== true
     || snapshot.unclassifiedOfferCount !== 0
+    || snapshot.rejectedOfferCount <= 0
     || snapshot.offerCount !== snapshot.acceptedOfferCount + snapshot.rejectedOfferCount
   ) {
     return partialVerdict;

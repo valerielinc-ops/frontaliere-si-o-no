@@ -20,7 +20,7 @@ describe('Recruitee Swiss country refresh', () => {
     ])).toBe(true);
   });
 
-  it('removes exact foreign and ambiguous offer paths while preserving accepted and other-company rows', async () => {
+  it('removes exact foreign paths while preserving ambiguous, accepted, and other-company rows', async () => {
     const sourceJobs = attachRecruiteeCountrySnapshot([
       { companyKey: 'tether', url: 'https://tether.recruitee.com/o/swiss' },
     ], {
@@ -44,6 +44,7 @@ describe('Recruitee Swiss country refresh', () => {
 
     expect(hooks.prepareExistingJobs(existing)).toEqual([
       storedJob('tether', 'swiss'),
+      storedJob('tether', 'unknown'),
       storedJob('bitfinex', 'foreign'),
     ]);
     expect(fetched).toBe(sourceJobs);
@@ -87,6 +88,20 @@ describe('Recruitee Swiss country refresh', () => {
       storedJob('tether', 'foreign-one'),
       storedJob('tether', 'foreign-two'),
     ])).toEqual([]);
+  });
+
+  it('does not treat a complete zero-offer snapshot as proof that every offer is foreign', async () => {
+    const sourceJobs = attachRecruiteeCountrySnapshot([], {
+      complete: true,
+      offerCount: 0,
+      acceptedOfferCount: 0,
+      rejectedOfferCount: 0,
+      unclassifiedOfferCount: 0,
+    });
+    const hooks = createRecruiteeCountryRefreshHooks(async () => sourceJobs, 'tether', SNAPSHOT_VALIDATED_PARTIAL);
+    const fetched = await hooks.fetchJobs();
+
+    expect(hooks.validateAuthoritativeSnapshot(fetched)).toBe(SNAPSHOT_VALIDATED_PARTIAL);
   });
 
   it('preserves existing rows when the provider snapshot is incomplete', async () => {
