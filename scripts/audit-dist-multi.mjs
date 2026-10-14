@@ -48,6 +48,7 @@ import {
   EMPLOYER_PROFILE_PATH_RX,
 } from './lib/jobBoardSections.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 import { isHistoricalMissingTarget, isNoindexPage } from './audit-hreflang.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
@@ -490,18 +491,7 @@ class PageWeightAudit {
   }
 }
 
-// ───── audit-hreflang helpers (verbatim) ─────────────────────────────────────
-
-/** From audit-hreflang.extractAlternates. Quote-flexible (PR #478). */
-function extractAlternates(html) {
-  const map = new Map();
-  const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
-  let match;
-  while ((match = regex.exec(html)) !== null) {
-    map.set(match[1], match[2]);
-  }
-  return map;
-}
+// ───── audit-hreflang helpers (alternate extraction is shared) ───────────────
 
 /** From audit-hreflang.urlToDistFile. */
 function urlToDistFile(url) {
@@ -547,12 +537,9 @@ class HreflangAudit {
     this.distFileSet = distFileSet;
     this.scanned = 0;
     this.withHreflang = 0;
-    // flatString on every push in `ingest()`: the hrefs are regex captures
-    // INTO the page HTML and a multi-substitution template literal is a
-    // ConsString that keeps them, so one failure would pin one whole document
-    // for the entire dist/ walk — the same second boundary fixed in
-    // audit-hreflang.mjs, of which this class is a verbatim clone (#7488 item
-    // 3, class of #7419). Paid per FAILURE, never per page.
+    // The shared parser detaches href captures before any per-page result is
+    // kept. Keep failure strings flat as well because these buckets span the
+    // dist/ walk and diagnostics may combine derived values. Paid per FAILURE.
     this.failures = {
       tooFew: [],
       invalidPair: [],

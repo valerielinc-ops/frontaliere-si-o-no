@@ -6,6 +6,7 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { findHreflangReciprocityFailures } from './lib/hreflang-reciprocity.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
+import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -40,15 +41,6 @@ function sitemapPages() {
    out.push({ file, url, relPath, htmlFile: urlToFile(url) });
   }
  }
- return out;
-}
-
-function extractAlternates(html) {
- // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
- const out = new Map();
- const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
- let match;
- while ((match = regex.exec(html)) !== null) out.set(match[1], match[2]);
  return out;
 }
 
