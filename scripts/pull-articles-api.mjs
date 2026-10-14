@@ -53,9 +53,14 @@ import {
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
-import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
-import { dropRetiredSitemapUrlBlocks } from './lib/sitemap-retired-urls.mjs';
+import {
+  dropShadowedSitemapUrlBlocks,
+  loadAllShadowedSlugs,
+  loadSectionCanonicalOverrides,
+} from './lib/article-canonical-overrides.mjs';
+import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired-urls.mjs';
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
+import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -397,8 +402,67 @@ const PUBLISHED_SLUG_SECTIONS = {
   'sitemap-blog-ch.xml': 'swiss',
 };
 
+// These are the corpus builder's sitemap-retention rules for the dated daily
+// editions. The API does not publish a separate retired-id manifest, but the
+// article ids are the keys of slugs.json and the builder keeps the newest 90.
+const DAILY_EDITION_ID_RE = /^bollettino-frontaliere-\d{4}-\d{2}-\d{2}$/;
+const DAILY_EDITION_SITEMAP_KEEP = 90;
+
+const CANONICAL_SHADOWED_SLUGS_BY_SECTION = {
+  blog: new Set(Object.keys(loadSectionCanonicalOverrides(ROOT, 'frontaliere'))),
+  swiss: new Set(Object.keys(loadSectionCanonicalOverrides(ROOT, 'svizzera'))),
+};
+
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function isFallbackLocale(slugDocument, sectionName, articleId, locale) {
+  const reasons = slugDocument?.fallbackReasons?.[sectionName]?.[articleId];
+  return Boolean(
+    reasons
+    && typeof reasons === 'object'
+    && Object.prototype.hasOwnProperty.call(reasons, locale),
+  );
+}
+
+function isExplicitlyExcludedRow(slugs) {
+  return slugs.retired === true || slugs.noindex === true || slugs.excluded === true;
+}
+
+function isPublishedLocaleSlug(slugDocument, sectionName, articleId, locale, slug, slugs) {
+  return Boolean(
+    !isExplicitlyExcludedRow(slugs)
+    && typeof slug === 'string'
+    && slug.trim()
+    && !isReservedPublishedSlug(slug)
+    && !isFallbackLocale(slugDocument, sectionName, articleId, locale),
+  );
+}
+
+function retiredDailyEditionSlugs(rows) {
+  const retiredIds = Object.keys(rows)
+    .filter((id) => DAILY_EDITION_ID_RE.test(id))
+    .sort()
+    .reverse()
+    .slice(DAILY_EDITION_SITEMAP_KEEP);
+  return new Set(
+    retiredIds
+      .map((id) => rows[id]?.it)
+      .filter((slug) => typeof slug === 'string' && slug),
+  );
+}
+
+function isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) {
+  const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+  const itSlug = row.slugs.it;
+  if (!isPublishedLocaleSlug(slugDocument, sectionName, row.id, 'it', itSlug, row.slugs)) {
+    return false;
+  }
+
+  if (CANONICAL_SHADOWED_SLUGS_BY_SECTION[sectionName]?.has(itSlug)) return false;
+  if (retiredDailySlugs.has(itSlug)) return false;
+  return !isRetiredLoc(`${SECTION_SITEMAPS[name].bases.it}${itSlug}/`);
 }
 
 /**
@@ -430,6 +494,8 @@ function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
 
   const itLoc = new RegExp(`^${escapeRegExp(cfg.bases.it)}([^/]+)/$`);
   const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  const seenItSlugs = new Set();
+  const retiredDailySlugs = sectionName === 'blog' ? retiredDailyEditionSlugs(rows) : new Set();
   for (const block of blocks) {
     const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
     const itMatch = loc?.match(itLoc);
@@ -439,14 +505,15 @@ function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
     if (!row) {
       fail(`${name}: ${loc} is absent from ${SLUGS_ARTIFACT}.${sectionName} — refusing`);
     }
+    seenItSlugs.add(itMatch[1]);
 
     const seenLocales = new Set();
     for (const match of block.matchAll(/hreflang="(it|en|de|fr)"\s+href="([^"]+)"/g)) {
       const locale = match[1];
       seenLocales.add(locale);
       const expectedSlug = row.slugs[locale];
-      if (typeof expectedSlug !== 'string' || !expectedSlug) {
-        fail(`${SLUGS_ARTIFACT}.${sectionName}.${row.id} has no ${locale} slug — refusing ${name}`);
+      if (!isPublishedLocaleSlug(slugDocument, sectionName, row.id, locale, expectedSlug, row.slugs)) {
+        fail(`${name}: ${row.id} has a non-publishable ${locale} hreflang — refusing`);
       }
       const expectedUrl = `${cfg.bases[locale]}${expectedSlug}/`;
       if (match[2] !== expectedUrl) {
@@ -457,10 +524,23 @@ function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
       }
     }
     for (const locale of ['it', 'en', 'de', 'fr']) {
-      if (!seenLocales.has(locale)) {
+      if (
+        isPublishedLocaleSlug(slugDocument, sectionName, row.id, locale, row.slugs[locale], row.slugs)
+        && !seenLocales.has(locale)
+      ) {
         fail(`${name}: ${row.id} has no ${locale} hreflang in the same release as ${SLUGS_ARTIFACT} — refusing`);
       }
     }
+  }
+
+  const missing = [];
+  for (const [itSlug, row] of byItSlug) {
+    if (isExpectedInSitemap(name, row, slugDocument, retiredDailySlugs) && !seenItSlugs.has(itSlug)) {
+      missing.push(`${row.id} (${itSlug})`);
+    }
+  }
+  if (missing.length > 0) {
+    fail(`${name}: ${missing.join(', ')} absent from the sitemap — refusing`);
   }
 }
 
