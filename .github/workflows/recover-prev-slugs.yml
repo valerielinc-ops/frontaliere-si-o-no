@@ -355,15 +355,39 @@ jobs:
       # the same fleet-wide ownership pass as the normal crawler and slug
       # regeneration writers. Otherwise a stale hash-tagged alias can be
       # restored onto its historical claimant and leave the live observer red.
+      # Run it even when scan/reconcile found nothing: cleanup-only ownership
+      # repairs must be persisted too, not just normalized in this runner's
+      # disposable checkout.
       - name: Decontaminate confirmed previousSlugs ownership
-        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && (inputs.dry_run != true && inputs.dry_run != 'true')
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set -euo pipefail
           node scripts/decontaminate-prev-slugs.mjs --apply \
             | tee -a /tmp/prev-slug-recovery/scan-report.txt
 
+      - name: Detect pending previousSlugs data changes
+        id: data_changes
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- \
+            data/jobs/by-crawler/ \
+            data/jobs/expired/by-crawler/ \
+            data/jobs-crawler-summaries/by-crawler/; then
+            data_changed=false
+          else
+            diff_status=$?
+            if [ "$diff_status" -ne 1 ]; then
+              echo "::error::Unable to inspect previousSlugs recovery data diff (git diff exited $diff_status)"
+              exit "$diff_status"
+            fi
+            data_changed=true
+          fi
+          echo "data_changed=$data_changed" >> "$GITHUB_OUTPUT"
+          echo "PreviousSlugs recovery data changed: $data_changed"
+
       - name: Commit and push restored slices
-        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0' || steps.data_changes.outputs.data_changed == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
