@@ -142,6 +142,35 @@ export function summarizeReciprocityTarget(target, html) {
   target.alternates = extractAlternates(html);
 }
 
+/**
+ * Put a parsed source page in the reciprocity index, reusing its target entry
+ * when both URLs resolve to the same file. Production clusters make nearly
+ * every sampled source an alternate target too; keeping a second page object
+ * and alternate Map for those pages doubled the dominant per-page state.
+ */
+export function indexReciprocitySource(targets, source) {
+  const key = normalizeHreflangUrl(source.url, BASE_URL);
+  if (!key) return source;
+
+  const indexed = targets.get(key);
+  if (!indexed) {
+    source.isTarget = false;
+    targets.set(key, source);
+    return source;
+  }
+
+  // A target URL can resolve through a different file than a duplicate
+  // canonical source. Share metadata only when the physical page is the same;
+  // otherwise retain both records so the target is still read independently.
+  if (!indexed.alternates && indexed.file === source.file) {
+    const isTarget = indexed.isTarget === true;
+    Object.assign(indexed, source, { isTarget });
+    return indexed;
+  }
+
+  return source;
+}
+
 /** Map an absolute canonical URL to the file that would serve it in dist/. */
 function urlToDistFile(url) {
   const cleaned = url.split('#')[0].split('?')[0];
@@ -319,17 +348,32 @@ async function main() {
       // sources in the reciprocal cluster invariant: the canonical page must
       // not link back to a noindex bridge.
       if (!historical) {
-        reciprocitySources.push({
+        const source = {
           url: fileToPublicUrl(file, html),
           relPath: rel,
+          file,
           alternates,
-        });
+        };
+        reciprocitySources.push(indexReciprocitySource(reciprocityTargets, source));
         for (const href of alternates.values()) {
           if (!href.startsWith(BASE_URL) || isExternallyServedUrl(href)) continue;
           const targetFile = targetFileFor(href, distFiles);
           if (!targetFile) continue;
           const key = normalizeHreflangUrl(href, BASE_URL);
-          if (key && !reciprocityTargets.has(key)) reciprocityTargets.set(key, { href, file: targetFile });
+          if (!key) continue;
+          const target = reciprocityTargets.get(key);
+          if (target) {
+            if (!target.isTarget && target.file !== targetFile) {
+              // A source may share a canonical URL with a different physical
+              // file. Preserve the old target-path resolution in that case.
+              reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
+            } else {
+              target.isTarget = true;
+              if (!target.file) target.file = targetFile;
+            }
+          } else {
+            reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
+          }
         }
       }
 
@@ -390,6 +434,9 @@ async function main() {
       const next = targetEntries.next();
       if (next.done) return;
       const target = next.value;
+      // Source pages already carry the exact alternates Map parsed in the
+      // first pass. Re-reading them into a second Map recreates the OOM shape.
+      if (target.alternates) continue;
       const html = await readHeadOrAll(target.file);
       if (html === null) continue;
       summarizeReciprocityTarget(target, html);
@@ -405,18 +452,10 @@ async function main() {
     if (!target.alternates || target.noindex) reciprocityTargets.delete(key);
   }
 
-  // A parsed source can lack an inbound alternate and therefore not occur in
-  // the closure. The old combined page array still indexed it; add that same
-  // fallback in-place, without allocating a second million-entry Map.
-  for (const source of reciprocitySources) {
-    const key = normalizeHreflangUrl(source.url, BASE_URL);
-    if (key && !reciprocityTargets.get(key)?.file) reciprocityTargets.set(key, source);
-  }
-
   function* reciprocityPages() {
     yield* reciprocitySources;
     for (const target of reciprocityTargets.values()) {
-      if (target.file) yield target;
+      if (target.isTarget && target.file) yield target;
     }
   }
 

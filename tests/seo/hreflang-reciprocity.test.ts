@@ -4,7 +4,10 @@ import {
   findHreflangReciprocityFailures,
   normalizeHreflangUrl,
 } from '../../scripts/lib/hreflang-reciprocity.mjs';
-import { summarizeReciprocityTarget } from '../../scripts/audit-hreflang.mjs';
+import {
+  indexReciprocitySource,
+  summarizeReciprocityTarget,
+} from '../../scripts/audit-hreflang.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -86,6 +89,43 @@ describe('hreflang reciprocal return-link invariant', () => {
     expect(target.noindex).toBe(true);
     expect(target.alternates).toEqual(new Map([['en', enUrl]]));
     expect(target).not.toHaveProperty('html');
+  });
+
+  it('reuses a target record for the same source file instead of retaining two alternate Maps', () => {
+    const itUrl = `${BASE}/guida/`;
+    const file = 'dist/guida/index.html';
+    const target = { href: itUrl, file, isTarget: true };
+    const alternates = new Map([
+      ['it', itUrl],
+      ['en', `${BASE}/en/guide/`],
+    ]);
+    const source = { url: itUrl, relPath: 'guida/index.html', file, alternates };
+    const pageIndex = new Map([[normalizeHreflangUrl(itUrl), target]]);
+
+    const indexedSource = indexReciprocitySource(pageIndex, source);
+
+    expect(indexedSource).toBe(target);
+    expect(pageIndex.get(normalizeHreflangUrl(itUrl))).toBe(target);
+    expect(indexedSource.alternates).toBe(alternates);
+    expect(indexedSource.isTarget).toBe(true);
+  });
+
+  it('keeps a distinct target file when duplicate canonical URLs resolve differently', () => {
+    const itUrl = `${BASE}/guida/`;
+    const target = { href: itUrl, file: 'dist/guida/index.html', isTarget: true };
+    const source = {
+      url: itUrl,
+      relPath: 'legacy-guida/index.html',
+      file: 'dist/legacy-guida/index.html',
+      alternates: new Map([['it', itUrl]]),
+    };
+    const pageIndex = new Map([[normalizeHreflangUrl(itUrl), target]]);
+
+    const indexedSource = indexReciprocitySource(pageIndex, source);
+
+    expect(indexedSource).toBe(source);
+    expect(pageIndex.get(normalizeHreflangUrl(itUrl))).toBe(target);
+    expect(target).not.toHaveProperty('alternates');
   });
 
   it('allows a target served by another repository when the caller marks it external', () => {
