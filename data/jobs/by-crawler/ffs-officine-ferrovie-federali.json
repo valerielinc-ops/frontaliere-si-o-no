@@ -183,7 +183,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-schweisserei/ed84922d-6cab-4a10-8241-e2e258d3c102",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-13T21:29:10.219Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -281,7 +280,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/aea4d605-b7cd-4598-b3b1-985e802b6a11",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-13T21:29:20.607Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -631,7 +629,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-produktion-bereich-rangier-und-spezialfahrzeuge/669fa187-b83c-44e6-9d05-9555b14b5dee",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-13T21:29:15.113Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-produktion-bereich-rangier-und-spezialfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
@@ -10279,7 +10276,7 @@
       "slug": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
       "slugByLocale": {
         "it": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
-        "en": "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau",
+        "en": "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau",
         "de": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
         "fr": "une-catenaire-speciale-pour-ajusteurs-ffs-officine-ferrovie-federali-arth-goldau"
       },
@@ -10342,7 +10339,7 @@
       "crawledAt": "2026-10-13T21:29:12.099Z",
       "previousSlugs": [
         "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-        "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+        "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10350,7 +10347,7 @@
         ],
         "en": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-          "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+          "specialist-technician-overhead-line-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "fr": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
@@ -12053,7 +12050,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -12071,7 +12068,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",

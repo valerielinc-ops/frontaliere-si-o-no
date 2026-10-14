@@ -2497,7 +2497,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2579,7 +2578,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T09:20:08.135Z"
+      "firstSeenAt": "2026-10-12T09:20:08.135Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monitorare-il-servizio-clienti-confermato-audemars-piguet-le-brassus-vd-switzerland",
+          "monitorare-il-servizio-clienti-confermato-audemars-piguet-le-brassus"
+        ],
+        "en": [
+          "monitor-confirmed-customer-service-audemars-piguet-le-brassus-vd-switzerland",
+          "monitor-confirmed-customer-service-audemars-piguet-le-brassus"
+        ],
+        "de": [
+          "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus-vd-switzerland",
+          "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "monitorare-il-servizio-clienti-confermato-audemars-piguet-le-brassus-vd-switzerland",
+        "monitorare-il-servizio-clienti-confermato-audemars-piguet-le-brassus",
+        "monitor-confirmed-customer-service-audemars-piguet-le-brassus-vd-switzerland",
+        "monitor-confirmed-customer-service-audemars-piguet-le-brassus",
+        "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus-vd-switzerland",
+        "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus"
+      ]
     },
     {
       "id": "audemars-piguet-3ef2d1802f54",
@@ -3182,7 +3203,8 @@
         "horloger-confirme-service-client-audemars-piguet-le-brassus-vd-switzerland",
         "monitorare-il-servizio-clienti-confermato-audemars-piguet-le-brassus-vd-switzerland",
         "monitor-confirmed-customer-service-audemars-piguet-le-brassus-vd-switzerland",
-        "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus-vd-switzerland"
+        "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus-vd-switzerland",
+        "horloger-confirme-service-client-audemars-piguet-le-brassus-vd-switzerland-14cw93"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3196,6 +3218,9 @@
         "de": [
           "horloger-confirme-service-client-audemars-piguet-le-brassus-vd-switzerland",
           "monitor-bestatigter-kundenservice-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "fr": [
+          "horloger-confirme-service-client-audemars-piguet-le-brassus-vd-switzerland-14cw93"
         ]
       },
       "firstSeenAt": "2026-10-12T09:20:08.135Z",

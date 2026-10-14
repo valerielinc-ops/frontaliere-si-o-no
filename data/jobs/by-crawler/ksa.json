@@ -343,7 +343,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -389,9 +389,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -401,7 +399,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -3123,13 +3121,11 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -3529,7 +3525,6 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
@@ -7954,7 +7949,8 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-pflege-ksa-ch",
-          "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau"
+          "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
+          "teamleitung-pflege-ksa-ch-9ztl7k"
         ],
         "de": [
           "teamleitung-pflege-ksa-ch"
@@ -7970,7 +7966,8 @@
         "teamleitung-pflege-ksa-ch",
         "team-leadership-oncologia-ematologia-kantonsspital-aarau-ksa-aarau",
         "team-leadership-oncology-hematology-kantonsspital-aarau-ksa-aarau",
-        "chef-d-equipe-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
+        "chef-d-equipe-oncologie-hematologie-kantonsspital-aarau-ksa-aarau",
+        "teamleitung-pflege-ksa-ch-9ztl7k"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8040,7 +8037,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
