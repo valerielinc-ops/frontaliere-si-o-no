@@ -18,9 +18,11 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *      line" notice into a log nobody reads, so the inventory only ever
  *      shrinks when a human happens to look.
  *
- * This scan samples the LIVE sitemaps instead — 12 URLs per declared family,
- * evenly spaced — so it needs no build, no dist and no `npm ci`, and it
- * measures what Google actually has. It opens nothing itself: it prints a
+ * This scan reads the LIVE sitemaps instead. Small families are measured in
+ * full; larger ones use 12 evenly-spaced URLs, so it needs no build, no dist
+ * and no `npm ci`, and it measures what Google actually has. Full coverage is
+ * load-bounded: at the current inventory it adds 40 GETs, while the large
+ * 70-538 URL families remain sampled. It opens nothing itself: it prints a
  * verdict the workflow turns into issues, which the existing autonomous loop
  * (`issue-triage` → `issue-fix` → `pr-review-loop` → `auto-merge-on-lgtm`)
  * then implements. The next run of this scan re-measures and resolves the
@@ -101,6 +103,18 @@ const arg = (name, fallback) => {
 };
 
 const PER_FAMILY = Math.max(4, Number(arg('per-family', '12')) || 12);
+/**
+ * A percentage of page-specific segments is a population statistic, not a
+ * property that is invariant under sub-sampling. The Germany family measured
+ * 36.0% on the old seven-page gated slice and 40.0% on all 22 gated leaves,
+ * from the same live HTML. Fetch a bounded small sitemap in full so an
+ * opportunity issue cannot be created solely by that sampling artefact.
+ *
+ * Forty is also the original calibration size documented for the key
+ * families. Bigger sitemaps stay at PER_FAMILY requests to avoid turning the
+ * daily monitor into a crawl of the 538-page employer family.
+ */
+export const FULL_FAMILY_MAX_URLS = 40;
 const EMIT_JSON = process.argv.includes('--json');
 /**
  * Con `--out` il verdetto va su FILE e stdout resta il riassunto leggibile.
@@ -118,6 +132,19 @@ function evenlySpaced(items, count) {
   const out = [];
   for (let i = 0; i < count; i += 1) out.push(items[Math.floor(i * step)]);
   return out;
+}
+
+/**
+ * Select the URLs whose HTML will feed one family measurement.
+ *
+ * Exported because the completeness boundary is part of the observer's
+ * contract: a source test must fail if a future cost optimisation silently
+ * turns small-family population metrics back into sample-dependent verdicts.
+ */
+export function selectFamilyUrls(items, count = PER_FAMILY, fullFamilyMax = FULL_FAMILY_MAX_URLS) {
+  const sampleSize = Math.max(1, Math.floor(Number(count) || PER_FAMILY));
+  const fullLimit = Math.max(sampleSize, Math.floor(Number(fullFamilyMax) || FULL_FAMILY_MAX_URLS));
+  return items.length <= fullLimit ? [...items] : evenlySpaced(items, sampleSize);
 }
 
 async function fetchText(url, timeoutMs = 25_000) {
@@ -156,16 +183,22 @@ async function collectFamily(sitemap) {
     // One locale only: see the sampling note in the header.
     .filter((u) => !/frontaliereticino\.ch\/(en|de|fr)\//.test(u));
 
-  const picked = evenlySpaced(all, PER_FAMILY);
+  const picked = selectFamilyUrls(all, PER_FAMILY);
   const fingerprints = [];
-  // Sequential on purpose: a dozen GETs per family is not worth a concurrency
-  // bug, and a monitor that hammers the origin is a monitor someone turns off.
+  // Sequential on purpose: at most 40 GETs for a small family are not worth a
+  // concurrency bug, and a monitor that hammers the origin is one people turn off.
   for (const url of picked) {
     const html = await fetchText(url);
     if (!html) continue;
     fingerprints.push(fingerprintPage(distRelPath(url), html));
   }
-  return { sitemap, urls: all.length, sampled: picked.length, fingerprints };
+  return {
+    sitemap,
+    urls: all.length,
+    sampled: picked.length,
+    complete: picked.length === all.length,
+    fingerprints,
+  };
 }
 
 /**
@@ -227,16 +260,23 @@ async function main() {
   const fingerprints = [];
   for (const sitemap of MONITORED_SITEMAPS) {
     const fam = await collectFamily(sitemap);
-    families.push({ sitemap: fam.sitemap, urls: fam.urls, sampled: fam.sampled ?? 0, error: fam.error });
+    families.push({
+      sitemap: fam.sitemap,
+      urls: fam.urls,
+      sampled: fam.sampled ?? 0,
+      complete: fam.complete ?? false,
+      error: fam.error,
+    });
     fingerprints.push(...fam.fingerprints);
   }
 
-  // Gating threshold lowered vs the dist gate: a live sample is PER_FAMILY
-  // pages per family by construction, so the dist MIN_COHORT_PAGES would gate
-  // nothing at the default sample of 12. Half the sample is the smallest
-  // cohort where "shared with half the cohort" is not noise; capped at the
-  // dist floor so a larger --per-family never makes this scan STRICTER than
-  // the gate it monitors. Derived, not re-typed, so the two cannot drift.
+  // Gating threshold lowered vs the dist gate: large families still contribute
+  // PER_FAMILY pages, so the dist MIN_COHORT_PAGES would gate nothing at the
+  // default sample of 12. Small families may contribute more because they are
+  // read in full, but that must not make the mixed scan stricter for its sampled
+  // cohorts. Half the requested sample is the smallest cohort where "shared
+  // with half the cohort" is not noise; capped at the dist floor so a larger
+  // --per-family never makes this scan stricter than the gate it monitors.
   const liveMinCohortPages = Math.min(MIN_COHORT_PAGES, Math.max(2, Math.floor(PER_FAMILY / 2)));
   const { cohorts, pagesScored } = scoreCohorts(fingerprints, { minCohortPages: liveMinCohortPages });
   const gated = cohorts.filter((c) => c.gated);

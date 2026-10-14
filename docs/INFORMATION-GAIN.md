@@ -666,8 +666,8 @@ Per quelle c'è `information-gain-scan.yml`, cron giornaliero alle 05:25 UTC.
 ```
 information-gain-scan.yml  (cron 05:25 UTC + workflow_dispatch)
   │  scripts/ci/information-gain-live-scan.mjs
-  │    campiona 12 URL per famiglia dalle sitemap LIVE, un locale solo,
-  │    equispaziati; nessun build, nessun dist, nessun npm ci (~150 GET, ~30 s)
+  │    misura per intero le sitemap fino a 40 URL; sulle famiglie più grandi
+  │    campiona 12 URL LIVE, un locale solo, equispaziati; nessun build/dist/npm ci
   ↓
   │  scripts/ci/information-gain-loop-issues.mjs
   │    tre bucket → tre issue diverse, con la misura DENTRO
@@ -742,6 +742,14 @@ e non derivate da `sitemap.xml`: quell'indice elenca ~60 sitemap, in gran parte
 hub singoli, feed e archivi, dove «questa pagina ripete le sorelle?» non è una
 domanda con una risposta — e campionarle tutte sarebbe ~700 richieste al giorno
 per non misurare niente.
+
+La soglia di 40 URL per la copertura completa è un limite di carico, non una
+soglia editoriale. È necessaria perché la quota di segmenti page-specific non è
+invariante al sotto-campionamento: sulla stessa emissione live del 2026-10-14 la
+coorte Germania misurava 36,0 % sul vecchio slice (7 leaf coortizzate su 12 URL)
+e 40,0 % sulle 22 leaf della popolazione completa. Con l'inventario di quel
+giorno la regola aggiunge 40 GET totali (124 → 164); le famiglie da 70-538 URL
+restano campionate.
 
 Provarlo senza toccare niente:
 
