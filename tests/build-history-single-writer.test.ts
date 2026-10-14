@@ -207,6 +207,8 @@ const WRITER_FILES = [
   'scripts/lib/git-push-with-retry.sh',
   // Il push con retry lancia ogni comando di rete attraverso questo wrapper.
   'scripts/lib/run-bounded-command.mjs',
+  // Il wrapper importa questo helper per la telemetria non bloccante.
+  'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/configure-main-push-auth.sh',
   'scripts/lib/clear-checkout-git-credentials.sh',
   'scripts/lib/git-push-rejection.sh',
