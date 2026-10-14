@@ -33,6 +33,38 @@ function normalizedJobUrl(job) {
   return String(job?.url || '').trim().toLowerCase();
 }
 
+function normalizedSourceLocation(job) {
+  return String(job?.addressLocality || job?.location || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Whether two records are source-backed location variants of one posting.
+ *
+ * PwC can publish one vacancy URL/ID for several explicit offices. Assembly
+ * keeps one location, while the crawler slice deliberately keeps one record
+ * per office. The shared URL and diff identity prove the source posting; two
+ * different non-empty localities prove these are not duplicate rows. Slugs
+ * and bridge history remain per-location and must not be copied from the
+ * assembled winner onto its siblings.
+ */
+function isSourceBackedLocationVariant(sliceJob, assembled) {
+  const sliceUrl = normalizedJobUrl(sliceJob);
+  const assembledUrl = normalizedJobUrl(assembled);
+  if (!sliceUrl || sliceUrl !== assembledUrl) return false;
+
+  const sliceKey = resolveJobDiffKey(sliceJob);
+  const assembledKey = resolveJobDiffKey(assembled);
+  if (!sliceKey || sliceKey !== assembledKey) return false;
+
+  const sliceLocation = normalizedSourceLocation(sliceJob);
+  const assembledLocation = normalizedSourceLocation(assembled);
+  return Boolean(sliceLocation && assembledLocation && sliceLocation !== assembledLocation);
+}
+
 function stableUrlIndexKey(url) {
   const stableUrl = extractStableJobId(url);
   if (!stableUrl) return '';
@@ -268,9 +300,9 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   }
 
   const matchedKeys = new Set();
-  const assembledMatchKinds = new Map();
+  const assembledMatches = new Map();
   const sliceKeys = new Set();
-  let duplicateSliceKeys = 0;
+  let rawDuplicateSliceKeys = 0;
   let sliceJobs = 0;
   let unmatchedSliceJobs = 0;
   let missingBridges = 0;
@@ -281,7 +313,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     for (const sliceJob of sliceEntryJobs(entry)) {
       sliceJobs++;
       const sliceKey = resolveJobDiffKey(sliceJob);
-      if (sliceKey && sliceKeys.has(sliceKey)) duplicateSliceKeys++;
+      if (sliceKey && sliceKeys.has(sliceKey)) rawDuplicateSliceKeys++;
       if (sliceKey) sliceKeys.add(sliceKey);
 
       const { job: assembled, kind } = matchAssembledJobWithKind(sliceJob, index);
@@ -289,14 +321,24 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
         unmatchedSliceJobs++;
         continue;
       }
-      if (!assembledMatchKinds.has(assembled)) assembledMatchKinds.set(assembled, []);
-      assembledMatchKinds.get(assembled).push(kind);
+      if (!assembledMatches.has(assembled)) assembledMatches.set(assembled, []);
+      assembledMatches.get(assembled).push({ kind, sliceJob });
       matchedKeys.add(resolveJobDiffKey(assembled));
-      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
-      missingBridges += collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length;
-      if (applyAssembledToSliceJob(sliceJob, assembled, { skipBridges }).changed) pendingWrites++;
+      const preserveLocationSpecificSlugs = isSourceBackedLocationVariant(sliceJob, assembled);
+      const skipBridges = preserveLocationSpecificSlugs
+        ? assembledBridgeSlugs(assembled)
+        : bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
+      if (!preserveLocationSpecificSlugs) {
+        missingBridges += collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length;
+      }
+      if (applyAssembledToSliceJob(sliceJob, assembled, {
+        skipBridges,
+        preserveLocationSpecificSlugs,
+      }).changed) pendingWrites++;
 
-      const effectiveSlugs = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+      const effectiveSlugs = preserveLocationSpecificSlugs
+        ? sliceJob.slugByLocale
+        : mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
       if (!localeMapsEqual(effectiveSlugs, sliceJob.slugByLocale)) activeSlugMismatches++;
     }
   }
@@ -310,12 +352,27 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   // duplicates that share the full URL and are already allowed above.
   let duplicateAssembledMatches = 0;
   let shadowedSliceMatches = 0;
-  for (const kinds of assembledMatchKinds.values()) {
-    const strongest = Math.max(...kinds.map((kind) => MATCH_STRENGTH[kind]));
-    const atStrongest = kinds.filter((kind) => MATCH_STRENGTH[kind] === strongest).length;
-    duplicateAssembledMatches += atStrongest - 1;
-    shadowedSliceMatches += kinds.length - atStrongest;
+  let sourceLocationVariantMatches = 0;
+  for (const [assembled, matches] of assembledMatches) {
+    const strongest = Math.max(...matches.map(({ kind }) => MATCH_STRENGTH[kind]));
+    const strongestMatches = matches.filter(({ kind }) => MATCH_STRENGTH[kind] === strongest);
+    const locations = strongestMatches.map(({ sliceJob }) => normalizedSourceLocation(sliceJob));
+    const distinctLocations = new Set(locations);
+    const assembledLocation = normalizedSourceLocation(assembled);
+    const isLocationVariantGroup = strongestMatches.length > 1
+      && strongestMatches.every(({ kind }) => kind === 'url')
+      && locations.every(Boolean)
+      && distinctLocations.size === strongestMatches.length
+      && locations.filter((location) => location === assembledLocation).length === 1
+      && strongestMatches.every(({ sliceJob }) => (
+        normalizedSourceLocation(sliceJob) === assembledLocation
+        || isSourceBackedLocationVariant(sliceJob, assembled)
+      ));
+    if (isLocationVariantGroup) sourceLocationVariantMatches += strongestMatches.length - 1;
+    else duplicateAssembledMatches += strongestMatches.length - 1;
+    shadowedSliceMatches += matches.length - strongestMatches.length;
   }
+  const duplicateSliceKeys = Math.max(0, rawDuplicateSliceKeys - sourceLocationVariantMatches);
 
   const report = {
     assembledJobs: jobs.length,
@@ -329,6 +386,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     duplicateSliceKeys,
     duplicateAssembledMatches,
     shadowedSliceMatches,
+    sourceLocationVariantMatches,
     missingBridges,
     pendingWrites,
     activeSlugMismatches,
@@ -444,24 +502,21 @@ function diagnosticFindProjectionJob(projectionEntries, entry, sliceJob) {
   )) || null;
 }
 
-function diagnosticPendingChangeSummary(sliceJob, projectedJob, assembled, missingBridges) {
-  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+function diagnosticPendingChangeSummary(sliceJob, projectedJob, missingBridges) {
   const changes = {};
-  if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) {
+  if (!localeMapsEqual(projectedJob.titleByLocale, sliceJob.titleByLocale)) {
     changes.title = {
       before: diagnosticTextLocaleMap(sliceJob.titleByLocale),
       after: diagnosticTextLocaleMap(projectedJob.titleByLocale),
     };
   }
-  if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) {
+  if (!localeMapsEqual(projectedJob.descriptionByLocale, sliceJob.descriptionByLocale)) {
     changes.description = {
       before: diagnosticTextLocaleMap(sliceJob.descriptionByLocale),
       after: diagnosticTextLocaleMap(projectedJob.descriptionByLocale),
     };
   }
-  if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) {
+  if (!localeMapsEqual(projectedJob.slugByLocale, sliceJob.slugByLocale)) {
     // Report entry, not a job mutation: built with Object.assign so the
     // slug-write encapsulation scan does not read it as a direct slug write.
     Object.assign(changes, {
@@ -569,18 +624,23 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
         firstMatch.set(assembled, diagnosticJobRef(entry, sliceJob));
       }
 
-      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
-      const missing = collectMissingAssembledBridges(sliceJob, assembled, { skipBridges });
-      const applied = applyAssembledToSliceJob(sliceJob, assembled, { skipBridges });
+      const preserveLocationSpecificSlugs = isSourceBackedLocationVariant(sliceJob, assembled);
+      const skipBridges = preserveLocationSpecificSlugs
+        ? assembledBridgeSlugs(assembled)
+        : bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
+      const missing = preserveLocationSpecificSlugs
+        ? []
+        : collectMissingAssembledBridges(sliceJob, assembled, { skipBridges });
+      const applied = applyAssembledToSliceJob(sliceJob, assembled, {
+        skipBridges,
+        preserveLocationSpecificSlugs,
+      });
       if (applied.changed) {
         pendingWrites.total++;
-        const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-        const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-        const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
         const classes = [];
-        if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) classes.push('title');
-        if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) classes.push('description');
-        if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) classes.push('slug');
+        if (!localeMapsEqual(applied.job.titleByLocale, sliceJob.titleByLocale)) classes.push('title');
+        if (!localeMapsEqual(applied.job.descriptionByLocale, sliceJob.descriptionByLocale)) classes.push('description');
+        if (!localeMapsEqual(applied.job.slugByLocale, sliceJob.slugByLocale)) classes.push('slug');
         if (missing.length > 0) classes.push('bridge');
         const className = classes.length === 1 ? classes[0] : (classes.length > 1 ? 'multiple' : 'unknown');
         increment(pendingWrites, className);
@@ -588,11 +648,12 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
           pendingWrites.examples.push({
             ...diagnosticJobRef(entry, sliceJob),
             classes,
-            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, assembled, missing),
+            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, missing),
           });
         }
       }
 
+      if (preserveLocationSpecificSlugs) continue;
       const candidateByKey = new Map(diagnosticBridgeCandidates(assembled).map((candidate) => [candidate.key, candidate]));
       const selectedKeys = new Set(missing.map(({ locale, slug }) => `${locale || ''}\u0000${String(slug)}`));
       const selectedSlugs = new Set(missing.map(({ slug }) => String(slug)));
@@ -815,10 +876,13 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
  *
  * @param {object} sliceJob  the per-crawler slice job (source of truth)
  * @param {object} assembled the matching assembled data/jobs.json entry
- * @param {{skipBridges?: Set<string>}} [options]
+ * @param {{skipBridges?: Set<string>, preserveLocationSpecificSlugs?: boolean}} [options]
  * @returns {{ job: object, changed: boolean }}
  */
-export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = new Set() } = {}) {
+export function applyAssembledToSliceJob(sliceJob, assembled, {
+  skipBridges = new Set(),
+  preserveLocationSpecificSlugs = false,
+} = {}) {
   // SEO bridge slugs the assembled job captured (trackSlugHistoryDrift /
   // ensureLocaleFields) but the slice is still missing.
   // Computed up front (on the PRE-rename sliceJob) purely to decide whether a
@@ -831,7 +895,8 @@ export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = ne
   // gate here because whenever THIS call also renames a slug, `changed`
   // already flips true via the slugByLocale diff check two lines down,
   // independent of this list's headroom accuracy.
-  const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length > 0;
+  const hasMissingBridgesPreRename = !preserveLocationSpecificSlugs
+    && collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length > 0;
 
   // Compare the effective locale projection — only update if the assembled
   // values would change what the slice serves. `mergeLocaleMap()` deliberately
@@ -841,7 +906,9 @@ export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = ne
   // #7492): the two sides can build maps in different key orders.
   const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
   const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+  const mergedSlug = preserveLocationSpecificSlugs
+    ? sliceJob.slugByLocale
+    : mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
   const changed =
     !localeMapsEqual(mergedTitle, sliceJob.titleByLocale) ||
     !localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale) ||
@@ -923,7 +990,9 @@ export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = ne
   // this loop more "missing" bridges than the cap truly has room for after
   // the rename — recomputing on the POST-rename state keeps headroom
   // accurate to what's actually left.
-  const missingBridges = collectMissingAssembledBridges(updatedJob, assembled, { skipBridges });
+  const missingBridges = preserveLocationSpecificSlugs
+    ? []
+    : collectMissingAssembledBridges(updatedJob, assembled, { skipBridges });
   for (const { locale, slug } of missingBridges) {
     if (locale) {
       addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
@@ -961,8 +1030,14 @@ export function scatterAssembledIntoSliceEntries(assembledJobs, sliceEntries, { 
       const assembled = matchAssembledJob(sliceJob, index);
       if (!assembled) return sliceJob;
 
-      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownershipBefore);
-      const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled, { skipBridges });
+      const preserveLocationSpecificSlugs = isSourceBackedLocationVariant(sliceJob, assembled);
+      const skipBridges = preserveLocationSpecificSlugs
+        ? assembledBridgeSlugs(assembled)
+        : bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownershipBefore);
+      const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled, {
+        skipBridges,
+        preserveLocationSpecificSlugs,
+      });
       if (changed) {
         sliceChanged = true;
         updatedJobs++;

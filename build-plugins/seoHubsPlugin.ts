@@ -25,7 +25,7 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -79,7 +79,6 @@ import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiS
 import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
 import { localeOfDistPath, shouldEmitLocale } from './shared/localeEmitFilter';
 import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
-import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
@@ -505,8 +504,8 @@ function buildHubFooterHtml(locale: HubLocale, hubKey: HubKeyName): string {
  * Returns a `<section>` with 5 Q/A pairs (locale-aware boilerplate;
  * Google ignores low-grade boilerplate for ranking but the audit counts
  * every word of visible text). Same content per page is fine — these
- * pages are noindex-safe paginated archives, the canonical SEO value is
- * page-1 + the per-job detail pages.
+ * pages are paginated archives; the primary SEO value remains page-1 plus
+ * the per-job detail pages.
  */
 function buildHubFaqHtml(locale: HubLocale, hubKey: HubKeyName): string {
   const FAQ: Record<HubLocale, Record<HubKeyName, Array<[string, string]>>> = {
@@ -2126,46 +2125,14 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
           jobPerLocale, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
 
 
-  // Below-floor / noindex-parent bridge: when a canton's `tutti`/`settori`/
-  // `aziende` sub-hubs are skipped (job-count floor drop, or the canton
-  // landing itself went noindex — see cantonNoindexRegistry.ts), a URL that
-  // may already be indexed (via a prior build's sitemap) would otherwise
-  // hard-404 on GitHub Pages. Emit a noindex canonical-bridge page instead,
-  // pointing at the always-live canton section root
-  // (`resolveCantonSection` — same target jobsSeoPagesPlugin's own
-  // below-floor bridges use). Never added to the sitemap: this is a soft
-  // landing spot for stale inbound/crawled links, not new indexable content.
-  let thinCantonHubBelowFloorBridges = 0;
-  const emitCantonHubBelowFloorBridge = (canton: string): void => {
-    for (const locale of HUB_LOCALES) {
-      const section = resolveCantonSection(locale, canton);
-      const localePrefix = locale === 'it' ? '' : `/${locale}`;
-      const targetPath = `${localePrefix}/${section}/`;
-      for (const hub of ['tutti', 'settori', 'aziende'] as const) {
-        const canonicalPath = hubSlugFor(canton, locale, hub);
-        const html = buildCanonicalBridgePage({
-          canonicalUrl: `${BASE_URL}${targetPath}`,
-          pathLabel: canonicalPath,
-          lang: locale,
-          noindex: true,
-        });
-        qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
-        thinCantonHubBelowFloorBridges++;
-      }
-    }
-  };
-
   for (const canton of ALL_CANTON_CODES) {
     if (canton === 'TI') continue; // TI already emitted with full body above
     const total = cantonJobCounts.get(canton) ?? 0;
     const jobs = cantonJobs.get(canton) ?? [];
-    // Use the same snapshot and eligibility plan as the parent landing's
-    // archive navigator. Its visible listing count may be a newer inventory.
-    const archivePages = cantonArchivePageCount(total, jobs, !isCantonNoindex(canton));
-    if (archivePages === 0) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
+    // Use the same snapshot plan as the parent landing's archive navigator.
+    // Its visible listing count may be a newer inventory, and a zero/short
+    // snapshot still gets one complete page rather than a noindex bridge.
+    const archivePages = cantonArchivePageCount(total, jobs, true);
 
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
 
@@ -2398,9 +2365,6 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         }
       }
     }
-  }
-  if (thinCantonHubBelowFloorBridges > 0) {
-    console.log(`\x1b[36m[seo-hubs]\x1b[0m below-floor/noindex canton hub bridges: ${thinCantonHubBelowFloorBridges}`);
   }
 }
 
@@ -2903,17 +2867,15 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     });
   }
 
-  // ── Phase 7.2 — Canton-aware THIN hub pages ──
-  // For every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE jobs, emit a
-  // thin per-canton landing for `tutti` (all jobs), `settori` (sectors) and
-  // `aziende` (companies) across all 4 locales. These pages close the
-  // canton URL graph (Semrush orphan-pages gate) without rebuilding the
-  // full TI body. Articles are NOT canton-scoped — they remain TI-only.
+  // ── Phase 7.2 — Canton-aware hub pages ──
+  // For every non-TI canton, emit a complete per-canton landing for `tutti`
+  // (all jobs), `settori` (sectors) and `aziende` (companies) across all four
+  // locales. A small or empty snapshot still receives the same geographic
+  // prose, navigation and fallback template; it is never replaced by a
+  // noindex bridge. Articles are NOT canton-scoped — they remain TI-only.
   //
-  // Conservative gate: skip cantons under the job-count threshold so we
-  // never emit thin-content placeholders. The TI hubs are already emitted
-  // above with the full paginated body — we explicitly skip TI here to
-  // preserve byte-identical TI invariance.
+  // The TI hubs are already emitted above with the full paginated body — we
+  // explicitly skip TI here to preserve byte-identical TI invariance.
   emitThinCantonHubs({
     fs,
     np,

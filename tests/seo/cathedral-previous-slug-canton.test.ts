@@ -164,7 +164,8 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         if (!canonicalSlug || !html.includes(canonicalSlug)) continue;
         // Bridge IS for this job. Its <link rel="canonical"> must point to the
         // canton-aware URL — not to /cerca-lavoro-ticino/ — so Google folds
-        // equity into the new canton section.
+        // equity into the new canton section. The old URL itself must remain
+        // noindex: only the current canonical detail competes in search.
         // Use the DOM parser provided by vitest's jsdom environment so the
         // assertion survives every flavour of HTML-minify output (stripped
         // quotes, reordered attributes). The previous regex variant
@@ -185,6 +186,15 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         if (/\/cerca-lavoro-ticino\//.test(canonicalHref)) {
           mismatches.push(
             `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge canonicalises to TI: ${canonicalHref}`,
+          );
+        }
+        const robots = new DOMParser()
+          .parseFromString(html, 'text/html')
+          .querySelector('meta[name="robots"]')
+          ?.getAttribute('content') ?? '';
+        if (!/noindex/i.test(robots)) {
+          mismatches.push(
+            `non-TI job ${canonicalSlug} (canton=${job.canton}) previous-slug bridge is indexable: cerca-lavoro-ticino/${oldSlug}/`,
           );
         }
       }
