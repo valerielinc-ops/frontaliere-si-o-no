@@ -70,6 +70,7 @@ export const BORDER_SLA_TOLERANCE = 2;
  * niente sullo stato della fonte e va ripetuto.
  */
 export const PHARMACY_AUDIT_MAX_AGE_DAYS = 90;
+const SWISS_CANTON_DUTY_TIMEZONE = 'Europe/Zurich';
 const BORDER_JURISDICTIONS = Object.freeze([
   { key: 'CH-TI', sourceKey: 'ticino-complete', country: 'CH', canton: 'Ticino' },
   { key: 'IT-CO', sourceKey: 'italy-border', country: 'IT', province: 'CO' },
@@ -214,6 +215,119 @@ export function evaluateFreshness(registry, datasets, duties, nowMs, anagraficaM
     push(key, 'turni', duties[key], slaMs === null ? null : (slaMs * DUTIES_SLA_TOLERANCE) / 3600e3);
   }
   return { entries };
+}
+
+const SWISS_CANTON_DATE_FORMATTER = new Intl.DateTimeFormat('en-GB', {
+  timeZone: SWISS_CANTON_DUTY_TIMEZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hourCycle: 'h23',
+});
+
+function swissCantonDateTimeParts(timestampMs) {
+  const parts = SWISS_CANTON_DATE_FORMATTER.formatToParts(new Date(timestampMs));
+  return Object.fromEntries(parts
+    .filter((part) => part.type !== 'literal')
+    .map((part) => [part.type, Number(part.value)]));
+}
+
+function swissCantonMidnightMs(dateKey) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateKey);
+  if (!match) return NaN;
+  const localAsUtcMs = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  const localAtCandidate = swissCantonDateTimeParts(localAsUtcMs);
+  const offsetMs = Date.UTC(
+    localAtCandidate.year,
+    localAtCandidate.month - 1,
+    localAtCandidate.day,
+    localAtCandidate.hour,
+    localAtCandidate.minute,
+    localAtCandidate.second,
+  ) - localAsUtcMs;
+  return localAsUtcMs - offsetMs;
+}
+
+function addCalendarDays(dateKey, days) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateKey);
+  if (!match) return null;
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+function swissCantonFetchWeek(timestampMs) {
+  const local = swissCantonDateTimeParts(timestampMs);
+  const date = new Date(Date.UTC(local.year, local.month - 1, local.day));
+  const weekday = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() - weekday + 1);
+  const startKey = date.toISOString().slice(0, 10);
+  const endKey = addCalendarDays(startKey, 7);
+  return endKey
+    ? { startKey, endKey, startMs: swissCantonMidnightMs(startKey), endMs: swissCantonMidnightMs(endKey) }
+    : null;
+}
+
+function dutyIntersectsWindow(duty, startMs, endMs) {
+  const dutyStart = typeof duty?.startsAt === 'string' ? Date.parse(duty.startsAt) : NaN;
+  const dutyEnd = typeof duty?.endsAt === 'string' ? Date.parse(duty.endsAt) : NaN;
+  return Number.isFinite(dutyStart)
+    && Number.isFinite(dutyEnd)
+    && dutyEnd > dutyStart
+    && dutyEnd > startMs
+    && dutyStart < endMs;
+}
+
+function snapshotHasCoverageSignal(snapshot) {
+  const release = snapshot?._release;
+  return snapshot?._releaseReady !== true
+    || snapshot?._state !== 'fresh'
+    || release?.state !== 'fresh'
+    || snapshot?._coverage?.coverage !== 'covered'
+    || (Array.isArray(snapshot?._errors) && snapshot._errors.length > 0)
+    || (Array.isArray(snapshot?._unresolvedIdentities) && snapshot._unresolvedIdentities.length > 0);
+}
+
+/**
+ * Observes the week containing each Swiss canton release's own fetch timestamp.
+ * A historical week may naturally contain only `expired` rows after a later
+ * refresh; the observer therefore never anchors to a fixed calendar date.
+ * Fresh, release-ready snapshots without a verified interval in their fetch
+ * week are an unreported coverage gap and must make the health report red.
+ */
+export function observeSwissCantonDutyCoverage(registry, duties) {
+  const entries = [];
+  for (const [key, source] of Object.entries(registry?.sources ?? {})) {
+    if (source?.status !== 'active') continue;
+    const snapshot = duties?.[key];
+    if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot)) continue;
+    if (snapshot?._scope?.country !== 'CH' || typeof snapshot?._scope?.canton !== 'string') continue;
+    const fetchedAt = typeof snapshot._fetchedAt === 'string' ? snapshot._fetchedAt : null;
+    const fetchedAtMs = fetchedAt ? Date.parse(fetchedAt) : NaN;
+    const week = Number.isFinite(fetchedAtMs) ? swissCantonFetchWeek(fetchedAtMs) : null;
+    if (!week || !Number.isFinite(week.startMs) || !Number.isFinite(week.endMs)) continue;
+    const verifiedDutyCount = (Array.isArray(snapshot.duties) ? snapshot.duties : [])
+      .filter((duty) => duty?.status === 'verified' && dutyIntersectsWindow(duty, week.startMs, week.endMs))
+      .length;
+    entries.push({
+      key,
+      canton: snapshot._scope.canton,
+      fetchedAt,
+      weekStart: week.startKey,
+      weekEnd: week.endKey,
+      verifiedDutyCount,
+      covered: verifiedDutyCount > 0,
+      signalled: snapshotHasCoverageSignal(snapshot),
+    });
+  }
+  entries.sort((a, b) => a.key.localeCompare(b.key));
+  return {
+    entries,
+    unreportedGaps: entries.filter((entry) => !entry.covered && !entry.signalled),
+  };
 }
 
 /**
@@ -507,6 +621,7 @@ export function detectDutyConflicts(key, doc, nowMs) {
 export function buildReport({ registry, datasets = {}, duties = {}, knownCantonCount = 0, nowMs = Date.now(), anagraficaMaxAgeHours = DEFAULT_ANAGRAFICA_MAX_AGE_HOURS, border = null }) {
   const coverage = evaluateCoverage(registry, datasets, duties, knownCantonCount);
   const freshness = evaluateFreshness(registry, datasets, duties, nowMs, anagraficaMaxAgeHours);
+  const dutyCoverage = observeSwissCantonDutyCoverage(registry, duties);
   const borderHealth = border ? evaluateBorderHealth({ ...border, nowMs }) : null;
   const fetchErrors = collectFetchErrors(datasets, duties);
   const conflicts = [
@@ -555,6 +670,9 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
   }
   for (const e of fetchErrors) problems.push(`${e.count} errore/i di fetch nel dataset ${e.kind} ${e.key}`);
   for (const c of conflicts) problems.push(`conflitto ${c.type} (${c.key}): ${c.detail}`);
+  for (const gap of dutyCoverage.unreportedGaps) {
+    problems.push(`release turni ${gap.key} fuori copertura nella settimana del fetch ${gap.weekStart} senza segnale di errore`);
+  }
   if (borderHealth) {
     const staleSources = new Set();
     for (const jurisdiction of borderHealth.jurisdictions) {
@@ -586,6 +704,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     dutiesPipeline: coverage.cantonsWithDuties > 0
       ? { available: true }
       : { available: false, reason: 'dataset turni non disponibile per la fonte attiva' },
+    dutyCoverage,
     ...(borderHealth ? { border: borderHealth } : {}),
     problems,
     healthy: problems.length === 0,
@@ -614,6 +733,7 @@ export function formatReport(report) {
   }
   lines.push(`Errori di fetch: ${report.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
   lines.push(`Conflitti: ${report.conflicts.length}`);
+  lines.push(`Copertura release cantonali: ${report.dutyCoverage.entries.length} osservate · gap non segnalati: ${report.dutyCoverage.unreportedGaps.length}`);
   if (!report.dutiesPipeline.available) lines.push(`Turni: ${report.dutiesPipeline.reason}`);
   if (report.border) {
     lines.push(`Perimetro operativo: ${report.border.jurisdictions.length} giurisdizioni · ${report.border.totalRecords} record`);
