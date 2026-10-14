@@ -27,6 +27,27 @@ export const ELPROM_COMPANY_DOMAIN = 'elprom.ch';
 
 const CAREER_URL = 'https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/';
 
+/** Return canonical CH geography only when the source carries country evidence. */
+export function resolveElpromGeography(listing = {}) {
+  const countries = [listing.addressCountry, listing.country]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+  if (countries.length === 0) return null;
+
+  const resolved = [];
+  for (const addressCountry of countries) {
+    const geography = resolveSourceBackedSwissGeography({ ...listing, addressCountry });
+    if (!geography) return null;
+    resolved.push(geography);
+  }
+
+  return {
+    ...resolved[0],
+    addressCountry: 'CH',
+    country: 'CH',
+  };
+}
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -141,7 +162,7 @@ export async function fetchAllElpromJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = resolveElpromGeography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -182,9 +203,9 @@ export async function fetchAllElpromJobs() {
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
       addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
+      addressRegion: canton,
+      addressCountry: geography.addressCountry,
+      country: geography.country,
       // Keep mandatory address keys on every row; the job-page JSON-LD
       // normalizer supplies safe fallbacks when the source omits them.
       postalCode: normalizeSpace(listing.postalCode || ''),
