@@ -8498,7 +8498,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "bkw-b8c5b352e590",
@@ -11646,7 +11648,6 @@
           "senior-modelisateur-de-risque-quantitatif-bkw-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:35:31.943Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
