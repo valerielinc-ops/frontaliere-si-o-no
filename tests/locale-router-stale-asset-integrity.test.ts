@@ -85,6 +85,31 @@ describe('stripStaleAssetIntegrity — which responses are rewritten', () => {
     expect(calls).toHaveLength(0);
   });
 
+  it('NEGATIVE CASE — a partial (206) response passes through untouched (issue 13018)', () => {
+    (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
+    // What the edge answered a `Range: bytes=0-1023` GET on 2026-10-14: a slice
+    // of the gzip representation. Rewriting it means decoding a truncated gzip
+    // stream, which throws while the body streams, after transform() returned.
+    const partial = html({
+      status: 206,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Content-Range': 'bytes 0-1023/16288',
+      },
+    });
+    const ranged = new Request('https://frontaliereticino.ch/en/cross-border-articles/all/page-28/', {
+      headers: { Range: 'bytes=0-1023' },
+    });
+    expect(stripStaleAssetIntegrity(ranged, partial)).toBe(partial);
+
+    // Content-Range alone marks a partial body, whatever the status says.
+    const rangedOk = html({
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Range': 'bytes 2000-15441/15442' },
+    });
+    expect(stripStaleAssetIntegrity(ranged, rangedOk)).toBe(rangedOk);
+    expect(calls).toHaveLength(0);
+  });
+
   it('fails open: no HTMLRewriter, or a rewriter that throws, returns the original response', () => {
     const plain = html();
     expect(stripStaleAssetIntegrity(new Request('https://frontaliereticino.ch/en/'), plain)).toBe(plain);
@@ -195,6 +220,35 @@ describe('the Worker entrypoint applies the filter', () => {
       expect(res.status).toBe(200);
       expect(res.headers.get('x-test-rewritten')).toBe('1');
       expect(calls[0]?.selector).toBe('script[integrity], link[integrity]');
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it('returns a ranged apex passthrough as the origin answered it, without the rewriter', async () => {
+    (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
+    const originalFetch = globalThis.fetch;
+    let forwardedRange: string | null = null;
+    const partial = html({
+      status: 206,
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Range': 'bytes 0-1023/11204' },
+    });
+    globalThis.fetch = async (input) => {
+      forwardedRange = input instanceof Request ? input.headers.get('Range') : null;
+      return partial;
+    };
+    try {
+      const res = await router.default.fetch(
+        new Request('https://frontaliereticino.ch/agenzie-del-lavoro-lugano/', {
+          headers: { Range: 'bytes=0-1023' },
+        }),
+        {},
+        { waitUntil: () => {} },
+      );
+      expect(forwardedRange).toBe('bytes=0-1023');
+      expect(res).toBe(partial);
+      expect(res.headers.get('x-test-rewritten')).toBeNull();
+      expect(calls).toHaveLength(0);
     } finally {
       globalThis.fetch = originalFetch;
     }
