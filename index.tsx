@@ -24,10 +24,6 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
 );
 
-const hasJobBoardPreRenderedPaintContent = (): boolean => !!document.querySelector(
- 'main.seo-static-content.job-board-static-hub',
-);
-
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
@@ -113,12 +109,6 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
- // FCP can come from a smaller header/reserve node while the job-board
- // subtitle is still becoming the LCP candidate; do not evaluate JobBoard.js
- // until that static candidate has had a quiet paint window.
- if (hasJobBoardPreRenderedPaintContent()) {
-   await waitForInitialPaintOpportunity({ waitForLargestContentfulPaint: true });
- }
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([
@@ -224,11 +214,19 @@ const bootstrapApp = async () => {
        fallbackKind,
        true,
      )) {
-       // Modulepreload fetches JobBoard, but does not wait for its evaluation.
-       // Keep the already-painted fallback visible until the interactive job
-       // board can render immediately after the handoff; otherwise the lazy
-       // module gap becomes the mobile LCP on slow connections.
-       if (parsedRoute.activeTab === 'job-board') {
+       const isJobBoardRoute = parsedRoute.activeTab === 'job-board';
+       fallback.style.removeProperty('display');
+       // Adopt the body-level static hub sub-nav together with the fallback,
+       // in painted order, so neither moves on screen (#8868).
+       staticHandoff.adoptStaticFallbackIntoRoot(rootElement, fallback);
+       staticPage = hasStaticContent();
+
+       // The static fallback is hidden in the served HTML until this handoff.
+       // Yield a paint opportunity before evaluating the large JobBoard module;
+       // otherwise that evaluation blocks the first visible LCP candidate and
+       // the old fallback becomes the mobile LCP only after the takeover.
+       if (isJobBoardRoute) {
+         await waitForFirstPaint();
          try {
            await import('@/components/community/JobBoard');
          } catch {
@@ -236,11 +234,6 @@ const bootstrapApp = async () => {
            // that cannot be evaluated; do not hide the fallback indefinitely.
          }
        }
-       fallback.style.removeProperty('display');
-       // Adopt the body-level static hub sub-nav together with the fallback,
-       // in painted order, so neither moves on screen (#8868).
-       staticHandoff.adoptStaticFallbackIntoRoot(rootElement, fallback);
-       staticPage = hasStaticContent();
      }
  } catch {
   /* router/DOM edge case — fall through to existing handling */
