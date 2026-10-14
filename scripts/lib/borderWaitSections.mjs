@@ -22,9 +22,9 @@ export const BORDER_WAIT_SECTION_BY_LOCALE = Object.freeze({
 });
 
 /** Crossings whose published monthly archives must survive daily retention. */
-export const BORDER_WAIT_ARCHIVE_CROSSINGS = Object.freeze([
+export const BORDER_WAIT_ARCHIVE_CROSSINGS = Object.freeze(/** @type {const} */ ([
   'chiasso-brogeda', 'chiasso-centro', 'gaggiolo', 'oria-gandria', 'ponte-tresa',
-]);
+]));
 
 /** Current "today" slug per locale, mirrored by the build plugin. */
 export const BORDER_WAIT_TODAY_BY_LOCALE = Object.freeze({

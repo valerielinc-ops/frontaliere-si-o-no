@@ -511,9 +511,7 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
 ] as const;
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
-export const TOP_5_CROSSINGS: readonly BorderCrossingSlug[] = [
-  ...BORDER_WAIT_ARCHIVE_CROSSINGS,
-];
+export const TOP_5_CROSSINGS: readonly BorderCrossingSlug[] = BORDER_WAIT_ARCHIVE_CROSSINGS;
 
 /**
  * Display names — proper nouns, same across all locales. New crossing → add
