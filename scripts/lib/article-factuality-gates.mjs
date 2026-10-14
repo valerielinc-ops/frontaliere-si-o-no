@@ -1526,7 +1526,11 @@ const NORM_CITATION_CUE =
 // guarda solo il confine dell'occorrenza corrente, cosi' una menzione societaria
 // precedente non assolve una citazione normativa successiva della stessa sigla.
 const BENIGN_NORM_ENTITY_NOUN = String.raw`(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)`;
-const BENIGN_NORM_CORPORATE_SUFFIX = String.raw`(?:AG|GmbH|S\.?\s*A\.?|S[àa]rl|Srl|S\.?\s*p\.?\s*A\.?|Ltd\.?|Limited|Inc\.?|LLC|Corp\.?|SAS|SNC)`;
+// `AG` è anche il codice del Cantone Argovia: dopo una virgola non prova da
+// sola che la sigla sia una società. Manteniamo benigno il formato senza
+// virgola (`LFW AG`).
+const BENIGN_NORM_AMBIGUOUS_CORPORATE_SUFFIX = String.raw`AG`;
+const BENIGN_NORM_CORPORATE_SUFFIX = String.raw`(?:${BENIGN_NORM_AMBIGUOUS_CORPORATE_SUFFIX}|GmbH|S\.?\s*A\.?|S[àa]rl|Srl|S\.?\s*p\.?\s*A\.?|Ltd\.?|Limited|Inc\.?|LLC|Corp\.?|SAS|SNC)`;
 const benignNormEntity = (acronym) => new RegExp(
   String.raw`\b${BENIGN_NORM_ENTITY_NOUN}\s+${acronym}$`,
   'i',
@@ -1543,7 +1547,7 @@ export function benignNormEntityBoundary(text, acronym, matchIndex, matchLength 
     'iu',
   );
   const suffixedEntity = new RegExp(
-    String.raw`^${escaped}(?:\s*["'»›”’)\]])?\s*,?\s+${BENIGN_NORM_CORPORATE_SUFFIX}(?=$|[\s,.;:!?…\)\]])`,
+    String.raw`^${escaped}(?:\s*["'»›”’)\]])?(?!\s*,\s*${BENIGN_NORM_AMBIGUOUS_CORPORATE_SUFFIX}\b)\s*,?\s+${BENIGN_NORM_CORPORATE_SUFFIX}(?=$|[\s,.;:!?…\)\]])`,
     'iu',
   );
   const prefixedMatch = prefixedEntity.exec(throughMatch);
