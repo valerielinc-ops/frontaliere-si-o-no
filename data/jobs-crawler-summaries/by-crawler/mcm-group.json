@@ -1,7 +1,7 @@
 {
   "key": "mcm-group",
   "label": "Medizinisches Center Bonaduz",
-  "generatedAt": "2026-10-13T21:16:48.839Z",
+  "generatedAt": "2026-10-14T09:12:20.259Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8481,
-  "avgDurationMs": 8481,
+  "durationMs": 8297,
+  "avgDurationMs": 8297,
   "durationHistory": [
-    8481
+    8297
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "mcm-group-a21ccb034fdd",
-      "slug": "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
+      "slug": "assistente-medico-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
       "company": "Medizinisches Center Bonaduz",
       "companyKey": "mcm-group",
       "companyDomain": "mcm-group.ch",
@@ -34,7 +35,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistenz-in-mpa-80-100-allgemeinmedizin-1-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:16:31.611Z",
+      "crawledAt": "2026-10-14T09:12:04.128Z",
       "addressLocality": "Rebstein",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -52,21 +53,19 @@
       "postedDate": "2026-10-13T00:00:00.000000Z",
       "postingDateSource": "reported",
       "applyUrl": "https://mcm-group.ch/jobs/med-praxisassistenz-in-mpa-80-100-allgemeinmedizin-1-1-1",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T21:16:31.611Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-13T21:16:31.611Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +80,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:16:31.610Z",
+      "crawledAt": "2026-10-14T09:12:04.126Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +122,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:16:31.607Z",
+      "crawledAt": "2026-10-14T09:12:04.123Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
