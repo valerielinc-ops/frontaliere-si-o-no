@@ -7,14 +7,14 @@
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.018151815181518153,
-        "created": 88,
-        "shown": 4848,
+        "rate": 0.014853747714808043,
+        "created": 65,
+        "shown": 4376,
         "ctaSurfaceNotSetShare": 0
       },
-      "detail": "88/4848 utenti = 1.82%, cta_surface (not set) 0.00% [GA4]",
+      "detail": "65/4376 utenti = 1.49%, cta_surface (not set) 0.00% [GA4]",
       "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, GA4)",
-      "lastCheckAt": "2026-10-11T11:36:04.530Z",
+      "lastCheckAt": "2026-10-14T08:03:32.948Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
@@ -28,7 +28,7 @@
       },
       "detail": "0 $dead_click (14gg)",
       "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
-      "lastCheckAt": "2026-10-11T11:36:04.530Z",
+      "lastCheckAt": "2026-10-14T08:03:32.948Z",
       "passedAt": "2026-08-09T06:13:33.259Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): $dead_click e' autocapture nativo PostHog; il dead_click custom in GA4 e' un'altra metrica"
     },
@@ -55,7 +55,7 @@
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-10-11T11:36:04.530Z",
+      "lastCheckAt": "2026-10-14T08:03:32.948Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)"
     },
     "canton_hub_positions": {
@@ -114,6 +114,6 @@
       "state": "observing"
     }
   },
-  "generatedAt": "2026-10-11T11:36:04.530Z",
+  "generatedAt": "2026-10-14T08:03:32.948Z",
   "campaignStart": "2026-07-17"
 }
