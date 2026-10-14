@@ -23,6 +23,12 @@ export type DirectoryPageKind =
  | 'plate_auction';
 
 const LOCALE_PREFIX_RE = /^\/(en|de|fr)(?=\/|$)/i;
+const APPLICATION_CONCIERGE_PATHS = new Set([
+ '/automatizza-ricerca-lavoro-svizzera',
+ '/automate-job-search-switzerland',
+ '/arbeitssuche-schweiz-automatisieren',
+ '/automatiser-recherche-emploi-suisse',
+]);
 
 function normalizePath(input: string): string {
  let path = String(input || '').trim();
@@ -49,7 +55,9 @@ function normalizePath(input: string): string {
 function isApplicationConciergePath(input: string): boolean {
  try {
   const url = new URL(String(input || ''), 'https://frontaliereticino.ch');
-  return url.searchParams.get('application_concierge') === '1'
+  const pathname = normalizePath(url.pathname).toLowerCase().replace(LOCALE_PREFIX_RE, '');
+  return APPLICATION_CONCIERGE_PATHS.has(pathname)
+   || url.searchParams.get('application_concierge') === '1'
    || Boolean(url.searchParams.get('application_concierge_service_id'));
  } catch {
   return false;

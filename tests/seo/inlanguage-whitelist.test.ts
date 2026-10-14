@@ -151,13 +151,20 @@ describe('seoService — inLanguage whitelist', () => {
   window.history.replaceState({}, '', path);
   await updateMetaTags(section);
 
-  expect(document.title).toContain('Candidature assistite');
-  expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toContain('candidatura assistita');
+  expect(document.title).toContain('Automatizza la ricerca di lavoro in Svizzera');
+  expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toContain('Automatizza la ricerca di lavoro in Svizzera');
   expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href'))
-   .toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/?application_concierge=1');
+   .toBe('https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/');
 
   const schemas = flatten(readEmittedSchemas());
   expect(schemas.some((schema) => typeOf(schema) === 'Service')).toBe(true);
-  expect(Array.from(document.querySelectorAll('link[hreflang]')).every((link) => link.href.includes('application_concierge=1'))).toBe(true);
+  const hreflangHrefs = Array.from(document.querySelectorAll('link[hreflang]')).map((link) => link.href);
+  expect(hreflangHrefs.every((href) => !href.includes('application_concierge'))).toBe(true);
+  expect(hreflangHrefs).toEqual(expect.arrayContaining([
+   'https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera/',
+   'https://frontaliereticino.ch/en/automate-job-search-switzerland/',
+   'https://frontaliereticino.ch/de/arbeitssuche-schweiz-automatisieren/',
+   'https://frontaliereticino.ch/fr/automatiser-recherche-emploi-suisse/',
+  ]));
  });
 });

@@ -51,8 +51,8 @@ describe('recommendedBlock selection', () => {
 
       const href = buildRecommendedHref(rec!, { campaign, acquisitionSource: 'job-alert' });
       const parsed = new URL(href);
-      expect(parsed.pathname).toBe('/cerca-lavoro-ticino/');
-      expect(parsed.searchParams.get('application_concierge')).toBe('1');
+      expect(parsed.pathname).toBe('/automatizza-ricerca-lavoro-svizzera');
+      expect(parsed.searchParams.get('application_concierge')).toBeNull();
       expect(parsed.searchParams.get('utm_source')).toBe('newsletter');
       expect(parsed.searchParams.get('utm_medium')).toBe('email');
       expect(parsed.searchParams.get('utm_campaign')).toBe(campaign);
@@ -137,8 +137,8 @@ describe('recommendedBlock render', () => {
 
   it('renders the first-party service link without a sponsored rel', () => {
     const html = renderRecommendedBlock({ locale: 'it', interest: 'jobs', campaign: 'jobalert' });
-    expect(html).toContain('/cerca-lavoro-ticino/?application_concierge=1');
-    expect(html).toContain('Candidature assistite per 30 giorni');
+    expect(html).toContain('/automatizza-ricerca-lavoro-svizzera');
+    expect(html).toContain('Automatizza la ricerca di lavoro in Svizzera');
     expect(html).toContain('Servizio di Frontaliere Ticino');
     expect(html).not.toContain('rel="noopener noreferrer sponsored"');
   });

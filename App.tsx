@@ -225,7 +225,7 @@ import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPrem
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, svizzeraArticlesArchiveBasePaths as seoSvizzeraArticlesArchiveBasePaths, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
 import { resolveCantonSection as resolveSeoCantonSection, legacyTiSectionRoot } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/shared/jobSectorPaths';
-import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
+import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath, isApplicationConciergePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import {
   afterRootCrossfade,
@@ -3229,10 +3229,15 @@ const App: React.FC = () => {
  // 1400) so the v4 cascade can't pin it to 7xl. Inner list view self-caps
  // (max-w-6xl), so only the rail'd detail/gate views use the full width.
  <div className="max-xlw:max-w-7xl xlw:max-w-none mx-auto">
- {(typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge_service_id') || new URLSearchParams(window.location.search).get('application_concierge') === '1')) ? (
+ {(typeof window !== 'undefined' && (() => {
+  const searchParams = new URLSearchParams(window.location.search);
+  return Boolean(searchParams.get('application_concierge_service_id'))
+   || searchParams.get('application_concierge') === '1'
+   || isApplicationConciergePath(window.location.pathname);
+ })()) ? (
  <ApplicationConciergePortal
   serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
-  entry={typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('application_concierge') === '1'}
+  entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}
   authLoading={authLoading}
   onRequireAuth={() => navigateTo('profile' as any)}

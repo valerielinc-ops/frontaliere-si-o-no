@@ -8,7 +8,7 @@ import { localizeArticlePageIdentity } from './seo/article-page-identity';
  */
 
 import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, loadArticleBody, getLoadedArticleBody, type Locale } from './i18n';
-import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
+import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, getApplicationConciergePath, isApplicationConciergePath, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
 import { JOB_CANTON_MANIFEST_PATH, resolveCantonShardKey, type CantonShardManifest } from './jobCantonShards';
@@ -1731,7 +1731,7 @@ function isLocaleChunkLoaded(locale: Locale): boolean {
 }
 
 function buildApplicationConciergeSeoMetadata(locale: Locale): SEOMetadata {
- const canonicalPath = `${withTrailingSlashPath(buildPath({ activeTab: 'job-board' }, locale))}?application_concierge=1`;
+ const canonicalPath = getApplicationConciergePath(locale);
  const title = t('jobBoard.concierge.seoTitle');
  const description = t('jobBoard.concierge.seoDescription');
  return {
@@ -1749,7 +1749,7 @@ function buildApplicationConciergeSeoMetadata(locale: Locale): SEOMetadata {
    description,
    serviceType: 'Assisted job application service',
    provider: { '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
-   areaServed: { '@type': 'Place', name: 'Ticino, Switzerland' },
+   areaServed: { '@type': 'Country', name: 'Switzerland' },
    offers: {
     '@type': 'Offer',
     url: `${BASE_URL}${canonicalPath}`,
@@ -1776,7 +1776,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  // leave the previous page's head in place while that locale chunk loads.
  const { route, locale: pathLocale } = parsePath(pathnameSnapshot);
  const searchParams = new URLSearchParams(window.location.search || '');
- const isApplicationConciergeEntry = searchParams.get('application_concierge') === '1'
+ const isApplicationConciergeEntry = (isApplicationConciergePath(pathnameSnapshot)
+  || searchParams.get('application_concierge') === '1')
   && !searchParams.get('application_concierge_service_id');
  const isApplicationConciergeService = Boolean(searchParams.get('application_concierge_service_id'));
 
@@ -1832,10 +1833,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  // `{ activeTab: 'job-board', staticOverlay: true }` — the specific landing
  // slug is not stored in AppRoute. Use `window.location.pathname` directly
  // so og:url and canonical reflect the actual page URL.
- const localePath = route.staticOverlay
+ const localePath = isApplicationConciergeEntry
+ ? getApplicationConciergePath(locale)
+ : route.staticOverlay
  ? window.location.pathname
  : buildPath(route, locale);
- const canonicalLocalePath = `${withTrailingSlashPath(localePath)}${isApplicationConciergeEntry ? '?application_concierge=1' : ''}`;
+ const canonicalLocalePath = isApplicationConciergeEntry
+ ? getApplicationConciergePath(locale)
+ : withTrailingSlashPath(localePath);
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
@@ -2122,7 +2127,11 @@ export async function updateMetaTags(section: string): Promise<void> {
  updateCanonicalLink(`${BASE_URL}${canonicalLocalePath}`);
 
  // Update hreflang tags with locale-specific paths
- updateHreflangTags(route, isApplicationConciergeEntry ? '?application_concierge=1' : '');
+ updateHreflangTags(
+  route,
+  '',
+  isApplicationConciergeEntry ? (lang) => getApplicationConciergePath(lang) : undefined,
+ );
 
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
@@ -2248,7 +2257,11 @@ function getOgLocale(): string {
  * Now uses locale-specific paths from the i18n router
  * instead of ?lang= query parameters.
  */
-function updateHreflangTags(route: import('./router').AppRoute, querySuffix = ''): void {
+function updateHreflangTags(
+ route: import('./router').AppRoute,
+ querySuffix = '',
+ pathResolver?: (locale: Locale) => string,
+): void {
  // Static-overlay landing pages (recency/today landings, fuel-daily,
  // border-wait, salary-stats, profession-canton, publisher ads, …) do NOT
  // carry their specific slug in AppRoute — `buildPath(route, locale)` would
@@ -2269,7 +2282,14 @@ function updateHreflangTags(route: import('./router').AppRoute, querySuffix = ''
  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
 
  // Get locale-specific paths from the router
- const paths = buildAllLocalePaths(route);
+ const paths = pathResolver
+  ? {
+   it: pathResolver('it'),
+   en: pathResolver('en'),
+   de: pathResolver('de'),
+   fr: pathResolver('fr'),
+  }
+  : buildAllLocalePaths(route);
 
  // Build hreflang entries, filtering out any with empty lang or empty path.
  // Semrush flags empty hreflang codes as conflicts; this guard ensures we
