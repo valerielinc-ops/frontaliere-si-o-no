@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T08:53:00.726Z",
-  "totalEvents": 13148,
+  "generatedAt": "2026-10-14T10:06:07.710Z",
+  "totalEvents": 13152,
   "events": [
     {
       "id": "myswitzerland:e5955a176fa94905a6d8d2906b0bad80",
@@ -25491,6 +25491,38 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:b01b0e138bef40e4aea8723b5223cfae",
+      "title": "AquaBaby - Schwimmkurse ab 10 Wochen",
+      "titleByLocale": {
+        "it": "AquaBaby - Schwimmkurse ab 10 Wochen",
+        "en": "AquaBaby - Schwimmkurse ab 10 Wochen",
+        "de": "AquaBaby - Schwimmkurse ab 10 Wochen - Qualitop zertifiziert",
+        "fr": "AquaBaby - Schwimmkurse ab 10 Wochen"
+      },
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-18",
+      "startTime": "02:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/aquababy-schwimmkurse-ab-10-wochen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Therapiebad Luzerner Kantonsspital (LUKS)",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "aquababy-schwimmkurse-ab-10-wochen-2026-07-11"
+        }
+      ],
+      "imageUrl": "/images/events/library/event-generico-laghi-primavera-estate.webp",
+      "imageAssetId": "event-generico-laghi-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "ge-agenda:atelier-creez-carte-vacances-chocolat",
       "title": "Atelier Créez Votre Carte de vacances Chocolat",
       "startDate": "2026-07-11",
@@ -26610,6 +26642,38 @@
         "fr": "Une visite guidée ouverte au public présente Brigue, une ville alpine du Valais. Des guides conduisent la visite à travers les ruelles de la ville et fournissent des informations."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "myswitzerland:fc825d8005a3495eb23e1a7d5ff5b336",
+      "title": "Platzkonzert der Blaskapelle BEWO",
+      "titleByLocale": {
+        "it": "Platzkonzert der Blaskapelle BEWO",
+        "en": "Platzkonzert der Blaskapelle BEWO",
+        "de": "Platzkonzert der Blaskapelle BEWO",
+        "fr": "Platzkonzert der Blaskapelle BEWO"
+      },
+      "startDate": "2026-07-17",
+      "endDate": "2026-07-17",
+      "startTime": "20:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/platzkonzert-der-blaskapelle-bewo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Sternenberg",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "platzkonzert-der-blaskapelle-bewo-2026-07-17"
+        }
+      ],
+      "imageUrl": "/images/events/library/event-generico-laghi-primavera-estate.webp",
+      "imageAssetId": "event-generico-laghi-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "myswitzerland:558828853b9e419caa2bf23341ea76c3",
@@ -37705,6 +37769,38 @@
       "descriptionRewriteValidated": true
     },
     {
+      "id": "myswitzerland:c7c2b5957cf44c61b43bb88f43681982",
+      "title": "Jazz-Matinee Konzert Faulensee",
+      "titleByLocale": {
+        "it": "Jazz-Matinee Konzert Faulensee",
+        "en": "Jazz-Matinee Konzert Faulensee",
+        "de": "Jazz-Matinee Konzert Faulensee",
+        "fr": "Jazz-Matinee Konzert Faulensee"
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2026-08-16",
+      "startTime": "00:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jazz-matinee-konzert-faulensee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Faulensee",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "jazz-matinee-konzert-faulensee-2026-08-16"
+        }
+      ],
+      "imageUrl": "/images/events/library/event-musica-laghi-primavera-estate.webp",
+      "imageAssetId": "event-musica-laghi-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
       "id": "myswitzerland:a277f88de2af4497b6619a84ac0cd309",
       "title": "Jeden Sonntag: Dini Muetter Comedy - Open Mic",
       "titleByLocale": {
@@ -41023,6 +41119,38 @@
       "sourceDescriptionHash": "6a99d4d12f6d632967bfb289080710c279a5aca1178c60ae3d29ed5380c6688b",
       "imageUrl": "/images/events/library/event-mostra-museo-svizzera-urbana-primavera-estate.webp",
       "imageAssetId": "event-mostra-museo-svizzera-urbana-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
+    },
+    {
+      "id": "myswitzerland:0b47c321f75c4103af16a10c4b180588",
+      "title": "\"Hispania\" par le Poly-Brass Quintet",
+      "titleByLocale": {
+        "it": "\"Hispania\" par le Poly-Brass Quintet",
+        "en": "\"Hispania\" par le Poly-Brass Quintet",
+        "de": "\"Hispania\" par le Poly-Brass Quintet",
+        "fr": "\"Hispania\" par le Poly-Brass Quintet"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "18:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hispania-par-le-poly-brass-quintet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Le Brassus",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "hispania-par-le-poly-brass-quintet-2026-08-23"
+        }
+      ],
+      "imageUrl": "/images/events/library/event-generico-laghi-primavera-estate.webp",
+      "imageAssetId": "event-generico-laghi-primavera-estate",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
@@ -197057,6 +197185,11 @@
       "sourceDescriptionHash": "c10533ec529bede515184a5197384ea9edae719d2b292896644a6f1c36444458",
       "previousRoutes": [
         {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14"
+        },
+        {
           "canton": "__UNRESOLVED-CANTON__",
           "comune": "__other-events__",
           "slug": "kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14"
@@ -290914,7 +291047,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il bazar dell’abbigliamento di Habkern raccoglie numerosi capi. Tra i vestiti disponibili si può cercare un articolo adatto.",
+      "descriptionByLocale": {
+        "it": "Il bazar dell’abbigliamento di Habkern raccoglie numerosi capi. Tra i vestiti disponibili si può cercare un articolo adatto.",
+        "en": "The clothing bazaar in Habkern features numerous garments. Among the available clothes, attendees can look for an item that suits them.",
+        "de": "Der Kleiderbasar in Habkern umfasst zahlreiche Kleidungsstücke. Zwischen den angebotenen Kleidern lässt sich nach einem passenden Teil suchen.",
+        "fr": "Le bazar de vêtements à Habkern réunit de nombreux articles. Parmi les pièces disponibles, il est possible de chercher quelque chose qui convient."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:75f31e16b4fb467787688f6f20a1c369",
@@ -291209,7 +291350,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'incontro presenta soluzioni di ricarica per veicoli industriali e macchine da cantiere elettrici presso Schneider Umweltservice AG. A Volketswil sono visibili anche impianti fotovoltaici, camion elettrici, carrelli elevatori elettrici ed escavatori elettrici.",
+      "descriptionByLocale": {
+        "it": "L'incontro presenta soluzioni di ricarica per veicoli industriali e macchine da cantiere elettrici presso Schneider Umweltservice AG. A Volketswil sono visibili anche impianti fotovoltaici, camion elettrici, carrelli elevatori elettrici ed escavatori elettrici.",
+        "en": "The event focuses on charging solutions for electric trucks and construction machinery at Schneider Umweltservice AG. In Volketswil, visitors can view photovoltaic installations, electric trucks, forklifts and excavators on site.",
+        "de": "Bei der Veranstaltung stehen Ladelösungen für elektrische Lastwagen und Baumaschinen bei Schneider Umweltservice AG im Mittelpunkt. In Volketswil werden zudem Photovoltaikanlagen sowie elektrische Lastwagen, Gabelstapler und Bagger vor Ort gezeigt.",
+        "fr": "Cette rencontre porte sur des solutions de recharge destinées aux camions et aux engins de chantier électriques chez Schneider Umweltservice AG. À Volketswil, elle permet également de découvrir des installations photovoltaïques, des camions électriques, des chariots élévateurs et des excavatrices."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64403",
@@ -293774,7 +293923,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’atelier fa conoscere la lavorazione artigianale del cioccolato a Ginevra. Il prezzo indicato è di 110 CHF.",
+      "descriptionByLocale": {
+        "it": "L’atelier fa conoscere la lavorazione artigianale del cioccolato a Ginevra. Il prezzo indicato è di 110 CHF.",
+        "en": "The workshop introduces artisanal chocolate-making in Geneva. The listed price is CHF 110.",
+        "de": "Der Workshop gibt Einblick in die handwerkliche Schokoladenherstellung in Genf. Der angegebene Preis beträgt 110 CHF.",
+        "fr": "L’atelier fait découvrir la chocolaterie artisanale à Genève. Le prix indiqué est de 110 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXydWBy",
@@ -316194,7 +316351,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una serata di karaoke presso la Brauerei St. Johann. DJ Paul è indicato come performer.",
+      "descriptionByLocale": {
+        "it": "L’evento è una serata di karaoke presso la Brauerei St. Johann. DJ Paul è indicato come performer.",
+        "en": "The event is a karaoke evening at Brauerei St. Johann. DJ Paul is listed as the performer.",
+        "de": "Die Veranstaltung ist ein Karaoke-Abend in der Brauerei St. Johann. DJ Paul ist als auftretende Person angegeben.",
+        "fr": "L’événement est une soirée de karaoké à la Brauerei St. Johann. DJ Paul est indiqué comme artiste."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0f68cd1e61c94d3d935ec221c4be89fb",
@@ -316720,7 +316885,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il ballo in costume a Hölstein prevede costumi, lo scambio di ruoli e la celebrazione collettiva. L’evento tratta la diversità, l’espressione personale in forma ludica e l’incontro tra partecipanti.",
+      "descriptionByLocale": {
+        "it": "Il ballo in costume a Hölstein prevede costumi, lo scambio di ruoli e la celebrazione collettiva. L’evento tratta la diversità, l’espressione personale in forma ludica e l’incontro tra partecipanti.",
+        "en": "The costume ball in Hölstein combines costumes, role changes and shared celebration. The event addresses diversity, playful self-expression and personal encounters.",
+        "de": "Der Kostümball in Hölstein verbindet Kostüme, das Wechseln von Rollen und gemeinsames Feiern. Die Veranstaltung behandelt Vielfalt, spielerischen Selbstausdruck und persönliche Begegnung.",
+        "fr": "Le bal costumé de Hölstein associe costumes, changement de rôles et célébration collective. La manifestation aborde la diversité, l’expression personnelle par le jeu et la rencontre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ar6P1Ft",
@@ -317093,7 +317266,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza alla Bibliothèque de la Cité affronta la morte e la prospettiva di una nuova nascita. Sylvie Dethiollaz presenta i risultati delle sue ricerche e descrive l’evoluzione della propria visione della morte; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La conferenza alla Bibliothèque de la Cité affronta la morte e la prospettiva di una nuova nascita. Sylvie Dethiollaz presenta i risultati delle sue ricerche e descrive l’evoluzione della propria visione della morte; l’ingresso è gratuito.",
+        "en": "This conference at the Bibliothèque de la Cité examines death and the idea of a new birth. Sylvie Dethiollaz presents the results of her research and describes how her view of death has changed; admission is free.",
+        "de": "Die Konferenz in der Bibliothèque de la Cité befasst sich mit dem Tod und der Vorstellung einer neuen Geburt. Sylvie Dethiollaz stellt die Ergebnisse ihrer Forschung vor und schildert, wie sich ihr Blick auf den Tod verändert hat; der Eintritt ist frei.",
+        "fr": "Cette conférence à la Bibliothèque de la Cité aborde la mort et la perspective d’une nouvelle naissance. Sylvie Dethiollaz présente les résultats de ses recherches et décrit l’évolution de son regard sur la mort ; l’entrée est libre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63713",
@@ -317585,7 +317766,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo scrittore Mathias Énard partecipa a un incontro del ciclo Les Esprits. L’appuntamento mette in relazione letteratura e musica presso il Conservatoire de Musique de Genève, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Lo scrittore Mathias Énard partecipa a un incontro del ciclo Les Esprits. L’appuntamento mette in relazione letteratura e musica presso il Conservatoire de Musique de Genève, a Ginevra.",
+        "en": "Mathias Énard takes part in an event within Les Esprits. The programme connects literature and music at the Conservatoire de Musique de Genève in Geneva.",
+        "de": "Mathias Énard wirkt an einer Veranstaltung von Les Esprits mit. Dabei werden Literatur und Musik im Conservatoire de Musique de Genève in Genf miteinander verbunden.",
+        "fr": "Mathias Énard participe à un rendez-vous du cycle Les Esprits. Cette rencontre associe littérature et musique au Conservatoire de Musique de Genève, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:les-rendez-vous-nature-du-bois-de-mon-coeur-arbres",
@@ -319907,7 +320096,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo spettacolo teatrale per famiglie presenta un racconto ispirato all’atmosfera di Halloween, ambientato attorno a una capanna insolita nel bosco. L’evento si tiene al Musée national suisse di Prangins e il biglietto costa 13 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo spettacolo teatrale per famiglie presenta un racconto ispirato all’atmosfera di Halloween, ambientato attorno a una capanna insolita nel bosco. L’evento si tiene al Musée national suisse di Prangins e il biglietto costa 13 CHF.",
+        "en": "This family theatre event presents a Halloween-themed tale involving an unusual cabin in a forest. It takes place at the Musée national suisse in Prangins, with admission priced at CHF 13.",
+        "de": "Bei dieser Theaterveranstaltung für Familien geht es um eine Erzählung mit Halloween-Anklängen und einer ungewöhnlichen Hütte im Wald. Sie findet im Musée national suisse in Prangins statt; der Eintritt kostet 13 CHF.",
+        "fr": "Ce spectacle théâtral destiné aux familles propose un conte aux accents d’Halloween autour d’une cabane inhabituelle située dans une forêt. Il se déroule au Musée national suisse à Prangins, avec un billet fixé à 13 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACgc25N",
@@ -322264,7 +322461,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Walter Baumgartner ha ricevuto lo Swiss Blues Award. La serata presso Wortreich Buchhandlung & Antiquariat propone un repertorio che unisce il blues tradizionale a elementi swing, jazz e funk.",
+      "descriptionByLocale": {
+        "it": "Walter Baumgartner ha ricevuto lo Swiss Blues Award. La serata presso Wortreich Buchhandlung & Antiquariat propone un repertorio che unisce il blues tradizionale a elementi swing, jazz e funk.",
+        "en": "Walter Baumgartner is a recipient of the Swiss Blues Award. The performance at Wortreich Buchhandlung & Antiquariat combines traditional blues with swing, jazz and funk elements.",
+        "de": "Walter Baumgartner wurde mit dem Swiss Blues Award ausgezeichnet. Die Aufführung bei Wortreich Buchhandlung & Antiquariat verbindet traditionellen Blues mit Elementen aus Swing, Jazz und Funk.",
+        "fr": "Walter Baumgartner a reçu le Swiss Blues Award. Le concert à la Wortreich Buchhandlung & Antiquariat associe le blues traditionnel à des éléments swing, jazz et funk."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AH5Hy7w",
@@ -325186,7 +325391,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Al Gasthaus Albisgütli di Zurigo si esibiscono quattro formazioni di musica folk irlandese. Il programma comprende strumenti tradizionali, voci e sonorità irlandesi.",
+      "descriptionByLocale": {
+        "it": "Al Gasthaus Albisgütli di Zurigo si esibiscono quattro formazioni di musica folk irlandese. Il programma comprende strumenti tradizionali, voci e sonorità irlandesi.",
+        "en": "Four groups present Irish folk music at Gasthaus Albisgütli in Zurich. The programme includes traditional instruments, vocal performances and Irish musical sounds.",
+        "de": "Im Gasthaus Albisgütli in Zürich treten vier Formationen mit irischer Volksmusik auf. Zum Programm gehören traditionelle Instrumente, Gesang und ein irischer Klang.",
+        "fr": "Quatre formations de musique folk irlandaise se produisent au Gasthaus Albisgütli à Zurich. Le programme associe des instruments traditionnels, des voix et une sonorité irlandaise."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fd05611e1ae04eadb74303a54e555927",
@@ -325218,7 +325431,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è un concerto domenicale con l’Ensemble Orion. Si svolge a Warth-Weiningen, nel cantone di Turgovia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un concerto domenicale con l’Ensemble Orion. Si svolge a Warth-Weiningen, nel cantone di Turgovia.",
+        "en": "The event is a Sunday concert with Ensemble Orion. It takes place in Warth-Weiningen in the canton of Thurgau.",
+        "de": "Die Veranstaltung ist ein Sonntagskonzert mit dem Ensemble Orion. Sie findet in Warth-Weiningen im Kanton Thurgau statt.",
+        "fr": "Le rendez-vous est un concert dominical avec l’Ensemble Orion. Il a lieu à Warth-Weiningen, dans le canton de Thurgovie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d6736647dc8c4b52a5c23c4f4cb0bbf1",
@@ -327634,7 +327855,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma è un concerto d’Avvento inserito in un incontro culturale. L’evento si svolge a Sciaffusa.",
+      "descriptionByLocale": {
+        "it": "Il programma è un concerto d’Avvento inserito in un incontro culturale. L’evento si svolge a Sciaffusa.",
+        "en": "The programme is an Advent concert presented as part of a cultural gathering. The event takes place in Schaffhausen.",
+        "de": "Das Programm ist ein Adventskonzert im Rahmen einer kulturellen Begegnung. Die Veranstaltung findet in Schaffhausen statt.",
+        "fr": "Le programme prend la forme d’un concert de l’Avent dans le cadre d’une rencontre culturelle. La manifestation a lieu à Schaffhouse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:09ae747299114f698928db87c9490ba6",
@@ -328333,7 +328562,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Prangins, il Museo nazionale svizzero ospita una visita guidata sulle streghe. La visita tratta la loro presenza nell’immaginario di Halloween e nei racconti dell’orrore, con raffigurazioni di nasi lunghi e cappelli a punta.",
+      "descriptionByLocale": {
+        "it": "A Prangins, il Museo nazionale svizzero ospita una visita guidata sulle streghe. La visita tratta la loro presenza nell’immaginario di Halloween e nei racconti dell’orrore, con raffigurazioni di nasi lunghi e cappelli a punta.",
+        "en": "The Swiss National Museum in Prangins presents a guided visit about witches. It looks at their place in Halloween imagery and horror stories, including depictions with long noses and pointed hats.",
+        "de": "Im Schweizerischen Nationalmuseum in Prangins findet eine Führung über Hexen statt. Sie thematisiert deren Rolle in der Vorstellungswelt von Halloween und in Horrorgeschichten, etwa mit Darstellungen von langen Nasen und spitzen Hüten.",
+        "fr": "Au Musée national suisse, à Prangins, une visite guidée est consacrée aux sorcières. Elle aborde leur place dans l’imaginaire d’Halloween et les récits d’horreur, où elles apparaissent avec de longs nez et des chapeaux pointus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AGe6Ufw",
@@ -353142,7 +353379,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’iniziativa riguarda i musei della Gruyère, della Glâne e del Pays-d’Enhaut. Le strutture partecipanti accolgono il pubblico durante un’apertura serale dedicata ai musei.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa riguarda i musei della Gruyère, della Glâne e del Pays-d’Enhaut. Le strutture partecipanti accolgono il pubblico durante un’apertura serale dedicata ai musei.",
+        "en": "The programme covers museum sites across La Gruyère, Glâne and Pays-d’Enhaut. Their doors open in the evening for this event.",
+        "de": "Die Veranstaltung bezieht Museen in La Gruyère, in der Glâne und im Pays-d’Enhaut ein. Die beteiligten Häuser öffnen am Abend für das Publikum.",
+        "fr": "Cette manifestation concerne des musées de la Gruyère, de la Glâne et du Pays-d’Enhaut. Les établissements concernés accueillent le public lors d’une ouverture nocturne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AKTRKTK",
@@ -355107,7 +355352,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Berna, un’esposizione ricorrente è affiancata da diversi eventi dedicati al tema dello stress. Il percorso invita a esaminare il proprio rapporto con lo stress e a riconoscere la forza della comunità.",
+      "descriptionByLocale": {
+        "it": "A Berna, un’esposizione ricorrente è affiancata da diversi eventi dedicati al tema dello stress. Il percorso invita a esaminare il proprio rapporto con lo stress e a riconoscere la forza della comunità.",
+        "en": "In Bern, a recurring exhibition is accompanied by a variety of events addressing stress. Together, they invite reflection on one’s own relationship with stress and on the strength of community.",
+        "de": "In Bern verbindet die wiederkehrende Ausstellung mehrere Veranstaltungen rund um Stress. Die Angebote regen dazu an, den persönlichen Umgang mit Stress zu betrachten und die Bedeutung gemeinschaftlicher Stärke zu erkennen.",
+        "fr": "À Berne, une exposition récurrente s’accompagne de plusieurs manifestations consacrées au stress. L’ensemble invite à réfléchir à son propre rapport au stress et à découvrir la force de la communauté."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AJJ5VTR",
@@ -361175,7 +361428,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'incontro inizia con una breve visita guidata e prosegue con idee e strumenti semplici per sviluppare a casa le tecniche del collage. Il workshop al Kunstmuseum Thun è rivolto a persone dai 15 anni in su.",
+      "descriptionByLocale": {
+        "it": "L'incontro inizia con una breve visita guidata e prosegue con idee e strumenti semplici per sviluppare a casa le tecniche del collage. Il workshop al Kunstmuseum Thun è rivolto a persone dai 15 anni in su.",
+        "en": "The workshop begins with a short tour and continues with ideas and simple tools for developing collage techniques at home. It takes place at Kunstmuseum Thun and is intended for people aged 15 and over.",
+        "de": "Der Workshop beginnt mit einem kurzen Rundgang und vermittelt anschliessend Ideen sowie einfache Werkzeuge, um Collagetechniken zu Hause weiterzuentwickeln. Die Veranstaltung im Kunstmuseum Thun richtet sich an Personen ab 15 Jahren.",
+        "fr": "La rencontre commence par une brève visite, puis présente des idées et des outils simples pour développer les techniques du collage à la maison. L’atelier au Kunstmuseum Thun s’adresse aux personnes de 15 ans et plus."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6add9bc6e9d9420087574d25c384b99f",
@@ -366039,7 +366300,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Graf-Zeppelin-Haus va in scena una rappresentazione del Royal National Ballet della Georgia. La produzione combina energia, precisione ed emozione.",
+      "descriptionByLocale": {
+        "it": "Al Graf-Zeppelin-Haus va in scena una rappresentazione del Royal National Ballet della Georgia. La produzione combina energia, precisione ed emozione.",
+        "en": "At the Graf-Zeppelin-Haus, the Royal National Ballet of Georgia presents a ballet performance. The production combines energy, precision and emotion.",
+        "de": "Das Graf-Zeppelin-Haus ist Veranstaltungsort für eine Ballettaufführung des Royal National Ballet of Georgia. Die Darbietung verbindet Energie, Präzision und Emotion.",
+        "fr": "Le Graf-Zeppelin-Haus accueille une représentation du Royal National Ballet de Géorgie. La production associe énergie, précision et émotion."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:264d787befe340519eec9b46fb3350cb",
@@ -367504,7 +367773,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Montreux Comedy è un festival francofono di comicità e teatro che si svolge a Montreux. La manifestazione presenta spettacoli di gala con artisti affermati e nuovi talenti.",
+      "descriptionByLocale": {
+        "it": "Montreux Comedy è un festival francofono di comicità e teatro che si svolge a Montreux. La manifestazione presenta spettacoli di gala con artisti affermati e nuovi talenti.",
+        "en": "Montreux Comedy is a French-speaking comedy and theatre festival held in Montreux. Its gala programme features established performers alongside new talent.",
+        "de": "Montreux Comedy ist ein französischsprachiges Comedy- und Theaterfestival in Montreux. Zu den Galaauftritten gehören etablierte Künstler ebenso wie neue Talente.",
+        "fr": "Montreux Comedy est un festival francophone d’humour et de théâtre qui se déroule à Montreux. Les galas réunissent des artistes confirmés et de nouveaux talents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:602b5f4330444841b3e2394a9bb73302",
@@ -367582,7 +367859,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Losanna, l’appuntamento riguarda una nuova fase per un’istituzione museale storica. Il MCBA aveva sede al Palais de Rumine dal 1904, ma lo ha lasciato; restano elementi essenziali da preservare e numerose possibilità da esplorare.",
+      "descriptionByLocale": {
+        "it": "A Losanna, l’appuntamento riguarda una nuova fase per un’istituzione museale storica. Il MCBA aveva sede al Palais de Rumine dal 1904, ma lo ha lasciato; restano elementi essenziali da preservare e numerose possibilità da esplorare.",
+        "en": "In Lausanne, the appointment concerns a new phase for a historic museum institution. The MCBA had been based at the Palais de Rumine since 1904 but has left it; essential elements remain to be preserved, alongside many possibilities to explore.",
+        "de": "Der Termin in Lausanne betrifft einen neuen Abschnitt für eine historische Museumseinrichtung. Das MCBA hatte seit 1904 seinen Sitz im Palais de Rumine und hat diesen Ort verlassen; wesentliche Elemente sollen bewahrt werden, während zahlreiche Möglichkeiten erkundet werden können.",
+        "fr": "À Lausanne, ce rendez-vous concerne une nouvelle étape pour une institution muséale historique. Le MCBA avait ses locaux au Palais de Rumine depuis 1904, puis les a quittés; l’essentiel reste à préserver et de nombreuses possibilités peuvent être explorées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2899c5619ce540e085c54e2b11f9da28",
@@ -367815,7 +368100,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento musicale «Pintscher & Brahms» presenta il Musikkollegium Winterthur sotto la direzione di Matthias Pintscher, con Conrad Tao al pianoforte. Si svolge allo Stadthaus di Winterthur ed è indicato come evento ricorrente.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale «Pintscher & Brahms» presenta il Musikkollegium Winterthur sotto la direzione di Matthias Pintscher, con Conrad Tao al pianoforte. Si svolge allo Stadthaus di Winterthur ed è indicato come evento ricorrente.",
+        "en": "The music event “Pintscher & Brahms” features Musikkollegium Winterthur, conducted by Matthias Pintscher, with Conrad Tao on piano. It takes place at Stadthaus in Winterthur and is listed as a recurring event.",
+        "de": "Die Musikveranstaltung „Pintscher & Brahms“ präsentiert das Musikkollegium Winterthur unter der Leitung von Matthias Pintscher; am Klavier ist Conrad Tao zu hören. Sie findet im Stadthaus in Winterthur statt und ist als wiederkehrender Termin eingetragen.",
+        "fr": "Le rendez-vous musical « Pintscher & Brahms » réunit le Musikkollegium Winterthur sous la direction de Matthias Pintscher, avec Conrad Tao au piano. Il a lieu au Stadthaus de Winterthur et est répertorié comme événement récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bacac405812f4f318c5b7980904d9d35",
@@ -370581,7 +370874,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Urdorf è prevista un’attività pubblica dedicata alla realizzazione di candele. L’appuntamento è ricorrente e si svolge nel novembre 2026.",
+      "descriptionByLocale": {
+        "it": "A Urdorf è prevista un’attività pubblica dedicata alla realizzazione di candele. L’appuntamento è ricorrente e si svolge nel novembre 2026.",
+        "en": "In Urdorf, a public candle-making activity is scheduled. The recurring event takes place during November 2026.",
+        "de": "In Urdorf findet ein öffentliches Kerzenziehen statt. Die wiederkehrende Veranstaltung ist für November 2026 angesetzt.",
+        "fr": "À Urdorf, une activité publique de fabrication de bougies est prévue. Le rendez-vous récurrent se déroule au cours du mois de novembre 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACM6e5R",
@@ -374642,7 +374943,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Fabio Landert presenta racconti umoristici con un’impostazione moderna e ragionata. Lo spettacolo riprende l’immagine del frutto proibito.",
+      "descriptionByLocale": {
+        "it": "Fabio Landert presenta racconti umoristici con un’impostazione moderna e ragionata. Lo spettacolo riprende l’immagine del frutto proibito.",
+        "en": "Fabio Landert presents humorous stories with a modern and considered approach. The performance takes up the image of forbidden fruit.",
+        "de": "Fabio Landert präsentiert humorvolle Geschichten mit einer modernen und durchdachten Ausrichtung. Der Auftritt nimmt dabei das Bild der verbotenen Frucht auf.",
+        "fr": "Fabio Landert propose des récits humoristiques à l’approche moderne et réfléchie. Le spectacle reprend l’image du fruit défendu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXumEgv",
@@ -375373,7 +375682,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento dal vivo dedicato all’hip hop e al rap, con Jaymee [FR] e Nobodylikesbirdie [FR]. La serata si svolge a Carouge, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento dal vivo dedicato all’hip hop e al rap, con Jaymee [FR] e Nobodylikesbirdie [FR]. La serata si svolge a Carouge, nel cantone di Ginevra.",
+        "en": "This live event focuses on hip hop and rap and features Jaymee [FR] and Nobodylikesbirdie [FR]. It takes place in Carouge, in the canton of Geneva.",
+        "de": "Bei der Live-Veranstaltung stehen Hip-Hop und Rap im Mittelpunkt; angekündigt sind Jaymee [FR] und Nobodylikesbirdie [FR]. Sie findet in Carouge im Kanton Genf statt.",
+        "fr": "Cette manifestation en direct est consacrée au hip-hop et au rap et réunit Jaymee [FR] et Nobodylikesbirdie [FR]. Elle se déroule à Carouge, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ALXiKsA",
