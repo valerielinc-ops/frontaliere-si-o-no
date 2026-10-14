@@ -5,6 +5,7 @@ import {
   hasMetaRefresh,
   hasMetaViewport,
   isIntentionalRedirectPage,
+  maskHtmlCommentsOutsideRawText,
   validateBestPracticeSeo,
   validateSchemas,
 } from '../../scripts/validate-page-seo-quality.mjs';
@@ -104,6 +105,21 @@ describe('blocking page checks', () => {
     `;
 
     expect(validateSchemas(html)).toEqual([]);
+  });
+
+  it('keeps comment-like strings inside JSON-LD and scripts: only markup comments are masked', () => {
+    // Review of PR 13109: a global mask would cut through these string values.
+    const jsonLd = '{"@context":"https://schema.org","@type":"Article","description":"<!--","nested":{"x":"-->"}}';
+    expect(validateSchemas(`<script type="application/ld+json">${jsonLd}</script>`)).toEqual([]);
+
+    // A `<!--` inside an inline script must not hide the real tags after it.
+    const html = '<script>var s = "<!--";</script><html lang=fr><meta name=viewport content="width=device-width"><script>var e = "-->";</script>';
+    expect(checkLangAttribute(html, 'fr')).toBeNull();
+    expect(hasMetaViewport(html)).toBe(true);
+
+    // Markup comments are still blanked, newlines kept so offsets survive.
+    const masked = maskHtmlCommentsOutsideRawText('a<!-- x\ny -->b<script>"<!--"</script>');
+    expect(masked).toBe('a      \n     b<script>"<!--"</script>');
   });
 
   it('lets FAQPage sit next to the main entity, and still blocks two different main entities', () => {

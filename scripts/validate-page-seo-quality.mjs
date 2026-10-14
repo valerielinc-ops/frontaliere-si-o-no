@@ -173,12 +173,44 @@ function extractH1Tags(html) {
   });
 }
 
+// Blank out HTML comments with spaces (newlines kept, so offsets and line
+// numbers survive), but only in markup: the body of a raw-text element
+// (`<script>`, `<style>`) is copied verbatim, because a JSON-LD string value
+// or a script may legitimately contain `<!--` / `-->` and masking across it
+// would delete real JSON or real tags.
+const RAW_TEXT_OR_COMMENT_RX = /<!--|<(script|style)\b/gi;
+export function maskHtmlCommentsOutsideRawText(html) {
+  const source = String(html || '');
+  let out = '';
+  let cursor = 0;
+  RAW_TEXT_OR_COMMENT_RX.lastIndex = 0;
+  let match;
+  while ((match = RAW_TEXT_OR_COMMENT_RX.exec(source))) {
+    const start = match.index;
+    out += source.slice(cursor, start);
+    if (match[0] === '<!--') {
+      const close = source.indexOf('-->', start + 4);
+      const end = close < 0 ? source.length : close + 3;
+      out += source.slice(start, end).replace(/[^\n]/g, ' ');
+      cursor = end;
+    } else {
+      const closing = new RegExp(`</${match[1]}\\s*>`, 'i');
+      const rest = closing.exec(source.slice(start));
+      const end = rest ? start + rest.index + rest[0].length : source.length;
+      out += source.slice(start, end);
+      cursor = end;
+    }
+    RAW_TEXT_OR_COMMENT_RX.lastIndex = cursor;
+  }
+  return out + source.slice(cursor);
+}
+
 // Extract and validate ld+json blocks. HTML comments can contain literal
 // `<script type="application/ld+json">` examples; mask comments before asking
 // the tag scanner for real script elements so the example cannot consume the
 // following real block.
 function extractLdJsonBlocks(html) {
-  const commentMaskedHtml = String(html || '').replace(/<!--[\s\S]*?-->/g, (comment) => ' '.repeat(comment.length));
+  const commentMaskedHtml = maskHtmlCommentsOutsideRawText(html);
   const blocks = [];
   for (const { raw, end } of scanStartTags(commentMaskedHtml, 'script')) {
     if (readAttr(raw, 'type').toLowerCase() !== 'application/ld+json') continue;
@@ -292,7 +324,7 @@ function extractTypes(obj) {
 
 // Check HTML lang attribute
 function checkLangAttribute(html, expectedLocale) {
-  const htmlTag = scanStartTags(String(html || '').replace(/<!--[\s\S]*?-->/g, ''), 'html')[0];
+  const htmlTag = scanStartTags(maskHtmlCommentsOutsideRawText(html), 'html')[0];
   const langValue = htmlTag ? readAttr(htmlTag.raw, 'lang').trim() : '';
   if (!langValue) {
     return { error: 'missing-lang', detail: 'No lang attribute on <html> tag' };
@@ -306,7 +338,7 @@ function checkLangAttribute(html, expectedLocale) {
 
 // Check meta viewport
 function hasMetaViewport(html) {
-  return scanStartTags(String(html || '').replace(/<!--[\s\S]*?-->/g, ''), 'meta')
+  return scanStartTags(maskHtmlCommentsOutsideRawText(html), 'meta')
     .some(({ raw }) => readAttr(raw, 'name').toLowerCase() === 'viewport');
 }
 
@@ -330,7 +362,7 @@ function extractMetaDescription(html) {
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
 function hasNoindex(html) {
-  return readMetaContent(String(html || '').replace(/<!--[\s\S]*?-->/g, ''), 'robots')
+  return readMetaContent(maskHtmlCommentsOutsideRawText(html), 'robots')
     .toLowerCase()
     .includes('noindex');
 }
@@ -338,7 +370,7 @@ function hasNoindex(html) {
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
-  return scanStartTags(withoutNoscript.replace(/<!--[\s\S]*?-->/g, ''), 'meta')
+  return scanStartTags(maskHtmlCommentsOutsideRawText(withoutNoscript), 'meta')
     .some(({ raw }) => readAttr(raw, 'http-equiv').toLowerCase() === 'refresh');
 }
 
