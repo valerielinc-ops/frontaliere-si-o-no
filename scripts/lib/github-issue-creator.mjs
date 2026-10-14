@@ -486,6 +486,23 @@ function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false, options = {
   return candidates[0] || null;
 }
 
+/**
+ * Return every OPEN issue whose complete title starts with `titlePrefix`.
+ *
+ * Callers that need to resolve a family must not call `resolveGithubIssue`
+ * repeatedly: its 60-character lookup intentionally closes only the newest
+ * match. The complete-title filter here narrows the safe-prefix search, after
+ * which callers can re-read and close each number with
+ * `resolveGithubIssueByNumber`.
+ */
+export function findOpenGithubIssuesByTitlePrefix(titlePrefix) {
+  const requested = String(titlePrefix || '');
+  if (!requested) return [];
+  const candidates = searchIssuesByTitlePrefix(requested, 'open', LISTING_FALLBACK_LIMIT, { dedupKey: requested });
+  if (candidates === null) return undefined;
+  return candidates.filter((issue) => typeof issue?.title === 'string' && issue.title.startsWith(requested));
+}
+
 function formatOpenTwinNote(canonical, openCandidates = []) {
   const discarded = openCandidates
     .filter((candidate) => Number(candidate?.number) !== Number(canonical?.number))
