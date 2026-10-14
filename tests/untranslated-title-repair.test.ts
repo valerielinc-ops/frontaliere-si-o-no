@@ -547,6 +547,25 @@ describe('fix-untranslated-titles.mjs retry backoff', () => {
     expect(fixer.isTitleFixBackedOff({ attempts: 9, lastAttemptAt: ago(8) }, 'qualunque', now)).toBe(false);
   });
 
+  it('restarts a legacy entry (no hash) instead of carrying its old count into the 30-day wait', async () => {
+    const fixer = await loadTitleFixer();
+    const data = fixture(1);
+    const key = data.candidates[0].key;
+    const state = { version: 1, attempts: { [key]: { attempts: 20, lastAttemptAt: ago(8) } } };
+
+    await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: state,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 0, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async () => '',
+    });
+
+    expect(state.attempts[key]).toMatchObject({ attempts: 1, source: fixer.titleFixSourceHash(data.jobs[0].title) });
+    // One failure on the new count: eligible again at once, not parked for 30 days.
+    expect(fixer.isTitleFixBackedOff(state.attempts[key], data.jobs[0].title, Date.now() + 6 * DAY)).toBe(false);
+  });
+
   it('records the source hash and restarts the count when the source title changes', async () => {
     const fixer = await loadTitleFixer();
     const data = fixture(1);

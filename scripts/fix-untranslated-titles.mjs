@@ -285,9 +285,11 @@ export function runTitleFixCandidatePool({
     if (!dryRun) {
       const prior = attemptState.attempts[candidate.key] || {};
       // A changed source title restarts the count: the backoff only applies
-      // to repeated failures on the same text.
+      // to repeated failures on the same text. A legacy entry (no hash) also
+      // restarts: its old count may belong to a different title, and carrying
+      // it over would jump straight to the 30-day wait.
       const source = titleFixSourceHash(sourceTitle);
-      const sameSource = !prior.source || prior.source === source;
+      const sameSource = prior.source === source;
       attemptState.attempts[candidate.key] = {
         attempts: (sameSource ? (Number(prior.attempts) || 0) : 0) + 1,
         lastAttemptAt: new Date().toISOString(),
