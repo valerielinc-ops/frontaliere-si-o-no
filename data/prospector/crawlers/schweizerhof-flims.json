@@ -12,10 +12,13 @@
   "tenantScope": {
     "nativeMarker": "tenantHeading",
     "expectedText": "Schweizerhof Flims",
+    "listingExpectedText": "Romantik Hotel Schweizerhof Flims",
     "foreignLocationOutOfScope": true,
     "listingMarker": {
       "tag": "div",
-      "class": "job-ads-unit-icon__tooltip"
+      "class": "job-ads-unit-icon__tooltip",
+      "containerTag": "div",
+      "containerClass": "job-ad-block"
     }
   },
   "detailEnrichment": true,

@@ -27,6 +27,7 @@ import {
 import { extractLinks } from './careers-trail.mjs';
 import { extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
 import { readAttr, scanStartTags } from '../html-attr.mjs';
+import { decodeEntities } from './entities.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import {
@@ -418,27 +419,40 @@ function sameListingUrl(left, right, baseUrl) {
 }
 
 /**
- * Read a source-native tenant label immediately before a configured detail
- * link. The marker is deliberately spec-scoped: a generic nearest-heading
- * heuristic would turn unrelated page chrome into tenant evidence.
+ * Read a source-native tenant label from the configured container of a detail
+ * link. The marker is deliberately spec-scoped: a global nearest-marker
+ * heuristic would turn an unrelated row or page chrome into tenant evidence.
  *
  * @param {string} html
  * @param {string} effectiveUrl
  * @param {string} detailUrl
- * @param {{ tag?: string, class?: string }} marker
+ * @param {{ tag?: string, class?: string, containerTag?: string, containerClass?: string }} marker
  * @returns {string}
  */
 function extractListingTenantMarker(html, effectiveUrl, detailUrl, marker) {
   const markerClass = String(marker?.class || '').trim().toLowerCase();
-  if (!markerClass) return '';
+  const containerClass = String(marker?.containerClass || '').trim().toLowerCase();
+  if (!markerClass || !containerClass) return '';
   const anchor = scanStartTags(html, 'a').find(({ raw, index }) => (
     index >= 0
-      && sameListingUrl(readAttr(raw, 'href'), detailUrl, effectiveUrl)
+      && sameListingUrl(decodeEntities(readAttr(raw, 'href')), detailUrl, effectiveUrl)
   ));
   if (!anchor) return '';
   const tag = String(marker?.tag || '').trim().toLowerCase();
+  const containerTag = String(marker?.containerTag || 'div').trim().toLowerCase();
+  const container = scanStartTags(html, containerTag)
+    .filter(({ raw, index }) => {
+      if (index >= anchor.index) return false;
+      const classes = String(readAttr(raw, 'class') || '').toLowerCase().split(/\s+/u).filter(Boolean);
+      if (!classes.includes(containerClass)) return false;
+      const inner = extractBalancedTagBlock(html.slice(index + raw.length), containerTag);
+      const contentEnd = index + raw.length + inner.length;
+      return contentEnd >= anchor.index;
+    })
+    .at(-1);
+  if (!container) return '';
   const markerTags = scanStartTags(html, tag).filter(({ raw, index }) => {
-    if (index >= anchor.index) return false;
+    if (index < container.end || index >= anchor.index) return false;
     const classes = String(readAttr(raw, 'class') || '').toLowerCase().split(/\s+/u).filter(Boolean);
     return classes.includes(markerClass);
   });
@@ -611,6 +625,22 @@ function nativeTenantMarkerText(value) {
 }
 
 /**
+ * Compare source-native tenant markers by exact normalized value. A spec may
+ * provide an explicit listing-side alias when the source decorates the row
+ * label differently from the detail marker; free-text substrings are never
+ * accepted.
+ *
+ * @param {string} marker
+ * @param {string} expected
+ * @param {string[]} [aliases]
+ * @returns {boolean}
+ */
+function matchesExpectedTenantMarker(marker, expected, aliases = []) {
+  if (!marker || !expected) return false;
+  return new Set([expected, ...aliases.filter(Boolean)]).has(marker);
+}
+
+/**
  * Distinguish a detail page that positively names another tenant from one that
  * carries no usable tenant identity. A configured `tenantScope` is explicit:
  * the detail extractor must expose the source-native marker named by
@@ -632,10 +662,17 @@ function detailCandidateIdentityState(spec, candidate, listing = {}, decision = 
   if (scope && typeof scope === 'object') {
     const expected = nativeTenantMarkerText(scope.expectedText || spec.detailCandidateText);
     const detailMarker = nativeTenantMarkerText(candidate?.[scope.nativeMarker]);
-    if (expected && detailMarker.includes(expected)) return 'matched';
+    if (matchesExpectedTenantMarker(detailMarker, expected)) return 'matched';
     if (detailMarker) return 'mismatch';
     const listingMarker = nativeTenantMarkerText(listing?.__tenantScopeMarker);
-    if (listingMarker && (!expected || !listingMarker.includes(expected))) return 'mismatch';
+    const listingAlias = nativeTenantMarkerText(scope.listingExpectedText);
+    if (listingMarker && (!expected || !matchesExpectedTenantMarker(
+      listingMarker,
+      expected,
+      listingAlias ? [listingAlias] : [],
+    ))) {
+      return 'mismatch';
+    }
     if (scope.foreignLocationOutOfScope === true && decision.explicitlyForeign === true) {
       return 'mismatch';
     }

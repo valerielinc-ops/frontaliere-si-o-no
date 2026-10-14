@@ -35,11 +35,12 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
  * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
  * @property {string} [detailCandidateText]          Normalised text required in an enriched detail record
- * @property {{ nativeMarker: string, expectedText?: string, foreignLocationOutOfScope?: boolean, listingMarker?: { tag?: string, class: string } }} [tenantScope]
+ * @property {{ nativeMarker: string, expectedText?: string, listingExpectedText?: string, foreignLocationOutOfScope?: boolean, listingMarker?: { tag?: string, class: string, containerTag?: string, containerClass: string } }} [tenantScope]
  *   Explicit source-native tenant identity. `nativeMarker` names a field the
  *   detail extractor returns; `listingMarker`, when present, names the source
- *   element that can prove a non-target tenant before enrichment. Neither a
- *   missing detail marker nor absent target text is a positive mismatch.
+ *   element within its containerClass that can prove a non-target tenant
+ *   before enrichment. Neither a missing detail marker nor absent target text
+ *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
