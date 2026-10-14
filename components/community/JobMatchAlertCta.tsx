@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
@@ -34,6 +34,8 @@ export interface JobMatchAlertCtaProps {
   cantonCode?: string | null;
   /** Called on a successful create (analytics side-effects). */
   onSubscribed?: () => void;
+  /** Called once on a direct one-tap action, before the create request starts. */
+  onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
   /** Fired ONCE, the first time this CTA is genuinely visible in the viewport.
@@ -53,16 +55,22 @@ export default function JobMatchAlertCta({
   categoryLabel,
   cantonCode,
   onSubscribed,
+  onAccepted,
   onErrored,
   onImpression,
   subscribe = subscribeJobAlertOneTap,
 }: JobMatchAlertCtaProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobMatchAlertCtaStatus>('idle');
+  const submissionStartedRef = useRef(false);
   const handleClick = useCallback(async () => {
     if (!categoryLabel) return;
+    if (submissionStartedRef.current) return;
+    submissionStartedRef.current = true;
     setStatus('submitting');
     try {
+      // Telemetry must not prevent the requested alert from being created.
+      try { onAccepted?.(); } catch { /* best-effort analytics */ }
       await subscribe(userId, email, categoryLabel, locale, undefined, cantonCode ?? null, {
         email,
         source: 'job_alert_match_cta',
@@ -81,10 +89,11 @@ export default function JobMatchAlertCta({
       // never present a successful subscription as a failure.
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
+      submissionStartedRef.current = false;
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [categoryLabel, cantonCode, email, locale, onErrored, onSubscribed, subscribe, userId]);
+  }, [categoryLabel, cantonCode, email, locale, onAccepted, onErrored, onSubscribed, subscribe, userId]);
 
   // Impression = genuinely on screen, never merely mounted (issue #5039).
   const impressionRef = useImpressionTracker(() => { if (onImpression) onImpression(); });

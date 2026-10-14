@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import type { JobAlertOneTapFilters } from '@/services/jobAlertService';
 import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
 import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
@@ -41,12 +42,16 @@ export interface JobBoardFilterAlertCtaProps {
   cantonCode?: string | null;
   /** Called on a successful create (analytics / gating side-effects). */
   onSubscribed?: () => void;
+  /** Called once on a direct one-tap action, before the create request starts. */
+  onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
   /** Called when an anonymous visitor hands off to the mounted JobAlertForm. */
   onAnonymousOpen?: () => void;
   /** Surface to preserve when an anonymous tap is handed to JobAlertForm. */
   formOrigin?: PendingJobAlertOrigin;
+  /** Active board filters supported by `JobAlertConfig`. */
+  filters?: JobAlertOneTapFilters;
   /** Fired ONCE, the first time this CTA is genuinely visible in the viewport.
    * Deliberately not a mount callback: this surface renders inside a long job
    * list most visitors never scroll to, and firing on mount is what inflated the
@@ -65,14 +70,17 @@ export default function JobBoardFilterAlertCta({
   context = 'search',
   cantonCode,
   onSubscribed,
+  onAccepted,
   onErrored,
   onAnonymousOpen,
   formOrigin,
+  filters,
   onImpression,
   subscribe = subscribeJobAlertOneTap,
 }: JobBoardFilterAlertCtaProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobBoardFilterAlertCtaStatus>('idle');
+  const submissionStartedRef = useRef(false);
 
   const handleAnonymousOpen = useCallback(() => {
     if (!keywordLabel) return;
@@ -89,8 +97,12 @@ export default function JobBoardFilterAlertCta({
       handleAnonymousOpen();
       return;
     }
+    if (submissionStartedRef.current) return;
+    submissionStartedRef.current = true;
     setStatus('submitting');
     try {
+      // Telemetry must not prevent the requested alert from being created.
+      try { onAccepted?.(); } catch { /* best-effort analytics */ }
       // No `source` job to attribute — this CTA is driven by board filters,
       // not one specific job listing (same as JobMatchAlertCta.tsx).
       await subscribe(userId, email, keywordLabel, locale, undefined, cantonCode ?? null, {
@@ -102,14 +114,15 @@ export default function JobBoardFilterAlertCta({
         sourceComponent: 'JobBoardFilterAlertCta',
         sourceRouteFamily: 'job-board',
         locale,
-      });
+      }, filters);
       setStatus('success');
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
+      submissionStartedRef.current = false;
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [cantonCode, email, handleAnonymousOpen, keywordLabel, locale, onErrored, onSubscribed, subscribe, userId]);
+  }, [cantonCode, email, filters, handleAnonymousOpen, keywordLabel, locale, onAccepted, onErrored, onSubscribed, subscribe, userId]);
 
   // Impression = genuinely on screen, never merely mounted (issue #5039).
   const impressionRef = useImpressionTracker(() => { if (onImpression) onImpression(); });

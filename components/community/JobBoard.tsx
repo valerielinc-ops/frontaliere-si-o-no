@@ -8075,6 +8075,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     context="category"
     keywordLabel={detailAlertCategoryLabel}
     cantonCode={selectedJob.canton ?? null}
+    formOrigin="job_detail_anonymous"
     onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
@@ -10906,6 +10907,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob.url ?? null}
  sourceJobTitle={selectedJob.title ?? null}
  onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button', selectedJob.title)}
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_detail_button', 'accept', selectedJob.title)}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
  Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
@@ -11061,7 +11063,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
  keywordLabel={boardFilterAlertKeywordLabel}
  cantonCode={boardFilterAlertCantonCode}
+ filters={{
+ locations: selectedLocation === 'all' ? [] : [selectedLocation],
+ contractTypes: selectedContract === 'all' ? [] : [selectedContract],
+ sectors: selectedSector === 'all' ? [] : [selectedSector],
+ }}
  formOrigin="job_board_filters"
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
  }}
@@ -11624,6 +11632,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onImpression={() => trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel)}
  categoryLabel={jobMatchAlertCategoryLabel}
  cantonCode={jobMatchAlertCantonCode}
+ onAccepted={() => Analytics.trackJobAlertCtaClick('job_match_pill', 'accept', jobMatchAlertCategoryLabel)}
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_match_pill', 'success', jobMatchAlertCategoryLabel);
  Analytics.trackJobAlertCreated({

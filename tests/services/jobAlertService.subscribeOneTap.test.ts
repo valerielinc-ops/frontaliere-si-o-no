@@ -200,6 +200,32 @@ describe('subscribeJobAlertOneTap', () => {
     );
   });
 
+  it('persists supported board filters in the one-tap alert config', async () => {
+    await subscribeJobAlertOneTap(
+      'user-1',
+      'a@b.com',
+      'Tecnologia',
+      'it',
+      undefined,
+      'TI',
+      TEST_EMAIL_CONSENT,
+      {
+        locations: ['lugano'],
+        contractTypes: ['part-time'],
+        sectors: ['healthcare'],
+      },
+    );
+
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1];
+    expect(alertPayload).toMatchObject({
+      keywords: ['Tecnologia'],
+      locations: ['lugano'],
+      contractTypes: ['part-time'],
+      sectors: ['healthcare'],
+      cantonFilter: ['TI'],
+    });
+  });
+
   it('creates the base relationship and alert without a second explicit consent', async () => {
     const result = await subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it');
     expect(result).toMatchObject({ email: 'a@b.com', active: true, requiresEmailConfirmation: false });

@@ -2814,7 +2814,7 @@ export const Analytics = {
  // replay carried its CTA origin (issue 9576): it is outside the
  // alert_funnel_conversion allowlist on purpose, because nothing emits a
  // `job_alert_cta_shown` for it.
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
  /**
   * HOW the alert was written, kept apart from the surface (issue 9576):
   * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,

@@ -100,6 +100,11 @@ export interface JobAlertConfig {
   minNetMonthlyCHF?: number | null;
 }
 
+/** Board criteria that already have a matching field in `JobAlertConfig`. */
+export type JobAlertOneTapFilters = Partial<
+  Pick<JobAlertConfig, 'locations' | 'contractTypes' | 'sectors'>
+>;
+
 export interface JobAlert extends JobAlertConfig {
   id: string;
   userId: string;
@@ -752,12 +757,13 @@ export async function subscribeJobAlertOneTap(
   source?: JobAlertSource,
   cantonCode?: string | null,
   emailConsent?: import('./newsletterSubscribers').UnifiedEmailConsentInput | null,
+  filters?: JobAlertOneTapFilters,
 ): Promise<JobAlert> {
   const config: JobAlertConfig = {
     keywords: [stripKeywordEmoji(category)],
-    locations: [],
-    contractTypes: [],
-    sectors: [],
+    locations: [...(filters?.locations ?? [])],
+    contractTypes: [...(filters?.contractTypes ?? [])],
+    sectors: [...(filters?.sectors ?? [])],
     cantonFilter: cantonCode ? [cantonCode] : null,
     frequency: 'weekly',
     locale,

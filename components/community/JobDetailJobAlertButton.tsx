@@ -24,6 +24,8 @@ export interface JobDetailJobAlertButtonProps {
   sourceJobTitle?: string | null;
   /** Called on a successful create (analytics / gating side-effects). */
   onSubscribed?: () => void;
+  /** Called once on a direct one-tap action, before the create request starts. */
+  onAccepted?: () => void;
   /** Called when subscribe throws. */
   onErrored?: (error: unknown) => void;
   /** Fired once when the direct detail CTA becomes visible. */
@@ -41,12 +43,14 @@ export default function JobDetailJobAlertButton({
   sourceJobUrl,
   sourceJobTitle,
   onSubscribed,
+  onAccepted,
   onErrored,
   onImpression,
   subscribe = subscribeJobAlertForJob,
 }: JobDetailJobAlertButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailJobAlertButtonStatus>('idle');
+  const submissionStartedRef = useRef(false);
   const impressionTrackedRef = useRef(false);
   const reportImpression = useCallback(() => {
     if (impressionTrackedRef.current) return;
@@ -56,11 +60,15 @@ export default function JobDetailJobAlertButton({
   const impressionRef = useImpressionTracker(reportImpression);
   const handleClick = useCallback(async () => {
     if (!jobId) return;
+    if (submissionStartedRef.current) return;
+    submissionStartedRef.current = true;
     // A click proves the CTA was visible even if the observer callback has not
     // run yet; emit the denominator before the create can succeed.
     reportImpression();
     setStatus('submitting');
     try {
+      // Telemetry must not prevent the requested alert from being created.
+      try { onAccepted?.(); } catch { /* best-effort analytics */ }
       await subscribe(userId, email, jobId, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
@@ -83,10 +91,11 @@ export default function JobDetailJobAlertButton({
       // never present a successful subscription as a failure.
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
+      submissionStartedRef.current = false;
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [email, jobId, locale, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [email, jobId, locale, onAccepted, onErrored, onSubscribed, reportImpression, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   if (status === 'success') {
     return (

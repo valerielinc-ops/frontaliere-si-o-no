@@ -23,14 +23,14 @@ const KEY = 'pending_job_alert';
  * so the replayed `job_alert_created` is attributed to the surface that emitted
  * the `job_alert_cta_shown` impression (issue 9576), instead of a synthetic
  * `post_auth_auto`. The five allowlisted form handoffs are counted by
- * `alert_funnel_conversion`; `saved_jobs_nudge` also emits the generic shown
- * event but remains outside that campaign allowlist because it has its own
- * saved-jobs nudge funnel. Every value here is therefore an explicit,
- * impression-bearing form surface, pinned by the attribution tests.
+ * `alert_funnel_conversion`. `saved_jobs_nudge` and `job_detail_anonymous`
+ * retain their diagnostic origins but remain outside that campaign allowlist
+ * until they have dedicated measurement.
  */
 export const PENDING_JOB_ALERT_ORIGINS = Object.freeze([
   'inline_card',
   'job_detail_button',
+  'job_detail_anonymous',
   'job_board_filters',
   'end_card',
   'sticky_banner',
