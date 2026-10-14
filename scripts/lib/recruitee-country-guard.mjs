@@ -16,6 +16,7 @@ const SWISS_COUNTRY_NAMES = new Set([
   'suisse',
   'svizzera',
 ]);
+export const RECRUITEE_COUNTRY_SNAPSHOT_PROPERTY = 'recruiteeCountrySnapshot';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -28,6 +29,7 @@ function locationText(location) {
     location?.state,
     location?.country,
     location?.country_code,
+    location?.countryCode,
   ]
     .map((value) => String(value || '').trim())
     .filter(Boolean)
@@ -63,4 +65,106 @@ export function isSwissRecruiteeLocation(location = {}) {
  */
 export function findSwissRecruiteeLocation(locations) {
   return (Array.isArray(locations) ? locations : []).find(isSwissRecruiteeLocation) || null;
+}
+
+export function hasOnlyExplicitlyForeignRecruiteeLocations(locations) {
+  return Array.isArray(locations)
+    && locations.length > 0
+    && locations.every((location) => {
+      const text = locationText(location);
+      return Boolean(text) && isLocationExplicitlyForeign(text);
+    });
+}
+
+function recruiteeDetailPath(rawUrl) {
+  try {
+    const segments = new URL(String(rawUrl || '')).pathname.split('/').filter(Boolean);
+    return segments.length === 2 && segments[0] === 'o' ? '/o/' + segments[1] : '';
+  } catch {
+    return '';
+  }
+}
+
+export function attachRecruiteeCountrySnapshot(jobs, {
+  complete = false,
+  offerCount = 0,
+  acceptedOfferCount = 0,
+  rejectedOfferCount = 0,
+  unclassifiedOfferCount = 0,
+  rejectedDetailUrls = [],
+  unclassifiedDetailUrls = [],
+  acceptedDetailUrls = [],
+} = {}) {
+  const acceptedPaths = new Set(acceptedDetailUrls.map(recruiteeDetailPath).filter(Boolean));
+  const rejectedDetailPaths = [...new Set(
+    rejectedDetailUrls.map(recruiteeDetailPath).filter(Boolean),
+  )];
+  const unclassifiedDetailPaths = [...new Set(
+    unclassifiedDetailUrls.map(recruiteeDetailPath).filter(Boolean),
+  )];
+  const quarantinedDetailPaths = [...new Set([
+    ...rejectedDetailPaths,
+    ...(acceptedOfferCount > 0 ? unclassifiedDetailPaths : []),
+  ])].filter((detailPath) => !acceptedPaths.has(detailPath));
+
+  Object.defineProperty(jobs, RECRUITEE_COUNTRY_SNAPSHOT_PROPERTY, {
+    enumerable: false,
+    value: Object.freeze({
+      complete: complete === true,
+      offerCount,
+      acceptedOfferCount,
+      rejectedOfferCount,
+      unclassifiedOfferCount,
+      rejectedDetailPaths: Object.freeze(rejectedDetailPaths),
+      unclassifiedDetailPaths: Object.freeze(unclassifiedDetailPaths),
+      quarantinedDetailPaths: Object.freeze(quarantinedDetailPaths),
+    }),
+  });
+  return jobs;
+}
+
+export function filterStoredRecruiteeJobs(jobs, snapshot, companyKey) {
+  if (!Array.isArray(jobs) || snapshot?.complete !== true) return jobs;
+  const quarantinedPaths = new Set(snapshot.quarantinedDetailPaths || snapshot.rejectedDetailPaths || []);
+  if (quarantinedPaths.size === 0) return jobs;
+
+  return jobs.filter((job) => (
+    String(job?.companyKey || '') !== companyKey
+    || !quarantinedPaths.has(recruiteeDetailPath(job?.url))
+  ));
+}
+
+export function validateRecruiteeSwissEmptySnapshot(jobs, partialVerdict) {
+  const snapshot = jobs?.[RECRUITEE_COUNTRY_SNAPSHOT_PROPERTY];
+  if (
+    !Array.isArray(jobs)
+    || snapshot?.complete !== true
+    || snapshot.unclassifiedOfferCount !== 0
+    || snapshot.offerCount !== snapshot.acceptedOfferCount + snapshot.rejectedOfferCount
+  ) {
+    return partialVerdict;
+  }
+  return jobs.length === 0 && snapshot.acceptedOfferCount === 0;
+}
+
+export function createRecruiteeCountryRefreshHooks(fetchJobs, companyKey, partialVerdict) {
+  let sourceCountrySnapshot = null;
+
+  return {
+    fetchJobs: async () => {
+      sourceCountrySnapshot = null;
+      const jobs = await fetchJobs();
+      sourceCountrySnapshot = jobs?.[RECRUITEE_COUNTRY_SNAPSHOT_PROPERTY] || null;
+      return jobs;
+    },
+    prepareExistingJobs: (jobs) => filterStoredRecruiteeJobs(
+      jobs,
+      sourceCountrySnapshot,
+      companyKey,
+    ),
+    validateAuthoritativeSnapshot: (jobs) => validateRecruiteeSwissEmptySnapshot(
+      jobs,
+      partialVerdict,
+    ),
+  };
 }
