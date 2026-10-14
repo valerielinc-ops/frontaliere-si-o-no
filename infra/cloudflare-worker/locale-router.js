@@ -2322,10 +2322,29 @@ const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 // cache keyed on the upstream origin-{loc} URL — unique per locale+path, so
 // locales can never collide). NOTE: do not add `cf.cacheKey` — custom cache
 // keys are Enterprise-only and would be silently ignored or rejected.
+// A document route: a directory URL (the site's canonical trailing slash) or
+// an .html file. Every other path (PDFs, feeds, images) keeps its Range.
+const DOCUMENT_PATH_RE = /(?:\/|\.html)$/u;
+
+export function isDocumentPath(pathname) {
+  return DOCUMENT_PATH_RE.test(String(pathname || ''));
+}
+
 async function fetchOriginOnce(upstream, request, cfOpts) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ORIGIN_TIMEOUT_MS);
   const originRequest = new Request(upstream, request);
+  if (isDocumentPath(new URL(originRequest.url).pathname)) {
+    // A byte range of an HTML page is never served (RFC 9110 lets a server
+    // ignore Range and answer 200). The edge cache slices the gzip
+    // representation it stores and then decodes the slice, so a ranged page
+    // came back as a few KB of HTML under a Content-Range counted in
+    // compressed bytes, and the Worker threw while streaming it (issue 13018:
+    // every sampled exception carried Range). The full page answers the
+    // request; the 206 guard in stripStaleAssetIntegrity stays for the rest.
+    originRequest.headers.delete('Range');
+    originRequest.headers.delete('If-Range');
+  }
   if (cfOpts) {
     // GitHub Pages occasionally advertises a compressed body that ends before
     // the gzip stream is complete. Cloudflare only has to decompress it when
