@@ -220,9 +220,10 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
 // emit is 0.7 s — i.e. essentially the whole plugin is this pair loop.
 //
 // A local profile over the committed corpus (25,658 jobs x 500 clusters =
-// 12.8M pairs, 222.5 s) split the per-pair body as. The default cohort is now
-// 1000 clusters; the memoised index keeps this bounded expansion linear in the
-// additional cluster count rather than repeating the expensive job derivation:
+// 12.8M pairs, 222.5 s) split the per-pair body as below. This is a historical
+// per-pair profile, not a wall-time prediction for the current full cohort.
+// The memoised index keeps expansion linear in the additional cluster count
+// rather than repeating the expensive job derivation:
 //     isJobActiveForLocale -> wordCount(description)   16.39 s   75.0 %
 //     titleTokens Set (3x normalizeTokens)              4.43 s   20.3 %
 //     locTokens   Set (2x normalizeTokens)              0.97 s    4.5 %

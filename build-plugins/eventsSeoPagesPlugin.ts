@@ -4412,6 +4412,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // without waiting for a crawler refresh to reach main.
       const recovery = loadEventsDataset(path.join(rootDir, 'data/events-recovery-archive.json'));
       dataset.events = retainPublishedPastEvents(dataset.events, recovery.events, dateStamp);
+      dataset.totalEvents = dataset.events.length;
       const ephemeralEvents = loadEphemeralEvents({
         publicEvents: withoutPrivateEvents(dataset.events),
         dateStamp,
