@@ -72,7 +72,8 @@ function finiteOrNull(value) {
  * jobRankingAttributes (./jobEmailRanking.js), the same extraction the
  * affinity ranking scores at send time. `affinity_score` is the recipient's
  * affinity with the job in [0, 1] when the person had a valid profile at send
- * time (both variants record it; only `affinity` orders by it), else null.
+ * time (all ranking variants may record it; only `affinity` orders by it), else
+ * null.
  */
 export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
@@ -118,9 +119,8 @@ export async function recordJobEmailImpressions(db, records) {
     const userId = record.userId || pseudonymousUserId(record.email);
     const manifest = record.jobs.map(jobManifestEntry);
     // Whether the person had a valid affinity profile when the email was
-    // built, in BOTH variants: the report compares affinity and control among
-    // people with a profile. null only for a record that predates the field
-    // (a job-alert retry queued before it existed).
+    // built. Newness runs do not need a profile. null only for a record that
+    // predates the field (a job-alert retry queued before it existed).
     const affinityProfile = typeof record.affinityProfile === 'boolean' ? record.affinityProfile : null;
     deliveries.set(String(record.deliveryId), {
       delivery_id: String(record.deliveryId),

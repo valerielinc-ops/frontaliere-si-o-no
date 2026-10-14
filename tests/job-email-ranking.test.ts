@@ -1,14 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
   JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED,
+  JOB_EMAIL_RANKING_ASSIGNMENT_SEED,
   JOB_EMAIL_RANKING_DEFAULTS,
   affinityReorders,
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   hashUnitInterval,
   jobRankingAttributes,
+  jobNewnessScore,
+  newnessReorders,
   pseudonymousUserId,
   rankEmailJobs,
+  rankingNeedsAffinityProfile,
   rankingStatsKey,
   readJobEmailRankingConfig,
 } from '../functions/src/lib/jobEmailRanking.js';
@@ -21,7 +25,8 @@ import {
 } from '../functions/src/lib/jobEmailAffinity.js';
 import { appendJobRankingParams, parseJobRankingClick } from '../functions/src/lib/jobEmailRankingLinks.js';
 
-const CONFIG = { enabled: true, rollout: 1, affinityWeight: 0.5 };
+const CONFIG = { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true, rollout: 1, treatmentVariant: 'affinity', affinityWeight: 0.5 };
+const NEWNESS_CONFIG = { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true, rollout: 1, treatmentVariant: 'control_plus_newness' };
 const DAY = 24 * 60 * 60 * 1000;
 // Relative to now: the profile expires 180 days after its last click.
 const NOW = new Date(Date.now());
@@ -70,6 +75,14 @@ describe('job email ranking — assignment', () => {
     }
   });
 
+  it('uses a separate stable seed for control_plus_newness', () => {
+    for (const email of emails.slice(0, 200)) {
+      const bucket = hashUnitInterval(`${JOB_EMAIL_RANKING_ASSIGNMENT_SEED}:${email}`);
+      expect(assignJobRankingVariant({ subjectId: email, config: { ...NEWNESS_CONFIG, rollout: 0.5 } }))
+        .toBe(bucket < 0.5 ? 'control_plus_newness' : 'control');
+    }
+  });
+
   it('puts a share close to the rollout in affinity and never emits treatment', () => {
     for (const rollout of [0.15, 0.5, 1]) {
       const variants = emails.map((email) => assignJobRankingVariant({ subjectId: email, config: { ...CONFIG, rollout } }));
@@ -84,6 +97,7 @@ describe('job email ranking — assignment', () => {
     expect(JOB_EMAIL_RANKING_DEFAULTS.enabled).toBe(false);
     expect(JOB_EMAIL_RANKING_DEFAULTS.rollout).toBe(0.5);
     expect(JOB_EMAIL_RANKING_DEFAULTS.affinityWeight).toBe(0.5);
+    expect(JOB_EMAIL_RANKING_DEFAULTS.treatmentVariant).toBe('control_plus_newness');
     const share = emails.filter((email) => assignJobRankingVariant({ subjectId: email }) === 'affinity').length / emails.length;
     expect(share).toBe(0);
   });
@@ -103,6 +117,40 @@ describe('job email ranking — order', () => {
     expect(control.map((job) => job.slug)).toEqual(['edilizia-zh', 'vendita-ge']);
     expect(control.every((job) => job.ranking.variant === 'control')).toBe(true);
     expect(control.map((job) => job.ranking.position)).toEqual([1, 2]);
+  });
+
+  it('control_plus_newness lets a recent near-tie win, but not a weak match', () => {
+    const jobs = [
+      { slug: 'strong-old', company: 'Strong', relevanceScore: 8, newnessAt: daysAgo(30) },
+      { slug: 'near-new', company: 'Fresh', relevanceScore: 7.5, newnessAt: daysAgo(1) },
+      { slug: 'near-old', company: 'Old', relevanceScore: 7.4, newnessAt: daysAgo(30) },
+      { slug: 'weak-new', company: 'Weak', relevanceScore: 5, newnessAt: daysAgo(1) },
+    ];
+    const control = rankEmailJobs(jobs, { variant: 'control', config: NEWNESS_CONFIG, now: NOW });
+    const treatment = rankEmailJobs(jobs, { variant: 'control_plus_newness', config: NEWNESS_CONFIG, now: NOW });
+    expect(control.map((job) => job.slug)).toEqual(['strong-old', 'near-new', 'near-old', 'weak-new']);
+    expect(treatment.map((job) => job.slug)).toEqual(['near-new', 'strong-old', 'near-old', 'weak-new']);
+    expect(treatment[0].ranking).toMatchObject({ variant: 'control_plus_newness', relevanceScore: 7.5 });
+    expect(treatment[0].ranking.newnessScore).toBeGreaterThan(0);
+    expect(treatment[3].ranking.newnessScore).toBeGreaterThan(0);
+  });
+
+  it('control_plus_newness leaves old or undated jobs in matcher order', () => {
+    const jobs = [
+      { slug: 'first', relevanceScore: 8, newnessAt: daysAgo(30) },
+      { slug: 'second', relevanceScore: 7.5, newnessAt: daysAgo(45) },
+      { slug: 'third', relevanceScore: 7, newnessAt: null },
+    ];
+    const ranked = rankEmailJobs(jobs, { variant: 'control_plus_newness', config: NEWNESS_CONFIG, now: NOW });
+    expect(ranked.map((job) => job.slug)).toEqual(jobs.map((job) => job.slug));
+    expect(ranked.every((job) => job.ranking.newnessScore === 0)).toBe(true);
+  });
+
+  it('newness score is bounded to the recent window and ignores future dates', () => {
+    expect(jobNewnessScore({ newnessAt: daysAgo(1) }, NOW)).toBeCloseTo(6 / 7, 6);
+    expect(jobNewnessScore({ newnessAt: daysAgo(7) }, NOW)).toBe(0);
+    expect(jobNewnessScore({ newnessAt: new Date(NOW.getTime() + DAY) }, NOW)).toBe(0);
+    expect(jobNewnessScore({}, NOW)).toBe(0);
   });
 
   it('mixes companies inside equal control ranks without overtaking a higher rank', () => {
@@ -237,29 +285,41 @@ describe('job email ranking — when affinity reorders', () => {
   });
 });
 
+describe('job email ranking — when newness reorders', () => {
+  it('only for the newness variant while enabled', () => {
+    expect(newnessReorders({ variant: 'control_plus_newness', config: NEWNESS_CONFIG })).toBe(true);
+    expect(newnessReorders({ variant: 'control', config: NEWNESS_CONFIG })).toBe(false);
+    expect(newnessReorders({ variant: 'control_plus_newness', config: { ...NEWNESS_CONFIG, enabled: false } })).toBe(false);
+    expect(rankingNeedsAffinityProfile({ config: NEWNESS_CONFIG })).toBe(false);
+    expect(rankingNeedsAffinityProfile({ config: CONFIG })).toBe(true);
+  });
+});
+
 describe('job email ranking — configuration', () => {
-  it('reads the three parameters from the environment', () => {
+  it('reads the ranking parameters from the environment', () => {
     expect(readJobEmailRankingConfig({
       JOB_EMAIL_RANKING_ENABLED: 'true',
       JOB_EMAIL_RANKING_ROLLOUT: '0.3',
       JOB_EMAIL_RANKING_AFFINITY_WEIGHT: '0.8',
-    })).toEqual({ enabled: true, rollout: 0.3, affinityWeight: 0.8 });
+      JOB_EMAIL_RANKING_TREATMENT: 'control_plus_newness',
+    })).toEqual({ enabled: true, rollout: 0.3, affinityWeight: 0.8, treatmentVariant: 'control_plus_newness' });
   });
 
   it('falls back to the code defaults when absent or malformed, and clamps to [0, 1]', () => {
-    expect(readJobEmailRankingConfig({})).toEqual({ enabled: false, rollout: 0.5, affinityWeight: 0.5 });
+    expect(readJobEmailRankingConfig({})).toEqual({ enabled: false, rollout: 0.5, affinityWeight: 0.5, treatmentVariant: 'control_plus_newness' });
     expect(readJobEmailRankingConfig({
       JOB_EMAIL_RANKING_ENABLED: 'off',
       JOB_EMAIL_RANKING_ROLLOUT: 'not-a-number',
       JOB_EMAIL_RANKING_AFFINITY_WEIGHT: '4',
-    })).toEqual({ enabled: false, rollout: 0.5, affinityWeight: 1 });
+      JOB_EMAIL_RANKING_TREATMENT: 'invalid',
+    })).toEqual({ enabled: false, rollout: 0.5, affinityWeight: 1, treatmentVariant: 'control' });
     expect(readJobEmailRankingConfig({ JOB_EMAIL_RANKING_AFFINITY_WEIGHT: '-1' }).affinityWeight).toBe(0);
     expect(readJobEmailRankingConfig({ JOB_EMAIL_RANKING_AFFINITY_WEIGHT: '' }).affinityWeight).toBe(0.5);
   });
 
   it('no longer exposes the CTR tuning knobs', () => {
     const config = readJobEmailRankingConfig({ JOB_EMAIL_RANKING_ALPHA: '1', JOB_EMAIL_RANKING_EPSILON: '0.2' });
-    expect(Object.keys(config).sort()).toEqual(['affinityWeight', 'enabled', 'rollout']);
+    expect(Object.keys(config).sort()).toEqual(['affinityWeight', 'enabled', 'rollout', 'treatmentVariant']);
   });
 });
 
