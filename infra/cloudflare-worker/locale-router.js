@@ -2227,7 +2227,8 @@ export async function serveCorpusSection(request, url, ctx) {
     clearTimeout(timer);
   }
 
-  if (!resp || resp.status >= 500) {
+  // Only 404/410 establish absence in a namespace already owned by the corpus.
+  if (!resp || (!resp.ok && resp.status !== 404 && resp.status !== 410)) {
     // Stale-if-error, same contract as serveShard: the last-good apex-keyed
     // copy beats an error page for a crawler or a reader.
     if (request.method === 'GET') {
@@ -2328,7 +2329,7 @@ export async function serveCorpusEdgeFile(request, url) {
       signal: controller.signal,
       cf: CORPUS_RELEASE_EDGE_FETCH_CF,
     });
-    if (resp.status >= 500) throw new Error(`edge ${resp.status}`);
+    if (!resp.ok && resp.status !== 404 && resp.status !== 410) throw new Error(`edge ${resp.status}`);
     if (!resp.ok) return corpusSitemapNotFound(request);
     const body = await resp.arrayBuffer();
     return corpusResponse(request, body, {
