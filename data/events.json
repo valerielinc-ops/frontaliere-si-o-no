@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T01:57:49.101Z",
+  "generatedAt": "2026-10-14T03:59:35.285Z",
   "totalEvents": 12964,
   "events": [
     {
@@ -223930,7 +223930,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lugano, lo Studio Foce propone la proiezione di un film di fantascienza e avventura del 1968. La pellicola dura 149 minuti ed è presentata in versione originale inglese con sottotitoli in italiano; l’ingresso è gratuito, con visione indicata a partire dai 10 anni e suggerita dai 14.",
+      "descriptionByLocale": {
+        "it": "A Lugano, lo Studio Foce propone la proiezione di un film di fantascienza e avventura del 1968. La pellicola dura 149 minuti ed è presentata in versione originale inglese con sottotitoli in italiano; l’ingresso è gratuito, con visione indicata a partire dai 10 anni e suggerita dai 14.",
+        "en": "Studio Foce in Lugano presents a 1968 science-fiction and adventure film. The 149-minute screening is in the original English version with Italian subtitles; admission is free, with the film suitable from age 10 and viewing suggested from age 14.",
+        "de": "Im Studio Foce in Lugano wird ein Science-Fiction- und Abenteuerfilm aus dem Jahr 1968 gezeigt. Die 149-minütige Vorführung erfolgt in der englischen Originalfassung mit italienischen Untertiteln; der Eintritt ist frei, zugelassen ist sie ab 10 Jahren, wobei eine Sichtung ab 14 Jahren empfohlen wird.",
+        "fr": "Le Studio Foce de Lugano accueille la projection d’un film de science-fiction et d’aventure datant de 1968. Le film dure 149 minutes et est présenté en version originale anglaise avec des sous-titres italiens ; l’entrée est gratuite, à partir de 10 ans, avec une vision recommandée dès 14 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:voix-basse",
@@ -230415,7 +230423,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento combina una gita in battello con un pasto a base di specialità di selvaggina servite a bordo. Schiffsbetrieb Walensee AG lo propone a Quarten.",
+      "descriptionByLocale": {
+        "it": "L’evento combina una gita in battello con un pasto a base di specialità di selvaggina servite a bordo. Schiffsbetrieb Walensee AG lo propone a Quarten.",
+        "en": "The event combines a boat outing with a meal featuring game specialities served on board. Schiffsbetrieb Walensee AG offers it in Quarten.",
+        "de": "Die Veranstaltung verbindet eine Schifffahrt mit einem Bordessen aus Wildspezialitäten. Schiffsbetrieb Walensee AG bietet sie in Quarten an.",
+        "fr": "L’événement associe une sortie en bateau à un repas de spécialités de gibier servi à bord. Schiffsbetrieb Walensee AG le propose à Quarten."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AMQj329",
@@ -235151,7 +235167,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento musicale si svolge alla Tonhalle di Zurigo con un’orchestra sinfonica giovanile. Il programma comprende un’ouverture, un concerto per pianoforte e una sinfonia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale si svolge alla Tonhalle di Zurigo con un’orchestra sinfonica giovanile. Il programma comprende un’ouverture, un concerto per pianoforte e una sinfonia.",
+        "en": "The music event at Tonhalle in Zurich features a youth symphony orchestra. Its programme comprises an overture, a piano concerto and a symphony.",
+        "de": "In der Tonhalle in Zürich findet ein musikalischer Anlass mit einem Jugendsinfonieorchester statt. Das Programm umfasst eine Ouvertüre, ein Klavierkonzert und eine Sinfonie.",
+        "fr": "La Tonhalle de Zurich accueille un rendez-vous musical avec un orchestre symphonique de jeunes. Le programme comprend une ouverture, un concerto pour piano et une symphonie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ASBDwLn",
@@ -235799,7 +235823,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vevey, la manifestazione «Reflections» presenta opere di quattro pittori contemporanei. I lavori affrontano i riflessi umani e quelli della natura.",
+      "descriptionByLocale": {
+        "it": "A Vevey, la manifestazione «Reflections» presenta opere di quattro pittori contemporanei. I lavori affrontano i riflessi umani e quelli della natura.",
+        "en": "The event “Reflections” in Vevey presents work by four contemporary painters. Their works consider human reflections alongside reflections in nature.",
+        "de": "Die Veranstaltung «Reflexionen» in Vevey zeigt Arbeiten von vier zeitgenössischen Malern. Die Werke befassen sich mit menschlichen und natürlichen Spiegelungen.",
+        "fr": "À Vevey, l’événement «Reflets» présente des œuvres de quatre peintres contemporains. Celles-ci abordent les reflets humains ainsi que ceux de la nature."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Aj2X7hE",
@@ -237633,7 +237665,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa visita guidata è dedicata ai funghi del Jardin Botanique de Genève. L’evento si svolge a Genève ed è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questa visita guidata è dedicata ai funghi del Jardin Botanique de Genève. L’evento si svolge a Genève ed è gratuito.",
+        "en": "This guided visit focuses on mushrooms at the Jardin Botanique de Genève. The event takes place in Genève and is free of charge.",
+        "de": "Bei der kommentierten Führung stehen die Pilze im Jardin Botanique de Genève im Mittelpunkt. Die Veranstaltung findet in Genève statt und ist kostenlos.",
+        "fr": "Cette visite commentée porte sur les champignons du Jardin Botanique de Genève. L’événement a lieu à Genève et est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fb8120c00248480f898c9064a4bcd7f7",
@@ -247727,7 +247767,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Chiesa riformata di Oberengstringen organizza il bazar. Il programma comprende proposte per grandi e piccoli, mentre il ricavato è destinato a un progetto umanitario in Brasile.",
+      "descriptionByLocale": {
+        "it": "La Chiesa riformata di Oberengstringen organizza il bazar. Il programma comprende proposte per grandi e piccoli, mentre il ricavato è destinato a un progetto umanitario in Brasile.",
+        "en": "The Reformed Church in Oberengstringen organizes this bazaar. It includes activities for children and adults, with proceeds allocated to a humanitarian project in Brazil.",
+        "de": "Der Bazar wird von der reformierten Kirche Oberengstringen organisiert. Das Angebot richtet sich an Kinder und Erwachsene; der Erlös fliesst an ein humanitäres Projekt in Brasilien.",
+        "fr": "Le bazar est organisé par l’Église réformée d’Oberengstringen. Il propose des activités pour les enfants comme pour les adultes, et les recettes sont affectées à un projet humanitaire au Brésil."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:benjamin-epps-sebb-bash-stresh",
@@ -251290,7 +251338,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Brooke Law si esibisce con la sua band in una serata che riunisce rock, country-rock e pop. L'appuntamento si tiene alla Gemmi Taverne di Kandersteg, nel canton Berna.",
+      "descriptionByLocale": {
+        "it": "Brooke Law si esibisce con la sua band in una serata che riunisce rock, country-rock e pop. L'appuntamento si tiene alla Gemmi Taverne di Kandersteg, nel canton Berna.",
+        "en": "Brooke Law performs with her band in a live music programme combining rock, country-rock and pop. The event takes place at Gemmi Taverne in Kandersteg, in the canton of Bern.",
+        "de": "Brooke Law gestaltet den Musikabend zusammen mit ihrer Band und verbindet dabei Rock, Country-Rock und Pop. Austragungsort ist die Gemmi Taverne in Kandersteg im Kanton Bern.",
+        "fr": "Brooke Law se produit avec son groupe dans un programme réunissant rock, country-rock et pop. Le rendez-vous a lieu à la Gemmi Taverne, à Kandersteg, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXL4fP3",
@@ -269737,7 +269793,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma riunisce Christian Chamorel al pianoforte, Léonie Renaud alla voce e Damien Bachmann al clarinetto. L’evento musicale si svolge alla Chapelle des Dix-Mille Martyrs di Le Landeron.",
+      "descriptionByLocale": {
+        "it": "Il programma riunisce Christian Chamorel al pianoforte, Léonie Renaud alla voce e Damien Bachmann al clarinetto. L’evento musicale si svolge alla Chapelle des Dix-Mille Martyrs di Le Landeron.",
+        "en": "Christian Chamorel performs on piano, Léonie Renaud sings, and Damien Bachmann plays the clarinet. The musical event takes place at the Chapelle des Dix-Mille Martyrs in Le Landeron.",
+        "de": "Christian Chamorel ist am Klavier zu hören, Léonie Renaud übernimmt den Gesang und Damien Bachmann spielt Klarinette. Die musikalische Veranstaltung findet in der Chapelle des Dix-Mille Martyrs in Le Landeron statt.",
+        "fr": "Christian Chamorel joue du piano, Léonie Renaud assure le chant et Damien Bachmann la clarinette. Le rendez-vous musical a lieu à la Chapelle des Dix-Mille Martyrs, à Le Landeron."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2089e6e8f8cb4d9bac941fd8a00d3d68",
@@ -271425,7 +271489,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale, in programma al Cinema teatro di Chiasso, presenta l’esperienza di una maestra originaria della città, che nel 1915 raggiunse l’Agro romano per guidare una Casa dei bambini basata sul metodo Montessori. A partire dai suoi diari, la rappresentazione segue un anno dedicato all’educazione e all’emancipazione sociale, con attenzione all’alfabetizzazione e all’impegno civile.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale, in programma al Cinema teatro di Chiasso, presenta l’esperienza di una maestra originaria della città, che nel 1915 raggiunse l’Agro romano per guidare una Casa dei bambini basata sul metodo Montessori. A partire dai suoi diari, la rappresentazione segue un anno dedicato all’educazione e all’emancipazione sociale, con attenzione all’alfabetizzazione e all’impegno civile.",
+        "en": "The theatrical work at Cinema teatro in Chiasso follows a teacher from the town who went to the Roman countryside in 1915 to lead a children’s centre based on Montessori principles. Drawing on her diaries, it portrays a year of educational work and civic commitment, linking literacy with social emancipation against a backdrop of war and poverty.",
+        "de": "Die Theateraufführung im Cinema teatro in Chiasso schildert die Geschichte einer Lehrerin aus der Stadt, die 1915 in die römische Landschaft ging, um dort eine nach Montessori ausgerichtete Einrichtung für Kinder zu leiten. Ausgehend von ihren Tagebüchern zeigt die Inszenierung ein Jahr pädagogischer Arbeit und gesellschaftlichen Engagements, in dem Alphabetisierung und soziale Emanzipation eine wichtige Rolle spielen.",
+        "fr": "Cette création théâtrale, présentée au Cinema teatro de Chiasso, suit une enseignante originaire de la ville qui se rendit dans la campagne romaine en 1915 pour diriger une structure destinée aux enfants et inspirée de la pédagogie Montessori. À partir de ses journaux, le spectacle retrace une année d’activité éducative et d’engagement civique, en abordant l’alphabétisation et l’émancipation sociale dans un contexte de guerre et de pauvreté."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64509",
@@ -273094,7 +273166,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'evento è dedicato a Melchior Prisi (1957–2020), artista autodidatta con interessi per la musica, il disegno e i tesori bibliografici. L'appuntamento ricorrente si svolge a Ins, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "L'evento è dedicato a Melchior Prisi (1957–2020), artista autodidatta con interessi per la musica, il disegno e i tesori bibliografici. L'appuntamento ricorrente si svolge a Ins, nel cantone di Berna.",
+        "en": "The event is devoted to Melchior Prisi (1957–2020), a self-taught artist whose interests included music, drawing and bibliophile treasures. This recurring event takes place in Ins, in the canton of Bern.",
+        "de": "Die Veranstaltung ist Melchior Prisi (1957–2020) gewidmet, einem autodidaktischen Künstler mit Interesse an Musik, Zeichnung und bibliophilen Kostbarkeiten. Der wiederkehrende Anlass findet in Ins im Kanton Bern statt.",
+        "fr": "L’événement est consacré à Melchior Prisi (1957–2020), artiste autodidacte ayant un intérêt marqué pour la musique, le dessin et les trésors bibliophiliques. Ce rendez-vous récurrent a lieu à Ins, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64234",
@@ -279928,7 +280008,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone la presentazione di un libro e una conversazione con Franco Supino presso Bücher Lüthy a Solothurn. L’autore presenta un nuovo romanzo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone la presentazione di un libro e una conversazione con Franco Supino presso Bücher Lüthy a Solothurn. L’autore presenta un nuovo romanzo.",
+        "en": "The event includes a book presentation and a conversation with Franco Supino at Bücher Lüthy in Solothurn. The author presents a new novel.",
+        "de": "Bei der Veranstaltung bei Bücher Lüthy in Solothurn stehen eine Buchpräsentation und ein Gespräch mit Franco Supino im Mittelpunkt. Der Autor stellt einen neuen Roman vor.",
+        "fr": "Le rendez-vous comprend une présentation de livre et un échange avec Franco Supino chez Bücher Lüthy, à Solothurn. L’auteur y présente un nouveau roman."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7d6cac9e52e14457ad30ef4d19ef4d91",
@@ -282213,7 +282301,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Theater Fauteuil - Tabourettli, Sylphe si esibisce con Christian Müller al pianoforte. Il programma comprende interpretazioni di chanson di Piaf.",
+      "descriptionByLocale": {
+        "it": "Al Theater Fauteuil - Tabourettli, Sylphe si esibisce con Christian Müller al pianoforte. Il programma comprende interpretazioni di chanson di Piaf.",
+        "en": "At Theater Fauteuil - Tabourettli, Sylphe performs with Christian Müller on piano. The programme comprises interpretations of Piaf chansons.",
+        "de": "Im Theater Fauteuil - Tabourettli tritt Sylphe mit Christian Müller am Klavier auf. Das Programm umfasst Interpretationen von Piaf-Chansons.",
+        "fr": "Au Theater Fauteuil - Tabourettli, Sylphe se produit avec Christian Müller au piano. Le programme comprend des interprétations de chansons de Piaf."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a9aaea809bcd4372b37bfb67ab4a6ade",
