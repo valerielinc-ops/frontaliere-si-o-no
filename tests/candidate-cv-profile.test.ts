@@ -1,6 +1,66 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
-import { scoreJobForProfile } from '../functions/src/applicationConciergeMatching.js';
+import { proposalDocumentId, runApplicationConciergeMatching, scoreJobForProfile } from '../functions/src/applicationConciergeMatching.js';
+
+function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
+  const documents = new Map(Object.entries(seed));
+  let autoId = 0;
+  const normalize = (path: string) => path.replace(/^\/+|\/+$/g, '');
+  const write = (path: string, data: Record<string, unknown>, merge = false) => {
+    const key = normalize(path);
+    documents.set(key, merge ? { ...(documents.get(key) || {}), ...data } : { ...data });
+  };
+  const ref = (path: string): any => {
+    const key = normalize(path);
+    const parts = key.split('/');
+    return {
+      id: parts[parts.length - 1],
+      async get() {
+        return { exists: documents.has(key), data: () => documents.get(key) };
+      },
+      set(data: Record<string, unknown>, options?: { merge?: boolean }) {
+        write(key, data, options?.merge === true);
+      },
+      collection(name: string) {
+        return collection(`${key}/${name}`);
+      },
+    };
+  };
+  const collection = (path: string): any => {
+    const key = normalize(path);
+    return {
+      doc(id?: string) {
+        return ref(`${key}/${id || `auto-${++autoId}`}`);
+      },
+      async get() {
+        const prefix = `${key}/`;
+        return {
+          docs: [...documents.keys()]
+            .filter((candidate) => candidate.startsWith(prefix) && !candidate.slice(prefix.length).includes('/'))
+            .map((candidate) => ref(candidate)),
+        };
+      },
+    };
+  };
+  return {
+    db: {
+      collection,
+      batch() {
+        const operations: Array<() => void> = [];
+        return {
+          set(target: any, data: Record<string, unknown>, options?: { merge?: boolean }) {
+            operations.push(() => target.set(data, options));
+          },
+          async commit() {
+            await new Promise((resolve) => setTimeout(resolve, 5));
+            operations.forEach((operation) => operation());
+          },
+        };
+      },
+    },
+    documents,
+  };
+}
 
 describe('candidate CV profile projection', () => {
   it('extracts traceable contact, role, skills and language facts', () => {
@@ -33,6 +93,61 @@ describe('candidate CV profile projection', () => {
   });
 });
 describe('application concierge matching', () => {
+  it('derives the same service-scoped proposal id for retries and concurrent runs', () => {
+    const job = {
+      id: 'job-42',
+      slug: 'infermiere-lugano',
+      url: 'https://jobs.example.test/job-42',
+      title: 'Infermiere diplomato',
+    };
+
+    expect(proposalDocumentId('service-1', job)).toBe(proposalDocumentId('service-1', job));
+    expect(proposalDocumentId('service-1', job)).not.toBe(proposalDocumentId('service-2', job));
+  });
+
+  it('converges concurrent runs to one proposal per job and respects the cap', async () => {
+    const { db, documents } = createMatchingDb({
+      'application_concierge_services/service-1': {
+        userId: 'candidate-1',
+        paymentStatus: 'paid',
+        serviceStatus: 'active',
+        maxPositions: 2,
+        acceptedPositionsCount: 0,
+        expiresAt: new Date(Date.now() + 60_000),
+      },
+      'user_cv_profiles/candidate-1': {
+        status: 'ready',
+        profile: {
+          searchText: 'infermiere triage assistenza',
+          workPosition: 'Infermiere',
+          skills: ['triage', 'assistenza'],
+          experienceSummary: ['reparto medicina'],
+        },
+      },
+    });
+    const jobs = [
+      { id: 'job-1', url: 'https://jobs.example.test/job-1', title: 'Infermiere', requirements: 'triage assistenza', location: 'Lugano' },
+      { id: 'job-2', url: 'https://jobs.example.test/job-2', title: 'Infermiere', requirements: 'triage assistenza', location: 'Bellinzona' },
+      { id: 'job-3', url: 'https://jobs.example.test/job-3', title: 'Infermiere', requirements: 'triage assistenza', location: 'Locarno' },
+    ];
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
+
+    try {
+      const results = await Promise.all([
+        runApplicationConciergeMatching({ db: db as never, serviceId: 'service-1', jobIndexUrl: 'https://jobs.example.test/index.json' }),
+        runApplicationConciergeMatching({ db: db as never, serviceId: 'service-1', jobIndexUrl: 'https://jobs.example.test/index.json' }),
+      ]);
+      const proposalPrefix = 'application_concierge_services/service-1/proposals/';
+      const proposals = [...documents.entries()].filter(([path]) => path.startsWith(proposalPrefix));
+
+      expect(results).toEqual([{ status: 'complete', proposals: 2 }, { status: 'complete', proposals: 2 }]);
+      expect(proposals).toHaveLength(2);
+      expect(new Set(proposals.map(([path]) => path)).size).toBe(2);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('returns an explainable match for overlapping role and skills', () => {
     const result = scoreJobForProfile(
       {

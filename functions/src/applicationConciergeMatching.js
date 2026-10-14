@@ -7,6 +7,7 @@
  * application child is created.
  */
 
+import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
@@ -85,8 +86,20 @@ async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL |
   }
 }
 
-function proposalRef(serviceRef) {
-  return serviceRef.collection('proposals').doc();
+function stableJobIdentity(job, url) {
+  const value = [job?.id, job?.jobId, job?.slug, job?.canonicalUrl, job?.url, url]
+    .find((candidate) => String(candidate || '').trim());
+  return String(value || url || `${job?.company || ''}|${job?.title || ''}|${job?.location || ''}`).trim();
+}
+
+/**
+ * Proposal IDs are stable across retries and concurrent trigger delivery.
+ * Hashing keeps source IDs/URLs out of the Firestore document path while
+ * scoping the same listing independently for each concierge service.
+ */
+export function proposalDocumentId(serviceId, job, url = jobUrl(job)) {
+  const identity = stableJobIdentity(job, url);
+  return `job-${createHash('sha256').update(`${serviceId}|${identity}`).digest('hex').slice(0, 40)}`;
 }
 
 export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl } = {}) {
@@ -124,9 +137,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
 
     const batch = db.batch();
     for (const candidate of candidates) {
-      const ref = proposalRef(serviceRef);
+      const ref = serviceRef.collection('proposals').doc(proposalDocumentId(serviceId, candidate.job, candidate.url));
       batch.set(ref, {
-        jobId: String(candidate.job.id || candidate.job.slug || ref.id).slice(0, 200),
+        jobId: String(candidate.job.id || candidate.job.jobId || candidate.job.slug || candidate.job.canonicalUrl || candidate.url).slice(0, 200),
         jobUrl: candidate.url,
         companyId: String(candidate.job.companyKey || candidate.job.company || 'company').slice(0, 200),
         companyName: String(candidate.job.company || candidate.job.companyKey || 'Azienda').slice(0, 200),
