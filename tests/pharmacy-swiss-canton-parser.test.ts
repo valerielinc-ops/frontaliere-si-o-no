@@ -115,7 +115,7 @@ describe('Swiss canton pharmacy calendar parser', () => {
     })).toThrow('Zürich page no longer declares daily 24-hour opening');
   });
 
-  it('builds the three current Solothurn regional schedules with source identities and local intervals', () => {
+  it('ignores Solothurn opening-hours metadata and builds the three regional schedules', () => {
     const parsed = parseSolothurnDutyPage({
       html: SOLOTHURN_SOURCE_HTML,
       sourceUrl: SOLOTHURN_SOURCE_URL,

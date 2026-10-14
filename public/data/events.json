@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T19:02:20.036Z",
+  "generatedAt": "2026-10-14T20:57:33.039Z",
   "totalEvents": 13578,
   "events": [
     {
@@ -404559,7 +404559,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento musicale all’ALTEFABRIK di Rapperswil-Jona si muove tra pop, rock, jazz e country. I brani affrontano vicinanza, paura, perdita e speranza, con Philipp Saner alla voce.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale all’ALTEFABRIK di Rapperswil-Jona si muove tra pop, rock, jazz e country. I brani affrontano vicinanza, paura, perdita e speranza, con Philipp Saner alla voce.",
+        "en": "The music event at ALTEFABRIK in Rapperswil-Jona moves between pop, rock, jazz and country. Its songs address closeness, fear, loss and hope, with Philipp Saner providing the vocals.",
+        "de": "Die Musikveranstaltung in der ALTEFABRIK in Rapperswil-Jona bewegt sich zwischen Pop, Rock, Jazz und Country. Die Lieder behandeln Nähe, Angst, Verlust und Hoffnung, wobei Philipp Saner den Gesang übernimmt.",
+        "fr": "L’événement musical à ALTEFABRIK, à Rapperswil-Jona, se situe entre la pop, le rock, le jazz et la country. Les morceaux évoquent la proximité, la peur, la perte et l’espoir, avec Philipp Saner au chant."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AErF8F2",
@@ -408015,7 +408023,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro si svolge nel foyer della casa parrocchiale di Weinfelden, dove ci si può fermare per un caffè o un tè. Sono previsti anche un pezzo di torta e momenti di scambio con altre persone.",
+      "descriptionByLocale": {
+        "it": "L’incontro si svolge nel foyer della casa parrocchiale di Weinfelden, dove ci si può fermare per un caffè o un tè. Sono previsti anche un pezzo di torta e momenti di scambio con altre persone.",
+        "en": "The gathering takes place in the foyer of the parish community hall in Weinfelden, with coffee or tea available. It also includes a piece of cake and opportunities to talk with and meet other people.",
+        "de": "Das Treffen findet im Foyer des Kirchgemeindehauses in Weinfelden bei Kaffee oder Tee statt. Es gibt auch ein Stück Kuchen sowie Gelegenheit zum Austausch und zum Kennenlernen.",
+        "fr": "Le rendez-vous a lieu dans le foyer de la maison paroissiale de Weinfelden, autour d’un café ou d’un thé. Il comprend aussi un morceau de gâteau et un moment pour échanger et faire connaissance."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ad1b981d7ffc46e8bb0912842e87bd2b",
@@ -409561,7 +409577,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La lezione gratuita a Vevey esamina la famiglia Couvreu e il suo ruolo nei contesti politico e sociale di Vevey e del Canton Vaud tra il 1798 e il 1929. Si svolge nella Salle du Conseil communal.",
+      "descriptionByLocale": {
+        "it": "La lezione gratuita a Vevey esamina la famiglia Couvreu e il suo ruolo nei contesti politico e sociale di Vevey e del Canton Vaud tra il 1798 e il 1929. Si svolge nella Salle du Conseil communal.",
+        "en": "This free lesson in Vevey examines the Couvreu family’s role in public affairs in Vevey and the canton of Vaud during 1798–1929. It is held at the Salle du Conseil communal.",
+        "de": "Die kostenlose Lektion in Vevey beleuchtet die Couvreu und deren Wirken in politischen und gesellschaftlichen Bereichen der Stadt sowie des Kantons Waadt zwischen 1798 und 1929. Sie findet in der Salle du Conseil communal statt.",
+        "fr": "Cette leçon gratuite à Vevey présente la famille Couvreu et son implication dans les domaines politiques et sociaux de la ville ainsi que du canton de Vaud entre 1798 et 1929. Elle se déroule à la Salle du Conseil communal."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6c68c32627b44d33b9c02a940f2d1125",
@@ -409723,7 +409747,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Biblioteca universitaria (UB) di Basilea ospita la chiusura di una mostra. Il programma comprende una conferenza di Martin Viehhauser dell’Università di Friburgo.",
+      "descriptionByLocale": {
+        "it": "La Biblioteca universitaria (UB) di Basilea ospita la chiusura di una mostra. Il programma comprende una conferenza di Martin Viehhauser dell’Università di Friburgo.",
+        "en": "The University Library (UB) in Basel hosts the closing event of an exhibition. The programme includes a talk by Martin Viehhauser from the University of Freiburg.",
+        "de": "In der Universitätsbibliothek (UB) in Basel findet der Abschluss einer Ausstellung statt. Dazu gehört ein Vortrag von Martin Viehhauser von der Universität Freiburg.",
+        "fr": "La Bibliothèque universitaire (UB) de Bâle accueille la clôture d’une exposition. Le programme comprend une conférence de Martin Viehhauser de l’Université de Fribourg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZZWt1y",
@@ -418313,7 +418345,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nella chiesa evangelico-riformata di Langendorf vengono proposti caffè e dolci. L’iniziativa è a favore del gruppo Eine-Welt-Gruppe Langendorf.",
+      "descriptionByLocale": {
+        "it": "Nella chiesa evangelico-riformata di Langendorf vengono proposti caffè e dolci. L’iniziativa è a favore del gruppo Eine-Welt-Gruppe Langendorf.",
+        "en": "The Evangelical Reformed Church in Langendorf hosts an event with coffee and cake. It supports the Eine-Welt-Gruppe Langendorf.",
+        "de": "In der evangelisch-reformierten Kirche in Langendorf werden Kaffee und Kuchen angeboten. Der Anlass kommt der Eine-Welt-Gruppe Langendorf zugute.",
+        "fr": "L’église évangélique réformée de Langendorf accueille une rencontre autour du café et des gâteaux. L’initiative est au profit de l’Eine-Welt-Gruppe Langendorf."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4f8424db9f734416b0ff01ab93aa1980",
@@ -432100,7 +432140,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Circus Conelli propone uno spettacolo teatrale al Bauschänzli di Zurigo. Ticketcorner figura come organizzatore dell’evento.",
+      "descriptionByLocale": {
+        "it": "Il Circus Conelli propone uno spettacolo teatrale al Bauschänzli di Zurigo. Ticketcorner figura come organizzatore dell’evento.",
+        "en": "Circus Conelli is a theatre event at Bauschänzli in Zürich. Ticketcorner is listed as the organizer.",
+        "de": "Die Zirkusveranstaltung Circus Conelli findet im Bauschänzli in Zürich statt. Ticketcorner ist als Organisator angegeben.",
+        "fr": "Circus Conelli est un spectacle de théâtre présenté au Bauschänzli de Zurich. Ticketcorner est indiqué comme organisateur de l’événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:44ad94b265784bde883e0bea90d32772",
@@ -436978,7 +437026,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale presenta un monologo umoristico sulle diverse forme dell’“essere a galla” nella vita, tra momenti di calma e situazioni di maggiore difficoltà. L’appuntamento si svolge alla Bühne Aarau di Aarau ed è presentato dall’organizzazione omonima.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale presenta un monologo umoristico sulle diverse forme dell’“essere a galla” nella vita, tra momenti di calma e situazioni di maggiore difficoltà. L’appuntamento si svolge alla Bühne Aarau di Aarau ed è presentato dall’organizzazione omonima.",
+        "en": "This theatre event uses a humorous solo performance to consider how people navigate life, from composed moments to periods of strain. Bühne Aarau presents the performance at its venue in Aarau.",
+        "de": "Das Theaterstück nähert sich dem Leben in einem humorvollen Monolog und verbindet dabei ruhige Phasen mit Momenten grosser Anstrengung. Bühne Aarau präsentiert die Veranstaltung an ihrem Spielort in Aarau.",
+        "fr": "Ce spectacle théâtral aborde la manière de traverser la vie dans un monologue humoristique, entre périodes de calme et moments plus éprouvants. Bühne Aarau présente la représentation dans sa salle à Aarau."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3ee99991bbc047b7a711dc26ce4986bc",
@@ -438093,7 +438149,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta un’opera di Martina Clavadetscher ispirata a un’opera di Hoffmann. Si svolge a Baden.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta un’opera di Martina Clavadetscher ispirata a un’opera di Hoffmann. Si svolge a Baden.",
+        "en": "This event presents a work by Martina Clavadetscher inspired by a work by Hoffmann. It takes place in Baden.",
+        "de": "Die Veranstaltung präsentiert eine Arbeit von Martina Clavadetscher, die auf einem Werk von Hoffmann beruht. Sie findet in Baden statt.",
+        "fr": "L’événement présente une œuvre de Martina Clavadetscher inspirée d’une œuvre de Hoffmann. Il a lieu à Baden."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:86323",
@@ -440293,7 +440357,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di uno spettacolo di Orélie Fuchs presentato a Ginevra. L’evento ricorrente si svolge nell’arco di più giornate.",
+      "descriptionByLocale": {
+        "it": "Si tratta di uno spettacolo di Orélie Fuchs presentato a Ginevra. L’evento ricorrente si svolge nell’arco di più giornate.",
+        "en": "This is a performance by Orélie Fuchs presented in Geneva. The recurring event takes place over several days.",
+        "de": "Die Veranstaltung ist eine Aufführung von Orélie Fuchs in Genf. Der wiederkehrende Anlass erstreckt sich über mehrere Tage.",
+        "fr": "Ce rendez-vous est un spectacle d’Orélie Fuchs présenté à Genève. L’événement récurrent se déroule sur plusieurs jours."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e4b8233a11a743fab9e4125ea62d9d29",
@@ -443763,7 +443835,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza di Friburgo esamina la malafede mettendo a confronto le percezioni comuni e le definizioni accademiche. È organizzata dalla Bibliothèque cantonale et universitaire, con la partecipazione di Diane Liberatore, una dottoressa in scienze umane e sociali che ha scritto una tesi sulla malafede.",
+      "descriptionByLocale": {
+        "it": "La conferenza di Friburgo esamina la malafede mettendo a confronto le percezioni comuni e le definizioni accademiche. È organizzata dalla Bibliothèque cantonale et universitaire, con la partecipazione di Diane Liberatore, una dottoressa in scienze umane e sociali che ha scritto una tesi sulla malafede.",
+        "en": "The conference in Fribourg examines bad faith by comparing everyday perceptions with academic definitions. It is organised by the Bibliothèque cantonale et universitaire, with Diane Liberatore, a doctor in the humanities and social sciences who wrote a thesis on bad faith.",
+        "de": "Die Konferenz in Freiburg befasst sich mit «mauvaise foi» ausgehend von alltäglichen Auffassungen und akademischen Definitionen. Sie wird von der Bibliothèque cantonale et universitaire organisiert; beteiligt ist Diane Liberatore, eine Doktorin der Geistes- und Sozialwissenschaften und Autorin einer Dissertation über dieses Thema.",
+        "fr": "La conférence à Fribourg examine la mauvaise foi en confrontant les perceptions courantes aux définitions académiques. Elle est organisée par la Bibliothèque cantonale et universitaire, avec la participation de Diane Liberatore, une docteure en sciences humaines et sociales qui a rédigé une thèse sur la mauvaise foi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AxPc3Bq",
@@ -444183,7 +444263,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Mike Müller porta in scena una commedia a Solothurn. Lo spettacolo richiama il fatto che la vita non tratta tutti allo stesso modo.",
+      "descriptionByLocale": {
+        "it": "Mike Müller porta in scena una commedia a Solothurn. Lo spettacolo richiama il fatto che la vita non tratta tutti allo stesso modo.",
+        "en": "Mike Müller performs in a comedy in Solothurn. The production addresses the idea that life does not treat everyone equally.",
+        "de": "In Solothurn ist Mike Müller mit einer Komödie zu erleben. Die Komödie thematisiert, dass das Leben nicht alle Menschen gleich behandelt.",
+        "fr": "Mike Müller est à l’affiche d’une comédie à Solothurn. Le spectacle évoque le fait que la vie ne traite pas tout le monde de la même manière."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a2d6d999990c4e1bab2d0314685f0dd2",
@@ -444292,7 +444380,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nova è un evento ricorrente che si svolge a Friburgo, nel cantone di Friburgo. La manifestazione si estende su diverse settimane.",
+      "descriptionByLocale": {
+        "it": "Nova è un evento ricorrente che si svolge a Friburgo, nel cantone di Friburgo. La manifestazione si estende su diverse settimane.",
+        "en": "Nova is a recurring event held in Fribourg, in the canton of Fribourg. The event runs over several weeks.",
+        "de": "Nova ist eine wiederkehrende Veranstaltung in Fribourg im Kanton Freiburg. Die Veranstaltung erstreckt sich über mehrere Wochen.",
+        "fr": "Nova est une manifestation récurrente qui se déroule à Fribourg, dans le canton de Fribourg. Elle s’étend sur plusieurs semaines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:24f3794213e948b1a7c1a6b874779e95",
@@ -447515,7 +447611,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Royal di Baden, Dub Spencer & Trance Hill presentano un appuntamento dedicato alla musica dub. La performance si basa su un dub eseguito dal vivo e su sonorità dall’ampio carattere cosmico.",
+      "descriptionByLocale": {
+        "it": "Al Royal di Baden, Dub Spencer & Trance Hill presentano un appuntamento dedicato alla musica dub. La performance si basa su un dub eseguito dal vivo e su sonorità dall’ampio carattere cosmico.",
+        "en": "At Royal in Baden, Dub Spencer & Trance Hill present a dub-focused concert. The performance uses live-played dub and develops a spacious, cosmic sound.",
+        "de": "Im Royal in Baden steht ein Dub-Konzert von Dub Spencer & Trance Hill auf dem Programm. Die Darbietung setzt auf handgespielten Dub und einen weit ausgreifenden, kosmisch gefärbten Klang.",
+        "fr": "Au Royal de Baden, Dub Spencer & Trance Hill donnent un concert consacré au dub. La prestation repose sur un dub joué en direct et sur une sonorité ample aux accents cosmiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c58aa01c25434934be104b1e8d11c36c",
@@ -449425,7 +449529,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo incontro musicale unisce il canto dei mantra, la psytrance progressiva e un bagno sonoro. Si tiene alla Kulturkirche Paulus e prevede momenti di ascolto e di danza. L’ingresso costa CHF 5.",
+      "descriptionByLocale": {
+        "it": "Questo incontro musicale unisce il canto dei mantra, la psytrance progressiva e un bagno sonoro. Si tiene alla Kulturkirche Paulus e prevede momenti di ascolto e di danza. L’ingresso costa CHF 5.",
+        "en": "This music gathering combines mantra singing, progressive psytrance and a sound bath. It is held at Kulturkirche Paulus and includes both listening and dancing. Admission is CHF 5.",
+        "de": "Bei diesem musikalischen Treffen verbinden sich Mantra-Gesang, Prog-Psytrance und ein Klangbad. Es findet in der Kulturkirche Paulus statt und umfasst sowohl gemeinsames Zuhören als auch Tanzen. Der Eintritt beträgt 5 CHF.",
+        "fr": "Cette rencontre musicale associe le chant des mantras, la psytrance progressive et un bain sonore. Elle se tient à la Kulturkirche Paulus et comprend des moments d’écoute et de danse. L’entrée coûte 5 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ATsX6mY",
@@ -452817,7 +452929,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il titolo dell’evento associa burro, marmellata e letteratura a Olivier May. L’appuntamento si svolge a Sion, nel Canton Vallese, ed è indicato come non ricorrente.",
+      "descriptionByLocale": {
+        "it": "Il titolo dell’evento associa burro, marmellata e letteratura a Olivier May. L’appuntamento si svolge a Sion, nel Canton Vallese, ed è indicato come non ricorrente.",
+        "en": "The event title connects butter, jam and literature with Olivier May. It takes place in Sion, in the canton of Valais, and is listed as a non-recurring event.",
+        "de": "Der Veranstaltungstitel verbindet Butter, Marmelade und Literatur mit Olivier May. Die Veranstaltung findet in Sion/Sitten im Kanton Wallis statt und ist als nicht wiederkehrender Anlass aufgeführt.",
+        "fr": "Le titre de l’événement associe le beurre, la confiture et la littérature à Olivier May. Le rendez-vous a lieu à Sion, dans le canton du Valais, et n’est pas récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A84EZW6",
@@ -453312,7 +453432,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "I mercatini di Natale sono indicati come un evento ricorrente presso Engadin Tourismus, a St. Moritz, nel cantone dei Grigioni. La manifestazione si estende su diverse settimane.",
+      "descriptionByLocale": {
+        "it": "I mercatini di Natale sono indicati come un evento ricorrente presso Engadin Tourismus, a St. Moritz, nel cantone dei Grigioni. La manifestazione si estende su diverse settimane.",
+        "en": "The Christmas markets are listed as a recurring event at Engadin Tourismus in St. Moritz, in the canton of Graubünden. The event runs over several weeks.",
+        "de": "Die Weihnachtsmärkte sind als wiederkehrende Veranstaltung bei Engadin Tourismus in St. Moritz im Kanton Graubünden aufgeführt. Die Veranstaltung erstreckt sich über mehrere Wochen.",
+        "fr": "Les marchés de Noël sont répertoriés comme une manifestation récurrente auprès d’Engadin Tourismus, à St. Moritz, dans le canton des Grisons. La manifestation s’étend sur plusieurs semaines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2b75ba430dfb42d3be9be239cc49f4f9",
@@ -454793,7 +454921,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Losanna è associato a un collettivo di DJ che esplora diversi filoni della musica latinx. Fra gli stili associati figurano dancehall, reggaetón, afro, guaracha, baile funk e miscele elettroniche.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Losanna è associato a un collettivo di DJ che esplora diversi filoni della musica latinx. Fra gli stili associati figurano dancehall, reggaetón, afro, guaracha, baile funk e miscele elettroniche.",
+        "en": "The Lausanne event is associated with a DJ collective that explores several Latinx music styles. Its musical scope includes dancehall and reggaeton, along with afro, guaracha, baile funk and electronic combinations.",
+        "de": "Die Veranstaltung in Lausanne ist mit einem DJ-Kollektiv verbunden, das verschiedene Latinx-Musikrichtungen aufgreift. Die Bandbreite reicht von Reggaetón und Dancehall bis zu Afro, Guaracha, Baile Funk und elektronischen Mischformen.",
+        "fr": "Le rendez-vous lausannois est associé à un collectif de DJ qui explore plusieurs courants de la musique latinx. Les styles associés comprennent le dancehall et le reggaetón, ainsi que l’afro, la guaracha, le baile funk et des mélanges électroniques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:83716",
@@ -469315,7 +469451,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Alla Tonhalle di Zurigo, il baritono americano Thomas Hampson si esibisce con la Swiss Orchestra. Il programma accosta i canti di Mahler da “Wunderhorn” a “Trois Aquarelles” di George Templeton Strong, compositore di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Alla Tonhalle di Zurigo, il baritono americano Thomas Hampson si esibisce con la Swiss Orchestra. Il programma accosta i canti di Mahler da “Wunderhorn” a “Trois Aquarelles” di George Templeton Strong, compositore di Ginevra.",
+        "en": "At Tonhalle in Zürich, American baritone Thomas Hampson performs with the Swiss Orchestra. The programme pairs Mahler’s songs from “Wunderhorn” with “Trois Aquarelles” by George Templeton Strong, a composer from Geneva.",
+        "de": "In der Tonhalle in Zürich tritt der amerikanische Bariton Thomas Hampson gemeinsam mit dem Swiss Orchestra auf. Auf dem Programm stehen Mahler-Lieder aus «Wunderhorn» sowie «Trois Aquarelles» von George Templeton Strong, einem Komponisten aus Genf.",
+        "fr": "À la Tonhalle de Zurich, le baryton américain Thomas Hampson se produit avec le Swiss Orchestra. Le programme réunit des chants de Mahler tirés de « Wunderhorn » et « Trois Aquarelles » de George Templeton Strong, compositeur établi à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ArKYx87",
@@ -474621,7 +474765,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta Catalyst, una band composta da due musicisti. La formazione propone alternative rock e si esibisce a Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta Catalyst, una band composta da due musicisti. La formazione propone alternative rock e si esibisce a Zurigo.",
+        "en": "The event presents Catalyst, a band made up of two musicians. The group performs alternative rock in Zurich.",
+        "de": "Bei der Veranstaltung ist Catalyst zu hören, eine Band mit zwei Musikern. Die Formation spielt Alternative Rock in Zürich.",
+        "fr": "L’événement présente Catalyst, un groupe composé de deux musiciens. La formation joue de l’alternative rock à Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2b91eceb2eb740158197e0be345486e7",
@@ -474938,7 +475090,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento sportivo si svolge ad Avenches e riunisce partecipanti della regione. La manifestazione si tiene ogni anno nel mese di dicembre.",
+      "descriptionByLocale": {
+        "it": "L’evento sportivo si svolge ad Avenches e riunisce partecipanti della regione. La manifestazione si tiene ogni anno nel mese di dicembre.",
+        "en": "This sporting event takes place in Avenches and brings together participants from the surrounding area. It is held annually in December.",
+        "de": "Die Sportveranstaltung findet in Avenches statt und bringt Teilnehmende aus der Region zusammen. Sie wird jedes Jahr im Dezember durchgeführt.",
+        "fr": "Cette manifestation sportive a lieu à Avenches et rassemble des participants de la région. Elle se déroule chaque année en décembre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AqtJZwT",
@@ -479016,7 +479176,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento consiste in una visita a piedi del centro storico di Aarau. Il percorso si concentra sulle sue antiche viuzze e sulle tracce di epoche passate.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento consiste in una visita a piedi del centro storico di Aarau. Il percorso si concentra sulle sue antiche viuzze e sulle tracce di epoche passate.",
+        "en": "The event is a walking tour through Aarau’s old town. It focuses on the historic lanes and their links with earlier times.",
+        "de": "Die Veranstaltung ist ein Rundgang durch die historische Altstadt von Aarau. Im Mittelpunkt stehen die alten Gassen und ihre Spuren vergangener Zeiten.",
+        "fr": "Il s’agit d’une visite à pied de la vieille ville d’Aarau. Le parcours se concentre sur ses ruelles historiques et évoque des époques révolues."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ASsAEAZ",
@@ -479140,7 +479308,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vevey, l’attività associa il massaggio per bebè alla musica. Pauline Biselx, ergoterapista e psicomotricista, conduce l’attività come istruttrice di massaggio infantile; sono previsti anche giochi di stimolazione sensomotoria.",
+      "descriptionByLocale": {
+        "it": "A Vevey, l’attività associa il massaggio per bebè alla musica. Pauline Biselx, ergoterapista e psicomotricista, conduce l’attività come istruttrice di massaggio infantile; sono previsti anche giochi di stimolazione sensomotoria.",
+        "en": "The programme in Vevey concerns baby massage set to music. Pauline Biselx leads it; she is an occupational therapist and psychomotor therapist who also teaches baby massage, and the session includes sensory-motor play.",
+        "de": "Das Angebot in Vevey verbindet Babymassage mit Musik. Pauline Biselx ist dabei als Ergotherapeutin und Psychomotorikerin sowie als Leiterin für Babymassage genannt; zum Inhalt gehören Massagebewegungen und Spiele zur sensomotorischen Förderung.",
+        "fr": "À Vevey, l’activité associe le massage pour bébé à la musique. Pauline Biselx y intervient comme ergothérapeute et psychomotricienne et encadre le massage pour bébé ; le programme comprend aussi des jeux d’éveil sensori-moteur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AtW7sg2",
@@ -479878,7 +480054,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento ricorrente a Zweisimmen comprende diversi concerti in chiesa organizzati dall'associazione concertistica. Il programma include appuntamenti di dicembre e di febbraio del Cantate Choir Zweisimmen.",
+      "descriptionByLocale": {
+        "it": "Questo evento ricorrente a Zweisimmen comprende diversi concerti in chiesa organizzati dall'associazione concertistica. Il programma include appuntamenti di dicembre e di febbraio del Cantate Choir Zweisimmen.",
+        "en": "This recurring event in Zweisimmen comprises several church concerts arranged by the concert association. The programme includes concerts in December and February connected with the Cantate Choir Zweisimmen.",
+        "de": "Die wiederkehrende Veranstaltung in Zweisimmen umfasst mehrere Kirchenkonzerte, die von der Konzertvereinigung organisiert werden. Dazu gehören Programme im Dezember und im Februar des Cantate Chors Zweisimmen.",
+        "fr": "Ce rendez-vous récurrent à Zweisimmen comprend plusieurs concerts dans des églises organisés par l’association de concerts. Le programme inclut des concerts en décembre et en février liés au chœur Cantate de Zweisimmen."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:726ec1655e9b4793bdc4d7b1474ca71c",
@@ -480061,7 +480245,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Solothurn si tiene uno spettacolo dal vivo dedicato al Dalai Lama, con Manuel Bauer. L’evento presenta un ritratto del leader tibetano basato su 35 anni di accompagnamento e osservazione da parte di Bauer.",
+      "descriptionByLocale": {
+        "it": "A Solothurn si tiene uno spettacolo dal vivo dedicato al Dalai Lama, con Manuel Bauer. L’evento presenta un ritratto del leader tibetano basato su 35 anni di accompagnamento e osservazione da parte di Bauer.",
+        "en": "Solothurn hosts a live event dedicated to the Dalai Lama, featuring Manuel Bauer. It presents a portrait of the Tibetan leader based on 35 years of Bauer’s accompanying and observing him.",
+        "de": "In Solothurn findet eine Live-Show über den Dalai Lama mit Manuel Bauer statt. Die Veranstaltung zeichnet anhand von Bauers 35-jähriger Begleitung ein Porträt des tibetischen Oberhaupts.",
+        "fr": "À Solothurn, une présentation en direct est consacrée au dalaï-lama avec Manuel Bauer. Elle propose un portrait du dirigeant tibétain fondé sur 35 années d’accompagnement et d’observation par Bauer."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7229f89470254b8fa74cfc083946d9e3",
@@ -482747,7 +482939,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "All’OldCapitol di Langenthal, Noah Veraguth propone un appuntamento pop in un contesto raccolto. Il programma richiama il suo legame con la musica e il desiderio di condividere le proprie canzoni con un pubblico ampio.",
+      "descriptionByLocale": {
+        "it": "All’OldCapitol di Langenthal, Noah Veraguth propone un appuntamento pop in un contesto raccolto. Il programma richiama il suo legame con la musica e il desiderio di condividere le proprie canzoni con un pubblico ampio.",
+        "en": "At OldCapitol in Langenthal, Noah Veraguth presents a pop event in an intimate setting. The programme reflects his connection with music and his wish to share his songs with a wide audience.",
+        "de": "Im OldCapitol in Langenthal steht Noah Veraguth bei einem Pop-Anlass in einem persönlichen Rahmen im Mittelpunkt. Der Anlass greift seine Verbundenheit mit der Musik und seinen Wunsch auf, seine Lieder mit vielen Menschen zu teilen.",
+        "fr": "À l’OldCapitol de Langenthal, Noah Veraguth est au centre d’un rendez-vous pop organisé dans un cadre intime. L’événement met en avant son lien avec la musique et son souhait de partager ses chansons avec un large public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AgkfNxV",
@@ -483850,7 +484050,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "VoNo Stockholm propone un programma a cappella nel Dom St Blasien. Il repertorio comprende canti legati alla festa di Lucia e brani natalizi della Scandinavia.",
+      "descriptionByLocale": {
+        "it": "VoNo Stockholm propone un programma a cappella nel Dom St Blasien. Il repertorio comprende canti legati alla festa di Lucia e brani natalizi della Scandinavia.",
+        "en": "VoNo Stockholm presents an a cappella programme at Dom St Blasien. Its repertoire includes songs linked to the Lucia festival and Christmas pieces from Scandinavia.",
+        "de": "VoNo Stockholm präsentiert ein A-cappella-Programm im Dom St Blasien. Zum Repertoire gehören Lieder zur Luciafeier sowie Weihnachtsstücke aus Skandinavien.",
+        "fr": "VoNo Stockholm propose un programme a cappella au Dom St Blasien. Le répertoire comprend des chants liés à la fête de Lucia et des morceaux de Noël venus de Scandinavie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:92797",
@@ -486916,7 +487124,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone musica d’organo nella Kirche St. Luzi di Coira. Durante il programma musicale, la chiesa è illuminata dalle candele.",
+      "descriptionByLocale": {
+        "it": "L’evento propone musica d’organo nella Kirche St. Luzi di Coira. Durante il programma musicale, la chiesa è illuminata dalle candele.",
+        "en": "The event features organ music at Kirche St. Luzi in Chur. The church is illuminated by candles during the musical programme.",
+        "de": "In der Kirche St. Luzi in Chur steht Orgelmusik auf dem Programm. Während der musikalischen Darbietung wird der Kirchenraum mit Kerzen beleuchtet.",
+        "fr": "L’événement propose de la musique d’orgue à la Kirche St. Luzi de Coire. Pendant le programme musical, l’église est éclairée par des bougies."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ah2i6pW",
