@@ -703,6 +703,21 @@ describe('runRobot', () => {
     expect(h.calls.flow).toHaveLength(2);
   });
 
+  it('treats a UI loading timeout as a retryable platform error with the stable issue', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('ui-loading-timeout', 'the upload dialog stayed busy', { step: 'upload' }); } });
+    const first = await runRobot(h.deps());
+    expect(first.results[0]).toMatchObject({ outcome: 'error', errorClass: 'ui-loading-timeout', queueId: 'article-2026-10-03' });
+    expect(h.calls.issues[0].title).toBe(issueTitleFor('instagram'));
+    expect(h.calls.issues[0].description).toContain('`ui-loading-timeout`');
+    expect(h.calls.issues[0].description).toContain('ritenta al giro successivo');
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+
+    const retry = await runRobot(h.deps());
+    expect(retry.results[0]).toMatchObject({ outcome: 'error', errorClass: 'ui-loading-timeout' });
+    expect(h.calls.flow).toHaveLength(2);
+    expect(h.calls.issues.map((issue) => issue.title)).toEqual([issueTitleFor('instagram'), issueTitleFor('instagram')]);
+  });
+
   it('opens the issue with a stable title on any error, with the home folder hidden', async () => {
     const h = harness({ flow: async () => { throw new RobotError('selector-missing', 'no control found for step "caption"', { step: 'caption' }); } });
     await runRobot(h.deps());
