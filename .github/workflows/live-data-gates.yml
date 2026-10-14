@@ -73,16 +73,6 @@ jobs:
       - name: npm ci
         run: npm ci
 
-      # La radice dei dati vivi si misura sulla storia completa della finestra,
-      # non solo sui test che lo scanner conosce già. È un osservatore: segnala
-      # il drift in una issue stabile e non amplia mai l’inventario da solo.
-      - name: Audit 30-day live-data roots
-        if: github.ref == 'refs/heads/main'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: node scripts/ci/audit-live-data-roots.mjs --since-days 30
-
       # The live snapshot can contain aliases restored by a data-recovery run
       # before its fleet-wide ownership pass. Repair only the disposable CI
       # checkout, then prove the pass converges before feeding the data to
@@ -165,6 +155,20 @@ jobs:
           --report live-data-vitest.json
           --files live-data-files.txt
           --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # La radice dei dati vivi si misura sulla storia completa della finestra,
+      # non solo sui test che lo scanner conosce già. È un osservatore: segnala
+      # il drift in una issue stabile e non amplia mai l’inventario da solo.
+      # Gira DOPO i test e anche quando sono rossi: un audit fallito tiene
+      # rosso il job, ma non deve mai impedire ai test sui dati vivi di girare
+      # (dall’11 al 13-10 il suo errore li ha saltati tutti e le issue per file
+      # non potevano né aprirsi né chiudersi).
+      - name: Audit 30-day live-data roots
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/audit-live-data-roots.mjs --since-days 30
 
       - name: Report failure to GitHub Issues
         if: failure()
