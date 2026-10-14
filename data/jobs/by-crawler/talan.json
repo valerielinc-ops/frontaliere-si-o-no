@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-13T21:12:24.330Z",
+  "assembledAt": "2026-10-14T07:55:01.828Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.016Z",
+      "crawledAt": "2026-10-14T07:54:56.397Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -64,81 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-8b2dd9df4445",
-      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
-        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
-        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "MS Cloud Engineer & Product Specialist (M365)",
-      "titleByLocale": {
-        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
-        "en": "MS Cloud Engineer & Product Specialist (M365)",
-        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
-        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
-      },
-      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
-      "descriptionByLocale": {
-        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
-        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
-        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
-        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.015Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-01T14:26:10.110Z",
-      "postedDate": "2026-07-01T14:26:10.110Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
-      "jobReqId": "744000135283150",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:41:37.237Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -185,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.014Z",
+      "crawledAt": "2026-10-14T07:54:56.396Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -215,6 +140,81 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-8b2dd9df4445",
+      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
+        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "MS Cloud Engineer & Product Specialist (M365)",
+      "titleByLocale": {
+        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
+        "en": "MS Cloud Engineer & Product Specialist (M365)",
+        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
+        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
+      },
+      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
+      "descriptionByLocale": {
+        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
+        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
+        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
+        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T07:54:56.394Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-01T14:26:10.110Z",
+      "postedDate": "2026-07-01T14:26:10.110Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "jobReqId": "744000135283150",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T23:41:37.237Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -260,7 +260,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.014Z",
+      "crawledAt": "2026-10-14T07:54:56.392Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -335,7 +335,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.013Z",
+      "crawledAt": "2026-10-14T07:54:56.391Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -365,85 +365,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "en": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "de": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.012Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -489,7 +410,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.012Z",
+      "crawledAt": "2026-10-14T07:54:56.390Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -547,6 +468,96 @@
       }
     },
     {
+      "id": "talan-77288cd4a877",
+      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "titleByLocale": {
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "descriptionByLocale": {
+        "it": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+        "en": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+        "de": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T07:54:56.389Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T13:56:14.338Z",
+      "postedDate": "2026-10-02T13:56:14.338Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000153192441",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1471,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-d96f65b3eb5e",
       "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
       "slugByLocale": {
@@ -578,7 +589,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.010Z",
+      "crawledAt": "2026-10-14T07:54:56.387Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -639,38 +650,38 @@
       }
     },
     {
-      "id": "talan-77288cd4a877",
-      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
       "slugByLocale": {
-        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "title": "Consultant SAP Basis",
       "titleByLocale": {
-        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
       },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
       "descriptionByLocale": {
-        "it": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-        "en": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-        "de": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+        "it": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "en": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "de": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Geneva, GE, Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.009Z",
+      "crawledAt": "2026-10-14T07:54:56.385Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -684,36 +695,25 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-02T13:56:14.338Z",
-      "postedDate": "2026-10-02T13:56:14.338Z",
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000153192441",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
         ]
       },
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1471,
+      "localeMismatchSuppressedLen": 1266,
       "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -759,7 +759,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.009Z",
+      "crawledAt": "2026-10-14T07:54:56.384Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -834,7 +834,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154704665-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.008Z",
+      "crawledAt": "2026-10-14T07:54:56.382Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -913,7 +913,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:12:20.005Z",
+      "crawledAt": "2026-10-14T07:54:56.376Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -956,83 +956,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "talan-2e087420bea1",
-      "slug": "net-api-sviluppatore-talan-geneve",
-      "slugByLocale": {
-        "it": "net-api-sviluppatore-talan-geneve",
-        "en": "net-api-developer-talan-geneve",
-        "de": "net-api-entwickler-talan-geneve",
-        "fr": "developpeur-net-api-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur .Net API",
-      "titleByLocale": {
-        "it": ".Net API Sviluppatore",
-        "en": ".Net API Developer",
-        "de": ".Net API Entwickler",
-        "fr": "Développeur .Net API"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\n Vous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\n Principales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes.",
-      "descriptionByLocale": {
-        "it": "Come parte del team di sviluppo digitale, sarete coinvolti nello sviluppo di una API Web per la gestione della ricchezza per utenti sia interni che esterni.\nSarete anche responsabili del ciclo di vita delle applicazioni, della definizione delle esigenze fino alla produzione, e del livello da 1 a 3 supporto.\nPrincipali responsabilità\n\n• Fornire progetti nel tempo, con il livello atteso di qualità e costi, in conformità con gli standard.\n\n• Fornire supporto di applicazione livello 2 e 3.\n\n• Partecipa attivamente alla progettazione dell'architettura tecnica.\n\n• Condurre valutazioni di impatto approfondite nella vostra area di competenza.\n\n• Partecipa alla definizione e all'attuazione della strategia di test.\n\nProfilo ricercato\n\n• Forte esperienza nell'architettura .NET / C#, Web API e Microservices.\n\n• Ottimo controllo degli standard e dei modelli REST.\n\n• Esperienza con ambienti Docker, Kubernetes e DevSecOps: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery di strumenti IC/CD e Azure DevOps, Git e SonarQube.\n\n• Esperienza in Windows Server / Gestione IIS.\n\n• Buona conoscenza della sicurezza API e della riservatezza dei dati.\n\n• Conoscenza di MS SQL Server apprezzato.\n\n• Esperienza con Vue.js, Angular o React apprezzato.\n\n• Conoscenza dell'area Private Banking / Wealth Management apprezzato.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube e SQL Management Studio strumenti.\n\n• Francese comune e inglese.\n\n• Profilo autocontenuto, strutturato, affidabile e orientato al cliente con un buon spirito di squadra.\n\n• Iniziativa, responsabilità, diplomazia e capacità di proporre soluzioni concrete.",
-        "en": "As part of the Digital Development team, you will be involved in the development of a Web API for Wealth Management for both internal and external users.\nYou will also be responsible for the life cycle of the applications, the definition of needs up to production, and the level 1 to 3 support.\nMain responsibilities\n\n• Deliver projects on time, with the expected level of quality and cost, in accordance with standards.\n\n• Provide level 2 and 3 application support.\n\n• Actively participate in the design of technical architecture.\n\n• Conduct in-depth impact assessments in your area of expertise.\n\n• Participate in the definition and implementation of the test strategy.\n\nProfile sought\n\n• Strong experience in .NET / C#, Web API and Microservices architecture.\n\n• Very good control of REST standards and patterns.\n\n• Experience with Docker, Kubernetes and DevSecOps environments: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery of IC/CD and Azure DevOps, Git and SonarQube tools.\n\n• Experience in Windows Server / IIS administration.\n\n• Good knowledge of API security and data confidentiality.\n\n• Knowledge of MS SQL Server appreciated.\n\n• Experience with Vue.js, Angular or React appreciated.\n\n• Knowledge of the area Private Banking / Wealth Management appreciated.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube and SQL Management Studio tools.\n\n• Common French and English.\n\n• Self-contained, structured, reliable and customer-oriented profile with a good team spirit.\n\n• Initiative, responsibility, diplomacy and the ability to propose concrete solutions.",
-        "de": "Als Teil des Digital Development Teams sind Sie an der Entwicklung einer Web API für Wealth Management für interne und externe Benutzer beteiligt.\nSie sind auch für den Lebenszyklus der Anwendungen, die Definition des Bedarfs bis zur Produktion und den Support der Stufen 1 bis 3 verantwortlich.\nHauptzuständigkeiten\n\n• Liefern Sie Projekte rechtzeitig, mit dem erwarteten Qualitäts- und Kostenniveau, in Übereinstimmung mit Standards.\n\n• Bereitstellung von Level 2 und 3 Anwendungsunterstützung.\n\n• Beteiligen Sie sich aktiv an der Gestaltung technischer Architektur.\n\n• Führen Sie eingehende Folgenabschätzungen in Ihrem Fachgebiet durch.\n\n• Beteiligen Sie sich an der Definition und Umsetzung der Teststrategie.\n\nProfil gesucht\n\n• Starke Erfahrung in .NET / C#, Web API und Microservices-Architektur.\n\n• Sehr gute Kontrolle der REST-Standards und -Muster.\n\n• Erfahrung mit Docker, Kubernetes und DevSecOps-Umgebungen: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Beherrschung von IC/CD und Azure DevOps, Git und SonarQube Tools.\n\n• Erfahrung in Windows Server / IIS Administration.\n\n• Gute Kenntnisse der API-Sicherheit und Datengeheimnisse.\n\n• Kenntnisse von MS SQL Server geschätzt.\n\n• Erfahrung mit Vue.js, Angular oder React geschätzt.\n\n• Kenntnisse im Bereich Private Banking / Wealth Management geschätzt.\n\n• Beherrschung von Visual Studio, VS Code, Azure DevOps, SonarQube und SQL Management Studio Tools.\n\n• Gemeinsames Französisch und Englisch.\n\n• In sich geschlossenes, strukturiertes, zuverlässiges und kundenorientiertes Profil mit gutem Teamgeist.\n\n• Initiative, Verantwortung, Diplomatie und die Fähigkeit, konkrete Lösungen vorzuschlagen.",
-        "fr": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\nVous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\nPrincipales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:14:42.216Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-21T14:16:13.715Z",
-      "postedDate": "2026-08-21T14:16:13.715Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
-      "jobReqId": "744000144777899",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-net-api-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-net-api-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.484Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

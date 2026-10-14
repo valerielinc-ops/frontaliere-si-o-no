@@ -1,19 +1,20 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-13T21:11:49.121Z",
-  "total": 15,
+  "generatedAt": "2026-10-14T07:55:57.096Z",
+  "total": 14,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 14,
-  "durationMs": 10571,
-  "avgDurationMs": 10571,
+  "durationMs": 10695,
+  "avgDurationMs": 10695,
   "durationHistory": [
-    10571
+    10695
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "HR Business Partner/-in",
       "slug": "hr-business-partner-in-agroscope-posieux",
@@ -55,7 +56,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Praktikant/-in Buchhaltung",
@@ -614,5 +614,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
 }

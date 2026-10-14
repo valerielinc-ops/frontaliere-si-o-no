@@ -7,6 +7,7 @@ import {
   MAX_FILES_PER_DOCUMENT,
   documentFilesOf,
   extraDocumentFileName,
+  mergeRequiredDocuments,
   extraDocumentsToSend,
   openRequiredDocuments,
   documentsView,
@@ -37,7 +38,7 @@ describe('requested documents', () => {
       { id: 'eva', label: 'Test EVA', kind: 'other', keywords: [], required: false, quote: '' },
     ]);
     expect(requiredDocumentsOf({})).toEqual([]);
-    expect(requiredDocumentsOf({ requiredDocuments: Array.from({ length: 12 }, (_, i) => ({ id: `d${i}`, label: `D${i}` })) })).toHaveLength(EXTRA_DOCUMENT_SLOTS.length);
+    expect(requiredDocumentsOf({ requiredDocuments: Array.from({ length: 20 }, (_, i) => ({ id: `d${i}`, label: `D${i}` })) })).toHaveLength(EXTRA_DOCUMENT_SLOTS.length);
   });
 
   it('keeps only files in the order\'s folder, of a known type, at most five', () => {
@@ -116,6 +117,26 @@ describe('requested documents', () => {
     // Requirements read before this existed (no requestedDocuments): nothing is asked.
     expect(requiredDocumentsFromRequirements({ requirements: [] })).toEqual([]);
     expect(Object.keys((REQUIREMENTS_SCHEMA as any).properties)).toContain('requestedDocuments');
+  });
+
+  it('merges a portal copy of a posting document and keeps portal-only uploads', () => {
+    expect(mergeRequiredDocuments(
+      [{ id: 'references', label: 'Arbeitszeugnisse', kind: 'reference', required: true, quote: 'Arbeitszeugnisse', keywords: ['Arbeitszeugnis'] }],
+      [
+        { id: 'portal_document_arbeitszeugnisse', label: 'Arbeitszeugnisse hochladen', kind: 'other', required: true, quote: 'Arbeitszeugnisse *', keywords: ['reference'] },
+        { id: 'portal_document_passport', label: 'Passport copy', kind: 'other', required: true, quote: 'Passport copy *', keywords: ['passport'] },
+      ],
+    )).toEqual([
+      { id: 'references', label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnis', 'reference'], required: true, quote: 'Arbeitszeugnisse' },
+      { id: 'portal_document_passport', label: 'Passport copy', kind: 'other', keywords: ['passport'], required: true, quote: 'Passport copy *' },
+    ]);
+  });
+
+  it('does not drop a portal-only requirement after eight posting documents', () => {
+    const posting = Array.from({ length: 8 }, (_, index) => ({ id: `posting_${index}`, label: `Posting document ${index}`, required: true }));
+    const merged = mergeRequiredDocuments(posting, [{ id: 'portal_only', label: 'Portal-only certificate', required: true }]);
+    expect(merged).toHaveLength(9);
+    expect(merged).toEqual(expect.arrayContaining([expect.objectContaining({ id: 'portal_only' })]));
   });
 
   it('lets the form planner and its agentic fallback name a requested document by slot', () => {

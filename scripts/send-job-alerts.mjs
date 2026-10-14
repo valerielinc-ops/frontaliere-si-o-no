@@ -3007,7 +3007,7 @@ async function main() {
     // otherwise one transient red run leaves a stale OPEN issue forever.
     try {
       const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
-      resolveGithubIssue(MATCHER_MONITOR_ISSUE_TITLE, {
+      await resolveGithubIssue(MATCHER_MONITOR_ISSUE_TITLE, {
         workflow: 'send-job-alerts',
       });
     } catch (err) {

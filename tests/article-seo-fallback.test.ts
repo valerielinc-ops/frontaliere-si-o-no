@@ -195,6 +195,23 @@ describe('article SEO fallback builder', () => {
     expect(section.html).not.toContain('javascript:');
   });
 
+  it.each([
+    'alertswiss.ch', 'www.chiasso.ch/missione-emergenza-chiasso-2026', 'calculator',
+    'https:example.test', 'https://', '//example.test/', '/\\example.test/',
+  ])('does not invent article-child URLs from an unresolved source href (%s)', (href) => {
+    expect(renderArticleInlineMarkup(`[**Fonte**](${href})`)).toBe('<strong>Fonte</strong>');
+    expect(renderArticleInlineMarkup(`<a href="${href}">Fonte</a>`)).toBe('Fonte');
+  });
+
+  it.each([
+    'https://example.test/source/?id=1', 'http://example.test/source/',
+    '/cambio-chf-eur/', '#fonti', '../other-article/', './document.pdf', 'mailto:help@example.test',
+    'foo/bar', '?section', 'other-article', 'report.pdf', './alertswiss.ch', 'calculator/help',
+  ])('preserves resolved and standard relative article links (%s)', (href) => {
+    expect(renderArticleInlineMarkup(`[Fonte](${href})`)).toBe(`<a href="${href}">Fonte</a>`);
+    expect(renderArticleInlineMarkup(`<a href="${href}">Fonte</a>`)).toBe(`<a href="${href}">Fonte</a>`);
+  });
+
   it('renders single-# headings (used by some articles) as h3, not literal text', () => {
     const sections = cleanupArticleBodySections(keyed(['# Titolo principale\nTesto del paragrafo.']));
 

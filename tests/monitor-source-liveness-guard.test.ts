@@ -349,7 +349,7 @@ describe('campaign-goal-check abstains on a dead GA4 source', () => {
     const createIssue = vi.fn(async () => ({}));
     const { runCampaignGoalCheck } = await import('../scripts/campaign-goal-check.mjs');
 
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       now: new Date(),
       loadStateImpl: () => ({ goals: {} }), // no prior state → every mature goal evaluates
       saveStateImpl: () => {},
@@ -377,7 +377,7 @@ describe('campaign-goal-check abstains on a dead GA4 source', () => {
     const evaluate = vi.fn();
     const { runCampaignGoalCheck } = await import('../scripts/campaign-goal-check.mjs');
 
-    const { results } = await runCampaignGoalCheck({
+    const { results } = await runCampaignGoalCheck({ resolveIssueImpl: vi.fn(),
       goals: [{ id: 'g', title: 'G', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 0, issueRef: '#1', evaluate }],
       now: new Date(),
       campaignStart: '2026-01-01',
