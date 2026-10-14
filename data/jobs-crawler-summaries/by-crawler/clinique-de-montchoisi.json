@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-13T21:23:22.811Z",
+  "generatedAt": "2026-10-14T06:16:50.160Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6388,
-  "avgDurationMs": 6388,
+  "unchangedCount": 2,
+  "durationMs": 7717,
+  "avgDurationMs": 7717,
   "durationHistory": [
-    6388
+    7717
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:23:01.105Z",
+      "crawledAt": "2026-10-14T06:16:30.835Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,6 +64,51 @@
         "translation": 25,
         "completeness": 25
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "clinique-de-montchoisi-c9c29e33dfc8",
+      "slug": "cdsa-clinique-de-montchoisi-lausanne",
+      "company": "Clinique de Montchoisi",
+      "companyKey": "clinique-de-montchoisi",
+      "companyDomain": "swissmedical.net",
+      "title": "ASSC",
+      "needsRetranslation": false,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
+      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T06:16:30.833Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-14T15:51:13.694Z",
+      "postedDate": "2026-09-14T15:51:13.694Z",
+      "postingDateSource": "reported",
+      "firstSeenAt": "2026-09-18T23:20:51.196Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
+        "completeness": 25
+      }
     },
     {
       "id": "clinique-de-montchoisi-480e680d951f",
@@ -79,7 +124,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:23:01.103Z",
+      "crawledAt": "2026-10-14T06:16:30.831Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,50 +153,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "clinique-de-montchoisi-c9c29e33dfc8",
-      "slug": "cdsa-clinique-de-montchoisi-lausanne",
-      "company": "Clinique de Montchoisi",
-      "companyKey": "clinique-de-montchoisi",
-      "companyDomain": "swissmedical.net",
-      "title": "ASSC",
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
-      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:23:01.107Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-14T15:51:13.694Z",
-      "postedDate": "2026-09-14T15:51:13.694Z",
-      "postingDateSource": "reported",
-      "firstSeenAt": "2026-09-18T23:20:51.196Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 25
-      }
-    }
-  ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "182153242d5d490914d68a5e7e33e3272ec69510"
 }
