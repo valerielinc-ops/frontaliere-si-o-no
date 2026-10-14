@@ -651,7 +651,7 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
               { value: 'job_alert_cta_shown' },
               { value: 'sticky_banner' },
             ],
-            metricValues: [{ value: '20' }],
+            metricValues: [{ value: '40' }],
           },
           {
             dimensionValues: [
@@ -671,18 +671,20 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(result.value).toMatchObject({ created: 10, shown: 100, rate: 0.1, ctaSurfaceNotSetShare: ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE });
     expect(result.detail).toContain('cta_surface (not set) 5.00%');
     expect(result.detail).toContain('10/100 utenti = 10.00%');
+    expect(result.detail).toContain('righe per superficie possono sovrapporsi');
     expect(result.detail).toContain('| aggregate | 100 | 10 | 10.00% |');
     expect(result.value.surfaceBreakdown.map(({ surface }) => surface)).toEqual(ALERT_CTA_SURFACES);
     expect(result.value.surfaceBreakdown[0]).toEqual({
       surface: 'inline_card', shown: 80, created: 8, rate: 0.1,
     });
     expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'sticky_banner')).toEqual({
-      surface: 'sticky_banner', shown: 20, created: 2, rate: 0.1,
+      surface: 'sticky_banner', shown: 40, created: 2, rate: 0.05,
     });
     expect(result.value.surfaceBreakdown.find(({ surface }) => surface === 'end_card')).toEqual({
       surface: 'end_card', shown: 0, created: 0, rate: null,
     });
     expect(result.detail).toContain('| inline_card | 80 | 8 | 10.00% |');
+    expect(result.detail).toContain('| sticky_banner | 40 | 2 | 5.00% |');
     expect(result.detail).toContain('| end_card | 0 | 0 | n/a |');
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('5/100'));
     expect(runReportImpl).toHaveBeenCalledTimes(6);

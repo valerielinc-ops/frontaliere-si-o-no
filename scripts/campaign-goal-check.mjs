@@ -168,6 +168,8 @@ export function alertFunnelOutcome({
     : '';
   const surfaceTable = viaGa4 && Array.isArray(surfaceBreakdown)
     ? [
+      'Le righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.',
+      '',
       '| cta_surface | shown users | created users | rate |',
       '| --- | ---: | ---: | ---: |',
       `| aggregate | ${shownN} | ${createdN} | ${fmtPct(rate)} |`,
@@ -207,7 +209,8 @@ export async function evalAlertFunnelConversionGa4({
   const preflight = await checkAlertCtaSurfaceDimension(accessToken, 14, { runReportImpl, logImpl });
   if (!preflight.ready) return { unmeasurable: true, note: preflight.reason };
   // `totalUsers` broken down by eventName = distinct users who fired that
-  // event: the person-scoped count the funnel needs.
+  // event: the person-scoped count the funnel needs. Keep it separate from
+  // the surface rows because users can appear in more than one surface.
   const [counts, surfaceReport] = await Promise.all([
     ga4EventCountByName(
       accessToken,
