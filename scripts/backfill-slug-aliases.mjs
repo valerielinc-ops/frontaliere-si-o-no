@@ -5,7 +5,7 @@
  *
  * Two passes:
  * 1. 404-compat pass: Extract slugs from seo-404-compat-paths.json,
- *    match to active jobs via company+location heuristics, add to previousSlugs.
+ *    rank by company+location, but add an alias only with matching source-posting proof.
  * 2. Registry pass: Scan slug-registry.json (immutable snapshot of original slugs),
  *    match to active jobs via URL fingerprint, and recover historically lost slugs
  *    that were overwritten during early pipeline development.
@@ -20,6 +20,8 @@ import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { readCompatPaths } from './lib/compat-paths-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
+import { hasSameJobSourcePosting } from './lib/job-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,10 +146,23 @@ function main() {
 
   console.log(`Found ${orphanSlugs.length} job slugs from 404 compat paths.`);
 
+  const wantedOrphans = new Set(orphanSlugs);
+  const orphanProofs = new Map();
+  for (const record of readOrphanEnriched(ROOT)) {
+    if (!wantedOrphans.has(record.slug) || !record.sourceUrl) continue;
+    if (!orphanProofs.has(record.slug)) orphanProofs.set(record.slug, record);
+    else {
+      const previous = orphanProofs.get(record.slug);
+      if (!previous || !hasSameJobSourcePosting(record, { url: previous.sourceUrl })) orphanProofs.set(record.slug, null);
+    }
+  }
+
   let matched = 0;
   let added = 0;
 
   for (const slug of orphanSlugs) {
+    const proof = orphanProofs.get(slug);
+    if (!proof) continue;
     const normalizedSlug = normalize(slug);
 
     // Try to match to a company by checking if any company key tokens appear in the slug
@@ -160,6 +175,7 @@ function main() {
 
       // Found company match — now find the best job match within this company
       for (const job of companyJobs) {
+        if (!hasSameJobSourcePosting(proof, job)) continue;
         const currentSlugs = allCurrentSlugs(job);
         // Already known slug — skip
         if (currentSlugs.has(normalizedSlug)) {

@@ -63,4 +63,20 @@ describe('inferred orphan aliases require positive posting identity', () => {
     if (sourceUrl === url) expect(job).toHaveProperty('previousSlugsByLocale.en', [orphan]);
     else expect(job).not.toHaveProperty('previousSlugsByLocale');
   });
+  it.each([
+    { sourceUrls: [] },
+    { sourceUrls: ['https://jobs.example.invalid/vacancies/oncology/'] },
+    { sourceUrls: [url] },
+    { sourceUrls: [url, 'https://jobs.example.invalid/vacancies/oncology/'] },
+  ])('also gates the one-shot backfill heuristic (%j)', ({ sourceUrls }) => {
+    const source = fs.readFileSync(new URL('../scripts/backfill-slug-aliases.mjs', import.meta.url), 'utf8');
+    const helpers = source.slice(source.indexOf('function normalize('), source.indexOf('function loadJobs('));
+    const loop = source.slice(source.indexOf('  const wantedOrphans ='), source.indexOf('  // ── Pass 2: Registry reconciliation'));
+    const orphan = 'head-physician-oncology-60-100-spital-uster-uster';
+    const job = { url, company: 'Spital Uster', location: 'Uster', slug: 'assistant-physician-100-orthopedics-spital-uster-uster' };
+    const execute = new Function('orphanSlugs', 'byCompany', 'readOrphanEnriched', 'hasSameJobSourcePosting', 'ROOT', `${helpers}\n${loop}`);
+    execute([orphan], new Map([['spital-uster', [job]]]), () => sourceUrls.map((sourceUrl) => ({ slug: orphan, sourceUrl })), hasSameJobSourcePosting, 'fixture-root');
+    if (sourceUrls.length === 1 && sourceUrls[0] === url) expect(job).toHaveProperty('previousSlugs', [orphan]);
+    else expect(job).not.toHaveProperty('previousSlugs');
+  });
 });
