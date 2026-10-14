@@ -533,8 +533,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -590,16 +590,17 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -780,7 +781,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-cazis",
+        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -836,7 +837,7 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "senior-physician-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -849,7 +850,7 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-t5tvx5",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        "senior-physician-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1309,9 +1310,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1370,12 +1371,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+          "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatre-psychiatrische-dienste-graubunden-chur"
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1383,8 +1384,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1406,7 +1407,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1460,8 +1461,7 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1470,8 +1470,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1493,7 +1492,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1548,8 +1547,7 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1557,8 +1555,7 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-pdgr-ch"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1602,16 +1599,16 @@
       "title": "Oberärztin / Oberarzt",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt",
-        "it": "Oberärztin / Oberarzt",
-        "en": "Oberärztin / Oberarzt",
-        "fr": "Oberärztin / Oberarzt"
+        "it": "medico senior / medico senior",
+        "en": "Senior physician / senior physician",
+        "fr": "Médecin supérieur / Médecin supérieur"
       },
       "description": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
       "descriptionByLocale": {
         "de": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-        "it": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-        "en": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-        "fr": "Ihre Umgebung:\nSie arbeiten im Psychiatrie-Zentrum Engadin an den Standorten Samedan und Scuol in einem interdisziplinären Team der Kinder- und Jugendpsychiatrie. Dabei erwartet Sie ein kollegiales Umfeld, das fachlichen Austausch, Weiterbildung und die Weiterentwicklung des Behandlungsangebots aktiv unterstützt.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung, sofern diese im Team tätig sind\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation"
+        "it": "I dintorni:\nLavori presso il Centro di Psichiatria Engadina presso le sedi di Samedan e Scuol in un team interdisciplinare di psichiatria infantile e adolescente. Si può aspettare un ambiente collegiale che supporta attivamente lo scambio professionale, l'ulteriore istruzione e l'ulteriore sviluppo dell'offerta di trattamento.\n\nI loro compiti:\n- Eseguono trattamenti psichiatrici per bambini e adolescenti\n\n- Si mantiene il contatto con i nostri partner di rete interdisciplinari\n\n- Essi partecipano ad ulteriori e ulteriori formazione e supervisionano i medici assistenti in un'ulteriore formazione, se lavorano in un team\n\nIl nostro profilo di requisito:\n- Hai un titolo specialistico riconosciuto FMH in psichiatria infantile e adolescente o stanno per laurearsi\n\n- Avete già acquisito esperienza di leadership o volete svilupparvi\n\n- Siete motivati e disposti a assumersi la responsabilità\n\n- Ti piace lavorare orientato al processo con un team multidisciplinare e motivato\n\nVi offriamo:\n- Un'attività interessante e versatile nella psichiatria infantile e adolescente con possibilità di sviluppo professionale a lungo termine\n\n- Offrendo un curriculum di gestione interno con certificato e supporto per le vostre esigenze di formazione esterna\n\n- Un ambiente di lavoro piacevole e collegiale in una regione attraente\n\n- Con modelli di lavoro part-time, orari di lavoro regolari e congedo non retribuito, un equilibrio ottimale della vita lavorativa\n\n- L'opportunità di partecipare alla ricerca e su richiesta il supporto alla vostra dissertazione",
+        "en": "Your surroundings:\nYou work at the Engadin Psychiatry Center at the Samedan and Scuol locations in an interdisciplinary team of child and adolescent psychiatry. You can expect a collegial environment that actively supports professional exchange, further education and the further development of the treatment offer.\n\nTheir tasks:\n- They perform outpatient child and adolescent psychiatric treatments\n\n- You maintain contact with our interdisciplinary network partners\n\n- They participate in further and further training and supervise assistant doctors in further training, if they work in a team\n\nOur requirement profile:\n- You have an FMH recognised specialist title in child and adolescent psychiatry or are about to graduate\n\n- You have already gained leadership experience or would like to develop into it\n\n- You are motivated and willing to take responsibility\n\n- You enjoy working process-oriented with a multidisciplinary and motivated team\n\nWe offer you:\n- An interesting and versatile activity in child and adolescent psychiatry with the possibility of long-term professional development\n\n- Offering an internal management curriculum with certificate and support for your external training needs\n\n- A pleasant and collegial working atmosphere in an attractive region\n\n- With part-time work models, regular working hours and unpaid leave, an optimal work-life balance\n\n- The opportunity to participate in research and on request support in your dissertation",
+        "fr": "Votre environnement:\nVous travaillez au centre de psychiatrie d'Engadin aux emplacements de Samedan et Scuol dans une équipe interdisciplinaire de psychiatrie infantile et adolescente. Vous pouvez vous attendre à un environnement collégial qui soutient activement les échanges professionnels, la formation continue et le développement de l'offre de traitement.\n\nLeurs tâches :\n- Ils effectuent des traitements psychiatriques ambulatoires pour enfants et adolescents\n\n- Vous maintenez le contact avec nos partenaires interdisciplinaires\n\n- Ils participent à la formation continue et continue et supervisent les médecins adjoints en formation continue, s'ils travaillent en équipe\n\nNotre profil d'exigence :\n- Vous avez un titre de spécialiste reconnu de la FMH en psychiatrie des enfants et des adolescents ou vous êtes sur le point de terminer\n\n- Vous avez déjà acquis une expérience de leadership ou souhaitez vous y développer\n\n- Vous êtes motivé et prêt à prendre la responsabilité\n\n- Vous appréciez le travail orienté processus avec une équipe multidisciplinaire et motivée\n\nNous vous offrons:\n- Une activité intéressante et polyvalente en psychiatrie des enfants et des adolescents avec possibilité de développement professionnel à long terme\n\n- Proposer un programme de gestion interne avec certificat et soutien pour vos besoins de formation externe\n\n- Une atmosphère de travail agréable et collégiale dans une région attractive\n\n- Avec des modèles de travail à temps partiel, des horaires de travail réguliers et des congés non rémunérés, un équilibre optimal entre le travail et la vie personnelle\n\n- L'occasion de participer à la recherche et sur demande dans votre mémoire"
       },
       "location": "Samedan / Scuol",
       "canton": "GR",
@@ -1643,7 +1640,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1675,7 +1671,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1724,8 +1720,7 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1736,7 +1731,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,

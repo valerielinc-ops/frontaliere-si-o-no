@@ -782,7 +782,7 @@
       "slugByLocale": {
         "it": "responsabile-sviluppo-orologi-panerai-neuchatel",
         "en": "watch-development-manager-panerai-neuchatel",
-        "de": "responsible-development-uhren-panerai-neuchatel",
+        "de": "leiter-uhrentwicklung-panerai-neuchatel",
         "fr": "responsable-developpement-montres-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -838,13 +838,13 @@
         ],
         "de": [
           "responsable-developpement-montres-panerai-neuchatel",
-          "leiter-uhrentwicklung-panerai-neuchatel"
+          "responsible-development-uhren-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
         "responsable-developpement-montres-panerai-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel"
+        "responsible-development-uhren-panerai-neuchatel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1020,7 +1020,7 @@
       "slugByLocale": {
         "it": "responsabile-processo-acquisti-richemont-plan-les-ouates",
         "en": "procurement-process-manager-richemont-plan-les-ouates",
-        "de": "beschaffungsprozess-manager-richemont-plan-les-ouates",
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
         "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -1066,7 +1066,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-process-manager-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates"
+        "beschaffungsprozess-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1074,7 +1074,7 @@
         ],
         "de": [
           "procurement-process-manager-richemont-plan-les-ouates",
-          "beschaffungsprozessmanager-richemont-plan-les-ouates"
+          "beschaffungsprozess-manager-richemont-plan-les-ouates"
         ],
         "fr": [
           "procurement-process-manager-richemont-plan-les-ouates"
@@ -1196,7 +1196,6 @@
         "directeur-de-la-boutique-cartier-st-moritz"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.685Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -1218,7 +1217,7 @@
       "slugByLocale": {
         "it": "regolatore-meccanico-strike-procadrans-la-chaux-de-fonds",
         "en": "mechanic-adjuster-strike-procadrans-la-chaux-de-fonds",
-        "de": "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds",
+        "de": "mechaniker-strike-procadrans-la-chaux-de-fonds",
         "fr": "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -1265,7 +1264,7 @@
       "previousSlugs": [
         "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds",
         "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds",
-        "mechaniker-strike-procadrans-la-chaux-de-fonds"
+        "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1273,7 +1272,7 @@
           "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds"
         ],
         "de": [
-          "mechaniker-strike-procadrans-la-chaux-de-fonds"
+          "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-17T11:30:23.949Z",
@@ -1913,8 +1912,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "richemont-444a2d7e7065",
@@ -2167,7 +2165,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:57:57.605Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -3986,7 +3983,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:05:32.943Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -4007,7 +4003,7 @@
       "slug": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
-        "en": "reference-project-leader-industrialization-donze-baume-les-breuleux",
+        "en": "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
         "de": "referenzprojektleiter-industrialisierung-donze-baume-les-breuleux",
         "fr": "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
       },
@@ -4061,7 +4057,7 @@
           "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
         ],
         "en": [
-          "referent-chef-de-projet-industrialisation-richemont-les-breuleux"
+          "reference-project-leader-industrialization-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
@@ -4070,7 +4066,8 @@
       },
       "previousSlugs": [
         "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
-        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
+        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux",
+        "reference-project-leader-industrialization-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.511Z",
       "salaryMin": 60500,
@@ -4093,8 +4090,8 @@
       "slug": "programmazione-di-riferimento-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "programmazione-di-riferimento-donze-baume-les-breuleux",
-        "en": "reference-programming-donze-baume-les-breuleux",
-        "de": "referent-programmplanung-donze-baume-les-breuleux",
+        "en": "referent-programmation-richemont-les-breuleux",
+        "de": "referenzprogrammierung-donze-baume-les-breuleux",
         "fr": "referent-programmation-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -4152,13 +4149,13 @@
         ],
         "en": [
           "planner-donze-baume-les-breuleux",
-          "referent-programmation-richemont-les-breuleux"
+          "reference-programming-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-programmation-richemont-les-breuleux",
           "planer-donze-baume-les-breuleux",
           "referent-programmation-donze-baume-les-breuleux",
-          "referenzprogrammierung-donze-baume-les-breuleux"
+          "referent-programmplanung-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
@@ -4168,7 +4165,8 @@
         "planer-donze-baume-les-breuleux",
         "planificateur-richemont-les-breuleux",
         "referent-programmation-donze-baume-les-breuleux",
-        "referenzprogrammierung-donze-baume-les-breuleux"
+        "reference-programming-donze-baume-les-breuleux",
+        "referent-programmplanung-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.466Z",
       "salaryMin": 60500,
@@ -4192,7 +4190,7 @@
       "slugByLocale": {
         "it": "horloger-hh-panerai-neuchatel",
         "en": "horloger-hh-richemont-neuchatel",
-        "de": "uhr-hh-panerai-neuchatel",
+        "de": "horloge-hh-panerai-neuchatel",
         "fr": "horloger-hh-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -4239,7 +4237,7 @@
       "previousSlugs": [
         "horloger-hh-richemont-neuchatel",
         "orologiaio-hh-panerai-neuchatel",
-        "horloge-hh-panerai-neuchatel"
+        "uhr-hh-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4247,7 +4245,7 @@
           "orologiaio-hh-panerai-neuchatel"
         ],
         "de": [
-          "horloge-hh-panerai-neuchatel"
+          "uhr-hh-panerai-neuchatel"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.485Z",
@@ -5184,7 +5182,6 @@
         "sales-associate-buccellati-geneva"
       ],
       "firstSeenAt": "2026-09-21T16:11:45.788Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -5204,7 +5201,7 @@
       "id": "richemont-6922099e48c5",
       "slug": "societa-commerciale-van-cleef-arpels-zurich",
       "slugByLocale": {
-        "it": "societa-commerciale-van-cleef-arpels-zurich",
+        "it": "vendite-van-cleef-arpels-zurich",
         "en": "sales-associate-van-cleef-arpels-zurich",
         "de": "vertriebsmitarbeiter-van-cleef-arpels-zurich",
         "fr": "sales-associate-richemont-zurich"
@@ -5253,8 +5250,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "sales-associate-richemont-zurich",
-          "vendite-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "fr": [
           "sales-associate-richemont-zurich-t0sdvd"
@@ -5269,8 +5265,7 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "sales-associate-richemont-zurich",
-        "vendite-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
       "salaryMin": 83000,
@@ -5354,7 +5349,6 @@
         "senior-sales-associate-richemont-geneva"
       ],
       "firstSeenAt": "2026-09-26T14:07:23.438Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -5661,7 +5655,7 @@
       "slugByLocale": {
         "it": "analisi-dei-materiali-specialistici-richemont-glovelier",
         "en": "specialist-materials-analysis-richemont-glovelier",
-        "de": "spezialist-analysiert-materialien-richemont-glovelier",
+        "de": "spezialisierte-materialanalyse-richemont-glovelier",
         "fr": "specialiste-analyses-materiaux-richemont-glovelier"
       },
       "company": "Richemont",
@@ -5707,14 +5701,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-analyses-materiaux-richemont-glovelier",
-        "spezialisierte-materialanalyse-richemont-glovelier"
+        "spezialist-analysiert-materialien-richemont-glovelier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-analyses-materiaux-richemont-glovelier"
         ],
         "de": [
-          "spezialisierte-materialanalyse-richemont-glovelier"
+          "spezialist-analysiert-materialien-richemont-glovelier"
         ]
       },
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
@@ -5918,7 +5912,7 @@
       "slugByLocale": {
         "it": "elettrodomestici-polimeccanici-cfc-cartier-manufacture-glovelier",
         "en": "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
-        "de": "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier",
+        "de": "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier",
         "fr": "apprenti-e-polymecanicien-ne-cfc-cartier-manufacture-glovelier"
       },
       "company": "Cartier Manufacture",
@@ -5972,16 +5966,15 @@
         "de": [
           "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
           "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-          "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+          "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
         ]
       },
       "previousSlugs": [
         "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
         "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-        "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+        "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
       ],
       "firstSeenAt": "2026-08-18T09:59:08.365Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -6292,7 +6285,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-02T23:18:26.667Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6391,7 +6383,7 @@
       "slug": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
-        "en": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "en": "business-trainer-cartier-manufacture-le-cret-du-locle",
         "de": "berufsbildner-cartier-manufacture-le-cret-du-locle",
         "fr": "formateur-metiers-richemont-le-cret-du-locle"
       },
@@ -6439,7 +6431,7 @@
       "previousSlugs": [
         "formateur-metiers-richemont-le-cret-du-locle",
         "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-        "business-trainer-cartier-manufacture-le-cret-du-locle"
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6447,7 +6439,7 @@
         ],
         "en": [
           "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-          "business-trainer-cartier-manufacture-le-cret-du-locle"
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle"
@@ -6470,12 +6462,12 @@
     },
     {
       "id": "richemont-d601ca741b2e",
-      "slug": "technicien-de-maintenance-richemont-le-cret-du-locle",
+      "slug": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "fr": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "it": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "en": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "de": "technicien-de-maintenance-richemont-le-cret-du-locle"
+        "it": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
+        "en": "maintenance-technician-cartier-manufacture-le-cret-du-locle",
+        "de": "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -6483,16 +6475,16 @@
       "title": "Technicien de maintenance",
       "titleByLocale": {
         "fr": "Technicien de maintenance",
-        "it": "Technicien de maintenance",
-        "en": "Technicien de maintenance",
-        "de": "Technicien de maintenance"
+        "it": "Manutenzione Tecnica",
+        "en": "Maintenance Technician",
+        "de": "Instandhaltungstechniker"
       },
       "description": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCE QUE NOUS OFFRONS\n\nChez Cartier, vous intégrerez une communauté unie par un sens fort des responsabilités, où florissent connexion, collaboration et esprit collectif.\n\nNous valorisons l’individualité de nos talents, animés par un engagement commun envers l'excellence, inspirés par la diversité des cultures du monde, et attachés à respecter et enrichir notre héritage unique.\n\nNous sommes convaincus que des perspectives variées nourrissent l'innovation et nous encouragent à créer des expériences exceptionnelles.\n\nNous vous offrons un environnement stimulant et l’opportunité de contribuer, par votre vision personnelle, à un héritage de créativité.\n\nNous célébrons toutes les réussites, quelles qu’elles soient, favorisant ainsi des liens significatifs fondés sur la gratitude et le soutien mutuel et cultivant un fort sentiment d'appartenance.\n\nRejoignez-nous chez Cartier, un lieu unique et en constante évolution.\n\nCONTEXTE\n\nRattaché au département Support de Production, votre mission sera d’assurer l'installation, la maintenance et l’amélioration des équipements de production. Vos succès contribueront à l’amélioration de la performance de nos ateliers.\n\nQUEL SERA VOTRE IMPACT\n\n• Vous assurez la maintenance corrective avec réactivité et en diagnostiquant efficacement les pannes\n• Vous planifiez et réalisez la maintenance préventive afin de limiter les arrêts et défaillances\n• Vous analysez les pannes récurrentes et mettez en œuvre des actions d’améliorations\n• Vous coordonnez le suivi des interventions externes avec nos partenaires et fournisseurs\n• Vous installez et mettez en service les nouveaux équipements\n• Vous déployez l’amélioration continue sur le parc machine existant\n• Vous contribuez à la gestion des pièces de rechange et à la sécurisation des équipements critiques\n• Vous veillez au respect des règles SST et des bonnes pratiques lors des interventions\n\nCE QUE NOUS RECHERCHONS\n\nEn tant que Technicien de maintenance, vous vous distinguez par votre capacité d’organisation, votre autonomie ainsi que par votre capacité d’analyse. Maîtrisant les machines d’usinage à commandes numériques, vous savez faire preuve d’un excellent esprit d’équipe et de qualités humaines. Au bénéfice d’un CFC d’automaticien ou d’une formation jugée équivalente, vous êtes fort d’une première expérience professionnelle de 3 ans durant laquelle vous avez fait preuve de dynamisme et d’autonomie. Vous maîtrisez les outils informatiques, disposez idéalement de connaissances SAP et êtes attiré par les nouveaux outils numériques.\n\nVOTRE EXPERIENCE AVEC NOUS\n\nNotre équipe RH se tient à votre écoute, selon votre souhait et vos besoins, tout au long de votre expérience au sein de notre Maison.\n\nAu fur et à mesure de votre avancée dans notre processus de recrutement, vous rencontrerez notre Responsable Maintenance ainsi que notre HR Business Partner.\n\nÉcrivez la prochaine étape de votre histoire avec Cartier.",
       "descriptionByLocale": {
         "fr": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCE QUE NOUS OFFRONS\n\nChez Cartier, vous intégrerez une communauté unie par un sens fort des responsabilités, où florissent connexion, collaboration et esprit collectif.\n\nNous valorisons l’individualité de nos talents, animés par un engagement commun envers l'excellence, inspirés par la diversité des cultures du monde, et attachés à respecter et enrichir notre héritage unique.\n\nNous sommes convaincus que des perspectives variées nourrissent l'innovation et nous encouragent à créer des expériences exceptionnelles.\n\nNous vous offrons un environnement stimulant et l’opportunité de contribuer, par votre vision personnelle, à un héritage de créativité.\n\nNous célébrons toutes les réussites, quelles qu’elles soient, favorisant ainsi des liens significatifs fondés sur la gratitude et le soutien mutuel et cultivant un fort sentiment d'appartenance.\n\nRejoignez-nous chez Cartier, un lieu unique et en constante évolution.\n\nCONTEXTE\n\nRattaché au département Support de Production, votre mission sera d’assurer l'installation, la maintenance et l’amélioration des équipements de production. Vos succès contribueront à l’amélioration de la performance de nos ateliers.\n\nQUEL SERA VOTRE IMPACT\n\n• Vous assurez la maintenance corrective avec réactivité et en diagnostiquant efficacement les pannes\n• Vous planifiez et réalisez la maintenance préventive afin de limiter les arrêts et défaillances\n• Vous analysez les pannes récurrentes et mettez en œuvre des actions d’améliorations\n• Vous coordonnez le suivi des interventions externes avec nos partenaires et fournisseurs\n• Vous installez et mettez en service les nouveaux équipements\n• Vous déployez l’amélioration continue sur le parc machine existant\n• Vous contribuez à la gestion des pièces de rechange et à la sécurisation des équipements critiques\n• Vous veillez au respect des règles SST et des bonnes pratiques lors des interventions\n\nCE QUE NOUS RECHERCHONS\n\nEn tant que Technicien de maintenance, vous vous distinguez par votre capacité d’organisation, votre autonomie ainsi que par votre capacité d’analyse. Maîtrisant les machines d’usinage à commandes numériques, vous savez faire preuve d’un excellent esprit d’équipe et de qualités humaines. Au bénéfice d’un CFC d’automaticien ou d’une formation jugée équivalente, vous êtes fort d’une première expérience professionnelle de 3 ans durant laquelle vous avez fait preuve de dynamisme et d’autonomie. Vous maîtrisez les outils informatiques, disposez idéalement de connaissances SAP et êtes attiré par les nouveaux outils numériques.\n\nVOTRE EXPERIENCE AVEC NOUS\n\nNotre équipe RH se tient à votre écoute, selon votre souhait et vos besoins, tout au long de votre expérience au sein de notre Maison.\n\nAu fur et à mesure de votre avancée dans notre processus de recrutement, vous rencontrerez notre Responsable Maintenance ainsi que notre HR Business Partner.\n\nÉcrivez la prochaine étape de votre histoire avec Cartier.",
-        "it": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCE QUE NOUS OFFRONS\n\nChez Cartier, vous intégrerez une communauté unie par un sens fort des responsabilités, où florissent connexion, collaboration et esprit collectif.\n\nNous valorisons l’individualité de nos talents, animés par un engagement commun envers l'excellence, inspirés par la diversité des cultures du monde, et attachés à respecter et enrichir notre héritage unique.\n\nNous sommes convaincus que des perspectives variées nourrissent l'innovation et nous encouragent à créer des expériences exceptionnelles.\n\nNous vous offrons un environnement stimulant et l’opportunité de contribuer, par votre vision personnelle, à un héritage de créativité.\n\nNous célébrons toutes les réussites, quelles qu’elles soient, favorisant ainsi des liens significatifs fondés sur la gratitude et le soutien mutuel et cultivant un fort sentiment d'appartenance.\n\nRejoignez-nous chez Cartier, un lieu unique et en constante évolution.\n\nCONTEXTE\n\nRattaché au département Support de Production, votre mission sera d’assurer l'installation, la maintenance et l’amélioration des équipements de production. Vos succès contribueront à l’amélioration de la performance de nos ateliers.\n\nQUEL SERA VOTRE IMPACT\n\n• Vous assurez la maintenance corrective avec réactivité et en diagnostiquant efficacement les pannes\n• Vous planifiez et réalisez la maintenance préventive afin de limiter les arrêts et défaillances\n• Vous analysez les pannes récurrentes et mettez en œuvre des actions d’améliorations\n• Vous coordonnez le suivi des interventions externes avec nos partenaires et fournisseurs\n• Vous installez et mettez en service les nouveaux équipements\n• Vous déployez l’amélioration continue sur le parc machine existant\n• Vous contribuez à la gestion des pièces de rechange et à la sécurisation des équipements critiques\n• Vous veillez au respect des règles SST et des bonnes pratiques lors des interventions\n\nCE QUE NOUS RECHERCHONS\n\nEn tant que Technicien de maintenance, vous vous distinguez par votre capacité d’organisation, votre autonomie ainsi que par votre capacité d’analyse. Maîtrisant les machines d’usinage à commandes numériques, vous savez faire preuve d’un excellent esprit d’équipe et de qualités humaines. Au bénéfice d’un CFC d’automaticien ou d’une formation jugée équivalente, vous êtes fort d’une première expérience professionnelle de 3 ans durant laquelle vous avez fait preuve de dynamisme et d’autonomie. Vous maîtrisez les outils informatiques, disposez idéalement de connaissances SAP et êtes attiré par les nouveaux outils numériques.\n\nVOTRE EXPERIENCE AVEC NOUS\n\nNotre équipe RH se tient à votre écoute, selon votre souhait et vos besoins, tout au long de votre expérience au sein de notre Maison.\n\nAu fur et à mesure de votre avancée dans notre processus de recrutement, vous rencontrerez notre Responsable Maintenance ainsi que notre HR Business Partner.\n\nÉcrivez la prochaine étape de votre histoire avec Cartier.",
-        "en": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCE QUE NOUS OFFRONS\n\nChez Cartier, vous intégrerez une communauté unie par un sens fort des responsabilités, où florissent connexion, collaboration et esprit collectif.\n\nNous valorisons l’individualité de nos talents, animés par un engagement commun envers l'excellence, inspirés par la diversité des cultures du monde, et attachés à respecter et enrichir notre héritage unique.\n\nNous sommes convaincus que des perspectives variées nourrissent l'innovation et nous encouragent à créer des expériences exceptionnelles.\n\nNous vous offrons un environnement stimulant et l’opportunité de contribuer, par votre vision personnelle, à un héritage de créativité.\n\nNous célébrons toutes les réussites, quelles qu’elles soient, favorisant ainsi des liens significatifs fondés sur la gratitude et le soutien mutuel et cultivant un fort sentiment d'appartenance.\n\nRejoignez-nous chez Cartier, un lieu unique et en constante évolution.\n\nCONTEXTE\n\nRattaché au département Support de Production, votre mission sera d’assurer l'installation, la maintenance et l’amélioration des équipements de production. Vos succès contribueront à l’amélioration de la performance de nos ateliers.\n\nQUEL SERA VOTRE IMPACT\n\n• Vous assurez la maintenance corrective avec réactivité et en diagnostiquant efficacement les pannes\n• Vous planifiez et réalisez la maintenance préventive afin de limiter les arrêts et défaillances\n• Vous analysez les pannes récurrentes et mettez en œuvre des actions d’améliorations\n• Vous coordonnez le suivi des interventions externes avec nos partenaires et fournisseurs\n• Vous installez et mettez en service les nouveaux équipements\n• Vous déployez l’amélioration continue sur le parc machine existant\n• Vous contribuez à la gestion des pièces de rechange et à la sécurisation des équipements critiques\n• Vous veillez au respect des règles SST et des bonnes pratiques lors des interventions\n\nCE QUE NOUS RECHERCHONS\n\nEn tant que Technicien de maintenance, vous vous distinguez par votre capacité d’organisation, votre autonomie ainsi que par votre capacité d’analyse. Maîtrisant les machines d’usinage à commandes numériques, vous savez faire preuve d’un excellent esprit d’équipe et de qualités humaines. Au bénéfice d’un CFC d’automaticien ou d’une formation jugée équivalente, vous êtes fort d’une première expérience professionnelle de 3 ans durant laquelle vous avez fait preuve de dynamisme et d’autonomie. Vous maîtrisez les outils informatiques, disposez idéalement de connaissances SAP et êtes attiré par les nouveaux outils numériques.\n\nVOTRE EXPERIENCE AVEC NOUS\n\nNotre équipe RH se tient à votre écoute, selon votre souhait et vos besoins, tout au long de votre expérience au sein de notre Maison.\n\nAu fur et à mesure de votre avancée dans notre processus de recrutement, vous rencontrerez notre Responsable Maintenance ainsi que notre HR Business Partner.\n\nÉcrivez la prochaine étape de votre histoire avec Cartier.",
-        "de": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCE QUE NOUS OFFRONS\n\nChez Cartier, vous intégrerez une communauté unie par un sens fort des responsabilités, où florissent connexion, collaboration et esprit collectif.\n\nNous valorisons l’individualité de nos talents, animés par un engagement commun envers l'excellence, inspirés par la diversité des cultures du monde, et attachés à respecter et enrichir notre héritage unique.\n\nNous sommes convaincus que des perspectives variées nourrissent l'innovation et nous encouragent à créer des expériences exceptionnelles.\n\nNous vous offrons un environnement stimulant et l’opportunité de contribuer, par votre vision personnelle, à un héritage de créativité.\n\nNous célébrons toutes les réussites, quelles qu’elles soient, favorisant ainsi des liens significatifs fondés sur la gratitude et le soutien mutuel et cultivant un fort sentiment d'appartenance.\n\nRejoignez-nous chez Cartier, un lieu unique et en constante évolution.\n\nCONTEXTE\n\nRattaché au département Support de Production, votre mission sera d’assurer l'installation, la maintenance et l’amélioration des équipements de production. Vos succès contribueront à l’amélioration de la performance de nos ateliers.\n\nQUEL SERA VOTRE IMPACT\n\n• Vous assurez la maintenance corrective avec réactivité et en diagnostiquant efficacement les pannes\n• Vous planifiez et réalisez la maintenance préventive afin de limiter les arrêts et défaillances\n• Vous analysez les pannes récurrentes et mettez en œuvre des actions d’améliorations\n• Vous coordonnez le suivi des interventions externes avec nos partenaires et fournisseurs\n• Vous installez et mettez en service les nouveaux équipements\n• Vous déployez l’amélioration continue sur le parc machine existant\n• Vous contribuez à la gestion des pièces de rechange et à la sécurisation des équipements critiques\n• Vous veillez au respect des règles SST et des bonnes pratiques lors des interventions\n\nCE QUE NOUS RECHERCHONS\n\nEn tant que Technicien de maintenance, vous vous distinguez par votre capacité d’organisation, votre autonomie ainsi que par votre capacité d’analyse. Maîtrisant les machines d’usinage à commandes numériques, vous savez faire preuve d’un excellent esprit d’équipe et de qualités humaines. Au bénéfice d’un CFC d’automaticien ou d’une formation jugée équivalente, vous êtes fort d’une première expérience professionnelle de 3 ans durant laquelle vous avez fait preuve de dynamisme et d’autonomie. Vous maîtrisez les outils informatiques, disposez idéalement de connaissances SAP et êtes attiré par les nouveaux outils numériques.\n\nVOTRE EXPERIENCE AVEC NOUS\n\nNotre équipe RH se tient à votre écoute, selon votre souhait et vos besoins, tout au long de votre expérience au sein de notre Maison.\n\nAu fur et à mesure de votre avancée dans notre processus de recrutement, vous rencontrerez notre Responsable Maintenance ainsi que notre HR Business Partner.\n\nÉcrivez la prochaine étape de votre histoire avec Cartier."
+        "it": "Codice di riferimento: JR133001\nLa storia di Cartier è fondata su curiosità e passione. Da oltre 170 anni abbiamo abbracciato uno spirito coraggioso e pionieristico che continua a ispirare i nostri team di tutte le professioni dalle nostre boutique ai nostri laboratori e uffici aziendali. I nostri 10.000+ colleghi di oltre 105 nazionalità sono uniti da uno spirito indipendente condiviso e dall'impegno per l'eccellenza, colpendo per arricchire continuamente la nostra Maison\n\nChe cosa facciamo?\n\nA Cartier, si integra una comunità unita da un forte senso di responsabilità, dove le connessioni, la collaborazione e lo spirito collettivo fioriscono.\n\nApprezziamo l'individualità dei nostri talenti, guidati da un impegno comune all'eccellenza, ispirato alla diversità delle culture del mondo, e impegnati a rispettare e arricchire il nostro patrimonio unico.\n\nSiamo convinti che diverse prospettive promuovano l'innovazione e ci incoraggiano a creare esperienze eccezionali.\n\nVi offriamo un ambiente stimolante e l'opportunità di contribuire, attraverso la vostra visione personale, ad un patrimonio di creatività.\n\nCelebriamo tutti i successi, qualunque cosa siano, promuovendo così legami significativi basati sulla reciproca gratitudine e sostegno e coltivando un forte senso di appartenenza.\n\nUnisciti a noi a Cartier, un luogo unico e in continua evoluzione.\n\nCONTESTO\n\nAttaccato al reparto supporto di produzione, la vostra missione sarà garantire l'installazione, la manutenzione e il miglioramento delle attrezzature di produzione. Il vostro successo contribuirà a migliorare le prestazioni dei nostri laboratori.\n\nQual è il tuo problema\n\n• Assicurare la manutenzione correttiva con reattività e diagnostica efficacemente i guasti\n• Pianifichi ed esegue manutenzione preventiva per limitare le fermate e i guasti\n• Analizzi i guasti ricorrenti e implementa le azioni di miglioramento\n• Coordinate il monitoraggio degli interventi esterni con i nostri partner e fornitori\n• Si installa e commissiona la nuova apparecchiatura\n• Distribuisci un miglioramento continuo sulla flotta di macchine esistenti\n• Aiuta a gestire parti di ricambio e apparecchiature critiche sicure\n• Garantisci il rispetto delle regole di SSL e delle buone pratiche durante gli interventi\n\nCOSA RICONOSCIUTO\n\nCome tecnico di manutenzione, si distingue per la capacità organizzativa, l'autonomia e la capacità analitica. Controllare le macchine di lavorazione con controlli digitali, è possibile dimostrare eccellente spirito di squadra e qualità umane. A beneficio di un CFC automatico o di una formazione equivalente, hai una prima esperienza lavorativa di 3 anni durante la quale sei stato dinamico e indipendente. Si padroneggiano gli strumenti IT, idealmente hanno conoscenze SAP e sono attratti da nuovi strumenti digitali.\n\nLa tua esperienza con noi\n\nIl nostro team HR ti sta ascoltando, come desideri e le tue esigenze, durante tutta la tua esperienza presso la nostra Casa.\n\nProseguendo nel nostro processo di reclutamento, incontrerai il nostro responsabile della manutenzione e il nostro partner aziendale HR.\n\nScrivi il prossimo passo nella tua storia con Cartier.",
+        "en": "Reference code: JR133001\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Professions from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striking to continuously rich our Maison\n\nWHAT WE OFFER\n\nAt Cartier, you will integrate a community united by a strong sense of responsibility, where connections, collaboration and collective spirit flourish.\n\nWe value the individuality of our talents, driven by a common commitment to excellence, inspired by the diversity of the world's cultures, and committed to respecting and enriching our unique heritage.\n\nWe are convinced that diverse perspectives foster innovation and encourage us to create exceptional experiences.\n\nWe offer you a stimulating environment and opportunity to contribute, through your personal vision, to a legacy of creativity.\n\nWe celebrate all successes, whatever they may be, thus fostering meaningful ties based on mutual gratitude and support and cultivating a strong sense of belonging.\n\nJoin us at Cartier, a unique and ever-changing place.\n\nCONTEXT\n\nAttached to the Production Support department, your mission will be to ensure the installation, maintenance and improvement of production equipment. Your success will help improve the performance of our workshops.\n\nWHAT YOUR IMPACT IS\n\n• You ensure corrective maintenance with reactivity and effectively diagnoses breakdowns\n• You plan and perform preventive maintenance in order to limit stops and failures\n• You analyze recurring breakdowns and implement improvement actions\n• You coordinate the monitoring of external interventions with our partners and suppliers\n• You install and commission the new equipment\n• You deploy continuous improvement on the existing machine fleet\n• You help manage spare parts and secure critical equipment\n• You ensure compliance with OSH rules and good practice during interventions\n\nWHAT WE RECOGNIZE\n\nAs a maintenance technician, you are distinguished by your organizational capacity, autonomy and analytical capacity. Controlling the machining machines with digital controls, you can demonstrate excellent team spirit and human qualities. For the benefit of an automatic CFC or equivalent training, you have a first 3-year work experience during which you have been dynamic and independent. You master IT tools, ideally have SAP knowledge and are attracted to new digital tools.\n\nYOUR EXPERIENCE WITH US\n\nOur HR team is listening to you, as you wish and your needs, throughout your experience at our House.\n\nAs you progress in our recruitment process, you will meet with our Maintenance Manager and our HR Business Partner.\n\nWrite the next step in your story with Cartier.",
+        "de": "Bezugscode: JR133001\nDie Geschichte von Cartier basiert auf Neugier und Leidenschaft. Seit mehr als 170 Jahren haben wir einen mutigen Pioniergeist angenommen, der unsere Teams in allen Berufen von unseren Boutiquen bis zu unseren Werkstätten und Unternehmensbüros inspiriert. Unsere über 10.000 Kollegen aus mehr als 105 Nationalitäten sind durch einen gemeinsamen unabhängigen Geist und Engagement für Exzellenz vereint, auffallend, um unsere Maison kontinuierlich zu bereichern\n\nWas wir anbieten\n\nBei Cartier integrieren Sie eine Gemeinschaft, die durch ein starkes Verantwortungsbewusstsein vereint ist, in der Verbindungen, Zusammenarbeit und kollektiver Geist gedeihen.\n\nWir schätzen die Individualität unserer Talente, angetrieben von einem gemeinsamen Engagement für Exzellenz, inspiriert von der Vielfalt der Kulturen der Welt und verpflichtet, unser einzigartiges Erbe zu respektieren und zu bereichern.\n\nWir sind davon überzeugt, dass vielfältige Perspektiven Innovationen fördern und uns ermutigen, außergewöhnliche Erlebnisse zu schaffen.\n\nWir bieten Ihnen ein anregendes Umfeld und die Möglichkeit, durch Ihre persönliche Vision zu einem Vermächtnis der Kreativität beizutragen.\n\nWir feiern alle Erfolge, was auch immer sie sein mögen, und fördern so sinnvolle Bindungen, die auf gegenseitiger Dankbarkeit und Unterstützung beruhen, und pflegen ein starkes Zugehörigkeitsgefühl.\n\nBegleiten Sie uns bei Cartier, einem einzigartigen und sich ständig verändernden Ort.\n\nKONTEXT\n\nAn die Produktionsabteilung angeschlossen, besteht Ihre Aufgabe darin, die Installation, Wartung und Verbesserung der Produktionsausrüstung sicherzustellen. Ihr Erfolg wird dazu beitragen, die Leistung unserer Workshops zu verbessern.\n\nWAS IHR AUSWIRKUNGEN IST\n\n• Sie sorgen für korrektive Wartung mit Reaktivität und diagnostizieren effektiv Pannen\n• Sie planen und führen vorbeugende Wartungen durch, um Stopps und Ausfälle zu begrenzen\n• Sie analysieren wiederkehrende Pannen und implementieren Verbesserungsmaßnahmen\n• Sie koordinieren die Überwachung externer Eingriffe mit unseren Partnern und Lieferanten\n• Sie installieren und beauftragen die neuen Geräte\n• Sie setzen kontinuierliche Verbesserungen an der vorhandenen Maschinenflotte ein\n• Sie helfen, Ersatzteile zu verwalten und kritische Geräte zu sichern\n• Sie gewährleisten die Einhaltung der OSH-Regeln und bewährten Praktiken während der Interventionen\n\nWAS WIR ERKENNEN\n\nAls Wartungstechniker zeichnen Sie sich durch Ihre Organisationsfähigkeit, Autonomie und Analysefähigkeit aus. Durch die Steuerung der Bearbeitungsmaschinen mit digitalen Steuerungen können Sie hervorragenden Teamgeist und menschliche Qualitäten demonstrieren. Für eine automatische CFC oder eine gleichwertige Ausbildung verfügen Sie über eine erste 3-jährige Berufserfahrung, in der Sie dynamisch und unabhängig waren. Sie beherrschen IT-Tools, verfügen idealerweise über SAP-Kenntnisse und sind von neuen digitalen Tools angezogen.\n\nDeine Erfahrung mit uns\n\nUnser HR-Team hört Ihnen zu, wie Sie es wünschen und Ihre Bedürfnisse, während Ihrer gesamten Erfahrung in unserem Haus.\n\nWenn Sie in unserem Rekrutierungsprozess vorankommen, werden Sie sich mit unserem Maintenance Manager und unserem HR Business Partner treffen.\n\nSchreibe den nächsten Schritt in deiner Geschichte mit Cartier."
       },
       "location": "Le Crêt-Du-Locle",
       "canton": "GE",
@@ -6520,7 +6512,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6534,7 +6525,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-26T14:07:23.406Z"
+      "firstSeenAt": "2026-09-26T14:07:23.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-f63f56b1c0d2",
@@ -6601,7 +6606,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:59:03.092Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -7822,7 +7826,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:59:03.065Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -7926,7 +7929,7 @@
       "slug": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
-        "en": "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane",
+        "en": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
         "de": "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
         "fr": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
       },
@@ -7972,18 +7975,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
+        "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
         ],
         "en": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+          "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -8006,7 +8009,7 @@
         "it": "societa-commerciale-cartier-zurich",
         "en": "sales-associate-cartier-zurich",
         "de": "vertriebsmitarbeiter-cartier-zurich",
-        "fr": "associe-de-vente-cartier-zurich"
+        "fr": "sales-associate-richemont-zurich"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -8078,7 +8081,7 @@
         ],
         "fr": [
           "sales-associate-temps-partiel-20-cartier-zurich",
-          "sales-associate-richemont-zurich"
+          "associe-de-vente-cartier-zurich"
         ]
       },
       "previousSlugs": [
@@ -8097,7 +8100,8 @@
         "conseiller-ere-de-vente-temps-partiel-20-cartier-zurich",
         "assistente-vendita-parte-tempo-20-cartier-zurich",
         "verkaufsassistent-teilzeit-20-cartier-zurich",
-        "venditore-part-time-40-cartier-zurich"
+        "venditore-part-time-40-cartier-zurich",
+        "associe-de-vente-cartier-zurich"
       ],
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
       "salaryMin": 83000,
@@ -9229,7 +9233,7 @@
       "slug": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
-        "en": "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane",
+        "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
       },
@@ -9275,14 +9279,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
         ],
         "en": [
-          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+          "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-09-10T23:17:41.067Z",
@@ -9447,7 +9452,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:11:45.756Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10293,7 +10297,6 @@
           "courriel-cartier-manufacture-le-cret-du-locle"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -13315,9 +13318,9 @@
     },
     {
       "id": "richemont-f97dc52d33ce",
-      "slug": "brand-content-producer-vacheron-constantin-plan-les-ouates",
+      "slug": "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
-        "it": "brand-content-producer-vacheron-constantin-plan-les-ouates",
+        "it": "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates",
         "en": "brand-content-producer-richemont-plan-les-ouates",
         "de": "brand-content-produzent-vacheron-constantin-plan-les-ouates",
         "fr": "producteur-de-contenu-de-marque-vacheron-constantin-plan-les-ouates"
@@ -13365,12 +13368,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brand-content-producer-richemont-plan-les-ouates",
-        "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates"
+        "brand-content-producer-vacheron-constantin-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brand-content-producer-richemont-plan-les-ouates",
-          "produttore-di-contenuti-di-marca-vacheron-constantin-plan-les-ouates"
+          "brand-content-producer-vacheron-constantin-plan-les-ouates"
         ],
         "de": [
           "brand-content-producer-richemont-plan-les-ouates"
@@ -15519,9 +15522,9 @@
     },
     {
       "id": "richemont-c63b44d13a6e",
-      "slug": "prototypiste-cartier-manufacture-le-cret-du-locle",
+      "slug": "prototipismo-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "prototypiste-cartier-manufacture-le-cret-du-locle",
+        "it": "prototipismo-cartier-manufacture-le-cret-du-locle",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
         "de": "prototyp-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-le-cret-du-locle"
@@ -15569,12 +15572,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "prototypiste-richemont-le-cret-du-locle",
-        "prototipismo-cartier-manufacture-le-cret-du-locle"
+        "prototypiste-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prototypiste-richemont-le-cret-du-locle",
-          "prototipismo-cartier-manufacture-le-cret-du-locle"
+          "prototypiste-cartier-manufacture-le-cret-du-locle"
         ],
         "en": [
           "prototypiste-richemont-le-cret-du-locle"

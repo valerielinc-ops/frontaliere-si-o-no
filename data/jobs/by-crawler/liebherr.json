@@ -377,7 +377,7 @@
       "slugByLocale": {
         "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
         "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
-        "de": "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens",
+        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -427,7 +427,7 @@
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+        "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -440,7 +440,7 @@
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+          "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-16T15:09:06.399Z",
@@ -775,7 +775,7 @@
         "it": "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
         "en": "sales-assistant-m-f-d-liebherr-nussbaumen",
         "de": "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "fr": "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
+        "fr": "assistant-commercial-m-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -822,7 +822,7 @@
       "liebherrSourceJobId": "82726",
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistant-commercial-m-f-d-liebherr-nussbaumen"
+        "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -833,7 +833,7 @@
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "assistant-commercial-m-f-d-liebherr-nussbaumen"
+          "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.388Z",
@@ -1097,8 +1097,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400",
-      "needsRetranslation": true
+      "postalCode": "5400"
     },
     {
       "id": "liebherr-23fd81013452",
@@ -1167,7 +1166,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:03:37.896Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1698,7 +1696,7 @@
       "slugByLocale": {
         "it": "attrezzature-di-consulenza-tecnica-earthmoving-m-f-liebherr-daillens",
         "en": "technical-advisor-equipment-earthmoving-m-f-liebherr-daillens",
-        "de": "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens",
+        "de": "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens",
         "fr": "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -1747,7 +1745,7 @@
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-        "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+        "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1759,7 +1757,7 @@
         "de": [
           "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-          "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+          "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-08T13:53:09.548Z",
@@ -1784,7 +1782,7 @@
       "slugByLocale": {
         "it": "posto-di-carico-gru-meccaniche-m-f-liebherr-daillens",
         "en": "mechanical-cranes-loading-place-m-f-liebherr-daillens",
-        "de": "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens",
+        "de": "maschinenkrane-ladeplatz-m-w-liebherr-daillens",
         "fr": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -1833,7 +1831,7 @@
       "previousSlugs": [
         "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
         "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-        "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
+        "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1845,7 +1843,7 @@
         "de": [
           "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
           "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-          "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
+          "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-01T10:33:19.207Z",
@@ -2304,7 +2302,6 @@
         "spekulative-anwendung-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2389,7 +2386,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.374Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2581,8 +2577,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630",
-      "needsRetranslation": true
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-b6fc7f90abdd",
@@ -2591,7 +2586,7 @@
         "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2639,7 +2634,7 @@
       "previousSlugs": [
         "responsabile-data-security-m-w-d-liebherr-bulle",
         "head-of-data-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+        "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2647,7 +2642,7 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+          "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
@@ -3065,7 +3060,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:32:13.231Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3163,7 +3157,6 @@
           "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:10:08.557Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -3178,8 +3171,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630",
-      "retranslationAttempts": 1
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-16cb4e08f91b",
@@ -3187,7 +3179,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "turmkrantechniker-m-w-d-liebherr-daillens",
+        "de": "drehkrantechniker-h-f-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -3237,7 +3229,7 @@
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "drehkrantechniker-h-f-liebherr-daillens"
+        "turmkrantechniker-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3250,7 +3242,7 @@
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "drehkrantechniker-h-f-liebherr-daillens"
+          "turmkrantechniker-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.412Z",
@@ -3453,7 +3445,7 @@
         "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -3501,7 +3493,7 @@
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+        "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3509,7 +3501,7 @@
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+          "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
@@ -3534,7 +3526,7 @@
       "slugByLocale": {
         "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "control-systems-ingenieur-m-w-d-liebherr-bulle",
+        "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -3584,7 +3576,7 @@
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
         "control-systems-engineer-m-f-x-liebherr-bulle",
-        "regelungssystemingenieur-m-f-x-liebherr-bulle"
+        "control-systems-ingenieur-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3592,7 +3584,7 @@
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "regelungssystemingenieur-m-f-x-liebherr-bulle"
+          "control-systems-ingenieur-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
@@ -3696,7 +3688,7 @@
       "slugByLocale": {
         "it": "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen-7dfb69",
         "en": "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "de": "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen",
+        "de": "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen",
         "fr": "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen-7dfb69"
       },
       "company": "Liebherr",
@@ -3755,7 +3747,7 @@
         "de": [
           "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
           "group-senior-internal-auditor-m-w-d-liebherr-nussbaumen",
-          "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen"
+          "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen"
         ],
         "it": [
           "group-senior-internal-auditor-m-f-d-liebherr-nussbaumen",
@@ -3772,7 +3764,7 @@
         "senior-konzernrevisor-m-w-d-liebherr-nussbaumen",
         "auditore-interno-senior-di-gruppo-m-f-d-liebherr-nussbaumen",
         "auditeur-interne-principal-du-groupe-m-f-d-liebherr-nussbaumen",
-        "gruppenleiter-interner-prufer-m-w-d-liebherr-nussbaumen"
+        "senior-auditor-konzernrevision-m-w-d-liebherr-nussbaumen"
       ],
       "firstSeenAt": "2026-09-26T14:21:04.109Z",
       "salaryMin": 94500,
@@ -4130,7 +4122,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:04:00.181Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -4463,7 +4454,6 @@
         "young-talent-marketing-communication-h-f-x-liebherr-bulle",
         "young-talent-marketing-communication-m-f-x-liebherr-bulle"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-08T21:38:17.152Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4478,8 +4468,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630",
-      "retranslationAttempts": 1
+      "postalCode": "1630"
     },
     {
       "id": "liebherr-60d7c42afda6",
@@ -4991,8 +4980,8 @@
       "title": "Initialbewerbung Liebherr-Baumaschinen AG",
       "titleByLocale": {
         "en": "Initialbewerbung Liebherr-Baumaschinen AG",
-        "de": "Initialbewerbung Liebherr-Baumaschinen AG",
-        "it": "Initialbewerbung Liebherr-Baumaschinen AG",
+        "de": "Erstbewerbung Liebherr-Baumaschinen AG",
+        "it": "Primaritorno a Liebherr-Baumaschinen AG",
         "fr": "Initialbewerbung Liebherr-Baumaschinen AG"
       },
       "description": "Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Susanne Sulzer. One Passion. Many Opportunities. The company Liebherr-Baumaschinen AG based in Reiden (Switzerland) is responsible for the sales and service of earthmoving machines, material handling technology, tower cranes, concrete technology, deep foundation machines as well as mobile- and crawler cranes in Switzerland.​ Location Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne Sulzer 062 785 82 00",

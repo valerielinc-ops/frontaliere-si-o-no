@@ -1211,7 +1211,7 @@
         "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
         "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
+        "fr": "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1261,7 +1261,7 @@
       "previousSlugs": [
         "laboratoire-de-biologie-50-kanton-aargau-zofingen",
         "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+        "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1269,7 +1269,7 @@
         ],
         "fr": [
           "laboratoire-de-biologie-50-kanton-aargau-zofingen",
-          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+          "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:59.638Z",
@@ -1788,7 +1788,7 @@
       "slug": "medico-a-50-kanton-aargau-stein",
       "slugByLocale": {
         "it": "medico-a-50-kanton-aargau-stein",
-        "en": "mediothekarin-mediothekar-50-kanton-aargau-stein",
+        "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
         "fr": "mediothecaire-mediothecaire-50-kanton-aargau-stein"
       },
@@ -1838,14 +1838,14 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
         "mediothekarin-mediothekar-50-kanton-aargau-ch",
-        "mediothecarin-mediothecar-50-kanton-aargau-stein"
+        "mediothekarin-mediothekar-50-kanton-aargau-stein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
         ],
         "en": [
-          "mediothecarin-mediothecar-50-kanton-aargau-stein"
+          "mediothekarin-mediothekar-50-kanton-aargau-stein"
         ],
         "fr": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
@@ -3090,9 +3090,9 @@
     },
     {
       "id": "kanton-aargau-450249a4f2da",
-      "slug": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+      "slug": "housekeeper-governante-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "raumpflegerin-raumpfleger-80-kanton-aargau-aarau",
+        "it": "housekeeper-governante-80-kanton-aargau-aarau",
         "en": "housekeeper-roomkeeper-80-kanton-aargau-aarau",
         "de": "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
         "fr": "femme-de-chambre-femme-de-chambre-80-kanton-aargau-aarau"
@@ -3142,12 +3142,12 @@
       "department": "Generalsekretariat GKA",
       "previousSlugs": [
         "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-        "housekeeper-governante-80-kanton-aargau-aarau"
+        "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch",
-          "housekeeper-governante-80-kanton-aargau-aarau"
+          "raumpflegerin-raumpfleger-80-kanton-aargau-aarau"
         ],
         "en": [
           "raumpflegerin-raumpfleger-80-kanton-aargau-ch"
@@ -3920,7 +3920,7 @@
         "it": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
         "en": "legal-trainee-kanton-aargau-muri-und-zofingen",
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
+        "fr": "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3970,7 +3970,7 @@
       "previousSlugs": [
         "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
         "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3978,7 +3978,7 @@
         ],
         "fr": [
           "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
-          "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-02T21:20:59.739Z",
@@ -5022,9 +5022,9 @@
     },
     {
       "id": "kanton-aargau-aa5b05cb11b9",
-      "slug": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+      "slug": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "juristin-jurist-strafvollzug-90-kanton-aargau-aarau",
+        "it": "avvocato-avvocato-prigione-90-kanton-aargau-aarau",
         "en": "lawyer-lawyer-prison-90-kanton-aargau-aarau",
         "de": "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
         "fr": "avocat-prison-avocat-90-kanton-aargau-aarau"
@@ -5074,12 +5074,12 @@
       "department": "Amt für Justizvollzug",
       "previousSlugs": [
         "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-        "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+        "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch",
-          "avvocato-avvocato-prigione-90-kanton-aargau-aarau"
+          "juristin-jurist-strafvollzug-90-kanton-aargau-aarau"
         ],
         "en": [
           "juristin-jurist-strafvollzug-90-kanton-aargau-ch"
@@ -5765,9 +5765,9 @@
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+      "slug": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+        "it": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
         "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
@@ -5820,13 +5820,13 @@
       "previousSlugs": [
         "esperto-di-strategia-politica-80-kanton-aargau-aarau",
         "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "esperto-di-strategia-politica-80-kanton-aargau-aarau",
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:38.497Z",
@@ -6176,12 +6176,12 @@
     },
     {
       "id": "kanton-aargau-8a61dd487d22",
-      "slug": "leiterin-leiter-bau-e-unterhalt-kanton-aargau-lenzburg",
+      "slug": "responsabile-costruzioni-e-manutenzione-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch",
-        "it": "leiterin-leiter-bau-e-unterhalt-kanton-aargau-lenzburg",
-        "en": "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch",
-        "fr": "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch"
+        "it": "responsabile-costruzioni-e-manutenzione-kanton-aargau-lenzburg",
+        "en": "head-of-construction-and-maintenance-kanton-aargau-lenzburg",
+        "fr": "chef-de-la-construction-et-de-l-entretien-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6189,18 +6189,17 @@
       "title": "Leiterin / Leiter Bau und Unterhalt",
       "titleByLocale": {
         "de": "Leiterin / Leiter Bau und Unterhalt",
-        "it": "Leiterin / Leiter Bau e Unterhalt",
-        "en": "Leiterin / Leiter Bau und Unterhalt",
-        "fr": "Leiterin / Leiter Bau und Unterhalt"
+        "it": "Responsabile costruzioni e manutenzione",
+        "en": "Head of Construction and Maintenance",
+        "fr": "Chef de la construction et de l'entretien"
       },
       "description": "Spannende Aufgaben warten:\n• Führung der drei Fachabteilungen Technischer Dienst, Baudienst und Betriebsschreinerei mit total 6 Mitarbeitenden\n• Verantwortung für Infrastruktur-, Sanierungs- und Unterhaltsarbeiten/-projekten unter Berücksichtigung/Gewährleistung einer hohen Betriebssicherheit (HLKKS, Elektro, Wasser, Telefonie, IT-Netzwerke) inkl. Budgetierung, Planung, Umsetzung und Abrechnung\n• Hauptansprechpartner für (Um-)Bauvorhaben und Sicherstellung einer reibungslosen Kommunikation mit der Abteilung Immobilien Aargau (IMAG)\n\nWas Sie mitbringen:\n• Technische Grundbildung und abgeschlossene Weiterbildung im Bereich Bau- und Unterhaltswesen (Bauingenieurwesen HFP, Technik Hochbau oder gleichwertige Ausbildung)\n• Ausgewiesene Projektleitungs- und Führungserfahrung bezüglich Neu- und Umbauvorhaben, ausgeprägtes Verantwortungsbewusstsein, hohe Sozialkompetenz, Kommunikationsgewandtheit, sowie Entscheidungs- und Umsetzungsstärke\n• Mehrjährige Erfahrung im baulichen Unterhalt von Liegenschaften, in der Begleitung von Neubauprojekten sowie im Bereich des komplexen Gebäudemanagements, vorzugsweise in einem Betrieb mit speziellen Sicherheitsanforderungen\n• Hohe Belastbarkeit, Selbstständigkeit und vernetztes Denken in den Bereichen Bau, HLKKS und Elektro\n• Mindestalter: 35 Jahre, einwandfreier Leumund (Straf- und Betreibungsregisterauszug)\n\nIhr Arbeitsumfeld\n\nIn der Justizvollzugsanstalt Lenzburg werden Personen betreut, die zu einer Freiheitsstrafe oder zu einer Verwahrungsmassnahme verurteilt worden sind. Das Angebot umfasst 380 Vollzugsplätze für den geschlossenen Vollzug, Untersuchungshaft und Kurzstrafen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: DVI AJV JVA Lenzburg\n• Arbeitsort: Lenzburg",
       "descriptionByLocale": {
         "de": "Spannende Aufgaben warten:\n• Führung der drei Fachabteilungen Technischer Dienst, Baudienst und Betriebsschreinerei mit total 6 Mitarbeitenden\n• Verantwortung für Infrastruktur-, Sanierungs- und Unterhaltsarbeiten/-projekten unter Berücksichtigung/Gewährleistung einer hohen Betriebssicherheit (HLKKS, Elektro, Wasser, Telefonie, IT-Netzwerke) inkl. Budgetierung, Planung, Umsetzung und Abrechnung\n• Hauptansprechpartner für (Um-)Bauvorhaben und Sicherstellung einer reibungslosen Kommunikation mit der Abteilung Immobilien Aargau (IMAG)\n\nWas Sie mitbringen:\n• Technische Grundbildung und abgeschlossene Weiterbildung im Bereich Bau- und Unterhaltswesen (Bauingenieurwesen HFP, Technik Hochbau oder gleichwertige Ausbildung)\n• Ausgewiesene Projektleitungs- und Führungserfahrung bezüglich Neu- und Umbauvorhaben, ausgeprägtes Verantwortungsbewusstsein, hohe Sozialkompetenz, Kommunikationsgewandtheit, sowie Entscheidungs- und Umsetzungsstärke\n• Mehrjährige Erfahrung im baulichen Unterhalt von Liegenschaften, in der Begleitung von Neubauprojekten sowie im Bereich des komplexen Gebäudemanagements, vorzugsweise in einem Betrieb mit speziellen Sicherheitsanforderungen\n• Hohe Belastbarkeit, Selbstständigkeit und vernetztes Denken in den Bereichen Bau, HLKKS und Elektro\n• Mindestalter: 35 Jahre, einwandfreier Leumund (Straf- und Betreibungsregisterauszug)\n\nIhr Arbeitsumfeld\n\nIn der Justizvollzugsanstalt Lenzburg werden Personen betreut, die zu einer Freiheitsstrafe oder zu einer Verwahrungsmassnahme verurteilt worden sind. Das Angebot umfasst 380 Vollzugsplätze für den geschlossenen Vollzug, Untersuchungshaft und Kurzstrafen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: DVI AJV JVA Lenzburg\n• Arbeitsort: Lenzburg",
-        "it": "Spannende Aufgaben warten:\n• Führung der drei Fachabteilungen Technischer Dienst, Baudienst und Betriebsschreinerei mit total 6 Mitarbeitenden\n• Verantwortung für Infrastruktur-, Sanierungs- und Unterhaltsarbeiten/-projekten unter Berücksichtigung/Gewährleistung einer hohen Betriebssicherheit (HLKKS, Elektro, Wasser, Telefonie, IT-Netzwerke) inkl. Budgetierung, Planung, Umsetzung und Abrechnung\n• Hauptansprechpartner für (Um-)Bauvorhaben und Sicherstellung einer reibungslosen Kommunikation mit der Abteilung Immobilien Aargau (IMAG)\n\nWas Sie mitbringen:\n• Technische Grundbildung und abgeschlossene Weiterbildung im Bereich Bau- und Unterhaltswesen (Bauingenieurwesen HFP, Technik Hochbau oder gleichwertige Ausbildung)\n• Ausgewiesene Projektleitungs- und Führungserfahrung bezüglich Neu- und Umbauvorhaben, ausgeprägtes Verantwortungsbewusstsein, hohe Sozialkompetenz, Kommunikationsgewandtheit, sowie Entscheidungs- und Umsetzungsstärke\n• Mehrjährige Erfahrung im baulichen Unterhalt von Liegenschaften, in der Begleitung von Neubauprojekten sowie im Bereich des komplexen Gebäudemanagements, vorzugsweise in einem Betrieb mit speziellen Sicherheitsanforderungen\n• Hohe Belastbarkeit, Selbstständigkeit und vernetztes Denken in den Bereichen Bau, HLKKS und Elektro\n• Mindestalter: 35 Jahre, einwandfreier Leumund (Straf- und Betreibungsregisterauszug)\n\nIhr Arbeitsumfeld\n\nIn der Justizvollzugsanstalt Lenzburg werden Personen betreut, die zu einer Freiheitsstrafe oder zu einer Verwahrungsmassnahme verurteilt worden sind. Das Angebot umfasst 380 Vollzugsplätze für den geschlossenen Vollzug, Untersuchungshaft und Kurzstrafen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: DVI AJV JVA Lenzburg\n• Arbeitsort: Lenzburg",
-        "en": "Spannende Aufgaben warten:\n• Führung der drei Fachabteilungen Technischer Dienst, Baudienst und Betriebsschreinerei mit total 6 Mitarbeitenden\n• Verantwortung für Infrastruktur-, Sanierungs- und Unterhaltsarbeiten/-projekten unter Berücksichtigung/Gewährleistung einer hohen Betriebssicherheit (HLKKS, Elektro, Wasser, Telefonie, IT-Netzwerke) inkl. Budgetierung, Planung, Umsetzung und Abrechnung\n• Hauptansprechpartner für (Um-)Bauvorhaben und Sicherstellung einer reibungslosen Kommunikation mit der Abteilung Immobilien Aargau (IMAG)\n\nWas Sie mitbringen:\n• Technische Grundbildung und abgeschlossene Weiterbildung im Bereich Bau- und Unterhaltswesen (Bauingenieurwesen HFP, Technik Hochbau oder gleichwertige Ausbildung)\n• Ausgewiesene Projektleitungs- und Führungserfahrung bezüglich Neu- und Umbauvorhaben, ausgeprägtes Verantwortungsbewusstsein, hohe Sozialkompetenz, Kommunikationsgewandtheit, sowie Entscheidungs- und Umsetzungsstärke\n• Mehrjährige Erfahrung im baulichen Unterhalt von Liegenschaften, in der Begleitung von Neubauprojekten sowie im Bereich des komplexen Gebäudemanagements, vorzugsweise in einem Betrieb mit speziellen Sicherheitsanforderungen\n• Hohe Belastbarkeit, Selbstständigkeit und vernetztes Denken in den Bereichen Bau, HLKKS und Elektro\n• Mindestalter: 35 Jahre, einwandfreier Leumund (Straf- und Betreibungsregisterauszug)\n\nIhr Arbeitsumfeld\n\nIn der Justizvollzugsanstalt Lenzburg werden Personen betreut, die zu einer Freiheitsstrafe oder zu einer Verwahrungsmassnahme verurteilt worden sind. Das Angebot umfasst 380 Vollzugsplätze für den geschlossenen Vollzug, Untersuchungshaft und Kurzstrafen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: DVI AJV JVA Lenzburg\n• Arbeitsort: Lenzburg",
-        "fr": "Spannende Aufgaben warten:\n• Führung der drei Fachabteilungen Technischer Dienst, Baudienst und Betriebsschreinerei mit total 6 Mitarbeitenden\n• Verantwortung für Infrastruktur-, Sanierungs- und Unterhaltsarbeiten/-projekten unter Berücksichtigung/Gewährleistung einer hohen Betriebssicherheit (HLKKS, Elektro, Wasser, Telefonie, IT-Netzwerke) inkl. Budgetierung, Planung, Umsetzung und Abrechnung\n• Hauptansprechpartner für (Um-)Bauvorhaben und Sicherstellung einer reibungslosen Kommunikation mit der Abteilung Immobilien Aargau (IMAG)\n\nWas Sie mitbringen:\n• Technische Grundbildung und abgeschlossene Weiterbildung im Bereich Bau- und Unterhaltswesen (Bauingenieurwesen HFP, Technik Hochbau oder gleichwertige Ausbildung)\n• Ausgewiesene Projektleitungs- und Führungserfahrung bezüglich Neu- und Umbauvorhaben, ausgeprägtes Verantwortungsbewusstsein, hohe Sozialkompetenz, Kommunikationsgewandtheit, sowie Entscheidungs- und Umsetzungsstärke\n• Mehrjährige Erfahrung im baulichen Unterhalt von Liegenschaften, in der Begleitung von Neubauprojekten sowie im Bereich des komplexen Gebäudemanagements, vorzugsweise in einem Betrieb mit speziellen Sicherheitsanforderungen\n• Hohe Belastbarkeit, Selbstständigkeit und vernetztes Denken in den Bereichen Bau, HLKKS und Elektro\n• Mindestalter: 35 Jahre, einwandfreier Leumund (Straf- und Betreibungsregisterauszug)\n\nIhr Arbeitsumfeld\n\nIn der Justizvollzugsanstalt Lenzburg werden Personen betreut, die zu einer Freiheitsstrafe oder zu einer Verwahrungsmassnahme verurteilt worden sind. Das Angebot umfasst 380 Vollzugsplätze für den geschlossenen Vollzug, Untersuchungshaft und Kurzstrafen.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: DVI AJV JVA Lenzburg\n• Arbeitsort: Lenzburg"
+        "it": "Eccitanti compiti attendono:\n• Gestione dei tre dipartimenti Servizio Tecnico, Servizio Edilizia e Carpenteria Aziendale con un totale di 6 dipendenti\n• Responsabilità per infrastrutture, lavori di ristrutturazione e manutenzione/progetti tenendo conto/garantire un elevato livello di sicurezza operativa (HLKKS, elettrico, acqua, telefonia, reti IT) incl. Bilancio, pianificazione, attuazione e contabilità\n• Contatto principale per progetti di costruzione (conversione) e garantire una comunicazione fluida con il dipartimento Real Estate Aargau (IMAG)\n\nCosa porti:\n• Formazione tecnica di base completata nel campo della costruzione e della manutenzione (ingegneria civile HFP, ingegneria o formazione equivalente)\n• Prove esperienze di gestione e gestione dei progetti per progetti nuovi e di ristrutturazione, forte senso di responsabilità, alta competenza sociale, capacità di comunicazione, così come il processo decisionale e la forza di attuazione\n• Diversi anni di esperienza nel mantenimento della costruzione di proprietà, nel supporto di nuovi progetti di costruzione e nel settore della gestione di edifici complessi, preferibilmente in un'azienda con requisiti di sicurezza speciali\n• Alta resilienza, indipendenza e pensiero in rete nelle aree di costruzione, HVAC e ingegneria elettrica\n• Età minima: 35 anni, buona reputazione (estratto di registro puntuale e di applicazione)\n\nIl vostro ambiente di lavoro\n\nLa prigione di Lenzburg cura le persone condannate all'incarcerazione o a una misura di custodia. L'offerta comprende 380 posti di prigionia per carcere chiuso, detenzione pre-triale e brevi frasi.\n\nVantaggi\nSoggiornare sano\n• Gestione della salute professionale olistica per promuovere il benessere fisico, mentale e sociale\n• Attività sportive\nAvanti.\n• Varie ulteriori opportunità di sviluppo, tra cui l'istruzione interna con oltre 180 seminari\n• Partecipazione ai costi della formazione esterna per accordo\nAbbastanza sicuro\n• 16 settimane di congedo di maternità\n• 2 settimane di congedo di paternità con pagamento completo\n• Copriamo circa il 60% dei contributi PK\n\n• Pensum: 80 - 100%\n• Occupazione: indefinito\n• Dipartimento: DVI AJV JVA Lenzburg\n• Luogo di lavoro: Lenzburg",
+        "en": "Exciting tasks await:\n• Management of the three departments Technical Service, Construction Service and Company Carpentry with a total of 6 employees\n• Responsibility for infrastructure, renovation and maintenance works/projects taking into account/guaranteeing a high level of operational security (HLKKS, electric, water, telephony, IT networks) incl. Budgeting, planning, implementation and accounting\n• Main contact for (conversion) construction projects and ensuring smooth communication with the Real Estate Aargau department (IMAG)\n\nWhat you bring:\n• Basic technical education and training completed in the field of construction and maintenance (civil engineering HFP, engineering or equivalent training)\n• Proven project management and management experience with regard to new and renovation projects, strong sense of responsibility, high social competence, communication skills, as well as decision-making and implementation strength\n• Several years of experience in the construction maintenance of properties, in the support of new construction projects and in the area of complex building management, preferably in a company with special security requirements\n• High resilience, independence and networked thinking in the areas of construction, HVAC and electrical engineering\n• Minimum age: 35 years, good repute (punitive and enforcement register extract)\n\nYour working environment\n\nThe Lenzburg Prison provides care for persons who have been sentenced to imprisonment or to a custodial measure. The offer includes 380 prison places for closed prison, pre-trial detention and short sentences.\n\nBenefits\nStaying healthy\n• Holistic occupational health management to promote physical, mental and social well-being\n• Various sports activities\nMoving forward\n• Various further development opportunities including internal education with over 180 seminars\n• Participation in the costs of external training by agreement\nFairly secured\n• 16 weeks of full pay maternity leave\n• 2 weeks paternity leave with full pay\n• We cover around 60% of PK contributions\n\n• Pensum: 80 - 100%\n• Employment: indefinite\n• Department: DVI AJV JVA Lenzburg\n• Place of work: Lenzburg",
+        "fr": "Des tâches passionnantes attendent:\n• Gestion des trois départements Service technique, Service de la construction et menuiserie d'entreprise avec un total de 6 employés\n• Responsabilité des infrastructures, des travaux de rénovation et d'entretien/projets prenant en compte/garantissant un niveau élevé de sécurité opérationnelle (HLKKS, électricité, eau, téléphonie, réseaux informatiques) y compris: Budgétisation, planification, exécution et comptabilité\n• Contact principal pour les projets de construction (conversion) et assurer une communication en douceur avec le département Immobilier Argovie (IMAG)\n\nCe que vous apportez :\n• Enseignement technique de base et formation dans le domaine de la construction et de l ' entretien (ingénierie civile, ingénierie ou formation équivalente)\n• Expérience éprouvée en matière de gestion et de gestion de projets nouveaux et de rénovation, sens des responsabilités, compétence sociale élevée, compétences en communication, ainsi que de prise de décisions et de mise en œuvre\n• Plusieurs années d'expérience dans l'entretien des bâtiments, dans l'appui aux nouveaux projets de construction et dans le domaine de la gestion complexe des bâtiments, de préférence dans une entreprise ayant des exigences particulières en matière de sécurité\n• Haute résilience, indépendance et pensée en réseau dans les domaines de la construction, du CVC et du génie électrique\n• Âge minimum: 35 ans, bonne réputation (extrait de registre punitif et d'exécution)\n\nVotre environnement de travail\n\nLa prison de Lenzburg s ' occupe des personnes condamnées à une peine d ' emprisonnement ou à une mesure privative de liberté. L'offre comprend 380 lieux de détention pour les détenus fermés, la détention provisoire et les peines de courte durée.\n\nAvantages\nRester en bonne santé\n• Gestion globale de la santé au travail pour promouvoir le bien-être physique, mental et social\n• Activités sportives diverses\nAller de l'avant\n• Diverses possibilités de développement, y compris l'éducation interne, avec plus de 180 séminaires\n• Participation par accord aux coûts de la formation externe\nJustement sécurisé\n• 16 semaines de congé de maternité à plein salaire\n• 2 semaines de congé de paternité à plein salaire\n• Nous couvrons environ 60% des contributions PK\n\n• Pensum: 80 - 100%\n• Emploi indéfini\n• Département: DVI AJV JVA Lenzburg\n• Lieu de travail: Lenzburg"
       },
-      "needsRetranslation": true,
       "location": "Lenzburg",
       "canton": "AG",
       "url": "https://jobs.ag.ch/offene-stellen/leiterin-leiter-bau-und-unterhalt/7f95acb9-6be8-405e-b029-592684aec8f8",
@@ -6232,11 +6231,19 @@
       "department": "DVI AJV JVA Lenzburg",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch",
+          "leiterin-leiter-bau-e-unterhalt-kanton-aargau-lenzburg"
+        ],
+        "en": [
+          "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch"
+        ],
+        "fr": [
           "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch"
+        "leiterin-leiter-bau-und-unterhalt-kanton-aargau-ch",
+        "leiterin-leiter-bau-e-unterhalt-kanton-aargau-lenzburg"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
