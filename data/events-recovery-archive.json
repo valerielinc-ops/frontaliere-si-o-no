@@ -3,6 +3,16 @@
   "source": "gsc-coverage-2026-10-14",
   "sourceSnapshots": [
     {
+      "commit": "afb8f06d16bcf0c6394d0e19812e40da4b424f4e",
+      "generatedAt": "2026-08-16T06:44:47.417Z",
+      "matchedRecords": 1
+    },
+    {
+      "commit": "0b1b197f39485fe8a18a2bef85b43f379ec0d365",
+      "generatedAt": "2026-08-29T12:22:11.602Z",
+      "matchedRecords": 6
+    },
+    {
       "commit": "c0bf09df28d1809fa465427cf19d61e575ca4f42",
       "generatedAt": "2026-10-14T12:41:39.624Z",
       "matchedRecords": 11
@@ -746,6 +756,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "sentimento-e-osservazione-2026-09-13"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-08-29"
         }
       ]
     },
@@ -1960,6 +1975,11 @@
           "canton": "GE",
           "comune": "geneve",
           "slug": "atelier-photographier-lart-en-ville-avec-son-smartphone-2026-09-01"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-photographier-lart-en-ville-avec-son-smartphone-2026-08-29"
         }
       ]
     },
@@ -5053,6 +5073,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "nel-respiro-degli-oceani-luca-vaime-2026-08-12"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "nel-respiro-degli-oceani-luca-vaime-2026-08-29"
         }
       ]
     },
@@ -5390,6 +5415,11 @@
           "canton": "TI",
           "comune": "Centovalli",
           "slug": "stratigrafie-felicita-bianchi-duyne-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "stratigrafie-felicita-bianchi-duyne-2026-08-29"
         }
       ]
     },
@@ -12318,6 +12348,11 @@
           "canton": "TI",
           "comune": "mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-08-16"
         }
       ]
     },
@@ -13018,6 +13053,44 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "le-grand-pyjama-avec-anne-herbauts-pour-enfants-et-adultes-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:derive-resiste",
+      "title": "Ce qui dérive résiste encore",
+      "startDate": "2026-08-29",
+      "endDate": "2026-09-06",
+      "canton": "GE",
+      "comune": "Genève",
+      "url": "https://www.geneve.ch/agenda/derive-resiste",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "category": "Exposition",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "ce-qui-derive-resiste-encore-2026-08-29"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:theatre-orangerie-saison-2026",
+      "title": "Le TO ! Théâtre de l'Orangerie - saison 2026",
+      "startDate": "2026-08-29",
+      "endDate": "2026-09-05",
+      "canton": "GE",
+      "comune": "Genève",
+      "url": "https://www.geneve.ch/agenda/theatre-orangerie-saison-2026",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "category": "Spectacle - Théâtre",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "le-to-theatre-de-lorangerie-saison-2026-2026-08-29"
         }
       ]
     }

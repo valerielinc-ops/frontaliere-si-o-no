@@ -32,7 +32,7 @@ for (const event of archived) {
 
 describe('reported GSC event archive coverage', () => {
   it('keeps every attested reported route attached to its exact public identity', () => {
-    expect(fixture.routes).toHaveLength(365);
+    expect(fixture.routes).toHaveLength(372);
     expect(new Set(fixture.routes.map(([path]) => path)).size).toBe(fixture.routes.length);
     for (const [path, id] of fixture.routes) {
       const canonical = canonicalOwners.get(path);
