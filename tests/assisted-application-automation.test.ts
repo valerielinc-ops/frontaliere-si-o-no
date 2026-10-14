@@ -19,7 +19,7 @@ const {
   runAutomationSweep,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
-const { OWNER_REVIEW_MS, CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -130,11 +130,11 @@ describe('applying events', () => {
   it('moves the flow, mirrors the clock on the order and runs the effects', async () => {
     const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
     expect(result).toMatchObject({ ok: true, fromState: 'drafting' });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'owner_review', deadlineAt: T0 + 1000 + OWNER_REVIEW_MS });
-    expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'owner_review', automationDueAt: T0 + 1000 + OWNER_REVIEW_MS });
-    expect(effects).toEqual([{ type: 'email', kind: 'owner_review', held: false, flags: [] }]);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', deadlineAt: T0 + 1000 + CANDIDATE_REVIEW_MS });
+    expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'candidate_review', automationDueAt: T0 + 1000 + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS });
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: false, round: 1 }]);
     const audit = store.list(`${ORDER_PATH}/events/`).map((path) => store.read(path));
-    expect(audit.some((entry) => entry?.eventType === 'draft_ready' && entry?.toState === 'owner_review')).toBe(true);
+    expect(audit.some((entry) => entry?.eventType === 'draft_ready' && entry?.toState === 'candidate_review')).toBe(true);
   });
 
   it('ignores a runner event of a superseded round', async () => {
@@ -150,7 +150,7 @@ describe('applying events', () => {
     expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({ ok: true });
     expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({ ignored: 'already_applied' });
     expect(store.read(ref.path)).toMatchObject({ result: 'applied' });
-    expect(effects.filter((effect) => effect.kind === 'owner_review')).toHaveLength(1);
+    expect(effects.filter((effect) => effect.kind === 'candidate_review')).toHaveLength(1);
   });
 
   it('never leaves an event marked applied when its transition failed: the redelivery applies it', async () => {
@@ -170,7 +170,7 @@ describe('applying events', () => {
     expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('drafting');
     expect(await handleRunnerEvent({ db: flaky, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({ ok: true });
     expect(store.read(ref.path)).toMatchObject({ appliedAt: T0, result: 'applied' });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('owner_review');
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('candidate_review');
   });
 });
 
@@ -379,18 +379,19 @@ describe('owner queue', () => {
 });
 
 describe('sweep', () => {
-  it('fires the owner clock, then the candidate clock', async () => {
+  it('fires the candidate reminder and then the automatic submission clock', async () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     effects = [];
 
-    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 + OWNER_REVIEW_MS - 1 })).toMatchObject({ ticks: 0 });
-    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: T0 + OWNER_REVIEW_MS })).toMatchObject({ ticks: 1 });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('candidate_review');
-    expect(effects).toEqual([{ type: 'email', kind: 'candidate_review', held: false, round: 1 }]);
+    const candidateReminder = T0 + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS;
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: candidateReminder - 1 })).toMatchObject({ ticks: 0 });
+    expect(await runAutomationSweep({ db: store.db, runEffect, nowMs: candidateReminder })).toMatchObject({ ticks: 1 });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', deadlineAt: T0 + CANDIDATE_REVIEW_MS, reminderAt: null });
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_reminder', deadlineAt: T0 + CANDIDATE_REVIEW_MS }]);
 
-    const candidateDeadline = T0 + OWNER_REVIEW_MS + CANDIDATE_REVIEW_MS;
+    const candidateDeadline = T0 + CANDIDATE_REVIEW_MS;
     await runAutomationSweep({ db: store.db, runEffect, nowMs: candidateDeadline });
     expect(store.read(`${ORDER_PATH}/automation/flow`)?.state).toBe('submitting');
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' });
@@ -403,15 +404,8 @@ describe('sweep', () => {
       { id: 'relocation_to_ticino', required: true, question: 'Trasferimento in Ticino?', options: ['yes', 'no'] },
     ] };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft);
-    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     effects = [];
-    await applyAutomationEvent({
-      db: store.db,
-      orderId: ORDER,
-      event: { type: 'tick' },
-      runEffect,
-      nowMs: T0 + OWNER_REVIEW_MS,
-    });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'candidate_review',
       heldBy: ['question:work_permit', 'question:relocation_to_ticino'],
@@ -424,9 +418,9 @@ describe('sweep', () => {
       ...store.read(`${ORDER_PATH}/automation/flow`),
       answers: { work_permit: 'C', relocation_to_ticino: 'yes' },
     });
-    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + OWNER_REVIEW_MS + 1000 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect, nowMs: T0 + 1000 });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [] });
-    expect(store.read(`${ORDER_PATH}/automation/flow`)?.deadlineAt).toBe(T0 + OWNER_REVIEW_MS + 1000 + CANDIDATE_REVIEW_MS);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.deadlineAt).toBe(T0 + 1000 + CANDIDATE_REVIEW_MS);
   });
 
   it('re-dispatches a silent run once, then hands the order to Valerie', async () => {

@@ -2,9 +2,11 @@
  * Approval flow of the automated assisted application (owner decision
  * 2026-09-30):
  *
- *   draft ready ──► owner_review ──(Valerie approves, or 1 h passes)──► candidate_review
+ *   draft ready ──► candidate_review ──(candidate approves, or 12 h pass)──► submitting
+ *                   (an owner flag keeps it in owner_review until Valerie acts)
  *   candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
- *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► owner_review …
+ *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► candidate_review …
+ *     (a regenerated draft with an owner flag enters owner_review instead)
  *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback);
  *     the three are the drafts the candidate was shown (roundsShown), never
  *     one Valerie had written again before it reached them
@@ -320,7 +322,11 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
   switch (event.type) {
     case 'draft_ready':
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
-      effects = enterOwnerReview(next, flags, nowMs);
+      // A clean draft is safe to show to the candidate immediately. The owner
+      // review remains a hard gate for fact, channel, legitimacy and posting
+      // flags, but a normal CV must not wait for an owner acknowledgement just
+      // to start the candidate's own review clock (ownerless automation).
+      effects = flags.owner.length ? enterOwnerReview(next, flags, nowMs) : enterCandidateReview(next, flags, nowMs);
       break;
     case 'draft_failed': {
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
