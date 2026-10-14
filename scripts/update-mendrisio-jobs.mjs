@@ -292,13 +292,26 @@ function isEmptyMendrisioAjaxContainer(html = '') {
 }
 
 function hasMendrisioAjaxUrl(html = '') {
-  const decoded = decodeHtmlEntities(html);
-  const expected = new URL(MENDRISIO_AJAX_URL);
-  return [
-    MENDRISIO_AJAX_URL,
-    `${expected.pathname}${expected.search}`,
-    `${expected.pathname.replace(/^\//, '')}${expected.search}`,
-  ].some((candidate) => decoded.includes(candidate));
+  const dom = new JSDOM(String(html || ''));
+  try {
+    const expected = new URL(MENDRISIO_AJAX_URL);
+    return [...dom.window.document.querySelectorAll('[href], [action]')].some((element) => (
+      ['href', 'action'].some((attribute) => {
+        const decoded = decodeHtmlEntities(element.getAttribute(attribute) || '').trim();
+        if (!decoded) return false;
+        try {
+          const candidate = new URL(decoded, MENDRISIO_CAREERS_URL);
+          return candidate.hostname === expected.hostname
+            && candidate.pathname === expected.pathname
+            && candidate.search === expected.search;
+        } catch {
+          return false;
+        }
+      })
+    ));
+  } finally {
+    dom.window.close();
+  }
 }
 
 function attachFetchDiagnostics(jobs, fetchOutcome, fetchFailureReason) {

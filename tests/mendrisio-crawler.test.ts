@@ -495,7 +495,7 @@ describe('Mendrisio crawler — source-proofed discovery', () => {
     stubMendrisioFetch({
       [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
       [MENDRISIO_CAREERS_URL]: new Response(
-        `<html><body><script>const endpoint = "${MENDRISIO_AJAX_URL}";</script></body></html>`,
+        `<html><body><div id="simapItems1"><a href="${MENDRISIO_AJAX_URL}">Concorsi</a></div></body></html>`,
         { status: 200 },
       ),
     });
@@ -554,6 +554,23 @@ describe('Mendrisio crawler — source-proofed discovery', () => {
     stubMendrisioFetch({
       [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
       [MENDRISIO_CAREERS_URL]: new Response('<html><body><h1>Offerte</h1></body></html>', { status: 200 }),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('selector_miss');
+    expect(Reflect.get(jobs, 'fetchFailureReason')).toMatch(/URL AJAX.*mancante/i);
+  });
+
+  it('keeps an empty AJAX container unproven when the endpoint URL exists only in script and comment text', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<html><body><!-- ${MENDRISIO_AJAX_URL} --><script>const endpoint = "${MENDRISIO_AJAX_URL}";</script></body></html>`,
+        { status: 200 },
+      ),
     });
 
     const jobs = await fetchMendrisioJobs();

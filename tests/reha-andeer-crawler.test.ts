@@ -119,6 +119,22 @@ describe('Reha Andeer — source-proofed discovery', () => {
     expect(result.fetchFailureReason).toMatch(/Offene Stellen/i);
   });
 
+  it('keeps an empty proof unverified when a live PDF is outside the parsed anchor selector', async () => {
+    const result = await fetchAllRehaAndeerJobs({
+      fetchListingHtmlImpl: async () => [
+        '<main>',
+        '  <h2>Offene Stellen</h2>',
+        '  <p>Initiativbewerbungen willkommen.</p>',
+        '  <div class="document-link" data-href="/sites/default/files/2026-10/Stelleninserat-Live.pdf">Stelleninserat</div>',
+        '</main>',
+      ].join(''),
+    });
+
+    expect(result).toMatchObject({ jobs: [], fetchOutcome: 'selector_miss' });
+    expect(isAuthoritativeEmptySnapshot(result.jobs)).toBe(false);
+    expect(result.fetchFailureReason).toContain('unparsed document or announcement link');
+  });
+
   it('keeps a 403 page as an unproven zero with an anti-bot diagnosis', async () => {
     const error = Object.assign(new Error('HTTP 403 from Reha Andeer'), { status: 403 });
     const result = await fetchAllRehaAndeerJobs({

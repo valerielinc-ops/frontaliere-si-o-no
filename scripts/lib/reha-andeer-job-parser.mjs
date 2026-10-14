@@ -61,6 +61,8 @@ const ACCEPT_HINTS_RE = /(stelle|stelleninserat|inserat|bewerb|pflege|masseur|th
 // CMS upload folders that host the Stelleninserate: Drupal public files (the
 // current site) and WordPress uploads (the site until September 2026).
 const UPLOADS_PATH_RE = /\/(?:sites\/default\/files|wp-content\/uploads)\//i;
+const DOCUMENT_PATH_RE = /\.(?:pdf|docx?|odt|rtf|xlsx?|zip)(?:$|[?#])/i;
+const ANNOUNCEMENT_REFERENCE_RE = /(?:stelleninserat|stellenausschreibung|jobangebot|bewerbung|position)/i;
 
 function decodeFilename(raw = '') {
   try {
@@ -201,7 +203,21 @@ function rehaAndeerEmptyPageStructure(html = '') {
       .some((heading) => /\bOffene Stellen\b/i.test(normalizeSpace(heading.textContent || '')));
     const pageText = normalizeSpace(root.textContent || '');
     const hasInitiativeMarker = /\bInitiativbewerbung(?:en)?\b/i.test(pageText);
-    return { hasSectionHeading, hasInitiativeMarker };
+    const hasUnparsedDocumentLink = [...root.querySelectorAll(
+      '[href], [src], [data], [action], [data-href], [data-url]'
+    )].some((element) => {
+      const attributes = ['href', 'src', 'data', 'action', 'data-href', 'data-url']
+        .map((name) => element.getAttribute(name))
+        .filter(Boolean);
+      const text = normalizeSpace(element.textContent || '');
+      return attributes.some((rawValue) => {
+        const value = decodeEntities(rawValue).trim();
+        if (!value || value.startsWith('#')) return false;
+        return DOCUMENT_PATH_RE.test(value)
+          || ANNOUNCEMENT_REFERENCE_RE.test(`${value} ${text}`);
+      });
+    });
+    return { hasSectionHeading, hasInitiativeMarker, hasUnparsedDocumentLink };
   } finally {
     dom.window.close();
   }
@@ -211,6 +227,7 @@ export function isRehaAndeerAuthoritativeEmptyPage(html = '') {
   const structure = rehaAndeerEmptyPageStructure(html);
   return structure.hasSectionHeading
     && structure.hasInitiativeMarker
+    && !structure.hasUnparsedDocumentLink
     && parseRehaAndeerListing(html).length === 0;
 }
 
@@ -222,6 +239,7 @@ function rehaAndeerEmptyEvidence(html) {
   const missing = [];
   if (!structure.hasSectionHeading) missing.push('heading "Offene Stellen"');
   if (!structure.hasInitiativeMarker) missing.push('marker "Initiativbewerbungen"');
+  if (structure.hasUnparsedDocumentLink) missing.push('an unparsed document or announcement link');
   return `Reha Andeer page HTTP 200 at ${PUBLIC_CAREER_URL}: missing ${missing.join(' and ') || 'the empty-page structure'}; 0 Stelleninserat PDF links.`;
 }
 
