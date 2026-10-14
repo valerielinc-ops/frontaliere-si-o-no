@@ -6,7 +6,15 @@ import {
   isBitfinexJob,
   isTrustedDomain,
 } from '../scripts/lib/bitfinex-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  createRecruiteeCountryRefreshHooks,
+  validateRecruiteeSwissEmptySnapshot,
+} from '../scripts/lib/recruitee-country-guard.mjs';
+import {
+  evaluateAuthoritativeSnapshot,
+  SNAPSHOT_VALIDATED_PARTIAL,
+  slugify,
+} from '../scripts/lib/crawler-template.mjs';
 
 const sourceText = 'Engineering teams design reliable systems and maintain high quality through planning testing documentation and collaboration with colleagues and customers. '.repeat(5);
 const offer = (location: Record<string, unknown>, slug = 'systems-engineer') => ({
@@ -93,10 +101,50 @@ describe('Bitfinex crawler parser', () => {
   });
 
   describe('source-backed Swiss location gate', () => {
+    it('uses explicit ISO country codes to verify a foreign-only empty slice', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => response([
+        offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'transaction-monitoring-analyst-9'),
+        offer({ city: 'Caracas', state: 'Distrito Capital', country: 'Venezuela, Bolivarian Republic of', country_code: 'VE' }, 'transaction-monitoring-analyst'),
+      ])));
+
+      const hooks = createRecruiteeCountryRefreshHooks(
+        fetchAllBitfinexJobs,
+        BITFINEX_KEY,
+        SNAPSHOT_VALIDATED_PARTIAL,
+      );
+      const jobs = await hooks.fetchJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.recruiteeCountrySnapshot).toMatchObject({
+        complete: true,
+        offerCount: 2,
+        acceptedOfferCount: 0,
+        rejectedOfferCount: 2,
+        unclassifiedOfferCount: 0,
+        rejectedDetailPaths: [
+          '/o/transaction-monitoring-analyst-9',
+          '/o/transaction-monitoring-analyst',
+        ],
+      });
+      expect(hooks.validateAuthoritativeSnapshot(jobs)).toBe(true);
+      expect(evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: hooks.validateAuthoritativeSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).toEqual({
+        authoritativeSnapshotVerified: true,
+        authoritativeEmptySnapshot: true,
+      });
+      expect(hooks.prepareExistingJobs([{
+        companyKey: BITFINEX_KEY,
+        url: 'https://bitfinex.recruitee.com/o/transaction-monitoring-analyst-9',
+      }])).toEqual([]);
+    });
+
     it('quarantines foreign and unresolved offers instead of assigning the Lugano HQ', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => response([
         offer({ city: 'Bangalore', state: 'Karnātaka', country: 'India', country_code: 'IN' }, 'foreign'),
-        offer({ city: 'Remote', state: 'Worldwide' }, 'unresolved'),
+        offer({ city: 'Remote', state: 'Worldwide', country_code: 'ZZ' }, 'unresolved'),
       ])));
 
       const jobs = await fetchAllBitfinexJobs();
@@ -111,6 +159,8 @@ describe('Bitfinex crawler parser', () => {
         rejectedDetailPaths: ['/o/foreign'],
         unclassifiedDetailPaths: ['/o/unresolved'],
       });
+      expect(validateRecruiteeSwissEmptySnapshot(jobs, SNAPSHOT_VALIDATED_PARTIAL))
+        .toBe(SNAPSHOT_VALIDATED_PARTIAL);
     });
 
     it('keeps a source-backed Swiss offer and emits CH fields', async () => {
