@@ -27694,6 +27694,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ordinanza-animali-compagnia-ue',
+    category: 'novita',
+    date: '2026-10-14T22:26:00.196Z',
+    image: '/images/blog/article-ordinanza-animali-compagnia-ue.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

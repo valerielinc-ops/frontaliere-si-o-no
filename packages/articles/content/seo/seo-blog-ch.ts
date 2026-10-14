@@ -104583,6 +104583,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ordinanza-animali-compagnia-ue': {
+    title: 'Animali da compagnia: modificata l\'ordinanza 2026',
+    description: 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
+    keywords: 'frontalieri, ticino, svizzera, italia, animali, compagnia, modificata, ordinanza',
+    ogTitle: 'Animali da compagnia: modificata l\'ordinanza 2026',
+    ogDescription: 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
+    canonicalPath: '/articoli-svizzera/ordinanza-animali-compagnia-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Animali da compagnia: modificata l'ordinanza 2026",
+      "description": "Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ordinanza-animali-compagnia-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cane accanto a un documento svizzero sull'ordinanza per gli animali da compagnia"
+      },
+      "datePublished": "2026-10-14T22:26:00+00:00",
+      "dateModified": "2026-10-14T22:26:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-animali-compagnia-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -8285,6 +8285,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.liberta-fondo-pene-sostitutive.title': 'Unbezahlte Bussen? Hier erfahren Sie, wer Sie vor dem Gefängnis bewahren kann',
     'blog.article.liberta-fondo-pene-sostitutive.excerpt': 'Der Freiheitsfonds hat fast 100\'000 Franken gesammelt.',
     'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Person mit Strafe und Freiheitsfonds-Symbol, Schweiz',
+    'blog.article.ordinanza-animali-compagnia-ue.title': 'Heimtiere: Verordnung 2026 geändert',
+    'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Der Bundesrat hat die Änderung am 14.',
+    'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Hund neben einem Schweizer Dokument zur Verordnung über Heimtiere',
 };
 
 export default blogMetaChDe;

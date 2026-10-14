@@ -8285,6 +8285,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.liberta-fondo-pene-sostitutive.title': 'Multe non pagate? Ecco chi può salvarvi dal carcere',
     'blog.article.liberta-fondo-pene-sostitutive.excerpt': 'Il Freiheitsfonds ha raccolto quasi 100\'000 franchi.',
     'blog.article.liberta-fondo-pene-sostitutive.imageAlt': 'Persona con multa e simbolo del fondo libertà, Svizzera',
+    'blog.article.ordinanza-animali-compagnia-ue.title': 'Animali da compagnia: modificata l\'ordinanza 2026',
+    'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
+    'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Cane accanto a un documento svizzero sull\'ordinanza per gli animali da compagnia',
 };
 
 export default blogMetaChIt;

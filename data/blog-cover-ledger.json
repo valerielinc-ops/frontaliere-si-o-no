@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5458
+      "6": 5459
     },
-    "publishedCovers": 7039,
+    "publishedCovers": 7040,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5263
+    "inferredRecords": 5264
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187066,6 +187066,33 @@
           "id": "orari-negozi-zurigo-guida",
           "category": "pratico",
           "date": "2026-10-12T02:54:35.799Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ordinanza-animali-compagnia-ue": {
+      "cover": "/images/blog/article-ordinanza-animali-compagnia-ue.webp",
+      "hash": "60648f5f7ff473bc3d0656a7197a0db311670012a56919322456471d5b51c697",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ordinanza-animali-compagnia-ue",
+          "category": "novita",
+          "date": "2026-10-14T22:26:00.196Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
