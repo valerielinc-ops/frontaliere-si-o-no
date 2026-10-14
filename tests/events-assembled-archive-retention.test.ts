@@ -6,6 +6,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { eventDateIssues } from '../scripts/lib/events-date-quality.mjs';
 import { isPrivateEventRecord } from '../scripts/lib/private-event-sources.mjs';
+import { eventRouteForHistory } from '../scripts/lib/events-retention.mjs';
+import { UNRESOLVED_CANTON_KEY } from '../scripts/lib/events-utils.mjs';
 
 const day = (offset: number) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
 const old = { id: 'guidle:old', sourceKey: 'guidle', title: 'Concerto storico', startDate: day(-10), comune: 'Lugano', canton: 'TI' };
@@ -26,6 +28,24 @@ describe('assembled permanent event archive', () => {
 
   it('retains ended public events absent from all source slices', () => {
     expect(retainPublishedPastEvents([], [old])).toEqual([expect.objectContaining({ id: old.id })]);
+  });
+
+  it('preserves observed TI fallback aliases without inventing the actual event canton', () => {
+    const seed = JSON.parse(fs.readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    const unknownIds = ['myswitzerland:fc825d8005a3495eb23e1a7d5ff5b336', 'myswitzerland:b01b0e138bef40e4aea8723b5223cfae', 'myswitzerland:c7c2b5957cf44c61b43bb88f43681982', 'myswitzerland:0b47c321f75c4103af16a10c4b180588'];
+    for (const id of unknownIds) {
+      const event = seed.events.find((row: { id: string }) => row.id === id);
+      expect(event, id).toBeDefined();
+      expect(event.canton).toBe('');
+      expect(eventRouteForHistory(event).canton).toBe(UNRESOLVED_CANTON_KEY);
+      expect(event.previousRoutes).toContainEqual(expect.objectContaining({ canton: 'TI', comune: '__other-events__' }));
+    }
+    const kino = seed.events.find((row: { id: string }) => row.id === 'myswitzerland:69d1950737804d91b726e41270532111');
+    const afterEnd = new Date(Date.parse(`${kino.endDate}T00:00:00Z`) + 86400000).toISOString().slice(0, 10);
+    for (const retained of [retainPublishedPastEvents([kino], [kino], kino.startDate)[0], retainPublishedPastEvents([], [kino], afterEnd)[0]]) {
+      expect(retained.canton).toBe('GR');
+      expect(retained.previousRoutes).toContainEqual(expect.objectContaining({ canton: 'TI', comune: '__other-events__' }));
+    }
   });
 
   it('keeps one explicit route after repeated recovery-only retention passes', () => {

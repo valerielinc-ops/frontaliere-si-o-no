@@ -3,6 +3,11 @@
   "source": "gsc-coverage-2026-10-14",
   "sourceSnapshots": [
     {
+      "commit": "5bee4218f83b9be738c735aa1b704d1cd84ecc4e",
+      "generatedAt": "2026-10-14T07:57:22.346Z",
+      "matchedRecords": 1
+    },
+    {
       "commit": "44238ba45f15c445d3cbdcb087e1c819e3f6787c",
       "generatedAt": "2026-10-03T11:26:54.288Z",
       "matchedRecords": 1
@@ -35,7 +40,7 @@
     {
       "commit": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
       "generatedAt": "2026-07-07T09:25:23.155Z",
-      "matchedRecords": 34
+      "matchedRecords": 36
     },
     {
       "commit": "05decbf4ad175ecaabc9f724027ec540b46d6eff",
@@ -160,7 +165,7 @@
     {
       "commit": "e6f8832cf878a7f384848f61a88a50b3d0a3011d",
       "generatedAt": "2026-08-23T06:48:30.957Z",
-      "matchedRecords": 58
+      "matchedRecords": 59
     },
     {
       "commit": "5a79d4993b6dda6d2fb35fae0d3933c4d0c65b08",
@@ -180,7 +185,7 @@
     {
       "commit": "361460e1c156094800ed0dc97376b2246397c294",
       "generatedAt": "2026-08-15T06:41:01.348Z",
-      "matchedRecords": 47
+      "matchedRecords": 48
     },
     {
       "commit": "bb758a447655f220d7e31e1d378870014649d5c8",
@@ -5429,6 +5434,136 @@
           "canton": "TG",
           "comune": "Kreuzlingen",
           "slug": "xtoberfest-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:fc825d8005a3495eb23e1a7d5ff5b336",
+      "title": "Platzkonzert der Blaskapelle BEWO",
+      "titleByLocale": {
+        "it": "Platzkonzert der Blaskapelle BEWO",
+        "en": "Platzkonzert der Blaskapelle BEWO",
+        "de": "Platzkonzert der Blaskapelle BEWO",
+        "fr": "Platzkonzert der Blaskapelle BEWO"
+      },
+      "startDate": "2026-07-17",
+      "endDate": "2026-07-17",
+      "startTime": "20:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/platzkonzert-der-blaskapelle-bewo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Sternenberg",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "platzkonzert-der-blaskapelle-bewo-2026-07-17"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:b01b0e138bef40e4aea8723b5223cfae",
+      "title": "AquaBaby - Schwimmkurse ab 10 Wochen",
+      "titleByLocale": {
+        "it": "AquaBaby - Schwimmkurse ab 10 Wochen",
+        "en": "AquaBaby - Schwimmkurse ab 10 Wochen",
+        "de": "AquaBaby - Schwimmkurse ab 10 Wochen - Qualitop zertifiziert",
+        "fr": "AquaBaby - Schwimmkurse ab 10 Wochen"
+      },
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-18",
+      "startTime": "02:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/aquababy-schwimmkurse-ab-10-wochen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Therapiebad Luzerner Kantonsspital (LUKS)",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "aquababy-schwimmkurse-ab-10-wochen-2026-07-11"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:69d1950737804d91b726e41270532111",
+      "title": "Kino Tschlin, «Syngué Sabour/Stein der Geduld»",
+      "titleByLocale": {
+        "it": "Kino Tschlin, «Syngué Sabour/Stein der Geduld»",
+        "en": "Kino Tschlin, «Syngué Sabour/Stein der Geduld»",
+        "de": "Kino Tschlin, «Syngué Sabour/Stein der Geduld»",
+        "fr": "Kino Tschlin, «Syngué Sabour/Stein der Geduld»"
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "20:15",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kino-tschlin-syngue-sabourstein-der-geduld/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Tschlin",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:c7c2b5957cf44c61b43bb88f43681982",
+      "title": "Jazz-Matinee Konzert Faulensee",
+      "titleByLocale": {
+        "it": "Jazz-Matinee Konzert Faulensee",
+        "en": "Jazz-Matinee Konzert Faulensee",
+        "de": "Jazz-Matinee Konzert Faulensee",
+        "fr": "Jazz-Matinee Konzert Faulensee"
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2026-08-16",
+      "startTime": "00:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jazz-matinee-konzert-faulensee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Faulensee",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "jazz-matinee-konzert-faulensee-2026-08-16"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:0b47c321f75c4103af16a10c4b180588",
+      "title": "\"Hispania\" par le Poly-Brass Quintet",
+      "titleByLocale": {
+        "it": "\"Hispania\" par le Poly-Brass Quintet",
+        "en": "\"Hispania\" par le Poly-Brass Quintet",
+        "de": "\"Hispania\" par le Poly-Brass Quintet",
+        "fr": "\"Hispania\" par le Poly-Brass Quintet"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "18:00",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hispania-par-le-poly-brass-quintet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "category": "Event",
+      "venue": "Le Brassus",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "hispania-par-le-poly-brass-quintet-2026-08-23"
         }
       ]
     }
