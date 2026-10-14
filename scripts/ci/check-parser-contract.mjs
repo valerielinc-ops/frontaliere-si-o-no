@@ -225,7 +225,9 @@ function* fieldEmissions(masked, fieldSource, { property = true, assignment = tr
 
 const SIMPLE_IDENTIFIER_RE = /^[A-Za-z_$][\w$]*$/;
 const GEOGRAPHY_ADDRESS_FIELDS = 'addressRegion|postalCode|streetAddress';
-const COUNTRY_ALIAS_OPERAND = String.raw`[A-Za-z_$][\w$]*(?:\??\.)?(?:addressCountry|country)`;
+// Un alias nudo (`addressCountry ?? country`) o qualificato (`job?.country`):
+// il prefisso oggetto e' facoltativo, il nome del campo no.
+const COUNTRY_ALIAS_OPERAND = String.raw`(?<![\w$.])(?:[A-Za-z_$][\w$]*\??\.)?(?:addressCountry|country)(?![\w$])`;
 const COUNTRY_ALIAS_CHAIN_RE = new RegExp(
   `(?:${COUNTRY_ALIAS_OPERAND})\\s*(?:\\?\\?|\\|\\|)\\s*(?:${COUNTRY_ALIAS_OPERAND})`,
 );

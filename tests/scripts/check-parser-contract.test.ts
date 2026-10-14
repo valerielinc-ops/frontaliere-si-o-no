@@ -201,8 +201,20 @@ describe('R7 alias paese', () => {
     expect(rulesOf('const sourceCountry = canonicalChCountry(listing.addressCountry || listing.country);\n')).toEqual(['R7']);
   });
 
+  it('boccia anche gli alias locali nudi e quelli con optional chaining', () => {
+    // Rilievo della review della PR 13131: la forma nuda e' quella del contratto.
+    expect(rulesOf('const c = canonicalChCountry(addressCountry ?? country);\n')).toEqual(['R7']);
+    expect(rulesOf('const c = canonicalChCountry(addressCountry || country);\n')).toEqual(['R7']);
+    expect(rulesOf('const c = canonicalChCountry(job?.addressCountry ?? country);\n')).toEqual(['R7']);
+  });
+
   it('accetta gli alias passati separatamente al canonicalizzatore', () => {
     expect(rulesOf('const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);\n')).toEqual([]);
+    expect(rulesOf('const c = canonicalChCountry(addressCountry, country);\n')).toEqual([]);
+  });
+
+  it('non scambia per alias un nome che contiene soltanto la parola country', () => {
+    expect(rulesOf('const c = canonicalChCountry(defaultCountry ?? fallbackCountry);\n')).toEqual([]);
   });
 });
 
