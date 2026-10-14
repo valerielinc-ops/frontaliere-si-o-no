@@ -246,6 +246,37 @@ describe('published image policy', () => {
     }
   });
 
+  it('rejects a same-commit manifest whose image evidence byte count changes during the fetch', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-blog-image-evidence-'));
+    try {
+      const commit = 'a'.repeat(40);
+      const record = generatedArticleHero('article-changing-manifest-bytes');
+      const creditsText = JSON.stringify({
+        schema: 1,
+        section: 'blog',
+        commit,
+        generated: { [record.imageUrl]: record },
+      });
+      const expectedBytes = Buffer.byteLength(creditsText, 'utf8');
+      const manifestFor = (bytes: number) => JSON.stringify({
+        commit,
+        files: { 'data/image-credits-blog.json': bytes },
+      });
+      const responses = [
+        new Response(manifestFor(expectedBytes), { status: 200 }),
+        new Response(creditsText, { status: 200 }),
+        new Response(manifestFor(expectedBytes + 1), { status: 200 }),
+      ];
+      const fetchImpl = vi.fn(async () => responses.shift() as Response);
+
+      await expect(syncPublishedBlogImageEvidence({ root, apiBase: 'https://api.example.test', fetchImpl }))
+        .rejects.toThrow('manifest byte count changed during fetch');
+      expect(fs.existsSync(path.join(root, BLOG_EVIDENCE_SNAPSHOT))).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it.skipIf(SKIP_LIVE_DATA)('accepts a generated event CDN URL only with its valid registry record', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });

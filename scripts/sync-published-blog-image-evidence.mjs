@@ -82,6 +82,10 @@ export async function syncPublishedBlogImageEvidence({
   if (!isRecord(finalManifest) || finalManifest.commit !== manifest.commit) {
     throw new Error(`article API manifest changed during fetch (${manifest.commit} → ${finalManifest?.commit || 'invalid'})`);
   }
+  const finalExpectedBytes = finalManifest.files?.[BLOG_CREDITS_ARTIFACT];
+  if (!isRecord(finalManifest.files) || finalExpectedBytes !== expectedBytes) {
+    throw new Error(`${BLOG_CREDITS_ARTIFACT} manifest byte count changed during fetch (${expectedBytes} → ${finalExpectedBytes ?? 'missing'})`);
+  }
 
   const snapshotPath = path.join(root, SNAPSHOT_PATH);
   fs.mkdirSync(path.dirname(snapshotPath), { recursive: true });
