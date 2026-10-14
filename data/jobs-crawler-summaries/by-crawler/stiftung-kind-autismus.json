@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-10-13T21:40:47.026Z",
+  "generatedAt": "2026-10-14T09:37:53.948Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5808,
-  "avgDurationMs": 5808,
+  "durationMs": 6411,
+  "avgDurationMs": 6411,
   "durationHistory": [
-    5808
+    6411
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:40:34.870Z",
+      "crawledAt": "2026-10-14T09:37:40.598Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -76,12 +76,13 @@
       "companyKey": "stiftung-kind-autismus",
       "companyDomain": "kind-autismus.ch",
       "title": "Lehrstelle Fachfrau/Fachmann Hotellerie-Hauswirtschaft EFZ",
+      "needsRetranslation": true,
       "location": "Urdorf",
       "canton": "ZH",
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:40:34.344Z",
+      "crawledAt": "2026-10-14T09:37:40.043Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,5 +113,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
