@@ -137,6 +137,12 @@ describe('pendingJobAlert', () => {
     expect(consumePendingJobAlert()?.origin).toBe('job_detail_button');
   });
 
+  it('round-trips the anonymous job-detail origin once through auth replay storage', () => {
+    savePendingJobAlert(config, 'job_detail_anonymous');
+    expect(consumePendingJobAlert()).toEqual({ config, origin: 'job_detail_anonymous' });
+    expect(consumePendingJobAlert()).toBeNull();
+  });
+
   it('replays a legacy bare config (stored before the origin was carried) with origin null', () => {
     localStorage.setItem('pending_job_alert', JSON.stringify({ value: config, savedAt: Date.now() }));
     expect(consumePendingJobAlert()).toEqual({ config, origin: null });

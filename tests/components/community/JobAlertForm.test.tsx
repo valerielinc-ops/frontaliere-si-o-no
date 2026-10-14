@@ -456,6 +456,47 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     expect(ctaActions()).toContain('job_detail_button:success');
   });
 
+  it('uses the queued origin when a mounted-form event omits its origin detail', async () => {
+    render(<JobAlertForm authUser={authUser} />);
+    requestJobAlertOpen('infermiere', 'job_detail_anonymous');
+    fireEvent(window, new CustomEvent('openJobAlert', { detail: { keyword: 'infermiere' } }));
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({
+      surface: 'job_detail_anonymous',
+      authPath: 'direct',
+    });
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_anonymous:success'));
+  });
+
+  it('keeps the anonymous detail origin through prefill, auth replay, and created attribution', async () => {
+    localStorage.clear();
+    const onRequireAuth = vi.fn();
+    requestJobAlertOpen('infermiere', 'job_detail_anonymous');
+    const { unmount } = render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+
+    await waitFor(() => expect(document.getElementById('job-alert-form')).not.toBeNull());
+    typeKeywordAndSubmit('infermiere');
+    expect(onRequireAuth).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(localStorage.getItem(PENDING_KEY) || 'null').value).toMatchObject({
+      config: expect.objectContaining({ keywords: ['infermiere'] }),
+      origin: 'job_detail_anonymous',
+    });
+    unmount();
+
+    render(<JobAlertForm authUser={authUser} />);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(analyticsMock.trackJobAlertCreated).toHaveBeenCalledTimes(1));
+    const created = analyticsMock.trackJobAlertCreated.mock.calls[0][0];
+    expect(created).toMatchObject({ surface: 'job_detail_anonymous', authPath: 'post_auth_replay' });
+    expect(ALERT_CTA_SURFACES).not.toContain(created.surface);
+    await waitFor(() => expect(ctaActions()).toContain('job_detail_anonymous:success'));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
   it('a legacy intent without origin stays on the diagnostic post_auth_auto surface', async () => {
     localStorage.setItem(
       PENDING_KEY,

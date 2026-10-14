@@ -9,6 +9,7 @@ import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 const FORM_HANDOFF_ORIGINS = [
   'inline_card',
   'job_detail_button',
+  'job_detail_anonymous',
   'job_board_filters',
   'end_card',
   'sticky_banner',
@@ -28,6 +29,16 @@ describe('job-alert cross-view handoff', () => {
       keyword: 'Tecnologia',
       origin: 'job_detail_button',
     });
+  });
+
+  it('consumes the anonymous detail origin once with its prefilled keyword', () => {
+    requestJobAlertOpen('Tecnologia', 'job_detail_anonymous');
+
+    expect(consumeJobAlertOpen()).toEqual({
+      keyword: 'Tecnologia',
+      origin: 'job_detail_anonymous',
+    });
+    expect(consumeJobAlertOpen()).toBeNull();
   });
 
   it('keeps the legacy inline handoff shape when no origin is supplied', () => {

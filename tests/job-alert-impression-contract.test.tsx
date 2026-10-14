@@ -296,6 +296,91 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
   });
 });
 
+describe('#13201 — direct one-tap acceptance precedes the create request', () => {
+  const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+
+  it.each([
+    'components/community/JobBoardFilterAlertCta.tsx',
+    'components/community/JobMatchAlertCta.tsx',
+    'components/community/JobDetailJobAlertButton.tsx',
+  ])('%s emits exactly one accept before awaiting create and keeps one outcome callback', (rel) => {
+    const src = source(rel);
+    const start = src.indexOf('const handleClick');
+    const end = src.indexOf('}, [', start);
+    const handler = src.slice(start, end);
+    const accept = handler.indexOf('onAccepted?.()');
+    const create = handler.indexOf('await subscribe(');
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    expect(handler.match(/onAccepted\?\.\(\)/g) ?? []).toHaveLength(1);
+    expect(accept).toBeGreaterThanOrEqual(0);
+    expect(create).toBeGreaterThan(accept);
+    expect(handler).toContain('if (onSubscribed) onSubscribed()');
+    expect(handler).toContain('if (onErrored) onErrored(error)');
+  });
+
+  it('wires the accept event to each existing GA4 surface', () => {
+    const board = source('components/community/JobBoard.tsx');
+    for (const [surface, keyword] of [
+      ['job_detail_button', 'selectedJob.title'],
+      ['job_board_filters', 'boardFilterAlertKeywordLabel'],
+      ['job_match_pill', 'jobMatchAlertCategoryLabel'],
+    ]) {
+      expect(board).toContain(
+        `onAccepted={() => Analytics.trackJobAlertCtaClick('${surface}', 'accept', ${keyword})}`,
+      );
+    }
+  });
+});
+
+describe('#13202 — anonymous job-detail origin survives the form and auth replay', () => {
+  it('keeps a dedicated origin and keyword through the single-shot handoff', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(board).toContain('formOrigin="job_detail_anonymous"');
+    expect(board).toContain("Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open'");
+
+    const signal = fs.readFileSync(path.join(ROOT, 'services/jobAlertOpenSignal.ts'), 'utf-8');
+    expect(signal).toContain('requestJobAlertOpen(keyword, origin)');
+    expect(signal).toContain('consumeJobAlertOpen');
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('const queued = consumeJobAlertOpen()');
+    expect(form).toContain('const origin = detail?.origin ?? queued?.origin');
+    expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
+    expect(form).toContain('const replaySurface = pending.origin ?? "post_auth_auto"');
+    expect(form).toContain('persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay")');
+
+    expect(PENDING_JOB_ALERT_ORIGINS).toContain('job_detail_anonymous');
+    expect(ALERT_CTA_SURFACES).not.toContain('job_detail_anonymous');
+    expect(fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8'))
+      .toContain("'job_detail_anonymous' | 'sticky_banner'");
+  });
+});
+
+describe('#13204 — board one-tap preserves only criteria supported by JobAlertConfig', () => {
+  it('passes active location, contract, sector, and canton values beside the category keyword', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(board).toContain('keywordLabel={boardFilterAlertKeywordLabel}');
+    expect(board).toContain("locations: selectedLocation === 'all' ? [] : [selectedLocation]");
+    expect(board).toContain("contractTypes: selectedContract === 'all' ? [] : [selectedContract]");
+    expect(board).toContain("sectors: selectedSector === 'all' ? [] : [selectedSector]");
+    expect(board).toContain('cantonCode={boardFilterAlertCantonCode}');
+
+    const service = fs.readFileSync(path.join(ROOT, 'services/jobAlertService.ts'), 'utf-8');
+    expect(service).toContain("keywords: [stripKeywordEmoji(category)]");
+    expect(service).toContain('locations: [...(filters?.locations ?? [])]');
+    expect(service).toContain('contractTypes: [...(filters?.contractTypes ?? [])]');
+    expect(service).toContain('sectors: [...(filters?.sectors ?? [])]');
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('locations: selectedLocations');
+    expect(form).toContain('contractTypes: selectedContracts');
+    expect(form).toContain('sectors: selectedSectors');
+    expect(form).toContain('cantonFilter: selectedCantons.length > 0 ? selectedCantons : null');
+  });
+});
+
 describe('#7311 — the created event carries the funnel surface dimension', () => {
   it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
     const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');

@@ -309,9 +309,11 @@ export default function JobAlertForm({
  useEffect(() => {
  const handler = (event: Event) => {
  const detail = (event as CustomEvent<{ keyword?: string; origin?: PendingJobAlertOrigin }>).detail;
- consumeJobAlertOpen();
- if (detail?.keyword) setKeyword(detail.keyword);
- setCtaOrigin(detail?.origin ?? 'inline_card');
+ const queued = consumeJobAlertOpen();
+ const keyword = detail?.keyword ?? queued?.keyword;
+ const origin = detail?.origin ?? queued?.origin;
+ if (keyword) setKeyword(keyword);
+ setCtaOrigin(origin ?? 'inline_card');
  setExpanded(true);
  window.setTimeout(() => {
  document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });

@@ -64,9 +64,15 @@ class FakeIO {
 
 function renderButton({
   onImpression = vi.fn(),
+  onAccepted = vi.fn(),
+  onSubscribed = vi.fn(),
+  onErrored = vi.fn(),
   subscribe = vi.fn<SubscribeFn>(async () => baseAlert()),
 }: {
   onImpression?: () => void;
+  onAccepted?: () => void;
+  onSubscribed?: () => void;
+  onErrored?: (error: unknown) => void;
   subscribe?: SubscribeFn;
 } = {}) {
   render(
@@ -76,10 +82,13 @@ function renderButton({
       email="foo@example.com"
       locale="it"
       onImpression={onImpression}
+      onAccepted={onAccepted}
+      onSubscribed={onSubscribed}
+      onErrored={onErrored}
       subscribe={subscribe}
     />,
   );
-  return { onImpression, subscribe };
+  return { onImpression, onAccepted, onSubscribed, onErrored, subscribe };
 }
 
 describe('JobDetailJobAlertButton', () => {
@@ -104,14 +113,40 @@ describe('JobDetailJobAlertButton', () => {
   });
 
   it('reports the impression before a click can create the alert', async () => {
-    const subscribe = vi.fn<SubscribeFn>(async () => baseAlert());
-    const { onImpression } = renderButton({ subscribe });
+    let subscribeStarted = false;
+    const onAccepted = vi.fn(() => expect(subscribeStarted).toBe(false));
+    const subscribe = vi.fn<SubscribeFn>(async () => {
+      subscribeStarted = true;
+      return baseAlert();
+    });
+    const { onImpression, onSubscribed, onErrored, onAccepted: accepted } = renderButton({ subscribe, onAccepted });
 
     await act(async () => {
       fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questo annuncio' }));
     });
 
     expect(onImpression).toHaveBeenCalledTimes(1);
+    expect(accepted).toHaveBeenCalledTimes(1);
     expect(subscribe).toHaveBeenCalledTimes(1);
+    expect(onSubscribed).toHaveBeenCalledTimes(1);
+    expect(onErrored).not.toHaveBeenCalled();
+  });
+
+  it('emits one accept before one error when the create rejects', async () => {
+    let subscribeStarted = false;
+    const onAccepted = vi.fn(() => expect(subscribeStarted).toBe(false));
+    const subscribe = vi.fn<SubscribeFn>(async () => {
+      subscribeStarted = true;
+      throw new Error('boom');
+    });
+    const { onAccepted: accepted, onSubscribed, onErrored } = renderButton({ subscribe, onAccepted });
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questo annuncio' }));
+    });
+
+    expect(accepted).toHaveBeenCalledTimes(1);
+    expect(onErrored).toHaveBeenCalledTimes(1);
+    expect(onSubscribed).not.toHaveBeenCalled();
   });
 });
