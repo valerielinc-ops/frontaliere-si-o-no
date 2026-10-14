@@ -1944,6 +1944,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  const listingMeta = jobCount === null ? null : buildJobBoardListingMetadata(locale, listingCanton, jobCount);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
 
+ // The static article renderer falls back from the true blog-meta title to
+ // the social title, never to the generic SEO title. Keep hydration identical.
  const baseMetaTitle = isApplicationConciergeEntry
  ? localizedSeoContent.title
  : jobSeo
@@ -1952,7 +1954,11 @@ export async function updateMetaTags(section: string): Promise<void> {
  ? dialectTitleByLocale[locale]
  : listingMeta
  ? listingMeta.title
- : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
+ : (hasLocalizedTitle
+ ? localizedTitle
+ : isBlogArticle
+ ? (metadata.ogTitle || metadata.title)
+ : localizedSeoContent.title);
  const baseMetaDescription = isApplicationConciergeEntry
  ? localizedSeoContent.description
  : jobSeo
