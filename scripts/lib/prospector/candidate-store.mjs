@@ -342,6 +342,45 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
 }
 
 /**
+ * Reopen a rejected candidate only after an explicitly opted-in source adapter
+ * has produced a new validation entry. The adapter version is a bounded retry
+ * key: a second bad result under the same version remains terminal.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {string} sourceAdapterVersion
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  const version = String(sourceAdapterVersion || '').trim();
+  if (!candidate || candidate.status !== 'rejected' || !version) return null;
+
+  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  const latest = history.at(-1);
+  const previous = history.at(-2);
+  if (latest?.sourceAdapterVersion !== version
+    || previous?.sourceAdapterVersion === version
+    || candidate.reopenedSourceAdapterVersion === version) return null;
+
+  const tombstones = tombstonesFor(store);
+  if (Object.prototype.hasOwnProperty.call(tombstones, key)) {
+    delete tombstones[key];
+    TOMBSTONE_COUNTS.set(tombstones, Math.max(0, tombstoneCount(tombstones) - 1));
+  }
+
+  const at = new Date().toISOString();
+  candidate.status = 'validated';
+  candidate.updatedAt = at;
+  candidate.reason = `rivalutata con source adapter ${version}`;
+  candidate.reopenedSourceAdapterVersion = version;
+  delete candidate.rejectedAt;
+  appendLedger({ key, from: 'rejected', to: 'validated', at, reason: candidate.reason }, ledgerFile);
+  return candidate;
+}
+
+/**
  * @param {Record<string, any>} entry
  * @param {string} [file]
  */

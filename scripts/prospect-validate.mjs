@@ -19,9 +19,10 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import { loadCandidates, reopenRejectedCandidate, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
+import { sourceCrawlerAdapterFor } from './lib/prospector/source-adapters.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
 import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
@@ -45,6 +46,22 @@ const store = loadCandidates();
 /** @type {Map<string, any>} candidate key by crawler key, ogni stato */
 const byCrawlerKey = new Map();
 for (const c of Object.values(store.candidates)) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
+
+function candidateForSpec(spec) {
+  return (spec.candidateKey && store.candidates[spec.candidateKey])
+    || byCrawlerKey.get(spec.companyKey)
+    || null;
+}
+
+function canRevalidateRejectedCandidate(spec, candidate) {
+  const adapter = sourceCrawlerAdapterFor(spec);
+  if (spec.revalidateRejectedWithSourceAdapter !== true
+    || !adapter?.allowRejectedRevalidation
+    || candidate?.status !== 'rejected') return false;
+  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  return history.at(-1)?.sourceAdapterVersion !== adapter.version
+    && candidate.reopenedSourceAdapterVersion !== adapter.version;
+}
 
 let specs = [];
 try {
@@ -70,8 +87,8 @@ if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
 // per lo slot con chi puo'.
 const DONE_STATUSES = new Set(['production', 'promoting', 'rejected', 'dead']);
 specs = specs.filter((s) => {
-  const c = byCrawlerKey.get(s.companyKey);
-  return !c || !DONE_STATUSES.has(c.status);
+  const c = candidateForSpec(s);
+  return !c || !DONE_STATUSES.has(c.status) || canRevalidateRejectedCandidate(s, c);
 });
 
 // Il filtro qui sopra toglie chi non puo' piu' avanzare, ma fra chi resta
@@ -85,7 +102,7 @@ specs = specs.filter((s) => {
 // l'alfabeto resta solo come spareggio a parita' di data.
 specs.sort((a, b) => {
   const lastAt = (spec) => {
-    const history = byCrawlerKey.get(spec.companyKey)?.validationHistory;
+    const history = candidateForSpec(spec)?.validationHistory;
     return Array.isArray(history) && history.length ? String(history[history.length - 1].at || '') : '';
   };
   return lastAt(a).localeCompare(lastAt(b)) || String(a.companyKey).localeCompare(String(b.companyKey));
@@ -105,22 +122,23 @@ let duplicates = 0;
 const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 
 for (const spec of specs) {
+  const adapter = sourceCrawlerAdapterFor(spec);
   // A tenant we already read is a duplicate whatever its vacancies look like.
   // The URL comparison below is blind when the spec reads a page other than
   // the ATS: `im-bethesda-spital` read the hospital's own jobs page, whose
   // URL-less JSON-LD postings became `jobs.html#job-<hash>`, and was re-graded
   // `good` for weeks on a tenant `bethesda-spital` had been crawling since May
   // (issue 5253). Asked before `runSpec`, so a known duplicate costs no fetch.
-  const tenantOwner = tenantHostOwner(byCrawlerKey.get(spec.companyKey), ownership.byHost);
+  const candidate = candidateForSpec(spec);
+  const tenantOwner = tenantHostOwner(candidate, ownership.byHost);
   if (tenantOwner) {
     duplicates++;
-    const candidate = byCrawlerKey.get(spec.companyKey);
     console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
     setStatus(store, candidate.key, 'rejected', {
       qualityVerdict: 'duplicate',
       qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
       duplicateOf: tenantOwner,
-    });
+    }, dryRun ? null : undefined);
     continue;
   }
 
@@ -131,7 +149,12 @@ for (const spec of specs) {
   let vacancies;
   let errors;
   try {
-    ({ vacancies, errors } = await runSpec(spec));
+    if (adapter) {
+      vacancies = await adapter.fetchJobs();
+      errors = vacancies?.fetchErrors || [];
+    } else {
+      ({ vacancies, errors } = await runSpec(spec));
+    }
   } catch (err) {
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
     continue;
@@ -153,20 +176,22 @@ for (const spec of specs) {
   if (twin) {
     duplicates++;
     console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${twin.key} — ${twin.shared}/${twin.total} annunci gia' coperti`);
-    const candidate = byCrawlerKey.get(spec.companyKey);
     if (candidate) {
       setStatus(store, candidate.key, 'rejected', {
         qualityVerdict: 'duplicate',
         qualityProblems: [`duplica ${twin.key}: ${twin.shared}/${twin.total} annunci gia' presenti in data/jobs/by-crawler/${twin.key}.json`],
         duplicateOf: twin.key,
-      });
+      }, dryRun ? null : undefined);
     }
     continue;
   }
 
   let report;
   try {
-    report = await gradeExtraction(spec, vacancies, { sampleSize });
+    report = await gradeExtraction(spec, vacancies, {
+      sampleSize,
+      detailExtractor: adapter?.detailExtractor,
+    });
   } catch (err) {
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
     continue;
@@ -175,6 +200,7 @@ for (const spec of specs) {
   report.companyHost = spec.companyHost;
   report.platform = spec.platform || null;
   report.mode = spec.mode;
+  report.sourceAdapterVersion = adapter?.version || null;
   report.runErrors = errors;
 
   // Logo obbligatorio quanto jobLike: un candidato la cui azienda non ha un
@@ -192,8 +218,8 @@ for (const spec of specs) {
   const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
   console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
 
-  const candidate = byCrawlerKey.get(spec.companyKey);
   if (candidate) {
+    const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
     const next = report.verdict === 'good' ? 'promoted' : (report.verdict === 'bad' ? 'rejected' : 'validated');
     // Keep a short grading history. A single good grade proves the page parsed
     // ONCE; autonomous promotion needs proof it parses the same way on a
@@ -220,15 +246,35 @@ for (const spec of specs) {
       // (not blocking) — so it must be written on every entry, including null.
       jobLikeRate: report.jobLikeRate ?? null,
       logoFound: report.logoFound,
+      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
     });
+    if (rejectedRevalidation) {
+      const reopened = reopenRejectedCandidate(
+        store,
+        candidate.key,
+        adapter.version,
+        dryRun ? null : undefined,
+      );
+      if (!reopened) {
+        console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} rivalutazione rifiutata: versione adapter gia' usata`);
+        continue;
+      }
+    }
     setStatus(store, candidate.key, next, {
+      crawlerKey: spec.companyKey,
+      domain: candidate.domain || spec.companyHost,
+      careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      ...(rejectedRevalidation && next === 'rejected'
+        ? { reason: report.problems[0] || 'rivalutazione source adapter respinta' }
+        : {}),
       detailEnrichment: spec.detailEnrichment === true,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems: report.problems,
       vacancyCount: report.vacancyCount,
       validationHistory: history.slice(-8),
-    });
+      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
+    }, dryRun ? null : undefined);
   }
 }
 
