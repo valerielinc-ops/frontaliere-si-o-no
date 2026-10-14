@@ -53,6 +53,11 @@
  *   2. It read every file in full (`readFileSync`) to regex a handful of
  *      `<link rel=alternate>` tags that are only ever valid inside `<head>`.
  *      Reads now stop at the first `</head>` (scripts/lib/readHead.mjs).
+ *   3. The target closure used to retain every parsed `<head>` and then clone
+ *      the target pages into a second index. On the 4 GiB post-deploy runner
+ *      that made the larger live corpus OOM before the report was written.
+ *      Keep only parsed metadata, flatten regex captures so they release the
+ *      source head, and reuse the closure Map as the reciprocity index.
  *
  * Both are pure I/O eliminations: the same files are inspected and the same
  * verdicts are produced. On top of that the file walk and the per-file reads
@@ -79,6 +84,7 @@ import { readHeadOrAll } from './lib/readHead.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { findHreflangReciprocityFailures, normalizeHreflangUrl } from './lib/hreflang-reciprocity.mjs';
+import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -130,16 +136,10 @@ export function isHistoricalMissingTarget(html, failureKind) {
 // saturated.
 const IN_FLIGHT = 64;
 
-/** Return a Map<hreflang, href> parsed from one HTML file's <head>.
- *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
-function extractAlternates(html) {
-  const map = new Map();
-  const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
-  let match;
-  while ((match = regex.exec(html)) !== null) {
-    map.set(match[1], match[2]);
-  }
-  return map;
+/** Keep only the parsed state needed after a target head has been inspected. */
+export function summarizeReciprocityTarget(target, html) {
+  target.noindex = isNoindexPage(html);
+  target.alternates = extractAlternates(html);
 }
 
 /** Map an absolute canonical URL to the file that would serve it in dist/. */
@@ -229,7 +229,7 @@ function targetFileFor(href, distFiles) {
 
 function fileToPublicUrl(file, html) {
   const canonical = html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
-  if (canonical) return canonical;
+  if (canonical) return flatString(canonical);
   const rel = path.relative(DIST, file).split(path.sep).join('/');
   if (rel === 'index.html') return `${BASE_URL}/`;
   if (rel.endsWith('/index.html')) return `${BASE_URL}/${rel.slice(0, -'/index.html'.length)}/`;
@@ -268,26 +268,10 @@ async function main() {
     );
   }
 
-  // flatString on every push below: the hrefs come out of `extractAlternates`,
-  // i.e. they are regex captures INTO the page HTML, and a multi-substitution
-  // template literal is a ConsString that keeps them — so one failure would
-  // pin one whole document for the entire corpus walk (class of #7419, issue
-  // #7488 item 3: the flatten sits at the loader boundary, and this is a
-  // SECOND boundary downstream of it). hreflang is emitted by one shared
-  // template, so its degenerate case is not a handful of offenders but every
-  // page at once, and the gate would die of the heap limit instead of
-  // printing the diagnosis it exists to print. Paid per FAILURE, never per
-  // page: a healthy run pays nothing.
-  // flatString on every push below: the hrefs come out of `extractAlternates`,
-  // i.e. they are regex captures INTO the page HTML, and a multi-substitution
-  // template literal is a ConsString that keeps them — so one failure would
-  // pin one whole document for the entire corpus walk (class of #7419; issue
-  // #7488 item 3 is exactly this: the flatten of #7441 sits at the LOADER
-  // boundary and a second boundary downstream of it slips past). hreflang is
-  // emitted by one shared template, so its degenerate case is not a handful
-  // of offenders but every page at once, and the gate would die of the heap
-  // limit instead of printing the diagnosis it exists to print. Paid per
-  // FAILURE, never per page: a healthy run pays nothing.
+  // The shared alternate parser detaches href captures at the read boundary.
+  // Keep failures flat too: this array spans the whole corpus, and downstream
+  // diagnostics can include other regex-derived values. Paid per FAILURE,
+  // never per page: a healthy run pays nothing.
   const failures = {
     /** page has <5 entries (has some hreflang but is incomplete). */
     tooFew: [],
@@ -400,33 +384,47 @@ async function main() {
   // return-link invariant. This keeps sampled runs bounded while still
   // checking both sides of every alternate edge they inspect; a full run
   // naturally closes over the entire local graph.
-  const targetEntries = [...reciprocityTargets.values()];
-  let targetCursor = 0;
+  const targetEntries = reciprocityTargets.values();
   const targetLane = async () => {
-    while (targetCursor < targetEntries.length) {
-      const target = targetEntries[targetCursor++];
+    while (true) {
+      const next = targetEntries.next();
+      if (next.done) return;
+      const target = next.value;
       const html = await readHeadOrAll(target.file);
       if (html === null) continue;
-      reciprocityTargets.set(normalizeHreflangUrl(target.href, BASE_URL), {
-        ...target,
-        html,
-        alternates: extractAlternates(html),
-      });
+      summarizeReciprocityTarget(target, html);
     }
   };
   await Promise.all(
-    Array.from({ length: Math.min(IN_FLIGHT, targetEntries.length) }, () => targetLane()),
+    Array.from({ length: Math.min(IN_FLIGHT, reciprocityTargets.size) }, () => targetLane()),
   );
 
-  const reciprocityPages = [
-    ...reciprocitySources,
-    ...[...reciprocityTargets.values()]
-      .filter((target) => target.alternates && !isNoindexPage(target.html ?? ''))
-      .map((target) => ({ url: target.href, relPath: path.relative(DIST, target.file), alternates: target.alternates })),
-  ];
-  for (const issue of findHreflangReciprocityFailures(reciprocityPages, {
+  // Preserve the prior page set: noindex bridges and unreadable targets are
+  // not reciprocity pages. Delete them before using this Map as the index.
+  for (const [key, target] of reciprocityTargets) {
+    if (!target.alternates || target.noindex) reciprocityTargets.delete(key);
+  }
+
+  // A parsed source can lack an inbound alternate and therefore not occur in
+  // the closure. The old combined page array still indexed it; add that same
+  // fallback in-place, without allocating a second million-entry Map.
+  for (const source of reciprocitySources) {
+    const key = normalizeHreflangUrl(source.url, BASE_URL);
+    if (key && !reciprocityTargets.get(key)?.file) reciprocityTargets.set(key, source);
+  }
+
+  function* reciprocityPages() {
+    yield* reciprocitySources;
+    for (const target of reciprocityTargets.values()) {
+      if (target.file) yield target;
+    }
+  }
+
+  for (const issue of findHreflangReciprocityFailures(reciprocityPages(), {
     baseUrl: BASE_URL,
     skipTarget: isExternallyServedUrl,
+    pageIndex: reciprocityTargets,
+    getPagePath: (page) => page.file ? path.relative(DIST, page.file) : undefined,
   })) {
     failures.missingReturn.push(
       flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),

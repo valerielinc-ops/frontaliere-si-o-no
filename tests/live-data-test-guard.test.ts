@@ -187,8 +187,13 @@ describe('il rilevatore', () => {
   it('copre le radici che la pipeline riscrive, non le baseline pinnate', () => {
     expect(LIVE_DATA_ROOTS).toContain('services/locales/');
     expect(LIVE_DATA_ROOTS).toContain('data/jobs.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/jobs-snapshots-history/');
     expect(LIVE_DATA_ROOTS).toContain('data/prospector/');
+    expect(LIVE_DATA_ROOTS).toContain('data/active-jobs-baseline.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacies-italy-border.json');
     expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino-status.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-italy-status.json');
     expect(LIVE_DATA_ROOTS).toContain('data/blog-cover-ledger.json');
     expect(LIVE_DATA_ROOTS).toContain('data/event-image-library.json');
     expect(LIVE_DATA_ROOTS).toContain('public/sitemap.xml');
@@ -199,9 +204,28 @@ describe('il rilevatore', () => {
     expect(LIVE_DATA_ROOTS).not.toContain('public/sitemap');
     expect(LIVE_DATA_ROOTS.some((root) => 'data/pharmacies-ticino.json'.startsWith(root))).toBe(false);
     expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
-    // Una baseline cambia solo quando qualcuno decide di cambiarla: e' dato
-    // pinnato, e vietarlo renderebbe il guard rumoroso e quindi ignorato.
-    expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
+    // Le soglie SEO restano policy pinnata; solo il contatore operativo
+    // aggiornato dal deploy e' una radice automatica.
+    expect(LIVE_DATA_ROOTS.filter((root) => root.includes('baseline')))
+      .toEqual(['data/active-jobs-baseline.json']);
+  });
+
+  it('lega le radici del bot inventory ai test live, incluso il reciprocity guard SEO', () => {
+    const contracts = [
+      { file: 'tests/seo/rate-baseline-internal-consistency.test.ts', root: 'data/active-jobs-baseline.json' },
+      { file: 'tests/articles-archive-chronological.test.ts', root: 'data/jobs-snapshots-history/' },
+      { file: 'tests/pharmacy-italy-release.test.ts', root: 'data/pharmacies-italy-border.json' },
+      { file: 'tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts', root: 'data/pharmacy-duties-italy-status.json' },
+      { file: 'tests/pharmacies-border-dataset.test.ts', root: 'data/pharmacy-duties-ticino-status.json' },
+      { file: 'tests/sitemap-hreflang-reciprocity.test.ts', root: 'public/sitemap-guides.xml' },
+    ];
+
+    for (const { file, root } of contracts) {
+      expect(LIVE_DATA_ROOTS, `${root} deve restare una radice live`).toContain(root);
+      expect(KNOWN_LIVE_DATA_TESTS.find((entry) => entry.file === file)?.roots, `${file} deve dichiarare ${root}`)
+        .toContain(root);
+      expect(listLiveDataTestsForCi(), `${file} deve restare nella partizione live`).toContain(file);
+    }
   });
 
   it('mantiene il test meta e rimuove i gate di qualita live dalla PR', () => {
