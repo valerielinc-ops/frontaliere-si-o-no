@@ -1,7 +1,7 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-10-13T21:40:31.942Z",
+  "generatedAt": "2026-10-14T09:46:24.339Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5182,
-  "avgDurationMs": 5182,
+  "durationMs": 4351,
+  "avgDurationMs": 4351,
   "durationHistory": [
-    5182
+    4351
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -145,5 +145,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
