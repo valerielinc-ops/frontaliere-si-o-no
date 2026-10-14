@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109662",
+      "sourceKey": "TG",
+      "sourceRecordId": "109662",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "323323",
+      "normalizedPlate": "TG323323",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 700,
+      "bidCount": 11,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109662",
+      "sourceFetchedAt": "2026-10-14T11:57:55.542Z",
+      "lastVerifiedAt": "2026-10-14T11:57:55.542Z",
+      "firstSeenAt": "2026-09-30T05:38:17.759Z",
+      "lastSeenAt": "2026-10-14T11:57:55.542Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "e79e3058a455"
+    }
+  ]
+}

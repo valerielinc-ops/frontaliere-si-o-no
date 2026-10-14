@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-44014",
+      "sourceKey": "ZH",
+      "sourceRecordId": "44014",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "51544",
+      "normalizedPlate": "ZH51544",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1120,
+      "bidCount": 48,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/44014",
+      "sourceFetchedAt": "2026-10-14T11:58:08.114Z",
+      "lastVerifiedAt": "2026-10-14T11:58:08.114Z",
+      "firstSeenAt": "2026-10-08T06:11:46.094Z",
+      "lastSeenAt": "2026-10-14T11:58:08.114Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6a6afa8acce1"
+    }
+  ]
+}
