@@ -4320,15 +4320,35 @@ const EVENT_SLUG_REDIRECT_COPY: Record<Locale, { title: string; body: string; ct
   de: { title: 'Veranstaltungsseite aktualisiert | Frontaliere Ticino', body: 'Die Adresse dieser Veranstaltung hat sich geändert, die Seite bleibt jedoch für Besucher mit einem alten Link, einem Suchergebnis oder einem gespeicherten Kalender erreichbar. Sie werden zur kanonischen Veranstaltung weitergeleitet, mit Datum, Ort, Programm, Teilnahmehinweisen, öffentlichen Quellen und allfälligen Aktualisierungen der Veranstalter. Die neue Adresse ersetzt den alten Link in Ihren Lesezeichen und verweist weiterhin auf dieselbe Veranstaltung.', cta: 'Veranstaltungsseite öffnen' },
   fr: { title: 'Page événement mise à jour | Frontaliere Ticino', body: 'L’adresse de cet événement a changé, mais la page reste accessible aux visiteurs qui arrivent depuis un ancien lien, un résultat de recherche ou un calendrier enregistré. Vous serez redirigé vers la fiche canonique, qui présente la date, le lieu, le programme, les informations pratiques, les sources publiques et les éventuelles mises à jour des organisateurs. La nouvelle adresse remplace l’ancienne dans vos favoris tout en conservant le même événement.', cta: 'Ouvrir la page événement' },
 };
-export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: string): string {
+function eventSlugRedirectFacts(locale: Locale, event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>): string {
+  if (!event) return '';
+  const title = esc(event.title || '');
+  const date = esc(event.startDate || '');
+  const place = esc(event.venue || event.comune || '');
+  const source = esc(event.sourceName || '');
+  const facts: Record<Locale, string> = {
+    it: ` Evento recuperato: ${title}. Data: ${date}. Luogo: ${place}. Fonte pubblica: ${source}.`,
+    en: `Recovered event: ${title}. Date: ${date}. Venue: ${place}. Public source: ${source}.`,
+    de: `Wiederhergestellte Veranstaltung: ${title}. Datum: ${date}. Ort: ${place}. Öffentliche Quelle: ${source}.`,
+    fr: `Événement récupéré : ${title}. Date : ${date}. Lieu : ${place}. Source publique : ${source}.`,
+  };
+  return facts[locale];
+}
+
+export function renderEventSlugRedirectPage(
+  locale: Locale,
+  canonicalPath: string,
+  event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>,
+): string {
   const copy = EVENT_SLUG_REDIRECT_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const body = `${copy.body}${eventSlugRedirectFacts(locale, event)}`;
   const bridge = buildCanonicalBridgePage({
     canonicalUrl,
     pathLabel: canonicalPath,
     title: copy.title,
-    description: copy.body,
-    body: copy.body,
+    description: body,
+    body,
     ctaLabel: copy.cta,
     lang: locale,
     // Changed/moved event URLs are deliberately recoverable entry points. The
@@ -4509,6 +4529,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let skippedLocaleRenders = 0;
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
+      const eventById = new Map(dataset.events.map((event) => [event.id, event]));
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
 
@@ -4531,7 +4552,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
-        const html = renderEventSlugRedirectPage(locale, toPath);
+        const html = renderEventSlugRedirectPage(locale, toPath, eventById.get(migration.eventId));
         const indexPath = path.join(distDir, fromPath, 'index.html');
         const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
         expectedSlugRedirectPaths.add(indexPath);

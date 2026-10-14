@@ -1669,6 +1669,19 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
       expect(countHtmlBodyWords(main), locale).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     }
   });
+
+  it('includes the recovered event facts when the migration has the source record', () => {
+    const html = renderEventSlugRedirectPage('de', '/de/veranstaltungen/tessin/lugano/neu/', {
+      title: 'Sommerkonzert im LAC',
+      startDate: '2026-07-04',
+      venue: 'LAC Lugano Arte e Cultura',
+      comune: 'Lugano',
+      sourceName: 'Tio.ch Agenda',
+    });
+    expect(html).toContain('Sommerkonzert im LAC');
+    expect(html).toContain('LAC Lugano Arte e Cultura');
+    expect(html).toContain('Tio.ch Agenda');
+  });
 });
 
 describe('pruneStaleEventSlugRedirects', () => {
