@@ -5,6 +5,7 @@ import { LIVE_DATA_ROOTS } from './live-data-test-guard.mjs';
 export const LIVE_DATA_ROOT_AUDIT_TITLE = 'Live-data root drift (30-day bot inventory)';
 const AUTOMATED_PR_TITLE = /^chore\((?:data|licenses|images)\):/iu;
 const BOT_AUTHOR = /(?:\[bot\]$|^app\/)/iu;
+const AUDIT_HISTORY_REF = 'refs/remotes/origin/live-data-root-audit-main';
 
 function validRepoPath(value) {
   const file = String(value || '').trim().replaceAll('\\', '/');
@@ -134,6 +135,52 @@ export function ghJson(args, { exec = run, sleep = sleepSync } = {}) {
   throw lastError;
 }
 
+/**
+ * Fetch only the commit and tree objects needed by the path audit, then read
+ * the complete name-only history in one pass. The audit never needs blobs:
+ * fetching them from every data snapshot made the cost grow with repository
+ * size instead of with the 30-day window.
+ */
+export function collectAuditGitHistory({
+  since,
+  historyRef = AUDIT_HISTORY_REF,
+  runGit = run,
+  onTiming = () => {},
+  onCommand = () => {},
+} = {}) {
+  const fetchStarted = Date.now();
+  try {
+    onCommand('fetch');
+    runGit('git', [
+      'fetch',
+      '--no-tags',
+      '--no-auto-gc',
+      '--filter=blob:none',
+      '--shallow-since=' + since,
+      'origin',
+      '+refs/heads/main:' + historyRef,
+    ]);
+  } finally {
+    onTiming('git_fetch_ms', Date.now() - fetchStarted);
+  }
+
+  const logStarted = Date.now();
+  let log;
+  try {
+    onCommand('log');
+    log = runGit('git', [
+      'log', historyRef, '--since=' + since, '--no-renames', '--format=@@%an|%s', '--name-only',
+    ]);
+  } finally {
+    onTiming('git_log_ms', Date.now() - logStarted);
+  }
+  return {
+    log,
+    commitPaths: directBotCommitPaths(log),
+    squashPaths: squashCommitPathsByPullNumber(log),
+  };
+}
+
 function daysAgoDate(days, now = new Date()) {
   const from = new Date(now.getTime() - days * 24 * 60 * 60 * 1000);
   return from.toISOString().slice(0, 10);
@@ -227,8 +274,8 @@ export function resolveAutomatedPullRequestFiles(candidates, { squashPaths, repo
   return { resolved, skippedClosed };
 }
 
-function readOpenPullRequestFiles(repo, number) {
-  const pages = ghJson([
+function readOpenPullRequestFiles(repo, number, read = ghJson) {
+  const pages = read([
     'api', '-X', 'GET', '--paginate', '--slurp',
     'repos/' + repo + '/pulls/' + number + '/files?per_page=100',
   ]);
@@ -236,66 +283,101 @@ function readOpenPullRequestFiles(repo, number) {
 }
 
 async function main(argv = process.argv.slice(2)) {
+  const timings = {};
+  const auditStarted = Date.now();
+  let ghCalls = 0;
+  let gitCommands = 0;
   const daysIndex = argv.indexOf('--since-days');
-  const days = daysIndex >= 0 ? Number(argv[daysIndex + 1]) : 30;
-  if (!Number.isInteger(days) || days < 1 || days > 90) {
-    throw new Error('--since-days deve essere un intero fra 1 e 90');
-  }
-  const repo = String(process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '').trim();
-  if (!repo) throw new Error('GH_REPO o GITHUB_REPOSITORY mancante');
-  const sinceDate = daysAgoDate(days);
-  const since = sinceDate + 'T00:00:00Z';
-  const historyRef = 'refs/remotes/origin/live-data-root-audit-main';
-  run('git', [
-    'fetch',
-    '--no-tags',
-    '--shallow-since=' + since,
-    'origin',
-    '+refs/heads/main:' + historyRef,
-  ]);
-  const log = run('git', [
-    'log', historyRef, '--since=' + since, '--format=@@%an|%s', '--name-only',
-  ]);
-  const commitPaths = directBotCommitPaths(log);
-  const listed = listPullRequestsByDay({ repo, sinceDate });
-  const { resolved, skippedClosed } = resolveAutomatedPullRequestFiles(
-    listed.filter(isAutomatedDataPullRequest),
-    { squashPaths: squashCommitPathsByPullNumber(log), repo, readOpenFiles: readOpenPullRequestFiles },
-  );
-  const { candidates, paths: pullRequestPaths } = automatedPullRequestPaths(resolved);
-  if (skippedClosed) {
-    console.log('live-data-root-audit: ' + skippedClosed
-      + ' PR automatiche chiuse senza merge, nulla su main da verificare');
-  }
-  const audit = auditLiveDataRoots({ directPaths: commitPaths, pullRequestPaths });
-  const runUrl = process.env.GITHUB_RUN_ID && process.env.GITHUB_SERVER_URL
-    ? process.env.GITHUB_SERVER_URL + '/' + repo + '/actions/runs/' + process.env.GITHUB_RUN_ID
-    : '';
-  console.log('live-data-root-audit: ' + commitPaths.length + ' percorsi da commit diretti, '
-    + candidates.length + ' PR automatiche, ' + audit.uncovered.length + ' percorsi fuori inventario');
-  if (!audit.uncovered.length) return 0;
-  if (argv.includes('--dry-run')) {
-    console.log(audit.uncovered.join('\n'));
-    return 0;
-  }
-  const { createGithubIssue } = await import('../lib/github-issue-creator.mjs');
-  const result = await createGithubIssue({
-    title: LIVE_DATA_ROOT_AUDIT_TITLE,
-    description: renderLiveDataRootDrift({
-      sinceDate,
-      commitPaths,
-      pullRequestCount: candidates.length,
+  try {
+    const days = daysIndex >= 0 ? Number(argv[daysIndex + 1]) : 30;
+    if (!Number.isInteger(days) || days < 1 || days > 90) {
+      throw new Error('--since-days deve essere un intero fra 1 e 90');
+    }
+    const repo = String(process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '').trim();
+    if (!repo) throw new Error('GH_REPO o GITHUB_REPOSITORY mancante');
+    const sinceDate = daysAgoDate(days);
+    const since = sinceDate + 'T00:00:00Z';
+    const history = collectAuditGitHistory({
+      since,
+      onTiming: (name, duration) => { timings[name] = duration; },
+      onCommand: () => { gitCommands += 1; },
+    });
+    const readGh = (args) => {
+      ghCalls += 1;
+      return ghJson(args);
+    };
+    const listedStarted = Date.now();
+    let listed;
+    try {
+      listed = listPullRequestsByDay({ repo, sinceDate, read: readGh });
+    } finally {
+      timings.pull_request_list_ms = Date.now() - listedStarted;
+    }
+    const filesStarted = Date.now();
+    let resolved;
+    let skippedClosed;
+    try {
+      ({ resolved, skippedClosed } = resolveAutomatedPullRequestFiles(
+        listed.filter(isAutomatedDataPullRequest),
+        {
+          squashPaths: history.squashPaths,
+          repo,
+          readOpenFiles: (openRepo, number) => readOpenPullRequestFiles(openRepo, number, readGh),
+        },
+      ));
+    } finally {
+      timings.pull_request_files_ms = Date.now() - filesStarted;
+    }
+    const rootEvaluationStarted = Date.now();
+    const { candidates, paths: pullRequestPaths } = automatedPullRequestPaths(resolved);
+    const audit = auditLiveDataRoots({
+      directPaths: history.commitPaths,
       pullRequestPaths,
-      uncovered: audit.uncovered,
-      runUrl,
-    }),
-    priority: 3,
-    labels: ['Bug'],
-    workflow: 'live-data-root-audit',
-    exactTitle: true,
-  });
-  if (!result?.persisted) throw new Error('Issue di drift delle radici non consegnata');
-  return 0;
+    });
+    timings.root_evaluation_ms = Date.now() - rootEvaluationStarted;
+    if (skippedClosed) {
+      console.log('live-data-root-audit: ' + skippedClosed
+        + ' PR automatiche chiuse senza merge, nulla su main da verificare');
+    }
+    const runUrl = process.env.GITHUB_RUN_ID && process.env.GITHUB_SERVER_URL
+      ? process.env.GITHUB_SERVER_URL + '/' + repo + '/actions/runs/' + process.env.GITHUB_RUN_ID
+      : '';
+    console.log('live-data-root-audit: ' + history.commitPaths.length + ' percorsi da commit diretti, '
+      + candidates.length + ' PR automatiche, ' + audit.uncovered.length + ' percorsi fuori inventario');
+    if (!audit.uncovered.length) return 0;
+    if (argv.includes('--dry-run')) {
+      console.log(audit.uncovered.join('\n'));
+      return 0;
+    }
+    const issueStarted = Date.now();
+    try {
+      const { createGithubIssue } = await import('../lib/github-issue-creator.mjs');
+      const result = await createGithubIssue({
+        title: LIVE_DATA_ROOT_AUDIT_TITLE,
+        description: renderLiveDataRootDrift({
+          sinceDate,
+          commitPaths: history.commitPaths,
+          pullRequestCount: candidates.length,
+          pullRequestPaths,
+          uncovered: audit.uncovered,
+          runUrl,
+        }),
+        priority: 3,
+        labels: ['Bug'],
+        workflow: 'live-data-root-audit',
+        exactTitle: true,
+      });
+      if (!result?.persisted) throw new Error('Issue di drift delle radici non consegnata');
+    } finally {
+      timings.issue_create_ms = Date.now() - issueStarted;
+    }
+    return 0;
+  } finally {
+    timings.git_commands = gitCommands;
+    timings.gh_calls = ghCalls;
+    timings.total_ms = Date.now() - auditStarted;
+    console.log('[audit-timing] ' + JSON.stringify(timings));
+  }
 }
 
 if (isInvokedDirectly(import.meta.url)) {

@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import {
   auditLiveDataRoots,
   automatedPullRequestPaths,
+  collectAuditGitHistory,
   dayWindows,
   directBotCommitPaths,
   ghJson,
@@ -107,7 +108,10 @@ describe('audit periodico delle radici dati automatiche', () => {
     const workflow = readFileSync(new URL('../.github/workflows/live-data-gates.yml', import.meta.url), 'utf8');
     expect(workflow).toContain('pull-requests: read');
     expect(workflow).toContain("if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}");
+    expect(workflow).toContain('timeout-minutes: 21');
+    expect(workflow).toContain('timeout --signal=TERM --kill-after=30s 20m');
     expect(workflow).toContain('node scripts/ci/audit-live-data-roots.mjs --since-days 30');
+    expect(workflow).toContain('Audit 30-day live-data roots ha superato il timeout di 20 minuti');
   });
 
   it('l’audit gira dopo i test sui dati vivi: un suo errore non li salta più', () => {
@@ -127,6 +131,34 @@ describe('audit periodico delle radici dati automatiche', () => {
 });
 
 describe('raccolta delle PR automatiche per finestre giornaliere', () => {
+  it('mantiene la raccolta Git in due comandi, indipendentemente dai commit della finestra', () => {
+    const commandCounts = [1, 100].map((commitCount) => {
+      const calls: string[][] = [];
+      const log = Array.from({ length: commitCount }, (_, index) => [
+        '@@github-actions[bot]|snapshot ' + index,
+        'generated/' + index + '.json',
+      ].join('\n')).join('\n');
+      const history = collectAuditGitHistory({
+        since: '2026-09-14T00:00:00Z',
+        historyRef: 'refs/test/live-data-audit-main',
+        runGit: (bin: string, args: string[]) => {
+          calls.push([bin, ...args]);
+          return args[0] === 'log' ? log : '';
+        },
+      });
+
+      expect(history.commitPaths).toHaveLength(commitCount);
+      expect(calls).toHaveLength(2);
+      expect(calls[0]).toContain('--filter=blob:none');
+      expect(calls[0]).toContain('--no-auto-gc');
+      expect(calls[1]).toContain('--no-renames');
+      expect(calls[1]).toContain('--name-only');
+      return calls.length;
+    });
+
+    expect(commandCounts).toEqual([2, 2]);
+  });
+
   it('elenca ogni giorno dalla data di partenza a oggi, estremi inclusi', () => {
     expect(dayWindows('2026-09-29', new Date('2026-10-02T18:00:00Z'))).toEqual([
       '2026-09-29',
