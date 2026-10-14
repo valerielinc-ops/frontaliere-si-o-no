@@ -230,13 +230,21 @@ const decodeInlineHtmlEntities = (value: string): string => value.replace(
 /** Keep article links useful without allowing a source URL to become script. */
 const safeInlineHref = (value: string): string | null => {
  const href = decodeInlineHtmlEntities(value).trim().replace(/^(["'])|(["'])$/g, '');
- if (!href || /[\u0000-\u001f\u007f]/.test(href)) return null;
- if (/^(?:https?:|mailto:)/i.test(href)) return href;
+ if (!href || /[\u0000-\u001f\u007f\\]/.test(href) || href.startsWith('//')) return null;
+ if (/^https?:\/\//i.test(href)) {
+  try { return new URL(href).hostname ? href : null; } catch { return null; }
+ }
+ if (/^mailto:/i.test(href)) return href;
  if (href.startsWith('/') || href.startsWith('#')) return href;
- // Relative article links are valid; scheme-bearing values such as javascript:
- // and data: are not. This also keeps protocol-relative URLs out of the body.
- if (!/^[a-z][a-z\d+.-]*:/i.test(href) && !href.startsWith('//')) return href;
- return null;
+ if (/^\.{1,2}\//.test(href) || href.startsWith('?')) return href;
+ // Reject unsupported schemes, not ordinary relative references. Bare web
+ // hosts and the legacy calculator action are malformed source links: keep
+ // their labels without guessing a scheme or a destination. File names and
+ // relative article paths still resolve against the declared document URL.
+ if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return null;
+ if (/^calculator(?:[?#].*)?$/i.test(href)) return null;
+ if (/^(?:www\.|(?:[a-z0-9-]+\.)+(?:ch|it|com|org|net|gov|edu|eu|io)(?:[/?#]|$))/i.test(href)) return null;
+ return href;
 };
 
 /**
