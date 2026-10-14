@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-10-14T09:41:35.690Z",
+  "assembledAt": "2026-10-14T21:35:32.605Z",
   "jobs": [
     {
       "id": "klinik-susenberg-dc8381234762",
@@ -33,7 +33,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-10-01.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:41:29.336Z",
+      "crawledAt": "2026-10-14T21:35:27.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,6 +63,318 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:31:11.126Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-susenberg-57637f18a2c8",
+      "slug": "formazione-professionale-in-hf-fh-40-60-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "formazione-professionale-in-hf-fh-40-60-klinik-susenberg-zurich",
+        "en": "vocational-trainer-in-hf-fh-40-60-klinik-susenberg-zurich",
+        "de": "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich",
+        "fr": "formateur-professionnel-en-hf-fh-40-60-klinik-susenberg-zurich"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "Berufsbildner/-in HF/FH, 40% - 60%",
+      "titleByLocale": {
+        "it": "Formatore/a HF/FH, 40% - 60%",
+        "en": "Trainer HF/FH, 40% - 60%",
+        "de": "Berufsbildner/-in HF/FH, 40% - 60%",
+        "fr": "Formateur/trice HF/FH, 40% - 60%"
+      },
+      "description": "Persönlich. Engagiert.Berufsbildner/-in HF/FH 40 % - 60 % Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Entwicklung gestalten: Du bringst Ideen ein, entwickelst unsere Ausbildungsqualität aktiv weiter und schaffst ein Umfeld, in dem Lernen Spass macht. Gemeinsam mehr erreichen: In enger Zusammenarbeit mit dem interdisziplinären Team und der Berufsfach- schule sorgst du für eine professionelle und abwechslungsreiche Ausbildung. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Berufsbildnerkurs und/oder SVEB 1, sowie mehrjährige Erfahrung als Dipl. Pflegefachfrau HF/FH. Mindset: Du bist Coach&Motivator. Du begegnest jungen Menschen mit Respekt, Offenheit und einer guten Portion Humor. Skills: Du lebst eine verantwortungsvolle Arbeitsweise und bringst gute IT-Kenntnisse, idealerweise KISIM- Kenntnisse mit.\n\nWir bieten:\n\nEine sinnstiftende Aufgabe mit sichtbarem Impact. Viel Gestaltungsspielraum und Eigenverant- wortung. Bei Bedarf fixe Arbeitstage möglich. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team.",
+      "descriptionByLocale": {
+        "it": "Personale. Engagiert.Berufsbildner/-in HF/FH 40% - 60% Zurigo Hai domande? Shkendie è a tua disposizione. Shkendie Doga Vice Direttore Assistenza infermieristica bewerbung@susenbergklinik.ch 044 268 38 38 La tua responsabilità. Condividere le conoscenze: accompagni e promuovi con impegno i nostri apprendisti e studenti FAGE e contribuisci attivamente al loro sviluppo professionale e personale. Progettare lo sviluppo: porti idee, sviluppi attivamente la nostra qualità della formazione e crei un ambiente in cui l'apprendimento è divertente. Ottenere di più insieme: in stretta collaborazione con il team interdisciplinare e la scuola professionale, garantisci una formazione professionale e varia. La Clinica Susenberg è una clinica specializzata in geriatria acuta, riabilitazione geriatrica e oncologica e cure palliative a Zurigo. Affinché i nostri pazienti possano essere al centro dell'attenzione, è necessaria un'organizzazione che funzioni.\n\nEcco cosa porti con te:\n\nFondamento: corso di formazione professionale e/o FSEA 1, nonché esperienza pluriennale come dipl. Infermiera SSS/SUP. Mentalità: sei un coach e un motivatore. Incontri i giovani con rispetto, apertura e una buona dose di umorismo. Skills: vivi un modo di lavorare responsabile e porti buone conoscenze informatiche, idealmente conoscenze KISIM.\n\nOffriamo:\n\nUn compito significativo con un impatto visibile. Ampio margine di manovra e responsabilità",
+        "en": "Professional training provider 40 % - 60 % Zurich Do you have any questions? Shkendie is at your disposal. Shkendie Doga Stv. Head of nursing application@susenbergklinik.ch 044 268 38 38 Your responsibility. Share your knowledge: You accompany and support our FAGE students with commitment and actively contribute to their professional and personal development. Design development: You actively develop ideas, develop our quality of education and create an environment where learning is fun.\n\nTo achieve more together: In close cooperation with the interdisciplinary team and the vocational school, you are responsible for professional and varied training. The clinic Susenberg is a special clinic for acute acudgeriatry, geriatric and internist-oncological rehabilitation and palliative care on Zurichberg. In order for our patients to be the focus, an organization that works in the background is needed.\n\nYou bring this with you:\n\nFoundation: Professional training course and/or SVEB 1, as well as several years of experience as a graduate nurse HF/FH. Mindset: You are a Coach&Motivator. You treat young people with respect, openness and a good dose of humor. Skills: You live a responsible working method and bring good IT skills, ideally KISIM knowledge.\n\nWe offer:\n\nA sun-throwing task with visible fulfilment of the sel- ty. A lot of creative scope and self-responsibility. Fixed working days possible if required. An appreciative, lively environment, short decision-making paths and a close cooperation in a dedicated team.",
+        "de": "Persönlich. Engagiert.Berufsbildner/-in HF/FH 40 % - 60 % Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Entwicklung gestalten: Du bringst Ideen ein, entwickelst unsere Ausbildungsqualität aktiv weiter und schaffst ein Umfeld, in dem Lernen Spass macht. Gemeinsam mehr erreichen: In enger Zusammenarbeit mit dem interdisziplinären Team und der Berufsfach- schule sorgst du für eine professionelle und abwechslungsreiche Ausbildung. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Berufsbildnerkurs und/oder SVEB 1, sowie mehrjährige Erfahrung als Dipl. Pflegefachfrau HF/FH. Mindset: Du bist Coach&Motivator. Du begegnest jungen Menschen mit Respekt, Offenheit und einer guten Portion Humor. Skills: Du lebst eine verantwortungsvolle Arbeitsweise und bringst gute IT-Kenntnisse, idealerweise KISIM- Kenntnisse mit.\n\nWir bieten:\n\nEine sinnstiftende Aufgabe mit sichtbarem Impact. Viel Gestaltungsspielraum und Eigenverant- wortung. Bei Bedarf fixe Arbeitstage möglich. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team.",
+        "fr": "Fournisseur de formation professionnelle 40 % - 60 % Zurich Avez-vous des questions? Shkendie est à votre disposition. Shkendie Doga Stv. Responsable de l'application infirmière@Susenbergklinik.ch 044 268 38 38 Votre responsabilité. Partagez vos connaissances : Vous accompagnez et soutenez nos étudiants FAGE avec engagement et contribuez activement à leur développement professionnel et personnel.\n\nPour en arriver à plus d'un : En étroite collaboration avec l'équipe interdisciplinaire et l'école professionnelle, vous êtes responsable de la formation professionnelle et variée. La clinique Susenberg est une clinique spéciale pour l'aggloméré aigu, la réhabilitation gériatrique et interniste-oncologique et les soins palliatifs sur Zurichberg.\n\nTu amènes ça avec toi :\n\nFondation : Cours de formation professionnelle et/ou SVEB 1, ainsi que plusieurs années d'expérience comme infirmière diplômée HF/FH. Mindset : Vous êtes entraîneur et motivateur. Vous traitez les jeunes avec respect, ouverture et une bonne dose d'humour.\n\nNous offrons:\n\nUne tâche de première main avec réalisation visible du sel-ty. Beaucoup de créativité et d'auto-responsabilité. Jours de travail fixes possible si nécessaire. Un environnement agréable, animé, de courtes voies de décision et une coopération étroite dans une équipe dédiée."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T21:35:27.545Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "previousSlugs": [
+        "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T17:35:13.482Z",
+      "salaryMin": 54900,
+      "salaryMax": 76800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54900,
+          "maxValue": 76800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-susenberg-a4c20d36a963",
+      "slug": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
+        "en": "dipl-nursing-specialist-hf-fh-with-additional-function-as-vocational-trainer-klinik-susenberg-zurich",
+        "de": "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
+        "fr": "c-est-quoi-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-de-formateur-professionnel-klinik"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "dipl. Pflegefachperson HF/FH mit Zusatzfunktion als Berufsbildner/-in",
+      "titleByLocale": {
+        "it": "Dipl. Infermiere/a professionale HF/FH con funzione aggiuntiva di formatore/trice",
+        "en": "Dipl. Nursing Professional HF/FH with Additional Role as Trainer",
+        "de": "dipl. Pflegefachperson HF/FH mit Zusatzfunktion als Berufsbildner/-in",
+        "fr": "Dipl. Professionnel(le) de soins HF/FH avec fonction supplémentaire de formateur/trice"
+      },
+      "description": "Persönlich. Engagiert.Dipl. Pflegefachperson HF/FH 80% - 100% mit Zusatzfunktion Berufsbildner/-in | Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Menschen im Mittelpunkt: Mit Empathie, Respekt und Fachkompetenz sorgst du für eine individuelle Pflege für unsere Patientinnen und Patienten. Gemeinsam mehr erreichen: In einem interdisziplinären Team gestaltest du eine hochwertige Versorgung und dokumentierst deine Arbeit professionell und zuverlässig. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Dipl. Pflegefachperson HF/FH oder gleichwertige Ausbildung mit Anerkennung in der Schweiz sowie eine Weiterbildung in Palliative Care oder die Bereitschaft, diese zu absolvieren Arbeitsweise: Verantwortungsbewusste und sorgfältige Arbeitsweise im Team sowie die Bereitschaft Schicht-/Wochenenddienste zu übernehmen (keine Nachtdienste). Skills: Du bringst KISIM-Kenntnisse mit und hast den Berufsbildnerkurs und/oder SVEB 1 absolviert.\n\nWir bieten:\n\nMehr als nur ein Arbeitsplatz mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team. Attraktive Benefits: Grosszügige Ferienregelung, Gesundheitsförderung, Personalverpflegung und gute ÖV-Anbindung.",
+      "descriptionByLocale": {
+        "it": "Personale. Impegnato. Infermiere diplomato SSS/SUP 80% - 100% con funzione aggiuntiva Formatore/trice | Zurigo Hai domande? Shkendie è a tua disposizione. Shkendie Doga Vice Direttore Assistenza infermieristica bewerbung@susenbergklinik.ch 044 268 38 38 La tua responsabilità. Le persone al centro: con empatia, rispetto e competenza professionale garantisci un'assistenza personalizzata per i nostri pazienti. Fare di più insieme: in un team interdisciplinare crei un'assistenza di alta qualità e documenti il tuo lavoro in modo professionale e affidabile. Condividere le conoscenze: accompagni e promuovi con impegno i nostri apprendisti e studenti FAGE e contribuisci attivamente al loro sviluppo professionale e personale. La Clinica Susenberg è una clinica specializzata in geriatria acuta, riabilitazione geriatrica e oncologica e cure palliative a Zurigo. Affinché i nostri pazienti possano essere al centro dell'attenzione, è necessaria un'organizzazione che funzioni.\n\nEcco cosa porti con te:\n\nFondamenti: infermiere diplomato SSS/SUP o formazione equivalente con riconoscimento in Svizzera, nonché una formazione continua in cure palliative o la disponibilità a completarla Metodo di lavoro: modalità di lavoro responsabile e meticolosa in team e disponibilità a svolgere turni/fine settimana (nessun servizio notturno). Skills: hai conoscenze KISIM e hai frequentato il corso di formazione professionale e/o",
+        "en": "Personally. Engaged.Dipl. nursing specialist HF/FH 80% - 100% with additional function Professional educator, Zurich Have questions? Shkendie is at your disposal. Shkendie Doga Stv. Head of nursing application@susenbergklinik.ch 044 268 38 38 Your responsibility. People at the centre: With empathy, respect and expertise you provide individual care for our patients. Reach more together: In an interdisciplinary team you design a high-quality care and document your work professionally and reliably.\n\nPassing on knowledge: You accompany and support our FAGE students with commitment and actively contribute to their professional and personal development. The Clinic Susenberg is a special clinic for acute ageriatry, geriatric and internistic oncological rehabilitation and palliative care on Zurichberg. In order for our patients to be the focus, an organization that works in the background needs to be put in place.\n\nYou bring this with you:\n\nFoundation: Dipl. Pflegefachperson HF/FH or equivalent training with recognition in Switzerland as well as further training in Palliative Care or the willingness to complete this work: responsible and careful working methods in the team as well as the willingness to take over shift/weekend services (no night services). Skills: You bring KISIM skills and have completed the vocational training course and/or SVEB 1.\n\nWe offer:\n\nMore than just a workplace with a visible effect. An evaluable, lively environment, short decision-making paths and close cooperation in a dedicated team. Attractively, the company is offering a generous holiday management, health promotion, staff catering and good public transport connections.",
+        "de": "Persönlich. Engagiert.Dipl. Pflegefachperson HF/FH 80% - 100% mit Zusatzfunktion Berufsbildner/-in | Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Menschen im Mittelpunkt: Mit Empathie, Respekt und Fachkompetenz sorgst du für eine individuelle Pflege für unsere Patientinnen und Patienten. Gemeinsam mehr erreichen: In einem interdisziplinären Team gestaltest du eine hochwertige Versorgung und dokumentierst deine Arbeit professionell und zuverlässig. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Dipl. Pflegefachperson HF/FH oder gleichwertige Ausbildung mit Anerkennung in der Schweiz sowie eine Weiterbildung in Palliative Care oder die Bereitschaft, diese zu absolvieren Arbeitsweise: Verantwortungsbewusste und sorgfältige Arbeitsweise im Team sowie die Bereitschaft Schicht-/Wochenenddienste zu übernehmen (keine Nachtdienste). Skills: Du bringst KISIM-Kenntnisse mit und hast den Berufsbildnerkurs und/oder SVEB 1 absolviert.\n\nWir bieten:\n\nMehr als nur ein Arbeitsplatz mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team. Attraktive Benefits: Grosszügige Ferienregelung, Gesundheitsförderung, Personalverpflegung und gute ÖV-Anbindung.",
+        "fr": "Personnellement. Véhicule spécialisé en soins infirmiers HF/FH 80% - 100% avec fonction supplémentaire Enseignant professionnel, Zurich Vous avez des questions? Shkendie est à votre disposition. Shkendie Doga Stv. Responsable de l'application infirmière@susenbergklinik.ch 044 268 38 38 Votre responsabilité. Les personnes au centre : Avec empathie, respect et expertise vous fournissez des soins individuels à nos patients.\n\nLa Clinique Susenberg est une clinique spéciale pour la réadaptation oncologique, la gériatrie et la rééducation oncologique et les soins palliatifs à Zurichberg. Pour que nos patients soient au centre de leur action, il faut mettre en place une organisation qui travaille dans le contexte.\n\nTu amènes ça avec toi :\n\nFondation : Dipl. Pflegefachperson HF/FH ou formation équivalente avec reconnaissance en Suisse ainsi que la formation continue en soins palliatifs ou la volonté de compléter ce travail : méthodes de travail responsables et prudentes dans l'équipe ainsi que la volonté de reprendre les services de poste/fin de semaine (pas de service de nuit).\n\nNous offrons:\n\nPlus qu'un lieu de travail à effet visible. Un environnement évaluable et animé, de courts chemins de décision et une coopération étroite dans une équipe dédiée. Attirant, l'entreprise offre une gestion généreuse des vacances, la promotion de la santé, la restauration du personnel et de bonnes connexions de transport public."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T21:35:27.339Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+        "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+          "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T22:35:10.897Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-susenberg-775970114f1b",
+      "slug": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
+        "en": "professional-expert-health-efz-with-additional-function-as-a-vocational-trainer-klinik-susenberg-zurich",
+        "de": "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
+        "fr": "professional-expert-health-efz-avec-une-fonction-supplementaire-de-formateur-professionnel-klinik-susenberg-zurich"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "Fachmann/Fachfrau Gesundheit EFZ mit Zusatzfunktion als Berufsbildner/-in",
+      "titleByLocale": {
+        "it": "Operatore/Operatrice sanitario/a EFZ con funzione aggiuntiva di formatore professionale",
+        "en": "Health Care Professional EFZ with Additional Role as Trainer",
+        "de": "Fachmann/Fachfrau Gesundheit EFZ mit Zusatzfunktion als Berufsbildner/-in",
+        "fr": "Professionnel/Professionnelle de la santé EFZ avec fonction supplémentaire de formateur/trice"
+      },
+      "description": "Komm zu uns und erlebe ein Arbeitsumfeld, in dem Wertschätzung, Teamgeist und Freude an der Arbeit im Mittelpunkt stehen! Per sofort oder nach Vereinbarung suchen wir Verstärkung einer/eines Fachfrau/-mann Gesundheit (FAGE) 80 % - 100 % mit der Zusatzfunktion als Berufsbildner/-in Die Klinik Susenberg in Zürich ist eine kleine Spezialklinik mit 34 Betten an idyllischer Lage am Zürichberg. Wir begleiten unsere Patientinnen und Patienten ganzheitlich in Akutgeriatrie, rehabilitativer Pflege und Palliative Care, stets mit einem patientenzentrierten Ansatz. Die Klinik Susenberg verfügt über das Label \"Qualität in Palliative Care\" von qualitépalliativeⓆ.\n\nDeine \n• Aufgaben bei uns:\n\n− Du unterstützt unser Pflegeteam im Alltag und führst delegierte pflegerische sowie administrative Tätigkeiten aus. − Du arbeitest eng mit diplomierten Pflegefachpersonen zusammen und trägst zu einer hochwertigen Patientenversorgung bei. − Du unterstützt, begleitest und berätst unsere Lernenden und Studierenden aktiv im Berufsalltag. − Du sorgst für einen klaren und effizienten Informationsfluss im interdisziplinären Team. − Du bringst dich aktiv in die Zusammenarbeit verschiedener Berufsgruppen ein.\n\nDein Profil:\n\n− Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ oder gleichwertig. − Erfahrung in der Akutpflege und als Berufsbildner/-in ist von Vorteil. − Du engagierst dich für eine teamorientierte und interdisziplinäre Zusammenarbeit und begegnest neuen Herausforderungen offen und positiv. − Bereitschaft zu Schicht- und Wochenenddiensten (keine Nachtdienste). − Du bist innovativ, kreativ, flexibel und belastbar. − Sehr gute Deutsch- und PC-Anwenderkenntnisse, KISIM-Kenntnisse sind von Vorteil. − Wiedereinsteiger/-innen sind herzlich willkommen.\n\nWarum Du es bei uns lieben wirst:\n\n− Gesundheitsfördernde Massnahmen sowie gezielte Fort- und Weiterbildungsmöglichkeiten. − Zeitgemässe Entlöhnung und eine ausgewogene Work-Life-Balance. − Attraktive Goodies für mehr Lebensqualität: Feines Birchermüesli in der Pause, täglich frische Menu- auswahl zu vergünstigten Preisen, gratis Getränke sowie diverse Mitarbeiterevents. − Ein familiäres Arbeitsumfeld mit engem Austausch im interdisziplinären Team. − Gute ÖV-Anbindung ab Zürich HB sowie Beteiligung an Mobilitätskosten. Für weitere Informationen steht Dir Shkendie Doga, Stv. Leitung Pflege, Telefon 044 268 38 69, gerne zur Verfügung. Deine vollständigen Bewerbungsunterlagen mit Foto sendest Du bitte an: bewerbung@susenbergklinik.ch. Es werden ausschliesslich Direktbewerbungen berücksichtigt.",
+      "descriptionByLocale": {
+        "it": "Unisciti a noi e vivi un ambiente di lavoro in cui l'apprezzamento, lo spirito di squadra e la gioia di lavorare sono al centro dell'attenzione! Da subito o previo accordo, cerchiamo un rinforzo da parte di un operatore sanitario (FAGE) 80% - 100% con la funzione aggiuntiva di formatore/formatrice professionale La Clinica Susenberg di Zurigo è una piccola clinica specializzata con 34 posti letto in una posizione idilliaca sullo Zürichberg. Accompagniamo i nostri pazienti in modo olistico in geriatria acuta, cure riabilitative e cure palliative, sempre con un approccio centrato sul paziente. La Clinica Susenberg dispone dell'etichetta \"Qualità nelle cure palliative\" diqualitépalliative.\n\nil tuo\n• Compiti presso di noi:\n\n− Supporta il nostro team infermieristico nella vita di tutti i giorni e svolge attività infermieristiche e amministrative delegate. − Lavori a stretto contatto con infermieri diplomati e contribuisci alla cura del paziente di alta qualità. − sostieni, accompagni e consigli attivamente i nostri apprendisti e studenti nella vita professionale quotidiana. − Garantisci un flusso di informazioni chiaro ed efficiente nel team interdisciplinare. − Ti impegni attivamente nella collaborazione tra diversi gruppi professionali.\n\nProfilo\n\n− Formazione completata come specialista/operatore sanitario AFC o equivalente. − L'esperienza nella cura acuta e come formatore/formatrice professionale è un vantaggio. − Ti impegni per una collaborazione orientata al team e interdisciplinare e affronti nuove sfide in modo aperto e positivo. − Disponibilità ai turni e ai servizi del fine settimana (non notturni). − Sei innovativo, creativo, flessibile e resiliente. − Ottima conoscenza del tedesco e degli utenti PC, la conoscenza di KISIM è un vantaggio. − I neofiti sono i benvenuti.\n\nPerché da noi ti piacerà:\n\n− Misure di promozione della salute e opportunità di formazione e perfezionamento mirate. − Remunerazione al passo con i tempi e un equilibrato equilibrio tra lavoro e vita privata. − Piaceri attraenti per una migliore qualità della vita: delizioso muesli Bircher Müesli durante la pausa, menu fresco ogni giorno a prezzi scontati, bevande gratuite e vari eventi per i dipendenti. − Un ambiente di lavoro familiare con uno stretto scambio all'interno di un team interdisciplinare. − Buoni collegamenti di trasporto pubblico dalla stazione centrale di Zurigo e partecipazione ai costi di mobilità. Per ulteriori informazioni, puoi contattare Shkendie Doga, vice Direzione infermieristica, telefono 044 268 38 69, a vostra disposizione. Invia la tua candidatura completa di foto a: bewerbung@susenbergklinik.ch. Saranno prese in considerazione solo le candidature dirette.",
+        "en": "Come join us and experience a work environment where appreciation, team spirit and joy in work are at the core! Effective immediately or by arrangement we are looking for reinforcement of a health professional (FAGE) 80 % – 100 % with the additional role as a trainer/educator. The Klinik Susenberg in Zurich is a small specialty clinic with 34 beds in an idyllic location on the Zürichberg. We accompany our patients holistically in acute geriatrics, rehabilitative care and Palliative Care, always with a patient‑centered approach. Klinik Susenberg holds the label “Quality in Palliative Care” from qualitépalliativeⓆ.\n\nYour\n• Tasks with us:\n\n- You support our nursing team in daily work and perform delegated nursing as well as administrative tasks.\n- You work closely with qualified nursing professionals and contribute to high‑quality patient care.\n- You actively support, accompany and advise our trainees and students in their professional daily life.\n- You ensure a clear and efficient flow of information within the interdisciplinary team.\n- You actively contribute to the collaboration of various professional groups.\n\nYour profile:\n\n- Completed training as a health professional (FAGE) EFZ or equivalent.\n- Experience in acute care and as a trainer/educator is an advantage.\n- You are committed to team‑oriented and interdisciplinary collaboration and meet new challenges openly and positively.\n- Willingness to work shifts and weekends (no night shifts).\n- You are innovative, creative, flexible and resilient.\n- Very good German and PC user skills; KISIM knowledge is an advantage.\n- Career re‑entrants are warmly welcome.\n\nWhy you will love it with us:\n\n- Health‑promoting measures as well as targeted further and continuing education opportunities.\n- Modern remuneration and a balanced work‑life balance.\n- Attractive perks for a better quality of life: fine Birchermüesli during breaks, daily fresh menu selection at discounted prices, free drinks and various employee events.\n- A family‑like work environment with close exchange in the interdisciplinary team.\n- Good public transport connection from Zürich HB and contribution to mobility costs.\n\nFor further information, Shkendie Doga, Deputy Head of Nursing, phone 044 268 38 69, is happy to assist you. Please send your complete application documents with photo to: bewerbung@susenbergklinik.ch. Only direct applications will be considered.",
+        "de": "Komm zu uns und erlebe ein Arbeitsumfeld, in dem Wertschätzung, Teamgeist und Freude an der Arbeit im Mittelpunkt stehen! Per sofort oder nach Vereinbarung suchen wir Verstärkung einer/eines Fachfrau/-mann Gesundheit (FAGE) 80 % - 100 % mit der Zusatzfunktion als Berufsbildner/-in Die Klinik Susenberg in Zürich ist eine kleine Spezialklinik mit 34 Betten an idyllischer Lage am Zürichberg. Wir begleiten unsere Patientinnen und Patienten ganzheitlich in Akutgeriatrie, rehabilitativer Pflege und Palliative Care, stets mit einem patientenzentrierten Ansatz. Die Klinik Susenberg verfügt über das Label \"Qualität in Palliative Care\" von qualitépalliativeⓆ.\n\nDeine \n• Aufgaben bei uns:\n\n− Du unterstützt unser Pflegeteam im Alltag und führst delegierte pflegerische sowie administrative Tätigkeiten aus. − Du arbeitest eng mit diplomierten Pflegefachpersonen zusammen und trägst zu einer hochwertigen Patientenversorgung bei. − Du unterstützt, begleitest und berätst unsere Lernenden und Studierenden aktiv im Berufsalltag. − Du sorgst für einen klaren und effizienten Informationsfluss im interdisziplinären Team. − Du bringst dich aktiv in die Zusammenarbeit verschiedener Berufsgruppen ein.\n\nDein Profil:\n\n− Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ oder gleichwertig. − Erfahrung in der Akutpflege und als Berufsbildner/-in ist von Vorteil. − Du engagierst dich für eine teamorientierte und interdisziplinäre Zusammenarbeit und begegnest neuen Herausforderungen offen und positiv. − Bereitschaft zu Schicht- und Wochenenddiensten (keine Nachtdienste). − Du bist innovativ, kreativ, flexibel und belastbar. − Sehr gute Deutsch- und PC-Anwenderkenntnisse, KISIM-Kenntnisse sind von Vorteil. − Wiedereinsteiger/-innen sind herzlich willkommen.\n\nWarum Du es bei uns lieben wirst:\n\n− Gesundheitsfördernde Massnahmen sowie gezielte Fort- und Weiterbildungsmöglichkeiten. − Zeitgemässe Entlöhnung und eine ausgewogene Work-Life-Balance. − Attraktive Goodies für mehr Lebensqualität: Feines Birchermüesli in der Pause, täglich frische Menu- auswahl zu vergünstigten Preisen, gratis Getränke sowie diverse Mitarbeiterevents. − Ein familiäres Arbeitsumfeld mit engem Austausch im interdisziplinären Team. − Gute ÖV-Anbindung ab Zürich HB sowie Beteiligung an Mobilitätskosten. Für weitere Informationen steht Dir Shkendie Doga, Stv. Leitung Pflege, Telefon 044 268 38 69, gerne zur Verfügung. Deine vollständigen Bewerbungsunterlagen mit Foto sendest Du bitte an: bewerbung@susenbergklinik.ch. Es werden ausschliesslich Direktbewerbungen berücksichtigt.",
+        "fr": "Venez à nous et vivez un environnement de travail où l'appréciation, l'esprit d'équipe et la joie au travail sont au centre! D'emblée ou d'accord, nous cherchons à renforcer une femme/homme de santé spécialisée (FAGE) 80% - 100% avec la fonction supplémentaire d'éducateur professionnel La Clinique Susenberg à Zurich est une petite clinique spéciale avec 34 lits dans un emplacement idyllique sur le Zurichberg.\n\nKlinik Susenberg a le label «Qualité en soins palliatifs» de la qualitépalliativeQ.\n\nVos tâches\n• avec nous:\n\n- Vous aidez notre équipe de soins infirmiers dans la vie quotidienne et vous effectuez des activités de soins infirmiers et administratifs déléguées. - Vous travaillez en étroite collaboration avec des professionnels qualifiés et contribuez à des soins de qualité pour les patients. - Vous soutenez, accompagnez et conseillez activement nos étudiants et étudiants dans le travail quotidien. - Vous assurez un flux d'information clair et efficace dans l'équipe interdisciplinaire. - Vous participez activement à la coopération de différents groupes professionnels.\n\nVotre profil:\n\n- Une formation de spécialiste de la santé ou de l'équivalent. - Une expérience de soins actifs et de professeur professionnel est bénéfique. - Vous êtes déterminé à coopérer en équipe et interdisciplinaire et à relever de nouveaux défis ouvertement et positivement. - Prêt à changer de poste et services de fin de semaine (pas de service de nuit). - Vous êtes innovant, créatif, flexible et résilient. - Très bonne connaissance de l'utilisateur allemand et PC, les compétences KISIM sont bénéfiques. - Les ré-initiateurs sont les bienvenus.\n\nPourquoi tu vas aimer ça avec nous :\n\n- Des mesures de promotion de la santé ainsi que des possibilités de formation continue ciblées. - Des déboursements longs et un équilibre équilibré entre vie professionnelle et vie privée. - Des produits attrayants pour une meilleure qualité de vie : Fine Birchermüesli pendant la pause, une sélection quotidienne de menus frais à prix réduit, des boissons gratuites et divers événements pour les employés. - Un environnement de travail familial avec un échange étroit au sein de l'équipe interdisciplinaire. - Bonne liaison ÖV de Zurich HP et participation aux coûts de mobilité.\n\nLes services de gestion, téléphone 044 268 38 69, sont disponibles. Veuillez envoyer vos documents de demande complets avec photo à: bewerbung@susenbergklinik.ch. Seules les demandes directes sont prises en compte."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T21:35:27.027Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Schreberweg 9",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "previousSlugs": [
+        "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+        "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+          "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T22:24:52.083Z",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-susenberg-d5afd23403c6",
+      "slug": "segretario-a-medico-a-80-100-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "segretario-a-medico-a-80-100-klinik-susenberg-zurich",
+        "en": "medical-secretary-80-100-klinik-susenberg-zurich",
+        "de": "arztsekretar-in-80-100-klinik-susenberg-zurich",
+        "fr": "secretaire-medical-e-80-100-klinik-susenberg-zurich"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "Arztsekretär/-in, 80% - 100%",
+      "titleByLocale": {
+        "it": "Segretario/a medico/a, 80% - 100 %",
+        "en": "Medical Secretary, 80% - 100 %",
+        "de": "Arztsekretär/-in, 80% - 100%",
+        "fr": "Secrétaire médical/e, 80% - 100 %"
+      },
+      "description": "Persönlich. Engagiert.Arztsekretär/-in 80% - 100% | Zürich Hast du Fragen? Rebekka steht dir gerne zur Verfügung. Rebekka Lückl Leitung Verwaltung&Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nDeine Verantwortung:\n\nMitarbeit Patientenadministration: Sicherstellung Leistungserfassung und Verrechnung/Rechnungsstellung, Vorbereitung Codierung, Sachbearbeitung Debitoren- und Kreditorenbuchhaltung (inkl. selbständiges Kreditorenrechnungsmanagement), Abwicklung administrative Tätigkeiten rund um unsere Patienten. Mitarbeit am Empfang: Erste Anlaufstelle bei internen Anliegen, Erfassung und Pflege von Patientendaten etc. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie spezialisierte internistisch-onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nMindset: Wunsch nach einer Allrounder-Tätigkeit, offen «Neues zu lernen», positive Einstellung. Fundament: Grundausbildung im Gesundheitswesen (MPA, DA, FaGe) oder kaufmännische Ausbildung mit Weiterbildung zur Arzt-&Spitalsekretärin. Skills: Zielgerichtete, diskrete und selbständige Arbeitsweise, hohe Dienstleistungsorientierung, Affinität für Zahlen, stilsicheres Deutsch, vernetztes Denken sowie ein freundliches Auftreten.\n\nWir bieten:\n\nVielseitige Tätigkeit mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und enge Zusammenarbeit mit der operativen Leitung Verwaltung&Services. Attraktive Benefits: Gesundheitsförderung und Personalverpflegung.",
+      "descriptionByLocale": {
+        "it": "Personalmente. Dottor Segretario/In 80% - 100% | Zurigo Hai delle domande? Rebekah è a vostra disposizione. Rebekka Lückl Management & Services bewerbung@susenbergklinik.ch 044 268 38\n\nLa vostra responsabilità:\n\nAmministrazione del paziente di cooperazione: garantire la registrazione delle prestazioni e fatturazione / fatturazione, preparazione della codifica, elaborazione dei debitori e dei conti pagabili (incl. gestione delle fatture dei creditori indipendenti), gestione delle attività amministrative intorno ai nostri pazienti. Cooperazione alla ricezione: Primo punto di contatto per le preoccupazioni interne, la raccolta e la manutenzione dei dati dei pazienti, ecc. Klinik Susenberg è una clinica specializzata per geriatria acuta, riabilitazione oncologica geriatrica e interna specializzata e cura palliativa a Zurigoberg. Affinché i nostri pazienti siano al centro, è necessaria un'organizzazione che lavora sullo sfondo.\n\nQuesto è ciò che portate con voi:\n\nMindset: Desiderio per un’attività all-rounder, apertamente “learning new things”, atteggiamento positivo. Fondazione: Formazione di base nel sistema sanitario (MPA, DA, FaGe) o formazione commerciale con ulteriore formazione come segretario medico e ospedaliero. Competenze: metodo di lavoro orientato all'obiettivo, discreto e indipendente, orientamento ad alto servizio, affinità per i numeri, elegante tedesco, pensiero in rete e un aspetto amichevole.\n\nOffriamo:\n\nAttività versatile con effetto visibile. Ambiente accresciuto e vivace, processi decisionali brevi e stretta collaborazione con la gestione operativa di Verwaltungs&Services. Vantaggi interessanti: promozione della salute e catering del personale.",
+        "en": "Personally. Doctor Secretary/-in 80% - 100% | Zurich Do you have questions? Rebekah is at your disposal. Rebekka Lückl Management & Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nYour responsibility:\n\nCooperation patient administration: ensuring performance recording and billing/invoicing, preparation of coding, processing of debtors and accounts payable (incl. independent creditors invoice management), handling of administrative activities around our patients. Cooperation at the reception: First point of contact for internal concerns, collection and maintenance of patient data, etc. Klinik Susenberg is a specialist clinic for acute geriatrics, geriatric and specialized internistic oncological rehabilitation and palliative care at Zurichberg. In order for our patients to be the focus, an organization that works is needed in the background.\n\nThis is what you bring with you:\n\nMindset: Desire for an all-rounder activity, openly “learning new things”, positive attitude. Foundation: Basic training in the health care system (MPA, DA, FaGe) or commercial training with further training as medical and hospital secretary. Skills: goal-oriented, discreet and independent working method, high service orientation, affinity for numbers, stylish German, networked thinking and a friendly appearance.\n\nWe offer:\n\nVersatile activity with visible effect. An appreciative, lively environment, short decision-making processes and close cooperation with the operational management of Verwaltungs&Services. Attractive benefits: health promotion and staff catering.",
+        "de": "Persönlich. Engagiert.Arztsekretär/-in 80% - 100% | Zürich Hast du Fragen? Rebekka steht dir gerne zur Verfügung. Rebekka Lückl Leitung Verwaltung&Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nDeine Verantwortung:\n\nMitarbeit Patientenadministration: Sicherstellung Leistungserfassung und Verrechnung/Rechnungsstellung, Vorbereitung Codierung, Sachbearbeitung Debitoren- und Kreditorenbuchhaltung (inkl. selbständiges Kreditorenrechnungsmanagement), Abwicklung administrative Tätigkeiten rund um unsere Patienten. Mitarbeit am Empfang: Erste Anlaufstelle bei internen Anliegen, Erfassung und Pflege von Patientendaten etc. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie spezialisierte internistisch-onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nMindset: Wunsch nach einer Allrounder-Tätigkeit, offen «Neues zu lernen», positive Einstellung. Fundament: Grundausbildung im Gesundheitswesen (MPA, DA, FaGe) oder kaufmännische Ausbildung mit Weiterbildung zur Arzt-&Spitalsekretärin. Skills: Zielgerichtete, diskrete und selbständige Arbeitsweise, hohe Dienstleistungsorientierung, Affinität für Zahlen, stilsicheres Deutsch, vernetztes Denken sowie ein freundliches Auftreten.\n\nWir bieten:\n\nVielseitige Tätigkeit mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und enge Zusammenarbeit mit der operativen Leitung Verwaltung&Services. Attraktive Benefits: Gesundheitsförderung und Personalverpflegung.",
+        "fr": "Personnellement. Docteur secrétaire/-dans 80% - 100% de Zurich Vous avez des questions ? Rebekah est à votre disposition. Rebekka Lückl Gestion et services bwerbung@susenbergklinik.ch 044 268 38 38\n\nVotre responsabilité :\n\nCoopération administration du patient: assurer l'enregistrement des performances et la facturation/facturation, la préparation du codage, le traitement des débiteurs et des comptes créditeurs (y compris la gestion indépendante des factures des créanciers), le traitement des activités administratives autour de nos patients. Coopération à la réception: Premier point de contact pour les préoccupations internes, collecte et maintenance des données du patient, etc. Klinik Susenberg est une clinique spécialisée dans la gériatrie aiguë, la gériatrie et la réadaptation oncologique et les soins palliatifs à Zurichberg. Pour que nos patients soient au centre de l'attention, une organisation qui fonctionne est nécessaire en arrière-plan.\n\nVoici ce que vous apportez avec vous :\n\nMindset: Désir d'une activité de plus en plus complète, ouvertement apprendre de nouvelles choses, attitude positive. Fondation : Formation de base dans le système de santé (MPA, DA, FaGe) ou formation commerciale avec une formation continue en tant que secrétaire médical et hospitalier. Compétences : méthode de travail orientée vers l'objectif, discrète et indépendante, orientation haut service, affinité pour les chiffres, allemand élégant, pensée en réseau et une apparence amicale.\n\nNous offrons:\n\nActivité polyvalente avec effet visible. Un environnement agréable et animé, de courts processus décisionnels et une étroite collaboration avec la gestion opérationnelle de Verwaltungs&Services. Avantages intéressants: promotion de la santé et restauration du personnel."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Arztsekretaerin_80-100-2026-10-14.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T21:35:26.779Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Verwaltung & Services",
+      "previousSlugs": [
+        "arztsekretar-in-80-100-klinik-susenberg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-80-100-klinik-susenberg-zurich"
+        ],
+        "en": [
+          "arztsekretar-in-80-100-klinik-susenberg-zurich"
+        ],
+        "fr": [
+          "arztsekretar-in-80-100-klinik-susenberg-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-14T09:41:27.976Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -156,320 +468,8 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "klinik-susenberg-57637f18a2c8",
-      "slug": "formazione-professionale-in-hf-fh-40-60-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "it": "formazione-professionale-in-hf-fh-40-60-klinik-susenberg-zurich",
-        "en": "vocational-trainer-in-hf-fh-40-60-klinik-susenberg-zurich",
-        "de": "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich",
-        "fr": "formateur-professionnel-en-hf-fh-40-60-klinik-susenberg-zurich"
       },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "Berufsbildner/-in HF/FH, 40% - 60%",
-      "titleByLocale": {
-        "it": "Formatore/a HF/FH, 40% - 60%",
-        "en": "Trainer HF/FH, 40% - 60%",
-        "de": "Berufsbildner/-in HF/FH, 40% - 60%",
-        "fr": "Formateur/trice HF/FH, 40% - 60%"
-      },
-      "description": "Persönlich. Engagiert.Berufsbildner/-in HF/FH 40 % - 60 % Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Entwicklung gestalten: Du bringst Ideen ein, entwickelst unsere Ausbildungsqualität aktiv weiter und schaffst ein Umfeld, in dem Lernen Spass macht. Gemeinsam mehr erreichen: In enger Zusammenarbeit mit dem interdisziplinären Team und der Berufsfach- schule sorgst du für eine professionelle und abwechslungsreiche Ausbildung. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Berufsbildnerkurs und/oder SVEB 1, sowie mehrjährige Erfahrung als Dipl. Pflegefachfrau HF/FH. Mindset: Du bist Coach&Motivator. Du begegnest jungen Menschen mit Respekt, Offenheit und einer guten Portion Humor. Skills: Du lebst eine verantwortungsvolle Arbeitsweise und bringst gute IT-Kenntnisse, idealerweise KISIM- Kenntnisse mit.\n\nWir bieten:\n\nEine sinnstiftende Aufgabe mit sichtbarem Impact. Viel Gestaltungsspielraum und Eigenverant- wortung. Bei Bedarf fixe Arbeitstage möglich. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team.",
-      "descriptionByLocale": {
-        "it": "Personale. Engagiert.Berufsbildner/-in HF/FH 40% - 60% Zurigo Hai domande? Shkendie è a tua disposizione. Shkendie Doga Vice Direttore Assistenza infermieristica bewerbung@susenbergklinik.ch 044 268 38 38 La tua responsabilità. Condividere le conoscenze: accompagni e promuovi con impegno i nostri apprendisti e studenti FAGE e contribuisci attivamente al loro sviluppo professionale e personale. Progettare lo sviluppo: porti idee, sviluppi attivamente la nostra qualità della formazione e crei un ambiente in cui l'apprendimento è divertente. Ottenere di più insieme: in stretta collaborazione con il team interdisciplinare e la scuola professionale, garantisci una formazione professionale e varia. La Clinica Susenberg è una clinica specializzata in geriatria acuta, riabilitazione geriatrica e oncologica e cure palliative a Zurigo. Affinché i nostri pazienti possano essere al centro dell'attenzione, è necessaria un'organizzazione che funzioni.\n\nEcco cosa porti con te:\n\nFondamento: corso di formazione professionale e/o FSEA 1, nonché esperienza pluriennale come dipl. Infermiera SSS/SUP. Mentalità: sei un coach e un motivatore. Incontri i giovani con rispetto, apertura e una buona dose di umorismo. Skills: vivi un modo di lavorare responsabile e porti buone conoscenze informatiche, idealmente conoscenze KISIM.\n\nOffriamo:\n\nUn compito significativo con un impatto visibile. Ampio margine di manovra e responsabilità",
-        "en": "Professional training provider 40 % - 60 % Zurich Do you have any questions? Shkendie is at your disposal. Shkendie Doga Stv. Head of nursing application@susenbergklinik.ch 044 268 38 38 Your responsibility. Share your knowledge: You accompany and support our FAGE students with commitment and actively contribute to their professional and personal development. Design development: You actively develop ideas, develop our quality of education and create an environment where learning is fun.\n\nTo achieve more together: In close cooperation with the interdisciplinary team and the vocational school, you are responsible for professional and varied training. The clinic Susenberg is a special clinic for acute acudgeriatry, geriatric and internist-oncological rehabilitation and palliative care on Zurichberg. In order for our patients to be the focus, an organization that works in the background is needed.\n\nYou bring this with you:\n\nFoundation: Professional training course and/or SVEB 1, as well as several years of experience as a graduate nurse HF/FH. Mindset: You are a Coach&Motivator. You treat young people with respect, openness and a good dose of humor. Skills: You live a responsible working method and bring good IT skills, ideally KISIM knowledge.\n\nWe offer:\n\nA sun-throwing task with visible fulfilment of the sel- ty. A lot of creative scope and self-responsibility. Fixed working days possible if required. An appreciative, lively environment, short decision-making paths and a close cooperation in a dedicated team.",
-        "de": "Persönlich. Engagiert.Berufsbildner/-in HF/FH 40 % - 60 % Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Entwicklung gestalten: Du bringst Ideen ein, entwickelst unsere Ausbildungsqualität aktiv weiter und schaffst ein Umfeld, in dem Lernen Spass macht. Gemeinsam mehr erreichen: In enger Zusammenarbeit mit dem interdisziplinären Team und der Berufsfach- schule sorgst du für eine professionelle und abwechslungsreiche Ausbildung. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Berufsbildnerkurs und/oder SVEB 1, sowie mehrjährige Erfahrung als Dipl. Pflegefachfrau HF/FH. Mindset: Du bist Coach&Motivator. Du begegnest jungen Menschen mit Respekt, Offenheit und einer guten Portion Humor. Skills: Du lebst eine verantwortungsvolle Arbeitsweise und bringst gute IT-Kenntnisse, idealerweise KISIM- Kenntnisse mit.\n\nWir bieten:\n\nEine sinnstiftende Aufgabe mit sichtbarem Impact. Viel Gestaltungsspielraum und Eigenverant- wortung. Bei Bedarf fixe Arbeitstage möglich. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team.",
-        "fr": "Fournisseur de formation professionnelle 40 % - 60 % Zurich Avez-vous des questions? Shkendie est à votre disposition. Shkendie Doga Stv. Responsable de l'application infirmière@Susenbergklinik.ch 044 268 38 38 Votre responsabilité. Partagez vos connaissances : Vous accompagnez et soutenez nos étudiants FAGE avec engagement et contribuez activement à leur développement professionnel et personnel.\n\nPour en arriver à plus d'un : En étroite collaboration avec l'équipe interdisciplinaire et l'école professionnelle, vous êtes responsable de la formation professionnelle et variée. La clinique Susenberg est une clinique spéciale pour l'aggloméré aigu, la réhabilitation gériatrique et interniste-oncologique et les soins palliatifs sur Zurichberg.\n\nTu amènes ça avec toi :\n\nFondation : Cours de formation professionnelle et/ou SVEB 1, ainsi que plusieurs années d'expérience comme infirmière diplômée HF/FH. Mindset : Vous êtes entraîneur et motivateur. Vous traitez les jeunes avec respect, ouverture et une bonne dose d'humour.\n\nNous offrons:\n\nUne tâche de première main avec réalisation visible du sel-ty. Beaucoup de créativité et d'auto-responsabilité. Jours de travail fixes possible si nécessaire. Un environnement agréable, animé, de courtes voies de décision et une coopération étroite dans une équipe dédiée."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:41:28.901Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Schreberweg 9",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "previousSlugs": [
-        "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T17:35:13.482Z",
-      "salaryMin": 54900,
-      "salaryMax": 76800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54900,
-          "maxValue": 76800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-susenberg-a4c20d36a963",
-      "slug": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "it": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
-        "en": "dipl-nursing-specialist-hf-fh-with-additional-function-as-vocational-trainer-klinik-susenberg-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
-        "fr": "c-est-quoi-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-de-formateur-professionnel-klinik"
-      },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "dipl. Pflegefachperson HF/FH mit Zusatzfunktion als Berufsbildner/-in",
-      "titleByLocale": {
-        "it": "Dipl. Infermiere/a professionale HF/FH con funzione aggiuntiva di formatore/trice",
-        "en": "Dipl. Nursing Professional HF/FH with Additional Role as Trainer",
-        "de": "dipl. Pflegefachperson HF/FH mit Zusatzfunktion als Berufsbildner/-in",
-        "fr": "Dipl. Professionnel(le) de soins HF/FH avec fonction supplémentaire de formateur/trice"
-      },
-      "description": "Persönlich. Engagiert.Dipl. Pflegefachperson HF/FH 80% - 100% mit Zusatzfunktion Berufsbildner/-in | Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Menschen im Mittelpunkt: Mit Empathie, Respekt und Fachkompetenz sorgst du für eine individuelle Pflege für unsere Patientinnen und Patienten. Gemeinsam mehr erreichen: In einem interdisziplinären Team gestaltest du eine hochwertige Versorgung und dokumentierst deine Arbeit professionell und zuverlässig. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Dipl. Pflegefachperson HF/FH oder gleichwertige Ausbildung mit Anerkennung in der Schweiz sowie eine Weiterbildung in Palliative Care oder die Bereitschaft, diese zu absolvieren Arbeitsweise: Verantwortungsbewusste und sorgfältige Arbeitsweise im Team sowie die Bereitschaft Schicht-/Wochenenddienste zu übernehmen (keine Nachtdienste). Skills: Du bringst KISIM-Kenntnisse mit und hast den Berufsbildnerkurs und/oder SVEB 1 absolviert.\n\nWir bieten:\n\nMehr als nur ein Arbeitsplatz mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team. Attraktive Benefits: Grosszügige Ferienregelung, Gesundheitsförderung, Personalverpflegung und gute ÖV-Anbindung.",
-      "descriptionByLocale": {
-        "it": "Personale. Impegnato. Infermiere diplomato SSS/SUP 80% - 100% con funzione aggiuntiva Formatore/trice | Zurigo Hai domande? Shkendie è a tua disposizione. Shkendie Doga Vice Direttore Assistenza infermieristica bewerbung@susenbergklinik.ch 044 268 38 38 La tua responsabilità. Le persone al centro: con empatia, rispetto e competenza professionale garantisci un'assistenza personalizzata per i nostri pazienti. Fare di più insieme: in un team interdisciplinare crei un'assistenza di alta qualità e documenti il tuo lavoro in modo professionale e affidabile. Condividere le conoscenze: accompagni e promuovi con impegno i nostri apprendisti e studenti FAGE e contribuisci attivamente al loro sviluppo professionale e personale. La Clinica Susenberg è una clinica specializzata in geriatria acuta, riabilitazione geriatrica e oncologica e cure palliative a Zurigo. Affinché i nostri pazienti possano essere al centro dell'attenzione, è necessaria un'organizzazione che funzioni.\n\nEcco cosa porti con te:\n\nFondamenti: infermiere diplomato SSS/SUP o formazione equivalente con riconoscimento in Svizzera, nonché una formazione continua in cure palliative o la disponibilità a completarla Metodo di lavoro: modalità di lavoro responsabile e meticolosa in team e disponibilità a svolgere turni/fine settimana (nessun servizio notturno). Skills: hai conoscenze KISIM e hai frequentato il corso di formazione professionale e/o",
-        "en": "Personally. Engaged.Dipl. nursing specialist HF/FH 80% - 100% with additional function Professional educator, Zurich Have questions? Shkendie is at your disposal. Shkendie Doga Stv. Head of nursing application@susenbergklinik.ch 044 268 38 38 Your responsibility. People at the centre: With empathy, respect and expertise you provide individual care for our patients. Reach more together: In an interdisciplinary team you design a high-quality care and document your work professionally and reliably.\n\nPassing on knowledge: You accompany and support our FAGE students with commitment and actively contribute to their professional and personal development. The Clinic Susenberg is a special clinic for acute ageriatry, geriatric and internistic oncological rehabilitation and palliative care on Zurichberg. In order for our patients to be the focus, an organization that works in the background needs to be put in place.\n\nYou bring this with you:\n\nFoundation: Dipl. Pflegefachperson HF/FH or equivalent training with recognition in Switzerland as well as further training in Palliative Care or the willingness to complete this work: responsible and careful working methods in the team as well as the willingness to take over shift/weekend services (no night services). Skills: You bring KISIM skills and have completed the vocational training course and/or SVEB 1.\n\nWe offer:\n\nMore than just a workplace with a visible effect. An evaluable, lively environment, short decision-making paths and close cooperation in a dedicated team. Attractively, the company is offering a generous holiday management, health promotion, staff catering and good public transport connections.",
-        "de": "Persönlich. Engagiert.Dipl. Pflegefachperson HF/FH 80% - 100% mit Zusatzfunktion Berufsbildner/-in | Zürich Hast du Fragen? Shkendie steht dir gerne zur Verfügung. Shkendie Doga Stv. Leitung Pflege bewerbung@susenbergklinik.ch 044 268 38 38 Deine Verantwortung. Menschen im Mittelpunkt: Mit Empathie, Respekt und Fachkompetenz sorgst du für eine individuelle Pflege für unsere Patientinnen und Patienten. Gemeinsam mehr erreichen: In einem interdisziplinären Team gestaltest du eine hochwertige Versorgung und dokumentierst deine Arbeit professionell und zuverlässig. Wissen weitergeben: Du begleitest und förderst unsere FAGE-Lernenden und Studierenden mit Engagement und trägst aktiv zu ihrer fachlichen und persönlichen Entwicklung bei. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie internistisch- onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nFundament: Dipl. Pflegefachperson HF/FH oder gleichwertige Ausbildung mit Anerkennung in der Schweiz sowie eine Weiterbildung in Palliative Care oder die Bereitschaft, diese zu absolvieren Arbeitsweise: Verantwortungsbewusste und sorgfältige Arbeitsweise im Team sowie die Bereitschaft Schicht-/Wochenenddienste zu übernehmen (keine Nachtdienste). Skills: Du bringst KISIM-Kenntnisse mit und hast den Berufsbildnerkurs und/oder SVEB 1 absolviert.\n\nWir bieten:\n\nMehr als nur ein Arbeitsplatz mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und eine enge Zusammenarbeit in einem engagierten Team. Attraktive Benefits: Grosszügige Ferienregelung, Gesundheitsförderung, Personalverpflegung und gute ÖV-Anbindung.",
-        "fr": "Personnellement. Véhicule spécialisé en soins infirmiers HF/FH 80% - 100% avec fonction supplémentaire Enseignant professionnel, Zurich Vous avez des questions? Shkendie est à votre disposition. Shkendie Doga Stv. Responsable de l'application infirmière@susenbergklinik.ch 044 268 38 38 Votre responsabilité. Les personnes au centre : Avec empathie, respect et expertise vous fournissez des soins individuels à nos patients.\n\nLa Clinique Susenberg est une clinique spéciale pour la réadaptation oncologique, la gériatrie et la rééducation oncologique et les soins palliatifs à Zurichberg. Pour que nos patients soient au centre de leur action, il faut mettre en place une organisation qui travaille dans le contexte.\n\nTu amènes ça avec toi :\n\nFondation : Dipl. Pflegefachperson HF/FH ou formation équivalente avec reconnaissance en Suisse ainsi que la formation continue en soins palliatifs ou la volonté de compléter ce travail : méthodes de travail responsables et prudentes dans l'équipe ainsi que la volonté de reprendre les services de poste/fin de semaine (pas de service de nuit).\n\nNous offrons:\n\nPlus qu'un lieu de travail à effet visible. Un environnement évaluable et animé, de courts chemins de décision et une coopération étroite dans une équipe dédiée. Attirant, l'entreprise offre une gestion généreuse des vacances, la promotion de la santé, la restauration du personnel et de bonnes connexions de transport public."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:41:28.661Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Schreberweg 9",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
-        "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
-          "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:35:10.897Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-susenberg-775970114f1b",
-      "slug": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "it": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
-        "en": "professional-expert-health-efz-with-additional-function-as-a-vocational-trainer-klinik-susenberg-zurich",
-        "de": "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
-        "fr": "professional-expert-health-efz-avec-une-fonction-supplementaire-de-formateur-professionnel-klinik-susenberg-zurich"
-      },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "Fachmann/Fachfrau Gesundheit EFZ mit Zusatzfunktion als Berufsbildner/-in",
-      "titleByLocale": {
-        "it": "Operatore/Operatrice sanitario/a EFZ con funzione aggiuntiva di formatore professionale",
-        "en": "Health Care Professional EFZ with Additional Role as Trainer",
-        "de": "Fachmann/Fachfrau Gesundheit EFZ mit Zusatzfunktion als Berufsbildner/-in",
-        "fr": "Professionnel/Professionnelle de la santé EFZ avec fonction supplémentaire de formateur/trice"
-      },
-      "description": "Komm zu uns und erlebe ein Arbeitsumfeld, in dem Wertschätzung, Teamgeist und Freude an der Arbeit im Mittelpunkt stehen! Per sofort oder nach Vereinbarung suchen wir Verstärkung einer/eines Fachfrau/-mann Gesundheit (FAGE) 80 % - 100 % mit der Zusatzfunktion als Berufsbildner/-in Die Klinik Susenberg in Zürich ist eine kleine Spezialklinik mit 34 Betten an idyllischer Lage am Zürichberg. Wir begleiten unsere Patientinnen und Patienten ganzheitlich in Akutgeriatrie, rehabilitativer Pflege und Palliative Care, stets mit einem patientenzentrierten Ansatz. Die Klinik Susenberg verfügt über das Label \"Qualität in Palliative Care\" von qualitépalliativeⓆ.\n\nDeine \n• Aufgaben bei uns:\n\n− Du unterstützt unser Pflegeteam im Alltag und führst delegierte pflegerische sowie administrative Tätigkeiten aus. − Du arbeitest eng mit diplomierten Pflegefachpersonen zusammen und trägst zu einer hochwertigen Patientenversorgung bei. − Du unterstützt, begleitest und berätst unsere Lernenden und Studierenden aktiv im Berufsalltag. − Du sorgst für einen klaren und effizienten Informationsfluss im interdisziplinären Team. − Du bringst dich aktiv in die Zusammenarbeit verschiedener Berufsgruppen ein.\n\nDein Profil:\n\n− Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ oder gleichwertig. − Erfahrung in der Akutpflege und als Berufsbildner/-in ist von Vorteil. − Du engagierst dich für eine teamorientierte und interdisziplinäre Zusammenarbeit und begegnest neuen Herausforderungen offen und positiv. − Bereitschaft zu Schicht- und Wochenenddiensten (keine Nachtdienste). − Du bist innovativ, kreativ, flexibel und belastbar. − Sehr gute Deutsch- und PC-Anwenderkenntnisse, KISIM-Kenntnisse sind von Vorteil. − Wiedereinsteiger/-innen sind herzlich willkommen.\n\nWarum Du es bei uns lieben wirst:\n\n− Gesundheitsfördernde Massnahmen sowie gezielte Fort- und Weiterbildungsmöglichkeiten. − Zeitgemässe Entlöhnung und eine ausgewogene Work-Life-Balance. − Attraktive Goodies für mehr Lebensqualität: Feines Birchermüesli in der Pause, täglich frische Menu- auswahl zu vergünstigten Preisen, gratis Getränke sowie diverse Mitarbeiterevents. − Ein familiäres Arbeitsumfeld mit engem Austausch im interdisziplinären Team. − Gute ÖV-Anbindung ab Zürich HB sowie Beteiligung an Mobilitätskosten. Für weitere Informationen steht Dir Shkendie Doga, Stv. Leitung Pflege, Telefon 044 268 38 69, gerne zur Verfügung. Deine vollständigen Bewerbungsunterlagen mit Foto sendest Du bitte an: bewerbung@susenbergklinik.ch. Es werden ausschliesslich Direktbewerbungen berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "Unisciti a noi e vivi un ambiente di lavoro in cui l'apprezzamento, lo spirito di squadra e la gioia di lavorare sono al centro dell'attenzione! Da subito o previo accordo, cerchiamo un rinforzo da parte di un operatore sanitario (FAGE) 80% - 100% con la funzione aggiuntiva di formatore/formatrice professionale La Clinica Susenberg di Zurigo è una piccola clinica specializzata con 34 posti letto in una posizione idilliaca sullo Zürichberg. Accompagniamo i nostri pazienti in modo olistico in geriatria acuta, cure riabilitative e cure palliative, sempre con un approccio centrato sul paziente. La Clinica Susenberg dispone dell'etichetta \"Qualità nelle cure palliative\" diqualitépalliative.\n\nil tuo\n• Compiti presso di noi:\n\n− Supporta il nostro team infermieristico nella vita di tutti i giorni e svolge attività infermieristiche e amministrative delegate. − Lavori a stretto contatto con infermieri diplomati e contribuisci alla cura del paziente di alta qualità. − sostieni, accompagni e consigli attivamente i nostri apprendisti e studenti nella vita professionale quotidiana. − Garantisci un flusso di informazioni chiaro ed efficiente nel team interdisciplinare. − Ti impegni attivamente nella collaborazione tra diversi gruppi professionali.\n\nProfilo\n\n− Formazione completata come specialista/operatore sanitario AFC o equivalente. − L'esperienza nella cura acuta e come formatore/formatrice professionale è un vantaggio. − Ti impegni per una collaborazione orientata al team e interdisciplinare e affronti nuove sfide in modo aperto e positivo. − Disponibilità ai turni e ai servizi del fine settimana (non notturni). − Sei innovativo, creativo, flessibile e resiliente. − Ottima conoscenza del tedesco e degli utenti PC, la conoscenza di KISIM è un vantaggio. − I neofiti sono i benvenuti.\n\nPerché da noi ti piacerà:\n\n− Misure di promozione della salute e opportunità di formazione e perfezionamento mirate. − Remunerazione al passo con i tempi e un equilibrato equilibrio tra lavoro e vita privata. − Piaceri attraenti per una migliore qualità della vita: delizioso muesli Bircher Müesli durante la pausa, menu fresco ogni giorno a prezzi scontati, bevande gratuite e vari eventi per i dipendenti. − Un ambiente di lavoro familiare con uno stretto scambio all'interno di un team interdisciplinare. − Buoni collegamenti di trasporto pubblico dalla stazione centrale di Zurigo e partecipazione ai costi di mobilità. Per ulteriori informazioni, puoi contattare Shkendie Doga, vice Direzione infermieristica, telefono 044 268 38 69, a vostra disposizione. Invia la tua candidatura completa di foto a: bewerbung@susenbergklinik.ch. Saranno prese in considerazione solo le candidature dirette.",
-        "en": "Come join us and experience a work environment where appreciation, team spirit and joy in work are at the core! Effective immediately or by arrangement we are looking for reinforcement of a health professional (FAGE) 80 % – 100 % with the additional role as a trainer/educator. The Klinik Susenberg in Zurich is a small specialty clinic with 34 beds in an idyllic location on the Zürichberg. We accompany our patients holistically in acute geriatrics, rehabilitative care and Palliative Care, always with a patient‑centered approach. Klinik Susenberg holds the label “Quality in Palliative Care” from qualitépalliativeⓆ.\n\nYour\n• Tasks with us:\n\n- You support our nursing team in daily work and perform delegated nursing as well as administrative tasks.\n- You work closely with qualified nursing professionals and contribute to high‑quality patient care.\n- You actively support, accompany and advise our trainees and students in their professional daily life.\n- You ensure a clear and efficient flow of information within the interdisciplinary team.\n- You actively contribute to the collaboration of various professional groups.\n\nYour profile:\n\n- Completed training as a health professional (FAGE) EFZ or equivalent.\n- Experience in acute care and as a trainer/educator is an advantage.\n- You are committed to team‑oriented and interdisciplinary collaboration and meet new challenges openly and positively.\n- Willingness to work shifts and weekends (no night shifts).\n- You are innovative, creative, flexible and resilient.\n- Very good German and PC user skills; KISIM knowledge is an advantage.\n- Career re‑entrants are warmly welcome.\n\nWhy you will love it with us:\n\n- Health‑promoting measures as well as targeted further and continuing education opportunities.\n- Modern remuneration and a balanced work‑life balance.\n- Attractive perks for a better quality of life: fine Birchermüesli during breaks, daily fresh menu selection at discounted prices, free drinks and various employee events.\n- A family‑like work environment with close exchange in the interdisciplinary team.\n- Good public transport connection from Zürich HB and contribution to mobility costs.\n\nFor further information, Shkendie Doga, Deputy Head of Nursing, phone 044 268 38 69, is happy to assist you. Please send your complete application documents with photo to: bewerbung@susenbergklinik.ch. Only direct applications will be considered.",
-        "de": "Komm zu uns und erlebe ein Arbeitsumfeld, in dem Wertschätzung, Teamgeist und Freude an der Arbeit im Mittelpunkt stehen! Per sofort oder nach Vereinbarung suchen wir Verstärkung einer/eines Fachfrau/-mann Gesundheit (FAGE) 80 % - 100 % mit der Zusatzfunktion als Berufsbildner/-in Die Klinik Susenberg in Zürich ist eine kleine Spezialklinik mit 34 Betten an idyllischer Lage am Zürichberg. Wir begleiten unsere Patientinnen und Patienten ganzheitlich in Akutgeriatrie, rehabilitativer Pflege und Palliative Care, stets mit einem patientenzentrierten Ansatz. Die Klinik Susenberg verfügt über das Label \"Qualität in Palliative Care\" von qualitépalliativeⓆ.\n\nDeine \n• Aufgaben bei uns:\n\n− Du unterstützt unser Pflegeteam im Alltag und führst delegierte pflegerische sowie administrative Tätigkeiten aus. − Du arbeitest eng mit diplomierten Pflegefachpersonen zusammen und trägst zu einer hochwertigen Patientenversorgung bei. − Du unterstützt, begleitest und berätst unsere Lernenden und Studierenden aktiv im Berufsalltag. − Du sorgst für einen klaren und effizienten Informationsfluss im interdisziplinären Team. − Du bringst dich aktiv in die Zusammenarbeit verschiedener Berufsgruppen ein.\n\nDein Profil:\n\n− Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ oder gleichwertig. − Erfahrung in der Akutpflege und als Berufsbildner/-in ist von Vorteil. − Du engagierst dich für eine teamorientierte und interdisziplinäre Zusammenarbeit und begegnest neuen Herausforderungen offen und positiv. − Bereitschaft zu Schicht- und Wochenenddiensten (keine Nachtdienste). − Du bist innovativ, kreativ, flexibel und belastbar. − Sehr gute Deutsch- und PC-Anwenderkenntnisse, KISIM-Kenntnisse sind von Vorteil. − Wiedereinsteiger/-innen sind herzlich willkommen.\n\nWarum Du es bei uns lieben wirst:\n\n− Gesundheitsfördernde Massnahmen sowie gezielte Fort- und Weiterbildungsmöglichkeiten. − Zeitgemässe Entlöhnung und eine ausgewogene Work-Life-Balance. − Attraktive Goodies für mehr Lebensqualität: Feines Birchermüesli in der Pause, täglich frische Menu- auswahl zu vergünstigten Preisen, gratis Getränke sowie diverse Mitarbeiterevents. − Ein familiäres Arbeitsumfeld mit engem Austausch im interdisziplinären Team. − Gute ÖV-Anbindung ab Zürich HB sowie Beteiligung an Mobilitätskosten. Für weitere Informationen steht Dir Shkendie Doga, Stv. Leitung Pflege, Telefon 044 268 38 69, gerne zur Verfügung. Deine vollständigen Bewerbungsunterlagen mit Foto sendest Du bitte an: bewerbung@susenbergklinik.ch. Es werden ausschliesslich Direktbewerbungen berücksichtigt.",
-        "fr": "Venez à nous et vivez un environnement de travail où l'appréciation, l'esprit d'équipe et la joie au travail sont au centre! D'emblée ou d'accord, nous cherchons à renforcer une femme/homme de santé spécialisée (FAGE) 80% - 100% avec la fonction supplémentaire d'éducateur professionnel La Clinique Susenberg à Zurich est une petite clinique spéciale avec 34 lits dans un emplacement idyllique sur le Zurichberg.\n\nKlinik Susenberg a le label «Qualité en soins palliatifs» de la qualitépalliativeQ.\n\nVos tâches\n• avec nous:\n\n- Vous aidez notre équipe de soins infirmiers dans la vie quotidienne et vous effectuez des activités de soins infirmiers et administratifs déléguées. - Vous travaillez en étroite collaboration avec des professionnels qualifiés et contribuez à des soins de qualité pour les patients. - Vous soutenez, accompagnez et conseillez activement nos étudiants et étudiants dans le travail quotidien. - Vous assurez un flux d'information clair et efficace dans l'équipe interdisciplinaire. - Vous participez activement à la coopération de différents groupes professionnels.\n\nVotre profil:\n\n- Une formation de spécialiste de la santé ou de l'équivalent. - Une expérience de soins actifs et de professeur professionnel est bénéfique. - Vous êtes déterminé à coopérer en équipe et interdisciplinaire et à relever de nouveaux défis ouvertement et positivement. - Prêt à changer de poste et services de fin de semaine (pas de service de nuit). - Vous êtes innovant, créatif, flexible et résilient. - Très bonne connaissance de l'utilisateur allemand et PC, les compétences KISIM sont bénéfiques. - Les ré-initiateurs sont les bienvenus.\n\nPourquoi tu vas aimer ça avec nous :\n\n- Des mesures de promotion de la santé ainsi que des possibilités de formation continue ciblées. - Des déboursements longs et un équilibre équilibré entre vie professionnelle et vie privée. - Des produits attrayants pour une meilleure qualité de vie : Fine Birchermüesli pendant la pause, une sélection quotidienne de menus frais à prix réduit, des boissons gratuites et divers événements pour les employés. - Un environnement de travail familial avec un échange étroit au sein de l'équipe interdisciplinaire. - Bonne liaison ÖV de Zurich HP et participation aux coûts de mobilité.\n\nLes services de gestion, téléphone 044 268 38 69, sont disponibles. Veuillez envoyer vos documents de demande complets avec photo à: bewerbung@susenbergklinik.ch. Seules les demandes directes sont prises en compte."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:41:28.281Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Schreberweg 9",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
-        "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
-          "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T22:24:52.083Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-susenberg-d5afd23403c6",
-      "slug": "segretario-a-medico-a-80-100-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "de": "arztsekretar-in-80-100-klinik-susenberg-zurich",
-        "it": "segretario-a-medico-a-80-100-klinik-susenberg-zurich",
-        "en": "medical-secretary-80-100-klinik-susenberg-zurich",
-        "fr": "secretaire-medical-e-80-100-klinik-susenberg-zurich"
-      },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "Arztsekretär/-in, 80% - 100 %",
-      "titleByLocale": {
-        "de": "Arztsekretär/-in, 80% - 100 %",
-        "it": "Segretario/a medico/a, 80% - 100 %",
-        "en": "Medical Secretary, 80% - 100 %",
-        "fr": "Secrétaire médical/e, 80% - 100 %"
-      },
-      "description": "Persönlich. Engagiert.Arztsekretär/-in 80% - 100% | Zürich Hast du Fragen? Rebekka steht dir gerne zur Verfügung. Rebekka Lückl Leitung Verwaltung&Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nDeine Verantwortung:\n\nMitarbeit Patientenadministration: Sicherstellung Leistungserfassung und Verrechnung/Rechnungsstellung, Vorbereitung Codierung, Sachbearbeitung Debitoren- und Kreditorenbuchhaltung (inkl. selbständiges Kreditorenrechnungsmanagement), Abwicklung administrative Tätigkeiten rund um unsere Patienten. Mitarbeit am Empfang: Erste Anlaufstelle bei internen Anliegen, Erfassung und Pflege von Patientendaten etc. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie spezialisierte internistisch-onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nMindset: Wunsch nach einer Allrounder-Tätigkeit, offen «Neues zu lernen», positive Einstellung. Fundament: Grundausbildung im Gesundheitswesen (MPA, DA, FaGe) oder kaufmännische Ausbildung mit Weiterbildung zur Arzt-&Spitalsekretärin. Skills: Zielgerichtete, diskrete und selbständige Arbeitsweise, hohe Dienstleistungsorientierung, Affinität für Zahlen, stilsicheres Deutsch, vernetztes Denken sowie ein freundliches Auftreten.\n\nWir bieten:\n\nVielseitige Tätigkeit mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und enge Zusammenarbeit mit der operativen Leitung Verwaltung&Services. Attraktive Benefits: Gesundheitsförderung und Personalverpflegung.",
-      "descriptionByLocale": {
-        "de": "Persönlich. Engagiert.Arztsekretär/-in 80% - 100% | Zürich Hast du Fragen? Rebekka steht dir gerne zur Verfügung. Rebekka Lückl Leitung Verwaltung&Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nDeine Verantwortung:\n\nMitarbeit Patientenadministration: Sicherstellung Leistungserfassung und Verrechnung/Rechnungsstellung, Vorbereitung Codierung, Sachbearbeitung Debitoren- und Kreditorenbuchhaltung (inkl. selbständiges Kreditorenrechnungsmanagement), Abwicklung administrative Tätigkeiten rund um unsere Patienten. Mitarbeit am Empfang: Erste Anlaufstelle bei internen Anliegen, Erfassung und Pflege von Patientendaten etc. Die Klinik Susenberg ist eine Spezialklinik für Akutgeriatrie, geriatrische sowie spezialisierte internistisch-onkologische Rehabilitation und Palliative Care am Zürichberg. Damit unsere Patientinnen und Patienten im Mittelpunkt stehen können, braucht es im Hintergrund eine Organisation, die funktioniert.\n\nDas bringst du mit:\n\nMindset: Wunsch nach einer Allrounder-Tätigkeit, offen «Neues zu lernen», positive Einstellung. Fundament: Grundausbildung im Gesundheitswesen (MPA, DA, FaGe) oder kaufmännische Ausbildung mit Weiterbildung zur Arzt-&Spitalsekretärin. Skills: Zielgerichtete, diskrete und selbständige Arbeitsweise, hohe Dienstleistungsorientierung, Affinität für Zahlen, stilsicheres Deutsch, vernetztes Denken sowie ein freundliches Auftreten.\n\nWir bieten:\n\nVielseitige Tätigkeit mit sichtbarer Wirkung. Ein wertschätzendes, lebhaftes Umfeld, kurze Entscheidungswege und enge Zusammenarbeit mit der operativen Leitung Verwaltung&Services. Attraktive Benefits: Gesundheitsförderung und Personalverpflegung.",
-        "it": "Personalmente. Dottor Segretario/In 80% - 100% | Zurigo Hai delle domande? Rebekah è a vostra disposizione. Rebekka Lückl Management & Services bewerbung@susenbergklinik.ch 044 268 38\n\nLa vostra responsabilità:\n\nAmministrazione del paziente di cooperazione: garantire la registrazione delle prestazioni e fatturazione / fatturazione, preparazione della codifica, elaborazione dei debitori e dei conti pagabili (incl. gestione delle fatture dei creditori indipendenti), gestione delle attività amministrative intorno ai nostri pazienti. Cooperazione alla ricezione: Primo punto di contatto per le preoccupazioni interne, la raccolta e la manutenzione dei dati dei pazienti, ecc. Klinik Susenberg è una clinica specializzata per geriatria acuta, riabilitazione oncologica geriatrica e interna specializzata e cura palliativa a Zurigoberg. Affinché i nostri pazienti siano al centro, è necessaria un'organizzazione che lavora sullo sfondo.\n\nQuesto è ciò che portate con voi:\n\nMindset: Desiderio per un’attività all-rounder, apertamente “learning new things”, atteggiamento positivo. Fondazione: Formazione di base nel sistema sanitario (MPA, DA, FaGe) o formazione commerciale con ulteriore formazione come segretario medico e ospedaliero. Competenze: metodo di lavoro orientato all'obiettivo, discreto e indipendente, orientamento ad alto servizio, affinità per i numeri, elegante tedesco, pensiero in rete e un aspetto amichevole.\n\nOffriamo:\n\nAttività versatile con effetto visibile. Ambiente accresciuto e vivace, processi decisionali brevi e stretta collaborazione con la gestione operativa di Verwaltungs&Services. Vantaggi interessanti: promozione della salute e catering del personale.",
-        "en": "Personally. Doctor Secretary/-in 80% - 100% | Zurich Do you have questions? Rebekah is at your disposal. Rebekka Lückl Management & Services bewerbung@susenbergklinik.ch 044 268 38 38\n\nYour responsibility:\n\nCooperation patient administration: ensuring performance recording and billing/invoicing, preparation of coding, processing of debtors and accounts payable (incl. independent creditors invoice management), handling of administrative activities around our patients. Cooperation at the reception: First point of contact for internal concerns, collection and maintenance of patient data, etc. Klinik Susenberg is a specialist clinic for acute geriatrics, geriatric and specialized internistic oncological rehabilitation and palliative care at Zurichberg. In order for our patients to be the focus, an organization that works is needed in the background.\n\nThis is what you bring with you:\n\nMindset: Desire for an all-rounder activity, openly “learning new things”, positive attitude. Foundation: Basic training in the health care system (MPA, DA, FaGe) or commercial training with further training as medical and hospital secretary. Skills: goal-oriented, discreet and independent working method, high service orientation, affinity for numbers, stylish German, networked thinking and a friendly appearance.\n\nWe offer:\n\nVersatile activity with visible effect. An appreciative, lively environment, short decision-making processes and close cooperation with the operational management of Verwaltungs&Services. Attractive benefits: health promotion and staff catering.",
-        "fr": "Personnellement. Docteur secrétaire/-dans 80% - 100% de Zurich Vous avez des questions ? Rebekah est à votre disposition. Rebekka Lückl Gestion et services bwerbung@susenbergklinik.ch 044 268 38 38\n\nVotre responsabilité :\n\nCoopération administration du patient: assurer l'enregistrement des performances et la facturation/facturation, la préparation du codage, le traitement des débiteurs et des comptes créditeurs (y compris la gestion indépendante des factures des créanciers), le traitement des activités administratives autour de nos patients. Coopération à la réception: Premier point de contact pour les préoccupations internes, collecte et maintenance des données du patient, etc. Klinik Susenberg est une clinique spécialisée dans la gériatrie aiguë, la gériatrie et la réadaptation oncologique et les soins palliatifs à Zurichberg. Pour que nos patients soient au centre de l'attention, une organisation qui fonctionne est nécessaire en arrière-plan.\n\nVoici ce que vous apportez avec vous :\n\nMindset: Désir d'une activité de plus en plus complète, ouvertement apprendre de nouvelles choses, attitude positive. Fondation : Formation de base dans le système de santé (MPA, DA, FaGe) ou formation commerciale avec une formation continue en tant que secrétaire médical et hospitalier. Compétences : méthode de travail orientée vers l'objectif, discrète et indépendante, orientation haut service, affinité pour les chiffres, allemand élégant, pensée en réseau et une apparence amicale.\n\nNous offrons:\n\nActivité polyvalente avec effet visible. Un environnement agréable et animé, de courts processus décisionnels et une étroite collaboration avec la gestion opérationnelle de Verwaltungs&Services. Avantages intéressants: promotion de la santé et restauration du personnel."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Arztsekretaerin_80-100-2026-10-14.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-14T09:41:27.976Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Schreberweg 9",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Verwaltung & Services",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-14T09:41:27.976Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretar-in-80-100-klinik-susenberg-zurich"
-        ],
-        "en": [
-          "arztsekretar-in-80-100-klinik-susenberg-zurich"
-        ],
-        "fr": [
-          "arztsekretar-in-80-100-klinik-susenberg-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "arztsekretar-in-80-100-klinik-susenberg-zurich"
-      ]
+      "crawlerMissStreak": 1
     }
   ]
 }
