@@ -55,6 +55,7 @@ import {
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
+import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
@@ -12351,6 +12352,7 @@ ${staticAnalyticsHtml}
  slugByLocale?: Record<string, string>;
  localePaths?: Record<string, string>;
  sourceUrl?: string;
+ recordedIdentity?: boolean;
  }
  const orphanGscData = new Map<string, OrphanEnriched>();
  jobsSeoMemContext.orphanGscData = orphanGscData;
@@ -12366,6 +12368,7 @@ ${staticAnalyticsHtml}
  for (const entry of enrichedArr) {
  if (!entry?.slug) continue;
  const data: OrphanEnriched = {};
+ if (hasRecordedJobIdentity(null, entry)) data.recordedIdentity = true;
  if (entry.queries?.length > 0) {
  data.queries = entry.queries;
  data.totalImpressions = entry.totalImpressions || 0;
@@ -12740,6 +12743,7 @@ ${staticAnalyticsHtml}
  // overwrites this fallback; if it does not, the historical URL still gets the
  // same useful archive content instead of a generic noindex tombstone.
  type HistoricalArchiveFallback = {
+  recordedIdentity?: boolean;
   title?: string;
   company?: string;
   location?: string;
@@ -13292,7 +13296,7 @@ ${staticAnalyticsHtml}
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
  : [];
- const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
+ const hasRealTitle = hasRecordedJobIdentity(ejData) || gscInfo?.recordedIdentity === true;
  // displayCanton/escDisplayCanton are NOT hoisted here:
  // the canton display name varies by locale (e.g. GR → "Grigioni" it,
  // "Graubünden" de/en, "Grisons" fr) — resolved per-locale in the loop below.
@@ -13314,6 +13318,7 @@ ${staticAnalyticsHtml}
    || '',
   );
   historicalArchiveFallbacks.set(relPath, {
+   recordedIdentity: hasRealTitle,
    title: String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || ''),
    company: jobCompany,
    location: jobLocation,
@@ -13347,7 +13352,8 @@ ${staticAnalyticsHtml}
  // every job, so a non-TI job's "Lavoro in <canton>" links and breadcrumb
  // targeted the Ticino hub instead of the job's own canton hub (#6418).
  const listingPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/`.replace(/\/+/g, '/');
- const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
+ const unknownCopy = unverifiedJobCopy[locale as keyof typeof unverifiedJobCopy] || unverifiedJobCopy.it;
+ const copy = hasRealTitle ? (expiredBannerCopy[locale] ?? expiredBannerCopy.it) : unknownCopy;
  // Canton display name resolved per-locale (see hoisting note above).
  const displayCanton = getCantonDisplayLabel(jobCanton, locale);
  const escDisplayCanton = esc(displayCanton);
@@ -13357,7 +13363,7 @@ ${staticAnalyticsHtml}
  // loop (per-slug invariants); displayCanton/escDisplayCanton
  // are NOT (they vary by locale — see note above the loop).
  const jobTitle = stripLiteralMarkdownFromTitle(String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title));
- const jobDescription = stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || ''));
+ const jobDescription = hasRealTitle ? stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '')) : '';
  // SERP title via the shared role>city>company>brand cascade — same
  // composer as ACTIVE job pages, so an expired listing reads like a job
  // result ("Role — Company a Zell"), not like an archive record. The old
@@ -13446,7 +13452,9 @@ ${staticAnalyticsHtml}
  // useExpiredJob hook + JobExpiredView treat missing fields exactly
  // the same as empty ones (already `?? default` everywhere), so this
  // is a no-op for runtime behaviour — only the wire-form shrinks.
- const expiredTitle = ejData?.title || gscInfo?.title || slugInfo?.title || '';
+ const expiredTitle = hasRealTitle
+  ? ejData?.title || ejData?.titleByLocale?.[locale] || gscInfo?.title || gscInfo?.titleByLocale?.[locale] || ''
+  : '';
  const expiredCompany = ejData?.company || gscInfo?.company || slugInfo?.company || '';
  const expiredCompanyKey = ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '';
  const expiredLocation = ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '';
@@ -13455,7 +13463,11 @@ ${staticAnalyticsHtml}
  const expiredSlugByLocale = ejData?.slugByLocale || gscInfo?.slugByLocale || {};
  const expiredSector = ejData?.sector || gscInfo?.sector || '';
  const expiredAt = ejData?.expiredAt || '';
- const expiredDataObj: Record<string, unknown> = { slug };
+ // A title-less seed selects the existing orphan view, while its own route
+ // slug still scopes canonical/schema guards after hydration. A tracking key
+ // can differ from the locale path it owns; it is not posting evidence.
+ const routeSlug = relPath.replace(/\/+$/, '').split('/').pop() || slug;
+ const expiredDataObj: Record<string, unknown> = { slug: hasRealTitle ? slug : routeSlug };
  if (expiredTitle) expiredDataObj.title = expiredTitle;
  if (Object.keys(expiredTitleByLocale).length > 0) expiredDataObj.titleByLocale = expiredTitleByLocale;
  if (expiredCompany) expiredDataObj.company = expiredCompany;
@@ -13599,11 +13611,11 @@ ${staticAnalyticsHtml}
  }
 
  // --- Job details section ---
- const detailsHeading = locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
+ const detailsHeading = !hasRealTitle ? unknownCopy.details : locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
  const detailItems: string[] = [];
  if (jobCompany) detailItems.push(`<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}:</strong> ${esc(jobCompany)}</li>`);
  detailItems.push(`<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(jobTitle)}</li>`);
- if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}, ${esc(displayCanton)}</li>`);
+ if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}${hasRealTitle ? `, ${esc(displayCanton)}` : ''}</li>`);
  if (jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
  if (jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
  if (jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
@@ -13646,7 +13658,7 @@ ${staticAnalyticsHtml}
  // Gated by STRIP_EXPIRED_JOB_PROSE (default on) — see top of file.
  // `__slKeepProse` (real-traffic evidence only) overrides the strip so
  // recently-trafficked expired URLs stay substantial (see above).
- if (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse) {
+ if (hasRealTitle && (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse)) {
  const taxUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Informazioni per frontalieri</h2><p>${jobCompany ? `${esc(jobCompany)} si trova` : 'Questa posizione si trovava'}${jobLocation ? ` a ${esc(jobLocation)}` : ''} in Canton ${esc(displayCanton)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, da rinnovare alla scadenza prevista. Il Canton ${esc(displayCanton)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p><p>${esc(G_PERMIT_FACTS[locale as EmploymentFactsLocale])} <a href="${G_PERMIT_SOURCE}">SPOP</a></p><p>${esc(CROSS_BORDER_TAX_FACTS[locale as EmploymentFactsLocale])} <a href="${CROSS_BORDER_TAX_SOURCE}">ESTV</a></p><p><strong>Pendolarismo e qualità della vita.</strong> ${jobLocation ? `Lavorare a ${esc(jobLocation)} significa ` : `Lavorare nel Canton ${esc(displayCanton)} significa `}un tragitto giornaliero che dipende dal valico scelto: Brogeda (autostrada A2) e Chiasso-strada coprono le destinazioni del Mendrisiotto e del Luganese; Stabio e Gaggiolo servono chi parte dal Varesotto; Ponte Tresa è l'opzione storica per Luino e il Verbano. In ora di punta un tragitto Como-Lugano si esaurisce in 25-50 minuti; da Varese verso Lugano servono tipicamente 35-60 minuti. Per chi valuta il trasferimento in Ticino, l'affitto medio per un 3.5 locali a Lugano è 1.500-2.200 CHF/mese, contro 600-900 EUR per un appartamento equivalente in provincia di Como. La rete sanitaria svizzera (LAMal) offre tempi di accesso più brevi del SSN italiano ma con un premio mensile di 350-500 CHF/adulto, voce che pesa nel confronto netto-netto.</p></section>`);
@@ -13750,7 +13762,9 @@ ${staticAnalyticsHtml}
  // this phase at 57.9s across 183,445 soft-landings with every 'it' page
  // paying for the scan twice.
  let expiredRobotsTag: string;
- if (locale === 'it') {
+ if (!hasRealTitle) {
+ expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ } else if (locale === 'it') {
  itBodyWordCount = countHtmlBodyWords(staticBody);
  expiredRobotsTag = itBodyWordCount >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
  } else {
@@ -15168,6 +15182,9 @@ ${staticAnalyticsHtml}
   hreflangLinks = '',
  ): string => {
   const copy = historicalArchiveCopy[locale] || historicalArchiveCopy.it;
+  const unknownCopy = unverifiedJobCopy[locale] || unverifiedJobCopy.it;
+  const recordedIdentity = archive?.recordedIdentity === true;
+  const notice = recordedIdentity ? copy.notice : unknownCopy.banner;
   const slugInfo = extractInfoFromSlug(slugKey);
   const titleRaw = stripLiteralMarkdownFromTitle(String(archive?.title || slugInfo.title || copy.original));
   const company = String(archive?.company || slugInfo.company || '');
@@ -15188,30 +15205,30 @@ ${staticAnalyticsHtml}
    location ? `<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(location)}</li>` : '',
    archive?.sector ? `<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(archive.sector)}</li>` : '',
    archive?.contract ? `<li><strong>${locale === 'it' ? 'Contratto' : locale === 'en' ? 'Contract' : locale === 'de' ? 'Vertrag' : 'Contrat'}:</strong> ${esc(archive.contract)}</li>` : '',
-   archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
-   archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
+   recordedIdentity && archive?.datePosted ? `<li><strong>${locale === 'it' ? 'Pubblicata' : locale === 'en' ? 'Posted' : locale === 'de' ? 'Veröffentlicht' : 'Publiée'}:</strong> ${esc(archive.datePosted.slice(0, 10))}</li>` : '',
+   recordedIdentity && archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
   const staticBody = [
    // Keep the location in the heading when known. For slug-only historical
    // records, the truthful translated qualifier prevents the fallback H1
    // from becoming byte-identical to the SERP title.
-   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, copy.headingQualifier))}</h1>`,
-   `<p><strong>${copy.notice}</strong></p>`,
-   descriptionHtml
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location, recordedIdentity ? copy.headingQualifier : unknownCopy.title))}</h1>`,
+   `<p><strong>${esc(notice)}</strong></p>`,
+   !recordedIdentity ? '' : descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
     : `<section><h2>${copy.original}</h2><p>${copy.noDescription}</p></section>`,
-   `<section><h2>${copy.details}</h2><ul>${detailItems}</ul></section>`,
+   `<section><h2>${recordedIdentity ? copy.details : unknownCopy.details}</h2><ul>${detailItems}</ul></section>`,
    `<section><h2>${copy.next}</h2><p>${copy.nextBody} <a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
    `<p><small>Historical slug: <code>${esc(slugKey)}</code></small></p>`,
   ].join('\n');
-  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${copy.notice}`);
+  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${notice}`);
   const expiredPayload = inlineScriptJson({
-   slug: slugKey,
-   title: titleRaw,
+   slug: recordedIdentity ? slugKey : relPath.replace(/\/+$/, '').split('/').pop() || slugKey,
+   title: recordedIdentity ? titleRaw : undefined,
    company,
    location,
-   descriptionByLocale: description ? { [locale]: description } : undefined,
-   expiredAt: archive?.expiredAt,
+   descriptionByLocale: recordedIdentity && description ? { [locale]: description } : undefined,
+   expiredAt: recordedIdentity ? archive?.expiredAt : undefined,
   });
   const breadcrumb = inlineScriptJson({
    '@context': 'https://schema.org',
@@ -15226,7 +15243,7 @@ ${staticAnalyticsHtml}
    locale,
    pageTitle,
    pageDescription,
-   ROBOTS_INDEX_ENHANCED,
+   recordedIdentity && countHtmlBodyWords(staticBody) >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW,
    historicalUrl,
    hreflangLinks,
    `<script type="application/ld+json">${breadcrumb}</script>`,
