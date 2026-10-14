@@ -93,6 +93,24 @@ describe('Schweizerhof crawler parser', () => {
     expect(rows).toHaveLength(0);
   });
 
+  it('requires source-owned Schweizerhof tenant evidence as well as Flims locality', () => {
+    const fixture = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'schweizerhof-flims', 'detail-tenant-heading.html'),
+      'utf8',
+    );
+    const edelweissFields = extractSchweizerhofFlimsDetailFields(
+      fixture.replace('Warum Sie zu uns in den Schweizerhof kommen sollten', 'Hotel Edelweiss'),
+      'https://romantikhotels.hcm4all.de/list/19839',
+    );
+    const schweizerhofFields = extractSchweizerhofFlimsDetailFields(
+      fixture.replace('Warum Sie zu uns in den Schweizerhof kommen sollten', 'Schweizerhof'),
+      'https://romantikhotels.hcm4all.de/list/19839',
+    );
+
+    expect(edelweissFields.workplaceLabels || []).not.toContain('Schweizerhof Flims');
+    expect(schweizerhofFields.workplaceLabels || []).toContain('Schweizerhof Flims');
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SCHWEIZERHOF_FLIMS_KEY).toBe('schweizerhof-flims');

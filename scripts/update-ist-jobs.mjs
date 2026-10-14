@@ -131,6 +131,7 @@ const IST_FACET_QUERY = {
     showPicklistAllLocales: true,
   },
 };
+const IST_FACET_LIMIT = IST_FACET_QUERY.facetquery.limit;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SUMMARY_COUNTS = {
   discovered: null,
@@ -243,24 +244,77 @@ function isLegacyIstJob(job) {
 
 /**
  * Parse the portal's native School Name and location facets. The endpoint is
- * a complete active-facility/location map (`mincount=1`, limit 5000), not a
- * parser-derived zero: omitting IST and Ticino signals from a complete
- * response is positive source evidence that an IST posting cannot be hidden
- * in the current multi-tenant result set.
+ * a complete active-facility/location map (`mincount=1`, limit 5000) only when
+ * the response has not selected a later page/offset, hit the facet cap, or
+ * reported truncation. The live response currently exposes only the facet
+ * maps, so the fixed request's first-page/5000-row contract is the coverage
+ * proof; any future response-level coverage signal is validated as well.
  */
+function readIstFacetNumber(payload, keys) {
+  for (const key of keys) {
+    const value = payload?.[key];
+    if (value === undefined || value === null || value === '') continue;
+    const number = Number(value);
+    return Number.isFinite(number) ? number : Number.NaN;
+  }
+  return null;
+}
+
+function hasIstFacetTruncationSignal(payload) {
+  return [
+    'truncated',
+    'isTruncated',
+    'partial',
+    'hasMore',
+    'has_more',
+  ].some((key) => {
+    const value = payload?.[key];
+    return value === true || value === 1 || value === 'true' || value === '1';
+  });
+}
+
+function parseIstFacetCoverage(payload, facetRows) {
+  const page = readIstFacetNumber(payload, ['page', 'pageNumber']);
+  const startrow = readIstFacetNumber(payload, ['startrow', 'startRow', 'start', 'offset']);
+  const total = readIstFacetNumber(payload, ['total', 'totalCount', 'totalRecords', 'recordCount']);
+  const limit = readIstFacetNumber(payload, ['limit', 'pageSize', 'pageLimit'])
+    ?? IST_FACET_LIMIT;
+  const pageIsInitial = page === null || (Number.isInteger(page) && page === 0);
+  const startIsInitial = startrow === null || (Number.isInteger(startrow) && startrow === 0);
+  const totalIsValid = total === null || (Number.isInteger(total) && total >= 0);
+  const limitIsValid = Number.isInteger(limit) && limit > 0;
+  const facetRowsBelowLimit = limitIsValid && facetRows.every((rows) => rows.length < limit);
+
+  return {
+    coverageComplete: pageIsInitial
+      && startIsInitial
+      && totalIsValid
+      && facetRowsBelowLimit
+      && !hasIstFacetTruncationSignal(payload)
+      && payload?.complete !== false,
+    page,
+    startrow,
+    total,
+    facetLimit: limit,
+  };
+}
+
 export function parseIstFacilityFacetResponse(payload = {}) {
   const facilityRows = payload?.facets?.map?.facility;
   const locationRows = payload?.facets?.map?.location;
   const facilityCount = Array.isArray(facilityRows) ? facilityRows.length : 0;
   const locationCount = Array.isArray(locationRows) ? locationRows.length : 0;
+  const base = {
+    facilityCount,
+    locationCount,
+    activeListingCount: 0,
+    hasIstFacility: false,
+    hasTicinoLocation: false,
+  };
   if (facilityCount === 0 || locationCount === 0) {
     return {
       complete: false,
-      facilityCount,
-      locationCount,
-      activeListingCount: 0,
-      hasIstFacility: false,
-      hasTicinoLocation: false,
+      ...base,
     };
   }
 
@@ -278,18 +332,15 @@ export function parseIstFacilityFacetResponse(payload = {}) {
   if (!rowsAreComplete(normalizedFacilityRows) || !rowsAreComplete(normalizedLocationRows)) {
     return {
       complete: false,
-      facilityCount,
-      locationCount,
-      activeListingCount: 0,
-      hasIstFacility: false,
-      hasTicinoLocation: false,
+      ...base,
     };
   }
 
+  const coverage = parseIstFacetCoverage(payload, [facilityRows, locationRows]);
+
   return {
-    complete: true,
-    facilityCount,
-    locationCount,
+    complete: coverage.coverageComplete,
+    ...base,
     activeListingCount: normalizedFacilityRows.reduce((sum, row) => sum + row.count, 0),
     hasIstFacility: normalizedFacilityRows.some(({ name }) => (
       IST_FACILITY_SIGNAL_RE.test(normalizeFacilityName(name))
@@ -297,6 +348,10 @@ export function parseIstFacilityFacetResponse(payload = {}) {
     hasTicinoLocation: normalizedLocationRows.some(({ name }) => (
       isCantonRelevant(name, 'TI', { includeBorderProximity: false })
     )),
+    page: coverage.page,
+    startrow: coverage.startrow,
+    total: coverage.total,
+    facetLimit: coverage.facetLimit,
   };
 }
 

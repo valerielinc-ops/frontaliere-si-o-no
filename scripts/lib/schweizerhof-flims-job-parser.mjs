@@ -193,7 +193,10 @@ function hasSchweizerhofFlimsLocation(detail = {}) {
 
 function hasSchweizerhofFlimsIdentity(html, detail) {
   const mainText = normalizeSchweizerhofEvidence(extractSchweizerhofJobMain(html));
-  return mainText.includes('schweizerhof flims') || hasSchweizerhofFlimsLocation(detail);
+  const hasSchweizerhofTenant = /\bschweizerhof\b/u.test(mainText);
+  const hasExplicitFlimsIdentity = mainText.includes('schweizerhof flims');
+  return hasExplicitFlimsIdentity
+    || (hasSchweizerhofTenant && hasSchweizerhofFlimsLocation(detail));
 }
 
 /**

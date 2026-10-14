@@ -174,6 +174,22 @@ describe('IST native facility facet empty proof', () => {
     expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
   });
 
+  it('does not authorize a later facet page even when its rows are valid', () => {
+    const payload = {
+      page: 2,
+      total: 89,
+      facets: {
+        map: {
+          facility: [{ name: 'Other', count: 1 }],
+          location: [{ name: 'Zurich', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
+  });
+
   it('keeps malformed or empty facet responses fail-closed', () => {
     expect(markIstFacilityFacetEmptySnapshot({ facets: { map: {} } })).toBeNull();
     expect(markIstFacilityFacetEmptySnapshot({
