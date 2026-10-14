@@ -1,14 +1,14 @@
 {
   "crawlerKey": "oscam-castelrotto",
-  "assembledAt": "2026-10-13T21:11:27.295Z",
+  "assembledAt": "2026-10-14T09:12:22.570Z",
   "jobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-fb9ba0759bc6",
       "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
       "slugByLocale": {
         "it": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
-        "de": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
         "en": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
+        "de": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
         "fr": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t"
       },
       "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
@@ -33,7 +33,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-13T21:11:20.696Z",
+      "crawledAt": "2026-10-14T09:12:15.306Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "streetAddress": "Nucleo 30",
@@ -52,9 +52,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "concorso-generale-assunzione-medico-assistente-2025-2026-oscam-castelrotto-castelrotto"
@@ -63,6 +61,7 @@
       "previousSlugs": [
         "concorso-generale-assunzione-medico-assistente-2025-2026-oscam-castelrotto-castelrotto"
       ],
+      "firstSeenAt": "2026-10-13T21:11:20.696Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -75,8 +74,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-13T21:11:20.696Z"
+      }
     }
   ]
 }

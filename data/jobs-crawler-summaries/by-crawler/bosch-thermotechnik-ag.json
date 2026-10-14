@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-13T21:13:45.166Z",
+  "generatedAt": "2026-10-14T09:16:59.105Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 20962,
-  "avgDurationMs": 20962,
+  "durationMs": 23184,
+  "avgDurationMs": 23184,
   "durationHistory": [
-    20962
+    23184
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "PreMaster Programm - Social Media Marketing (w/m/div.)",
       "slug": "premaster-programm-social-media-marketing-w-m-div-bosch-solothurn-zuchwil",
@@ -45,16 +46,14 @@
       "salarySource": "estimated",
       "postalCode": "4500",
       "firstSeenAt": "2026-10-13T21:13:35.313Z",
-      "_qualityScore": 85,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 23,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Area Sales Manager (Fachhandel) – Bosch Power Tools 100% (w/m/div.)",
       "slug": "area-sales-manager-fachhandel-bosch-power-tools-100-w-m-div-bosch-solothurn-zuchwil",
@@ -136,47 +135,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Working Student Position – Master Data Management REF297533Q",
-      "slug": "posizione-degli-studenti-di-lavoro-master-data-management-ref297533q-bosch-thermotechnik-ag-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF297533Q-working-student-position-master-data-management-ref297533q",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152928685-working-student-position-master-data-management-ref297533q-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-e25729377ae2",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "4500",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Sachbearbeiter Verkauf Innendienst 80 - 100% (w/m/div.) REF298291X",
@@ -374,5 +333,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

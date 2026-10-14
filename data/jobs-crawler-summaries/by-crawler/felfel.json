@@ -1,10 +1,10 @@
 {
   "key": "felfel",
   "label": "FELFEL",
-  "generatedAt": "2026-10-13T21:11:39.110Z",
+  "generatedAt": "2026-10-14T09:12:32.943Z",
   "total": 5,
   "discovered": null,
-  "parsed": 5,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9948,
-  "avgDurationMs": 9948,
+  "durationMs": 7896,
+  "avgDurationMs": 7896,
   "durationHistory": [
-    9948
+    7896
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:11:24.415Z",
+      "crawledAt": "2026-10-14T09:12:17.205Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -79,7 +79,7 @@
       "url": "https://felfel.jobs.personio.de/job/2793209",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:24.414Z",
+      "crawledAt": "2026-10-14T09:12:17.199Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -146,6 +146,7 @@
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -169,7 +170,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:24.412Z",
+      "crawledAt": "2026-10-14T09:12:17.196Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -212,7 +213,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:11:24.398Z",
+      "crawledAt": "2026-10-14T09:12:17.179Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -244,5 +245,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
