@@ -23,7 +23,9 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
+  INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
+  LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
@@ -55,6 +57,14 @@ const JOB_BOARD_HUB_BODY = `
   <aside class="job-archive-cta" id="jb-archive-cta"></aside>
   <aside id="jb-seo-block" class="seo-footer-block"></aside>`;
 
+const JOB_BOARD_ROOT_HUB_BODY = `
+  <div id="root">
+    <div class="ft-hdr-reserve" aria-hidden="true"></div>
+    <main class="seo-static-content job-board-static-hub"><h1>Offerte di lavoro in Ticino</h1></main>
+  </div>
+  <div id="footer-root"></div>
+  <aside id="jb-seo-block" class="seo-footer-block"></aside>`;
+
 const HOMEPAGE_BODY = `
   <div id="root"><main id="main-content"><h1>Frontaliere Ticino</h1></main></div>
   <div id="footer-root"></div>
@@ -72,6 +82,12 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(paintGate).toBeGreaterThanOrEqual(0);
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
     expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).toContain('main.seo-static-content.job-board-static-hub');
+    expect(entry).toContain('waitForLargestContentfulPaint: true');
+    expect(entry).toContain('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR');
+    expect(entry.indexOf('waitForLargestContentfulPaint: true')).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeGreaterThan(paintGate);
+    expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeLessThan(entry.indexOf("import('react')"));
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
     expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
@@ -113,6 +129,48 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(settled).toBe(true);
     expect(clearedTimer).toBe(true);
     expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('waits for the static job-board LCP and ignores a later CMP candidate', async () => {
+    let reportLcp: ((element: Element | null) => void) | undefined;
+    let quietTimerCallback: (() => void) | undefined;
+    let deadlineTimerCallback: (() => void) | undefined;
+    let stopped = false;
+    const env: InitialPaintBootstrapEnv = {
+      visible: () => true,
+      hasContentfulPaint: () => false,
+      observeContentfulPaint: () => null,
+      hasLargestContentfulPaint: () => false,
+      observeLargestContentfulPaint: (callback) => {
+        reportLcp = callback;
+        return () => { stopped = true; };
+      },
+      requestFrame: () => { throw new Error('LCP observer owns this wait'); },
+      setTimer: (callback, ms) => {
+        if (ms === INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS) deadlineTimerCallback = callback;
+        if (ms === LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS) quietTimerCallback = callback;
+        return ms;
+      },
+      clearTimer: () => {},
+    };
+    document.body.innerHTML = `
+      <main class="seo-static-content job-board-static-hub"><p id="static-candidate">Offerte</p></main>
+      <div class="fc-footer"><p id="cmp-candidate">Consent</p></div>`;
+    const staticCandidate = document.getElementById('static-candidate')!;
+    const cmpCandidate = document.getElementById('cmp-candidate')!;
+
+    const ready = waitForInitialPaintOpportunity({
+      waitForLargestContentfulPaint: true,
+      largestContentfulPaintSelector: 'main.seo-static-content.job-board-static-hub',
+    }, env);
+    expect(deadlineTimerCallback).toBeTypeOf('function');
+    reportLcp?.(cmpCandidate);
+    expect(quietTimerCallback).toBeUndefined();
+    reportLcp?.(staticCandidate);
+    expect(quietTimerCallback).toBeTypeOf('function');
+    quietTimerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+    expect(stopped).toBe(true);
   });
 
   it('bounds the paint wait when animation frames do not arrive', async () => {
@@ -240,6 +298,13 @@ describe('#root 100vh reservation (index.css) — #8868', () => {
     }
   });
 
+  it('keeps the reserve available when the job-board static hub is already in #root', () => {
+    document.body.innerHTML = JOB_BOARD_ROOT_HUB_BODY;
+    for (const selector of rootViewportReserveSelectors()) {
+      expect(document.querySelector(selector)).toBe(document.getElementById('root'));
+    }
+  });
+
   it('stays OFF when the fallback is a body-direct main without the rail wrapper', () => {
     document.body.innerHTML = `
       <div id="root"><div class="ft-hdr-reserve"></div></div>
@@ -299,6 +364,24 @@ describe('adoptStaticFallbackIntoRoot — #8868', () => {
     expect(fallback.style.getPropertyValue('display')).toBe('');
   });
 
+  it('does not move a static fallback that is already inside #root', () => {
+    document.body.innerHTML = `
+      <div id="root">
+        <div class="ft-hdr-reserve"></div>
+        <main class="seo-static-content job-board-static-hub"></main>
+        <div data-after-fallback></div>
+      </div>`;
+    const root = document.getElementById('root')!;
+    const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+
+    const adopted = adoptStaticFallbackIntoRoot(root, fallback);
+
+    expect(adopted).toEqual({ subnav: null, railWrap: null });
+    expect(root.children[0].className).toBe('ft-hdr-reserve');
+    expect(root.children[1]).toBe(fallback);
+    expect(root.children[2].hasAttribute('data-after-fallback')).toBe(true);
+  });
+
   it('leaves a sub-nav that is not between #root and the fallback where it is', () => {
     document.body.innerHTML = `
       <div id="root"><div class="ft-hdr-reserve"></div></div>
@@ -351,6 +434,15 @@ describe('static → SPA job-board geometry — #9815', () => {
     expect(hubSource).toContain('job-board-top-banner-reserve');
     expect(hubSource).toContain('class="static-job-rail-center"');
     expect(hubSource).toContain("isJobBoardHub ? 'job-board' : 'default'");
+  });
+
+  it('emits the job-board static hub main inside #root', () => {
+    const bodySection = hubSource.slice(hubSource.indexOf('const bodySection ='));
+    expect(bodySection).toContain('rootShell(hasSpaBundle, staticHubMainHtml)');
+    expect(bodySection).toMatch(/isJobBoardHub\s*\n\s*\? `\$\{rootShell\(hasSpaBundle, staticHubMainHtml\)\}/);
+    const jobBoardBranch = bodySection.slice(bodySection.indexOf('isJobBoardHub'));
+    const nonJobBranch = jobBoardBranch.indexOf(': `${rootShell(hasSpaBundle)}');
+    expect(jobBoardBranch.slice(0, nonJobBranch)).not.toContain("${isJobBoardHub ? '' : railGridOpen}");
   });
 
   it('derives the static cap and centering from the hydrated job-board main contract', () => {

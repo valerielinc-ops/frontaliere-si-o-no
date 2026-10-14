@@ -121,7 +121,7 @@ describe('index.tsx mount order', () => {
   const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
   const mountApp = entry.slice(entry.indexOf('const mountApp = async'));
 
-  it('paints the adopted JobBoard fallback before module evaluation and hides only afterwards', () => {
+  it('paints the adopted JobBoard fallback before module evaluation and keeps legacy handoff order', () => {
     const awaitAt = mountApp.indexOf('await staticFirstPaint');
     const startAt = mountApp.indexOf('waitForStaticFirstPaint()');
     const warmAt = mountApp.indexOf("await import('@/components/community/JobBoard')");
@@ -134,6 +134,7 @@ describe('index.tsx mount order', () => {
     expect(adoptAt).toBeGreaterThan(awaitAt);
     expect(paintAt).toBeGreaterThan(adoptAt);
     expect(warmAt).toBeGreaterThan(paintAt);
+    expect(adoptAt).toBeLessThan(warmAt);
     expect(hideAt).toBeGreaterThan(awaitAt);
     expect(hideAt).toBeGreaterThan(warmAt);
     expect(mountApp.slice(awaitAt, adoptAt)).toContain("const isJobBoardRoute = parsedRoute.activeTab === 'job-board'");
