@@ -86,6 +86,7 @@ import {
   buildEmbeddedRankingUpdate,
   buildJobEmailDeliveryId,
   rankEmailJobs,
+  rankingNeedsAffinityProfile,
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
@@ -2042,6 +2043,7 @@ function planAlertMatch(alert, {
     if (relevance <= 0) continue;
     const applicationIntentRanked = applicationIntentRankingEnabled
       && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
+    const firstSeenMs = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
     const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
       ? job.relevanceSignals
         .filter((signal) => typeof signal === 'string' && signal.length <= 64)
@@ -2055,9 +2057,12 @@ function planAlertMatch(alert, {
           applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
           relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
         } : {}),
+        // Carry the parsed immutable discovery date to the final ranking
+        // layer; crawledAt is intentionally not a freshness clock.
+        newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
       },
       score: relevance + freshnessBoost(job, now),
-      firstSeenMs: job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0,
+      firstSeenMs,
     });
   }
   const sorted = scored
@@ -2691,22 +2696,27 @@ async function main() {
   // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
   const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
-  // Affinity profiles of this run's recipients: one read per PERSON (not per
-  // alert), batched, for both ranking variants — the measurement compares the
-  // two among people with a profile. The opposition flag lives on the
-  // newsletter document read above; an opted-out person is not read at all.
-  // A failed read degrades to "no profile" (standard order), never blocks.
+  // Affinity profiles are read only when the configured treatment is affinity.
+  // The newness treatment is independent of personal profiles, so it avoids
+  // this batch of Firestore reads. A failed read degrades to "no profile"
+  // (standard order), never blocks.
   const affinityNow = new Date(now);
-  const { profiles: affinityProfiles, stats: affinityLoadStats } = await loadJobEmailAffinityProfiles(
-    db,
-    alerts.map((alert) => {
-      const emailKey = alert.email.toLowerCase();
-      return {
-        email: emailKey,
-        optOut: subscriberProfiles.get(emailKey)?.[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true,
-      };
-    }),
-  );
+  const needsAffinityProfiles = rankingNeedsAffinityProfile({ config: JOB_EMAIL_RANKING_CONFIG });
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = needsAffinityProfiles
+    ? await loadJobEmailAffinityProfiles(
+      db,
+      alerts.map((alert) => {
+        const emailKey = alert.email.toLowerCase();
+        return {
+          email: emailKey,
+          optOut: subscriberProfiles.get(emailKey)?.[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true,
+        };
+      }),
+    )
+    : {
+      profiles: new Map(),
+      stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
+    };
   const affinityContextByEmail = new Map();
   const affinityContextFor = (email) => {
     const emailKey = String(email || '').toLowerCase();

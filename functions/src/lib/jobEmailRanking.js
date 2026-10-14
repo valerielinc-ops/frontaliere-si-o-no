@@ -3,13 +3,15 @@ import { createHash, createHmac } from 'node:crypto';
 /**
  * Ordine degli annunci nelle email con annunci (job alert e newsletter).
  *
- * Due varianti, assegnate una volta per persona (assignJobRankingVariant):
+ * Varianti assegnate una volta per persona (assignJobRankingVariant):
  *  - `control`: l'ordine del matcher, con la diversita' per azienda a parita'
  *    di pertinenza;
  *  - `affinity`: stessa pertinenza, moltiplicata per l'affinita' della persona
  *    con l'annuncio (profilo di interessi dai clic, ./jobEmailAffinity.js):
  *    rankingScore = relevanceScore * (1 - w + w * affinita'), w =
  *    JOB_EMAIL_RANKING_AFFINITY_WEIGHT.
+ *  - `control_plus_newness`: stessa pertinenza, ma un annuncio recente puo'
+ *    precedere un quasi-pari solo dentro una banda di rilevanza stretta.
  *
  * Il profilo decide SOLO l'ordine fra annunci gia' selezionati per la persona
  * (privacy policy, services/legal/privacy.ts): nessuna variante aggiunge o
@@ -23,21 +25,27 @@ import { createHash, createHmac } from 'node:crypto';
 export const JOB_EMAIL_RANKING_VARIANTS = Object.freeze({
   control: 'control',
   affinity: 'affinity',
+  controlPlusNewness: 'control_plus_newness',
 });
 
 /**
  * Seme dell'assegnazione: fisso per persona, uguale su tutte le superfici e
  * tutti i giorni. Cambiarlo rimescola l'intera popolazione dell'esperimento.
  */
+export const JOB_EMAIL_RANKING_ASSIGNMENT_SEED = 'job-email-control-plus-newness-2026-10';
 export const JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED = 'job-email-affinity-2026-10';
 
 export const JOB_EMAIL_RANKING_DEFAULTS = Object.freeze({
-  // Affinity is paused: control is the safe production default until a new
-  // ranking hypothesis is approved and measured.
+  // The global switch is off until the owner publishes the Remote Config
+  // values for the approved treatment.
   enabled: false,
   rollout: 0.5,
   affinityWeight: 0.5,
+  treatmentVariant: JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness,
 });
+
+export const JOB_EMAIL_RANKING_NEWNESS_WINDOW_DAYS = 7;
+export const JOB_EMAIL_RANKING_NEWNESS_RELEVANCE_BAND = 1;
 
 import {
   MAX_SAFE_SCORE,
@@ -60,6 +68,15 @@ function parseNumber(value, fallback, { min = -Infinity, max = Infinity, integer
   return Math.min(max, Math.max(min, normalized));
 }
 
+function parseTreatmentVariant(value, fallback) {
+  if (value === undefined || value === null || value === '') return fallback;
+  const normalized = String(value).trim().toLowerCase();
+  if (normalized === JOB_EMAIL_RANKING_VARIANTS.affinity
+    || normalized === JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness) return normalized;
+  // An invalid remote value must not silently enable an unknown treatment.
+  return JOB_EMAIL_RANKING_VARIANTS.control;
+}
+
 /**
  * Read the ranking settings at process start.  Invalid Remote Config values
  * fall back independently, so one bad knob cannot disable the safety rails of
@@ -70,6 +87,7 @@ export function readJobEmailRankingConfig(env = process.env) {
     enabled: parseBoolean(env.JOB_EMAIL_RANKING_ENABLED, JOB_EMAIL_RANKING_DEFAULTS.enabled),
     rollout: parseNumber(env.JOB_EMAIL_RANKING_ROLLOUT, JOB_EMAIL_RANKING_DEFAULTS.rollout, { min: 0, max: 1 }),
     affinityWeight: parseNumber(env.JOB_EMAIL_RANKING_AFFINITY_WEIGHT, JOB_EMAIL_RANKING_DEFAULTS.affinityWeight, { min: 0, max: 1 }),
+    treatmentVariant: parseTreatmentVariant(env.JOB_EMAIL_RANKING_TREATMENT, JOB_EMAIL_RANKING_DEFAULTS.treatmentVariant),
   });
 }
 
@@ -83,12 +101,21 @@ export function hashUnitInterval(seed) {
   return digest.readUInt32BE(0) / 0x1_0000_0000;
 }
 
+function configuredTreatmentVariant(config = JOB_EMAIL_RANKING_DEFAULTS) {
+  const value = config?.treatmentVariant;
+  if (value === undefined || value === null || value === '') return JOB_EMAIL_RANKING_DEFAULTS.treatmentVariant;
+  return value === JOB_EMAIL_RANKING_VARIANTS.affinity || value === JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness
+    ? value
+    : JOB_EMAIL_RANKING_VARIANTS.control;
+}
+
 /**
- * Variante di una persona: `affinity` se il suo bucket cade sotto il rollout,
- * altrimenti `control`. Il seme e' solo l'email normalizzata: la stessa persona
- * ha la stessa variante nei job alert e nella newsletter, oggi e domani, cosi'
- * l'effetto si misura per persona e non si diluisce cambiando braccio a ogni
- * invio. `JOB_EMAIL_RANKING_ENABLED` spento rimette tutti in `control`.
+ * Variante di una persona: il trattamento configurato se il suo bucket cade
+ * sotto il rollout, altrimenti `control`. Il seme e' solo l'email normalizzata:
+ * la stessa persona ha la stessa variante nei job alert e nella newsletter,
+ * oggi e domani, cosi' l'effetto si misura per persona e non si diluisce
+ * cambiando braccio a ogni invio. `JOB_EMAIL_RANKING_ENABLED` spento rimette
+ * tutti in `control`.
  */
 export function assignJobRankingVariant({
   subjectId,
@@ -96,8 +123,13 @@ export function assignJobRankingVariant({
 } = {}) {
   const subject = normalizeSubjectId(subjectId);
   if (!subject || !config.enabled || !(config.rollout > 0)) return JOB_EMAIL_RANKING_VARIANTS.control;
-  const bucket = hashUnitInterval(`${JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED}:${subject}`);
-  return bucket < config.rollout ? JOB_EMAIL_RANKING_VARIANTS.affinity : JOB_EMAIL_RANKING_VARIANTS.control;
+  const treatmentVariant = configuredTreatmentVariant(config);
+  if (treatmentVariant === JOB_EMAIL_RANKING_VARIANTS.control) return JOB_EMAIL_RANKING_VARIANTS.control;
+  const assignmentSeed = treatmentVariant === JOB_EMAIL_RANKING_VARIANTS.affinity
+    ? JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED
+    : JOB_EMAIL_RANKING_ASSIGNMENT_SEED;
+  const bucket = hashUnitInterval(`${assignmentSeed}:${subject}`);
+  return bucket < config.rollout ? treatmentVariant : JOB_EMAIL_RANKING_VARIANTS.control;
 }
 
 export function stableJobId(jobOrId) {
@@ -210,6 +242,53 @@ function finiteAffinity(value) {
   return Number.isFinite(number) ? Math.min(1, Math.max(0, number)) : 0;
 }
 
+function timestampFromValue(value) {
+  if (value instanceof Date) {
+    const ms = value.getTime();
+    return Number.isFinite(ms) ? ms : null;
+  }
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (value === undefined || value === null || value === '') return null;
+  const ms = new Date(value).getTime();
+  return Number.isFinite(ms) ? ms : null;
+}
+
+/**
+ * Date used by the newness treatment. `newnessAt` is the normalized value
+ * supplied by the two senders; the raw fields remain fallbacks for callers
+ * and tests that rank a dataset row directly. `crawledAt` is deliberately not
+ * used because it moves on every re-crawl and would make old listings appear
+ * new again.
+ */
+export function jobNewnessTimestamp(job) {
+  for (const value of [
+    job?.newnessAt,
+    job?.firstSeenAt,
+    job?.postedDate,
+    job?.datePosted,
+    job?.publishedAt,
+  ]) {
+    const ms = timestampFromValue(value);
+    if (ms !== null && ms > 0) return ms;
+  }
+  return null;
+}
+
+/**
+ * Freshness score in [0, 1]. Only listings first seen within the configured
+ * window receive a positive score; unknown, future and older dates are neutral.
+ */
+export function jobNewnessScore(job, now = Date.now(), windowDays = JOB_EMAIL_RANKING_NEWNESS_WINDOW_DAYS) {
+  const postedAt = jobNewnessTimestamp(job);
+  if (postedAt === null) return 0;
+  const nowMs = timestampFromValue(now);
+  if (nowMs === null) return 0;
+  const windowMs = Math.max(1, Number(windowDays) || JOB_EMAIL_RANKING_NEWNESS_WINDOW_DAYS) * 24 * 60 * 60 * 1000;
+  const ageMs = nowMs - postedAt;
+  if (ageMs < 0 || ageMs >= windowMs) return 0;
+  return 1 - (ageMs / windowMs);
+}
+
 /**
  * True only when the `affinity` branch actually reorders: affinity variant,
  * ranking enabled, a scorer (valid profile, no opt-out) and a positive weight.
@@ -224,6 +303,50 @@ export function affinityReorders({ variant, affinityScorer = null, config = JOB_
     && finiteAffinity(config.affinityWeight) > 0;
 }
 
+/** True when the newness treatment is active, even without a profile. */
+export function newnessReorders({ variant, config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return variant === JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness && Boolean(config.enabled);
+}
+
+/** True only when a sender needs to read affinity profiles for this config. */
+export function rankingNeedsAffinityProfile({ config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return Boolean(config.enabled)
+    && configuredTreatmentVariant(config) === JOB_EMAIL_RANKING_VARIANTS.affinity
+    && Number(config.rollout) > 0;
+}
+
+/** Any active ranking treatment may need a wider candidate pool. */
+export function rankingReorders({ variant, affinityScorer = null, config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return affinityReorders({ variant, affinityScorer, config }) || newnessReorders({ variant, config });
+}
+
+function orderByNewnessWithinRelevanceBands(candidates, nowMs) {
+  const relevanceOrdered = [...candidates].sort((a, b) => (
+    (b.ranking.relevanceScore - a.ranking.relevanceScore)
+    || (a.ranking.sourceIndex - b.ranking.sourceIndex)
+  ));
+  const ordered = [];
+  let start = 0;
+  while (start < relevanceOrdered.length) {
+    const firstRelevance = relevanceOrdered[start].ranking.relevanceScore;
+    let end = start + 1;
+    while (end < relevanceOrdered.length
+      && firstRelevance - relevanceOrdered[end].ranking.relevanceScore <= JOB_EMAIL_RANKING_NEWNESS_RELEVANCE_BAND) {
+      end++;
+    }
+    const band = relevanceOrdered.slice(start, end);
+    if (band.some((candidate) => jobNewnessScore(candidate, nowMs) > 0)) {
+      band.sort((a, b) => (
+        (b.ranking.newnessScore - a.ranking.newnessScore)
+        || (a.ranking.sourceIndex - b.ranking.sourceIndex)
+      ));
+    }
+    ordered.push(...band);
+    start = end;
+  }
+  return ordered;
+}
+
 /**
  * Rank an already matched list.
  *
@@ -236,28 +359,37 @@ export function affinityReorders({ variant, affinityScorer = null, config = JOB_
  * Control, and `affinity` without a scorer or with weight 0, preserve the
  * caller's order with company diversity as a tie-breaker. `affinity` with a
  * scorer sorts by relevance * (1 - w + w * affinity), keeping the caller's
- * order on equal scores, then applies the same company diversity. When a
- * scorer is given the control branch still records the affinity score of the
- * jobs it returns (for the measurement), without using it.
+ * order on equal scores, then applies the same company diversity. The
+ * `control_plus_newness` branch starts from relevance order and only sorts a
+ * narrow relevance band by a positive recent-listing score. When a scorer is
+ * given the control branch still records the affinity score of the jobs it
+ * returns (for the measurement), without using it.
  */
 export function rankEmailJobs(jobs, {
   variant = JOB_EMAIL_RANKING_VARIANTS.control,
   affinityScorer = null,
   limit = jobs?.length || 0,
   config = JOB_EMAIL_RANKING_DEFAULTS,
+  now = Date.now(),
 } = {}) {
   const source = Array.isArray(jobs) ? jobs : [];
   const safeLimit = Math.max(0, Math.trunc(limit));
   const isAffinity = variant === JOB_EMAIL_RANKING_VARIANTS.affinity && Boolean(config.enabled);
+  const isNewness = variant === JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness && Boolean(config.enabled);
   const scorer = typeof affinityScorer === 'function' ? affinityScorer : null;
   const weight = finiteAffinity(config.affinityWeight);
-  const reorders = affinityReorders({ variant, affinityScorer: scorer, config });
-  const variantLabel = isAffinity ? JOB_EMAIL_RANKING_VARIANTS.affinity : JOB_EMAIL_RANKING_VARIANTS.control;
+  const affinityOrdering = affinityReorders({ variant, affinityScorer: scorer, config });
+  const newnessOrdering = newnessReorders({ variant, config });
+  const nowMs = timestampFromValue(now) ?? Date.now();
+  const variantLabel = isAffinity
+    ? JOB_EMAIL_RANKING_VARIANTS.affinity
+    : isNewness ? JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness : JOB_EMAIL_RANKING_VARIANTS.control;
 
   const candidates = source.map((job, sourceIndex) => {
     const relevanceScore = relevanceFor(job);
-    const affinityScore = reorders ? finiteAffinity(scorer(jobRankingAttributes(job))) : null;
-    const rankingScore = reorders
+    const affinityScore = affinityOrdering ? finiteAffinity(scorer(jobRankingAttributes(job))) : null;
+    const newnessScore = isNewness ? jobNewnessScore(job, nowMs) : null;
+    const rankingScore = affinityOrdering
       ? relevanceScore * (1 - weight + weight * affinityScore)
       : relevanceScore;
     return {
@@ -268,23 +400,29 @@ export function rankEmailJobs(jobs, {
         rankingScore: Number.isFinite(rankingScore) ? rankingScore : 0,
         relevanceScore,
         affinityScore,
+        newnessScore,
         sourceIndex,
       },
     };
   });
 
-  const ordered = reorders
+  const ordered = affinityOrdering
     ? diversifyEqualRankGroups(
       // Array.prototype.sort is stable: equal scores keep the matcher order.
       [...candidates].sort((a, b) => b.ranking.rankingScore - a.ranking.rankingScore),
       (candidate) => candidate.ranking.rankingScore,
     )
+    : newnessOrdering
+      ? diversifyEqualRankGroups(
+        orderByNewnessWithinRelevanceBands(candidates, nowMs),
+        (candidate) => candidate.ranking.relevanceScore,
+      )
     : diversifyEqualRankGroups(candidates, (candidate) => candidate.ranking.relevanceScore);
 
   return ordered.slice(0, safeLimit).map((candidate, index) => {
     const ranking = { ...candidate.ranking, position: index + 1 };
     // Only the returned jobs need a score when it does not drive the order.
-    if (!reorders && scorer) ranking.affinityScore = finiteAffinity(scorer(jobRankingAttributes(candidate)));
+    if (!affinityOrdering && scorer) ranking.affinityScore = finiteAffinity(scorer(jobRankingAttributes(candidate)));
     return { ...candidate, ranking };
   });
 }

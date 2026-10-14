@@ -111,11 +111,12 @@ describe('newsletter job selection defaults', () => {
     };
 
     expect(getNewsletterCandidateLimit('control', { affinityScorer, config })).toBe(NEWSLETTER_JOB_LIMIT);
-    // The same twelve relevant candidates the CTR treatment had, only when affinity reorders.
+    // The same twelve relevant candidates the retired CTR treatment had, only when a treatment reorders.
     expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config })).toBe(12);
     expect(getNewsletterCandidateLimit('affinity', { affinityScorer: null, config })).toBe(NEWSLETTER_JOB_LIMIT);
     expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config: { ...config, affinityWeight: 0 } })).toBe(NEWSLETTER_JOB_LIMIT);
     expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config: { ...config, enabled: false } })).toBe(NEWSLETTER_JOB_LIMIT);
+    expect(getNewsletterCandidateLimit('control_plus_newness', { affinityScorer: null, config: { ...config, treatmentVariant: 'control_plus_newness' } })).toBe(12);
     // The retired label gets no special pool.
     expect(getNewsletterCandidateLimit('treatment', { affinityScorer, config })).toBe(NEWSLETTER_JOB_LIMIT);
 
