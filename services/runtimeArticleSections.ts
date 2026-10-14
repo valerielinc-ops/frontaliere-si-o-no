@@ -17,6 +17,7 @@ import {
 export const CANTON_SECTION_REGISTRY_URL = 'https://cdn.frontaliereticino.ch/edge/sections/registry.json';
 
 const TIMEOUT_MS = 4000;
+const REGISTRY_RETRY_DELAYS_MS = [0, 250, 750] as const;
 
 export interface RuntimeCantonArticleSection {
   section: CantonArticleSection;
@@ -68,7 +69,7 @@ function runtimeSection(section: CantonArticleSection, locale: Locale): RuntimeC
   };
 }
 
-async function fetchRegistry(): Promise<RegistryPayload | null> {
+async function fetchRegistryOnce(): Promise<RegistryPayload | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
@@ -85,6 +86,19 @@ async function fetchRegistry(): Promise<RegistryPayload | null> {
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function fetchRegistry(): Promise<RegistryPayload | null> {
+  for (const [attempt, delayMs] of REGISTRY_RETRY_DELAYS_MS.entries()) {
+    if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
+    const payload = await fetchRegistryOnce();
+    if (payload) return payload;
+    // A transient edge abort or Pages/R2 rollout window must not become a
+    // page-lifetime "no canton sections" decision. The caller still fails
+    // closed after the bounded sequence if the registry never becomes valid.
+    if (attempt === REGISTRY_RETRY_DELAYS_MS.length - 1) return null;
+  }
+  return null;
 }
 
 function loadRegistryPayload(): Promise<RegistryPayload | null> {
@@ -128,6 +142,16 @@ export function isLiveCantonArticleSectionCached(section: string): boolean {
   return liveSectionIds.has(section);
 }
 
+/** Re-read the edge registry after a versioned corpus release changes. */
+export function refreshCantonSectionRegistry(): void {
+  registryPromise = null;
+  liveSectionsPromise = null;
+  // Keep the last known-good live set while a release retry is in flight. A
+  // transient registry/Pages skew must not make the router reject valid
+  // canton paths for the rest of the SPA lifetime; a subsequent
+  // loadLiveCantonArticleSections() still replaces this set atomically.
+}
+
 /** Localize the registry result without another network request. */
 export function localizeCantonArticleSections(
   sections: readonly RuntimeCantonArticleSection[],
@@ -142,7 +166,6 @@ export function localizeCantonArticleSections(
 
 /** Test seam: the next consumer re-reads the edge registry. */
 export function __resetRuntimeArticleSections(): void {
-  registryPromise = null;
-  liveSectionsPromise = null;
+  refreshCantonSectionRegistry();
   liveSectionIds = new Set();
 }

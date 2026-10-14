@@ -14,10 +14,12 @@ import {
   cantonSectionConfig,
   isCantonArticleSection,
   loadCantonSectionRegistry,
+  refreshCantonSectionRegistry,
 } from '@/services/runtimeArticleSections';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = 6000;
+const RELEASE_RETRY_DELAYS_MS = [0, 500, 1500] as const;
 
 export interface CantonHubKeyFact {
   label: string;
@@ -207,9 +209,7 @@ function readPayloadDocument(
   return readLocale(value.locales[locale], section, topic, locale);
 }
 
-async function fetchHubPayload(): Promise<HubPayload | null> {
-  const registry = await loadCantonSectionRegistry();
-  if (!registry) return null;
+async function fetchHubPayload(registry: { commit: string }): Promise<HubPayload | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
@@ -226,7 +226,19 @@ async function fetchHubPayload(): Promise<HubPayload | null> {
   }
 }
 
-let hubPayloadPromise: Promise<HubPayload | null> | null = null;
+let hubPayloadCache: { commit: string; promise: Promise<HubPayload | null> } | null = null;
+
+function loadHubPayload(registry: { commit: string }): Promise<HubPayload | null> {
+  if (hubPayloadCache?.commit === registry.commit) return hubPayloadCache.promise;
+  const promise = fetchHubPayload(registry);
+  hubPayloadCache = { commit: registry.commit, promise };
+  return promise;
+}
+
+async function waitForReleaseRetry(attempt: number): Promise<void> {
+  const delayMs = RELEASE_RETRY_DELAYS_MS[attempt];
+  if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
+}
 
 /** Fetch one locale of one live canton hub from the versioned corpus payload. */
 export async function loadCantonTopicHub(
@@ -237,16 +249,28 @@ export async function loadCantonTopicHub(
   if (!isCantonArticleSection(section) || !LOCALES.includes(locale)) return null;
   const config = cantonSectionConfig(section);
   if (!config?.topicHubs || !Object.prototype.hasOwnProperty.call(config.topicHubs, topic)) return null;
-  const registry = await loadCantonSectionRegistry();
-  if (!registry?.sections[section] || registry.sections[section].status !== 'live') return null;
-  if (!hubPayloadPromise) hubPayloadPromise = fetchHubPayload();
-  const payload = await hubPayloadPromise;
-  if (!payload || !isRecord(payload.sections)) return null;
-  const sectionPayload = payload.sections[section];
-  if (!isRecord(sectionPayload)) return null;
-  return readPayloadDocument(sectionPayload[topic], section, topic, locale);
+  for (let attempt = 0; attempt < RELEASE_RETRY_DELAYS_MS.length; attempt += 1) {
+    await waitForReleaseRetry(attempt);
+    const registry = await loadCantonSectionRegistry();
+    if (!registry?.sections[section] || registry.sections[section].status !== 'live') return null;
+    const payload = await loadHubPayload(registry);
+    if (payload && isRecord(payload.sections)) {
+      const sectionPayload = payload.sections[section];
+      if (isRecord(sectionPayload)) {
+        const data = readPayloadDocument(sectionPayload[topic], section, topic, locale);
+        if (data) return data;
+      }
+    }
+
+    // Keep D20 fail-closed: never accept a payload from a different release.
+    // Instead, discard the cached result and re-read both authorities. This
+    // covers the short Pages/R2 propagation window and aborted JSON reads.
+    hubPayloadCache = null;
+    if (attempt < RELEASE_RETRY_DELAYS_MS.length - 1) refreshCantonSectionRegistry();
+  }
+  return null;
 }
 
 export function __resetRuntimeCantonTopicHubs(): void {
-  hubPayloadPromise = null;
+  hubPayloadCache = null;
 }
