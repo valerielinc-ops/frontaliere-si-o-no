@@ -17,7 +17,7 @@ describe('Instagram Reel preview wait', () => {
       count: vi.fn().mockResolvedValue(0),
       isVisible: vi.fn().mockResolvedValue(false),
     };
-    const page = { getByRole: () => absentLocator };
+    const page = { getByRole: () => absentLocator, locator: () => ({ count: vi.fn().mockResolvedValue(0) }) };
     const step = { set: vi.fn(), get: () => 'reel-next-preview' };
     vi.spyOn(Date, 'now').mockReturnValueOnce(0).mockReturnValue(DEFAULT_TIMEOUTS.upload + 1);
 

@@ -71,6 +71,7 @@ const NEXT_STEP = {
   challenge: 'Il proprietario apre il profilo (`node scripts/social-robot/run.mjs --login`) e supera la verifica della piattaforma. Il robot resta in pausa sulla piattaforma per 12 ore.',
   'confirmation-missing': 'Controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, aggiungere `resolvedAt` alla riga `unconfirmed` del journal del robot (o cancellarla). Il robot non ripubblica questo post da solo e resta fermo su questa piattaforma finché la riga non è risolta.',
   'selector-missing': 'Confrontare screenshot e HTML della diagnosi con i selettori di `scripts/social-robot/lib/flows.mjs`, aggiornarli e coprirli in `scripts/social-robot/robot-e2e.mjs`.',
+  'ui-loading-timeout': 'La UI della piattaforma è rimasta in caricamento oltre il limite: la issue viene commentata come errore transitorio e il robot ritenta al giro successivo; non trattarlo come un selettore rotto.',
   'interstitial-unknown': 'Confrontare screenshot e HTML della diagnosi con gli interstitial registrati in `scripts/social-robot/lib/flows.mjs`; aggiungere un’azione esplicitamente sicura e uno scenario E2E prima di riprovare.',
   'upload-unsupported': 'La pagina non accetta foto: verificare il flusso di caricamento dal web della piattaforma.',
   download: 'Le immagini della coda non sono scaricabili dalla CDN: verificare `images/social/` su R2.',

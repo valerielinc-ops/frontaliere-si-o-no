@@ -46,7 +46,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0 } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
   const menuItem = (id, label) => rolelessCreateMenu
     ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
     : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
@@ -68,6 +68,7 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   <div id="edit" hidden><p>Modifica</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="share-step" hidden><div id="caption" contenteditable="true" role="textbox" aria-label="Scrivi una didascalia..."></div><div role="button" tabindex="0" id="share">Condividi</div></div>
   <div id="done" hidden><img alt="" src="data:,"><span>${confirmText || `Il tuo ${reel ? 'reel' : 'post'} è stato condiviso.`}</span></div>`;
+  const dialogLoadingContent = '<div id="upload-loading" role="progressbar" aria-label="Loading">Loading…</div>';
   const dialogMarkup = createMenu
     ? '<div id="dialog" role="dialog" hidden></div>'
     : `<div id="dialog" role="dialog" hidden>${dialogContent}</div>`;
@@ -77,7 +78,13 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const noticeMarkup = videoReelNotice
     ? '<div id="video-reel-notice" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:20;background:#fff;padding:20%" hidden><h2>I post con video ora vengono condivisi come reel</h2><p>Il tuo account è pubblico, pertanto chiunque può scoprire il tuo video.</p><button id="video-reel-notice-ok" type="button">Ok</button></div>'
     : '';
-  const openDialog = (entry) => `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${JSON.stringify(entry)}; $('dialog').hidden = false; bindDialog();`;
+  const openDialog = (entry) => {
+    const entryCode = JSON.stringify(entry);
+    const mount = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false; bindDialog();`;
+    if (uploadDialogLoadingForever) return `$('dialog').innerHTML = ${JSON.stringify(dialogLoadingContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false;`;
+    if (Number(uploadDialogDelayMs) > 0) return `$('dialog').innerHTML = ${JSON.stringify(dialogLoadingContent)}; $('dialog').dataset.entry = ${entryCode}; $('dialog').hidden = false; setTimeout(() => { ${mount} }, ${Number(uploadDialogDelayMs)});`;
+    return mount;
+  };
   const createAction = createMenu ? "$('menu').hidden = false;" : openDialog('direct');
   const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog('post')} };${reel && reelMenu ? `$('reel-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog('reel')} };` : ''}` : '';
   return page('Instagram', `
@@ -313,6 +320,8 @@ function fakePlatforms() {
       case '/ig-reel-delayed-video-notice/': return send(200, instagramPage({ reel: true, reelMenu: false, videoReelNotice: true, videoReelNoticeDelayMs: 250, reelNextDelayMs: 800 }));
       case '/ig-reel-direct/': return send(200, instagramPage({ createMenu: false, reel: true }));
       case '/ig-reel-slow-preview/': return send(200, instagramPage({ reel: true, reelNextDelayMs: 150 }));
+      case '/ig-delayed-upload/': return send(200, instagramPage({ uploadDialogDelayMs: 1_000 }));
+      case '/ig-stuck-upload/': return send(200, instagramPage({ uploadDialogLoadingForever: true }));
       case '/ig-reel-de/': return send(200, instagramPage({ reel: true, confirmText: 'Dein Reel wurde geteilt.' }));
       case '/ig-reel-fr/': return send(200, instagramPage({ reel: true, confirmText: 'Votre Reel a été partagé.' }));
       case '/challenge/': return send(200, page('Instagram', '<h1>Help us confirm it\'s you</h1>'));
@@ -449,6 +458,12 @@ async function main() {
 
     r = await run('instagram', `${base}/ig-reel-slow-preview/`, { dryRun: true, label: 'ig-reel-slow-preview', reel: true, flowTimeouts: { ...timeouts, ui: 50, upload: 1_000 } });
     check(r.result?.status === 'dry-run', `a delayed Reel preview uses the bounded upload wait (${r.error?.message || 'ok'})`);
+
+    r = await run('instagram', `${base}/ig-delayed-upload/`, { dryRun: true, label: 'ig-delayed-upload', flowTimeouts: { ...timeouts, ui: 50, dialogLoading: 1_500 } });
+    check(r.result?.status === 'dry-run', `an Instagram upload waits for a dialog spinner before looking for the file input (${r.error?.message || 'ok'})`);
+
+    r = await run('instagram', `${base}/ig-stuck-upload/`, { dryRun: true, label: 'ig-stuck-upload', flowTimeouts: { ...timeouts, ui: 50, dialogLoading: 100 } });
+    check(r.error?.errorClass === 'ui-loading-timeout' && r.error?.step === 'upload', 'a dialog that never leaves loading is retryable ui-loading-timeout');
 
     for (const [locale, pathName] of [['German', 'ig-reel-de'], ['French', 'ig-reel-fr']]) {
       r = await run('instagram', `${base}/${pathName}/`, { dryRun: false, label: `ig-reel-${pathName}`, reel: true });

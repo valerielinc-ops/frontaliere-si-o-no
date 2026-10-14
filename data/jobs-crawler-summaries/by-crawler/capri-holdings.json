@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-10-13T21:42:32.229Z",
+  "generatedAt": "2026-10-14T09:43:04.704Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 26203,
-  "avgDurationMs": 26203,
+  "durationMs": 22391,
+  "avgDurationMs": 22391,
   "durationHistory": [
-    26203
+    22391
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:42:22.595Z",
+      "crawledAt": "2026-10-14T09:42:50.936Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -61,5 +61,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
