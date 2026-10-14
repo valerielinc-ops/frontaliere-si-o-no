@@ -23,6 +23,7 @@ import {
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { coverKey, createImageCreditReader } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import { loadInferredCoverDecisions } from './blog-cover-decisions.mjs';
+import { validatePublishedBlogImageEvidence } from './published-blog-image-evidence.mjs';
 
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const IMAGE_CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
@@ -134,7 +135,13 @@ function cdnPrefixForPath(pathname) {
  */
 export function checkPublishedImageUrl(
   imageUrl,
-  { records = [], imageCreditReader = null, requireCdn = false, inferredCovers = null } = {},
+  {
+    records = [],
+    imageCreditReader = null,
+    requireCdn = false,
+    inferredCovers = null,
+    generatedBlogRecords = [],
+  } = {},
 ) {
   const url = asAbsoluteHttpsUrl(imageUrl);
   if (!url) return failure('not-https-url', imageUrl);
@@ -158,6 +165,8 @@ export function checkPublishedImageUrl(
   }
 
   if (pathname.startsWith('/images/blog/')) {
+    const generatedRecord = recordsByPath(generatedBlogRecords).get(pathname);
+    if (generatedRecord) return validGeneratedRecord(imageUrl, generatedRecord, pathname);
     if (!imageCreditReader || typeof imageCreditReader.get !== 'function') {
       return failure('missing-image-credit-reader', imageUrl, { path: pathname });
     }
@@ -210,11 +219,51 @@ function readRegistryFile(filePath, { scope, warn }) {
   }
 }
 
+function readPublishedBlogImageEvidence(filePath, { required = false, warn = console.warn } = {}) {
+  if (!fs.existsSync(filePath)) {
+    if (!required) return { records: [], error: null };
+    const error = `${filePath}: required published blog image evidence snapshot is missing`;
+    warn(`[published-image-policy] ${error}`);
+    return { records: [], error };
+  }
+
+  try {
+    const snapshot = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (snapshot?.schema !== 1
+      || !/^[0-9a-f]{40}$/.test(String(snapshot.commit || ''))
+      || !snapshot.generated
+      || typeof snapshot.generated !== 'object'
+      || Array.isArray(snapshot.generated)) {
+      throw new Error('invalid snapshot schema, commit or generated map');
+    }
+
+    const records = [];
+    for (const [imageUrl, record] of Object.entries(snapshot.generated)) {
+      const validation = validatePublishedBlogImageEvidence(imageUrl, record);
+      if (!validation.valid) {
+        throw new Error(`${imageUrl}: ${validation.errors.join('; ')}`);
+      }
+      records.push(record);
+    }
+    return { records, error: null };
+  } catch (error) {
+    const message = `${filePath}: invalid published blog image evidence (${error.message})`;
+    warn(`[published-image-policy] ${message}`);
+    return { records: [], error: message };
+  }
+}
+
 /**
  * Load the site's local registries for Node uploaders and CI gates. Missing
  * optional registries are fine; a present but invalid registry is fail-closed.
+ * The OG gate can additionally require the manifest-pinned generated-image
+ * evidence snapshot pulled from the article corpus over HTTP.
  */
-export function loadPublishedImagePolicy({ root = process.cwd(), warn = console.warn } = {}) {
+export function loadPublishedImagePolicy({
+  root = process.cwd(),
+  warn = console.warn,
+  requirePublishedBlogImageEvidence = false,
+} = {}) {
   const registrySpecs = [
     { path: path.join(root, 'data', 'event-image-library.json'), scope: 'event-library' },
     { path: path.join(root, 'data', 'generated-image-registry.json') },
@@ -227,6 +276,14 @@ export function loadPublishedImagePolicy({ root = process.cwd(), warn = console.
     records.push(...result.records);
     if (result.error) registryErrors.push(result.error);
   }
+
+  const publishedBlogEvidence = readPublishedBlogImageEvidence(
+    path.join(root, 'data', 'og-published-blog-generated-image-evidence.json'),
+    { required: requirePublishedBlogImageEvidence, warn },
+  );
+  if (publishedBlogEvidence.error) registryErrors.push(publishedBlogEvidence.error);
+  const ogRecords = [...records, ...publishedBlogEvidence.records];
+  const generatedBlogRecords = ogRecords.filter((record) => record?.scope === 'article-hero');
 
   const imageCreditReader = createImageCreditReader(
     fs,
@@ -244,6 +301,11 @@ export function loadPublishedImagePolicy({ root = process.cwd(), warn = console.
     inferredCovers: null,
   });
   const inferredCovers = loadInferredCoverDecisions({ root });
-  const checkOg = (imageUrl) => checkOwnedOgImage(imageUrl, { records, imageCreditReader, inferredCovers });
+  const checkOg = (imageUrl) => checkOwnedOgImage(imageUrl, {
+    records: ogRecords,
+    imageCreditReader,
+    inferredCovers,
+    generatedBlogRecords,
+  });
   return { records, imageCreditReader, registryErrors, check, checkOg };
 }

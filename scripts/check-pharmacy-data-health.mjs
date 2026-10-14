@@ -23,6 +23,9 @@ import { realpathSync } from 'node:fs';
  *   5. PERIMETRO    — le quattro giurisdizioni CH-TI/IT-CO/IT-VA/IT-VB, con
  *                    record, freschezza, record fuori area, collisioni e
  *                    provenance dei campi secondari.
+ *   6. ORIZZONTE IT — per le province required, una release non fresh è un
+ *                    problema; una release fresh deve avere un ultimo turno
+ *                    verificato oltre la soglia minima.
  *
  * NON pubblica nulla e non tocca pagine: è un osservatore interno. I dataset
  * dei turni arrivano da `data/pharmacy-duties-<canton>.json`, oppure dal
@@ -70,6 +73,12 @@ export const BORDER_SLA_TOLERANCE = 2;
  * niente sullo stato della fonte e va ripetuto.
  */
 export const PHARMACY_AUDIT_MAX_AGE_DAYS = 90;
+/**
+ * Un calendario italiano fresco deve conservare almeno questo margine di
+ * turni verificati dopo il fetch. Le settimane vuote sono lecite: osserviamo
+ * l'orizzonte dell'ultimo intervallo, non la continuità settimana per settimana.
+ */
+export const ITALY_REQUIRED_DUTY_HORIZON_DAYS = 28;
 const SWISS_CANTON_DUTY_TIMEZONE = 'Europe/Zurich';
 const BORDER_JURISDICTIONS = Object.freeze([
   { key: 'CH-TI', sourceKey: 'ticino-complete', country: 'CH', canton: 'Ticino' },
@@ -330,6 +339,118 @@ export function observeSwissCantonDutyCoverage(registry, duties) {
   };
 }
 
+function requiredItalyDutyProvinces(sources) {
+  const rawSources = Array.isArray(sources)
+    ? sources
+    : sources && typeof sources === 'object' && Array.isArray(sources.sources)
+      ? sources.sources
+      : [];
+  const configuredScope = sources && typeof sources === 'object' && Array.isArray(sources.scope?.provinces)
+    ? sources.scope.provinces
+    : [];
+  const normalizeProvince = (province) => {
+    if (typeof province !== 'string') return null;
+    const normalized = province.trim().toUpperCase();
+    return normalized || null;
+  };
+  const normalizedConfiguredScope = configuredScope.map(normalizeProvince);
+  // Uno scope assente, vuoto o con codici non riconosciuti non può restringere
+  // il controllo: il perimetro canonico resta required finché il registry non
+  // dichiara esplicitamente una provincia `best-effort`. Un valore non stringa
+  // non va filtrato via: altrimenti uno scope misto potrebbe perdere le altre
+  // province canoniche ancora prima di valutare il registry delle fonti.
+  const scope = normalizedConfiguredScope.length > 0
+    && normalizedConfiguredScope.every((province) => province && BORDER_ITALY_PROVINCES.has(province))
+    ? [...new Set(normalizedConfiguredScope)]
+    : [...BORDER_ITALY_PROVINCES];
+  const byProvince = new Map();
+  for (const source of rawSources) {
+    const province = normalizeProvince(source?.province);
+    if (!province) continue;
+    const entries = byProvince.get(province) ?? [];
+    entries.push(source);
+    byProvince.set(province, entries);
+  }
+  const registryProblems = [...byProvince.entries()]
+    .filter(([province, entries]) => scope.includes(province) && entries.length > 1)
+    .map(([province]) => `${province}: registro fonti Italia duplicato; la provincia resta required`);
+  return {
+    requiredProvinces: scope.filter((province) => {
+      const entries = byProvince.get(province) ?? [];
+      // Voce assente o publication malformata = required; solo una voce unica
+      // con esenzione esplicita può togliere una provincia dall'orizzonte.
+      return entries.length !== 1 || entries[0].publication !== 'best-effort';
+    }),
+    registryProblems,
+  };
+}
+
+/**
+ * Osserva l'orizzonte del calendario italiano senza confondere i buchi
+ * legittimi fra due turni con un dato scaduto. La classe `required` arriva dal
+ * registry della fonte: una classe assente resta required, come nella logica
+ * di pubblicazione della SPA e dell'importer. Una release non `fresh` genera
+ * un problema per ogni provincia required; una release `fresh` viene poi
+ * verificata anche sull'orizzonte del calendario.
+ */
+export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_REQUIRED_DUTY_HORIZON_DAYS } = {}) {
+  const snapshot = duties && typeof duties === 'object' && !Array.isArray(duties) ? duties : {};
+  const release = snapshot._release && typeof snapshot._release === 'object' && !Array.isArray(snapshot._release)
+    ? snapshot._release
+    : {};
+  const releaseState = typeof release.state === 'string' ? release.state : null;
+  const fetchedAt = typeof snapshot._fetchedAt === 'string' ? snapshot._fetchedAt : null;
+  const fetchedAtMs = fetchedAt ? Date.parse(fetchedAt) : NaN;
+  const thresholdDays = Number.isFinite(horizonDays) && horizonDays > 0
+    ? horizonDays
+    : ITALY_REQUIRED_DUTY_HORIZON_DAYS;
+  const rows = Array.isArray(snapshot.duties) ? snapshot.duties : [];
+  const { requiredProvinces, registryProblems } = requiredItalyDutyProvinces(sources);
+  const entries = requiredProvinces.map((province) => {
+    const verifiedRows = rows.filter((row) => row?.province === province && row?.status === 'verified');
+    const latest = verifiedRows.reduce((candidate, row) => {
+      const endsAt = typeof row?.endsAt === 'string' ? Date.parse(row.endsAt) : NaN;
+      if (!Number.isFinite(endsAt) || (candidate && endsAt <= candidate.endsAtMs)) return candidate;
+      return { endsAt: row.endsAt, endsAtMs: endsAt };
+    }, null);
+    const horizonDaysAfterFetch = Number.isFinite(fetchedAtMs) && latest
+      ? (latest.endsAtMs - fetchedAtMs) / 86400e3
+      : null;
+    const problems = [];
+    if (releaseState !== 'fresh') {
+      problems.push(`${province}: release ${releaseState ?? 'unknown'} non fresca`);
+    } else {
+      if (verifiedRows.length === 0) {
+        problems.push(`${province}: release fresh senza turni verificati`);
+      } else if (!Number.isFinite(fetchedAtMs)) {
+        problems.push(`${province}: _fetchedAt mancante o non parsabile per misurare l'orizzonte`);
+      } else if (!latest) {
+        problems.push(`${province}: nessun turno verificato con endsAt parsabile`);
+      } else if (horizonDaysAfterFetch < thresholdDays) {
+        problems.push(`${province}: ultimo turno verificato ${latest.endsAt} solo ${Math.round(horizonDaysAfterFetch * 10) / 10} giorni dopo il fetch, sotto la soglia di ${thresholdDays} giorni`);
+      }
+    }
+    return {
+      province,
+      releaseState,
+      fetchedAt,
+      verifiedDutyCount: verifiedRows.length,
+      latestVerifiedAt: latest?.endsAt ?? null,
+      horizonDaysAfterFetch: horizonDaysAfterFetch === null ? null : Math.round(horizonDaysAfterFetch * 10) / 10,
+      horizonDays: thresholdDays,
+      healthy: problems.length === 0,
+      problems,
+    };
+  });
+  return {
+    releaseState,
+    fetchedAt,
+    horizonDays: thresholdDays,
+    entries,
+    problems: [...registryProblems, ...entries.flatMap((entry) => entry.problems)],
+  };
+}
+
 /**
  * `_errors[]` che gli importer lasciano nei dataset e che nessuno rilegge.
  */
@@ -492,7 +613,7 @@ export function findBorderSourceMismatches(records) {
  * `sources`, `ticino`, `italy` and `duties` may be null: malformed/missing
  * snapshots must become a degraded report, not make the observer disappear.
  */
-export function evaluateBorderHealth({ sources, ticino, italy, duties = null, nowMs = Date.now() }) {
+export function evaluateBorderHealth({ sources, ticino, italy, duties = null, italyDuties = null, italySources = null, nowMs = Date.now() }) {
   const sourceMap = borderSourceRegistry(sources);
   const docs = { 'ticino-complete': normalizedBorderDoc(ticino), 'italy-border': normalizedBorderDoc(italy) };
   const records = [
@@ -538,6 +659,7 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
   const fetchErrors = ['ticino-complete', 'italy-border'].flatMap((key) => (Array.isArray(docs[key]?._errors) && docs[key]._errors.length
       ? [{ key, count: docs[key]._errors.length, errors: docs[key]._errors.slice(0, 10) }]
       : []));
+  const italyDutyHorizon = observeItalyDutyHorizon({ duties: italyDuties, sources: italySources });
   return {
     jurisdictions,
     totalRecords: jurisdictions.reduce((sum, jurisdiction) => sum + jurisdiction.recordCount, 0),
@@ -547,6 +669,7 @@ export function evaluateBorderHealth({ sources, ticino, italy, duties = null, no
     identityCollisions: detectBorderIdentityCollisions(records),
     missingSecondaryProvenance: detectMissingSecondaryProvenance(records),
     validationErrors,
+    italyDutyHorizon,
   };
 }
 
@@ -688,6 +811,7 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
       }
     }
     for (const error of borderHealth.fetchErrors) problems.push(`${error.count} errore/i di fetch nel dataset perimetro ${error.key}`);
+    for (const problem of borderHealth.italyDutyHorizon.problems) problems.push(`orizzonte turni Italia: ${problem}`);
     if (borderHealth.outOfScopeRecords.length) problems.push(`${borderHealth.outOfScopeRecords.length} record fuori perimetro nelle snapshot farmacie`);
     if (borderHealth.sourceMismatches.length) problems.push(`${borderHealth.sourceMismatches.length} record nella snapshot della fonte errata`);
     if (borderHealth.identityCollisions.length) problems.push(`${borderHealth.identityCollisions.length} collisioni di identità nelle snapshot farmacie`);
@@ -742,6 +866,11 @@ export function formatReport(report) {
       lines.push(`  • ${jurisdiction.key} [${jurisdiction.sourceStatus}] — ${jurisdiction.recordCount} record · fetch ${age}${jurisdiction.stale ? ' ⚠️ STALE' : ''}`);
     }
     lines.push(`Errori fetch perimetro: ${report.border.fetchErrors.reduce((n, e) => n + e.count, 0)}`);
+    lines.push(`Orizzonte turni Italia: soglia ${report.border.italyDutyHorizon.horizonDays}g`);
+    for (const entry of report.border.italyDutyHorizon.entries) {
+      const horizon = entry.horizonDaysAfterFetch === null ? '?' : `${entry.horizonDaysAfterFetch}g`;
+      lines.push(`  • IT-${entry.province} [required] — ultimo turno ${entry.latestVerifiedAt || 'nessuno'} · ${horizon}${entry.healthy ? '' : ' ⚠️ PROBLEMA'}`);
+    }
     lines.push(`Record fuori perimetro: ${report.border.outOfScopeRecords.length}`);
     lines.push(`Record nella snapshot della fonte errata: ${report.border.sourceMismatches.length}`);
     lines.push(`Collisioni identità perimetro: ${report.border.identityCollisions.length}`);
@@ -815,6 +944,8 @@ function main() {
     ticino: readJson('data/pharmacies-ticino-complete.json'),
     italy: readJson('data/pharmacies-italy-border.json'),
     duties: readJson('data/pharmacy-duties-ticino.json'),
+    italyDuties: readJson('data/pharmacy-duties-italy.json'),
+    italySources: readJson('data/pharmacy-duties-italy-sources.json'),
   };
 
   const maxAgeEnv = Number(process.env.PHARMACY_ANAGRAFICA_MAX_AGE_HOURS);
