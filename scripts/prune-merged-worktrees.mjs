@@ -38,6 +38,11 @@ import { classifyDirty } from './lib/worktree-dirty.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
+import {
+  defaultTempRoot,
+  sweepStaleTempDirs,
+  STALE_TEMP_DIR_AGE_MS,
+} from './lib/stale-temp-dir-sweep.mjs';
 
 const APPLY = process.argv.includes('--apply');
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
@@ -115,6 +120,7 @@ if (ORPHANS_ONLY) {
 // cancellazione a torto).
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
+const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
 
 // Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
 // impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
@@ -395,5 +401,16 @@ for (const b of delBranch) {
   }
 }
 sh('git worktree prune', { allowFail: true });
+
+// Pulizia cross-device degli artefatti temporanei: una sola istanza può
+// scansionare/cancellare il root per evitare N walk ricorsive concorrenti.
+const tmpRoot = defaultTempRoot();
+const tmpRun = withSingleFlightLock(tempSweepLock, () => sweepStaleTempDirs(tmpRoot, { apply: APPLY }));
+if (tmpRun.acquired) {
+  const tmpMb = Math.round((tmpRun.value?.bytes ?? 0) / 1048576);
+  console.log(`🧹 tmp ${tmpRoot}: ${tmpRun.value?.removed ?? 0}/${tmpRun.value?.candidates ?? 0} directory stale rimosse (${tmpMb} MB; soglia ${STALE_TEMP_DIR_AGE_MS / 86400000} giorni).`);
+} else {
+  console.log(`ℹ️  tmp cleanup saltato: un'altra istanza tiene ${tempSweepLock}.`);
+}
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);
