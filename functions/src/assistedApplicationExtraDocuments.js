@@ -26,7 +26,9 @@ import { detectCvFileType, isAssistedApplicationCvKey } from './assistedApplicat
 
 export { DOCUMENT_KINDS };
 // At most this many requested documents, and files per document.
-export const MAX_REQUIRED_DOCUMENTS = 8;
+// Keep enough slots for a posting's attachments plus live portal-only fields;
+// dropping a ninth required file would let the runner send an incomplete application.
+export const MAX_REQUIRED_DOCUMENTS = 16;
 export const MAX_FILES_PER_DOCUMENT = 5;
 // The form planner names a document by slot (a fixed enum for the model's
 // schema): extra_1 is the first requested document, and so on.
@@ -152,26 +154,26 @@ export function requiredDocumentLabelKey(label) {
  */
 export function mergeRequiredDocuments(...sources) {
   const merged = [];
-  for (const source of sources) {
+  for (const [sourceIndex, source] of sources.entries()) {
     for (const item of Array.isArray(source) ? source : []) {
       const document = requiredDocumentsOf({ requiredDocuments: [item] })[0];
       if (!document) continue;
       const foldedLabel = document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
         .replace(/\s+/g, ' ').trim();
       const normalizedLabel = requiredDocumentLabelKey(document.label);
-      const existing = merged.find((candidate) => candidate.id === document.id
-        || (normalizedLabel && requiredDocumentLabelKey(candidate.label) === normalizedLabel)
-        || candidate.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === foldedLabel);
+      const existing = merged.find((candidate) => candidate.document.id === document.id
+        || (candidate.sourceIndex !== sourceIndex && normalizedLabel && requiredDocumentLabelKey(candidate.document.label) === normalizedLabel)
+        || (candidate.sourceIndex !== sourceIndex && candidate.document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === foldedLabel));
       if (!existing) {
-        merged.push({ ...document });
+        merged.push({ document: { ...document }, sourceIndex });
         continue;
       }
-      existing.required = existing.required || document.required;
-      if (!existing.quote && document.quote) existing.quote = document.quote;
-      existing.keywords = [...new Set([...existing.keywords, ...document.keywords])].slice(0, 12);
+      existing.document.required = existing.document.required || document.required;
+      if (!existing.document.quote && document.quote) existing.document.quote = document.quote;
+      existing.document.keywords = [...new Set([...existing.document.keywords, ...document.keywords])].slice(0, 12);
     }
   }
-  return requiredDocumentsOf({ requiredDocuments: merged });
+  return requiredDocumentsOf({ requiredDocuments: merged.map(({ document }) => document) });
 }
 
 /**

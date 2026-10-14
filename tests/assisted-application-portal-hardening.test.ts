@@ -22,6 +22,7 @@ import {
   realisticUserAgent,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtraDocuments.js';
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
@@ -409,11 +410,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       { fieldId: 'salary', question: 'Lohnvorstellung', why: '', type: 'text', options: [] },
     ]);
     expect(result.documents).toEqual([expect.objectContaining({
-      id: 'portal_document_arbeitszeugnisse', label: 'Arbeitszeugnisse', required: true, quote: 'Arbeitszeugnisse',
+      label: 'Arbeitszeugnisse', required: true, quote: 'Arbeitszeugnisse',
     })]);
     expect(result.questions.map((question: any) => question.question)).toEqual(['Lohnvorstellung']);
     expect(portalRequiredDocumentFromField(fields[1])).toBeNull();
     expect(portalRequiredDocumentFromField(fields[2])).toBeNull();
+  });
+
+  it('recognizes Unicode CV labels and keeps same-prefix portal file fields distinct', () => {
+    expect(portalRequiredDocumentFromField({ kind: 'file', required: true, label: 'Résumé' })).toBeNull();
+    const first = portalRequiredDocumentFromField({ id: 'field_same_prefix_alpha', kind: 'file', required: true, label: 'Same label with a long normalized prefix 1234567890' });
+    const second = portalRequiredDocumentFromField({ id: 'field_same_prefix_beta', kind: 'file', required: true, label: 'Same label with a long normalized prefix 1234567890' });
+    expect(first?.id).not.toBe(second?.id);
+    expect(mergeRequiredDocuments([], [first, second])).toHaveLength(2);
   });
 
   it('tells the interview prep what the employer already received', () => {

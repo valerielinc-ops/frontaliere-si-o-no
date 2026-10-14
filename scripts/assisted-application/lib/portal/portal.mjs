@@ -1585,7 +1585,17 @@ export const PREREAD_CHANNELS = new Set([
   'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors',
 ]);
 
-const CORE_DOCUMENT_LABEL_RE = /\b(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)\b/i;
+const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
+
+function portalDocumentId(field, label, context) {
+  let hash = 2166136261;
+  for (const character of `${field?.id || ''}\u0000${label}\u0000${context}`) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  const fieldPart = slugId(field?.id || label).slice(0, 16) || 'document';
+  return `portal_document_${fieldPart}_${(hash >>> 0).toString(36)}`;
+}
 
 /** A readable required file field that is not the CV or the cover letter. */
 export function portalRequiredDocumentFromField(field) {
@@ -1598,7 +1608,7 @@ export function portalRequiredDocumentFromField(field) {
     ...label.split(/[^\p{L}\p{N}]+/u).filter((word) => word.length >= 3),
   ])].slice(0, 12);
   return {
-    id: `portal_document_${slugId(`${label} ${field.context || ''}`)}`,
+    id: portalDocumentId(field, label, field.context || ''),
     label: label.slice(0, 160),
     kind: 'other',
     required: true,
