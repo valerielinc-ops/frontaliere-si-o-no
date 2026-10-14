@@ -5,7 +5,26 @@
  * from PDF text. Title normalization strips announcement prefixes
  * ("1 ", "Cercansi", "Un o una") and capitalizes the role name.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { fetchMendrisioJobs } from '../scripts/update-mendrisio-jobs.mjs';
+
+const MENDRISIO_CAREERS_URL =
+  'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro.html';
+const MENDRISIO_AJAX_URL =
+  'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro/content/04.html?ajax=true';
+
+function stubMendrisioFetch(responses: Record<string, Response>) {
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const response = responses[String(input)];
+    if (!response) throw new Error(`unexpected fixture URL: ${String(input)}`);
+    return response;
+  }));
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 /* ── Inline the functions we're testing (they're not exported from ESM) ── */
 
@@ -468,5 +487,106 @@ describe('Mendrisio crawler — PDF text overlap validation', () => {
     const title = 'Direttore finanziario senior multinazionale';
     const overlap = titleOverlap(title, PDF_TEXT_FIXTURE_ELECTRICIAN);
     expect(overlap).toBeLessThan(0.2);
+  });
+});
+
+describe('Mendrisio crawler — source-proofed discovery', () => {
+  it('stamps an empty AJAX container only when the main page still carries the endpoint', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<html><body><script>const endpoint = "${MENDRISIO_AJAX_URL}";</script></body></html>`,
+        { status: 200 },
+      ),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toEqual(
+      expect.stringContaining('HTTP 200'),
+    );
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toEqual(
+      expect.stringContaining(MENDRISIO_AJAX_URL),
+    );
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toEqual(
+      expect.stringContaining('contenitore vuoto'),
+    );
+  });
+
+  it('keeps a 403 response as an unproven zero with an explicit diagnosis', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('blocked', { status: 403 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<script>const endpoint = "${MENDRISIO_AJAX_URL}";</script>`,
+        { status: 200 },
+      ),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('anti_bot_block');
+    expect(Reflect.get(jobs, 'fetchFailureReason')).toMatch(/403/);
+    expect(Reflect.get(jobs, 'fetchFailureReason')).toContain(MENDRISIO_AJAX_URL);
+  });
+
+  it('keeps an unexpected AJAX body as an unproven zero', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<html><title>Challenge</title></html>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<script>const endpoint = "${MENDRISIO_AJAX_URL}";</script>`,
+        { status: 200 },
+      ),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('selector_miss');
+    expect(Reflect.get(jobs, 'fetchFailureReason')).toMatch(/corpo AJAX inatteso/i);
+  });
+
+  it('keeps an empty AJAX container unproven when the main page loses the endpoint', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response('<html><body><h1>Offerte</h1></body></html>', { status: 200 }),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('selector_miss');
+    expect(Reflect.get(jobs, 'fetchFailureReason')).toMatch(/URL AJAX.*mancante/i);
+  });
+
+  it('returns one parsed job when the AJAX source contains an announcement', async () => {
+    const ajaxHtml = [
+      '<div>',
+      '  <article class="document">',
+      '    <div class="content">',
+      '      <h3>Archivista comunale</h3>',
+      '      <p>Descrizione neutra della posizione e delle attività richieste.</p>',
+      '    </div>',
+      '  </article>',
+      '</div>',
+    ].join('');
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response(ajaxHtml, { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<script>const endpoint = "${MENDRISIO_AJAX_URL}";</script>`,
+        { status: 200 },
+      ),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Archivista comunale', companyKey: 'citta-di-mendrisio' });
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 });

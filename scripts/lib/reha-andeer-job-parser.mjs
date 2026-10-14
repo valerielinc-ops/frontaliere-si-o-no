@@ -24,10 +24,12 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
  * Masseurin). Ship anyway.
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -44,7 +46,7 @@ export const REHA_ANDEER_KEY = 'reha-andeer';
 export const REHA_ANDEER_COMPANY_NAME = 'Reha Andeer';
 export const REHA_ANDEER_COMPANY_DOMAIN = 'reha-andeer.ch';
 
-const PUBLIC_CAREER_URL = 'https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer';
+export const PUBLIC_CAREER_URL = 'https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer';
 const DEFAULT_CITY = 'Andeer';
 const DEFAULT_CANTON = 'GR';
 const DEFAULT_POSTAL = '7440';
@@ -178,6 +180,56 @@ export function buildRehaAndeerDescription({ title, pdfText = '' }) {
 export const REHA_ANDEER_FABRICATED_DESCRIPTION_RE =
   /ist eine private Rehabilitationsklinik in Andeer|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriere-Seite: https?:|(?:^|\n)Bewerbung: per E-Mail gemäss den Hinweisen im Stelleninserat/;
 
+function normalizeFetchedPage(result) {
+  if (result && typeof result === 'object' && !Array.isArray(result) && 'body' in result) {
+    return {
+      status: result.status == null ? null : Number(result.status),
+      body: typeof result.body === 'string' ? result.body : '',
+    };
+  }
+  // Keep injected fetchers used by existing tests/callers source-compatible:
+  // the shared helper returns a string unless includeStatus is requested.
+  return { status: 200, body: typeof result === 'string' ? result : '' };
+}
+
+function rehaAndeerEmptyPageStructure(html = '') {
+  const dom = new JSDOM(String(html || ''));
+  try {
+    const { document } = dom.window;
+    const root = document.querySelector('main, [role="main"]') || document.body;
+    const hasSectionHeading = [...root.querySelectorAll('h1, h2, h3, h4, h5, h6')]
+      .some((heading) => /\bOffene Stellen\b/i.test(normalizeSpace(heading.textContent || '')));
+    const pageText = normalizeSpace(root.textContent || '');
+    const hasInitiativeMarker = /\bInitiativbewerbung(?:en)?\b/i.test(pageText);
+    return { hasSectionHeading, hasInitiativeMarker };
+  } finally {
+    dom.window.close();
+  }
+}
+
+export function isRehaAndeerAuthoritativeEmptyPage(html = '') {
+  const structure = rehaAndeerEmptyPageStructure(html);
+  return structure.hasSectionHeading
+    && structure.hasInitiativeMarker
+    && parseRehaAndeerListing(html).length === 0;
+}
+
+function rehaAndeerEmptyEvidence(html) {
+  const structure = rehaAndeerEmptyPageStructure(html);
+  if (isRehaAndeerAuthoritativeEmptyPage(html)) {
+    return `Reha Andeer page HTTP 200 at ${PUBLIC_CAREER_URL}: section heading "Offene Stellen" and marker "Initiativbewerbungen" present; 0 Stelleninserat PDF links.`;
+  }
+  const missing = [];
+  if (!structure.hasSectionHeading) missing.push('heading "Offene Stellen"');
+  if (!structure.hasInitiativeMarker) missing.push('marker "Initiativbewerbungen"');
+  return `Reha Andeer page HTTP 200 at ${PUBLIC_CAREER_URL}: missing ${missing.join(' and ') || 'the empty-page structure'}; 0 Stelleninserat PDF links.`;
+}
+
+function fetchOutcomeForError(error) {
+  const status = Number(error?.status);
+  return [403, 406, 415, 451].includes(status) ? 'anti_bot_block' : null;
+}
+
 /**
  * Fetch the source listing. The former WordPress origin intermittently
  * returned a structural 404 to the crawler egress while a clean egress still
@@ -185,9 +237,18 @@ export const REHA_ANDEER_FABRICATED_DESCRIPTION_RE =
  * error, or an unverified proxy response, remains a hard failure so the
  * crawler cannot publish a guessed empty listing.
  */
-export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
+export async function fetchRehaAndeerListingHtml({ timeoutMs, fetchHtmlImpl = fetchHtml } = {}) {
   try {
-    return await fetchHtml(PUBLIC_CAREER_URL, { timeoutMs });
+    const fetched = normalizeFetchedPage(await fetchHtmlImpl(PUBLIC_CAREER_URL, {
+      timeoutMs,
+      includeStatus: true,
+    }));
+    if (fetched.status !== 200) {
+      const error = new Error(`HTTP ${fetched.status || 'unknown'} from ${PUBLIC_CAREER_URL}`);
+      error.status = fetched.status;
+      throw error;
+    }
+    return fetched.body;
   } catch (err) {
     if (Number(err?.status) !== 404) throw err;
     const rescuedHtml = await fetchHtmlViaJinaWithRetry(PUBLIC_CAREER_URL, { timeoutMs });
@@ -203,29 +264,58 @@ export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
 
 /* ── Main fetch ────────────────────────────────────────────── */
 
-export async function fetchAllRehaAndeerJobs() {
+export async function fetchAllRehaAndeerJobs({
+  fetchListingHtmlImpl = fetchRehaAndeerListingHtml,
+  extractPdfContentImpl = extractPdfJobContentFromUrl,
+} = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏥 Fetching ${REHA_ANDEER_COMPANY_NAME} jobs`);
   console.log(`   Source: ${PUBLIC_CAREER_URL} (Drupal HTML + PDF Stelleninserate)\n`);
 
   let html;
   try {
-    html = await fetchRehaAndeerListingHtml({ timeoutMs });
+    const fetched = normalizeFetchedPage(await fetchListingHtmlImpl({ timeoutMs }));
+    if (fetched.status !== 200) {
+      const error = new Error(`HTTP ${fetched.status || 'unknown'} from ${PUBLIC_CAREER_URL}`);
+      error.status = fetched.status;
+      throw error;
+    }
+    html = fetched.body;
   } catch (err) {
+    const fetchOutcome = fetchOutcomeForError(err);
+    if (fetchOutcome) {
+      const fetchFailureReason = `Reha Andeer page ${err?.message || err} at ${PUBLIC_CAREER_URL}; source was not structurally observed.`;
+      console.warn(`⚠️ ${fetchFailureReason}`);
+      return {
+        jobs: [],
+        fetchOutcome,
+        fetchFailureReason,
+      };
+    }
     throw new Error(`Failed to fetch Reha Andeer page: ${err?.message || err}`);
   }
 
   const listings = parseRehaAndeerListing(html);
   console.log(`  📋 Stelleninserat PDFs found: ${listings.length}\n`);
   if (listings.length === 0) {
-    console.warn('⚠️ No Stelleninserate parsed from Reha Andeer page.');
-    return [];
+    if (isRehaAndeerAuthoritativeEmptyPage(html)) {
+      const evidence = rehaAndeerEmptyEvidence(html);
+      console.log(`  🧩 Source-proven zero: ${evidence}`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
+    const fetchFailureReason = rehaAndeerEmptyEvidence(html);
+    console.warn(`⚠️ No Stelleninserate parsed from Reha Andeer page: ${fetchFailureReason}`);
+    return {
+      jobs: [],
+      fetchOutcome: 'selector_miss',
+      fetchFailureReason,
+    };
   }
 
   const jobs = [];
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.filename}`);
-    const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
+    const pdf = await extractPdfContentImpl(listing.pdfUrl, { timeoutMs });
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     const pdfText = pdf.thin ? '' : (pdf.rawText || pdf.text || '');
 
