@@ -54,6 +54,7 @@ import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/t
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
   loadEventsDataset,
@@ -4398,6 +4399,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // at all 4. See build-plugins/constants.ts BUILD_DATE_STAMP doc.
       const dateStamp = BUILD_DATE_STAMP;
       const dataset = loadEventsDataset();
+      // The next crawl also persists these records. Read the same recovery
+      // archive here so the first deploy can restore the historical URLs
+      // without waiting for a crawler refresh to reach main.
+      const recovery = loadEventsDataset(path.join(rootDir, 'data/events-recovery-archive.json'));
+      dataset.events = retainPublishedPastEvents(dataset.events, recovery.events, dateStamp);
       const ephemeralEvents = loadEphemeralEvents({
         publicEvents: withoutPrivateEvents(dataset.events),
         dateStamp,
