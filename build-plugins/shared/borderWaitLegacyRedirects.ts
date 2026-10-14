@@ -32,6 +32,7 @@ const LEGACY_CROSSING_SLUG_ALIASES: Readonly<Record<string, BorderCrossingSlug>>
 
 /** Observed compatibility URLs outside the four sitemap roots. */
 const OBSERVED_LEGACY_REDIRECTS: Readonly<Record<string, string>> = {
+  '/en/border-traffic/gaggiolo/oggi/': buildOggiPath('en', 'gaggiolo'),
   '/tempi-attesa-confine/chiasso-brogeda/': buildOggiPath('it', 'chiasso-brogeda'),
   '/traffico-dogane/campione-ditalia-bissone/oggi/': buildOggiPath('it', 'campione-d-italia-bissone'),
   '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': buildOggiPath('it', 'lanzo-d-intelvi-arogno'),

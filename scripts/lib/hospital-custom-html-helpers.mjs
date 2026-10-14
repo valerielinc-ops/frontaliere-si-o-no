@@ -188,10 +188,10 @@ export function stripInlineJsCode(text = '') {
   return cut > 0 ? text.slice(0, cut).trimEnd() : text;
 }
 
-export async function fetchHtml(url, { timeoutMs } = {}) {
+export async function fetchHtml(url, { timeoutMs, includeStatus = false } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const html = await fetchWithRetry(async () => {
+    const response = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), t);
       try {
@@ -205,13 +205,16 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
           err.retryable = RETRYABLE_STATUS.has(res.status);
           throw err;
         }
-        return await res.text();
+        return { status: res.status, body: await res.text() };
       } finally {
         clearTimeout(timer);
       }
     }, { label: `hospital-custom-html ${url}` });
     // 200-but-challenge (IP-reputation WAF served a challenge on a 200) → Jina.
-    return await rescueHtmlIfChallenged(html, url, { timeoutMs: t });
+    const body = await rescueHtmlIfChallenged(response.body, url, { timeoutMs: t });
+    return includeStatus
+      ? { status: body === response.body ? response.status : 200, body }
+      : body;
   } catch (err) {
     // The plain retries above all hit a connection-level `fetch failed`: the
     // GitHub runner's datacenter egress intermittently can't reach an otherwise
@@ -234,7 +237,7 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
       // the original error (dataset preserved). Body validation + original-error
       // preservation live in the shared helper.
       const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: t });
-      if (html != null) return html;
+      if (html != null) return includeStatus ? { status: 200, body: html } : html;
     }
     throw err;
   }

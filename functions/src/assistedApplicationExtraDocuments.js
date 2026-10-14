@@ -26,7 +26,9 @@ import { detectCvFileType, isAssistedApplicationCvKey } from './assistedApplicat
 
 export { DOCUMENT_KINDS };
 // At most this many requested documents, and files per document.
-export const MAX_REQUIRED_DOCUMENTS = 8;
+// Keep enough slots for a posting's attachments plus live portal-only fields;
+// dropping a ninth required file would let the runner send an incomplete application.
+export const MAX_REQUIRED_DOCUMENTS = 16;
 export const MAX_FILES_PER_DOCUMENT = 5;
 // The form planner names a document by slot (a fixed enum for the model's
 // schema): extra_1 is the first requested document, and so on.
@@ -129,6 +131,49 @@ export function requiredDocumentsOf(draft) {
     if (out.length >= MAX_REQUIRED_DOCUMENTS) break;
   }
   return out;
+}
+
+const GENERIC_DOCUMENT_LABEL_WORDS = new Set([
+  'add', 'allegare', 'allegato', 'allegati', 'attach', 'attachment', 'attachments', 'carica', 'caricare',
+  'document', 'documents', 'dokument', 'dokumente', 'fichier', 'fichiers', 'hochladen', 'hochzuladen',
+  'join', 'joints', 'other', 'upload', 'uploads',
+]);
+
+/** A document label without upload instructions, accents or word order. */
+export function requiredDocumentLabelKey(label) {
+  const tokens = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').split(' ').filter((token) => token && !GENERIC_DOCUMENT_LABEL_WORDS.has(token));
+  return [...new Set(tokens)].sort().join(' ');
+}
+
+/**
+ * Merge document requirements found in different evidence sources (the
+ * posting and the live application form). A portal often repeats a posting's
+ * document with a slightly different id; the label is the stronger identity
+ * here, while the posting's order is kept before a portal-only requirement.
+ */
+export function mergeRequiredDocuments(...sources) {
+  const merged = [];
+  for (const [sourceIndex, source] of sources.entries()) {
+    for (const item of Array.isArray(source) ? source : []) {
+      const document = requiredDocumentsOf({ requiredDocuments: [item] })[0];
+      if (!document) continue;
+      const foldedLabel = document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+        .replace(/\s+/g, ' ').trim();
+      const normalizedLabel = requiredDocumentLabelKey(document.label);
+      const existing = merged.find((candidate) => candidate.document.id === document.id
+        || (candidate.sourceIndex !== sourceIndex && normalizedLabel && requiredDocumentLabelKey(candidate.document.label) === normalizedLabel)
+        || (candidate.sourceIndex !== sourceIndex && candidate.document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === foldedLabel));
+      if (!existing) {
+        merged.push({ document: { ...document }, sourceIndex });
+        continue;
+      }
+      existing.document.required = existing.document.required || document.required;
+      if (!existing.document.quote && document.quote) existing.document.quote = document.quote;
+      existing.document.keywords = [...new Set([...existing.document.keywords, ...document.keywords])].slice(0, 12);
+    }
+  }
+  return requiredDocumentsOf({ requiredDocuments: merged.map(({ document }) => document) });
 }
 
 /**

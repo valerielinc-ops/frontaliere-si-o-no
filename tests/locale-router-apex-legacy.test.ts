@@ -25,6 +25,7 @@ describe('locale-router apex legacy routes', () => {
     ['/guida-frontaliere/comuni-di-frontiera/', '/vivere-in-ticino/comuni-di-frontiera/'],
     ['/vivere-in-ticino/vivere-in-svizzera/', '/vivere-in-ticino/'],
     ['/statistiche/traffico-dogane/', '/traffico-dogane/'],
+    ['/en/border-traffic/gaggiolo/oggi/', '/en/border-wait/gaggiolo/today/'],
     ['/guida-frontaliere/tempi-attesa-dogana/', '/traffico-dogane/'],
     ['/guida-frontaliere/diritto-lavoro-frontalieri/', '/guida-frontaliere/'],
     ['/tfr-calculator/', '/tfr-liquidazione-frontaliere/'],
@@ -51,6 +52,16 @@ describe('locale-router apex legacy routes', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/grenzgaenger-artikel/index.html`))?.headers.get('Location')).toBe('/de/grenzgaenger-artikel/');
   });
 
+  it('keeps the observed border alias exact, without guessing nearby routes', () => {
+    for (const suffix of ['', '/', '/index.html']) {
+      const from = `${APEX}/en/border-traffic/gaggiolo/oggi${suffix}?utm_source=gsc`;
+      expect(apexLegacyResponse(new URL(from))?.headers.get('Location')).toBe('/en/border-wait/gaggiolo/today/?utm_source=gsc');
+    }
+    for (const pathname of ['/en/border-traffic/unknown/oggi/', '/en/border-traffic/gaggiolo/2026-04/', '/en/border-wait/gaggiolo/today/']) {
+      expect(apexLegacyResponse(new URL(`${APEX}${pathname}`))).toBeNull();
+    }
+  });
+
   it('returns 410 noindex for the retired calculator with no substitute', async () => {
     const response = apexLegacyResponse(new URL(`${APEX}/calcolatore-5x1000/`));
     expect(response?.status).toBe(410);
@@ -60,7 +71,7 @@ describe('locale-router apex legacy routes', () => {
 
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(25);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(26);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {
