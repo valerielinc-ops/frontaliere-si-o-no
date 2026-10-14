@@ -42,8 +42,15 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
     expect((await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx)).status).toBe(404);
   });
 
-  it.each(['/known-job/5162', '/known-job/extra/', '/known-job/5162/extra/'])('does not guess a target without registry evidence: %s', async (suffix) => {
+  it.each(['/known-job/5162', '/known-job/extra/', '/known-job/5162/extra/', '/search-foo/2000', '/ricerca-foo/2000', '/azienda-foo/2000'])('does not guess a target without registry evidence: %s', async (suffix) => {
     mockFetch(null);
     expect((await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo${suffix}`), {}, ctx)).status).toBe(404);
+  });
+
+  it('keeps a numeric search-like orphan off the English national board', async () => {
+    mockFetch(null);
+    const response = await worker.fetch(new Request(`${APEX}/en/find-jobs-zurich/search-foo/2000`), {}, ctx);
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Location')).toBeNull();
   });
 });

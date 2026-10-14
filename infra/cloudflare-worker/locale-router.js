@@ -2327,7 +2327,9 @@ function recoverLegacySearchCluster(url, locale) {
   const board = NATIONAL_BOARD_BY_LOCALE[locale];
   if (!board) return null;
   const m = url.pathname.match(JOB_DETAIL_RE);
-  if (!m) return null;
+  // A numeric suffix is a vacancy alias only with registry/live evidence;
+  // it must not enter this registry-free legacy search fallback.
+  if (!m || m[2]) return null;
   const lastSeg = lowerSegment(m[1]);
   if (!SEARCH_CLUSTER_PREFIX_RE.test(lastSeg)) return null;
   // Already on the national board (loop guard — the board path has no extra segment).
