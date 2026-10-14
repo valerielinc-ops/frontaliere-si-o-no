@@ -8,10 +8,6 @@ import os from 'node:os';
 
 export const STALE_TEMP_DIR_AGE_MS = 3 * 24 * 60 * 60 * 1000;
 const PROTECTED_TEMP_NAMES = new Set([
-  'cc-daemon-501',
-  'cc-socks',
-  'claude-501',
-  'codex-daemon-501',
   'frontaliere-coordinator-state',
 ]);
 
