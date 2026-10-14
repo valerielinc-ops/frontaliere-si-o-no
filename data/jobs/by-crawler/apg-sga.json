@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-10-13T21:27:03.577Z",
+  "assembledAt": "2026-10-14T09:42:49.918Z",
   "jobs": [
     {
       "id": "apg-sga-584d443b0b17",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:26:56.486Z",
+      "crawledAt": "2026-10-14T09:42:43.622Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanager-service-externe-sion/ro7drhalaoifp78qx52b60twhe2ctbngfz68t0syhkaarf3zdlrpqnsexare5b7t",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:26:55.961Z",
+      "crawledAt": "2026-10-14T09:42:43.114Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -138,6 +138,7 @@
         ]
       },
       "firstSeenAt": "2026-10-06T09:24:16.689Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -183,7 +184,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanagement-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:26:55.342Z",
+      "crawledAt": "2026-10-14T09:42:42.552Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -217,6 +218,7 @@
         ]
       },
       "firstSeenAt": "2026-10-13T09:28:57.769Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -262,7 +264,7 @@
       "url": "https://jobs.apgsga.ch/publication/business-controller-zuerich/3lsx02be41yerdi7irbbhu8s3oxeh5u7j18a5e0pcsvv1eyyr6oc2mfwuwlnsdk3",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:26:54.567Z",
+      "crawledAt": "2026-10-14T09:42:41.828Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -282,6 +284,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-12T09:25:55.791Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -327,7 +330,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:26:54.000Z",
+      "crawledAt": "2026-10-14T09:42:41.310Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,6 +358,7 @@
         ]
       },
       "firstSeenAt": "2026-10-05T09:26:38.537Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -400,7 +404,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:26:53.487Z",
+      "crawledAt": "2026-10-14T09:42:40.796Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,7 +477,7 @@
       "url": "https://jobs.apgsga.ch/publication/conseil-de-vente-service-interne-vernier-lausanne/3l4fhbl7dqvhwcjzo8gr0icrzywk7hp8ra6mpvuqdlca36h0kwhr0x3y1abhm22x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:26:52.942Z",
+      "crawledAt": "2026-10-14T09:42:39.608Z",
       "addressLocality": "Vernier",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -552,7 +556,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-lausanne/lwjrljjcghwp1rs22cqyd0vz2602jhlye4zidtkj75qwjcv4eixgtnctqt4d6vgs",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:26:52.440Z",
+      "crawledAt": "2026-10-14T09:42:39.113Z",
       "addressLocality": "Lausanne 25",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -628,7 +632,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-winterthur/hi5os0s3vixaka2knct0m1ltfa93z2bqfno4nyr51c3rlzddmd83zvngq70jih6j",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:26:51.923Z",
+      "crawledAt": "2026-10-14T09:42:38.611Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -659,6 +663,7 @@
         ]
       },
       "firstSeenAt": "2026-10-13T09:28:54.565Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -704,7 +709,7 @@
       "url": "https://jobs.apgsga.ch/publication/conseil-de-vente-service-externe-lausanne/n7atrp716yq5pf468ywp8kd7r4h527fvg4ao4ziopzrz2m1nb3xqquxljo8cep06",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:26:51.365Z",
+      "crawledAt": "2026-10-14T09:42:38.039Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -738,6 +743,7 @@
         ]
       },
       "firstSeenAt": "2026-10-12T21:26:41.244Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -751,82 +757,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "apg-sga-642dc6dbcd43",
-      "slug": "servizio-interno-partnermanager-100-losanna-apg-sga-lausanne",
-      "slugByLocale": {
-        "fr": "partnermanager-service-interne-100-lausanne-apg-sga-ch",
-        "it": "servizio-interno-partnermanager-100-losanna-apg-sga-lausanne",
-        "en": "partnermanager-service-interne-100-lausanne-apg-sga-ch",
-        "de": "partnermanager-service-interne-100-lausanne-apg-sga-ch"
-      },
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Partnermanager service interne 100%, Lausanne",
-      "titleByLocale": {
-        "fr": "Partnermanager service interne 100%, Lausanne",
-        "it": "Servizio interno Partnermanager 100%, Losanna",
-        "en": "Partnermanager internal service 100%, Lausanne",
-        "de": "Partnermanager interner Service 100%, Lausanne"
-      },
-      "description": "Partnermanager service interne\n\n• 100%\n\n•\n\n• Emploi fixe\n Tes tâches\n\n• Exécution de tâches administratives générales, telles que la rédaction d’offres écrites et de contrats destinés aux propriétaires fonciers, la commande de plans auprès des autorités, l’établissement de mandats à l’intention du service d’exploitation ainsi que la saisie des contrats de partenariat et des surfaces dans le système informatique intern\n\n• Soutien au service externe du Partner Market dans les tâches administratives\n\n• Coordination des rendez-vous et rédaction de correspondances avec les services internes et externes\n\n• Etablissement des décomptes des contrats de partenariat\n\n• Établissement et suivi des décomptes destinés aux propriétaires\n\n• Personne de contact interne pour les questions administratives concernant nos partenaires\n\n• Établissement des ordres de montage et de démontage\n\n• Surveillance des différentes échéances.\n\n• Garantie d’une coordination fluide avec les autres départements\n\n• Mise à jour et vérification continues des données du système\n Ton profil\n\n• Formation commerciale achevée, bachelor en économie ou formation de base équivalente\n\n• Expérience professionnelle dans le domaine du service externe (vente terrain) ou dans l’acquisition de nouveaux clients / partenaires\n\n• Excellente connaissance du territoire des cantons Valais et Vaud\n\n• Excellentes compétences en négociation et en communication\n\n• Aisance relationnelle et attitude ouverte et assurée dans les contacts avec les partenaires internes et externes\n\n• Forte capacité d’initiative, ambition marquée et grande orientation client\n\n• Excellente maîtrise du français\n Tes avantages\n\n• Une équipe motivée pour atteindre ensemble les objectifs de l'entreprise\n\n• Poste responsable et exigeant\n\n• Très bonnes prestations sociales, on s'occupe de toi\n\n• Des postes de travail modernes et la possibilité de travailler un tiers du temps de travail en télétravail\n\n• Fruits et boissons gratuits – pour ton bien-être\n Intéressé?\n Simone se réjouit de recevoir ta candidature complète (CV + certificats de travail) en ligne.\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-      "descriptionByLocale": {
-        "fr": "Partnermanager service interne\n\n• 100%\n\n•\n\n• Emploi fixe\n Tes tâches\n\n• Exécution de tâches administratives générales, telles que la rédaction d’offres écrites et de contrats destinés aux propriétaires fonciers, la commande de plans auprès des autorités, l’établissement de mandats à l’intention du service d’exploitation ainsi que la saisie des contrats de partenariat et des surfaces dans le système informatique intern\n\n• Soutien au service externe du Partner Market dans les tâches administratives\n\n• Coordination des rendez-vous et rédaction de correspondances avec les services internes et externes\n\n• Etablissement des décomptes des contrats de partenariat\n\n• Établissement et suivi des décomptes destinés aux propriétaires\n\n• Personne de contact interne pour les questions administratives concernant nos partenaires\n\n• Établissement des ordres de montage et de démontage\n\n• Surveillance des différentes échéances.\n\n• Garantie d’une coordination fluide avec les autres départements\n\n• Mise à jour et vérification continues des données du système\n Ton profil\n\n• Formation commerciale achevée, bachelor en économie ou formation de base équivalente\n\n• Expérience professionnelle dans le domaine du service externe (vente terrain) ou dans l’acquisition de nouveaux clients / partenaires\n\n• Excellente connaissance du territoire des cantons Valais et Vaud\n\n• Excellentes compétences en négociation et en communication\n\n• Aisance relationnelle et attitude ouverte et assurée dans les contacts avec les partenaires internes et externes\n\n• Forte capacité d’initiative, ambition marquée et grande orientation client\n\n• Excellente maîtrise du français\n Tes avantages\n\n• Une équipe motivée pour atteindre ensemble les objectifs de l'entreprise\n\n• Poste responsable et exigeant\n\n• Très bonnes prestations sociales, on s'occupe de toi\n\n• Des postes de travail modernes et la possibilité de travailler un tiers du temps de travail en télétravail\n\n• Fruits et boissons gratuits – pour ton bien-être\n Intéressé?\n Simone se réjouit de recevoir ta candidature complète (CV + certificats de travail) en ligne.\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-        "it": "Servizio interno Partnermanager\n\n• 100%\n\n•\n\n• Occupazione fissa\n I tuoi compiti\n\n• Attuazione di compiti amministrativi generali, come la redazione di offerte scritte e contratti per proprietari terrieri, l'ordinazione di piani da parte delle autorità, la creazione di mandati per il servizio operativo, l'inserimento di contratti di partenariato e superfici nel sistema informatico interno\n\n• Sostegno al servizio esterno del Mercato Partner in compiti amministrativi\n\n• Coordinamento degli appuntamenti e corrispondenza scritta con i servizi interni ed esterni\n\n• Relazione dei contratti di partenariato\n\n• Preparazione e monitoraggio dei conti per i proprietari\n\n• Persona di contatto interna per questioni amministrative riguardanti i nostri partner\n\n• Istituzione di ordini di assemblaggio e smontaggio\n\n• Monitoraggio delle diverse scadenze.\n\n• Garantire un coordinamento regolare con altri dipartimenti\n\n• Manutenzione e verifica continua dei dati di sistema\n Il tuo profilo\n\n• Formazione aziendale completata, laurea in economia o formazione di base equivalente\n\n• Esperienza professionale nel campo del servizio esterno (campo vendita) o nell'acquisizione di nuovi clienti / partner\n\n• Ottima conoscenza dei cantoni Vallese e Vaud\n\n• Eccellente capacità di negoziazione e comunicazione\n\n• Rapporto forza e atteggiamento aperto e assicurato nei contatti con partner interni ed esterni\n\n• Forte capacità di iniziativa, forte ambizione e grande orientamento al cliente\n\n• Eccellente padronanza del francese\n I tuoi vantaggi\n\n• Un team motivato a raggiungere insieme gli obiettivi dell'azienda\n\n• Posizione responsabile e impegnativa\n\n• Benefici sociali, ci prendiamo cura di voi\n\n• Posti di lavoro moderni e possibilità di lavorare un terzo del tempo di lavoro in telelavoro\n\n• Frutta e bevanda gratis – per il vostro benessere\n Interessante?\n Simone è lieta di ricevere on-line la vostra domanda completa (CV + certificati di lavoro).\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-        "en": "Partnermanager internal service\n\n• 100%\n\n•\n\n• Fixed employment\n Your tasks\n\n• Implementation of general administrative tasks, such as drafting of written offers and contracts for landowners, ordering plans from the authorities, establishing mandates for the operating service, and entering partnership contracts and surfaces in the internal computer system\n\n• Support for the external service of the Partner Market in administrative tasks\n\n• Coordination of appointments and writing correspondence with internal and external services\n\n• Reporting of partnership contracts\n\n• Preparation and monitoring of accounts for owners\n\n• Internal contact person for administrative matters concerning our partners\n\n• Establishment of assembly and disassembly orders\n\n• Monitoring of different deadlines.\n\n• Ensuring smooth coordination with other departments\n\n• Continuous maintenance and verification of system data\n Your profile\n\n• Business training completed, bachelor's degree in economics or equivalent basic training\n\n• Professional experience in the field of external service (sale field) or in acquiring new customers / partners\n\n• Excellent knowledge of the cantons Valais and Vaud\n\n• Excellent negotiation and communication skills\n\n• Relationship strength and open and assured attitude in contacts with internal and external partners\n\n• Strong initiative capacity, strong ambition and great customer orientation\n\n• Excellent mastery of French\n Your Benefits\n\n• A team motivated to achieve the company's objectives together\n\n• Responsible and demanding position\n\n• Very good social benefits, we take care of you\n\n• Modern workstations and the possibility of working one third of working time in telework\n\n• Free fruit and drink – for your well-being\n Interested?\n Simone is delighted to receive your full application (CV + work certificates) online.\n Simone Raimann\n HR Business Partner\n +41 58 220 75 79",
-        "de": "Partnermanager interner Service\n\n• 100%\n\n•\n\n• Festanstellung\n Ihre Aufgaben\n\n• Durchführung von allgemeinen Verwaltungsaufgaben, wie z. B. Erstellung von schriftlichen Angeboten und Verträgen für Grundbesitzer, Bestellung von Plänen bei den Behörden, Festlegung von Mandaten für den Betriebsdienst und Eintragung von Partnerschaftsverträgen und -oberflächen in das interne Computersystem\n\n• Unterstützung des externen Services des Partnermarktes bei administrativen Aufgaben\n\n• Koordination von Terminen und schriftliche Korrespondenz mit internen und externen Diensten\n\n• Berichterstattung über Partnerschaftsverträge\n\n• Erstellung und Überwachung von Konten für Eigentümer\n\n• Interner Ansprechpartner für administrative Angelegenheiten unserer Partner\n\n• Aufstellung von Montage- und Demontageaufträgen\n\n• Überwachung verschiedener Fristen.\n\n• Gewährleistung einer reibungslosen Koordinierung mit anderen Abteilungen\n\n• Kontinuierliche Wartung und Überprüfung der Systemdaten\n Dein Profil\n\n• Business-Ausbildung abgeschlossen, Bachelor-Abschluss in Wirtschaft oder gleichwertige Grundausbildung\n\n• Berufserfahrung im Bereich externer Dienstleistung (Verkaufsfeld) oder bei der Gewinnung neuer Kunden / Partner\n\n• Ausgezeichnete Kenntnisse der Kantone Wallis und Waadt\n\n• Hervorragende Verhandlungs- und Kommunikationsfähigkeiten\n\n• Beziehungsstärke und offene und gesicherte Haltung in Kontakten mit internen und externen Partnern\n\n• Starke Initiativesfähigkeit, starker Ehrgeiz und große Kundenorientierung\n\n• Hervorragende Beherrschung des Französischen\n Ihre Vorteile\n\n• Ein Team motiviert, die Ziele des Unternehmens gemeinsam zu erreichen\n\n• Verantwortungsvolle und anspruchsvolle Position\n\n• Sehr gute Sozialleistungen, wir kümmern uns um Sie\n\n• Moderne Arbeitsplätze und die Möglichkeit, ein Drittel der Arbeitszeit in Telearbeit zu arbeiten\n\n• Freies Obst und Trinken – für Ihr Wohlbefinden\n Interessiert?\n Simone freut sich, Ihre vollständige Bewerbung (CV + Arbeitszertifikate) online zu erhalten.\n Simone Raimann\n HR Geschäftspartner\n +41 58 220 75 79"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.apgsga.ch/publication/partnermanager-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-12T21:26:44.233Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/partnermanager-service-interne-lausanne/04q0bg7r23jh4udsts24dwpk4bqpzcc0ljihk8wxyct6x2bjtlznlrqj4ildeh63",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-12T21:26:44.233Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "partnermanager-service-interne-100-lausanne-apg-sga-ch"
-        ]
-      },
-      "previousSlugs": [
-        "partnermanager-service-interne-100-lausanne-apg-sga-ch"
-      ],
-      "crawlerMissStreak": 2
     }
   ]
 }
