@@ -1,10 +1,21 @@
 import { titleLooksUntranslated } from './job-locale-utils.mjs';
 
-// Reasons with a source-language marker strong enough to enter the title
-// repair lane. `source-overlap` stays out: overlap alone is deliberately a
-// secondary signal and can describe a valid title containing a shared term.
-// Gender codes are reported by titleLooksUntranslated(), but are not an
-// untranslated verdict unless the caller explicitly opts into that policy.
+// Reasons that send a title to the Codex repair lane. Gender codes are
+// reported by titleLooksUntranslated(), but are not an untranslated verdict
+// unless the caller explicitly opts into that policy.
+//
+// `source-overlap` was kept out (PR 11898) because overlap alone also
+// describes valid titles that share terms with the source. It then stayed with
+// the Argos overwrite path, which handled it worst: translate-pending
+// 38517635747 (2026-10-14) judged 20 such Argos candidates, all
+// `source-overlap` — 9 rejected as source echoes, 1 by the meaning guard, 8
+// unclear, 2 accepted (one turning "temp" into "Temperatur") — and that
+// residue tripped the overwrite rollback in every run. The class mixes both
+// cases (sample of 17 slices: «Bouchère - Boucher / Charcutière - Charcutier»
+// left French in the Italian slot next to valid «Senior Automation Engineer»
+// in English); Codex translates the first and returns the second unchanged,
+// which the lane's retry backoff then parks for days, so a valid title costs
+// at most a couple of calls.
 export const TITLE_REPAIR_QUEUE_REASONS = Object.freeze([
   'source-copy',
   'llm-reasoning',
@@ -12,6 +23,7 @@ export const TITLE_REPAIR_QUEUE_REASONS = Object.freeze([
   'source-orthography',
   'binnen-i',
   'compound-residue',
+  'source-overlap',
 ]);
 
 const TITLE_REPAIR_QUEUE_REASON_SET = new Set(TITLE_REPAIR_QUEUE_REASONS);

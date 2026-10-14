@@ -72,7 +72,22 @@ describe('Argos overwrite queue handoff', () => {
     it: 'System Ingegnere con Projekterfahrung 80–100 %',
   });
 
+  // A well-formed overwrite slot the detector does not flag: no Codex
+  // handoff, it stays with the Argos guards.
   const nonEligibleTitle = {
+    sourceLang: 'de',
+    title: 'Zimmermann/Zimmerin für Montage und Renovationen',
+    titleByLocale: {
+      de: 'Zimmermann/Zimmerin für Montage und Renovationen',
+      it: 'Carpentiere per montaggio e ristrutturazioni',
+    },
+    description: '',
+    descriptionByLocale: {},
+  };
+
+  // `source-overlap` only (the residue that tripped the Argos rollback every
+  // run): handed to the Codex lane.
+  const overlapOnlyTitle = {
     sourceLang: 'de',
     title: 'Zimmermann/Zimmerin für Montage und Renovationen',
     titleByLocale: {
@@ -82,6 +97,11 @@ describe('Argos overwrite queue handoff', () => {
     description: '',
     descriptionByLocale: {},
   };
+
+  it('hands an overlap-only title overwrite to the Codex lane', () => {
+    expect(isOverwriteSlot(overlapOnlyTitle, { locale: 'it', field: 'title' })).toBe(true);
+    expect(shouldQueueArgosSlot(overlapOnlyTitle, { locale: 'it', field: 'title' })).toBe(false);
+  });
 
   it('excludes an eligible title overwrite and the queued count reflects the handoff', () => {
     const slots = [
