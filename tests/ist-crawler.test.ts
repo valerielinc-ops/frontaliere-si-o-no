@@ -5,6 +5,7 @@ import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty
 import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
+  classifyIstDetailPage,
   dropIstFabricatedText,
   extractIstMicrodata,
   hasCompleteIstDetailEvidence,
@@ -25,6 +26,7 @@ describe('IST country-code parsing', () => {
   it('retains a genuinely foreign final country code', () => {
     expect(parseCountryCode('Como, IT')).toBe('IT');
     expect(parseCountryCode('Zurich, FR')).toBe('FR');
+    expect(parseCountryCode('CR')).toBe('CR');
   });
 });
 
@@ -309,6 +311,92 @@ describe('IST empty-source proof', () => {
       discoveredCount: 2,
       parsedCount: 1,
       completeDetailCount: 1,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
+  });
+});
+
+describe('IST detail response classification', () => {
+  const detailUrl = 'https://jobs.inspirededu.com/job/Teacher/12345/';
+
+  it('treats HTTP 410 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 410 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
+  });
+
+  it('treats a redirect to the native search page as a removed entry', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      finalUrl: 'https://jobs.inspirededu.com/search/',
+      redirects: [{ status: 302, to: 'https://jobs.inspirededu.com/search/' }],
+      html: '<html><title>Search jobs</title><body>Search</body></html>',
+    })).toMatchObject({ outcome: 'removed', evidence: 'redirect-search' });
+  });
+
+  it('treats the native filled-position message as a removed entry', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: '<main><h1>Teacher Job Details</h1><p>Sorry, this position has been filled.</p></main>',
+    })).toMatchObject({ outcome: 'removed', evidence: 'removed-page' });
+  });
+
+  it('reads native markers from an alternate template for an IST detail', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: {
+        title: 'Primary Teacher',
+        location: 'Lugano, CH',
+        hiringOrganization: 'International School of Ticino',
+        facility: 'International School of Ticino',
+      },
+    });
+  });
+
+  it('reads native markers from an alternate template for another tenant', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">London, GB</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-job-field="company">Sevenoaks School</div>
+          <div data-job-field="facility">Sevenoaks School</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: false });
+  });
+
+  it('keeps a 5xx response and an unknown template incomplete', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 503 }))
+      .toMatchObject({ outcome: 'incomplete', evidence: 'http-503' });
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: '<html><h1>Primary Teacher</h1></html>',
+    })).toMatchObject({ outcome: 'incomplete', evidence: 'unknown-template' });
+    expect(classifyIstDetailWalk({
+      discoveredCount: 1,
+      parsedCount: 0,
+      completeDetailCount: 0,
     })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
   });
 });

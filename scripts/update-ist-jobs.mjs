@@ -181,9 +181,28 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
 const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
+const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
+const IST_DETAIL_REMOVED_RE = /(?:sorry,\s*)?(?:this\s+position\s+has\s+been\s+filled|this\s+(?:job|position|role|vacancy)\s+is\s+no\s+longer\s+available|(?:job|position|vacancy)\s+(?:is\s+)?(?:closed|expired|no\s+longer\s+available))/i;
+const IST_NATIVE_FIELD_ALIASES = {
+  title: ['title', 'job-title', 'jobtitle'],
+  location: ['location', 'job-location', 'joblocation'],
+  city: ['city', 'locality', 'address-locality', 'addresslocality'],
+  region: ['region', 'address-region', 'addressregion'],
+  country: ['country', 'address-country', 'addresscountry'],
+  description: ['description', 'job-description', 'jobdescription'],
+  datePosted: ['datePosted', 'date-posted', 'dateposted'],
+  hiringOrganization: ['hiringOrganization', 'hiring-organization', 'organization', 'employer'],
+  company: ['company', 'employer'],
+  tenant: ['tenant', 'tenantName', 'tenant-name'],
+  facility: ['facility', 'facilityName', 'facility-name', 'school', 'schoolName', 'school-name', 'campus'],
+};
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
+}
+
+function normalizeIstFieldMarker(value = '') {
+  return normalize(value).replace(/[^a-z0-9]+/g, '');
 }
 
 function slugify(text = '', suffix = '') {
@@ -449,7 +468,35 @@ function isTrustedDomain(rawUrl = '') {
 
 /* ── HTML fetching ─────────────────────────────────────────── */
 
-async function fetchHtml(url) {
+function createIstRedirectTrackingFetch(redirectTrace) {
+  return async (requestUrl, requestOptions = {}) => {
+    let currentUrl = requestUrl;
+    for (let hop = 0; hop <= 5; hop += 1) {
+      const response = await fetch(currentUrl, {
+        ...requestOptions,
+        redirect: 'manual',
+      });
+      if (!IST_DETAIL_REDIRECT_STATUSES.has(response.status)) return response;
+
+      const location = response.headers.get('location');
+      let target = null;
+      if (location) {
+        try {
+          target = new URL(location, currentUrl).toString();
+        } catch {
+          target = null;
+        }
+      }
+      redirectTrace.push({ status: response.status, from: currentUrl, to: target });
+      await response.arrayBuffer().catch(() => {});
+      if (!target) return response;
+      currentUrl = target;
+    }
+    throw new Error(`Too many redirects (>5) fetching ${requestUrl}`);
+  };
+}
+
+async function fetchHtml(url, { redirectTrace = null } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   try {
     return await fetchHtmlShared(url, {
@@ -459,6 +506,9 @@ async function fetchHtml(url) {
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': UA,
       },
+      ...(Array.isArray(redirectTrace)
+        ? { fetchImpl: createIstRedirectTrackingFetch(redirectTrace) }
+        : {}),
     });
   } catch (err) {
     if (WAF_IP_BLOCK_STATUS.has(err?.status)) {
@@ -645,6 +695,33 @@ function createIstHtmlFieldReader(html) {
     return '';
   };
 
+  const readNativeText = (field) => {
+    const aliases = new Set(
+      (IST_NATIVE_FIELD_ALIASES[field] || [field]).map(normalizeIstFieldMarker),
+    );
+    const attributes = [
+      'itemprop',
+      'data-careersite-propertyid',
+      'data-field',
+      'data-job-field',
+      'data-job-property',
+      'data-field-name',
+    ];
+    for (const tag of tags) {
+      const marker = attributes
+        .map((attribute) => readAttr(tag.raw, attribute))
+        .map(normalizeIstFieldMarker)
+        .find((value) => aliases.has(value));
+      if (!marker) continue;
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
+  };
+
   const readMeta = (expected) => {
     const wanted = String(expected || '').trim().toLowerCase();
     for (const tag of tags) {
@@ -668,7 +745,72 @@ function createIstHtmlFieldReader(html) {
     return '';
   };
 
-  return { readHtml, readMeta, readText, readFirstTagText };
+  return { readHtml, readMeta, readNativeText, readText, readFirstTagText };
+}
+
+function readJsonLdName(value) {
+  if (typeof value === 'string') return normalizeSpace(value);
+  if (!value || typeof value !== 'object') return '';
+  return normalizeSpace(value.name || value.title || '');
+}
+
+function readIstJsonLd(html = '') {
+  const scripts = String(html || '').matchAll(
+    /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+  for (const match of scripts) {
+    let payload;
+    try {
+      payload = JSON.parse(decodeEntities(match[1].trim()));
+    } catch {
+      continue;
+    }
+    const entries = [];
+    const collect = (value) => {
+      if (Array.isArray(value)) {
+        value.forEach(collect);
+      } else if (value && typeof value === 'object') {
+        entries.push(value);
+        if (Array.isArray(value['@graph'])) value['@graph'].forEach(collect);
+      }
+    };
+    collect(payload);
+    const jobPosting = entries.find((entry) => {
+      const types = Array.isArray(entry['@type']) ? entry['@type'] : [entry['@type']];
+      return types.some((type) => normalize(type) === 'jobposting');
+    });
+    if (!jobPosting) continue;
+
+    const jobLocations = Array.isArray(jobPosting.jobLocation)
+      ? jobPosting.jobLocation
+      : [jobPosting.jobLocation];
+    const locationRecord = jobLocations.find((value) => value && typeof value === 'object') || {};
+    const address = locationRecord.address && typeof locationRecord.address === 'object'
+      ? locationRecord.address
+      : {};
+    const location = normalizeSpace(
+      address.streetAddress
+      || [address.addressLocality, address.addressRegion, address.addressCountry]
+        .filter(Boolean)
+        .map(readJsonLdName)
+        .filter(Boolean)
+        .join(', ')
+      || readJsonLdName(locationRecord.name),
+    );
+    return {
+      title: readJsonLdName(jobPosting.title),
+      location,
+      datePosted: readJsonLdName(jobPosting.datePosted),
+      hiringOrganization: readJsonLdName(jobPosting.hiringOrganization),
+      company: readJsonLdName(jobPosting.company) || readJsonLdName(jobPosting.employer),
+      tenant: readJsonLdName(jobPosting.tenant),
+      facility: readJsonLdName(jobPosting.facility) || readJsonLdName(jobPosting.school),
+      description: typeof jobPosting.description === 'string'
+        ? decodeEntities(stripHtml(jobPosting.description))
+        : '',
+    };
+  }
+  return {};
 }
 
 export function extractIstMicrodata(html = '') {
@@ -676,8 +818,10 @@ export function extractIstMicrodata(html = '') {
   const get = (prop) => reader.readText('itemprop', prop);
   const getPropertyId = (propId) => reader.readText('data-careersite-propertyid', propId);
   const getPropertyHtml = (propId) => reader.readHtml('data-careersite-propertyid', propId);
+  const getNative = (field) => reader.readNativeText(field);
+  const jsonLd = readIstJsonLd(html);
 
-  const structuredTitle = get('title') || getPropertyId('title');
+  const structuredTitle = get('title') || getPropertyId('title') || getNative('title') || jsonLd.title;
   const title = stripIstPortalTitleSuffix(
     structuredTitle
       || reader.readMeta('og:title')
@@ -686,59 +830,178 @@ export function extractIstMicrodata(html = '') {
   );
 
   const streetAddress = get('streetAddress');
-  const locality = get('addressLocality') || getPropertyId('city');
-  const region = get('addressRegion') || getPropertyId('region');
-  const country = get('addressCountry') || getPropertyId('country');
+  const locality = get('addressLocality') || getPropertyId('city') || getNative('city');
+  const region = get('addressRegion') || getPropertyId('region') || getNative('region');
+  const country = get('addressCountry') || getPropertyId('country') || getNative('country');
   const location = streetAddress
     || getPropertyId('location')
-    || [locality, region, country].filter(Boolean).join(', ');
+    || getNative('location')
+    || [locality, region, country].filter(Boolean).join(', ')
+    || jsonLd.location;
 
   const descriptionHtml = getPropertyHtml('description') || reader.readHtml('itemprop', 'description');
   const description = descriptionHtml
     ? decodeEntities(stripHtml(descriptionHtml))
-    : getPropertyId('description') || get('description');
+    : getPropertyId('description') || get('description') || getNative('description') || jsonLd.description;
 
   return {
     title,
     location,
-    datePosted: get('datePosted'),
-    hiringOrganization: get('hiringOrganization'),
-    company: get('company') || getPropertyId('company') || getPropertyId('employer'),
-    tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName'),
-    facility: get('facility') || get('schoolName') || getPropertyId('facility'),
+    datePosted: get('datePosted') || getNative('datePosted') || jsonLd.datePosted,
+    hiringOrganization: get('hiringOrganization') || getNative('hiringOrganization') || jsonLd.hiringOrganization,
+    company: get('company') || getPropertyId('company') || getPropertyId('employer') || getNative('company') || jsonLd.company,
+    tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName') || getNative('tenant') || jsonLd.tenant,
+    facility: get('facility') || get('schoolName') || getPropertyId('facility') || getNative('facility') || jsonLd.facility,
     description,
+  };
+}
+
+function isIstSearchUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    const pathAndQuery = `${parsed.pathname}${parsed.search}`.toLowerCase();
+    if (/\/job\//i.test(parsed.pathname)) return false;
+    return /\/(?:search|search-results|careers|career)(?:\/|$)/i.test(parsed.pathname)
+      || /(?:^|[?&])(?:q|query|keyword|keywords|search)=/i.test(pathAndQuery);
+  } catch {
+    return false;
+  }
+}
+
+function hasIstSearchRedirect(redirects = [], finalUrl = '') {
+  const urls = [
+    finalUrl,
+    ...(Array.isArray(redirects) ? redirects : []).flatMap((entry) => (
+      typeof entry === 'string' ? [entry] : [entry?.from, entry?.to, entry?.location, entry?.url]
+    )),
+  ];
+  return urls.filter(Boolean).some(isIstSearchUrl);
+}
+
+function hasIstRemovedPageEvidence(html = '') {
+  return IST_DETAIL_REMOVED_RE.test(stripHtml(String(html || '')));
+}
+
+function addIstRoleTenantEvidence(detail) {
+  if (!detail.tenant && !detail.tenantName && hasVerifiedIstRoleTenantSignal(detail)) {
+    detail.tenant = IST_COMPANY_NAME;
+  }
+  return detail;
+}
+
+/**
+ * Classify one detail response without guessing through a missing template.
+ * Removed entries are evidence that a sitemap URL is no longer active; every
+ * other response needs native title/location/identity evidence before it can
+ * count toward the complete detail walk.
+ */
+export function classifyIstDetailPage({
+  sourceUrl = '',
+  status = 200,
+  finalUrl = sourceUrl,
+  redirects = [],
+  html = '',
+  error = null,
+} = {}) {
+  const responseStatus = Number(error?.status ?? status);
+  if (responseStatus === 404 || responseStatus === 410) {
+    return { outcome: 'removed', evidence: `http-${responseStatus}`, sourceUrl };
+  }
+  if (error || responseStatus >= 500 || responseStatus < 200) {
+    return {
+      outcome: 'incomplete',
+      evidence: Number.isFinite(responseStatus) && responseStatus > 0
+        ? `http-${responseStatus}`
+        : 'network-error',
+      sourceUrl,
+      finalUrl,
+    };
+  }
+  if (hasIstSearchRedirect(redirects, finalUrl)) {
+    return { outcome: 'removed', evidence: 'redirect-search', sourceUrl, finalUrl };
+  }
+  if (hasIstRemovedPageEvidence(html)) {
+    return { outcome: 'removed', evidence: 'removed-page', sourceUrl, finalUrl };
+  }
+  if (responseStatus >= 300) {
+    return {
+      outcome: 'incomplete',
+      evidence: Number.isFinite(responseStatus) && responseStatus > 0
+        ? `http-${responseStatus}`
+        : 'network-error',
+      sourceUrl,
+      finalUrl,
+    };
+  }
+
+  const detail = addIstRoleTenantEvidence({
+    ...extractIstMicrodata(html),
+    sourceUrl,
+  });
+  if (!hasCompleteIstDetailEvidence(detail)) {
+    return {
+      outcome: 'incomplete',
+      evidence: 'unknown-template',
+      sourceUrl,
+      finalUrl,
+      detail,
+    };
+  }
+  return {
+    outcome: 'classified',
+    evidence: 'native-detail-fields',
+    sourceUrl,
+    finalUrl,
+    detail,
+    isIst: isIstDetailJob(detail),
   };
 }
 
 async function fetchJobDetail(url) {
   console.log(`  📄 Fetching: ${url.split('/').slice(-3, -1).join('/')}`);
-  const html = await fetchHtml(url);
-  if (!html) return null;
+  const redirects = [];
+  try {
+    const html = await fetchHtml(url, { redirectTrace: redirects });
+    const finalUrl = redirects.at(-1)?.to || url;
+    const result = classifyIstDetailPage({
+      sourceUrl: url,
+      status: 200,
+      finalUrl,
+      redirects,
+      html,
+    });
+    if (result.outcome !== 'classified') {
+      console.log(`  ⏭️  Skipped — ${result.evidence}`);
+      return result;
+    }
 
-  const data = extractIstMicrodata(html);
+    const data = result.detail;
 
-  // Historic generic `/job/<city>-<role>/<id>/` URLs can omit the tenant
-  // marker while the detail body still contains the official hiring sentence.
-  // Promote only that exact school-specific sentence to a tenant signal; a
-  // generic mention of an international school is deliberately insufficient.
-  if (!data.tenant && !data.tenantName && hasVerifiedIstRoleTenantSignal(data)) {
-    data.tenant = IST_COMPANY_NAME;
+    // Get canonical URL if available
+    const canonicalRe = /rel="canonical"\s+href="([^"]+)"/i;
+    const canonicalMatch = html.match(canonicalRe);
+    if (canonicalMatch) {
+      data.canonicalUrl = canonicalMatch[1];
+    }
+
+    // Extract job ID from URL
+    const idMatch = url.match(/\/(\d+)\/?$/);
+    data.jobId = idMatch ? idMatch[1] : '';
+
+    data.sourceUrl = url;
+
+    return result;
+  } catch (error) {
+    const result = classifyIstDetailPage({
+      sourceUrl: url,
+      status: error?.status || 0,
+      finalUrl: redirects.at(-1)?.to || url,
+      redirects,
+      error,
+    });
+    console.log(`  ⏭️  Skipped — ${result.evidence}`);
+    return result;
   }
-
-  // Get canonical URL if available
-  const canonicalRe = /rel="canonical"\s+href="([^"]+)"/i;
-  const canonicalMatch = html.match(canonicalRe);
-  if (canonicalMatch) {
-    data.canonicalUrl = canonicalMatch[1];
-  }
-
-  // Extract job ID from URL
-  const idMatch = url.match(/\/(\d+)\/?$/);
-  data.jobId = idMatch ? idMatch[1] : '';
-
-  data.sourceUrl = url;
-
-  return data;
 }
 
 /* ── Location & canton mapping ─────────────────────────────── */
@@ -757,6 +1020,15 @@ function parseLocation(locText = '') {
  */
 export function parseCountryCode(locText = '') {
   const source = String(locText || '');
+  if (/^[A-Za-z]{2}$/.test(source.trim())) {
+    const code = source.trim().toUpperCase();
+    if (code === 'CH') return 'CH';
+    // The portal sometimes emits only a country code for a global posting.
+    // Prefer that native country evidence over a coincident canton code (GR,
+    // SG, BE, or FR) when no locality is present.
+    if (ISO_ALPHA2_COUNTRY_CODES.has(code)) return code;
+    return inferAnyCanton(code) === code ? 'CH' : '';
+  }
   const suffixMatch = source.match(TRAILING_COUNTRY_CODE_RE);
   if (!suffixMatch) return '';
   const parts = source.split(',');
@@ -933,13 +1205,18 @@ export async function fetchIstJobs() {
   let titledDetails = 0;
   let completeDetailCount = 0;
   for (const url of jobUrls) {
-    const detail = await fetchJobDetail(url);
-    if (!detail || !detail.title) {
-      console.log(`  ⏭️  Skipped — no title extracted`);
+    const detailResult = await fetchJobDetail(url);
+    if (detailResult?.outcome === 'removed') {
+      completeDetailCount++;
       continue;
     }
+    if (detailResult?.outcome !== 'classified') {
+      console.log(`  ⏭️  Skipped — detail walk evidence incomplete`);
+      continue;
+    }
+    const detail = detailResult.detail;
     titledDetails++;
-    if (hasCompleteIstDetailEvidence(detail)) completeDetailCount++;
+    completeDetailCount++;
 
     if (!isIstDetailJob(detail)) {
       console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
