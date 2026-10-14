@@ -182,7 +182,6 @@ const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
 const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
-const IST_DETAIL_REMOVED_RE = /(?:sorry,\s*)?(?:this\s+position\s+has\s+been\s+filled|this\s+(?:job|position|role|vacancy)\s+is\s+no\s+longer\s+available|(?:job|position|vacancy)\s+(?:is\s+)?(?:closed|expired|no\s+longer\s+available))/i;
 const IST_NATIVE_FIELD_ALIASES = {
   title: ['title', 'job-title', 'jobtitle'],
   location: ['location', 'job-location', 'joblocation'],
@@ -196,6 +195,15 @@ const IST_NATIVE_FIELD_ALIASES = {
   tenant: ['tenant', 'tenantName', 'tenant-name'],
   facility: ['facility', 'facilityName', 'facility-name', 'school', 'schoolName', 'school-name', 'campus'],
 };
+const IST_NATIVE_FIELD_ATTRIBUTES = [
+  'itemprop',
+  'data-careersite-propertyid',
+  'data-field',
+  'data-job-field',
+  'data-job-property',
+  'data-field-name',
+];
+const IST_NATIVE_FILLED_MESSAGE_RE = /^sorry,\s*this\s+position\s+has\s+been\s+filled\.?$/i;
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
@@ -204,6 +212,12 @@ function hasVerifiedIstRoleTenantSignal(detail = {}) {
 function normalizeIstFieldMarker(value = '') {
   return normalize(value).replace(/[^a-z0-9]+/g, '');
 }
+
+const IST_ACTIVE_DETAIL_FIELD_MARKERS = new Set(
+  Object.values(IST_NATIVE_FIELD_ALIASES)
+    .flat()
+    .map(normalizeIstFieldMarker),
+);
 
 function slugify(text = '', suffix = '') {
   let s = text
@@ -699,16 +713,8 @@ function createIstHtmlFieldReader(html) {
     const aliases = new Set(
       (IST_NATIVE_FIELD_ALIASES[field] || [field]).map(normalizeIstFieldMarker),
     );
-    const attributes = [
-      'itemprop',
-      'data-careersite-propertyid',
-      'data-field',
-      'data-job-field',
-      'data-job-property',
-      'data-field-name',
-    ];
     for (const tag of tags) {
-      const marker = attributes
+      const marker = IST_NATIVE_FIELD_ATTRIBUTES
         .map((attribute) => readAttr(tag.raw, attribute))
         .map(normalizeIstFieldMarker)
         .find((value) => aliases.has(value));
@@ -833,10 +839,13 @@ export function extractIstMicrodata(html = '') {
   const locality = get('addressLocality') || getPropertyId('city') || getNative('city');
   const region = get('addressRegion') || getPropertyId('region') || getNative('region');
   const country = get('addressCountry') || getPropertyId('country') || getNative('country');
+  const locationMarker = getPropertyId('location') || getNative('location');
+  const locationContainsLocality = locationMarker && locality
+    ? normalizeIstFieldMarker(locationMarker).includes(normalizeIstFieldMarker(locality))
+    : !locality || !locationMarker;
+  const composedLocation = [locality, region, country].filter(Boolean).join(', ');
   const location = streetAddress
-    || getPropertyId('location')
-    || getNative('location')
-    || [locality, region, country].filter(Boolean).join(', ')
+    || (locationMarker && locationContainsLocality ? locationMarker : composedLocation)
     || jsonLd.location;
 
   const descriptionHtml = getPropertyHtml('description') || reader.readHtml('itemprop', 'description');
@@ -856,30 +865,45 @@ export function extractIstMicrodata(html = '') {
   };
 }
 
-function isIstSearchUrl(rawUrl = '') {
-  try {
-    const parsed = new URL(rawUrl);
-    const pathAndQuery = `${parsed.pathname}${parsed.search}`.toLowerCase();
-    if (/\/job\//i.test(parsed.pathname)) return false;
-    return /\/(?:search|search-results|careers|career)(?:\/|$)/i.test(parsed.pathname)
-      || /(?:^|[?&])(?:q|query|keyword|keywords|search)=/i.test(pathAndQuery);
-  } catch {
-    return false;
-  }
+function hasIstActiveDetailMarkers(html = '') {
+  return scanStartTags(String(html || '')).some(({ raw }) => (
+    IST_NATIVE_FIELD_ATTRIBUTES.some((attribute) => (
+      IST_ACTIVE_DETAIL_FIELD_MARKERS.has(normalizeIstFieldMarker(readAttr(raw, attribute)))
+    ))
+  ));
 }
 
-function hasIstSearchRedirect(redirects = [], finalUrl = '') {
-  const urls = [
-    finalUrl,
-    ...(Array.isArray(redirects) ? redirects : []).flatMap((entry) => (
-      typeof entry === 'string' ? [entry] : [entry?.from, entry?.to, entry?.location, entry?.url]
-    )),
-  ];
-  return urls.filter(Boolean).some(isIstSearchUrl);
+function hasIstClass(tag, className) {
+  return new RegExp(`(?:^|\\s)${className}(?:\\s|$)`, 'i').test(readAttr(tag.raw, 'class'));
 }
 
+function readIstNativeClassBlocks(html = '', className = '') {
+  const source = String(html || '');
+  return scanStartTags(source, 'div')
+    .filter((tag) => hasIstClass(tag, className))
+    .map((tag) => extractBalancedTagBlock(source.slice(tag.end), tag.name))
+    .filter(Boolean);
+}
+
+/**
+ * The live SuccessFactors portal renders a filled detail as:
+ * jobDisplayShell > jobDisplay > content > job > "Sorry, ... filled.".
+ * Keep this proof tied to that native container and refuse it when any active
+ * native field marker is present, so a sidebar or template text cannot certify
+ * a removed detail.
+ */
 function hasIstRemovedPageEvidence(html = '') {
-  return IST_DETAIL_REMOVED_RE.test(stripHtml(String(html || '')));
+  const source = String(html || '');
+  if (hasIstActiveDetailMarkers(source)) return false;
+
+  const jobBlocks = readIstNativeClassBlocks(source, 'jobDisplayShell')
+    .flatMap((shell) => readIstNativeClassBlocks(shell, 'jobDisplay'))
+    .flatMap((display) => readIstNativeClassBlocks(display, 'content'))
+    .flatMap((content) => readIstNativeClassBlocks(content, 'job'));
+
+  return jobBlocks.some((job) => (
+    IST_NATIVE_FILLED_MESSAGE_RE.test(normalizeSpace(stripHtml(job)))
+  ));
 }
 
 function addIstRoleTenantEvidence(detail) {
@@ -917,11 +941,8 @@ export function classifyIstDetailPage({
       finalUrl,
     };
   }
-  if (hasIstSearchRedirect(redirects, finalUrl)) {
-    return { outcome: 'removed', evidence: 'redirect-search', sourceUrl, finalUrl };
-  }
   if (hasIstRemovedPageEvidence(html)) {
-    return { outcome: 'removed', evidence: 'removed-page', sourceUrl, finalUrl };
+    return { outcome: 'removed', evidence: 'native-filled-message', sourceUrl, finalUrl };
   }
   if (responseStatus >= 300) {
     return {

@@ -252,6 +252,32 @@ describe('IST detail extraction', () => {
       hiringOrganization: 'Inspired Education',
     }));
   });
+
+  it('composes the native locality when location contains only the country marker', () => {
+    const html = `
+      <h1 data-job-field="title">Primary Teacher</h1>
+      <div data-job-field="location">CH</div>
+      <div data-job-field="city">Lugano</div>
+      <div data-job-field="country">CH</div>
+      <div data-job-field="hiringOrganization">Inspired Education</div>
+      <div data-job-field="facility">International School of Ticino</div>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Primary Teacher',
+      location: 'Lugano, CH',
+    }));
+
+    expect(classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      status: 200,
+      html,
+    })).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: { location: 'Lugano, CH' },
+    });
+  });
 });
 
 describe('IST empty-source proof', () => {
@@ -323,22 +349,61 @@ describe('IST detail response classification', () => {
       .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
   });
 
-  it('treats a redirect to the native search page as a removed entry', () => {
-    expect(classifyIstDetailPage({
+  it('treats HTTP 404 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 404 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-404' });
+  });
+
+  it('classifies an active detail after a redirect to a careers path', () => {
+    const result = classifyIstDetailPage({
       sourceUrl: detailUrl,
       status: 200,
-      finalUrl: 'https://jobs.inspirededu.com/search/',
-      redirects: [{ status: 302, to: 'https://jobs.inspirededu.com/search/' }],
-      html: '<html><title>Search jobs</title><body>Search</body></html>',
-    })).toMatchObject({ outcome: 'removed', evidence: 'redirect-search' });
+      finalUrl: 'https://jobs.inspirededu.com/careers/teacher/1',
+      redirects: [{ status: 302, to: 'https://jobs.inspirededu.com/careers/teacher/1' }],
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: true });
   });
 
   it('treats the native filled-position message as a removed entry', () => {
     expect(classifyIstDetailPage({
       sourceUrl: detailUrl,
       status: 200,
-      html: '<main><h1>Teacher Job Details</h1><p>Sorry, this position has been filled.</p></main>',
-    })).toMatchObject({ outcome: 'removed', evidence: 'removed-page' });
+      html: `
+        <div class="jobDisplayShell" itemscope="itemscope">
+          <div class="jobDisplay">
+            <div class="content">
+              <div class="jobTitle"></div>
+              <div class="job"><p><strong>Sorry, this position has been filled.</strong></p></div>
+            </div>
+          </div>
+        </div>
+      `,
+    })).toMatchObject({ outcome: 'removed', evidence: 'native-filled-message' });
+  });
+
+  it('does not treat an unrelated filled-position aside as removal', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <aside class="job-help"><p>This position has been filled.</p></aside>
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    })).toMatchObject({ outcome: 'classified', isIst: true });
   });
 
   it('reads native markers from an alternate template for an IST detail', () => {
