@@ -14,12 +14,12 @@ const registry = {
 beforeEach(() => {
   vi.stubGlobal('caches', { default: { match: async () => undefined, put: async () => {} } });
 });
-afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
-function mockOrigin({ current = 404, target = 200, api = 200 } = {}) {
+function mockOrigin({ current = 404, target = 200, api = 200, payload = JSON.stringify(registry) } = {}) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
-    if (url.pathname.endsWith('/slugs.json')) return new Response(JSON.stringify(registry), { status: api });
+    if (url.pathname.endsWith('/slugs.json')) return new Response(payload, { status: api });
     return new Response('page', { status: url.pathname === '/de/grenzgaenger-artikel/artikel/' ? target : current });
   });
 }
@@ -61,9 +61,71 @@ describe('article aliases from the public corpus registry', () => {
     expect(response.headers.get('Location')).toBe('/de/grenzgaenger-artikel/artikel/?utm_source=gsc');
   });
 
-  it.each([{ target: 404 }, { target: 503 }, { api: 503 }])('keeps 404 when recovery is unverified: %j', async (options) => {
-    mockOrigin(options);
+  it.each([404, 410])('keeps 404 when the registered destination is actually missing: %s', async (target) => {
+    mockOrigin({ target });
     expect((await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx)).status).toBe(404);
+  });
+
+  it.each([{ target: 503 }, { target: 429 }, { api: 503 }])('reports temporary verification failure, not a missing article: %j', async (options) => {
+    mockOrigin(options);
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+  });
+
+  it.each(['{', 'null', '[]', '{}', '{"blog":[]}'])('does not claim absence from an unreadable registry: %s', async (payload) => {
+    mockOrigin({ payload });
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+  });
+
+  it.each(['registry', 'target'])('keeps a %s network failure temporary', async (phase) => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.endsWith('/slugs.json')) {
+        if (phase === 'registry') throw new TypeError('Network unavailable');
+        return Response.json(registry);
+      }
+      if (url.pathname === '/de/grenzgaenger-artikel/artikel/') throw new TypeError('Network unavailable');
+      return new Response('missing', { status: 404 });
+    });
+    const response = await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+  });
+
+  it('treats an actual target-probe abort as temporary without relaxing the timeout', async () => {
+    vi.useFakeTimers();
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.endsWith('/slugs.json')) return Response.json(registry);
+      if (url.pathname === '/de/grenzgaenger-artikel/artikel/') {
+        return new Promise<Response>((_resolve, reject) => {
+          init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')), { once: true });
+        });
+      }
+      return new Response('missing', { status: 404 });
+    });
+    const pending = worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx);
+    await vi.advanceTimersByTimeAsync(2500);
+    const response = await pending;
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+  });
+
+  it('keeps healthy-catalog misses as 404, and recovers after a temporary failure', async () => {
+    const fetchMock = mockOrigin();
+    expect((await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/unknown/`), {}, ctx)).status).toBe(404);
+    fetchMock.mockRestore();
+    const unavailable = mockOrigin({ target: 503 });
+    expect((await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx)).status).toBe(503);
+    unavailable.mockRestore();
+    mockOrigin();
+    expect((await worker.fetch(new Request(`${APEX}/de/grenzgaenger-artikel/articolo/`), {}, ctx)).status).toBe(301);
   });
 
   it('leaves a live page untouched without fetching the registry', async () => {

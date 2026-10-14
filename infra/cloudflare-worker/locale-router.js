@@ -768,14 +768,14 @@ const LEGACY_PAGINATION_RE =
 // than left silently unfixed.
 const CANTON_ROOT_GUARD_TIMEOUT_MS = 2000;
 
-// Returns true only when `pathname` resolves to a 200 on the shard `origin`.
+// Classifies a positive 200, definitive absence, and unavailable verification.
 // GET (not HEAD) to match every other origin-fetch's caching convention in
 // this file; the body is never read. Edge-cached via cacheEverything so many
 // orphans that share one canton root (e.g. several pruned company hubs in the
 // same canton) cost a single origin round trip. ORIGIN_CACHE_TTL (2 h) reused
 // for the same reason it exists elsewhere: bounds a 404-vs-200 flip around a
 // deploy without inventing a parallel TTL knob.
-async function redirectTargetIsLive(pathname, origin) {
+async function redirectTargetAvailability(pathname, origin) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), CANTON_ROOT_GUARD_TIMEOUT_MS);
   try {
@@ -784,12 +784,27 @@ async function redirectTargetIsLive(pathname, origin) {
       signal: controller.signal,
       cf: cacheEverythingWithout5xx(ORIGIN_CACHE_TTL),
     });
-    return resp.status === 200;
+    if (resp.status === 200) return 'live';
+    if (resp.status === 404 || resp.status === 410) return 'missing';
+    return 'unavailable';
   } catch {
-    return false; // timeout / network error → unverified, safe soft-404 fallback
+    return 'unavailable';
   } finally {
     clearTimeout(timer);
   }
+}
+
+// Ancestor guesses still need a positive 200 before any redirect. Exact
+// registry aliases additionally distinguish transient failure from absence.
+async function redirectTargetIsLive(pathname, origin) {
+  return (await redirectTargetAvailability(pathname, origin)) === 'live';
+}
+
+function aliasVerificationUnavailable() {
+  return new Response('Redirect verification temporarily unavailable', {
+    status: 503,
+    headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' },
+  });
 }
 
 const MAP_FETCH_TIMEOUT_MS = 2000;
@@ -814,16 +829,22 @@ export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 // registry, and verify the same-language page before sending a permanent 301.
 const ARTICLE_SLUG_REGISTRY_URL = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/slugs.json';
 
-export function articleAliasTarget(pathname, registry) {
-  const route = matchSection(pathname);
+function articleAliasRows(route, registry) {
   const group = route?.section === 'articolifrontaliere' ? 'blog'
     : route?.section === 'articolisvizzera' ? 'swiss' : null;
   if (!group) return null;
+  const rows = registry?.[group];
+  return isPlainObject(rows) ? rows : null;
+}
+
+export function articleAliasTarget(pathname, registry) {
+  const route = matchSection(pathname);
+  const rows = articleAliasRows(route, registry);
+  if (!rows) return null;
   const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
   if (!leaf) return null;
   const slug = lowerSegment(leaf[1]);
-  const rows = registry?.[group];
-  if (!rows || typeof rows !== 'object' || Array.isArray(rows)) return null;
+  const group = route.section === 'articolifrontaliere' ? 'blog' : 'swiss';
   const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
   const ids = new Set();
   if (own(rows, slug)) ids.add(slug);
@@ -854,14 +875,20 @@ async function recoverArticleAlias(url, origin) {
       signal: controller.signal,
       cf: cacheEverythingWithout5xx(300),
     });
-    if (!response.ok) return null;
-    target = articleAliasTarget(url.pathname, await response.json());
+    if (response.status === 404 || response.status === 410) return null;
+    if (!response.ok) return aliasVerificationUnavailable();
+    const registry = await response.json();
+    if (!articleAliasRows(route, registry)) return aliasVerificationUnavailable();
+    target = articleAliasTarget(url.pathname, registry);
   } catch {
-    return null;
+    return aliasVerificationUnavailable();
   } finally {
     clearTimeout(timer);
   }
-  if (!target || !(await redirectTargetIsLive(target, origin))) return null;
+  if (!target) return null;
+  const availability = await redirectTargetAvailability(target, origin);
+  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability !== 'live') return null;
   return new Response(null, {
     status: 301,
     headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL },
@@ -878,11 +905,17 @@ const ORPHAN_NURSING_TARGETS = {
   '/fr/recherche/': '/fr/emplois-infirmiers-suisse/',
 };
 
+function orphanQueryAliasRows(registry) {
+  const rows = registry?.schema === 1 ? registry.aliases : null;
+  return isPlainObject(rows) ? rows : null;
+}
+
 export function orphanQueryAliasTarget(pathname, registry) {
   const from = pathname.replace(/\/+$/, '') + '/';
   const match = from.match(ORPHAN_QUERY_PATH_RE);
-  if (!match || registry?.schema !== 1 || !Object.prototype.hasOwnProperty.call(registry.aliases || {}, from)) return null;
-  const target = registry.aliases[from];
+  const rows = orphanQueryAliasRows(registry);
+  if (!match || !rows || !Object.prototype.hasOwnProperty.call(rows, from)) return null;
+  const target = rows[from];
   if (typeof target !== 'string' || target === from) return null;
   const sameSection = target.match(ORPHAN_QUERY_PATH_RE)?.[1] === match[1];
   if ((!sameSection && target !== ORPHAN_NURSING_TARGETS[match[1]]) || lookupRetired(target) !== undefined) return null;
@@ -899,10 +932,16 @@ async function recoverOrphanQueryAlias(url, origin) {
       signal: controller.signal,
       cf: cacheEverythingWithout5xx(300),
     });
-    if (!response.ok) return null;
-    target = orphanQueryAliasTarget(url.pathname, await response.json());
-  } catch { return null; } finally { clearTimeout(timer); }
-  if (!target || !(await redirectTargetIsLive(target, origin))) return null;
+    if (response.status === 404 || response.status === 410) return null;
+    if (!response.ok) return aliasVerificationUnavailable();
+    const registry = await response.json();
+    if (!orphanQueryAliasRows(registry)) return aliasVerificationUnavailable();
+    target = orphanQueryAliasTarget(url.pathname, registry);
+  } catch { return aliasVerificationUnavailable(); } finally { clearTimeout(timer); }
+  if (!target) return null;
+  const availability = await redirectTargetAvailability(target, origin);
+  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability !== 'live') return null;
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
 
@@ -918,7 +957,9 @@ function jobCanonShardKey(slug) {
 // Returns a 301 Response to the slug's current canonical page when the requested
 // path is a job-detail orphan whose slug is in the map (with a prefix for the
 // request's `locale`) AND the canonical differs from the requested path;
-// otherwise null (caller serves the normal 404). `locale` is the request's locale
+// Genuine misses return null; failed registry/probe requests return a temporary
+// 503 instead of asserting that the requested vacancy is missing.
+// `locale` is the request's locale.
 // Lowercased, percent-decoded form of ONE path segment. A malformed %-escape
 // keeps the raw segment (lowercased) rather than throwing: the caller is always
 // on a recovery path, and a 404 that could have been a 301 is the worse outcome.
@@ -949,15 +990,17 @@ async function recoverCantonDriftOrphan(url, locale) {
       signal: controller.signal,
       cf: cacheEverythingWithout5xx(JOB_CANON_CACHE_TTL),
     });
-    if (!resp.ok) return null;
+    if (resp.status === 404 || resp.status === 410) return null;
+    if (!resp.ok) return aliasVerificationUnavailable();
     map = await resp.json();
   } catch {
-    return null; // miss / timeout / parse error → fall through to the 404
+    return aliasVerificationUnavailable();
   } finally {
     clearTimeout(timer);
   }
 
-  const entry = map && map[slug];
+  if (!isPlainObject(map)) return aliasVerificationUnavailable();
+  const entry = map[slug];
   // Per-locale object only: a legacy string value (IT-only map from a stale
   // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
   if (!entry || typeof entry !== 'object') return null;
@@ -976,11 +1019,14 @@ async function recoverCantonDriftOrphan(url, locale) {
     if (!route || route.locale !== locale) return null;
     const targetOrigin = SECTION_ORIGIN[route.section]?.[locale];
     if (!targetOrigin) return null;
-    let live = false;
+    let availability = 'missing';
     for (const physical of sectionShardPhysicalPaths(canonical, route)) {
-      if (await redirectTargetIsLive(physical, targetOrigin)) { live = true; break; }
+      const state = await redirectTargetAvailability(physical, targetOrigin);
+      if (state === 'live') { availability = 'live'; break; }
+      if (state === 'unavailable') availability = 'unavailable';
     }
-    if (!live) return null;
+    if (availability === 'unavailable') return aliasVerificationUnavailable();
+    if (availability !== 'live') return null;
   }
 
   const location = canonical + url.search + url.hash;

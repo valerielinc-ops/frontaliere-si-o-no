@@ -35,12 +35,41 @@ describe('exact query variants within a known cluster', () => {
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
   });
-  it.each([404, 503])('does not redirect to an unverified destination (%s)', async (status) => {
+  it.each([404, 410, 429, 503])('does not confuse a missing destination with unavailable verification (%s)', async (status) => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
       if (url.pathname === '/orphan-query-aliases.json') return new Response(JSON.stringify(registry));
       return new Response('page', { status: url.pathname === '/de/suche/rhb-jobs/' ? status : 404 });
     });
-    expect((await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, {})).status).toBe(404);
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, {});
+    expect(response.status).toBe(status === 404 || status === 410 ? 404 : 503);
+    expect(response.headers.get('Location')).toBeNull();
+    if (response.status === 503) expect(response.headers.get('Cache-Control')).toBe('no-store');
+  });
+
+  it.each(['network', 'bad-json', 'bad-schema', 'server'])('keeps a %s registry failure temporary', async (mode) => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/orphan-query-aliases.json') {
+        if (mode === 'network') throw new TypeError('Network unavailable');
+        if (mode === 'bad-json') return new Response('{');
+        if (mode === 'bad-schema') return Response.json({ schema: 1, aliases: [] });
+        return new Response('unavailable', { status: 503 });
+      }
+      return new Response('missing', { status: 404 });
+    });
+    const response = await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/jobs-rhb/'), {}, {});
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Retry-After')).toBe('60');
+  });
+
+  it('does not turn a healthy-catalog miss into a server error', async () => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      return url.pathname === '/orphan-query-aliases.json'
+        ? Response.json(registry) : new Response('missing', { status: 404 });
+    });
+    expect((await worker.fetch(new Request('https://frontaliereticino.ch/de/suche/unknown/'), {}, {})).status).toBe(404);
   });
 });

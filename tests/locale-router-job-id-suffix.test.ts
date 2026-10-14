@@ -37,9 +37,12 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
     expect(response.headers.get('Location')).toBe('/cerca-lavoro-appenzello/known-job/');
   });
 
-  it.each([404, 503])('retains 404 when the registered destination is unavailable (%s)', async (targetStatus) => {
+  it.each([404, 410, 429, 503])('distinguishes a missing vacancy from unavailable target verification (%s)', async (targetStatus) => {
     mockFetch('/cerca-lavoro-zurigo', { targetStatus });
-    expect((await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx)).status).toBe(404);
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx);
+    expect(response.status).toBe(targetStatus === 404 || targetStatus === 410 ? 404 : 503);
+    expect(response.headers.get('Location')).toBeNull();
+    if (response.status === 503) expect(response.headers.get('Retry-After')).toBe('60');
   });
 
   it.each(['/known-job/5162', '/known-job/extra/', '/known-job/5162/extra/', '/search-foo/2000', '/ricerca-foo/2000', '/azienda-foo/2000'])('does not guess a target without registry evidence: %s', async (suffix) => {
@@ -52,5 +55,38 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
     const response = await worker.fetch(new Request(`${APEX}/en/find-jobs-zurich/search-foo/2000`), {}, ctx);
     expect(response.status).toBe(404);
     expect(response.headers.get('Location')).toBeNull();
+  });
+
+  it.each(['network', 'bad-json', 'bad-schema', 'server'])('does not report absence after a %s job-canon failure', async (mode) => {
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.includes('/job-canon/')) {
+        if (mode === 'network') throw new TypeError('Network unavailable');
+        if (mode === 'bad-json') return new Response('{');
+        if (mode === 'bad-schema') return Response.json([]);
+        return new Response('unavailable', { status: 503 });
+      }
+      return new Response('missing', { status: 404 });
+    });
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx);
+    expect(response.status).toBe(503);
+    expect(response.headers.get('Location')).toBeNull();
+  });
+
+  it('uses a verified physical fallback even when a different layout is unavailable', async () => {
+    let unavailableLayoutProbes = 0;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.includes('/job-canon/')) return Response.json({ 'known-job': { it: '/cerca-lavoro-ticino' } });
+      if (url.pathname.includes('/_tree/') && url.pathname.endsWith('/known-job/')) {
+        unavailableLayoutProbes += 1;
+        return new Response('unavailable', { status: 503 });
+      }
+      return new Response('page', { status: url.pathname === '/cerca-lavoro-ticino/known-job/' ? 200 : 404 });
+    });
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/known-job/5162`), {}, ctx);
+    expect(unavailableLayoutProbes).toBeGreaterThan(0);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe('/cerca-lavoro-ticino/known-job/');
   });
 });
