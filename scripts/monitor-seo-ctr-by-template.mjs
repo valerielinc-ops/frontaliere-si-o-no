@@ -10,8 +10,10 @@
  * scripts/lib/github-issue-creator.mjs with a stable, dedup-friendly title —
  * later counted checks still below threshold post a comment on the same issue
  * instead of duplicating it (github-issue-creator's built-in title-prefix
- * dedup). Recovering above target resets the counter; no auto-close (left to
- * human review, consistent with the rest of the monitor fleet).
+ * dedup). Recovering above target resets the counter and, on a counted check
+ * with a measured CTR, closes the family's issue: the issue text promised
+ * «la issue si chiude quando questa famiglia torna sopra il target» while the
+ * code never closed it (opener-without-closer class, issue 11547).
  *
  * A check is COUNTED at most once per cadence (nextCtrMonitorCounter in
  * scripts/lib/seo-ctr-curve.mjs): a manual dispatch or a re-run a few days
@@ -76,6 +78,7 @@ import {
   belowCurvePagesForState,
   renderBelowCurvePagesSection,
   nextCtrMonitorCounter,
+  ctrFamilyRecovered,
   ctrMonitorCountedAnchor,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
@@ -169,6 +172,20 @@ function loadState() {
   }
 }
 
+/** Stable title of a family's below-target issue (opened and closed here). */
+export function ctrBelowTargetTitle(family) {
+  return `SEO CTR sotto soglia: template ${family.label}`;
+}
+
+async function closeRecoveredFamilyIssue(family) {
+  try {
+    const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+    resolveGithubIssue(ctrBelowTargetTitle(family), { exactTitle: true, workflow: 'SEO CTR by template' });
+  } catch (err) {
+    console.warn(`   ⚠️ could not close the CTR issue of ${family.label}: ${err.message}`);
+  }
+}
+
 async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages, segmentation, measureChange }) {
   if (dryRun) {
     console.log(`   [dry-run] avrei aperto/commentato issue per ${family.label}`);
@@ -180,7 +197,7 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
   try {
     const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
     await createGithubIssue({
-      title: `SEO CTR sotto soglia: template ${family.label}`,
+      title: ctrBelowTargetTitle(family),
       description: `## CTR sotto target — ${family.label}
 
 **Path family:** \`${family.pathContains}\`
@@ -443,6 +460,10 @@ async function main() {
       }
     } else {
       console.log(counted ? '   ✅ CTR nella norma' : `   ✅ CTR nella norma — ${offCadence}`);
+      if (ctrFamilyRecovered({ counted, ctr, target })) {
+        if (dryRun) console.log(`   [dry-run] resolve: ${ctrBelowTargetTitle(family)}`);
+        else await closeRecoveredFamilyIssue(family);
+      }
     }
 
     state.families[family.id] = {

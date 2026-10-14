@@ -317,7 +317,7 @@ async function main() {
       const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
       await createGithubIssue({
         // Stable title prefix → dedupes onto one canonical issue per month.
-        title: `HERE usage over free-tier budget (${monthKey})`,
+        title: hereOverBudgetTitle(monthKey),
         description:
           `Reconciled HERE usage for ${monthKey} is **${reconciled}/${budget}** ` +
           `(real billed ${realBilled}). Routing runs are being skipped to avoid charges.`,
@@ -335,6 +335,43 @@ async function main() {
       console.warn(`⚠️ alert issue failed: ${e.message}`);
     }
   }
+
+  if (args.alert && process.env.GH_TOKEN) {
+    const recovered = recoveredHereUsageTitles({ monthKey, reconciled, budget });
+    if (recovered.length) {
+      const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      for (const title of recovered) {
+        try {
+          resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
+        } catch (e) {
+          console.warn(`⚠️ could not close «${title}»: ${e.message}`);
+        }
+      }
+    }
+  }
+}
+
+/** Title of the monthly over-budget alert, stable per month. */
+export function hereOverBudgetTitle(monthKey) {
+  return `HERE usage over free-tier budget (${monthKey})`;
+}
+
+/** 'YYYY-MM' of the month before `monthKey`. Pure. */
+export function previousMonthKey(monthKey) {
+  const [y, m] = String(monthKey).split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 2, 1));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+/**
+ * Alerts to close: the budget resets every month, so an over-budget issue of
+ * the previous month never recovered by itself and stayed open (same
+ * opener-without-closer class as issue 11547). Under budget now → close this
+ * month's and last month's titles. Pure.
+ */
+export function recoveredHereUsageTitles({ monthKey, reconciled, budget }) {
+  if (!(Number.isFinite(reconciled) && Number.isFinite(budget)) || reconciled > budget) return [];
+  return [hereOverBudgetTitle(monthKey), hereOverBudgetTitle(previousMonthKey(monthKey))];
 }
 
 // Only run when invoked directly (allow importing pure helpers in tests).
