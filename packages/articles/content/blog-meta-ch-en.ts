@@ -8294,6 +8294,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-knifefish-adesione.title': 'Federal Council approves joining Knifefish for electronic attack',
     'blog.article.consiglio-federale-knifefish-adesione.excerpt': 'On October 14, 2026, the Federal Council approves Knifefish Switzerland modernizes its electronic warfare capabilities Knifefish facilitates procurement and exchanges',
     'blog.article.consiglio-federale-knifefish-adesione.imageAlt': 'Federal Palace in Bern with modern electronic warfare military equipment',
+    'blog.article.hacker-frigoriferi-connessi.title': 'Hackers tamper with refrigeration: risk to homes',
+    'blog.article.hacker-frigoriferi-connessi.excerpt': 'Attack on hundreds of French supermarkets Remote manipulation of refrigeration Damage amounting to millions of euros Coop and Migros: no similar attack recorded',
+    'blog.article.hacker-frigoriferi-connessi.imageAlt': 'Refrigeration systems and connected devices at the center of a cyber alert',
 };
 
 export default blogMetaChEn;

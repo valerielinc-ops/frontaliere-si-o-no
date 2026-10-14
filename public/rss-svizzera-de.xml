@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Wed, 14 Oct 2026 23:04:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 23:24:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,92 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Hacker manipulieren die Kühlung: Risiko für Haushalte</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/hacker-vernetzte-kuehlung/</link>
+      <description><![CDATA[Angriff auf Hunderte französische Supermärkte Kühlung aus der Ferne manipuliert Schäden in Höhe von Millionen Euro Coop und Migros: Kein ähnlicher Angriff registriert]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Angriff auf Hunderte französische Supermärkte
+- Kühlung aus der Ferne manipuliert
+- Schäden in Höhe von Millionen Euro
+- Coop und Migros: Kein ähnlicher Angriff registriert
+
+## Wichtige Fakten
+- Ziel → Kühlsysteme
+- Standort → Französische Supermärkte
+- Auswirkung → höhere Temperaturen und unbrauchbare Lebensmittel
+- Hersteller → Danfoss, dänisches Unternehmen
+- Gerätestatus → veraltete Generationen ohne Sicherheitsupdates
+- Schweiz → Coop und Migros haben keine ähnlichen Fälle registriert
+- Startseite → angeschlossene Fernseher, Staubsauger und Lautsprecher
+- Experte → Jean-Marc Seigneur, Universität Genf
+
+Ein Cyberangriff, der Hunderte französische Supermärkte traf, hat die digitale Sicherheit in eine Infrastruktur im Zusammenhang mit der Lebensmittelkonservierung gebracht. Die Piraten manipulierten aus der Ferne die Kühlsysteme und führten so zu einem Temperaturanstieg.
+
+Große Mengen an Lebensmitteln sind dadurch unbrauchbar geworden. Der durch den Angriff verursachte Schaden belief sich laut Beschreibung des Vorfalls auf mehrere Millionen Euro.
+
+Der Fall weckt erneut Aufmerksamkeit für die Sicherheit von Geräten, die mit dem Internet verbunden sind. Der von der Quelle beschriebene Ablauf ist konkret: Ein ferngesteuertes System wurde manipuliert, die Temperatur stieg und der Lebensmittelinhalt war nicht mehr verwendbar.
+
+Bei den beiden Schweizer Ketten ergibt sich ein anderes Bild: Coop und Migros berichten, dass es noch nie zu Angriffen gleicher Art gekommen sei. Migros fügt hinzu, dass nur wenige ihrer Filialen Danfoss-Kühlsysteme verwenden und dass es derzeit keine Anzeichen dafür gibt, dass sie daran beteiligt sind.
+
+### Die Rolle veralteter Systeme
+
+Der dänische Hersteller Danfoss, der viele der betroffenen Systeme herstellt, erklärte, dass es sich bei den betroffenen Geräten überwiegend um ältere Generationen handele, die nicht mehr von Sicherheitsupdates profitierten. Das Unternehmen machte damit auf den Zustand der betroffenen Geräte aufmerksam.
+
+Die Bedrohung erstreckt sich auch auf Privathaushalte, wo Fernseher, Staubsauger, Lautsprecher und andere mit dem Netzwerk verbundene Geräte einen Einfallstor für einen Cyberangriff bieten können.
+
+Durch die Verbindung mit dem Internet kann jedes Gerät ungeschützt bleiben, das nicht über ausreichende Schutzmaßnahmen und Aktualisierungen verfügt. Die Passage bezieht sich nicht auf einen konkreten innenpolitischen Angriff; Stattdessen weist es auf eine mögliche Gefährdung durch Verbindung und unzureichenden Schutz hin.
+
+Diese Ausweitung vom Handel auf Wohnhäuser ist der nationale Punkt der Geschichte. Auch für die in der Schweiz lebenden Menschen geht es nicht nur um Kühlanlagen, sondern um die gesamte Menge an Objekten, die an das Netzwerk angeschlossen werden können.
+
+Jean-Marc Seigneur, Experte der Universität Genf, empfiehlt, Standardpasswörter zu ersetzen, auf Produkte von zuverlässigen Unternehmen umzusteigen und Software- und Firmware-Updates bereitzustellen. Abschließend lädt es uns dazu ein, zu bewerten, ob es wirklich sinnvoll ist, jedes Gerät intelligent zu machen: Jedes angeschlossene Gerät bietet eine weitere mögliche Angriffsfläche.
+## Das Risiko ist nicht dasselbe wie der bereits erfolgte Angriff
+
+Die Nachricht ermöglicht es, drei Ebenen zu unterscheiden. Die erste ist das dokumentierte Ereignis: In französischen Supermärkten wurden die Kühlsysteme aus der Ferne manipuliert, wodurch die Temperatur stieg und Lebensmittel unbrauchbar wurden. Die zweite ist die Position der genannten Schweizer Unternehmen: Coop und Migros haben keine ähnlichen Angriffe registriert, während Migros derzeit keine Hinweise auf eine Beteiligung der wenigen Verkaufsstellen hat, die Systeme von Danfoss nutzen. Die dritte betrifft die Haushalte: Die Quelle spricht von potenziellen Eintrittspunkten, nicht von einem bereits dokumentierten Angriff im häuslichen Bereich.
+
+### Drei Bedingungen, die gemeinsam betrachtet werden müssen
+
+Ein mit dem Netzwerk verbundenes Gerät gilt nicht automatisch als kompromittiert. Die Quelle weist auf eine potenzielle Schwachstelle hin, wenn das Gerät nicht angemessen geschützt und aktualisiert ist. Die Klarstellung von Danfoss fügt ein zweites Element hinzu: Ein großer Teil der betroffenen Geräte gehört zu veralteten Generationen, die keine Sicherheitsupdates mehr erhalten. Für den Leser liegt der Unterschied zwischen dem bloßen Vorhandensein der Verbindung und dem in der Quelle genannten Schutzstatus.
+
+| Bedingung | Angabe in der Quelle |
+|---|---|
+| Mit dem Internet verbundenes Gerät | Kann zu einem potenziellen Eintrittspunkt werden |
+| Unzureichender Schutz | Das Gerät kann verwundbar sein |
+| Inzwischen veraltete Generation | Erhält keine Sicherheitsupdates mehr |
+| Jedes Gerät intelligent machen | Der tatsächliche Nutzen sollte bewertet werden |
+
+Der sinnvolle Vergleich für Menschen in der Schweiz ist nicht der zwischen einem französischen Angriff und einer Gewissheit in der Schweiz. Coop und Migros melden keine ähnlichen Fälle, aber die Quelle stellt diese Angabe nicht als Garantie für jedes verbundene Gerät dar. Gleichzeitig beschreibt sie keinen bereits erfolgten Angriff im häuslichen Bereich: Sie nennt Fernseher, Staubsauger, Lautsprecher und andere Gegenstände als potenzielle Eintrittspunkte.
+
+Die praktische Konsequenz ist ein Wechsel des Maßstabs. Die Frage ist nicht nur, ob ein Gerät seine Funktion erfüllt, sondern ob die Verbindung einen tatsächlichen Nutzen bringt. Seigneur lädt dazu ein, genau über diesen Punkt nachzudenken: Jedes Objekt intelligent zu machen, schafft für jedes verbundene Gerät eine neue potenzielle Angriffsfläche. In dieser Lesart wird der Fall der französischen Supermärkte zu einem Bezugspunkt, um Entscheidungen im Haushalt zu bewerten, ohne aus einer Möglichkeit einen bereits bestätigten Angriff zu machen.
+## Die Checkliste für Haushaltsgeräte
+
+Die von der Quelle angegebene praktische Antwort besteht aus vier Hinweisen für mit dem Netzwerk verbundene Geräte. Die Abfolge betrifft sowohl die für Haushalte genannten Geräte als auch ganz allgemein jedes mit dem Internet verbundene Gerät: Die Anfälligkeit ergibt sich daraus, dass es nicht ausreichend geschützt und aktualisiert ist.
+
+> „Standardpasswörter ersetzen, sich für Produkte zuverlässiger Unternehmen entscheiden und die Aktualisierung von Software und Firmware sicherstellen“.
+
+### 1. Das Standardpasswort ändern
+
+Die erste Prüfung besteht darin, das Standardpasswort zu ersetzen. Die Maßnahme sollte für jedes mit dem Netzwerk verbundene Gerät in Betracht gezogen werden, nicht nur für ein Kühlsystem. Die Quelle nennt Fernseher, Staubsauger, Lautsprecher und andere Haushaltsgeräte.
+
+### 2. Ein zuverlässiges Unternehmen wählen
+
+Bei der Auswahl eines vernetzten Produkts empfiehlt der Experte, sich für zuverlässige Unternehmen zu entscheiden. Das Kriterium ist relevant, weil Danfoss klargestellt hat, dass ein erheblicher Anteil der betroffenen Geräte aus mittlerweile veralteten Generationen stammt, für die es keine weiteren Sicherheitsupdates gibt. Die Quelle liefert keine Liste von Herstellern oder Modellen: Die Empfehlung bleibt die des Experten, nämlich zuverlässige Unternehmen zu bevorzugen.
+
+### 3. Software und Firmware auf dem neuesten Stand halten
+
+Der dritte Schritt besteht darin, Software und Firmware auf dem neuesten Stand zu halten. Die Empfehlung betrifft beides, ohne die Pflege der Software von der der Firmware zu trennen. Für die im Haushalt vorhandenen vernetzten Geräte ist dies die von der Quelle angegebene Maßnahme, um die dort beschriebene Anfälligkeit zu vermeiden.
+
+### 4. Prüfen, ob die Smart-Funktion wirklich benötigt wird
+
+Der vierte Schritt betrifft die anfängliche Entscheidung. Seigneur schlägt vor, sich zu fragen, wie nützlich es tatsächlich ist, jedes Gerät intelligent zu machen. Wenn die Funktion nicht nützlich ist, sollte die Verbindung nicht als selbstverständlich betrachtet werden: Jedes verbundene Gerät fügt nämlich eine neue potenzielle Angriffsfläche hinzu. Die Checkliste endet somit mit einer Entscheidung, die der technischen vorausgeht: das, was verbunden ist, schützen und aktualisieren, sich aber zunächst fragen, ob es überhaupt verbunden sein muss.
+
+*Quelle: [rsi.ch](https://www.rsi.ch/s/4161292)*]]></content:encoded>
+      <pubDate>Wed, 14 Oct 2026 23:24:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/hacker-frigoriferi-connessi</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hacker-frigoriferi-connessi.webp" medium="image"/>
+    </item>
     <item>
       <title>Bundesrat genehmigt Beitritt zu Knifefish für den elektronischen Angriff</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/bundesrat-knifefish-beitritt/</link>
@@ -3820,93 +3906,6 @@ Um den monatlichen Spielraum mit einem speziellen Tool einzuschätzen, probiere 
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/100-848-firme-contro-il-controprogetto-sulle-pigioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-100-848-firme-contro-il-controprogetto-sulle-pigioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Suva: 123 Millionen bei den Rechnungen eingespart</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/suva-rechnungspruefung-einsparungen/</link>
-      <description><![CDATA[Suva hat 2025 123 Millionen eingespart Kontrolliert wurden etwa 2,9 Millionen Rechnungen 297'000 Rechnungen enthielten Fehler oder Ungenauigkeiten Ohne die Kontrollen, durchschnittliche Prämien]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Suva hat 2025 123 Millionen eingespart
-- Kontrolliert wurden etwa 2,9 Millionen Rechnungen
-- 297'000 Rechnungen enthielten Fehler oder Ungenauigkeiten
-- Ohne die Kontrollen wären die durchschnittlichen Unternehmensprämien etwa drei Prozent höher
-
-## Wichtige Fakten
-- Jahr → 2025
-- Hauptsitz → Luzern
-- Kontrollierte Rechnungen → ca. 2,9 Millionen
-- Einsparungen → 123 Millionen Franken
-- Behandlungskosten → 1,3 Milliarden Franken
-- Rechnungen mit Fehlern → 297'000 (10,4 % der Gesamtsumme)
-- Prämien ohne Kontrolle → im Durchschnitt etwa drei Prozent höher
-- Automatische Verarbeitung → drei Viertel der Rechnungen
-
-Im Jahr 2025 sparte die Suva durch die Prüfung von rund 2,9 Millionen Rechnungen 123 Millionen Franken ein. Das Ergebnis gab der Unfallversicherer am Dienstag bekannt. Die Ausgaben für Behandlungen beliefen sich auf 1,3 Milliarden Franken, 6 Prozent mehr als im Vorjahr.
-
-### Kontrolle der Arztrechnungen
-
-Bei den Kontrollen handelte es sich um Rechnungen für medizinische und therapeutische Leistungen. Gemäss den von der Suva mitgeteilten Daten wiesen 297'000 Dokumente Fehler oder Ungenauigkeiten auf, was 10,4 Prozent der gesamten geprüften Dokumente entspricht. Die Suva schickte diese Rechnungen daraufhin zur Korrektur zurück.
-
-In der Stellungnahme werden unter anderem Doppelbelastungen, Fehler bei der Leistungsberechnung, Leistungen ohne Versicherungsschutz und Rechnungen, die sich auf bereits abgeschlossene Fälle beziehen, hervorgehoben. Teilweise fielen auch Gebühren für nicht erbrachte Leistungen an. Insgesamt umfassen die Beispiele die Abrechnung, den Versicherungsschutz und die tatsächliche Leistungserbringung.
-
-Rechnungen über Behandlungskosten durchlaufen eine digitale Prüfung und die Suva verarbeitet drei Viertel davon automatisch. Die Mitteilung beschreibt daher eine Kontrolle der Unterlagen medizinischer und therapeutischer Leistungen mit der Weiterleitung von Rechnungen, wenn Fehler oder Ungenauigkeiten auftauchen.
-
-### Der Zusammenhang mit Unternehmensprämien
-
-Michael Widmer, Leiter Pflegekostenmanagement der Suva, verknüpfte die Kontrollen mit der Prämienhöhe der Versicherten:
-
-> „Ohne solche Kontrollen würden die durchschnittlichen Prämien der Versicherten um rund drei Prozent steigen.“
-
-Die Schätzung bezieht sich auf den Durchschnitt der versicherten Unternehmen. Die Suva hat ihren Sitz in Luzern und schützt mehr als 2,2 Millionen Arbeitnehmer vor den Folgen von Unfällen und Berufskrankheiten.
-
-Die Zahlen in der Mitteilung verwenden unterschiedliche Einheiten: 2,9 Millionen bezeichnen geprüfte Rechnungen, 297.000 solche mit Fehlern oder Ungenauigkeiten, während über 2,2 Millionen versicherte Arbeitnehmer angeben. Die Ersparnisse werden in Franken ausgedrückt, die Erhöhung der Behandlungskosten in Prozent und die Auswirkung auf die Prämien als geschätzter Durchschnitt. Der Vergleich zum Vorjahr betrifft die Pflegekosten; es wird nicht als Erklärung für die gefundenen Anomalien dargestellt.
-Die nützlichste Information für eine praktische Einordnung besteht darin, die vier Ebenen der Mitteilung zu trennen: die Zahl der kontrollierten Rechnungen, den Anteil mit Fehlern, die Gesamtkosten der Behandlungen und die geschätzte durchschnittliche Auswirkung auf die Prämien der versicherten Unternehmen. Es handelt sich um unterschiedliche Messgrößen, und sie erlauben nicht zu berechnen, wie viel jedes einzelne Unternehmen eingespart hat.
-
-### Vier Zahlen, vier Bedeutungen
-
-| Indikator | Angegebene Zahl | Einordnung |
-|---|---|---|
-| Kontrollierte Rechnungen | etwa 2,9 Millionen | Umfang der Kontrolle |
-| Fehler oder Ungenauigkeiten | 297'000, entsprechend 10,4% | zur Korrektur zurückgesandte Rechnungen |
-| Behandlungskosten | 1,3 Milliarden, +6% gegenüber dem Vorjahr | im Jahr 2025 erreichte Gesamtsumme |
-| Prämien ohne Kontrollen | im Durchschnitt etwa 3% höher | Schätzung bezogen auf die versicherten Unternehmen |
-
-Die Tabelle stellt gegenüber, was Suva überprüft hat, was sie gefunden hat und was sie als Auswirkung auf die Prämien geschätzt hat. Die 10,4% sind kein Prozentsatz für den Anstieg der Behandlungskosten, während die +6% nicht dem Anteil fehlerhafter Rechnungen entsprechen. Die Quelle führt die +6% nicht auf eine bestimmte Anomalie zurück und nennt keinen Einsparbetrag pro Rechnung.
-
-### Was sich bei der Betrachtung der Prämien ändert
-
-Für ein versichertes Unternehmen ist die praktische Angabe eine Durchschnittsschätzung: Ohne die Kontrollen wären die Prämien etwa drei Prozent höher. Es handelt sich jedoch nicht um einen Prozentsatz, der im Text auf jedes Unternehmen, jeden Sektor oder jede Rechnung angewendet wird. Die Mitteilung bietet weder eine Aufschlüsselung nach einzelnen Verträgen noch eine individuelle Berechnung.
-
-Der Unterschied zwischen den beiden Szenarien wird daher auf aggregierter Ebene beschrieben: Auf der einen Seite stehen die Kontrollen, die Einsparungen von 123 Millionen Franken erbracht haben, auf der anderen die Annahme von im Durchschnitt höheren Prämien ohne die Kontrollen. Die Quelle legt nicht fest, dass die beiden Werte gleichwertig sind oder dass sich die 123 Millionen bei einem einzelnen Unternehmen in denselben Betrag umrechnen lassen.
-
-Für Menschen, die in der Schweiz leben, liefert die Nachricht weder eine persönliche Prämie noch einen Betrag, der in das Haushaltsbudget einzutragen wäre. Der Verweis auf costo della vita in Svizzera dient daher nur dazu, die Ebenen getrennt zu halten: Hier spricht die Quelle von den von Suva kontrollierten Rechnungen, den Behandlungskosten und den Prämien der versicherten Unternehmen. Sie stellt keinen neuen individuellen Tarif vor.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-Der Übergang von der allgemeinen Information zur konkreten Überprüfung erfordert, Rechnung, Behandlungskosten und Unternehmensprämie nicht zu verwechseln. Die Quelle ermöglicht eine begrenzte, aber präzise Checkliste: Sie erläutert den Weg der Rechnungen, fügt jedoch kein Verwaltungsverfahren für die einzelne versicherte Person hinzu.
-
-### Auf den mitgeteilten Daten basierende Checkliste
-
-1. Das Bezugsjahr identifizieren. Die Daten betreffen 2025: etwa 2,9 Millionen überprüfte Rechnungen und 123 Millionen eingesparte Franken.
-2. Die Gesamtausgaben abgrenzen. Die Ausgaben für die Behandlungen beliefen sich auf 1,3 Milliarden Franken, was einem Anstieg von 6% gegenüber dem Vorjahr entspricht. Diese Zahl darf nicht mit der Prämie eines einzelnen Unternehmens verwechselt werden.
-3. Das Ergebnis der Kontrolle lesen. Rechnungen mit Fehlern oder Ungenauigkeiten gab es 297'000, was 10,4% entspricht; sie wurden zurückgesandt, damit sie korrigiert werden. Zu den genannten Auffälligkeiten zählen doppelte Rechnungsstellungen, fehlerhafte Abrechnungen, nicht gedeckte Leistungen, bereits abgeschlossene Fälle und nie erbrachte Leistungen.
-4. Die IT-Kontrolle von ihrer Folge unterscheiden. Suva verarbeitet drei Viertel der Rechnungen automatisch; die Quelle sagt nicht, dass jedes Dokument dasselbe Ergebnis erhält, und nennt auch kein unterschiedliches Verfahren für jede Auffälligkeit.
-5. Die Schätzung zu den Prämien mit Vorsicht verwenden. Die etwa drei Prozent beziehen sich auf den Durchschnitt der Prämien der versicherten Unternehmen im Szenario ohne Kontrollen. Es handelt sich nicht um einen persönlichen Betrag, der für einen Arbeitnehmer oder ein einzelnes Unternehmen ermittelt werden kann.
-
-Die Mitteilung nennt keine Frist für die Korrektur, kein Formular, kein Büro und keine Aufteilung der Arbeit zwischen den beteiligten Akteuren. Diese Einzelheiten können aus den veröffentlichten Zahlen nicht abgeleitet werden. Der einzige ausdrücklich genannte operative Schritt besteht darin, dass Suva Rechnungen mit Fehlern oder Ungenauigkeiten zurücksendet, damit sie korrigiert werden.
-
-Um die Bestandteile des eigenen Einkommens einzuordnen, ohne Suva eine Berechnung zuzuschreiben, die die Quelle nicht liefert, kann man busta paga svizzera konsultieren. Der Link ersetzt die Suva-Daten nicht: Er hilft lediglich dabei, die persönliche Übersicht und die durchschnittliche Schätzung für die versicherten Unternehmen getrennt zu halten.
-
-Für eine persönliche Überprüfung der Gehaltsbestandteile verwende calcolatore stipendio.
-
-Für eine genaue Nettogehaltsberechnung nutzen Sie unseren Steuervergleichsrechner: vergleichen Sie G- und B-Bewilligung mit allen Abzügen 2026.
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/economia/1956358/fatture-suva-franchi-controlli-prestazioni)*]]></content:encoded>
-      <pubDate>Tue, 13 Oct 2026 07:33:06 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/suva-fatture-controlli-risparmio</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-suva-fatture-controlli-risparmio.webp" medium="image"/>
     </item>
   </channel>
 </rss>

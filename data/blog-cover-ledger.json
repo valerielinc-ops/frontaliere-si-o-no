@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5461
+      "6": 5462
     },
-    "publishedCovers": 7042,
+    "publishedCovers": 7043,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5266
+    "inferredRecords": 5267
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -186042,6 +186042,33 @@
           "date": "2026-10-13T20:26:15.063Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-hacker-frigoriferi-connessi": {
+      "cover": "/images/blog/article-hacker-frigoriferi-connessi.webp",
+      "hash": "6637a7a32a9343d496e227761d8eb55bc731d0f67c65f2d659ce8b1e98558489",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "hacker-frigoriferi-connessi",
+          "category": "novita",
+          "date": "2026-10-14T23:24:39.008Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

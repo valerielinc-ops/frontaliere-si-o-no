@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Wed, 14 Oct 2026 23:04:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 23:24:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,92 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Hacker manipolano la refrigerazione: rischio per le case</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/hacker-frigoriferi-connessi/</link>
+      <description><![CDATA[Attacco a centinaia di supermercati francesi Refrigerazione manipolata a distanza Danni per milioni di euro Coop e Migros: nessun attacco simile registrato]]></description>
+      <content:encoded><![CDATA[## In breve
+- Attacco a centinaia di supermercati francesi
+- Refrigerazione manipolata a distanza
+- Danni per milioni di euro
+- Coop e Migros: nessun attacco simile registrato
+
+## Fatti chiave
+- Bersaglio → sistemi di refrigerazione
+- Luogo → supermercati francesi
+- Effetto → temperature più alte e alimenti inutilizzabili
+- Produttore → Danfoss, azienda danese
+- Stato degli apparecchi → generazioni obsolete senza aggiornamenti di sicurezza
+- Svizzera → Coop e Migros non hanno registrato casi simili
+- Casa → televisioni, aspirapolvere e altoparlanti connessi
+- Esperto → Jean-Marc Seigneur, Università di Ginevra
+
+Un attacco informatico che ha colpito centinaia di supermercati francesi ha portato la sicurezza digitale dentro un'infrastruttura legata alla conservazione degli alimenti. I pirati hanno manipolato a distanza i sistemi di refrigerazione, facendo aumentare la temperatura.
+
+Grandi quantità di alimenti sono così diventate inutilizzabili. I danni provocati dall'attacco ammontano a milioni di euro, secondo la descrizione dell'episodio.
+
+Il caso riaccende l'attenzione sulla sicurezza degli apparecchi collegati a internet. La sequenza descritta dalla fonte è concreta: un sistema raggiunto a distanza è stato manipolato, la temperatura è salita e il contenuto alimentare non è più stato utilizzabile.
+
+Per le due catene svizzere il quadro è diverso: Coop e Migros riferiscono di non avere riscontrato attacchi dello stesso tipo. Migros aggiunge che solo pochi dei suoi punti vendita usano sistemi di refrigerazione Danfoss e che, per ora, non emergono segnali di un loro coinvolgimento.
+
+### Il ruolo dei sistemi obsoleti
+
+Il produttore danese Danfoss, che realizza molti dei sistemi coinvolti, ha spiegato che gli apparecchi colpiti sono soprattutto di generazioni ormai superate e non beneficiano più di aggiornamenti di sicurezza. L'azienda ha così richiamato l'attenzione sulle condizioni dei dispositivi interessati.
+
+La minaccia si estende anche alle abitazioni private, dove televisioni, aspirapolvere, altoparlanti e altri dispositivi connessi alla rete possono offrire un punto d’ingresso a un attacco informatico.
+
+Il collegamento a internet può lasciare esposto qualunque dispositivo che non disponga di protezioni adeguate e di aggiornamenti. Il passaggio non riferisce di un attacco domestico concreto; segnala invece una possibile esposizione dovuta alla connessione e a una protezione insufficiente.
+
+Questa estensione dal commercio alle case è il punto nazionale della vicenda. Anche per chi vive in Svizzera, la domanda non riguarda soltanto i sistemi di refrigerazione: riguarda l'intero insieme degli oggetti che possono essere collegati alla rete.
+
+Jean-Marc Seigneur, esperto dell'Università di Ginevra, raccomanda di sostituire le password predefinite, orientarsi verso prodotti di aziende affidabili e provvedere agli aggiornamenti di software e firmware. Infine invita a valutare se sia davvero utile rendere intelligente ogni apparecchio: ogni dispositivo connesso introduce infatti un'ulteriore possibile superficie d'attacco.
+## Il rischio non coincide con l'attacco già avvenuto
+
+La notizia permette di separare tre piani. Il primo è l'evento documentato: nei supermercati francesi i sistemi di refrigerazione sono stati manipolati a distanza, con un aumento della temperatura e alimenti resi inutilizzabili. Il secondo è la posizione delle aziende svizzere citate: Coop e Migros non hanno registrato attacchi simili, mentre Migros non ha, al momento, indicazioni di coinvolgimento dei pochi punti vendita che usano sistemi Danfoss. Il terzo riguarda le abitazioni: la fonte parla di potenziali punti d'ingresso, non di un attacco domestico già documentato.
+
+### Tre condizioni da leggere insieme
+
+Un apparecchio collegato alla rete non viene descritto automaticamente come compromesso. La fonte indica una vulnerabilità potenziale quando non è adeguatamente protetto e aggiornato. La precisazione di Danfoss aggiunge un secondo elemento: gran parte degli apparecchi colpiti appartiene a generazioni obsolete che non ricevono più aggiornamenti di sicurezza. Per il lettore, la differenza è tra la semplice presenza della connessione e la condizione di protezione indicata nella fonte.
+
+| Condizione | Indicazione nella fonte |
+|---|---|
+| Apparecchio collegato a internet | Può diventare un potenziale punto d'ingresso |
+| Protezione insufficiente | L'apparecchio può essere vulnerabile |
+| Generazione ormai obsoleta | Non riceve più aggiornamenti di sicurezza |
+| Rendere intelligente ogni apparecchio | Va valutata l'effettiva utilità |
+
+Il confronto utile per chi vive in Svizzera non è tra un attacco francese e una certezza svizzera. Coop e Migros non segnalano casi simili, ma la fonte non presenta questo dato come una garanzia per ogni apparecchio connesso. Allo stesso tempo, non descrive un attacco domestico già avvenuto: richiama televisioni, aspirapolvere, altoparlanti e altri oggetti come potenziali punti d'ingresso.
+
+La conseguenza pratica è un cambio di criterio. La domanda non è soltanto se un apparecchio svolga la sua funzione, ma se la connessione aggiunga un'utilità effettiva. Seigneur invita a interrogarsi proprio su questo punto: rendere intelligente ogni oggetto introduce una nuova superficie potenziale d'attacco per ogni dispositivo collegato. In questa lettura, il caso dei supermercati francesi diventa un riferimento per valutare le scelte domestiche senza trasformare una possibilità in un attacco già accertato.
+## La checklist per gli apparecchi di casa
+
+La risposta pratica indicata dalla fonte consiste in quattro indicazioni rivolte agli oggetti collegati alla rete. La sequenza riguarda sia gli apparecchi citati per le abitazioni sia, più in generale, qualsiasi dispositivo connesso a internet: la vulnerabilità dipende dal fatto che non sia adeguatamente protetto e aggiornato.
+
+> «Sostituire le password predefinite, orientarsi verso prodotti di aziende affidabili e assicurare l'aggiornamento di software e firmware».
+
+### 1. Cambiare la password predefinita
+
+Il primo controllo è sostituire la password predefinita. La misura va considerata per ogni oggetto collegato alla rete, non soltanto per un sistema di refrigerazione. La fonte cita televisioni, aspirapolvere, altoparlanti e altri dispositivi domestici.
+
+### 2. Scegliere un'azienda affidabile
+
+Per la scelta di un prodotto connesso, l'esperto raccomanda di orientarsi verso aziende affidabili. Il criterio assume rilievo perché Danfoss ha precisato che una quota consistente degli apparecchi colpiti proviene da generazioni ormai superate, prive di ulteriori aggiornamenti di sicurezza. La fonte non fornisce un elenco di produttori o modelli: l'indicazione resta quella dell'esperto, cioè privilegiare aziende affidabili.
+
+### 3. Mantenere aggiornati software e firmware
+
+Il terzo passaggio consiste nel mantenere aggiornati software e firmware. La raccomandazione riguarda entrambi, senza separare la gestione del software da quella del firmware. Per gli oggetti connessi presenti in casa, questo è il controllo indicato per evitare la condizione di vulnerabilità richiamata dalla fonte.
+
+### 4. Valutare se la funzione smart serve davvero
+
+Il quarto passaggio riguarda la scelta iniziale. Seigneur suggerisce di interrogarsi sull'effettiva utilità di rendere intelligente ogni apparecchio. Se la funzione non è utile, la connessione non va considerata automatica: ogni dispositivo collegato aggiunge infatti una nuova superficie potenziale d'attacco. La checklist si chiude così con una decisione prima tecnica: proteggere e aggiornare ciò che è connesso, ma chiedersi prima se debba esserlo.
+
+*Fonte: [rsi.ch](https://www.rsi.ch/s/4161292)*]]></content:encoded>
+      <pubDate>Wed, 14 Oct 2026 23:24:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/hacker-frigoriferi-connessi</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hacker-frigoriferi-connessi.webp" medium="image"/>
+    </item>
     <item>
       <title>Consiglio federale approva adesione a Knifefish per attacco elettronico</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/consiglio-federale-knifefish-adesione/</link>
@@ -3750,94 +3836,6 @@ Per valutare il margine mensile con uno strumento dedicato, prova il calcolatore
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/100-848-firme-contro-il-controprogetto-sulle-pigioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-100-848-firme-contro-il-controprogetto-sulle-pigioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Suva: 123 milioni risparmiati sulle fatture</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/suva-fatture-controlli-risparmio/</link>
-      <description><![CDATA[Suva ha risparmiato 123 milioni nel 2025 Controllate circa 2,9 milioni di fatture 297'000 fatture avevano errori o imprecisioni Senza i controlli, premi medi]]></description>
-      <content:encoded><![CDATA[## In breve
-- Suva ha risparmiato 123 milioni nel 2025
-- Controllate circa 2,9 milioni di fatture
-- 297'000 fatture avevano errori o imprecisioni
-- Senza i controlli, premi medi aziendali circa tre percento più alti
-
-## Fatti chiave
-- Anno → 2025
-- Sede principale → Lucerna
-- Fatture controllate → circa 2,9 milioni
-- Risparmio → 123 milioni di franchi
-- Costi delle cure → 1,3 miliardi di franchi
-- Fatture con errori → 297'000 (10,4% del totale)
-- Premi senza controlli → circa tre percento più alti in media
-- Elaborazione automatica → tre quarti delle fatture
-
-Nel 2025 Suva ha risparmiato 123 milioni di franchi controllando circa 2,9 milioni di fatture. L'assicuratore contro gli infortuni ha comunicato il risultato martedì. La spesa per le cure è ammontata a 1,3 miliardi di franchi, il 6% in più rispetto all'anno precedente.
-
-### Il controllo sulle fatture mediche
-
-Le verifiche hanno riguardato fatture per prestazioni mediche e terapeutiche. Secondo i dati comunicati da Suva, 297'000 documenti presentavano errori o imprecisioni, pari al 10,4% del totale esaminato. Suva ha quindi rinviato queste fatture affinché venissero corrette.
-
-Il comunicato segnala, tra gli altri problemi, addebiti duplicati, errori nel conteggio delle prestazioni, prestazioni prive di copertura assicurativa e fatture riferite a casi già chiusi. In alcuni casi figuravano anche addebiti per prestazioni mai effettuate. Nel complesso, gli esempi riguardano il conteggio, la copertura assicurativa e l'effettiva erogazione delle prestazioni.
-
-Le fatture dei costi delle cure passano per verifiche digitali, e Suva ne elabora automaticamente tre quarti. La comunicazione descrive quindi un controllo applicato ai documenti delle prestazioni mediche e terapeutiche, con il rinvio delle fatture quando emergono errori o imprecisioni.
-
-### Il legame con i premi aziendali
-
-Michael Widmer, responsabile della gestione dei costi delle cure di Suva, ha collegato i controlli al livello dei premi delle aziende assicurate:
-
-> «In mancanza di tali verifiche, i premi medi delle aziende assicurate aumenterebbero di circa il tre percento».
-
-La stima si riferisce alla media delle aziende assicurate. Suva ha la sede principale a Lucerna e tutela più di 2,2 milioni di lavoratori dalle conseguenze di infortuni e malattie professionali.
-
-I numeri della comunicazione usano unità diverse: 2,9 milioni indica le fatture controllate, 297'000 quelle con errori o imprecisioni, mentre oltre 2,2 milioni indica i lavoratori assicurati. Il risparmio è espresso in franchi, l'aumento dei costi delle cure in percentuale e l'effetto sui premi come media stimata. Il confronto con l'anno precedente riguarda i costi delle cure; non è presentato come una spiegazione delle anomalie trovate.
-Il dato più utile per una lettura pratica è separare i quattro piani della comunicazione: il numero delle fatture controllate, la quota con errori, il costo complessivo delle cure e l'effetto medio stimato sui premi delle aziende assicurate. Sono misure diverse e non consentono di calcolare quanto abbia risparmiato ogni singola impresa.
-
-### Quattro numeri, quattro significati
-
-| Indicatore | Dato riportato | Lettura |
-|---|---|---|
-| Fatture controllate | circa 2,9 milioni | dimensione del controllo |
-| Errori o imprecisioni | 297'000, pari al 10,4% | fatture rinviate per la correzione |
-| Costi delle cure | 1,3 miliardi, +6% rispetto all'anno precedente | totale raggiunto nel 2025 |
-| Premi senza controlli | circa 3% più alti in media | stima riferita alle aziende assicurate |
-
-La tabella mette a confronto ciò che Suva ha verificato, ciò che ha trovato e ciò che ha stimato come effetto sui premi. Il 10,4% non è una percentuale di aumento dei costi delle cure, mentre il +6% non è la quota di fatture errate. La fonte non attribuisce il +6% a una specifica anomalia e non indica un importo di risparmio per singola fattura.
-
-### Cosa cambia nella lettura dei premi
-
-Per un'azienda assicurata, il dato pratico è una stima media: senza i controlli, i premi sarebbero circa tre percento più alti. Non si tratta però di una percentuale applicata nel testo a ogni impresa, a ogni settore o a ogni fattura. La comunicazione non offre una ripartizione per singolo contratto, né un calcolo individuale.
-
-La differenza tra i due scenari è quindi descritta a livello aggregato: da un lato i controlli che hanno prodotto 123 milioni di franchi di risparmio, dall'altro l'ipotesi di premi mediamente più alti in assenza dei controlli. La fonte non stabilisce che i due valori siano equivalenti o che i 123 milioni si trasformino nella stessa cifra per una singola azienda.
-
-Per chi vive in Svizzera, la notizia non fornisce un premio personale né un importo da inserire nel bilancio domestico. Il riferimento al costo della vita in Svizzera serve quindi solo a tenere separati i piani: qui la fonte parla di fatture controllate da Suva, costi delle cure e premi delle aziende assicurate. Non presenta una nuova tariffa individuale.
-
-## Tool consigliati
-Per una stima aggiornata, usa il calcolatore stipendio netto e il comparatore cambio CHF-EUR.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
-Il passaggio dall'informazione generale alla verifica concreta richiede di non confondere fattura, costo della cura e premio aziendale. La fonte consente una checklist limitata ma precisa: chiarisce il percorso delle fatture, ma non aggiunge una procedura amministrativa per il singolo assicurato.
-
-### Checklist basata sui dati comunicati
-
-1. Identificare l'anno di riferimento. I dati riguardano il 2025: circa 2,9 milioni di fatture controllate e 123 milioni di franchi risparmiati.
-2. Separare la spesa complessiva. La spesa per le cure è stata pari a 1,3 miliardi di franchi, con un incremento del 6% rispetto all'anno precedente. Questo dato non va confuso con il premio di una singola azienda.
-3. Leggere l'esito del controllo. Le fatture con errori o imprecisioni erano 297'000, pari al 10,4%, e sono state rinviate affinché venissero corrette. Tra le anomalie indicate figurano doppie fatturazioni, conteggi errati, prestazioni non coperte, casi già chiusi e prestazioni mai erogate.
-4. Distinguere il controllo informatico dalla sua conseguenza. Suva elabora automaticamente tre quarti delle fatture; la fonte non dice che ogni documento riceva lo stesso esito né indica una procedura diversa per ogni anomalia.
-5. Usare con cautela la stima sui premi. Il circa tre percento si riferisce alla media dei premi delle aziende assicurate nello scenario senza controlli. Non è un importo personale ricavabile per un lavoratore o per una singola impresa.
-
-Il comunicato non indica una scadenza per la correzione, un modulo, un ufficio o una ripartizione del lavoro tra i soggetti coinvolti. Questi dettagli non possono essere ricavati dai numeri pubblicati. L'unico passaggio operativo esplicitato è che Suva rinvia le fatture con errori o imprecisioni affinché vengano corrette.
-
-Per inquadrare le voci del proprio reddito senza attribuire a Suva un calcolo che la fonte non offre, si può consultare la busta paga svizzera. Il collegamento non sostituisce i dati Suva: aiuta soltanto a mantenere separati il quadro personale e la stima media riferita alle aziende assicurate.
-
-Per una verifica personale delle voci salariali, usa il calcolatore stipendio.
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/economia/1956358/fatture-suva-franchi-controlli-prestazioni)*]]></content:encoded>
-      <pubDate>Tue, 13 Oct 2026 07:33:06 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/suva-fatture-controlli-risparmio</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-suva-fatture-controlli-risparmio.webp" medium="image"/>
     </item>
   </channel>
 </rss>

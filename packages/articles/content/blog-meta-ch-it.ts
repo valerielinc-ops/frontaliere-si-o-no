@@ -8294,6 +8294,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-knifefish-adesione.title': 'Consiglio federale approva adesione a Knifefish per attacco elettronico',
     'blog.article.consiglio-federale-knifefish-adesione.excerpt': 'Il 14 ottobre 2026 il Consiglio federale approva Knifefish La Svizzera modernizza i mezzi per la guerra elettronica Knifefish favorisce acquisti e scambi',
     'blog.article.consiglio-federale-knifefish-adesione.imageAlt': 'Palazzo federale a Berna con equipaggiamento militare moderno per guerra elettronica',
+    'blog.article.hacker-frigoriferi-connessi.title': 'Hacker manipolano la refrigerazione: rischio per le case',
+    'blog.article.hacker-frigoriferi-connessi.excerpt': 'Attacco a centinaia di supermercati francesi Refrigerazione manipolata a distanza Danni per milioni di euro Coop e Migros: nessun attacco simile registrato',
+    'blog.article.hacker-frigoriferi-connessi.imageAlt': 'Sistemi di refrigerazione e dispositivi connessi al centro dell\'allarme informatico',
 };
 
 export default blogMetaChIt;

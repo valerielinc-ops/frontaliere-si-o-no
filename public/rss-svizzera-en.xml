@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Oct 2026 23:04:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 23:24:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,92 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Hackers tamper with refrigeration: risk to homes</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/hackers-connected-refrigeration/</link>
+      <description><![CDATA[Attack on hundreds of French supermarkets Remote manipulation of refrigeration Damage amounting to millions of euros Coop and Migros: no similar attack recorded]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- Attack on hundreds of French supermarkets
+- Refrigeration manipulated remotely
+- Damage amounting to millions of euros
+- Coop and Migros: no similar attack recorded
+
+## Key facts
+- Target → refrigeration systems
+- Location → French supermarkets
+- Effect → higher temperatures and unusable food
+- Manufacturer → Danfoss, Danish company
+- Device status → obsolete generations without security updates
+- Switzerland → Coop and Migros have not recorded similar cases
+- Home → connected televisions, vacuum cleaners and speakers
+- Expert → Jean-Marc Seigneur, University of Geneva
+
+A cyber attack that hit hundreds of French supermarkets has brought digital security into an infrastructure linked to food preservation. The pirates remotely manipulated the refrigeration systems, causing the temperature to rise.
+
+Large quantities of food have thus become unusable. The damage caused by the attack amounted to millions of euros, according to the description of the episode.
+
+The case reignites attention on the security of devices connected to the internet. The sequence described by the source is concrete: a system reached remotely was manipulated, the temperature rose and the food contents were no longer usable.
+
+For the two Swiss chains the picture is different: Coop and Migros report not having encountered attacks of the same type. Migros adds that only a few of its stores use Danfoss refrigeration systems and that, for now, there are no signs of their involvement.
+
+### The role of obsolete systems
+
+The Danish manufacturer Danfoss, which makes many of the systems involved, explained that the affected devices are mainly of older generations and no longer benefit from security updates. The company thus drew attention to the conditions of the affected devices.
+
+The threat also extends to private homes, where televisions, vacuum cleaners, speakers and other network-connected devices can provide an entry point for a cyber attack.
+
+Connecting to the internet can leave any device exposed that does not have adequate protections and updates. The passage does not refer to a concrete domestic attack; instead, it signals possible exposure due to connection and insufficient protection.
+
+This extension from commerce to homes is the national point of the story. Even for those living in Switzerland, the question is not just about refrigeration systems: it concerns the entire set of objects that can be connected to the network.
+
+Jean-Marc Seigneur, an expert from the University of Geneva, recommends replacing default passwords, moving towards products from reliable companies and providing software and firmware updates. Finally, it invites us to evaluate whether it is really useful to make each device intelligent: each connected device introduces a further possible attack surface.
+## Risk is not the same as an attack that has already occurred
+
+The report makes it possible to distinguish three aspects. The first is the documented event: in French supermarkets, refrigeration systems were manipulated remotely, causing the temperature to rise and making food unusable. The second concerns the position of the Swiss companies mentioned: Coop and Migros have not reported similar attacks, while Migros currently has no indication that the few stores using Danfoss systems are involved. The third concerns homes: the source speaks of potential entry points, not a domestic attack that has already been documented.
+
+### Three conditions to consider together
+
+A device connected to the network is not automatically considered compromised. The source identifies a potential vulnerability when it is not adequately protected and updated. Danfoss's clarification adds a second element: a large share of the affected devices belongs to obsolete generations that no longer receive security updates. For the reader, the difference lies between the mere presence of a connection and the protection condition indicated in the source.
+
+| Condition | Indication in the source |
+|---|---|
+| Device connected to the internet | May become a potential entry point |
+| Insufficient protection | The device may be vulnerable |
+| Now-obsolete generation | No longer receives security updates |
+| Making every device smart | Its actual usefulness should be assessed |
+
+The relevant comparison for people living in Switzerland is not between an attack in France and a certainty in Switzerland. Coop and Migros have not reported similar cases, but the source does not present this fact as a guarantee for every connected device. At the same time, it does not describe a domestic attack that has already occurred: it mentions televisions, vacuum cleaners, speakers and other objects as potential entry points.
+
+The practical consequence is a change in approach. The question is not only whether a device performs its function, but whether the connection provides a genuine benefit. Seigneur invites us to reflect on precisely this point: making every object smart introduces a new potential attack surface for every connected device. In this reading, the case of the French supermarkets becomes a reference point for assessing household choices without turning a possibility into an attack that has already been confirmed.
+## The checklist for home appliances
+
+The practical response indicated by the source consists of four guidelines for objects connected to the network. The sequence concerns both the appliances mentioned for homes and, more generally, any device connected to the internet: vulnerability depends on not being adequately protected and updated.
+
+> “Replace default passwords, opt for products from reliable companies, and ensure that software and firmware are updated.”
+
+### 1. Change the default password
+
+The first check is to replace the default password. This measure should be considered for every object connected to the network, not just a refrigeration system. The source mentions televisions, vacuum cleaners, speakers and other household devices.
+
+### 2. Choose a reliable company
+
+When choosing a connected product, the expert recommends opting for reliable companies. This criterion is significant because Danfoss specified that a substantial share of the affected appliances comes from outdated generations that no longer receive security updates. The source does not provide a list of manufacturers or models: the guidance remains that of the expert, namely to favor reliable companies.
+
+### 3. Keep software and firmware updated
+
+The third step consists of keeping software and firmware updated. The recommendation concerns both, without separating software management from firmware management. For connected objects in the home, this is the indicated check for avoiding the vulnerability condition referred to by the source.
+
+### 4. Assess whether the smart function is really needed
+
+The fourth step concerns the initial choice. Seigneur suggests considering whether making every appliance smart is genuinely useful. If the function is not useful, the connection should not be considered automatic: every connected device adds a new potential attack surface. The checklist thus concludes with a decision before the technical one: protect and update what is connected, but first ask whether it needs to be connected.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4161292)*]]></content:encoded>
+      <pubDate>Wed, 14 Oct 2026 23:24:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/hacker-frigoriferi-connessi</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hacker-frigoriferi-connessi.webp" medium="image"/>
+    </item>
     <item>
       <title>Federal Council approves joining Knifefish for electronic attack</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/federal-council-knifefish-accession/</link>
@@ -3812,94 +3898,6 @@ To assess the monthly margin with a dedicated tool, try calcolatore stipendio/im
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/100-848-firme-contro-il-controprogetto-sulle-pigioni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-100-848-firme-contro-il-controprogetto-sulle-pigioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Suva: 123 million saved on bills</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/suva-invoice-checks-savings/</link>
-      <description><![CDATA[Suva saved 123 million in 2025 Approximately 2,9 million invoices checked 297'000 invoices had errors or inaccuracies Without the checks, average premiums]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Suva saved 123 million in 2025
-- Approximately 2,9 million invoices checked
-- 297'000 invoices contained errors or inaccuracies
-- Without the checks, average company premiums about three percent higher
-
-## Key facts
-- Year → 2025
-- Headquarters → Lucerne
-- Audited invoices → approximately 2.9 million
-- Savings → 123 million francs
-- Treatment costs → 1.3 billion francs
-- Invoices with errors → 297,000 (10.4% of the total)
-- Unaudited premiums → approximately three percent higher on average
-- Automatic processing → three-quarters of invoices
-
-In 2025, Suva saved 123 million francs by auditing approximately 2.9 million invoices. The accident insurer announced the results on Tuesday. Treatment expenditures amounted to 1.3 billion francs, 6% higher than the previous year.
-
-### Auditing medical invoices
-
-The audits focused on invoices for medical and therapeutic services. According to data released by Suva, 297,000 documents contained errors or inaccuracies, representing 10.4% of the total reviewed. Suva therefore returned these invoices for correction.
-
-The press release notes, among other issues, duplicate charges, errors in billing, services without insurance coverage, and invoices for cases already closed. In some cases, there were also charges for services never performed. Overall, the examples concern billing, insurance coverage, and the actual provision of services.
-
-Invoices for medical costs are digitally verified, and Suva automatically processes three-quarters of them. The press release therefore describes a check applied to medical and therapeutic service documents, with invoices being returned when errors or inaccuracies are discovered.
-
-### The Link to Company Premiums
-
-Michael Widmer, head of healthcare cost management at Suva, linked the audits to the premium levels of insured companies:
-
-> "In the absence of such audits, the average premiums of insured companies would increase by approximately three percent."
-
-The estimate refers to the average number of insured companies. Suva is headquartered in Lucerne and protects more than 2.2 million workers from the consequences of accidents and occupational diseases.
-
-The numbers in the report use different units: 2.9 million refers to audited invoices, 297,000 to those with errors or inaccuracies, and over 2.2 million refers to insured workers. The savings are expressed in francs, the increase in healthcare costs as a percentage, and the effect on premiums as an estimated average. The comparison with the previous year concerns healthcare costs; it is not presented as an explanation for the anomalies found.
-The most useful figure for a practical reading is to separate the four aspects of the communication: the number of invoices checked, the share with errors, the total cost of treatment and the estimated average effect on the premiums of insured companies. These are different measures and do not make it possible to calculate how much each individual company saved.
-
-### Four numbers, four meanings
-
-| Indicator | Reported figure | Interpretation |
-|---|---|---|
-| Invoices checked | approximately 2,9 million | scope of the check |
-| Errors or inaccuracies | 297'000, amounting to 10,4% | invoices sent back for correction |
-| Treatment costs | 1,3 billion, +6% compared with the previous year | total reached in 2025 |
-| Premiums without checks | about 3% higher on average | estimate referring to insured companies |
-
-The table compares what Suva checked, what it found and what it estimated as the effect on premiums. The 10,4% is not a percentage increase in treatment costs, while the +6% is not the share of erroneous invoices. The source does not attribute the +6% to a specific anomaly and does not indicate a savings amount per invoice.
-
-### What changes in how premiums are read
-
-For an insured company, the practical figure is an average estimate: without the checks, premiums would be about three percent higher. However, this is not a percentage applied in the text to every company, every sector or every invoice. The communication does not provide a breakdown for each individual contract, nor an individual calculation.
-
-The difference between the two scenarios is therefore described at an aggregate level: on the one hand, the checks that produced savings of 123 million francs; on the other, the assumption of premiums being higher on average in the absence of the checks. The source does not establish that the two values are equivalent or that the 123 million turns into the same amount for a single company.
-
-For people living in Switzerland, the news does not provide a personal premium or an amount to enter in the household budget. The reference to costo della vita in Svizzera therefore serves only to keep the aspects separate: here the source discusses invoices checked by Suva, treatment costs and the premiums of insured companies. It does not present a new individual tariff.
-
-## Recommended tools
-For an updated estimate, use the net salary calculator and the CHF-EUR exchange comparator.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
-Moving from general information to concrete verification requires not confusing invoices, the cost of care, and the company premium. The source allows for a limited but precise checklist: it clarifies the path of the invoices, but does not add an administrative procedure for the individual insured person.
-
-### Checklist based on the reported data
-
-1. Identify the reference year. The data concern 2025: approximately 2,9 million invoices checked and 123 million francs saved.
-2. Separate the overall expenditure. Spending on care amounted to 1,3 billion francs, an increase of 6% over the previous year. This figure must not be confused with the premium of a single company.
-3. Read the outcome of the check. Invoices with errors or inaccuracies numbered 297'000, equal to 10,4%, and were sent back to be corrected. The anomalies indicated include double billing, incorrect calculations, services not covered, cases already closed, and services never provided.
-4. Distinguish the computerized check from its consequence. Suva processes three quarters of the invoices automatically; the source does not say that every document receives the same outcome, nor does it indicate a different procedure for each anomaly.
-5. Use the estimate on premiums with caution. The roughly three percent figure refers to the average premiums of insured companies in the scenario without checks. It is not a personal amount that can be calculated for a worker or a single company.
-
-The press release does not indicate a deadline for correction, a form, an office, or a division of the work among the parties involved. These details cannot be derived from the published figures. The only explicit operational step is that Suva sends back invoices with errors or inaccuracies so they can be corrected.
-
-To put the items in one's own income into context without attributing to Suva a calculation that the source does not provide, one can consult the busta paga svizzera. The link does not replace Suva's data: it merely helps keep the personal picture separate from the average estimate referring to insured companies.
-
-For a personal verification of salary items, use the calcolatore stipendio.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1956358/fatture-suva-franchi-controlli-prestazioni)*]]></content:encoded>
-      <pubDate>Tue, 13 Oct 2026 07:33:06 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/suva-fatture-controlli-risparmio</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-suva-fatture-controlli-risparmio.webp" medium="image"/>
     </item>
   </channel>
 </rss>
