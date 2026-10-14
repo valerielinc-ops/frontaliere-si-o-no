@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-14T09:16:59.105Z",
+  "generatedAt": "2026-10-14T15:32:15.552Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 23184,
-  "avgDurationMs": 23184,
+  "durationMs": 19487,
+  "avgDurationMs": 19487,
   "durationHistory": [
-    23184
+    19487
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,18 +39,18 @@
       "postingDateSource": "reported",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-c1c91891c2fe",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "4500",
       "firstSeenAt": "2026-10-13T21:13:35.313Z",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -333,5 +333,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "a441a13c50bb4f6bc83b9b5676cf87e293111900"
 }

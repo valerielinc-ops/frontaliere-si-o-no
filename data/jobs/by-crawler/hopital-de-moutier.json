@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-de-moutier",
-  "assembledAt": "2026-10-14T09:18:25.403Z",
+  "assembledAt": "2026-10-14T15:35:13.948Z",
   "jobs": [
     {
       "id": "hopital-de-moutier-6564d813f782",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139933209-medecin-dermatologue",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:11.463Z",
+      "crawledAt": "2026-10-14T15:35:07.011Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136408530-un-e-chef-de-clinique-avec-titre-fmh-ou-chef-de-clinique-adjoint-e-en-pedopsychiatrie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:11.462Z",
+      "crawledAt": "2026-10-14T15:35:07.010Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142606465-medecin-assistant-e-en-pedopsychiatrie-stationnaire",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.397Z",
+      "crawledAt": "2026-10-14T15:35:04.077Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142606729-medecin-adjoint-e-en-psychiatrie-hospitaliere",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.396Z",
+      "crawledAt": "2026-10-14T15:35:04.076Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -337,6 +337,152 @@
       }
     },
     {
+      "id": "hopital-de-moutier-c4aacb2c94d2",
+      "slug": "infermiere-strumentali-hopital-de-moutier-moutier",
+      "slugByLocale": {
+        "it": "infermiere-strumentali-hopital-de-moutier-moutier",
+        "en": "instrumental-nurse-hopital-de-moutier-moutier",
+        "de": "instrumentale-krankenschwester-hopital-de-moutier-moutier",
+        "fr": "infirmier-ere-instrumentiste-hopital-de-moutier"
+      },
+      "company": "Hôpital de Moutier",
+      "companyKey": "hopital-de-moutier",
+      "companyDomain": "swissmedical.net",
+      "title": "Infirmier(ère) instrumentiste",
+      "titleByLocale": {
+        "it": "Infermiere/a strumentista",
+        "en": "Instrumental Nurse",
+        "de": "Instrumentelle Krankenschwester",
+        "fr": "Infirmier(ère) instrumentiste"
+      },
+      "description": "• Préparer et instrumenter toutes les opérations pratiquées dans les différentes spécialités\n\n• Inventorier les instruments en début et fin d'intervention\n\n• Gérer les commandes de matériel de la pharmacie\n\n• Réceptionner et retourner le matériel en prêt\n\n• S'occuper de la remise en conformité du site opératoire\n\n• Titulaire d’un diplôme d’infirmier(ère) instrumentiste ou TSO ou formation jugée équivalente\n\n• Polyvalence pour tous types de spécialités\n\n• Organisation et autonomie dans l’exécution des tâches\n\n• Réactivité, dynamisme et rigueur\n\n• Sens du contact, du travail en équipe et bonne gestion du stress\n\n• Flexibilité, aptitude à travailler avec une équipe pluridisciplinaire\n\n• Une expérience dans le domaine de l’ophtalmologie serai un atout\n\n• Permis de travail valable en Suisse\n\n• Français parlé et écrit couramment\n\n• L’opportunité de rejoindre un hôpital de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nL’Hôpital de Moutier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie, médecine interne et psychiatrie. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.L’Hôpital de Saint-Imier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie-obstétrique, médecine interne et réadaptation gériatrique. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.",
+      "descriptionByLocale": {
+        "it": "• Preparare e strumentare tutte le operazioni praticate nelle diverse specialità\n\n• Inventariare gli strumenti ad inizio e fine intervento\n\n• Gestire gli ordini di materiale della farmacia\n\n• Ricevere e restituire il materiale in prestito\n\n• Occuparsi del ripristino della conformità del sito chirurgico\n\n• Titolare di un diploma di infermiere/a strumentalista o TSO o formazione ritenuta equivalente\n\n• Versatilità per tutti i tipi di specialità\n\n• Organizzazione e autonomia nello svolgimento delle mansioni\n\n• Reattività, dinamismo e rigore\n\n• Senso di contatto, lavoro di squadra e buona gestione dello stress\n\n• Flessibilità, capacità di lavorare con un team multidisciplinare\n\n• Un'esperienza nel campo dell'oftalmologia sarà un vantaggio\n\n• Permesso di lavoro valido in Svizzera\n\n• Francese parlato e scritto fluente\n\n• L’opportunità di entrare a far parte di un rinomato ospedale all'avanguardia nello sviluppo\n\n• Un'attività motivante in un ambiente di lavoro piacevole\n\n• Una cultura aziendale orientata all'eccellenza e alla qualità delle relazioni umane\n\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nL'Ospedale di Moutier vi offre una copertura completa nei settori delle cure ambulatoriali, delle cure ospedaliere e della geriatria. La nostra",
+        "en": "• Prepare and implement all operations in the various specialties\n\n• Inventing instruments at the beginning and end of the intervention\n\n• Manage orders for pharmacy equipment\n\n• Receive and return the equipment on loan\n\n• Reconform the operating site\n\n• Holder of an instrumentist or OSI diploma or equivalent training\n\n• Versatility for all types of specialties\n\n• Organization and autonomy in the performance of tasks\n\n• Responsiveness, dynamism and rigour\n\n• Feeling of contact, teamwork and good stress management\n\n• Flexibility, ability to work with a multidisciplinary team\n\n• Experience in the field of ophthalmology will be an asset\n\n• Work permit valid in Switzerland\n\n• French spoken and written fluently\n\n• L, opportunity to join a highly-reputable hospital at the cutting edge of development\n\n• Motivating activity in a pleasant work environment\n\n• A corporate culture geared towards the excellence and quality of human relations\n\nWe pay great attention to the diversity of life paths of our employees. Our positions are open to both women and men.\n\nL,Hôpital de Moutier offers you a complete care in the fields of outpatient care, hospital care and geriatrics. Our hospital is specialized in surgery, gynaecology, internal medicine and psychiatry.\n\nOur institution is part of the Réseau de l'Arc, whose objective is to bring about a real paradigm shift in the management of the health of our population, with the priority being the quality of our medical services. L,Hôpital de Saint-Imier offers you a complete care in the fields of ambulatory care, hospital care and geriatrics. Our hospital is specialized in surgery, gynaecology-obstetrics, internal medicine and geriatric rehabilitation.\n\nOur establishment is part of the Arc Network, whose objective is to bring about a real paradigm shift in the management of the health of our population, with the priority being the quality of our medical services.",
+        "de": "• Bereiten und implementieren Sie alle Operationen in den verschiedenen Spezialitäten\n\n• Erfindung von Instrumenten am Anfang und Ende der Intervention\n\n• Verwalten von Bestellungen für Apothekengeräte\n\n• Erhalten und zurückgeben Sie die Ausrüstung auf Leihbasis\n\n• Die Betriebsstätte neu konformieren\n\n• Inhaber eines Instrumentisten- oder OSI-Diploms oder einer gleichwertigen Ausbildung\n\n• Vielseitigkeit für alle Arten von Spezialitäten\n\n• Organisation und Autonomie bei der Erfüllung der Aufgaben\n\n• Verantwortung, Dynamik und Strenge\n\n• Kontaktgefühl, Teamarbeit und gutes Stressmanagement\n\n• Flexibilität, Fähigkeit, mit einem multidisziplinären Team zu arbeiten\n\n• Die Erfahrung im Bereich der Augenheilkunde wird ein Pluspunkt sein\n\n• Arbeitserlaubnis gültig in der Schweiz\n\n• fließend gesprochen und geschrieben\n\n• L, Möglichkeit, sich einem hoch angesehenen Krankenhaus an der Spitze der Entwicklung zu schließen\n\n• motivierende Aktivität in einem angenehmen Arbeitsumfeld\n\n• Eine auf Exzellenz und Qualität der menschlichen Beziehungen ausgerichtete Unternehmenskultur\n\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen sind offen für Frauen und Männer.\n\nL,Hôpital de Moutier bietet Ihnen eine komplette Betreuung in den Bereichen ambulante Versorgung, Krankenhauspflege und Geriatrie. Unser Krankenhaus ist spezialisiert auf Chirurgie, Gynäkologie, Innere Medizin und Psychiatrie.\n\nUnsere Einrichtung ist Teil des Réseau de l'Arc, dessen Ziel es ist, einen echten Paradigmenwechsel im Gesundheitsmanagement unserer Bevölkerung zu bewirken, wobei die Qualität unserer medizinischen Leistungen vorrangig ist. L,Hôpital de Saint-Imier bietet Ihnen eine komplette Betreuung in den Bereichen Ambulanzversorgung, Krankenhauspflege und Geriatrie. Unser Krankenhaus ist spezialisiert auf Chirurgie, Gynäkologie-Obstheilkunde, Innere Medizin und riatrische Rehabilitation.\n\nUnsere Einrichtung ist Teil des Arc Network, dessen Ziel es ist, einen echten Paradigmenwechsel im Management der Gesundheit unserer Bevölkerung herbeizuführen, wobei die Qualität unserer medizinischen Dienstleistungen vorrangig ist.",
+        "fr": "• Préparer et instrumenter toutes les opérations pratiquées dans les différentes spécialités\n\n• Inventorier les instruments en début et fin d'intervention\n\n• Gérer les commandes de matériel de la pharmacie\n\n• Réceptionner et retourner le matériel en prêt\n\n• S'occuper de la remise en conformité du site opératoire\n\n• Titulaire d’un diplôme d’infirmier(ère) instrumentiste ou TSO ou formation jugée équivalente\n\n• Polyvalence pour tous types de spécialités\n\n• Organisation et autonomie dans l’exécution des tâches\n\n• Réactivité, dynamisme et rigueur\n\n• Sens du contact, du travail en équipe et bonne gestion du stress\n\n• Flexibilité, aptitude à travailler avec une équipe pluridisciplinaire\n\n• Une expérience dans le domaine de l’ophtalmologie serai un atout\n\n• Permis de travail valable en Suisse\n\n• Français parlé et écrit couramment\n\n• L’opportunité de rejoindre un hôpital de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nL’Hôpital de Moutier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie, médecine interne et psychiatrie. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.L’Hôpital de Saint-Imier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie-obstétrique, médecine interne et réadaptation gériatrique. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales."
+      },
+      "location": "Moutier",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145208340-infirmier-ere-instrumentiste",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145208340-infirmier-ere-instrumentiste",
+      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T15:35:04.075Z",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2740",
+      "streetAddress": "Beausite 49, 2740 Moutier",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-24T07:59:39.879Z",
+      "postedDate": "2026-08-24T07:59:39.879Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-instrumentiste-hopital-de-moutier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-instrumentiste-hopital-de-moutier"
+        ]
+      },
+      "firstSeenAt": "2026-08-24T10:05:50.755Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hopital-de-moutier-55fc741fe7ca",
+      "slug": "apprendistato-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
+      "slugByLocale": {
+        "it": "apprendistato-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
+        "en": "apprenticeship-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
+        "de": "ausbildung-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
+        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
+      },
+      "company": "Hôpital de Moutier",
+      "companyKey": "hopital-de-moutier",
+      "companyDomain": "swissmedical.net",
+      "title": "Apprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC Moutier",
+      "titleByLocale": {
+        "it": "Apprendistato ASSC (Assistant in Community Health and Care) CFC Moutier",
+        "en": "Apprenticeship ASSC (Assistant in Community Health and Care) CFC Moutier",
+        "de": "Ausbildung ASSC (Assistant in Community Health and Care) CFC Moutier",
+        "fr": "Apprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC Moutier"
+      },
+      "description": "Durant ton apprentissage, tu participeras activement à la prise en charge des patients au sein de nos services de soins. Accompagné·e par des professionnels expérimentés, tu développeras progressivement les compétences nécessaires à l'exercice de ta future profession.\nTes principales activités seront les suivantes :\n\n• Participer aux soins de base et à l'accompagnement des patients dans les activités de la vie quotidienne.\n\n• Observer l'état de santé des patients et transmettre les informations pertinentes à l'équipe soignante.\n\n• Participer à la réalisation de soins et d'actes médico-techniques selon ton niveau de formation.\n\n• Collaborer avec les équipes soignantes, médicales et thérapeutiques.\n\n• Contribuer au bien-être et au confort des patients.\n\n• Respecter les règles d'hygiène, de sécurité, d'asepsie et d'éthique professionnelle.\n\n• Tu portes un intérêt marqué au domaine de la santé et des soins.\n\n• Tu fais preuve d'empathie, de bienveillance et de respect envers les autres.\n\n• Tu apprécies le contact humain et possèdes de bonnes capacités d'écoute et de communication.\n\n• Tu es intéressé·e par les soins, l'observation de l'état de santé des patients et les aspects médico-techniques.\n\n• Tu es fiable, adaptable et doté·e d'un bon sens des responsabilités.\n\n• Tu sais gérer le stress et évoluer dans un environnement dynamique.\n\n• Tu es motivé·e, curieux·se et désireux·se d'apprendre.\n\n• Tu souhaites obtenir un CFC d'ASSC et contribuer activement à la qualité des soins.\n\n• Tu es à l'aise avec les outils informatiques.\n\nDurant votre apprentissage, vous pourrez découvrir différents domaines, développer votre autonomie et construire progressivement votre expérience professionnelle. Nous vous offrons:\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de ton apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de tes compétences.\n\n• La possibilité de contribuer concrètement à la qualité des soins prodigués à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Clémence Wahli (téléphone 032 494 32 12) ou par courriel formateurs.apprentis.commerce@reseaudelarc.net\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons un·e pour notre site de Moutier :\nApprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC",
+      "descriptionByLocale": {
+        "it": "Durante il vostro apprendistato, parteciperete attivamente alla cura dei pazienti nei nostri servizi di assistenza. Accompagnato da professionisti esperti, svilupperai gradualmente le competenze necessarie per svolgere la tua professione futura.\nLe attività principali includono:\n\n• Partecipare alla cura di base e al supporto dei pazienti nelle attività di vita quotidiana.\n\n• Osservare la salute dei pazienti e fornire informazioni pertinenti al team di assistenza sanitaria.\n\n• Partecipare alla conduzione di cure mediche e tecniche e procedure secondo il vostro livello di formazione.\n\n• Collabora con team sanitari, medici e terapeutici.\n\n• Contribuisci al benessere e al comfort dei pazienti.\n\n• Rispettare le regole di igiene, sicurezza, asettica ed etica professionale.\n\n• Hai un forte interesse per l'assistenza sanitaria.\n\n• Lei mostra empatia, gentilezza e rispetto per gli altri.\n\n• Ti piace il contatto umano e hai buone capacità di ascolto e comunicazione.\n\n• Sei interessato alla cura, all'osservazione della salute del paziente e agli aspetti medici-tecnici.\n\n• Sei affidabile, adattabile e hai un buon senso di responsabilità.\n\n• Sai come gestire lo stress e evolversi in un ambiente dinamico.\n\n• Siete motivati, curiosi e desiderosi di imparare.\n\n• Si desidera ottenere un SWC da ASSC e contribuire attivamente alla qualità della cura.\n\n• Sei a tuo agio con strumenti informatici.\n\nDurante il vostro apprendistato, sarete in grado di scoprire diversi campi, sviluppare la vostra autonomia e gradualmente costruire la vostra esperienza professionale. Vi offriamo:\n\n• Una varietà di formazione in istituzioni riconosciute e vicine ai loro pazienti.\n\n• L'opportunità di scoprire il mondo professionale in un ambiente stimolante e in continua evoluzione.\n\n• Supporto personalizzato durante il vostro apprendimento da formatori impegnati e esperti.\n\n• Condizioni per l'apprendimento, l'autonomia progressiva e lo sviluppo delle competenze.\n\n• La possibilità di dare un contributo concreto alla qualità delle cure fornite alla popolazione della regione.\n\nEntrata in ufficio: agosto 2027\nLuogo di formazione: Moutier Hospital\nUlteriori informazioni possono essere ottenute da Clémence Wahli (telefono 032 494 32 12) o da e-mail trainer.apprentices.commerce@reseaudelarc.net\nLe offerte accompagnate da un curriculum vitae, gli ultimi quattro bollettini scolastici e altri documenti d'uso (compresa una lettera di presentazione) devono essere trasmessi tramite il nostro collegamento Internet allegato.\nTEMPO DI POSTULAZIONE: 31 ottobre 2026\n\nLe istituzioni comunitarie con competenze multidisciplinari nel servizio del paziente, l'ospedale Moutier e l'ospedale St.Imier offrono servizi di qualità nel campo della salute mentale e somatica.\nCon quasi 1.200 dipendenti, gli ospedali e i Medicentri del Réseau de l'Arc forniscono assistenza comunitaria a una popolazione di oltre 50.000 abitanti.\nCome parte del nuovo anno 2027, stiamo cercando un e per il nostro sito Moutier:\nApprendistato ASSC (Assistant in Community Health and Care) CFC",
+        "en": "During your apprenticeship, you will actively participate in the care of patients in our care services. Accompanied by experienced professionals, you will gradually develop the skills necessary to carry out your future profession.\nYour main activities will include:\n\n• Participate in basic care and patient support in daily life activities.\n\n• Observe patient health and provide relevant information to the health care team.\n\n• Participate in the conduct of medical and technical care and procedures according to your level of training.\n\n• Collaborate with health, medical and therapeutic teams.\n\n• Contribute to patient well-being and comfort.\n\n• Respect the rules of hygiene, safety, aseptics and professional ethics.\n\n• You have a strong interest in health care.\n\n• You show empathy, kindness and respect for others.\n\n• You enjoy human contact and have good listening and communication skills.\n\n• You are interested in care, observation of patient health and medical-technical aspects.\n\n• You are reliable, adaptable and have a common sense of responsibility.\n\n• You know how to manage stress and evolve in a dynamic environment.\n\n• You are motivated, curious and eager to learn.\n\n• You want to get an SWC from ASSC and contribute actively to the quality of care.\n\n• You're comfortable with computer tools.\n\nDuring your apprenticeship, you will be able to discover different fields, develop your autonomy and gradually build your professional experience. We offer you:\n\n• A variety of training in institutions recognized and close to their patients.\n\n• The opportunity to discover the professional world in a stimulating and constantly evolving environment.\n\n• Personalised support throughout your learning by committed and experienced trainers.\n\n• Conditions for learning, progressive autonomy and skills development.\n\n• The possibility of making a concrete contribution to the quality of care provided to the population of the region.\n\nEntry into office: August 2027\nTraining location: Moutier Hospital\nFurther information can be obtained from Clémence Wahli (telephone 032 494 32 12) or by e-mail trainer.apprentices.commerce@reseaudelarc.net\nOffers accompanied by a curriculum vitae, the last four school bulletins and other documents of use (including a cover letter) are to be transmitted via our attached Internet link.\nPOSTULATION TIME: 31 October 2026\n\nCommunity-based institutions with multidisciplinary expertise in patient service, Moutier Hospital and St.Imier Hospital offer quality services in the somatic and mental health fields.\nWith nearly 1'200 employees, the hospitals and Medicentres of the Réseau de l'Arc provide community care to a population of more than 50,000 inhabitants.\nAs part of the new year 2027, we are looking for an e for our Moutier site:\nApprenticeship ASSC (Assistant in Community Health and Care) CFC",
+        "de": "Während Ihrer Ausbildung beteiligen Sie sich aktiv an der Versorgung von Patienten in unseren Pflegediensten. In Begleitung von erfahrenen Fachleuten entwickeln Sie nach und nach die Fähigkeiten, die für die Ausübung Ihres zukünftigen Berufs erforderlich sind.\nIhre Hauptaktivitäten umfassen:\n\n• Beteiligen Sie sich an der Grundversorgung und Patientenunterstützung im täglichen Leben.\n\n• Beobachten Sie die Gesundheit der Patienten und stellen Sie dem Gesundheitsteam relevante Informationen zur Verfügung.\n\n• Beteiligen Sie sich an der Durchführung der medizinischen und technischen Versorgung und Verfahren nach Ihrem Ausbildungsniveau.\n\n• Zusammenarbeit mit Gesundheits-, medizinischen und therapeutischen Teams.\n\n• Tragen Sie zum Wohlbefinden und Komfort der Patienten bei.\n\n• Respektieren Sie die Regeln der Hygiene, Sicherheit, Aseptik und Berufsethik.\n\n• Sie haben ein starkes Interesse an der Gesundheitsversorgung.\n\n• Sie zeigen Empathie, Freundlichkeit und Respekt für andere.\n\n• Sie genießen menschlichen Kontakt und haben gute Zuhör- und Kommunikationsfähigkeiten.\n\n• Sie interessieren sich für Pflege, Beobachtung der Patientengesundheit und medizinisch-technische Aspekte.\n\n• Sie sind zuverlässig, anpassungsfähig und haben ein gemeinsames Verantwortungsbewusstsein.\n\n• Sie wissen, wie Sie mit Stress umgehen und sich in einer dynamischen Umgebung entwickeln können.\n\n• Sie sind motiviert, neugierig und lernbegierig.\n\n• Sie wollen einen SWC von ASSC bekommen und aktiv zur Qualität der Pflege beitragen.\n\n• Sie fühlen sich wohl mit Computer-Tools.\n\nWährend Ihrer Ausbildung können Sie verschiedene Bereiche entdecken, Ihre Autonomie entwickeln und schrittweise Ihre Berufserfahrung aufbauen. Wir bieten Ihnen:\n\n• Eine Vielzahl von Schulungen in Institutionen anerkannt und in der Nähe ihrer Patienten.\n\n• Die Möglichkeit, die professionelle Welt in einer anregenden und sich ständig weiterentwickelnden Umgebung zu entdecken.\n\n• Persönliche Unterstützung während des gesamten Lernens durch engagierte und erfahrene Trainer.\n\n• Lernbedingungen, fortschreitende Autonomie und Kompetenzentwicklung.\n\n• Die Möglichkeit, einen konkreten Beitrag zur Qualität der Versorgung der Bevölkerung der Region zu leisten.\n\nAmtsantritt: August 2027\nTrainingsstandort: Moutier Hospital\nWeitere Informationen erhalten Sie bei Clémence Wahli (Telefon 032 494 32 12) oder per E-Mail trainer.apprentices.commerce@reseaudelarc.net\nAngebote, die von einem Lebenslauf, den letzten vier Schulbulletins und anderen Nutzungsunterlagen (einschließlich Anschreiben) begleitet werden, sind über unseren angeschlossenen Internetlink zu übermitteln.\nPOSTULATIONSZEIT: 31. Oktober 2026\n\nGemeinschaftsbasierte Einrichtungen mit multidisziplinärer Expertise in der Patientenbetreuung, Moutier Hospital und St.Imier Hospital bieten qualitativ hochwertige Dienstleistungen in den Bereichen somatische und psychische Gesundheit.\nMit fast 1'200 Mitarbeitern sorgen die Krankenhäuser und Medicentres des Réseau de l'Arc für eine Gemeindebetreuung von mehr als 50.000 Einwohnern.\nIm Rahmen des neuen Jahres 2027 suchen wir ein e für unseren Moutier-Standort:\nAusbildung ASSC (Assistant in Community Health and Care) CFC",
+        "fr": "Durant ton apprentissage, tu participeras activement à la prise en charge des patients au sein de nos services de soins. Accompagné·e par des professionnels expérimentés, tu développeras progressivement les compétences nécessaires à l'exercice de ta future profession.\nTes principales activités seront les suivantes :\n\n• Participer aux soins de base et à l'accompagnement des patients dans les activités de la vie quotidienne.\n\n• Observer l'état de santé des patients et transmettre les informations pertinentes à l'équipe soignante.\n\n• Participer à la réalisation de soins et d'actes médico-techniques selon ton niveau de formation.\n\n• Collaborer avec les équipes soignantes, médicales et thérapeutiques.\n\n• Contribuer au bien-être et au confort des patients.\n\n• Respecter les règles d'hygiène, de sécurité, d'asepsie et d'éthique professionnelle.\n\n• Tu portes un intérêt marqué au domaine de la santé et des soins.\n\n• Tu fais preuve d'empathie, de bienveillance et de respect envers les autres.\n\n• Tu apprécies le contact humain et possèdes de bonnes capacités d'écoute et de communication.\n\n• Tu es intéressé·e par les soins, l'observation de l'état de santé des patients et les aspects médico-techniques.\n\n• Tu es fiable, adaptable et doté·e d'un bon sens des responsabilités.\n\n• Tu sais gérer le stress et évoluer dans un environnement dynamique.\n\n• Tu es motivé·e, curieux·se et désireux·se d'apprendre.\n\n• Tu souhaites obtenir un CFC d'ASSC et contribuer activement à la qualité des soins.\n\n• Tu es à l'aise avec les outils informatiques.\n\nDurant votre apprentissage, vous pourrez découvrir différents domaines, développer votre autonomie et construire progressivement votre expérience professionnelle. Nous vous offrons:\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de ton apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de tes compétences.\n\n• La possibilité de contribuer concrètement à la qualité des soins prodigués à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Clémence Wahli (téléphone 032 494 32 12) ou par courriel formateurs.apprentis.commerce@reseaudelarc.net\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons un·e pour notre site de Moutier :\nApprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC"
+      },
+      "location": "Moutier",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147937074-apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147937074-apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier",
+      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T15:35:04.074Z",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2740",
+      "streetAddress": "Beausite 49, 2740 Moutier",
+      "category": "Formazione",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-07T13:15:07.640Z",
+      "postedDate": "2026-09-07T13:15:07.640Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
+        ]
+      },
+      "firstSeenAt": "2026-09-07T15:04:05.418Z",
+      "salaryMin": 49500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-de-moutier-17a451116389",
       "slug": "seconda-cucina-con-cfc-hopital-de-moutier-moutier",
       "slugByLocale": {
@@ -369,7 +515,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145240679-second-de-cuisine-avec-cfc",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.395Z",
+      "crawledAt": "2026-10-14T15:35:04.073Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -420,79 +566,6 @@
       }
     },
     {
-      "id": "hopital-de-moutier-c4aacb2c94d2",
-      "slug": "infermiere-strumentali-hopital-de-moutier-moutier",
-      "slugByLocale": {
-        "it": "infermiere-strumentali-hopital-de-moutier-moutier",
-        "en": "instrumental-nurse-hopital-de-moutier-moutier",
-        "de": "instrumentale-krankenschwester-hopital-de-moutier-moutier",
-        "fr": "infirmier-ere-instrumentiste-hopital-de-moutier"
-      },
-      "company": "Hôpital de Moutier",
-      "companyKey": "hopital-de-moutier",
-      "companyDomain": "swissmedical.net",
-      "title": "Infirmier(ère) instrumentiste",
-      "titleByLocale": {
-        "it": "Infermiere/a strumentista",
-        "en": "Instrumental Nurse",
-        "de": "Instrumentelle Krankenschwester",
-        "fr": "Infirmier(ère) instrumentiste"
-      },
-      "description": "• Préparer et instrumenter toutes les opérations pratiquées dans les différentes spécialités\n\n• Inventorier les instruments en début et fin d'intervention\n\n• Gérer les commandes de matériel de la pharmacie\n\n• Réceptionner et retourner le matériel en prêt\n\n• S'occuper de la remise en conformité du site opératoire\n\n• Titulaire d’un diplôme d’infirmier(ère) instrumentiste ou TSO ou formation jugée équivalente\n\n• Polyvalence pour tous types de spécialités\n\n• Organisation et autonomie dans l’exécution des tâches\n\n• Réactivité, dynamisme et rigueur\n\n• Sens du contact, du travail en équipe et bonne gestion du stress\n\n• Flexibilité, aptitude à travailler avec une équipe pluridisciplinaire\n\n• Une expérience dans le domaine de l’ophtalmologie serai un atout\n\n• Permis de travail valable en Suisse\n\n• Français parlé et écrit couramment\n\n• L’opportunité de rejoindre un hôpital de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nL’Hôpital de Moutier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie, médecine interne et psychiatrie. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.L’Hôpital de Saint-Imier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie-obstétrique, médecine interne et réadaptation gériatrique. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.",
-      "descriptionByLocale": {
-        "it": "• Preparare e strumentare tutte le operazioni praticate nelle diverse specialità\n\n• Inventariare gli strumenti ad inizio e fine intervento\n\n• Gestire gli ordini di materiale della farmacia\n\n• Ricevere e restituire il materiale in prestito\n\n• Occuparsi del ripristino della conformità del sito chirurgico\n\n• Titolare di un diploma di infermiere/a strumentalista o TSO o formazione ritenuta equivalente\n\n• Versatilità per tutti i tipi di specialità\n\n• Organizzazione e autonomia nello svolgimento delle mansioni\n\n• Reattività, dinamismo e rigore\n\n• Senso di contatto, lavoro di squadra e buona gestione dello stress\n\n• Flessibilità, capacità di lavorare con un team multidisciplinare\n\n• Un'esperienza nel campo dell'oftalmologia sarà un vantaggio\n\n• Permesso di lavoro valido in Svizzera\n\n• Francese parlato e scritto fluente\n\n• L’opportunità di entrare a far parte di un rinomato ospedale all'avanguardia nello sviluppo\n\n• Un'attività motivante in un ambiente di lavoro piacevole\n\n• Una cultura aziendale orientata all'eccellenza e alla qualità delle relazioni umane\n\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nL'Ospedale di Moutier vi offre una copertura completa nei settori delle cure ambulatoriali, delle cure ospedaliere e della geriatria. La nostra",
-        "en": "• Prepare and implement all operations in the various specialties\n\n• Inventing instruments at the beginning and end of the intervention\n\n• Manage orders for pharmacy equipment\n\n• Receive and return the equipment on loan\n\n• Reconform the operating site\n\n• Holder of an instrumentist or OSI diploma or equivalent training\n\n• Versatility for all types of specialties\n\n• Organization and autonomy in the performance of tasks\n\n• Responsiveness, dynamism and rigour\n\n• Feeling of contact, teamwork and good stress management\n\n• Flexibility, ability to work with a multidisciplinary team\n\n• Experience in the field of ophthalmology will be an asset\n\n• Work permit valid in Switzerland\n\n• French spoken and written fluently\n\n• L, opportunity to join a highly-reputable hospital at the cutting edge of development\n\n• Motivating activity in a pleasant work environment\n\n• A corporate culture geared towards the excellence and quality of human relations\n\nWe pay great attention to the diversity of life paths of our employees. Our positions are open to both women and men.\n\nL,Hôpital de Moutier offers you a complete care in the fields of outpatient care, hospital care and geriatrics. Our hospital is specialized in surgery, gynaecology, internal medicine and psychiatry.\n\nOur institution is part of the Réseau de l'Arc, whose objective is to bring about a real paradigm shift in the management of the health of our population, with the priority being the quality of our medical services. L,Hôpital de Saint-Imier offers you a complete care in the fields of ambulatory care, hospital care and geriatrics. Our hospital is specialized in surgery, gynaecology-obstetrics, internal medicine and geriatric rehabilitation.\n\nOur establishment is part of the Arc Network, whose objective is to bring about a real paradigm shift in the management of the health of our population, with the priority being the quality of our medical services.",
-        "de": "• Bereiten und implementieren Sie alle Operationen in den verschiedenen Spezialitäten\n\n• Erfindung von Instrumenten am Anfang und Ende der Intervention\n\n• Verwalten von Bestellungen für Apothekengeräte\n\n• Erhalten und zurückgeben Sie die Ausrüstung auf Leihbasis\n\n• Die Betriebsstätte neu konformieren\n\n• Inhaber eines Instrumentisten- oder OSI-Diploms oder einer gleichwertigen Ausbildung\n\n• Vielseitigkeit für alle Arten von Spezialitäten\n\n• Organisation und Autonomie bei der Erfüllung der Aufgaben\n\n• Verantwortung, Dynamik und Strenge\n\n• Kontaktgefühl, Teamarbeit und gutes Stressmanagement\n\n• Flexibilität, Fähigkeit, mit einem multidisziplinären Team zu arbeiten\n\n• Die Erfahrung im Bereich der Augenheilkunde wird ein Pluspunkt sein\n\n• Arbeitserlaubnis gültig in der Schweiz\n\n• fließend gesprochen und geschrieben\n\n• L, Möglichkeit, sich einem hoch angesehenen Krankenhaus an der Spitze der Entwicklung zu schließen\n\n• motivierende Aktivität in einem angenehmen Arbeitsumfeld\n\n• Eine auf Exzellenz und Qualität der menschlichen Beziehungen ausgerichtete Unternehmenskultur\n\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen sind offen für Frauen und Männer.\n\nL,Hôpital de Moutier bietet Ihnen eine komplette Betreuung in den Bereichen ambulante Versorgung, Krankenhauspflege und Geriatrie. Unser Krankenhaus ist spezialisiert auf Chirurgie, Gynäkologie, Innere Medizin und Psychiatrie.\n\nUnsere Einrichtung ist Teil des Réseau de l'Arc, dessen Ziel es ist, einen echten Paradigmenwechsel im Gesundheitsmanagement unserer Bevölkerung zu bewirken, wobei die Qualität unserer medizinischen Leistungen vorrangig ist. L,Hôpital de Saint-Imier bietet Ihnen eine komplette Betreuung in den Bereichen Ambulanzversorgung, Krankenhauspflege und Geriatrie. Unser Krankenhaus ist spezialisiert auf Chirurgie, Gynäkologie-Obstheilkunde, Innere Medizin und riatrische Rehabilitation.\n\nUnsere Einrichtung ist Teil des Arc Network, dessen Ziel es ist, einen echten Paradigmenwechsel im Management der Gesundheit unserer Bevölkerung herbeizuführen, wobei die Qualität unserer medizinischen Dienstleistungen vorrangig ist.",
-        "fr": "• Préparer et instrumenter toutes les opérations pratiquées dans les différentes spécialités\n\n• Inventorier les instruments en début et fin d'intervention\n\n• Gérer les commandes de matériel de la pharmacie\n\n• Réceptionner et retourner le matériel en prêt\n\n• S'occuper de la remise en conformité du site opératoire\n\n• Titulaire d’un diplôme d’infirmier(ère) instrumentiste ou TSO ou formation jugée équivalente\n\n• Polyvalence pour tous types de spécialités\n\n• Organisation et autonomie dans l’exécution des tâches\n\n• Réactivité, dynamisme et rigueur\n\n• Sens du contact, du travail en équipe et bonne gestion du stress\n\n• Flexibilité, aptitude à travailler avec une équipe pluridisciplinaire\n\n• Une expérience dans le domaine de l’ophtalmologie serai un atout\n\n• Permis de travail valable en Suisse\n\n• Français parlé et écrit couramment\n\n• L’opportunité de rejoindre un hôpital de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nL’Hôpital de Moutier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie, médecine interne et psychiatrie. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales.L’Hôpital de Saint-Imier vous offre une prise en charge complète dans les domaines des soins ambulatoires, des soins hospitaliers et de la gériatrie. Notre hôpital est spécialisé en chirurgie, gynécologie-obstétrique, médecine interne et réadaptation gériatrique. Notre établissement fait partie du Réseau de l’Arc dont l’objectif est d’apporter un véritable changement de paradigme dans la prise en charge de la santé de notre population, avec comme priorité, la qualité de nos prestations médicales."
-      },
-      "location": "Moutier",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145208340-infirmier-ere-instrumentiste",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145208340-infirmier-ere-instrumentiste",
-      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.395Z",
-      "addressLocality": "Moutier",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2740",
-      "streetAddress": "Beausite 49, 2740 Moutier",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-24T07:59:39.879Z",
-      "postedDate": "2026-08-24T07:59:39.879Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-instrumentiste-hopital-de-moutier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-instrumentiste-hopital-de-moutier"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T10:05:50.755Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-de-moutier-9eca8adfb91a",
       "slug": "apprendista-commerciale-hopital-de-moutier-moutier",
       "slugByLocale": {
@@ -525,7 +598,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147945823-apprenti-e-employe-e-de-commerce",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.394Z",
+      "crawledAt": "2026-10-14T15:35:04.072Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -552,153 +625,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:04:05.415Z",
-      "salaryMin": 49500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-de-moutier-55fc741fe7ca",
-      "slug": "apprendistato-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
-      "slugByLocale": {
-        "it": "apprendistato-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
-        "en": "apprenticeship-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
-        "de": "ausbildung-assc-assistant-in-community-health-and-care-cfc-moutier-hopital-de-moutier-moutier",
-        "fr": "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
-      },
-      "company": "Hôpital de Moutier",
-      "companyKey": "hopital-de-moutier",
-      "companyDomain": "swissmedical.net",
-      "title": "Apprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC Moutier",
-      "titleByLocale": {
-        "it": "Apprendistato ASSC (Assistant in Community Health and Care) CFC Moutier",
-        "en": "Apprenticeship ASSC (Assistant in Community Health and Care) CFC Moutier",
-        "de": "Ausbildung ASSC (Assistant in Community Health and Care) CFC Moutier",
-        "fr": "Apprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC Moutier"
-      },
-      "description": "Durant ton apprentissage, tu participeras activement à la prise en charge des patients au sein de nos services de soins. Accompagné·e par des professionnels expérimentés, tu développeras progressivement les compétences nécessaires à l'exercice de ta future profession.\nTes principales activités seront les suivantes :\n\n• Participer aux soins de base et à l'accompagnement des patients dans les activités de la vie quotidienne.\n\n• Observer l'état de santé des patients et transmettre les informations pertinentes à l'équipe soignante.\n\n• Participer à la réalisation de soins et d'actes médico-techniques selon ton niveau de formation.\n\n• Collaborer avec les équipes soignantes, médicales et thérapeutiques.\n\n• Contribuer au bien-être et au confort des patients.\n\n• Respecter les règles d'hygiène, de sécurité, d'asepsie et d'éthique professionnelle.\n\n• Tu portes un intérêt marqué au domaine de la santé et des soins.\n\n• Tu fais preuve d'empathie, de bienveillance et de respect envers les autres.\n\n• Tu apprécies le contact humain et possèdes de bonnes capacités d'écoute et de communication.\n\n• Tu es intéressé·e par les soins, l'observation de l'état de santé des patients et les aspects médico-techniques.\n\n• Tu es fiable, adaptable et doté·e d'un bon sens des responsabilités.\n\n• Tu sais gérer le stress et évoluer dans un environnement dynamique.\n\n• Tu es motivé·e, curieux·se et désireux·se d'apprendre.\n\n• Tu souhaites obtenir un CFC d'ASSC et contribuer activement à la qualité des soins.\n\n• Tu es à l'aise avec les outils informatiques.\n\nDurant votre apprentissage, vous pourrez découvrir différents domaines, développer votre autonomie et construire progressivement votre expérience professionnelle. Nous vous offrons:\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de ton apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de tes compétences.\n\n• La possibilité de contribuer concrètement à la qualité des soins prodigués à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Clémence Wahli (téléphone 032 494 32 12) ou par courriel formateurs.apprentis.commerce@reseaudelarc.net\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons un·e pour notre site de Moutier :\nApprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC",
-      "descriptionByLocale": {
-        "it": "Durante il vostro apprendistato, parteciperete attivamente alla cura dei pazienti nei nostri servizi di assistenza. Accompagnato da professionisti esperti, svilupperai gradualmente le competenze necessarie per svolgere la tua professione futura.\nLe attività principali includono:\n\n• Partecipare alla cura di base e al supporto dei pazienti nelle attività di vita quotidiana.\n\n• Osservare la salute dei pazienti e fornire informazioni pertinenti al team di assistenza sanitaria.\n\n• Partecipare alla conduzione di cure mediche e tecniche e procedure secondo il vostro livello di formazione.\n\n• Collabora con team sanitari, medici e terapeutici.\n\n• Contribuisci al benessere e al comfort dei pazienti.\n\n• Rispettare le regole di igiene, sicurezza, asettica ed etica professionale.\n\n• Hai un forte interesse per l'assistenza sanitaria.\n\n• Lei mostra empatia, gentilezza e rispetto per gli altri.\n\n• Ti piace il contatto umano e hai buone capacità di ascolto e comunicazione.\n\n• Sei interessato alla cura, all'osservazione della salute del paziente e agli aspetti medici-tecnici.\n\n• Sei affidabile, adattabile e hai un buon senso di responsabilità.\n\n• Sai come gestire lo stress e evolversi in un ambiente dinamico.\n\n• Siete motivati, curiosi e desiderosi di imparare.\n\n• Si desidera ottenere un SWC da ASSC e contribuire attivamente alla qualità della cura.\n\n• Sei a tuo agio con strumenti informatici.\n\nDurante il vostro apprendistato, sarete in grado di scoprire diversi campi, sviluppare la vostra autonomia e gradualmente costruire la vostra esperienza professionale. Vi offriamo:\n\n• Una varietà di formazione in istituzioni riconosciute e vicine ai loro pazienti.\n\n• L'opportunità di scoprire il mondo professionale in un ambiente stimolante e in continua evoluzione.\n\n• Supporto personalizzato durante il vostro apprendimento da formatori impegnati e esperti.\n\n• Condizioni per l'apprendimento, l'autonomia progressiva e lo sviluppo delle competenze.\n\n• La possibilità di dare un contributo concreto alla qualità delle cure fornite alla popolazione della regione.\n\nEntrata in ufficio: agosto 2027\nLuogo di formazione: Moutier Hospital\nUlteriori informazioni possono essere ottenute da Clémence Wahli (telefono 032 494 32 12) o da e-mail trainer.apprentices.commerce@reseaudelarc.net\nLe offerte accompagnate da un curriculum vitae, gli ultimi quattro bollettini scolastici e altri documenti d'uso (compresa una lettera di presentazione) devono essere trasmessi tramite il nostro collegamento Internet allegato.\nTEMPO DI POSTULAZIONE: 31 ottobre 2026\n\nLe istituzioni comunitarie con competenze multidisciplinari nel servizio del paziente, l'ospedale Moutier e l'ospedale St.Imier offrono servizi di qualità nel campo della salute mentale e somatica.\nCon quasi 1.200 dipendenti, gli ospedali e i Medicentri del Réseau de l'Arc forniscono assistenza comunitaria a una popolazione di oltre 50.000 abitanti.\nCome parte del nuovo anno 2027, stiamo cercando un e per il nostro sito Moutier:\nApprendistato ASSC (Assistant in Community Health and Care) CFC",
-        "en": "During your apprenticeship, you will actively participate in the care of patients in our care services. Accompanied by experienced professionals, you will gradually develop the skills necessary to carry out your future profession.\nYour main activities will include:\n\n• Participate in basic care and patient support in daily life activities.\n\n• Observe patient health and provide relevant information to the health care team.\n\n• Participate in the conduct of medical and technical care and procedures according to your level of training.\n\n• Collaborate with health, medical and therapeutic teams.\n\n• Contribute to patient well-being and comfort.\n\n• Respect the rules of hygiene, safety, aseptics and professional ethics.\n\n• You have a strong interest in health care.\n\n• You show empathy, kindness and respect for others.\n\n• You enjoy human contact and have good listening and communication skills.\n\n• You are interested in care, observation of patient health and medical-technical aspects.\n\n• You are reliable, adaptable and have a common sense of responsibility.\n\n• You know how to manage stress and evolve in a dynamic environment.\n\n• You are motivated, curious and eager to learn.\n\n• You want to get an SWC from ASSC and contribute actively to the quality of care.\n\n• You're comfortable with computer tools.\n\nDuring your apprenticeship, you will be able to discover different fields, develop your autonomy and gradually build your professional experience. We offer you:\n\n• A variety of training in institutions recognized and close to their patients.\n\n• The opportunity to discover the professional world in a stimulating and constantly evolving environment.\n\n• Personalised support throughout your learning by committed and experienced trainers.\n\n• Conditions for learning, progressive autonomy and skills development.\n\n• The possibility of making a concrete contribution to the quality of care provided to the population of the region.\n\nEntry into office: August 2027\nTraining location: Moutier Hospital\nFurther information can be obtained from Clémence Wahli (telephone 032 494 32 12) or by e-mail trainer.apprentices.commerce@reseaudelarc.net\nOffers accompanied by a curriculum vitae, the last four school bulletins and other documents of use (including a cover letter) are to be transmitted via our attached Internet link.\nPOSTULATION TIME: 31 October 2026\n\nCommunity-based institutions with multidisciplinary expertise in patient service, Moutier Hospital and St.Imier Hospital offer quality services in the somatic and mental health fields.\nWith nearly 1'200 employees, the hospitals and Medicentres of the Réseau de l'Arc provide community care to a population of more than 50,000 inhabitants.\nAs part of the new year 2027, we are looking for an e for our Moutier site:\nApprenticeship ASSC (Assistant in Community Health and Care) CFC",
-        "de": "Während Ihrer Ausbildung beteiligen Sie sich aktiv an der Versorgung von Patienten in unseren Pflegediensten. In Begleitung von erfahrenen Fachleuten entwickeln Sie nach und nach die Fähigkeiten, die für die Ausübung Ihres zukünftigen Berufs erforderlich sind.\nIhre Hauptaktivitäten umfassen:\n\n• Beteiligen Sie sich an der Grundversorgung und Patientenunterstützung im täglichen Leben.\n\n• Beobachten Sie die Gesundheit der Patienten und stellen Sie dem Gesundheitsteam relevante Informationen zur Verfügung.\n\n• Beteiligen Sie sich an der Durchführung der medizinischen und technischen Versorgung und Verfahren nach Ihrem Ausbildungsniveau.\n\n• Zusammenarbeit mit Gesundheits-, medizinischen und therapeutischen Teams.\n\n• Tragen Sie zum Wohlbefinden und Komfort der Patienten bei.\n\n• Respektieren Sie die Regeln der Hygiene, Sicherheit, Aseptik und Berufsethik.\n\n• Sie haben ein starkes Interesse an der Gesundheitsversorgung.\n\n• Sie zeigen Empathie, Freundlichkeit und Respekt für andere.\n\n• Sie genießen menschlichen Kontakt und haben gute Zuhör- und Kommunikationsfähigkeiten.\n\n• Sie interessieren sich für Pflege, Beobachtung der Patientengesundheit und medizinisch-technische Aspekte.\n\n• Sie sind zuverlässig, anpassungsfähig und haben ein gemeinsames Verantwortungsbewusstsein.\n\n• Sie wissen, wie Sie mit Stress umgehen und sich in einer dynamischen Umgebung entwickeln können.\n\n• Sie sind motiviert, neugierig und lernbegierig.\n\n• Sie wollen einen SWC von ASSC bekommen und aktiv zur Qualität der Pflege beitragen.\n\n• Sie fühlen sich wohl mit Computer-Tools.\n\nWährend Ihrer Ausbildung können Sie verschiedene Bereiche entdecken, Ihre Autonomie entwickeln und schrittweise Ihre Berufserfahrung aufbauen. Wir bieten Ihnen:\n\n• Eine Vielzahl von Schulungen in Institutionen anerkannt und in der Nähe ihrer Patienten.\n\n• Die Möglichkeit, die professionelle Welt in einer anregenden und sich ständig weiterentwickelnden Umgebung zu entdecken.\n\n• Persönliche Unterstützung während des gesamten Lernens durch engagierte und erfahrene Trainer.\n\n• Lernbedingungen, fortschreitende Autonomie und Kompetenzentwicklung.\n\n• Die Möglichkeit, einen konkreten Beitrag zur Qualität der Versorgung der Bevölkerung der Region zu leisten.\n\nAmtsantritt: August 2027\nTrainingsstandort: Moutier Hospital\nWeitere Informationen erhalten Sie bei Clémence Wahli (Telefon 032 494 32 12) oder per E-Mail trainer.apprentices.commerce@reseaudelarc.net\nAngebote, die von einem Lebenslauf, den letzten vier Schulbulletins und anderen Nutzungsunterlagen (einschließlich Anschreiben) begleitet werden, sind über unseren angeschlossenen Internetlink zu übermitteln.\nPOSTULATIONSZEIT: 31. Oktober 2026\n\nGemeinschaftsbasierte Einrichtungen mit multidisziplinärer Expertise in der Patientenbetreuung, Moutier Hospital und St.Imier Hospital bieten qualitativ hochwertige Dienstleistungen in den Bereichen somatische und psychische Gesundheit.\nMit fast 1'200 Mitarbeitern sorgen die Krankenhäuser und Medicentres des Réseau de l'Arc für eine Gemeindebetreuung von mehr als 50.000 Einwohnern.\nIm Rahmen des neuen Jahres 2027 suchen wir ein e für unseren Moutier-Standort:\nAusbildung ASSC (Assistant in Community Health and Care) CFC",
-        "fr": "Durant ton apprentissage, tu participeras activement à la prise en charge des patients au sein de nos services de soins. Accompagné·e par des professionnels expérimentés, tu développeras progressivement les compétences nécessaires à l'exercice de ta future profession.\nTes principales activités seront les suivantes :\n\n• Participer aux soins de base et à l'accompagnement des patients dans les activités de la vie quotidienne.\n\n• Observer l'état de santé des patients et transmettre les informations pertinentes à l'équipe soignante.\n\n• Participer à la réalisation de soins et d'actes médico-techniques selon ton niveau de formation.\n\n• Collaborer avec les équipes soignantes, médicales et thérapeutiques.\n\n• Contribuer au bien-être et au confort des patients.\n\n• Respecter les règles d'hygiène, de sécurité, d'asepsie et d'éthique professionnelle.\n\n• Tu portes un intérêt marqué au domaine de la santé et des soins.\n\n• Tu fais preuve d'empathie, de bienveillance et de respect envers les autres.\n\n• Tu apprécies le contact humain et possèdes de bonnes capacités d'écoute et de communication.\n\n• Tu es intéressé·e par les soins, l'observation de l'état de santé des patients et les aspects médico-techniques.\n\n• Tu es fiable, adaptable et doté·e d'un bon sens des responsabilités.\n\n• Tu sais gérer le stress et évoluer dans un environnement dynamique.\n\n• Tu es motivé·e, curieux·se et désireux·se d'apprendre.\n\n• Tu souhaites obtenir un CFC d'ASSC et contribuer activement à la qualité des soins.\n\n• Tu es à l'aise avec les outils informatiques.\n\nDurant votre apprentissage, vous pourrez découvrir différents domaines, développer votre autonomie et construire progressivement votre expérience professionnelle. Nous vous offrons:\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de ton apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de tes compétences.\n\n• La possibilité de contribuer concrètement à la qualité des soins prodigués à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Clémence Wahli (téléphone 032 494 32 12) ou par courriel formateurs.apprentis.commerce@reseaudelarc.net\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons un·e pour notre site de Moutier :\nApprenti·e ASSC (Assistant·e en Soins et Santé Communautaire) CFC"
-      },
-      "location": "Moutier",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147937074-apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147937074-apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier",
-      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.394Z",
-      "addressLocality": "Moutier",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2740",
-      "streetAddress": "Beausite 49, 2740 Moutier",
-      "category": "Formazione",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-07T13:15:07.640Z",
-      "postedDate": "2026-09-07T13:15:07.640Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-assc-assistant-e-en-soins-et-sante-communautaire-cfc-moutier-hopital-de-moutier"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:04:05.418Z",
-      "salaryMin": 49500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-de-moutier-1aeb7ba318e0",
-      "slug": "apprendisti-e-cuochi-hopital-de-moutier-moutier",
-      "slugByLocale": {
-        "it": "apprendisti-e-cuochi-hopital-de-moutier-moutier",
-        "en": "apprentices-and-cooks-hopital-de-moutier-moutier",
-        "de": "auszubildende-und-koche-hopital-de-moutier-moutier",
-        "fr": "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
-      },
-      "company": "Hôpital de Moutier",
-      "companyKey": "hopital-de-moutier",
-      "companyDomain": "swissmedical.net",
-      "title": "Apprenti·e Cuisinier·ère CFC Moutier",
-      "titleByLocale": {
-        "it": "Apprendisti e cuochi",
-        "en": "Apprentices and cooks",
-        "de": "Auszubildende und Köche",
-        "fr": "Apprenti·e Cuisinier·ère CFC Moutier"
-      },
-      "description": "Durant votre apprentissage, vous découvrirez l'ensemble des activités liées au métier de cuisinier·ère au sein de notre service de restauration. Accompagné·e par des professionnels expérimentés, vous développerez progressivement les compétences nécessaires à l'exercice de votre future profession.\nVos principales missions seront les suivantes :\n\n• Respecter le plan de formation établi.\n\n• Participer à la préparation et à la réalisation des repas destinés aux patients, collaborateurs et visiteurs.\n\n• Appliquer les techniques culinaires enseignées durant la formation.\n\n• Respecter les normes d'hygiène, de sécurité alimentaire et les procédures en vigueur.\n\n• Collaborer avec les équipes du service Hôtellerie & Restauration.\n\n• Développer vos connaissances professionnelles et personnelles tout au long de votre apprentissage.\n\n• Vous êtes intéressé·e par le métier de cuisinier·ère.\n\n• Vous êtes dynamique et motivé·e.\n\n• Vous faites preuve de respect, de courtoisie et d'esprit d'équipe.\n\n• Vous êtes désireux·se d'apprendre et de progresser.\n\n• Vous possédez un niveau scolaire satisfaisant.\n\n• Vous êtes organisé·e et consciencieux·se dans votre travail.\n\n• Vous appréciez le travail pratique et les environnements dynamiques.\n\nDurant votre apprentissage, vous aurez l'opportunité de découvrir différents domaines, de développer progressivement votre autonomie et de construire une solide expérience professionnelle.\nNous vous offrons :\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de votre apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de vos compétences.\n\n• La possibilité de contribuer concrètement à la qualité des prestations offertes à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Mr Alexandre Werren, Chef de service Hôtellerie & Restauration du Réseau de l’Arc au +41 32 494 30 11 ou alexandre.werren@reseaudelarc.net.\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons pour notre site de Moutier:\nApprenti·e Cuisinier·ère CFC",
-      "descriptionByLocale": {
-        "it": "Durante il vostro apprendistato, scoprirete tutte le attività legate alla professione di cucina all'interno del nostro servizio di ristorazione. Accompagnato da professionisti esperti, svilupperai gradualmente le competenze necessarie per praticare la tua professione futura.\nLe vostre missioni principali saranno le seguenti:\n\n• Seguire il piano di formazione.\n\n• Partecipa alla preparazione e alla produzione di pasti per pazienti, collaboratori e visitatori.\n\n• Applicare le tecniche culinarie insegnate durante l'allenamento.\n\n• Osservare l'igiene, la sicurezza alimentare e le procedure esistenti.\n\n• Collabora con i team di hotel e catering.\n\n• Sviluppa la tua conoscenza professionale e personale durante il tuo apprendimento.\n\n• Sei interessato a cucinare.\n\n• Sei dinamico e motivato.\n\n• Mostra rispetto, cortesia e lavoro di squadra.\n\n• Siete desiderosi di imparare e progredire.\n\n• Hai un livello soddisfacente di istruzione.\n\n• Siete organizzati e coscienziosi nel vostro lavoro.\n\n• Apprezzi il lavoro pratico e gli ambienti dinamici.\n\nDurante il vostro apprendistato, avrete l'opportunità di scoprire diversi campi, gradualmente sviluppare la vostra autonomia e costruire una solida esperienza professionale.\nVi offriamo:\n\n• Una varietà di formazione in istituzioni riconosciute e vicine ai loro pazienti.\n\n• L'opportunità di scoprire il mondo professionale in un ambiente stimolante e in continua evoluzione.\n\n• Supporto personalizzato durante il vostro apprendimento da formatori impegnati e esperti.\n\n• Condizioni che incoraggiano l'apprendimento, l'autonomia progressiva e lo sviluppo delle vostre competenze.\n\n• La possibilità di dare un contributo concreto alla qualità dei servizi offerti alla popolazione della regione.\n\nEntrata in ufficio: agosto 2027\nLuogo di formazione: Moutier Hospital\nUlteriori informazioni possono essere ottenute dal Sig. Alexandre Werren, Responsabile Hotel & Catering presso la Rete Arc al +41 32 494 30 11 o alexandre.werren@reseaudelarc.net.\nLe offerte accompagnate da un curriculum vitae, gli ultimi quattro bollettini scolastici e altri documenti d'uso (compresa una lettera di presentazione) devono essere trasmessi tramite il nostro collegamento Internet allegato.\nTEMPO DI POSTULAZIONE: 31 ottobre 2026\n\nLe istituzioni comunitarie con competenze multidisciplinari nel servizio del paziente, l'ospedale Moutier e l'ospedale St.Imier offrono servizi di qualità nel campo della salute mentale e somatica.\nCon quasi 1.200 dipendenti, gli ospedali e i Medicentri del Réseau de l'Arc forniscono assistenza comunitaria a una popolazione di oltre 50.000 abitanti.\nCome parte del nuovo anno 2027, stiamo cercando il nostro sito Moutier:\nApprendisti",
-        "en": "During your apprenticeship, you will discover all the activities related to the cooking profession within our catering service. Accompanied by experienced professionals, you will gradually develop the skills needed to practice your future profession.\nYour main missions will be as follows:\n\n• Follow the training plan.\n\n• Participate in the preparation and production of meals for patients, collaborators and visitors.\n\n• Apply the culinary techniques taught during training.\n\n• Observe existing hygiene, food safety and procedures.\n\n• Collaborate with the hotel and catering teams.\n\n• Develop your professional and personal knowledge throughout your learning.\n\n• You are interested in cooking.\n\n• You are dynamic and motivated.\n\n• You show respect, courtesy and teamwork.\n\n• You are eager to learn and progress.\n\n• You have a satisfactory level of education.\n\n• You are organized and conscientious in your work.\n\n• You appreciate practical work and dynamic environments.\n\nDuring your apprenticeship, you will have the opportunity to discover different fields, gradually develop your autonomy and build a solid professional experience.\nWe offer you :\n\n• A variety of training in institutions recognized and close to their patients.\n\n• The opportunity to discover the professional world in a stimulating and constantly evolving environment.\n\n• Personalized support throughout your learning by committed and experienced trainers.\n\n• Conditions that encourage learning, progressive autonomy and the development of your skills.\n\n• The possibility of making a concrete contribution to the quality of the services offered to the population of the region.\n\nEntry into office: August 2027\nTraining location: Moutier Hospital\nFurther information can be obtained from Mr. Alexandre Werren, Head of Hotel & Catering at the Arc Network at +41 32 494 30 11 or alexandre.werren@reseaudelarc.net.\nOffers accompanied by a curriculum vitae, the last four school bulletins and other documents of use (including a cover letter) are to be transmitted via our attached Internet link.\nPOSTULATION TIME: 31 October 2026\n\nCommunity-based institutions with multidisciplinary expertise in patient service, Moutier Hospital and St.Imier Hospital offer quality services in the somatic and mental health fields.\nWith nearly 1'200 employees, the hospitals and Medicentres of the Réseau de l'Arc provide community care to a population of more than 50,000 inhabitants.\nAs part of the new year 2027, we are looking for our Moutier site:\nApprentices",
-        "de": "Während Ihrer Ausbildung werden Sie alle Aktivitäten im Zusammenhang mit dem Kochberuf in unserem Catering-Service entdecken. In Begleitung von erfahrenen Fachleuten entwickeln Sie nach und nach die Fähigkeiten, die für die Ausübung Ihres zukünftigen Berufs erforderlich sind.\nIhre wichtigsten Missionen werden wie folgt sein:\n\n• Befolgen Sie den Trainingsplan.\n\n• Beteiligen Sie sich an der Zubereitung und Herstellung von Mahlzeiten für Patienten, Mitarbeiter und Besucher.\n\n• Wenden Sie die während des Trainings gelehrten kulinarischen Techniken an.\n\n• Beobachten Sie bestehende Hygiene, Lebensmittelsicherheit und Verfahren.\n\n• Arbeiten Sie mit dem Hotel- und Cateringteam zusammen.\n\n• Entwickeln Sie Ihr berufliches und persönliches Wissen während Ihres Lernens.\n\n• Sie interessieren sich fürs Kochen.\n\n• Sie sind dynamisch und motiviert.\n\n• Sie zeigen Respekt, Höflichkeit und Teamwork.\n\n• Sie sind begierig darauf, zu lernen und voranzukommen.\n\n• Sie haben ein zufriedenstellendes Bildungsniveau.\n\n• Sie sind organisiert und gewissenhaft in Ihrer Arbeit.\n\n• Sie schätzen praktische Arbeit und dynamische Umgebungen.\n\nWährend Ihrer Ausbildung haben Sie die Möglichkeit, verschiedene Bereiche zu entdecken, Ihre Autonomie schrittweise zu entwickeln und eine solide Berufserfahrung aufzubauen.\nWir bieten Ihnen:\n\n• Eine Vielzahl von Schulungen in Institutionen anerkannt und in der Nähe ihrer Patienten.\n\n• Die Möglichkeit, die professionelle Welt in einer anregenden und sich ständig weiterentwickelnden Umgebung zu entdecken.\n\n• Personalisierte Unterstützung während Ihres gesamten Lernens durch engagierte und erfahrene Trainer.\n\n• Bedingungen, die das Lernen, die fortschreitende Autonomie und die Entwicklung Ihrer Fähigkeiten fördern.\n\n• Die Möglichkeit, einen konkreten Beitrag zur Qualität der Dienstleistungen für die Bevölkerung der Region zu leisten.\n\nAmtsantritt: August 2027\nTrainingsstandort: Moutier Hospital\nWeitere Informationen erhalten Sie bei Herrn Alexandre Werren, Leiter Hotel & Catering bei Arc Network unter +41 32 494 30 11 oder alexandre.werren@reseaudelarc.net.\nAngebote, die von einem Lebenslauf, den letzten vier Schulbulletins und anderen Nutzungsunterlagen (einschließlich Anschreiben) begleitet werden, sind über unseren angeschlossenen Internetlink zu übermitteln.\nPOSTULATIONSZEIT: 31. Oktober 2026\n\nGemeinschaftsbasierte Einrichtungen mit multidisziplinärer Expertise in der Patientenbetreuung, Moutier Hospital und St.Imier Hospital bieten qualitativ hochwertige Dienstleistungen in den Bereichen somatische und psychische Gesundheit.\nMit fast 1'200 Mitarbeitern sorgen die Krankenhäuser und Medicentres des Réseau de l'Arc für eine Gemeindebetreuung von mehr als 50.000 Einwohnern.\nIm Rahmen des neuen Jahres 2027 suchen wir unseren Moutier-Standort:\nAuszubildende",
-        "fr": "Durant votre apprentissage, vous découvrirez l'ensemble des activités liées au métier de cuisinier·ère au sein de notre service de restauration. Accompagné·e par des professionnels expérimentés, vous développerez progressivement les compétences nécessaires à l'exercice de votre future profession.\nVos principales missions seront les suivantes :\n\n• Respecter le plan de formation établi.\n\n• Participer à la préparation et à la réalisation des repas destinés aux patients, collaborateurs et visiteurs.\n\n• Appliquer les techniques culinaires enseignées durant la formation.\n\n• Respecter les normes d'hygiène, de sécurité alimentaire et les procédures en vigueur.\n\n• Collaborer avec les équipes du service Hôtellerie & Restauration.\n\n• Développer vos connaissances professionnelles et personnelles tout au long de votre apprentissage.\n\n• Vous êtes intéressé·e par le métier de cuisinier·ère.\n\n• Vous êtes dynamique et motivé·e.\n\n• Vous faites preuve de respect, de courtoisie et d'esprit d'équipe.\n\n• Vous êtes désireux·se d'apprendre et de progresser.\n\n• Vous possédez un niveau scolaire satisfaisant.\n\n• Vous êtes organisé·e et consciencieux·se dans votre travail.\n\n• Vous appréciez le travail pratique et les environnements dynamiques.\n\nDurant votre apprentissage, vous aurez l'opportunité de découvrir différents domaines, de développer progressivement votre autonomie et de construire une solide expérience professionnelle.\nNous vous offrons :\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de votre apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de vos compétences.\n\n• La possibilité de contribuer concrètement à la qualité des prestations offertes à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Mr Alexandre Werren, Chef de service Hôtellerie & Restauration du Réseau de l’Arc au +41 32 494 30 11 ou alexandre.werren@reseaudelarc.net.\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons pour notre site de Moutier:\nApprenti·e Cuisinier·ère CFC"
-      },
-      "needsRetranslation": false,
-      "location": "Moutier",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147920312-apprenti-e-cuisinier-ere-cfc-moutier",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147920312-apprenti-e-cuisinier-ere-cfc-moutier",
-      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.393Z",
-      "addressLocality": "Moutier",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2740",
-      "streetAddress": "Beausite 49, 2740 Moutier",
-      "category": "Formazione",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-07T12:28:27.592Z",
-      "postedDate": "2026-09-07T12:28:27.592Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:04:05.412Z",
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -745,7 +671,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148695029-apprenti-assc-domaine-psychiatrique-moutier",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.392Z",
+      "crawledAt": "2026-10-14T15:35:04.071Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -789,6 +715,80 @@
       }
     },
     {
+      "id": "hopital-de-moutier-1aeb7ba318e0",
+      "slug": "apprendisti-e-cuochi-hopital-de-moutier-moutier",
+      "slugByLocale": {
+        "it": "apprendisti-e-cuochi-hopital-de-moutier-moutier",
+        "en": "apprentices-and-cooks-hopital-de-moutier-moutier",
+        "de": "auszubildende-und-koche-hopital-de-moutier-moutier",
+        "fr": "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
+      },
+      "company": "Hôpital de Moutier",
+      "companyKey": "hopital-de-moutier",
+      "companyDomain": "swissmedical.net",
+      "title": "Apprenti·e Cuisinier·ère CFC Moutier",
+      "titleByLocale": {
+        "it": "Apprendisti e cuochi",
+        "en": "Apprentices and cooks",
+        "de": "Auszubildende und Köche",
+        "fr": "Apprenti·e Cuisinier·ère CFC Moutier"
+      },
+      "description": "Durant votre apprentissage, vous découvrirez l'ensemble des activités liées au métier de cuisinier·ère au sein de notre service de restauration. Accompagné·e par des professionnels expérimentés, vous développerez progressivement les compétences nécessaires à l'exercice de votre future profession.\nVos principales missions seront les suivantes :\n\n• Respecter le plan de formation établi.\n\n• Participer à la préparation et à la réalisation des repas destinés aux patients, collaborateurs et visiteurs.\n\n• Appliquer les techniques culinaires enseignées durant la formation.\n\n• Respecter les normes d'hygiène, de sécurité alimentaire et les procédures en vigueur.\n\n• Collaborer avec les équipes du service Hôtellerie & Restauration.\n\n• Développer vos connaissances professionnelles et personnelles tout au long de votre apprentissage.\n\n• Vous êtes intéressé·e par le métier de cuisinier·ère.\n\n• Vous êtes dynamique et motivé·e.\n\n• Vous faites preuve de respect, de courtoisie et d'esprit d'équipe.\n\n• Vous êtes désireux·se d'apprendre et de progresser.\n\n• Vous possédez un niveau scolaire satisfaisant.\n\n• Vous êtes organisé·e et consciencieux·se dans votre travail.\n\n• Vous appréciez le travail pratique et les environnements dynamiques.\n\nDurant votre apprentissage, vous aurez l'opportunité de découvrir différents domaines, de développer progressivement votre autonomie et de construire une solide expérience professionnelle.\nNous vous offrons :\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de votre apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de vos compétences.\n\n• La possibilité de contribuer concrètement à la qualité des prestations offertes à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Mr Alexandre Werren, Chef de service Hôtellerie & Restauration du Réseau de l’Arc au +41 32 494 30 11 ou alexandre.werren@reseaudelarc.net.\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons pour notre site de Moutier:\nApprenti·e Cuisinier·ère CFC",
+      "descriptionByLocale": {
+        "it": "Durante il vostro apprendistato, scoprirete tutte le attività legate alla professione di cucina all'interno del nostro servizio di ristorazione. Accompagnato da professionisti esperti, svilupperai gradualmente le competenze necessarie per praticare la tua professione futura.\nLe vostre missioni principali saranno le seguenti:\n\n• Seguire il piano di formazione.\n\n• Partecipa alla preparazione e alla produzione di pasti per pazienti, collaboratori e visitatori.\n\n• Applicare le tecniche culinarie insegnate durante l'allenamento.\n\n• Osservare l'igiene, la sicurezza alimentare e le procedure esistenti.\n\n• Collabora con i team di hotel e catering.\n\n• Sviluppa la tua conoscenza professionale e personale durante il tuo apprendimento.\n\n• Sei interessato a cucinare.\n\n• Sei dinamico e motivato.\n\n• Mostra rispetto, cortesia e lavoro di squadra.\n\n• Siete desiderosi di imparare e progredire.\n\n• Hai un livello soddisfacente di istruzione.\n\n• Siete organizzati e coscienziosi nel vostro lavoro.\n\n• Apprezzi il lavoro pratico e gli ambienti dinamici.\n\nDurante il vostro apprendistato, avrete l'opportunità di scoprire diversi campi, gradualmente sviluppare la vostra autonomia e costruire una solida esperienza professionale.\nVi offriamo:\n\n• Una varietà di formazione in istituzioni riconosciute e vicine ai loro pazienti.\n\n• L'opportunità di scoprire il mondo professionale in un ambiente stimolante e in continua evoluzione.\n\n• Supporto personalizzato durante il vostro apprendimento da formatori impegnati e esperti.\n\n• Condizioni che incoraggiano l'apprendimento, l'autonomia progressiva e lo sviluppo delle vostre competenze.\n\n• La possibilità di dare un contributo concreto alla qualità dei servizi offerti alla popolazione della regione.\n\nEntrata in ufficio: agosto 2027\nLuogo di formazione: Moutier Hospital\nUlteriori informazioni possono essere ottenute dal Sig. Alexandre Werren, Responsabile Hotel & Catering presso la Rete Arc al +41 32 494 30 11 o alexandre.werren@reseaudelarc.net.\nLe offerte accompagnate da un curriculum vitae, gli ultimi quattro bollettini scolastici e altri documenti d'uso (compresa una lettera di presentazione) devono essere trasmessi tramite il nostro collegamento Internet allegato.\nTEMPO DI POSTULAZIONE: 31 ottobre 2026\n\nLe istituzioni comunitarie con competenze multidisciplinari nel servizio del paziente, l'ospedale Moutier e l'ospedale St.Imier offrono servizi di qualità nel campo della salute mentale e somatica.\nCon quasi 1.200 dipendenti, gli ospedali e i Medicentri del Réseau de l'Arc forniscono assistenza comunitaria a una popolazione di oltre 50.000 abitanti.\nCome parte del nuovo anno 2027, stiamo cercando il nostro sito Moutier:\nApprendisti",
+        "en": "During your apprenticeship, you will discover all the activities related to the cooking profession within our catering service. Accompanied by experienced professionals, you will gradually develop the skills needed to practice your future profession.\nYour main missions will be as follows:\n\n• Follow the training plan.\n\n• Participate in the preparation and production of meals for patients, collaborators and visitors.\n\n• Apply the culinary techniques taught during training.\n\n• Observe existing hygiene, food safety and procedures.\n\n• Collaborate with the hotel and catering teams.\n\n• Develop your professional and personal knowledge throughout your learning.\n\n• You are interested in cooking.\n\n• You are dynamic and motivated.\n\n• You show respect, courtesy and teamwork.\n\n• You are eager to learn and progress.\n\n• You have a satisfactory level of education.\n\n• You are organized and conscientious in your work.\n\n• You appreciate practical work and dynamic environments.\n\nDuring your apprenticeship, you will have the opportunity to discover different fields, gradually develop your autonomy and build a solid professional experience.\nWe offer you :\n\n• A variety of training in institutions recognized and close to their patients.\n\n• The opportunity to discover the professional world in a stimulating and constantly evolving environment.\n\n• Personalized support throughout your learning by committed and experienced trainers.\n\n• Conditions that encourage learning, progressive autonomy and the development of your skills.\n\n• The possibility of making a concrete contribution to the quality of the services offered to the population of the region.\n\nEntry into office: August 2027\nTraining location: Moutier Hospital\nFurther information can be obtained from Mr. Alexandre Werren, Head of Hotel & Catering at the Arc Network at +41 32 494 30 11 or alexandre.werren@reseaudelarc.net.\nOffers accompanied by a curriculum vitae, the last four school bulletins and other documents of use (including a cover letter) are to be transmitted via our attached Internet link.\nPOSTULATION TIME: 31 October 2026\n\nCommunity-based institutions with multidisciplinary expertise in patient service, Moutier Hospital and St.Imier Hospital offer quality services in the somatic and mental health fields.\nWith nearly 1'200 employees, the hospitals and Medicentres of the Réseau de l'Arc provide community care to a population of more than 50,000 inhabitants.\nAs part of the new year 2027, we are looking for our Moutier site:\nApprentices",
+        "de": "Während Ihrer Ausbildung werden Sie alle Aktivitäten im Zusammenhang mit dem Kochberuf in unserem Catering-Service entdecken. In Begleitung von erfahrenen Fachleuten entwickeln Sie nach und nach die Fähigkeiten, die für die Ausübung Ihres zukünftigen Berufs erforderlich sind.\nIhre wichtigsten Missionen werden wie folgt sein:\n\n• Befolgen Sie den Trainingsplan.\n\n• Beteiligen Sie sich an der Zubereitung und Herstellung von Mahlzeiten für Patienten, Mitarbeiter und Besucher.\n\n• Wenden Sie die während des Trainings gelehrten kulinarischen Techniken an.\n\n• Beobachten Sie bestehende Hygiene, Lebensmittelsicherheit und Verfahren.\n\n• Arbeiten Sie mit dem Hotel- und Cateringteam zusammen.\n\n• Entwickeln Sie Ihr berufliches und persönliches Wissen während Ihres Lernens.\n\n• Sie interessieren sich fürs Kochen.\n\n• Sie sind dynamisch und motiviert.\n\n• Sie zeigen Respekt, Höflichkeit und Teamwork.\n\n• Sie sind begierig darauf, zu lernen und voranzukommen.\n\n• Sie haben ein zufriedenstellendes Bildungsniveau.\n\n• Sie sind organisiert und gewissenhaft in Ihrer Arbeit.\n\n• Sie schätzen praktische Arbeit und dynamische Umgebungen.\n\nWährend Ihrer Ausbildung haben Sie die Möglichkeit, verschiedene Bereiche zu entdecken, Ihre Autonomie schrittweise zu entwickeln und eine solide Berufserfahrung aufzubauen.\nWir bieten Ihnen:\n\n• Eine Vielzahl von Schulungen in Institutionen anerkannt und in der Nähe ihrer Patienten.\n\n• Die Möglichkeit, die professionelle Welt in einer anregenden und sich ständig weiterentwickelnden Umgebung zu entdecken.\n\n• Personalisierte Unterstützung während Ihres gesamten Lernens durch engagierte und erfahrene Trainer.\n\n• Bedingungen, die das Lernen, die fortschreitende Autonomie und die Entwicklung Ihrer Fähigkeiten fördern.\n\n• Die Möglichkeit, einen konkreten Beitrag zur Qualität der Dienstleistungen für die Bevölkerung der Region zu leisten.\n\nAmtsantritt: August 2027\nTrainingsstandort: Moutier Hospital\nWeitere Informationen erhalten Sie bei Herrn Alexandre Werren, Leiter Hotel & Catering bei Arc Network unter +41 32 494 30 11 oder alexandre.werren@reseaudelarc.net.\nAngebote, die von einem Lebenslauf, den letzten vier Schulbulletins und anderen Nutzungsunterlagen (einschließlich Anschreiben) begleitet werden, sind über unseren angeschlossenen Internetlink zu übermitteln.\nPOSTULATIONSZEIT: 31. Oktober 2026\n\nGemeinschaftsbasierte Einrichtungen mit multidisziplinärer Expertise in der Patientenbetreuung, Moutier Hospital und St.Imier Hospital bieten qualitativ hochwertige Dienstleistungen in den Bereichen somatische und psychische Gesundheit.\nMit fast 1'200 Mitarbeitern sorgen die Krankenhäuser und Medicentres des Réseau de l'Arc für eine Gemeindebetreuung von mehr als 50.000 Einwohnern.\nIm Rahmen des neuen Jahres 2027 suchen wir unseren Moutier-Standort:\nAuszubildende",
+        "fr": "Durant votre apprentissage, vous découvrirez l'ensemble des activités liées au métier de cuisinier·ère au sein de notre service de restauration. Accompagné·e par des professionnels expérimentés, vous développerez progressivement les compétences nécessaires à l'exercice de votre future profession.\nVos principales missions seront les suivantes :\n\n• Respecter le plan de formation établi.\n\n• Participer à la préparation et à la réalisation des repas destinés aux patients, collaborateurs et visiteurs.\n\n• Appliquer les techniques culinaires enseignées durant la formation.\n\n• Respecter les normes d'hygiène, de sécurité alimentaire et les procédures en vigueur.\n\n• Collaborer avec les équipes du service Hôtellerie & Restauration.\n\n• Développer vos connaissances professionnelles et personnelles tout au long de votre apprentissage.\n\n• Vous êtes intéressé·e par le métier de cuisinier·ère.\n\n• Vous êtes dynamique et motivé·e.\n\n• Vous faites preuve de respect, de courtoisie et d'esprit d'équipe.\n\n• Vous êtes désireux·se d'apprendre et de progresser.\n\n• Vous possédez un niveau scolaire satisfaisant.\n\n• Vous êtes organisé·e et consciencieux·se dans votre travail.\n\n• Vous appréciez le travail pratique et les environnements dynamiques.\n\nDurant votre apprentissage, vous aurez l'opportunité de découvrir différents domaines, de développer progressivement votre autonomie et de construire une solide expérience professionnelle.\nNous vous offrons :\n\n• Une formation variée au sein d'établissements reconnus et proches de leurs patients.\n\n• L'opportunité de découvrir le monde professionnel dans un environnement stimulant et en constante évolution.\n\n• Un accompagnement personnalisé tout au long de votre apprentissage par des formateurs engagés et expérimentés.\n\n• Des conditions favorisant l'apprentissage, l'autonomie progressive et le développement de vos compétences.\n\n• La possibilité de contribuer concrètement à la qualité des prestations offertes à la population de la région.\n\nEntrée en fonction: Août 2027\nLieu de formation : Hôpital de Moutier\nDes renseignements complémentaires peuvent être obtenus auprès de Mr Alexandre Werren, Chef de service Hôtellerie & Restauration du Réseau de l’Arc au +41 32 494 30 11 ou alexandre.werren@reseaudelarc.net.\nLes offres accompagnées d’un curriculum vitae, des quatre derniers bulletins scolaires et autres documents d’usage (dont une lettre de motivation) sont à transmettre via notre lien internet ci-joint.\nDÉLAI DE POSTULATION: 31 octobre 2026\n\nÉtablissements de proximité s'appuyant sur des compétences multidisciplinaires au service des patients, l'Hôpital de Moutier et l'Hôpital de Saint-Imier offrent des prestations de qualité dans les domaines somatique et de la santé mentale.\nComptant près de 1'200 collaborateurs, les hôpitaux et les Medicentres du Réseau de l'Arc assurent des soins de proximité à une population de plus de 50'000 habitants.\nDans le cadre de la rentrée 2027, nous recherchons pour notre site de Moutier:\nApprenti·e Cuisinier·ère CFC"
+      },
+      "needsRetranslation": false,
+      "location": "Moutier",
+      "canton": "BE",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147920312-apprenti-e-cuisinier-ere-cfc-moutier",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147920312-apprenti-e-cuisinier-ere-cfc-moutier",
+      "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-14T15:35:04.071Z",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2740",
+      "streetAddress": "Beausite 49, 2740 Moutier",
+      "category": "Formazione",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-07T12:28:27.592Z",
+      "postedDate": "2026-09-07T12:28:27.592Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-cuisinier-ere-cfc-moutier-hopital-de-moutier"
+        ]
+      },
+      "firstSeenAt": "2026-09-07T15:04:05.412Z",
+      "salaryMin": 49500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-de-moutier-3c4d802203b7",
       "slug": "specialista-in-psichiatria-e-psicoterapia-di-addictions-m-f-hopital-de-moutier-moutier",
       "slugByLocale": {
@@ -821,7 +821,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149822950-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.391Z",
+      "crawledAt": "2026-10-14T15:35:04.070Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -909,7 +909,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149596760-chef-fe-de-clinique-",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.390Z",
+      "crawledAt": "2026-10-14T15:35:04.067Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -982,7 +982,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149817369-medecin-adjoint-e-en-anesthesie",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.388Z",
+      "crawledAt": "2026-10-14T15:35:04.065Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1055,7 +1055,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152145649-educateur-social",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.387Z",
+      "crawledAt": "2026-10-14T15:35:04.064Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1100,10 +1100,10 @@
       "id": "hopital-de-moutier-c45b7a47a9fc",
       "slug": "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier-c37a1f90ea",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
         "it": "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier-c37a1f90ea",
         "en": "head-of-clinic-medical-directorate-hopital-de-moutier-moutier",
-        "de": "leiterin-klinik-medizinische-direktion-hopital-de-moutier-moutier"
+        "de": "leiterin-klinik-medizinische-direktion-hopital-de-moutier-moutier",
+        "fr": "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier"
       },
       "company": "Hôpital de Moutier",
       "companyKey": "hopital-de-moutier",
@@ -1122,13 +1122,14 @@
         "de": "Direkt mit dem Medical Director verbunden, haben Sie eine strategische Querschnittsfunktion innerhalb des Arc Network. Als echte Brücke zwischen der Medizinischen Direktion, Ärzten und Gesundheitsteams sind Sie aktiv an der Entwicklung der Versorgungsqualität, der Patientensicherheit und der Umsetzung innovativer institutioneller Projekte beteiligt.\nQualität der Versorgung und Patientensicherheit\n\n• Pilot und Koordination des Arc Network Qualitätsmanagementsystems.\n\n• Entwicklung und Aktualisierung des Patientenqualitätskonzepts, auch für ambulante Aktivitäten.\n\n• Überwachung von Qualitäts- und Sicherheitsindikatoren, einschließlich ANQ-Indikatoren.\n\n• Organisieren Sie interne Audits und unterstützen Sie kontinuierliche Prozessverbesserungen.\n\n• Koordinieren Sie das medizinische Qualitätsteam.\n\nIntegrierte Pflegeentwicklung und Innovation\n\n• Beitrag zur Entwicklung des VIVA Quality System – Arc Network, ein innovatives Modell der integrierten Pflege.\n\n• Entwicklung von Leistungsindikatoren für die Gesundheit der Bevölkerung und die integrierte Versorgung.\n\n• Beteiligen Sie sich an Forschungsprojekten in Zusammenarbeit mit der Universität Basel.\n\n• Unterstützung der Integration innovativer Lösungen, insbesondere in den Bereichen Künstliche Intelligenz und Koordination von Pflegewegen.\n\nUnterstützung der Direktion Medizin\n\n• Beteiligen Sie sich an der Entwicklung und Verbreitung von institutionellen medizinischen Leitlinien.\n\n• Tragen Sie zur Umsetzung von strategischen Projekten wie TARDOC oder TeamSTEPPS bei.\n\n• Unterstützen Sie medizinische Angelegenheiten bei bestimmten Rekrutierungs- und Integrationsaktivitäten von Ärzten.\n\n• Beteiligen Sie sich an der Entwicklung klinischer und medizinisch-ökonomischer Pilotierungsinstrumente.\n\n• Koordinieren Sie die medizinischen Teams, falls erforderlich, in Abwesenheit eines Dienstleiters.\n\n• Arzt mit FMH Grad.\n\n• Mindestens ein Jahr Erfahrung als klinischer Leiter.\n\n• Hohes Interesse an Qualität der Pflege, öffentliche Gesundheit und Organisationsentwicklung.\n\n• Hervorragende Kommunikationsfähigkeiten und die Fähigkeit, multidisziplinäre Teams zu vereinen.\n\n• Autonomie, Organisationssinn und Anpassungsfähigkeit.\n\n• Hohe Diskretion und Vertraulichkeit.\n\n• Eine strategische Funktion im Herzen der Medizinischen Direktion.\n\n• Aktive Teilnahme an innovativen Projekten mit hoher Wirkung für Patienten und medizinische Fachkräfte.\n\n• Eine Anerkennung Position für Post-Graduate Public Health Training.\n\n• Die Möglichkeit der Aufrechterhaltung der klinischen Aktivität durch Vereinbarung.\n\n• Eine flexible Beteiligungsquote zwischen 80 und 100%.\n\n• Kein Sorgerecht.\n\n• Ein günstiges Umfeld für Innovation, Zusammenarbeit und berufliche Entwicklung.\n\nAmtsantritt: noch zu vereinbaren\nTätigkeitsort: alle Standorte des Arc Network - Moutier - St-Imier - Bernese Biel und Jura\n\nAls erstes integriertes Versorgungsnetzwerk der Schweiz ist das Arc Network ein wichtiger Akteur in der koordinierten und gemeindenahen Versorgung im Bereich der somatischen und psychischen Gesundheit. Mit fast 1.300 Mitarbeitern arbeitet er an zwei Krankenhausstandorten in Moutier und Saint-Imier sowie an einem Netzwerk von Medizentren, Krankenwagen, EMS, Radiologie, einem Zentrum für Physiotherapie und kognitive Therapie sowie einem Heimkrankenhaus.\nDas Arc-Netzwerk deckt die medizinischen Bedürfnisse einer Bevölkerung von fast 80.000 Menschen ab und zeichnet sich durch seine Dynamik, hervorragende Infrastruktur und das ständige Bestreben aus, Dienstleistungen von Nähe und Qualität zu entwickeln.\nUm die medizinische Direktion zu stärken, suchen wir:\nLeiterin Klinik, Medizinische Direktion 80-100%",
         "fr": "Rattaché·e directement au Directeur Médical, vous occupez une fonction transversale stratégique au sein du Réseau de l'Arc. Véritable relais entre la Direction Médicale, les médecins et les équipes soignantes, vous participez activement au développement de la qualité des soins, à la sécurité des patients et à la mise en œuvre de projets institutionnels innovants.\nQualité des soins et sécurité des patients\n\n• Piloter et coordonner le système de gestion de la qualité du Réseau de l'Arc.\n\n• Développer et mettre à jour le concept qualité patients, y compris pour les activités ambulatoires.\n\n• Assurer le suivi des indicateurs qualité et sécurité, notamment ceux de l'ANQ.\n\n• Organiser des audits internes et accompagner l'amélioration continue des processus.\n\n• Coordonner l'équipe qualité médico-soignante.\n\nDéveloppement des soins intégrés et innovation\n\n• Contribuer au développement du système qualité de VIVA – Réseau de l'Arc, modèle innovant de soins intégrés.\n\n• Développer des indicateurs de performance en santé populationnelle et soins intégrés.\n\n• Participer à des projets de recherche en collaboration avec l'Université de Bâle.\n\n• Accompagner l'intégration de solutions innovantes, notamment dans les domaines de l'intelligence artificielle et de la coordination des parcours de soins.\n\nSupport à la Direction Médicale\n\n• Participer à l'élaboration et à la diffusion des directives médicales institutionnelles.\n\n• Contribuer à la mise en œuvre de projets stratégiques tels que TARDOC ou TeamSTEPPS.\n\n• Soutenir les Affaires Médicales dans certaines activités de recrutement et d'intégration des médecins.\n\n• Participer au développement d'outils de pilotage clinique et médico-économique.\n\n• Assurer, au besoin, la coordination d'équipes médicales en l'absence d'un·e chef·fe de service.\n\n• Médecin titulaire d'un titre de spécialiste FMH.\n\n• Au moins une année d'expérience en qualité de chef·fe de clinique.\n\n• Intérêt marqué pour la qualité des soins, la santé publique et le développement organisationnel.\n\n• Excellentes capacités de communication et aptitude à fédérer des équipes multidisciplinaires.\n\n• Autonomie, sens de l'organisation et capacité d'adaptation.\n\n• Grande discrétion et respect de la confidentialité.\n\n• Une fonction stratégique au cœur de la Direction Médicale.\n\n• Une participation active à des projets innovants à fort impact pour les patients et les professionnels de santé.\n\n• Un poste en voie de reconnaissance pour la formation postgraduée en santé publique.\n\n• La possibilité de maintenir une activité clinique selon entente.\n\n• Un taux d'activité flexible entre 80 et 100 %.\n\n• Aucun service de garde.\n\n• Un environnement stimulant favorisant l'innovation, la collaboration et le développement professionnel.\n\nEntrée en fonction : à convenir\nLieu d'activité : tous les sites du Réseau de l'Arc - Moutier - St-Imier - Bienne et Jura Bernois\n\nPremier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile.\nLe Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité.\nAfin de renforcer sa Direction Médicale, nous recherchons un·e :\nChef·fe de clinique à la Direction Médicale 80-100%"
       },
+      "needsRetranslation": false,
       "location": "Moutier",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155432045-chef-fe-de-clinique-a-la-direction-medicale",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155432045-chef-fe-de-clinique-a-la-direction-medicale",
       "source": "Hôpital de Moutier Dedicated Parser (SMN clinic=MZB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:18:08.384Z",
+      "crawledAt": "2026-10-14T15:35:04.061Z",
       "addressLocality": "Moutier",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1146,16 +1147,17 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
+        "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
           "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier"
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
-        "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier"
-      ],
+      "firstSeenAt": "2026-09-16T23:42:14.291Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1168,12 +1170,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-16T23:42:14.291Z"
+      }
     },
     {
       "id": "hopital-de-moutier-88333c3df67f",
-      "slug": "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier-59806ef47b",
+      "slug": "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier",
       "slugByLocale": {
         "it": "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier",
         "en": "head-of-clinic-medical-directorate-hopital-de-moutier-moutier",
@@ -1223,11 +1224,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier"
+        "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
+        "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier-59806ef47b"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier"
+          "chef-fe-de-clinique-a-la-direction-medicale-hopital-de-moutier",
+          "responsabile-clinica-direzione-medica-hopital-de-moutier-moutier-59806ef47b"
         ]
       },
       "firstSeenAt": "2026-09-16T23:42:14.291Z",
@@ -1244,7 +1247,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
