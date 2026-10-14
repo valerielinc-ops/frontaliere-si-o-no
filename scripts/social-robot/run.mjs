@@ -48,7 +48,7 @@ import { existsSync, readFileSync, realpathSync, renameSync, writeFileSync, mkdi
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
   collectInstagramBrowserSnapshots,
   mergeInstagramBrowserSnapshots,
@@ -232,6 +232,10 @@ async function main() {
         reportIssue: ({ title, description, labels }) => {
           process.env.GH_REPO ||= SITE_REPO;
           return createGithubIssue({ title, description, priority: 2, labels, workflow: 'social-robot (Mac host)' });
+        },
+        resolveIssue: ({ title }) => {
+          process.env.GH_REPO ||= SITE_REPO;
+          return resolveGithubIssue(title, { workflow: 'social-robot (Mac host)', exactTitle: true });
         },
       });
       let community = null;

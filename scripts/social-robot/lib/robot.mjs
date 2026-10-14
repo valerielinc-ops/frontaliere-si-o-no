@@ -232,6 +232,10 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {(channel: string, entry: object, files: string[], opts: { dryRun: boolean, human: object, diagnosticsDir: string, video?: object }) => Promise<{status: string, evidence?: string}>} deps.publishWith
  * @param {(args: object) => Promise<{ok: boolean, reason?: string}>} deps.dispatchConfirm
  * @param {(args: { title: string, description: string, labels: string[] }) => Promise<unknown>} deps.reportIssue
+ * @param {(args: { title: string, channel: string, queueId: string }) => unknown} [deps.resolveIssue]
+ *   Closes the platform's open failure issue after a REAL publish (never after a
+ *   dry run): reportIssue reopens the same stable title, so without this the
+ *   issue stayed open for days after the platform had recovered (#11755, #11754).
  * @param {(channel: string, entry: object|null, at: number) => string} deps.diagnosticsFor
  * @param {boolean} [deps.repeatDryRun]  false for an unattended run: one dry run per queue entry
  * @param {Pick<Console, 'log'|'warn'|'error'>} [deps.log]
@@ -250,6 +254,7 @@ export async function runRobot(deps) {
     publishWith,
     dispatchConfirm,
     reportIssue,
+    resolveIssue,
     diagnosticsFor,
     repeatDryRun = true,
     log = console,
@@ -296,6 +301,7 @@ export async function runRobot(deps) {
   journalStore.save(journal);
 
   let acted = false;
+  const resolvedChannels = new Set();
   for (const channel of platforms) {
     const at = now();
     const paused = pausedUntil(journal, channel, at);
@@ -378,6 +384,14 @@ export async function runRobot(deps) {
           if (dispatched.ok) attempt.confirmDispatchedAt = new Date(now()).toISOString();
           journalStore.save(journal);
           log.log(`✅ ${channel}: published ${entry.id} (${attempt.evidence})${dispatched.ok ? '' : ` — confirm dispatch failed, retried next run: ${dispatched.reason}`}`);
+          if (resolveIssue && !resolvedChannels.has(channel)) {
+            resolvedChannels.add(channel);
+            try {
+              await resolveIssue({ title: issueTitleFor(channel), channel, queueId: entry.id });
+            } catch (issueErr) {
+              log.warn(`⚠️  could not close the ${channel} issue: ${issueErr.message}`);
+            }
+          }
           results.push({
             channel,
             outcome: 'published',
