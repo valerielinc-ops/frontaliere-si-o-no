@@ -15292,10 +15292,10 @@
         "fr": "conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
-        "en": "/en/find-jobs-ticino/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
-        "de": "/de/jobs-im-tessin/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
-        "fr": "/fr/trouver-emploi-tessin/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz"
+        "it": "/cerca-lavoro-grigioni/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
+        "en": "/en/find-jobs-graubunden/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
+        "de": "/de/jobs-in-graubunden/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz",
+        "fr": "/fr/trouver-emploi-grisons/conseiller-de-vente-x-id-1-service-externe-localsearch-graubunden-schweiz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -15674,6 +15674,64 @@
         "en": "/en/find-jobs-ticino/console-assicuravo-per-il-luganese-axa-svizzera-axa",
         "de": "/de/jobs-im-tessin/console-assicuravo-per-il-luganese-axa-svizzera-axa",
         "fr": "/fr/trouver-emploi-tessin/console-assicuravo-per-il-luganese-axa-svizzera-axa"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso/"
+      },
+      "queries": [
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lavoro ticino negli ultimi 3 giorni",
+      "title": "Consolidation statutory reporting specialiste italian speaking",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "en": "consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "de": "consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "fr": "consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "en": "/en/find-jobs-ticino/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "de": "/de/jobs-im-tessin/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso",
+        "fr": "/fr/trouver-emploi-tessin/consolidation-statutory-reporting-specialiste-italian-speaking-lastminute-com-chiasso"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18696,10 +18754,10 @@
         "fr": "data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "en": "/en/find-jobs-zug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "de": "/de/jobs-in-zug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "fr": "/fr/trouver-emploi-zoug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
+        "it": "/cerca-lavoro-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "en": "/en/find-jobs-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "de": "/de/jobs-in-der-waadt/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "fr": "/fr/trouver-emploi-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24106,7 +24164,7 @@
         {
           "query": "i am a mechanical engineer and i am looking for a job in the swiss german-speaking part of switzerland",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "engineering jobs",
@@ -24159,6 +24217,21 @@
           "impressions": 1
         },
         {
+          "query": "engineering schweiz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "i am a mechanical engineer and i want roles in switzerland in winterthur with english speaking projects relocation support and permanent contracts",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "i am searching for engineering jobs in switzerland",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "\"medacta\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
           "clicks": 0,
           "impressions": 1
@@ -24182,24 +24255,9 @@
           "query": "dove mandare il curriculum",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "e in ticino?",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "efg bank ag mobile apps",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "engenharia de producao",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 64,
+      "totalImpressions": 68,
       "totalClicks": 3,
       "topQuery": "find a job as an electrician in the canton of vaud",
       "title": "Engineers",
@@ -37187,10 +37245,10 @@
         "fr": "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
-        "en": "/en/find-jobs-st-gallen/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
-        "de": "/de/jobs-in-st-gallen/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
-        "fr": "/fr/trouver-emploi-saint-gall/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18"
+        "it": "/cerca-lavoro-zugo/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
+        "en": "/en/find-jobs-zug/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
+        "de": "/de/jobs-in-zug/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18",
+        "fr": "/fr/trouver-emploi-zoug/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-18"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39508,10 +39566,10 @@
         "it": "macellaio-specialista-della-carne-coop-genossenschaft-plaffeien"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
-        "en": "/en/find-jobs-zurich/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
+        "it": "/cerca-lavoro-zugo/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
+        "en": "/en/find-jobs-zug/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
         "de": "/de/jobs-im-zurich/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien",
-        "fr": "/fr/trouver-emploi-zurich/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien"
+        "fr": "/fr/trouver-emploi-zoug/macellaio-specialista-della-carne-coop-genossenschaft-plaffeien"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50168,10 +50226,10 @@
         "fr": "projektleiter-in-elektroplanung-alle-bkw-ch-3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/projektleiter-in-elektroplanung-alle-bkw-ch-3",
-        "en": "/en/find-jobs-aargau/projektleiter-in-elektroplanung-alle-bkw-ch-3",
-        "de": "/de/jobs-im-aargau/projektleiter-in-elektroplanung-alle-bkw-ch-3",
-        "fr": "/fr/trouver-emploi-argovie/projektleiter-in-elektroplanung-alle-bkw-ch-3"
+        "it": "/cerca-lavoro-vallese/projektleiter-in-elektroplanung-alle-bkw-ch-3",
+        "en": "/en/find-jobs-valais/projektleiter-in-elektroplanung-alle-bkw-ch-3",
+        "de": "/de/jobs-im-wallis/projektleiter-in-elektroplanung-alle-bkw-ch-3",
+        "fr": "/fr/trouver-emploi-valais/projektleiter-in-elektroplanung-alle-bkw-ch-3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71646,10 +71704,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "en": "/en/find-jobs-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "de": "/de/jobs-in-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
+        "it": "/cerca-lavoro-lucerna/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "en": "/en/find-jobs-lucerne/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "de": "/de/jobs-in-luzern/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "fr": "/fr/trouver-emploi-lucerne/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73828,10 +73886,10 @@
         "fr": "vendeur-produits-frais-coop-genossenschaft-niederrohrdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "en": "/en/find-jobs-aargau/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "de": "/de/jobs-im-aargau/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "fr": "/fr/trouver-emploi-argovie/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf"
+        "it": "/cerca-lavoro-basilea/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "en": "/en/find-jobs-basel/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "de": "/de/jobs-in-basel/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "fr": "/fr/trouver-emploi-bale/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76286,10 +76344,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-monchaltorf",
-        "en": "verkaufer-in-food-coop-genossenschaft-monchaltorf",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-monchaltorf",
+        "en": "seller-food-coop-genossenschaft-monchaltorf",
         "de": "verkaufer-in-food-coop-genossenschaft-monchaltorf",
-        "fr": "verkaufer-in-food-coop-genossenschaft-monchaltorf"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-monchaltorf"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-food-coop-genossenschaft-monchaltorf",
@@ -76303,6 +76361,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -76718,10 +76777,10 @@
         "fr": "verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
-        "en": "/en/find-jobs-aargau/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
+        "it": "/cerca-lavoro-svitto/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
+        "en": "/en/find-jobs-schwyz/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
         "de": "/de/jobs-im-bern/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
-        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
+        "fr": "/fr/trouver-emploi-schwytz/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -54,6 +54,17 @@ describe('TARGET_PAGES', () => {
     expect(mappa!.cls).toBe(0.25);
     expect(mappa!.inp).toBe(500);
   });
+
+  it('tracks the canonical Brogeda page, not its retired redirect bridge', () => {
+    expect(TARGET_PAGES.some((page) =>
+      page.path === '/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/',
+    )).toBe(false);
+    expect(TARGET_PAGES).toContainEqual({
+      key: 'traffico_chiasso_brogeda_oggi',
+      path: '/traffico-dogane/chiasso-brogeda/oggi/',
+      cls: 0.25,
+    });
+  });
 });
 
 describe('evaluateConsecutiveRegression', () => {
