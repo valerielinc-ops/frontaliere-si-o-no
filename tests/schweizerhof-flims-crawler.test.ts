@@ -1,15 +1,58 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   SCHWEIZERHOF_FLIMS_KEY,
   SCHWEIZERHOF_FLIMS_COMPANY_NAME,
+  extractSchweizerhofFlimsDetailFields,
   isSchweizerhofFlimsJob,
   isTrustedDomain,
 } from '../scripts/lib/schweizerhof-flims-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  loadSpec,
+  runSpecInProduction,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 describe('Schweizerhof crawler parser', () => {
+  it('keeps a real HCM4all vacancy when tenant identity is in the job-body heading', async () => {
+    const seed = 'https://romantik.example/list/?l=de';
+    const detailUrl = 'https://romantik.example/list/19839';
+    const detailHtml = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'schweizerhof-flims', 'detail-tenant-heading.html'),
+      'utf8',
+    );
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(`<a href="${detailUrl}">Portier Housekeeping</a>`);
+      if (url === detailUrl) return new Response(detailHtml);
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims',
+      companyName: 'Schweizerhof',
+      companyHost: 'romantik.example',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/list/*',
+      detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof',
+    } as any, {
+      fetchImpl,
+      detailExtractor: extractSchweizerhofFlimsDetailFields,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+    });
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({ title: 'Portier Housekeeping (m/w/d)', location: 'Flims, Graubünden' });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(SCHWEIZERHOF_FLIMS_KEY).toBe('schweizerhof-flims');
@@ -91,7 +134,7 @@ describe('Schweizerhof crawler parser', () => {
     expect(spec.seedUrls).toEqual(['https://romantikhotels.hcm4all.de/list/?l=de']);
     expect(spec.detailTemplate).toBe('/list/*');
     expect(spec.listingCandidateText).toBeUndefined();
-    expect(spec.detailCandidateText).toBe('Schweizerhof Flims');
+    expect(spec.detailCandidateText).toBe('Schweizerhof');
     expect(spec.rescueOnEmptyListing).toBe(true);
   });
 

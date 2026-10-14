@@ -15,12 +15,15 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import {
   fetchHtmlViaBrowser,
   loadSpec,
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -138,6 +141,53 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * Read the source-owned tenant heading from the HCM4all job body.
+ *
+ * The current portal places the target identity in a vacancy-body heading
+ * (`main > section > h2`), while the generic structured payload carries the
+ * same employer text inside the description and contact block. The old
+ * `Schweizerhof Flims` discriminator therefore depended on incidental contact
+ * text and made the 25 unrelated tenant details look like a broken snapshot.
+ * Keep the selector scoped to the JobPosting body/main; never use email,
+ * phone, footer or whole-page first-match text as tenant evidence.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function extractSchweizerhofTenantHeading(html = '') {
+  const source = String(html || '');
+  const jobBody = scanStartTags(source, 'div').find(({ raw }) =>
+    /\bjob-ad-body\b/i.test(readAttr(raw, 'class')),
+  );
+  if (!jobBody) return '';
+
+  const body = extractBalancedTagBlock(source.slice(jobBody.end), 'div');
+  const main = /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(body)?.[1] || '';
+  const headings = [...main.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)]
+    .map((match) => stripHtml(match[1]).replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  return headings.find((heading) => /\bschweizerhof\b/i.test(heading)) || '';
+}
+
+/**
+ * Add the source-scoped tenant heading to the shared detail evidence.
+ *
+ * @param {string} html
+ * @param {string} url
+ * @param {{ recordUrl?: string }} [opts]
+ * @returns {Record<string, any>}
+ */
+export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts = {}) {
+  const detail = extractRuntimeDetailFields({}, html, url, { recordUrl: opts.recordUrl });
+  const heading = extractSchweizerhofTenantHeading(html);
+  if (!heading) return detail;
+  return {
+    ...detail,
+    workplaceLabels: [...(detail.workplaceLabels || []), heading],
+  };
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -147,7 +197,10 @@ async function fetchJobListings() {
   // HCM4all can return the listing shell without rendered vacancy links to the
   // CI egress. Keep the shared direct/Jina path first, then let the browser
   // rescue render the same public index before the detail tenant filter runs.
-  return runSpecInProduction(spec, { browserFetchImpl: fetchHtmlViaBrowser });
+  return runSpecInProduction(spec, {
+    browserFetchImpl: fetchHtmlViaBrowser,
+    detailExtractor: extractSchweizerhofFlimsDetailFields,
+  });
 }
 
 /**
