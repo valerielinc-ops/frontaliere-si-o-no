@@ -26,6 +26,7 @@ const MANIFEST_KEYS = [
   'category',
   'company_key',
   'job_id',
+  'newness_score',
   'position',
   'ranking_score',
   'relevance_score',
