@@ -23,8 +23,9 @@ import { realpathSync } from 'node:fs';
  *   5. PERIMETRO    — le quattro giurisdizioni CH-TI/IT-CO/IT-VA/IT-VB, con
  *                    record, freschezza, record fuori area, collisioni e
  *                    provenance dei campi secondari.
- *   6. ORIZZONTE IT — per le province required, una release fresh deve avere
- *                    un ultimo turno verificato oltre la soglia minima.
+ *   6. ORIZZONTE IT — per le province required, una release non fresh è un
+ *                    problema; una release fresh deve avere un ultimo turno
+ *                    verificato oltre la soglia minima.
  *
  * NON pubblica nulla e non tocca pagine: è un osservatore interno. I dataset
  * dei turni arrivano da `data/pharmacy-duties-<canton>.json`, oppure dal
@@ -344,25 +345,36 @@ function requiredItalyDutyProvinces(sources) {
     : sources && typeof sources === 'object' && Array.isArray(sources.sources)
       ? sources.sources
       : [];
-  const scope = sources && typeof sources === 'object' && Array.isArray(sources.scope?.provinces)
+  const configuredScope = sources && typeof sources === 'object' && Array.isArray(sources.scope?.provinces)
     ? sources.scope.provinces
-    : rawSources.map((source) => source?.province);
+    : [];
+  const normalizedConfiguredScope = [...new Set(configuredScope
+    .filter((province) => typeof province === 'string')
+    .map((province) => province.toUpperCase()))];
+  // Uno scope assente, vuoto o con codici non riconosciuti non può restringere
+  // il controllo: il perimetro canonico resta required finché il registry non
+  // dichiara esplicitamente una provincia `best-effort`.
+  const scope = normalizedConfiguredScope.length > 0
+    && normalizedConfiguredScope.every((province) => BORDER_ITALY_PROVINCES.has(province))
+    ? normalizedConfiguredScope
+    : [...BORDER_ITALY_PROVINCES];
   const byProvince = new Map(rawSources
     .filter((source) => source && typeof source.province === 'string')
     .map((source) => [source.province.toUpperCase(), source]));
-  return [...new Set(scope
-    .filter((province) => typeof province === 'string')
-    .map((province) => province.toUpperCase()))]
-    .filter((province) => byProvince.get(province)?.publication !== 'best-effort');
+  return scope.filter((province) => {
+    // Voce assente o publication malformata = required; solo l'esenzione
+    // esplicita può togliere una provincia dall'orizzonte osservato.
+    return byProvince.get(province)?.publication !== 'best-effort';
+  });
 }
 
 /**
  * Osserva l'orizzonte del calendario italiano senza confondere i buchi
  * legittimi fra due turni con un dato scaduto. La classe `required` arriva dal
  * registry della fonte: una classe assente resta required, come nella logica
- * di pubblicazione della SPA e dell'importer. Una release già stale/partial ha
- * già il proprio segnale di stato: l'orizzonte aggiunge il controllo solo alle
- * release `fresh`.
+ * di pubblicazione della SPA e dell'importer. Una release non `fresh` genera
+ * un problema per ogni provincia required; una release `fresh` viene poi
+ * verificata anche sull'orizzonte del calendario.
  */
 export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_REQUIRED_DUTY_HORIZON_DAYS } = {}) {
   const snapshot = duties && typeof duties === 'object' && !Array.isArray(duties) ? duties : {};
@@ -387,7 +399,9 @@ export function observeItalyDutyHorizon({ duties, sources, horizonDays = ITALY_R
       ? (latest.endsAtMs - fetchedAtMs) / 86400e3
       : null;
     const problems = [];
-    if (releaseState === 'fresh') {
+    if (releaseState !== 'fresh') {
+      problems.push(`${province}: release ${releaseState ?? 'unknown'} non fresca`);
+    } else {
       if (verifiedRows.length === 0) {
         problems.push(`${province}: release fresh senza turni verificati`);
       } else if (!Number.isFinite(fetchedAtMs)) {

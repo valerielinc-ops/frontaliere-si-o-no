@@ -258,6 +258,57 @@ describe('observeItalyDutyHorizon', () => {
       healthy: false,
     });
   });
+
+  it('treats a scoped province missing from the source registry as required', () => {
+    const observed = observeItalyDutyHorizon({
+      duties: release([]),
+      sources: { scope: { country: 'IT', provinces: ['CO'] }, sources: [] },
+    });
+
+    expect(observed.problems).toContain('CO: release fresh senza turni verificati');
+    expect(observed.entries).toMatchObject([{ province: 'CO', healthy: false }]);
+  });
+
+  it('falls back to the canonical Italy scope when the source registry has no usable scope', () => {
+    const observed = observeItalyDutyHorizon({ duties: release([]), sources: { sources: [] } });
+
+    expect(observed.entries.map((entry) => entry.province)).toEqual(['CO', 'VA', 'VB']);
+    expect(observed.problems).toEqual([
+      'CO: release fresh senza turni verificati',
+      'VA: release fresh senza turni verificati',
+      'VB: release fresh senza turni verificati',
+    ]);
+  });
+
+  it('makes the monitor unhealthy for every required province in a stale release', () => {
+    const report = buildReport({
+      registry: { sources: {} },
+      border: {
+        sources: { sources: [] },
+        ticino: { _fetchedAt: '2026-10-14T00:00:00Z', pharmacies: [] },
+        italy: { _fetchedAt: '2026-10-14T00:00:00Z', pharmacies: [] },
+        duties: { duties: [] },
+        italyDuties: {
+          _release: { state: 'stale' },
+          _fetchedAt: '2026-10-14T00:00:00Z',
+          duties: [{ province: 'CO', status: 'verified', endsAt: '2027-01-01T00:00:00Z' }],
+        },
+        italySources: {
+          scope: { country: 'IT', provinces: ['CO', 'VA'] },
+          sources: [
+            { province: 'CO', publication: 'required' },
+            { province: 'VA', publication: 'required' },
+          ],
+        },
+      },
+    });
+
+    expect(report.healthy).toBe(false);
+    expect(report.problems.filter((problem) => problem.startsWith('orizzonte turni Italia:'))).toEqual([
+      'orizzonte turni Italia: CO: release stale non fresca',
+      'orizzonte turni Italia: VA: release stale non fresca',
+    ]);
+  });
 });
 
 // Derived from the same nightly snapshot the monitor reads (see the comment
