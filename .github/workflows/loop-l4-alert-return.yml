@@ -138,8 +138,29 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.sha }}
+          L4_EXPORT_PERIMETER: |
+            .github/workflows/loop-l4-alert-return.yml
+            data/alert-config.json
+            data/alert-snoozes.json
+            functions/src/emailI18n.js
+            functions/src/jobAlertBackfillCore.js
+            functions/src/lib/cantonUrlSlugs.json
+            functions/src/lib/emailSuppression.js
+            functions/src/lib/jobBoardUrlCanton.js
+            functions/src/lib/newsletterOptOut.js
+            functions/src/lib/subscriberConsent.js
+            functions/src/lib/subscriberLocale.js
+            functions/src/lib/subscriberPersonalization.js
+            scripts/ci/export-loop-outcomes.mjs
+            scripts/lib/analytics-settled-window.mjs
+            scripts/lib/ga4-service-account.mjs
         run: |
           set -euo pipefail
+          safe_live_path() {
+            echo 'run_export=true' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=true' >> "$GITHUB_OUTPUT"
+            echo "::notice::L4 percorso live prudente: impossibile determinare i path cambiati ($1); eseguo export e audit"
+          }
           if [ "$EVENT_NAME" = 'pull_request' ]; then
             echo 'run_export=false' >> "$GITHUB_OUTPUT"
             echo 'run_audit=true' >> "$GITHUB_OUTPUT"
@@ -152,12 +173,21 @@ jobs:
           fi
 
           if [ -z "${BEFORE_SHA:-}" ] || [ "$BEFORE_SHA" = '0000000000000000000000000000000000000000' ]; then
-            changed_paths=$(git diff-tree --root --no-commit-id --name-only -r "$AFTER_SHA")
+            if ! changed_paths=$(git diff-tree --root --no-commit-id --name-only -r "$AFTER_SHA"); then
+              safe_live_path 'il diff del commit iniziale ha fallito'
+              exit 0
+            fi
           else
-            git fetch --no-tags --depth=1 origin "$BEFORE_SHA"
-            changed_paths=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA")
+            if ! git fetch --no-tags --depth=1 origin "$BEFORE_SHA"; then
+              safe_live_path 'il fetch del commit precedente ha fallito'
+              exit 0
+            fi
+            if ! changed_paths=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA"); then
+              safe_live_path 'il diff tra commit non ha potuto essere calcolato'
+              exit 0
+            fi
           fi
-          if printf '%s\n' "$changed_paths" | grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs' -e '.github/workflows/loop-l4-alert-return.yml' >/dev/null; then
+          if printf '%s\n' "$changed_paths" | grep -F -x -f <(printf '%s\n' "$L4_EXPORT_PERIMETER") >/dev/null; then
             echo 'run_export=true' >> "$GITHUB_OUTPUT"
             echo 'run_audit=true' >> "$GITHUB_OUTPUT"
           else

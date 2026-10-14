@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -133,6 +134,89 @@ function workflowSteps() {
   };
 }
 
+function resolveLocalImport(from: string, specifier: string) {
+  const base = path.posix.normalize(path.posix.join(path.posix.dirname(from), specifier));
+  for (const candidate of [base, `${base}.mjs`, `${base}.js`, `${base}.cjs`, `${base}.json`]) {
+    if (fs.existsSync(path.resolve(candidate))) return candidate;
+  }
+  throw new Error(`Import locale irrisolvibile: ${from} -> ${specifier}`);
+}
+
+function relativeImportClosure(entry: string) {
+  const localImport = /(?:\bfrom\s*|\bimport\s*(?:\(\s*)?|\brequire\s*\(\s*)['"](\.{1,2}\/[^'"]+)['"]/gu;
+  const seen = new Set<string>();
+  const pending = [entry];
+  while (pending.length > 0) {
+    const file = pending.pop() as string;
+    if (seen.has(file)) continue;
+    seen.add(file);
+    const source = fs.readFileSync(path.resolve(file), 'utf8');
+    for (const match of source.matchAll(localImport)) {
+      const target = resolveLocalImport(file, match[1]);
+      if (!seen.has(target)) pending.push(target);
+    }
+  }
+  return seen;
+}
+
+function exportPerimeter(scope: Record<string, any>) {
+  const value = scope.env?.L4_EXPORT_PERIMETER;
+  expect(typeof value).toBe('string');
+  return new Set(String(value).split('\n').map((file) => file.trim()).filter(Boolean));
+}
+
+function runScopeStep({
+  changedPaths,
+  fetchExit = 0,
+  diffExit = 0,
+  diffTreeExit = 0,
+}: {
+  changedPaths: string[];
+  fetchExit?: number;
+  diffExit?: number;
+  diffTreeExit?: number;
+}) {
+  const { scope } = workflowSteps();
+  expect(scope?.run).toBeTruthy();
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-scope-test-'));
+  const bin = path.join(directory, 'bin');
+  const outputPath = path.join(directory, 'github-output');
+  fs.mkdirSync(bin);
+  fs.writeFileSync(path.join(bin, 'git'), [
+    '#!/usr/bin/env bash',
+    'case "$1" in',
+    '  fetch) exit "${GIT_FETCH_EXIT:-0}" ;;',
+    '  diff) if [ "${GIT_DIFF_EXIT:-0}" -ne 0 ]; then exit "$GIT_DIFF_EXIT"; fi; printf "%s\\n" "$GIT_CHANGED_PATHS" ;;',
+    '  diff-tree) if [ "${GIT_DIFF_TREE_EXIT:-0}" -ne 0 ]; then exit "$GIT_DIFF_TREE_EXIT"; fi; printf "%s\\n" "$GIT_CHANGED_PATHS" ;;',
+    '  *) exit 0 ;;',
+    'esac',
+    '',
+  ].join('\n'), { mode: 0o755 });
+  try {
+    const stdout = execFileSync('bash', ['--noprofile', '--norc', '-e', '-c', scope?.run ?? 'false'], {
+      cwd: directory,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${bin}${path.delimiter}${process.env.PATH ?? ''}`,
+        EVENT_NAME: 'push',
+        BEFORE_SHA: 'before-sha',
+        AFTER_SHA: 'after-sha',
+        GITHUB_OUTPUT: outputPath,
+        L4_EXPORT_PERIMETER: scope?.env?.L4_EXPORT_PERIMETER ?? '',
+        GIT_CHANGED_PATHS: changedPaths.join('\n'),
+        GIT_FETCH_EXIT: String(fetchExit),
+        GIT_DIFF_EXIT: String(diffExit),
+        GIT_DIFF_TREE_EXIT: String(diffTreeExit),
+      },
+    });
+    const outputs = Object.fromEntries(fs.readFileSync(outputPath, 'utf8').trim().split('\n').map((line) => line.split('=')));
+    return { outputs, stdout };
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+}
+
 describe('L4: query Firestore', () => {
   it('mantiene il JSON e le query dell\'export con righe fuori finestra escluse', async () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-export-test-'));
@@ -169,24 +253,66 @@ describe('L4: query Firestore', () => {
 });
 
 describe('L4: perimetro del workflow', () => {
-  it('salta export, audit ed evidenza quando git non trova i due file decisivi', () => {
-    const { scope, exporter, audit, evidence, upload } = workflowSteps();
-    expect(scope?.run).toContain('git diff --name-only');
-    expect(scope?.run).toContain("scripts/ci/export-loop-outcomes.mjs");
-    expect(scope?.run).toContain(".github/workflows/loop-l4-alert-return.yml");
-    expect(scope?.run).toContain("echo 'run_export=false'");
-    expect(scope?.run).toContain("echo 'run_audit=false'");
+  it('mantiene in un unico elenco il perimetro dell\'export e la sua chiusura locale', () => {
+    const { workflow, scope } = workflowSteps();
+    const perimeter = exportPerimeter(scope);
+    const exporter = 'scripts/ci/export-loop-outcomes.mjs';
+    const closure = relativeImportClosure(exporter);
+    const expected = new Set([
+      ...closure,
+      '.github/workflows/loop-l4-alert-return.yml',
+      'data/alert-config.json',
+      'data/alert-snoozes.json',
+    ]);
+
+    expect(perimeter).toEqual(expected);
+    for (const file of closure) expect(perimeter.has(file), file).toBe(true);
+    for (const file of perimeter) {
+      expect(workflow.on.push.paths, `push path ${file}`).toContain(file);
+      expect(workflow.on.pull_request.paths, `pull_request path ${file}`).toContain(file);
+      const sparse = workflow.jobs.audit.steps.find((step: Record<string, any>) => step.name === 'Checkout alert inputs')?.with?.['sparse-checkout'] ?? '';
+      expect(sparse, `sparse path ${file}`).toContain(`/${file}`);
+    }
+    expect(scope?.run).toContain('L4_EXPORT_PERIMETER');
+    expect(scope?.run).not.toContain("grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs'");
+  });
+
+  it('mantiene il percorso live solo quando il push tocca il perimetro dell\'export', () => {
+    const { exporter, audit, evidence, upload } = workflowSteps();
+    const targetPaths = [
+      'data/alert-config.json',
+      'data/alert-snoozes.json',
+      'scripts/lib/ga4-service-account.mjs',
+    ];
+    for (const changedPath of targetPaths) {
+      expect(runScopeStep({ changedPaths: [changedPath] }).outputs, changedPath).toMatchObject({
+        run_export: 'true',
+        run_audit: 'true',
+      });
+    }
+    expect(runScopeStep({ changedPaths: ['scripts/send-job-alerts.mjs'] }).outputs).toMatchObject({
+      run_export: 'false',
+      run_audit: 'false',
+    });
     expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
     expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
   });
 
-  it('mantiene il percorso live quando il push tocca export o workflow', () => {
+  it('sceglie il percorso live prudente se fetch o diff non sono disponibili', () => {
+    for (const options of [{ fetchExit: 1 }, { diffExit: 1 }]) {
+      const result = runScopeStep({ changedPaths: [], ...options });
+      expect(result.outputs).toMatchObject({ run_export: 'true', run_audit: 'true' });
+      expect(result.stdout).toContain('::notice::L4 percorso live prudente');
+    }
+  });
+
+  it('mantiene i gate downstream agganciati alle decisioni dello scope', () => {
     const { scope, exporter, audit, evidence, upload } = workflowSteps();
-    expect(scope?.run).toContain("grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs' -e '.github/workflows/loop-l4-alert-return.yml'");
-    expect(scope?.run).toContain("echo 'run_export=true'");
-    expect(scope?.run).toContain("echo 'run_audit=true'");
+    expect(scope?.run).toContain('git diff --name-only');
+    expect(scope?.run).toContain("echo 'run_export=false'");
+    expect(scope?.run).toContain("echo 'run_audit=false'");
     expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
     expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
