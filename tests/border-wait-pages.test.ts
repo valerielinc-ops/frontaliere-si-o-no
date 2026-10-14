@@ -45,6 +45,7 @@ import {
   type BorderWaitHistoryDay,
 } from '../build-plugins/borderWaitPagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 import { MAX_HTML_BYTES } from '../scripts/audit-page-weight.mjs';
 
 const BORDER_WAIT_WIDGET_SOURCE = readFileSync(
@@ -602,5 +603,42 @@ describe('borderWaitPagesPlugin — archives', () => {
     expect(Object.keys(archives).length).toBe(4 * TOP_5_CROSSINGS.length);
     expect(archives['/traffico-dogane/chiasso-brogeda/2026-03/']).toBeDefined();
     expect(archives['/traffico-dogane/chiasso-brogeda/2026-04/']).toBeUndefined();
+  });
+
+  it('links each indexable archive sitemap URL from its matching crossing leaf', () => {
+    const today = new Date('2026-04-21T06:00:00.000Z');
+    const indexableArchiveHtml = `<html><head><meta name="robots" content="index,follow"></head><body>${'archive '.repeat(80)}</body></html>`;
+    const archives = Object.fromEntries(
+      BORDER_WAIT_LOCALES.flatMap((locale) => TOP_5_CROSSINGS.map((crossing) => [
+        buildArchivePath(locale, crossing, '2026-03'),
+        indexableArchiveHtml,
+      ])),
+    );
+    const noindexPath = buildArchivePath('it', 'chiasso-brogeda', '2026-02');
+    const archivePages = {
+      ...archives,
+      [noindexPath]: `<html><head><meta name="robots" content="noindex,follow"></head><body>${'archive '.repeat(80)}</body></html>`,
+    };
+    const pages = generateBorderWaitPages({
+      current: MINIMAL_CURRENT,
+      history: [],
+      archivePages,
+      today,
+    });
+
+    let linkedSitemapArchives = 0;
+    for (const locale of BORDER_WAIT_LOCALES) {
+      for (const crossing of TOP_5_CROSSINGS) {
+        const archivePath = buildArchivePath(locale, crossing, '2026-03');
+        const archiveHtml = archivePages[archivePath];
+        if (!archiveHtml || countHtmlBodyWords(archiveHtml) < MIN_INDEXABLE_WORDS || !htmlHasIndexableRobots(archiveHtml)) {
+          continue;
+        }
+        expect(pages[buildOggiPath(locale, crossing)]).toContain(`href="${archivePath}"`);
+        linkedSitemapArchives++;
+      }
+    }
+    expect(linkedSitemapArchives).toBeGreaterThan(0);
+    expect(pages[buildOggiPath('it', 'chiasso-brogeda')]).not.toContain(noindexPath);
   });
 });
