@@ -192,32 +192,28 @@ function hasSchweizerhofFlimsLocation(detail = {}) {
 }
 
 function hasSchweizerhofFlimsIdentity(html, detail) {
-  const mainText = normalizeSchweizerhofEvidence(extractSchweizerhofJobMain(html));
-  const hasSchweizerhofTenant = /\bschweizerhof\b/u.test(mainText);
-  const hasExplicitFlimsIdentity = mainText.includes('schweizerhof flims');
-  return hasExplicitFlimsIdentity
-    || (hasSchweizerhofTenant && hasSchweizerhofFlimsLocation(detail));
+  const tenantHeading = normalizeSchweizerhofEvidence(extractSchweizerhofTenantHeading(html));
+  return /\bschweizerhof\b/u.test(tenantHeading)
+    && hasSchweizerhofFlimsLocation(detail);
 }
 
 /**
  * Read the source-owned tenant heading from the HCM4all job body.
  *
  * The current portal places a generic tenant heading in the vacancy body
- * (`main > section > h2`). A bare `Schweizerhof` is not enough on this
- * multi-tenant portal: the caller exposes the complete `Schweizerhof Flims`
- * identity only after source-backed Flims locality/address evidence or the
- * complete phrase in the sanitized JobPosting body. Never use email, phone,
- * footer or whole-page first-match text as tenant evidence.
+ * (`main > section > h2`). The first H2 is the portal's tenant heading; later
+ * prose can mention another hotel and must not override it. A Schweizerhof
+ * tenant is exposed as `Schweizerhof Flims` only with source-backed Flims
+ * locality/address evidence. Never use email, phone, footer or body prose as
+ * tenant evidence.
  *
  * @param {string} html
  * @returns {string}
  */
 function extractSchweizerhofTenantHeading(html = '') {
   const main = extractSchweizerhofJobMain(html);
-  const headings = [...main.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)]
-    .map((match) => stripHtml(match[1]).replace(/\s+/g, ' ').trim())
-    .filter(Boolean);
-  return headings.find((heading) => /\bschweizerhof\b/i.test(heading)) || '';
+  const match = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(main);
+  return stripHtml(match?.[1] || '').replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -236,9 +232,10 @@ export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts =
     { recordUrl: opts.recordUrl },
   );
   const heading = extractSchweizerhofTenantHeading(html);
+  const hasSchweizerhofTenantHeading = /\bschweizerhof\b/i.test(heading);
   const workplaceLabels = [
     ...(detail.workplaceLabels || []),
-    ...(heading ? [heading] : []),
+    ...(hasSchweizerhofTenantHeading ? [heading] : []),
     ...(hasSchweizerhofFlimsIdentity(html, detail) ? ['Schweizerhof Flims'] : []),
   ].filter((label, index, labels) => labels.indexOf(label) === index);
   if (!workplaceLabels.length) return detail;

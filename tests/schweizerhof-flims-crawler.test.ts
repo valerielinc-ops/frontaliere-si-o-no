@@ -99,11 +99,17 @@ describe('Schweizerhof crawler parser', () => {
       'utf8',
     );
     const edelweissFields = extractSchweizerhofFlimsDetailFields(
-      fixture.replace('Warum Sie zu uns in den Schweizerhof kommen sollten', 'Hotel Edelweiss'),
+      fixture.replace(
+        '<h2>Warum Sie zu uns in den Schweizerhof kommen sollten</h2>',
+        '<h2>Hotel Edelweiss</h2><p>Jobs near Schweizerhof Flims</p>',
+      ),
       'https://romantikhotels.hcm4all.de/list/19839',
     );
     const schweizerhofFields = extractSchweizerhofFlimsDetailFields(
-      fixture.replace('Warum Sie zu uns in den Schweizerhof kommen sollten', 'Schweizerhof'),
+      fixture.replace(
+        '<h2>Warum Sie zu uns in den Schweizerhof kommen sollten</h2>',
+        '<h2>Schweizerhof</h2><p>Jobs near Schweizerhof Flims</p>',
+      ),
       'https://romantikhotels.hcm4all.de/list/19839',
     );
 

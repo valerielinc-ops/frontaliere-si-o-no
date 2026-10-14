@@ -245,10 +245,9 @@ function isLegacyIstJob(job) {
 /**
  * Parse the portal's native School Name and location facets. The endpoint is
  * a complete active-facility/location map (`mincount=1`, limit 5000) only when
- * the response has not selected a later page/offset, hit the facet cap, or
- * reported truncation. The live response currently exposes only the facet
- * maps, so the fixed request's first-page/5000-row contract is the coverage
- * proof; any future response-level coverage signal is validated as well.
+ * the response explicitly proves completeness and has not selected a later
+ * page/offset, hit the facet cap, or reported truncation. The request shape
+ * alone does not prove that the endpoint returned every facet row.
  */
 function readIstFacetNumber(payload, keys) {
   for (const key of keys) {
@@ -286,12 +285,12 @@ function parseIstFacetCoverage(payload, facetRows) {
   const facetRowsBelowLimit = limitIsValid && facetRows.every((rows) => rows.length < limit);
 
   return {
-    coverageComplete: pageIsInitial
+    coverageComplete: payload?.complete === true
+      && pageIsInitial
       && startIsInitial
       && totalIsValid
       && facetRowsBelowLimit
-      && !hasIstFacetTruncationSignal(payload)
-      && payload?.complete !== false,
+      && !hasIstFacetTruncationSignal(payload),
     page,
     startrow,
     total,

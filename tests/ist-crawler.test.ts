@@ -89,6 +89,7 @@ describe('IST sitemap discovery', () => {
 
 describe('IST native facility facet empty proof', () => {
   const noIstPayload = {
+    complete: true,
     facets: {
       map: {
         facility: [
@@ -119,6 +120,13 @@ describe('IST native facility facet empty proof', () => {
     expect(isAuthoritativeEmptySnapshot(snapshot)).toBe(true);
     expect(snapshot.authoritativeEmptyEvidence).toContain('School Name facet');
     expect(snapshot.authoritativeEmptyEvidence).toContain('no International School of Ticino entry');
+  });
+
+  it('fails closed when nonempty facet maps lack endpoint completeness proof', () => {
+    const payloadWithoutCoverageProof = { facets: noIstPayload.facets };
+
+    expect(parseIstFacilityFacetResponse(payloadWithoutCoverageProof)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payloadWithoutCoverageProof)).toBeNull();
   });
 
   it('does not stamp zero when the native facet contains IST', () => {
