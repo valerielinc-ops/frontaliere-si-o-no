@@ -74,3 +74,24 @@ describe('multilingual content matching', () => {
    const unsafe = createContentKeywordMatcher([{ id: 'unsafe', target: 'javascript:alert(1)', aliases: { en: ['unsafe'] } }]);
    expect(linkContentKeywords('unsafe', 'en', { matcher: unsafe })).toBe('unsafe');
  });
+
+
+it('matches canonically equivalent accented text and aliases while preserving original offsets', () => {
+  for (const [aliasForm, textForm] of [['NFC', 'NFD'], ['NFD', 'NFC']] as const) {
+    const phrase = 'prévoyance privée';
+    const matcher = createContentKeywordMatcher([{ id: 'guide', aliases: { fr: [phrase.normalize(aliasForm)] } }]);
+    const originalPhrase = phrase.normalize(textForm);
+    const text = 'La ' + originalPhrase + ' est utile.';
+    const [hit] = matcher(text, 'fr');
+    expect(hit).toMatchObject({ id: 'guide', start: 3, end: 3 + originalPhrase.length, text: originalPhrase });
+    expect(text.slice(hit.start, hit.end)).toBe(originalPhrase);
+  }
+});
+
+it('retains German intent and nearby concept combinations in decomposed Unicode', () => {
+  const text = 'Die Währungsumrechnung ist wichtig.'.normalize('NFD');
+  expect(matchContentLinks(text, 'de')[0]).toMatchObject({ id: 'exchange', text: 'Währungsumrechnung'.normalize('NFD') });
+  const matcher = createContentKeywordMatcher([{ id: 'example', combinations: { fr: [[['épargne'], ['privée']]] } }]);
+  expect(matcher('Une épargne vraiment privée.'.normalize('NFD'), 'fr')[0].text).toBe('épargne vraiment privée'.normalize('NFD'));
+  expect(matcher('Une épargne. La vie privée.'.normalize('NFD'), 'fr')).toEqual([]);
+});
