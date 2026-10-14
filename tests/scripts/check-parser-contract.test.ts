@@ -114,9 +114,113 @@ describe('R5 corpo senza soglia di parole', () => {
   });
 });
 
+describe('R6 geografia source-backed', () => {
+  it('boccia le quattro forme geografiche emerse dai finding', () => {
+    const projection = `const geography = resolveSourceBackedSwissGeography(listing);
+const { location, canton } = geography;
+const job = {
+  location,
+  canton,
+  addressRegion: listing.addressRegion || canton,
+  postalCode: listing.postalCode || '',
+  streetAddress: listing.streetAddress || '',
+};
+`;
+    expect(rulesOf(projection)).toEqual(['R6', 'R6', 'R6']);
+
+    const targetOnlyCanton = `const sourceCanton = inferSwissTargetCanton(addressRegionRaw);
+const postalPlaceAgrees = postalPlace && (!sourceCanton || postalPlace.canton === sourceCanton)
+  ? postalPlace
+  : null;
+const city = postalPlaceAgrees?.locality || HQ.city;
+`;
+    expect(rulesOf(targetOnlyCanton)).toEqual(['R6']);
+
+    const hqPostalCode = `const inferredCanton = inferCantonFromJobEvidence({ cityText: city });
+const job = {
+  postalCode: inferredCanton ? HQ.postalCode : '',
+};
+`;
+    expect(rulesOf(hqPostalCode)).toEqual(['R6']);
+
+    const markerBeforeResolver = `function resolve(candidate) {
+  const locationCanton = cantonNamedByLocation(location);
+  if (locationCanton) {
+    return { location, canton: locationCanton };
+  }
+  const direct = resolveSourceBackedSwissGeography(candidate);
+  return direct;
+}
+`;
+    expect(rulesOf(markerBeforeResolver)).toEqual(['R6']);
+  });
+
+  it('accetta la proiezione completa e le guardie corrette', () => {
+    const projection = `const geography = resolveSourceBackedSwissGeography(listing);
+const { location, canton, addressRegion, postalCode, streetAddress } = geography;
+const job = {
+  location,
+  canton,
+  addressRegion,
+  postalCode,
+  streetAddress,
+};
+`;
+    expect(rulesOf(projection)).toEqual([]);
+
+    const anyCanton = `const sourceCanton = inferAnyCanton(addressRegionRaw);
+const postalPlaceAgrees = postalPlace && (!sourceCanton || postalPlace.canton === sourceCanton)
+  ? postalPlace
+  : null;
+`;
+    expect(rulesOf(anyCanton)).toEqual([]);
+
+    const sourcePostalCode = `const inferredCanton = inferCantonFromJobEvidence({ cityText: city });
+const job = {
+  postalCode: normalizeSpace(firstLoc.postal_code || ''),
+};
+`;
+    expect(rulesOf(sourcePostalCode)).toEqual([]);
+
+    const guardedMarker = `function resolve(candidate) {
+  const locationCanton = cantonNamedByLocation(location);
+  const explicitForeign = isExplicitlyForeign('', addressCountry);
+  if (locationCanton && !explicitForeign) {
+    return { location, canton: locationCanton };
+  }
+  return resolveSourceBackedSwissGeography(candidate);
+}
+`;
+    expect(rulesOf(guardedMarker)).toEqual([]);
+  });
+});
+
+describe('R7 alias paese', () => {
+  it('boccia la scelta compressa fra addressCountry e country', () => {
+    expect(rulesOf('const sourceCountry = canonicalChCountry(listing.addressCountry ?? listing.country);\n')).toEqual(['R7']);
+    expect(rulesOf('const sourceCountry = canonicalChCountry(listing.addressCountry || listing.country);\n')).toEqual(['R7']);
+  });
+
+  it('boccia anche gli alias locali nudi e quelli con optional chaining', () => {
+    // Rilievo della review della PR 13131: la forma nuda e' quella del contratto.
+    expect(rulesOf('const c = canonicalChCountry(addressCountry ?? country);\n')).toEqual(['R7']);
+    expect(rulesOf('const c = canonicalChCountry(addressCountry || country);\n')).toEqual(['R7']);
+    expect(rulesOf('const c = canonicalChCountry(job?.addressCountry ?? country);\n')).toEqual(['R7']);
+  });
+
+  it('accetta gli alias passati separatamente al canonicalizzatore', () => {
+    expect(rulesOf('const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);\n')).toEqual([]);
+    expect(rulesOf('const c = canonicalChCountry(addressCountry, country);\n')).toEqual([]);
+  });
+
+  it('non scambia per alias un nome che contiene soltanto la parola country', () => {
+    expect(rulesOf('const c = canonicalChCountry(defaultCountry ?? fallbackCountry);\n')).toEqual([]);
+  });
+});
+
 describe('lexer ed eccezione', () => {
   it('ignora commenti e stringhe', () => {
-    const src = `// postedDate: listing.postedDate || new Date()\nconst s = "validThrough: detail.validThrough";\n/* sourcePostingDateFields(a.date || b.date) */\n`;
+    const src = `// postedDate: listing.postedDate || new Date()\n// const sourceCanton = inferSwissTargetCanton(addressRegionRaw);\nconst s = "validThrough: detail.validThrough";\nconst t = "canonicalChCountry(listing.addressCountry ?? listing.country)";\n/* sourcePostingDateFields(a.date || b.date) */\n`;
     expect(rulesOf(src)).toEqual([]);
   });
 
@@ -126,6 +230,18 @@ describe('lexer ed eccezione', () => {
     expect(rulesOf(`// parser-contract-ok R4: startDate e' la data di pubblicazione di questa API\n${line}\n`)).toEqual([]);
     expect(rulesOf(`${line} // parser-contract-ok R4:\n`)).toEqual(['R4']);
     expect(rulesOf(`${line} // parser-contract-ok R3: motivo valido ma regola sbagliata\n`)).toEqual(['R4']);
+
+    const r6 = `// parser-contract-ok R6: la sorgente e' gia' validata a monte
+const sourceCanton = inferSwissTargetCanton(addressRegionRaw);
+const postalPlaceAgrees = postalPlace && (!sourceCanton || postalPlace.canton === sourceCanton)
+  ? postalPlace
+  : null;
+const city = postalPlaceAgrees?.locality || HQ.city;
+`;
+    expect(rulesOf(r6)).toEqual([]);
+    const r7 = `const sourceCountry = canonicalChCountry(listing.addressCountry ?? listing.country); // parser-contract-ok R7: alias validati dal contratto sorgente
+`;
+    expect(rulesOf(r7)).toEqual([]);
   });
 });
 
@@ -150,5 +266,17 @@ describe('ratchet', () => {
     const lowered = compareFile(file, violations, { R4: now + 1 });
     expect(lowered.regressions).toEqual([]);
     expect(lowered.improvements.map((i: { rule: string }) => i.rule)).toEqual(['R4']);
+  });
+
+  it("fa fallire l'aumento di R6 sullo stesso file", () => {
+    const source = `const inferredCanton = inferCantonFromJobEvidence({ cityText: city });
+const job = {
+  postalCode: inferredCanton ? HQ.postalCode : '',
+};
+`;
+    const violations = scanParserSource(source, file);
+    expect(violations.map((v: { rule: string }) => v.rule)).toEqual(['R6']);
+    expect(compareFile(file, violations, { R6: 0 }).regressions.map((r: { rule: string }) => r.rule)).toEqual(['R6']);
+    expect(compareFile(file, violations, { R6: 1 })).toEqual({ regressions: [], improvements: [] });
   });
 });
