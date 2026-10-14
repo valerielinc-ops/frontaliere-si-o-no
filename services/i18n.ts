@@ -115,7 +115,8 @@ export function mergeRecoveredArticleBody(locale: Locale, id: string, parts: rea
   const existing = Object.keys(target).filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)));
   // Static recovery returns an array, not named fields. A compacted or partial
   // body must not be assigned to different existing bodyN positions.
-  if (existing.length > 0 && existing.length !== parts.length) return 0;
+  if (existing.length > 0 && (existing.length !== parts.length
+    || parts.some((_, index) => !existing.includes(`${prefix}${index + 1}`)))) return 0;
   let changed = 0;
   parts.forEach((part, index) => {
     const key = `${prefix}${index + 1}`;

@@ -537,6 +537,11 @@ describe('publishRuntimeArticleBody', () => {
     expect(t(`blog.article.${id}.body1`)).toBe('...');
     expect(publishRuntimeArticleBody(id, 'it', ['…', 'Secondo dalla rete.'])).toBe(0);
     expect(t(`blog.article.${id}.body2`)).toBe('Secondo paragrafo.');
+    const gapped = 'runtime-gapped-recovery';
+    mergeArticleMetaOverlay('it', { [`blog.article.${gapped}.body1`]: '...', [`blog.article.${gapped}.body3`]: 'Terzo paragrafo.' });
+    expect(publishRuntimeArticleBody(gapped, 'it', ['Un testo.', 'Un altro testo.'])).toBe(0);
+    expect(t(`blog.article.${gapped}.body1`)).toBe('...');
+    expect(t(`blog.article.${gapped}.body2`)).toBe(`blog.article.${gapped}.body2`);
   });
 
   it('does not replace an Italian placeholder with a recovered foreign translation', () => {
