@@ -1,7 +1,7 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-10-13T21:20:07.181Z",
+  "generatedAt": "2026-10-14T09:29:46.739Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7297,
-  "avgDurationMs": 7297,
+  "durationMs": 7644,
+  "avgDurationMs": 7644,
   "durationHistory": [
-    7297
+    7644
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-d37c1931d79f",
-      "slug": "sachbearbeiter-in-versicherungen-kundenbetreuung-m-w-d-kuehne-nagel-opfikon",
+      "slug": "impiegato-a-amministrativo-a-nel-settore-assicurativo-e-dell-assistenza-clienti-m-f-d-kuehne-nagel-opfikon",
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
       "companyDomain": "kuehne-nagel.com",
@@ -34,7 +35,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18875EXTERNALENGLOBAL/sachbearbeiter-in-versicherungen-kundenbetreuung-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:53.679Z",
+      "crawledAt": "2026-10-14T09:29:32.839Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -54,20 +55,18 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18875EXTERNALENGLOBAL/sachbearbeiter-in-versicherungen-kundenbetreuung-m-w-d",
       "jobReqId": "18875",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T21:19:53.679Z",
       "salaryMin": 79000,
       "salaryMax": 131000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-13T21:19:53.679Z",
-      "_qualityScore": 71,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuehne-nagel-1afed546b5fd",
       "slug": "spedizioniere-a-trasporto-aereo-export-m-f-d-kuehne-nagel-opfikon",
@@ -80,7 +79,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:52.753Z",
+      "crawledAt": "2026-10-14T09:29:31.997Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -100,10 +99,10 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
       "jobReqId": "18789",
       "firstSeenAt": "2026-10-03T09:20:36.739Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -124,7 +123,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:52.368Z",
+      "crawledAt": "2026-10-14T09:29:31.375Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -168,7 +167,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/speditionskaufmann-frau-seefracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:52.035Z",
+      "crawledAt": "2026-10-14T09:29:31.037Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -188,10 +187,10 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/speditionskaufmann-frau-seefracht-m-w-d",
       "jobReqId": "17016",
       "firstSeenAt": "2026-10-03T09:20:35.765Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -215,7 +214,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:19:54.116Z",
+      "crawledAt": "2026-10-14T09:29:33.335Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -259,7 +258,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:53.364Z",
+      "crawledAt": "2026-10-14T09:29:32.346Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -292,5 +291,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

@@ -1,7 +1,7 @@
 {
   "key": "cippatrasporti",
   "label": "Cippà Trasporti SA",
-  "generatedAt": "2026-10-13T21:16:51.009Z",
+  "generatedAt": "2026-10-14T09:32:11.225Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5488,
-  "avgDurationMs": 5488,
+  "durationMs": 5178,
+  "avgDurationMs": 5178,
   "durationHistory": [
-    5488
+    5178
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-13T21:16:36.084Z",
+      "crawledAt": "2026-10-14T09:31:58.905Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "postedDate": "2026-07-02T09:03:54+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:37:33.453Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -79,7 +80,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-13T21:16:36.033Z",
+      "crawledAt": "2026-10-14T09:31:59.224Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -96,6 +97,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "firstSeenAt": "2026-08-24T10:37:33.780Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -120,7 +122,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-13T21:16:35.551Z",
+      "crawledAt": "2026-10-14T09:31:58.625Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -137,6 +139,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "firstSeenAt": "2026-10-03T09:19:55.363Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -150,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
