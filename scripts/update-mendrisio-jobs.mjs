@@ -291,24 +291,200 @@ function isEmptyMendrisioAjaxContainer(html = '') {
   }
 }
 
-function hasMendrisioAjaxUrl(html = '') {
-  const dom = new JSDOM(String(html || ''));
+function stripHtmlComments(html = '') {
+  return String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+}
+
+/**
+ * Remove JavaScript comments without treating `//` inside a quoted URL as a
+ * comment. The loader is inspected as source text, so preserving strings is
+ * enough here; the DOM itself has already removed HTML comments.
+ */
+function stripJavaScriptComments(source = '') {
+  let output = '';
+  let state = 'code';
+  let quote = '';
+  let escaped = false;
+
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    const next = source[index + 1];
+
+    if (state === 'line-comment') {
+      if (char === '\n' || char === '\r') {
+        output += char;
+        state = 'code';
+      }
+      continue;
+    }
+
+    if (state === 'block-comment') {
+      if (char === '*' && next === '/') {
+        output += '  ';
+        index += 1;
+        state = 'code';
+      } else if (char === '\n' || char === '\r') {
+        output += char;
+      } else {
+        output += ' ';
+      }
+      continue;
+    }
+
+    if (state === 'string') {
+      output += char;
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        state = 'code';
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      output += '  ';
+      index += 1;
+      state = 'line-comment';
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      output += '  ';
+      index += 1;
+      state = 'block-comment';
+      continue;
+    }
+    if (char === '\'' || char === '"' || char === '`') {
+      state = 'string';
+      quote = char;
+    }
+    output += char;
+  }
+
+  return output;
+}
+
+function extractBalancedBlock(source, openIndex, openChar, closeChar) {
+  let depth = 0;
+  let state = 'code';
+  let quote = '';
+  let escaped = false;
+
+  for (let index = openIndex; index < source.length; index += 1) {
+    const char = source[index];
+
+    if (state === 'string') {
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        state = 'code';
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '\'' || char === '"' || char === '`') {
+      state = 'string';
+      quote = char;
+      continue;
+    }
+    if (char === openChar) depth += 1;
+    if (char === closeChar) {
+      depth -= 1;
+      if (depth === 0) {
+        return {
+          body: source.slice(openIndex + 1, index),
+          end: index + 1,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+function mendrisioUrlMatches(rawUrl = '') {
+  if (!rawUrl) return false;
   try {
+    const candidate = new URL(decodeHtmlEntities(rawUrl).trim(), MENDRISIO_CAREERS_URL);
     const expected = new URL(MENDRISIO_AJAX_URL);
-    return [...dom.window.document.querySelectorAll('[href], [action]')].some((element) => (
-      ['href', 'action'].some((attribute) => {
-        const decoded = decodeHtmlEntities(element.getAttribute(attribute) || '').trim();
-        if (!decoded) return false;
-        try {
-          const candidate = new URL(decoded, MENDRISIO_CAREERS_URL);
-          return candidate.hostname === expected.hostname
-            && candidate.pathname === expected.pathname
-            && candidate.search === expected.search;
-        } catch {
-          return false;
-        }
-      })
-    ));
+    return candidate.hostname === expected.hostname
+      && candidate.pathname === expected.pathname
+      && candidate.search === expected.search;
+  } catch {
+    return false;
+  }
+}
+
+function callbackWritesMendrisioResponse(source = '', callbackType = 'success') {
+  const callbackRe = callbackType === 'success'
+    ? /\bsuccess\s*:\s*(?:function\s*\(\s*([A-Za-z_$][\w$]*)\s*\)|\(\s*([A-Za-z_$][\w$]*)\s*\)\s*=>|([A-Za-z_$][\w$]*)\s*=>)\s*\{/gi
+    : /\.then\s*\(\s*(?:function\s*\(\s*([A-Za-z_$][\w$]*)\s*\)|\(\s*([A-Za-z_$][\w$]*)\s*\)\s*=>|([A-Za-z_$][\w$]*)\s*=>)\s*\{/gi;
+  const target = String.raw`(?:\$\s*\(\s*['"]#simapItems1['"]\s*\)|document\s*\.\s*(?:querySelector\s*\(\s*['"]#simapItems1['"]\s*\)|getElementById\s*\(\s*['"]simapItems1['"]\s*\)))`;
+
+  let match;
+  while ((match = callbackRe.exec(source)) !== null) {
+    const responseName = match[1] || match[2] || match[3];
+    const callback = extractBalancedBlock(source, callbackRe.lastIndex - 1, '{', '}');
+    if (!callback) continue;
+    const response = responseName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const writeRe = new RegExp(
+      `${target}\\s*(?:\\.\\s*(?:html|text|append|replaceWith)\\s*\\(\\s*${response}\\s*\\)|\\.\\s*innerHTML\\s*=\\s*${response}\\b)`,
+      'i',
+    );
+    if (writeRe.test(callback.body)) return true;
+  }
+  return false;
+}
+
+function ajaxCallHasExpectedUrl(callBody = '') {
+  const urlMatch = callBody.match(/\burl\s*:\s*(['"])([\s\S]*?)\1/i);
+  return Boolean(urlMatch && mendrisioUrlMatches(urlMatch[2]));
+}
+
+function fetchCallHasExpectedUrl(callBody = '') {
+  const urlMatch = callBody.match(/^\s*(['"])([\s\S]*?)\1/);
+  return Boolean(urlMatch && mendrisioUrlMatches(urlMatch[2]));
+}
+
+/**
+ * The endpoint is evidence only when the page contains the actual inline
+ * loader: its target exists in the DOM, the expected URL is an AJAX/fetch
+ * argument resolved against the careers page, and that request's callback
+ * writes its response into #simapItems1.
+ */
+export function hasMendrisioAjaxUrl(html = '') {
+  const dom = new JSDOM(stripHtmlComments(html));
+  try {
+    if (!dom.window.document.getElementById('simapItems1')) return false;
+
+    const scripts = [...dom.window.document.querySelectorAll('script:not([src])')]
+      .map((script) => stripJavaScriptComments(script.textContent || ''));
+    for (const script of scripts) {
+      const callRe = /\$\s*\.\s*ajax\s*\(|\bfetch\s*\(/gi;
+      let callMatch;
+      while ((callMatch = callRe.exec(script)) !== null) {
+        const openIndex = script.indexOf('(', callMatch.index);
+        const call = extractBalancedBlock(script, openIndex, '(', ')');
+        if (!call) continue;
+
+        const isAjax = /\$\s*\.\s*ajax\s*\(/i.test(callMatch[0]);
+        const hasExpectedUrl = isAjax
+          ? ajaxCallHasExpectedUrl(call.body)
+          : fetchCallHasExpectedUrl(call.body);
+        if (!hasExpectedUrl) continue;
+
+        if (isAjax && callbackWritesMendrisioResponse(call.body, 'success')) return true;
+        const afterFetch = script.slice(call.end);
+        if (!isAjax && /^\s*\.\s*then\s*\(/.test(afterFetch)
+          && callbackWritesMendrisioResponse(afterFetch, 'then')) return true;
+      }
+    }
+    return false;
   } finally {
     dom.window.close();
   }
@@ -322,16 +498,16 @@ function attachFetchDiagnostics(jobs, fetchOutcome, fetchFailureReason) {
   return jobs;
 }
 
-function mendrisioFetchOutcome(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxUrl) {
+function mendrisioFetchOutcome(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxLoader) {
   const statuses = [ajaxResponse, pageResponse].map((response) => response.status);
   if (statuses.some((status) => [403, 406, 415, 451].includes(status))) return 'anti_bot_block';
   if (statuses.some((status) => status === null)) return 'connection_error';
   if (statuses.some((status) => status !== 200)) return 'feed_endpoint_unavailable';
-  if (!ajaxEmpty || !pageHasAjaxUrl) return 'selector_miss';
+  if (!ajaxEmpty || !pageHasAjaxLoader) return 'selector_miss';
   return 'ok';
 }
 
-function mendrisioEmptyFailureReason(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxUrl) {
+function mendrisioEmptyFailureReason(ajaxResponse, pageResponse, ajaxEmpty, pageHasAjaxLoader) {
   if (ajaxResponse.status !== 200) {
     return `Endpoint AJAX ${MENDRISIO_AJAX_URL}: osservato HTTP ${ajaxResponse.status ?? 'unknown'}${ajaxResponse.error ? ` (${ajaxResponse.error.message})` : ''}; atteso HTTP 200 con contenitore vuoto.`;
   }
@@ -341,8 +517,8 @@ function mendrisioEmptyFailureReason(ajaxResponse, pageResponse, ajaxEmpty, page
   if (pageResponse.status !== 200) {
     return `Pagina principale ${MENDRISIO_CAREERS_URL}: osservato HTTP ${pageResponse.status ?? 'unknown'}${pageResponse.error ? ` (${pageResponse.error.message})` : ''}; atteso HTTP 200 con URL AJAX atteso.`;
   }
-  if (!pageHasAjaxUrl) {
-    return `Pagina principale ${MENDRISIO_CAREERS_URL}: HTTP 200 ma l'URL AJAX atteso ${MENDRISIO_AJAX_URL} è mancante.`;
+  if (!pageHasAjaxLoader) {
+    return `Pagina principale ${MENDRISIO_CAREERS_URL}: HTTP 200 ma l'URL AJAX atteso nel caricatore inline ${MENDRISIO_AJAX_URL} è mancante.`;
   }
   return 'Sorgente Mendrisio senza blocchi annuncio, ma prova del vuoto incompleta.';
 }
@@ -591,9 +767,9 @@ export async function fetchMendrisioJobs({
 
   if (allParsed.length === 0) {
     const ajaxEmpty = ajaxResponse.status === 200 && isEmptyMendrisioAjaxContainer(ajaxResponse.body);
-    const pageHasAjaxUrl = pageResponse.status === 200 && hasMendrisioAjaxUrl(pageResponse.body);
-    if (ajaxEmpty && pageHasAjaxUrl) {
-      const evidence = `Mendrisio AJAX HTTP 200 at ${MENDRISIO_AJAX_URL}: contenitore vuoto senza blocchi annuncio; pagina principale HTTP 200 at ${MENDRISIO_CAREERS_URL}: URL AJAX atteso presente.`;
+    const pageHasAjaxLoader = pageResponse.status === 200 && hasMendrisioAjaxUrl(pageResponse.body);
+    if (ajaxEmpty && pageHasAjaxLoader) {
+      const evidence = `Mendrisio AJAX HTTP 200 at ${MENDRISIO_AJAX_URL}: contenitore vuoto senza blocchi annuncio; pagina principale HTTP 200 at ${MENDRISIO_CAREERS_URL}: URL AJAX atteso nel caricatore inline presente.`;
       console.log(`  🧩 Source-proven zero: ${evidence}`);
       return markAuthoritativeEmptySnapshot([], evidence);
     }
@@ -601,13 +777,13 @@ export async function fetchMendrisioJobs({
       ajaxResponse,
       pageResponse,
       ajaxEmpty,
-      pageHasAjaxUrl,
+      pageHasAjaxLoader,
     );
     const fetchOutcome = mendrisioFetchOutcome(
       ajaxResponse,
       pageResponse,
       ajaxEmpty,
-      pageHasAjaxUrl,
+      pageHasAjaxLoader,
     );
     console.warn(`⚠️ No Mendrisio jobs discovered: ${fetchFailureReason}`);
     return attachFetchDiagnostics([], fetchOutcome, fetchFailureReason);

@@ -7,12 +7,29 @@
  */
 import { afterEach, describe, it, expect, vi } from 'vitest';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
-import { fetchMendrisioJobs } from '../scripts/update-mendrisio-jobs.mjs';
+import {
+  fetchMendrisioJobs,
+  hasMendrisioAjaxUrl,
+} from '../scripts/update-mendrisio-jobs.mjs';
 
 const MENDRISIO_CAREERS_URL =
   'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro.html';
 const MENDRISIO_AJAX_URL =
   'https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro/content/04.html?ajax=true';
+
+const MENDRISIO_REAL_LOADER = `
+<script>
+function loadProjects1() {
+  $( "#simapItems1" ).html('<div class="loading">Caricamento</div>');
+  $.ajax( {
+    type: "GET",
+    url: "/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro/content/04.html?ajax=true",
+    success: function(response) {
+      $("#simapItems1").html(response);
+    }
+  });
+}
+</script>`;
 
 function stubMendrisioFetch(responses: Record<string, Response>) {
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
@@ -491,11 +508,11 @@ describe('Mendrisio crawler — PDF text overlap validation', () => {
 });
 
 describe('Mendrisio crawler — source-proofed discovery', () => {
-  it('stamps an empty AJAX container only when the main page still carries the endpoint', async () => {
+  it('stamps an empty AJAX container only with the real inline loader', async () => {
     stubMendrisioFetch({
       [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
       [MENDRISIO_CAREERS_URL]: new Response(
-        `<html><body><div id="simapItems1"><a href="${MENDRISIO_AJAX_URL}">Concorsi</a></div></body></html>`,
+        `<html><body>${MENDRISIO_REAL_LOADER}<div id="simapItems1"></div></body></html>`,
         { status: 200 },
       ),
     });
@@ -513,6 +530,66 @@ describe('Mendrisio crawler — source-proofed discovery', () => {
     expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toEqual(
       expect.stringContaining('contenitore vuoto'),
     );
+  });
+
+  it('recognizes the loader proof directly, never a URL left in comments', () => {
+    expect(hasMendrisioAjaxUrl(
+      `<html><body>${MENDRISIO_REAL_LOADER}<div id="simapItems1"></div></body></html>`,
+    )).toBe(true);
+    expect(hasMendrisioAjaxUrl([
+      '<html><body><div id="simapItems1"></div><script>',
+      'fetch("/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro/content/04.html?ajax=true")',
+      '.then((response) => { document.querySelector("#simapItems1").innerHTML = response; });',
+      '</script></body></html>',
+    ].join(''))).toBe(true);
+    expect(hasMendrisioAjaxUrl([
+      '<html><body><div id="simapItems1"></div><script>',
+      `fetch("${MENDRISIO_AJAX_URL}");`,
+      'fetch("/unrelated").then((response) => { $("#simapItems1").html(response); });',
+      '</script></body></html>',
+    ].join(''))).toBe(false);
+    expect(hasMendrisioAjaxUrl([
+      '<html><body><div id="simapItems1"></div>',
+      `<!-- $.ajax({ url: "${MENDRISIO_AJAX_URL}", success: function(response) { $("#simapItems1").html(response); } }); -->`,
+      '<script>',
+      `// $.ajax({ url: "${MENDRISIO_AJAX_URL}", success: function(response) { $("#simapItems1").html(response); } });`,
+      '</script></body></html>',
+    ].join(''))).toBe(false);
+  });
+
+  it('does not prove zero when the AJAX callback writes another container', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response([
+        '<html><body><div id="simapItems1"></div><div id="otherItems"></div>',
+        '<script>$.ajax({ url: "',
+        MENDRISIO_AJAX_URL,
+        '", success: function(response) { $("#otherItems").html(response); } });</script>',
+        '</body></html>',
+      ].join(''), { status: 200 }),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('selector_miss');
+  });
+
+  it('does not prove zero when the loader target is absent from the DOM', async () => {
+    stubMendrisioFetch({
+      [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
+      [MENDRISIO_CAREERS_URL]: new Response(
+        `<html><body>${MENDRISIO_REAL_LOADER}</body></html>`,
+        { status: 200 },
+      ),
+    });
+
+    const jobs = await fetchMendrisioJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(Reflect.get(jobs, 'fetchOutcome')).toBe('selector_miss');
   });
 
   it('keeps a 403 response as an unproven zero with an explicit diagnosis', async () => {
@@ -568,7 +645,7 @@ describe('Mendrisio crawler — source-proofed discovery', () => {
     stubMendrisioFetch({
       [MENDRISIO_AJAX_URL]: new Response('<div>\n</div>', { status: 200 }),
       [MENDRISIO_CAREERS_URL]: new Response(
-        `<html><body><!-- ${MENDRISIO_AJAX_URL} --><script>const endpoint = "${MENDRISIO_AJAX_URL}";</script></body></html>`,
+        `<html><body><div id="simapItems1"></div><!-- ${MENDRISIO_AJAX_URL} --><script>const endpoint = "${MENDRISIO_AJAX_URL}";</script></body></html>`,
         { status: 200 },
       ),
     });

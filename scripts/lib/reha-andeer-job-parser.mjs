@@ -54,15 +54,13 @@ const DEFAULT_POSTAL = '7440';
 export const MIN_REHA_ANDEER_DESC_LENGTH = 350;
 
 const NON_JOB_PDF_RE =
-  /(datenschutz|impressum|agb|preisliste|tarif|tarmed|broschure|brochure|leitbild|qualitaet|qualität|formular|policy)/i;
+  /(datenschutz|impressum|agb|preisliste|tarif|tarmed|broschure|broschuere|brochure|leitbild|qualitaet|qualität|formular|policy|(?:^|[\/_ .-])info(?:[\/_ .-]|$)|informations?(?:brosch|blatt|material)|initiativbewerb|spontanbewerb)/i;
 // Accept any uploads PDF unless filtered above. Most are Stelleninserate by
 // keyword but some carry the role name directly (e.g. "Pflegehelferin").
 const ACCEPT_HINTS_RE = /(stelle|stelleninserat|inserat|bewerb|pflege|masseur|therap|köch|service|kuche|reinigung|nacht|sekret|leit)/i;
 // CMS upload folders that host the Stelleninserate: Drupal public files (the
 // current site) and WordPress uploads (the site until September 2026).
 const UPLOADS_PATH_RE = /\/(?:sites\/default\/files|wp-content\/uploads)\//i;
-const DOCUMENT_PATH_RE = /\.(?:pdf|docx?|odt|rtf|xlsx?|zip)(?:$|[?#])/i;
-const ANNOUNCEMENT_REFERENCE_RE = /(?:stelleninserat|stellenausschreibung|jobangebot|bewerbung|position)/i;
 
 function decodeFilename(raw = '') {
   try {
@@ -70,6 +68,26 @@ function decodeFilename(raw = '') {
   } catch {
     return raw;
   }
+}
+
+function isRehaAndeerAnnouncementPdf({ href = '', filename = '' } = {}) {
+  if (!isTrustedDomain(href)) return false;
+  if (NON_JOB_PDF_RE.test(href) || NON_JOB_PDF_RE.test(filename)) return false;
+  const isUploadsPath = UPLOADS_PATH_RE.test(href);
+  return isUploadsPath || ACCEPT_HINTS_RE.test(filename);
+}
+
+function hasRehaAndeerAnnouncementPdfAttribute(rawValue = '') {
+  // Use the same PDF shape as parseRehaAndeerListing: an informational or
+  // spontaneous-application PDF must not block a structurally proven zero.
+  const escaped = String(rawValue || '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;');
+  if (!escaped) return false;
+  return extractPdfLinks(
+    `<a href="${escaped}"></a>`,
+    PUBLIC_CAREER_URL,
+  ).some(isRehaAndeerAnnouncementPdf);
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -135,13 +153,7 @@ export function parseRehaAndeerListing(html = '') {
   const out = [];
   const seen = new Set();
   for (const { href, filename } of extractPdfLinks(html, PUBLIC_CAREER_URL)) {
-    if (!isTrustedDomain(href)) continue;
-    if (NON_JOB_PDF_RE.test(href)) continue;
-    // Require either /uploads/ in path OR a job hint in filename.
-    const isUploadsPath = UPLOADS_PATH_RE.test(href);
-    if (!isUploadsPath && !ACCEPT_HINTS_RE.test(filename)) continue;
-    // Extra filter: skip obviously-non-job uploads (e.g. Hausordnung).
-    if (NON_JOB_PDF_RE.test(filename)) continue;
+    if (!isRehaAndeerAnnouncementPdf({ href, filename })) continue;
 
     if (seen.has(href)) continue;
     seen.add(href);
@@ -205,18 +217,10 @@ function rehaAndeerEmptyPageStructure(html = '') {
     const hasInitiativeMarker = /\bInitiativbewerbung(?:en)?\b/i.test(pageText);
     const hasUnparsedDocumentLink = [...root.querySelectorAll(
       '[href], [src], [data], [action], [data-href], [data-url]'
-    )].some((element) => {
-      const attributes = ['href', 'src', 'data', 'action', 'data-href', 'data-url']
-        .map((name) => element.getAttribute(name))
-        .filter(Boolean);
-      const text = normalizeSpace(element.textContent || '');
-      return attributes.some((rawValue) => {
-        const value = decodeEntities(rawValue).trim();
-        if (!value || value.startsWith('#')) return false;
-        return DOCUMENT_PATH_RE.test(value)
-          || ANNOUNCEMENT_REFERENCE_RE.test(`${value} ${text}`);
-      });
-    });
+    )].some((element) => ['href', 'src', 'data', 'action', 'data-href', 'data-url']
+      .map((name) => element.getAttribute(name))
+      .filter(Boolean)
+      .some((rawValue) => hasRehaAndeerAnnouncementPdfAttribute(decodeEntities(rawValue).trim())));
     return { hasSectionHeading, hasInitiativeMarker, hasUnparsedDocumentLink };
   } finally {
     dom.window.close();
