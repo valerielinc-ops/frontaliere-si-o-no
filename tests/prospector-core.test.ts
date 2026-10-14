@@ -1404,6 +1404,44 @@ describe('quality grading', () => {
     }
   });
 
+  it('grades details through the source-specific extractor used by production', async () => {
+    const url = 'https://employer.example/jobs/software-engineer/';
+    const html = `<html><head><title>Software Engineer | Acme</title></head><body>`
+      + `<main><h1>Software Engineer</h1><article><p>Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers.</p>`
+      + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
+      + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main></body></html>`;
+    let extractorCalls = 0;
+    clearPoliteFetchStateForTests();
+    try {
+      const report = await gradeExtraction(
+        { companyKey: 'acme', seedUrls: [url] },
+        [{ title: 'Software Engineer', url }],
+        {
+          sampleSize: 1,
+          detailExtractor: () => {
+            extractorCalls++;
+            return {
+              title: 'Software Engineer',
+              description: 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.',
+              locationCandidates: [{ location: 'Lugano', addressCountry: 'CH' }],
+            };
+          },
+          fetchImpl: async (requestedUrl) => new Response(
+            requestedUrl.endsWith('/robots.txt') ? 'User-agent: *\\nAllow: /\\n' : html,
+            { status: 200, headers: { 'content-type': 'text/html' } },
+          ),
+          lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+          sleepImpl: async () => {},
+        },
+      );
+      expect(extractorCalls).toBe(1);
+      expect(report.contentfulRate).toBe(1);
+      expect(report.locationSourceRate).toBe(1);
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
   it('flags a listing whose titles are all the same', async () => {
     const dup = Array.from({ length: 5 }, (_, i) => ({ title: 'Candidatura spontanea', url: `https://x.example/j/${i}` }));
     const report = await gradeExtraction({ companyKey: 'x' }, dup, { sampleSize: 0 });

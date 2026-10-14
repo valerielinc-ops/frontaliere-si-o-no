@@ -61,6 +61,45 @@ export function redactStopReport(report, values = []) {
   };
 }
 
+/**
+ * Candidate-free proof that the portal runner reached its reliable success
+ * boundary: confirmed after submit, or final review before a dry-run click.
+ */
+export function portalPassFrom({ applyUrl, channel, event, evidence, dryRun }) {
+  const stage = event?.type === 'submit_succeeded' && !dryRun
+    ? 'submitted'
+    : event?.type === 'dry_run_ready' && dryRun && evidence?.finalButton
+      ? 'final_review'
+      : '';
+  if (!stage) return null;
+  if (event.type === 'submit_succeeded' && !evidence?.finalUrl) return null;
+  let host = '';
+  try {
+    host = new URL(String(applyUrl || '')).hostname;
+  } catch {
+    return null;
+  }
+  if (!host) return null;
+  const step = Number(evidence?.steps?.length);
+  return {
+    host,
+    channel: String(channel || '').slice(0, 80),
+    step: Number.isSafeInteger(step) && step >= 1 ? step : 0,
+    stage,
+  };
+}
+
+/** Serialize the only fields the workflow may use to reconcile portal issues. */
+export function portalPassRecord(pass, mode) {
+  return {
+    host: String(pass?.host || ''),
+    channel: String(pass?.channel || ''),
+    mode: String(mode || ''),
+    step: Number(pass?.step) || 0,
+    stage: String(pass?.stage || ''),
+  };
+}
+
 const REASONS = {
   portal_needs_candidate: 'pagina non superata',
   posting_mismatch: 'modulo non riconosciuto come quello dell’annuncio',

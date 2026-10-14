@@ -22,7 +22,7 @@ import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
-import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
+import { candidateValues, portalPassRecord, redactStopReport } from './lib/portal/stop-report.mjs';
 import { dedupePortalQuestions, portalQuestionKey, readPortalQuestions } from './lib/portal/portal.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
@@ -253,7 +253,8 @@ async function main() {
     }
     // Where the runner stopped (self-correction, level 3): stripped of every
     // value of the candidate, for the workflow's fix-issue step; never in the event.
-    if (event.stopReport) {
+    const stopReport = event.stopReport;
+    if (stopReport) {
       const file = process.env.ASSISTED_APPLICATION_STOP_REPORT;
       if (file) {
         const values = candidateValues([
@@ -266,6 +267,12 @@ async function main() {
       }
       delete event.stopReport;
     }
+    const portalPass = event.portalPass;
+    if (portalPass && !stopReport) {
+      const file = process.env.ASSISTED_APPLICATION_PORTAL_PASS;
+      if (file) writeFileSync(file, JSON.stringify(portalPassRecord(portalPass, mode)));
+    }
+    delete event.portalPass;
     // The fact gate's result of a stopped submit, next to the draft before the
     // event moves the flow; never in the event or the log.
     const factCheckPatch = takeFactCheck(event, previousDraft);

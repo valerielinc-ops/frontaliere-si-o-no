@@ -122,6 +122,8 @@ jobs:
           NODE_OPTIONS: --trace-warnings
           # Where a portal stop is reported for the fix issue (self-correction, level 3).
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
+          # Candidate-free proof used to close stale portal-stop issues after a pass.
+          ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
           NOPECHA_EXTENSION_PATH: ${{ inputs.mode != 'draft' && format('{0}/nopecha/extension', runner.temp) || '' }}
         # A real (headed) Chromium on a virtual screen: some ATS turn away a
         # browser that calls itself HeadlessChrome, in its user agent and in its
@@ -156,6 +158,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STOP_REPORT: ${{ runner.temp }}/portal-stop.json
+          PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: node scripts/assisted-application/report-portal-stop.mjs
 

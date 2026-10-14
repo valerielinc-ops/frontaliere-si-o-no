@@ -7,6 +7,8 @@ import type {
   PlateAuctionSourceStatus,
 } from './types';
 import { validatePlateAuction } from './types';
+import { parsePlateAuctionPath } from './paths';
+export { PLATE_AUCTION_DETAIL_SEED_ID } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export const PLATE_AUCTION_API_SCHEMA = 1;
 
@@ -257,6 +259,24 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
     cantonsWithData: new Set(auctions.map((auction) => auction.sourceKey || auction.platePrefix)).size,
   };
   return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
+}
+
+/** Reuse only this URL's validated, closed SSR record when it aged out of the feed. */
+export function withStaticPlateAuctionDetail(snapshot: PlateAuctionApiSnapshot, pathname: string, serialized: string | null): PlateAuctionApiSnapshot {
+  if (!serialized) return snapshot;
+  let seed: unknown;
+  try { seed = JSON.parse(serialized); } catch { return snapshot; }
+  if (!isRecord(seed) || seed.schema !== 1 || seed.path !== pathname.replace(/\/+$/, '') + '/') return snapshot;
+  const row = sanitizePublicPlateAuction(seed.row);
+  const route = parsePlateAuctionPath(pathname);
+  if (!row || row.dataConfidence === 'conflicting' || !['closed', 'sold', 'unsold'].includes(row.auctionStatus) || route?.view !== 'detail') return snapshot;
+  const code = row.sourceKey || row.platePrefix;
+  if (route.canton !== code || route.plate?.toLowerCase() !== row.normalizedPlate.toLowerCase() || (route.vehicleType || 'car') !== row.vehicleType) return snapshot;
+  if (!Object.values(snapshot.sources).some((source) => source.plateCode === code && source.status === 'active')) return snapshot;
+  const samePlate = (candidate: PlateAuction) => (candidate.sourceKey || candidate.platePrefix) === code
+    && candidate.normalizedPlate === row.normalizedPlate && candidate.vehicleType === row.vehicleType;
+  if ([...snapshot.auctions, ...(snapshot.history || [])].some(samePlate)) return snapshot;
+  return { ...snapshot, history: [...(snapshot.history || []), row] };
 }
 
 /**

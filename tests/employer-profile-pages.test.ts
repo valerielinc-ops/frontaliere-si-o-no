@@ -25,7 +25,8 @@ import { SKIP_LIVE_DATA } from './helpers/live-data';
  * Runs the real closeBundle() against a temp dist and asserts:
  *  - above-floor company → indexable page with linked ItemList JSON-LD
  *    (Non-Negotiable #3), the publisher CTA and stat facts,
- *  - below-floor company → noindex,follow bridge at the SAME URL (no 404),
+ *  - exactly-floor company → full indexable profile, while a below-floor
+ *    company still gets a noindex,follow bridge at the SAME URL (no 404),
  *  - sitemap lists the indexable IT canonical only,
  *  - all 4 locales emitted with trailing-slash paths.
  */
@@ -64,6 +65,16 @@ function eocJob(i: number) {
   };
 }
 
+function smallCompanyJob(i: number) {
+  return {
+    ...job(i),
+    slug: `tecnico-${i}-small-co-lugano`,
+    company: 'Small Co',
+    companyKey: 'small-co',
+    title: `Tecnico Small Co ${i}`,
+  };
+}
+
 beforeAll(async () => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'emp-profiles-'));
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
@@ -78,7 +89,7 @@ beforeAll(async () => {
   fs.writeFileSync(
     path.join(root, 'data', 'employer-profiles.json'),
     JSON.stringify({
-      _meta: { floor: 5 },
+      _meta: { floor: 3 },
       profiles: [
         {
           slug: 'acme-corp',
@@ -104,9 +115,21 @@ beforeAll(async () => {
           salarySamples: 6,
           trend: { added: 3, removed: 1, net: 2, windowDays: 28 },
         },
+        {
+          slug: 'small-co',
+          name: 'Small Co',
+          companyKey: 'small-co',
+          sector: 'Altro',
+          activeJobs: 3,
+          cantons: [{ name: 'TI', count: 3 }],
+          cities: [{ name: 'Lugano', count: 3 }],
+          salaryMedianChf: 90000,
+          salarySamples: 3,
+          trend: { added: 2, removed: 0, net: 2, windowDays: 28 },
+        },
       ],
       belowFloor: [
-        { slug: 'small-co', name: 'Small Co', activeJobs: 3, sector: 'Altro', canton: 'TI' },
+        { slug: 'tiny-co', name: 'Tiny Co', activeJobs: 2, sector: 'Altro', canton: 'TI' },
         // 54-char legal name: BOTH title candidates overflow TITLE_MAX_CHARS
         // (66), so this exercises composePlaceTitle's truncateHeadline
         // fallback on the bridge — which had no length budget at all before
@@ -126,6 +149,7 @@ beforeAll(async () => {
     JSON.stringify([
       ...Array.from({ length: 14 }, (_, i) => job(i + 1)),
       ...Array.from({ length: 6 }, (_, i) => eocJob(i + 1)),
+      ...Array.from({ length: 3 }, (_, i) => smallCompanyJob(i + 1)),
       // Slugless job: must be skipped by BOTH the card renderer and the
       // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
       { ...job(7), slug: '' },
@@ -182,6 +206,13 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('Offerte di lavoro Acme Corp');
     expect(html).toContain('15'); // live active jobs, including the slugless fixture
     expect(html).toContain("CHF 107"); // median of the fifteen reported range midpoints
+  });
+
+  it('indexes a complete profile with exactly three live offers', () => {
+    const html = read('aziende/small-co/index.html');
+    expect(html).toContain('name=robots content="index, follow');
+    expect(html).toContain('Offerte di lavoro Small Co');
+    expect(html).toContain('3');
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
@@ -379,7 +410,7 @@ describe('employerProfilePagesPlugin', () => {
   it('emits the placeholder on the below-floor bridge too', () => {
     // The bridge is noindex but reachable, and a company just under the floor is
     // exactly one worth following: the next ad it posts is the reason to return.
-    const html = read('aziende/small-co/index.html');
+    const html = read('aziende/tiny-co/index.html');
     expect(html).toContain('data-company-follow-mount');
     expect(html).toMatch(/data-surface=["']?employer_below_floor["']?/);
   });
@@ -407,13 +438,13 @@ describe('employerProfilePagesPlugin', () => {
   });
 
   it('emits a noindex,follow bridge (not a 404) for the below-floor company', () => {
-    const html = read('aziende/small-co/index.html');
+    const html = read('aziende/tiny-co/index.html');
     expect(html).toContain('name=robots content=noindex,follow');
-    expect(html).toContain('Small Co');
+    expect(html).toContain('Tiny Co');
     // The bridge shares the full page's brand-first title shape, and its <h1>
     // is the bare company name, so the two can never collide.
     const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
-    expect(title).toContain('Small Co: offerte di lavoro');
+    expect(title).toContain('Tiny Co: offerte di lavoro');
     expect(title).not.toContain('Lavorare in');
   });
 
@@ -432,7 +463,8 @@ describe('employerProfilePagesPlugin', () => {
   it('writes a sitemap listing the indexable IT canonical only', () => {
     const xml = read('sitemap-employer-profiles.xml');
     expect(xml).toContain('https://frontaliereticino.ch/aziende/acme-corp/');
-    expect(xml).not.toContain('/aziende/small-co/'); // bridge is noindex → excluded
+    expect(xml).toContain('/aziende/small-co/');
+    expect(xml).not.toContain('/aziende/tiny-co/'); // bridge is noindex → excluded
   });
 
   it('folds declared brand aliases into the canonical slug (no SERP cannibalization)', () => {

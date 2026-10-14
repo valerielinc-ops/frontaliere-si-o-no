@@ -36,6 +36,7 @@ import { autoAnswersForPortalQuestions, candidateForForm, submitViaPortal, WAVE1
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
+import { portalPassFrom } from './portal/stop-report.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
@@ -467,6 +468,7 @@ export async function submitApplication(ctx) {
         } : null,
       });
       succeeded = event.type === 'submit_succeeded';
+      const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
       // A dry run keeps its files under dry-run-… and its record in the evidence only.
       const sentRecord = succeeded || event.type === 'dry_run_ready' ? await portalRecord(evidence.uploads, ctx.dryRun ? 'dry-run' : 'sent') : null;
       if (guard) {
@@ -491,7 +493,10 @@ export async function submitApplication(ctx) {
       const portalAnswers = { status: event.type, at: nowMs, answers: evidence.answers || [] };
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
       const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
-      return event.type === 'submit_succeeded' ? { ...event, channel: channelType, portalAnswers, sent: sentRecord } : { ...event, portalAnswers, ...stopReport };
+      const pass = portalPass ? { portalPass } : {};
+      return event.type === 'submit_succeeded'
+        ? { ...event, channel: channelType, portalAnswers, sent: sentRecord, ...pass }
+        : { ...event, portalAnswers, ...stopReport, ...pass };
     } catch (error) {
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.

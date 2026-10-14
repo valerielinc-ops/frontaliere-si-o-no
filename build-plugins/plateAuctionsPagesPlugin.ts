@@ -18,6 +18,8 @@ import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin
 import { cleanNamespaces } from './shared/distNamespaceCleanup';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
+import { readPlateAuctionArchive, publicArchivedPlateAuction } from '../scripts/lib/plate-auction-archive.mjs';
+import { PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
 import type {
   PlateAuctionSourceStatus,
@@ -76,7 +78,13 @@ interface SourceCoverageEntry {
 }
 
 function readSnapshot(rootDir: string): Snapshot {
-  try { return JSON.parse(fs.readFileSync(np.join(rootDir, 'public', 'data', 'plate-auctions.json'), 'utf8')) as Snapshot; } catch { return {}; }
+  const dataDir = np.join(rootDir, 'public', 'data');
+  let snapshot: Snapshot = {};
+  try { snapshot = JSON.parse(fs.readFileSync(np.join(dataDir, 'plate-auctions.json'), 'utf8')) as Snapshot; } catch { /* archive can still provide historical records */ }
+  const recoveryFile = np.join(dataDir, 'plate-auctions-recovery.json');
+  const recovery = fs.existsSync(recoveryFile) ? JSON.parse(fs.readFileSync(recoveryFile, 'utf8')) : { history: [] };
+  if (!Array.isArray(recovery.history)) throw new Error('Invalid plate-auction recovery history');
+  return { ...snapshot, history: [...(snapshot.history || []), ...readPlateAuctionArchive(np.join(dataDir, 'plate-auctions-archive')), ...recovery.history] };
 }
 function readSourceRegistry(rootDir: string): PlateAuctionSourcesRegistry | null {
   try {
@@ -419,7 +427,10 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   // buildSeoPageHtml owns the single outer <main> in outside-root mode. Keep
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
-  const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '');
+  const historicalSeed = view === 'detail' && detailRow && ['closed', 'sold', 'unsold'].includes(detailRow.auctionStatus)
+    ? `<script type="application/json" id="${PLATE_AUCTION_DETAIL_SEED_ID}">${inlineScriptJson({ schema: 1, path: new URL(canonicalUrl).pathname, row: publicArchivedPlateAuction(detailRow) })}</script>`
+    : '';
+  const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '') + historicalSeed;
   const itemListRows = view === 'directory' ? directoryPageRows : rows;
   const itemList = itemListRows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
   const itemListTotal = view === 'directory' ? directoryRows.length : rows.length;

@@ -1,9 +1,29 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+const fixture = vi.hoisted(() => ({
+  listing: {
+    title: 'Consulente vendita',
+    description: '<p>Una descrizione inventata per il test del parser.</p>',
+    location: 'Lugano',
+    addressLocality: 'Lugano',
+    addressRegion: 'Ticino',
+    addressCountry: 'CH',
+    postalCode: ' 6900 ',
+    streetAddress: ' Via   Ceresio  1 ',
+    url: 'https://my.jobalino.ch/public/job/synthetic-geography-fixture/',
+  },
+}));
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  loadSpec: () => ({}),
+  runSpecInProduction: async () => [fixture.listing],
+}));
+
 import {
   MY_KEY,
   MY_COMPANY_NAME,
   isMyJob,
   isTrustedDomain,
+  fetchAllMyJobs,
 } from '../scripts/lib/my-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -116,6 +136,19 @@ describe('Teo Jakob AG crawler parser', () => {
       const locales = Object.keys(validJob.slugByLocale);
       expect(locales).toHaveLength(1);
       expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('projects normalized source geography instead of raw address fields', async () => {
+      const [job] = await fetchAllMyJobs();
+
+      expect(job).toMatchObject({
+        location: 'Lugano',
+        canton: 'TI',
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        postalCode: '6900',
+        streetAddress: 'Via Ceresio 1',
+      });
     });
 
     it('id starts with company key', () => {

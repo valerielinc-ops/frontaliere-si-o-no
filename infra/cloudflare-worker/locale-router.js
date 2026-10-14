@@ -868,6 +868,44 @@ async function recoverArticleAlias(url, origin) {
   });
 }
 
+// MIRRORS scripts/lib/orphan-landing-path.mjs and nursing-landing-path.mjs:
+// this Worker is standalone; the registry is generated from those shared leaves.
+const ORPHAN_QUERY_PATH_RE = /^(\/ricerca\/|\/en\/search\/|\/de\/suche\/|\/fr\/recherche\/)[a-z0-9]+(?:-[a-z0-9]+)*\/$/;
+const ORPHAN_NURSING_TARGETS = {
+  '/ricerca/': '/lavoro-infermieri-svizzera/',
+  '/en/search/': '/en/nursing-jobs-switzerland/',
+  '/de/suche/': '/de/pflegejobs-schweiz/',
+  '/fr/recherche/': '/fr/emplois-infirmiers-suisse/',
+};
+
+export function orphanQueryAliasTarget(pathname, registry) {
+  const from = pathname.replace(/\/+$/, '') + '/';
+  const match = from.match(ORPHAN_QUERY_PATH_RE);
+  if (!match || registry?.schema !== 1 || !Object.prototype.hasOwnProperty.call(registry.aliases || {}, from)) return null;
+  const target = registry.aliases[from];
+  if (typeof target !== 'string' || target === from) return null;
+  const sameSection = target.match(ORPHAN_QUERY_PATH_RE)?.[1] === match[1];
+  if ((!sameSection && target !== ORPHAN_NURSING_TARGETS[match[1]]) || lookupRetired(target) !== undefined) return null;
+  return target;
+}
+
+async function recoverOrphanQueryAlias(url, origin) {
+  if (!(url.pathname.replace(/\/+$/, '') + '/').match(ORPHAN_QUERY_PATH_RE)) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+  let target;
+  try {
+    const response = await fetch('https://frontaliereticino.ch/orphan-query-aliases.json', {
+      signal: controller.signal,
+      cf: cacheEverythingWithout5xx(300),
+    });
+    if (!response.ok) return null;
+    target = orphanQueryAliasTarget(url.pathname, await response.json());
+  } catch { return null; } finally { clearTimeout(timer); }
+  if (!target || !(await redirectTargetIsLive(target, origin))) return null;
+  return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
+}
+
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
 // padded to length 2.
@@ -2628,6 +2666,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
   // Unknown slugs fall through to the soft 404 below.
   if (request.method === 'GET' && resp.status === 404) {
+    const queryRedirect = await recoverOrphanQueryAlias(url, origin);
+    if (queryRedirect) return queryRedirect;
     const articleRedirect = await recoverArticleAlias(url, origin);
     if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
@@ -2857,7 +2897,12 @@ const router = {
       // from HTML. The timeout+retry guard mirrors the shard-origin layer. No
       // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
-        return await fetchOriginWithRetry(url, request);
+        const response = await fetchOriginWithRetry(url, request);
+        if (request.method === 'GET' && response.status === 404) {
+          const redirect = await recoverOrphanQueryAlias(url, url.hostname);
+          if (redirect) return redirect;
+        }
+        return response;
       } catch {
         return new Response('Origin unavailable', { status: 503 });
       }
