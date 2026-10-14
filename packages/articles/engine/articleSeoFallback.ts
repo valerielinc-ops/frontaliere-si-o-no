@@ -236,12 +236,15 @@ const safeInlineHref = (value: string): string | null => {
  }
  if (/^mailto:/i.test(href)) return href;
  if (href.startsWith('/') || href.startsWith('#')) return href;
- // Explicit relative paths remain valid. A bare domain or action token has
- // no declared base here: browsers turn it into a nonexistent article child
- // (e.g. /article/alertswiss.ch or /article/calculator). Preserve its label
- // instead of guessing an external site or silently inventing a public URL.
- if (/^\.{1,2}\//.test(href)) return href;
- return null;
+ if (/^\.{1,2}\//.test(href) || href.startsWith('?')) return href;
+ // Reject unsupported schemes, not ordinary relative references. Bare web
+ // hosts and the legacy calculator action are malformed source links: keep
+ // their labels without guessing a scheme or a destination. File names and
+ // relative article paths still resolve against the declared document URL.
+ if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return null;
+ if (/^calculator(?:[/?#]|$)/i.test(href)) return null;
+ if (/^(?:www\.|(?:[a-z0-9-]+\.)+(?:ch|it|com|org|net|gov|edu|eu|io)(?:[/?#]|$))/i.test(href)) return null;
+ return href;
 };
 
 /**
