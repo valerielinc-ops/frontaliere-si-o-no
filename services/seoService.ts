@@ -43,6 +43,7 @@ import { buildOggiPath, type BorderCrossingSlug } from '../build-plugins/borderW
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 import { needsArticleBodyRecovery } from './articleBodyRecovery';
+import { collectArticleBodySegments } from './articleBodySegments';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -1864,14 +1865,16 @@ export async function updateMetaTags(section: string): Promise<void> {
  articleBodyLoadFailed = true;
  }
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
- if (needsArticleBodyRecovery(Object.values(getLoadedArticleBody(blogArticleId)))) {
+ if (needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t))) {
  try {
  const { recoverArticleBodyParts, publishRuntimeArticleBody } = await import('./runtimeArticleResolution');
  const parts = await recoverArticleBodyParts(canonicalLocalePath);
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  publishRuntimeArticleBody(blogArticleId, locale, parts);
+ articleBodyLoadFailed = parts.length === 0 || needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t));
  } catch {
  // Failed recovery leaves the existing placeholder and its noindex gate intact.
+ articleBodyLoadFailed = true;
  }
  }
  articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(getLoadedArticleBody(blogArticleId));

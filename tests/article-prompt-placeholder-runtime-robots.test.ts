@@ -37,6 +37,20 @@ async function updateArticleRobots(locale: Locale): Promise<string> {
 }
 
 describe('article prompt-placeholder robots protection after SEO hydration', () => {
+ it.each(['missing', 'ellipsis', 'missing-first'] as const)('preserves static noindex when recovery fails for a %s body', async (shape) => {
+ await preloadBlogData();
+ await loadAllLocaleChunks('it');
+ setLocale('it');
+ const id = `runtime-failed-recovery-${shape}`;
+ if (shape === 'ellipsis') mergeArticleMetaOverlay('it', { [`blog.article.${id}.body1`]: '...' });
+ if (shape === 'missing-first') mergeArticleMetaOverlay('it', { [`blog.article.${id}.body3`]: 'Terzo paragrafo senza primo corpo.' });
+ const route: AppRoute = { activeTab: 'blog', blogArticle: id as AppRoute['blogArticle'] };
+ window.history.replaceState({}, '', buildPath(route, 'it'));
+ document.head.innerHTML = '<title>Quarantined article</title><meta name="robots" content="noindex,follow">';
+ await updateMetaTags(`blog-${id}`);
+ expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toBe('noindex, follow');
+ });
+
  it('awaits the published body repair before deciding robots, even without the article component', async () => {
  await preloadBlogData();
  await loadAllLocaleChunks('it');
