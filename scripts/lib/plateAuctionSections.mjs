@@ -15,6 +15,9 @@ export const PLATE_AUCTION_BASE_BY_LOCALE = Object.freeze({
   fr: 'encheres-plaques-suisses',
 });
 
+/** URL-bound historical detail payload retained through client hydration. */
+export const PLATE_AUCTION_DETAIL_SEED_ID = 'plate-auction-detail-seed';
+
 const PLATE_AUCTION_SECTION_SOURCE = Object.entries(PLATE_AUCTION_BASE_BY_LOCALE)
   .map(([locale, slug]) => (locale === 'it' ? slug : `${locale}/${slug}`))
   .join('|');
