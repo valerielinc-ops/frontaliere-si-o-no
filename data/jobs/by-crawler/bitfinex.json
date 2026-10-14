@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bitfinex-a71c343e1de7",
-      "slug": "transaction-monitoring-analista-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore",
+      "slug": "analista-del-monitoraggio-delle-transazioni-100-da-remoto-in-tutto-il-mondo-fuso-orario-latam-o-apac-bitfinex-bangalore",
       "slugByLocale": {
-        "it": "transaction-monitoring-analista-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore",
+        "it": "analista-del-monitoraggio-delle-transazioni-100-da-remoto-in-tutto-il-mondo-fuso-orario-latam-o-apac-bitfinex-bangalore",
         "en": "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch",
-        "de": "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch",
-        "fr": "transaction-monitoring-analyste-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore"
+        "de": "analyst-fur-transaktionsuberwachung-100-remote-weltweit-latam-oder-apac-zeitzone-bitfinex-bangalore-karnataka",
+        "fr": "analyste-de-la-surveillance-des-transactions-100-a-distance-dans-le-monde-entier-fuseau-horaire-latam-ou-apac-bitfinex"
       },
       "company": "Bitfinex",
       "companyKey": "bitfinex",
@@ -53,13 +53,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch"
+        "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch",
+        "transaction-monitoring-analista-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore",
+        "transaction-monitoring-analyste-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch"
+          "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch",
+          "transaction-monitoring-analista-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore"
         ],
         "fr": [
+          "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch",
+          "transaction-monitoring-analyste-100-remote-worldwide-latam-or-apac-timezone-bitfinex-bangalore"
+        ],
+        "de": [
           "transaction-monitoring-analyst-100-remote-worldwide-latam-or-apac-timezone-bitfinex-ch"
         ]
       },

@@ -5016,7 +5016,7 @@
         "it": "intern-grande-e-complesso-audit-zurigo-basilea-berna-ottobre-2027-marzo-2028-deloitte-zurich",
         "en": "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich",
         "de": "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich",
-        "fr": "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
+        "fr": "stagiaire-audit-des-entites-de-grande-taille-et-complexes-zurich-bale-et-berne-octobre-2027-mars-2028-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -5068,6 +5068,9 @@
       "previousSlugsByLocale": {
         "it": [
           "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
+        ],
+        "fr": [
+          "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -5092,7 +5095,7 @@
       "slugByLocale": {
         "it": "intern-grande-e-complesso-audit-ginevra-lousanne-ottobre-2027-marzo-2028-deloitte-geneva",
         "en": "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva",
-        "de": "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva",
+        "de": "praktikant-in-wirtschaftsprufung-gro-er-und-komplexer-unternehmen-genf-lausanne-oktober-2027-marz-2028-deloitte-geneva",
         "fr": "stagiaire-audit-grand-et-complexe-geneve-lausanne-octobre-2027-mars-2028-deloitte-geneva"
       },
       "company": "Deloitte",
@@ -5147,6 +5150,9 @@
           "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
         ],
         "fr": [
+          "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
+        ],
+        "de": [
           "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
         ]
       },
@@ -6049,9 +6055,9 @@
     },
     {
       "id": "deloitte-2c581adbffd7",
-      "slug": "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich",
+      "slug": "inizio-carriera-analista-revisione-contabile-di-aziende-grandi-e-complesse-zurigo-basilea-e-berna-ottobre-2027-deloitte",
       "slugByLocale": {
-        "it": "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich",
+        "it": "inizio-carriera-analista-revisione-contabile-di-aziende-grandi-e-complesse-zurigo-basilea-e-berna-ottobre-2027-deloitte",
         "en": "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich",
         "de": "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich",
         "fr": "debut-de-carriere-analyste-audit-grand-et-complexe-zurich-bale-et-berne-octobre-2027-deloitte-zurich"
@@ -6114,13 +6120,21 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-analyst-large-complex-audit-zurich-basel-bern-october-2027-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-dbc5415088e5",
-      "slug": "career-start-analyst-large-complex-audit-geneva-lausanne-october-2027-deloitte-geneva",
+      "slug": "inizio-carriera-analista-audit-grandi-e-complessi-ginevra-losanna-ottobre-2027-deloitte-geneva",
       "slugByLocale": {
-        "it": "career-start-analyst-large-complex-audit-geneva-lausanne-october-2027-deloitte-geneva",
+        "it": "inizio-carriera-analista-audit-grandi-e-complessi-ginevra-losanna-ottobre-2027-deloitte-geneva",
         "en": "career-start-analyst-large-complex-audit-geneva-lausanne-october-2027-deloitte-geneva",
         "de": "karrierestart-analyst-large-complex-audit-genf-lausanne-oktober-2027-deloitte-geneva",
         "fr": "debut-de-carriere-analyste-audit-grand-et-complexe-geneve-lausanne-octobre-2027-deloitte-geneva"
@@ -6182,7 +6196,15 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-analyst-large-complex-audit-geneva-lausanne-october-2027-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-analyst-large-complex-audit-geneva-lausanne-october-2027-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-67cf9f7d2a4e",
@@ -6191,7 +6213,7 @@
         "it": "inizio-carriera-analista-audit-dei-servizi-finanziari-zurigo-basel-ottobre-2027-deloitte-zurich",
         "en": "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich",
         "de": "karrierestart-analyst-financial-services-audit-zurich-basel-oktober-2027-deloitte-zurich",
-        "fr": "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
+        "fr": "debut-de-carriere-analyste-audit-des-services-financiers-zurich-bale-octobre-2027-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -6242,6 +6264,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
+        ],
+        "fr": [
           "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
         ]
       },

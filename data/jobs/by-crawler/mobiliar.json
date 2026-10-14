@@ -813,9 +813,9 @@
     },
     {
       "id": "mobiliar-0aab62159c8f",
-      "slug": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
+      "slug": "ispettore-dei-sinistri-agricoli-m-f-d-all-interno-della-rete-di-specialisti-sinistri-rss-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss",
+        "it": "ispettore-dei-sinistri-agricoli-m-f-d-all-interno-della-rete-di-specialisti-sinistri-rss-die-mobiliar-bern",
         "en": "agricultural-disaster-inspector-m-f-d-within-the-network-of-specialists-on-disasters-rss-die-mobiliar-bern",
         "de": "landwirtschaftlicher-katastropheninspektor-m-w-d-im-rahmen-des-netzwerks-der-spezialisten-fur-katastrophen-rss-die",
         "fr": "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss"
@@ -877,7 +877,15 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss"
+        ]
+      },
+      "previousSlugs": [
+        "inspecteur-de-sinistres-agricole-h-f-d-au-sein-du-reseau-de-specialistes-sinistres-rss"
+      ]
     },
     {
       "id": "mobiliar-638981217caf",

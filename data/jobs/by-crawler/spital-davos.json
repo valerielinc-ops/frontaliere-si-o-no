@@ -1660,12 +1660,12 @@
     },
     {
       "id": "spital-davos-3a77987ed4d9",
-      "slug": "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch",
+      "slug": "gestione-delle-risorse-umane-di-un-anno-80-100-spital-davos-davos",
       "slugByLocale": {
         "de": "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch",
-        "it": "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch",
-        "en": "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch",
-        "fr": "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch"
+        "it": "gestione-delle-risorse-umane-di-un-anno-80-100-spital-davos-davos",
+        "en": "one-year-internship-human-resource-management-80-100-spital-davos-davos",
+        "fr": "stage-d-un-an-gestion-des-ressources-humaines-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1727,7 +1727,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-14T09:42:39.702Z"
+      "firstSeenAt": "2026-10-14T09:42:39.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch"
+        ],
+        "en": [
+          "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch"
+        ],
+        "fr": [
+          "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "einjahriges-praktikum-human-ressource-management-80-100-spital-davos-ch"
+      ]
     }
   ]
 }

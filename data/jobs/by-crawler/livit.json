@@ -2456,11 +2456,11 @@
     },
     {
       "id": "livit-da9814b00810",
-      "slug": "assistant-e-de-gerance-immobiliere-livit-geneve",
+      "slug": "assistente-alla-gestione-delle-proprieta-livit-ag-geneve",
       "slugByLocale": {
         "fr": "assistant-e-de-gerance-immobiliere-livit-geneve",
-        "it": "assistant-e-de-gerance-immobiliere-livit-geneve",
-        "en": "assistant-e-de-gerance-immobiliere-livit-geneve",
+        "it": "assistente-alla-gestione-delle-proprieta-livit-ag-geneve",
+        "en": "property-management-assistant-livit-ag-geneve",
         "de": "assistant-e-de-gerance-immobiliere-livit-geneve"
       },
       "company": "Livit AG",
@@ -2519,7 +2519,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-gerance-immobiliere-livit-geneve"
+        ],
+        "en": [
+          "assistant-e-de-gerance-immobiliere-livit-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-gerance-immobiliere-livit-geneve"
+      ]
     }
   ]
 }

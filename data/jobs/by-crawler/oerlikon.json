@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "oerlikon-f2690531813f",
-      "slug": "sr-manager-strategic-hr-digital-projects-oerlikon-ch",
+      "slug": "manager-senior-risorse-umane-strategiche-e-progetti-digitali-oerlikon-pfaffikon-sz",
       "slugByLocale": {
-        "it": "sr-manager-strategic-hr-digital-projects-oerlikon-ch",
+        "it": "manager-senior-risorse-umane-strategiche-e-progetti-digitali-oerlikon-pfaffikon-sz",
         "en": "sr-manager-strategic-hr-digital-projects-oerlikon-ch",
-        "de": "sr-manager-strategic-hr-digital-projects-oerlikon-ch",
-        "fr": "sr-manager-strategic-hr-digital-projects-oerlikon-ch"
+        "de": "senior-manager-fur-strategisches-hr-digitale-projekte-oerlikon-pfaffikon-sz",
+        "fr": "responsable-senior-des-rh-strategiques-et-des-projets-numeriques-oerlikon-pfaffikon-sz"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -65,7 +65,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-manager-strategic-hr-digital-projects-oerlikon-ch"
+        ],
+        "de": [
+          "sr-manager-strategic-hr-digital-projects-oerlikon-ch"
+        ],
+        "fr": [
+          "sr-manager-strategic-hr-digital-projects-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-manager-strategic-hr-digital-projects-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-4777cad32119",

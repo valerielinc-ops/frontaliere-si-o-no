@@ -1651,9 +1651,9 @@
     },
     {
       "id": "cern-546edab58384",
-      "slug": "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
+      "slug": "professionista-junior-della-catena-di-approvvigionamento-e-dei-sistemi-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
       "slugByLocale": {
-        "it": "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
+        "it": "professionista-junior-della-catena-di-approvvigionamento-e-dei-sistemi-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
         "en": "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
         "de": "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva",
         "fr": "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva"
@@ -1714,7 +1714,15 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-supply-chain-system-professional-sce-ssc-sc-2026-231-grae-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-3b52cfd75a78",
@@ -2160,12 +2168,12 @@
     },
     {
       "id": "cern-c157f55b393d",
-      "slug": "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva",
+      "slug": "ingegnere-tecnico-del-vuoto-dei-rivestimenti-a-film-sottile-te-vsc-scc-2026-234-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
-        "it": "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva",
+        "it": "ingegnere-tecnico-del-vuoto-dei-rivestimenti-a-film-sottile-te-vsc-scc-2026-234-grae-cern-geneva-geneva-switzerland",
         "en": "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva",
-        "de": "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva",
-        "fr": "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva"
+        "de": "technische-r-ingenieur-in-fur-vakuum-dunnschichtbeschichtung-te-vsc-scc-2026-234-grae-cern-geneva-geneva-switzerland",
+        "fr": "ingenieur-technique-en-vide-revetement-de-couches-minces-te-vsc-scc-2026-234-grae-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2223,7 +2231,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva"
+        ],
+        "de": [
+          "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva"
+        ],
+        "fr": [
+          "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "vacuum-thin-film-coating-technical-engineer-te-vsc-scc-2026-234-grae-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-924451be276b",

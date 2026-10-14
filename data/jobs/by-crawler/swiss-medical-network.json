@@ -29,11 +29,11 @@
       },
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-swiss-medical-network",
-        "it": "medizinische-r-praxisassistent-in-swiss-medical-network",
-        "en": "medizinische-r-praxisassistent-in-swiss-medical-network",
-        "fr": "medizinische-r-praxisassistent-in-swiss-medical-network"
+        "it": "assistente-medico-pratico-swiss-medical-network-egerkingen",
+        "en": "medical-practice-assistant-swiss-medical-network-egerkingen",
+        "fr": "assistant-medical-et-professionnel-swiss-medical-network-egerkingen"
       },
-      "slug": "medizinische-r-praxisassistent-in-swiss-medical-network",
+      "slug": "assistente-medico-pratico-swiss-medical-network-egerkingen",
       "category": "healthcare",
       "datePosted": "2026-10-14T06:44:34.825Z",
       "postedDate": "2026-10-14T06:44:34.825Z",
@@ -62,7 +62,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:19:37.006Z"
+      "firstSeenAt": "2026-10-14T09:19:37.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-swiss-medical-network"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-swiss-medical-network"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155413538-medico-a-ospedaliero-a-50-100-",
@@ -91,9 +105,9 @@
       },
       "slugByLocale": {
         "it": "medico-a-ospedaliero-a-50-100-swiss-medical-network",
-        "en": "medico-a-ospedaliero-a-50-100-swiss-medical-network",
-        "de": "medico-a-ospedaliero-a-50-100-swiss-medical-network",
-        "fr": "medico-a-ospedaliero-a-50-100-swiss-medical-network"
+        "en": "medical-50-100-swiss-medical-network-gravesano",
+        "de": "medizinisch-50-100-swiss-medical-network-gravesano",
+        "fr": "services-medicaux-50-a-100-swiss-medical-network-gravesano"
       },
       "slug": "medico-a-ospedaliero-a-50-100-swiss-medical-network",
       "category": "medical",
@@ -659,7 +673,7 @@
         "fr": "omnipraticiens (50 à 100 %)"
       },
       "slugByLocale": {
-        "it": "professionisti-generali-50-100-swiss-medical-network-ittigen-28e990d98f",
+        "it": "professionisti-generali-50-100-swiss-medical-network-ittigen",
         "en": "general-practitioners-50-to-100-swiss-medical-network-ittigen",
         "de": "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
         "fr": "omnipraticiens-50-a-100-swiss-medical-network-ittigen"
@@ -790,7 +804,7 @@
         "fr": "Spécialiste / Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen-d63cfffa0b",
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
         "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
@@ -2958,7 +2972,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"

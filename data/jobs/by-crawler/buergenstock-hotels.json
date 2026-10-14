@@ -905,12 +905,12 @@
     },
     {
       "id": "buergenstock-hotels-c0f9abb0521c",
-      "slug": "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "manager-assistente-dell-esperienza-concierge-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "manager-assistente-dell-esperienza-concierge-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "responsable-adjoint-e-de-l-experience-concierge-100-h-f-d-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -966,7 +966,18 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-experience-concierge-manager-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-eb923773c6b8",

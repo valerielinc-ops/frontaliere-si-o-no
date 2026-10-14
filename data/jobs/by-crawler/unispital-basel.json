@@ -1654,7 +1654,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel",
+        "en": "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       },
@@ -1702,7 +1702,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-        "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1711,7 +1711,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-          "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
@@ -10373,12 +10373,12 @@
     },
     {
       "id": "unispital-basel-0d05822c1429",
-      "slug": "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel",
+      "slug": "aiuto-di-laboratorio-assistente-di-studio-medico-universitatsspital-basel-basel-86a563",
       "slugByLocale": {
         "de": "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch",
-        "it": "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel",
-        "en": "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel",
-        "fr": "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel"
+        "it": "aiuto-di-laboratorio-assistente-di-studio-medico-universitatsspital-basel-basel-86a563",
+        "en": "laboratory-assistant-medical-practice-assistant-universitatsspital-basel-basel-86a563",
+        "fr": "aide-de-laboratoire-assistant-e-medical-e-universitatsspital-basel-basel-86a563"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10425,11 +10425,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch-2"
+          "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch-2",
+          "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch-2"
+        "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch-2",
+        "laborhilfe-medizinische-r-praxisassistent-in-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10448,12 +10456,12 @@
     },
     {
       "id": "unispital-basel-ca8a6a06a02f",
-      "slug": "assistent-in-management-support-betrieb-unispital-basel-ch",
+      "slug": "assistente-al-supporto-alla-gestione-aziendale-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "assistent-in-management-support-betrieb-unispital-basel-ch",
-        "it": "assistent-in-management-support-betrieb-unispital-basel-ch",
-        "en": "assistent-in-management-support-betrieb-universitatsspital-basel-basel",
-        "fr": "assistent-in-management-support-betrieb-unispital-basel-ch"
+        "it": "assistente-al-supporto-alla-gestione-aziendale-universitatsspital-basel-basel",
+        "en": "assistant-management-support-operations-universitatsspital-basel-basel",
+        "fr": "assistant-e-management-support-exploitation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10511,16 +10519,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:16.225Z"
+      "firstSeenAt": "2026-10-14T09:42:16.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-management-support-betrieb-unispital-basel-ch"
+        ],
+        "en": [
+          "assistent-in-management-support-betrieb-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "assistent-in-management-support-betrieb-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-management-support-betrieb-unispital-basel-ch",
+        "assistent-in-management-support-betrieb-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-a4070e5373e5",
-      "slug": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-34d87cd674",
+      "slug": "analista-biomedico-a-sss-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "it": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-34d87cd674",
-        "en": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
-        "fr": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        "it": "analista-biomedico-a-sss-universitatsspital-basel-basel",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel-7c89d4",
+        "fr": "technicien-ne-en-analyses-biomedicales-es-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10568,12 +10591,20 @@
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-34d87cd674"
+        ],
+        "en": [
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        ],
+        "fr": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-34d87cd674"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10592,12 +10623,12 @@
     },
     {
       "id": "unispital-basel-0854ed185dda",
-      "slug": "phd-position-translational-tumor-immunology-unispital-basel-ch",
+      "slug": "posizione-del-phd-immunologia-del-tumore-traduzionale-universitatsspital-basel-basel",
       "slugByLocale": {
         "en": "phd-position-translational-tumor-immunology-unispital-basel-ch",
-        "it": "phd-position-translational-tumor-immunology-unispital-basel-ch",
-        "de": "phd-position-translational-tumor-immunology-unispital-basel-ch",
-        "fr": "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        "it": "posizione-del-phd-immunologia-del-tumore-traduzionale-universitatsspital-basel-basel",
+        "de": "phd-position-translationale-tumorimmunologie-universitatsspital-basel-basel",
+        "fr": "poste-de-doctorat-immunologie-des-tumeurs-de-la-traduction-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10655,16 +10686,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:16.223Z"
+      "firstSeenAt": "2026-10-14T09:42:16.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        ],
+        "de": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        ],
+        "fr": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-translational-tumor-immunology-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-5c3a6032e855",
-      "slug": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
+      "slug": "posizione-del-phd-immunologia-del-tumore-traduzionale-universitatsspital-basel-basel-8fd6c6",
       "slugByLocale": {
         "en": "phd-position-translational-tumor-immunology-unispital-basel-ch-9lnos1",
-        "it": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
-        "de": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
-        "fr": "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
+        "it": "posizione-del-phd-immunologia-del-tumore-traduzionale-universitatsspital-basel-basel-8fd6c6",
+        "de": "phd-position-translationale-tumorimmunologie-universitatsspital-basel-basel-8fd6c6",
+        "fr": "poste-de-doctorat-immunologie-des-tumeurs-de-la-traduction-universitatsspital-basel-basel-8fd6c6"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10724,22 +10769,32 @@
       },
       "firstSeenAt": "2026-10-14T09:42:16.222Z",
       "previousSlugs": [
-        "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        "phd-position-translational-tumor-immunology-unispital-basel-ch",
+        "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
       ],
       "previousSlugsByLocale": {
         "en": [
           "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        ],
+        "it": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
+        ],
+        "de": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
+        ],
+        "fr": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
         ]
       }
     },
     {
       "id": "unispital-basel-b57f21c42e57",
-      "slug": "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch",
+      "slug": "posizione-del-dottorato-immunologia-del-tumore-e-neuro-oncologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "en": "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch",
-        "it": "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch",
-        "de": "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch",
-        "fr": "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch"
+        "it": "posizione-del-dottorato-immunologia-del-tumore-e-neuro-oncologia-universitatsspital-basel-basel",
+        "de": "phd-position-tumor-immunologie-und-neuro-onkologie-universitatsspital-basel-basel",
+        "fr": "poste-de-doctorat-immunologie-tumorale-et-neuro-oncologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10797,7 +10852,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:16.221Z"
+      "firstSeenAt": "2026-10-14T09:42:16.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch"
+        ],
+        "de": [
+          "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch"
+        ],
+        "fr": [
+          "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-tumor-immunology-and-neuro-oncology-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-fb211c0113db",
@@ -10805,8 +10874,8 @@
       "slugByLocale": {
         "en": "lab-technician-clinical-trial-amp-biobanking-coordinator-unispital-basel-ch",
         "it": "lab-technician-clinical-trial-amp-biobanking-coordinator-unispital-basel-ch",
-        "de": "lab-technician-clinical-trial-amp-biobanking-coordinator-unispital-basel-ch",
-        "fr": "lab-technician-clinical-trial-amp-biobanking-coordinator-unispital-basel-ch"
+        "de": "lab-techniker-clinical-trial-biobanking-koordinator-universitatsspital-basel-basel",
+        "fr": "lab-technicien-clinical-trial-biobanking-coordinateur-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10868,12 +10937,12 @@
     },
     {
       "id": "unispital-basel-133aafc3bc6c",
-      "slug": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-2e95a9569e",
+      "slug": "analista-biomedico-a-sss-universitatsspital-basel-basel-dc6320",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "it": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-2e95a9569e",
-        "en": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
-        "fr": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        "it": "analista-biomedico-a-sss-universitatsspital-basel-basel-dc6320",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel-dc6320",
+        "fr": "technicien-ne-en-analyses-biomedicales-es-universitatsspital-basel-basel-dc6320"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10921,12 +10990,20 @@
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch-2",
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-2e95a9569e"
+        ],
+        "en": [
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        ],
+        "fr": [
           "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch-2",
-        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel-2e95a9569e"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10945,12 +11022,12 @@
     },
     {
       "id": "unispital-basel-c26b73bf12bf",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
+      "slug": "infermiera-diplomata-infermiere-diplomato-hf-fh-con-possibilita-di-diventare-formatore-trice-professionale-chirurgia",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        "it": "infermiera-diplomata-infermiere-diplomato-hf-fh-con-possibilita-di-diventare-formatore-trice-professionale-chirurgia",
+        "en": "qualified-nurse-hf-fh-with-option-to-become-a-vocational-trainer-surgery-internal-medicine-universitatsspital-basel",
+        "fr": "infirmiere-diplomee-infirmier-diplome-es-hes-avec-possibilite-de-devenir-formateur-trice-en-entreprise-chirurgie"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11008,7 +11085,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:29:56.677Z"
+      "firstSeenAt": "2026-07-16T11:29:56.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+      ]
     },
     {
       "id": "unispital-basel-23d53386c673",

@@ -237,7 +237,7 @@
       "slugByLocale": {
         "it": "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "en": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "de": "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "de": "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "fr": "conseiller-scolaire-short-couverture-temporaire-80-nord-anglia-education-switzerland-villars-sur-ollon"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -286,7 +286,7 @@
       "previousSlugs": [
         "schulberater-kurzzeitversicherung-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon"
+        "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -294,7 +294,7 @@
         ],
         "de": [
           "schulberater-kurzzeitversicherung-80-nord-anglia-education-switzerland-villars-sur-ollon",
-          "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon"
+          "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon"
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:39.971Z",
@@ -314,12 +314,12 @@
     },
     {
       "id": "nord-anglia-16ca6a9b3cd1",
-      "slug": "eyfs-teacher-80-nord-anglia-aubonne",
+      "slug": "eyfs-maestro-80-nord-anglia-education-switzerland-aubonne",
       "slugByLocale": {
         "en": "eyfs-teacher-80-nord-anglia-aubonne",
-        "it": "eyfs-teacher-80-nord-anglia-aubonne",
-        "de": "eyfs-teacher-80-nord-anglia-aubonne",
-        "fr": "eyfs-teacher-80-nord-anglia-aubonne"
+        "it": "eyfs-maestro-80-nord-anglia-education-switzerland-aubonne",
+        "de": "eyfs-lehrer-80-nord-anglia-education-switzerland-aubonne",
+        "fr": "enseignant-eyfs-80-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -379,7 +379,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:25:06.764Z"
+      "firstSeenAt": "2026-10-14T09:25:06.764Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eyfs-teacher-80-nord-anglia-aubonne"
+        ],
+        "de": [
+          "eyfs-teacher-80-nord-anglia-aubonne"
+        ],
+        "fr": [
+          "eyfs-teacher-80-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "eyfs-teacher-80-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-06adb01c1276",
@@ -850,9 +864,9 @@
     },
     {
       "id": "nord-anglia-8be6b02abcd4",
-      "slug": "professeur-d-espagnol-secondaire-i-m-f-temps-partiel-sostituzione-di-conge-maternite-nord-anglia-education-switzerland",
+      "slug": "insegnante-di-spagnolo-scuola-secondaria-i-m-f-a-tempo-parziale-sostituzione-per-congedo-di-maternita-nord-anglia",
       "slugByLocale": {
-        "it": "professeur-d-espagnol-secondaire-i-m-f-temps-partiel-sostituzione-di-conge-maternite-nord-anglia-education-switzerland",
+        "it": "insegnante-di-spagnolo-scuola-secondaria-i-m-f-a-tempo-parziale-sostituzione-per-congedo-di-maternita-nord-anglia",
         "en": "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord",
         "de": "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord",
         "fr": "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord"
@@ -901,11 +915,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord"
+        "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord",
+        "professeur-d-espagnol-secondaire-i-m-f-temps-partiel-sostituzione-di-conge-maternite-nord-anglia-education-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord"
+          "professeur-d-espagnol-secondaire-i-h-f-temps-partiel-remplacement-de-conge-maternite-nord",
+          "professeur-d-espagnol-secondaire-i-m-f-temps-partiel-sostituzione-di-conge-maternite-nord-anglia-education-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -1005,7 +1021,7 @@
       "slugByLocale": {
         "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne",
+        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
         "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -1054,7 +1070,7 @@
       "previousSlugs": [
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
         "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+        "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1062,7 +1078,7 @@
         ],
         "de": [
           "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-          "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:21.946Z",

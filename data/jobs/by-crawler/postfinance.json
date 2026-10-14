@@ -1074,7 +1074,7 @@
         "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
         "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
         "de": "athletenprogramm-asset-management-w-m-d-postfinance",
-        "fr": "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+        "fr": "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1101,7 +1101,7 @@
       "previousSlugs": [
         "athletenprogramm-asset-management-w-m-d-postfinance",
         "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+        "athletenprogramm-asset-management-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1113,7 +1113,7 @@
         "fr": [
           "athletenprogramm-asset-management-w-m-d-postfinance",
           "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+          "athletenprogramm-asset-management-m-w-d-postfinance-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T09:36:41.204Z",
@@ -1251,9 +1251,9 @@
         "de": "Senior Third Party Risk Manager (m/w/d)",
         "fr": "Gestionnaire principal des risques de tiers (h/f/d)"
       },
-      "slug": "senior-third-party-risk-manager-m-w-d-postfinance",
+      "slug": "responsabile-senior-del-rischio-di-terze-parti-m-f-d-postfinance-bern",
       "slugByLocale": {
-        "it": "senior-third-party-risk-manager-m-w-d-postfinance",
+        "it": "responsabile-senior-del-rischio-di-terze-parti-m-f-d-postfinance-bern",
         "en": "senior-third-party-risk-manager-m-w-d-postfinance",
         "de": "senior-third-party-risk-manager-m-w-d-postfinance",
         "fr": "gestionnaire-principal-des-risques-de-tiers-h-f-d-postfinance-bern"
@@ -1298,7 +1298,15 @@
       },
       "postalCode": "3004",
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-third-party-risk-manager-m-w-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "senior-third-party-risk-manager-m-w-d-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
@@ -1411,7 +1419,7 @@
         "it": "tirocinio-universitario-compliance-m-f-d-postfinance-bern",
         "en": "university-internship-compliance-m-f-d-postfinance-bern",
         "de": "hochschulpraktikum-compliance-w-m-d-postfinance",
-        "fr": "hochschulpraktikum-compliance-m-w-d-postfinance-bern"
+        "fr": "stage-universitaire-en-conformite-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1438,7 +1446,7 @@
       "previousSlugs": [
         "hochschulpraktikum-compliance-w-m-d-postfinance",
         "hochschulpraktikum-compliance-w-m-d-postfinance-bern",
-        "stage-universitaire-en-conformite-h-f-d-postfinance-bern"
+        "hochschulpraktikum-compliance-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1450,7 +1458,7 @@
         ],
         "fr": [
           "hochschulpraktikum-compliance-w-m-d-postfinance-bern",
-          "stage-universitaire-en-conformite-h-f-d-postfinance-bern"
+          "hochschulpraktikum-compliance-m-w-d-postfinance-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1924,7 +1932,7 @@
         "it": "tirocinio-universitario-strategia-dei-partner-payment-journeys-m-f-d-postfinance-bern",
         "en": "university-internship-partner-strategy-payment-journeys-m-f-d-postfinance-bern",
         "de": "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance",
-        "fr": "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern"
+        "fr": "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1950,7 +1958,7 @@
       "id": "postfinance-f099b77c1b09",
       "previousSlugs": [
         "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance",
-        "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern"
+        "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1961,7 +1969,7 @@
         ],
         "fr": [
           "hochschulpraktikum-partnerstrategie-payment-journeys-w-m-d-postfinance",
-          "stage-universitaire-strategie-de-partenariat-parcours-de-paiement-h-f-d-postfinance-bern"
+          "hochschulpraktikum-partnerstrategie-payment-journeys-m-w-d-postfinance-bern"
         ]
       },
       "needsRetranslation": true,
@@ -2584,9 +2592,9 @@
         "de": "Solution Teamleiter Customer Order Process Automation (w/m/d)",
         "fr": "Solution Chef d'équipe Customer Order Process Automation (w/m/d)"
       },
-      "slug": "solution-capo-team-customer-order-process-automation-w-m-d-postfinance-bern",
+      "slug": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
       "slugByLocale": {
-        "it": "solution-capo-team-customer-order-process-automation-w-m-d-postfinance-bern",
+        "it": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
         "en": "solution-team-lead-customer-order-process-automation-w-m-d-postfinance",
         "de": "solution-team-lead-customer-order-process-automation-w-m-d-postfinance",
         "fr": "solution-chef-d-equipe-customer-order-process-automation-w-m-d-postfinance-bern"
@@ -2616,14 +2624,16 @@
       "firstSeenAt": "2026-10-13T21:42:11.134Z",
       "previousSlugsByLocale": {
         "it": [
-          "solution-team-lead-customer-order-process-automation-w-m-d-postfinance"
+          "solution-team-lead-customer-order-process-automation-w-m-d-postfinance",
+          "solution-capo-team-customer-order-process-automation-w-m-d-postfinance-bern"
         ],
         "fr": [
           "solution-team-lead-customer-order-process-automation-w-m-d-postfinance"
         ]
       },
       "previousSlugs": [
-        "solution-team-lead-customer-order-process-automation-w-m-d-postfinance"
+        "solution-team-lead-customer-order-process-automation-w-m-d-postfinance",
+        "solution-capo-team-customer-order-process-automation-w-m-d-postfinance-bern"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,

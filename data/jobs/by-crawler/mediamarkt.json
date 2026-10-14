@@ -953,12 +953,12 @@
     },
     {
       "id": "mediamarkt-99066",
-      "slug": "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch",
+      "slug": "hr-business-partner-vendite-svizzera-romanda-e-ticino-50-m-f-d-mediamarkt-dietikon",
       "slugByLocale": {
-        "it": "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch",
+        "it": "hr-business-partner-vendite-svizzera-romanda-e-ticino-50-m-f-d-mediamarkt-dietikon",
         "en": "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon",
         "de": "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch",
-        "fr": "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch"
+        "fr": "partenaire-commercial-rh-romandie-tessin-50-h-f-d-mediamarkt-dietikon"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -1005,11 +1005,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-business-partner-sales-french-speaking-switzerland-ticino-50-m-f-d-mediamarkt-dietikon"
+        "hr-business-partner-sales-french-speaking-switzerland-ticino-50-m-f-d-mediamarkt-dietikon",
+        "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
           "hr-business-partner-sales-french-speaking-switzerland-ticino-50-m-f-d-mediamarkt-dietikon"
+        ],
+        "it": [
+          "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch"
+        ],
+        "fr": [
+          "hr-business-partner-sales-romandie-tessin-50-m-w-d-mediamarkt-dietikon-ch"
         ]
       },
       "firstSeenAt": "2026-10-05T21:57:57.179Z",
@@ -2745,9 +2752,9 @@
     },
     {
       "id": "mediamarkt-99969",
-      "slug": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
+      "slug": "hr-business-partner-vendite-svizzera-romanda-e-ticino-60-mediamarkt-crissier",
       "slugByLocale": {
-        "it": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
+        "it": "hr-business-partner-vendite-svizzera-romanda-e-ticino-60-mediamarkt-crissier",
         "en": "hr-business-partner-sales-french-speaking-switzerland-ticino-60-mediamarkt-crissier",
         "de": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
         "fr": "partenaire-rh-ventes-suisse-romande-ticino-60-mediamarkt-crissier"
@@ -2797,11 +2804,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier"
+        "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier",
+        "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier"
+        ],
+        "it": [
+          "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch"
         ]
       },
       "firstSeenAt": "2026-10-05T21:57:57.146Z",
@@ -3639,12 +3650,12 @@
     },
     {
       "id": "mediamarkt-100507",
-      "slug": "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch",
+      "slug": "vendite-allrounder-20-100-m-f-d-mediamarkt-dietikon",
       "slugByLocale": {
         "de": "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "it": "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "en": "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "fr": "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch"
+        "it": "vendite-allrounder-20-100-m-f-d-mediamarkt-dietikon",
+        "en": "sales-allrounder-20-100-m-f-d-mediamarkt-dietikon",
+        "fr": "ventes-allrounder-20-100-h-f-d-mediamarkt-dietikon"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3705,16 +3716,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:45:18.374Z"
+      "firstSeenAt": "2026-10-14T09:45:18.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ],
+        "en": [
+          "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ],
+        "fr": [
+          "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsallrounder-20-100-m-w-d-mediamarkt-dietikon-ch"
+      ]
     },
     {
       "id": "mediamarkt-100509",
-      "slug": "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch",
+      "slug": "addetto-a-alla-logistica-20-100-m-f-d-mediamarkt-dietikon",
       "slugByLocale": {
         "de": "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "it": "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "en": "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch",
-        "fr": "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch"
+        "it": "addetto-a-alla-logistica-20-100-m-f-d-mediamarkt-dietikon",
+        "en": "logistics-employee-20-100-m-f-d-mediamarkt-dietikon",
+        "fr": "employe-e-de-logistique-20-100-h-f-d-mediamarkt-dietikon"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3775,7 +3800,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:45:18.371Z"
+      "firstSeenAt": "2026-10-14T09:45:18.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ],
+        "en": [
+          "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ],
+        "fr": [
+          "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistikmitarbeiter-in-20-100-m-w-d-mediamarkt-dietikon-ch"
+      ]
     },
     {
       "id": "mediamarkt-99655",

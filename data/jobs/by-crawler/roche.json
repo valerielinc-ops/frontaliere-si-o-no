@@ -2539,7 +2539,7 @@
       "slugByLocale": {
         "it": "dati-regolatori-della-testa-globale-digitale-e-ai-roche-basel",
         "en": "global-head-regulatory-data-digital-and-ai-roche-ch",
-        "de": "global-head-regulatory-data-digital-and-ai-roche-ch",
+        "de": "globaler-leiter-fur-regulatorische-daten-digitales-und-ki-roche-basel",
         "fr": "donnees-sur-la-reglementation-le-numerique-et-l-ia-roche-basel"
       },
       "company": "Roche",
@@ -2589,6 +2589,9 @@
           "global-head-regulatory-data-digital-and-ai-roche-ch"
         ],
         "fr": [
+          "global-head-regulatory-data-digital-and-ai-roche-ch"
+        ],
+        "de": [
           "global-head-regulatory-data-digital-and-ai-roche-ch"
         ]
       },
@@ -3945,9 +3948,9 @@
     },
     {
       "id": "roche-67edc9172a62",
-      "slug": "senior-event-experience-manager-w-m-d-80-100-roche-ch",
+      "slug": "responsabile-esperienza-eventi-senior-m-f-d-80-100-roche-basel",
       "slugByLocale": {
-        "it": "senior-event-experience-manager-w-m-d-80-100-roche-ch",
+        "it": "responsabile-esperienza-eventi-senior-m-f-d-80-100-roche-basel",
         "en": "senior-event-experience-manager-w-m-d-80-100-roche-ch",
         "de": "senior-event-experience-manager-w-m-d-80-100-roche-ch",
         "fr": "gestionnaire-principal-d-experience-d-evenement-h-f-d-80-100-roche-basel"
@@ -4007,7 +4010,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-event-experience-manager-w-m-d-80-100-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-event-experience-manager-w-m-d-80-100-roche-ch"
+      ]
     },
     {
       "id": "roche-331de3bcb042",
@@ -6938,7 +6949,7 @@
       "slugByLocale": {
         "it": "direttore-principale-programma-regolatore-dispositivi-e-prodotti-combinazione-roche-basel",
         "en": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
-        "de": "principal-regulatory-program-director-devices-and-combination-products-roche-ch",
+        "de": "leitende-r-direktor-in-fur-regulatorische-programme-medizinprodukte-und-kombinationsprodukte-roche-basel",
         "fr": "directeur-principal-du-programme-de-reglementation-appareils-et-produits-combines-roche-basel"
       },
       "company": "Roche",
@@ -6988,6 +6999,9 @@
           "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
         ],
         "fr": [
+          "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
+        ],
+        "de": [
           "principal-regulatory-program-director-devices-and-combination-products-roche-ch"
         ]
       },
@@ -7726,9 +7740,9 @@
     },
     {
       "id": "roche-d025cb385a30",
-      "slug": "global-diagnostics-partnering-strategy-transactions-lead-roche-ch",
+      "slug": "responsabile-della-strategia-e-delle-transazioni-per-le-partnership-di-diagnostica-globale-roche-rotkreuz",
       "slugByLocale": {
-        "it": "global-diagnostics-partnering-strategy-transactions-lead-roche-ch",
+        "it": "responsabile-della-strategia-e-delle-transazioni-per-le-partnership-di-diagnostica-globale-roche-rotkreuz",
         "en": "global-diagnostics-partnering-strategy-transactions-lead-roche-ch",
         "de": "global-diagnostics-partnering-strategie-transaktionen-lead-roche-rotkreuz",
         "fr": "strategie-de-partenariat-en-matiere-de-diagnostic-mondial-et-operations-roche-rotkreuz"
@@ -7788,7 +7802,15 @@
       },
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "global-diagnostics-partnering-strategy-transactions-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-diagnostics-partnering-strategy-transactions-lead-roche-ch"
+      ]
     }
   ]
 }

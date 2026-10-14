@@ -48161,9 +48161,9 @@
     },
     {
       "id": "stellenpartner-ce2ee031a4d7",
-      "slug": "zimmermann-zimmerin-per-montage-e-baustellenkoordination-stellenpartner-ag-zug",
+      "slug": "carpentiere-carpentiera-per-il-montaggio-e-il-coordinamento-dei-cantieri-stellenpartner-ag-zug-zug",
       "slugByLocale": {
-        "it": "zimmermann-zimmerin-per-montage-e-baustellenkoordination-stellenpartner-ag-zug",
+        "it": "carpentiere-carpentiera-per-il-montaggio-e-il-coordinamento-dei-cantieri-stellenpartner-ag-zug-zug",
         "en": "construction-carpenter-for-assembly-and-construction-site-coordination-stellenpartner-ag-zug-zug",
         "de": "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch",
         "fr": "charpentier-charpentiere-pour-le-montage-et-la-coordination-des-chantiers-stellenpartner-ag-zug-zug"
@@ -48209,11 +48209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch"
+        "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch",
+        "zimmermann-zimmerin-per-montage-e-baustellenkoordination-stellenpartner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch"
+          "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch",
+          "zimmermann-zimmerin-per-montage-e-baustellenkoordination-stellenpartner-ag-zug"
         ],
         "en": [
           "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch"
@@ -62134,12 +62136,12 @@
     },
     {
       "id": "stellenpartner-5165ea2af179",
-      "slug": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden",
+      "slug": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-        "it": "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden",
-        "en": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-        "fr": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+        "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
+        "en": "mason-for-new-builds-and-renovations-stellenpartner-ag-weinfelden-thurgau",
+        "fr": "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-weinfelden-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -62188,21 +62190,23 @@
         "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
         "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
         "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
-        "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
-        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+        "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
+        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
-          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
+          "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden"
         ],
         "en": [
           "bricklayer-for-new-buildings-and-conversions-stellenpartner-ag-weinfelden-thurgau",
-          "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau"
+          "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
         ],
         "fr": [
           "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
-          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau"
+          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
         ]
       },
       "salaryMin": 57500,

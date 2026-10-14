@@ -1206,12 +1206,12 @@
     },
     {
       "id": "klinik-lengg-e5a7fd8d0107",
-      "slug": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
+      "slug": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
-        "it": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
-        "en": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg",
-        "fr": "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg"
+        "it": "neuroreabilitazione-membro-del-consiglio-di-amministrazione-a-klinik-lengg-zurich",
+        "en": "chief-physician-neurorehabilitation-member-of-the-management-board-a-klinik-lengg-zurich",
+        "fr": "medecin-en-chef-neuroreadaptation-membre-du-conseil-d-administration-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1270,7 +1270,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:41:55.324Z"
+      "firstSeenAt": "2026-10-14T09:41:55.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg"
+        ],
+        "en": [
+          "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztin-chefarzt-neurorehabilitation-mitglied-der-geschaftsleitung-a-klinik-lengg"
+      ]
     },
     {
       "id": "klinik-lengg-639479ceadbc",
@@ -1279,7 +1293,7 @@
         "de": "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich",
         "it": "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich-edbca86695",
         "en": "station-management-care-neurorehabilitation-a-klinik-lengg-zurich",
-        "fr": "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich"
+        "fr": "neurorehabilitation-a-klinik-lengg-zurich-5ac17b"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1327,6 +1341,9 @@
         "it": [
           "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich",
           "gestione-delle-stazioni-neuroriabilitazione-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "stationsleitung-pflege-neurorehabilitation-a-klinik-lengg-zurich"
         ]
       },
       "previousSlugs": [

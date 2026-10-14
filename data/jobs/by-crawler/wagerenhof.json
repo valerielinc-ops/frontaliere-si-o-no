@@ -309,12 +309,12 @@
     },
     {
       "id": "wagerenhof-32d19d9774ab",
-      "slug": "fachperson-gesundheit-fage-per-eine-wohngruppe-con-ganzheitlicher-pflege-e-begleitung-60-100-stiftung-wagerenhof-uster",
+      "slug": "operatrice-operatore-sociosanitario-oss-per-un-gruppo-abitativo-con-assistenza-e-accompagnamento-olistici-60-100",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60",
-        "it": "fachperson-gesundheit-fage-per-eine-wohngruppe-con-ganzheitlicher-pflege-e-begleitung-60-100-stiftung-wagerenhof-uster",
-        "en": "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60",
-        "fr": "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60"
+        "it": "operatrice-operatore-sociosanitario-oss-per-un-gruppo-abitativo-con-assistenza-e-accompagnamento-olistici-60-100",
+        "en": "health-specialist-fage-for-a-residential-group-with-holistic-care-and-support-60-100-stiftung-wagerenhof-uster",
+        "fr": "specialiste-de-la-sante-fage-pour-un-groupe-residentiel-avec-soins-et-soutien-holistiques-60-100-stiftung-wagerenhof"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -361,11 +361,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60",
+          "fachperson-gesundheit-fage-per-eine-wohngruppe-con-ganzheitlicher-pflege-e-begleitung-60-100-stiftung-wagerenhof-uster"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60"
+        ],
+        "fr": [
           "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60"
+        "fachperson-gesundheit-fage-fur-eine-wohngruppe-mit-ganzheitlicher-pflege-und-begleitung-60",
+        "fachperson-gesundheit-fage-per-eine-wohngruppe-con-ganzheitlicher-pflege-e-begleitung-60-100-stiftung-wagerenhof-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

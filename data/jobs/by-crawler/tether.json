@@ -1573,7 +1573,7 @@
       "slugByLocale": {
         "it": "ai-technical-product-manager-qvac-100-remoto-tether-operations-lugano",
         "en": "ai-technical-product-manager-qvac-100-remote-tether-ch",
-        "de": "ai-technical-product-manager-qvac-100-remote-tether-ch",
+        "de": "technischer-produktmanager-fur-ki-qvac-100-remote-tether-operations-lugano-ticino",
         "fr": "gestionnaire-de-produits-techniques-ai-qvac-100-distant-tether-operations-lugano-ticino"
       },
       "company": "Tether Operations",
@@ -1624,6 +1624,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ai-technical-product-manager-qvac-100-remote-tether-ch"
+        ],
+        "de": [
           "ai-technical-product-manager-qvac-100-remote-tether-ch"
         ]
       },
@@ -2049,9 +2052,9 @@
     },
     {
       "id": "tether-1de8cfdcab9e",
-      "slug": "corporate-development-portfolio-manager-asset-fintech-digital-tether-operations-geneve",
+      "slug": "responsabile-di-portafoglio-per-lo-sviluppo-aziendale-fintech-e-asset-digitali-tether-operations-geneve-geneve",
       "slugByLocale": {
-        "it": "corporate-development-portfolio-manager-asset-fintech-digital-tether-operations-geneve",
+        "it": "responsabile-di-portafoglio-per-lo-sviluppo-aziendale-fintech-e-asset-digitali-tether-operations-geneve-geneve",
         "en": "corporate-development-portfolio-manager-fintech-digital-assets-tether-ch",
         "de": "portfolio-manager-fur-unternehmensentwicklung-fintech-digitale-vermogenswerte-tether-operations-geneve-geneve",
         "fr": "gestionnaire-de-portefeuille-de-developpement-corporatif-actifs-fintech-digital-tether-operations-geneve-geneve"
@@ -2100,11 +2103,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-development-portfolio-manager-fintech-digital-assets-tether-ch"
+        "corporate-development-portfolio-manager-fintech-digital-assets-tether-ch",
+        "corporate-development-portfolio-manager-asset-fintech-digital-tether-operations-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-development-portfolio-manager-fintech-digital-assets-tether-ch"
+          "corporate-development-portfolio-manager-fintech-digital-assets-tether-ch",
+          "corporate-development-portfolio-manager-asset-fintech-digital-tether-operations-geneve"
         ]
       },
       "firstSeenAt": "2026-10-12T21:11:57.697Z",

@@ -1860,12 +1860,12 @@
     },
     {
       "id": "tally-weijl-dedd41d58de2",
-      "slug": "hr-administrationsassistenz-60-basel-tally-weijl-basel",
+      "slug": "risorse-umane-administrationsassistenz-60-basel-tally-weijl-basel",
       "slugByLocale": {
         "de": "hr-administrationsassistenz-60-basel-tally-weijl-basel",
-        "it": "hr-administrationsassistenz-60-basel-tally-weijl-basel",
-        "en": "hr-administrationsassistenz-60-basel-tally-weijl-basel",
-        "fr": "hr-administrationsassistenz-60-basel-tally-weijl-basel"
+        "it": "risorse-umane-administrationsassistenz-60-basel-tally-weijl-basel",
+        "en": "hr-administration-assistance-60-basel-tally-weijl-basel",
+        "fr": "aide-a-l-administration-des-rh-60-bale-tally-weijl-basel"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1924,7 +1924,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-14T09:28:14.016Z"
+      "firstSeenAt": "2026-10-14T09:28:14.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-administrationsassistenz-60-basel-tally-weijl-basel"
+        ],
+        "en": [
+          "hr-administrationsassistenz-60-basel-tally-weijl-basel"
+        ],
+        "fr": [
+          "hr-administrationsassistenz-60-basel-tally-weijl-basel"
+        ]
+      },
+      "previousSlugs": [
+        "hr-administrationsassistenz-60-basel-tally-weijl-basel"
+      ]
     },
     {
       "id": "tally-weijl-20acfa0be20d",
@@ -1932,7 +1946,7 @@
       "slugByLocale": {
         "en": "hr-administration-assistant-60-basel-tally-weijl-basel",
         "it": "hr-administration-assistant-60-basel-tally-weijl-basel",
-        "de": "hr-administration-assistant-60-basel-tally-weijl-basel",
+        "de": "personalwesen-administration-assistent-60-basel-tally-weijl-basel",
         "fr": "hr-administration-assistant-60-basel-tally-weijl-basel"
       },
       "company": "TALLY WEiJL",
@@ -2108,7 +2122,7 @@
       "id": "tally-weijl-6dfb4331c1aa",
       "slug": "fitting-models-tally-weijl-basel",
       "slugByLocale": {
-        "it": "fitting-models-tally-weijl-basel",
+        "it": "moduli-di-montaggio-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -2186,8 +2200,7 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel",
-        "moduli-di-montaggio-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2195,9 +2208,6 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
-        ],
-        "it": [
-          "moduli-di-montaggio-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

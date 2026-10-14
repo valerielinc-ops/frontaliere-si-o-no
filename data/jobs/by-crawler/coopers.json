@@ -1922,9 +1922,9 @@
     },
     {
       "id": "coopers-f88c0f897588",
-      "slug": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
+      "slug": "responsabile-senior-dei-rischi-it-e-della-governance-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
+        "it": "responsabile-senior-dei-rischi-it-e-della-governance-m-f-d-coopers-group-ag-bern",
         "en": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
         "de": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
         "fr": "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
@@ -1999,7 +1999,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-it-risk-governance-manager-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-it-risk-governance-manager-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-4caff471899e",
@@ -2962,9 +2970,9 @@
     },
     {
       "id": "coopers-d51a303504fa",
-      "slug": "project-manager-fire-protection-m-w-d-coopers-wallis",
+      "slug": "responsabile-di-progetto-protezione-antincendio-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "it": "project-manager-fire-protection-m-w-d-coopers-wallis",
+        "it": "responsabile-di-progetto-protezione-antincendio-m-f-d-coopers-group-ag-wallis",
         "en": "project-manager-fire-protection-m-w-d-coopers-wallis",
         "de": "projektleiter-feuerschutz-m-w-d-coopers-group-ag-wallis",
         "fr": "gestionnaire-de-projet-protection-des-feux-h-f-d-coopers-group-ag-wallis"
@@ -3041,7 +3049,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-fire-protection-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-fire-protection-m-w-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-6cf785b1cbdd",
@@ -3520,7 +3536,7 @@
       "slugByLocale": {
         "it": "lead-chemical-process-r-d-scienziato-m-f-d-coopers-group-ag-basel-stadt",
         "en": "lead-chemical-process-r-d-scientist-m-f-d-coopers-basel-stadt",
-        "de": "lead-chemical-process-r-d-scientist-m-f-d-coopers-basel-stadt",
+        "de": "leitende-r-wissenschaftler-in-fur-chemische-prozessforschung-und-entwicklung-m-w-d-coopers-group-ag-basel-stadt",
         "fr": "chercheur-principal-en-r-d-sur-les-procedes-chimiques-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
@@ -3584,6 +3600,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lead-chemical-process-r-d-scientist-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
           "lead-chemical-process-r-d-scientist-m-f-d-coopers-basel-stadt"
         ]
       },
@@ -3696,12 +3715,12 @@
     },
     {
       "id": "coopers-24c67854bc1e",
-      "slug": "product-manager-martech-m-f-d-coopers-zug",
+      "slug": "responsabile-prodotto-martech-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "product-manager-martech-m-f-d-coopers-zug",
-        "it": "product-manager-martech-m-f-d-coopers-zug",
-        "de": "product-manager-martech-m-f-d-coopers-zug",
-        "fr": "product-manager-martech-m-f-d-coopers-zug"
+        "it": "responsabile-prodotto-martech-m-f-d-coopers-group-ag-zug",
+        "de": "produktmanager-martech-m-w-d-coopers-group-ag-zug",
+        "fr": "gestionnaire-de-produits-martech-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3769,7 +3788,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-14T09:28:36.693Z"
+      "firstSeenAt": "2026-10-14T09:28:36.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-martech-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "product-manager-martech-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "product-manager-martech-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-martech-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-78d0174c9363",

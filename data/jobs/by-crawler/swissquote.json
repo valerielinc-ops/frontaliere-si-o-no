@@ -87,7 +87,7 @@
         "it": "compliance-officer-investigazioni-swissquote-gland",
         "en": "compliance-officer-investigations-swissquote-gland",
         "de": "compliance-officer-untersuchungen-swissquote-gland",
-        "fr": "compliance-officer-investigations-swissquote-gland"
+        "fr": "agent-de-conformite-enquetes-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -133,8 +133,7 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux",
       "previousSlugs": [
-        "compliance-officer-investigations-swissquote-gland",
-        "agent-de-conformite-enquetes-swissquote-gland"
+        "compliance-officer-investigations-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -144,7 +143,7 @@
           "compliance-officer-investigations-swissquote-gland"
         ],
         "fr": [
-          "agent-de-conformite-enquetes-swissquote-gland"
+          "compliance-officer-investigations-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-07-31T12:12:34.688Z",
@@ -495,7 +494,7 @@
         "it": "financial-contabile-swissquote-gland",
         "en": "financial-accountant-swissquote-gland",
         "de": "financial-buchhalter-swissquote-gland",
-        "fr": "financial-accountant-swissquote-gland"
+        "fr": "comptable-financier-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -541,8 +540,7 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "financial-accountant-swissquote-gland",
-        "comptable-financier-swissquote-gland"
+        "financial-accountant-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -552,7 +550,7 @@
           "financial-accountant-swissquote-gland"
         ],
         "fr": [
-          "comptable-financier-swissquote-gland"
+          "financial-accountant-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-21T21:37:48.952Z",
@@ -2002,9 +2000,9 @@
       "id": "swissquote-8eb803b7202a",
       "slug": "responsabile-antifrode-swissquote-gland",
       "slugByLocale": {
-        "it": "responsabile-antifrode-swissquote-gland",
+        "it": "addetto-alle-frodi-swissquote-gland",
         "en": "fraud-officer-swissquote-gland",
-        "de": "mitarbeiter-in-betrugsbekampfung-swissquote-gland",
+        "de": "betrugsbeauftragter-swissquote-gland",
         "fr": "agent-de-fraude-swissquote-gland"
       },
       "company": "Swissquote",
@@ -2056,23 +2054,21 @@
         "agente-delle-frodi-swissquote-gland",
         "fraud-officer-swissquote-gland-u7p29w",
         "fonctionnaire-charge-des-fraudes-swissquote-gland",
-        "addetto-alle-frodi-swissquote-gland",
-        "betrugsbeauftragter-swissquote-gland"
+        "mitarbeiter-in-betrugsbekampfung-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fraud-officer-swissquote-gland",
           "agente-delle-frodi-swissquote-gland",
           "fraud-officer-swissquote-gland-u7p29w",
-          "fonctionnaire-charge-des-fraudes-swissquote-gland",
-          "addetto-alle-frodi-swissquote-gland"
+          "fonctionnaire-charge-des-fraudes-swissquote-gland"
         ],
         "en": [
           "fraud-officer-swissquote-gland-u7p29w"
         ],
         "de": [
           "fraud-officer-swissquote-gland",
-          "betrugsbeauftragter-swissquote-gland"
+          "mitarbeiter-in-betrugsbekampfung-swissquote-gland"
         ],
         "fr": [
           "fraud-officer-swissquote-gland",

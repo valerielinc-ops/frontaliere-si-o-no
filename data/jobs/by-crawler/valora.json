@@ -1401,9 +1401,9 @@
     },
     {
       "id": "valora-ff66be58a224",
-      "slug": "business-information-security-officer-w-m-d-valora-muttenz",
+      "slug": "responsabile-della-sicurezza-delle-informazioni-aziendali-m-f-d-valora-group-muttenz",
       "slugByLocale": {
-        "it": "business-information-security-officer-w-m-d-valora-muttenz",
+        "it": "responsabile-della-sicurezza-delle-informazioni-aziendali-m-f-d-valora-group-muttenz",
         "en": "business-information-security-officer-w-m-d-valora-muttenz",
         "de": "business-information-security-officer-w-m-d-valora-muttenz",
         "fr": "agent-de-securite-de-l-information-des-entreprises-h-f-d-valora-group-muttenz"
@@ -1465,7 +1465,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-information-security-officer-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "business-information-security-officer-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-00367928dc24",
@@ -1990,7 +1998,7 @@
         "it": "agenturpartnerin-agenturpartner-regione-berner-oberland-valora-group-muttenz",
         "en": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
         "de": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
-        "fr": "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
+        "fr": "partenaire-d-agence-partenaire-d-agence-region-de-l-oberland-bernois-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2041,6 +2049,9 @@
       "previousSlugsByLocale": {
         "it": [
           "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
+        ],
+        "fr": [
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -2066,7 +2077,7 @@
         "it": "agenturpartnerin-agenturpartner-regione-oberwallis-valora-group-muttenz",
         "en": "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
         "de": "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
-        "fr": "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
+        "fr": "partenaire-d-agence-partenaire-d-agence-region-du-haut-valais-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2116,6 +2127,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
+        ],
+        "fr": [
           "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
         ]
       },

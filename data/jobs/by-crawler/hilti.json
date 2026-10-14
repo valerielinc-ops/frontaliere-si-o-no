@@ -329,7 +329,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
+        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -383,7 +383,7 @@
           "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch-i5007y",
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborator-customer-data-management-m-w-d-hilti-zurich"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -398,7 +398,8 @@
         "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
         "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch-i5007y",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -783,9 +784,9 @@
     },
     {
       "id": "hilti-21042-fr",
-      "slug": "conseiller-de-vente-externe-cvcs-region-de-lausanne-h-f-d-hilti-ch",
+      "slug": "consulente-di-vendita-esterno-cvcs-regione-di-losanna-m-f-d-hilti-lausanne-vaud",
       "slugByLocale": {
-        "it": "conseiller-de-vente-externe-cvcs-region-de-lausanne-h-f-d-hilti-ch",
+        "it": "consulente-di-vendita-esterno-cvcs-regione-di-losanna-m-f-d-hilti-lausanne-vaud",
         "en": "external-sales-advisor-cvcs-lausanne-region-m-f-d-hilti-lausanne-vaud",
         "de": "externer-verkaufsberater-cvcs-region-lausanne-m-w-d-hilti-lausanne-vaud",
         "fr": "conseiller-de-vente-externe-cvcs-region-de-lausanne-h-f-d-hilti-ch"
@@ -833,12 +834,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "external-sales-advisor-cvcs-lausanne-region-m-f-d-hilti-lausanne-vaud",
-        "externer-verkaufsberater-cvcs-region-lausanne-m-w-d-hilti-lausanne-vaud"
+        "externer-verkaufsberater-cvcs-region-lausanne-m-w-d-hilti-lausanne-vaud",
+        "conseiller-de-vente-externe-cvcs-region-de-lausanne-h-f-d-hilti-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "external-sales-advisor-cvcs-lausanne-region-m-f-d-hilti-lausanne-vaud",
-          "externer-verkaufsberater-cvcs-region-lausanne-m-w-d-hilti-lausanne-vaud"
+          "externer-verkaufsberater-cvcs-region-lausanne-m-w-d-hilti-lausanne-vaud",
+          "conseiller-de-vente-externe-cvcs-region-de-lausanne-h-f-d-hilti-ch"
         ]
       },
       "firstSeenAt": "2026-10-03T09:16:52.527Z",
@@ -931,12 +934,12 @@
     },
     {
       "id": "hilti-21131-de",
-      "slug": "collaboratore-trice-kundendienst-m-w-d-hilti-zurich",
+      "slug": "addetto-a-al-servizio-clienti-m-f-d-hilti-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-kundendienst-m-w-d-hilti-ch",
-        "it": "collaboratore-trice-kundendienst-m-w-d-hilti-zurich",
-        "en": "mitarbeiter-kundendienst-m-w-d-hilti-zurich",
-        "fr": "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
+        "it": "addetto-a-al-servizio-clienti-m-f-d-hilti-zurich-zurich",
+        "en": "customer-service-m-f-d-hilti-zurich-zurich",
+        "fr": "service-client-h-f-d-hilti-zurich-zurich"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -983,11 +986,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kundendienst-m-w-d-hilti-ch"
+          "mitarbeiter-kundendienst-m-w-d-hilti-ch",
+          "collaboratore-trice-kundendienst-m-w-d-hilti-zurich"
+        ],
+        "en": [
+          "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kundendienst-m-w-d-hilti-ch"
+        "mitarbeiter-kundendienst-m-w-d-hilti-ch",
+        "collaboratore-trice-kundendienst-m-w-d-hilti-zurich",
+        "mitarbeiter-kundendienst-m-w-d-hilti-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

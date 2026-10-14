@@ -396,12 +396,12 @@
     },
     {
       "id": "bachem-578c51939d98",
-      "slug": "production-support-a-bachem-bubendorf",
+      "slug": "supporto-di-produzione-a-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "production-support-a-bachem-bubendorf",
-        "it": "production-support-a-bachem-bubendorf",
+        "it": "supporto-di-produzione-a-bachem-ag-bubendorf",
         "en": "production-support-a-bachem-bubendorf",
-        "fr": "production-support-a-bachem-bubendorf"
+        "fr": "appui-a-la-production-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -460,14 +460,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:56.967Z"
+      "firstSeenAt": "2026-10-14T09:42:56.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-support-a-bachem-bubendorf"
+        ],
+        "fr": [
+          "production-support-a-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "production-support-a-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-2339a5ffe3dd",
-      "slug": "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf",
+      "slug": "controllo-di-qualita-della-spettrometria-di-massa-qc-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf",
-        "it": "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf",
+        "it": "controllo-di-qualita-della-spettrometria-di-massa-qc-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf",
         "fr": "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf"
       },
@@ -527,7 +538,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:56.375Z"
+      "firstSeenAt": "2026-10-14T09:42:56.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-mass-spectrometry-quality-control-qc-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-137f5bfc1e70",
@@ -536,7 +555,7 @@
         "de": "senior-project-manager-engineering-a-100-bachem-bubendorf",
         "it": "senior-project-manager-engineering-a-100-bachem-bubendorf",
         "en": "senior-project-manager-engineering-a-100-bachem-bubendorf",
-        "fr": "senior-project-manager-engineering-a-100-bachem-bubendorf"
+        "fr": "aine-chef-de-projet-genie-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4454,7 +4473,7 @@
       "slugByLocale": {
         "it": "gestione-della-qualita-qe-facility-sistemi-di-qualita-sisslerfeld-a-100-bachem-ag-stein-ag",
         "en": "quality-engineering-qe-manager-facility-utility-systems-sisslerfeld-a-100-bachem-stein-ag",
-        "de": "quality-engineering-qe-manager-facility-utility-systems-sisslerfeld-a-100-bachem-stein-ag",
+        "de": "manager-in-fur-qualitatsengineering-qe-anlagen-und-versorgungssysteme-sisslerfeld-a-100-bachem-ag-stein-ag",
         "fr": "gestionnaire-de-l-ingenierie-de-la-qualite-qe-installations-et-systemes-utilitaires-sisslerfeld-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
@@ -4506,6 +4525,9 @@
           "quality-engineering-qe-manager-facility-utility-systems-sisslerfeld-a-100-bachem-stein-ag"
         ],
         "fr": [
+          "quality-engineering-qe-manager-facility-utility-systems-sisslerfeld-a-100-bachem-stein-ag"
+        ],
+        "de": [
           "quality-engineering-qe-manager-facility-utility-systems-sisslerfeld-a-100-bachem-stein-ag"
         ]
       },
@@ -4748,10 +4770,10 @@
     },
     {
       "id": "bachem-b4fe8d464d59",
-      "slug": "global-head-quality-systems-services-a-100-bachem-bubendorf",
+      "slug": "sistemi-e-servizi-di-qualita-della-testa-globale-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "en": "global-head-quality-systems-services-a-100-bachem-bubendorf",
-        "it": "global-head-quality-systems-services-a-100-bachem-bubendorf",
+        "it": "sistemi-e-servizi-di-qualita-della-testa-globale-a-100-bachem-ag-bubendorf",
         "de": "global-head-quality-systems-services-a-100-bachem-bubendorf",
         "fr": "global-head-quality-systems-services-a-100-bachem-bubendorf"
       },
@@ -4811,7 +4833,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:22.053Z"
+      "firstSeenAt": "2026-10-14T09:42:22.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-head-quality-systems-services-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "global-head-quality-systems-services-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-df253590be97",
@@ -5394,7 +5424,7 @@
       "slug": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "en": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
+        "en": "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
         "de": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
         "fr": "peptide-scientifique-composes-actifs-chimie-du-flux-de-r-d-a-100-bachem-ag-bubendorf"
       },
@@ -5443,7 +5473,7 @@
         "en": [
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
           "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-          "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+          "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
         ],
         "it": [
           "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf",
@@ -5465,8 +5495,7 @@
         "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
         "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
         "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
-        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
       ],
       "firstSeenAt": "2026-09-17T06:55:55.840Z",
       "salaryMin": 72500,

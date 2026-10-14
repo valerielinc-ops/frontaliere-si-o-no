@@ -1105,7 +1105,7 @@
         "it": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
         "en": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
         "de": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich",
-        "fr": "senior-ux-design-manager-youtube-studio-and-support-google-switzerland-zurich"
+        "fr": "responsable-senior-de-la-conception-ux-youtube-studio-et-assistance-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -2158,9 +2158,9 @@
     },
     {
       "id": "google-switzerland-3f20ad143422",
-      "slug": "motion-and-visual-designer-youtube-google-switzerland-zurich",
+      "slug": "designer-di-animazione-e-comunicazione-visiva-youtube-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "motion-and-visual-designer-youtube-google-switzerland-zurich",
+        "it": "designer-di-animazione-e-comunicazione-visiva-youtube-google-switzerland-zurich",
         "en": "motion-and-visual-designer-youtube-google-switzerland-zurich",
         "de": "motion-and-visual-designer-youtube-google-switzerland-zurich",
         "fr": "motion-et-concepteur-visuel-youtube-google-switzerland-zurich"
@@ -2239,7 +2239,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "motion-and-visual-designer-youtube-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "motion-and-visual-designer-youtube-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-b5fe4b353cff",
@@ -2570,7 +2578,7 @@
         "it": "staff-software-ingegnere-connessioni-di-ingegneria-di-affidabilita-del-sito-google-switzerland-zurich",
         "en": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
         "de": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
-        "fr": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
+        "fr": "ingenieur-logiciel-principal-ingenierie-de-la-fiabilite-des-sites-connexions-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -2632,6 +2640,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
+        ],
+        "fr": [
           "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
         ]
       },

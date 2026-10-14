@@ -894,7 +894,7 @@
       "slug": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
         "fr": "doctorat-etudiant-doctorat-etudiant-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -942,7 +942,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
-        "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+        "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -950,7 +950,7 @@
         ],
         "en": [
           "doktorandin-doktorand-psychologie-upd-bern",
-          "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+          "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
           "doktorandin-doktorand-psychologie-upd-bern"
@@ -7424,9 +7424,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -7475,12 +7475,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -8086,12 +8086,12 @@
     },
     {
       "id": "upd-07bb0329558d",
-      "slug": "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern",
+      "slug": "psicologa-dirigente-psicologo-dirigente-ambulatorio-di-berna-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern",
-        "it": "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern",
-        "en": "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern",
-        "fr": "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern"
+        "it": "psicologa-dirigente-psicologo-dirigente-ambulatorio-di-berna-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-psychologist-senior-psychologist-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "psychologue-en-chef-psychologue-en-chef-service-ambulatoire-de-berne-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8150,16 +8150,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:28:46.909Z"
+      "firstSeenAt": "2026-10-14T09:28:46.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-ambulatorium-bern-upd-bern"
+      ]
     },
     {
       "id": "upd-f5aae9259b42",
-      "slug": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern",
+      "slug": "infermiere-a-diplomato-a-con-funzione-aggiuntiva-nella-formazione-professionale-nel-servizio-diurno-qem-akut",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-upd-munsingen",
-        "it": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern",
-        "en": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern",
-        "fr": "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern"
+        "it": "infermiere-a-diplomato-a-con-funzione-aggiuntiva-nella-formazione-professionale-nel-servizio-diurno-qem-akut",
+        "en": "dipl-nurse-with-additional-function-vocational-training-in-day-service-qem-akut-universitare-psychiatrische-dienste-bern",
+        "fr": "dipl-infirmiere-ayant-une-fonction-supplementaire-formation-professionnelle-en-service-de-jour-qem-akut-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8207,11 +8221,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-upd-munsingen"
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-upd-munsingen",
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-upd-munsingen"
+        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-upd-munsingen",
+        "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildung-im-tagdienst-qem-akut-universitare-psychiatrische-dienste-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8391,12 +8413,12 @@
     },
     {
       "id": "upd-3b8653956496",
-      "slug": "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd",
+      "slug": "senior-medico-senior-medico-forense-opinioni-di-esperti-di-assicurazione-civile-e-sociale-universitare-psychiatrische",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-forensik-zivil-amp-sozialversicherungsrechtliche-gutachten-upd-bern",
-        "it": "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd",
-        "en": "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd",
-        "fr": "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd"
+        "it": "senior-medico-senior-medico-forense-opinioni-di-esperti-di-assicurazione-civile-e-sociale-universitare-psychiatrische",
+        "en": "senior-physician-senior-physician-forensics-civil-and-social-insurance-expert-opinions-universitare-psychiatrische",
+        "fr": "medecin-principal-medecin-principal-medico-legal-avis-d-experts-en-assurance-civile-et-sociale-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8444,11 +8466,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-forensik-zivil-amp-sozialversicherungsrechtliche-gutachten-upd-bern"
+          "oberarztin-oberarzt-forensik-zivil-amp-sozialversicherungsrechtliche-gutachten-upd-bern",
+          "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd"
+        ],
+        "en": [
+          "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-forensik-zivil-amp-sozialversicherungsrechtliche-gutachten-upd-bern"
+        "oberarztin-oberarzt-forensik-zivil-amp-sozialversicherungsrechtliche-gutachten-upd-bern",
+        "oberarztin-oberarzt-forensik-zivil-sozialversicherungsrechtliche-gutachten-universitare-psychiatrische-dienste-bern-upd"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
