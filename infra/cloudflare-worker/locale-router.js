@@ -605,27 +605,26 @@ const CACHE_MAX_AGE = 21600; // 6 h — eyeball-side (Worker response)
 const ORIGIN_CACHE_TTL = 7200; // 2 h — origin-fetch side (cf.cacheTtl)
 const FAIL_OPEN_CACHE_TTL = 86400; // 24 h — apex-keyed Cache API copy (fail-open failover)
 
-// Cloudflare's `cacheTtlByStatus` keeps the intended positive/negative caching
-// for 2xx–4xx responses while making 5xx responses explicitly uncacheable. A
-// uniform `cacheEverything` + `cacheTtl` would give an origin 5xx the same
-// lifetime as a valid page; after a transient GitHub Pages 503, subsequent
-// requests could receive that cached 503 before the origin is consulted,
-// which also prevents the stale-if-error branch from observing recovery. Keep
-// this policy shared by every best-effort Cloudflare fetch in this Worker so
-// an internal probe cannot cache the same transient error under a sibling key.
-function cacheEverythingWithout5xx(ttl) {
+// Preserve positive and negative TTLs, but never store 5xx or the
+// request-specific 428/429/431 statuses forbidden by RFC 6585. Disjoint ranges
+// avoid relying on precedence between a status and an overlapping range.
+function publicOriginCacheOptions(ttl, negativeTtl = ttl) {
   return {
     cacheEverything: true,
     cacheTtlByStatus: {
       '200-299': ttl,
       '300-399': ttl,
-      '400-499': ttl,
+      '400-427': negativeTtl,
+      '428-429': -1,
+      '430': negativeTtl,
+      '431': -1,
+      '432-499': negativeTtl,
       '500-599': -1,
     },
   };
 }
 
-const SHARD_ORIGIN_FETCH_CF = cacheEverythingWithout5xx(ORIGIN_CACHE_TTL);
+const SHARD_ORIGIN_FETCH_CF = publicOriginCacheOptions(ORIGIN_CACHE_TTL);
 
 // Cache-Control stamped on shard 404s. ~51k/day of shard traffic is crawlers
 // re-fetching DEAD job URLs from memory (old canton/slug variants, pruned
@@ -782,7 +781,7 @@ async function redirectTargetAvailability(pathname, origin) {
     const upstream = new URL(pathname, `https://${origin}`);
     const resp = await fetch(upstream.toString(), {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(ORIGIN_CACHE_TTL),
+      cf: publicOriginCacheOptions(ORIGIN_CACHE_TTL),
     });
     if (resp.status === 200) return 'live';
     if (resp.status === 404 || resp.status === 410) return 'missing';
@@ -873,7 +872,7 @@ async function recoverArticleAlias(url, origin) {
   try {
     const response = await fetch(ARTICLE_SLUG_REGISTRY_URL, {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(300),
+      cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
     if (!response.ok) return aliasVerificationUnavailable();
@@ -930,7 +929,7 @@ async function recoverOrphanQueryAlias(url, origin) {
   try {
     const response = await fetch('https://frontaliereticino.ch/orphan-query-aliases.json', {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(300),
+      cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
     if (!response.ok) return aliasVerificationUnavailable();
@@ -988,7 +987,7 @@ async function recoverCantonDriftOrphan(url, locale) {
     const mapUrl = new URL(`/job-canon/${sk}.json`, CDN_BASE);
     const resp = await fetch(mapUrl.toString(), {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(JOB_CANON_CACHE_TTL),
+      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
     });
     if (resp.status === 404 || resp.status === 410) return null;
     if (!resp.ok) return aliasVerificationUnavailable();
@@ -1275,7 +1274,7 @@ async function servePushedEdgeFile(pathname) {
     const cdnUrl = new URL(entry.cdnKey, CDN_BASE);
     const resp = await fetch(cdnUrl.toString(), {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(EDGE_PUSHED_CACHE_TTL),
+      cf: publicOriginCacheOptions(EDGE_PUSHED_CACHE_TTL),
     });
     if (!resp.ok) return null; // not yet published (or purged/expired) → origin passthrough
     const body = await resp.arrayBuffer();
@@ -1863,7 +1862,7 @@ export const CORPUS_REGISTRY_TTL_MS = 60_000;
 const CORPUS_REGISTRY_CDN_TTL = 60;
 export const CORPUS_RELEASE_CACHE_CONTROL =
   `public, max-age=${CORPUS_REGISTRY_CDN_TTL}, s-maxage=${CORPUS_REGISTRY_CDN_TTL}`;
-const CORPUS_RELEASE_EDGE_FETCH_CF = cacheEverythingWithout5xx(CORPUS_REGISTRY_CDN_TTL);
+const CORPUS_RELEASE_EDGE_FETCH_CF = publicOriginCacheOptions(CORPUS_REGISTRY_CDN_TTL);
 // After a FAILED refresh the last-known-good copy keeps serving and the next
 // attempt waits this long, so an R2 outage is not one extra subrequest per
 // request.
@@ -1879,11 +1878,8 @@ export const CORPUS_PAGE_CACHE_CONTROL = 'public, max-age=600';
 // 404s now is typically one the corpus is about to publish.
 export const CORPUS_NOT_FOUND_CACHE_CONTROL = 'public, max-age=60, s-maxage=60';
 // The R2 subrequest itself: 5 min for content (the publisher purges the
-// cdn key on every write), 30 s for a miss, never for a 5xx.
-const CORPUS_EDGE_FETCH_CF = {
-  cacheEverything: true,
-  cacheTtlByStatus: { '200-299': 300, '300-399': 300, '400-499': 30, '500-599': -1 },
-};
+// cdn key on every write), 30 s for a miss, never for an uncacheable error.
+const CORPUS_EDGE_FETCH_CF = publicOriginCacheOptions(300, 30);
 // Path segments a corpus page may have below its section prefix: lowercase
 // slug words, at most four levels (article, hub, archive, page-N). Anything
 // else cannot have been written by the publisher and is answered 404 without
@@ -2086,7 +2082,7 @@ async function fetchCorpusRegistry() {
   try {
     const resp = await fetch(new URL(CORPUS_SECTIONS_REGISTRY_KEY, CDN_BASE).toString(), {
       signal: controller.signal,
-      cf: cacheEverythingWithout5xx(CORPUS_REGISTRY_CDN_TTL),
+      cf: publicOriginCacheOptions(CORPUS_REGISTRY_CDN_TTL),
     });
     if (!resp.ok) return null;
     return parseCorpusSectionRegistry(await resp.json());

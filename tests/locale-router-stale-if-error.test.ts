@@ -94,11 +94,34 @@ describe('locale-router stale-if-error', () => {
       cacheTtlByStatus: {
         '200-299': 7200,
         '300-399': 7200,
-        '400-499': 7200,
+        '400-427': 7200,
+        '428-429': -1,
+        '430': 7200,
+        '431': -1,
+        '432-499': 7200,
         '500-599': -1,
       },
     });
     expect(cfOptions[1]).toEqual(cfOptions[0]);
+  });
+
+  it.each([
+    [200, 7200], [301, 7200], [404, 7200], [410, 7200],
+    [427, 7200], [428, -1], [429, -1], [430, 7200],
+    [431, -1], [432, 7200], [499, 7200],
+  ])('uses one unambiguous origin-cache rule for HTTP %s', async (status, expectedTtl) => {
+    let policy: Record<string, number> | undefined;
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (_input, init) => {
+      policy = (init as RequestInit & { cf?: { cacheTtlByStatus?: Record<string, number> } })?.cf?.cacheTtlByStatus;
+      return new Response('page', { status });
+    });
+    await worker.fetch(new Request(`${APEX}/fr/emploi/`), {}, ctx);
+    const matches = Object.entries(policy || {}).filter(([range]) => {
+      const [first, last = first] = range.split('-').map(Number);
+      return status >= first && status <= last;
+    });
+    expect(matches).toHaveLength(1);
+    expect(matches[0][1]).toBe(expectedTtl);
   });
 
   it('returns 503 on origin throw when there is no cached copy', async () => {

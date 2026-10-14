@@ -351,6 +351,17 @@ describe('live section: pages from R2', () => {
     const maxAge = Number(/max-age=(\d+)/.exec(CORPUS_PAGE_CACHE_CONTROL)?.[1]);
     expect(maxAge).toBeLessThan(21600);
     expect(cdnFetches()).toContain(`${CDN}/edge/sections/articoli-ticino/index.html`);
+    const bodyCall = vi.mocked(globalThis.fetch).mock.calls.find(([input]) => String(input) === `${CDN}/edge/sections/articoli-ticino/index.html`);
+    expect(bodyCall).toBeDefined();
+    const policy = (bodyCall?.[1] as RequestInit & { cf?: { cacheTtlByStatus?: Record<string, number> } })?.cf?.cacheTtlByStatus;
+    for (const [status, expectedTtl] of [[200, 300], [301, 300], [404, 30], [410, 30], [428, -1], [429, -1], [430, 30], [431, -1], [432, 30]]) {
+      const matches = Object.entries(policy || {}).filter(([range]) => {
+        const [first, last = first] = range.split('-').map(Number);
+        return status >= first && status <= last;
+      });
+      expect(matches, `corpus HTTP ${status}`).toHaveLength(1);
+      expect(matches[0][1], `corpus HTTP ${status}`).toBe(expectedTtl);
+    }
   });
 
   it('serves hubs and articles in every locale from edge/sections/<path>/index.html', async () => {
