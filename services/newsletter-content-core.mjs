@@ -847,6 +847,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     date: entry.date,
   }));
   const relevanceByJob = new Map(scored.map((entry) => [entry.job, entry.relevance]));
+  const newnessByJob = new Map(context.entries.map((entry) => [entry.job, entry.date]));
   const companyKey = (job) => (job.companyKey || job.company || '').toLowerCase();
 
   let ordered;
@@ -924,12 +925,18 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       rawSector: job.sector || '',
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
+      // The ranking treatment uses the immutable first-seen/published date
+      // already parsed by the prepared context. Never use crawledAt here:
+      // re-crawling an old listing must not make it look new.
+      newnessAt: Number.isFinite(newnessByJob.get(job)) && newnessByJob.get(job) > 0
+        ? newnessByJob.get(job)
+        : null,
       // Keep the matcher score with the normalized card so downstream email
       // ranking can weigh it by the reader's affinity without reconstructing
       // subscriber signals. A no-profile match has no keyword score; its
       // existing popularity / freshness order becomes a monotonic relevance
-      // proxy so the affinity variant does not discard the matcher order and
-      // let affinity become the only signal.
+      // proxy so a ranking treatment does not discard the matcher order and
+      // let its secondary signal become the only signal.
       relevanceScore: Number(relevanceByJob.get(job)) > 0
         ? Number(relevanceByJob.get(job))
         : Math.max(1, finalJobs.length - index),

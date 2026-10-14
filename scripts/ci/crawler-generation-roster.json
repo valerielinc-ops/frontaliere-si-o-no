@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 627,
+  "crawlerCount": 628,
   "groups": {
     "10": [
       "atec-personal",
@@ -263,6 +263,7 @@
       "kantonsspital-uri",
       "klinik-schloss-mammern",
       "ksml",
+      "opus-personal",
       "pkb-private-bank",
       "rheinmetall-air-defence",
       "sfs-group",
@@ -1089,6 +1090,7 @@
     "omega": "data/jobs/by-crawler/omega.json",
     "on-running": "data/jobs/by-crawler/on-running.json",
     "ophtalmique": "data/jobs/by-crawler/ophtalmique.json",
+    "opus-personal": "data/jobs/by-crawler/opus-personal.json",
     "orell-fuessli-thalia": "data/jobs/by-crawler/orell-fuessli-thalia.json",
     "oscam": "data/jobs/by-crawler/oscam.json",
     "oscam-castelrotto": "data/jobs/by-crawler/oscam-castelrotto.json",
@@ -1308,5 +1310,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:6cdc30c1a79ab3d685045f1c2ecaf980916333142fa4b6ce19a43555bbd1aa77"
+  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
 }

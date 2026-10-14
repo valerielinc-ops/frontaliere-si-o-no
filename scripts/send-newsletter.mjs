@@ -56,10 +56,11 @@ import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
-  affinityReorders,
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
   rankEmailJobs,
+  rankingNeedsAffinityProfile,
+  rankingReorders,
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
@@ -152,15 +153,14 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
 
 export { NEWSLETTER_JOB_LIMIT };
 
-// The affinity variant picks its four cards among the same twelve relevant
-// candidates the CTR treatment had; control keeps the historical top four.
-// The wider pool applies only when affinity actually reorders: an affinity
-// recipient without a valid profile, who opposed the personalization, or with
-// weight 0 gets the control pool, hence the control jobs in the control order.
+// A treatment that actually reorders picks its four cards among the same twelve
+// relevant candidates the retired CTR treatment had; control keeps the
+// historical top four. An affinity recipient without a valid profile, who
+// opposed personalization, or with weight 0 gets the control pool.
 export const NEWSLETTER_AFFINITY_CANDIDATE_LIMIT = 12;
 
 export function getNewsletterCandidateLimit(rankingVariant, { affinityScorer = null, config = JOB_EMAIL_RANKING_CONFIG } = {}) {
-  return affinityReorders({ variant: rankingVariant, affinityScorer, config })
+  return rankingReorders({ variant: rankingVariant, affinityScorer, config })
     ? NEWSLETTER_AFFINITY_CANDIDATE_LIMIT
     : NEWSLETTER_JOB_LIMIT;
 }
@@ -2523,19 +2523,24 @@ async function main() {
   // displace a real job from the top-4). The owner still sees them.
   const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
   const publicNewsletterJobContext = prepareNewsletterJobContext(jobsNoCanary, recentlyFeaturedJobs);
-  // Affinity profiles: one read per recipient, batched, for both ranking
-  // variants (the measurement compares them among people with a profile). The
-  // opposition flag comes from the subscriber document already loaded; an
-  // opted-out person is not read. Without Firestore (preview) or on a failed
-  // read everybody gets the standard order — never a blocked send.
+  // Affinity profiles are needed only by the affinity treatment. The newness
+  // treatment is independent of personal profiles, so its run does not pay
+  // those Firestore reads. Without Firestore (preview) or on a failed read
+  // everybody gets the standard order — never a blocked send.
   const affinityNow = new Date();
-  const { profiles: affinityProfiles, stats: affinityLoadStats } = await loadJobEmailAffinityProfiles(
-    db,
-    subscribers.map((subscriber) => ({
-      email: normalizeEmail(subscriber.email),
-      optOut: subscriber.rankingPersonalizationOptOut === true,
-    })),
-  );
+  const needsAffinityProfiles = rankingNeedsAffinityProfile({ config: JOB_EMAIL_RANKING_CONFIG });
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = needsAffinityProfiles
+    ? await loadJobEmailAffinityProfiles(
+      db,
+      subscribers.map((subscriber) => ({
+        email: normalizeEmail(subscriber.email),
+        optOut: subscriber.rankingPersonalizationOptOut === true,
+      })),
+    )
+    : {
+      profiles: new Map(),
+      stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
+    };
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
@@ -2550,8 +2555,9 @@ async function main() {
       affinityProfiles.get(normalizeEmail(subscriber.email)) ?? null,
       affinityNow,
     );
-    // The affinity variant chooses among a wider relevant pool (the same
-    // twelve the CTR treatment had); control keeps the historical top four.
+    // An active ranking treatment chooses among a wider relevant pool (the
+    // same twelve the retired CTR treatment had); control keeps the historical
+    // top four.
     const candidateLimit = getNewsletterCandidateLimit(rankingVariant, {
       affinityScorer,
       config: JOB_EMAIL_RANKING_CONFIG,

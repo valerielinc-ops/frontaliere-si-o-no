@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "97a954ad5b2f2e8ed8828ef265f1cc8bc145588b",
+  "sourceCommit": "27c61dd72d306f7be33f61f61f5ec77f82d4e353",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "97a954ad5b2f2e8ed8828ef265f1cc8bc145588b"
+    "sourceCommit": "27c61dd72d306f7be33f61f61f5ec77f82d4e353"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 627,
+  "crawlerCount": 628,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:6cdc30c1a79ab3d685045f1c2ecaf980916333142fa4b6ce19a43555bbd1aa77",
+    "rosterDigest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -395,6 +395,7 @@
     "scripts/update-omega-jobs.mjs",
     "scripts/update-on-running-jobs.mjs",
     "scripts/update-ophtalmique-jobs.mjs",
+    "scripts/update-opus-personal-jobs.mjs",
     "scripts/update-orell-fuessli-thalia-jobs.mjs",
     "scripts/update-oscam-castelrotto-jobs.mjs",
     "scripts/update-ottos-jobs.mjs",
@@ -1263,8 +1264,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "7084eaa84c45e981bd21714323c5d0b28ff23594ac5effc4a498d002ae025bee",
-      "artifactSha256": "691d183dca1ed745ad27a12ca0e3c229e0e6d289f1dc3ab9ef7de88889037177",
+      "sourceSha256": "e6ef15351b259143f730493d04b9ce1b55eb2e8a81653269eb5beaa4aa50fea7",
+      "artifactSha256": "8063411bb683263c2661a9573a11f2ae6e9175072e86327227e680cd452b3fe0",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "tertianum",
@@ -1293,7 +1294,8 @@
         "bobst",
         "baloise",
         "etavis",
-        "amina-bank"
+        "amina-bank",
+        "opus-personal"
       ]
     },
     {

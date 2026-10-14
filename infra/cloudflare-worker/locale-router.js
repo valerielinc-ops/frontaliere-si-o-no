@@ -807,6 +807,65 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // Worker) and write (that script) sides of the same key family.
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
+// GSC also discovers article ids and other languages' slugs under a localized
+// section. Resolve only an exact, unambiguous identity in the publisher's
+// registry, and verify the same-language page before sending a permanent 301.
+const ARTICLE_SLUG_REGISTRY_URL = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/slugs.json';
+
+export function articleAliasTarget(pathname, registry) {
+  const route = matchSection(pathname);
+  const group = route?.section === 'articolifrontaliere' ? 'blog'
+    : route?.section === 'articolisvizzera' ? 'swiss' : null;
+  if (!group) return null;
+  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
+  if (!leaf) return null;
+  const slug = lowerSegment(leaf[1]);
+  const rows = registry?.[group];
+  if (!rows || typeof rows !== 'object' || Array.isArray(rows)) return null;
+  const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
+  const ids = new Set();
+  if (own(rows, slug)) ids.add(slug);
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    const reverse = registry?.[`${group}Reverse`]?.[locale];
+    if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+  }
+  if (ids.size !== 1) return null;
+  const id = [...ids][0];
+  const canonicalSlug = own(rows, id) && rows[id]?.[route.locale];
+  if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
+  const target = `${route.prefix}/${canonicalSlug}/`;
+  if (normaliseRetiredPath(target) === normaliseRetiredPath(pathname.replace(/\/+$/, '') + '/')) return null;
+  // A withdrawn canonical must not become a new target through a stale API.
+  if (lookupRetired(target) !== undefined) return null;
+  return target;
+}
+
+async function recoverArticleAlias(url, origin) {
+  const route = matchSection(url.pathname);
+  if (!['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
+  if (!/^\/[^/]+\/?$/.test(url.pathname.slice(route.prefix.length))) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5000);
+  let target;
+  try {
+    const response = await fetch(ARTICLE_SLUG_REGISTRY_URL, {
+      signal: controller.signal,
+      cf: cacheEverythingWithout5xx(300),
+    });
+    if (!response.ok) return null;
+    target = articleAliasTarget(url.pathname, await response.json());
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+  if (!target || !(await redirectTargetIsLive(target, origin))) return null;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL },
+  });
+}
+
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
 // padded to length 2.
@@ -2322,10 +2381,29 @@ const ORIGIN_RETRIES = 1; // total attempts = ORIGIN_RETRIES + 1
 // cache keyed on the upstream origin-{loc} URL — unique per locale+path, so
 // locales can never collide). NOTE: do not add `cf.cacheKey` — custom cache
 // keys are Enterprise-only and would be silently ignored or rejected.
+// A document route: a directory URL (the site's canonical trailing slash) or
+// an .html file. Every other path (PDFs, feeds, images) keeps its Range.
+const DOCUMENT_PATH_RE = /(?:\/|\.html)$/u;
+
+export function isDocumentPath(pathname) {
+  return DOCUMENT_PATH_RE.test(String(pathname || ''));
+}
+
 async function fetchOriginOnce(upstream, request, cfOpts) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ORIGIN_TIMEOUT_MS);
   const originRequest = new Request(upstream, request);
+  if (isDocumentPath(new URL(originRequest.url).pathname)) {
+    // A byte range of an HTML page is never served (RFC 9110 lets a server
+    // ignore Range and answer 200). The edge cache slices the gzip
+    // representation it stores and then decodes the slice, so a ranged page
+    // came back as a few KB of HTML under a Content-Range counted in
+    // compressed bytes, and the Worker threw while streaming it (issue 13018:
+    // every sampled exception carried Range). The full page answers the
+    // request; the 206 guard in stripStaleAssetIntegrity stays for the rest.
+    originRequest.headers.delete('Range');
+    originRequest.headers.delete('If-Range');
+  }
   if (cfOpts) {
     // GitHub Pages occasionally advertises a compressed body that ends before
     // the gzip stream is complete. Cloudflare only has to decompress it when
@@ -2528,6 +2606,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
   // Unknown slugs fall through to the soft 404 below.
   if (request.method === 'GET' && resp.status === 404) {
+    const articleRedirect = await recoverArticleAlias(url, origin);
+    if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
@@ -2582,14 +2662,22 @@ export const staleAssetIntegrityHandler = {
 
 /**
  * Fail-open by construction: any response that is not a GET HTML body, any
- * runtime without HTMLRewriter (the vitest suite) and any thrown error return
- * the router's response untouched.
+ * partial (206) response, any runtime without HTMLRewriter (the vitest suite)
+ * and any thrown error return the router's response untouched.
+ *
+ * A 206 is a byte range of the stored representation, not an HTML document:
+ * the edge cache slices the gzip stream it holds, so decoding the slice for the
+ * rewriter "ended prematurely" and the Worker threw while streaming (issue
+ * 13018: every sampled exception carried a Range header). The try/catch below
+ * cannot see that error, because transform() returns before the body is read;
+ * and a rewritten range would no longer match the offsets in Content-Range.
  */
 export function stripStaleAssetIntegrity(request, response) {
   try {
     const Rewriter = globalThis.HTMLRewriter;
     if (typeof Rewriter !== 'function') return response;
     if (request.method !== 'GET' || !response || !response.body) return response;
+    if (response.status === 206 || response.headers.has('Content-Range')) return response;
     const contentType = response.headers.get('Content-Type') || '';
     if (!/^text\/html\b/i.test(contentType)) return response;
     return new Rewriter()

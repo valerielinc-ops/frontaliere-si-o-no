@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
-import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug, type AppRoute } from '@/services/router';
+import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug, getApplicationConciergePath, isApplicationConciergePath, type AppRoute } from '@/services/router';
 import type { Locale } from '@/services/i18n';
 
 const SEO_LANDINGS = [
@@ -1484,6 +1484,24 @@ describe('Router — SPA equivalent wins over static landing', () => {
     const { route } = parsePath('/fr/calculer-salaire/scenarios');
     expect(route.activeTab).toBe('calculator');
     expect(route.staticOverlay).toBe(true);
+  });
+});
+
+describe('Router — application concierge landing', () => {
+  for (const locale of ALL_LOCALES) {
+    it(`[${locale}] recognises the clean localized service path`, () => {
+      const path = getApplicationConciergePath(locale);
+      expect(isApplicationConciergePath(path)).toBe(true);
+      expect(parsePath(path)).toMatchObject({
+        locale,
+        route: { activeTab: 'job-board' },
+      });
+    });
+  }
+
+  it('does not treat the generic job board as the concierge landing', () => {
+    expect(isApplicationConciergePath('/cerca-lavoro-ticino/')).toBe(false);
+    expect(parsePath('/cerca-lavoro-ticino/').route.activeTab).toBe('job-board');
   });
 });
 
