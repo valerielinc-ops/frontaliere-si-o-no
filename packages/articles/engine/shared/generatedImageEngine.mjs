@@ -1290,6 +1290,19 @@ function parseVisionResult(text) {
   throw new Error('vision verifier returned no JSON result');
 }
 
+/** The publication verdict applies topic relevance to synthetic heroes too. */
+export function imageVisionRejected(verdict, { kind = GENERATED_IMAGE_KIND, scope } = {}) {
+  const articleHero = scope === 'article-hero';
+  if (verdict?.ok !== true) return true;
+  if (articleHero && verdict.is_topic_relevant !== true) return true;
+  if (kind === LICENSED_PHOTO_KIND) {
+    return !verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face
+      || (articleHero && verdict.contains_recognizable_foreground_person !== false)
+      || (articleHero && verdict.contains_text);
+  }
+  return verdict.contains_text !== false || verdict.contains_logo !== false || verdict.contains_recognizable_face !== false || verdict.looks_like_specific_real_event !== false;
+}
+
 export async function verifyGeneratedImage(filePath, {
   deadlineAt,
   kind = GENERATED_IMAGE_KIND,
@@ -1345,16 +1358,7 @@ export async function verifyGeneratedImage(filePath, {
     });
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
-  const articlePhoto = kind === LICENSED_PHOTO_KIND && scope === 'article-hero';
-  const rejected = kind === LICENSED_PHOTO_KIND
-    ? (!verdict.ok
-      || verdict.is_photograph !== true
-      || verdict.contains_logo
-      || verdict.contains_recognizable_face
-      || (articlePhoto && verdict.contains_recognizable_foreground_person !== false)
-      || (articlePhoto && verdict.contains_text)
-      || (articlePhoto && verdict.is_topic_relevant !== true))
-    : (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event);
+  const rejected = imageVisionRejected(verdict, { kind, scope });
   if (rejected) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
   }

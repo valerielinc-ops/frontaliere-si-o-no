@@ -11,6 +11,7 @@ import {
   articleHeroPhotoSearchQueries,
   formatProviderHttpError,
   imageProviderSequence,
+  imageVisionRejected,
   isPhotoCandidateRelevantToSpec,
   isPhotographicMetadata,
   isSuitableArticlePhotoCandidate,
@@ -25,6 +26,14 @@ import {
 } from '../packages/articles/engine/shared/generatedImageEngine.mjs';
 
 describe('generated image provider contracts', () => {
+  it('rejects unrelated synthetic heroes and incomplete vision verdicts', () => {
+    const verdict = { ok: true, contains_text: false, contains_logo: false, contains_recognizable_face: false, looks_like_specific_real_event: false, is_topic_relevant: true };
+    expect(imageVisionRejected(verdict, { scope: 'article-hero' })).toBe(false);
+    expect(imageVisionRejected({ ...verdict, is_topic_relevant: false }, { scope: 'article-hero' })).toBe(true);
+    expect(imageVisionRejected({ ok: true }, { scope: 'article-hero' })).toBe(true);
+    expect(imageVisionRejected({ ...verdict, looks_like_specific_real_event: true }, { scope: 'article-hero' })).toBe(true);
+    expect(imageVisionRejected(null, { scope: 'article-hero' })).toBe(true);
+  });
   it('reads the image block from a completed Gemini Interactions response', () => {
     const encoded = Buffer.from('fake-jpeg-bytes').toString('base64');
 
