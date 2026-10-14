@@ -132,10 +132,10 @@ describe('index.tsx mount order', () => {
     expect(awaitAt).toBeGreaterThan(startAt);
     expect(warmAt).toBeGreaterThan(awaitAt);
     expect(adoptAt).toBeGreaterThan(awaitAt);
-    expect(adoptAt).toBeGreaterThan(warmAt);
+    expect(warmAt).toBeGreaterThan(adoptAt);
     expect(hideAt).toBeGreaterThan(awaitAt);
     expect(hideAt).toBeGreaterThan(warmAt);
-    expect(mountApp.slice(awaitAt, adoptAt)).toContain("parsedRoute.activeTab === 'job-board'");
+    expect(mountApp.slice(awaitAt, adoptAt)).toContain("const isJobBoardRoute = parsedRoute.activeTab === 'job-board'");
   });
 
   it('hides #root only through hideRootForCrossfade (no direct opacity 0 that skips the mark)', () => {
