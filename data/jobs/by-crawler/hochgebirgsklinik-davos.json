@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-10-13T21:15:45.942Z",
+  "assembledAt": "2026-10-14T07:49:49.063Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-e6b4d1c87ad7",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:39.477Z",
+      "crawledAt": "2026-10-14T07:49:40.147Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/forschungspraktikum-kardiologie-100-w-m-d/18ac40eb-ec84-4dc0-b508-ed30a3cbab9c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:38.828Z",
+      "crawledAt": "2026-10-14T07:49:39.683Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:38.304Z",
+      "crawledAt": "2026-10-14T07:49:39.288Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:37.713Z",
+      "crawledAt": "2026-10-14T07:49:38.856Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-60-100/2b77f4b9-21fc-4d7e-a122-021827e42ea3",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:37.158Z",
+      "crawledAt": "2026-10-14T07:49:38.402Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -487,7 +487,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-oberaerztin-kardiologie-m-w-80-100/5de1a134-374a-45f8-bc5e-29aa1d6bf4a7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:34.049Z",
+      "crawledAt": "2026-10-14T07:49:37.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -535,6 +535,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -545,6 +546,813 @@
           "@type": "QuantitativeValue",
           "minValue": 110500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-247afd562517",
+      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
+        "en": "specialist-specialist-pediatrics-and-adolescent-medicine-development-of-outpatient-pediatrics-hochgebirgsklinik-davos",
+        "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
+        "fr": "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
+      "titleByLocale": {
+        "it": "Medico Specialista in Pediatria e Adolescentologia – Sviluppo della Pediatria Ambulatoriale",
+        "en": "Specialist in Pediatrics and Adolescent Medicine – Development of Outpatient Pediatrics",
+        "de": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
+        "fr": "Médecin spécialiste en pédiatrie et médecine de l'adolescent – Développement de la pédiatrie ambulatoire"
+      },
+      "description": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
+      "descriptionByLocale": {
+        "it": "Descrizione Pediatria ambulatoriale nella clinica interdisciplinare dei SIX-H 190 posti letto, 5 discipline, oltre 120 anni di storia. e 1560 m sul livello del mare.La clinica di alta montagna Davos è un centro di riabilitazione interdisciplinare con collegamento universitario. integrato nella spettacolare natura delle Alpi Grigioni. Nell'ambulatorio della nostra clinica ci occupiamo di bambini e adolescenti ambulatoriali e lavoriamo a stretto contatto con varie discipline specializzate della clinica. Non volete trattare semplicemente, ma sviluppare cure mediche e lavorare interdisciplinare?\n\nAllora vorremmo fare domanda a lei.\n\nCompiti - Come specialista in medicina pediatrica e adolescenziale, diventerete parte di un team multiprof unificato che accompagna i bambini, gli adolescenti e le loro famiglie olisticamente. medicalmente, psicologicamente e pädagogisch. - Trattamento ambulatoriale: Si prenderà cura di bambini e adolescenti nel ambulatorio del nostro ambulatorio nel contesto del nostro concetto di riabilitazione olistica. - Supporto: Oltre alle attività ambulatoriale, si aiuterà il nostro paziente somatico: nella zona ambulatoriale se necessario.\n\n- Precede interdisciplinare: Lavorate a stretto contatto con psicologia, cura e pedagogia. e date impulsi per nuovi percorsi di approvvigionamento. - Contribuire: Vi coinvolgete nel processo concettuale e nel supporto nell'espansione della nostra offerta unica genitori-bambini in tutta la Svizzera.\n\nRequisiti - Non stiamo cercando un \"I-Balcon\" su carta. ma piuttosto per le persone che lavorano professionalmente ben fondata, hanno un effetto umano e hanno la voglia di portare con sé nuove idee. - Titolo specialistico: Hai un titolo di specialista riconosciuto in medicina pediatrica e adolescenziale (SMH o equivalente UE). piace anche per colmare il divario. - Esperienza pratica o clinica: Hai esperienza nella cura medica di bambini e adolescenti. idealmente in ambulatorio o interdisciplinare nella città di S.A.\n\n- Apprezzare la cultura del team: Ti senti a tuo agio in hierarchie pianeggianti con comunicazione aperta. - Piacere per il design: Ti piace costruire una nuova struttura in ambulatorio e portare le tue idee. - Apprezzare la qualità della vita: Si apprezza un ambiente con un'alta qualità della vita.. in mezzo alla natura e ma ben collegato.\n\nOffriamo - Co-design invece di correre lungo le vostre idee contare. sia professionalmente che organizzativamente. - Estensivo lavoro-vita equilibrio Orari di lavoro pianificabili, famiglia-friendly e affidabile. - Riabilitazione unico genitore-bambino Ci basiamo su effetti sostenibili e disegnare interdisciplinare su un unico filo. - Qualità di vita tra cui montagne, movimento, natura, buone scuole. un ambiente da sogno per voi e i vostri cari. - Vi sosteniamo nel trovare un lavoro anche per il vostro:n partner:in. - E un luogo dove si può crescere. professionalmente e privatamente.",
+        "en": "Description Outpatient pediatry in the interdisciplinary clinic of the SIX-H 190 beds, 5 disciplines, over 120 years of history – and 1560 m above sea level.The high mountain clinic Davos is an interdisciplinary rehabilitation centre with a universitary connection – embedded in the spectacular nature of the Grisons Alps. In our clinic's own ambulatory, we care for children and adolescents outpatiently and work closely with various specialist disciplines of the clinic. You do not want to treat simply, but to develop medical care and work interdisciplinaryly?\n\nThen we would like to apply to you.\n\nTasks - As a specialist in paediatric and adolescent medicine, you will become part of a multiprof-unified team that accompanies children, adolescents and their families holistically – medically, psychologically and pädagogisch. - Outpatient treatment: You will take care of children and adolescents in the ambulatory of our ambulatory in the context of our holistic rehabilitation concept. - Support: In addition to outpatient activities, you will help our somatic patient: in the inpatient area if necessary.\n\n- Precede interdisciplinary: You work closely with psychology, care and pedagogy – and give impulses for new supply routes. - Contributing: You get involved in the conceptual process and support in the expansion of our unique parent-child offer throughout Switzerland.\n\nRequirements - We are not looking for an \"I-Balcon\" on paper – but rather for people who work professionally well-founded, have a human effect and have a desire to bring new ideas with them. - Specialist title: You have a recognized specialist title in paediatric and adolescent medicine (FMH or EU equivalent) – also likes to close the gap. - Practical or clinical experience: You have experience in the medical care of children and adolescents – ideally in outpatient or interdisciplinary in the city of S.A.\n\n- Appreciate team culture: You feel comfortable in flat hierarchies with open communication. - Pleasure for design: You enjoy building a new structure in the ambulatory and bringing in your own ideas. - Appreciate quality of life: You value an environment with a high quality of life – in the middle of nature and yet well connected.\n\nWe offer - Co-design instead of running along Your ideas count – both professionally and organizationally. - Extensive work-life balance Planable working hours, family-friendly and reliable. - Unique parent-child rehabilitation We rely on sustainable effects and draw interdisciplinary on one strand. - Leisure quality including mountains, movement, nature, good schools – a dreamlike environment for you and your loved ones. - We support you in arriving – also in finding a job for your:n partner:in. - And a place where you can grow – professionally and privately.",
+        "de": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
+        "fr": "Description Pédiatrie ambulatoire dans la clinique interdisciplinaire des SIX-H 190 lits, 5 disciplines, plus de 120 ans d'histoire et 1560 m au-dessus du niveau de la mer.La clinique haute montagne Davos est un centre de réadaptation interdisciplinaire avec un lien universel – intégré dans la nature spectaculaire des Alpes des Grisons. Dans notre propre ambulatoire, nous soignons les enfants et les adolescents en consultation externe et travaillons en étroite collaboration avec diverses disciplines spécialisées de la clinique.\n\nNous aimerions donc vous présenter une demande.\n\nTâches - En tant que spécialiste de la médecine pédiatrique et adolescente, vous ferez partie d'une équipe multiprofessionnelle qui accompagne les enfants, les adolescents et leurs familles de façon holistique – médicalement, psychologiquement et pädagogisch. - Traitement ambulatoire : vous prendrez soin des enfants et des adolescents dans l'ambulatoire de notre ambulatoire dans le cadre de notre concept de réadaptation holistique. - Soutien : En plus des activités ambulatoires, vous aiderez notre patient somatique : dans le domaine des patients hospitalisés si nécessaire.\n\n- Precede interdisciplinaire : Vous travaillez en étroite collaboration avec la psychologie, les soins et la pédagogie – et donnez des impulsions pour de nouvelles voies d'approvisionnement. - Contribution : Vous vous engagez dans le processus conceptuel et le soutien dans l'expansion de notre offre parentale-enfant unique dans toute la Suisse.\n\nExigences - Nous ne cherchons pas un « I-Balcon » sur papier – mais plutôt pour les personnes qui travaillent professionnellement bien fondées, qui ont un effet humain et qui désirent apporter de nouvelles idées avec eux. - Titre du spécialiste : Vous avez un titre reconnu en médecine pédiatrique et adolescente (FMH ou équivalent UE) – aussi aime combler l'écart. - Expérience pratique ou clinique : Vous avez de l'expérience dans les soins médicaux des enfants et des adolescents – idéalement en consultation externe ou interdisciplinaire dans la ville de S.A.\n\n- Appréciez la culture de l'équipe : vous vous sentez à l'aise dans les aplats-de-lieux avec une communication ouverte. - Plaisir de design : vous aimez construire une nouvelle structure dans l'ambulatoire et apporter vos propres idées. - Appréciez la qualité de vie : Vous appréciez un environnement avec une qualité de vie élevée – au milieu de la nature et pourtant bien connecté.\n\nNous offrons - Co-conception au lieu de courir Vos idées comptent – tant professionnellement que organisationnellement. - Équilibre travail-vie privée Équilibre horaire de travail planable, familial et fiable. - Réadaptation unique parent-enfant Nous comptons sur des effets durables et tirons interdisciplinaire sur un seul volet. - Qualité des loisirs incluant montagnes, mouvement, nature, bonnes écoles – un environnement de rêve pour vous et vos proches. - Nous vous soutenons dans votre arrivée – également pour trouver un emploi pour votre partenaire:in. - Et un endroit où vous pouvez grandir – professionnellement et en privé."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:37.573Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-02",
+      "postedDate": "2026-07-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+        "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos",
+        "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos",
+        "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
+        "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+          "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos",
+          "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+          "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos"
+        ],
+        "de": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+        ],
+        "fr": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
+          "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:40.637Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-4ad37e4931fb",
+      "slug": "gestione-del-team-cura-cardiologia-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "gestione-del-team-cura-cardiologia-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "en": "team-management-care-cardiology-m-f-d-80-100-hochgebirgsklinik-davos-davos",
+        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "teamleiter-m-j-80-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
+      "titleByLocale": {
+        "it": "Gestione del team Cura cardiologia (m/f/d) 80-100 %",
+        "en": "Team management Care cardiology (m/f/d) 80-100 %",
+        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
+        "fr": "Gestion d'équipe Soins cardiologie (h/f/d) 80-100 %"
+      },
+      "description": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Fachliche und personelle Führung eines Teams von rund 25 Mitarbeitenden\n• Aktive Förderung, Entwicklung und Begleitung deiner Mitarbeitenden\n• Enge Zusammenarbeit mit der Leitung Pflege sowie den behandelnden Ärzt:innen\n• Mitarbeit in der direkten Pflege und Unterstützung des Teams im Alltag\n• Ansprechperson für Angehörige sowie externe Institutionen\n• Begleitung von Patient:innen auf dem Weg zurück in ein selbstständiges Leben\n• Umsetzung von qualitativen, strategischen und wirtschaftlichen Unternehmenszielen\n• Mitgestaltung und Weiterentwicklung der Abteilung | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Idealerweise erste Führungserfahrung inkl. Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Erfahrung in der Rehabilitation von Vorteil\n• Hohe Sozialkompetenz und ausgeprägte Teamfähigkeit\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude an Verantwortung und aktiver Mitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
+      "descriptionByLocale": {
+        "it": "Come team leader del nostro team di cura per la riabilitazione cardiaca, guidi e supporti il tuo team nell'assistenza quotidiana impegnativa e insieme fornisci assistenza professionale ed empatica per i nostri pazienti. Il team accompagna le persone in modo olistico attraverso il processo di riabilitazione, li prepara per una vita quotidiana indipendente e lavora a stretto contatto con medici, terapisti e altri specialisti. Inizio: da agosto 2026 o per accordo. | Compiti:\n• Gestione professionale e personale di un team di circa 25 dipendenti\n• Promozione attiva, sviluppo e supporto dei dipendenti\n• Chiudere la collaborazione con la gestione e i medici curanti: dentro\n• Cooperazione nella cura e nel sostegno diretto del team nella vita quotidiana\n• Persona di contatto per parenti e istituzioni esterne\n• Accompagnamento dei pazienti: donne sulla via del ritorno ad una vita indipendente\n• Attuazione degli obiettivi aziendali qualitativi, strategici ed economici\n• Co-design e ulteriore sviluppo del dipartimento | Requisiti:\n• Allenamento completato come Dipl. Professionista HF/FH\n• Idealmente, prima esperienza di leadership incl. Formazione di leadership o volontà di completarlo\n• L'esperienza nella riabilitazione è benefica\n• Alta capacità sociale e forti competenze di squadra\n• Metodo di lavoro indipendente, strutturato e affidabile\n• Gioia di responsabilità e partecipazione attiva\n• Molto buona conoscenza del tedesco in parola e scrittura | Offriamo:\n• Bilancio della vita lavorativa: servizi programmati, difficilmente straordinari, poco o niente servizi notturni\n• Cultura di squadra: cooperazione a livello degli occhi, comunicazione aperta, cura nella gestione\n• Divertimento sano: pasti mediterranei ai prezzi dei dipendenti sottosidizzati\n• Tempo libero: biglietto annuale gratuito della ferrovia di montagna e offerte sportive/wellness a buon mercato",
+        "en": "As team leader of our caring team for cardiac rehabilitation, you lead and support your team in demanding day-to-day care and together provide professional, empathetic care for our patients. The team accompanies people holistically through the rehabilitation process, prepares them for an independent everyday life and works closely with doctors, therapists and other specialists. Start: from August 2026 or by arrangement. | Tasks:\n• Professional and personnel management of a team of around 25 employees\n• Active promotion, development and support of your employees\n• Close cooperation with the management care and the treating doctors: inside\n• Cooperation in the direct care and support of the team in everyday life\n• Contact person for relatives and external institutions\n• Accompaniment of patients: women on the way back to an independent life\n• Implementation of qualitative, strategic and economic corporate goals\n• Co-design and further development of the department | Requirements:\n• Completed training as a Dipl. Care professional HF/FH\n• Ideally, first leadership experience incl. Leadership training or willingness to complete it\n• Experience in rehabilitation is beneficial\n• High social skills and strong team skills\n• Independent, structured and reliable working method\n• Joy of responsibility and active participation\n• Very good knowledge of German in word and writing | We offer:\n• Work-life balance: scheduled services, hardly any overtime, little to no night services\n• Team culture: cooperation at eye level, open communication, care in the management\n• Healthy Enjoyment: Mediterranean Meals at Subsidized Employee Prices\n• Free time: Free mountain railway annual ticket and cheap sports/wellness offers",
+        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Fachliche und personelle Führung eines Teams von rund 25 Mitarbeitenden\n• Aktive Förderung, Entwicklung und Begleitung deiner Mitarbeitenden\n• Enge Zusammenarbeit mit der Leitung Pflege sowie den behandelnden Ärzt:innen\n• Mitarbeit in der direkten Pflege und Unterstützung des Teams im Alltag\n• Ansprechperson für Angehörige sowie externe Institutionen\n• Begleitung von Patient:innen auf dem Weg zurück in ein selbstständiges Leben\n• Umsetzung von qualitativen, strategischen und wirtschaftlichen Unternehmenszielen\n• Mitgestaltung und Weiterentwicklung der Abteilung | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Idealerweise erste Führungserfahrung inkl. Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Erfahrung in der Rehabilitation von Vorteil\n• Hohe Sozialkompetenz und ausgeprägte Teamfähigkeit\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude an Verantwortung und aktiver Mitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
+        "fr": "En tant que chef d'équipe de notre équipe soignante pour la réadaptation cardiaque, vous dirigez et soutenez votre équipe dans les soins quotidiens exigeants et offrez ensemble des soins professionnels et empathiques à nos patients. L'équipe accompagne les personnes de façon holistique par le processus de réadaptation, les prépare à une vie quotidienne indépendante et travaille en étroite collaboration avec les médecins, les thérapeutes et d'autres spécialistes. Début: à partir d'août 2026 ou par arrangement. Tâches :\n• Gestion professionnelle et du personnel d'une équipe d'environ 25 employés\n• Promotion active, développement et soutien de vos employés\n• Coopération étroite avec les soins de gestion et les médecins traitants: à l'intérieur\n• Coopération dans les soins directs et le soutien de l'équipe dans la vie quotidienne\n• Personne à contacter pour les proches et les institutions extérieures\n• Accompagnement des patients: les femmes sont sur le chemin du retour à une vie indépendante\n• Réalisation des objectifs qualitatifs, stratégiques et économiques des entreprises\n• Co-conception et perfectionnement du département Exigences :\n• Formation terminée en tant que diplômé. Soins professionnels HF/FH\n• Idéalement, première expérience de leadership, y compris. Formation au leadership ou volonté de le compléter\n• L'expérience de la réadaptation est bénéfique\n• Hautes compétences sociales et solides compétences en équipe\n• Méthode de travail indépendante, structurée et fiable\n• Joy de responsabilité et de participation active\n• Très bonne connaissance de l'allemand dans la parole et l'écriture.\n• Équilibre entre vie professionnelle et vie privée : services réguliers, pratiquement aucune heure supplémentaire, peu ou pas de services de nuit\n• Culture d'équipe: coopération au niveau des yeux, communication ouverte, soins dans la gestion\n• Bien-être : repas méditerranéens aux prix subventionnés des employés\n• Temps libre: billet annuel gratuit de chemin de fer de montagne et offres de sports/wellness bon marché"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:37.198Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/645/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+        "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos",
+        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+        "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
+          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
+        ],
+        "fr": [
+          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
+          "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T14:58:53.516Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-53bc1c74878f",
+      "slug": "sostanza-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "sostanza-hochgebirgsklinik-davos-davos",
+        "en": "sub-assistance-hochgebirgsklinik-davos-davos",
+        "de": "unterassistenz-hochgebirgsklinik-davos-ch",
+        "fr": "sous-assistance-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Unterassistenz",
+      "titleByLocale": {
+        "it": "Sostanza",
+        "en": "Sub-assistance",
+        "de": "Unterassistenz",
+        "fr": "Sous-assistance"
+      },
+      "description": "Wir bieten Medizinstudierenden die Möglichkeit, in verschiedenen Fachbereichen unseres Spitals eine Unterassistenz zu absolvieren, wertvolle Praxiserfahrung zu sammeln und ihre klinischen Kompetenzen gezielt weiterzuentwickeln. | Aufgaben:\n• Pneumologie\n• Dermatologie\n• Kardiologie\n• Psychosomatik | Anforderungen:\n• Angaben zum gewünschten Eintrittsdatum und Zeitraum (mehrere möglich)\n• Gewünschte Abteilung\n• Vollständige Bewerbungsunterlagen\n• Immatrikulationsbestätigung | Wir bieten:\n• Hohe Lehrqualität und Struktur in einer renommierten Rehabilitationsklinik mit Forschungseinrichtung\n• Fokus auf Diagnostik und breites Fachspektrum inkl. anerkanntes DGK-Zentrum für Sportkardiologie\n• Einzigartiges Bergpanorama und direkte Zugang zu unzähligen Outdoor-Aktivitäten\n• Vergünstigungen für regionale Angebote\n• Planbare Arbeitszeiten mit seltenen Wochenendeinsätzen",
+      "descriptionByLocale": {
+        "it": "Offriamo agli studenti medici l'opportunità di completare una sub-assistenza in varie aree del nostro ospedale, acquisire preziosa esperienza pratica e sviluppare ulteriormente le loro competenze cliniche. | Compiti:\n• Pneumologia\n• Dermatologia\n• Cardiologia\n• Psychosomatics | Requisiti:\n• Informazioni sulla data di entrata e sul periodo desiderato (sempre possibile)\n• Dipartimento desiderato\n• Documenti di applicazione completi\n• Conferma d'iscrizione | Offriamo:\n• Alta qualità e struttura didattica in una rinomata clinica di riabilitazione con struttura di ricerca\n• Focus sulla diagnostica e una vasta gamma di soggetti tra cui un noto Centro DGK per la Cardiologia dello sport\n• Panorama di montagna unico e accesso diretto a innumerevoli attività all'aperto\n• Vantaggi per le offerte regionali\n• Ore lavorative programmabili con incarichi di weekend rari",
+        "en": "We offer medical students the opportunity to complete a sub-assistance in various areas of our hospital, gain valuable practical experience and further develop their clinical competencies. | Tasks:\n• Pneumology\n• Dermatology\n• Cardiology\n• Psychosomatics | Requirements:\n• Information about the desired entry date and period (several possible)\n• Desired department\n• Complete application documents\n• Enrolment confirmation | We offer:\n• High teaching quality and structure in a renowned rehabilitation clinic with research facility\n• Focus on diagnostics and a broad range of subjects including a recognized DGK Centre for Sports Cardiology\n• Unique mountain panorama and direct access to countless outdoor activities\n• Advantages for regional offers\n• Schedulable working hours with rare weekend assignments",
+        "de": "Wir bieten Medizinstudierenden die Möglichkeit, in verschiedenen Fachbereichen unseres Spitals eine Unterassistenz zu absolvieren, wertvolle Praxiserfahrung zu sammeln und ihre klinischen Kompetenzen gezielt weiterzuentwickeln. | Aufgaben:\n• Pneumologie\n• Dermatologie\n• Kardiologie\n• Psychosomatik | Anforderungen:\n• Angaben zum gewünschten Eintrittsdatum und Zeitraum (mehrere möglich)\n• Gewünschte Abteilung\n• Vollständige Bewerbungsunterlagen\n• Immatrikulationsbestätigung | Wir bieten:\n• Hohe Lehrqualität und Struktur in einer renommierten Rehabilitationsklinik mit Forschungseinrichtung\n• Fokus auf Diagnostik und breites Fachspektrum inkl. anerkanntes DGK-Zentrum für Sportkardiologie\n• Einzigartiges Bergpanorama und direkte Zugang zu unzähligen Outdoor-Aktivitäten\n• Vergünstigungen für regionale Angebote\n• Planbare Arbeitszeiten mit seltenen Wochenendeinsätzen",
+        "fr": "Nous offrons aux étudiants en médecine la possibilité de compléter une sous-assistance dans différents domaines de notre hôpital, d'acquérir une expérience pratique précieuse et de développer leurs compétences cliniques. Tâches :\n• Pneumologie\n• Dermatologie\n• Cardiologie\n• Exigences psychosomatiques :\n• Informations sur la date et la période d'entrée souhaitée (plusieurs possibles)\n• Département souhaité\n• Documents de demande complets\n• Nous vous proposons:\n• Haute qualité de l'enseignement et structure dans une clinique de réadaptation renommée avec un centre de recherche\n• Mettre l'accent sur le diagnostic et un large éventail de sujets, y compris un centre de la DGK reconnu pour la cardiologie sportive\n• Panorama de montagne unique et accès direct à d'innombrables activités de plein air\n• Avantages pour les offres régionales\n• Heures de travail programmées avec des affectations de week-end rares"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/unterassistenz/9e279980-5697-45f5-81a7-e5ecf5e1c851",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:36.624Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-09",
+      "postedDate": "2026-09-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/657/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ausbildung",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "unterassistenz-hochgebirgsklinik-davos-ch",
+        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+        "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
+        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "assistance-horaire-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenz-hochgebirgsklinik-davos-ch",
+          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+          "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+          "assistance-horaire-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "unterassistenz-hochgebirgsklinik-davos-ch",
+          "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos"
+        ],
+        "de": [
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "unterassistenz-hochgebirgsklinik-davos-ch",
+          "assistance-horaire-hochgebirgsklinik-davos-davos"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:04:42.468Z",
+      "salaryMin": 48500,
+      "salaryMax": 89500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-e9fcb6b81d33",
+      "slug": "infermiere-a-per-servizio-notturno-fisso-m-f-60-100-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "infermiere-a-per-servizio-notturno-fisso-m-f-60-100-hochgebirgsklinik-davos-davos",
+        "en": "nursing-professional-as-permanent-night-watch-m-f-60-100-hochgebirgsklinik-davos-davos",
+        "de": "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
+        "fr": "soins-infirmiers-professionnels-en-tant-que-veille-permanente-h-f-60-100-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Pflegefachperson als Dauernachtwache (m/w) 60 - 100%",
+      "titleByLocale": {
+        "it": "Infermiere/a per servizio notturno fisso (m/f) 60 - 100%",
+        "en": "Nursing professional as permanent night watch (m/f) 60 - 100%",
+        "de": "Pflegefachperson als Dauernachtwache (m/w) 60 - 100%",
+        "fr": "Soins infirmiers professionnels en tant que veille permanente (h/f) 60 - 100%"
+      },
+      "description": "Aufgaben:\n• Kompetente und fachgerechte Pflege der Patientinnen und Patienten im Nachtdienst\n• Dokumentation einer ganzheitlichen, professionellen Pflege\n• Einhaltung der pflegerischen Richtlinien und Qualitätsnormen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Teilnahme an Teamsitzungen und internen Fortbildungen | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder SRK-Anerkennung\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Bei ausländischen Bewerbungen SRK Anerkennung erforderlich (Wir unterstützen dich gerne)",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura competente e professionale dei pazienti in servizio notturno\n• Documentazione di una cura olistica e professionale\n• Rispetto delle linee guida e degli standard qualitativi\n• Cooperazione orientata alla soluzione con discipline intra- e interdisciplinari\n• Partecipazione agli incontri di squadra e formazione interna | Requisiti:\n• Allenamento completato come Dipl. Riconoscimento professionale DNII/HF/FH o SRK\n• Elevate competenze sociali e metodi di lavoro indipendenti e affidabili\n• Resilienza, disponibilità a svolgere, flessibilità e lavoro di squadra\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Riconoscimento richiesto per applicazioni straniere (Siamo lieti di supportarvi)",
+        "en": "Tasks:\n• Competent and professional care of patients on night duty\n• Documentation of a holistic, professional care\n• Compliance with nursing guidelines and quality standards\n• Solution-oriented cooperation with intra- and interdisciplinary disciplines\n• Participation in team meetings and internal training | Requirements:\n• Completed training as a Dipl. Nursing professional DNII/HF/FH or SRK recognition\n• High social skills and independent and reliable working methods\n• Resilience, willingness to perform, flexibility and teamwork\n• Very good knowledge of German in word and writing\n• Recognition required for foreign applications (We are happy to support you)",
+        "de": "Aufgaben:\n• Kompetente und fachgerechte Pflege der Patientinnen und Patienten im Nachtdienst\n• Dokumentation einer ganzheitlichen, professionellen Pflege\n• Einhaltung der pflegerischen Richtlinien und Qualitätsnormen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Teilnahme an Teamsitzungen und internen Fortbildungen | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder SRK-Anerkennung\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Bei ausländischen Bewerbungen SRK Anerkennung erforderlich (Wir unterstützen dich gerne)",
+        "fr": "Tâches :\n• Soins compétents et professionnels des patients en service de nuit\n• Documentation d'un soin holistique et professionnel\n• Respect des directives et des normes de qualité en matière de soins infirmiers\n• Coopération axée sur la solution avec les disciplines intra et interdisciplinaires\n• Participation aux réunions d'équipe et à la formation interne.\n• Formation terminée en tant que diplômé. Reconnaissance professionnelle en soins infirmiers DNII/HF/FH ou SRK\n• Compétences sociales élevées et méthodes de travail indépendantes et fiables\n• Résilience, volonté de performance, flexibilité et travail d'équipe\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Reconnaissance requise pour les demandes étrangères (Nous sommes heureux de vous soutenir)"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-als-dauernachtwache-m-w-60-100/95184d20-da1e-4f14-94a5-4d2b6a3e86c3",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:36.250Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/669/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60 - 100%",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
+        "pflegefachperson-come-dauernachtwache-m-w-d-60-100-hochgebirgsklinik-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
+          "pflegefachperson-come-dauernachtwache-m-w-d-60-100-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:12:01.754Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-080a08b9e08d",
+      "slug": "collaboratore-trice-service-m-w-d-80-100-hochgebirgsklinik-davos",
+      "slugByLocale": {
+        "de": "mitarbeiter-service-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "it": "collaboratore-trice-service-m-w-d-80-100-hochgebirgsklinik-davos",
+        "en": "mitarbeiter-service-m-w-d-80-100-hochgebirgsklinik-davos-ch",
+        "fr": "mitarbeiter-service-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Mitarbeiter Service (m/w/d) 80 - 100%",
+      "titleByLocale": {
+        "de": "Mitarbeiter Service (m/w/d) 80 - 100%",
+        "it": "Collaboratore/trice Service (m/w/d) 80 - 100%",
+        "en": "Mitarbeiter Service (m/w/d) 80 - 100%",
+        "fr": "Mitarbeiter Service (m/w/d) 80 - 100%"
+      },
+      "description": "Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events)\n• Teilte Dienste, auch Wochenende- und Feiertages-Einsatz | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events)\n• Teilte Dienste, auch Wochenende- und Feiertages-Einsatz | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+        "it": "Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events)\n• Teilte Dienste, auch Wochenende- und Feiertages-Einsatz | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+        "en": "Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events)\n• Teilte Dienste, auch Wochenende- und Feiertages-Einsatz | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+        "fr": "Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events)\n• Teilte Dienste, auch Wochenende- und Feiertages-Einsatz | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/mitarbeiter-service-m-w-d-80-100/da9816c1-f5c9-4479-9be5-6fa8802a5d0b",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:35.823Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-14",
+      "postedDate": "2026-10-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/663/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Küche/Service",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-service-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-service-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-55dbfb81a41b",
+      "slug": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "en": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
+        "de": "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch",
+        "fr": "pepiniere-mere-h-f-d-60-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Miterzieher Kinderkrippe (m/w/d) 60%",
+      "titleByLocale": {
+        "it": "Parent nursery (m/f/d) 60%",
+        "en": "Parent nursery (m/f/d) 60%",
+        "de": "Miterzieher Kinderkrippe (m/w/d) 60%",
+        "fr": "Pépinière mère (h/f/d) 60%"
+      },
+      "description": "Aufgaben: Du betreust die Kinder im Alter zwischen drei Monaten und fünf Jahren Machen ist angesagt Du gestaltest die Tages- und Wochenplanung mit und übernimmst Haus- sowie Alltagsarbeiten Mehr als Kinderbetreuung Wir arbeiten bei Anlässen mit und nehmen an Projekten teil Zusammen Du verstehst Dich als wichtiges Puzzleteil eines grösseren Ganzen, genannt Kinderkrippe Glückspilz, wo wir Hand in Hand mit unseren Kleinen unterwegs sind | \n• Anforderungen: Du bist unsere zukünftige Fachperson Kinderbetreuung EFZ oder hast eine Weiterbildung als Kindererzieher/-in HF Persönlichkeit Die Kinder und wir vom Betreuungs-Team freuen uns auf Dein fröhliches, belastbares Wesen Kompetenzen: Du bist empathisch, sozial und bringst eine selbstständige und zuverlässige Arbeitsweise mit Glückspilz Die Kinder dürfen sich Glückspilze nennen, weil Du mit Leib und Seele, respektive Aufmerksamkeit und Kreativität deren Krippenalltag gestaltest | \n• Wir bieten: Bei Fragen steht dir Corinne Elmer, Leiterin Kinderkrippe Glückspilz, unter Telefon +41 81 417 30 79, gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Compiti: Si prende cura dei bambini tra i tre mesi e cinque anni. Contribuisci alla pianificazione del giorno e della settimana e a portare a casa e al lavoro quotidiano Più che alla cura del bambino Lavoriamo in occasioni e partecipiamo a progetti insieme Si comprende come un importante pezzo di puzzle di un tutto più grande, chiamato crèche fungo fortunato, dove siamo mano in mano con i nostri piccoli.\n• Requisiti: Sei il nostro futuro specialista cura dei bambini EFZ o avere un'ulteriore formazione come educatore per bambini / nella personalità HF I bambini e noi della squadra di cura non vediamo l'ora di vostra natura allegra e resiliente Competenze: Sei empatico, sociale e portare un metodo di lavoro indipendente e affidabile con persone fortunate I bambini possono definirsi funghi fortunati, perché si modella la loro culla vita quotidiana con corpo e anima, o l'attenzione e la creatività.\n• Offriamo: Se avete domande, la signora Corinne Elmer, capo della cricca per bambini Glücks Pilz, è a vostra disposizione per telefono +41 81 417 30 79.",
+        "en": "Tasks: You look after the children between the ages of three months and five years. You contribute to the day and week planning and take on home and everyday work More than child care We work on occasions and participate in projects together You understand You as an important puzzle piece of a larger whole, called crèche lucky mushroom, where we are hand in hand with our little ones.\n• Requirements: You are our future specialist child care EFZ or have a further education as a child educator / in HF personality The children and we from the care team are looking forward to your cheerful, resilient nature Competences: You are empathetic, social and bring an independent and reliable working method with lucky people The children can call themselves lucky mushrooms, because you shape their crib everyday life with body and soul, or attention and creativity.\n• We offer: If you have any questions, Mrs. Corinne Elmer, Head of Children's Crèche Glücks Pilz, is at your disposal by telephone +41 81 417 30 79.",
+        "de": "Aufgaben: Du betreust die Kinder im Alter zwischen drei Monaten und fünf Jahren Machen ist angesagt Du gestaltest die Tages- und Wochenplanung mit und übernimmst Haus- sowie Alltagsarbeiten Mehr als Kinderbetreuung Wir arbeiten bei Anlässen mit und nehmen an Projekten teil Zusammen Du verstehst Dich als wichtiges Puzzleteil eines grösseren Ganzen, genannt Kinderkrippe Glückspilz, wo wir Hand in Hand mit unseren Kleinen unterwegs sind | \n• Anforderungen: Du bist unsere zukünftige Fachperson Kinderbetreuung EFZ oder hast eine Weiterbildung als Kindererzieher/-in HF Persönlichkeit Die Kinder und wir vom Betreuungs-Team freuen uns auf Dein fröhliches, belastbares Wesen Kompetenzen: Du bist empathisch, sozial und bringst eine selbstständige und zuverlässige Arbeitsweise mit Glückspilz Die Kinder dürfen sich Glückspilze nennen, weil Du mit Leib und Seele, respektive Aufmerksamkeit und Kreativität deren Krippenalltag gestaltest | \n• Wir bieten: Bei Fragen steht dir Corinne Elmer, Leiterin Kinderkrippe Glückspilz, unter Telefon +41 81 417 30 79, gerne zur Verfügung.",
+        "fr": "Tâches : Vous vous occupez des enfants âgés de trois mois à cinq ans. Vous contribuez à la planification de la journée et de la semaine et prenez le travail à domicile et au quotidien Plus que la garde d'enfants Nous travaillons à l'occasion et participons à des projets ensemble Vous comprenez Vous comme un élément de puzzle important d'un ensemble plus grand, appelé crèche champignon chanceux, où nous sommes main dans la main avec nos petits.\n• Exigences: Vous êtes notre futur spécialiste de la garde d'enfants EFZ ou avez une formation complémentaire en tant qu'éducateur pour enfants / dans la personnalité HF Les enfants et nous, de l'équipe de soins, nous attendons avec impatience votre nature joyeuse et résiliente Compétences : Vous êtes empathique, social et apportez une méthode de travail indépendante et fiable avec des gens chanceux Les enfants peuvent s'appeler des champignons chanceux, parce que vous façonnez leur vie quotidienne de berceau avec le corps et l'âme, ou attention et créativité.\n• Nous vous proposons : Si vous avez des questions, Mme Corinne Elmer, responsable de la crèche pour enfants Glücks Pilz, est à votre disposition par téléphone +41 81 417 30 79."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/miterzieher-kinderkrippe-m-w-d-60/d4d88005-b5ec-4bcc-88ba-c96fc39e869e",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:35.272Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/666/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Verwaltung",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:35.063Z",
+      "needsRetranslation": true,
+      "salaryMin": 34500,
+      "salaryMax": 52200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34500,
+          "maxValue": 52200,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-4e4c67799897",
+      "slug": "codice-medico-m-f-d-40-80-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "codice-medico-m-f-d-40-80-hochgebirgsklinik-davos-davos",
+        "en": "medical-coder-m-f-d-40-80-hochgebirgsklinik-davos-davos",
+        "de": "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch",
+        "fr": "codeur-medical-h-f-d-40-80-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Medizinischer Kodierer (m/w/d) 40 - 80%",
+      "titleByLocale": {
+        "it": "Codice medico (m/f/d) 40 - 80 %",
+        "en": "Medical coder (m/f/d) 40 - 80 %",
+        "de": "Medizinischer Kodierer (m/w/d) 40 - 80%",
+        "fr": "Codeur médical (h/f/d) 40 - 80 %"
+      },
+      "description": "Aufgaben: Du bist zuständig für die revisionssichere Codierung unserer Behandlungen und Diagnosen. Wir bieten dir dafür absolute Ortsunabhängigkeit und Flexibilität bei den Arbeitszeiten.\n• Revisionssichere Kodierung von ST Reha- und TARPSY-Fällen\n• Administrative Arbeiten zur Vorbereitung der Fallkodierung\n• Bearbeitung von Versicherungsanfragen\n• Mitarbeit bei der Kodierrevision\n• Beantwortung von internen und externen Fragen zur Kodierung | Anforderungen:\n• Ausbildung im medizinischen oder pflegerischen Bereich\n• Weiterbildung in der medizinischen Kodierung\n• Berufserfahrung in der medizinischen Kodierung, von Vorteil ST Reha und/oder TARPSY\n• IT-Anwenderkenntnisse\n• Eigenständige und sorgfältige Arbeitsweise",
+      "descriptionByLocale": {
+        "it": "Compiti: Sei responsabile della codifica a prova di audit dei nostri trattamenti e diagnosi. Vi offriamo assoluta indipendenza posizione e flessibilità nelle ore di lavoro.\n• Codifica a prova di Audit dei casi di ST rehab e TARPSY\n• Lavori amministrativi per preparare il caso di codifica\n• Trattamento delle richieste di assicurazione\n• Cooperazione nella codificazione della revisione\n• Risposta domande interne ed esterne sulla codifica | Requisiti:\n• Formazione medica o di cura\n• Ulteriore istruzione nella codifica medica\n• Esperienza professionale nella codifica medica, riabilitazione ST benefica e/o TARPSY\n• Conoscenza degli utenti IT\n• Metodi di lavoro indipendenti e attenti",
+        "en": "Tasks: You are responsible for the audit-proof coding of our treatments and diagnoses. We offer you absolute location independence and flexibility in working hours.\n• Audit-proof coding of ST rehab and TARPSY cases\n• Administrative work to prepare case coding\n• Treatment of insurance enquiries\n• Cooperation in coding revision\n• Answer internal and external questions about coding | Requirements:\n• Medical or nursing training\n• Further education in medical coding\n• Professional experience in medical coding, beneficial ST rehab and/or TARPSY\n• IT user knowledge\n• Independent and careful working methods",
+        "de": "Aufgaben: Du bist zuständig für die revisionssichere Codierung unserer Behandlungen und Diagnosen. Wir bieten dir dafür absolute Ortsunabhängigkeit und Flexibilität bei den Arbeitszeiten.\n• Revisionssichere Kodierung von ST Reha- und TARPSY-Fällen\n• Administrative Arbeiten zur Vorbereitung der Fallkodierung\n• Bearbeitung von Versicherungsanfragen\n• Mitarbeit bei der Kodierrevision\n• Beantwortung von internen und externen Fragen zur Kodierung | Anforderungen:\n• Ausbildung im medizinischen oder pflegerischen Bereich\n• Weiterbildung in der medizinischen Kodierung\n• Berufserfahrung in der medizinischen Kodierung, von Vorteil ST Reha und/oder TARPSY\n• IT-Anwenderkenntnisse\n• Eigenständige und sorgfältige Arbeitsweise",
+        "fr": "Tâches : Vous êtes responsable du codage de nos traitements et diagnostics. Nous vous offrons l'indépendance de localisation absolue et la flexibilité dans les heures de travail.\n• Codage à l'épreuve de la vérification des cas de désintox et de TARPSY\n• Travaux administratifs pour préparer le codage des cas\n• Traitement des demandes d'assurance\n• Coopération en matière de révision du code\n• Répondre aux questions internes et externes sur le codage.\n• Formation médicale ou infirmière\n• Formation continue au codage médical\n• Expérience professionnelle dans le codage médical, la réadaptation ST bénéfique et/ou TARPSY\n• Connaissances des utilisateurs de la TI\n• Méthodes de travail indépendantes et prudentes"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/medizinischer-kodierer-m-w-d-40-80/300d59a1-8ca9-4359-889f-0cf7956c1d10",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:34.840Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-30",
+      "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/664/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Verwaltung",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 40,
+      "pensumMax": 80,
+      "pensum": "40 - 80%",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-30T21:09:59.868Z",
+      "needsRetranslation": true,
+      "salaryMin": 65200,
+      "salaryMax": 91200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65200,
+          "maxValue": 91200,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-f52808ccea06",
+      "slug": "infermiere-a-operatore-trice-sociosanitario-a-m-f-80-100-reparto-genitori-bambini-e-adolescenti-con-specializzazione-in",
+      "slugByLocale": {
+        "it": "infermiere-a-operatore-trice-sociosanitario-a-m-f-80-100-reparto-genitori-bambini-e-adolescenti-con-specializzazione-in",
+        "en": "health-care-specialist-m-f-80-100-parents-child-and-youth-unit-with-focus-on-psychosomatics-hochgebirgsklinik-davos",
+        "de": "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
+        "fr": "specialiste-des-soins-de-sante-h-f-80-100-parents-unite-pour-enfants-et-jeunes-avec-un-accent-sur-la-psychosomatique"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Pflegefachperson / Fachperson Gesundheit (m/w) 80-100%, Eltern - Kind und Jugendstation mit Schwerpunkt Psychosomatik",
+      "titleByLocale": {
+        "it": "Infermiere/a / Operatore/trice sociosanitario/a (m/f) 80-100%, reparto genitori-bambini e adolescenti con specializzazione in psicosomatica",
+        "en": "Health care specialist (m/f) 80-100%, parents - child and youth unit with focus on psychosomatics",
+        "de": "Pflegefachperson / Fachperson Gesundheit (m/w) 80-100%, Eltern - Kind und Jugendstation mit Schwerpunkt Psychosomatik",
+        "fr": "Spécialiste des soins de santé (h/f) 80-100%, parents - unité pour enfants et jeunes avec un accent sur la psychosomatique"
+      },
+      "description": "Aufgaben:\n• Planung, Gestaltung und Dokumentation einer ganzheitlichen, professionellen Pflege\n• Verantwortlich für den Pflegeprozess der zugeteilten Patientinnen und Patienten\n• Zusammenarbeit mit Eltern, Angehörigen und weiterführenden Pflegeinstitutionen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Mitarbeit bei der Weiterentwicklung der Kinder- und Jugendstation im Fachbereich Psychosomatik | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und teamorientiertes Verhalten\n• Einsatz in allen Schichten\n• Gute Deutschkenntnisse in Wort und Schrift\n• gute Informatikkenntnisse\n• Bereitschaft zur laufenden Fortbildung sowie Offenheit für Veränderungen\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien wünschenswert",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Pianificazione, progettazione e documentazione di una cura olistica e professionale\n• Responsabile del processo di cura dei pazienti assegnati\n• Cooperazione con genitori, parenti e istituti di assistenza secondaria\n• Cooperazione orientata alla soluzione con discipline intra- e interdisciplinari\n• Collaborazione nell'ulteriore sviluppo dell'unità per bambini e giovani nel dipartimento di psicosomatica | Requisiti:\n• Allenamento completato come Dipl. Infermieristica professionale DNII/HF/FH o formazione equivalente con riconoscimento SRC\n• Formazione completa come specialista in salute EFZ\n• Elevate competenze sociali e metodi di lavoro indipendenti e affidabili\n• Resilienza, disponibilità a svolgere, flessibilità e comportamento orientato al team\n• Utilizzare in tutti gli strati\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Buone competenze informatiche\n• Prontezza per la formazione continua e apertura al cambiamento\n• Esperienza nel trattare bambini, giovani e le loro famiglie desiderabili",
+        "en": "Tasks:\n• Planning, design and documentation of a holistic, professional care\n• Responsible for the care process of the assigned patients\n• Cooperation with parents, relatives and secondary care institutions\n• Solution-oriented cooperation with intra- and interdisciplinary disciplines\n• Collaboration in the further development of the children’s and youth unit in the department of psychosomatics | Requirements:\n• Completed training as a Dipl. Nursing professional DNII/HF/FH or equivalent training with SRC recognition\n• Completed training as a specialist in health EFZ\n• High social skills and independent and reliable working methods\n• Resilience, willingness to perform, flexibility and team-oriented behaviour\n• Use in all layers\n• Good knowledge of German in words and writing\n• Good computer skills\n• Readiness for ongoing training and openness to change\n• Experience in dealing with children, young people and their families desirable",
+        "de": "Aufgaben:\n• Planung, Gestaltung und Dokumentation einer ganzheitlichen, professionellen Pflege\n• Verantwortlich für den Pflegeprozess der zugeteilten Patientinnen und Patienten\n• Zusammenarbeit mit Eltern, Angehörigen und weiterführenden Pflegeinstitutionen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Mitarbeit bei der Weiterentwicklung der Kinder- und Jugendstation im Fachbereich Psychosomatik | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und teamorientiertes Verhalten\n• Einsatz in allen Schichten\n• Gute Deutschkenntnisse in Wort und Schrift\n• gute Informatikkenntnisse\n• Bereitschaft zur laufenden Fortbildung sowie Offenheit für Veränderungen\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien wünschenswert",
+        "fr": "Tâches :\n• Planification, conception et documentation d'un soin professionnel holistique\n• Responsable du processus de soins des patients assignés\n• Coopération avec les parents, les parents et les établissements de soins secondaires\n• Coopération axée sur la solution avec les disciplines intra et interdisciplinaires\n• Collaboration au développement de l'unité des enfants et des jeunes du département de psychosomatique.\n• Formation terminée en tant que diplômé. Formation professionnelle en soins infirmiers DNII/HF/FH ou formation équivalente avec reconnaissance SRC\n• Formation complète en tant que spécialiste de la santé EFZ\n• Compétences sociales élevées et méthodes de travail indépendantes et fiables\n• Résilience, volonté de performance, flexibilité et comportement d'équipe\n• Utilisation dans toutes les couches\n• Bonne connaissance de l'allemand en mots et en écriture\n• Bonnes compétences en informatique\n• Préparation à la formation continue et ouverture au changement\n• Expérience de la prise en charge des enfants, des jeunes et de leur famille souhaitable"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit-schwerpunkt-psychosomatik/10c55560-2450-43c6-872e-aec80da21a7f",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:34.332Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/668/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
+        "pflegefachperson-fachperson-gesundheit-m-w-d-80-100-eltern-kind-e-jugendstation-con-schwerpunkt-psychosomatik-hochgebirgsklinik-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
+          "pflegefachperson-fachperson-gesundheit-m-w-d-80-100-eltern-kind-e-jugendstation-con-schwerpunkt-psychosomatik-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit"
+        ],
+        "fr": [
+          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:12:00.012Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-f19d635ac1af",
+      "slug": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
+        "en": "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
+        "de": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
+      "titleByLocale": {
+        "it": "Apprendistato come specialista sanitario (FaGe) EFZ (m/f/d), da agosto 2027",
+        "en": "Apprenticeship as a specialist Health (FaGe) EFZ (f/m/d), from August 2027",
+        "de": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
+        "fr": "Apprentissage en tant que spécialiste de la santé (FaGe) EFZ (f/m/d), à partir d'août 2027"
+      },
+      "description": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
+      "descriptionByLocale": {
+        "it": "Dal 1. agosto 2027 vi attende una formazione triennale varia ed emozionante; È possibile completare la maturità professionale (BM) con l'orientamento \"Salute e Affari Sociali\" parallelamente all'insegnamento. Vi offriamo due stage esterni (Spital Davos AG e Pflegeheim Flury Foundation), nonché supporto e supporto di un team di formazione competente durante il vostro apprendistato. | Compiti:\n• Cura e cura dei pazienti – anche in situazioni difficili\n• Esecuzione di procedure mediche (ad esempio campionamento del sangue, misurazione della pressione sanguigna, ecc.)\n• Sostenere il benessere fisico, sociale e psicologico dei pazienti\n• Costruire un rapporto rispettoso con i pazienti e l'azione orientata alle esigenze\n• Lavoro amministrativo e logistico svolto | Requisiti:\n• Istruzione secondaria o secondaria\n• empatia e interesse a sostenere le persone che hanno bisogno di assistenza\n• Abilità e capacità di comunicazione\n• Forte senso di responsabilità, nonché buona osservazione e percezione\n• Flessibilità, lavoro di squadra e resilienza (fisica e psicologica)",
+        "en": "From 1. August 2027 awaits you a varied and exciting three-year education; It is possible to complete the vocational maturity (BM) with the orientation \"Health and Social Affairs\" in parallel to the teaching. We offer you two external internships (Spital Davos AG and Pflegeheim Flury Foundation), as well as support and support of a competent training team during your apprenticeship. | Tasks:\n• Caring for and caring for patients – even in demanding situations\n• Performing medical procedures (e.g. blood sampling, measuring blood pressure, etc.)\n• Supporting the physical, social and psychological well-being of patients\n• Building a respectful relationship with patients and needs-oriented action\n• Administrative and logistical work done | Requirements:\n• Secondary or secondary education\n• empathy and interest in supporting people in need of care and assistance\n• Sociability and communication skills\n• Strong sense of responsibility as well as good observation and perception\n• Flexibility, teamwork and resilience (physical and psychological)",
+        "de": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
+        "fr": "A partir du 1. Août 2027 vous attend une éducation variée et passionnante de trois ans; Il est possible d'achever la maturité professionnelle (BM) avec l'orientation \"Santé et Affaires sociales\" parallèlement à l'enseignement. Nous vous proposons deux stages externes (Spital Davos AG et Fondation Flury Pflegeheim), ainsi que le soutien et le soutien d'une équipe de formation compétente pendant votre apprentissage. Tâches :\n• Prendre soin et prendre soin des patients – même dans des situations exigeantes\n• Procéder à des interventions médicales (p. ex. prélèvement de sang, mesure de la pression artérielle, etc.)\n• Soutenir le bien-être physique, social et psychologique des patients\n• Établir une relation respectueuse avec les patients et agir en fonction des besoins\n• Travaux administratifs et logistiques requis :\n• Enseignement secondaire ou secondaire\n• empathie et intérêt à soutenir les personnes qui ont besoin de soins et d'aide\n• Sociabilité et compétences en communication\n• Un fort sens des responsabilités ainsi qu'une bonne observation et perception\n• Flexibilité, travail d'équipe et résilience (physique et psychologique)"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027/5a2f85b0-3b8b-423e-beb0-523a10861221",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-14T07:49:33.868Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-16",
+      "postedDate": "2026-06-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/651/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ausbildung",
+      "streetAddress": "Herman Burchard Strasse 1",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "previousSlugs": [
+        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsk-vmf4wc",
+        "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
+        "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+          "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsk-vmf4wc",
+          "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
+          "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        ],
+        "fr": [
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T11:36:28.401Z",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -644,729 +1452,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-247afd562517",
-      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos-davos",
-        "en": "specialist-specialist-pediatrics-and-adolescent-medicine-development-of-outpatient-pediatrics-hochgebirgsklinik-davos",
-        "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
-        "fr": "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
-      "titleByLocale": {
-        "it": "Medico Specialista in Pediatria e Adolescentologia – Sviluppo della Pediatria Ambulatoriale",
-        "en": "Specialist in Pediatrics and Adolescent Medicine – Development of Outpatient Pediatrics",
-        "de": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
-        "fr": "Médecin spécialiste en pédiatrie et médecine de l'adolescent – Développement de la pédiatrie ambulatoire"
-      },
-      "description": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
-      "descriptionByLocale": {
-        "it": "Descrizione Pediatria ambulatoriale nella clinica interdisciplinare dei SIX-H 190 posti letto, 5 discipline, oltre 120 anni di storia. e 1560 m sul livello del mare.La clinica di alta montagna Davos è un centro di riabilitazione interdisciplinare con collegamento universitario. integrato nella spettacolare natura delle Alpi Grigioni. Nell'ambulatorio della nostra clinica ci occupiamo di bambini e adolescenti ambulatoriali e lavoriamo a stretto contatto con varie discipline specializzate della clinica. Non volete trattare semplicemente, ma sviluppare cure mediche e lavorare interdisciplinare?\n\nAllora vorremmo fare domanda a lei.\n\nCompiti - Come specialista in medicina pediatrica e adolescenziale, diventerete parte di un team multiprof unificato che accompagna i bambini, gli adolescenti e le loro famiglie olisticamente. medicalmente, psicologicamente e pädagogisch. - Trattamento ambulatoriale: Si prenderà cura di bambini e adolescenti nel ambulatorio del nostro ambulatorio nel contesto del nostro concetto di riabilitazione olistica. - Supporto: Oltre alle attività ambulatoriale, si aiuterà il nostro paziente somatico: nella zona ambulatoriale se necessario.\n\n- Precede interdisciplinare: Lavorate a stretto contatto con psicologia, cura e pedagogia. e date impulsi per nuovi percorsi di approvvigionamento. - Contribuire: Vi coinvolgete nel processo concettuale e nel supporto nell'espansione della nostra offerta unica genitori-bambini in tutta la Svizzera.\n\nRequisiti - Non stiamo cercando un \"I-Balcon\" su carta. ma piuttosto per le persone che lavorano professionalmente ben fondata, hanno un effetto umano e hanno la voglia di portare con sé nuove idee. - Titolo specialistico: Hai un titolo di specialista riconosciuto in medicina pediatrica e adolescenziale (SMH o equivalente UE). piace anche per colmare il divario. - Esperienza pratica o clinica: Hai esperienza nella cura medica di bambini e adolescenti. idealmente in ambulatorio o interdisciplinare nella città di S.A.\n\n- Apprezzare la cultura del team: Ti senti a tuo agio in hierarchie pianeggianti con comunicazione aperta. - Piacere per il design: Ti piace costruire una nuova struttura in ambulatorio e portare le tue idee. - Apprezzare la qualità della vita: Si apprezza un ambiente con un'alta qualità della vita.. in mezzo alla natura e ma ben collegato.\n\nOffriamo - Co-design invece di correre lungo le vostre idee contare. sia professionalmente che organizzativamente. - Estensivo lavoro-vita equilibrio Orari di lavoro pianificabili, famiglia-friendly e affidabile. - Riabilitazione unico genitore-bambino Ci basiamo su effetti sostenibili e disegnare interdisciplinare su un unico filo. - Qualità di vita tra cui montagne, movimento, natura, buone scuole. un ambiente da sogno per voi e i vostri cari. - Vi sosteniamo nel trovare un lavoro anche per il vostro:n partner:in. - E un luogo dove si può crescere. professionalmente e privatamente.",
-        "en": "Description Outpatient pediatry in the interdisciplinary clinic of the SIX-H 190 beds, 5 disciplines, over 120 years of history – and 1560 m above sea level.The high mountain clinic Davos is an interdisciplinary rehabilitation centre with a universitary connection – embedded in the spectacular nature of the Grisons Alps. In our clinic's own ambulatory, we care for children and adolescents outpatiently and work closely with various specialist disciplines of the clinic. You do not want to treat simply, but to develop medical care and work interdisciplinaryly?\n\nThen we would like to apply to you.\n\nTasks - As a specialist in paediatric and adolescent medicine, you will become part of a multiprof-unified team that accompanies children, adolescents and their families holistically – medically, psychologically and pädagogisch. - Outpatient treatment: You will take care of children and adolescents in the ambulatory of our ambulatory in the context of our holistic rehabilitation concept. - Support: In addition to outpatient activities, you will help our somatic patient: in the inpatient area if necessary.\n\n- Precede interdisciplinary: You work closely with psychology, care and pedagogy – and give impulses for new supply routes. - Contributing: You get involved in the conceptual process and support in the expansion of our unique parent-child offer throughout Switzerland.\n\nRequirements - We are not looking for an \"I-Balcon\" on paper – but rather for people who work professionally well-founded, have a human effect and have a desire to bring new ideas with them. - Specialist title: You have a recognized specialist title in paediatric and adolescent medicine (FMH or EU equivalent) – also likes to close the gap. - Practical or clinical experience: You have experience in the medical care of children and adolescents – ideally in outpatient or interdisciplinary in the city of S.A.\n\n- Appreciate team culture: You feel comfortable in flat hierarchies with open communication. - Pleasure for design: You enjoy building a new structure in the ambulatory and bringing in your own ideas. - Appreciate quality of life: You value an environment with a high quality of life – in the middle of nature and yet well connected.\n\nWe offer - Co-design instead of running along Your ideas count – both professionally and organizationally. - Extensive work-life balance Planable working hours, family-friendly and reliable. - Unique parent-child rehabilitation We rely on sustainable effects and draw interdisciplinary on one strand. - Leisure quality including mountains, movement, nature, good schools – a dreamlike environment for you and your loved ones. - We support you in arriving – also in finding a job for your:n partner:in. - And a place where you can grow – professionally and privately.",
-        "de": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
-        "fr": "Description Pédiatrie ambulatoire dans la clinique interdisciplinaire des SIX-H 190 lits, 5 disciplines, plus de 120 ans d'histoire et 1560 m au-dessus du niveau de la mer.La clinique haute montagne Davos est un centre de réadaptation interdisciplinaire avec un lien universel – intégré dans la nature spectaculaire des Alpes des Grisons. Dans notre propre ambulatoire, nous soignons les enfants et les adolescents en consultation externe et travaillons en étroite collaboration avec diverses disciplines spécialisées de la clinique.\n\nNous aimerions donc vous présenter une demande.\n\nTâches - En tant que spécialiste de la médecine pédiatrique et adolescente, vous ferez partie d'une équipe multiprofessionnelle qui accompagne les enfants, les adolescents et leurs familles de façon holistique – médicalement, psychologiquement et pädagogisch. - Traitement ambulatoire : vous prendrez soin des enfants et des adolescents dans l'ambulatoire de notre ambulatoire dans le cadre de notre concept de réadaptation holistique. - Soutien : En plus des activités ambulatoires, vous aiderez notre patient somatique : dans le domaine des patients hospitalisés si nécessaire.\n\n- Precede interdisciplinaire : Vous travaillez en étroite collaboration avec la psychologie, les soins et la pédagogie – et donnez des impulsions pour de nouvelles voies d'approvisionnement. - Contribution : Vous vous engagez dans le processus conceptuel et le soutien dans l'expansion de notre offre parentale-enfant unique dans toute la Suisse.\n\nExigences - Nous ne cherchons pas un « I-Balcon » sur papier – mais plutôt pour les personnes qui travaillent professionnellement bien fondées, qui ont un effet humain et qui désirent apporter de nouvelles idées avec eux. - Titre du spécialiste : Vous avez un titre reconnu en médecine pédiatrique et adolescente (FMH ou équivalent UE) – aussi aime combler l'écart. - Expérience pratique ou clinique : Vous avez de l'expérience dans les soins médicaux des enfants et des adolescents – idéalement en consultation externe ou interdisciplinaire dans la ville de S.A.\n\n- Appréciez la culture de l'équipe : vous vous sentez à l'aise dans les aplats-de-lieux avec une communication ouverte. - Plaisir de design : vous aimez construire une nouvelle structure dans l'ambulatoire et apporter vos propres idées. - Appréciez la qualité de vie : Vous appréciez un environnement avec une qualité de vie élevée – au milieu de la nature et pourtant bien connecté.\n\nNous offrons - Co-conception au lieu de courir Vos idées comptent – tant professionnellement que organisationnellement. - Équilibre travail-vie privée Équilibre horaire de travail planable, familial et fiable. - Réadaptation unique parent-enfant Nous comptons sur des effets durables et tirons interdisciplinaire sur un seul volet. - Qualité des loisirs incluant montagnes, mouvement, nature, bonnes écoles – un environnement de rêve pour vous et vos proches. - Nous vous soutenons dans votre arrivée – également pour trouver un emploi pour votre partenaire:in. - Et un endroit où vous pouvez grandir – professionnellement et en privé."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:32.976Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-02",
-      "postedDate": "2026-07-02",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-        "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos",
-        "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos",
-        "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
-        "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-          "facharztin-facharzt-kinder-e-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-davos",
-          "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-          "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos"
-        ],
-        "de": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
-        ],
-        "fr": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-          "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:40.637Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-4ad37e4931fb",
-      "slug": "gestione-del-team-cura-cardiologia-m-f-d-80-100-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "gestione-del-team-cura-cardiologia-m-f-d-80-100-hochgebirgsklinik-davos-davos",
-        "en": "team-management-care-cardiology-m-f-d-80-100-hochgebirgsklinik-davos-davos",
-        "de": "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "teamleiter-m-j-80-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
-      "titleByLocale": {
-        "it": "Gestione del team Cura cardiologia (m/f/d) 80-100 %",
-        "en": "Team management Care cardiology (m/f/d) 80-100 %",
-        "de": "Teamleitung Pflege Kardiologie (w/m/d) 80-100%",
-        "fr": "Gestion d'équipe Soins cardiologie (h/f/d) 80-100 %"
-      },
-      "description": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Fachliche und personelle Führung eines Teams von rund 25 Mitarbeitenden\n• Aktive Förderung, Entwicklung und Begleitung deiner Mitarbeitenden\n• Enge Zusammenarbeit mit der Leitung Pflege sowie den behandelnden Ärzt:innen\n• Mitarbeit in der direkten Pflege und Unterstützung des Teams im Alltag\n• Ansprechperson für Angehörige sowie externe Institutionen\n• Begleitung von Patient:innen auf dem Weg zurück in ein selbstständiges Leben\n• Umsetzung von qualitativen, strategischen und wirtschaftlichen Unternehmenszielen\n• Mitgestaltung und Weiterentwicklung der Abteilung | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Idealerweise erste Führungserfahrung inkl. Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Erfahrung in der Rehabilitation von Vorteil\n• Hohe Sozialkompetenz und ausgeprägte Teamfähigkeit\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude an Verantwortung und aktiver Mitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
-      "descriptionByLocale": {
-        "it": "Come team leader del nostro team di cura per la riabilitazione cardiaca, guidi e supporti il tuo team nell'assistenza quotidiana impegnativa e insieme fornisci assistenza professionale ed empatica per i nostri pazienti. Il team accompagna le persone in modo olistico attraverso il processo di riabilitazione, li prepara per una vita quotidiana indipendente e lavora a stretto contatto con medici, terapisti e altri specialisti. Inizio: da agosto 2026 o per accordo. | Compiti:\n• Gestione professionale e personale di un team di circa 25 dipendenti\n• Promozione attiva, sviluppo e supporto dei dipendenti\n• Chiudere la collaborazione con la gestione e i medici curanti: dentro\n• Cooperazione nella cura e nel sostegno diretto del team nella vita quotidiana\n• Persona di contatto per parenti e istituzioni esterne\n• Accompagnamento dei pazienti: donne sulla via del ritorno ad una vita indipendente\n• Attuazione degli obiettivi aziendali qualitativi, strategici ed economici\n• Co-design e ulteriore sviluppo del dipartimento | Requisiti:\n• Allenamento completato come Dipl. Professionista HF/FH\n• Idealmente, prima esperienza di leadership incl. Formazione di leadership o volontà di completarlo\n• L'esperienza nella riabilitazione è benefica\n• Alta capacità sociale e forti competenze di squadra\n• Metodo di lavoro indipendente, strutturato e affidabile\n• Gioia di responsabilità e partecipazione attiva\n• Molto buona conoscenza del tedesco in parola e scrittura | Offriamo:\n• Bilancio della vita lavorativa: servizi programmati, difficilmente straordinari, poco o niente servizi notturni\n• Cultura di squadra: cooperazione a livello degli occhi, comunicazione aperta, cura nella gestione\n• Divertimento sano: pasti mediterranei ai prezzi dei dipendenti sottosidizzati\n• Tempo libero: biglietto annuale gratuito della ferrovia di montagna e offerte sportive/wellness a buon mercato",
-        "en": "As team leader of our caring team for cardiac rehabilitation, you lead and support your team in demanding day-to-day care and together provide professional, empathetic care for our patients. The team accompanies people holistically through the rehabilitation process, prepares them for an independent everyday life and works closely with doctors, therapists and other specialists. Start: from August 2026 or by arrangement. | Tasks:\n• Professional and personnel management of a team of around 25 employees\n• Active promotion, development and support of your employees\n• Close cooperation with the management care and the treating doctors: inside\n• Cooperation in the direct care and support of the team in everyday life\n• Contact person for relatives and external institutions\n• Accompaniment of patients: women on the way back to an independent life\n• Implementation of qualitative, strategic and economic corporate goals\n• Co-design and further development of the department | Requirements:\n• Completed training as a Dipl. Care professional HF/FH\n• Ideally, first leadership experience incl. Leadership training or willingness to complete it\n• Experience in rehabilitation is beneficial\n• High social skills and strong team skills\n• Independent, structured and reliable working method\n• Joy of responsibility and active participation\n• Very good knowledge of German in word and writing | We offer:\n• Work-life balance: scheduled services, hardly any overtime, little to no night services\n• Team culture: cooperation at eye level, open communication, care in the management\n• Healthy Enjoyment: Mediterranean Meals at Subsidized Employee Prices\n• Free time: Free mountain railway annual ticket and cheap sports/wellness offers",
-        "de": "Als Teamleitung unseres Pflegeteams der kardialen Rehabilitation führst und unterstützt du dein Team im anspruchsvollen Pflegealltag und sorgst gemeinsam für eine professionelle, empathische Betreuung unserer Patient:innen. Das Team begleitet Menschen ganzheitlich durch den Rehabilitationsprozess, bereitet sie auf einen selbständigen Alltag vor und arbeitet dabei eng mit Ärzt:innen, Therapeut:innen und weiteren Fachpersonen zusammen. Start: ab August 2026 oder nach Vereinbarung. | Aufgaben:\n• Fachliche und personelle Führung eines Teams von rund 25 Mitarbeitenden\n• Aktive Förderung, Entwicklung und Begleitung deiner Mitarbeitenden\n• Enge Zusammenarbeit mit der Leitung Pflege sowie den behandelnden Ärzt:innen\n• Mitarbeit in der direkten Pflege und Unterstützung des Teams im Alltag\n• Ansprechperson für Angehörige sowie externe Institutionen\n• Begleitung von Patient:innen auf dem Weg zurück in ein selbstständiges Leben\n• Umsetzung von qualitativen, strategischen und wirtschaftlichen Unternehmenszielen\n• Mitgestaltung und Weiterentwicklung der Abteilung | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH\n• Idealerweise erste Führungserfahrung inkl. Führungsausbildung oder Bereitschaft, diese zu absolvieren\n• Erfahrung in der Rehabilitation von Vorteil\n• Hohe Sozialkompetenz und ausgeprägte Teamfähigkeit\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude an Verantwortung und aktiver Mitgestaltung\n• Sehr gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Zusammenarbeit auf Augenhöhe, offene Kommunikation, Pflege in der Geschäftsleitung\n• Gesund geniessen: Mediterrane Mahlzeiten zu subventionierten Mitarbeiter-Preisen\n• Freizeit: Gratis Bergbahn-Jahreskarte und günstige Sport-/Wellnessangebote",
-        "fr": "En tant que chef d'équipe de notre équipe soignante pour la réadaptation cardiaque, vous dirigez et soutenez votre équipe dans les soins quotidiens exigeants et offrez ensemble des soins professionnels et empathiques à nos patients. L'équipe accompagne les personnes de façon holistique par le processus de réadaptation, les prépare à une vie quotidienne indépendante et travaille en étroite collaboration avec les médecins, les thérapeutes et d'autres spécialistes. Début: à partir d'août 2026 ou par arrangement. Tâches :\n• Gestion professionnelle et du personnel d'une équipe d'environ 25 employés\n• Promotion active, développement et soutien de vos employés\n• Coopération étroite avec les soins de gestion et les médecins traitants: à l'intérieur\n• Coopération dans les soins directs et le soutien de l'équipe dans la vie quotidienne\n• Personne à contacter pour les proches et les institutions extérieures\n• Accompagnement des patients: les femmes sont sur le chemin du retour à une vie indépendante\n• Réalisation des objectifs qualitatifs, stratégiques et économiques des entreprises\n• Co-conception et perfectionnement du département Exigences :\n• Formation terminée en tant que diplômé. Soins professionnels HF/FH\n• Idéalement, première expérience de leadership, y compris. Formation au leadership ou volonté de le compléter\n• L'expérience de la réadaptation est bénéfique\n• Hautes compétences sociales et solides compétences en équipe\n• Méthode de travail indépendante, structurée et fiable\n• Joy de responsabilité et de participation active\n• Très bonne connaissance de l'allemand dans la parole et l'écriture.\n• Équilibre entre vie professionnelle et vie privée : services réguliers, pratiquement aucune heure supplémentaire, peu ou pas de services de nuit\n• Culture d'équipe: coopération au niveau des yeux, communication ouverte, soins dans la gestion\n• Bien-être : repas méditerranéens aux prix subventionnés des employés\n• Temps libre: billet annuel gratuit de chemin de fer de montagne et offres de sports/wellness bon marché"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:32.550Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/645/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-        "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
-        "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos",
-        "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
-        "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "gestione-del-team-cura-cardiologia-f-m-d-80-100-hochgebirgsklinik-davos-davos",
-          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "team-management-care-cardiology-f-m-d-80-100-hochgebirgsklinik-davos-davos",
-          "teamleiter-w-m-d-80-100-hochgebirgsklinik-davos-davos"
-        ],
-        "fr": [
-          "teamleitung-pflege-kardiologie-w-m-d-80-100-hochgebirgsklinik-davos-ch",
-          "gestion-d-equipe-cardiologie-des-soins-f-m-j-80-100-hochgebirgsklinik-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T14:58:53.516Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-53bc1c74878f",
-      "slug": "sostanza-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "sostanza-hochgebirgsklinik-davos-davos",
-        "en": "sub-assistance-hochgebirgsklinik-davos-davos",
-        "de": "unterassistenz-hochgebirgsklinik-davos-ch",
-        "fr": "sous-assistance-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Unterassistenz",
-      "titleByLocale": {
-        "it": "Sostanza",
-        "en": "Sub-assistance",
-        "de": "Unterassistenz",
-        "fr": "Sous-assistance"
-      },
-      "description": "Wir bieten Medizinstudierenden die Möglichkeit, in verschiedenen Fachbereichen unseres Spitals eine Unterassistenz zu absolvieren, wertvolle Praxiserfahrung zu sammeln und ihre klinischen Kompetenzen gezielt weiterzuentwickeln. | Aufgaben:\n• Pneumologie\n• Dermatologie\n• Kardiologie\n• Psychosomatik | Anforderungen:\n• Angaben zum gewünschten Eintrittsdatum und Zeitraum (mehrere möglich)\n• Gewünschte Abteilung\n• Vollständige Bewerbungsunterlagen\n• Immatrikulationsbestätigung | Wir bieten:\n• Hohe Lehrqualität und Struktur in einer renommierten Rehabilitationsklinik mit Forschungseinrichtung\n• Fokus auf Diagnostik und breites Fachspektrum inkl. anerkanntes DGK-Zentrum für Sportkardiologie\n• Einzigartiges Bergpanorama und direkte Zugang zu unzähligen Outdoor-Aktivitäten\n• Vergünstigungen für regionale Angebote\n• Planbare Arbeitszeiten mit seltenen Wochenendeinsätzen",
-      "descriptionByLocale": {
-        "it": "Offriamo agli studenti medici l'opportunità di completare una sub-assistenza in varie aree del nostro ospedale, acquisire preziosa esperienza pratica e sviluppare ulteriormente le loro competenze cliniche. | Compiti:\n• Pneumologia\n• Dermatologia\n• Cardiologia\n• Psychosomatics | Requisiti:\n• Informazioni sulla data di entrata e sul periodo desiderato (sempre possibile)\n• Dipartimento desiderato\n• Documenti di applicazione completi\n• Conferma d'iscrizione | Offriamo:\n• Alta qualità e struttura didattica in una rinomata clinica di riabilitazione con struttura di ricerca\n• Focus sulla diagnostica e una vasta gamma di soggetti tra cui un noto Centro DGK per la Cardiologia dello sport\n• Panorama di montagna unico e accesso diretto a innumerevoli attività all'aperto\n• Vantaggi per le offerte regionali\n• Ore lavorative programmabili con incarichi di weekend rari",
-        "en": "We offer medical students the opportunity to complete a sub-assistance in various areas of our hospital, gain valuable practical experience and further develop their clinical competencies. | Tasks:\n• Pneumology\n• Dermatology\n• Cardiology\n• Psychosomatics | Requirements:\n• Information about the desired entry date and period (several possible)\n• Desired department\n• Complete application documents\n• Enrolment confirmation | We offer:\n• High teaching quality and structure in a renowned rehabilitation clinic with research facility\n• Focus on diagnostics and a broad range of subjects including a recognized DGK Centre for Sports Cardiology\n• Unique mountain panorama and direct access to countless outdoor activities\n• Advantages for regional offers\n• Schedulable working hours with rare weekend assignments",
-        "de": "Wir bieten Medizinstudierenden die Möglichkeit, in verschiedenen Fachbereichen unseres Spitals eine Unterassistenz zu absolvieren, wertvolle Praxiserfahrung zu sammeln und ihre klinischen Kompetenzen gezielt weiterzuentwickeln. | Aufgaben:\n• Pneumologie\n• Dermatologie\n• Kardiologie\n• Psychosomatik | Anforderungen:\n• Angaben zum gewünschten Eintrittsdatum und Zeitraum (mehrere möglich)\n• Gewünschte Abteilung\n• Vollständige Bewerbungsunterlagen\n• Immatrikulationsbestätigung | Wir bieten:\n• Hohe Lehrqualität und Struktur in einer renommierten Rehabilitationsklinik mit Forschungseinrichtung\n• Fokus auf Diagnostik und breites Fachspektrum inkl. anerkanntes DGK-Zentrum für Sportkardiologie\n• Einzigartiges Bergpanorama und direkte Zugang zu unzähligen Outdoor-Aktivitäten\n• Vergünstigungen für regionale Angebote\n• Planbare Arbeitszeiten mit seltenen Wochenendeinsätzen",
-        "fr": "Nous offrons aux étudiants en médecine la possibilité de compléter une sous-assistance dans différents domaines de notre hôpital, d'acquérir une expérience pratique précieuse et de développer leurs compétences cliniques. Tâches :\n• Pneumologie\n• Dermatologie\n• Cardiologie\n• Exigences psychosomatiques :\n• Informations sur la date et la période d'entrée souhaitée (plusieurs possibles)\n• Département souhaité\n• Documents de demande complets\n• Nous vous proposons:\n• Haute qualité de l'enseignement et structure dans une clinique de réadaptation renommée avec un centre de recherche\n• Mettre l'accent sur le diagnostic et un large éventail de sujets, y compris un centre de la DGK reconnu pour la cardiologie sportive\n• Panorama de montagne unique et accès direct à d'innombrables activités de plein air\n• Avantages pour les offres régionales\n• Heures de travail programmées avec des affectations de week-end rares"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/unterassistenz/9e279980-5697-45f5-81a7-e5ecf5e1c851",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:32.015Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09",
-      "postedDate": "2026-09-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/657/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ausbildung",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "unterassistenz-hochgebirgsklinik-davos-ch",
-        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
-        "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
-        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
-        "assistance-horaire-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterassistenz-hochgebirgsklinik-davos-ch",
-          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
-          "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
-          "assistance-horaire-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "unterassistenz-hochgebirgsklinik-davos-ch",
-          "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos"
-        ],
-        "de": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "unterassistenz-hochgebirgsklinik-davos-ch",
-          "assistance-horaire-hochgebirgsklinik-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:04:42.468Z",
-      "salaryMin": 48500,
-      "salaryMax": 89500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48500,
-          "maxValue": 89500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-e9fcb6b81d33",
-      "slug": "infermiere-a-per-servizio-notturno-fisso-m-f-60-100-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "infermiere-a-per-servizio-notturno-fisso-m-f-60-100-hochgebirgsklinik-davos-davos",
-        "en": "nursing-professional-as-permanent-night-watch-m-f-60-100-hochgebirgsklinik-davos-davos",
-        "de": "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
-        "fr": "soins-infirmiers-professionnels-en-tant-que-veille-permanente-h-f-60-100-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegefachperson als Dauernachtwache (m/w) 60 - 100%",
-      "titleByLocale": {
-        "it": "Infermiere/a per servizio notturno fisso (m/f) 60 - 100%",
-        "en": "Nursing professional as permanent night watch (m/f) 60 - 100%",
-        "de": "Pflegefachperson als Dauernachtwache (m/w) 60 - 100%",
-        "fr": "Soins infirmiers professionnels en tant que veille permanente (h/f) 60 - 100%"
-      },
-      "description": "Aufgaben:\n• Kompetente und fachgerechte Pflege der Patientinnen und Patienten im Nachtdienst\n• Dokumentation einer ganzheitlichen, professionellen Pflege\n• Einhaltung der pflegerischen Richtlinien und Qualitätsnormen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Teilnahme an Teamsitzungen und internen Fortbildungen | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder SRK-Anerkennung\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Bei ausländischen Bewerbungen SRK Anerkennung erforderlich (Wir unterstützen dich gerne)",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura competente e professionale dei pazienti in servizio notturno\n• Documentazione di una cura olistica e professionale\n• Rispetto delle linee guida e degli standard qualitativi\n• Cooperazione orientata alla soluzione con discipline intra- e interdisciplinari\n• Partecipazione agli incontri di squadra e formazione interna | Requisiti:\n• Allenamento completato come Dipl. Riconoscimento professionale DNII/HF/FH o SRK\n• Elevate competenze sociali e metodi di lavoro indipendenti e affidabili\n• Resilienza, disponibilità a svolgere, flessibilità e lavoro di squadra\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Riconoscimento richiesto per applicazioni straniere (Siamo lieti di supportarvi)",
-        "en": "Tasks:\n• Competent and professional care of patients on night duty\n• Documentation of a holistic, professional care\n• Compliance with nursing guidelines and quality standards\n• Solution-oriented cooperation with intra- and interdisciplinary disciplines\n• Participation in team meetings and internal training | Requirements:\n• Completed training as a Dipl. Nursing professional DNII/HF/FH or SRK recognition\n• High social skills and independent and reliable working methods\n• Resilience, willingness to perform, flexibility and teamwork\n• Very good knowledge of German in word and writing\n• Recognition required for foreign applications (We are happy to support you)",
-        "de": "Aufgaben:\n• Kompetente und fachgerechte Pflege der Patientinnen und Patienten im Nachtdienst\n• Dokumentation einer ganzheitlichen, professionellen Pflege\n• Einhaltung der pflegerischen Richtlinien und Qualitätsnormen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Teilnahme an Teamsitzungen und internen Fortbildungen | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder SRK-Anerkennung\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und Teamfähigkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Bei ausländischen Bewerbungen SRK Anerkennung erforderlich (Wir unterstützen dich gerne)",
-        "fr": "Tâches :\n• Soins compétents et professionnels des patients en service de nuit\n• Documentation d'un soin holistique et professionnel\n• Respect des directives et des normes de qualité en matière de soins infirmiers\n• Coopération axée sur la solution avec les disciplines intra et interdisciplinaires\n• Participation aux réunions d'équipe et à la formation interne.\n• Formation terminée en tant que diplômé. Reconnaissance professionnelle en soins infirmiers DNII/HF/FH ou SRK\n• Compétences sociales élevées et méthodes de travail indépendantes et fiables\n• Résilience, volonté de performance, flexibilité et travail d'équipe\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Reconnaissance requise pour les demandes étrangères (Nous sommes heureux de vous soutenir)"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-als-dauernachtwache-m-w-60-100/95184d20-da1e-4f14-94a5-4d2b6a3e86c3",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:31.589Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06",
-      "postedDate": "2026-10-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/669/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60 - 100%",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
-        "pflegefachperson-come-dauernachtwache-m-w-d-60-100-hochgebirgsklinik-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch",
-          "pflegefachperson-come-dauernachtwache-m-w-d-60-100-hochgebirgsklinik-davos"
-        ],
-        "en": [
-          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "pflegefachperson-als-dauernachtwache-m-w-60-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T09:12:01.754Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-55dbfb81a41b",
-      "slug": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
-        "en": "parent-nursery-m-f-d-60-hochgebirgsklinik-davos-davos",
-        "de": "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch",
-        "fr": "pepiniere-mere-h-f-d-60-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Miterzieher Kinderkrippe (m/w/d) 60%",
-      "titleByLocale": {
-        "it": "Parent nursery (m/f/d) 60%",
-        "en": "Parent nursery (m/f/d) 60%",
-        "de": "Miterzieher Kinderkrippe (m/w/d) 60%",
-        "fr": "Pépinière mère (h/f/d) 60%"
-      },
-      "description": "Aufgaben: Du betreust die Kinder im Alter zwischen drei Monaten und fünf Jahren Machen ist angesagt Du gestaltest die Tages- und Wochenplanung mit und übernimmst Haus- sowie Alltagsarbeiten Mehr als Kinderbetreuung Wir arbeiten bei Anlässen mit und nehmen an Projekten teil Zusammen Du verstehst Dich als wichtiges Puzzleteil eines grösseren Ganzen, genannt Kinderkrippe Glückspilz, wo wir Hand in Hand mit unseren Kleinen unterwegs sind | \n• Anforderungen: Du bist unsere zukünftige Fachperson Kinderbetreuung EFZ oder hast eine Weiterbildung als Kindererzieher/-in HF Persönlichkeit Die Kinder und wir vom Betreuungs-Team freuen uns auf Dein fröhliches, belastbares Wesen Kompetenzen: Du bist empathisch, sozial und bringst eine selbstständige und zuverlässige Arbeitsweise mit Glückspilz Die Kinder dürfen sich Glückspilze nennen, weil Du mit Leib und Seele, respektive Aufmerksamkeit und Kreativität deren Krippenalltag gestaltest | \n• Wir bieten: Bei Fragen steht dir Corinne Elmer, Leiterin Kinderkrippe Glückspilz, unter Telefon +41 81 417 30 79, gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Compiti: Si prende cura dei bambini tra i tre mesi e cinque anni. Contribuisci alla pianificazione del giorno e della settimana e a portare a casa e al lavoro quotidiano Più che alla cura del bambino Lavoriamo in occasioni e partecipiamo a progetti insieme Si comprende come un importante pezzo di puzzle di un tutto più grande, chiamato crèche fungo fortunato, dove siamo mano in mano con i nostri piccoli.\n• Requisiti: Sei il nostro futuro specialista cura dei bambini EFZ o avere un'ulteriore formazione come educatore per bambini / nella personalità HF I bambini e noi della squadra di cura non vediamo l'ora di vostra natura allegra e resiliente Competenze: Sei empatico, sociale e portare un metodo di lavoro indipendente e affidabile con persone fortunate I bambini possono definirsi funghi fortunati, perché si modella la loro culla vita quotidiana con corpo e anima, o l'attenzione e la creatività.\n• Offriamo: Se avete domande, la signora Corinne Elmer, capo della cricca per bambini Glücks Pilz, è a vostra disposizione per telefono +41 81 417 30 79.",
-        "en": "Tasks: You look after the children between the ages of three months and five years. You contribute to the day and week planning and take on home and everyday work More than child care We work on occasions and participate in projects together You understand You as an important puzzle piece of a larger whole, called crèche lucky mushroom, where we are hand in hand with our little ones.\n• Requirements: You are our future specialist child care EFZ or have a further education as a child educator / in HF personality The children and we from the care team are looking forward to your cheerful, resilient nature Competences: You are empathetic, social and bring an independent and reliable working method with lucky people The children can call themselves lucky mushrooms, because you shape their crib everyday life with body and soul, or attention and creativity.\n• We offer: If you have any questions, Mrs. Corinne Elmer, Head of Children's Crèche Glücks Pilz, is at your disposal by telephone +41 81 417 30 79.",
-        "de": "Aufgaben: Du betreust die Kinder im Alter zwischen drei Monaten und fünf Jahren Machen ist angesagt Du gestaltest die Tages- und Wochenplanung mit und übernimmst Haus- sowie Alltagsarbeiten Mehr als Kinderbetreuung Wir arbeiten bei Anlässen mit und nehmen an Projekten teil Zusammen Du verstehst Dich als wichtiges Puzzleteil eines grösseren Ganzen, genannt Kinderkrippe Glückspilz, wo wir Hand in Hand mit unseren Kleinen unterwegs sind | \n• Anforderungen: Du bist unsere zukünftige Fachperson Kinderbetreuung EFZ oder hast eine Weiterbildung als Kindererzieher/-in HF Persönlichkeit Die Kinder und wir vom Betreuungs-Team freuen uns auf Dein fröhliches, belastbares Wesen Kompetenzen: Du bist empathisch, sozial und bringst eine selbstständige und zuverlässige Arbeitsweise mit Glückspilz Die Kinder dürfen sich Glückspilze nennen, weil Du mit Leib und Seele, respektive Aufmerksamkeit und Kreativität deren Krippenalltag gestaltest | \n• Wir bieten: Bei Fragen steht dir Corinne Elmer, Leiterin Kinderkrippe Glückspilz, unter Telefon +41 81 417 30 79, gerne zur Verfügung.",
-        "fr": "Tâches : Vous vous occupez des enfants âgés de trois mois à cinq ans. Vous contribuez à la planification de la journée et de la semaine et prenez le travail à domicile et au quotidien Plus que la garde d'enfants Nous travaillons à l'occasion et participons à des projets ensemble Vous comprenez Vous comme un élément de puzzle important d'un ensemble plus grand, appelé crèche champignon chanceux, où nous sommes main dans la main avec nos petits.\n• Exigences: Vous êtes notre futur spécialiste de la garde d'enfants EFZ ou avez une formation complémentaire en tant qu'éducateur pour enfants / dans la personnalité HF Les enfants et nous, de l'équipe de soins, nous attendons avec impatience votre nature joyeuse et résiliente Compétences : Vous êtes empathique, social et apportez une méthode de travail indépendante et fiable avec des gens chanceux Les enfants peuvent s'appeler des champignons chanceux, parce que vous façonnez leur vie quotidienne de berceau avec le corps et l'âme, ou attention et créativité.\n• Nous vous proposons : Si vous avez des questions, Mme Corinne Elmer, responsable de la crèche pour enfants Glücks Pilz, est à votre disposition par téléphone +41 81 417 30 79."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/miterzieher-kinderkrippe-m-w-d-60/d4d88005-b5ec-4bcc-88ba-c96fc39e869e",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:31.019Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24",
-      "postedDate": "2026-09-24",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/666/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Verwaltung",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "miterzieher-kinderkrippe-m-w-d-60-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:35.063Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-4e4c67799897",
-      "slug": "codice-medico-m-f-d-40-80-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "codice-medico-m-f-d-40-80-hochgebirgsklinik-davos-davos",
-        "en": "medical-coder-m-f-d-40-80-hochgebirgsklinik-davos-davos",
-        "de": "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch",
-        "fr": "codeur-medical-h-f-d-40-80-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Medizinischer Kodierer (m/w/d) 40 - 80%",
-      "titleByLocale": {
-        "it": "Codice medico (m/f/d) 40 - 80 %",
-        "en": "Medical coder (m/f/d) 40 - 80 %",
-        "de": "Medizinischer Kodierer (m/w/d) 40 - 80%",
-        "fr": "Codeur médical (h/f/d) 40 - 80 %"
-      },
-      "description": "Aufgaben: Du bist zuständig für die revisionssichere Codierung unserer Behandlungen und Diagnosen. Wir bieten dir dafür absolute Ortsunabhängigkeit und Flexibilität bei den Arbeitszeiten.\n• Revisionssichere Kodierung von ST Reha- und TARPSY-Fällen\n• Administrative Arbeiten zur Vorbereitung der Fallkodierung\n• Bearbeitung von Versicherungsanfragen\n• Mitarbeit bei der Kodierrevision\n• Beantwortung von internen und externen Fragen zur Kodierung | Anforderungen:\n• Ausbildung im medizinischen oder pflegerischen Bereich\n• Weiterbildung in der medizinischen Kodierung\n• Berufserfahrung in der medizinischen Kodierung, von Vorteil ST Reha und/oder TARPSY\n• IT-Anwenderkenntnisse\n• Eigenständige und sorgfältige Arbeitsweise",
-      "descriptionByLocale": {
-        "it": "Compiti: Sei responsabile della codifica a prova di audit dei nostri trattamenti e diagnosi. Vi offriamo assoluta indipendenza posizione e flessibilità nelle ore di lavoro.\n• Codifica a prova di Audit dei casi di ST rehab e TARPSY\n• Lavori amministrativi per preparare il caso di codifica\n• Trattamento delle richieste di assicurazione\n• Cooperazione nella codificazione della revisione\n• Risposta domande interne ed esterne sulla codifica | Requisiti:\n• Formazione medica o di cura\n• Ulteriore istruzione nella codifica medica\n• Esperienza professionale nella codifica medica, riabilitazione ST benefica e/o TARPSY\n• Conoscenza degli utenti IT\n• Metodi di lavoro indipendenti e attenti",
-        "en": "Tasks: You are responsible for the audit-proof coding of our treatments and diagnoses. We offer you absolute location independence and flexibility in working hours.\n• Audit-proof coding of ST rehab and TARPSY cases\n• Administrative work to prepare case coding\n• Treatment of insurance enquiries\n• Cooperation in coding revision\n• Answer internal and external questions about coding | Requirements:\n• Medical or nursing training\n• Further education in medical coding\n• Professional experience in medical coding, beneficial ST rehab and/or TARPSY\n• IT user knowledge\n• Independent and careful working methods",
-        "de": "Aufgaben: Du bist zuständig für die revisionssichere Codierung unserer Behandlungen und Diagnosen. Wir bieten dir dafür absolute Ortsunabhängigkeit und Flexibilität bei den Arbeitszeiten.\n• Revisionssichere Kodierung von ST Reha- und TARPSY-Fällen\n• Administrative Arbeiten zur Vorbereitung der Fallkodierung\n• Bearbeitung von Versicherungsanfragen\n• Mitarbeit bei der Kodierrevision\n• Beantwortung von internen und externen Fragen zur Kodierung | Anforderungen:\n• Ausbildung im medizinischen oder pflegerischen Bereich\n• Weiterbildung in der medizinischen Kodierung\n• Berufserfahrung in der medizinischen Kodierung, von Vorteil ST Reha und/oder TARPSY\n• IT-Anwenderkenntnisse\n• Eigenständige und sorgfältige Arbeitsweise",
-        "fr": "Tâches : Vous êtes responsable du codage de nos traitements et diagnostics. Nous vous offrons l'indépendance de localisation absolue et la flexibilité dans les heures de travail.\n• Codage à l'épreuve de la vérification des cas de désintox et de TARPSY\n• Travaux administratifs pour préparer le codage des cas\n• Traitement des demandes d'assurance\n• Coopération en matière de révision du code\n• Répondre aux questions internes et externes sur le codage.\n• Formation médicale ou infirmière\n• Formation continue au codage médical\n• Expérience professionnelle dans le codage médical, la réadaptation ST bénéfique et/ou TARPSY\n• Connaissances des utilisateurs de la TI\n• Méthodes de travail indépendantes et prudentes"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/medizinischer-kodierer-m-w-d-40-80/300d59a1-8ca9-4359-889f-0cf7956c1d10",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:30.453Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/664/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Verwaltung",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "pensumMin": 40,
-      "pensumMax": 80,
-      "pensum": "40 - 80%",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "medizinischer-kodierer-m-w-d-40-80-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:09:59.868Z",
-      "salaryMin": 65200,
-      "salaryMax": 91200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65200,
-          "maxValue": 91200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-f52808ccea06",
-      "slug": "infermiere-a-operatore-trice-sociosanitario-a-m-f-80-100-reparto-genitori-bambini-e-adolescenti-con-specializzazione-in",
-      "slugByLocale": {
-        "it": "infermiere-a-operatore-trice-sociosanitario-a-m-f-80-100-reparto-genitori-bambini-e-adolescenti-con-specializzazione-in",
-        "en": "health-care-specialist-m-f-80-100-parents-child-and-youth-unit-with-focus-on-psychosomatics-hochgebirgsklinik-davos",
-        "de": "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
-        "fr": "specialiste-des-soins-de-sante-h-f-80-100-parents-unite-pour-enfants-et-jeunes-avec-un-accent-sur-la-psychosomatique"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegefachperson / Fachperson Gesundheit (m/w) 80-100%, Eltern - Kind und Jugendstation mit Schwerpunkt Psychosomatik",
-      "titleByLocale": {
-        "it": "Infermiere/a / Operatore/trice sociosanitario/a (m/f) 80-100%, reparto genitori-bambini e adolescenti con specializzazione in psicosomatica",
-        "en": "Health care specialist (m/f) 80-100%, parents - child and youth unit with focus on psychosomatics",
-        "de": "Pflegefachperson / Fachperson Gesundheit (m/w) 80-100%, Eltern - Kind und Jugendstation mit Schwerpunkt Psychosomatik",
-        "fr": "Spécialiste des soins de santé (h/f) 80-100%, parents - unité pour enfants et jeunes avec un accent sur la psychosomatique"
-      },
-      "description": "Aufgaben:\n• Planung, Gestaltung und Dokumentation einer ganzheitlichen, professionellen Pflege\n• Verantwortlich für den Pflegeprozess der zugeteilten Patientinnen und Patienten\n• Zusammenarbeit mit Eltern, Angehörigen und weiterführenden Pflegeinstitutionen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Mitarbeit bei der Weiterentwicklung der Kinder- und Jugendstation im Fachbereich Psychosomatik | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und teamorientiertes Verhalten\n• Einsatz in allen Schichten\n• Gute Deutschkenntnisse in Wort und Schrift\n• gute Informatikkenntnisse\n• Bereitschaft zur laufenden Fortbildung sowie Offenheit für Veränderungen\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien wünschenswert",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Pianificazione, progettazione e documentazione di una cura olistica e professionale\n• Responsabile del processo di cura dei pazienti assegnati\n• Cooperazione con genitori, parenti e istituti di assistenza secondaria\n• Cooperazione orientata alla soluzione con discipline intra- e interdisciplinari\n• Collaborazione nell'ulteriore sviluppo dell'unità per bambini e giovani nel dipartimento di psicosomatica | Requisiti:\n• Allenamento completato come Dipl. Infermieristica professionale DNII/HF/FH o formazione equivalente con riconoscimento SRC\n• Formazione completa come specialista in salute EFZ\n• Elevate competenze sociali e metodi di lavoro indipendenti e affidabili\n• Resilienza, disponibilità a svolgere, flessibilità e comportamento orientato al team\n• Utilizzare in tutti gli strati\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Buone competenze informatiche\n• Prontezza per la formazione continua e apertura al cambiamento\n• Esperienza nel trattare bambini, giovani e le loro famiglie desiderabili",
-        "en": "Tasks:\n• Planning, design and documentation of a holistic, professional care\n• Responsible for the care process of the assigned patients\n• Cooperation with parents, relatives and secondary care institutions\n• Solution-oriented cooperation with intra- and interdisciplinary disciplines\n• Collaboration in the further development of the children’s and youth unit in the department of psychosomatics | Requirements:\n• Completed training as a Dipl. Nursing professional DNII/HF/FH or equivalent training with SRC recognition\n• Completed training as a specialist in health EFZ\n• High social skills and independent and reliable working methods\n• Resilience, willingness to perform, flexibility and team-oriented behaviour\n• Use in all layers\n• Good knowledge of German in words and writing\n• Good computer skills\n• Readiness for ongoing training and openness to change\n• Experience in dealing with children, young people and their families desirable",
-        "de": "Aufgaben:\n• Planung, Gestaltung und Dokumentation einer ganzheitlichen, professionellen Pflege\n• Verantwortlich für den Pflegeprozess der zugeteilten Patientinnen und Patienten\n• Zusammenarbeit mit Eltern, Angehörigen und weiterführenden Pflegeinstitutionen\n• Lösungsorientierte Zusammenarbeit mit intra- und interdisziplinären Fachbereichen\n• Mitarbeit bei der Weiterentwicklung der Kinder- und Jugendstation im Fachbereich Psychosomatik | Anforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann DNII/HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Leistungsbereitschaft, Flexibilität und teamorientiertes Verhalten\n• Einsatz in allen Schichten\n• Gute Deutschkenntnisse in Wort und Schrift\n• gute Informatikkenntnisse\n• Bereitschaft zur laufenden Fortbildung sowie Offenheit für Veränderungen\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien wünschenswert",
-        "fr": "Tâches :\n• Planification, conception et documentation d'un soin professionnel holistique\n• Responsable du processus de soins des patients assignés\n• Coopération avec les parents, les parents et les établissements de soins secondaires\n• Coopération axée sur la solution avec les disciplines intra et interdisciplinaires\n• Collaboration au développement de l'unité des enfants et des jeunes du département de psychosomatique.\n• Formation terminée en tant que diplômé. Formation professionnelle en soins infirmiers DNII/HF/FH ou formation équivalente avec reconnaissance SRC\n• Formation complète en tant que spécialiste de la santé EFZ\n• Compétences sociales élevées et méthodes de travail indépendantes et fiables\n• Résilience, volonté de performance, flexibilité et comportement d'équipe\n• Utilisation dans toutes les couches\n• Bonne connaissance de l'allemand en mots et en écriture\n• Bonnes compétences en informatique\n• Préparation à la formation continue et ouverture au changement\n• Expérience de la prise en charge des enfants, des jeunes et de leur famille souhaitable"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit-schwerpunkt-psychosomatik/10c55560-2450-43c6-872e-aec80da21a7f",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:29.900Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06",
-      "postedDate": "2026-10-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/668/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
-        "pflegefachperson-fachperson-gesundheit-m-w-d-80-100-eltern-kind-e-jugendstation-con-schwerpunkt-psychosomatik-hochgebirgsklinik-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit",
-          "pflegefachperson-fachperson-gesundheit-m-w-d-80-100-eltern-kind-e-jugendstation-con-schwerpunkt-psychosomatik-hochgebirgsklinik-davos"
-        ],
-        "en": [
-          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit"
-        ],
-        "fr": [
-          "pflegefachperson-fachperson-gesundheit-m-w-80-100-eltern-kind-und-jugendstation-mit"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T09:12:00.012Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-f19d635ac1af",
-      "slug": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
-        "en": "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
-        "de": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
-        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista sanitario (FaGe) EFZ (m/f/d), da agosto 2027",
-        "en": "Apprenticeship as a specialist Health (FaGe) EFZ (f/m/d), from August 2027",
-        "de": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
-        "fr": "Apprentissage en tant que spécialiste de la santé (FaGe) EFZ (f/m/d), à partir d'août 2027"
-      },
-      "description": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
-      "descriptionByLocale": {
-        "it": "Dal 1. agosto 2027 vi attende una formazione triennale varia ed emozionante; È possibile completare la maturità professionale (BM) con l'orientamento \"Salute e Affari Sociali\" parallelamente all'insegnamento. Vi offriamo due stage esterni (Spital Davos AG e Pflegeheim Flury Foundation), nonché supporto e supporto di un team di formazione competente durante il vostro apprendistato. | Compiti:\n• Cura e cura dei pazienti – anche in situazioni difficili\n• Esecuzione di procedure mediche (ad esempio campionamento del sangue, misurazione della pressione sanguigna, ecc.)\n• Sostenere il benessere fisico, sociale e psicologico dei pazienti\n• Costruire un rapporto rispettoso con i pazienti e l'azione orientata alle esigenze\n• Lavoro amministrativo e logistico svolto | Requisiti:\n• Istruzione secondaria o secondaria\n• empatia e interesse a sostenere le persone che hanno bisogno di assistenza\n• Abilità e capacità di comunicazione\n• Forte senso di responsabilità, nonché buona osservazione e percezione\n• Flessibilità, lavoro di squadra e resilienza (fisica e psicologica)",
-        "en": "From 1. August 2027 awaits you a varied and exciting three-year education; It is possible to complete the vocational maturity (BM) with the orientation \"Health and Social Affairs\" in parallel to the teaching. We offer you two external internships (Spital Davos AG and Pflegeheim Flury Foundation), as well as support and support of a competent training team during your apprenticeship. | Tasks:\n• Caring for and caring for patients – even in demanding situations\n• Performing medical procedures (e.g. blood sampling, measuring blood pressure, etc.)\n• Supporting the physical, social and psychological well-being of patients\n• Building a respectful relationship with patients and needs-oriented action\n• Administrative and logistical work done | Requirements:\n• Secondary or secondary education\n• empathy and interest in supporting people in need of care and assistance\n• Sociability and communication skills\n• Strong sense of responsibility as well as good observation and perception\n• Flexibility, teamwork and resilience (physical and psychological)",
-        "de": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
-        "fr": "A partir du 1. Août 2027 vous attend une éducation variée et passionnante de trois ans; Il est possible d'achever la maturité professionnelle (BM) avec l'orientation \"Santé et Affaires sociales\" parallèlement à l'enseignement. Nous vous proposons deux stages externes (Spital Davos AG et Fondation Flury Pflegeheim), ainsi que le soutien et le soutien d'une équipe de formation compétente pendant votre apprentissage. Tâches :\n• Prendre soin et prendre soin des patients – même dans des situations exigeantes\n• Procéder à des interventions médicales (p. ex. prélèvement de sang, mesure de la pression artérielle, etc.)\n• Soutenir le bien-être physique, social et psychologique des patients\n• Établir une relation respectueuse avec les patients et agir en fonction des besoins\n• Travaux administratifs et logistiques requis :\n• Enseignement secondaire ou secondaire\n• empathie et intérêt à soutenir les personnes qui ont besoin de soins et d'aide\n• Sociabilité et compétences en communication\n• Un fort sens des responsabilités ainsi qu'une bonne observation et perception\n• Flexibilité, travail d'équipe et résilience (physique et psychologique)"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027/5a2f85b0-3b8b-423e-beb0-523a10861221",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:15:29.187Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-16",
-      "postedDate": "2026-06-16",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/651/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ausbildung",
-      "streetAddress": "Herman Burchard Strasse 1",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
-      "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
-        "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsk-vmf4wc",
-        "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
-        "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
-          "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsk-vmf4wc",
-          "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
-          "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
-        ],
-        "fr": [
-          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T11:36:28.401Z",
-      "salaryMin": 73000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     }
   ]
 }
