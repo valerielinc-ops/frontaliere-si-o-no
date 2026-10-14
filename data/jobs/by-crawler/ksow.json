@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-10-13T21:19:11.638Z",
+  "assembledAt": "2026-10-14T09:32:20.576Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:05.061Z",
+      "crawledAt": "2026-10-14T09:32:13.228Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -129,7 +129,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:03.575Z",
+      "crawledAt": "2026-10-14T09:32:11.633Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -179,12 +179,12 @@
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
+          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
+        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
       "salaryMin": 86500,
@@ -232,7 +232,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:02.035Z",
+      "crawledAt": "2026-10-14T09:32:09.967Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:19:00.493Z",
+      "crawledAt": "2026-10-14T09:32:08.365Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -390,7 +390,7 @@
       "slugByLocale": {
         "it": "dipl-esperto-in-pronto-soccorso-nds-hf-o-infermiere-hf-a-40-80-kantonsspital-obwalden-sarnen",
         "en": "dipl-expert-in-emergency-care-nds-hf-or-nurse-hf-a-40-80-kantonsspital-obwalden-sarnen",
-        "de": "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
+        "de": "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "fr": "dipl-expert-en-soins-d-urgence-nds-hf-ou-infirmiere-hf-a-40-80-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -415,7 +415,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:58.673Z",
+      "crawledAt": "2026-10-14T09:32:06.253Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -479,7 +479,8 @@
           "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen"
         ],
         "de": [
-          "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen"
+          "dipl-experte-expertin-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
+          "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen"
         ],
         "fr": [
           "dipl-expert-soins-d-urgence-nds-hf-ou-professionnel-des-soins-hf-a-40-80-kantonsspital-obwalden-sarnen",
@@ -532,7 +533,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:57.236Z",
+      "crawledAt": "2026-10-14T09:32:04.571Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -582,7 +583,7 @@
       "slugByLocale": {
         "it": "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen",
         "en": "apprenticeship-chef-cook-efz-2027-kantonsspital-obwalden-sarnen",
-        "de": "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
+        "de": "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen",
         "fr": "chef-d-apprentissage-cuisinier-efz-2027-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -607,7 +608,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:55.369Z",
+      "crawledAt": "2026-10-14T09:32:02.300Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -627,7 +628,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen",
         "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen",
         "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
       ],
@@ -637,7 +637,7 @@
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
         ],
         "de": [
-          "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen"
+          "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-07-16T23:09:23.903Z",
@@ -686,7 +686,7 @@
       "url": "https://link.ostendis.com/publication/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/uivc5rdvnw5u75bub47fcsvf1qy0d33dzjw5xpokd0t1uewhxn6eb1dhue0z83xw",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:53.440Z",
+      "crawledAt": "2026-10-14T09:32:00.047Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       "slugByLocale": {
         "it": "lavoratore-sociale-fh-hfs-a-40-kantonsspital-obwalden-sarnen",
         "en": "social-worker-fh-hfs-a-40-kantonsspital-obwalden-sarnen",
-        "de": "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen",
+        "de": "sozialarbeiter-in-fh-hfs-a-40-kantonsspital-obwalden-sarnen",
         "fr": "travailleurs-sociaux-fh-hfs-a-40-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -759,7 +759,7 @@
       "url": "https://link.ostendis.com/publication/sozialarbeiter-in-fh-hfs/yelztwd6hssenpdynxyf2qpypop26353103e6c82a5lkjfmp0yssn4d3nfis2ado",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:51.673Z",
+      "crawledAt": "2026-10-14T09:31:58.369Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -785,6 +785,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
+        ],
+        "de": [
+          "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-10T23:15:43.112Z",
@@ -808,7 +811,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-di-pulizia-e-servizio-a-domicilio-a-80-100-kantonsspital-obwalden-sarnen",
         "en": "cleaning-and-housekeeping-employee-a-80-100-kantonsspital-obwalden-sarnen",
-        "de": "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
+        "de": "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen",
         "fr": "employe-du-menage-et-du-menage-a-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -833,7 +836,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-reinigungs-und-hausdienst/2ithk1zyvhwh4gmr7h3yv42kwvgef0hjtx0br822l1mybnfuij1kf7qclpxwqes3",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:49.650Z",
+      "crawledAt": "2026-10-14T09:31:55.997Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -868,6 +871,9 @@
         ],
         "fr": [
           "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-24T14:28:49.137Z",
@@ -891,7 +897,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-restaurant-a-60-kantonsspital-obwalden-sarnen",
         "en": "employee-restaurant-a-60-kantonsspital-obwalden-sarnen",
-        "de": "mitarbeiter-in-restaurant-a-60-ksow-sarnen",
+        "de": "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen",
         "fr": "employe-e-de-restaurant-a-60-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -916,7 +922,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-restaurant/e5ezu23qdm35hmmqetx0gv9tvvuffkr0pex87rcm5ixergj583jcm0iwmim4eu42",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:47.940Z",
+      "crawledAt": "2026-10-14T09:31:54.472Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -948,6 +954,9 @@
         ],
         "fr": [
           "mitarbeiter-in-restaurant-a-60-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "mitarbeiter-in-restaurant-a-60-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:10.055Z",
@@ -971,7 +980,7 @@
       "slugByLocale": {
         "it": "cuoco-a-dietetico-a-cuoco-a-afc-a-80-100-kantonsspital-obwalden-sarnen",
         "en": "diet-cook-cook-cook-efz-a-80-100-kantonsspital-obwalden-sarnen",
-        "de": "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen",
+        "de": "diatkoch-kochin-koch-kochin-efz-a-80-100-kantonsspital-obwalden-sarnen",
         "fr": "diete-cuire-cuisiner-cuisiner-efz-a-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -996,7 +1005,7 @@
       "url": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/kpcey41rlkhrag7d4oc0tdteobgw8o0qxwzmhexksvbkxbxy8ct0cexmpmc4uduo",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:46.088Z",
+      "crawledAt": "2026-10-14T09:31:52.253Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1031,6 +1040,9 @@
         ],
         "fr": [
           "cuisiniere-dietetique-cuisiniere-cuisiniere-efz-a-80-100-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "diatkoch-kochin-koch-kochin-efz-a-80-100-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:14.894Z",
@@ -1054,7 +1066,7 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-a-per-l-accettazione-d-urgenza-e-l-ambulatorio-d-urgenza-a-70-kantonsspital-obwalden-sarnen",
         "en": "medical-practice-assistant-emergency-reception-and-emergency-clinic-a-70-kantonsspital-obwalden-sarnen",
-        "de": "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen",
+        "de": "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-40-70-kantonsspital-obwalden-sarnen",
         "fr": "assistant-e-medical-e-a-l-accueil-des-urgences-et-au-cabinet-d-urgence-a-70-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -1079,7 +1091,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistent-in-notfallempfang-und-notfallpraxis/bq4nofsmbgv2yd6af7xkyspu2o1lp1z80mf7wfysnatm1iaebrxqdykhmihsobw3",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:44.140Z",
+      "crawledAt": "2026-10-14T09:31:50.022Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1116,6 +1128,9 @@
         ],
         "fr": [
           "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-08T21:28:44.007Z",
@@ -1139,7 +1154,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-abwaschkuche-a-100-kantonsspital-obwalden-sarnen",
         "en": "dishwashing-assistant-a-100-kantonsspital-obwalden-sarnen",
-        "de": "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen",
+        "de": "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen",
         "fr": "employe-e-a-la-plonge-a-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -1164,7 +1179,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-abwaschkueche/itshiaa8qw3fp2fsw4myyjhbshkp2huom26hgiob7sl50qzx5ct7vkczac0p7j73",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:42.392Z",
+      "crawledAt": "2026-10-14T09:31:48.416Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1196,6 +1211,9 @@
         ],
         "fr": [
           "mitarbeiter-in-abwaschkuche-a-100-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "mitarbeiter-in-abwaschkuche-a-100-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-12T09:21:39.496Z",
@@ -1219,7 +1237,7 @@
       "slugByLocale": {
         "it": "dipl-infermieristica-stazione-di-monitoraggio-professionale-hf-a-70-kantonsspital-obwalden-sarnen",
         "en": "dipl-nursing-professional-monitoring-station-hf-a-70-kantonsspital-obwalden-sarnen",
-        "de": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen",
+        "de": "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen",
         "fr": "dipl-station-de-surveillance-professionnelle-des-soins-infirmiers-hf-a-70-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -1244,7 +1262,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/by3ccdt48c1qc7bhytzj0jsgmjly737v42chv5kc2sw677ofpjrb5jkjy76zjjx4",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:18:40.233Z",
+      "crawledAt": "2026-10-14T09:31:45.562Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1278,6 +1296,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-uberwachungsstation-hf-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "de": [
+          "dipl-pflegefachperson-uberwachungsstation-hf-a-70-ksow-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-12T09:21:37.476Z",
