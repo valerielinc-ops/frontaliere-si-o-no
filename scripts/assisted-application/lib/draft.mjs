@@ -64,7 +64,7 @@ import {
 import { CV_TEXT_VERSION, readCvText } from './cv-text.mjs';
 import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
-import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
 import { candidateForForm, portalQuestionKey } from './portal/portal.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
@@ -210,17 +210,17 @@ export async function buildDraft(ctx) {
     timeoutMs: CODEX_TIMEOUT_MS,
   });
   const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
-  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
+  let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
   // driver qualification card?» next to that very card among the documents held the order twice for one
   // requirement. The upload is the answer, here and on a portal's form (lib/documentQuestions.js, plan.mjs).
-  const mandatoryDocuments = requiredDocuments.filter((document) => document.required);
   const notAnsweredByUpload = (question) => {
+    const mandatoryDocuments = requiredDocuments.filter((document) => document.required);
     const held = documentsHeldAsked(question, mandatoryDocuments);
     if (held.length) log('question answered by a required document', question.id, held.map((document) => document.id).join(','));
     return !held.length;
   };
-  const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
+  let questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
 
   const contactPerson = requirements.contactPerson || posting.contactPerson;
   // The CV text is the strict source of facts; the answers the candidate gave
@@ -336,8 +336,9 @@ export async function buildDraft(ctx) {
   // (career-ops apply.md): the candidate answers them on the first review,
   // not in a second round at submit time. Questions already asked are kept.
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
-  if (ctx.readPortalQuestions && channel.applyUrl) {
-    const portal = await ctx.readPortalQuestions({
+  const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
+  if (readPortal && channel.applyUrl) {
+    const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       language,
@@ -346,9 +347,20 @@ export async function buildDraft(ctx) {
       codex,
       log,
     });
+    // Older test/integration callers return only the question array; the live
+    // reader also returns required file fields so they reach the upload picker
+    // before the first submission attempt.
+    const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
+    requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
+    // The document requirement is the answer to a narrow "do you hold it?"
+    // question. Re-run this filter after the portal has contributed its own
+    // document labels.
+    questions = questions.filter(notAnsweredByUpload);
     const known = new Set(questions.map((question) => portalQuestionKey(question.question, question.context) || question.id));
-    questions.push(...portal.filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id)).filter(notAnsweredByUpload));
-    log('portal pre-read', channel.type, `${portal.length} questions`);
+    questions.push(...(Array.isArray(portal.questions) ? portal.questions : [])
+      .filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id))
+      .filter(notAnsweredByUpload));
+    log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
