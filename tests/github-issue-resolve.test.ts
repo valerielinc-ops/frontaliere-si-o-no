@@ -8,7 +8,7 @@ vi.mock('node:child_process', () => {
   return { ...mock, default: mock };
 });
 
-const { resolveGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
+const { findOpenGithubIssuesByTitlePrefix, resolveGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
 
 function ghCalls(): string[][] {
   return execFileSync.mock.calls
@@ -167,6 +167,21 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
 
     expect(res).toBeNull();
     expect(ghCalls().some((a) => a[1] === 'close')).toBe(false);
+  });
+
+  it('lists every open portal-stop issue for the complete host prefix', () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 12092, title: '[portal-stop] career5.successfactors.eu: pagina non superata su /career' },
+          { number: 11914, title: '[portal-stop] career5.successfactors.eu: account del portale su /career' },
+          { number: 12093, title: '[portal-stop] career50.successfactors.eu: account del portale su /career' },
+        ]);
+      }
+      return '';
+    });
+
+    expect(findOpenGithubIssuesByTitlePrefix('[portal-stop] career5.successfactors.eu:')?.map((issue) => issue.number)).toEqual([12092, 11914]);
   });
 
   it('only matches an exact stable-title prefix, not a fuzzy token hit', () => {
