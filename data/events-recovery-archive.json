@@ -241,6 +241,36 @@
       "commit": "32456e6a6d0ba1cff7ad8a8c16a10c7e40101772",
       "generatedAt": "2026-07-01T09:06:27.551Z",
       "matchedRecords": 3
+    },
+    {
+      "commit": "0f454a9196b7e1923057874ed8499dbd5c82ec62",
+      "generatedAt": "2026-09-26T11:04:31.511Z",
+      "matchedRecords": 30
+    },
+    {
+      "commit": "4f3aac86490e1788199b9c695b9cb41472740788",
+      "generatedAt": "2026-09-27T11:34:13.719Z",
+      "matchedRecords": 2
+    },
+    {
+      "commit": "9154cdd27569b33faeeb5cbdeaf63e5bf77d97a4",
+      "generatedAt": "2026-09-28T12:45:27.343Z",
+      "matchedRecords": 2
+    },
+    {
+      "commit": "3080f02c1a6f353f2dda1a5363f9c525cd74d6a2",
+      "generatedAt": "2026-09-29T12:20:16.362Z",
+      "matchedRecords": 2
+    },
+    {
+      "commit": "e41f34687aee1e52d2d1988c98fdecc5f950055d",
+      "generatedAt": "2026-06-30T08:45:30.547Z",
+      "matchedRecords": 2
+    },
+    {
+      "commit": "057dd70621d07fb377bf2925f7ed45985bab9ec3",
+      "generatedAt": "2026-06-29T05:11:17.601Z",
+      "matchedRecords": 2
     }
   ],
   "events": [
@@ -639,6 +669,11 @@
       "sourceKey": "ge-agenda",
       "sourceName": "Ville de Genève Agenda",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "nocturnes-de-st-pierre-2026-09-26"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -1950,6 +1985,11 @@
         {
           "canton": "GE",
           "comune": "Genève",
+          "slug": "les-vendredis-du-bien-etre-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
           "slug": "les-vendredis-du-bien-etre-2026-09-15"
         }
       ]
@@ -2088,6 +2128,11 @@
         "fr": "Quand des œuvres d'art ne restent que des photos"
       },
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "quando-delle-opere-darte-rimangono-solo-le-foto-2026-09-26"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -3087,12 +3132,7 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-07-07"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-07-07"
+          "slug": "fra-roberto-tra-le-mura-2026-09-26"
         }
       ]
     },
@@ -4060,12 +4100,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "bourses-blcg-pour-la-jeune-creation-contemporaine-2026-09-25"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "bourses-blcg-pour-la-jeune-creation-contemporaine-2026-09-25"
+          "slug": "bourses-blcg-pour-la-jeune-creation-contemporaine-2026-09-26"
         }
       ]
     },
@@ -4202,12 +4237,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "tartines-dhistoires-2026-09-25"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "tartines-dhistoires-2026-09-25"
+          "slug": "tartines-dhistoires-2026-09-26"
         }
       ]
     },
@@ -4284,12 +4314,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-commentee-gratuite-2026-09-25"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "visite-commentee-gratuite-2026-09-25"
+          "slug": "visite-commentee-gratuite-2026-09-26"
         }
       ]
     },
@@ -4335,14 +4360,7 @@
       "canton": "AG",
       "url": "https://www.myswitzerland.com/en-ch/experiences/events/tag-der-offenen-tuer-im-regionalen-pflegezentrum-baden/",
       "sourceKey": "myswitzerland",
-      "sourceName": "MySwitzerland",
-      "previousRoutes": [
-        {
-          "canton": "AG",
-          "comune": "Baden",
-          "slug": "tag-der-offenen-tur-im-regionalen-pflegezentrum-2026-09-26"
-        }
-      ]
+      "sourceName": "MySwitzerland"
     },
     {
       "id": "ge-agenda:afro-party-open-deck-session",
@@ -4354,19 +4372,7 @@
       "canton": "GE",
       "url": "https://www.geneve.ch/agenda/afro-party-open-deck-session",
       "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "previousRoutes": [
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "afro-before-party-open-deck-session-2026-09-26"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "afro-before-party-open-deck-session-2026-09-26"
-        }
-      ]
+      "sourceName": "Ville de Genève Agenda"
     },
     {
       "id": "ge-agenda:soundman-shelter-8",
@@ -4377,19 +4383,7 @@
       "canton": "GE",
       "url": "https://www.geneve.ch/agenda/soundman-shelter-8",
       "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "previousRoutes": [
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "soundman-shelter-8-2026-09-26"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "soundman-shelter-8-2026-09-26"
-        }
-      ]
+      "sourceName": "Ville de Genève Agenda"
     },
     {
       "id": "tio-agenda:63989",
@@ -4407,19 +4401,7 @@
         "en": "The techniques of gilding",
         "de": "Vergoldungstechniken",
         "fr": "Techniques de dorure"
-      },
-      "previousRoutes": [
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
-          "slug": "tecniche-di-doratura-2026-09-26"
-        },
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
-          "slug": "tecniche-di-doratura-2026-09-26"
-        }
-      ]
+      }
     },
     {
       "id": "ge-agenda:design-enfance-enfants-rencontrent",
@@ -4482,12 +4464,7 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "exposition-botanic-circus-2026-09-15"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "exposition-botanic-circus-2026-09-15"
+          "slug": "exposition-botanic-circus-2026-09-26"
         }
       ]
     },
@@ -5158,6 +5135,302 @@
         "de": "Sonntagslesungen",
         "fr": "Lectures du dimanche"
       }
+    },
+    {
+      "id": "ge-agenda:exposition-photographique-peuples-autochtones-face-defis-contemporains",
+      "title": "Exposition photographique : Les peuples autochtones face aux défis contemporains",
+      "startDate": "2026-09-26",
+      "endDate": "2026-10-01",
+      "category": "Exposition",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/exposition-photographique-peuples-autochtones-face-defis-contemporains",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "exposition-photographique-les-peuples-autochtones-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:fusion-exposition-aldo-locatelli",
+      "title": "Fusion, une exposition d'Aldo Locatelli",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-27",
+      "category": "Exposition",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/fusion-exposition-aldo-locatelli",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "fusion-une-exposition-daldo-locatelli-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "fusion-une-exposition-daldo-locatelli-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:marees-mineures",
+      "title": "Marées mineures",
+      "startDate": "2026-09-26",
+      "endDate": "2026-10-10",
+      "category": "Exposition",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/marees-mineures",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "marees-mineures-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "marees-mineures-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:parcours-ceramique-carouge",
+      "title": "Parcours Céramique Carouge",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-27",
+      "category": "Manifestation – Salon",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/parcours-ceramique-carouge",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "parcours-ceramique-carouge-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "parcours-ceramique-carouge-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:et",
+      "title": "Pourquoi et pourquoi pas ?",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-27",
+      "category": "Spectacle - Théâtre",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/et",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "pourquoi-et-pourquoi-pas-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "pourquoi-et-pourquoi-pas-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:retrospective-jose-luis-guerin",
+      "title": "Rétrospective José Luis Guerín",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-29",
+      "category": "Projection",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/retrospective-jose-luis-guerin",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "retrospective-jose-luis-guerin-2026-09-26"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "retrospective-jose-luis-guerin-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63439",
+      "title": "Ritratti di un lavoro negato",
+      "startDate": "2026-09-26",
+      "startTime": "12:00",
+      "category": "arte",
+      "venue": "Casa di Lù",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260926/63439",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "titleByLocale": {
+        "it": "Ritratti di un lavoro negato",
+        "en": "Portraits of Denied Work",
+        "de": "Porträts eines verweigerten Jobs",
+        "fr": "Portraits d'un travail refusé"
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ritratti-di-un-lavoro-negato-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ritratti-di-un-lavoro-negato-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63362",
+      "title": "Stratigrafie - Felicita Bianchi Duyne",
+      "startDate": "2026-09-26",
+      "startTime": "18:00",
+      "category": "musei",
+      "venue": "Museo Centovalli e Pedemonte",
+      "comune": "Centovalli",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260926/63362",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "endDate": "2026-10-16",
+      "titleByLocale": {
+        "it": "Stratigrafie - Felicita Bianchi Duyne",
+        "en": "Stratigraphies - Felicita Bianchi Duyne",
+        "de": "Stratigraphien - Felicita Bianchi Duyne",
+        "fr": "Stratigraphies - Felicita Bianchi Duyne"
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "stratigrafie-felicita-bianchi-duyne-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Centovalli",
+          "slug": "stratigrafie-felicita-bianchi-duyne-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63679",
+      "title": "Videokunst.ch × PalaCinema",
+      "startDate": "2026-09-26",
+      "category": "arte",
+      "venue": "PalaCinema",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260926/63679",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "endDate": "2026-10-16",
+      "titleByLocale": {
+        "it": "Videokunst.ch × PalaCinema",
+        "en": "Videokunst.ch PalaCinema",
+        "de": "Videokunst.ch ⑤ PalaCinema",
+        "fr": "Videokunst.ch Palais Cinema"
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63333",
+      "title": "World Press Photo Exhibition 2026",
+      "startDate": "2026-09-26",
+      "category": "arte",
+      "venue": "Antico Convento delle Agostiniane",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260926/63333",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "endDate": "2026-10-04",
+      "titleByLocale": {
+        "it": "World Press Photo Exhibition 2026",
+        "en": "or Orld Press Photo Andhi",
+        "de": "Weltpresse-Fotoausstellung 2026",
+        "fr": "Exposition World Press Photo 2026"
+      },
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "world-press-photo-exhibition-2026-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "world-press-photo-exhibition-2026-2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:e52b68558d4043478d1578b46ae06c84",
+      "title": "Xtoberfest",
+      "titleByLocale": {
+        "it": "Xtoberfest",
+        "en": "Xtoberfest",
+        "de": "Xtoberfest",
+        "fr": "Xtoberfest"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Xlinger Brauerei",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/xtoberfest/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "TG",
+          "comune": "Kreuzlingen",
+          "slug": "xtoberfest-2026-09-26"
+        },
+        {
+          "canton": "TG",
+          "comune": "Kreuzlingen",
+          "slug": "xtoberfest-2026-09-26"
+        }
+      ]
     }
   ]
 }
