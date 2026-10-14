@@ -75,9 +75,15 @@ import { ISO_ALPHA2_COUNTRY_CODES } from './lib/prospector/country-inventory.mjs
 import {
   exitCrawlerOnError,
   fetchHtml as fetchHtmlShared,
+  fetchJson as fetchJsonShared,
   isConnectionLevelFetchError,
   WAF_IP_BLOCK_STATUS,
 } from './lib/crawler-template.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   decodeEntities,
@@ -105,6 +111,25 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
 const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
+const IST_FACET_URL = 'https://jobs.inspirededu.com/services/jobs/options/facetValues/';
+const IST_FACET_QUERY = {
+  page: 0,
+  keywords: '',
+  locationsearch: '',
+  sortby: 'referencedate',
+  sortdir: 'desc',
+  sortfield: 'title',
+  recordsperpage: 25,
+  startrow: 0,
+  facetquery: {
+    facet: true,
+    mincount: 1,
+    limit: 5000,
+    fields: ['location', 'facility', 'title', 'customfield2'],
+    sort: 'index',
+    showPicklistAllLocales: true,
+  },
+};
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SUMMARY_COUNTS = {
   discovered: null,
@@ -134,6 +159,17 @@ function normalize(value = '') {
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
+
+function normalizeFacilityName(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+const IST_FACILITY_NAME_RE = /^international school of ticino(?: ist)?$/i;
 
 const IST_SHARED_PORTAL_COMPANIES = new Set([
   'inspired education',
@@ -201,6 +237,63 @@ function isIstJob(job) {
 // newly fetched details must pass isIstDetailJob() before they can be emitted.
 function isLegacyIstJob(job) {
   return isIstJob(job) || String(job?.url || '').toLowerCase().includes(IST_COMPANY_HOST);
+}
+
+/**
+ * Parse the portal's native School Name facet. The endpoint is a complete
+ * active-facility map (`mincount=1`, limit 5000), not a parser-derived zero:
+ * omitting IST from a complete response is positive source evidence that an
+ * IST posting cannot be hidden in the current multi-tenant result set.
+ */
+export function parseIstFacilityFacetResponse(payload = {}) {
+  const rows = payload?.facets?.map?.facility;
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return {
+      complete: false,
+      facilityCount: 0,
+      activeListingCount: 0,
+      hasIstFacility: false,
+    };
+  }
+
+  const normalizedRows = rows.map((row) => ({
+    name: normalizeSpace(row?.name),
+    count: Number(row?.count),
+  }));
+  const complete = normalizedRows.every(({ name, count }) => (
+    name && Number.isInteger(count) && count > 0
+  ));
+  if (!complete) {
+    return {
+      complete: false,
+      facilityCount: normalizedRows.length,
+      activeListingCount: 0,
+      hasIstFacility: false,
+    };
+  }
+
+  return {
+    complete: true,
+    facilityCount: normalizedRows.length,
+    activeListingCount: normalizedRows.reduce((sum, row) => sum + row.count, 0),
+    hasIstFacility: normalizedRows.some(({ name }) => (
+      IST_FACILITY_NAME_RE.test(normalizeFacilityName(name))
+    )),
+  };
+}
+
+/**
+ * Stamp only the native-facet proof. A missing/partial facet or an IST row
+ * returns null so the caller must continue with the detail walk.
+ */
+export function markIstFacilityFacetEmptySnapshot(payload = {}) {
+  const parsed = parseIstFacilityFacetResponse(payload);
+  if (!parsed.complete || parsed.hasIstFacility) return null;
+  return markAuthoritativeEmptySnapshot(
+    [],
+    `Inspired Education native School Name facet is complete (${parsed.facilityCount} active facilities, `
+      + `${parsed.activeListingCount} listings) with no ${IST_COMPANY_NAME} entry`,
+  );
 }
 
 export function isIstDetailJob(detail = {}) {
@@ -347,6 +440,41 @@ async function discoverIstJobUrls() {
     console.log('  ℹ️ No live job URLs in the portal sitemap.');
   }
   return parsed.urls;
+}
+
+/**
+ * Read the portal-native School Name facet before walking 325 global details.
+ * A transport/schema failure is deliberately non-authoritative: the sitemap
+ * detail walk remains the fallback and can still prove a zero independently.
+ */
+async function discoverIstFacilityEmptySnapshot() {
+  try {
+    const payload = await fetchJsonShared(IST_FACET_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'User-Agent': UA,
+      },
+      body: JSON.stringify(IST_FACET_QUERY),
+      timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000,
+    });
+    const parsed = parseIstFacilityFacetResponse(payload);
+    if (!parsed.complete) {
+      console.warn('⚠️ IST School Name facet response was incomplete; falling back to detail walk.');
+      return null;
+    }
+    if (parsed.hasIstFacility) {
+      console.log('  🏫 Native School Name facet contains IST; continuing with detail-level filtering.');
+      return null;
+    }
+    return markIstFacilityFacetEmptySnapshot(payload);
+  } catch (error) {
+    console.warn(
+      `⚠️ IST School Name facet unavailable; falling back to detail walk (${error?.message || error}).`,
+    );
+    return null;
+  }
 }
 
 /* ── Job detail parsing ────────────────────────────────────── */
@@ -673,7 +801,22 @@ export async function fetchIstJobs() {
   if (jobUrls.length === 0) {
     console.warn('⚠️ No IST job URLs discovered.');
     SUMMARY_COUNTS.parsed = 0;
+    if (SUMMARY_COUNTS.authoritativeEmptySnapshot) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        'IST sitemap response was a valid empty <urlset> with no job entries',
+      );
+    }
     return [];
+  }
+
+  const nativeEmptySnapshot = await discoverIstFacilityEmptySnapshot();
+  if (nativeEmptySnapshot) {
+    SUMMARY_COUNTS.parsed = 0;
+    SUMMARY_COUNTS.lastFetchOutcome = 'filtered_empty';
+    SUMMARY_COUNTS.authoritativeEmptySnapshot = true;
+    console.log(`  ✅ ${nativeEmptySnapshot.authoritativeEmptyEvidence}.`);
+    return nativeEmptySnapshot;
   }
 
   const jobs = [];
@@ -770,6 +913,12 @@ export async function fetchIstJobs() {
     );
   }
   console.log(`\n📋 Total unique IST jobs discovered: ${jobs.length}`);
+  if (detailWalk.authoritativeEmptySnapshot) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      `complete IST detail walk classified ${completeDetailCount}/${jobUrls.length} pages with zero IST jobs`,
+    );
+  }
   return jobs;
 }
 
@@ -1005,6 +1154,57 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
   });
 }
 
+/**
+ * Publish a source-proven zero and retire the previous IST slice. The native
+ * facet stamp is the only path allowed to bypass the N→0 shrink guard; an
+ * unproven empty result continues through the soft-exit path below.
+ */
+async function publishAuthoritativeEmptySnapshot(beforeSnapshot, evidence) {
+  const priorJobs = readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob);
+  const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+  const archived = archiveRemovedJobsToSlice(priorJobs, IST_KEY);
+
+  writeJobsCrawlerSlice(IST_KEY, [], {
+    skipShrinkGuard: true,
+    preserveExistingSlugs: true,
+  });
+  writeJsonAtomic(DATA_JOBS, []);
+  writeJsonAtomic(PUBLIC_JOBS, []);
+  printCrawlChangeSummary(emptyDiff, 'IST');
+  writeCrawlChangeSummaryToGH(emptyDiff, 'IST');
+
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: IST_KEY,
+    label: 'International School of Ticino',
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: 0,
+    written: 0,
+    lastFetchOutcome: 'filtered_empty',
+    abortKind: null,
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    authoritativeEmptyEvidence: evidence,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: emptyDiff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: emptyDiff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  await assembleJobsDataset();
+  console.log(
+    `ℹ️ Persisted authoritative IST zero; archived ${archived} expired route(s).`,
+  );
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
@@ -1021,6 +1221,16 @@ async function main() {
 
   // Phase 1: Discover job URLs
   const discoveredJobs = await fetchIstJobs();
+
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) {
+    console.log('\n✅ IST source proves there are no active IST postings.');
+    updateAdapterConfig();
+    await publishAuthoritativeEmptySnapshot(
+      beforeSnapshot,
+      discoveredJobs.authoritativeEmptyEvidence,
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No IST jobs discovered.');
@@ -1098,6 +1308,8 @@ async function main() {
     discovered: SUMMARY_COUNTS.discovered,
     parsed: SUMMARY_COUNTS.parsed,
     lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,

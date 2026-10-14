@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
@@ -8,6 +9,8 @@ import {
   extractIstMicrodata,
   hasCompleteIstDetailEvidence,
   isIstDetailJob,
+  markIstFacilityFacetEmptySnapshot,
+  parseIstFacilityFacetResponse,
   parseCountryCode,
   parseIstSitemapJobUrls,
 } from '@/scripts/update-ist-jobs.mjs';
@@ -64,6 +67,55 @@ describe('IST sitemap discovery', () => {
       ],
       authoritativeEmptySnapshot: false,
     });
+  });
+});
+
+describe('IST native facility facet empty proof', () => {
+  const noIstPayload = {
+    facets: {
+      map: {
+        facility: [
+          { name: 'International School of Como', count: 1 },
+          { name: 'Head Office', count: 32 },
+        ],
+      },
+    },
+  };
+
+  it('stamps an empty snapshot only when the complete native facet omits IST', () => {
+    const parsed = parseIstFacilityFacetResponse(noIstPayload);
+
+    expect(parsed).toMatchObject({
+      complete: true,
+      facilityCount: 2,
+      activeListingCount: 33,
+      hasIstFacility: false,
+    });
+
+    const snapshot = markIstFacilityFacetEmptySnapshot(noIstPayload);
+    expect(isAuthoritativeEmptySnapshot(snapshot)).toBe(true);
+    expect(snapshot.authoritativeEmptyEvidence).toContain('School Name facet');
+    expect(snapshot.authoritativeEmptyEvidence).toContain('no International School of Ticino entry');
+  });
+
+  it('does not stamp zero when the native facet contains IST', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'International School of Ticino', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('keeps malformed or empty facet responses fail-closed', () => {
+    expect(markIstFacilityFacetEmptySnapshot({ facets: { map: {} } })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [{ name: 'Head Office' }] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [] } },
+    })).toBeNull();
   });
 });
 
