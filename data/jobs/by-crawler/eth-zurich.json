@@ -241,7 +241,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -285,14 +285,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-05-28T12:29:52.777Z",
@@ -9091,12 +9091,12 @@
     },
     {
       "id": "eth-zurich-b25f3cc83458",
-      "slug": "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch",
+      "slug": "dottorato-in-architettura-e-tecnologia-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch",
-        "it": "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch",
-        "de": "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch",
-        "fr": "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch"
+        "it": "dottorato-in-architettura-e-tecnologia-eth-zurich-zurich",
+        "de": "promotionsstipendien-in-architektur-und-technologie-eth-zurich-zurich",
+        "fr": "bourses-de-doctorat-en-architecture-et-technologie-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9154,16 +9154,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-13T21:31:26.719Z"
+      "firstSeenAt": "2026-10-13T21:31:26.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-fellowships-in-architecture-and-technology-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-24a5c4a73bee",
-      "slug": "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch",
+      "slug": "ricercatore-medico-in-robotica-umanioide-eth-zurich-3d-perception-and-embodied-ai-100",
       "slugByLocale": {
         "en": "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch",
-        "it": "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch",
-        "de": "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch",
-        "fr": "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch"
+        "it": "ricercatore-medico-in-robotica-umanioide-eth-zurich-3d-perception-and-embodied-ai-100",
+        "de": "doktorand-in-humanoid-robotik-eth-zurich-3d-perception-and-embodied-ai-100",
+        "fr": "chercheur-au-doctorat-en-robotique-humanoide-eth-zurich-3d-perception-and-embodied-ai-100"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9221,7 +9235,21 @@
         }
       },
       "addressRegion": "AI",
-      "firstSeenAt": "2026-10-13T21:31:26.233Z"
+      "firstSeenAt": "2026-10-13T21:31:26.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-researcher-in-humanoid-robotics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0c3d90239fb4",
@@ -9229,8 +9257,8 @@
       "slugByLocale": {
         "en": "resilience-crisis-management-researcher-eth-zurich-ch",
         "it": "resilience-crisis-management-researcher-eth-zurich-ch",
-        "de": "resilience-crisis-management-researcher-eth-zurich-ch",
-        "fr": "resilience-crisis-management-researcher-eth-zurich-ch"
+        "de": "resilienz-krisenmanagement-forscher-eth-zurich-zurich",
+        "fr": "chercheur-en-resilience-et-gestion-de-crise-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9296,8 +9324,8 @@
       "slugByLocale": {
         "de": "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch",
         "it": "studentische-hilfskraft-come-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich",
-        "en": "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch",
-        "fr": "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch"
+        "en": "student-assistant-as-workshop-leader-on-an-hourly-basis-m-f-d-eth-zurich-zurich",
+        "fr": "assistant-e-etudiant-e-comme-animateur-rice-d-atelier-a-l-heure-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9342,6 +9370,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "studentische-hilfskraft-als-workshopleiter-in-auf-stundenbasis-m-w-d-eth-zurich-ch"
         ]
       },

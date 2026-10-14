@@ -90,12 +90,12 @@
     },
     {
       "id": "gesundheitsnetz-kuesnacht-fcf2679bebc2",
-      "slug": "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slug": "responsabile-interrai-ltcf-mo-fr-in-servizio-anticipato-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kuesnacht",
-        "it": "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "fr": "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht"
+        "it": "responsabile-interrai-ltcf-mo-fr-in-servizio-anticipato-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "responsible-interrai-ltcf-mo-fr-in-early-service-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "interrai-ltcf-mo-fr-en-debut-de-service-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -147,11 +147,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kuesnacht"
+          "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kuesnacht",
+          "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "fr": [
+          "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kuesnacht"
+        "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kuesnacht",
+        "fachverantwortliche-er-interrai-ltcf-mo-fr-im-fruhdienst-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

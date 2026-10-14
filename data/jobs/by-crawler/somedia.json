@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "somedia-3a46fdd5e3e8",
-      "slug": "polygraf-in-o-grafiker-in-100-con-lernendenbetreuung-somedia-ag-ilanz",
+      "slug": "poligrafo-a-o-grafico-a-100-con-assistenza-agli-apprendisti-somedia-ag-ilanz",
       "slugByLocale": {
         "de": "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch",
-        "it": "polygraf-in-o-grafiker-in-100-con-lernendenbetreuung-somedia-ag-ilanz",
-        "en": "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch",
+        "it": "poligrafo-a-o-grafico-a-100-con-assistenza-agli-apprendisti-somedia-ag-ilanz",
+        "en": "polygraphist-or-graphic-designer-100-with-responsibility-for-supervising-trainees-somedia-ag-ilanz",
         "fr": "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch"
       },
       "company": "Somedia AG",
@@ -77,11 +77,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch",
+          "polygraf-in-o-grafiker-in-100-con-lernendenbetreuung-somedia-ag-ilanz"
+        ],
+        "en": [
           "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch"
         ]
       },
       "previousSlugs": [
-        "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch"
+        "polygraf-in-oder-grafiker-in-100-mit-lernendenbetreuung-somedia-ch",
+        "polygraf-in-o-grafiker-in-100-con-lernendenbetreuung-somedia-ag-ilanz"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,

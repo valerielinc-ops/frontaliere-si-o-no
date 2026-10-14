@@ -3498,12 +3498,12 @@
     },
     {
       "id": "coopers-f057d7c7e542",
-      "slug": "global-project-manager-m-f-d-coopers-zug",
+      "slug": "gestore-di-progetto-globale-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "global-project-manager-m-f-d-coopers-zug",
-        "it": "global-project-manager-m-f-d-coopers-zug",
-        "de": "global-project-manager-m-f-d-coopers-zug",
-        "fr": "global-project-manager-m-f-d-coopers-zug"
+        "it": "gestore-di-progetto-globale-m-f-d-coopers-group-ag-zug",
+        "de": "globaler-projektmanager-m-w-d-coopers-group-ag-zug",
+        "fr": "gestionnaire-de-projet-mondial-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3571,7 +3571,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-13T21:18:14.259Z"
+      "firstSeenAt": "2026-10-13T21:18:14.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-project-manager-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "global-project-manager-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "global-project-manager-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "global-project-manager-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-2cacc0c5782b",

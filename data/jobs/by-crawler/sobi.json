@@ -363,12 +363,12 @@
     },
     {
       "id": "sobi-bd3e9cafa35a",
-      "slug": "e2e-supply-planning-manager-sobi-basel",
+      "slug": "e2e-gestione-della-pianificazione-del-rifornimento-sobi-basel",
       "slugByLocale": {
         "en": "e2e-supply-planning-manager-sobi-basel",
-        "it": "e2e-supply-planning-manager-sobi-basel",
-        "de": "e2e-supply-planning-manager-sobi-basel",
-        "fr": "e2e-supply-planning-manager-sobi-basel"
+        "it": "e2e-gestione-della-pianificazione-del-rifornimento-sobi-basel",
+        "de": "manager-fur-end-to-end-lieferplanung-sobi-basel",
+        "fr": "e2e-gestionnaire-de-la-planification-des-approvisionnements-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -427,7 +427,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-13T21:16:51.208Z"
+      "firstSeenAt": "2026-10-13T21:16:51.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "e2e-supply-planning-manager-sobi-basel"
+        ],
+        "de": [
+          "e2e-supply-planning-manager-sobi-basel"
+        ],
+        "fr": [
+          "e2e-supply-planning-manager-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "e2e-supply-planning-manager-sobi-basel"
+      ]
     },
     {
       "id": "sobi-4fa510f095ca",
@@ -506,10 +520,10 @@
     },
     {
       "id": "sobi-d1e8f2b46c61",
-      "slug": "external-quality-operations-manager-sobi-basel",
+      "slug": "gestione-delle-operazioni-di-qualita-esterna-sobi-basel",
       "slugByLocale": {
         "en": "external-quality-operations-manager-sobi-basel",
-        "it": "external-quality-operations-manager-sobi-basel",
+        "it": "gestione-delle-operazioni-di-qualita-esterna-sobi-basel",
         "de": "external-quality-operations-manager-sobi-basel",
         "fr": "external-quality-operations-manager-sobi-basel"
       },
@@ -570,16 +584,24 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-13T21:16:51.204Z"
+      "firstSeenAt": "2026-10-13T21:16:51.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "external-quality-operations-manager-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "external-quality-operations-manager-sobi-basel"
+      ]
     },
     {
       "id": "sobi-4e6c14e7d414",
-      "slug": "medical-science-liaison-haemophilia-sobi-zug",
+      "slug": "liaison-di-scienza-medica-emofilia-sobi-zug",
       "slugByLocale": {
         "en": "medical-science-liaison-haemophilia-sobi-zug",
-        "it": "medical-science-liaison-haemophilia-sobi-zug",
-        "de": "medical-science-liaison-haemophilia-sobi-zug",
-        "fr": "medical-science-liaison-haemophilia-sobi-zug"
+        "it": "liaison-di-scienza-medica-emofilia-sobi-zug",
+        "de": "medizinische-wissenschaftsverbindung-hamophilie-sobi-zug",
+        "fr": "liaison-avec-les-sciences-medicales-hemophilie-sobi-zug"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -638,7 +660,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-13T21:16:51.196Z"
+      "firstSeenAt": "2026-10-13T21:16:51.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-science-liaison-haemophilia-sobi-zug"
+        ],
+        "de": [
+          "medical-science-liaison-haemophilia-sobi-zug"
+        ],
+        "fr": [
+          "medical-science-liaison-haemophilia-sobi-zug"
+        ]
+      },
+      "previousSlugs": [
+        "medical-science-liaison-haemophilia-sobi-zug"
+      ]
     }
   ]
 }

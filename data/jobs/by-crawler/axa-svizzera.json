@@ -7448,8 +7448,8 @@
       "slugByLocale": {
         "de": "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern",
         "it": "versicherungsberater-in-unternehmenskunden-per-la-agenzia-generale-bern-zentrum-axa-svizzera-bern",
-        "en": "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern",
-        "fr": "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern"
+        "en": "insurance-advisor-for-corporate-clients-at-the-bern-zentrum-general-agency-axa-svizzera-bern",
+        "fr": "conseiller-ere-en-assurances-pour-la-clientele-entreprises-de-l-agence-generale-bern-zentrum-axa-svizzera-bern"
       },
       "id": "axa-svizzera-1689a9cb8b1b",
       "previousSlugsByLocale": {
@@ -7458,10 +7458,17 @@
         ],
         "de": [
           "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-3z026d"
+        ],
+        "en": [
+          "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern"
+        ],
+        "fr": [
+          "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-3z026d"
+        "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-3z026d",
+        "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-bern-zentrum-axa-svizzera-bern"
       ],
       "salaryMin": 71500,
       "salaryMax": 126500,
@@ -11591,7 +11598,7 @@
         "it": "broker-consultant-non-vita-all-genders-axa-lugano-3yyy2f",
         "en": "broker-consultant-non-vita-all-genders-axa-svizzera-lugano",
         "de": "broker-consultant-non-vita-all-genders-axa-lugano-3yyy2f",
-        "fr": "broker-consultant-non-vita-all-genders-axa-lugano-3yyy2f"
+        "fr": "consultant-courtier-non-vita-tous-genres-axa-svizzera-lugano"
       },
       "id": "axa-svizzera-df98a3200e21",
       "salaryMin": 50500,

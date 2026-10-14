@@ -795,9 +795,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -875,11 +875,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -890,8 +890,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1733,10 +1733,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1782,16 +1782,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -3919,7 +3917,7 @@
       "slug": "case-manager-in-spital-buelach-bulach",
       "slugByLocale": {
         "it": "case-manager-in-spital-buelach-bulach",
-        "en": "case-manager-in-spital-bulach",
+        "en": "casemanager-spital-bulach-bulach",
         "de": "case-manager-in-spital-buelach-bulach",
         "fr": "gestionnaire-decas-spital-bulach-bulach"
       },
@@ -3966,11 +3964,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "casemanager-spital-bulach-bulach"
+        "case-manager-in-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "casemanager-spital-bulach-bulach"
+          "case-manager-in-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:04.532Z",
@@ -4596,12 +4594,12 @@
     },
     {
       "id": "spital-buelach-4a719c11e7a3",
-      "slug": "leistungsspezialist-in-spital-bulach-bulach",
+      "slug": "specialista-delle-prestazioni-spital-bulach-bulach",
       "slugByLocale": {
         "de": "leistungsspezialist-in-spital-buelach-bulach",
-        "it": "leistungsspezialist-in-spital-bulach-bulach",
-        "en": "leistungsspezialist-in-spital-bulach-bulach",
-        "fr": "leistungsspezialist-in-spital-bulach-bulach"
+        "it": "specialista-delle-prestazioni-spital-bulach-bulach",
+        "en": "performance-specialist-spital-bulach-bulach",
+        "fr": "specialiste-des-prestations-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4649,11 +4647,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leistungsspezialist-in-spital-buelach-bulach"
+          "leistungsspezialist-in-spital-buelach-bulach",
+          "leistungsspezialist-in-spital-bulach-bulach"
+        ],
+        "en": [
+          "leistungsspezialist-in-spital-bulach-bulach"
+        ],
+        "fr": [
+          "leistungsspezialist-in-spital-bulach-bulach"
         ]
       },
       "previousSlugs": [
-        "leistungsspezialist-in-spital-buelach-bulach"
+        "leistungsspezialist-in-spital-buelach-bulach",
+        "leistungsspezialist-in-spital-bulach-bulach"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4672,12 +4678,12 @@
     },
     {
       "id": "spital-buelach-a02fd09021dd",
-      "slug": "mpa-chirurgie-spital-buelach-bulach",
+      "slug": "chirurgia-mpa-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mpa-chirurgie-spital-buelach-bulach",
-        "it": "mpa-chirurgie-spital-buelach-bulach",
-        "en": "mpa-chirurgie-spital-buelach-bulach",
-        "fr": "mpa-chirurgie-spital-buelach-bulach"
+        "it": "chirurgia-mpa-spital-bulach-bulach",
+        "en": "mpa-surgery-spital-bulach-bulach",
+        "fr": "chirurgie-par-apm-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4736,7 +4742,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T14:02:52.000Z"
+      "firstSeenAt": "2026-09-09T14:02:52.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-chirurgie-spital-buelach-bulach"
+        ],
+        "en": [
+          "mpa-chirurgie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "mpa-chirurgie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-chirurgie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-4007f25e50fc",

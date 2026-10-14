@@ -2343,12 +2343,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-193ca7b1cae2",
-      "slug": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "assistente-tecnico-a-alla-sterilizzazione-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "assistente-tecnico-a-alla-sterilizzazione-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "technical-sterilization-assistant-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "assistant-e-technique-en-sterilisation-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2406,7 +2406,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:17:19.114Z"
+      "firstSeenAt": "2026-10-13T21:17:19.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-sterilisationsassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

@@ -754,12 +754,12 @@
     },
     {
       "id": "psgn-7edcf715a3a5",
-      "slug": "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil",
+      "slug": "dipl-infermiera-formazione-professionale-formazione-professionale-hf-fh-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psgn-wil",
-        "it": "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil",
-        "en": "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil",
-        "fr": "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil"
+        "it": "dipl-infermiera-formazione-professionale-formazione-professionale-hf-fh-psychiatrie-st-gallen-wil",
+        "en": "dipl-nurse-vocational-trainer-vocational-trainer-hf-fh-psychiatrie-st-gallen-wil",
+        "fr": "dipl-infirmiere-formateur-professionnel-formateur-professionnel-hf-fh-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -806,11 +806,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psgn-wil"
+          "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psgn-wil",
+          "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil"
+        ],
+        "en": [
+          "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psgn-wil"
+        "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psgn-wil",
+        "dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

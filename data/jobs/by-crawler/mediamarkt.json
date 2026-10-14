@@ -3311,12 +3311,12 @@
     },
     {
       "id": "mediamarkt-100403",
-      "slug": "collaboratore-trice-in-vendita-80-mediamarkt-amriswil",
+      "slug": "addetto-a-alle-vendite-80-mediamarkt-amriswil",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch",
-        "it": "collaboratore-trice-in-vendita-80-mediamarkt-amriswil",
-        "en": "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch",
-        "fr": "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch"
+        "it": "addetto-a-alle-vendite-80-mediamarkt-amriswil",
+        "en": "sales-employee-80-mediamarkt-amriswil",
+        "fr": "collaborateur-rice-de-vente-80-mediamarkt-amriswil"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3366,11 +3366,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch",
+          "collaboratore-trice-in-vendita-80-mediamarkt-amriswil"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch"
+        "mitarbeiter-in-verkauf-80-mediamarkt-amriswil-ch",
+        "collaboratore-trice-in-vendita-80-mediamarkt-amriswil"
       ],
       "salaryMin": 54800,
       "salaryMax": 84000,
@@ -3475,12 +3483,12 @@
     },
     {
       "id": "mediamarkt-100404",
-      "slug": "teamleiter-in-vendita-100-mediamarkt-urtenen-schonbuhl",
+      "slug": "responsabile-del-team-vendite-100-mediamarkt-urtenen-schonbuhl",
       "slugByLocale": {
         "de": "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch",
-        "it": "teamleiter-in-vendita-100-mediamarkt-urtenen-schonbuhl",
-        "en": "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch",
-        "fr": "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch"
+        "it": "responsabile-del-team-vendite-100-mediamarkt-urtenen-schonbuhl",
+        "en": "sales-team-leader-100-mediamarkt-urtenen-schonbuhl",
+        "fr": "responsable-d-equipe-de-vente-100-mediamarkt-urtenen-schonbuhl"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3530,11 +3538,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch",
+          "teamleiter-in-vendita-100-mediamarkt-urtenen-schonbuhl"
+        ],
+        "en": [
+          "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch"
+        ],
+        "fr": [
           "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch"
+        "teamleiter-in-verkauf-100-mediamarkt-urtenen-schonbuhl-ch",
+        "teamleiter-in-vendita-100-mediamarkt-urtenen-schonbuhl"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -3553,12 +3569,12 @@
     },
     {
       "id": "mediamarkt-100406",
-      "slug": "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch",
+      "slug": "black-friday-helper-60-2-mesi-mediamarkt-basel",
       "slugByLocale": {
         "de": "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch",
-        "it": "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch",
-        "en": "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch",
-        "fr": "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch"
+        "it": "black-friday-helper-60-2-mesi-mediamarkt-basel",
+        "en": "black-friday-helper-60-2-months-mediamarkt-basel",
+        "fr": "aide-du-vendredi-noir-60-2-mois-mediamarkt-basel"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3619,16 +3635,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:39:54.899Z"
+      "firstSeenAt": "2026-10-12T21:39:54.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch"
+        ],
+        "en": [
+          "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch"
+        ],
+        "fr": [
+          "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "black-friday-aushilfe-60-2-monate-mediamarkt-basel-ch"
+      ]
     },
     {
       "id": "mediamarkt-100405",
-      "slug": "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch",
+      "slug": "venerdi-nero-aiuto-20-80-2-mesi-mediamarkt-dietlikon",
       "slugByLocale": {
         "de": "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch",
-        "it": "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch",
-        "en": "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch",
-        "fr": "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch"
+        "it": "venerdi-nero-aiuto-20-80-2-mesi-mediamarkt-dietlikon",
+        "en": "black-friday-help-20-80-2-months-mediamarkt-dietlikon",
+        "fr": "aide-du-vendredi-noir-20-80-2-mois-mediamarkt-dietlikon"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3689,16 +3719,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:39:54.899Z"
+      "firstSeenAt": "2026-10-12T21:39:54.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch"
+        ],
+        "en": [
+          "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch"
+        ],
+        "fr": [
+          "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "black-friday-aushilfe-20-80-2-monate-mediamarkt-dietlikon-ch"
+      ]
     },
     {
       "id": "mediamarkt-100407",
-      "slug": "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch",
+      "slug": "venerdi-nero-aiuto-60-100-2-mesi-mediamarkt-biel-brugg",
       "slugByLocale": {
         "de": "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch",
-        "it": "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch",
-        "en": "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch",
-        "fr": "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+        "it": "venerdi-nero-aiuto-60-100-2-mesi-mediamarkt-biel-brugg",
+        "en": "black-friday-help-60-100-2-months-mediamarkt-biel-brugg",
+        "fr": "aide-du-vendredi-noir-60-100-2-mois-mediamarkt-biel-brugg"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3759,7 +3803,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-12T21:39:54.894Z"
+      "firstSeenAt": "2026-10-12T21:39:54.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+        ],
+        "en": [
+          "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+        ],
+        "fr": [
+          "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "black-friday-aushilfe-60-100-2-monate-mediamarkt-biel-brugg-ch"
+      ]
     }
   ]
 }

@@ -5177,7 +5177,7 @@
       "slug": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
         "fr": "doctorat-etudiant-doctorat-etudiant-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -5225,7 +5225,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
-        "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+        "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5233,7 +5233,7 @@
         ],
         "en": [
           "doktorandin-doktorand-psychologie-upd-bern",
-          "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern"
+          "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
           "doktorandin-doktorand-psychologie-upd-bern"
@@ -8156,9 +8156,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -8207,12 +8207,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -8482,12 +8482,12 @@
     },
     {
       "id": "upd-e99a41c45501",
-      "slug": "doktorandin-doktorand-protect-sh-upd-bern",
+      "slug": "dottorato-studente-dottorando-protect-sh-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "doktorandin-doktorand-protect-sh-upd-bern",
-        "it": "doktorandin-doktorand-protect-sh-upd-bern",
-        "en": "doktorandin-doktorand-protect-sh-upd-bern",
-        "fr": "doktorandin-doktorand-protect-sh-upd-bern"
+        "it": "dottorato-studente-dottorando-protect-sh-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-protect-sh-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "etudiant-au-doctorat-etudiant-au-doctorat-protect-sh-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8546,16 +8546,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:19:06.817Z"
+      "firstSeenAt": "2026-10-13T21:19:06.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorandin-doktorand-protect-sh-upd-bern"
+        ],
+        "en": [
+          "doktorandin-doktorand-protect-sh-upd-bern"
+        ],
+        "fr": [
+          "doktorandin-doktorand-protect-sh-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "doktorandin-doktorand-protect-sh-upd-bern"
+      ]
     },
     {
       "id": "upd-6e4aa4bba409",
-      "slug": "kaufmannische-mitarbeiterin-kaufmannischer-collaboratore-trice-im-medizinischen-sekretariat-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "impiegata-amministrativa-impiegato-amministrativo-in-segreteria-medica-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-upd",
-        "it": "kaufmannische-mitarbeiterin-kaufmannischer-collaboratore-trice-im-medizinischen-sekretariat-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-universitare-psychiatrische-dienste",
-        "fr": "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-universitare-psychiatrische-dienste"
+        "it": "impiegata-amministrativa-impiegato-amministrativo-in-segreteria-medica-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "commercial-employee-commercial-employee-in-the-medical-secretariat-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "employe-commercial-employe-commercial-au-secretariat-medical-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8603,11 +8617,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-upd"
+          "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-upd",
+          "kaufmannische-mitarbeiterin-kaufmannischer-collaboratore-trice-im-medizinischen-sekretariat-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-universitare-psychiatrische-dienste"
+        ],
+        "fr": [
+          "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-universitare-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-upd"
+        "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-upd",
+        "kaufmannische-mitarbeiterin-kaufmannischer-collaboratore-trice-im-medizinischen-sekretariat-universitare-psychiatrische-dienste-bern-upd-bern",
+        "kaufmannische-mitarbeiterin-kaufmannischer-mitarbeiter-im-medizinischen-sekretariat-universitare-psychiatrische-dienste"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8626,12 +8649,12 @@
     },
     {
       "id": "upd-4a8bcedf7ff9",
-      "slug": "stv-stationsleitung-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "vice-responsabile-di-reparto-demenza-e-delirium-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "stv-stationsleitung-demenz-und-delir-upd-munsingen",
-        "it": "stv-stationsleitung-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "stv-stationsleitung-demenz-und-delir-upd-munsingen",
-        "fr": "stv-stationsleitung-demenz-und-delir-upd-munsingen"
+        "it": "vice-responsabile-di-reparto-demenza-e-delirium-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "deputy-ward-manager-dementia-and-delirium-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "responsable-adjoint-e-de-l-unite-demence-et-delire-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8679,11 +8702,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-stationsleitung-demenz-und-delir-upd-munsingen",
+          "stv-stationsleitung-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "stv-stationsleitung-demenz-und-delir-upd-munsingen"
+        ],
+        "fr": [
           "stv-stationsleitung-demenz-und-delir-upd-munsingen"
         ]
       },
       "previousSlugs": [
-        "stv-stationsleitung-demenz-und-delir-upd-munsingen"
+        "stv-stationsleitung-demenz-und-delir-upd-munsingen",
+        "stv-stationsleitung-demenz-e-delir-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

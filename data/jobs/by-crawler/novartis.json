@@ -2490,11 +2490,11 @@
     },
     {
       "id": "novartis-ff9381c8dd0b",
-      "slug": "director-m-a-finance-novartis-ch",
+      "slug": "direttore-m-a-finanza-novartis-basel-city",
       "slugByLocale": {
         "en": "director-m-a-finance-novartis-ch",
-        "it": "director-m-a-finance-novartis-ch",
-        "de": "director-m-a-finance-novartis-ch",
+        "it": "direttore-m-a-finanza-novartis-basel-city",
+        "de": "direktor-m-a-finanzen-novartis-basel-city",
         "fr": "director-m-a-finance-novartis-basel-city"
       },
       "company": "Novartis",
@@ -2553,7 +2553,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-13T21:24:33.111Z"
+      "firstSeenAt": "2026-10-13T21:24:33.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-m-a-finance-novartis-ch"
+        ],
+        "de": [
+          "director-m-a-finance-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-m-a-finance-novartis-ch"
+      ]
     },
     {
       "id": "novartis-48c52a04ea4a",

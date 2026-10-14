@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mcm-group-a21ccb034fdd",
-      "slug": "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
+      "slug": "assistente-medico-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
       "slugByLocale": {
         "de": "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch",
-        "it": "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
-        "en": "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
-        "fr": "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
+        "it": "assistente-medico-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
+        "en": "med-practice-assistant-80-100-rebstein-medizinisches-center-bonaduz-rebstein",
+        "fr": "assistant-medical-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
       },
       "company": "Medizinisches Center Bonaduz",
       "companyKey": "mcm-group",
@@ -57,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch"
+          "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch",
+          "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
+        ],
+        "en": [
+          "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
+        ],
+        "fr": [
+          "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch"
+        "med-praxisassistentin-80-100-rebstein-rebstein-mcm-group-ch",
+        "med-praxisassistentin-80-100-rebstein-medizinisches-center-bonaduz-rebstein"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

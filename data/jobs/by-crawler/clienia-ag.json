@@ -276,7 +276,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -358,7 +358,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,7 +369,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -748,7 +749,7 @@
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -832,7 +833,7 @@
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
         "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+        "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -842,7 +843,7 @@
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+          "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -6575,12 +6576,12 @@
     },
     {
       "id": "clienia-ag-2672b13acfa4",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
+      "slug": "infermiera-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
+        "it": "infermiera-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-hf-fh-h-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6627,11 +6628,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7386,12 +7392,12 @@
     },
     {
       "id": "clienia-ag-8db6eea0e31b",
-      "slug": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
+      "slug": "vice-responsabile-di-reparto-infermiere-a-diplomato-a-hf-fh-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
-        "it": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
-        "en": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
-        "fr": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        "it": "vice-responsabile-di-reparto-infermiere-a-diplomato-a-hf-fh-60-clienia-ag-pfaffikon-zh",
+        "en": "deputy-ward-manager-qualified-nursing-professional-hf-fh-60-clienia-ag-pfaffikon-zh",
+        "fr": "adjoint-e-a-la-direction-de-la-station-infirmier-ere-diplome-e-es-hes-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7438,11 +7444,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich"
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich"
+        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
+        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
       ],
       "salaryMin": 54900,
       "salaryMax": 76800,

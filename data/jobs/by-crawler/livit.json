@@ -2128,9 +2128,9 @@
       "slug": "impiegato-a-amministrativo-a-nella-gestione-immobiliare-livit-lugano",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-nella-gestione-immobiliare-livit-lugano",
-        "en": "impiegato-a-amministrativo-a-nella-gestione-immobiliare-livit-lugano",
-        "de": "impiegato-a-amministrativo-a-nella-gestione-immobiliare-livit-lugano",
-        "fr": "impiegato-a-amministrativo-a-nella-gestione-immobiliare-livit-lugano"
+        "en": "administrative-employee-in-property-management-livit-ag-lugano",
+        "de": "verwaltungsangestellte-r-in-der-immobilienverwaltung-livit-ag-lugano",
+        "fr": "employe-e-administratif-ve-dans-la-gestion-immobiliere-livit-ag-lugano"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2193,12 +2193,12 @@
     },
     {
       "id": "livit-f6aea4116b21",
-      "slug": "collaboratore-trice-in-gebaudeservice-glatt-livit-ag-wallisellen",
+      "slug": "addetto-a-ai-servizi-per-edifici-glatt-livit-ag-wallisellen",
       "slugByLocale": {
         "de": "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen",
-        "it": "collaboratore-trice-in-gebaudeservice-glatt-livit-ag-wallisellen",
-        "en": "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen",
-        "fr": "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen"
+        "it": "addetto-a-ai-servizi-per-edifici-glatt-livit-ag-wallisellen",
+        "en": "employees-in-building-service-glatt-livit-ag-wallisellen",
+        "fr": "employes-dans-le-batiment-service-glatt-livit-ag-wallisellen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2247,11 +2247,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen",
+          "collaboratore-trice-in-gebaudeservice-glatt-livit-ag-wallisellen"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen"
+        ],
+        "fr": [
           "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen"
+        "mitarbeiter-in-gebaudeservice-glatt-livit-wallisellen",
+        "collaboratore-trice-in-gebaudeservice-glatt-livit-ag-wallisellen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2270,12 +2278,12 @@
     },
     {
       "id": "livit-5a09b8b73e10",
-      "slug": "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich",
+      "slug": "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich",
       "slugByLocale": {
         "de": "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
-        "it": "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich",
-        "en": "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
-        "fr": "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich"
+        "it": "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich",
+        "en": "commercial-internship-from-summer-2027-wms-or-hms-livit-ag-zurich",
+        "fr": "stage-commercial-a-partir-de-l-ete-2027-wms-ou-hms-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2323,11 +2331,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
+          "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich"
+        ],
+        "en": [
+          "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich"
+        ],
+        "fr": [
           "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich"
         ]
       },
       "previousSlugs": [
-        "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich"
+        "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
+        "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -2346,12 +2362,12 @@
     },
     {
       "id": "livit-91e62acc0e9e",
-      "slug": "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich",
+      "slug": "stage-commerciale-limitato-a-6-mesi-livit-ag-zurich",
       "slugByLocale": {
-        "it": "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich",
-        "en": "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich",
+        "it": "stage-commerciale-limitato-a-6-mesi-livit-ag-zurich",
+        "en": "commercial-internship-limited-to-6-months-livit-ag-zurich",
         "de": "kaufmannisches-praktikum-befristet-auf-6-monate-livit-zurich",
-        "fr": "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich"
+        "fr": "stage-commercial-limite-a-6-mois-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2402,15 +2418,18 @@
         "it": [
           "praktikant-in-wms-hms-livit-zurich",
           "kaufmannisches-praktikum-befristet-auf-6-monate-livit-zurich",
-          "praticante-wms-hms-livit-ag-zurich"
+          "praticante-wms-hms-livit-ag-zurich",
+          "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich"
         ],
         "en": [
           "praktikant-in-wms-hms-livit-zurich",
-          "intern-wms-hms-livit-ag-zurich"
+          "intern-wms-hms-livit-ag-zurich",
+          "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich"
         ],
         "fr": [
           "praktikant-in-wms-hms-livit-zurich",
-          "stagiaire-wms-hms-livit-ag-zurich"
+          "stagiaire-wms-hms-livit-ag-zurich",
+          "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich"
         ]
       },
       "previousSlugs": [
@@ -2418,7 +2437,8 @@
         "kaufmannisches-praktikum-befristet-auf-6-monate-livit-zurich",
         "praticante-wms-hms-livit-ag-zurich",
         "intern-wms-hms-livit-ag-zurich",
-        "stagiaire-wms-hms-livit-ag-zurich"
+        "stagiaire-wms-hms-livit-ag-zurich",
+        "kaufmannisches-praktikum-befristet-auf-6-monate-livit-ag-zurich"
       ],
       "firstSeenAt": "2026-10-12T21:40:21.564Z",
       "salaryMin": 63000,

@@ -3363,12 +3363,12 @@
     },
     {
       "id": "spital-maennedorf-4219f329e168",
-      "slug": "dipl-fachexperte-per-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf",
+      "slug": "esperto-a-diplomato-a-in-medicina-intensiva-nds-80-90-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
-        "it": "dipl-fachexperte-per-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf",
-        "en": "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
+        "it": "esperto-a-diplomato-a-in-medicina-intensiva-nds-80-90-m-f-d-spital-mannedorf-mannedorf",
+        "en": "dipl-expert-in-intensive-care-nds-80-90-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "dipl-expert-en-soins-intensifs-nds-80-90-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3418,11 +3418,20 @@
       "pensum": "80 - 90%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch"
+          "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
+          "dipl-fachexperte-per-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf"
+        ],
+        "en": [
+          "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch"
+        "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
+        "dipl-fachexperte-per-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf",
+        "dipl-fachexperte-fur-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,

@@ -5507,12 +5507,12 @@
     },
     {
       "id": "hopital-du-valais-cdb4c1f1ab75",
-      "slug": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
+      "slug": "capo-di-segretariati-di-consultazione-per-segretariati-medici-di-oncologia-e-centro-del-seno-90-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
-        "it": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
-        "en": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
-        "de": "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        "it": "capo-di-segretariati-di-consultazione-per-segretariati-medici-di-oncologia-e-centro-del-seno-90-hopital-du-valais-sion",
+        "en": "head-of-consultation-secretariats-for-medical-secretariats-of-oncology-and-breast-center-90-hopital-du-valais-sion",
+        "de": "leiter-der-beratungssekretariate-fur-medizinische-sekretariate-der-onkologie-und-brustzentrum-90-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5571,7 +5571,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        ],
+        "en": [
+          "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        ],
+        "de": [
+          "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+      ]
     },
     {
       "id": "hopital-du-valais-e58a27621abd",
@@ -5658,12 +5672,12 @@
     },
     {
       "id": "hopital-du-valais-00b794467d1c",
-      "slug": "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital",
+      "slug": "70-accompagnatore-per-unita-mediche-della-persona-anziana-di-martigny-hopital-du-valais-martigny",
       "slugByLocale": {
         "fr": "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital",
-        "it": "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital",
-        "en": "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital",
-        "de": "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital"
+        "it": "70-accompagnatore-per-unita-mediche-della-persona-anziana-di-martigny-hopital-du-valais-martigny",
+        "en": "70-carer-for-medical-units-of-the-elderly-person-of-martigny-hopital-du-valais-martigny",
+        "de": "70-pfleger-fur-medizinische-einheiten-der-alteren-person-von-martigny-hopital-du-valais-martigny"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5723,7 +5737,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-13T21:16:01.947Z"
+      "firstSeenAt": "2026-10-13T21:16:01.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital"
+        ],
+        "en": [
+          "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital"
+        ],
+        "de": [
+          "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-a-70-pour-les-unites-de-medecine-de-la-personne-agee-de-martigny-hopital"
+      ]
     },
     {
       "id": "hopital-du-valais-0ba99df424ca",

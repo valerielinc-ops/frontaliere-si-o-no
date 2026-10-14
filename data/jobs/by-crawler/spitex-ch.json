@@ -1420,12 +1420,12 @@
     },
     {
       "id": "spitex-ch-87c2297220bd",
-      "slug": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh",
+      "slug": "dipl-infermiera-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
-        "it": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh",
-        "en": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh",
-        "fr": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+        "it": "dipl-infermiera-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
+        "en": "dipl-nurse-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
+        "fr": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
       },
       "company": "Stiftung Drei Tannen",
       "companyKey": "spitex-ch",
@@ -1473,11 +1473,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh"
+          "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
+          "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh"
+        "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
+        "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1495,12 +1503,12 @@
     },
     {
       "id": "spitex-ch-0bbc0462aae8",
-      "slug": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
+      "slug": "dipl-infermiera-hf-focus-psichiatria-stiftung-drei-tannen-wald",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "it": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
-        "en": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald",
-        "fr": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
+        "it": "dipl-infermiera-hf-focus-psichiatria-stiftung-drei-tannen-wald",
+        "en": "dipl-nurse-hf-focus-psychiatry-stiftung-drei-tannen-wald",
+        "fr": "dipl-infirmiere-hf-focalisation-psychiatrie-stiftung-drei-tannen-wald"
       },
       "company": "Stiftung Drei Tannen",
       "companyKey": "spitex-ch",
@@ -1548,11 +1556,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-stiftung-drei-tannen-wald"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -45,9 +45,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
-        "en": "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+        "en": "scientific-officer-armed-forces-relations-swiss-armed-forces-vtg-bern",
         "de": "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
+        "fr": "collaborateur-trice-scientifique-relations-avec-les-forces-armees-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -62,19 +62,22 @@
           "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-confederazione-svizzera-bern"
         ],
         "en": [
-          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern"
         ],
         "fr": [
-          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern"
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
         ]
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern",
         "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
-        "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-confederazione-svizzera-bern"
+        "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-confederazione-svizzera-bern",
+        "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -12341,7 +12344,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -12349,8 +12352,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -12360,8 +12362,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

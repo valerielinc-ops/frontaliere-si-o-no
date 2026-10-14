@@ -333,7 +333,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -379,7 +379,7 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+        "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -387,7 +387,7 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch"
+          "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:31.217Z",
@@ -14668,12 +14668,12 @@
     },
     {
       "id": "lonza-85dd27fcc2d9",
-      "slug": "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch",
+      "slug": "progetto-scienziato-phys-chem-qc-12-mesi-contratto-a-tempo-determinato-80-100-m-f-d-lonza-basel",
       "slugByLocale": {
         "en": "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch",
-        "it": "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch",
-        "de": "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch",
-        "fr": "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch"
+        "it": "progetto-scienziato-phys-chem-qc-12-mesi-contratto-a-tempo-determinato-80-100-m-f-d-lonza-basel",
+        "de": "projektwissenschaftler-phys-chem-qc-12-monate-befristeter-vertrag-80-100-m-w-d-lonza-basel",
+        "fr": "projet-scientifique-phys-chem-qc-12-mois-contrat-a-duree-determinee-80-100-h-f-d-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14732,16 +14732,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-13T21:17:31.014Z"
+      "firstSeenAt": "2026-10-13T21:17:31.014Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch"
+        ],
+        "de": [
+          "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-scientist-phys-chem-qc-12-months-fix-term-contract-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-18eab9281cf3",
-      "slug": "it-m-a-transaction-manager-lonza-ch",
+      "slug": "responsabile-delle-transazioni-m-a-it-lonza-basel",
       "slugByLocale": {
         "en": "it-m-a-transaction-manager-lonza-ch",
-        "it": "it-m-a-transaction-manager-lonza-ch",
-        "de": "it-m-a-transaction-manager-lonza-ch",
-        "fr": "it-m-a-transaction-manager-lonza-ch"
+        "it": "responsabile-delle-transazioni-m-a-it-lonza-basel",
+        "de": "it-m-a-transaktionsmanager-lonza-basel",
+        "fr": "gestionnaire-des-operations-des-m-et-a-de-la-ti-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14800,7 +14814,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-13T21:17:30.093Z"
+      "firstSeenAt": "2026-10-13T21:17:30.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-m-a-transaction-manager-lonza-ch"
+        ],
+        "de": [
+          "it-m-a-transaction-manager-lonza-ch"
+        ],
+        "fr": [
+          "it-m-a-transaction-manager-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-m-a-transaction-manager-lonza-ch"
+      ]
     },
     {
       "id": "lonza-dfa1ac057531",

@@ -2944,12 +2944,12 @@
     },
     {
       "id": "srg-ssr-feab55cad6e6",
-      "slug": "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern",
+      "slug": "capo-progetto-strategico-hr-csd-2-anni-srg-ssr-bern",
       "slugByLocale": {
         "fr": "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern",
-        "it": "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern",
-        "en": "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern",
-        "de": "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern"
+        "it": "capo-progetto-strategico-hr-csd-2-anni-srg-ssr-bern",
+        "en": "chief-strategic-project-leader-hr-csd-2-years-srg-ssr-bern",
+        "de": "chief-strategic-project-leader-hr-csd-2-jahre-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3031,16 +3031,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-13T21:15:29.312Z"
+      "firstSeenAt": "2026-10-13T21:15:29.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern"
+        ],
+        "en": [
+          "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern"
+        ],
+        "de": [
+          "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-chef-de-projets-strategiques-hr-cdd-2-ans-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-8c2755441458",
-      "slug": "responsabile-di-progetto-strategische-risorse-umane-projekte-befristet-2-jahre-srg-ssr-bern",
+      "slug": "responsabile-di-progetto-per-progetti-strategici-hr-a-tempo-determinato-per-2-anni-srg-ssr-bern",
       "slugByLocale": {
         "de": "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern",
-        "it": "responsabile-di-progetto-strategische-risorse-umane-projekte-befristet-2-jahre-srg-ssr-bern",
-        "en": "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern",
-        "fr": "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern"
+        "it": "responsabile-di-progetto-per-progetti-strategici-hr-a-tempo-determinato-per-2-anni-srg-ssr-bern",
+        "en": "project-manager-strategic-hr-projects-fixed-term-for-2-years-srg-ssr-bern",
+        "fr": "chef-fe-de-projet-projets-rh-strategiques-contrat-a-duree-determinee-de-2-ans-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3110,11 +3124,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern",
+          "responsabile-di-progetto-strategische-risorse-umane-projekte-befristet-2-jahre-srg-ssr-bern"
+        ],
+        "en": [
+          "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern"
+        ],
+        "fr": [
           "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern"
+        "projektleiter-in-strategische-hr-projekte-befristet-2-jahre-srg-ssr-bern",
+        "responsabile-di-progetto-strategische-risorse-umane-projekte-befristet-2-jahre-srg-ssr-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -3134,12 +3156,12 @@
     },
     {
       "id": "srg-ssr-b9d72072effb",
-      "slug": "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8",
+      "slug": "stagista-universitario-a-in-gestione-dei-media-srg-ssr-geneve-8",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8",
-        "it": "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8",
-        "en": "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8",
-        "fr": "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8"
+        "it": "stagista-universitario-a-in-gestione-dei-media-srg-ssr-geneve-8",
+        "en": "university-intern-media-management-srg-ssr-geneve-8",
+        "fr": "stagiaire-universitaire-en-gestion-des-medias-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3215,7 +3237,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-13T21:15:27.889Z"
+      "firstSeenAt": "2026-10-13T21:15:27.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8"
+        ],
+        "en": [
+          "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-medienmanagement-srg-ssr-geneve-8"
+      ]
     }
   ]
 }

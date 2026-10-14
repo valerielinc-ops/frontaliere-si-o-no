@@ -510,12 +510,12 @@
     },
     {
       "id": "chopard-80b28dd23a0d",
-      "slug": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin",
+      "slug": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
       "slugByLocale": {
         "fr": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin",
-        "it": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin",
-        "en": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin",
-        "de": "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        "it": "apprentice-clothes-machine-cfc-watchmaker-macchine-di-lucidatura-chopard-meyrin",
+        "en": "apprentice-clothes-machine-cfc-watchmaker-polishing-machines-chopard-meyrin",
+        "de": "auszubildende-bekleidungsmaschine-cfc-uhrmacher-poliermaschinen-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
@@ -575,16 +575,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:17:23.966Z"
+      "firstSeenAt": "2026-10-13T21:17:23.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-termineur-euse-en-habillage-horloger-cfc-metiers-du-polissage-chopard-meyrin"
+      ]
     },
     {
       "id": "chopard-fe9c0dc7d197",
-      "slug": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin",
+      "slug": "apprendistato-gioielli-joaillier-cfc-chopard-meyrin",
       "slugByLocale": {
         "fr": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin",
-        "it": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin",
-        "en": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin",
-        "de": "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+        "it": "apprendistato-gioielli-joaillier-cfc-chopard-meyrin",
+        "en": "apprenticeship-jewellery-joaillier-cfc-chopard-meyrin",
+        "de": "lehrling-schmuck-joaillier-cfc-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
@@ -644,16 +658,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:17:23.966Z"
+      "firstSeenAt": "2026-10-13T21:17:23.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+        ],
+        "en": [
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-bijoutier-ere-joaillier-ere-cfc-chopard-meyrin"
+      ]
     },
     {
       "id": "chopard-6a9180685d9e",
-      "slug": "apprenti-e-horloger-ere-cfc-chopard-meyrin",
+      "slug": "apprentice-clockmaker-cfc-chopard-meyrin",
       "slugByLocale": {
         "fr": "apprenti-e-horloger-ere-cfc-chopard-meyrin",
-        "it": "apprenti-e-horloger-ere-cfc-chopard-meyrin",
+        "it": "apprentice-clockmaker-cfc-chopard-meyrin",
         "en": "apprenti-e-horloger-ere-cfc-chopard-meyrin",
-        "de": "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        "de": "auszubildender-uhrmacher-cfc-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
@@ -713,7 +741,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:17:23.962Z"
+      "firstSeenAt": "2026-10-13T21:17:23.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        ],
+        "de": [
+          "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-horloger-ere-cfc-chopard-meyrin"
+      ]
     }
   ]
 }

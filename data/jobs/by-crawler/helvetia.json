@@ -10672,8 +10672,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-aarau-in-buchs-ag-teilzeit-vollzeit-helvetia-versicherungen-buchs",
-        "en": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit",
-        "fr": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit"
+        "en": "employee-sales-support-m-f-d-general-agency-aarau-in-buchs-ag-part-time-full-time-helvetia-versicherungen-buchs",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-aarau-in-buchs-ag-temps-partiel-temps-plein-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10722,6 +10722,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-aarau-in-buchs-ag-teilzeit-vollzeit"
         ]
       },
       "previousSlugs": [
@@ -10748,8 +10754,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf",
         "it": "kv-apprendistato-cfc-treuhand-immobilien-m-w-d-2027-helvetia-versicherungen-dubendorf",
-        "en": "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf",
-        "fr": "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf"
+        "en": "kv-apprenticeship-efz-treuhand-real-estate-m-f-d-2027-helvetia-versicherungen-dubendorf",
+        "fr": "kv-apprentissage-efz-treuhand-immobilier-h-f-d-2027-helvetia-versicherungen-dubendorf"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10797,6 +10803,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf"
+        ],
+        "fr": [
           "kv-lehrstelle-efz-treuhand-immobilien-w-m-d-2027-helvetia-dubendorf"
         ]
       },

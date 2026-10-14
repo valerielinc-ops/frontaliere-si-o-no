@@ -1654,7 +1654,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel",
+        "en": "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       },
@@ -1702,7 +1702,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
         "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-        "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1711,7 +1711,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-          "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
@@ -10437,12 +10437,12 @@
     },
     {
       "id": "unispital-basel-20d0404b7727",
-      "slug": "collaboratore-trice-in-diagnostik-support-team-universitatsspital-basel",
+      "slug": "collaboratore-trice-del-team-di-supporto-alla-diagnostica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
-        "it": "collaboratore-trice-in-diagnostik-support-team-universitatsspital-basel",
-        "en": "mitarbeiter-in-diagnostik-support-team-universitatsspital-basel-basel",
-        "fr": "mitarbeiter-in-diagnostik-support-team-universitatsspital-basel-basel"
+        "it": "collaboratore-trice-del-team-di-supporto-alla-diagnostica-universitatsspital-basel-basel",
+        "en": "diagnostics-support-team-employee-universitatsspital-basel-basel",
+        "fr": "collaborateur-rice-de-l-equipe-de-support-en-diagnostic-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10489,11 +10489,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
+          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+          "collaboratore-trice-in-diagnostik-support-team-universitatsspital-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-diagnostik-support-team-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-diagnostik-support-team-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+        "collaboratore-trice-in-diagnostik-support-team-universitatsspital-basel",
+        "mitarbeiter-in-diagnostik-support-team-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

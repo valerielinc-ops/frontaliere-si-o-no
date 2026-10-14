@@ -548,12 +548,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-557b6027b5b1",
-      "slug": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "team-leader-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "team-leader-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "team-leader-hemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "chef-d-equipe-hemodialyse-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -611,14 +611,28 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-2a40555c66fb",
       "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
         "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
@@ -666,7 +680,7 @@
       "externalId": "4084559",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -674,7 +688,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-          "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"

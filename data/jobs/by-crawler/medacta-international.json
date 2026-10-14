@@ -42,7 +42,7 @@
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
         "de": "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate",
         "fr": "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate",
-        "en": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
+        "en": "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
@@ -58,13 +58,12 @@
           "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
         ],
         "en": [
-          "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate"
+          "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
         "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate",
-        "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate",
-        "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate"
+        "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -354,7 +353,7 @@
       "crawledAt": "2026-10-13T21:18:26.500Z",
       "slugByLocale": {
         "it": "industrial-costing-technician-medacta-international-sa-castel-san-pietro-wv9jtz",
-        "de": "industrial-costing-techniker-medacta-international-sa-castel-san-pietro",
+        "de": "industrieller-kalkulationstechniker-medacta-international-sa-castel-san-pietro",
         "fr": "technicien-en-coutage-industriel-medacta-international-sa-castel-san-pietro",
         "en": "industrial-costing-technician-medacta-international-sa-castel-san-pietro-we7xfs"
       },
@@ -366,12 +365,12 @@
           "industrial-costing-technician-medacta-castel-san-pietro"
         ],
         "de": [
-          "industrieller-kalkulationstechniker-medacta-international-sa-castel-san-pietro"
+          "industrial-costing-techniker-medacta-international-sa-castel-san-pietro"
         ]
       },
       "previousSlugs": [
         "industrial-costing-technician-medacta-castel-san-pietro",
-        "industrieller-kalkulationstechniker-medacta-international-sa-castel-san-pietro"
+        "industrial-costing-techniker-medacta-international-sa-castel-san-pietro"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -579,8 +578,8 @@
       "requirementsByLocale": {},
       "crawledAt": "2026-10-13T21:18:22.625Z",
       "slugByLocale": {
-        "de": "dreher-medacta-international-sa-castel-san-pietro",
-        "en": "lathe-operator-medacta-international-sa-castel-san-pietro",
+        "de": "turner-medacta-international-sa-castel-san-pietro-rancate",
+        "en": "turner-medacta-international-sa-castel-san-pietro-rancate",
         "fr": "tourneur-medacta-international-sa-castel-san-pietro-rancate",
         "it": "tornitore-medacta-international-sa-castel-san-pietro"
       },
@@ -599,11 +598,11 @@
         "en": [
           "lathe-operator-medacta-international-sa-castel-san-pietro-rancate",
           "grinding-and-polishing-operator-3-shifts-medacta-international-sa-castel-san-pietro",
-          "turner-medacta-international-sa-castel-san-pietro-rancate"
+          "lathe-operator-medacta-international-sa-castel-san-pietro"
         ],
         "de": [
           "dreher-medacta-international-sa-castel-san-pietro-rancate",
-          "turner-medacta-international-sa-castel-san-pietro-rancate"
+          "dreher-medacta-international-sa-castel-san-pietro"
         ],
         "fr": [
           "operateur-de-meulage-et-polissage-3-equipes-medacta-international-sa-castel-san-pietro",
@@ -624,7 +623,8 @@
         "schleif-und-polieroper-3-drehungen-medacta-international-sa-castel-san-pietro",
         "operateur-de-broyage-et-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
         "operateur-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
-        "turner-medacta-international-sa-castel-san-pietro-rancate"
+        "lathe-operator-medacta-international-sa-castel-san-pietro",
+        "dreher-medacta-international-sa-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,

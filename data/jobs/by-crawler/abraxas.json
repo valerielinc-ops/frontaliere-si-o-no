@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "abraxas-5832d629699c",
-      "slug": "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen",
+      "slug": "studente-lavoratore-studentessa-lavoratrice-nel-recruiting-50-60-contratto-a-tempo-determinato-di-12-mesi-a-partire-da",
       "slugByLocale": {
         "de": "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen",
-        "it": "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen",
-        "en": "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen",
-        "fr": "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen"
+        "it": "studente-lavoratore-studentessa-lavoratrice-nel-recruiting-50-60-contratto-a-tempo-determinato-di-12-mesi-a-partire-da",
+        "en": "working-student-in-recruiting-50-60-fixed-term-for-12-months-starting-in-january-2027-abraxas-informatik-ag-st-gallen",
+        "fr": "etudiant-e-salarie-e-en-recrutement-50-60-contrat-a-duree-determinee-de-12-mois-a-partir-de-janvier-2027-abraxas"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
@@ -61,11 +61,19 @@
       "pensum": "50 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen",
+          "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen"
+        ],
+        "fr": [
           "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen"
         ]
       },
       "previousSlugs": [
-        "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen"
+        "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-st-gallen",
+        "werkstudent-in-recruiting-50-60-12-monate-befristet-ab-januar-2027-abraxas-informatik-ag-st-gallen"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -397,7 +405,7 @@
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -449,14 +457,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
+        "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "en": [
-          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:24.423Z",

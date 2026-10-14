@@ -2295,7 +2295,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2344,7 +2344,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2354,7 +2354,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4612,12 +4612,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-635214df0927",
-      "slug": "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-assistente-medico-medicina-di-emergenza-100-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen",
-        "it": "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen"
+        "it": "assistente-medico-assistente-medico-medicina-di-emergenza-100-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-doctor-assistant-doctor-emergency-medicine-100-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-adjoint-medecin-adjoint-medecine-d-urgence-100-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4676,7 +4676,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-13T21:40:50.998Z"
+      "firstSeenAt": "2026-10-13T21:40:50.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-notfallmedizin-100-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-07664661acfa",
