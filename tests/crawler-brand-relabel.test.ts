@@ -9,6 +9,7 @@ import {
   refreshDeclaredBrandSlugs,
 } from '../scripts/lib/crawler-brand-relabel.mjs';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { MIN_ACTIVE_JOBS } from '../build-plugins/shared/employerProfileConfig.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -80,8 +81,8 @@ describe('declared brand relabel', () => {
     }
     expect(counts.size).toBe(2);
     // BRIDGE_FLOOR / MIN_ACTIVE_JOBS in build-employer-profiles.mjs: both
-    // groups must stay above the floor so neither page disappears.
-    for (const n of counts.values()) expect(n).toBeGreaterThanOrEqual(5);
+    // groups must stay above the shared floor so neither page disappears.
+    for (const n of counts.values()) expect(n).toBeGreaterThanOrEqual(MIN_ACTIVE_JOBS);
   });
 
   it('refreshes stale active job slugs and keeps the replaced routes as bridges', () => {

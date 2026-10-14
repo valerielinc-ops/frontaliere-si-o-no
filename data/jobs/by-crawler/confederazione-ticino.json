@@ -119,8 +119,8 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
         "it": "wissenschaftliche-r-collaboratore-trice-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
-        "en": "scientific-officer-armed-forces-relations-confederazione-svizzera-bern",
-        "fr": "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern"
+        "en": "scientific-officer-armed-forces-relations-swiss-armed-forces-vtg-bern",
+        "fr": "collaborateur-trice-scientifique-relations-avec-les-forces-armees-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-9e6b2c85415d",
       "previousSlugsByLocale": {
@@ -130,20 +130,24 @@
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
-          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+          "scientific-officer-armed-forces-relations-confederazione-svizzera-bern"
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern"
         ],
         "fr": [
           "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
-          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
+          "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+          "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-confederazione-bern",
         "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern",
-        "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s"
+        "wissenschaftliche-r-mitarbeiter-in-streitkraftebeziehungen-swiss-armed-forces-vtg-bern-9dl42s",
+        "scientific-officer-armed-forces-relations-confederazione-svizzera-bern",
+        "collaborateur-trice-scientifique-relations-avec-les-forces-armees-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1324,8 +1328,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern",
-          "jurist-in-confederazione-svizzera-bern"
+          "jurist-in-confederazione-bern"
         ],
         "fr": [
           "juriste-confederazione-svizzera-bern"
@@ -1336,8 +1339,6 @@
       },
       "previousSlugs": [
         "jurist-in-confederazione-bern",
-        "avocat-confederazione-svizzera-bern",
-        "jurist-in-confederazione-svizzera-bern",
         "juriste-confederazione-svizzera-bern"
       ],
       "salaryMin": 78500,
@@ -5781,8 +5782,7 @@
       "firstSeenAt": "2026-09-23T23:59:04.439Z",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-confederazione-bern",
-          "jurist-in-confederazione-svizzera-bern"
+          "jurist-in-confederazione-bern"
         ],
         "en": [
           "jurist-in-confederazione-bern"
@@ -5792,8 +5792,7 @@
         ]
       },
       "previousSlugs": [
-        "jurist-in-confederazione-bern",
-        "jurist-in-confederazione-svizzera-bern"
+        "jurist-in-confederazione-bern"
       ]
     },
     {
@@ -10026,7 +10025,6 @@
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-confederazione-bern",
-          "giurista-confederazione-svizzera-bern",
           "jurist-in-confederazione-svizzera-bern",
           "jurist-in-confederazione-svizzera-bern-df4dfad7e5"
         ],
@@ -10039,7 +10037,6 @@
       },
       "previousSlugs": [
         "jurist-in-confederazione-bern",
-        "giurista-confederazione-svizzera-bern",
         "jurist-in-confederazione-svizzera-bern",
         "jurist-in-confederazione-svizzera-bern-df4dfad7e5"
       ],

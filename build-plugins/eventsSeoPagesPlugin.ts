@@ -4315,25 +4315,46 @@ export function historicalEventSlugMigrations(
   });
 }
 const EVENT_SLUG_REDIRECT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
-  it: { title: 'Pagina evento aggiornata | Frontaliere Ticino', body: 'L’indirizzo di questo evento è cambiato, ma la pagina resta disponibile per chi arriva da un vecchio link, da una ricerca o da un calendario salvato. Ti reindirizziamo alla scheda canonica, dove trovi data, luogo, programma, fonti e gli eventuali aggiornamenti pubblicati dagli organizzatori.', cta: 'Apri la pagina evento' },
-  en: { title: 'Event page updated | Frontaliere Ticino', body: 'This event address has changed, but the page remains available for visitors arriving from an old link, a search result or a saved calendar. You are being redirected to the canonical listing, where you can find the date, venue, programme, sources and any updates published by the organisers.', cta: 'Open the event page' },
-  de: { title: 'Veranstaltungsseite aktualisiert | Frontaliere Ticino', body: 'Die Adresse dieser Veranstaltung hat sich geändert, die Seite bleibt jedoch für Besucher mit einem alten Link, einem Suchergebnis oder einem gespeicherten Kalender erreichbar. Sie werden zur kanonischen Veranstaltung weitergeleitet, mit Datum, Ort, Programm, Quellen und allfälligen Aktualisierungen der Veranstalter.', cta: 'Veranstaltungsseite öffnen' },
-  fr: { title: 'Page événement mise à jour | Frontaliere Ticino', body: 'L’adresse de cet événement a changé, mais la page reste accessible aux visiteurs qui arrivent depuis un ancien lien, un résultat de recherche ou un calendrier enregistré. Vous serez redirigé vers la fiche canonique, qui présente la date, le lieu, le programme, les sources et les éventuelles mises à jour des organisateurs.', cta: 'Ouvrir la page événement' },
+  it: { title: 'Pagina evento aggiornata | Frontaliere Ticino', body: 'L’indirizzo di questo evento è cambiato, ma la pagina resta disponibile per chi arriva da un vecchio link, da una ricerca o da un calendario salvato. Ti reindirizziamo alla scheda canonica, dove trovi data, luogo, programma, modalità di partecipazione, fonti pubbliche e gli eventuali aggiornamenti pubblicati dagli organizzatori. Il nuovo indirizzo sostituisce quello precedente nei preferiti e conserva il riferimento alla stessa iniziativa.', cta: 'Apri la pagina evento' },
+  en: { title: 'Event page updated | Frontaliere Ticino', body: 'This event address has changed, but the page remains available for visitors arriving from an old link, a search result or a saved calendar. You are being redirected to the canonical listing, where you can find the date, venue, programme, participation details, public sources and any updates published by the organisers. The new address replaces the previous one in bookmarks while preserving the reference to the same event.', cta: 'Open the event page' },
+  de: { title: 'Veranstaltungsseite aktualisiert | Frontaliere Ticino', body: 'Die Adresse dieser Veranstaltung hat sich geändert, die Seite bleibt jedoch für Besucher mit einem alten Link, einem Suchergebnis oder einem gespeicherten Kalender erreichbar. Sie werden zur kanonischen Veranstaltung weitergeleitet, mit Datum, Ort, Programm, Teilnahmehinweisen, öffentlichen Quellen und allfälligen Aktualisierungen der Veranstalter. Die neue Adresse ersetzt den alten Link in Ihren Lesezeichen und verweist weiterhin auf dieselbe Veranstaltung.', cta: 'Veranstaltungsseite öffnen' },
+  fr: { title: 'Page événement mise à jour | Frontaliere Ticino', body: 'L’adresse de cet événement a changé, mais la page reste accessible aux visiteurs qui arrivent depuis un ancien lien, un résultat de recherche ou un calendrier enregistré. Vous serez redirigé vers la fiche canonique, qui présente la date, le lieu, le programme, les informations pratiques, les sources publiques et les éventuelles mises à jour des organisateurs. La nouvelle adresse remplace l’ancienne dans vos favoris tout en conservant le même événement.', cta: 'Ouvrir la page événement' },
 };
-export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: string): string {
+function eventSlugRedirectFacts(locale: Locale, event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>): string {
+  if (!event) return '';
+  const title = esc(event.title || '');
+  const date = esc(event.startDate || '');
+  const place = esc(event.venue || event.comune || '');
+  const source = esc(event.sourceName || '');
+  const facts: Record<Locale, string> = {
+    it: ` Evento recuperato: ${title}. Data: ${date}. Luogo: ${place}. Fonte pubblica: ${source}.`,
+    en: `Recovered event: ${title}. Date: ${date}. Venue: ${place}. Public source: ${source}.`,
+    de: `Wiederhergestellte Veranstaltung: ${title}. Datum: ${date}. Ort: ${place}. Öffentliche Quelle: ${source}.`,
+    fr: `Événement récupéré : ${title}. Date : ${date}. Lieu : ${place}. Source publique : ${source}.`,
+  };
+  return facts[locale];
+}
+
+export function renderEventSlugRedirectPage(
+  locale: Locale,
+  canonicalPath: string,
+  event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>,
+): string {
   const copy = EVENT_SLUG_REDIRECT_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const body = `${copy.body}${eventSlugRedirectFacts(locale, event)}`;
   const bridge = buildCanonicalBridgePage({
     canonicalUrl,
     pathLabel: canonicalPath,
     title: copy.title,
-    description: copy.body,
-    body: copy.body,
+    description: body,
+    body,
     ctaLabel: copy.cta,
     lang: locale,
-    // A changed/moved URL is an old alias, not the event's canonical landing.
-    // Keep it crawlable for the refresh target but out of the index.
-    noindex: true,
+    // Changed/moved event URLs are deliberately recoverable entry points. The
+    // canonical target remains authoritative, while the old URL stays
+    // indexable so a saved link or an existing search result can be recovered.
+    noindex: false,
   });
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
 }
@@ -4508,6 +4529,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let skippedLocaleRenders = 0;
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
+      const eventById = new Map(dataset.events.map((event) => [event.id, event]));
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
 
@@ -4530,7 +4552,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
-        const html = renderEventSlugRedirectPage(locale, toPath);
+        const html = renderEventSlugRedirectPage(locale, toPath, eventById.get(migration.eventId));
         const indexPath = path.join(distDir, fromPath, 'index.html');
         const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
         expectedSlugRedirectPaths.add(indexPath);
