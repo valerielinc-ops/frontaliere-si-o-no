@@ -29,7 +29,7 @@ const readRepoFile = (rel: string) => fs.readFileSync(path.join(REPO_ROOT, rel),
 // scendere e non va mai alzato. Togliere una voce non richiede di toccare
 // questo numero (`<=` resta vero): lo riallinea la pulizia della registry, così
 // due PR che tolgono voci diverse non si contendono questa riga.
-const EMPTY_OK_CRAWLERS_MAX = 54; // cron-count-ok: ratchet della registry chiusa, scende soltanto
+const EMPTY_OK_CRAWLERS_MAX = 53; // cron-count-ok: ratchet della registry chiusa, scende soltanto
 
 /**
  * Le chiavi che il monitor può osservare secondo il manifest dei crawler: lo
