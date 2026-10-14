@@ -26,7 +26,7 @@
  *
  * Source: https://careers.mediclinic.com/Hirslanden/search
  */
-import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -657,6 +657,10 @@ export async function fetchAllHirslandenJobs() {
       // The language the body is written in: 33 of 339 published postings
       // (2026-09-29) are French, and a fixed `de` put them in the German slot.
       const sourceLang = sourceLangOfBody(description, 'de');
+      const detailPostingDate = sourcePostingDateFields(detail?.postedDate);
+      const postingDate = detailPostingDate.postingDateSource === 'reported'
+        ? detailPostingDate
+        : sourcePostingDateFields(listing.postedDate);
 
       const job = {
         id: `${HIRSLANDEN_KEY}-${urlHash}`,
@@ -683,7 +687,7 @@ export async function fetchAllHirslandenJobs() {
         experienceLevel: detectExperienceLevel(title),
         currency: 'CHF',
         featured: false,
-        ...sourcePostingDateCandidatesFields([detail?.postedDate, listing.postedDate]),
+        ...postingDate,
         url: listing.url,
         applyUrl: detail?.applyUrl || listing.url,
         source: 'Hirslanden Klinik Dedicated Parser (SuccessFactors j2w)',
