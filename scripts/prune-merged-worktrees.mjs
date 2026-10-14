@@ -44,6 +44,7 @@ import {
   STALE_TEMP_DIR_AGE_MS,
 } from './lib/stale-temp-dir-sweep.mjs';
 import { sweepStaleDeviceArtifacts } from './lib/stale-device-artifact-sweep.mjs';
+import { sweepStaleWorkspaceArtifacts } from './lib/stale-workspace-artifact-sweep.mjs';
 
 const APPLY = process.argv.includes('--apply');
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
@@ -123,6 +124,7 @@ const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.gi
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
 const deviceSweepLock = join(gitDir, 'frontaliere-prune-device.lock');
+const workspaceSweepLock = join(gitDir, 'frontaliere-prune-workspace.lock');
 
 // Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
 // impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
@@ -421,6 +423,14 @@ if (deviceRun.acquired) {
   console.log(`🧹 device cache/session cleanup: ${deviceRun.value?.removed ?? 0}/${deviceRun.value?.candidates?.length ?? 0} stale items (${mb} MB).`);
 } else {
   console.log(`ℹ️  device cleanup saltato: un'altra istanza tiene ${deviceSweepLock}.`);
+}
+
+const workspaceRun = withSingleFlightLock(workspaceSweepLock, () => sweepStaleWorkspaceArtifacts({ apply: APPLY }));
+if (workspaceRun.acquired) {
+  const mb = Math.round((workspaceRun.value?.bytes ?? 0) / 1048576);
+  console.log(`🧹 workspace artifact cleanup: ${workspaceRun.value?.removed ?? 0}/${workspaceRun.value?.candidates?.length ?? 0} stale directories (${mb} MB).`);
+} else {
+  console.log(`ℹ️  workspace cleanup saltato: un'altra istanza tiene ${workspaceSweepLock}.`);
 }
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);

@@ -25,6 +25,12 @@ import {
   listStaleDeviceArtifacts,
   STALE_DEVICE_ARTIFACT_AGE_MS,
 } from '../scripts/lib/stale-device-artifact-sweep.mjs';
+import {
+  defaultWorkspaceRoot,
+  listStaleWorkspaceArtifacts,
+  STALE_WORKSPACE_ARTIFACT_AGE_MS,
+  workspacePruneTargets,
+} from '../scripts/lib/stale-workspace-artifact-sweep.mjs';
 
 // Regressione dell'incidente 2026-08-17: il SessionStart hook lanciava
 // `prune-merged-worktrees.mjs --apply` detached senza guard → N sessioni agent =
@@ -318,5 +324,32 @@ describe('stale device artifact sweep', () => {
     });
     expect(candidates.map((candidate) => candidate.path)).toContain(old);
     expect(candidates.every((candidate) => !candidate.path.includes('recent'))).toBe(true);
+  });
+});
+
+describe('stale workspace artifact sweep', () => {
+  it('usa root generico e target ricostruibili', () => {
+    expect(defaultWorkspaceRoot({ repoRoot: '/workspace/repo' })).toBe('/workspace');
+    expect(workspacePruneTargets('/workspace').map((target) => target.name)).toEqual([
+      'workspace-wt', 'workspace-worktrees', 'workspace-tmp',
+    ]);
+  });
+
+  it('seleziona solo directory stale e protegge un cwd attivo', () => {
+    const root = tmpDir();
+    const old = path.join(root, '.wt', 'old');
+    const active = path.join(root, '.wt', 'active');
+    fs.mkdirSync(old, { recursive: true });
+    fs.mkdirSync(active, { recursive: true });
+    fs.writeFileSync(path.join(old, 'result'), 'old');
+    fs.writeFileSync(path.join(active, 'result'), 'active');
+    const oldWhen = new Date(Date.now() - STALE_WORKSPACE_ARTIFACT_AGE_MS - 1000);
+    fs.utimesSync(path.join(old, 'result'), oldWhen, oldWhen);
+    fs.utimesSync(old, oldWhen, oldWhen);
+    fs.utimesSync(active, oldWhen, oldWhen);
+
+    const candidates = listStaleWorkspaceArtifacts({ workspaceRoot: root, activePaths: [active] });
+    expect(candidates.map((candidate) => candidate.path)).toContain(old);
+    expect(candidates.map((candidate) => candidate.path)).not.toContain(active);
   });
 });
