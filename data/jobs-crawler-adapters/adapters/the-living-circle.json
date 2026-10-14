@@ -11,7 +11,7 @@
     "https://jobs.thelivingcircle.ch/#jobs"
   ],
   "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.",
-  "updatedAt": "2026-10-13T21:17:14.081Z",
+  "updatedAt": "2026-10-14T09:18:24.205Z",
   "seedMetaByUrl": {
     "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/": {
       "location": "Thalwil",
@@ -227,6 +227,14 @@
       "company": "The Living Circle",
       "datePosted": "2026-10-09T17:20:05.736+02:00",
       "postedDate": "2026-10-09T17:20:05.736+02:00",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/68078391/Assistant-Restaurant-Manager-80-100%25-all-genders-/": {
+      "location": "Thalwil",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "datePosted": "2026-10-14T08:39:02.506+02:00",
+      "postedDate": "2026-10-14T08:39:02.506+02:00",
       "postingDateSource": "reported"
     }
   }
