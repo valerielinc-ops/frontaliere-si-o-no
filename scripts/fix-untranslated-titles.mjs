@@ -29,6 +29,7 @@
  *     absent or its per-run budget is spent (default 2).
  */
 
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
@@ -58,6 +59,43 @@ const TITLE_FIX_DEADLINE_MS = windowedDeadlineMs({
 });
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
+
+/**
+ * Retry backoff for a title slot the lane already failed on.
+ *
+ * Every entry of the attempt ledger is a slot that is still queued, i.e. a
+ * slot no attempt has fixed: a success removes it from the queue. Before this
+ * backoff the lane re-sent the same residue every run. Translate-pending runs
+ * 37741838594…38457393561 (2026-10-09…13): the 2a.2 lane spent its whole
+ * budget (350 Codex calls) for 0-9 titles fixed per run, mostly echoes of
+ * titles already in the target language; the ledger had 967 slots tried 20+
+ * times and 4320 retried in the last two days. That spend exhausted the Codex
+ * subscription about an hour into each run, and the 2d/2e repair lanes then
+ * stopped after three failed calls.
+ *
+ * A slot tried N >= 2 times waits min(2^(N-1), 30) days before the next try;
+ * a changed source title restarts it (the ledger stores a hash of the title it
+ * tried). Legacy entries without the hash wait at most 7 days, so a changed
+ * title is never parked for long. Never-tried slots are unaffected.
+ */
+export const TITLE_FIX_BACKOFF_MAX_DAYS = 30;
+const TITLE_FIX_LEGACY_BACKOFF_MAX_DAYS = 7;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export function titleFixSourceHash(sourceTitle) {
+  return createHash('sha256').update(String(sourceTitle || '').trim()).digest('hex').slice(0, 12);
+}
+
+export function isTitleFixBackedOff(entry, sourceTitle, nowMs = Date.now()) {
+  const attempts = Number(entry?.attempts) || 0;
+  if (attempts < 2) return false;
+  if (entry?.source && entry.source !== titleFixSourceHash(sourceTitle)) return false;
+  const last = Date.parse(String(entry?.lastAttemptAt || ''));
+  if (!Number.isFinite(last)) return false;
+  const maxDays = entry?.source ? TITLE_FIX_BACKOFF_MAX_DAYS : TITLE_FIX_LEGACY_BACKOFF_MAX_DAYS;
+  const waitDays = Math.min(2 ** (attempts - 1), maxDays);
+  return nowMs - last < waitDays * DAY_MS;
+}
 
 function readAttemptState() {
   try {
@@ -246,9 +284,14 @@ export function runTitleFixCandidatePool({
 
     if (!dryRun) {
       const prior = attemptState.attempts[candidate.key] || {};
+      // A changed source title restarts the count: the backoff only applies
+      // to repeated failures on the same text.
+      const source = titleFixSourceHash(sourceTitle);
+      const sameSource = !prior.source || prior.source === source;
       attemptState.attempts[candidate.key] = {
-        attempts: (Number(prior.attempts) || 0) + 1,
+        attempts: (sameSource ? (Number(prior.attempts) || 0) : 0) + 1,
         lastAttemptAt: new Date().toISOString(),
+        source,
       };
       stateChanged = true;
     }
@@ -361,6 +404,8 @@ async function main() {
   const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
   const attemptState = readAttemptState();
   const candidates = [];
+  const discoveryNowMs = Date.now();
+  let backedOff = 0;
   const sliceCache = new Map();
 
   // Discover the whole queue before calling the cascade. Alphabetical slice
@@ -379,6 +424,10 @@ async function main() {
       // become a candidate here.
       for (const { locale, reason } of titleRepairQueueLocales(job, LOCALES)) {
         const key = titleFixAttemptKey(file, job, jobIdx, locale);
+        if (isTitleFixBackedOff(attemptState.attempts[key], titleRepairSourceTitle(job), discoveryNowMs)) {
+          backedOff++;
+          continue;
+        }
         candidates.push({
           file,
           jobIdx,
@@ -401,6 +450,7 @@ async function main() {
   const budgetOk = () => (Date.now() - RUN_START_MS) < TITLE_FIX_DEADLINE_MS;
 
   console.log(`🔧 Fixing title repair candidates across ${files.length} slices (${candidates.length} slots)...`);
+  if (backedOff > 0) console.log(`   ⏸️  ${backedOff} slot(s) waiting for their retry backoff (already tried 2+ times on the same source title).`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)\n');
 
   const result = await runTitleFixCandidatePool({

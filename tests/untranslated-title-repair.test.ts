@@ -516,3 +516,54 @@ describe('fix-untranslated-titles.mjs candidate pool', () => {
     });
   });
 });
+
+describe('fix-untranslated-titles.mjs retry backoff', () => {
+  const DAY = 24 * 60 * 60 * 1000;
+  const now = Date.parse('2026-10-14T06:00:00Z');
+  const ago = (days: number) => new Date(now - days * DAY).toISOString();
+
+  it('lets never-tried and once-tried slots through and backs off repeated failures', async () => {
+    const fixer = await import('../scripts/fix-untranslated-titles.mjs');
+    const title = 'Systemingenieur mit Projekterfahrung';
+    const source = fixer.titleFixSourceHash(title);
+
+    expect(fixer.isTitleFixBackedOff(undefined, title, now)).toBe(false);
+    expect(fixer.isTitleFixBackedOff({ attempts: 1, lastAttemptAt: ago(0.1), source }, title, now)).toBe(false);
+    // Second failure: wait 2 days.
+    expect(fixer.isTitleFixBackedOff({ attempts: 2, lastAttemptAt: ago(1), source }, title, now)).toBe(true);
+    expect(fixer.isTitleFixBackedOff({ attempts: 2, lastAttemptAt: ago(3), source }, title, now)).toBe(false);
+    // The wait doubles and is capped at 30 days.
+    expect(fixer.isTitleFixBackedOff({ attempts: 5, lastAttemptAt: ago(15), source }, title, now)).toBe(true);
+    expect(fixer.isTitleFixBackedOff({ attempts: 40, lastAttemptAt: ago(29), source }, title, now)).toBe(true);
+    expect(fixer.isTitleFixBackedOff({ attempts: 40, lastAttemptAt: ago(31), source }, title, now)).toBe(false);
+  });
+
+  it('restarts a slot whose source title changed, and caps legacy entries at 7 days', async () => {
+    const fixer = await import('../scripts/fix-untranslated-titles.mjs');
+    const before = fixer.titleFixSourceHash('Systemingenieur mit Projekterfahrung');
+    expect(fixer.isTitleFixBackedOff({ attempts: 9, lastAttemptAt: ago(1), source: before }, 'Neuer Titel', now)).toBe(false);
+    // Ledger entries written before this change carry no hash.
+    expect(fixer.isTitleFixBackedOff({ attempts: 9, lastAttemptAt: ago(6) }, 'qualunque', now)).toBe(true);
+    expect(fixer.isTitleFixBackedOff({ attempts: 9, lastAttemptAt: ago(8) }, 'qualunque', now)).toBe(false);
+  });
+
+  it('records the source hash and restarts the count when the source title changes', async () => {
+    const fixer = await loadTitleFixer();
+    const data = fixture(1);
+    const key = data.candidates[0].key;
+    const state = { version: 1, attempts: { [key]: { attempts: 7, lastAttemptAt: ago(40), source: 'stale-hash' } } };
+
+    await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: state,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 0, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async () => '',
+    });
+
+    expect(state.attempts[key]).toMatchObject({
+      attempts: 1,
+      source: fixer.titleFixSourceHash(data.jobs[0].title),
+    });
+  });
+});
