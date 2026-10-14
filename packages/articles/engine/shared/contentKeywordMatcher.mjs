@@ -7,7 +7,7 @@ function normalize(value) {
 }
 
 function tokens(value) {
-  return Array.from(String(value || '').matchAll(/[\p{L}\p{N}]+/gu), m => ({
+  return Array.from(String(value || '').matchAll(/[\p{L}\p{N}][\p{L}\p{N}\p{M}]*/gu), m => ({
     value: normalize(m[0]), start: m.index, end: m.index + m[0].length,
   }));
 }
