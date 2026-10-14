@@ -184,7 +184,7 @@ export default function SumUpPaymentWidget({
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
         aria-busy={sdkLoading || busy}
-        className="relative flex max-h-[min(760px,calc(100dvh-1rem))] w-full max-w-lg flex-col overflow-hidden rounded-t-xl border border-edge bg-surface shadow-stripe-xl sm:max-h-[calc(100dvh-3rem)] sm:rounded-stripe"
+        className="relative flex max-h-[min(760px,calc(100dvh-1rem))] w-full max-w-lg flex-col overflow-hidden rounded-t-xl border border-edge bg-surface shadow-stripe-lg sm:max-h-[calc(100dvh-3rem)] sm:rounded-stripe"
       >
         <header className="shrink-0 border-b border-edge bg-surface px-4 pb-4 pt-4 sm:px-6 sm:pb-5 sm:pt-5">
           <div className="flex items-start justify-between gap-4">
