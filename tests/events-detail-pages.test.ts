@@ -35,6 +35,7 @@ import {
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
+import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 
 const EVENT = {
   id: 'tio-agenda:42',
@@ -1659,6 +1660,28 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
+  });
+
+  it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {
+    const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    const prior = seed.events.find((event: { id: string }) => event.id === 'guidle:An77Y4G');
+    expect(prior).toBeDefined();
+    const day = (offset: number) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
+    const [event] = retainPublishedPastEvents([{ ...prior, startDate: day(1), endDate: day(2), previousRoutes: [] }], [prior], day(0));
+    const assigned = assignEventSlugs([event] as never);
+    const migration = historicalEventSlugMigrations([event] as never, 'SO', event.comune, assigned)
+      .find((route) => route.fromSlug === prior.previousRoutes[0].slug)!;
+    expect(migration.eventId).toBe('guidle:An77Y4G');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const target = pathForEventDetail(locale, event.comune, migration.toSlug, migration.canton);
+      const previous = pathForEventDetail(locale, migration.fromComune!, migration.fromSlug, migration.fromCanton!);
+      if (locale === 'it') expect(previous).toBe('/eventi/soletta/lusslingen-nennigkofen/kulturkommision-lusslingen-nennigkofen-prasentiert-das-2026-07-10/');
+      const html = renderEventSlugRedirectPage(locale, target, event);
+      expect(html, locale).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${target}">`);
+      expect(html, locale).not.toContain('noindex');
+      expect(html, locale).toContain('Pfarrschüür Lüsslingen');
+      expect(countHtmlBodyWords(html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? ''), locale).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    }
   });
 
   it('keeps every localized old-event bridge above the indexable content floor', () => {

@@ -55,6 +55,27 @@ describe('assembled permanent event archive', () => {
     expect(second[0].previousRoutes).toEqual(first[0].previousRoutes);
   });
 
+  it('adds the verified MySwitzerland route to the existing Guidle owner without reviving a missing upcoming record', () => {
+    const seed = JSON.parse(fs.readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    const prior = seed.events.find((event: { id: string }) => event.id === 'guidle:An77Y4G');
+    expect(prior).toBeDefined();
+    expect(seed.events.some((event: { id: string }) => event.id === prior.recoveryEvidence.previousId)).toBe(false);
+    const route = {
+      canton: 'SO', comune: 'Lüsslingen-Nennigkofen',
+      slug: 'kulturkommision-lusslingen-nennigkofen-prasentiert-das-2026-07-10',
+    };
+    expect(prior.previousRoutes).toContainEqual(route);
+    const fresh = { ...prior, startDate: day(1), endDate: day(2), startTime: '20:15', previousRoutes: [] };
+    const [merged] = retainPublishedPastEvents([fresh], [prior], day(0));
+    expect(merged).toMatchObject({ id: fresh.id, startDate: day(1), endDate: day(2), startTime: '20:15' });
+    expect(merged.previousRoutes).toContainEqual(route);
+    expect(retainPublishedPastEvents([], [prior], prior.startDate)).toEqual([]);
+    const [archived] = retainPublishedPastEvents([], [merged], day(3));
+    expect(archived.previousRoutes).toContainEqual(route);
+    const [again] = retainPublishedPastEvents([], [archived], day(3));
+    expect(again.previousRoutes.filter((item: typeof route) => item.slug === route.slug)).toHaveLength(1);
+  });
+
   it('resolves duplicate historical IDs before assigning collision slugs', () => {
     const last = { ...old, title: 'Ultima osservazione' };
     const [result] = retainPublishedPastEvents([], [old, last]);
