@@ -144,7 +144,12 @@ export async function fetchAllOpusPersonalJobs() {
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      postalCode = '',
+      streetAddress = '',
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -184,8 +189,8 @@ export async function fetchAllOpusPersonalJobs() {
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      postalCode: normalizeSpace(postalCode || listing.postalCode || ''),
+      streetAddress: normalizeSpace(streetAddress || listing.streetAddress || ''),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'

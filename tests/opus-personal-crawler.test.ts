@@ -1,11 +1,34 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchAllOpusPersonalJobs,
   OPUS_PERSONAL_KEY,
   OPUS_PERSONAL_COMPANY_NAME,
   isOpusPersonalJob,
   isTrustedDomain,
 } from '../scripts/lib/opus-personal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  loadSpec: () => ({ key: 'opus-personal' }),
+  runSpecInProduction: async () => [{
+    title: 'IT-Systemadministrator',
+    location: '6460 Altdorf',
+    addressLocality: 'Altdorf',
+    addressRegion: 'UR',
+    addressCountry: 'CH',
+    description: 'Eine verantwortungsvolle Aufgabe in einem engagierten Team.',
+    url: 'https://opus-personal.ch/jobs/it-systemadministrator',
+  }],
+}));
+
+vi.mock('../scripts/lib/prospector/location-evidence.mjs', () => ({
+  resolveSourceBackedSwissGeography: () => ({
+    location: '6460 Altdorf',
+    canton: 'UR',
+    postalCode: '6460',
+    streetAddress: 'Bahnhofstrasse 1',
+  }),
+}));
 
 describe('Opus Personal AG, Zweigniederlassung Altdorf crawler parser', () => {
   // ── Constants ──
@@ -77,6 +100,15 @@ describe('Opus Personal AG, Zweigniederlassung Altdorf crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  it('retains normalized postal and street address from resolved source geography', async () => {
+    const [job] = await fetchAllOpusPersonalJobs();
+
+    expect(job).toMatchObject({
+      postalCode: '6460',
+      streetAddress: 'Bahnhofstrasse 1',
     });
   });
 
