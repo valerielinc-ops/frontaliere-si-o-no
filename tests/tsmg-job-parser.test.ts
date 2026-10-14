@@ -6,6 +6,8 @@ import {
   inferTsmgRegion,
   inferTsmgCategory,
   buildTsmgLocalizedContent,
+  fetchTsmgPostingPublication,
+  parseTsmgPostingPublication,
 } from '../scripts/lib/tsmg-job-parser.mjs';
 import {
   assertCompleteTsmgSourceSnapshot,
@@ -60,6 +62,25 @@ describe('tsmg-job-parser', () => {
     expect(localized.fr.description).toContain('TSMG recrute');
     expect(localized.de.slug).toContain('ki-sprachtester');
     expect(inferTsmgCategory(job.text)).toBe('tech');
+  });
+
+  it('keeps the employer date from the title-matched Lever JobPosting JSON-LD', async () => {
+    const html = '<script type="application/ld+json">'
+      + JSON.stringify({ '@type': 'JobPosting', title: 'Driver / Data Collector in Kreuzlingen, Switzerland', datePosted: '2024-06-11' })
+      + '</script>';
+    const url = 'https://jobs.lever.co/tsmg/1433c2dd-1bd6-4a6c-bd72-8b51a325bd18';
+    expect(parseTsmgPostingPublication(html, url, 'Driver / Data Collector in Kreuzlingen, Switzerland')).toMatchObject({
+      datePosted: '2024-06-11',
+      postedDate: '2024-06-11',
+      postingDateSource: 'reported',
+    });
+    await expect(fetchTsmgPostingPublication(url, 'Driver / Data Collector in Kreuzlingen, Switzerland', {
+      fetchImpl: vi.fn(async () => ({
+        ok: true,
+        headers: { get: () => 'text/html; charset=utf-8' },
+        text: async () => html,
+      })),
+    })).resolves.toMatchObject({ postingDateSource: 'reported', datePosted: '2024-06-11' });
   });
 
   it('fails closed when a source country is unknown instead of treating it as foreign', () => {

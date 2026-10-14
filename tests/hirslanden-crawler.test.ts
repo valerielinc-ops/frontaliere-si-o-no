@@ -268,6 +268,16 @@ describe('Hirslanden Klinik crawler parser', () => {
       expect(d?.applyUrl).toContain('/talentcommunity/apply/66992/');
     });
 
+    it('reads the employer publication timestamp from SuccessFactors JobPosting microdata', () => {
+      const d = parseDetailPage(`
+        <div itemscope itemtype="http://schema.org/JobPosting">
+          <meta itemprop="datePosted" content="Sun Oct 11 02:00:00 UTC 2026">
+        </div>
+        <h1>Rolle</h1>
+      `);
+      expect(d?.postedDate).toBe('2026-10-11T02:00:00Z');
+    });
+
     it('returns null for empty/invalid input', () => {
       expect(parseDetailPage('')).toBeNull();
       expect(parseDetailPage(null)).toBeNull();
@@ -357,6 +367,32 @@ describe('fetchAllHirslandenJobs — listing without a vacancy body', () => {
       expect(jobs[0].title).toBe('Dipl. Pflegefachfrau / Pflegefachmann (a) 80-100%');
       expect(jobs[0].description).toContain('Aufgabe 12: Du betreust Patientinnen');
       expect(jobs[0].description).not.toMatch(/Die Hirslanden-Gruppe ist mit 17 Privatkliniken/);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+  it('propagates a detail-page datePosted when the listing tile has no date', async () => {
+    const body = Array.from({ length: 12 }, (_, i) => `<p>Attività ${i + 1}: assistenza clinica e collaborazione con il team.</p>`).join('');
+    const searchHtml = `<table>
+      <tr><td><a href="/Hirslanden/job/Bern-Pflegefachfrau/1123876310/">Dipl. Pflegefachfrau</a></td><td>Bern, CH, 3000</td><td></td></tr>
+    </table>`;
+    const detailHtml = `<html><body>
+      <div itemscope itemtype="http://schema.org/JobPosting"><meta itemprop="datePosted" content="Sun Oct 11 02:00:00 UTC 2026"></div>
+      <span itemprop="description">${body}</span>
+    </body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => url.includes('/Hirslanden/search') ? searchHtml : detailHtml,
+    })));
+    try {
+      const jobs = await fetchAllHirslandenJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        datePosted: '2026-10-11T02:00:00Z',
+        postedDate: '2026-10-11T02:00:00Z',
+        postingDateSource: 'reported',
+      });
     } finally {
       vi.unstubAllGlobals();
     }

@@ -86,6 +86,7 @@ const MAX_ISSUE_FINDINGS = 50;
 const MAX_HISTORY_LINES = 400;
 const OBSERVATION_ONLY_FINDING_CODES = new Set([
   'cloudflare-5xx-unverified',
+  'jobposting-withheld-unverified-date',
 ]);
 
 export function isSeoIssueActionable(finding) {
@@ -901,7 +902,7 @@ export async function runSeoHealthLoop({
     phases: {
       phase1_crawlability: phaseStatus(allFindings, ['robots-unavailable', 'sitemap-fetch-error', 'sitemap-graph-truncated', 'sitemap-external-host', 'sitemap-no-trailing-slash', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:live-sitemap'),
       phase2_indexing: phaseStatus(allFindings, ['http-client-error', 'http-server-error', 'network-error', 'sitemap-redirect', 'sitemap-followed-redirect', 'canonical-missing', 'canonical-mismatch', 'sitemap-noindex', 'source-unavailable'], actionableKeys, (finding) => finding.code !== 'source-unavailable' || finding.url === 'source:live-page-sample'),
-      phase3_job_quality: phaseStatus(allFindings, ['jobposting-missing'], actionableKeys),
+      phase3_job_quality: phaseStatus(allFindings, ['jobposting-missing', 'jobposting-withheld-unverified-date'], actionableKeys),
       phase4_demand: demandPhase,
       phase5_resilience: resiliencePhase,
     },

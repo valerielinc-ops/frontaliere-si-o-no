@@ -203,6 +203,22 @@ function jsonLdTypes(value, out = new Set()) {
   return out;
 }
 
+/** Read the crawler provenance marker already embedded in the detail seed. */
+function extractSeedPostingDateSource(html) {
+  const source = String(html ?? '');
+  const seedStart = source.indexOf('window.__JOB_SEED__');
+  if (seedStart < 0) return null;
+  const scriptEnd = source.indexOf('</script>', seedStart);
+  const seedScript = source.slice(seedStart, scriptEnd >= 0 ? scriptEnd : undefined);
+  const match = /"postingDateSource"\s*:\s*"((?:\\.|[^"\\])*)"/.exec(seedScript);
+  if (!match) return null;
+  try {
+    return JSON.parse(`"${match[1]}"`);
+  } catch {
+    return null;
+  }
+}
+
 /** Extract the SEO signals that can be asserted on a sampled HTML response. */
 export function extractPageSignals(html, pageUrl) {
   const source = String(html ?? '');
@@ -228,6 +244,7 @@ export function extractPageSignals(html, pageUrl) {
     jsonLdCount: scripts.length,
     jsonLdTypes: [...jsonLdTypesSeen].sort(),
     hasJobPosting,
+    postingDateSource: extractSeedPostingDateSource(source),
     hasTitle: /<title\b[^>]*>\s*[^<\s][\s\S]*?<\/title>/i.test(source),
   };
 }
@@ -313,7 +330,13 @@ export function findingsForProbe({
   }
   if (signals.noindex) add('sitemap-noindex', { robots: signals.robots });
   if (isJobDetailPath(pageUrl) && !signals.hasJobPosting) {
-    add('jobposting-missing', { jsonLdTypes: signals.jsonLdTypes });
+    const withheld = typeof signals.postingDateSource === 'string'
+      && signals.postingDateSource.length > 0
+      && signals.postingDateSource !== 'reported';
+    add(withheld ? 'jobposting-withheld-unverified-date' : 'jobposting-missing', {
+      jsonLdTypes: signals.jsonLdTypes,
+      postingDateSource: signals.postingDateSource,
+    });
   }
   return findings;
 }
