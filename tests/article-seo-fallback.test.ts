@@ -206,7 +206,7 @@ describe('article SEO fallback builder', () => {
   it.each([
     'https://example.test/source/?id=1', 'http://example.test/source/',
     '/cambio-chf-eur/', '#fonti', '../other-article/', './document.pdf', 'mailto:help@example.test',
-    'foo/bar', '?section', 'other-article', 'report.pdf', './alertswiss.ch',
+    'foo/bar', '?section', 'other-article', 'report.pdf', './alertswiss.ch', 'calculator/help',
   ])('preserves resolved and standard relative article links (%s)', (href) => {
     expect(renderArticleInlineMarkup(`[Fonte](${href})`)).toBe(`<a href="${href}">Fonte</a>`);
     expect(renderArticleInlineMarkup(`<a href="${href}">Fonte</a>`)).toBe(`<a href="${href}">Fonte</a>`);

@@ -242,7 +242,7 @@ const safeInlineHref = (value: string): string | null => {
  // their labels without guessing a scheme or a destination. File names and
  // relative article paths still resolve against the declared document URL.
  if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return null;
- if (/^calculator(?:[/?#]|$)/i.test(href)) return null;
+ if (/^calculator(?:[?#].*)?$/i.test(href)) return null;
  if (/^(?:www\.|(?:[a-z0-9-]+\.)+(?:ch|it|com|org|net|gov|edu|eu|io)(?:[/?#]|$))/i.test(href)) return null;
  return href;
 };
