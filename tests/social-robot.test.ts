@@ -590,6 +590,35 @@ describe('runRobot', () => {
     expect(h.calls.issues).toEqual([]);
   });
 
+  it('closes the platform failure issue after a real publish, once per run, and never after a dry run (#11755)', async () => {
+    const first = entry('article', '2026-10-03');
+    const second = entry('job', '2026-10-03');
+    const resolved: Array<{ title: string; channel: string; queueId: string }> = [];
+    const resolveIssue = async (args: { title: string; channel: string; queueId: string }) => { resolved.push(args); };
+
+    const live = harness({ queue: { pending: [first, second] } });
+    await runRobot(live.deps({ resolveIssue } as Partial<Deps>));
+    expect(live.calls.flow.length).toBeGreaterThan(0);
+    expect(resolved).toEqual([{ title: issueTitleFor('instagram'), channel: 'instagram', queueId: first.id }]);
+
+    resolved.length = 0;
+    const dry = harness({ queue: { pending: [first] } });
+    await runRobot(dry.deps({ resolveIssue, cliMode: 'dry-run' } as Partial<Deps>));
+    expect(dry.calls.flow.map((c) => c.dryRun)).toEqual([true]);
+    expect(resolved).toEqual([]);
+  });
+
+  it('keeps publishing when closing the issue fails', async () => {
+    const warnings: string[] = [];
+    const h = harness();
+    const out = await runRobot(h.deps({
+      resolveIssue: async () => { throw new Error('lookup unreliable'); },
+      log: { log: () => {}, warn: (m: string) => { warnings.push(m); }, error: () => {} },
+    } as Partial<Deps>));
+    expect(out.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published' });
+    expect(warnings.join('\n')).toContain('could not close the instagram issue: lookup unreliable');
+  });
+
   it('stays a dry run unless the command line AND Remote Config allow publishing', async () => {
     for (const [cliMode, rcMode] of [['dry-run', 'live'], ['publish', 'dry'], ['dry-run', 'dry']] as const) {
       const h = harness();

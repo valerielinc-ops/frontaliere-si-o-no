@@ -109,6 +109,10 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'sonde sintetiche del matcher tutte verdi → chiude il titolo stabile del monitor',
   },
+  'scripts/social-robot/run.mjs': {
+    calls: 1,
+    why: 'pubblicazione live riuscita su una piattaforma → chiude il titolo stabile esatto «Robot social: pubblicazione <piattaforma> non riuscita» che lo stesso robot apre (issue 11755); nessun numero valutato',
+  },
   'scripts/seo/seo-health-loop.mjs': {
     calls: 1,
     why: 'osservazione verde dopo una rossa → chiude il titolo stabile del loop SEO',
