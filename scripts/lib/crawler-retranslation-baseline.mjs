@@ -65,12 +65,31 @@ function normalizeSourceText(value) {
  * description, normalised so a whitespace / markup / case rewrite of the same
  * words hashes identically (the "formal only" class of change).
  */
+/**
+ * The description's paragraphs, normalised and sorted: the same paragraphs in
+ * a different order are the same source. Staffing agencies serve their
+ * paragraphs in a different order on every visit (2026-10-13: 1566 sta.jobs,
+ * 773 Stellentreff, 682 Stellenpartner descriptions changed only in order in
+ * one crawl wave); an order-sensitive hash re-raised `needsRetranslation` on
+ * all of them every crawl. The baseline is recomputed in-process from the
+ * stored slice with this same function, so the change raises no flag by
+ * itself.
+ */
+function normalizeSourceParagraphs(value) {
+  return String(value ?? '')
+    .split(/\n+/)
+    .map(normalizeSourceText)
+    .filter(Boolean)
+    .sort()
+    .join('\n');
+}
+
 export function retranslationSourceHash(job) {
   const sourceLang = String(job?.sourceLang || 'it').trim().toLowerCase() || 'it';
   const title = job?.title || job?.titleByLocale?.[sourceLang] || '';
   const description = job?.description || job?.descriptionByLocale?.[sourceLang] || '';
   return createHash('sha256')
-    .update(JSON.stringify([sourceLang, normalizeSourceText(title), normalizeSourceText(description)]))
+    .update(JSON.stringify([sourceLang, normalizeSourceText(title), normalizeSourceParagraphs(description)]))
     .digest('hex');
 }
 

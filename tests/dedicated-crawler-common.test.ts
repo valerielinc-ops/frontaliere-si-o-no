@@ -1011,6 +1011,49 @@ describe('mergeLocaleTextMap / mergePreserveLocaleData — source-locale drift g
     expect(merged.fr).toBeUndefined();
   });
 
+  // Staffing agencies (sta.jobs, Stellentreff, Stellenpartner) serve the same
+  // paragraphs in a different order on every visit. The drift guard compared
+  // only the first 140 slug characters, so the reorder looked like a different
+  // job and the translations were dropped (2026-10-13, group-10 crawl: 596 of
+  // 773 reordered Stellentreff descriptions).
+  const AGENCY_PARAGRAPHS = [
+    'Die Arbeit umfasst das Bedienen und Überwachen von Maschinen in einem modernen Hobelwerk.',
+    'Es erwartet dich ein kollegiales Umfeld mit langfristiger Perspektive und fairen Arbeitszeiten.',
+    'Tätigkeiten\n- Plattenzuschnitte an der Plattensäge herstellen\n- Bauteile aus Brandschutzmaterial anfertigen',
+    'Profil\n- Abgeschlossene Lehre als Zimmermann EFZ\n- Führerausweis Kategorie B von Vorteil',
+  ];
+
+  it('mergeLocaleTextMap keeps translations when a long description only changes paragraph order', () => {
+    const before = AGENCY_PARAGRAPHS.join('\n');
+    const reordered = [AGENCY_PARAGRAPHS[2], AGENCY_PARAGRAPHS[0], AGENCY_PARAGRAPHS[3], AGENCY_PARAGRAPHS[1]].join('\n');
+    const old = {
+      de: before,
+      it: 'Il lavoro comprende la conduzione e la sorveglianza di macchine in una moderna piallatrice. '.repeat(3),
+      en: 'The work includes operating and monitoring machines in a modern planing mill. '.repeat(3),
+      fr: 'Le travail comprend la conduite et la surveillance de machines dans une raboterie moderne. '.repeat(3),
+    };
+    const merged = mergeLocaleTextMap(old, { de: reordered }, 30, 'de');
+    expect(merged.de).toBe(reordered);
+    expect(merged.it).toBe(old.it.trim());
+    expect(merged.en).toBe(old.en.trim());
+    expect(merged.fr).toBe(old.fr.trim());
+  });
+
+  it('mergeLocaleTextMap still drops translations when a long description is a different posting', () => {
+    const old = {
+      de: AGENCY_PARAGRAPHS.join('\n'),
+      it: 'Il lavoro comprende la conduzione e la sorveglianza di macchine in una moderna piallatrice. '.repeat(3),
+    };
+    const other = [
+      'Als Pflegefachperson HF betreust du Patientinnen und Patienten auf der chirurgischen Station.',
+      'Du arbeitest im Schichtbetrieb mit einem interdisziplinären Team aus Ärzten und Therapeuten.',
+      'Voraussetzung ist ein Diplom in Pflege sowie Freude an der Arbeit mit Menschen jeden Alters.',
+    ].join('\n');
+    const merged = mergeLocaleTextMap(old, { de: other }, 30, 'de');
+    expect(merged.de).toBe(other);
+    expect(merged.it).toBeUndefined();
+  });
+
   it('mergeLocaleTextMap still preserves translations for ordinary wording edits to the same job', () => {
     const old = {
       it: 'Impiegato/a di commercio per la Ricerca 80-100%',
