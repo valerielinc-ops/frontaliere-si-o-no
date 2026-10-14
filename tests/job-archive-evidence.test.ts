@@ -52,4 +52,15 @@ describe('recorded versus URL-inferred job identity', () => {
       expect(copy.details).not.toBe('');
     }
   });
+  it('does not promote dates or JobPosting from an unverified partial archive record', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    expect(source).toContain("const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : ''");
+    expect(source).toContain('if (hasRealTitle && jobDatePosted) detailItems.push(');
+    expect(source).toContain('if (hasRealTitle && jobExpiredAt) detailItems.push(');
+    const start = source.indexOf('const jobPostingLd = (() => {');
+    const end = source.indexOf('const realTitle =', start);
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(source.slice(start, end)).toContain("if (!hasRealTitle) return '';");
+  });
 });

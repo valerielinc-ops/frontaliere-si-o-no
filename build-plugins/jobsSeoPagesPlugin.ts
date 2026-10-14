@@ -13450,7 +13450,7 @@ ${staticAnalyticsHtml}
  const expiredDescriptionByLocale = pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale);
  const expiredSlugByLocale = ejData?.slugByLocale || gscInfo?.slugByLocale || {};
  const expiredSector = ejData?.sector || gscInfo?.sector || '';
- const expiredAt = ejData?.expiredAt || '';
+ const expiredAt = hasRealTitle ? ejData?.expiredAt || '' : '';
  // A title-less seed selects the existing orphan view, while its own route
  // slug still scopes canonical/schema guards after hydration. A tracking key
  // can differ from the locale path it owns; it is not posting evidence.
@@ -13606,8 +13606,8 @@ ${staticAnalyticsHtml}
  if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}${hasRealTitle ? `, ${esc(displayCanton)}` : ''}</li>`);
  if (jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
  if (jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
- if (jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
- if (jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
+ if (hasRealTitle && jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
+ if (hasRealTitle && jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
  staticBodyParts.push(`<section><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
 
  // --- Same-company active jobs ---
@@ -13784,6 +13784,7 @@ ${staticAnalyticsHtml}
  const jobPostingLd = (() => {
  // Keep the complete historical identity, but never advertise an archive as
  // open: only real past timestamps may supply its explicit validThrough.
+ if (!hasRealTitle) return '';
  const realTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title
  || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '').trim();
  const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
