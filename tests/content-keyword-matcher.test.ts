@@ -25,7 +25,7 @@ describe('multilingual content matching', () => {
     const text = 'Comparez les prix du diesel avant le trajet.';
     const out = autoLinkKeywords(text, {}, 'fr');
     expect(out).toContain(`](${paths['fuel-diesel']})`);
-    expect(paths['fuel-diesel']).toBe('/fr/prix-gasoil-suisse/aujourdhui/');
+    expect(paths['fuel-diesel']).toBe('/fr/prix-gasoil-suisse/aujourd-hui/');
     expect(autoLinkKeywords(out, {}, 'fr')).toBe(out);
   });
 
