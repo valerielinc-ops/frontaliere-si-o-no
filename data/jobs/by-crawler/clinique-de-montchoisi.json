@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-10-14T09:35:10.668Z",
+  "assembledAt": "2026-10-14T21:26:48.119Z",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-bdfb3af7be68",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-de-montchoisi-lausanne",
         "en": "nurse-clinique-de-montchoisi-lausanne",
-        "de": "krankenschwester-clinique-de-montchoisi-lausanne",
+        "de": "infirmier-ere-clinique-de-montchoisi-lausanne",
         "fr": "infirmier-ere-clinique-de-montchoisi"
       },
       "company": "Clinique de Montchoisi",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:35:03.474Z",
+      "crawledAt": "2026-10-14T21:26:38.581Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,14 +55,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-de-montchoisi",
-        "infirmier-ere-clinique-de-montchoisi-lausanne"
+        "krankenschwester-clinique-de-montchoisi-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinique-de-montchoisi"
         ],
         "de": [
-          "infirmier-ere-clinique-de-montchoisi-lausanne"
+          "krankenschwester-clinique-de-montchoisi-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:31:24.492Z",
@@ -113,7 +113,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:35:03.473Z",
+      "crawledAt": "2026-10-14T21:26:38.577Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155164789-chef-fe-de-partie-patisserie",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T09:35:03.472Z",
+      "crawledAt": "2026-10-14T21:26:38.575Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
