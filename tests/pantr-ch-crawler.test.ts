@@ -113,6 +113,35 @@ describe('Pantr GmbH crawler parser', () => {
       expect(sriracha?.experienceLevel).toBe('mid');
       expect(italian?.sector).toBe(PANTR_CH_SECTOR);
     });
+
+    it('normalizes a source-backed country name to the canonical CH code', () => {
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/source-country-name'),
+        addressCountry: 'Switzerland',
+      })).toMatchObject({
+        country: 'CH',
+        addressCountry: 'CH',
+        location: 'Lugano, TI',
+        canton: 'TI',
+      });
+    });
+
+    it('quarantines explicit foreign country evidence', () => {
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/foreign-country'),
+        addressCountry: 'France',
+      })).toBeNull();
+    });
+
+    it('quarantines missing country when the location is unresolved', () => {
+      expect(buildPantrChJobFromListing({
+        ...listing('https://pantr.ch/jobs/missing-country'),
+        addressCountry: '',
+        location: 'Remote',
+        addressLocality: '',
+        addressRegion: '',
+      })).toBeNull();
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

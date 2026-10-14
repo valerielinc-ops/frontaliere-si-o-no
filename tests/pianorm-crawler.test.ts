@@ -4,6 +4,7 @@ import {
   PIANORM_COMPANY_NAME,
   isPianormJob,
   isTrustedDomain,
+  buildPianormJobFromListing,
 } from '../scripts/lib/pianorm-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -64,6 +65,42 @@ describe('pianorm crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed country contract', () => {
+    const listing = (overrides: Record<string, unknown> = {}) => ({
+      title: 'Maschinist oder Fertigungsspezialist',
+      description: 'Source description for a Swiss vacancy.',
+      location: 'Illnau, ZH',
+      addressLocality: 'Illnau',
+      addressRegion: 'ZH',
+      addressCountry: 'Schweiz',
+      postalCode: '8308',
+      url: 'https://www.pianorm.ch/job/maschinist/',
+      ...overrides,
+    });
+
+    it('publishes the canonical CH code after validating a source country label', () => {
+      expect(buildPianormJobFromListing(listing())).toMatchObject({
+        country: 'CH',
+        addressCountry: 'CH',
+        location: 'Illnau, ZH',
+        canton: 'ZH',
+      });
+    });
+
+    it('rejects explicit foreign country evidence even with a Swiss-looking locality', () => {
+      expect(buildPianormJobFromListing(listing({ addressCountry: 'France' }))).toBeNull();
+    });
+
+    it('rejects missing country when the source location cannot prove a Swiss canton', () => {
+      expect(buildPianormJobFromListing(listing({
+        addressCountry: '',
+        location: 'Remote',
+        addressLocality: '',
+        addressRegion: '',
+      }))).toBeNull();
     });
   });
 

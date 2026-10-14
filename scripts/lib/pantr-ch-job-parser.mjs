@@ -166,8 +166,10 @@ export function buildPantrChJobFromListing(listing) {
     // other ATS tiers use the same fields when their client exposes them.
     addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
     addressRegion: normalizeSpace(listing.addressRegion || canton),
-    addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-    country: normalizeSpace(listing.addressCountry || 'CH'),
+    // Geography above has already rejected explicit foreign/ambiguous evidence;
+    // publish the canonical ISO code rather than the source's localized label.
+    addressCountry: 'CH',
+    country: 'CH',
     ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
     ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
     category: detectCategory(title),

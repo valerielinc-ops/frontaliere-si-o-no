@@ -4,6 +4,7 @@ import {
   NEOPROCONSEILS_COMPANY_NAME,
   isNeoproconseilsJob,
   isTrustedDomain,
+  buildNeoproconseilsJobFromListing,
 } from '../scripts/lib/neoproconseils-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,41 @@ describe('NEO Pro conseils SA crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('source-backed country contract', () => {
+    const listing = (overrides: Record<string, unknown> = {}) => ({
+      title: 'Installateur électricien',
+      description: 'Source description for a Swiss vacancy.',
+      location: 'Genève, GE',
+      addressLocality: 'Genève',
+      addressRegion: 'GE',
+      addressCountry: 'Suisse',
+      url: 'https://neoproconseils.ch/emplois/installateur-electricien/',
+      ...overrides,
+    });
+
+    it('publishes the canonical CH code after validating a source country label', () => {
+      expect(buildNeoproconseilsJobFromListing(listing())).toMatchObject({
+        country: 'CH',
+        addressCountry: 'CH',
+        location: 'Genève, GE',
+        canton: 'GE',
+      });
+    });
+
+    it('rejects explicit foreign country evidence even with a Swiss-looking locality', () => {
+      expect(buildNeoproconseilsJobFromListing(listing({ addressCountry: 'France' }))).toBeNull();
+    });
+
+    it('rejects missing country when the source location cannot prove a Swiss canton', () => {
+      expect(buildNeoproconseilsJobFromListing(listing({
+        addressCountry: '',
+        location: 'Remote',
+        addressLocality: '',
+        addressRegion: '',
+      }))).toBeNull();
     });
   });
 
