@@ -4,11 +4,26 @@ import { assemble, retainPublishedPastEvents } from '../scripts/assemble-events-
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { eventDateIssues } from '../scripts/lib/events-date-quality.mjs';
+import { isPrivateEventRecord } from '../scripts/lib/private-event-sources.mjs';
 
 const day = (offset: number) => new Date(Date.now() + offset * 86400000).toISOString().slice(0, 10);
 const old = { id: 'guidle:old', sourceKey: 'guidle', title: 'Concerto storico', startDate: day(-10), comune: 'Lugano', canton: 'TI' };
 
 describe('assembled permanent event archive', () => {
+  it('keeps the recovery seed attributable, unique and limited to public facts', () => {
+    const seed = JSON.parse(fs.readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
+    expect(seed.events.length).toBeGreaterThan(0);
+    expect(new Set(seed.events.map((event: { id: string }) => event.id)).size).toBe(seed.events.length);
+    for (const snapshot of seed.sourceSnapshots) expect(snapshot.commit).toMatch(/^[a-f0-9]{40}$/);
+    for (const event of seed.events) {
+      expect(eventDateIssues(event)).toEqual([]);
+      expect(isPrivateEventRecord(event)).toBe(false);
+      expect(event.url).toMatch(/^https:\/\//);
+      expect(Object.keys(event).some((key) => /description|image/i.test(key))).toBe(false);
+    }
+  });
+
   it('retains ended public events absent from all source slices', () => {
     expect(retainPublishedPastEvents([], [old])).toEqual([expect.objectContaining({ id: old.id })]);
   });
