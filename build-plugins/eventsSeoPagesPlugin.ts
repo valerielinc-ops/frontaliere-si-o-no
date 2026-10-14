@@ -4331,9 +4331,10 @@ export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: strin
     body: copy.body,
     ctaLabel: copy.cta,
     lang: locale,
-    // A changed/moved URL is an old alias, not the event's canonical landing.
-    // Keep it crawlable for the refresh target but out of the index.
-    noindex: true,
+    // Changed/moved event URLs are deliberately recoverable entry points. The
+    // canonical target remains authoritative, while the old URL stays
+    // indexable so a saved link or an existing search result can be recovered.
+    noindex: false,
   });
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
 }

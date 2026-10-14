@@ -189,6 +189,13 @@ describe('every unknown degrades to the pre-demand floor, never to a demotion', 
 describe('the plugin composes the gate so the signal can only ADD pages', () => {
   const plugin = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
 
+  it('uses three active postings as the full canonical profile floor', () => {
+    expect(MIN_ACTIVE_JOBS).toBe(3);
+    expect(readRepoFile('build-plugins/shared/employerProfileConfig.mjs')).toContain(
+      'export const MIN_ACTIVE_JOBS = 3;',
+    );
+  });
+
   it('ORs demand onto the job floor instead of replacing it', () => {
     // `A || B` is a superset of `A`: no page indexable today can become
     // noindex because of this, whatever the demand table says or fails to say.

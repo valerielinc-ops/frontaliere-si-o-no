@@ -1651,9 +1651,10 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(changedEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned, reserved)).toEqual([]);
   });
 
-  it('keeps the old published tie slug reachable through a noindex canonical bridge', () => {
+  it('keeps the old published tie slug indexable through a canonical bridge', () => {
     const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/');
-    expect(html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(html).not.toContain('noindex');
+    expect(html).toContain('max-image-preview:large');
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
     expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
   });
