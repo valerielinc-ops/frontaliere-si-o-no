@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-13T21:28:53.893Z",
+  "generatedAt": "2026-10-14T09:32:42.279Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5990,
-  "avgDurationMs": 5990,
+  "durationMs": 4780,
+  "avgDurationMs": 4780,
   "durationHistory": [
-    5990
+    4780
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "amina-bank-cb420a3c2317",
-      "slug": "relationship-manager-amina-bank-zug",
+      "slug": "responsabile-relazioni-amina-bank-zug",
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
       "companyDomain": "amina.jobs.personio.com",
@@ -34,7 +35,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:28:39.813Z",
+      "crawledAt": "2026-10-14T09:32:34.338Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -50,22 +51,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://amina.jobs.personio.com/job/2840347",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-13T21:28:39.813Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-10-13T21:28:39.813Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "amina-bank-43d485a2b0f5",
       "slug": "strategie-di-pagamento-e-sviluppo-commerciale-amina-bank-zug",
@@ -78,7 +76,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:28:39.387Z",
+      "crawledAt": "2026-10-14T09:32:34.110Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -123,7 +121,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:28:38.510Z",
+      "crawledAt": "2026-10-14T09:32:33.788Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -153,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

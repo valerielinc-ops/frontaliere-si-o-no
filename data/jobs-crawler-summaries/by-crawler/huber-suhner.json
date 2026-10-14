@@ -1,7 +1,7 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-10-13T21:29:05.545Z",
+  "generatedAt": "2026-10-14T09:28:20.683Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 15718,
-  "avgDurationMs": 15718,
+  "durationMs": 12888,
+  "avgDurationMs": 12888,
   "durationHistory": [
-    15718
+    12888
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:51.261Z",
+      "crawledAt": "2026-10-14T09:28:09.823Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:50.145Z",
+      "crawledAt": "2026-10-14T09:28:08.835Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:49.021Z",
+      "crawledAt": "2026-10-14T09:28:07.840Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:47.931Z",
+      "crawledAt": "2026-10-14T09:28:06.856Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:46.808Z",
+      "crawledAt": "2026-10-14T09:28:05.856Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:45.676Z",
+      "crawledAt": "2026-10-14T09:28:04.854Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -315,7 +315,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:44.536Z",
+      "crawledAt": "2026-10-14T09:28:03.797Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8273/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-13T21:28:43.361Z",
+      "crawledAt": "2026-10-14T09:28:02.801Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -397,5 +397,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
