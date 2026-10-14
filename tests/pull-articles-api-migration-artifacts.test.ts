@@ -75,6 +75,9 @@ const blogSitemap = urlset([
   `  <url>
     <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/a-en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/a-de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/a-fr/" />
   </url>`,
 ]);
 
@@ -110,7 +113,20 @@ const archiveSitemap = urlset([
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const SLUGS_PATH = 'slugs.json';
 const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
+const publishedSlugs = (blog: Record<string, Record<string, string>>, swiss = {}) => JSON.stringify({
+  commit: API_COMMIT,
+  blog,
+  swiss,
+});
+const PUBLISHED_SLUGS = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+});
+const PUBLISHED_SLUGS_A_B = publishedSlugs({
+  a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' },
+  b: { it: 'b', en: 'b-en', de: 'b-de', fr: 'b-fr' },
+});
 const validGeneratedCover = () => {
   const now = Date.now();
   return {
@@ -234,7 +250,7 @@ let routes: Routes = {};
 let manifestSequence: string[] | null = null;
 let manifestSequenceIndex = 0;
 
-function baseRoutes(): Routes {
+function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
   const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
   const r: Routes = {
     // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
@@ -246,9 +262,13 @@ function baseRoutes(): Routes {
     'manifest.json': JSON.stringify({
       commit: API_COMMIT,
       counts: { articles: 500 },
-      files: { [BLOG_CREDITS_PATH]: Buffer.byteLength(credits) },
+      files: {
+        [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
+        [SLUGS_PATH]: Buffer.byteLength(slugs),
+      },
     }),
     [BLOG_CREDITS_PATH]: credits,
+    [SLUGS_PATH]: slugs,
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
@@ -294,7 +314,11 @@ afterAll(async () => {
 });
 
 /** A throwaway checkout carrying the files the script expects to already serve. */
-function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | null } = {}) {
+function makeCheckout(opts: {
+  newsEntries?: string[];
+  windowHours?: number | null;
+  frontaliereShadowedSlugs?: string[];
+} = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pull-articles-'));
   const pub = path.join(dir, 'public');
   fs.mkdirSync(pub, { recursive: true });
@@ -307,7 +331,27 @@ function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | nul
       `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
     );
   }
-  for (const s of SITEMAPS) fs.writeFileSync(path.join(pub, s), blogSitemap);
+  if (opts.frontaliereShadowedSlugs?.length) {
+    const overridesDir = path.join(dir, 'packages', 'articles', 'engine', 'shared');
+    fs.mkdirSync(overridesDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(overridesDir, 'frontaliere-article-canonical-overrides.json'),
+      JSON.stringify({
+        overrides: Object.fromEntries(
+          opts.frontaliereShadowedSlugs.map((slug) => [
+            slug,
+            'https://frontaliereticino.ch/articoli-frontaliere/a/',
+          ]),
+        ),
+      }),
+    );
+  }
+  for (const s of SITEMAPS) {
+    fs.writeFileSync(
+      path.join(pub, s),
+      s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap,
+    );
+  }
   for (const f of FEEDS) fs.writeFileSync(path.join(pub, f), feed);
   fs.writeFileSync(path.join(pub, 'news-ticker-live.json'), ticker);
   fs.writeFileSync(path.join(pub, 'sitemap-news.xml'), urlset(opts.newsEntries ?? []));
@@ -352,6 +396,49 @@ function run(cwd: string, args: string[] = []): Promise<{ code: number | null; o
 
 const readPub = (dir: string, rel: string) =>
   fs.readFileSync(path.join(dir, 'public', rel), 'utf-8');
+
+describe('pull-articles-api: sitemap/slug-map source parity', () => {
+  it('refuses a hreflang slug that disagrees with the same release slug map', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-blog.xml': urlset([
+        `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/wrong/" />
+  </url>`,
+      ]),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-blog.xml: a en hreflang');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('refuses a sitemap that omits a publishable Italian slug', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('b (b) absent from the sitemap');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+
+  it('allows a slug omitted by the corpus canonical-override rule', async () => {
+    routes = baseRoutes(PUBLISHED_SLUGS_A_B);
+    const dir = makeCheckout({ frontaliereShadowedSlugs: ['b'] });
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).toBe(0);
+    expect(result.out).not.toContain('absent from the sitemap');
+  });
+});
 
 describe('pull-articles-api: hero-image manifest', () => {
   it('skips both artifacts when nanako does not publish them yet, and still pulls the rest', async () => {
