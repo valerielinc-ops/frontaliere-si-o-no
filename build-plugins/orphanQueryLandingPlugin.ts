@@ -28,7 +28,8 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *
  * Gates:
  *   - SKIP_ORPHAN_LANDINGS=1 → fast-path exit, no files generated.
- *   - MAX_ORPHAN_LANDINGS (default 1000) caps total pages per build.
+ *   - MAX_ORPHAN_LANDINGS (default 1000) lowers the validated total-page cap
+ *     per build; values above the validated cap are bounded back to 1000.
  *
  * The plugin DEGRADES GRACEFULLY when the clusters file is missing —
  * it logs a warning and returns without failing the build.
@@ -102,6 +103,15 @@ const MIN_MATCHING_JOBS = 3;
  * (507 indexable, 493 noindex) plus two canonical bridges.
  */
 export const DEFAULT_MAX_LANDINGS = 1000;
+
+/**
+ * Resolve the build cap without allowing an unmeasured env override to reopen
+ * the performance regression that this bounded cohort is meant to prevent.
+ */
+export function resolveMaxOrphanLandings(maxEnv: number): number {
+  const requested = Number.isFinite(maxEnv) && maxEnv > 0 ? Math.floor(maxEnv) : DEFAULT_MAX_LANDINGS;
+  return Math.min(requested, DEFAULT_MAX_LANDINGS);
+}
 
 export function buildOrphanLandingHubPath(locale: OrphanLandingLocale): string {
   const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
@@ -873,7 +883,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       }
 
       const maxEnv = intFromEnv('MAX_ORPHAN_LANDINGS', 0);
-      const maxLandings = Number.isFinite(maxEnv) && maxEnv > 0 ? Math.floor(maxEnv) : DEFAULT_MAX_LANDINGS;
+      const maxLandings = resolveMaxOrphanLandings(maxEnv);
 
       const jobs = loadAllJobs(rootDir);
       console.log(`\x1b[36m[orphan-query-landings]\x1b[0m loaded ${jobs.length} jobs, ${parsed.clusters.length} clusters (cap ${maxLandings})`);

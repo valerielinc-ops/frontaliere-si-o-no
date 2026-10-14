@@ -26,6 +26,7 @@ import {
   buildNursingOrphanCanonicalBridge,
   renderOrphanLandingHubHreflang,
   DEFAULT_MAX_LANDINGS,
+  resolveMaxOrphanLandings,
   __renderOrphanLandingPage,
 } from '../build-plugins/orphanQueryLandingPlugin';
 
@@ -56,6 +57,12 @@ const ROOT = path.resolve(__dirname, '..');
 describe('orphanQueryData — path helpers', () => {
   it('expands the default demand cohort without changing the page-quality gates', () => {
     expect(DEFAULT_MAX_LANDINGS).toBe(1000);
+  });
+
+  it('allows smaller local caps but never exceeds the validated cohort size', () => {
+    expect(resolveMaxOrphanLandings(250)).toBe(250);
+    expect(resolveMaxOrphanLandings(0)).toBe(DEFAULT_MAX_LANDINGS);
+    expect(resolveMaxOrphanLandings(2_000)).toBe(DEFAULT_MAX_LANDINGS);
   });
 
   it('exposes exactly 4 locales', () => {
