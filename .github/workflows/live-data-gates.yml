@@ -165,10 +165,22 @@ jobs:
       # non potevano né aprirsi né chiudersi).
       - name: Audit 30-day live-data roots
         if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+        timeout-minutes: 21
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-        run: node scripts/ci/audit-live-data-roots.mjs --since-days 30
+        run: |
+          set -uo pipefail
+          # Il job ha 45 minuti; questo limite lascia spazio al reporter di
+          # consegnare un audit lento come failure leggibile, non come timeout
+          # muto dell’intero job.
+          timeout --signal=TERM --kill-after=30s 20m \
+            node scripts/ci/audit-live-data-roots.mjs --since-days 30
+          status=$?
+          if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+            echo "::error::Audit 30-day live-data roots ha superato il timeout di 20 minuti"
+          fi
+          exit "$status"
 
       - name: Report failure to GitHub Issues
         if: failure()
