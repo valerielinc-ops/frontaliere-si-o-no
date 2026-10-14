@@ -14,6 +14,12 @@ import {
   sweepStaleFetchPacks,
   STALE_PACK_AGE_MS,
 } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
+import {
+  defaultTempRoot,
+  listStaleTempDirs,
+  sweepStaleTempDirs,
+  STALE_TEMP_DIR_AGE_MS,
+} from '../scripts/lib/stale-temp-dir-sweep.mjs';
 
 // Regressione dell'incidente 2026-08-17: il SessionStart hook lanciava
 // `prune-merged-worktrees.mjs --apply` detached senza guard → N sessioni agent =
@@ -227,5 +233,54 @@ describe('listStaleFetchPacks', () => {
     expect(res.candidates).toBe(2);
     expect(res.removed).toBe(1);
     expect(fs.readdirSync(dir)).toEqual(['tmp_pack_A']);
+  });
+});
+
+describe('stale temporary directory sweep', () => {
+  it('uses the portable device temp root and allows an explicit override', () => {
+    expect(defaultTempRoot({ platform: 'darwin', tmpdir: '/var/tmp' })).toBe('/private/tmp');
+    expect(defaultTempRoot({ platform: 'linux', tmpdir: '/var/tmp' })).toBe('/var/tmp');
+  });
+
+  it('selects a directory only when every contained item is older than three days', () => {
+    const root = tmpDir();
+    const old = path.join(root, 'old');
+    const fresh = path.join(root, 'fresh');
+    fs.mkdirSync(path.join(old, 'nested'), { recursive: true });
+    fs.mkdirSync(fresh);
+    fs.writeFileSync(path.join(old, 'nested', 'result.txt'), 'old');
+    fs.writeFileSync(path.join(fresh, 'result.txt'), 'fresh');
+    const oldWhen = new Date(Date.now() - STALE_TEMP_DIR_AGE_MS - 1000);
+    fs.utimesSync(path.join(old, 'nested', 'result.txt'), oldWhen, oldWhen);
+    fs.utimesSync(path.join(old, 'nested'), oldWhen, oldWhen);
+    fs.utimesSync(old, oldWhen, oldWhen);
+    const stale = listStaleTempDirs(root).map((item) => path.basename(item.path));
+    expect(stale).toEqual(['old']);
+  });
+
+  it('dry-run does not remove candidates and apply removes only stale directories', () => {
+    const root = tmpDir();
+    const old = path.join(root, 'old');
+    fs.mkdirSync(old);
+    fs.writeFileSync(path.join(old, 'result.txt'), 'old');
+    const oldWhen = new Date(Date.now() - STALE_TEMP_DIR_AGE_MS - 1000);
+    fs.utimesSync(path.join(old, 'result.txt'), oldWhen, oldWhen);
+    fs.utimesSync(old, oldWhen, oldWhen);
+
+    expect(sweepStaleTempDirs(root)).toMatchObject({ candidates: 1, removed: 0 });
+    expect(fs.existsSync(old)).toBe(true);
+    expect(sweepStaleTempDirs(root, { apply: true })).toMatchObject({ candidates: 1, removed: 1 });
+    expect(fs.existsSync(old)).toBe(false);
+  });
+
+  it('preserves known runtime directories even when they are old', () => {
+    const root = tmpDir();
+    const runtime = path.join(root, 'cc-socks');
+    fs.mkdirSync(runtime);
+    const oldWhen = new Date(Date.now() - STALE_TEMP_DIR_AGE_MS - 1000);
+    fs.utimesSync(runtime, oldWhen, oldWhen);
+
+    expect(listStaleTempDirs(root)).toEqual([]);
+    expect(fs.existsSync(runtime)).toBe(true);
   });
 });

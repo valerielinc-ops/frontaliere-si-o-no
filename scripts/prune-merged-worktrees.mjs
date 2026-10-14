@@ -136,6 +136,11 @@ import {
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
+import {
+  defaultTempRoot,
+  sweepStaleTempDirs,
+  STALE_TEMP_DIR_AGE_MS,
+} from './lib/stale-temp-dir-sweep.mjs';
 
 const STARTED_AT = Date.now();
 const APPLY = process.argv.includes('--apply');
@@ -244,6 +249,7 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
 const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
+const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
 const SNAPSHOT_DATE = new Date().toISOString().slice(0, 10).replaceAll('-', '');
@@ -2159,6 +2165,17 @@ for (const o of orphanRemove) {
   }
 }
 sh('git worktree prune', { allowFail: true });
+
+// Pulizia cross-device degli artefatti temporanei: una sola istanza può
+// scansionare/cancellare il root per evitare N walk ricorsive concorrenti.
+const tmpRoot = defaultTempRoot();
+const tmpRun = withSingleFlightLock(tempSweepLock, () => sweepStaleTempDirs(tmpRoot, { apply: APPLY }));
+if (tmpRun.acquired) {
+  const tmpMb = Math.round((tmpRun.value?.bytes ?? 0) / 1048576);
+  console.log(`🧹 tmp ${tmpRoot}: ${tmpRun.value?.removed ?? 0}/${tmpRun.value?.candidates ?? 0} directory stale rimosse (${tmpMb} MB; soglia ${STALE_TEMP_DIR_AGE_MS / 86400000} giorni).`);
+} else {
+  console.log(`ℹ️  tmp cleanup saltato: un'altra istanza tiene ${tempSweepLock}.`);
+}
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
 console.log(`riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi ${removedWorktrees}; branch rimossi ${removedBranches}; spazio liberato ${formatBytes(spaceFreedBytes)}; saltati per motivo: ${skippedSummary()}${skippedSnapshotFailures ? `; snapshot falliti=${skippedSnapshotFailures}` : ''}.`);
