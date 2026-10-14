@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import { transformSync } from 'esbuild';
-import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
+import {
+  hasSameJobSourcePosting,
+  sourcePostingUrlHref,
+  sourcePostingUrlHrefs,
+} from '../scripts/lib/job-identity.mjs';
 import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 
 describe('inferred orphan aliases require positive posting identity', () => {
@@ -23,6 +27,19 @@ describe('inferred orphan aliases require positive posting identity', () => {
   it('recognizes explicit archive source identity and dedup history', () => {
     expect(hasSameJobSourcePosting({ sourceIdentity: `url:${url}` }, { url })).toBe(true);
     expect(hasSameJobSourcePosting({ sourceIdentityHistory: [{ sourceIdentity: `url:${url}` }] }, { url })).toBe(true);
+  });
+  it('normalizes only absolute HTTP(S) source URLs while preserving path case and fragments', () => {
+    expect(sourcePostingUrlHref('https://jobs.example.invalid:443/vacancies/AbC/#job.id=1'))
+      .toBe('https://jobs.example.invalid/vacancies/AbC/#job.id=1');
+    expect(sourcePostingUrlHref('mailto:jobs@example.invalid')).toBeNull();
+    expect(sourcePostingUrlHrefs({
+      sourceUrl: url,
+      sourceIdentity: `url:${url}#job.id=1`,
+      sourceIdentityHistory: [{ sourceIdentity: `url:${url}#job.id=2` }],
+    })).toEqual(new Set([url, `${url}#job.id=1`, `${url}#job.id=2`]));
+  });
+  it('treats an explicit null historical record as having no source URLs', () => {
+    expect(sourcePostingUrlHrefs(null)).toEqual(new Set());
   });
   it('also leaves identity-less expired fuzzy matches archived', () => {
     const active = { url, slug: 'software-entwickler-backend-rotation', company: 'Acme', companyKey: 'acme' };
