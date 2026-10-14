@@ -251,6 +251,60 @@ function pullRequestReviewBody(args, commandIndex, context) {
 }
 
 /**
+ * Pin a PR review body to a host-private file and stamp the trusted revision.
+ * The expected revision and PR number come from the action host environment;
+ * malformed or missing values deliberately leave the model body untouched.
+ */
+export function materializePullRequestReviewBody(args, start, {
+  reviewRevision,
+  reviewPrNumber,
+  cwd,
+  allowedRoots = [],
+} = {}) {
+  const revision = normalizeBodyRevision(reviewRevision);
+  const configuredPrNumber = String(reviewPrNumber ?? '').trim();
+  if (!revision || !/^[1-9]\d*$/.test(configuredPrNumber) || !isPullRequestReviewArgs(args)) {
+    return { args, body: undefined, cleanup: () => {} };
+  }
+  const commandIndex = commandIndexFor(args);
+  const pullNumber = pullRequestReviewNumber(args, commandIndex);
+  if (pullNumber !== configuredPrNumber) return { args, body: undefined, cleanup: () => {} };
+
+  const inline = prBodyOption(args, start, prBodyInlineFlags);
+  const bodyFile = inline ? null : prBodyOption(args, start, prBodyFileFlags);
+  const option = inline || bodyFile;
+  if (!option) return { args, body: undefined, cleanup: () => {} };
+  let sourceBody = inline ? inline.value : '';
+  if (bodyFile) {
+    const source = bodyFilePath(bodyFile.value, { cwd: cwd || process.cwd(), allowedRoots });
+    if (source.error) throw new Error(source.error);
+    sourceBody = source.body;
+  }
+  const body = stampReviewInputRevision(sourceBody, revision);
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-gh-review-'));
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    fs.rmSync(directory, { recursive: true, force: true });
+  };
+  try {
+    fs.chmodSync(directory, 0o700);
+    const bodyPath = path.join(directory, 'review.md');
+    fs.writeFileSync(bodyPath, body, { flag: 'wx', mode: 0o600 });
+    return {
+      args: replacePullRequestReviewBodyOption(args, option, bodyPath),
+      body,
+      cleanup,
+      bodyPath,
+    };
+  } catch (error) {
+    cleanup();
+    throw error;
+  }
+}
+
+/**
  * Build the minimum idempotency key for a review retry.  Without a numeric PR,
  * exact body and full HEAD SHA, a transient retry could duplicate an unknown
  * review, so the caller must leave it one-shot.
@@ -260,13 +314,16 @@ export function reviewRetryDetails(args, commandIndex, {
   workspaceRoot,
   scratchRoot,
   headSha,
+  bodyOverride,
 } = {}) {
   if (!isPullRequestReviewArgs(args)) return null;
   const pullNumber = pullRequestReviewNumber(args, commandIndex ?? commandIndexFor(args));
-  const body = pullRequestReviewBody(args, commandIndex ?? commandIndexFor(args), {
-    cwd: cwd || process.cwd(),
-    allowedRoots: [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean),
-  });
+  const body = bodyOverride === undefined
+    ? pullRequestReviewBody(args, commandIndex ?? commandIndexFor(args), {
+      cwd: cwd || process.cwd(),
+      allowedRoots: [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean),
+    })
+    : bodyOverride;
   const normalizedHead = String(headSha || '').trim();
   if (!/^\d+$/.test(pullNumber) || !body || !/^[0-9a-f]{40}$/i.test(normalizedHead)) return null;
   return { pullNumber, body, headSha: normalizedHead };
@@ -304,11 +361,20 @@ export function postedReviewKey(details) {
  * `tests/codex-file-transport.test.ts`.
  */
 const BODY_REVISION_RE = /^body:[0-9a-f]{64}$/;
+const REVIEW_INPUT_MARKER_LINE_RE = /^[ \t]*<!--[ \t]*REVIEW_INPUT_REVISION:[^\r\n]*?(?:\r\n|\n|\r|\\r\\n|\\n|$)/gimu;
 
 /** Mirror of `normalizeReviewInputRevision`. */
 export function normalizeBodyRevision(value) {
   const revision = String(value ?? '').trim().toLowerCase();
   return BODY_REVISION_RE.test(revision) ? revision : '';
+}
+
+/** Stamp the trusted review revision after removing every model-supplied marker line. */
+export function stampReviewInputRevision(body, expectedRevision) {
+  const revision = normalizeBodyRevision(expectedRevision);
+  if (!revision) return body;
+  const withoutModelMarkers = String(body ?? '').replace(REVIEW_INPUT_MARKER_LINE_RE, '');
+  return `<!-- REVIEW_INPUT_REVISION: ${revision} -->\n${withoutModelMarkers}`;
 }
 
 /** Mirror of `reviewInputRevisionFromPullRequest`: null body is GitHub's empty body. */
@@ -899,11 +965,22 @@ function prBodyOption(args, start, flags) {
   for (let index = start; index < args.length; index += 1) {
     const arg = args[index];
     for (const flag of flags) {
-      if (arg === flag) return { flag, value: args[index + 1] || '', next: index + 1 };
-      if (arg.startsWith(`${flag}=`)) return { flag, value: arg.slice(flag.length + 1), next: index };
+      if (arg === flag) return { flag, value: args[index + 1] || '', index, next: index + 1 };
+      if (arg.startsWith(`${flag}=`)) return { flag, value: arg.slice(flag.length + 1), index, next: index };
     }
   }
   return null;
+}
+
+function replacePullRequestReviewBodyOption(args, option, bodyPath) {
+  const replaced = args.slice();
+  if (option.next === option.index) {
+    replaced[option.index] = `--body-file=${bodyPath}`;
+  } else {
+    replaced[option.index] = '--body-file';
+    replaced[option.index + 1] = bodyPath;
+  }
+  return replaced;
 }
 
 function validatePrBodyArgs(args, commandIndex, context) {
@@ -1028,6 +1105,8 @@ function main() {
   const repository = repositoryName(process.env.CODEX_GH_REPOSITORY);
   const host = normalizedHost(process.env.CODEX_GH_HOST);
   const corpusRepository = process.env.CODEX_GH_CORPUS_REPOSITORY || CORPUS_REPOSITORY;
+  const reviewInputRevision = normalizeBodyRevision(process.env.CODEX_GH_REVIEW_INPUT_REVISION);
+  const reviewPrNumber = String(process.env.CODEX_GH_REVIEW_PR_NUMBER || '').trim();
   if (!socketPath || !siteToken || !realGh || !cwd || !workspaceRoot || !scratchRoot || !repository || !host
     || corpusRepository !== CORPUS_REPOSITORY) process.exit(2);
   // Read once at launch: the process environment is fixed by the action
@@ -1254,6 +1333,24 @@ function main() {
       };
       if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
       let executionArgs = args;
+      let reviewBodyOverride;
+      if (scope.kind === 'site' && isPullRequestReviewArgs(args)) {
+        try {
+          const materialized = materializePullRequestReviewBody(args, commandIndex + 1, {
+            reviewRevision: reviewInputRevision,
+            reviewPrNumber,
+            cwd,
+            allowedRoots: [realRoot(workspaceRoot), realRoot(scratchRoot)].filter(Boolean),
+          });
+          executionArgs = materialized.args;
+          reviewBodyOverride = materialized.body;
+          cleanupExecution = materialized.cleanup;
+        } catch (error) {
+          releaseCreate();
+          finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
+          return;
+        }
+      }
       if (isConditionalPullRequestBodyPatch(args, commandIndex + 1, scope.repository)) {
         try {
           const materialized = materializeConditionalBodyPatch(args, commandIndex + 1, {
@@ -1270,11 +1367,12 @@ function main() {
         }
       }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
-      const reviewDetails = reviewRetryDetails(args, commandIndex, {
+      const reviewDetails = reviewRetryDetails(executionArgs, commandIndex, {
         cwd,
         workspaceRoot,
         scratchRoot,
         headSha: process.env.HEAD_SHA,
+        bodyOverride: reviewBodyOverride,
       });
       const reviewKey = postedReviewKey(reviewDetails);
       if (reviewKey && postedReviewKeys.has(reviewKey)) {
