@@ -807,6 +807,65 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // Worker) and write (that script) sides of the same key family.
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
+// GSC also discovers article ids and other languages' slugs under a localized
+// section. Resolve only an exact, unambiguous identity in the publisher's
+// registry, and verify the same-language page before sending a permanent 301.
+const ARTICLE_SLUG_REGISTRY_URL = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/slugs.json';
+
+export function articleAliasTarget(pathname, registry) {
+  const route = matchSection(pathname);
+  const group = route?.section === 'articolifrontaliere' ? 'blog'
+    : route?.section === 'articolisvizzera' ? 'swiss' : null;
+  if (!group) return null;
+  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
+  if (!leaf) return null;
+  const slug = lowerSegment(leaf[1]);
+  const rows = registry?.[group];
+  if (!rows || typeof rows !== 'object' || Array.isArray(rows)) return null;
+  const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
+  const ids = new Set();
+  if (own(rows, slug)) ids.add(slug);
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    const reverse = registry?.[`${group}Reverse`]?.[locale];
+    if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+  }
+  if (ids.size !== 1) return null;
+  const id = [...ids][0];
+  const canonicalSlug = own(rows, id) && rows[id]?.[route.locale];
+  if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
+  const target = `${route.prefix}/${canonicalSlug}/`;
+  if (normaliseRetiredPath(target) === normaliseRetiredPath(pathname.replace(/\/+$/, '') + '/')) return null;
+  // A withdrawn canonical must not become a new target through a stale API.
+  if (lookupRetired(target) !== undefined) return null;
+  return target;
+}
+
+async function recoverArticleAlias(url, origin) {
+  const route = matchSection(url.pathname);
+  if (!['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
+  if (!/^\/[^/]+\/?$/.test(url.pathname.slice(route.prefix.length))) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 5000);
+  let target;
+  try {
+    const response = await fetch(ARTICLE_SLUG_REGISTRY_URL, {
+      signal: controller.signal,
+      cf: cacheEverythingWithout5xx(300),
+    });
+    if (!response.ok) return null;
+    target = articleAliasTarget(url.pathname, await response.json());
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+  if (!target || !(await redirectTargetIsLive(target, origin))) return null;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL },
+  });
+}
+
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
 // padded to length 2.
@@ -2547,6 +2606,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
   // Unknown slugs fall through to the soft 404 below.
   if (request.method === 'GET' && resp.status === 404) {
+    const articleRedirect = await recoverArticleAlias(url, origin);
+    if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
