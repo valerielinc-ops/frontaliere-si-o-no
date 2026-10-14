@@ -20,6 +20,11 @@ import {
   sweepStaleTempDirs,
   STALE_TEMP_DIR_AGE_MS,
 } from '../scripts/lib/stale-temp-dir-sweep.mjs';
+import {
+  devicePruneTargets,
+  listStaleDeviceArtifacts,
+  STALE_DEVICE_ARTIFACT_AGE_MS,
+} from '../scripts/lib/stale-device-artifact-sweep.mjs';
 
 // Regressione dell'incidente 2026-08-17: il SessionStart hook lanciava
 // `prune-merged-worktrees.mjs --apply` detached senza guard → N sessioni agent =
@@ -282,5 +287,36 @@ describe('stale temporary directory sweep', () => {
 
     expect(listStaleTempDirs(root)).toEqual([]);
     expect(fs.existsSync(runtime)).toBe(true);
+  });
+});
+
+describe('stale device artifact sweep', () => {
+  it('declares portable cache, session, job and release targets', () => {
+    const names = devicePruneTargets('/home/test').map((target) => target.name);
+    expect(names).toEqual(expect.arrayContaining([
+      'npm', 'uv-cache', 'user-cache', 'codex-sessions', 'claude-jobs',
+      'codex-standalone-releases', 'codex-app-server-releases',
+    ]));
+  });
+
+  it('does not select a recent device artifact', () => {
+    const root = tmpDir();
+    const cacheRoot = path.join(root, '.cache', 'uv');
+    const old = path.join(cacheRoot, 'old');
+    const recent = path.join(cacheRoot, 'recent');
+    fs.mkdirSync(old, { recursive: true });
+    fs.mkdirSync(recent, { recursive: true });
+    const oldWhen = new Date(Date.now() - STALE_DEVICE_ARTIFACT_AGE_MS - 1000);
+    fs.writeFileSync(path.join(old, 'old.txt'), 'old');
+    fs.writeFileSync(path.join(recent, 'recent.txt'), 'recent');
+    fs.utimesSync(path.join(old, 'old.txt'), oldWhen, oldWhen);
+    fs.utimesSync(old, oldWhen, oldWhen);
+
+    const candidates = listStaleDeviceArtifacts({
+      home: root,
+      now: Date.now(),
+    });
+    expect(candidates.map((candidate) => candidate.path)).toContain(old);
+    expect(candidates.every((candidate) => !candidate.path.includes('recent'))).toBe(true);
   });
 });

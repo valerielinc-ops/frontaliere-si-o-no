@@ -141,6 +141,7 @@ import {
   sweepStaleTempDirs,
   STALE_TEMP_DIR_AGE_MS,
 } from './lib/stale-temp-dir-sweep.mjs';
+import { sweepStaleDeviceArtifacts } from './lib/stale-device-artifact-sweep.mjs';
 
 const STARTED_AT = Date.now();
 const APPLY = process.argv.includes('--apply');
@@ -250,6 +251,7 @@ const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
+const deviceSweepLock = join(gitDir, 'frontaliere-prune-device.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
 const SNAPSHOT_DATE = new Date().toISOString().slice(0, 10).replaceAll('-', '');
@@ -2175,6 +2177,13 @@ if (tmpRun.acquired) {
   console.log(`🧹 tmp ${tmpRoot}: ${tmpRun.value?.removed ?? 0}/${tmpRun.value?.candidates ?? 0} directory stale rimosse (${tmpMb} MB; soglia ${STALE_TEMP_DIR_AGE_MS / 86400000} giorni).`);
 } else {
   console.log(`ℹ️  tmp cleanup saltato: un'altra istanza tiene ${tempSweepLock}.`);
+}
+const deviceRun = withSingleFlightLock(deviceSweepLock, () => sweepStaleDeviceArtifacts({ apply: APPLY }));
+if (deviceRun.acquired) {
+  const mb = Math.round((deviceRun.value?.bytes ?? 0) / 1048576);
+  console.log(`🧹 device cache/session cleanup: ${deviceRun.value?.removed ?? 0}/${deviceRun.value?.candidates?.length ?? 0} stale items (${mb} MB).`);
+} else {
+  console.log(`ℹ️  device cleanup saltato: un'altra istanza tiene ${deviceSweepLock}.`);
 }
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
