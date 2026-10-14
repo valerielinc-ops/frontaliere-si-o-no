@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import { readHardcodedRedirects } from '../build-plugins/shared/articleRedirects.mjs';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -12,6 +13,8 @@ const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 
 describe('locale-router apex legacy routes', () => {
   it.each([
+    ['/cookie/', '/privacy/'],
+    ['/fr/articles-frontalier/naspi-disoccupazione-frontalieri/', '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/'],
     ['/jobs-im-tessin/', '/de/jobs-im-tessin/'],
     ['/grenzgaenger-artikel/', '/de/grenzgaenger-artikel/'],
     ['/trouver-emploi-tessin/', '/fr/trouver-emploi-tessin/'],
@@ -66,6 +69,28 @@ describe('locale-router apex legacy routes', () => {
     }
   });
 
+  it('keeps observed legal/article aliases exact and aligned with static fallback', () => {
+    const root = path.resolve(__dirname, '..');
+    const staticMap = readHardcodedRedirects(root);
+    const source = readFileSync(path.join(root, 'build-plugins/legacyRedirectsPlugin.ts'), 'utf8');
+    const edgePaths = source.match(/const EDGE_HTTP_REDIRECT_PATHS = new Set\(\[([\s\S]*?)\]\)/)?.[1] || '';
+    for (const [from, target] of [
+      ['/cookie/', '/privacy/'],
+      ['/fr/articles-frontalier/naspi-disoccupazione-frontalieri/', '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/'],
+    ]) {
+      expect(staticMap[from]).toBe(target);
+      expect(edgePaths).toContain(`'${from}'`);
+      for (const suffix of ['', '/', '/index.html']) {
+        const url = `${APEX}${from.slice(0, -1)}${suffix}?utm_source=gsc`;
+        expect(apexLegacyResponse(new URL(url))?.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
+      }
+      expect(apexLegacyResponse(new URL(`${APEX}${target}`))).toBeNull();
+    }
+    for (const pathname of ['/cookies/', '/cookie-policy/', '/cookie/unknown/', '/fr/articles-frontalier/naspi-disoccupazione-frontalieri-unknown/', '/en/cross-border-articles/naspi-disoccupazione-frontalieri/']) {
+      expect(apexLegacyResponse(new URL(`${APEX}${pathname}`))).toBeNull();
+    }
+  });
+
   it('returns 410 noindex for the retired calculator with no substitute', async () => {
     const response = apexLegacyResponse(new URL(`${APEX}/calcolatore-5x1000/`));
     expect(response?.status).toBe(410);
@@ -81,7 +106,7 @@ describe('locale-router apex legacy routes', () => {
 
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(30);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(32);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {
