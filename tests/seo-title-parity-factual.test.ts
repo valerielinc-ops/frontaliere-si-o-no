@@ -1,5 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { beforeAll, describe, expect, it } from 'vitest';
 
+import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
 import seoBlog from '../services/seo/seo-blog';
 import seoBlog2 from '../services/seo/seo-blog-2';
 import seoBlogCh from '../services/seo/seo-blog-ch';
@@ -11,11 +15,10 @@ import blogMetaChIt from '../services/locales/blog-meta-ch-it';
 
 type SeoEntry = {
   title: string;
-  ogTitle?: string;
-  structuredData?: { headline?: string } & Record<string, unknown>;
 };
 
 type Meta = Record<string, string>;
+type ArticleSection = 'frontaliere' | 'svizzera';
 
 type ParityCase = {
   name: string;
@@ -23,6 +26,7 @@ type ParityCase = {
   meta: Meta;
   seoKey: string;
   articleId: string;
+  section: ArticleSection;
 };
 
 const frontaliereCases: ParityCase[] = [
@@ -46,6 +50,7 @@ const frontaliereCases: ParityCase[] = [
   meta: blogMetaIt,
   seoKey: `blog-${articleId}`,
   articleId,
+  section: 'frontaliere',
 }));
 
 const swissCases: ParityCase[] = [
@@ -68,18 +73,81 @@ const swissCases: ParityCase[] = [
   meta: blogMetaChIt,
   seoKey: `blog-${articleId}`,
   articleId,
+  section: 'svizzera',
 }));
 
+type RenderedTitles = {
+  title: string;
+  schemaType?: string;
+  headline?: string;
+};
+
+const decodeHtml = (value: string): string => value
+  .replace(/&amp;/g, '&')
+  .replace(/&quot;/g, '"')
+  .replace(/&#39;/g, "'")
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>');
+
+function readRenderedTitles(html: string): RenderedTitles {
+  const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  const articleSchema = scripts
+    .map(([, json]) => JSON.parse(json) as Record<string, unknown>)
+    .find((json) => ['Article', 'BlogPosting', 'Event', 'NewsArticle'].includes(String(json['@type'])));
+  return {
+    title: decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''),
+    schemaType: typeof articleSchema?.['@type'] === 'string' ? articleSchema['@type'] : undefined,
+    headline: typeof articleSchema?.headline === 'string' ? articleSchema.headline : undefined,
+  };
+}
+
+async function renderStaticTitles(cases: ParityCase[]): Promise<Map<string, RenderedTitles>> {
+  const bySection = new Map<ArticleSection, string[]>();
+  for (const testCase of cases) {
+    const ids = bySection.get(testCase.section) ?? [];
+    ids.push(testCase.articleId);
+    bySection.set(testCase.section, ids);
+  }
+
+  const rendered = new Map<string, RenderedTitles>();
+  await Promise.all([...bySection].map(async ([section, articleIds]) => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'seo-title-parity-'));
+    try {
+      const result = await renderArticlePages({
+        rootDir: process.cwd(),
+        distDir,
+        section,
+        onlyArticleIds: articleIds,
+      });
+      for (const entry of result.entries) {
+        const htmlPath = path.join(distDir, entry.paths.it);
+        rendered.set(`${section}/${entry.articleId}`, readRenderedTitles(fs.readFileSync(htmlPath, 'utf8')));
+      }
+    } finally {
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  }));
+  return rendered;
+}
+
 describe('article SEO title parity', () => {
-  it.each([...frontaliereCases, ...swissCases])('$name keeps static and hydrated titles identical', ({ seo, meta, seoKey, articleId }) => {
+  const cases = [...frontaliereCases, ...swissCases];
+  let staticTitles: Map<string, RenderedTitles>;
+
+  beforeAll(async () => {
+    staticTitles = await renderStaticTitles(cases);
+  }, 120_000);
+
+  it.each(cases)('$name keeps static and hydrated titles identical', ({ seo, meta, seoKey, articleId, section }) => {
     const entry = seo[seoKey];
     expect(entry, `missing static SEO entry ${seoKey}`).toBeDefined();
     const localizedTitle = meta[`blog.article.${articleId}.title`];
     expect(localizedTitle, `missing localized title for ${articleId}`).toBeTruthy();
-    expect(entry.title).toBe(localizedTitle);
-    expect(entry.ogTitle).toBe(localizedTitle);
-    if (typeof entry.structuredData?.headline === 'string') {
-      expect(entry.structuredData.headline).toBe(localizedTitle);
+    const rendered = staticTitles.get(`${section}/${articleId}`);
+    expect(rendered, `missing rendered static page for ${section}/${articleId}`).toBeDefined();
+    expect(rendered?.title).toBe(localizedTitle);
+    if (['Article', 'BlogPosting', 'NewsArticle'].includes(rendered?.schemaType ?? '')) {
+      expect(rendered.headline).toBe(localizedTitle);
     }
   });
 
