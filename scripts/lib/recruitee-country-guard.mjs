@@ -8,6 +8,7 @@
  */
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { isSwissLocationText } from './target-swiss-locations.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 
 const SWISS_COUNTRY_CODES = new Set(['ch', 'che']);
 const SWISS_COUNTRY_NAMES = new Set([
@@ -71,6 +72,10 @@ export function hasOnlyExplicitlyForeignRecruiteeLocations(locations) {
   return Array.isArray(locations)
     && locations.length > 0
     && locations.every((location) => {
+      const countryCode = normalize(location?.country_code || location?.countryCode).toUpperCase();
+      if (ISO_ALPHA2_COUNTRY_CODES.has(countryCode)) {
+        return !SWISS_COUNTRY_CODES.has(countryCode.toLowerCase());
+      }
       const text = locationText(location);
       return Boolean(text) && isLocationExplicitlyForeign(text);
     });
