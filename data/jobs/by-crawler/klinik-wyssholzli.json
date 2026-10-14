@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-10-14T09:42:53.855Z",
+  "assembledAt": "2026-10-14T15:28:57.426Z",
   "jobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -120,7 +120,7 @@
       },
       "slugByLocale": {
         "it": "psicologina-psicoterapeutica-ambulante-2026-60-100-klinik-wyssholzli-herzogenbuchsee",
-        "en": "psychologist-psychotherapist-outpatient-2026-60-100-klinik-wyssholzli-herzogenbuchsee",
+        "en": "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli",
         "de": "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli",
         "fr": "psychologine-psychotherapie-ambulante-2026-60-100-klinik-wyssholzli-herzogenbuchsee"
       },
@@ -129,14 +129,15 @@
       },
       "id": "klinik-wyssholzli-f225c2a9307c",
       "previousSlugs": [
-        "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli"
+        "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli",
+        "psychologist-psychotherapist-outpatient-2026-60-100-klinik-wyssholzli-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli"
         ],
         "en": [
-          "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli"
+          "psychologist-psychotherapist-outpatient-2026-60-100-klinik-wyssholzli-herzogenbuchsee"
         ],
         "fr": [
           "psychologin-psychotherapeutin-ambulant-2026-60-100-klinik-wyssholzli"
@@ -362,7 +363,7 @@
         "it": "pratica-2025-klinik-wyssholzli-herzogenbuchsee",
         "en": "practice-2025-klinik-wyssholzli-herzogenbuchsee",
         "de": "praktikantin-2025-klinik-wyssholzli",
-        "fr": "stagiaire-2025-klinik-wyssholzli-herzogenbuchsee"
+        "fr": "praktikantin-2025-klinik-wyssholzli"
       },
       "_meta": {
         "sourceFilename": "Praktikantin_2025.pdf"
@@ -370,7 +371,8 @@
       "id": "klinik-wyssholzli-7463016231c7",
       "previousSlugs": [
         "praktikantin-2025-klinik-wyssholzli",
-        "stages-2025-klinik-wyssholzli-herzogenbuchsee"
+        "stages-2025-klinik-wyssholzli-herzogenbuchsee",
+        "stagiaire-2025-klinik-wyssholzli-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -381,7 +383,7 @@
         ],
         "fr": [
           "stages-2025-klinik-wyssholzli-herzogenbuchsee",
-          "praktikantin-2025-klinik-wyssholzli"
+          "stagiaire-2025-klinik-wyssholzli-herzogenbuchsee"
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
