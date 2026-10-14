@@ -1,4 +1,5 @@
 // @vitest-environment node
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -6,6 +7,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import { persistBrowserInsights } from '../scripts/social-robot/persist-browser-insights.mjs';
 
+const ROOT = path.resolve(import.meta.dirname, '..');
+const SCRIPT = path.join(ROOT, 'scripts/social-robot/persist-browser-insights.mjs');
 const dirs: string[] = [];
 
 function tempDir(): string {
@@ -18,6 +21,44 @@ function snapshotPath(root: string): string {
   const file = path.join(root, 'instagram-insights.json');
   fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, posts: [] }));
   return file;
+}
+
+function fakeGitBin(root: string): string {
+  const bin = path.join(root, 'bin');
+  fs.mkdirSync(bin);
+  const git = path.join(bin, 'git');
+  fs.writeFileSync(git, `#!/bin/sh
+case "$*" in
+  *"worktree add"*) mkdir -p "$7" ;;
+  *"diff --cached --quiet"*) exit 1 ;;
+  *"push origin HEAD:main"*)
+    # Two MiB exceeds Node's default execFileSync buffer.
+    dd if=/dev/zero bs=1048576 count=2 2>/dev/null
+    if [ "\${FAKE_GIT_FAIL:-0}" = "1" ]; then exit 42; fi
+    ;;
+esac
+exit 0
+`);
+  fs.chmodSync(git, 0o755);
+  return bin;
+}
+
+function runPersistenceCli(root: string, { failPush = false } = {}) {
+  const fakeBin = fakeGitBin(root);
+  return spawnSync(process.execPath, [
+    SCRIPT,
+    '--repo', path.join(root, 'site'),
+    '--snapshot', snapshotPath(root),
+  ], {
+    cwd: ROOT,
+    encoding: 'utf8',
+    maxBuffer: 4 * 1024 * 1024,
+    env: {
+      ...process.env,
+      PATH: [fakeBin, process.env.PATH].filter(Boolean).join(path.delimiter),
+      FAKE_GIT_FAIL: failPush ? '1' : '0',
+    },
+  });
 }
 
 function fakeGit({ pushFailures = 0, fetchFailures = 0 } = {}) {
@@ -101,5 +142,25 @@ describe('persistBrowserInsights', () => {
 
     expect(result).toEqual({ status: 'busy' });
     expect(fake.calls).toEqual([]);
+  });
+
+  it('does not fail when git push writes more than 1 MiB', () => {
+    const root = tempDir();
+    const result = runPersistenceCli(root);
+
+    expect(result.error).toBeUndefined();
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('"status":"pushed"');
+    expect(`${result.stdout}${result.stderr}`).not.toContain('ENOBUFS');
+  });
+
+  it('keeps a real git failure fatal after the large-output path', () => {
+    const root = tempDir();
+    const result = runPersistenceCli(root, { failPush: true });
+
+    expect(result.error).toBeUndefined();
+    expect(result.status).toBe(1);
+    expect(`${result.stdout}${result.stderr}`).toContain('❌ persist browser Insights:');
+    expect(result.stdout).not.toContain('"status":"pushed"');
   });
 });

@@ -46,12 +46,16 @@ export function parseArgs(argv = []) {
 
 function git(repo, args, { allowFailure = false } = {}) {
   try {
-    return execFileSync('git', ['-C', repo, ...args], {
+    execFileSync('git', ['-C', repo, ...args], {
       encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
+      // The persistence flow only uses Git's success/failure, never stdout.
+      // Ignore it so verbose hooks/progress cannot hit execFileSync's 1 MiB
+      // default maxBuffer, but inherit stderr so diagnostics stay visible.
+      stdio: ['ignore', 'ignore', 'inherit'],
       timeout: GIT_TIMEOUT_MS,
       killSignal: 'SIGTERM',
     });
+    return true;
   } catch (error) {
     if (allowFailure) return null;
     throw error;
