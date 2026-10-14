@@ -7,6 +7,7 @@ import {
   MAX_FILES_PER_DOCUMENT,
   documentFilesOf,
   extraDocumentFileName,
+  mergeRequiredDocuments,
   extraDocumentsToSend,
   openRequiredDocuments,
   documentsView,
@@ -116,6 +117,19 @@ describe('requested documents', () => {
     // Requirements read before this existed (no requestedDocuments): nothing is asked.
     expect(requiredDocumentsFromRequirements({ requirements: [] })).toEqual([]);
     expect(Object.keys((REQUIREMENTS_SCHEMA as any).properties)).toContain('requestedDocuments');
+  });
+
+  it('merges a portal copy of a posting document and keeps portal-only uploads', () => {
+    expect(mergeRequiredDocuments(
+      [{ id: 'references', label: 'Arbeitszeugnisse', kind: 'reference', required: true, quote: 'Arbeitszeugnisse', keywords: ['Arbeitszeugnis'] }],
+      [
+        { id: 'portal_document_arbeitszeugnisse', label: 'Arbeitszeugnisse hochladen', kind: 'other', required: true, quote: 'Arbeitszeugnisse *', keywords: ['reference'] },
+        { id: 'portal_document_passport', label: 'Passport copy', kind: 'other', required: true, quote: 'Passport copy *', keywords: ['passport'] },
+      ],
+    )).toEqual([
+      { id: 'references', label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnis', 'reference'], required: true, quote: 'Arbeitszeugnisse' },
+      { id: 'portal_document_passport', label: 'Passport copy', kind: 'other', keywords: ['passport'], required: true, quote: 'Passport copy *' },
+    ]);
   });
 
   it('lets the form planner and its agentic fallback name a requested document by slot', () => {

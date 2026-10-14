@@ -1576,9 +1576,75 @@ async function waitForOutcome(page, captchaEnabled = false) {
   return 'ambiguous';
 }
 
-// Single-page forms only: reading them sends nothing. JOIN registers the
-// e-mail on its first step, Workday and SuccessFactors start with an account.
-export const PREREAD_CHANNELS = new Set(['greenhouse', 'lever', 'smartrecruiters', 'personio', 'softgarden']);
+// Forms that can be read without creating an account or sending an
+// application. Account ATSs are included because some tenants expose a guest
+// form; when they expose only sign-in/create-account, hasApplicationForm below
+// returns false and the reader stops without touching the account flow.
+export const PREREAD_CHANNELS = new Set([
+  'greenhouse', 'lever', 'smartrecruiters', 'personio', 'softgarden',
+  'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors',
+]);
+
+const CORE_DOCUMENT_LABEL_RE = /\b(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)\b/i;
+
+/** A readable required file field that is not the CV or the cover letter. */
+export function portalRequiredDocumentFromField(field) {
+  if (!field || !field.required || (field.kind !== 'file' && field.inputType !== 'file')) return null;
+  const label = String(field.label || '').replace(/\s+/g, ' ').trim();
+  const descriptor = `${field.context || ''} ${label}`.trim();
+  if (machineLabel(label) || CORE_DOCUMENT_LABEL_RE.test(descriptor)) return null;
+  const keywords = [...new Set([
+    label,
+    ...label.split(/[^\p{L}\p{N}]+/u).filter((word) => word.length >= 3),
+  ])].slice(0, 12);
+  return {
+    id: `portal_document_${slugId(`${label} ${field.context || ''}`)}`,
+    label: label.slice(0, 160),
+    kind: 'other',
+    required: true,
+    quote: label.slice(0, 300),
+    keywords,
+  };
+}
+
+/**
+ * Split the required fields found on a live form into candidate questions and
+ * upload requirements. A required file is an upload request, not a text
+ * question: the review page must show it in the same document picker as the
+ * posting's requested documents.
+ */
+export function portalRequirementsFromMissingRequired(fields, missingRequired) {
+  const availableFields = Array.isArray(fields) ? fields : [];
+  const byId = new Map(availableFields.map((field) => [field.id, field]));
+  const folded = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+  const fieldFor = (item) => {
+    const direct = byId.get(item?.fieldId);
+    if (direct) return direct;
+    const question = folded(item?.question);
+    if (!question) return null;
+    return availableFields.find((field) => {
+      const label = folded(field?.label);
+      return label && (label === question || question.includes(label) || label.includes(question));
+    }) || null;
+  };
+  const documents = [];
+  const readable = [];
+  for (const item of Array.isArray(missingRequired) ? missingRequired : []) {
+    const field = fieldFor(item);
+    const document = portalRequiredDocumentFromField(field);
+    if (!document) {
+      // A field with a generated name is no question for a person: the submit
+      // run's agent reads it from the live page instead.
+      // The CV and cover-letter fields are already supplied by the runner, so
+      // they are neither candidate questions nor extra document requirements.
+      if (!field || (field.kind !== 'file' && field.inputType !== 'file')) readable.push(item);
+      continue;
+    }
+    if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
+  }
+  return { questions: questionsFrom(readable), documents };
+}
 
 /**
  * The questions a portal will ask, read while drafting (career-ops apply.md:
@@ -1586,10 +1652,10 @@ export const PREREAD_CHANNELS = new Set(['greenhouse', 'lever', 'smartrecruiters
  * on the first review instead of in a second round at submit time. The form
  * is opened and read, never filled, and nothing is pressed but "apply".
  * Never fails the draft: any problem returns no questions.
- * @returns {Promise<Array<object>>} questions for the review page (source 'portal')
+ * @returns {Promise<{questions:Array<object>,documents:Array<object>}>} requirements for the review page
  */
-export async function readPortalQuestions(ctx) {
-  if (!PREREAD_CHANNELS.has(ctx.channelType) || !ctx.applyUrl || !ctx.codex) return [];
+export async function readPortalRequirements(ctx) {
+  if (!PREREAD_CHANNELS.has(ctx.channelType) || !ctx.applyUrl || !ctx.codex) return { questions: [], documents: [] };
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -1607,17 +1673,22 @@ export async function readPortalQuestions(ctx) {
     let snapshot;
     ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
     snapshot = await awaitFields(page, await extractFields(page));
-    if (snapshot.captcha || snapshot.passwordVisible || !hasApplicationForm(snapshot)) return [];
+    const readableApplication = hasApplicationForm(snapshot)
+      && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
+    if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };
     const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-    // A field with a generated name is no question for a person: the submit run's agent reads it.
-    const readable = plan.missingRequired.filter((item) => !machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
-    return questionsFrom(readable);
+    return portalRequirementsFromMissingRequired(snapshot.fields, plan.missingRequired);
   } catch (error) {
     (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
-    return [];
+    return { questions: [], documents: [] };
   } finally {
     await browser?.close().catch(() => {});
   }
+}
+
+/** Backwards-compatible question-only view for callers that do not need uploads. */
+export async function readPortalQuestions(ctx) {
+  return (await readPortalRequirements(ctx)).questions;
 }
 
 /**
@@ -1819,7 +1890,17 @@ export async function submitViaPortal(ctx) {
       }
       return agent;
     };
-    const askCandidate = (questions) => ({ event: { type: 'submit_needs_candidate', questions: questionsFrom(questions) }, evidence });
+    const askCandidate = (questions) => {
+      const requirements = portalRequirementsFromMissingRequired(snapshot.fields, questions);
+      return {
+        event: {
+          type: 'submit_needs_candidate',
+          questions: requirements.questions,
+          documents: requirements.documents,
+        },
+        evidence,
+      };
+    };
 
     for (let step = 1; step <= maxSteps; step += 1) {
       snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });

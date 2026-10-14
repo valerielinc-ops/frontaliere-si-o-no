@@ -131,6 +131,49 @@ export function requiredDocumentsOf(draft) {
   return out;
 }
 
+const GENERIC_DOCUMENT_LABEL_WORDS = new Set([
+  'add', 'allegare', 'allegato', 'allegati', 'attach', 'attachment', 'attachments', 'carica', 'caricare',
+  'document', 'documents', 'dokument', 'dokumente', 'fichier', 'fichiers', 'hochladen', 'hochzuladen',
+  'join', 'joints', 'other', 'upload', 'uploads',
+]);
+
+/** A document label without upload instructions, accents or word order. */
+export function requiredDocumentLabelKey(label) {
+  const tokens = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').split(' ').filter((token) => token && !GENERIC_DOCUMENT_LABEL_WORDS.has(token));
+  return [...new Set(tokens)].sort().join(' ');
+}
+
+/**
+ * Merge document requirements found in different evidence sources (the
+ * posting and the live application form). A portal often repeats a posting's
+ * document with a slightly different id; the label is the stronger identity
+ * here, while the posting's order is kept before a portal-only requirement.
+ */
+export function mergeRequiredDocuments(...sources) {
+  const merged = [];
+  for (const source of sources) {
+    for (const item of Array.isArray(source) ? source : []) {
+      const document = requiredDocumentsOf({ requiredDocuments: [item] })[0];
+      if (!document) continue;
+      const foldedLabel = document.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+        .replace(/\s+/g, ' ').trim();
+      const normalizedLabel = requiredDocumentLabelKey(document.label);
+      const existing = merged.find((candidate) => candidate.id === document.id
+        || (normalizedLabel && requiredDocumentLabelKey(candidate.label) === normalizedLabel)
+        || candidate.label.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim() === foldedLabel);
+      if (!existing) {
+        merged.push({ ...document });
+        continue;
+      }
+      existing.required = existing.required || document.required;
+      if (!existing.quote && document.quote) existing.quote = document.quote;
+      existing.keywords = [...new Set([...existing.keywords, ...document.keywords])].slice(0, 12);
+    }
+  }
+  return requiredDocumentsOf({ requiredDocuments: merged });
+}
+
 /**
  * The required documents the candidate has not uploaded: they hold the send
  * like an open question, and nothing but a file lifts the hold (owner

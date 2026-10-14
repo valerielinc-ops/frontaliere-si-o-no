@@ -16,6 +16,8 @@ import {
   privacyConsentControls,
   postingMatch,
   PREREAD_CHANNELS,
+  portalRequirementsFromMissingRequired,
+  portalRequiredDocumentFromField,
   readPortalQuestions,
   realisticUserAgent,
   urlConfirms,
@@ -381,14 +383,37 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(form.profile.education[0]).toMatchObject({ degree: 'Bachelor in cure infermieristiche', institution: 'SUPSI' });
   });
 
-  it('reads ahead only the single-page forms, and never fails the draft', async () => {
-    expect([...PREREAD_CHANNELS].sort()).toEqual(['greenhouse', 'lever', 'personio', 'smartrecruiters', 'softgarden']);
-    // JOIN registers the e-mail on its first step, Workday starts with an account: not read.
+  it('reads ahead accessible ATS forms, and never fails the draft', async () => {
+    expect([...PREREAD_CHANNELS].sort()).toEqual(['greenhouse', 'jobs_ch', 'lever', 'personio', 'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday']);
+    // JOIN registers the e-mail on its first step: it is never read here. An
+    // account ATS is attempted only as a guest form; a sign-in/create-account
+    // page is caught and returns no requirements.
     const launch = () => { throw new Error('must not launch'); };
     expect(await readPortalQuestions({ channelType: 'employer_site', applyUrl: 'https://join.com/x', codex: async () => ({}), launch })).toEqual([]);
     expect(await readPortalQuestions({ channelType: 'workday', applyUrl: 'https://x.wd3.myworkdayjobs.com/a', codex: async () => ({}), launch })).toEqual([]);
     // A browser that fails: no questions, no error.
     expect(await readPortalQuestions({ channelType: 'lever', applyUrl: 'https://jobs.lever.co/x/1/apply', codex: async () => ({}), launch })).toEqual([]);
+  });
+
+  it('turns a readable required portal file into a document upload, not a text question', () => {
+    const fields = [
+      { id: 'ref', kind: 'file', inputType: 'file', label: 'Arbeitszeugnisse', required: true },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'Lebenslauf / CV', required: true },
+      { id: 'machine', kind: 'file', inputType: 'file', label: 'file:_r_3_:input', required: true },
+      { id: 'salary', kind: 'text', label: 'Lohnvorstellung', required: true },
+    ];
+    const result = portalRequirementsFromMissingRequired(fields, [
+      { question: 'Arbeitszeugnisse', why: '', type: 'text', options: [] },
+      { fieldId: 'cv', question: 'Lebenslauf / CV', why: '', type: 'text', options: [] },
+      { fieldId: 'machine', question: 'file:_r_3_:input', why: '', type: 'text', options: [] },
+      { fieldId: 'salary', question: 'Lohnvorstellung', why: '', type: 'text', options: [] },
+    ]);
+    expect(result.documents).toEqual([expect.objectContaining({
+      id: 'portal_document_arbeitszeugnisse', label: 'Arbeitszeugnisse', required: true, quote: 'Arbeitszeugnisse',
+    })]);
+    expect(result.questions.map((question: any) => question.question)).toEqual(['Lohnvorstellung']);
+    expect(portalRequiredDocumentFromField(fields[1])).toBeNull();
+    expect(portalRequiredDocumentFromField(fields[2])).toBeNull();
   });
 
   it('tells the interview prep what the employer already received', () => {
