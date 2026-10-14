@@ -55,6 +55,7 @@ routes = [
   { pattern = "frontaliereticino.ch/guida-frontaliere/comuni-di-frontiera*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/vivere-in-ticino/vivere-in-svizzera*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/statistiche/traffico-dogane*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/guida-frontaliere/diritto-lavoro-frontalieri*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/tfr-calculator*", zone_name = "frontaliereticino.ch" },
