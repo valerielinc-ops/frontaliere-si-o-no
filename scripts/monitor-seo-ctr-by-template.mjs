@@ -180,7 +180,7 @@ export function ctrBelowTargetTitle(family) {
 async function closeRecoveredFamilyIssue(family) {
   try {
     const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
-    resolveGithubIssue(ctrBelowTargetTitle(family), { exactTitle: true, workflow: 'SEO CTR by template' });
+    await resolveGithubIssue(ctrBelowTargetTitle(family), { exactTitle: true, workflow: 'SEO CTR by template' });
   } catch (err) {
     console.warn(`   ⚠️ could not close the CTR issue of ${family.label}: ${err.message}`);
   }

@@ -10,6 +10,7 @@
  */
 
 import { describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   sumRoutingTransactions,
   buildHereOAuthHeader,
@@ -169,5 +170,12 @@ describe('recoveredHereUsageTitles — the monthly alert closes once usage is ba
   it('over budget, or without numbers, closes nothing', () => {
     expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: 5001, budget: 5000 })).toEqual([]);
     expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: Number.NaN, budget: 5000 })).toEqual([]);
+  });
+
+  it('awaits and catches a rejected recovery resolver', () => {
+    const source = readFileSync(new URL('../scripts/reconcile-here-usage.mjs', import.meta.url), 'utf8');
+    expect(source).toMatch(
+      /for \(const title of recovered\) \{\s*try \{\s*await resolveGithubIssue\(title,[\s\S]*?\}\s*catch \(e\)/,
+    );
   });
 });

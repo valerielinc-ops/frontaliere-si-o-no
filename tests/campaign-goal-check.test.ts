@@ -224,6 +224,32 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(results[0].detail).toBe('ok');
   });
 
+  it('reconciles the stable FAILED issue for a goal already marked passed', async () => {
+    const evaluate = vi.fn();
+    const goals = [{ id: 'g4b', title: 'G4b', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const openTitles = new Set(['Campaign goal FAILED: g4b']);
+    const resolveIssueImpl = vi.fn(async ({ title }: { title: string }) => {
+      openTitles.delete(title);
+    });
+
+    const { results } = await runCampaignGoalCheck({
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: { g4b: { state: 'passed', detail: 'ok' } } }),
+      saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
+      createIssueImpl: vi.fn(),
+      resolveIssueImpl,
+    });
+
+    expect(evaluate).not.toHaveBeenCalled();
+    expect(results[0].state).toBe('passed');
+    expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
+    expect(resolveIssueImpl).toHaveBeenCalledWith({ title: 'Campaign goal FAILED: g4b' });
+    expect(openTitles).toEqual(new Set());
+  });
+
   it('marks error state without opening an issue on a provider failure', async () => {
     const failing = vi.fn().mockRejectedValue(new Error('boom'));
     const ok = vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' });

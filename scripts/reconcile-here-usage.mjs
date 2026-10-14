@@ -342,7 +342,7 @@ async function main() {
       const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
       for (const title of recovered) {
         try {
-          resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
+          await resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
         } catch (e) {
           console.warn(`⚠️ could not close «${title}»: ${e.message}`);
         }

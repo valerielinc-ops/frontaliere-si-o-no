@@ -972,6 +972,15 @@ export async function runCampaignGoalCheck({
     if (action === 'skip-passed') {
       results.push({ id: goal.id, state: 'passed', detail: prior.detail || '(già superato, non rivalutato)', matureAt });
       state.goals[goal.id] = { ...prior, ...base, state: 'passed' };
+      // Do not re-evaluate terminal goals, but reconcile a FAILED issue left
+      // open by a run before the closer existed (issue 11547 class).
+      if (!dryRun) {
+        try {
+          await resolveIssueImpl({ title: `Campaign goal FAILED: ${goal.id}` });
+        } catch (err) {
+          console.error(`[campaign-goal-check] ${goal.id}: could not close the FAILED issue: ${err.message}`);
+        }
+      }
       continue;
     }
 

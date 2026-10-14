@@ -1268,4 +1268,11 @@ describe('ctrFamilyRecovered — the monitor closes the family issue only on a c
     expect(ctrFamilyRecovered({ counted: true, ctr: null, target: 0.03 })).toBe(false);
     expect(ctrFamilyRecovered({ counted: true, ctr: 0.05, target: null })).toBe(false);
   });
+
+  it('awaits and catches a rejected recovery resolver', () => {
+    const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    expect(monitor).toMatch(
+      /try \{\s*const \{ resolveGithubIssue \} = await import\('[^']+'\);\s*await resolveGithubIssue\(ctrBelowTargetTitle\(family\),[\s\S]*?\}\s*catch \(err\)/,
+    );
+  });
 });
