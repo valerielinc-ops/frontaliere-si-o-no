@@ -13,6 +13,21 @@ describe('assembled permanent event archive', () => {
     expect(retainPublishedPastEvents([], [old])).toEqual([expect.objectContaining({ id: old.id })]);
   });
 
+  it('keeps one explicit route after repeated recovery-only retention passes', () => {
+    const first = retainPublishedPastEvents([], [old]);
+    const second = retainPublishedPastEvents([], first);
+    expect(first[0].previousRoutes).toHaveLength(1);
+    expect(second[0].previousRoutes).toEqual(first[0].previousRoutes);
+  });
+
+  it('resolves duplicate historical IDs before assigning collision slugs', () => {
+    const last = { ...old, title: 'Ultima osservazione' };
+    const [result] = retainPublishedPastEvents([], [old, last]);
+    expect(result.title).toBe(last.title);
+    expect(result.previousRoutes).toHaveLength(1);
+    expect(result.previousRoutes[0].slug).toContain('ultima-osservazione-');
+  });
+
   it('does not revive missing upcoming, private or invalid records', () => {
     expect(retainPublishedPastEvents([], [
       { ...old, startDate: day(1) },

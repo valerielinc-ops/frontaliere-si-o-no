@@ -107,7 +107,10 @@ import { applyEditorialOverride, loadEditorialOverrides } from './lib/event-edit
 /** Keep published past records when a source slice is replaced or removed. */
 export function retainPublishedPastEvents(current, previous, todayIso = new Date().toISOString().slice(0, 10)) {
   const byId = new Map(current.map((event) => [event.id, event]));
-  const publicPrevious = previous.filter((event) => event?.id && event.title && !isPrivateEventRecord(event) && !eventDateIssues(event).length);
+  // Match the current-ID map: the last record wins, before route assignment
+  // can mistake duplicate IDs for separate same-title events.
+  const publicPrevious = [...new Map(previous.filter((event) => event?.id && event.title && !isPrivateEventRecord(event) && !eventDateIssues(event).length)
+    .map((event) => [event.id, event])).values()];
   const routes = publishedEventRoutes(publicPrevious, todayIso);
   for (const raw of publicPrevious) {
     const prior = sanitizeEventForPublication(stripUnauthorizedEventImage(raw));
@@ -124,7 +127,10 @@ export function retainPublishedPastEvents(current, previous, todayIso = new Date
     } else if ((prior.endDate || prior.startDate) < todayIso) {
       // Explicit history also survives cross-source dedup below, which carries
       // previousRoutes from losing ids rather than guessing their old slugs.
-      byId.set(prior.id, { ...prior, previousRoutes: [...(prior.previousRoutes || []), route].filter(Boolean) });
+      const retained = preserveEventHistory(prior, [published]);
+      const previousRoutes = [...(retained.previousRoutes || [])];
+      if (route && !previousRoutes.some((old) => old.canton === route.canton && old.comune === route.comune && old.slug === route.slug)) previousRoutes.push(route);
+      byId.set(prior.id, { ...retained, previousRoutes });
     }
   }
   return [...byId.values()];
