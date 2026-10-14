@@ -2582,14 +2582,22 @@ export const staleAssetIntegrityHandler = {
 
 /**
  * Fail-open by construction: any response that is not a GET HTML body, any
- * runtime without HTMLRewriter (the vitest suite) and any thrown error return
- * the router's response untouched.
+ * partial (206) response, any runtime without HTMLRewriter (the vitest suite)
+ * and any thrown error return the router's response untouched.
+ *
+ * A 206 is a byte range of the stored representation, not an HTML document:
+ * the edge cache slices the gzip stream it holds, so decoding the slice for the
+ * rewriter "ended prematurely" and the Worker threw while streaming (issue
+ * 13018: every sampled exception carried a Range header). The try/catch below
+ * cannot see that error, because transform() returns before the body is read;
+ * and a rewritten range would no longer match the offsets in Content-Range.
  */
 export function stripStaleAssetIntegrity(request, response) {
   try {
     const Rewriter = globalThis.HTMLRewriter;
     if (typeof Rewriter !== 'function') return response;
     if (request.method !== 'GET' || !response || !response.body) return response;
+    if (response.status === 206 || response.headers.has('Content-Range')) return response;
     const contentType = response.headers.get('Content-Type') || '';
     if (!/^text\/html\b/i.test(contentType)) return response;
     return new Rewriter()
