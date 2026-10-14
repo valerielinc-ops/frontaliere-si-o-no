@@ -5,7 +5,7 @@ import { realpathSync } from 'node:fs';
  * reconcile-job-slugs.mjs
  *
  * Reconciles orphan slugs (from GSC) and expired job slugs with active jobs
- * using Jaccard token similarity matching. Matched slugs are added as
+ * using Jaccard token similarity plus positive source-posting proof. Matched slugs are added as
  * `previousSlugs` on the active job so the build plugin generates full-content
  * pages instead of generic soft-landings.
  *
@@ -37,7 +37,7 @@ import {
   LEGACY_PREV_SLUGS_CAP,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, hasUsableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
-import { archiveRecordNamesPosting } from './lib/job-identity.mjs';
+import { archiveRecordNamesPosting, hasSameJobSourcePosting } from './lib/job-identity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
@@ -677,12 +677,8 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     // INTENT (issue #1010 / #971 review): when the orphan has NO company
     // signal at all (`orphanCompanyKey` falsy), the title merge is allowed to
     // proceed — we refuse ONLY when the orphan company is KNOWN to differ.
-    // A same-title `title-*` win is already gated by title-Jaccard ≥ 0.70 +
-    // role-overlap, so the persisted 301 lands on a same-role active listing
-    // on the same aggregator: recovery vs a hard 404, net non-negative rather
-    // than a misroute. Hardening this to a hard reject on unknown company
-    // would re-introduce the 404 for legit recoveries and is intentionally
-    // NOT done absent evidence of cross-company misroutes in production.
+    // Candidate ranking still allows an unknown company here; the callers
+    // require positive source-posting identity before persisting any new alias.
     if (orphanCompanyKey) {
       // Asymmetric, NOT full Jaccard: `bestJob.companyKey` is already normalized
       // and often truncated to a stem (e.g. "acme"), while the orphan company can
@@ -923,6 +919,14 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
 
     const { job, score, method } = match;
 
+    // A high text score is not evidence that two vacancies are the same posting.
+    // Keep unknown/conflicting orphan identities on the archive path instead.
+    if (!hasSameJobSourcePosting(enrichment || {}, job)) {
+      skippedCount++;
+      remainingOrphans.push(entry);
+      continue;
+    }
+
     // Verify slug isn't already in the job's previousSlugs
     const existingSlugs = new Set([
       ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
@@ -1069,7 +1073,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     // fuzzy title/company match is not the same posting when the archive
     // record names a different source posting. Merging it would hand `job`
     // another posting's routes, hash-tailed slug included.
-    if (!archiveRecordNamesPosting(ej, job)) {
+    if (!archiveRecordNamesPosting(ej, job) || !hasSameJobSourcePosting(ej, job)) {
       skippedCount++;
       if (verbose) console.log('  ⏭️ Best match is a different source posting — not merging');
       continue;

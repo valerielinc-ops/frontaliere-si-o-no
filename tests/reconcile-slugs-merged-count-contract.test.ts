@@ -140,13 +140,16 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
     const activeJobs: ActiveJob[] = [
       {
         slug: 'elettricista-cantiere-notturno-rotazione',
+        url: 'https://example.invalid/jobs/electrician/',
         company: 'Test Co',
         companyKey: 'testco',
         slugByLocale: { it: 'elettricista-cantiere-notturno-rotazione' },
         titleByLocale: { it: 'Elettricista di cantiere' },
       },
     ];
-    const res = reconcileOrphanSlugs(activeJobs, ['elettricista-cantiere-notturno'], [], { dryRun: false });
+    const res = reconcileOrphanSlugs(activeJobs, ['elettricista-cantiere-notturno'], [
+      { slug: 'elettricista-cantiere-notturno', sourceUrl: activeJobs[0].url },
+    ], { dryRun: false });
     expect(res.mergedCount).toBe(1);
     expect('merged' in res).toBe(false);
     // The merge must be applied in place — this is the previousSlugs bridge.
@@ -186,6 +189,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
     const activeJobs: ActiveJob[] = [
       {
         slug: 'sviluppatore-software-backend',
+        url: 'https://example.invalid/jobs/backend/',
         company: 'Acme',
         companyKey: 'acme',
         slugByLocale: { it: 'sviluppatore-software-backend' },
@@ -203,6 +207,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
     const enrichedData = [
       {
         slug: 'software-entwickler',
+        sourceUrl: activeJobs[0].url,
         title: 'Software Entwickler Backend',
         locale: 'de',
       },
@@ -218,6 +223,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
     const activeJobs: ActiveJob[] = [
       {
         slug: 'contabile-fornitori-pagamenti',
+        url: 'https://example.invalid/jobs/accounts/',
         company: 'Beta',
         companyKey: 'beta',
         slugByLocale: { it: 'contabile-fornitori-pagamenti' },
@@ -235,6 +241,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
     const expiredJobs = [
       {
         slug: 'buchhalter-kreditoren',
+        url: activeJobs[0].url,
         title: 'Buchhalter Kreditoren Zahlungen',
         titleByLocale: { de: 'Buchhalter Kreditoren Zahlungen' },
       },
@@ -334,6 +341,7 @@ describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axi
     const enrichedData = [
       {
         slug: 'software-entwickler-backend',
+        sourceUrl: activeJobs[0].url,
         title: 'Software Entwickler Backend',
         locale: 'de',
       },
@@ -437,6 +445,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     const activeJobs: ActiveJob[] = [
       {
         slug: 'idraulico-manutenzione-impianti-industriali',
+        url: 'https://example.invalid/jobs/plumber/',
         company: 'Aqua',
         companyKey: 'aqua',
         slugByLocale: { it: 'idraulico-manutenzione-impianti-industriali' },
@@ -453,7 +462,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     const res = reconcileOrphanSlugs(
       activeJobs,
       ['idraulico-manutenzione-impianti'],
-      [],
+      [{ slug: 'idraulico-manutenzione-impianti', sourceUrl: activeJobs[0].url }],
       { dryRun: false, verbose: true },
     );
     expect(res.mergedCount).toBe(1);
@@ -520,6 +529,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     const enrichedData = [
       {
         slug: 'software-entwickler-backend',
+        sourceUrl: activeJobs[0].url,
         title: 'Software Entwickler Backend',
         locale: 'de',
         company: 'Acme Solutions AG',

@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
@@ -12523,7 +12524,8 @@ ${staticAnalyticsHtml}
  // Scan `tracking` (merged active + orphan + compat paths) and for each slug
  // not already attached to any active job, score it against every active job's
  // slugByLocale via token overlap. If the best match is confident enough
- // (>=60% token overlap AND ≥3 shared tokens), inject it into that job's
+ // (>=60% token overlap AND ≥3 shared tokens), AND the historical enrichment
+ // names the same source posting, inject it into that job's
  // previousSlugsByLocale so the downstream bridge + cross-locale blocks
  // generate a full-content reconciliation page.
  const knownSlugs = new Set<string>();
@@ -12578,6 +12580,8 @@ ${staticAnalyticsHtml}
  for (const orphanSlug of Object.keys(tracking)) {
  if (knownSlugs.has(orphanSlug)) continue;
  if (SKIP_PREFIX_FUZZY.test(orphanSlug)) continue;
+ const orphanProof = orphanGscData.get(orphanSlug);
+ if (!orphanProof?.sourceUrl) continue;
  const orphanTokens = tokenize(orphanSlug);
  if (orphanTokens.length < 4) continue;
  const orphanTokenSet = new Set(orphanTokens);
@@ -12601,6 +12605,9 @@ ${staticAnalyticsHtml}
  if (cCity.length === 0) { cityLockRejections++; continue; }
  if (!cCity.every(ct => orphanTokenSet.has(ct))) { cityLockRejections++; continue; }
  const cand = validJobs[idx];
+ // Company/city words can dominate overlap across different specialties.
+ // Never turn an oncology URL into a live orthopedics vacancy without identity.
+ if (!hasSameJobSourcePosting(orphanProof, cand)) continue;
  const sbl = (cand as any).slugByLocale || {};
  for (const locale of localeList) {
  const candSlug = sbl[locale] || cand.slug || '';
