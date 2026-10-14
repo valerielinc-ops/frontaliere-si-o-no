@@ -1,159 +1,45 @@
 #!/usr/bin/env node
 /**
- * Leukerbad Clinic (RZL Rehabilitationszentrum Leukerbad AG) — Nuxt + Prismic CMS.
+ * Leukerbad Clinic (RZL Rehabilitationszentrum Leukerbad AG) — Astro HTML.
  *
- * Public career site:   https://leukerbadclinic.ch/de/page/jobs/
- * Prismic repository:   leukerbad-clinic.cdn.prismic.io
- * Prismic REST API:     https://leukerbad-clinic.cdn.prismic.io/api/v2
+ * Official listings:
+ *   https://leukerbadclinic.ch/de/karriere/offene-stellen
+ *   https://leukerbadclinic.ch/fr/carriere/postes-vacants
  *
- * The career page is a Nuxt SSG export pulling content from Prismic. Rather
- * than render Nuxt with Playwright we go straight to the Prismic public REST
- * API (no auth, no challenge) and query documents of type `job`.
- *
- * Pipeline:
- *   1. GET /api/v2                 → master ref
- *   2. GET /api/v2/documents/search?ref=<master>&q=[[at(document.type,"job")]]&lang=*&pageSize=100
- *      → all job documents, both fr-ch and de-ch.
- *   3. GET the `page` document with uid `jobs` (one per language): its `job`
- *      links are the positions the site lists; other job documents are left out.
- *   4. For each listed Prismic document, flatten the rich-text job_description
- *      blocks into a plain-text body and build a ParsedJob.
- *
- * Notes:
- *   - Master locale is `fr-ch`, secondary is `de-ch` (per /api/v2).
- *   - VS canton (Leukerbad is in Wallis); default postal code 3954.
- *   - We tag every job needsRetranslation: true so the translate-pending
- *     pipeline runs the AI localizer on first sight.
+ * The clinic replaced its Nuxt/Prismic site in October 2026. The former
+ * `leukerbad-clinic.cdn.prismic.io/api/v2` repository now returns HTTP 404,
+ * while the old `/de/page/jobs/` route permanently redirects to the first
+ * listing above. The replacement is server-rendered: each listing exposes
+ * stable detail links and each detail exposes the vacancy body plus a
+ * source-owned application URL. This crawler therefore follows the public
+ * HTML contract instead of guessing a new private CMS endpoint.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { textFragmentUrl } from './text-fragment-url.mjs';
+import { slugify } from './crawler-template.mjs';
+import {
+  decodeEntities,
+  detectHealthcareCategory,
+  detectHealthcareEmploymentType,
+  detectHealthcareExperienceLevel,
+  extractBalancedTagBlock,
+  fetchHtml,
+  htmlToText,
+  locateTagByAttribute,
+  normalizeSpace,
+} from './hospital-custom-html-helpers.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-
-/* ── Constants ─────────────────────────────────────────────── */
 
 export const LEUKERBAD_CLINIC_KEY = 'leukerbad-clinic';
 export const LEUKERBAD_CLINIC_COMPANY_NAME = 'Leukerbad Clinic';
 export const LEUKERBAD_CLINIC_COMPANY_DOMAIN = 'leukerbadclinic.ch';
 
-const PRISMIC_REPO = 'leukerbad-clinic';
-const PRISMIC_API_BASE = `https://${PRISMIC_REPO}.cdn.prismic.io/api/v2`;
-const PUBLIC_CAREER_URL = 'https://leukerbadclinic.ch/de/page/jobs/';
-
-const DEFAULT_UA =
-  process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/2.0; +https://frontaliereticino.ch/)';
-
-/* ── Helpers ───────────────────────────────────────────────── */
-
-function fetchWithTimeout(url, timeoutMs) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  return fetch(url, {
-    headers: { 'User-Agent': DEFAULT_UA, Accept: 'application/json' },
-    signal: controller.signal,
-  }).finally(() => clearTimeout(timer));
-}
-
-async function fetchJsonRetry(url, opts = {}) {
-  const timeoutMs = opts.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25_000;
-  const maxAttempts = opts.maxAttempts || 3;
-  let lastErr;
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const res = await fetchWithTimeout(url, timeoutMs);
-      if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-      return await res.json();
-    } catch (err) {
-      lastErr = err;
-      if (attempt < maxAttempts) {
-        await new Promise((r) => setTimeout(r, 500 * attempt));
-      }
-    }
-  }
-  throw lastErr;
-}
-
-/**
- * Flatten Prismic rich-text array into a single text blob.
- *
- * Prismic rich-text is an array of blocks, each with type+text. We preserve
- * structure by emitting newlines between blocks and a "• " prefix for
- * list-items, then run the result through the standard stripHtml/normalize
- * downstream.
- */
-function richTextToText(blocks) {
-  if (!Array.isArray(blocks) || blocks.length === 0) return '';
-  const lines = [];
-  for (const block of blocks) {
-    if (!block || typeof block !== 'object') continue;
-    const text = String(block.text || '').trim();
-    if (!text) continue;
-    if (block.type === 'list-item' || block.type === 'o-list-item') {
-      lines.push(`• ${text}`);
-    } else if (/^heading/.test(block.type || '')) {
-      lines.push(`\n${text}\n`);
-    } else {
-      lines.push(text);
-    }
-  }
-  return lines.join('\n');
-}
-
-function richTextToPlainTitle(blocks) {
-  if (!Array.isArray(blocks)) return '';
-  for (const block of blocks) {
-    const text = normalizeSpace(String(block?.text || ''));
-    if (text) return text;
-  }
-  return '';
-}
-
-/* ── Category detection ────────────────────────────────────── */
-
-function detectCategory(title = '') {
-  const t = String(title || '').toLowerCase();
-  if (/\b(arzt|ärzt|m[eé]decin|chefarzt|oberarzt|assistent.?arzt|cheffe?\s+de\s+clinique)\b/.test(t))
-    return 'healthcare-medical';
-  if (/\b(pflege|infirm|soins|assc|krankenpfleg|fachfrau\s+gesundheit|fage)\b/.test(t))
-    return 'healthcare-nursing';
-  if (/\b(physio|ergo|therap|logop|kinetik)\b/.test(t)) return 'healthcare-therapy';
-  if (/\b(psycholog)\b/.test(t)) return 'healthcare-psychology';
-  if (/\b(pharma|apothek)\b/.test(t)) return 'pharma';
-  if (/\b(administrat|verwaltung|secret|sekret)\b/.test(t)) return 'administration';
-  if (/\b(reinig|nettoy|cleaning|housekeep|hauswirt|economat|economes?)\b/.test(t)) return 'hospitality';
-  if (/\b(cuisin|k[uü]che|chef\s+de\s+rang|service|h[oô]tel|restaur)\b/.test(t)) return 'hospitality';
-  if (/\b(technique|technik|haustechn|elektri|sanit[aä]r|maintenance)\b/.test(t)) return 'logistics';
-  if (/\b(informatique|informatik|it[-\s]|systeme|reseau|réseau)\b/.test(t)) return 'technology';
-  return 'healthcare';
-}
-
-function detectExperienceLevel(title = '') {
-  const t = String(title || '').toLowerCase();
-  if (/\b(stage|stagiair|praktik|intern|apprenti|lehre|trainee)\b/.test(t)) return 'intern';
-  if (/\b(junior|jr)\b/.test(t)) return 'junior';
-  if (/\b(chef|chefarzt|leiter|directeur|directrice|responsable|head|senior|sr)\b/.test(t)) return 'senior';
-  return 'mid';
-}
-
-function detectEmploymentType(title = '', timePct = '') {
-  const t = String(title || '').toLowerCase();
-  const pct = String(timePct || '').toLowerCase();
-  if (/\b(stage|stagiair|praktik|intern)\b/.test(t)) return 'INTERN';
-  if (/\b(temporaire|temporary|befristet|cdd|fixed.?term)\b/.test(t)) return 'CONTRACTOR';
-  // 100% only → FULL_TIME; explicit part-time band → PART_TIME; otherwise OTHER.
-  if (/^|^\s*100\s*%\s*$/.test(pct) && pct.trim() === '100%') return 'FULL_TIME';
-  if (/^\s*\d+\s*%\s*$/.test(pct)) {
-    const n = parseInt(pct, 10);
-    if (n === 100) return 'FULL_TIME';
-    if (n > 0 && n < 100) return 'PART_TIME';
-  }
-  return 'OTHER';
-}
-
-/* ── Job identity / trust ──────────────────────────────────── */
+const BASE_URL = 'https://leukerbadclinic.ch';
+const LISTINGS = [
+  { lang: 'de', url: `${BASE_URL}/de/karriere/offene-stellen` }, // locale-segment-ok: official Leukerbad listing path per locale
+  { lang: 'fr', url: `${BASE_URL}/fr/carriere/postes-vacants` }, // locale-segment-ok: official Leukerbad listing path per locale
+];
+const DEFAULT_CITY = 'Leukerbad';
+const DEFAULT_POSTAL_CODE = '3954';
 
 export function isLeukerbadClinicJob(job) {
   const key = String(job?.companyKey || '').toLowerCase();
@@ -164,6 +50,8 @@ export function isLeukerbadClinicJob(job) {
     company.includes('leukerbad clinic') ||
     company.includes('rehabilitationszentrum leukerbad') ||
     url.includes('leukerbadclinic.ch') ||
+    // Keep recognizing records emitted by the retired producer so the
+    // standard pipeline can remove/replace them during this migration.
     url.includes('leukerbad-clinic.prismic.io') ||
     url.includes('leukerbad-clinic.cdn.prismic.io')
   );
@@ -172,258 +60,155 @@ export function isLeukerbadClinicJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return (
-      host === 'leukerbadclinic.ch' ||
-      host.endsWith('.leukerbadclinic.ch') ||
-      host === 'leukerbad-clinic.cdn.prismic.io' ||
-      host === 'leukerbad-clinic.prismic.io'
-    );
+    return host === LEUKERBAD_CLINIC_COMPANY_DOMAIN || host.endsWith(`.${LEUKERBAD_CLINIC_COMPANY_DOMAIN}`);
   } catch {
     return false;
   }
 }
 
-/**
- * Merge key of a Leukerbad Clinic record: its id (digest of the Prismic
- * document id), not its URL — the stored `#job-<hash>` records and the
- * text-fragment URLs name the same documents.
- *
- * @param {{ id?: string, url?: string }} job
- * @returns {string}
- */
 export function leukerbadClinicMatchKey(job = {}) {
   return String(job?.id || job?.url || '');
 }
 
-/**
- * Ids of the job documents the site lists as open positions: the `job` links
- * of the Prismic `page` document with uid `jobs`, per language. Every other
- * `job` document is not on leukerbadclinic.ch — on 2026-09-29 the de-ch
- * listing linked 5 of the 8 de-ch job documents; «Medizinische/r
- * Praxisassistent/in», «Chefärztin / Chefarzt …» and «Verwaltungsmitarbeiter/in
- * – Patientenmanagement» were in Prismic only, published by this crawler as
- * open positions nobody could find on the site.
- *
- * @param {any[]} pageDocs Prismic documents of the `jobs` page
- * @returns {Set<string>}
- */
-export function listedJobDocumentIds(pageDocs = []) {
-  const ids = new Set();
-  const visit = (value) => {
-    if (!value || typeof value !== 'object') return;
-    if (Array.isArray(value)) {
-      for (const item of value) visit(item);
-      return;
-    }
-    if (value.link_type === 'Document' && value.type === 'job' && value.id && value.isBroken !== true) ids.add(value.id);
-    for (const child of Object.values(value)) visit(child);
-  };
-  for (const doc of pageDocs) visit(doc?.data);
-  return ids;
+function innerHtmlByAttribute(html, attrMatcher, scanCap = 200_000) {
+  const located = locateTagByAttribute(String(html || ''), attrMatcher, { skipVoidTags: true });
+  return located ? extractBalancedTagBlock(located.rest, located.tagName, scanCap) : '';
 }
 
-/* ── Build ParsedJob from Prismic document ─────────────────── */
+function expectedDetailPrefix(lang) {
+  return lang === 'fr' ? '/fr/carriere/postes-vacants/' : '/de/karriere/offene-stellen/';
+}
 
-function buildJob(doc) {
-  if (!doc || typeof doc !== 'object') return null;
-  const data = doc.data || {};
+/**
+ * Parse only the source-owned vacancy list, never navigation/footer links.
+ */
+export function parseLeukerbadClinicListing(html, listingUrl, lang) {
+  const listingHtml = innerHtmlByAttribute(html, 'data-testid=["\']liste-offres["\']');
+  if (!listingHtml) throw new Error(`Leukerbad Clinic ${lang} listing contract missing: data-testid=liste-offres`);
 
-  const title =
-    richTextToPlainTitle(data.job_title) ||
-    normalizeSpace(data.page_title || '') ||
-    normalizeSpace(doc.uid || '');
-  if (!title || title.length < 3) return null;
+  const expectedPrefix = expectedDetailPrefix(lang);
+  const rows = [];
+  const seen = new Set();
+  const itemRe = /<li\b[^>]*>([\s\S]*?)<\/li>/gi;
+  let itemMatch;
+  while ((itemMatch = itemRe.exec(listingHtml)) !== null) {
+    const block = itemMatch[1];
+    const linkMatch = block.match(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
 
-  const workplace = normalizeSpace(data.workplace || '') || 'Leukerbad';
-  const timePct = normalizeSpace(data.time_percentage || '');
-  const startingDate = normalizeSpace(data.starting_date || '');
-  const supTitle = normalizeSpace(richTextToPlainTitle(data.sup_title) || '');
+    let detailUrl;
+    try {
+      detailUrl = new URL(decodeEntities(linkMatch[1]), listingUrl);
+    } catch {
+      continue;
+    }
+    if (!isTrustedDomain(detailUrl.href) || !detailUrl.pathname.startsWith(expectedPrefix)) continue;
 
-  const descriptionRaw = richTextToText(data.job_description);
-  const descriptionParts = [];
-  if (supTitle) descriptionParts.push(supTitle);
-  if (timePct || startingDate) {
-    const meta = [];
-    if (timePct) meta.push(timePct);
-    if (startingDate) meta.push(startingDate);
-    descriptionParts.push(meta.join(' · '));
+    const title = normalizeSpace(htmlToText(linkMatch[2]));
+    if (!title || title.length < 3 || seen.has(detailUrl.href)) continue;
+
+    const conditionsMatch = block.match(/<p\b[^>]*class=["'][^"']*\bconditions\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/i);
+    const conditions = conditionsMatch ? normalizeSpace(htmlToText(conditionsMatch[1])) : '';
+    seen.add(detailUrl.href);
+    rows.push({ detailUrl: detailUrl.href, title, conditions, sourceLang: lang });
   }
-  if (descriptionRaw) descriptionParts.push(descriptionRaw);
 
-  const description = stripHtml(descriptionParts.filter(Boolean).join('\n\n')) ||
-    `${title} — ${LEUKERBAD_CLINIC_COMPANY_NAME}`;
+  if (rows.length === 0) throw new Error(`Leukerbad Clinic ${lang} listing parsed zero source-owned vacancy links`);
+  return rows;
+}
 
-  // Prismic lang format is 'fr-ch' / 'de-ch' — strip region.
-  const langRaw = String(doc.lang || '').toLowerCase();
-  const langPrefix = langRaw.split('-')[0] || '';
-  const sourceLang =
-    langPrefix === 'de' || langPrefix === 'fr' || langPrefix === 'it' || langPrefix === 'en'
-      ? langPrefix
-      : detectLang(description || title, 'fr');
+function parseConditionFields(conditions = '') {
+  const parts = String(conditions || '').split(/\s*·\s*/).map(normalizeSpace).filter(Boolean);
+  const timePct = parts.find((part) => /\d\s*%/.test(part)) || '';
+  const startingDate = parts.filter((part) => part !== timePct).join(' · ');
+  return { timePct, startingDate };
+}
 
-  // Public URL. The site's own per-job route, /{lang}/jobs/{uid}/, is
-  // prerendered for some documents only: the others answer HTTP 404 with the
-  // Nuxt shell (which renders the job in a browser, but URL housekeeping and
-  // search engines read the 404). So the job stays on the language listing,
-  // which lists every open position under its title — client-side: the static
-  // HTML carries the page chrome only. An anchor `#job-<hash>` named no
-  // element of that page, rendered or not, so the link led to the top of the
-  // list (parser-quality run 36571839273: source-detail-anchor-missing 2/2).
-  // The text fragment of the job title is where the browser scrolls once the
-  // list has rendered (measured in Chromium on the live listing). The
-  // `?jobid=` query (ignored by the static host) is the posting's identity for
-  // the URL-keyed layers that drop the fragment — extractJobIdentityFromUrl
-  // and the slug registry — which otherwise fold every posting of a language
-  // onto the bare listing URL (issues #4085 / #4169).
-  //
-  // The id stays the digest of the Prismic document id: it is the merge key
-  // (leukerbadClinicMatchKey), so stored records keep their translations and
-  // slugs across the URL change.
-  const sitePath = sourceLang === 'de' ? 'de' : 'fr';
-  const urlForHash = `${PRISMIC_REPO}:${doc.id || doc.uid || title}`;
-  const urlHash = createHash('sha1').update(urlForHash).digest('hex').slice(0, 12);
-  const publicUrl = textFragmentUrl(`https://leukerbadclinic.ch/${sitePath}/page/jobs/?jobid=${urlHash}`, title);
+/**
+ * Read a detail page's source body and its explicit application handoff.
+ */
+export function parseLeukerbadClinicDetail(html, row) {
+  const rawHtml = String(html || '');
+  const h1Match = rawHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = normalizeSpace(htmlToText(h1Match?.[1] || '')) || row.title;
 
-  const jobSlug = slugify(`${title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${workplace}`);
-  // Prismic first_publication_date is immutable first publication of this job
-  // document. last_publication_date is its later republication, not a new opening.
-  // Preserve the timestamp and only normalize Prismic's numeric offset syntax.
-  const sourceDate = typeof doc.first_publication_date === 'string'
-    ? doc.first_publication_date.replace(/([+-]\d{2})(\d{2})$/, '$1:$2')
-    : '';
-  const publication = sourcePostingDateFields(sourceDate);
+  const bodyHtml = innerHtmlByAttribute(rawHtml, 'class=["\'][^"\']*corps-page--colonne[^"\']*["\']');
+  const description = normalizeSpace(htmlToText(bodyHtml));
+  if (!title || title.length < 3) throw new Error(`Leukerbad Clinic detail has no title: ${row.detailUrl}`);
+  if (!description || description.split(/\s+/).length < 50) {
+    throw new Error(`Leukerbad Clinic detail body is below the 50-word source floor: ${row.detailUrl}`);
+  }
+
+  const applyMatch = rawHtml.match(/<a\b[^>]*href=["']([^"']*\?offre=[^"']+)["'][^>]*>/i);
+  if (!applyMatch) throw new Error(`Leukerbad Clinic detail has no source application handoff: ${row.detailUrl}`);
+  const applyUrl = new URL(decodeEntities(applyMatch[1]), row.detailUrl).href;
+  if (!isTrustedDomain(applyUrl)) throw new Error(`Leukerbad Clinic application handoff is off-domain: ${applyUrl}`);
+
+  return { title, description, applyUrl };
+}
+
+function buildJob(row, detail) {
+  const { timePct, startingDate } = parseConditionFields(row.conditions);
+  const identity = new URL(row.detailUrl).pathname.replace(/\/$/, '');
+  const urlHash = createHash('sha1').update(identity).digest('hex').slice(0, 12);
+  const slug = slugify(`${detail.title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${DEFAULT_CITY}`);
+  const employmentType = detectHealthcareEmploymentType(detail.title, timePct);
 
   return {
     id: `${LEUKERBAD_CLINIC_KEY}-${urlHash}`,
-    slug: jobSlug,
-    slugByLocale: { [sourceLang]: jobSlug },
+    slug,
+    slugByLocale: { [row.sourceLang]: slug },
     company: LEUKERBAD_CLINIC_COMPANY_NAME,
     companyKey: LEUKERBAD_CLINIC_KEY,
     companyDomain: LEUKERBAD_CLINIC_COMPANY_DOMAIN,
-    title,
-    titleByLocale: { [sourceLang]: title },
-    description,
-    descriptionByLocale: { [sourceLang]: description },
-    location: workplace,
+    title: detail.title,
+    titleByLocale: { [row.sourceLang]: detail.title },
+    description: detail.description,
+    descriptionByLocale: { [row.sourceLang]: detail.description },
+    location: DEFAULT_CITY,
     canton: 'VS',
-    addressLocality: workplace,
+    addressLocality: DEFAULT_CITY,
     addressRegion: 'VS',
     addressCountry: 'CH',
     country: 'CH',
-    postalCode: '3954',
-    category: detectCategory(title),
+    postalCode: DEFAULT_POSTAL_CODE,
+    category: detectHealthcareCategory(`${detail.title} ${detail.description}`),
     sector: 'Salute / Riabilitazione',
-    contract: 'full-time',
-    employmentType: detectEmploymentType(title, timePct),
-    experienceLevel: detectExperienceLevel(title),
+    contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+    employmentType,
+    experienceLevel: detectHealthcareExperienceLevel(detail.title),
     currency: 'CHF',
     featured: false,
-    ...publication,
-    url: publicUrl,
-    applyUrl: publicUrl,
-    source: 'Leukerbad Clinic Dedicated Parser (Prismic REST API)',
-    sourceLang,
+    ...sourcePostingDateFields(''),
+    url: row.detailUrl,
+    applyUrl: detail.applyUrl,
+    source: 'Leukerbad Clinic Dedicated Parser (official Astro HTML)',
+    sourceLang: row.sourceLang,
     crawledAt: new Date().toISOString(),
     needsRetranslation: true,
+    sourceConditions: [timePct, startingDate].filter(Boolean).join(' · '),
   };
 }
 
-/* ── Main fetch function ───────────────────────────────────── */
-
-/**
- * Fetch all Leukerbad Clinic jobs from the Prismic REST API.
- *
- * Returns ParsedJob[] with source-locale fields only (no other-locale slugs
- * or translations). Master locale is fr-ch; we also include de-ch.
- */
 export async function fetchAllLeukerbadClinicJobs() {
-  console.log(`🏥 Fetching Leukerbad Clinic jobs from Prismic`);
-  console.log(`   Public career page: ${PUBLIC_CAREER_URL}`);
-  console.log(`   Prismic API: ${PRISMIC_API_BASE}\n`);
-
-  let masterRef = '';
-  try {
-    const apiInfo = await fetchJsonRetry(PRISMIC_API_BASE);
-    masterRef =
-      (apiInfo.refs || []).find((r) => r && r.isMasterRef)?.ref ||
-      (apiInfo.refs || [])[0]?.ref ||
-      '';
-  } catch (err) {
-    console.warn(`⚠️ Prismic /api/v2 unreachable: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
-    throw err;
+  console.log('🏥 Fetching Leukerbad Clinic jobs from official server-rendered HTML');
+  const rows = [];
+  for (const listing of LISTINGS) {
+    console.log(`   Listing (${listing.lang}): ${listing.url}`);
+    const html = await fetchHtml(listing.url);
+    rows.push(...parseLeukerbadClinicListing(html, listing.url, listing.lang));
   }
-  if (!masterRef) {
-    console.warn(`⚠️ Could not resolve Prismic master ref.`);
-    return [];
-  }
-  console.log(`   Resolved master ref: ${masterRef}`);
-
-  // Fetch all job docs in all langs. Prismic returns paginated results with
-  // page/results_size/total_results_size; iterate until exhausted.
-  const allDocs = [];
-  let page = 1;
-  const pageSize = 100;
-  while (true) {
-    const q = encodeURIComponent('[[at(document.type, "job")]]');
-    const url =
-      `${PRISMIC_API_BASE}/documents/search?ref=${encodeURIComponent(masterRef)}` +
-      `&q=${q}&lang=*&pageSize=${pageSize}&page=${page}`;
-    let payload;
-    try {
-      payload = await fetchJsonRetry(url);
-    } catch (err) {
-      console.warn(`⚠️ Prismic search page ${page} failed: ${err?.message || err}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
-      throw err;
-    }
-    const results = assertJsonListShape(payload, { key: 'results', source: 'leukerbad-clinic', lang: `page ${page}` });
-    allDocs.push(...results);
-    const totalPages = Number(payload?.total_pages || 1);
-    console.log(`   📄 Page ${page}/${totalPages}: ${results.length} job docs`);
-    if (page >= totalPages || results.length === 0) break;
-    page += 1;
-    await new Promise((r) => setTimeout(r, 300));
-  }
-
-  console.log(`\n   Prismic returned ${allDocs.length} job document(s) across all locales`);
-
-  // Only the positions the site lists. A listing that cannot be read is an
-  // error (the stored slice stays as it is), never «publish every document».
-  const pageQuery = encodeURIComponent('[[at(my.page.uid, "jobs")]]');
-  const pagePayload = await fetchJsonRetry(
-    `${PRISMIC_API_BASE}/documents/search?ref=${encodeURIComponent(masterRef)}&q=${pageQuery}&lang=*&pageSize=20`,
-  );
-  const pageDocs = assertJsonListShape(pagePayload, { key: 'results', source: 'leukerbad-clinic', lang: 'jobs page' });
-  if (pageDocs.length === 0) throw new Error('Leukerbad Clinic: the Prismic `jobs` page was not found');
-  const listed = listedJobDocumentIds(pageDocs);
-  const listedDocs = allDocs.filter((doc) => listed.has(doc?.id));
-  console.log(`   Listed on the jobs pages: ${listedDocs.length}/${allDocs.length} job document(s)`);
 
   const jobs = [];
-  for (const doc of listedDocs) {
-    try {
-      const job = buildJob(doc);
-      if (job) jobs.push(job);
-    } catch (err) {
-      console.warn(`   ⚠️ Skipping doc ${doc?.id || doc?.uid}: ${err?.message || err}`);
-    }
+  const seenDetails = new Set();
+  for (const row of rows) {
+    if (seenDetails.has(row.detailUrl)) continue;
+    seenDetails.add(row.detailUrl);
+    const detailHtml = await fetchHtml(row.detailUrl);
+    jobs.push(buildJob(row, parseLeukerbadClinicDetail(detailHtml, row)));
   }
 
-  // Deduplicate by id (one Prismic doc per (uid, lang) combination, so id is
-  // already unique — but the urlHash collapses by `id || uid || title`).
-  const seen = new Set();
-  const deduped = [];
-  for (const job of jobs) {
-    if (seen.has(job.id)) continue;
-    seen.add(job.id);
-    deduped.push(job);
-  }
-
-  console.log(`\n📋 Total unique Leukerbad Clinic jobs: ${deduped.length}`);
-  return deduped;
+  if (jobs.length === 0) throw new Error('Leukerbad Clinic official listings yielded no complete vacancies');
+  console.log(`\n📋 Total unique Leukerbad Clinic jobs: ${jobs.length}`);
+  return jobs;
 }

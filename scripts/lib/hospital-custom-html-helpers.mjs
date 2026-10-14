@@ -359,8 +359,8 @@ export function detectHealthcareExperienceLevel(text = '') {
  *   Recognises percentages ("80%", "60-100%"), German keywords (Vollzeit/Teilzeit),
  *   French (temps plein/partiel) and Italian (tempo pieno/parziale).
  */
-export function detectHealthcareEmploymentType(text = '') {
-  const t = normalize(text);
+export function detectHealthcareEmploymentType(text = '', workload = '') {
+  const t = normalize(`${text || ''} ${workload || ''}`);
   if (!t) return 'OTHER';
   const pct = t.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || t.match(/(\d{2,3})\s*%/);
   if (pct) {
