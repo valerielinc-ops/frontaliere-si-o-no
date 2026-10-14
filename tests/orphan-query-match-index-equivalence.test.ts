@@ -3,7 +3,7 @@
  *
  * `filterMatchingJobs` used to evaluate the whole per-pair body — the activity
  * gate, the title-token set and the location-token set — once per
- * (job, cluster) PAIR: 500 clusters x ~26k jobs = ~13M evaluations per build,
+ * (job, cluster) PAIR: 1000 clusters x ~26k jobs = ~26M evaluations per build,
  * which was the entire 191 s wall of `orphan-query-landings` in deploy
  * 31065272867. Those sub-computations are pure functions of (job, locale) or of
  * `job` alone, so they are now memoised per job in a lazily-filled index.

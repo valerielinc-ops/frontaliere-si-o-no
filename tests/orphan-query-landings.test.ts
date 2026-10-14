@@ -25,6 +25,9 @@ import {
   buildOrphanLandingHubUrl,
   buildNursingOrphanCanonicalBridge,
   renderOrphanLandingHubHreflang,
+  DEFAULT_MAX_LANDINGS,
+  resolveMaxOrphanLandings,
+  __renderOrphanLandingPage,
 } from '../build-plugins/orphanQueryLandingPlugin';
 
 import {
@@ -52,6 +55,16 @@ const ROOT = path.resolve(__dirname, '..');
 
 // ─── Path helpers ────────────────────────────────────────────
 describe('orphanQueryData — path helpers', () => {
+  it('expands the default demand cohort without changing the page-quality gates', () => {
+    expect(DEFAULT_MAX_LANDINGS).toBe(1000);
+  });
+
+  it('allows smaller local caps but never exceeds the validated cohort size', () => {
+    expect(resolveMaxOrphanLandings(250)).toBe(250);
+    expect(resolveMaxOrphanLandings(0)).toBe(DEFAULT_MAX_LANDINGS);
+    expect(resolveMaxOrphanLandings(2_000)).toBe(DEFAULT_MAX_LANDINGS);
+  });
+
   it('exposes exactly 4 locales', () => {
     expect(ORPHAN_LANDING_LOCALES).toEqual(['it', 'en', 'de', 'fr']);
   });
@@ -110,6 +123,28 @@ describe('orphanQueryData — path helpers', () => {
     expect(html).toContain('hreflang="de" href="https://frontaliereticino.ch/de/suche/"');
     expect(html).toContain('hreflang="en" href="https://frontaliereticino.ch/en/search/"');
     expect(html).not.toContain('https:/frontaliereticino.ch');
+  });
+
+  it('keeps sparse expanded-cohort pages enriched but noindex', () => {
+    const cluster = makeCluster('it', 'assistente-mensa-lugano', 12, ['assist'], ['lugano']);
+    const knownSlugsByLocale = new Map(
+      ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()]),
+    );
+    knownSlugsByLocale.get('it')?.add(cluster.canonicalSlug);
+
+    const rendered = __renderOrphanLandingPage({
+      cluster,
+      matchingJobs: [],
+      strings: {},
+      dateStamp: '2026-10-13',
+      knownSlugsByLocale,
+    });
+
+    expect(rendered.indexable).toBe(false);
+    expect(rendered.html).toMatch(/<meta(?=[^>]*\bname=["']?robots["']?)(?=[^>]*\bcontent=["']?noindex,follow)/i);
+    expect(rendered.html).toContain('FAQ');
+    expect(rendered.html).toContain('assistente mensa lugano');
+    expect(rendered.wordCount).toBeGreaterThanOrEqual(50);
   });
 
   // Regression guard for the per-locale matrix-build hreflang bug (deploy
