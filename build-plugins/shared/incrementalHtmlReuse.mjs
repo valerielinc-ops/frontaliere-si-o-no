@@ -2,6 +2,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
+import { readAttr } from '../../scripts/lib/html-attr.mjs';
 import {
   computeInputHash,
   JOB_DIGEST_ALGORITHM_VERSION,
@@ -1147,8 +1148,17 @@ export function refreshHtmlBuildId(html, buildId) {
 }
 
 export function htmlHasIndexableRobots(html) {
-  const tag = String(html).match(/<meta\b[^>]*\bname\s*=\s*["']robots["'][^>]*>/i)?.[0] || '';
-  return !!tag && !/\bnoindex\b/i.test(tag);
+  let found = false;
+  for (const [rawTag] of String(html).matchAll(/<meta\b[^>]*>/gi)) {
+    // Keep an authored self-closing delimiter out of unquoted directives.
+    // Normalize only this metadata probe, never arbitrary URL attributes.
+    const tag = rawTag.replace(/\/>$/, ' />');
+    if (readAttr(tag, 'name').toLowerCase() !== 'robots') continue;
+    const content = readAttr(tag, 'content').trim();
+    if (!content || content.toLowerCase().split(/[\s,]+/).includes('noindex')) return false;
+    found = true;
+  }
+  return found;
 }
 
 function htmlAssetReferenceList(html) {
