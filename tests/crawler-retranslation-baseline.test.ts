@@ -24,6 +24,7 @@ import {
   snapshotRetranslationBaseline,
 } from '../scripts/lib/crawler-retranslation-baseline.mjs';
 import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
+import { cleanCrawlerArtifacts, normalizeDescriptionBullets } from '../scripts/lib/description-artifacts.mjs';
 import {
   enrichJobLocalesDCC,
   seedCrawlerSlicesFromDataJobs,
@@ -57,6 +58,32 @@ describe('retranslationSourceHash and paragraph order', () => {
   });
   it('differs when a paragraph changes', () => {
     expect(retranslationSourceHash(job(a.replace('Team', 'Betrieb')))).not.toBe(retranslationSourceHash(job(a)));
+  });
+});
+
+describe('retranslationSourceHash and the slice writer clean-up', () => {
+  // The baseline is a stored slice, already through cleanCrawlerArtifacts +
+  // normalizeDescriptionBullets; the crawl it is judged against is not yet.
+  // What the writer is about to rewrite is not a changed source (2026-10-14:
+  // 45/45 Decathlon and 204/204 Senevita live descriptions hashed differently
+  // from their stored copy).
+  const job = (description: string) => ({ sourceLang: 'fr', title: 'Vendeur sport', description });
+  const raw = 'Vos missions : • Conseiller les clients • Tenir le rayon\nVotre profil : • Passionné de sport';
+  const stored = normalizeDescriptionBullets(cleanCrawlerArtifacts(raw));
+  it('premise: the writer rewrites this crawl', () => {
+    expect(stored).not.toBe(raw);
+  });
+  it('hashes the crawl as the writer will store it', () => {
+    expect(retranslationSourceHash(job(raw))).toBe(retranslationSourceHash(job(stored)));
+  });
+  it('ignores a paragraph the crawl repeats', () => {
+    const once = 'Erster Absatz über die Arbeit.\nZweiter Absatz über das Team.';
+    expect(retranslationSourceHash(job(`${once}\nZweiter Absatz über das Team.`)))
+      .toBe(retranslationSourceHash(job(once)));
+  });
+  it('still changes when a bullet changes', () => {
+    expect(retranslationSourceHash(job(raw.replace('Tenir le rayon', 'Gérer la caisse'))))
+      .not.toBe(retranslationSourceHash(job(stored)));
   });
 });
 
