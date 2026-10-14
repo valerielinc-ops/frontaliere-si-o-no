@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-14T10:42:33.004Z",
+  "updatedAt": "2026-10-14T10:43:21.208Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -650091,12 +650091,12 @@
     },
     "opus-personal-zweigniederlassung-bern@herzogenbuchsee": {
       "key": "opus-personal-zweigniederlassung-bern@herzogenbuchsee",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.337Z",
-      "updatedAt": "2026-10-13T12:22:56.267Z",
+      "updatedAt": "2026-10-14T10:43:20.765Z",
       "name": "Opus Personal AG, Zweigniederlassung Bern",
       "city": "Herzogenbuchsee",
       "zip": "3360",
@@ -650261,7 +650261,8 @@
         }
       ],
       "promotionPr": "13047",
-      "promotionBranch": "prospector/promote-2026-10-13"
+      "promotionBranch": "prospector/promote-2026-10-13",
+      "promotedAt": "2026-10-14T10:43:20.765Z"
     },
     "opus-personal-zweigniederlassung-bern@lyss": {
       "key": "opus-personal-zweigniederlassung-bern@lyss",
@@ -659925,7 +659926,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-13T12:22:29.157Z",
+      "updatedAt": "2026-10-14T10:43:21.182Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
