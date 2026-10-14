@@ -1,7 +1,7 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-14T09:32:39.820Z",
+  "generatedAt": "2026-10-14T21:26:26.152Z",
   "total": 7,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 54079,
-  "avgDurationMs": 54079,
+  "durationMs": 45130,
+  "avgDurationMs": 45130,
   "durationHistory": [
-    54079
+    45130
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -92,7 +92,6 @@
       "datePosted": "2025-04-11T14:31:54+00:00",
       "postingDateSource": "reported",
       "postalCode": "6850",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,5 +306,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }
