@@ -26,6 +26,10 @@ describe('locale-router apex legacy routes', () => {
     ['/vivere-in-ticino/vivere-in-svizzera/', '/vivere-in-ticino/'],
     ['/statistiche/traffico-dogane/', '/traffico-dogane/'],
     ['/en/border-traffic/gaggiolo/oggi/', '/en/border-wait/gaggiolo/today/'],
+    ['/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/', '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/'],
+    ['/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/', '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/'],
+    ['/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/', '/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/'],
+    ['/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/', '/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/'],
     ['/guida-frontaliere/tempi-attesa-dogana/', '/traffico-dogane/'],
     ['/guida-frontaliere/diritto-lavoro-frontalieri/', '/guida-frontaliere/'],
     ['/tfr-calculator/', '/tfr-liquidazione-frontaliere/'],
@@ -69,9 +73,15 @@ describe('locale-router apex legacy routes', () => {
     expect(await response?.text()).toContain('Pagina rimossa');
   });
 
+  it('does not infer a canton migration for a different event or date', () => {
+    for (const pathname of ['/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-15/', '/eventi/ticino/altri-eventi/unknown-2026-10-14/', '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/']) {
+      expect(apexLegacyResponse(new URL(`${APEX}${pathname}`))).toBeNull();
+    }
+  });
+
   it('does not hijack an unrelated apex path and keeps Wrangler routes explicit', () => {
     expect(apexLegacyResponse(new URL(`${APEX}/contattaci/`))).toBeNull();
-    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(26);
+    expect(Object.keys(EDGE_LEGACY_REDIRECTS)).toHaveLength(30);
     expect(Object.keys(EDGE_LEGACY_GONE_PATHS)).toEqual(['/calcolatore-5x1000/']);
     const wrangler = readFileSync(path.resolve(__dirname, '..', 'infra/cloudflare-worker/wrangler.toml'), 'utf8');
     for (const pathname of [...Object.keys(EDGE_LEGACY_REDIRECTS), ...Object.keys(EDGE_LEGACY_GONE_PATHS)]) {

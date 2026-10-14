@@ -1644,6 +1644,11 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/statistiche/traffico-dogane/': '/traffico-dogane/',
   // Exact mixed-language URL observed in GSC; same crossing and live-day page.
   '/en/border-traffic/gaggiolo/oggi/': '/en/border-wait/gaggiolo/today/',
+  // Same attested event ID: its former TI fallback is now explicitly GR.
+  '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  '/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/de/veranstaltungen/graubunden/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
+  '/fr/evenements/tessin/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/fr/evenements/grisons/autres-evenements/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
   '/guida-frontaliere/tempi-attesa-dogana/': '/traffico-dogane/',
   '/guida-frontaliere/diritto-lavoro-frontalieri/': '/guida-frontaliere/',
   '/tfr-calculator/': '/tfr-liquidazione-frontaliere/',
