@@ -20,6 +20,8 @@ import {
   hereOverBudgetTitle,
   previousMonthKey,
   recoveredHereUsageTitles,
+  parseArgs,
+  resolveRecoveredHereUsageIssues,
 } from '../scripts/reconcile-here-usage.mjs';
 
 describe('sumRoutingTransactions', () => {
@@ -175,7 +177,28 @@ describe('recoveredHereUsageTitles — the monthly alert closes once usage is ba
   it('awaits and catches a rejected recovery resolver', () => {
     const source = readFileSync(new URL('../scripts/reconcile-here-usage.mjs', import.meta.url), 'utf8');
     expect(source).toMatch(
-      /for \(const title of recovered\) \{\s*try \{\s*await resolveGithubIssue\(title,[\s\S]*?\}\s*catch \(e\)/,
+      /async function defaultResolveIssue\(title\) \{[\s\S]*?return resolveGithubIssue\(title,[\s\S]*?\n\}/,
     );
+  });
+
+  it('in --alert --dry-run leaves both recovered monthly issues open', async () => {
+    const monthKey = '2026-10';
+    const titles = recoveredHereUsageTitles({ monthKey, reconciled: 120, budget: 5000 });
+    const openTitles = new Set(titles);
+    const resolveIssueImpl = vi.fn(async (title: string) => {
+      openTitles.delete(title);
+    });
+
+    await resolveRecoveredHereUsageIssues({
+      args: parseArgs(['--alert', '--dry-run']),
+      monthKey,
+      reconciled: 120,
+      budget: 5000,
+      env: { GH_TOKEN: 'test-token' },
+      resolveIssueImpl,
+    });
+
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
+    expect(openTitles).toEqual(new Set(titles));
   });
 });

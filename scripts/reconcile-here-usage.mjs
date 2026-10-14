@@ -56,7 +56,7 @@ const HERE_USAGE_HOST = 'https://usage.bam.api.here.com';
 const ROUTING_SERVICE_MATCHERS = ['routing', 'time aware'];
 
 // ─── arg parsing ───────────────────────────────────────────────
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const args = { dryRun: false, alert: false, set: null, budget: null };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -336,19 +336,7 @@ async function main() {
     }
   }
 
-  if (args.alert && process.env.GH_TOKEN) {
-    const recovered = recoveredHereUsageTitles({ monthKey, reconciled, budget });
-    if (recovered.length) {
-      const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
-      for (const title of recovered) {
-        try {
-          await resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
-        } catch (e) {
-          console.warn(`⚠️ could not close «${title}»: ${e.message}`);
-        }
-      }
-    }
-  }
+  await resolveRecoveredHereUsageIssues({ args, monthKey, reconciled, budget });
 }
 
 /** Title of the monthly over-budget alert, stable per month. */
@@ -372,6 +360,31 @@ export function previousMonthKey(monthKey) {
 export function recoveredHereUsageTitles({ monthKey, reconciled, budget }) {
   if (!(Number.isFinite(reconciled) && Number.isFinite(budget)) || reconciled > budget) return [];
   return [hereOverBudgetTitle(monthKey), hereOverBudgetTitle(previousMonthKey(monthKey))];
+}
+
+async function defaultResolveIssue(title) {
+  const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return resolveGithubIssue(title, { exactTitle: true, workflow: 'Reconcile HERE Usage Budget' });
+}
+
+export async function resolveRecoveredHereUsageIssues({
+  args,
+  monthKey,
+  reconciled,
+  budget,
+  env = process.env,
+  resolveIssueImpl = defaultResolveIssue,
+}) {
+  if (!(args.alert && !args.dryRun && env.GH_TOKEN)) return;
+  const recovered = recoveredHereUsageTitles({ monthKey, reconciled, budget });
+  if (!recovered.length) return;
+  for (const title of recovered) {
+    try {
+      await resolveIssueImpl(title);
+    } catch (e) {
+      console.warn(`⚠️ could not close «${title}»: ${e.message}`);
+    }
+  }
 }
 
 // Only run when invoked directly (allow importing pure helpers in tests).
