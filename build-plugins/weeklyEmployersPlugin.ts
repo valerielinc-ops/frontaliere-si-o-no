@@ -144,9 +144,9 @@ import {
 } from './shared/weeklyEmployersProfiler';
 
 const WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS = {
-  // Stable name-derived @ids distinguish unknown employers without inventing
-  // profile URLs or conflating them with the site's Organization identity.
-  allowNameOnlyOrganizationIds: true,
+  // An employer without an exact registry identity stays anonymous. A
+  // normalized name is not enough to anchor it to an Organization.
+  allowNameOnlyOrganizationIds: false,
 } as const;
 
 // ── Canton-aware section helpers (P2.S1) ────────────────────────
