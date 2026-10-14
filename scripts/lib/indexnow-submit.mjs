@@ -93,9 +93,10 @@ export async function submitIndexNowUrls(urls, { endpoints = INDEXNOW_ENDPOINTS 
 /**
  * Submit URLs in bounded, ordered chunks rather than one full sitemap-sized
  * payload. The default is one URL per request for remediation loops, while a
- * caller may raise batchSize for a small deploy delta. Keeping the pacing in
- * this shared module makes the direct and scheduled callers obey the same
- * retry/backoff contract.
+ * caller may raise batchSize for a small deploy delta. Each batch stops at the
+ * first endpoint that accepts it; IndexNow shares accepted submissions across
+ * participating engines, so later endpoints are fallbacks, not extra required
+ * deliveries. A batch remains failed if no endpoint accepts it.
  */
 export async function submitIndexNowUrlsStreaming(
   urls,
@@ -112,12 +113,25 @@ export async function submitIndexNowUrlsStreaming(
     batches.push(clean.slice(index, index + batchSize));
   }
 
+  if (!Array.isArray(endpoints) || endpoints.length === 0) {
+    throw new TypeError('serve almeno un endpoint IndexNow');
+  }
+
   const results = [];
-  for (const endpoint of endpoints) {
-    for (let index = 0; index < batches.length; index += 1) {
-      results.push(await submitIndexNowBatch(endpoint, batches[index]));
-      if (index < batches.length - 1 && delayMs > 0) await sleep(delayMs);
+  for (let index = 0; index < batches.length; index += 1) {
+    const batch = batches[index];
+    const attempts = [];
+    let batchResult;
+
+    for (const endpoint of endpoints) {
+      const attempt = await submitIndexNowBatch(endpoint, batch);
+      attempts.push(attempt);
+      batchResult = attempt;
+      if (attempt.ok) break;
     }
+
+    results.push({ ...batchResult, attempts });
+    if (index < batches.length - 1 && delayMs > 0) await sleep(delayMs);
   }
   return { submitted: clean.length, batches: batches.length, results };
 }
