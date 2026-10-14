@@ -10,6 +10,7 @@ import {
   renderBelowCurvePagesSection,
   belowCurvePagesForState,
   nextCtrMonitorCounter,
+  ctrFamilyRecovered,
   ctrMonitorCountedAnchor,
   CTR_MONITOR_MIN_COUNTED_INTERVAL_DAYS,
   BELOW_CURVE_ISSUE_PAGE_LIMIT,
@@ -1252,5 +1253,26 @@ describe('contatore del monitor CTR: un controllo conteggiato per cadenza', () =
     expect(monitor).toContain('if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE)');
     expect(monitor).toContain('lastCountedIso: ctrMonitorCountedAnchor(prior)');
     expect(monitor).toMatch(/lastCheckedIso: nowIso,\n\s+lastCountedIso,\n/);
+  });
+});
+
+describe('ctrFamilyRecovered — the monitor closes the family issue only on a counted, measured recovery (11547 class)', () => {
+  it('a counted check at or above target with a measured CTR is a recovery', () => {
+    expect(ctrFamilyRecovered({ counted: true, ctr: 0.031, target: 0.03 })).toBe(true);
+    expect(ctrFamilyRecovered({ counted: true, ctr: 0.03, target: 0.03 })).toBe(true);
+  });
+
+  it('below target, off cadence or unmeasured is not', () => {
+    expect(ctrFamilyRecovered({ counted: true, ctr: 0.02, target: 0.03 })).toBe(false);
+    expect(ctrFamilyRecovered({ counted: false, ctr: 0.05, target: 0.03 })).toBe(false);
+    expect(ctrFamilyRecovered({ counted: true, ctr: null, target: 0.03 })).toBe(false);
+    expect(ctrFamilyRecovered({ counted: true, ctr: 0.05, target: null })).toBe(false);
+  });
+
+  it('awaits and catches a rejected recovery resolver', () => {
+    const monitor = readFileSync(join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    expect(monitor).toMatch(
+      /try \{\s*const \{ resolveGithubIssue \} = await import\('[^']+'\);\s*await resolveGithubIssue\(ctrBelowTargetTitle\(family\),[\s\S]*?\}\s*catch \(err\)/,
+    );
   });
 });

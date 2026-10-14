@@ -8,6 +8,7 @@ import {
   classifyKind,
   ma3AlertTitle,
   cohortAlertTitle,
+  recoveredAlertTitles,
   KIND_DATA,
   KIND_MEASURE,
   KIND_UNKNOWN,
@@ -325,5 +326,39 @@ describe('log-translation-stats — predicateVersion e coorte 24-48 h nella hist
   it('la history committata resta leggibile dal monitor', () => {
     const history = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/translation-stats-history.json'), 'utf8'));
     expect(coverageSeries(history).length).toBeGreaterThan(0);
+  });
+});
+
+describe('monitor-translation-coverage — chiusura delle issue rientrate (11547)', () => {
+  const allMa3 = [KIND_DATA, KIND_MEASURE, KIND_UNKNOWN].map(ma3AlertTitle);
+  const allCohort = [KIND_DATA, KIND_MEASURE, KIND_UNKNOWN].map(cohortAlertTitle);
+  const cohort = (complete: number, total = MIN_COHORT_JOBS + 10) => ({ freshCohort: { total, complete } });
+
+  it('una MA3 misurata e rientrata chiude tutti e tre i titoli MA3, qualunque tipo li abbia aperti', () => {
+    const verdict = evaluateCoverage([afterRow(0, 0.88), afterRow(1, 0.89), afterRow(2, 0.885)]);
+    expect(verdict.ma3.fired).toBe(false);
+    expect(recoveredAlertTitles(verdict)).toEqual(allMa3);
+  });
+
+  it('una MA3 ancora in allarme non chiude niente di suo', () => {
+    const verdict = evaluateCoverage([afterRow(0, 0.9), afterRow(1, 0.9), afterRow(2, 0.9), afterRow(3, 0.3), afterRow(4, 0.3), afterRow(5, 0.3)]);
+    expect(verdict.ma3.fired).toBe(true);
+    expect(recoveredAlertTitles(verdict)).not.toContain(ma3AlertTitle(verdict.ma3.kind as string));
+    expect(recoveredAlertTitles(verdict).some((title) => allMa3.includes(title))).toBe(false);
+  });
+
+  it('senza tre punti la MA3 non è misurata e non chiude', () => {
+    expect(recoveredAlertTitles(evaluateCoverage([afterRow(0, 0.9), afterRow(1, 0.9)]))).toEqual([]);
+  });
+
+  it('la coorte chiude i suoi titoli solo se misurata e sopra la soglia', () => {
+    const healthy = evaluateCoverage([afterRow(0, 0.9), afterRow(1, 0.9), afterRow(2, 0.9, cohort(MIN_COHORT_JOBS))]);
+    expect(recoveredAlertTitles(healthy)).toEqual([...allMa3, ...allCohort]);
+    const low = evaluateCoverage([afterRow(0, 0.9), afterRow(1, 0.9), afterRow(2, 0.9, cohort(1))]);
+    expect(low.cohort.fired).toBe(true);
+    expect(recoveredAlertTitles(low)).toEqual(allMa3);
+    const tooFew = evaluateCoverage([afterRow(0, 0.9), afterRow(1, 0.9), afterRow(2, 0.9, cohort(3, 5))]);
+    expect(tooFew.cohort.measured).toBe(false);
+    expect(recoveredAlertTitles(tooFew)).toEqual(allMa3);
   });
 });

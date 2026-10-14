@@ -10,12 +10,18 @@
  */
 
 import { describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   sumRoutingTransactions,
   buildHereOAuthHeader,
   hereReconciliationBudget,
   monthBounds,
   currentMonthKey,
+  hereOverBudgetTitle,
+  previousMonthKey,
+  recoveredHereUsageTitles,
+  parseArgs,
+  resolveRecoveredHereUsageIssues,
 } from '../scripts/reconcile-here-usage.mjs';
 
 describe('sumRoutingTransactions', () => {
@@ -146,5 +152,53 @@ describe('HERE budget threshold', () => {
 
   it('keeps the configured value when it is within the ceiling', () => {
     expect(hereReconciliationBudget({ HERE_MONTHLY_BUDGET: '3500' }, vi.fn())).toBe(3500);
+  });
+});
+
+describe('recoveredHereUsageTitles — the monthly alert closes once usage is back under budget (11547 class)', () => {
+  it('computes the previous month across a year boundary', () => {
+    expect(previousMonthKey('2026-01')).toBe('2025-12');
+    expect(previousMonthKey('2026-10')).toBe('2026-09');
+  });
+
+  it('under or at budget closes this month and last month', () => {
+    expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: 120, budget: 5000 })).toEqual([
+      hereOverBudgetTitle('2026-10'),
+      hereOverBudgetTitle('2026-09'),
+    ]);
+    expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: 5000, budget: 5000 })).toHaveLength(2);
+  });
+
+  it('over budget, or without numbers, closes nothing', () => {
+    expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: 5001, budget: 5000 })).toEqual([]);
+    expect(recoveredHereUsageTitles({ monthKey: '2026-10', reconciled: Number.NaN, budget: 5000 })).toEqual([]);
+  });
+
+  it('awaits and catches a rejected recovery resolver', () => {
+    const source = readFileSync(new URL('../scripts/reconcile-here-usage.mjs', import.meta.url), 'utf8');
+    expect(source).toMatch(
+      /async function defaultResolveIssue\(title\) \{[\s\S]*?return resolveGithubIssue\(title,[\s\S]*?\n\}/,
+    );
+  });
+
+  it('in --alert --dry-run leaves both recovered monthly issues open', async () => {
+    const monthKey = '2026-10';
+    const titles = recoveredHereUsageTitles({ monthKey, reconciled: 120, budget: 5000 });
+    const openTitles = new Set(titles);
+    const resolveIssueImpl = vi.fn(async (title: string) => {
+      openTitles.delete(title);
+    });
+
+    await resolveRecoveredHereUsageIssues({
+      args: parseArgs(['--alert', '--dry-run']),
+      monthKey,
+      reconciled: 120,
+      budget: 5000,
+      env: { GH_TOKEN: 'test-token' },
+      resolveIssueImpl,
+    });
+
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
+    expect(openTitles).toEqual(new Set(titles));
   });
 });

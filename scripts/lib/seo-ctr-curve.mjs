@@ -1206,3 +1206,15 @@ export function belowCurvePagesForState(belowCurvePages, limit = BELOW_CURVE_STA
       lostClicks: round(page.lostClicks, 1),
     }));
 }
+
+/**
+ * Whether a check proves a family recovered, so the monitor may close its
+ * «SEO CTR sotto soglia» issue: counted (once per cadence, like the
+ * escalation), with a measured CTR and target, not below target. Pure.
+ * Issue 11547 class: the issue promised to close on recovery, nothing closed it.
+ *
+ * @param {{counted: boolean, ctr: number|null, target: number|null}} check
+ */
+export function ctrFamilyRecovered({ counted, ctr, target }) {
+  return Boolean(counted) && ctr !== null && ctr !== undefined && target !== null && target !== undefined && !(ctr < target);
+}
