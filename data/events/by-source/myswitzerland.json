@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-13T13:24:24.169Z",
+  "assembledAt": "2026-10-14T11:00:34.950Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -164535,6 +164535,15 @@
         "lng": 10.128634
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Campascio"
+      },
       "italianFrontierComuni": [
         "Tirano",
         "Villa di Tirano",
@@ -164784,8 +164793,8 @@
         "de": "Ausstellung von Cedric Zellweger",
         "fr": "Exposition de Cédric Zellweger"
       },
-      "startDate": "2026-09-09",
-      "endDate": "2027-07-21",
+      "startDate": "2026-10-14",
+      "endDate": "2027-01-10",
       "startTime": "02:00",
       "category": "Event",
       "venue": "Vevey",
@@ -164799,7 +164808,23 @@
         "lng": 6.8430176
       },
       "recurring": true,
-      "sourceDescriptionHash": "f0df6b54c4967c5a1eeb512f1df70b57bba2edff8833700332ebc7a6090a1fa2"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Vevey"
+      },
+      "sourceDescriptionHash": "f0df6b54c4967c5a1eeb512f1df70b57bba2edff8833700332ebc7a6090a1fa2",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Vevey",
+          "slug": "mostra-di-cedric-zellweger-2026-09-09"
+        }
+      ]
     },
     {
       "id": "myswitzerland:77fe858a4b9e414f8787333e0b6571d7",
@@ -264820,6 +264845,608 @@
         "name": "Sissach"
       },
       "sourceDescriptionHash": "beb278296a369d859b3f5fc14e2c10a8e852bdb2d436da6009818ae5b6baa284"
+    },
+    {
+      "id": "myswitzerland:7b5f30f170764722835fea577320bcda",
+      "title": "Sempacherseelauf",
+      "titleByLocale": {
+        "it": "Sempacherseelauf",
+        "en": "Sempacherseelauf",
+        "de": "Sempacherseelauf",
+        "fr": "Sempacherseelauf"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Sursee",
+      "comune": "Sursee",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sempacherseelauf/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.172476,
+        "lng": 8.1066773
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sursee"
+      },
+      "sourceDescriptionHash": "0b998a472096ec911108481dead55ebf8aa983bfcfe05c8f72ec340c44579d83"
+    },
+    {
+      "id": "myswitzerland:7ae83ff178124ab28d1282ba3f023b11",
+      "title": "Animationsfilm \"Minions & Monster\"",
+      "titleByLocale": {
+        "it": "Animationsfilm \"Minions & Monster\"",
+        "en": "Animationsfilm \"Minions & Monster\"",
+        "de": "Animationsfilm \"Minions & Monster\"",
+        "fr": "Animationsfilm \"Minions & Monster\""
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-25",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/animationsfilm-minions-monster/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3993433,
+        "lng": 8.6222948
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Dübendorf"
+      },
+      "sourceDescriptionHash": "97e2a7de3607caeb1379ad7bce34a72bef37444a38d2c5918eebab2ca876b04f"
+    },
+    {
+      "id": "myswitzerland:7a2f76824fe540a990368e24253f6e2c",
+      "title": "Maison des Contes et Légendes : Halloween [EN]",
+      "titleByLocale": {
+        "it": "Maison des Contes et Légendes : Halloween [EN]",
+        "en": "Maison des Contes et Légendes : Halloween [EN]",
+        "de": "Maison des Contes et Légendes : Halloween [DE]",
+        "fr": "Maison des Contes et Légendes : Halloween"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Dorénaz",
+      "comune": "Dorénaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/maison-des-contes-et-legendes-halloween-en/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.14904,
+        "lng": 7.0443527
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Dorénaz"
+      },
+      "sourceDescriptionHash": "f800181376bdb33a03f97bf6675b832984fb898d84ecf96dc319a493f59a341d"
+    },
+    {
+      "id": "myswitzerland:7697b03abada4eef82c2afc9e1c1dca1",
+      "title": "Einblick in die Zukunft des Museums – Fokus \"Spinnen\"",
+      "titleByLocale": {
+        "it": "Einblick in die Zukunft des Museums – Fokus \"Spinnen\"",
+        "en": "Einblick in die Zukunft des Museums – Fokus \"Spinnen\"",
+        "de": "Einblick in die Zukunft des Museums – Fokus \"Spinnen\"",
+        "fr": "Einblick in die Zukunft des Museums – Fokus \"Spinnen\""
+      },
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-25",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Bäretswil",
+      "comune": "Bäretswil",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/einblick-in-die-zukunft-des-museums-fokus-spinnen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3593969,
+        "lng": 8.8653917
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bäretswil"
+      },
+      "sourceDescriptionHash": "d5cc1f27657f5bb6ae3fb59625db49f78a4c3ee42ca2d74f92994be7708b6c5e"
+    },
+    {
+      "id": "myswitzerland:7666a692a2014beead003a2573beb477",
+      "title": "New Year's Party",
+      "titleByLocale": {
+        "it": "New Year's Party",
+        "en": "New Year's Party",
+        "de": "New Year's Party - Revier Mountain Lodge",
+        "fr": "Fête du Nouvel An"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Saas-Fee",
+      "comune": "Saas-Fee",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/new-years-party/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1098028,
+        "lng": 7.9291256
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Saas-Fee"
+      },
+      "italianFrontierComuni": [
+        "Antrona Schieranco"
+      ],
+      "sourceDescriptionHash": "c40d732ff4ece1221f08d3baca6c4d594abf1652671a435e5ea9a16b7b52a55f"
+    },
+    {
+      "id": "myswitzerland:763b8c386b6849249ea86dfdd48e6339",
+      "title": "Get together - ein Gospelkonzert zum Mitsingen",
+      "titleByLocale": {
+        "it": "Get together - ein Gospelkonzert zum Mitsingen",
+        "en": "Get together - ein Gospelkonzert zum Mitsingen",
+        "de": "Get together - ein Gospelkonzert zum Mitsingen",
+        "fr": "Get together - ein Gospelkonzert zum Mitsingen"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/get-together-ein-gospelkonzert-zum-mitsingen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4023075,
+        "lng": 8.5788187
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "479f907d7ab893c7fd0b32f8d6bc59da47836b0b0adb8ab0a4d88c088a37756c"
+    },
+    {
+      "id": "myswitzerland:75e99bd3c06b44c49eaac062e6a21e54",
+      "title": "Evento di intrattenimento Saumchörli Herisau",
+      "titleByLocale": {
+        "it": "Evento di intrattenimento Saumchörli Herisau",
+        "en": "Entertainment event Saumchörli Herisau",
+        "de": "Unterhaltungsanlass Saumchörli Herisau",
+        "fr": "Manifestation de divertissement Saumchörli Herisau"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-22",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Herisau",
+      "comune": "Herisau",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/evento-di-intrattenimento-saumchoerli-herisau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.384646,
+        "lng": 9.2779364
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Herisau"
+      },
+      "sourceDescriptionHash": "8e2cbc04ff55b51f8bfdc75e237c54b637fbdb2a5fdb886e66313705bde914d3"
+    },
+    {
+      "id": "myswitzerland:756d6779c043411ea7ad9529f7c22130",
+      "title": "Visite commentée",
+      "titleByLocale": {
+        "it": "Visite commentée",
+        "en": "Visite commentée",
+        "de": "Visite commentée",
+        "fr": "Visite commentée"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Fully",
+      "comune": "Fully",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/visite-commentee-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1431666,
+        "lng": 7.1170912
+      },
+      "recurring": false,
+      "performer": {
+        "name": "UNIPOP Coude du Rhône"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0155e5fbd014b71763b1857a759b3e0d12b6c8252e08b595c772afaee9d5a1e2"
+    },
+    {
+      "id": "myswitzerland:752b85dccaa740d4808b63b5773d4ef1",
+      "title": "A Capella Konzert \"LULLABY\"",
+      "titleByLocale": {
+        "it": "A Capella Konzert \"LULLABY\"",
+        "en": "A Capella Konzert \"LULLABY\"",
+        "de": "A Capella Konzert \"LULLABY\"",
+        "fr": "A Capella Konzert \"LULLABY\""
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Illnau",
+      "comune": "Illnau-Effretikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/a-capella-konzert-lullaby-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.40757,
+        "lng": 8.717469
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Illnau"
+      },
+      "sourceDescriptionHash": "2f60844dd1953bf8cbf7fe19291fc3ea0a3c4b4e651a3ca538d70c1fd0b50a2d"
+    },
+    {
+      "id": "myswitzerland:74eda22356914dcf983ba349a57e5b70",
+      "title": "Spielnachmittag mit Würfeln und Karten",
+      "titleByLocale": {
+        "it": "Spielnachmittag mit Würfeln und Karten",
+        "en": "Spielnachmittag mit Würfeln und Karten",
+        "de": "Spielnachmittag mit Würfeln und Karten",
+        "fr": "Spielnachmittag mit Würfeln und Karten"
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/spielnachmittag-mit-wuerfeln-und-karten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.451987,
+        "lng": 8.5895
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kloten"
+      },
+      "sourceDescriptionHash": "eaceafce388fa7b4a4ba68ceecb617c940fee3155fc390817d743f046035bc0b"
+    },
+    {
+      "id": "myswitzerland:7469729135574ebe8d298b388c440f6f",
+      "title": "Multimediale Buchpräsentation «Wundersames Kiental» im Glarnerland",
+      "titleByLocale": {
+        "it": "Multimediale Buchpräsentation «Wundersames Kiental» im Glarnerland",
+        "en": "Multimediale Buchpräsentation «Wundersames Kiental» im Glarnerland",
+        "de": "Multimediale Buchpräsentation «Wundersames Kiental» im Glarnerland",
+        "fr": "Multimediale Buchpräsentation «Wundersames Kiental» im Glarnerland"
+      },
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-22",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Schwanden",
+      "comune": "Glarus Süd",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/multimediale-buchpraesentation-wundersames-kiental-im-glarnerland/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9952704,
+        "lng": 9.0813312
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schwanden"
+      },
+      "sourceDescriptionHash": "56916a21ee754730b6dd543e8817d72d58fa0fc80bd74069cdfe3eabae4d66a4"
+    },
+    {
+      "id": "myswitzerland:72a5c9a1f81e4e0ba9bf33c734202b47",
+      "title": "Vieh- Beständeschau Frutigen",
+      "titleByLocale": {
+        "it": "Vieh- Beständeschau Frutigen",
+        "en": "Vieh- Beständeschau Frutigen",
+        "de": "Vieh- Beständeschau Frutigen",
+        "fr": "Vieh- Beständeschau Frutigen"
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Frutigen",
+      "comune": "Frutigen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vieh-bestaendeschau-frutigen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5992099,
+        "lng": 7.6424435
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Frutigen"
+      },
+      "sourceDescriptionHash": "f29f8d540ab3c66b2511bdea93b1f239cedf3b0fdaaaaa405b078cabe9d9c104"
+    },
+    {
+      "id": "myswitzerland:727c275d378e46ceb0818ccbb587aa02",
+      "title": "Kutschenfahrt zur Agata",
+      "titleByLocale": {
+        "it": "Kutschenfahrt zur Agata",
+        "en": "Kutschenfahrt zur Agata",
+        "de": "Kutschenfahrt zur Agata",
+        "fr": "Kutschenfahrt zur Agata"
+      },
+      "startDate": "2026-10-19",
+      "endDate": "2026-11-22",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Scuol",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kutschenfahrt-zur-agata/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7966882,
+        "lng": 10.3020679
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Scuol"
+      },
+      "sourceDescriptionHash": "ffe65d4fcba3dd70f463fcb5a8b90d0b02fa92d3ba6c27924d2e6fbcdf26cf6c"
+    },
+    {
+      "id": "myswitzerland:71ea3ac9e188432e87d19eb2ad0ff906",
+      "title": "Visite guidate ai castagneti e pranzo a Brusio",
+      "titleByLocale": {
+        "it": "Visite guidate ai castagneti e pranzo a Brusio",
+        "en": "Guided tours of the chestnut groves and lunch in Brusio",
+        "de": "Geführte Besichtigungen der Kastanienselven und Mittagessen in Brusio",
+        "fr": "Visites guidées des châtaigneraies et déjeuner à Brusio"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "10:15",
+      "category": "Event",
+      "venue": "Campocologno",
+      "comune": "Brusio",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/visite-guidate-ai-castagneti-e-pranzo-a-brusio-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.23357,
+        "lng": 10.14224
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Campocologno"
+      },
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano",
+        "Sernio",
+        "Bianzone",
+        "Lovero"
+      ],
+      "sourceDescriptionHash": "515c72e84d36a1d9ad5279212350fc2afb3b93be137493a4f095c1d2ade55b3a"
+    },
+    {
+      "id": "myswitzerland:71afcb849b9b4e0eb0e801aa1756f7e4",
+      "title": "Ein Abend mit Joachim B. Schmidt",
+      "titleByLocale": {
+        "it": "Ein Abend mit Joachim B. Schmidt",
+        "en": "Ein Abend mit Joachim B. Schmidt",
+        "de": "Ein Abend mit Joachim B. Schmidt",
+        "fr": "Ein Abend mit Joachim B. Schmidt"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Appenzell",
+      "comune": "Appenzell",
+      "canton": "AI",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ein-abend-mit-joachim-b-schmidt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3308862,
+        "lng": 9.4093968
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Joachim B"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "5bbd0f12ee3a9043c67cf161d8750be113b0dca006bf1fd0c718b04c3c051710"
+    },
+    {
+      "id": "myswitzerland:6e194ca4034c4b78b7e8a3198be38867",
+      "title": "u23 spricht Chor",
+      "titleByLocale": {
+        "it": "u23 spricht Chor",
+        "en": "u23 spricht Chor",
+        "de": "u23 spricht Chor",
+        "fr": "u23 spricht Chor"
+      },
+      "startDate": "2027-05-11",
+      "endDate": "2027-05-13",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/u23-spricht-chor/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3937799,
+        "lng": 8.0438301
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Aarau"
+      },
+      "sourceDescriptionHash": "65d0f4193cedfccffd046c936669f7ed81c215dfc7dc4c52e4f82c7bb3e276ca"
+    },
+    {
+      "id": "myswitzerland:6cc06c8c93e441ecb88c6016ea6ff389",
+      "title": "«Bärenstutz Weihnachtskonzert» – Heinz Holliger mit dem Bärenstutz Ensemble",
+      "titleByLocale": {
+        "it": "«Bärenstutz Weihnachtskonzert» – Heinz Holliger mit dem Bärenstutz Ensemble",
+        "en": "«Bärenstutz Weihnachtskonzert» – Heinz Holliger mit dem Bärenstutz Ensemble",
+        "de": "«Bärenstutz Weihnachtskonzert» – Heinz Holliger mit dem Bärenstutz Ensemble",
+        "fr": "«Bärenstutz Weihnachtskonzert» – Heinz Holliger mit dem Bärenstutz Ensemble"
+      },
+      "startDate": "2026-12-21",
+      "endDate": "2026-12-21",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Rüeggisberg",
+      "comune": "Rüeggisberg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baerenstutz-weihnachtskonzert-heinz-holliger-mit-dem-baerenstutz-ensemble/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.821165,
+        "lng": 7.438586
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Heinz Holliger eine der bedeutendsten Schweizer Musikerpersönlichkeiten der Gegenwart gewonnen werden"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0b73fe09558b7dd335f11a3d16b76c31fd255ec8c85b6ab83c118b64ea352f7a"
     }
   ]
 }
