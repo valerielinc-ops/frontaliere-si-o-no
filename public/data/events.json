@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T20:57:33.039Z",
+  "generatedAt": "2026-10-14T21:57:59.972Z",
   "totalEvents": 13578,
   "events": [
     {
@@ -405964,7 +405964,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro in presenza a Posieux riguarda la FRESEdE e il percorso formativo organizzato dall’Ecole professionnelle santé-social. La partecipazione a una sessione informativa è necessaria per poter presentare una domanda di iscrizione.",
+      "descriptionByLocale": {
+        "it": "L’incontro in presenza a Posieux riguarda la FRESEdE e il percorso formativo organizzato dall’Ecole professionnelle santé-social. La partecipazione a una sessione informativa è necessaria per poter presentare una domanda di iscrizione.",
+        "en": "This in-person information session in Posieux concerns FRESEdE and the training scheme organised by the Ecole professionnelle santé-social. Attendance at an information session is required for anyone wishing to submit an application.",
+        "de": "Die Veranstaltung in Posieux informiert über FRESEdE und das Ausbildungsangebot der Ecole professionnelle santé-social. Die Teilnahme an einer Informationsveranstaltung ist Voraussetzung für die Einreichung eines Anmeldedossiers.",
+        "fr": "Cette séance d’information en présentiel à Posieux présente la FRESEdE et son dispositif de formation, organisé par l’Ecole professionnelle santé-social. La participation à une séance d’information est requise pour pouvoir déposer un dossier d’inscription."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:APmtQXx",
@@ -417406,7 +417414,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Designpreis Altefabrik si svolge a Rapperswil-Jona. L’appuntamento offre ai creatori svizzeri del design uno spazio per presentare progetti attuali.",
+      "descriptionByLocale": {
+        "it": "Il Designpreis Altefabrik si svolge a Rapperswil-Jona. L’appuntamento offre ai creatori svizzeri del design uno spazio per presentare progetti attuali.",
+        "en": "DESIGNPREIS ALTEFABRIK takes place in Rapperswil-Jona. The event offers Swiss design practitioners a platform for current projects.",
+        "de": "Der Designpreis Altefabrik findet in Rapperswil-Jona statt. Im Mittelpunkt stehen aktuelle Projekte von Schweizer Designschaffenden.",
+        "fr": "Le Designpreis Altefabrik se déroule à Rapperswil-Jona. L’événement offre aux créateurs suisses du design un cadre pour leurs projets actuels."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A56ucNK",
@@ -431619,7 +431635,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’attività a Lucerna si svolge con Andrea del Kreativ-Studio Pling. I cavalli di Bourbaki vengono trasformati in figure di fantasia e diventano parte di un mobile sospeso.",
+      "descriptionByLocale": {
+        "it": "L’attività a Lucerna si svolge con Andrea del Kreativ-Studio Pling. I cavalli di Bourbaki vengono trasformati in figure di fantasia e diventano parte di un mobile sospeso.",
+        "en": "The activity in Lucerne takes place with Andrea from Kreativ-Studio Pling. The Bourbaki horses are transformed into imaginary figures and incorporated into a suspended mobile.",
+        "de": "Die Veranstaltung in Luzern findet mit Andrea vom Kreativ-Studio Pling statt. Die Bourbaki-Pferde werden in Fantasiefiguren verwandelt und zu einem schwebenden Mobile ergänzt.",
+        "fr": "L’activité à Lucerne se déroule avec Andrea du Kreativ-Studio Pling. Les chevaux de Bourbaki sont transformés en personnages imaginaires et intégrés à un mobile suspendu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d8c151b7a6a9463ba65e9a42f3a0ef93",
@@ -434009,7 +434033,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta Martin Jaspard al pianoforte. Si svolge alla Salle de musique de La Chaux-de-Fonds, nella località di La Chaux-de-Fonds.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta Martin Jaspard al pianoforte. Si svolge alla Salle de musique de La Chaux-de-Fonds, nella località di La Chaux-de-Fonds.",
+        "en": "This piano event presents Martin Jaspard. It is held at the Salle de musique de La Chaux-de-Fonds in La Chaux-de-Fonds.",
+        "de": "Bei der Klavierveranstaltung tritt Martin Jaspard auf. Sie findet in der Salle de musique de La Chaux-de-Fonds in La Chaux-de-Fonds statt.",
+        "fr": "Ce rendez-vous musical présente Martin Jaspard au piano. Il se déroule à la Salle de musique de La Chaux-de-Fonds, à La Chaux-de-Fonds."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:031d1916213e4ffc86e6ec8715228926",
@@ -434786,7 +434818,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
       "imageCopyrightNotice": "© Makalu",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "description": "“Shine your Light” è indicato come evento di musica corale presso la chiesa conventuale cattolica di Tänikon, ad Aadorf, nel cantone TG, e la stessa sede figura anche come interprete. Guidle è l’organizzatrice indicata e l’ingresso è gratuito; la scheda colloca l’evento musicale ad Aadorf, nel cantone TG, e identifica la chiesa sia come sede sia come interprete.",
+      "descriptionByLocale": {
+        "it": "“Shine your Light” è indicato come evento di musica corale presso la chiesa conventuale cattolica di Tänikon, ad Aadorf, nel cantone TG, e la stessa sede figura anche come interprete. Guidle è l’organizzatrice indicata e l’ingresso è gratuito; la scheda colloca l’evento musicale ad Aadorf, nel cantone TG, e identifica la chiesa sia come sede sia come interprete.",
+        "en": "“Shine your Light” is listed as a choral music event at the Catholic monastery church of Tänikon in Aadorf, canton TG, with that venue also recorded as the performer. Guidle is the named organizer and admission is free; the entry places the musical event in Aadorf and canton TG while identifying the church as both its venue and performer.",
+        "de": "„Shine your Light“ ist als Chormusikveranstaltung in der katholischen Klosterkirche Tänikon in Aadorf, Kanton TG, aufgeführt; derselbe Ort ist zugleich als auftretende Organisation angegeben. Guidle wird als Veranstalter genannt und der Eintritt ist kostenlos; die Veranstaltung ist damit in Aadorf im Kanton TG verortet, während die Kirche zugleich als Ort und auftretende Organisation ausgewiesen wird.",
+        "fr": "« Shine your Light » est présenté comme un événement de musique chorale à l’église conventuelle catholique de Tänikon, à Aadorf, dans le canton TG, ce même lieu étant aussi indiqué comme interprète. Guidle est désigné comme organisateur et l’entrée est gratuite ; l’événement musical est ainsi situé à Aadorf, dans le canton TG, tandis que l’église est identifiée à la fois comme lieu et comme interprète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AigmxcP",
@@ -436154,7 +436194,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Posieux si svolge una sessione informativa sull’articolo 32 per ASSC e ASE. L’incontro è organizzato dall’Ecole professionnelle santé-social.",
+      "descriptionByLocale": {
+        "it": "A Posieux si svolge una sessione informativa sull’articolo 32 per ASSC e ASE. L’incontro è organizzato dall’Ecole professionnelle santé-social.",
+        "en": "An information session in Posieux addresses Article 32 for ASSC and ASE. It is organised by the Ecole professionnelle santé-social.",
+        "de": "In Posieux findet eine Informationsveranstaltung zu Artikel 32 für ASSC und ASE statt. Organisiert wird sie von der Ecole professionnelle santé-social.",
+        "fr": "Cette séance d’information à Posieux porte sur l’article 32 pour ASSC et ASE. Elle est organisée par l’Ecole professionnelle santé-social."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AiJqmP4",
@@ -438751,7 +438799,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento unisce immagini dell’universo alla musica di Bach. Si svolge a Lucerna.",
+      "descriptionByLocale": {
+        "it": "L’evento unisce immagini dell’universo alla musica di Bach. Si svolge a Lucerna.",
+        "en": "The event pairs images of the universe with music by Bach. It is held in Lucerne.",
+        "de": "Die Veranstaltung kombiniert Bilder des Universums mit Musik von Bach. Sie findet in Luzern statt.",
+        "fr": "Le rendez-vous associe des images de l’Univers à la musique de Bach. Il se déroule à Lucerne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvN2U2E",
@@ -438799,7 +438855,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L’appuntamento rientra nella categoria della musica moderna/seria e si svolge al Museum Kleines Klingental di Basilea. L’ingresso costa 25 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento rientra nella categoria della musica moderna/seria e si svolge al Museum Kleines Klingental di Basilea. L’ingresso costa 25 CHF.",
+        "en": "The event is classified as modern/serious music and takes place at Museum Kleines Klingental in Basel. Admission costs CHF 25.",
+        "de": "Die Veranstaltung ist der modernen/ernsten Musik zugeordnet und findet im Museum Kleines Klingental in Basel statt. Der Eintritt beträgt 25 CHF.",
+        "fr": "Le rendez-vous relève de la catégorie de la musique moderne/sérieuse et se déroule au Museum Kleines Klingental, à Bâle. L’entrée coûte 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:89764",
@@ -439242,7 +439306,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il duo comico Messer & Gabel presenta un nuovo programma teatrale. L’appuntamento si tiene a Hochdorf, nel cantone di Lucerna.",
+      "descriptionByLocale": {
+        "it": "Il duo comico Messer & Gabel presenta un nuovo programma teatrale. L’appuntamento si tiene a Hochdorf, nel cantone di Lucerna.",
+        "en": "Messer & Gabel present a new stage comedy programme. The event takes place in Hochdorf, in the canton of Lucerne.",
+        "de": "Das Comedy-Duo Messer & Gabel zeigt ein neues Bühnenprogramm. Die Veranstaltung findet in Hochdorf im Kanton Luzern statt.",
+        "fr": "Le duo comique Messer & Gabel présente un nouveau spectacle sur scène. Le rendez-vous a lieu à Hochdorf, dans le canton de Lucerne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:69a46b7ae5b94ab7a70aebf4d0d4a897",
@@ -446214,7 +446286,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La lezione è dedicata all’interpretazione del pianto dei neonati attraverso la Dunstan Babysprache. L’appuntamento si svolge presso FOSTAC AG - infoRAma.",
+      "descriptionByLocale": {
+        "it": "La lezione è dedicata all’interpretazione del pianto dei neonati attraverso la Dunstan Babysprache. L’appuntamento si svolge presso FOSTAC AG - infoRAma.",
+        "en": "This lesson focuses on interpreting babies’ crying through Dunstan baby language. The event takes place at FOSTAC AG - infoRAma.",
+        "de": "Die Lektion befasst sich mit der Deutung von Babyweinen mithilfe der Dunstan-Babysprache. Die Veranstaltung findet bei FOSTAC AG - infoRAma statt.",
+        "fr": "Cette leçon porte sur l’interprétation des pleurs des bébés au moyen de la méthode Dunstan. Le rendez-vous a lieu chez FOSTAC AG - infoRAma."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANLkWcd",
@@ -458408,7 +458488,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una lettura dedicata ai testi dell’Avvento e del Natale della tradizione sveva. Racconti, poesie, musica e strumenti storici delineano una spiritualità popolare sveva profonda e al tempo stesso serena presso il Neues Schloss Tettnang.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una lettura dedicata ai testi dell’Avvento e del Natale della tradizione sveva. Racconti, poesie, musica e strumenti storici delineano una spiritualità popolare sveva profonda e al tempo stesso serena presso il Neues Schloss Tettnang.",
+        "en": "The event is a reading centred on Advent and Christmas texts from the Swabian tradition. Stories, poems, music and historical instruments present its folk spirituality as both profound and cheerful at Neues Schloss Tettnang.",
+        "de": "Die Veranstaltung ist eine Lesung zu Texten aus der schwäbischen Advents- und Weihnachtstradition. Erzählungen, Gedichte, Musik und historische Instrumente vermitteln eine Volksfrömmigkeit, die als tiefgründig und zugleich heiter beschrieben wird; Veranstaltungsort ist das Neues Schloss Tettnang.",
+        "fr": "Ce rendez-vous est une lecture consacrée à des textes de l’Avent et de Noël issus de la tradition souabe. Des récits, des poèmes, de la musique et des instruments historiques y présentent une piété populaire profonde et joyeuse, au Neues Schloss Tettnang."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Avk87ud",
@@ -467792,7 +467880,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento Hayato Sumino è previsto alla Victoria Hall, nel Cantone di Ginevra. Rientra nella categoria delle altre musiche e ha Guidle come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento Hayato Sumino è previsto alla Victoria Hall, nel Cantone di Ginevra. Rientra nella categoria delle altre musiche e ha Guidle come organizzatore.",
+        "en": "The Hayato Sumino event is scheduled at Victoria Hall in the canton of Geneva. It is classified under other music, and Guidle is listed as the organiser.",
+        "de": "Die Veranstaltung Hayato Sumino findet in der Victoria Hall im Kanton Genf statt. Sie ist der Kategorie sonstige Musik zugeordnet; als Veranstalter ist Guidle angegeben.",
+        "fr": "Le rendez-vous Hayato Sumino est programmé au Victoria Hall, dans le canton de Genève. Il relève de la catégorie des autres musiques et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:histoires-naturelles-du-mercredi-1",
@@ -472415,7 +472511,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La compagnia svizzera MUMMENSCHANZ presenta uno spettacolo di teatro di maschere al Theater 11 di Zurigo. L'appuntamento è una tournée d'addio che segna 55 anni di attività teatrale.",
+      "descriptionByLocale": {
+        "it": "La compagnia svizzera MUMMENSCHANZ presenta uno spettacolo di teatro di maschere al Theater 11 di Zurigo. L'appuntamento è una tournée d'addio che segna 55 anni di attività teatrale.",
+        "en": "The Swiss ensemble MUMMENSCHANZ appears at Theater 11 in Zurich. This engagement forms part of a farewell tour following 55 years of theatrical history.",
+        "de": "Die Schweizer Maskentheatergruppe MUMMENSCHANZ tritt im Theater 11 in Zürich auf. Die Veranstaltung gehört zu einer Abschiedstournee nach 55 Jahren Theatergeschichte.",
+        "fr": "MUMMENSCHANZ, compagnie suisse spécialisée dans le théâtre de masques, se produit au Theater 11 à Zurich. Cette étape appartient à une tournée d’adieu organisée après 55 ans d’histoire théâtrale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ASBTk2n",
@@ -472455,7 +472559,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Pablo è un evento presso l’EXIL, nel cantone di Zurigo. L’ingresso costa 28 CHF. L’accesso è consentito a partire dai 16 anni e richiede un documento d’identità ufficiale in formato fisico.",
+      "descriptionByLocale": {
+        "it": "Pablo è un evento presso l’EXIL, nel cantone di Zurigo. L’ingresso costa 28 CHF. L’accesso è consentito a partire dai 16 anni e richiede un documento d’identità ufficiale in formato fisico.",
+        "en": "Pablo is an event at EXIL in the canton of Zurich. Admission costs CHF 28. Entry is limited to people aged 16 and over and requires a physical official identity document.",
+        "de": "Pablo ist eine Veranstaltung im EXIL im Kanton Zürich. Der Eintritt kostet 28 CHF. Der Zutritt ist ab 16 Jahren möglich und erfordert einen amtlichen Ausweis in physischer Form.",
+        "fr": "Pablo a lieu à l’EXIL, dans le canton de Zurich. L’entrée coûte 28 CHF. L’accès est réservé aux personnes âgées d’au moins 16 ans et nécessite une pièce d’identité officielle sous forme physique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:paul-wiedmer-splendore-di-fuoco-visite-guidee-publique",
@@ -475684,7 +475796,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Pontresina, Gabriela Kasperski presenta il suo romanzo poliziesco. L’appuntamento comprende una lettura e un aperitivo all’Hotel Maistra 160.",
+      "descriptionByLocale": {
+        "it": "A Pontresina, Gabriela Kasperski presenta il suo romanzo poliziesco. L’appuntamento comprende una lettura e un aperitivo all’Hotel Maistra 160.",
+        "en": "At Pontresina, Gabriela Kasperski presents her crime novel. The programme includes a reading and an aperitif at Hotel Maistra 160.",
+        "de": "In Pontresina stellt Gabriela Kasperski ihren Kriminalroman vor. Zum Programm gehören eine Lesung und ein Apéro im Hotel Maistra 160.",
+        "fr": "À Pontresina, Gabriela Kasperski présente son roman policier. Le rendez-vous comprend une lecture et un apéritif à l’hôtel Maistra 160."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3f6846fdff214effb688a24d18e9ad17",
