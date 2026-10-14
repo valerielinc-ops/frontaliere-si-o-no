@@ -23,13 +23,14 @@ const fixture = vi.hoisted(() => {
   const cover = `https://cdn.frontaliereticino.ch/images/blog/${id}.webp`;
   const undatedId = 'fixture-undated-article';
   const undatedCover = `https://cdn.frontaliereticino.ch/images/blog/${undatedId}.webp`;
-  return { id, cover, undatedId, undatedCover };
+  return { id, cover, undatedId, undatedCover, budgetId: 'fixture-budget-article' };
 });
 
 vi.mock('@/data/blog-articles-data', () => ({
   ARTICLES: [
     { id: fixture.id, category: 'novita', date: '2026-10-01', image: fixture.cover, hasCalculator: false },
     { id: fixture.undatedId, category: 'pratico', date: '', image: fixture.undatedCover, hasCalculator: false },
+    { id: fixture.budgetId, category: 'pratico', date: '2026-10-01', image: fixture.cover, hasCalculator: false },
     { id: 'fixture-neighbour', category: 'novita', date: '2026-09-30', image: 'https://cdn.frontaliereticino.ch/images/blog/fixture-neighbour.webp', hasCalculator: false },
   ],
 }));
@@ -105,6 +106,11 @@ mergeArticleMetaOverlay('it', {
   [`blog.article.${fixture.undatedId}.body2`]: body(5),
   [`blog.article.${fixture.undatedId}.body3`]: body(6),
   'blog.article.fixture-neighbour.title': 'Articolo vicino',
+  [`blog.article.${fixture.budgetId}.title`]: 'Guida per pianificare il budget',
+  [`blog.article.${fixture.budgetId}.excerpt`]: 'Una guida al confronto.',
+  [`blog.article.${fixture.budgetId}.body1`]: 'Lo stipendio netto ti aiuta a pianificare il budget.',
+  [`blog.article.${fixture.budgetId}.body2`]: 'Il contesto del confronto.',
+  [`blog.article.${fixture.budgetId}.body3`]: '[Cambio esistente](nav:exchange) [Pensione esistente](nav:pension) [Cassa esistente](nav:health)',
 });
 
 const PAGE_URL = 'https://commons.wikimedia.org/wiki/File:Fixture_Valley.jpg';
@@ -484,5 +490,20 @@ describe('the ad components keep their order (AGENTS.md #7)', () => {
     expect(follows(footer, end), 'the end multiplex moved above the line').toBe(true);
     expect(without[0]).toBe('rail-left');
     expect(without[without.length - 1]).toBe('rail-right');
+  });
+});
+
+
+describe('contextual links across the complete article', () => {
+  it('reserves later existing links before considering a new link in the lead', async () => {
+    stubNetwork(false);
+    sessionStorage.setItem(`viewed_${fixture.budgetId}`, '1');
+    const root = renderArticle(fixture.budgetId);
+    await waitFor(() => expect([...root.querySelectorAll('a')].some(a => a.textContent === 'Cassa esistente')).toBe(true), WAIT);
+    const anchors = [...root.querySelectorAll('a')];
+    for (const label of ['Cambio esistente', 'Pensione esistente', 'Cassa esistente']) {
+      expect(anchors.filter(a => a.textContent === label)).toHaveLength(1);
+    }
+    expect(anchors.some(a => a.textContent === 'stipendio netto')).toBe(false);
   });
 });

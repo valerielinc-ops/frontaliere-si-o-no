@@ -2232,6 +2232,14 @@ function BlogArticlesContent({
  const bodySegments = collectArticleBodySegments(article.id, t);
  const usedHeadingIds = new Set<string>();
  const usedLinkIds = new Set<string>();
+ // Reserve existing destinations across the whole article before inserting
+ // links in the lead. A later segment must not make us exceed the shared budget.
+ const existingDestinations = contentLinkDestinations(getLocale());
+ for (const segment of bodySegments) {
+   linkContentKeywords(segment, getLocale(), {
+     usedIds: usedLinkIds, maxLinks: 0, destinations: existingDestinations,
+   });
+ }
  const presentSegments = bodySegments;
  const bodyWordCount = countArticleBodyWords(presentSegments);
  const bodyCharCount = countArticleBodyChars(presentSegments);
