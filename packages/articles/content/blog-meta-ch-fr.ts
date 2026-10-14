@@ -8291,6 +8291,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: les secteurs pèsent de plus en plus sur le budget prévisionnel',
     'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Déficit prévu : près de 100 millions de francs Contributions à des tiers : +24,8% en quatre ans Poste budgétaire : +34,5% entre 2023 et 2027 EFAS : près de 20 millions',
     'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'Vue du palais cantonal des Grisons avec des graphiques financiers en arrière-plan',
+    'blog.article.consiglio-federale-knifefish-adesione.title': 'Le Conseil fédéral approuve l’adhésion à Knifefish pour l’attaque électronique',
+    'blog.article.consiglio-federale-knifefish-adesione.excerpt': 'Le 14 octobre 2026, le Conseil fédéral approuve Knifefish La Suisse modernise les moyens de la guerre électronique Knifefish favorise les achats et les échanges',
+    'blog.article.consiglio-federale-knifefish-adesione.imageAlt': 'Palais fédéral à Berne avec équipement militaire moderne de guerre électronique',
 };
 
 export default blogMetaChFr;

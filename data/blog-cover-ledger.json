@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5460
+      "6": 5461
     },
-    "publishedCovers": 7041,
+    "publishedCovers": 7042,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5265
+    "inferredRecords": 5266
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -185122,6 +185122,33 @@
           "id": "consiglio-federale-doganal-consultazione",
           "category": "fiscale",
           "date": "2026-10-14T20:22:35.412Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-consiglio-federale-knifefish-adesione": {
+      "cover": "/images/blog/article-consiglio-federale-knifefish-adesione.webp",
+      "hash": "939657c6ad1ced384697408f924eb0cc01dda979e0d5990111f0e247778ba25a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "consiglio-federale-knifefish-adesione",
+          "category": "novita",
+          "date": "2026-10-14T23:04:44.725Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -27714,6 +27714,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'consiglio-federale-knifefish-adesione',
+    category: 'novita',
+    date: '2026-10-14T23:04:44.725Z',
+    image: '/images/blog/article-consiglio-federale-knifefish-adesione.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

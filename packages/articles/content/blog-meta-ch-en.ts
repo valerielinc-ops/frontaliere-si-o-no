@@ -8291,6 +8291,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: sectors weigh increasingly on the quote',
     'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Expected deficit: almost 100 million francs Contributions to third parties: +24,8% in four years Budget item: +34,5% between 2023 and 2027 EFAS: almost 20 million',
     'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'View of the Graubünden cantonal palace with financial charts in the background',
+    'blog.article.consiglio-federale-knifefish-adesione.title': 'Federal Council approves joining Knifefish for electronic attack',
+    'blog.article.consiglio-federale-knifefish-adesione.excerpt': 'On October 14, 2026, the Federal Council approves Knifefish Switzerland modernizes its electronic warfare capabilities Knifefish facilitates procurement and exchanges',
+    'blog.article.consiglio-federale-knifefish-adesione.imageAlt': 'Federal Palace in Bern with modern electronic warfare military equipment',
 };
 
 export default blogMetaChEn;

@@ -8291,6 +8291,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: Bereiche fallen im Voranschlag zunehmend ins Gewicht',
     'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Voraussichtliches Defizit: fast 100 Millionen Franken Beiträge an Dritte: +24,8% in vier Jahren Budgetposten: +34,5% zwischen 2023 und 2027 EFAS: fast 20 Millionen',
     'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'Blick auf das Graubündner Kantonspalast mit Finanzdiagrammen im Hintergrund',
+    'blog.article.consiglio-federale-knifefish-adesione.title': 'Bundesrat genehmigt Beitritt zu Knifefish für den elektronischen Angriff',
+    'blog.article.consiglio-federale-knifefish-adesione.excerpt': 'Am 14. Oktober 2026 genehmigt der Bundesrat Knifefish Die Schweiz modernisiert die Mittel für die elektronische Kampfführung Knifefish erleichtert Beschaffungen und den Austausch',
+    'blog.article.consiglio-federale-knifefish-adesione.imageAlt': 'Bundeshaus in Bern mit moderner Ausrüstung für elektronische Kriegsführung',
 };
 
 export default blogMetaChDe;
