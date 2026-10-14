@@ -56,7 +56,7 @@ describe('title repair queue admission', () => {
     }
   });
 
-  it('keeps overlap-only and gender-code signals out of the repair queue', () => {
+  it('admits overlap-only titles to the Codex repair queue and keeps gender-code signals out', () => {
     const overlap = titleLooksUntranslated({
       title: '2nd Level Support Ingénieur',
       sourceTitle: '2nd Level Support Ingenieur',
@@ -64,10 +64,13 @@ describe('title repair queue admission', () => {
       targetLocale: 'fr',
     });
     expect(overlap.untranslated).toBe(false);
+    // Overlap-only titles go to Codex: it translates the ones left in the
+    // source language and echoes the valid ones, which the retry backoff parks
+    // (translate-pending 38517635747: Argos accepted 2 of 20 of them).
     expect(isTitleRepairQueueVerdict({
       untranslated: true,
       reason: 'source-overlap',
-    })).toBe(false);
+    })).toBe(true);
 
     const gender = titleLooksUntranslated({
       title: 'Responsabile IT Division Hydroenergie e Biomasse (w/m/d)',
@@ -90,6 +93,7 @@ describe('title repair queue admission', () => {
       'source-orthography',
       'binnen-i',
       'compound-residue',
+      'source-overlap',
     ]);
   });
 
