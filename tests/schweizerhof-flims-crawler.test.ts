@@ -115,6 +115,107 @@ describe('Schweizerhof crawler parser', () => {
 
     expect(edelweissFields.workplaceLabels || []).not.toContain('Schweizerhof Flims');
     expect(schweizerhofFields.workplaceLabels || []).toContain('Schweizerhof Flims');
+    expect(edelweissFields.tenantHeading).toBe('Hotel Edelweiss');
+    expect(schweizerhofFields.tenantHeading).toBe('Schweizerhof Flims');
+  });
+
+  it('treats a native heading for another tenant as an expected out-of-scope detail', async () => {
+    const seed = 'https://romantik.example/list/?l=de';
+    const details = Array.from({ length: 20 }, (_, index) => (
+      `https://romantik.example/list/${18000 + index}`
+    ));
+    const fixture = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'schweizerhof-flims', 'detail-tenant-heading.html'),
+      'utf8',
+    );
+    const otherTenant = fixture.replace(
+      '<h2>Warum Sie zu uns in den Schweizerhof kommen sollten</h2>',
+      '<h2>Hotel Edelweiss</h2>',
+    );
+    const listing = details.map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`).join('');
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected fixture URL ${url}`);
+      return new Response(index < 10 ? fixture : otherTenant);
+    };
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims',
+      companyName: 'Schweizerhof',
+      companyHost: 'romantik.example',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/list/*',
+      detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+      tenantScope: {
+        nativeMarker: 'tenantHeading',
+        expectedText: 'Schweizerhof Flims',
+        foreignLocationOutOfScope: true,
+      },
+    } as any, {
+      fetchImpl,
+      detailExtractor: extractSchweizerhofFlimsDetailFields,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+      disableWafProxy: true,
+    });
+
+    expect(rows).toHaveLength(10);
+    expect((rows as any).detailDrop).toEqual({
+      candidates: 10, gone: 0, rejected: 0, dropped: 0,
+    });
+  });
+
+  it('fails closed when the detail has no native tenant marker', async () => {
+    const seed = 'https://romantik.example/list/?l=de';
+    const details = Array.from({ length: 10 }, (_, index) => (
+      `https://romantik.example/list/${19000 + index}`
+    ));
+    const listing = details.map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`).join('');
+    const detailHtml = '<h1>Hospitality role</h1><h2>Team</h2><div class="job-location">Flims</div>'
+      + '<article class="vacancy-description">'
+      + 'Schweizerhof Flims offers a varied hospitality role with supportive colleagues, '
+      + 'fair working hours, professional training and an attractive workplace in the region.'
+      + '</article>';
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(listing);
+      if (!details.includes(url)) throw new Error(`unexpected fixture URL ${url}`);
+      return new Response(detailHtml);
+    };
+
+    await expect(runSpecInProduction({
+      companyKey: 'schweizerhof-flims',
+      companyName: 'Schweizerhof',
+      companyHost: 'romantik.example',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/list/*',
+      detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+      tenantScope: {
+        nativeMarker: 'tenantHeading',
+        expectedText: 'Schweizerhof Flims',
+        foreignLocationOutOfScope: true,
+      },
+    } as any, {
+      fetchImpl,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      retries: 0,
+      jinaRetries: 0,
+      disableWafProxy: true,
+    })).rejects.toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 10, rejected: 0, dropped: 10 },
+      specDiscoveredCount: 10,
+    });
   });
 
   // ── Constants ──
@@ -199,6 +300,15 @@ describe('Schweizerhof crawler parser', () => {
     expect(spec.detailTemplate).toBe('/list/*');
     expect(spec.listingCandidateText).toBeUndefined();
     expect(spec.detailCandidateText).toBe('Schweizerhof Flims');
+    expect(spec.tenantScope).toEqual({
+      nativeMarker: 'tenantHeading',
+      expectedText: 'Schweizerhof Flims',
+      foreignLocationOutOfScope: true,
+      listingMarker: {
+        tag: 'div',
+        class: 'job-ads-unit-icon__tooltip',
+      },
+    });
     expect(spec.rescueOnEmptyListing).toBe(true);
   });
 

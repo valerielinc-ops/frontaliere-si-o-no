@@ -22,8 +22,11 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import {
   extractVacancies,
   isSufficientVacancyDescription,
+  textOf,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
+import { extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from '../html-attr.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import {
@@ -395,6 +398,78 @@ function matchKnownTemplate(links, templateRx, host) {
 }
 
 /**
+ * Compare two listing URLs after resolving them against the same source page.
+ *
+ * @param {string} left
+ * @param {string} right
+ * @param {string} baseUrl
+ * @returns {boolean}
+ */
+function sameListingUrl(left, right, baseUrl) {
+  try {
+    const a = new URL(left, baseUrl);
+    const b = new URL(right, baseUrl);
+    a.hash = '';
+    b.hash = '';
+    return a.href === b.href;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Read a source-native tenant label immediately before a configured detail
+ * link. The marker is deliberately spec-scoped: a generic nearest-heading
+ * heuristic would turn unrelated page chrome into tenant evidence.
+ *
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {string} detailUrl
+ * @param {{ tag?: string, class?: string }} marker
+ * @returns {string}
+ */
+function extractListingTenantMarker(html, effectiveUrl, detailUrl, marker) {
+  const markerClass = String(marker?.class || '').trim().toLowerCase();
+  if (!markerClass) return '';
+  const anchor = scanStartTags(html, 'a').find(({ raw, index }) => (
+    index >= 0
+      && sameListingUrl(readAttr(raw, 'href'), detailUrl, effectiveUrl)
+  ));
+  if (!anchor) return '';
+  const tag = String(marker?.tag || '').trim().toLowerCase();
+  const markerTags = scanStartTags(html, tag).filter(({ raw, index }) => {
+    if (index >= anchor.index) return false;
+    const classes = String(readAttr(raw, 'class') || '').toLowerCase().split(/\s+/u).filter(Boolean);
+    return classes.includes(markerClass);
+  });
+  const opening = markerTags.at(-1);
+  if (!opening) return '';
+  const inner = extractBalancedTagBlock(html.slice(opening.end), opening.name);
+  if (opening.end + inner.length > anchor.index) return '';
+  return textOf(inner);
+}
+
+/**
+ * Carry a configured listing-side tenant marker alongside the candidate. It is
+ * non-persisted evidence: the detail gate may use it only to prove a positive
+ * non-target tenant, never to satisfy the requested tenant identity.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {string} html
+ * @param {string} effectiveUrl
+ * @param {any[]} candidates
+ * @returns {any[]}
+ */
+function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
+  const marker = spec?.tenantScope?.listingMarker;
+  if (!marker || typeof marker !== 'object') return candidates;
+  return candidates.map((candidate) => {
+    const value = extractListingTenantMarker(html, effectiveUrl, candidate.url, marker);
+    return value ? { ...candidate, __tenantScopeMarker: value } : candidate;
+  });
+}
+
+/**
  * Extract listing candidates using the same cascade as production.
  *
  * Keeping the template override here is important for the empty-page rescue:
@@ -405,9 +480,10 @@ function matchKnownTemplate(links, templateRx, host) {
  * @param {string} html
  * @param {string} effectiveUrl
  * @param {RegExp|null} templateRx
+ * @param {import('./synthesize.mjs').CrawlerSpec} [spec]
  * @returns {{ links: Array<{ url: string, text: string }>, candidates: any[] }}
  */
-function extractListingCandidates(html, effectiveUrl, templateRx) {
+function extractListingCandidates(html, effectiveUrl, templateRx, spec) {
   const links = extractLinks(html, effectiveUrl);
   const { vacancies } = extractVacancies(html, effectiveUrl, links);
   // jsonld/microdata are stronger evidence than any link-shape guess, so
@@ -429,7 +505,10 @@ function extractListingCandidates(html, effectiveUrl, templateRx) {
   // says "no vacancies" into a silent `no-jobs-parsed` (vereinaklosters,
   // corpus group 19 runs 36632563903 / 36778722341).
   if (templateRx) candidates = candidates.filter((v) => matchesDetailTemplate(v.sourceUrl || v.url, templateRx));
-  return { links, candidates };
+  return {
+    links,
+    candidates: attachListingTenantMarkers(spec, html, effectiveUrl, candidates),
+  };
 }
 
 /**
@@ -513,18 +592,55 @@ function candidateContainsText(requiredText, candidate) {
 }
 
 /**
- * Distinguish a detail page that names another tenant from one that carries no
- * usable tenant identity at all. The longest token in the configured identity
- * is the stable employer anchor (`Schweizerhof` in `Schweizerhof Flims`), so a
- * page that repeats that anchor but not the complete identity is an explicit
- * non-target. A page with no anchor is unknown and must remain in the
- * fail-closed detail denominator.
+ * Return the normalized text of a configured native tenant marker.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function nativeTenantMarkerText(value) {
+  if (Array.isArray(value)) return normalizeListingCandidateText(value.join(' '));
+  if (value && typeof value === 'object') {
+    return normalizeListingCandidateText([
+      value.text,
+      value.name,
+      value.label,
+      value.value,
+    ].filter(Boolean).join(' '));
+  }
+  return normalizeListingCandidateText(value);
+}
+
+/**
+ * Distinguish a detail page that positively names another tenant from one that
+ * carries no usable tenant identity. A configured `tenantScope` is explicit:
+ * the detail extractor must expose the source-native marker named by
+ * `nativeMarker`; a listing-side marker may prove only a non-target tenant, and
+ * an explicitly foreign source location may do so only when the spec opts in.
+ * Missing markers remain unknown and therefore fail closed.
+ *
+ * Specs without `tenantScope` retain the legacy discriminator for compatibility
+ * with promoted crawlers whose detail extractor still exposes only free text.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
  * @param {any} candidate
+ * @param {any} [listing]
+ * @param {{ explicitlyForeign?: boolean }} [decision]
  * @returns {'matched'|'mismatch'|'missing'}
  */
-function detailCandidateIdentityState(spec, candidate) {
+function detailCandidateIdentityState(spec, candidate, listing = {}, decision = {}) {
+  const scope = spec?.tenantScope;
+  if (scope && typeof scope === 'object') {
+    const expected = nativeTenantMarkerText(scope.expectedText || spec.detailCandidateText);
+    const detailMarker = nativeTenantMarkerText(candidate?.[scope.nativeMarker]);
+    if (expected && detailMarker.includes(expected)) return 'matched';
+    if (detailMarker) return 'mismatch';
+    const listingMarker = nativeTenantMarkerText(listing?.__tenantScopeMarker);
+    if (listingMarker && (!expected || !listingMarker.includes(expected))) return 'mismatch';
+    if (scope.foreignLocationOutOfScope === true && decision.explicitlyForeign === true) {
+      return 'mismatch';
+    }
+    return 'missing';
+  }
   const needle = normalizeListingCandidateText(spec.detailCandidateText);
   if (!needle || candidateContainsText(needle, candidate)) return 'matched';
   const anchor = needle.split(/\s+/u).sort((a, b) => b.length - a.length)[0] || '';
@@ -929,7 +1045,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       if (bySlug.has(v.url)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       const publication = mergeSourcePostingDates({}, vacancy);
-      bySlug.set(v.url, {
+      const record = {
         title: v.title,
         url: v.url,
         ...(vacancy.sourceUrl ? { sourceUrl: vacancy.sourceUrl } : {}),
@@ -946,7 +1062,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         ...publication,
         postedAt: publication.postedDate || null,
         company: vacancy.company || spec.companyName,
-      });
+      };
+      if (v.__tenantScopeMarker) {
+        Object.defineProperty(record, '__tenantScopeMarker', {
+          value: v.__tenantScopeMarker,
+          enumerable: false,
+          configurable: true,
+        });
+      }
+      bySlug.set(v.url, record);
     }
   };
 
@@ -965,7 +1089,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     let umantisListingEvidence = spec.platform === 'umantis.com'
       ? extractUmantisListingEvidence(html, effectiveSeedUrl)
       : new Map();
-    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx);
+    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec);
     candidates = filterListingCandidates(spec, candidates);
 
     // Some protected boards answer the direct request with a 200 interstitial
@@ -990,7 +1114,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         sleepImpl: runtime.jinaSleepImpl,
       });
       if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx);
+        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec);
         const rescued = {
           ...rescuedRaw,
           candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1010,7 +1134,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       if (!candidates.length) {
         const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
         if (browserBody) {
-          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx);
+          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec);
           const rescued = {
             ...rescuedRaw,
             candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1152,7 +1276,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         const nextEvidence = spec.platform === 'umantis.com'
           ? extractUmantisListingEvidence(body, pageUrl)
           : new Map();
-        const extracted = extractListingCandidates(body, pageUrl, templateRx);
+        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         await addListingCandidates(
           nextCandidates,
@@ -1307,7 +1431,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
           // valid enrichment fallbacks below, but they must never satisfy the
           // detail discriminator when the detail response omits that evidence.
           const detailCandidate = { ...detail };
-          const tenantIdentity = detailCandidateIdentityState(spec, detailCandidate);
+          const tenantIdentity = detailCandidateIdentityState(spec, detailCandidate, row, decision);
           if (tenantIdentity !== 'matched') {
             if (tenantIdentity === 'mismatch') detailTenantMismatches++;
             else detailTenantMissing++;

@@ -9,6 +9,15 @@
   ],
   "detailTemplate": "/list/*",
   "detailCandidateText": "Schweizerhof Flims",
+  "tenantScope": {
+    "nativeMarker": "tenantHeading",
+    "expectedText": "Schweizerhof Flims",
+    "foreignLocationOutOfScope": true,
+    "listingMarker": {
+      "tag": "div",
+      "class": "job-ads-unit-icon__tooltip"
+    }
+  },
   "detailEnrichment": true,
   "rescueOnEmptyListing": true,
   "detailFetchWorkers": 4,

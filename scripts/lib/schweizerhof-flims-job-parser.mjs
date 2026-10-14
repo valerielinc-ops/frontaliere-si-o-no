@@ -200,10 +200,11 @@ function hasSchweizerhofFlimsIdentity(html, detail) {
 /**
  * Read the source-owned tenant heading from the HCM4all job body.
  *
- * The current portal places a generic tenant heading in the vacancy body
- * (`main > section > h2`). The first H2 is the portal's tenant heading; later
- * prose can mention another hotel and must not override it. A Schweizerhof
- * tenant is exposed as `Schweizerhof Flims` only with source-backed Flims
+ * The current portal places a native hotel heading somewhere in the vacancy
+ * body (`main > section > h2`), among generic section headings. Prefer the
+ * heading that names Schweizerhof, then a named hotel heading; generic labels
+ * such as "Ihre Aufgaben" are not tenant evidence. A Schweizerhof tenant is
+ * exposed as `Schweizerhof Flims` only with source-backed Flims
  * locality/address evidence. Never use email, phone, footer or body prose as
  * tenant evidence.
  *
@@ -212,8 +213,12 @@ function hasSchweizerhofFlimsIdentity(html, detail) {
  */
 function extractSchweizerhofTenantHeading(html = '') {
   const main = extractSchweizerhofJobMain(html);
-  const match = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(main);
-  return stripHtml(match?.[1] || '').replace(/\s+/g, ' ').trim();
+  const headings = [...main.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)]
+    .map((match) => stripHtml(match[1]).replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  return headings.find((heading) => /\bschweizerhof\b/i.test(heading))
+    || headings.find((heading) => /\b(?:hotel|gasthof|resort)\b/i.test(heading))
+    || '';
 }
 
 /**
@@ -233,15 +238,18 @@ export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts =
   );
   const heading = extractSchweizerhofTenantHeading(html);
   const hasSchweizerhofTenantHeading = /\bschweizerhof\b/i.test(heading);
+  const tenantHeading = hasSchweizerhofFlimsIdentity(html, detail)
+    ? 'Schweizerhof Flims'
+    : heading;
   const workplaceLabels = [
     ...(detail.workplaceLabels || []),
     ...(hasSchweizerhofTenantHeading ? [heading] : []),
     ...(hasSchweizerhofFlimsIdentity(html, detail) ? ['Schweizerhof Flims'] : []),
   ].filter((label, index, labels) => labels.indexOf(label) === index);
-  if (!workplaceLabels.length) return detail;
   return {
     ...detail,
-    workplaceLabels,
+    tenantHeading,
+    ...(workplaceLabels.length ? { workplaceLabels } : {}),
   };
 }
 
