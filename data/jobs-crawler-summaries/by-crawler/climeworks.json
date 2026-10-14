@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-14T15:35:42.651Z",
+  "generatedAt": "2026-10-14T16:59:21.570Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -9,19 +9,20 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
-  "resurrectedJobs": 1,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3784,
-  "avgDurationMs": 3784,
+  "durationMs": 2443,
+  "avgDurationMs": 2443,
   "durationHistory": [
-    3784
+    2443
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-01aa72db8a19",
       "slug": "avviso-legale-100-climeworks-zurich",
@@ -34,7 +35,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T15:35:26.113Z",
+      "crawledAt": "2026-10-14T16:59:13.928Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,12 +52,12 @@
       "applyUrl": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "remote": true,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:11:56.184Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-30T21:11:56.184Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -66,7 +67,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T15:35:26.116Z",
+      "crawledAt": "2026-10-14T16:59:13.930Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -124,7 +124,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T15:35:26.107Z",
+      "crawledAt": "2026-10-14T16:59:13.926Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -156,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "a441a13c50bb4f6bc83b9b5676cf87e293111900"
+  "codeCommit": "c007b1d8a5a30901ba48a73d9dda5f351f80899a"
 }
