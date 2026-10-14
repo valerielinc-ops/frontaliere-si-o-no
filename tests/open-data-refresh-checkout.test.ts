@@ -558,6 +558,21 @@ describe('data publisher preserves its source checkout', () => {
     expect(git(setup.remote, ['ls-tree', '-r', '--name-only', 'chore/refresh'])).not.toContain('data/pending-only.json');
   });
 
+  it('does not publish an orphaned stable branch when no refresh changes are staged', () => {
+    const setup = fixture();
+    const staleHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
+    const mainHead = git(setup.remote, ['rev-parse', 'main']);
+    const result = publish(setup, false, ['--reconcile-main'], { REFRESH_FIXTURE_OPEN_PR: '0' });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain(
+      'No open refresh PR for chore/refresh; no refresh changes to publish, leaving stale tip',
+    );
+    expect(result.stdout).not.toContain('created');
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(staleHead);
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).not.toBe(mainHead);
+  });
+
   it('keeps the stable branch as base when a refresh PR is open', () => {
     const setup = fixture();
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');

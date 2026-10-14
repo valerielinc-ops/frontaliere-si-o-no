@@ -365,23 +365,13 @@ stage_paths
 # personal account. Keep the author stable across scheduled PRs.
 git config user.name "frontaliere-automation[bot]"
 git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
-if git diff --cached --quiet; then
-  if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
-    echo "No refresh changes to publish."
-    exit 0
-  fi
-  echo "No refresh changes; reconciling the pending PR with main."
-else
-  git commit -m "$COMMIT_MESSAGE"
-  REFRESH_COMMIT="$(git rev-parse HEAD)"
-fi
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
 # of opening an unbounded queue of equivalent data PRs. A branch left behind
 # without that PR is not an in-flight snapshot: its generated files may be
 # older than the current main tree. Start that run from main and replace the
 # orphaned tip with a lease, rather than carrying the stale tree forward.
-if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
+if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ]; then
   OPEN_PR="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR before reconciliation" \
     gh pr list \
     --repo "$REPOSITORY" \
@@ -393,6 +383,23 @@ if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_CO
   if [ -z "$OPEN_PR" ]; then
     RESET_STALE_STABLE_BRANCH=true
     STALE_REMOTE_HEAD="$REMOTE_HEAD"
+  fi
+fi
+
+if git diff --cached --quiet; then
+  if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
+    echo "No open refresh PR for ${BRANCH}; no refresh changes to publish, leaving stale tip ${REMOTE_HEAD} unpublished."
+    exit 0
+  fi
+  if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
+    echo "No refresh changes to publish."
+    exit 0
+  fi
+  echo "No refresh changes; reconciling the pending PR with main."
+else
+  git commit -m "$COMMIT_MESSAGE"
+  REFRESH_COMMIT="$(git rev-parse HEAD)"
+  if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
     echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot instead of stale tip ${REMOTE_HEAD}."
   fi
 fi
@@ -666,6 +673,13 @@ while :; do
       # attempt must create it again, or it would push with no common base.
       REMOTE_BASE_CREATED=false
     fi
+  fi
+
+  if [ "$RESET_STALE_STABLE_BRANCH" = true ] && [ -n "$REMOTE_HEAD" ] \
+    && [ "$REMOTE_HEAD" = "$STALE_REMOTE_HEAD" ]; then
+    # The orphan reset must never read the same stale tip as a merge base.
+    # Retry the current run's main-based commit with the original lease.
+    continue
   fi
 
   if [ -n "$REMOTE_HEAD" ]; then
