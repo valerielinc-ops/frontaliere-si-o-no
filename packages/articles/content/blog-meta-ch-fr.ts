@@ -8288,6 +8288,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Animaux de compagnie : ordonnance 2026 modifiée',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Le Conseil fédéral a adopté la modification le 14 octobre 2026 La révision concerne l’importation, le transit et l’exportation Les dispositions s’adaptent',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Chien à côté d\'un document suisse sur l\'ordonnance relative aux animaux de compagnie',
+    'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: les secteurs pèsent de plus en plus sur le budget prévisionnel',
+    'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Déficit prévu : près de 100 millions de francs Contributions à des tiers : +24,8% en quatre ans Poste budgétaire : +34,5% entre 2023 et 2027 EFAS : près de 20 millions',
+    'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'Vue du palais cantonal des Grisons avec des graphiques financiers en arrière-plan',
 };
 
 export default blogMetaChFr;

@@ -8288,6 +8288,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Heimtiere: Verordnung 2026 geändert',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Der Bundesrat hat die Änderung am 14.',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Hund neben einem Schweizer Dokument zur Verordnung über Heimtiere',
+    'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: Bereiche fallen im Voranschlag zunehmend ins Gewicht',
+    'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Voraussichtliches Defizit: fast 100 Millionen Franken Beiträge an Dritte: +24,8% in vier Jahren Budgetposten: +34,5% zwischen 2023 und 2027 EFAS: fast 20 Millionen',
+    'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'Blick auf das Graubündner Kantonspalast mit Finanzdiagrammen im Hintergrund',
 };
 
 export default blogMetaChDe;

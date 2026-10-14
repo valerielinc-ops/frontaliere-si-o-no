@@ -8288,6 +8288,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Animali da compagnia: modificata l\'ordinanza 2026',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Cane accanto a un documento svizzero sull\'ordinanza per gli animali da compagnia',
+    'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: settori pesano sempre più sul preventivo',
+    'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni',
+    'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'Vista del palazzo del Cantone dei Grigioni con grafici finanziari sullo sfondo',
 };
 
 export default blogMetaChIt;

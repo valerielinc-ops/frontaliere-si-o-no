@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5459
+      "6": 5460
     },
-    "publishedCovers": 7040,
+    "publishedCovers": 7041,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5264
+    "inferredRecords": 5265
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -185934,6 +185934,33 @@
           "date": "2026-10-14T02:27:16.380Z",
           "updatedAt": null,
           "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-grigioni-preventivo-contributi-terzi": {
+      "cover": "/images/blog/article-grigioni-preventivo-contributi-terzi.webp",
+      "hash": "7975c2c43346c17c22780ac1c062ce9e15bca6a23ec314f42691604bc0a4469e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "grigioni-preventivo-contributi-terzi",
+          "category": "fiscale",
+          "date": "2026-10-14T22:47:30.312Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
         }
       ],
       "proofLevel": 6,

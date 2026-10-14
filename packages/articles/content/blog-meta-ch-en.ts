@@ -8288,6 +8288,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ordinanza-animali-compagnia-ue.title': 'Pets: 2026 ordinance amended',
     'blog.article.ordinanza-animali-compagnia-ue.excerpt': 'The Federal Council adopted the amendment on October 14, 2026 The revision concerns import, transit and export The provisions are being adapted',
     'blog.article.ordinanza-animali-compagnia-ue.imageAlt': 'Dog beside a Swiss document on the companion animal ordinance',
+    'blog.article.grigioni-preventivo-contributi-terzi.title': 'GR: sectors weigh increasingly on the quote',
+    'blog.article.grigioni-preventivo-contributi-terzi.excerpt': 'Expected deficit: almost 100 million francs Contributions to third parties: +24,8% in four years Budget item: +34,5% between 2023 and 2027 EFAS: almost 20 million',
+    'blog.article.grigioni-preventivo-contributi-terzi.imageAlt': 'View of the Graubünden cantonal palace with financial charts in the background',
 };
 
 export default blogMetaChEn;

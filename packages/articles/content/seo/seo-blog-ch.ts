@@ -104622,6 +104622,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-preventivo-contributi-terzi': {
+    title: 'GR: settori pesano sempre più sul preventivo | Frontaliere Ticino',
+    description: 'Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, settori, pesano, sempre, preventivo',
+    ogTitle: 'GR: settori pesano sempre più sul preventivo',
+    ogDescription: 'Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni',
+    canonicalPath: '/articoli-svizzera/grigioni-preventivo-contributi-terzi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "GR: settori pesano sempre più sul preventivo",
+      "description": "Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-grigioni-preventivo-contributi-terzi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del palazzo del Cantone dei Grigioni con grafici finanziari sullo sfondo"
+      },
+      "datePublished": "2026-10-14T22:47:30+00:00",
+      "dateModified": "2026-10-14T22:47:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-preventivo-contributi-terzi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -27704,6 +27704,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grigioni-preventivo-contributi-terzi',
+    category: 'fiscale',
+    date: '2026-10-14T22:47:30.312Z',
+    image: '/images/blog/article-grigioni-preventivo-contributi-terzi.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
