@@ -1,6 +1,16 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ "whatsNew.v3988.title": "Articles avec des liens plus pertinents",
+ "whatsNew.v3988.contextualLinks.title": "Outils dans votre langue",
+ "whatsNew.v3988.contextualLinks.desc": "Les articles renvoient aux outils pertinents en italien, anglais, allemand et français.",
+ "blog.cta.petrol.title": "Prix essence aujourd’hui",
+ "blog.cta.petrol.desc": "Comparez les prix de l’essence à la frontière.",
+ "blog.cta.petrol.btn": "Voir les prix essence",
+ "blog.cta.diesel.title": "Prix diesel aujourd’hui",
+ "blog.cta.diesel.desc": "Comparez les prix du diesel à la frontière.",
+ "blog.cta.diesel.btn": "Voir les prix diesel",
+
  'whatsNew.v3987.title': "Articles par canton avec la même expérience complète",
  'whatsNew.v3987.cantonArticles.title': "Lire et découvrir les articles des cantons",
  'whatsNew.v3987.cantonArticles.desc': "Les sections cantonales actives utilisent désormais la même vue interactive que les articles frontaliers et suisses : archives, lecture, articles associés, partage et navigation sans rechargement.",
