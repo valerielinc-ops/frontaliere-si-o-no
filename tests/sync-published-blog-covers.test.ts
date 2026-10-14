@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { readPublishedBlogCoverBytes } from '../scripts/lib/published-blog-cover-bytes.mjs';
 
 const ROOT = process.cwd();
 const SCRIPT = path.join(ROOT, 'scripts/audit/sync-published-blog-covers.mjs');
@@ -14,7 +15,6 @@ const IMAGE = '/images/blog/new-cover.webp';
 const IMAGE_BYTES = Buffer.from('cover-bytes');
 const REAL_KEY = 'bollettino-frontaliere-2026-08-10';
 const REAL_IMAGE = `/images/blog/${REAL_KEY}.webp`;
-const REAL_IMAGE_PATH = path.join(ROOT, 'public/images/blog', `${REAL_KEY}.webp`);
 
 function sha256(bytes: Buffer) {
   return createHash('sha256').update(bytes).digest('hex');
@@ -499,7 +499,8 @@ describe('sync-published-blog-covers', () => {
   });
 
   it('reconciles the real daily-brief cover URL against the served replacement bytes', () => {
-    const servedBytes = fs.readFileSync(REAL_IMAGE_PATH);
+    const servedBytes = readPublishedBlogCoverBytes(ROOT, REAL_IMAGE, { rejectInvalidPath: true });
+    if (!servedBytes) throw new Error(`published cover bytes unavailable for ${REAL_IMAGE}`);
     const staleBytes = Buffer.from('stale-provider-cover');
     const root = fixture({ key: REAL_KEY, image: REAL_IMAGE, imageBytes: servedBytes });
     addGeneratedEvidence(root, sha256(staleBytes), {
