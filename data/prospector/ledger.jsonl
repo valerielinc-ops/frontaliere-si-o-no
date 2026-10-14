@@ -15359,3 +15359,8 @@
 {"key":"seilbahnen.ch","from":"promoted","to":"promoting","at":"2026-10-12T12:49:15.882Z"}
 {"key":"seilbahnen.ch","from":"promoting","to":"production","at":"2026-10-13T12:22:29.563Z"}
 {"key":"opus-personal-zweigniederlassung-bern@herzogenbuchsee","from":"promoted","to":"promoting","at":"2026-10-13T12:22:56.267Z"}
+{"key":"work4youag.ch","from":"new","to":"traced","at":"2026-10-14T09:57:48.926Z","reason":null}
+{"key":"work4youag.ch","from":"traced","to":"rejected","at":"2026-10-14T10:37:19.732Z","reason":"sintesi fallita: nessun annuncio estratto dal seed"}
+{"key":"le-team@delemont","from":"new","to":"promoted","at":"2026-10-14T10:37:46.994Z"}
+{"key":"rh-expert@geneve","from":"rejected","to":"validated","at":"2026-10-14T10:37:52.793Z","reason":"rivalutata con source adapter rh-expert-ch-dedicated-v1"}
+{"key":"rh-expert@geneve","from":"validated","to":"promoted","at":"2026-10-14T10:37:52.793Z"}
