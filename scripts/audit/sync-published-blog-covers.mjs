@@ -20,12 +20,16 @@ import {
 import {
   GENERATED_IMAGE_LICENSE,
   validateGeneratedImageRecord,
+  validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { isPublishedDeterministicCardRecord } from '../lib/published-blog-image-evidence.mjs';
 
 const ROOT = process.cwd();
 const LEDGER_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
 const INDEX_PATH = path.join(ROOT, 'data/image-credits-blog.json');
 const BASELINE_PATH = path.join(ROOT, 'data/blog-cover-corpus-baseline.json');
+const GENERATED_REGISTRY_PATH = path.join(ROOT, 'data/blog-generated-image-registry.json');
+const REPLACEMENTS_PATH = path.join(ROOT, 'data/blog-cover-replacements.json');
 const GENERATED_EVIDENCE_PATH = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(new Date());
 const REGISTRIES = [
@@ -35,6 +39,15 @@ const REGISTRIES = [
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+function readJsonIfPresent(file, fallback) {
+  try {
+    return readJson(file);
+  } catch (error) {
+    if (error?.code === 'ENOENT') return fallback;
+    throw error;
+  }
 }
 
 function writeJson(file, value) {
@@ -141,7 +154,101 @@ function setGeneratedIndex(index, key, creditRecord) {
   return changed;
 }
 
-function demoteGeneratedEvidence(index, key, item, evidence) {
+function generatedRegistryDefault() {
+  return {
+    schema: 1,
+    cdnPrefix: '/images/blog/',
+    assetCount: 0,
+    assets: [],
+  };
+}
+
+function replaceGeneratedRegistryAsset(registry, image, generated = null) {
+  const assets = [];
+  let replaced = false;
+  for (const record of registry.assets || []) {
+    if (record.imageUrl !== image && (!generated || record.assetId !== generated.assetId)) {
+      assets.push(record);
+      continue;
+    }
+    if (generated && !replaced) {
+      assets.push(generated);
+      replaced = true;
+    }
+  }
+  if (generated && !replaced) assets.push(generated);
+  const before = JSON.stringify(registry.assets || []);
+  const changed = before !== JSON.stringify(assets);
+  if (changed) {
+    registry.assets = assets;
+    registry.assetCount = assets.length;
+    registry.generatedAt = new Date().toISOString();
+  }
+  return changed;
+}
+
+function generatedCreditRecordFromEvidence(generated, existing = null) {
+  const next = {
+    schema: 1,
+    cover: generated.imageUrl,
+    source: 'generated-provider',
+    commons: {
+      title: existing?.commons?.title || 'Generated editorial illustration',
+      pageUrl: generated.licenseUrl,
+      ...(Number.isInteger(generated.width) ? { width: generated.width } : {}),
+      ...(Number.isInteger(generated.height) ? { height: generated.height } : {}),
+      ...(typeof generated.generatedAt === 'string' ? { revision: generated.generatedAt } : {}),
+    },
+    author: existing?.author || {
+      text: generated.credit || null,
+      name: generated.credit || null,
+      url: null,
+      type: 'Organization',
+    },
+    attribution: existing?.attribution ?? null,
+    licence: {
+      ...(existing?.licence || {
+        name: 'Generated media — provider terms apply',
+        family: 'other-attribution',
+        attributionRequired: true,
+      }),
+      url: generated.licenseUrl,
+    },
+    restrictions: Array.isArray(generated.restrictions)
+      ? [...generated.restrictions]
+      : [...(existing?.restrictions || [])],
+    modified: existing?.modified === 'cropped' ? 'cropped' : 'resized',
+    fetchedAt: String(generated.generatedAt || '').slice(0, 10),
+    status: 'ok',
+    curation: existing?.curation ?? null,
+    generated,
+  };
+  const validation = validateImageCreditRecord(next);
+  if (!validation.valid) {
+    return { record: null, reason: `generated credit record after reconciliation is invalid: ${validation.errors.join('; ')}` };
+  }
+  return { record: next, reason: null };
+}
+
+function writeGeneratedCreditRecord(key, creditRecord) {
+  const file = path.join(ROOT, generatedCreditRecordPath(key));
+  const text = `${JSON.stringify(creditRecord, null, 2)}\n`;
+  if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === text) return false;
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, text, 'utf8');
+  return true;
+}
+
+function removeGeneratedCreditRecord(key, image) {
+  const file = path.join(ROOT, generatedCreditRecordPath(key));
+  if (!fs.existsSync(file)) return false;
+  const record = readJson(file);
+  if (record?.cover !== image || record?.source !== 'generated-provider') return false;
+  fs.unlinkSync(file);
+  return true;
+}
+
+function demoteGeneratedEvidence(index, key, item, evidence, generatedRegistry) {
   const currentCover = index.covers[key];
   const generatedFiles = new Set([
     currentCover?.file,
@@ -153,6 +260,8 @@ function demoteGeneratedEvidence(index, key, item, evidence) {
     const referencedElsewhere = Object.values(index.covers).some((cover) => cover?.file === file);
     if (!referencedElsewhere && index.files) delete index.files[file];
   }
+  removeGeneratedCreditRecord(key, item.cover);
+  replaceGeneratedRegistryAsset(generatedRegistry, item.cover);
 
   Object.assign(item, {
     proofLevel: 6,
@@ -173,7 +282,44 @@ function demoteGeneratedEvidence(index, key, item, evidence) {
   };
 }
 
-function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null) {
+function applyDeterministicCardEvidence(index, key, item, image, evidence, replacements) {
+  const currentCover = index.covers[key];
+  const generatedFiles = new Set([
+    currentCover?.file,
+    item.generated?.assetId ? `generated:${item.generated.assetId}` : null,
+  ].filter((file) => typeof file === 'string' && file.startsWith('generated:')));
+  for (const file of generatedFiles) {
+    const referencedElsewhere = Object.entries(index.covers)
+      .some(([otherKey, cover]) => otherKey !== key && cover?.file === file);
+    if (!referencedElsewhere && index.files) delete index.files[file];
+  }
+  removeGeneratedCreditRecord(key, image);
+
+  Object.assign(item, {
+    cover: image,
+    hash: evidence.actualSha256,
+    proofLevel: 6,
+    evidence: 'inferred',
+    recordFile: null,
+    action: 'record-inferred',
+    reason: `Copertina deterministic-card site-owned dichiarata dal corpus e verificata sui byte pubblicati (${evidence.actualSha256}); nessun credito provider.`,
+    verifiedAt: TODAY,
+    provider: null,
+    currentlyPublished: true,
+    status: 'no-credit',
+  });
+  delete item.generated;
+  delete item.replacement;
+  if (replacements.items && Object.hasOwn(replacements.items, key)) delete replacements.items[key];
+  index.covers[key] = {
+    evidence: 'inferred',
+    provider: null,
+    verifiedAt: TODAY,
+    status: 'no-credit',
+  };
+}
+
+function inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedByImage, knownBytes = null) {
   const records = recordsByImage.get(image) || [];
   if (records.length === 0) return { state: 'missing' };
   if (records.length !== 1) {
@@ -185,27 +331,8 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   if (!registryValidation.valid) {
     return { state: 'rejected', reason: `invalid generated registry record: ${registryValidation.errors.join('; ')}` };
   }
-  if (generated.license !== GENERATED_IMAGE_LICENSE || generated.assetId !== key || generated.imageUrl !== image) {
-    return { state: 'rejected', reason: 'generated record license, assetId or imageUrl does not match the published cover' };
-  }
-
-  const recordFile = generatedCreditRecordPath(key);
-  let creditRecord;
-  try {
-    creditRecord = readJson(path.join(ROOT, recordFile));
-  } catch (error) {
-    return { state: 'rejected', reason: `generated credit record unavailable: ${error.message}` };
-  }
-  const creditValidation = validateImageCreditRecord(creditRecord);
-  if (!creditValidation.valid) {
-    return { state: 'rejected', reason: `generated credit record invalid: ${creditValidation.errors.join('; ')}` };
-  }
-  if (creditRecord.source !== 'generated-provider'
-    || creditRecord.cover !== image
-    || creditRecord.generated.scope !== 'article-hero'
-    || ['assetId', 'license', 'provider', 'model', 'promptHash', 'sha256', 'scope', 'imageUrl', 'verifiedAt']
-      .some((field) => creditRecord.generated[field] !== generated[field])) {
-    return { state: 'rejected', reason: 'HTTP evidence and generated credit record do not describe the same asset' };
+  if (generated.assetId !== key || generated.imageUrl !== image) {
+    return { state: 'rejected', reason: 'generated record assetId or imageUrl does not match the published cover' };
   }
 
   let bytes = knownBytes;
@@ -227,7 +354,45 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
         : 'generated record sha256 differs from the received cover bytes',
     };
   }
-  return { state: 'verified', generated, creditRecord, actualSha256 };
+
+  const existingRegistryRecord = existingGeneratedByImage.get(image);
+  const recordFile = generatedCreditRecordPath(key);
+  let existingCreditRecord = null;
+  if (fs.existsSync(path.join(ROOT, recordFile))) {
+    try {
+      const candidate = readJson(path.join(ROOT, recordFile));
+      const creditValidation = validateImageCreditRecord(candidate);
+      if (creditValidation.valid
+        && candidate.source === 'generated-provider'
+        && candidate.cover === image
+        && candidate.generated?.scope === 'article-hero') {
+        existingCreditRecord = candidate;
+      }
+    } catch {
+      // A stale or unreadable local record is not permission to promote a new
+      // registry entry. The verifier will keep the cover red until the record
+      // is repaired by a declared, byte-verified evidence record.
+    }
+  }
+  if (!existingRegistryRecord && !existingCreditRecord) {
+    return { state: 'unclaimed', generated, actualSha256 };
+  }
+
+  if (isPublishedDeterministicCardRecord(generated)) {
+    return { state: 'verified', kind: 'deterministic-card', generated, actualSha256 };
+  }
+  if (generated.license !== GENERATED_IMAGE_LICENSE) {
+    return { state: 'rejected', reason: 'published article-hero evidence is neither a deterministic card nor a generated-provider record' };
+  }
+  const reconciled = generatedCreditRecordFromEvidence(generated, existingCreditRecord);
+  if (!reconciled.record) return { state: 'rejected', reason: reconciled.reason };
+  return {
+    state: 'verified',
+    kind: 'generated-provider',
+    generated,
+    creditRecord: reconciled.record,
+    actualSha256,
+  };
 }
 
 function applyGeneratedEvidence(item, key, image, evidence) {
@@ -254,14 +419,45 @@ function applyGeneratedEvidence(item, key, image, evidence) {
   return creditRecord;
 }
 
+function updateReplacementQueueEntry(replacements, key, generated) {
+  const replacement = replacements.items?.[key];
+  if (!replacement || replacement.mode !== 'generated') return;
+  Object.assign(replacement, {
+    status: 'generated',
+    fromCover: replacement.fromCover || generated.imageUrl,
+    toCover: replacement.toCover || generated.imageUrl,
+    recordFile: generatedCreditRecordPath(key),
+    generatedAssetId: generated.assetId,
+    provider: generated.provider,
+    generatedAt: generated.generatedAt,
+  });
+}
+
 function main() {
   const ledger = readJson(LEDGER_PATH);
   const index = readJson(INDEX_PATH);
   const baseline = readJson(BASELINE_PATH);
+  const generatedRegistry = readJsonIfPresent(GENERATED_REGISTRY_PATH, generatedRegistryDefault());
+  const replacements = readJsonIfPresent(REPLACEMENTS_PATH, { schema: 1, items: {} });
   const publishedEvidence = readJson(GENERATED_EVIDENCE_PATH);
+  const beforeGeneratedRegistry = JSON.stringify(generatedRegistry);
+  const beforeReplacements = JSON.stringify(replacements);
   const sourceCommit = process.env.ARTICLES_SYNC_COMMIT || null;
   if (!ledger.covers || !index.covers || !index.files || !baseline.registries) {
     throw new Error('Blog cover ledger, compact index and corpus baseline are required');
+  }
+  if (!Array.isArray(generatedRegistry.assets)
+    || generatedRegistry.schema !== 1
+    || (generatedRegistry.assetCount !== undefined
+      && generatedRegistry.assetCount !== generatedRegistry.assets.length)) {
+    throw new Error('Site blog generated-image registry is invalid');
+  }
+  const generatedRegistryValidation = validateGeneratedImageRegistry(generatedRegistry, { scope: 'article-hero' });
+  if (!generatedRegistryValidation.valid) {
+    throw new Error(`Site blog generated-image registry is invalid: ${generatedRegistryValidation.errors.join('; ')}`);
+  }
+  if (!replacements.items || typeof replacements.items !== 'object' || Array.isArray(replacements.items)) {
+    throw new Error('Blog cover replacements queue is invalid');
   }
   if (publishedEvidence.schema !== 1
     || !/^[0-9a-f]{40}$/.test(String(publishedEvidence.commit || ''))
@@ -294,6 +490,7 @@ function main() {
     records.push(record);
     recordsByImage.set(record.imageUrl, records);
   }
+  const existingGeneratedByImage = new Map(generatedRegistry.assets.map((record) => [record.imageUrl, record]));
 
   // Resolve every blob before writing either file: one unavailable cover keeps
   // the paired ledger/index update fail-closed, with no partial data rewrite.
@@ -309,6 +506,9 @@ function main() {
   const generatedBackfilledKeys = [];
   const reconciledGeneratedKeys = [];
   const demotedGeneratedKeys = [];
+  const deterministicCardInferredKeys = [];
+  const generatedRegistryUpdatedKeys = [];
+  const generatedCreditRecordUpdatedKeys = [];
   const generatedEvidenceMissing = [];
   const generatedEvidenceMismatches = [];
   const generatedEvidenceRejected = [];
@@ -332,11 +532,20 @@ function main() {
       currentlyPublished: true,
       status: 'no-credit',
     };
-    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, bytes);
+    const evidence = inspectGeneratedEvidence(key, articles[0].image, recordsByImage, existingGeneratedByImage, bytes);
     if (evidence.state === 'verified') {
-      const creditRecord = applyGeneratedEvidence(item, key, articles[0].image, evidence);
-      setGeneratedIndex(index, key, creditRecord);
-      generatedAddedKeys.push(key);
+      if (evidence.kind === 'deterministic-card') {
+        applyDeterministicCardEvidence(index, key, item, articles[0].image, evidence, replacements);
+        replaceGeneratedRegistryAsset(generatedRegistry, articles[0].image);
+        deterministicCardInferredKeys.push(key);
+      } else {
+        const creditRecord = applyGeneratedEvidence(item, key, articles[0].image, evidence);
+        updateReplacementQueueEntry(replacements, key, evidence.generated);
+        writeGeneratedCreditRecord(key, creditRecord);
+        setGeneratedIndex(index, key, creditRecord);
+        replaceGeneratedRegistryAsset(generatedRegistry, articles[0].image, evidence.generated);
+        generatedAddedKeys.push(key);
+      }
     } else {
       index.covers[key] = {
         evidence: 'inferred',
@@ -351,33 +560,46 @@ function main() {
   }
 
   // Backfill corpus-generated records that an earlier sync conservatively
-  // wrote as inferred, and repair generated entries whose proof level or
-  // compact reader index predates the published evidence.
+  // wrote as inferred, repair generated entries whose proof level or compact
+  // reader index predates the published evidence, and reconcile stale site
+  // records when the corpus now declares the same URL differently.
   for (const key of [...byKey.keys()].sort()) {
     const item = ledger.covers[key];
     if (additions.some((entry) => entry.key === key)) continue;
-    if (item?.evidence !== 'inferred' && item?.evidence !== 'generated-engine-record') continue;
     const image = byKey.get(key)?.[0]?.image || item.cover;
     if (typeof image !== 'string') continue;
-    if ((recordsByImage.get(image) || []).length === 0 && item.evidence !== 'generated-engine-record') continue;
+    if ((recordsByImage.get(image) || []).length === 0 && item?.evidence !== 'generated-engine-record') continue;
 
     const beforeItem = JSON.stringify(item);
     const beforeCoverIndex = JSON.stringify(index.covers[key]);
-    const evidence = inspectGeneratedEvidence(key, image, recordsByImage);
+    const evidence = inspectGeneratedEvidence(key, image, recordsByImage, existingGeneratedByImage);
     if (evidence.state === 'verified') {
       const wasInferred = item.evidence === 'inferred';
-      const creditRecord = applyGeneratedEvidence(item, key, image, evidence);
-      const indexChanged = setGeneratedIndex(index, key, creditRecord);
-      if (wasInferred) generatedBackfilledKeys.push(key);
-      else if (JSON.stringify(item) !== beforeItem) reconciledGeneratedKeys.push(key);
-      if (indexChanged || JSON.stringify(index.covers[key]) !== beforeCoverIndex) repairedIndexKeys.push(key);
+      if (evidence.kind === 'deterministic-card') {
+        applyDeterministicCardEvidence(index, key, item, image, evidence, replacements);
+        if (replaceGeneratedRegistryAsset(generatedRegistry, image)) generatedRegistryUpdatedKeys.push(key);
+        deterministicCardInferredKeys.push(key);
+      } else {
+        const creditRecord = applyGeneratedEvidence(item, key, image, evidence);
+        updateReplacementQueueEntry(replacements, key, evidence.generated);
+        if (writeGeneratedCreditRecord(key, creditRecord)) generatedCreditRecordUpdatedKeys.push(key);
+        const indexChanged = setGeneratedIndex(index, key, creditRecord);
+        if (replaceGeneratedRegistryAsset(generatedRegistry, image, evidence.generated)) generatedRegistryUpdatedKeys.push(key);
+        if (wasInferred) generatedBackfilledKeys.push(key);
+        else if (JSON.stringify(item) !== beforeItem) reconciledGeneratedKeys.push(key);
+        if (indexChanged || JSON.stringify(index.covers[key]) !== beforeCoverIndex) repairedIndexKeys.push(key);
+      }
+      if (evidence.kind === 'deterministic-card'
+        && (JSON.stringify(item) !== beforeItem || JSON.stringify(index.covers[key]) !== beforeCoverIndex)) {
+        repairedIndexKeys.push(key);
+      }
     } else if (evidence.state === 'mismatch') {
       generatedEvidenceMismatches.push({ key, ...evidence });
     } else if (evidence.state === 'rejected') {
       generatedEvidenceRejected.push({ key, reason: evidence.reason });
     }
     if (evidence.state !== 'verified' && item.evidence === 'generated-engine-record') {
-      demoteGeneratedEvidence(index, key, item, evidence);
+      demoteGeneratedEvidence(index, key, item, evidence, generatedRegistry);
       demotedGeneratedKeys.push(key);
       if (evidence.state === 'missing') generatedEvidenceMissing.push({ key });
     }
@@ -410,16 +632,20 @@ function main() {
     entry.distinctImages = new Set(articles.map(({ image }) => image)).size;
   }
   const baselineUpdated = JSON.stringify(baseline) !== beforeBaseline;
+  const generatedRegistryUpdated = JSON.stringify(generatedRegistry) !== beforeGeneratedRegistry;
+  const replacementsUpdated = JSON.stringify(replacements) !== beforeReplacements;
 
   if (additions.length || generatedBackfilledKeys.length || reconciledGeneratedKeys.length || demotedGeneratedKeys.length
-    || repairedIndexKeys.length || baselineUpdated) {
+    || deterministicCardInferredKeys.length || generatedRegistryUpdated || generatedCreditRecordUpdatedKeys.length
+    || replacementsUpdated || repairedIndexKeys.length || baselineUpdated) {
     ledger.generatedAt = TODAY;
-    index.covers = Object.fromEntries(Object.entries(index.covers).sort(([a], [b]) => a.localeCompare(b)));
-    index.files = Object.fromEntries(Object.entries(index.files).sort(([a], [b]) => a.localeCompare(b)));
+    generatedRegistry.assetCount = generatedRegistry.assets.length;
     refreshCounts(ledger);
     writeJson(LEDGER_PATH, ledger);
     writeJson(INDEX_PATH, index);
     writeJson(BASELINE_PATH, baseline);
+    if (generatedRegistryUpdated) writeJson(GENERATED_REGISTRY_PATH, generatedRegistry);
+    if (replacementsUpdated) writeJson(REPLACEMENTS_PATH, replacements);
   }
 
   console.log(JSON.stringify({
@@ -429,6 +655,9 @@ function main() {
     generatedBackfilledKeys,
     reconciledGeneratedKeys,
     demotedGeneratedKeys,
+    deterministicCardInferredKeys,
+    generatedRegistryUpdatedKeys,
+    generatedCreditRecordUpdatedKeys,
     repairedIndexKeys,
     generatedEvidenceMissing,
     generatedEvidenceMismatches,
