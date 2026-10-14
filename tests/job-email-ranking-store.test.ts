@@ -259,6 +259,7 @@ describe('job email ranking Firestore store', () => {
           position: 2,
           rankingScore: 0.81,
           relevanceScore: 8,
+          newnessScore: 0.6,
           affinityScore: 0.75,
         },
       }],
@@ -281,7 +282,7 @@ describe('job email ranking Firestore store', () => {
 
     const delivery = [...values.values()].find((value) => value.delivery_id === 'jer_newsletter_2' && Array.isArray(value.jobs));
     expect(delivery).toMatchObject({ ranking_variant: 'affinity', affinity_profile: true });
-    expect(delivery.jobs[0]).toMatchObject({ job_id: 'job-one', affinity_score: 0.75, category: 'Informatica', canton: 'TI' });
+    expect(delivery.jobs[0]).toMatchObject({ job_id: 'job-one', newness_score: 0.6, affinity_score: 0.75, category: 'Informatica', canton: 'TI' });
   });
 
   it('writes affinity_profile on every delivery and impression of BOTH variants', async () => {

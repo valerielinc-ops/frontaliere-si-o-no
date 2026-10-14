@@ -73,7 +73,8 @@ function finiteOrNull(value) {
  * affinity ranking scores at send time. `affinity_score` is the recipient's
  * affinity with the job in [0, 1] when the person had a valid profile at send
  * time (all ranking variants may record it; only `affinity` orders by it), else
- * null.
+ * null. `newness_score` is the [0, 1] freshness score when the
+ * `control_plus_newness` treatment calculated one, else null.
  */
 export function jobManifestEntry(job, index) {
   const ranking = job?.ranking || {};
@@ -82,6 +83,7 @@ export function jobManifestEntry(job, index) {
     position: Math.max(1, Math.trunc(Number(ranking.position || index + 1))),
     ranking_score: finiteOrNull(ranking.rankingScore),
     relevance_score: finiteOrNull(ranking.relevanceScore),
+    newness_score: finiteOrNull(ranking.newnessScore),
     affinity_score: finiteOrNull(ranking.affinityScore),
     ...jobRankingAttributes(job),
   };
