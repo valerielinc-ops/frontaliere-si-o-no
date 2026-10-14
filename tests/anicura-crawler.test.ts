@@ -1,9 +1,29 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+const fixture = vi.hoisted(() => ({
+  listing: {
+    title: 'Tierärztliche Leitung',
+    description: '<p>Eine erfundene Beschreibung für den Parser-Test.</p>',
+    location: 'Zürich',
+    addressLocality: 'Zürich',
+    addressRegion: 'Zürich',
+    addressCountry: 'CH',
+    postalCode: ' 8001 ',
+    streetAddress: ' Bahnhofstrasse   1 ',
+    url: 'https://jobs.anicura.ch/jobs/synthetic-geography-fixture/',
+  },
+}));
+
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => ({
+  loadSpec: () => ({}),
+  runSpecInProduction: async () => [fixture.listing],
+}));
+
 import {
   ANICURA_KEY,
   ANICURA_COMPANY_NAME,
   isAnicuraJob,
   isTrustedDomain,
+  fetchAllAnicuraJobs,
 } from '../scripts/lib/anicura-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -116,6 +136,19 @@ describe('anicura crawler parser', () => {
       const locales = Object.keys(validJob.slugByLocale);
       expect(locales).toHaveLength(1);
       expect(locales[0]).toBe(validJob.sourceLang);
+    });
+
+    it('projects normalized source geography instead of raw address fields', async () => {
+      const [job] = await fetchAllAnicuraJobs();
+
+      expect(job).toMatchObject({
+        location: 'Zürich',
+        canton: 'ZH',
+        addressLocality: 'Zürich',
+        addressRegion: 'ZH',
+        postalCode: '8001',
+        streetAddress: 'Bahnhofstrasse 1',
+      });
     });
 
     it('id starts with company key', () => {

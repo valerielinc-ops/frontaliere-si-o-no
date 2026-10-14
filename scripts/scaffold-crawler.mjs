@@ -278,7 +278,10 @@ function buildAtsParserSection(tier) {
     // il voto di qualita' parlerebbe di un altro programma.
     return {
       imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';`,
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';`,
       fetchBlock: `/* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -461,14 +464,48 @@ async function fetchJobListings() {
 
 const atsSection = buildAtsParserSection(atsTier);
 const locationBlock = atsTier === 'prospected'
-  ? `    const geography = resolveSourceBackedSwissGeography(listing);
+  ? `    const sourceGeographyEvidence = {
+      location: listing.location,
+      addressLocality: listing.addressLocality,
+      addressRegion: listing.addressRegion,
+      addressCountry: listing.addressCountry,
+      country: listing.country,
+      postalCode: listing.postalCode,
+      streetAddress: listing.streetAddress,
+    };
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
+    const geography = resolvedGeography
+      && (typeof sourceBackedSwissGeographyFields === 'function'
+        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
+        : resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
-    const { location, canton } = geography;`
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+      postalCode,
+      streetAddress,
+    } = geography;`
   : `    const location = normalizeSpace(listing.location || '');
     if (!location) continue;
     const canton = inferSwissTargetCanton(location) || '';`;
+const recommendedGeographyFields = atsTier === 'prospected'
+  ? `      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || 'CH'),
+      country: normalizeSpace(addressCountry || 'CH'),
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),`
+  : `      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),`;
 
 /* ── Template: Parser ────────────────────────────────────────── */
 
@@ -732,12 +769,7 @@ ${locationBlock}
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+${recommendedGeographyFields}
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'

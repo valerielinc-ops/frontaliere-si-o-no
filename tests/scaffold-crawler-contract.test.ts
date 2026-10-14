@@ -1,11 +1,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 import { describe, expect, it } from 'vitest';
+import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
+import { scanParserSource } from '../scripts/ci/check-parser-contract.mjs';
 
 const source = fs.readFileSync(
   path.resolve(__dirname, '../scripts/scaffold-crawler.mjs'),
   'utf8',
 );
+
+function generatedParser(tier: string) {
+  // Execute only the real template construction; never run scaffold writers,
+  // manifest registration, logo fetching or generated cron in a test.
+  const prefix = source.slice(source.indexOf('const args ='), source.indexOf('/* ── Template: Runner'));
+  return vm.runInNewContext(`${prefix}\natsTier === 'workday' ? workdayParserContent : parserContent`, {
+    process: { argv: ['node', 'scaffold', 'fixture-employer', '--ats', tier], exit: () => { throw new Error('unexpected scaffold exit'); } },
+    fs: { existsSync: () => false }, path, ROOT: '/fixture-only', constPrefix, pascalIdentifier, console,
+  }) as string;
+}
 
 const CONTRACT_ALIGNED_PARSERS = [
   'sta',
@@ -62,5 +75,38 @@ describe('scaffold-crawler — generated contract follows employmentType', () =>
         /contract: 'full-time',\n\s+employmentType: detectEmploymentType\(listing\.timeType \|\| title\),/,
       );
     }
+  });
+
+  it('genera il ramo prospected senza violazioni R6', () => {
+    const generated = generatedParser('prospected');
+    const violations = scanParserSource(
+      generated,
+      'scripts/lib/fixture-employer-job-parser.mjs',
+    );
+
+    expect(violations.filter(({ rule }) => rule === 'R6')).toEqual([]);
+    expect(generated).toContain('sourceBackedSwissGeographyFields');
+    expect(generated).toContain('const sourceGeographyEvidence = {');
+    expect(generated).toContain('const resolvedGeography = resolveSourceBackedSwissGeography(listing);');
+    expect(generated).toContain('addressRegion,');
+    expect(generated).toContain('postalCode,');
+    expect(generated).toContain('streetAddress,');
+  });
+
+  it('mantiene il ramo non-prospected basato su listing.location e sui campi raw', () => {
+    const generated = generatedParser('custom');
+
+    expect(generated).toContain("const location = normalizeSpace(listing.location || '');");
+    expect(generated).toContain("const canton = inferSwissTargetCanton(location) || '';");
+    expect(generated).toContain(
+      'addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),',
+    );
+    expect(generated).toContain('addressRegion: normalizeSpace(listing.addressRegion || canton),');
+    expect(generated).toContain("addressCountry: normalizeSpace(listing.addressCountry || 'CH'),");
+    expect(generated).toContain("country: normalizeSpace(listing.addressCountry || 'CH'),");
+    expect(generated).toContain("...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),");
+    expect(generated).toContain("...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),");
+    expect(generated).not.toContain('sourceGeographyEvidence');
+    expect(generated).not.toContain('sourceBackedSwissGeographyFields');
   });
 });
