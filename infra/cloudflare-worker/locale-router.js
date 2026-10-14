@@ -944,6 +944,28 @@ async function recoverOrphanQueryAlias(url, origin, originIsLive = false) {
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
 
+// Declared employer display-name migrations, not a generic legal-suffix or
+// brand matcher: Denner profile history, the KSSG → HOCH brand map, and soH's
+// official organization name attest these exact same-entity replacements.
+const EMPLOYER_PROFILE_ALIAS_SLUGS = {
+  'denner-sa': 'denner',
+  'denner-ag': 'denner',
+  'kantonsspital-st-gallen-kssg-hoch': 'hoch-health-ostschweiz',
+  'solothurner-spitaler-soh': 'solothurner-spitaler-ag-soh',
+};
+
+async function recoverEmployerProfileAlias(url, origin) {
+  const from = url.pathname.replace(/\/+$/, '') + '/';
+  const match = from.match(/^((?:\/(?:en|de|fr))?\/aziende\/)([a-z0-9]+(?:-[a-z0-9]+)*)\/$/);
+  if (!match || !Object.prototype.hasOwnProperty.call(EMPLOYER_PROFILE_ALIAS_SLUGS, match[2])) return null;
+  const target = `${match[1]}${EMPLOYER_PROFILE_ALIAS_SLUGS[match[2]]}/`;
+  if (lookupRetired(target) !== undefined) return null;
+  const availability = await redirectTargetAvailability(target, origin);
+  if (availability === 'unavailable') return aliasVerificationUnavailable();
+  if (availability !== 'live') return null;
+  return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
+}
+
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
 // padded to length 2.
@@ -2677,6 +2699,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       // unavailable catalog must not break an otherwise healthy canonical 200.
       const queryRedirect = await recoverOrphanQueryAlias(url, origin, true);
       if (queryRedirect) return queryRedirect;
+      const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+      if (employerRedirect) return employerRedirect;
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
       if (ctx && !url.search) {
@@ -2727,6 +2751,8 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   if (request.method === 'GET' && resp.status === 404) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin);
     if (queryRedirect) return queryRedirect;
+    const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+    if (employerRedirect) return employerRedirect;
     const articleRedirect = await recoverArticleAlias(url, origin);
     if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
@@ -2960,6 +2986,8 @@ const router = {
         if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
+          const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);
+          if (employerRedirect) return employerRedirect;
         }
         return response;
       } catch {
