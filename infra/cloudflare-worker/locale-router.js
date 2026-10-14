@@ -921,7 +921,7 @@ export function orphanQueryAliasTarget(pathname, registry) {
   return target;
 }
 
-async function recoverOrphanQueryAlias(url, origin) {
+async function recoverOrphanQueryAlias(url, origin, originIsLive = false) {
   if (!(url.pathname.replace(/\/+$/, '') + '/').match(ORPHAN_QUERY_PATH_RE)) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
@@ -932,11 +932,11 @@ async function recoverOrphanQueryAlias(url, origin) {
       cf: publicOriginCacheOptions(300),
     });
     if (response.status === 404 || response.status === 410) return null;
-    if (!response.ok) return aliasVerificationUnavailable();
+    if (!response.ok) return originIsLive ? null : aliasVerificationUnavailable();
     const registry = await response.json();
-    if (!orphanQueryAliasRows(registry)) return aliasVerificationUnavailable();
+    if (!orphanQueryAliasRows(registry)) return originIsLive ? null : aliasVerificationUnavailable();
     target = orphanQueryAliasTarget(url.pathname, registry);
-  } catch { return aliasVerificationUnavailable(); } finally { clearTimeout(timer); }
+  } catch { return originIsLive ? null : aliasVerificationUnavailable(); } finally { clearTimeout(timer); }
   if (!target) return null;
   const availability = await redirectTargetAvailability(target, origin);
   if (availability === 'unavailable') return aliasVerificationUnavailable();
@@ -2672,6 +2672,11 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       if (stale) return stale;
     }
     if (resp.status === 200 && body !== null) {
+      // Append-only origins can retain a generic 200 compat bridge at an exact
+      // alias. A catalog-declared identity wins over that stale page, but an
+      // unavailable catalog must not break an otherwise healthy canonical 200.
+      const queryRedirect = await recoverOrphanQueryAlias(url, origin, true);
+      if (queryRedirect) return queryRedirect;
       const headers = new Headers(resp.headers);
       headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
       if (ctx && !url.search) {
@@ -2952,8 +2957,8 @@ const router = {
       // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
         const response = await fetchOriginWithRetry(url, request);
-        if (request.method === 'GET' && response.status === 404) {
-          const redirect = await recoverOrphanQueryAlias(url, url.hostname);
+        if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
+          const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
         }
         return response;
