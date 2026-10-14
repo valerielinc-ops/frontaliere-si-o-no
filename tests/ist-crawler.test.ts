@@ -1,13 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
   dropIstFabricatedText,
   extractIstMicrodata,
   hasCompleteIstDetailEvidence,
+  hasIstSitemapPositiveHint,
   isIstDetailJob,
+  markIstFacilityFacetEmptySnapshot,
+  parseIstFacilityFacetResponse,
   parseCountryCode,
   parseIstSitemapJobUrls,
 } from '@/scripts/update-ist-jobs.mjs';
@@ -49,6 +53,167 @@ describe('IST sitemap discovery', () => {
       ],
       authoritativeEmptySnapshot: false,
     });
+  });
+
+  it('decodes XML entities in live sitemap job URLs', () => {
+    const xml = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'ist', 'inspired-sitemap-xml.xml'),
+      'utf8',
+    );
+
+    expect(parseIstSitemapJobUrls(xml)).toEqual({
+      urls: [
+        'https://jobs.inspirededu.com/job/Primary-Teacher-&-Science/12345/',
+        "https://jobs.inspirededu.com/job/Head's-PA/67890/",
+      ],
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('recognizes positive IST and Ticino tokens in sitemap paths only', () => {
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/international-school-of-ticino/12345/',
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      'https://jobs.inspirededu.com/job/cadempino-admin/67890/',
+      'https://jobs.inspirededu.com/job/ist-library/99999/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+      'https://jobs.inspirededu.com/job/listener/99999/',
+    ])).toBe(false);
+  });
+});
+
+describe('IST native facility facet empty proof', () => {
+  const noIstPayload = {
+    complete: true,
+    facets: {
+      map: {
+        facility: [
+          { name: 'International School of Como', count: 1 },
+          { name: 'Head Office', count: 32 },
+        ],
+        location: [
+          { name: 'London, GB', count: 32 },
+          { name: 'Milan, IT', count: 1 },
+        ],
+      },
+    },
+  };
+
+  it('stamps an empty snapshot only when the complete native facet omits IST', () => {
+    const parsed = parseIstFacilityFacetResponse(noIstPayload);
+
+    expect(parsed).toMatchObject({
+      complete: true,
+      facilityCount: 2,
+      activeListingCount: 33,
+      locationCount: 2,
+      hasIstFacility: false,
+      hasTicinoLocation: false,
+    });
+
+    const snapshot = markIstFacilityFacetEmptySnapshot(noIstPayload);
+    expect(isAuthoritativeEmptySnapshot(snapshot)).toBe(true);
+    expect(snapshot.authoritativeEmptyEvidence).toContain('School Name facet');
+    expect(snapshot.authoritativeEmptyEvidence).toContain('no International School of Ticino entry');
+  });
+
+  it('fails closed when nonempty facet maps lack endpoint completeness proof', () => {
+    const payloadWithoutCoverageProof = { facets: noIstPayload.facets };
+
+    expect(parseIstFacilityFacetResponse(payloadWithoutCoverageProof)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payloadWithoutCoverageProof)).toBeNull();
+  });
+
+  it('does not stamp zero when the native facet contains IST', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'International School of Ticino', count: 1 }],
+          location: [{ name: 'Lugano, CH', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('does not stamp zero for renamed IST facility names', () => {
+    for (const name of [
+      'IST Lugano',
+      'Inspired Ticino',
+      'International School of Ticino - Cadempino',
+      'Scuola Internazionale del Ticino',
+    ]) {
+      expect(markIstFacilityFacetEmptySnapshot({
+        facets: {
+          map: {
+            facility: [{ name, count: 1 }],
+            location: [{ name: 'London, GB', count: 1 }],
+          },
+        },
+      }), name).toBeNull();
+    }
+  });
+
+  it('does not stamp zero when a neutral facility has a Ticino location', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'Lugano, Ticino', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('keeps a missing location facet fail-closed', () => {
+    const payload = {
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
+  });
+
+  it('does not authorize a later facet page even when its rows are valid', () => {
+    const payload = {
+      page: 2,
+      total: 89,
+      facets: {
+        map: {
+          facility: [{ name: 'Other', count: 1 }],
+          location: [{ name: 'Zurich', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
+  });
+
+  it('keeps malformed or empty facet responses fail-closed', () => {
+    expect(markIstFacilityFacetEmptySnapshot({ facets: { map: {} } })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [{ name: 'Head Office' }] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: { map: { facility: [] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'London, GB' }],
+        },
+      },
+    })).toBeNull();
   });
 });
 

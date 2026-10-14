@@ -15,12 +15,15 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import {
   fetchHtmlViaBrowser,
   loadSpec,
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -138,6 +141,110 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+function removeSchweizerhofExcludedMarkup(html = '') {
+  return String(html || '')
+    .replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bitemprop\s*=\s*(['"])(?:email|telephone)\2[^>]*>[\s\S]*?<\/\1>/gi, '')
+    .replace(/<([a-z][\w:-]*)\b[^>]*\bhref\s*=\s*(['"])(?:mailto:|tel:)[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function extractSchweizerhofJobMain(html = '') {
+  const source = String(html || '');
+  const jobBody = scanStartTags(source, 'div').find(({ raw }) =>
+    /\bjob-ad-body\b/i.test(readAttr(raw, 'class')),
+  );
+  if (!jobBody) return '';
+
+  const body = extractBalancedTagBlock(source.slice(jobBody.end), 'div');
+  return removeSchweizerhofExcludedMarkup(
+    /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(body)?.[1] || '',
+  ).replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+}
+
+function normalizeSchweizerhofEvidence(value = '') {
+  return stripHtml(String(value || ''))
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function hasSchweizerhofFlimsLocation(detail = {}) {
+  const candidates = [
+    detail.location,
+    detail.addressLocality,
+    detail.postalCode,
+    ...(Array.isArray(detail.locationCandidates)
+      ? detail.locationCandidates.flatMap((candidate) => [
+        candidate?.location,
+        candidate?.addressLocality,
+        candidate?.postalCode,
+      ])
+      : []),
+  ];
+  return candidates.some((value) => {
+    const normalized = normalizeSchweizerhofEvidence(value);
+    return /\bflims(?:\s+(?:waldhaus|dorf))?\b/u.test(normalized)
+      || /\b701[78]\b/u.test(normalized);
+  });
+}
+
+function hasSchweizerhofFlimsIdentity(html, detail) {
+  const tenantHeading = normalizeSchweizerhofEvidence(extractSchweizerhofTenantHeading(html));
+  return /\bschweizerhof\b/u.test(tenantHeading)
+    && hasSchweizerhofFlimsLocation(detail);
+}
+
+/**
+ * Read the source-owned tenant heading from the HCM4all job body.
+ *
+ * The current portal places a generic tenant heading in the vacancy body
+ * (`main > section > h2`). The first H2 is the portal's tenant heading; later
+ * prose can mention another hotel and must not override it. A Schweizerhof
+ * tenant is exposed as `Schweizerhof Flims` only with source-backed Flims
+ * locality/address evidence. Never use email, phone, footer or body prose as
+ * tenant evidence.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function extractSchweizerhofTenantHeading(html = '') {
+  const main = extractSchweizerhofJobMain(html);
+  const match = /<h2\b[^>]*>([\s\S]*?)<\/h2>/i.exec(main);
+  return stripHtml(match?.[1] || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Add the source-scoped tenant heading to the shared detail evidence.
+ *
+ * @param {string} html
+ * @param {string} url
+ * @param {{ recordUrl?: string }} [opts]
+ * @returns {Record<string, any>}
+ */
+export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts = {}) {
+  const detail = extractRuntimeDetailFields(
+    {},
+    removeSchweizerhofExcludedMarkup(html),
+    url,
+    { recordUrl: opts.recordUrl },
+  );
+  const heading = extractSchweizerhofTenantHeading(html);
+  const hasSchweizerhofTenantHeading = /\bschweizerhof\b/i.test(heading);
+  const workplaceLabels = [
+    ...(detail.workplaceLabels || []),
+    ...(hasSchweizerhofTenantHeading ? [heading] : []),
+    ...(hasSchweizerhofFlimsIdentity(html, detail) ? ['Schweizerhof Flims'] : []),
+  ].filter((label, index, labels) => labels.indexOf(label) === index);
+  if (!workplaceLabels.length) return detail;
+  return {
+    ...detail,
+    workplaceLabels,
+  };
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
@@ -147,7 +254,10 @@ async function fetchJobListings() {
   // HCM4all can return the listing shell without rendered vacancy links to the
   // CI egress. Keep the shared direct/Jina path first, then let the browser
   // rescue render the same public index before the detail tenant filter runs.
-  return runSpecInProduction(spec, { browserFetchImpl: fetchHtmlViaBrowser });
+  return runSpecInProduction(spec, {
+    browserFetchImpl: fetchHtmlViaBrowser,
+    detailExtractor: extractSchweizerhofFlimsDetailFields,
+  });
 }
 
 /**
