@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43506",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43506",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "86369",
+      "normalizedPlate": "ZH86369",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 840,
+      "bidCount": 28,
+      "endsAt": "2026-09-23T17:09:00.000Z",
+      "closedAt": "2026-09-23T17:09:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43506",
+      "sourceFetchedAt": "2026-09-23T17:04:26.442Z",
+      "lastVerifiedAt": "2026-09-23T17:04:26.442Z",
+      "firstSeenAt": "2026-09-19T11:05:30.418Z",
+      "lastSeenAt": "2026-09-23T17:04:26.442Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bde0590c0663"
+    }
+  ]
+}

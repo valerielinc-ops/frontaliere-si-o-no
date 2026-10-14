@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69523",
+      "sourceKey": "SH",
+      "sourceRecordId": "69523",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "7654",
+      "normalizedPlate": "SH7654",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 100,
+      "bidCount": 0,
+      "endsAt": "2026-09-30T20:00:00.000Z",
+      "closedAt": "2026-09-30T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69523",
+      "sourceFetchedAt": "2026-09-30T12:39:22.218Z",
+      "lastVerifiedAt": "2026-09-30T12:39:22.218Z",
+      "firstSeenAt": "2026-09-24T04:55:20.861Z",
+      "lastSeenAt": "2026-09-30T12:39:22.218Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1157c8a888d0"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109743",
+      "sourceKey": "TG",
+      "sourceRecordId": "109743",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "777421",
+      "normalizedPlate": "TG777421",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109743",
+      "sourceFetchedAt": "2026-09-29T22:19:51.599Z",
+      "lastVerifiedAt": "2026-09-29T22:19:51.599Z",
+      "firstSeenAt": "2026-09-21T12:53:43.963Z",
+      "lastSeenAt": "2026-09-29T22:19:51.599Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "8b95be98f19f"
+    }
+  ]
+}

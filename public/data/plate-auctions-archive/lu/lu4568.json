@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-motorcycle-catalogue-4568",
+      "sourceKey": "LU",
+      "sourceRecordId": "motorcycle-catalogue-4568",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "4568",
+      "normalizedPlate": "LU4568",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 200,
+      "closedAt": "2026-09-20T11:28:14.127Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-09-20T11:28:14.127Z",
+      "lastVerifiedAt": "2026-09-20T11:28:14.127Z",
+      "firstSeenAt": "2026-09-15T06:51:11.846Z",
+      "lastSeenAt": "2026-09-20T11:28:14.127Z",
+      "sourceCategory": "fixed-price-catalogue",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "83551251f72b"
+    }
+  ]
+}

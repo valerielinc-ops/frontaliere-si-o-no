@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120415",
+      "sourceKey": "VD",
+      "sourceRecordId": "120415",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "8194",
+      "normalizedPlate": "VD8194",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "endsAt": "2026-10-11T20:00:00.000Z",
+      "closedAt": "2026-10-11T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120415",
+      "sourceFetchedAt": "2026-10-11T12:55:58.601Z",
+      "lastVerifiedAt": "2026-10-11T12:55:58.601Z",
+      "firstSeenAt": "2026-10-05T05:47:15.317Z",
+      "lastSeenAt": "2026-10-11T12:55:58.601Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "2ff6dc210047"
+    }
+  ]
+}

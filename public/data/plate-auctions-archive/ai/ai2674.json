@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ai-2674",
+      "sourceKey": "AI",
+      "sourceRecordId": "2674",
+      "canton": "Appenzello Interno",
+      "platePrefix": "AI",
+      "plateNumber": "2674",
+      "normalizedPlate": "AI2674",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 2000,
+      "closedAt": "2026-09-20T11:27:54.279Z",
+      "officialAuctionUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder",
+      "officialDetailUrl": "https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download",
+      "sourceFetchedAt": "2026-09-20T11:27:54.279Z",
+      "lastVerifiedAt": "2026-09-20T11:27:54.279Z",
+      "firstSeenAt": "2026-09-15T06:51:05.644Z",
+      "lastSeenAt": "2026-09-20T11:27:54.279Z",
+      "sourceCategory": "fixed-price-price-group",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5cb4f349dd7f"
+    }
+  ]
+}

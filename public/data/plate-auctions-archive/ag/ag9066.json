@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58769",
+      "sourceKey": "AG",
+      "sourceRecordId": "58769",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "9066",
+      "normalizedPlate": "AG9066",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 450,
+      "bidCount": 7,
+      "endsAt": "2026-09-30T19:00:00.000Z",
+      "closedAt": "2026-09-30T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58769",
+      "sourceFetchedAt": "2026-09-30T12:38:33.576Z",
+      "lastVerifiedAt": "2026-09-30T12:38:33.576Z",
+      "firstSeenAt": "2026-09-19T11:04:31.342Z",
+      "lastSeenAt": "2026-09-30T12:38:33.576Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a3c4a9b96ba6"
+    }
+  ]
+}

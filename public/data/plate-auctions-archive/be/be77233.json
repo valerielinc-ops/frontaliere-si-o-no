@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-230926",
+      "sourceKey": "BE",
+      "sourceRecordId": "230926",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "77233",
+      "normalizedPlate": "BE77233",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 790,
+      "bidCount": 1,
+      "endsAt": "2026-09-30T19:00:00.000Z",
+      "closedAt": "2026-09-30T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-be.ch/de/",
+      "officialDetailUrl": "https://www.auktion-be.ch/de/auction/230926",
+      "sourceFetchedAt": "2026-09-30T12:38:38.318Z",
+      "lastVerifiedAt": "2026-09-30T12:38:38.318Z",
+      "firstSeenAt": "2026-09-24T11:49:42.835Z",
+      "lastSeenAt": "2026-09-30T12:38:38.318Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "92fd38988b48"
+    }
+  ]
+}

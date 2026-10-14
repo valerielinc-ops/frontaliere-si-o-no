@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120338",
+      "sourceKey": "VD",
+      "sourceRecordId": "120338",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "8868",
+      "normalizedPlate": "VD8868",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "endsAt": "2026-10-04T20:00:00.000Z",
+      "closedAt": "2026-10-04T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120338",
+      "sourceFetchedAt": "2026-10-04T12:27:33.458Z",
+      "lastVerifiedAt": "2026-10-04T12:27:33.458Z",
+      "firstSeenAt": "2026-09-28T05:29:09.978Z",
+      "lastSeenAt": "2026-10-04T12:27:33.458Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "bdc09ed563e6"
+    }
+  ]
+}

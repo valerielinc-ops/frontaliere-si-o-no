@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120183",
+      "sourceKey": "VD",
+      "sourceRecordId": "120183",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "97",
+      "normalizedPlate": "VD97",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 1100,
+      "bidCount": 3,
+      "endsAt": "2026-09-27T20:00:00.000Z",
+      "closedAt": "2026-09-27T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120183",
+      "sourceFetchedAt": "2026-09-27T17:16:28.749Z",
+      "lastVerifiedAt": "2026-09-27T17:16:28.749Z",
+      "firstSeenAt": "2026-09-15T04:53:59.584Z",
+      "lastSeenAt": "2026-09-27T17:16:28.749Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f50375caa3c9"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120187",
+      "sourceKey": "VD",
+      "sourceRecordId": "120187",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "4725",
+      "normalizedPlate": "VD4725",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 1,
+      "endsAt": "2026-09-27T20:00:00.000Z",
+      "closedAt": "2026-09-27T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120187",
+      "sourceFetchedAt": "2026-09-27T17:16:28.749Z",
+      "lastVerifiedAt": "2026-09-27T17:16:28.749Z",
+      "firstSeenAt": "2026-09-15T04:53:59.584Z",
+      "lastSeenAt": "2026-09-27T17:16:28.749Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "7115ef3385a4"
+    }
+  ]
+}

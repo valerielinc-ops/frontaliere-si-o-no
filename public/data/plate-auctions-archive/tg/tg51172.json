@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109611",
+      "sourceKey": "TG",
+      "sourceRecordId": "109611",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "51172",
+      "normalizedPlate": "TG51172",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-09-30T17:00:00.000Z",
+      "closedAt": "2026-09-30T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109611",
+      "sourceFetchedAt": "2026-09-29T22:19:51.599Z",
+      "lastVerifiedAt": "2026-09-29T22:19:51.599Z",
+      "firstSeenAt": "2026-09-19T11:04:58.654Z",
+      "lastSeenAt": "2026-09-29T22:19:51.599Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6e55e4a8efba"
+    }
+  ]
+}

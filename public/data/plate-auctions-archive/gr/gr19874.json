@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gr-2251",
+      "sourceKey": "GR",
+      "sourceRecordId": "2251",
+      "canton": "Grigioni",
+      "platePrefix": "GR",
+      "plateNumber": "19874",
+      "normalizedPlate": "GR19874",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 550,
+      "startingPriceChf": 500,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-11T18:00:00.000Z",
+      "closedAt": "2026-10-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_ch",
+      "officialDetailUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2251&locale=de_ch",
+      "sourceFetchedAt": "2026-10-11T12:55:09.530Z",
+      "lastVerifiedAt": "2026-10-11T12:55:09.530Z",
+      "firstSeenAt": "2026-09-28T14:00:29.817Z",
+      "lastSeenAt": "2026-10-11T12:55:09.530Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "00c7283e41fb"
+    }
+  ]
+}

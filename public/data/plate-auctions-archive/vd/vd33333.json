@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120214",
+      "sourceKey": "VD",
+      "sourceRecordId": "120214",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "33333",
+      "normalizedPlate": "VD33333",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 400,
+      "bidCount": 7,
+      "endsAt": "2026-09-27T20:00:00.000Z",
+      "closedAt": "2026-09-27T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120214",
+      "sourceFetchedAt": "2026-09-27T17:16:28.749Z",
+      "lastVerifiedAt": "2026-09-27T17:16:28.749Z",
+      "firstSeenAt": "2026-09-15T04:53:59.584Z",
+      "lastSeenAt": "2026-09-27T17:16:28.749Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "cde0091fb9aa"
+    }
+  ]
+}

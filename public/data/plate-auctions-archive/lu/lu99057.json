@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-car-long-format-99057",
+      "sourceKey": "LU",
+      "sourceRecordId": "car-long-format-99057",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "99057",
+      "normalizedPlate": "LU99057",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 300,
+      "closedAt": "2026-09-28T23:20:12.385Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-09-28T23:20:12.385Z",
+      "lastVerifiedAt": "2026-09-28T23:20:12.385Z",
+      "firstSeenAt": "2026-09-23T11:41:19.922Z",
+      "lastSeenAt": "2026-09-28T23:20:12.385Z",
+      "sourceCategory": "fixed-price-long-format",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3ac506e1cafe"
+    }
+  ]
+}

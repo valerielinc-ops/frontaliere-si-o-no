@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gr-2241",
+      "sourceKey": "GR",
+      "sourceRecordId": "2241",
+      "canton": "Grigioni",
+      "platePrefix": "GR",
+      "plateNumber": "16609",
+      "normalizedPlate": "GR16609",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 700,
+      "startingPriceChf": 500,
+      "bidCount": 5,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-09-27T18:00:00.000Z",
+      "closedAt": "2026-09-27T18:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.gr.ch/",
+      "officialDetailUrl": "https://eauktion.gr.ch/",
+      "sourceFetchedAt": "2026-09-27T17:15:19.905Z",
+      "lastVerifiedAt": "2026-09-27T17:15:19.905Z",
+      "firstSeenAt": "2026-09-14T11:56:44.730Z",
+      "lastSeenAt": "2026-09-27T17:15:19.905Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "131a2a4106bb"
+    }
+  ]
+}

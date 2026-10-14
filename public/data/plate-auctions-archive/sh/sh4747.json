@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69573",
+      "sourceKey": "SH",
+      "sourceRecordId": "69573",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "4747",
+      "normalizedPlate": "SH4747",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 100,
+      "bidCount": 1,
+      "endsAt": "2026-10-07T20:00:00.000Z",
+      "closedAt": "2026-10-07T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69573",
+      "sourceFetchedAt": "2026-10-07T06:05:28.005Z",
+      "lastVerifiedAt": "2026-10-07T06:05:28.005Z",
+      "firstSeenAt": "2026-10-01T05:59:26.915Z",
+      "lastSeenAt": "2026-10-07T06:05:28.005Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a1614ff4ee02"
+    }
+  ]
+}

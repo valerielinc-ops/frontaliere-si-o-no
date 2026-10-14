@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sz-1592",
+      "sourceKey": "SZ",
+      "sourceRecordId": "1592",
+      "canton": "Svitto",
+      "platePrefix": "SZ",
+      "plateNumber": "32227",
+      "normalizedPlate": "SZ32227",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 320,
+      "startingPriceChf": 150,
+      "bidCount": 6,
+      "minimumIncrementChf": 10,
+      "endsAt": "2026-10-13T20:00:00.000Z",
+      "closedAt": "2026-10-13T20:00:00.000Z",
+      "officialAuctionUrl": "https://cariegov.sz.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://cariegov.sz.ch/ecari-auction/ui/app/details/app?id=1592",
+      "sourceFetchedAt": "2026-10-13T17:47:05.843Z",
+      "lastVerifiedAt": "2026-10-13T17:47:05.843Z",
+      "firstSeenAt": "2026-09-30T11:47:05.792Z",
+      "lastSeenAt": "2026-10-13T17:47:05.843Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6144397b32bf"
+    }
+  ]
+}

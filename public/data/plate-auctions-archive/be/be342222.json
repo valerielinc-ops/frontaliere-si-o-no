@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231029",
+      "sourceKey": "BE",
+      "sourceRecordId": "231029",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "342222",
+      "normalizedPlate": "BE342222",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 490,
+      "bidCount": 0,
+      "endsAt": "2026-10-07T19:00:00.000Z",
+      "closedAt": "2026-10-07T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-be.ch/de/",
+      "officialDetailUrl": "https://www.auktion-be.ch/de/auction/231029",
+      "sourceFetchedAt": "2026-10-07T06:04:45.912Z",
+      "lastVerifiedAt": "2026-10-07T06:04:45.912Z",
+      "firstSeenAt": "2026-10-01T05:58:35.802Z",
+      "lastSeenAt": "2026-10-07T06:04:45.912Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "adc310ce9168"
+    }
+  ]
+}

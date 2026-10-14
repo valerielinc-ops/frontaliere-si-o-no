@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ti-1533",
+      "sourceKey": "TI",
+      "sourceRecordId": "1533",
+      "canton": "Ticino",
+      "platePrefix": "TI",
+      "plateNumber": "281",
+      "normalizedPlate": "TI281",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 11100,
+      "startingPriceChf": 3000,
+      "bidCount": 10,
+      "minimumIncrementChf": 100,
+      "endsAt": "2026-09-23T18:00:00.000Z",
+      "closedAt": "2026-09-23T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "officialDetailUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "sourceFetchedAt": "2026-09-14T19:29:05.676Z",
+      "lastVerifiedAt": "2026-09-14T19:29:05.676Z",
+      "firstSeenAt": "2026-09-14T13:29:09.313Z",
+      "lastSeenAt": "2026-09-14T19:29:05.676Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "dccba6db128e"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "nw-1497",
+      "sourceKey": "NW",
+      "sourceRecordId": "1497",
+      "canton": "Nidvaldo",
+      "platePrefix": "NW",
+      "plateNumber": "4987",
+      "normalizedPlate": "NW4987",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "startingPriceChf": 300,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-09-21T19:00:00.000Z",
+      "closedAt": "2026-09-21T19:00:00.000Z",
+      "officialAuctionUrl": "https://ecarinwprod.ilz.info/ecari-auction/",
+      "officialDetailUrl": "https://ecarinwprod.ilz.info/ecari-auction/ui/app/details/app?id=1497",
+      "sourceFetchedAt": "2026-09-21T12:52:56.338Z",
+      "lastVerifiedAt": "2026-09-21T12:52:56.338Z",
+      "firstSeenAt": "2026-09-15T04:53:49.770Z",
+      "lastSeenAt": "2026-09-21T12:52:56.338Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "09ff693b78f5"
+    }
+  ]
+}

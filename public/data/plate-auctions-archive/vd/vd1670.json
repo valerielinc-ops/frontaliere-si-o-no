@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120393",
+      "sourceKey": "VD",
+      "sourceRecordId": "120393",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "1670",
+      "normalizedPlate": "VD1670",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "endsAt": "2026-10-11T20:00:00.000Z",
+      "closedAt": "2026-10-11T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120393",
+      "sourceFetchedAt": "2026-10-11T12:55:58.601Z",
+      "lastVerifiedAt": "2026-10-11T12:55:58.601Z",
+      "firstSeenAt": "2026-10-05T05:47:15.317Z",
+      "lastSeenAt": "2026-10-11T12:55:58.601Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3f22ea160e57"
+    }
+  ]
+}
