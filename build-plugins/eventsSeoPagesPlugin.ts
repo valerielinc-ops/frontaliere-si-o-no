@@ -1395,6 +1395,38 @@ function humanDate(iso: string, locale: Locale): string {
   }).format(d);
 }
 
+function dateAtUtcNoon(iso: string): Date | null {
+  const normalized = iso.trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(normalized)) return null;
+  const date = new Date(normalized + 'T12:00:00Z');
+  return Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== normalized ? null : date;
+}
+
+function localizedEventDateRange(
+  startIso: string,
+  endIso: string,
+  locale: Locale,
+  options: Intl.DateTimeFormatOptions,
+): string | null {
+  const start = dateAtUtcNoon(startIso);
+  const end = dateAtUtcNoon(endIso);
+  if (!start || !end || end.getTime() <= start.getTime()) return null;
+  return new Intl.DateTimeFormat(INTL_LANG[locale], {
+    ...options,
+    timeZone: 'UTC',
+  }).formatRange(start, end);
+}
+
+function humanDateRange(startIso: string, endIso: string | undefined, locale: Locale): string {
+  if (!endIso || endIso.trim() === startIso.trim()) return humanDate(startIso, locale);
+  return localizedEventDateRange(startIso, endIso, locale, {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }) || humanDate(startIso, locale);
+}
+
 function isWeekend(iso: string, weekendDays: Set<string>): boolean {
   return weekendDays.has(iso);
 }
@@ -1518,7 +1550,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
   const endIso = hasMultiDay ? (event.endDate as string) : startIso;
   const cat = categoryLabel(event.category, locale);
-  const when = humanDate(event.startDate, locale);
+  const when = humanDateRange(event.startDate, event.endDate, locale);
   const title = localizedTitle(event, locale);
   const factualDescription = `${title} — ${cat} ${COPY[locale].at} ${venueName || locality || 'Svizzera'} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}`
     + `${event.startTime ? ` ${event.startTime}` : ''}.`;
@@ -3317,11 +3349,18 @@ function eventDetailMetaTitle(
   return out;
 }
 
-/** Stable, compact date token used to distinguish recurring event titles that
- * differ only by their scheduled day. The slug already uses this ISO form, so
- * the token is language-neutral and remains unambiguous in every locale. */
-function eventDateToken(startDate: string): string {
-  return /^(\d{4}-\d{2}-\d{2})$/.exec(startDate.trim())?.[1] ?? '';
+/** Compact, locale-aware date token for event headings and SERP titles.
+ * Single-day events retain their established ISO token; a source-provided
+ * endDate is rendered as a readable range without changing the URL slug. */
+function eventDateToken(startDate: string, endDate: string | undefined, locale: Locale): string {
+  const normalizedStart = /^(\d{4}-\d{2}-\d{2})$/.exec(startDate.trim())?.[1];
+  if (!normalizedStart) return '';
+  if (!endDate || endDate.trim() === normalizedStart) return normalizedStart;
+  return localizedEventDateRange(normalizedStart, endDate, locale, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }) || normalizedStart;
 }
 
 const EVENT_H1_MAX_CHARS = 120;
@@ -3363,7 +3402,7 @@ const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
     metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c), d),
-    metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
+    metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Per date e dettagli aggiornati, consulta il sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
     catLabel: 'Categoria',
@@ -3393,7 +3432,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
   },
   en: {
     metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c), d),
-    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
+    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. For current dates and details, visit the event’s official website.`,
     whenLabel: 'When',
     whereLabel: 'Where',
     catLabel: 'Category',
@@ -3423,7 +3462,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
   },
   de: {
     metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d, true),
-    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.`,
+    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Aktuelle Termine und Details stehen auf der offiziellen Veranstaltungsseite.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
     catLabel: 'Kategorie',
@@ -3453,7 +3492,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
   },
   fr: {
     metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c), d),
-    metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
+    metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Dates et détails à jour sur le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
     catLabel: 'Catégorie',
@@ -3639,8 +3678,8 @@ export function renderEventDetailPage(params: {
     ? cantonDisplayLabel(canton, locale)
     : cleanRenderableEventText(comune) || cantonDisplayLabel(canton, locale);
   const venue = eventVenue(event);
-  const when = humanDate(event.startDate, locale);
-  const dateToken = eventDateToken(event.startDate);
+  const when = humanDateRange(event.startDate, event.endDate, locale);
+  const dateToken = eventDateToken(event.startDate, event.endDate, locale);
   const heading = eventDetailHeading(title, dateToken, displayComune);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);

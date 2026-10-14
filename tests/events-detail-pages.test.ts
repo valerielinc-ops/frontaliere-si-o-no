@@ -406,6 +406,51 @@ describe('renderEventDetailPage', () => {
     detailHref: detailHref as never,
   });
 
+  it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
+    const multiDayEvent = {
+      ...EVENT,
+      id: 'myswitzerland:14afb8e8eff74937bc703ae26d632bdb',
+      title: 'Fiera di San Martino',
+      startDate: '2026-11-11',
+      endDate: '2026-11-15',
+      startTime: undefined,
+      category: 'Event',
+      venue: 'San Martino',
+      comune: 'Mendrisio',
+      canton: 'TI',
+      sourceKey: 'myswitzerland',
+      sourceName: 'MySwitzerland',
+      url: 'https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/fiera-di-san-martino/',
+    };
+    const rendered = renderEventDetailPage({
+      locale: 'it',
+      event: multiDayEvent as never,
+      comune: 'Mendrisio',
+      eventSlug: slugifyEvent(multiDayEvent),
+      sameComuneEvents: [multiDayEvent] as never,
+      dateStamp: '2026-10-14',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const canonicalUrl = 'https://frontaliereticino.ch' + rendered.urlPath;
+    const schemas = [...rendered.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]!) as Record<string, any>);
+    const eventSchema = schemas.find((schema) => schema['@type'] === 'Event');
+    const faqSchema = schemas.find((schema) => schema['@type'] === 'FAQPage');
+    const title = rendered.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+    const descriptionTag = rendered.html.match(/<meta[^>]*name=description[^>]*>/)?.[0] || '';
+
+    expect(rendered.urlPath).toBe('/eventi/ticino/mendrisio/fiera-di-san-martino-2026-11-11/');
+    expect(title).toContain('11–15 nov 2026');
+    expect(descriptionTag).toContain('15 nov 2026');
+    expect(rendered.html).toContain('href="' + canonicalUrl + '"');
+    expect(eventSchema?.startDate).toBe('2026-11-11');
+    expect(eventSchema?.endDate).toBe('2026-11-15');
+    expect(eventSchema?.url).toBe(canonicalUrl);
+    expect(String(eventSchema?.description)).toContain('15 nov 2026');
+    expect(String(faqSchema?.mainEntity?.[0]?.acceptedAnswer?.text)).toContain('15 nov 2026');
+  });
+
   it('emits at the canonical per-event path', () => {
     expect(page.urlPath).toBe(`/eventi/ticino/lugano/${slugifyEvent(EVENT)}/`);
   });
@@ -436,7 +481,7 @@ describe('renderEventDetailPage', () => {
       .find((schema) => schema['@type'] === 'Event');
     expect(String(eventSchema?.description)).toContain('Concerto sinfonico al LAC');
     expect(String(eventSchema?.description).length).toBeGreaterThanOrEqual(30);
-    expect(page.html).toContain("Data, orario, luogo e link al sito ufficiale dell'evento.");
+    expect(page.html).toContain("Per date e dettagli aggiornati, consulta il sito ufficiale dell'evento.");
     expect(page.html).toContain('LAC Lugano Arte e Cultura');
     expect(page.html).not.toContain('Descrizione reale raccolta dal crawler');
   });
@@ -597,7 +642,7 @@ describe('renderEventDetailPage', () => {
     const description = germanPage.html.match(/<meta name=description content="([^"]*)">/)?.[1] || '';
     expect(title).toContain('Veranstaltung');
     expect(title).not.toContain('Veranstaltungen');
-    expect(description).toContain('Offizielle Infos zu Datum, Uhrzeit und Veranstaltungsort.');
+    expect(description).toContain('Aktuelle Termine und Details stehen auf der offiziellen Veranstaltungsseite.');
   });
 
   it('adds one reserved in-feed slot after the first 12 cards on an indexable list', () => {
