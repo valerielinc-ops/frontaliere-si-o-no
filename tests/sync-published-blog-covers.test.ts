@@ -283,6 +283,27 @@ function clearPublishedArticleCovers(root: string) {
   fs.writeFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), 'export const ARTICLES = [];\n');
 }
 
+function git(root: string, args: string[]) {
+  return execFileSync('git', args, {
+    cwd: root,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+function commitFixture(root: string, { omitImage = false } = {}) {
+  git(root, ['init', '--quiet']);
+  git(root, ['config', 'user.email', 'fixture@example.invalid']);
+  git(root, ['config', 'user.name', 'Fixture Test']);
+  git(root, ['add', '--all']);
+  if (omitImage) {
+    git(root, ['rm', '--cached', '--quiet', '--', `public${IMAGE}`]);
+    fs.rmSync(path.join(root, `public${IMAGE}`));
+    git(root, ['add', '--all']);
+  }
+  git(root, ['commit', '--quiet', '-m', 'fixture']);
+}
+
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
@@ -571,6 +592,52 @@ describe('sync-published-blog-covers', () => {
 
     const verifyOutput = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
     expect(JSON.parse(verifyOutput)).toMatchObject({ generated: 1, errors: 0 });
+  });
+
+  it('reads committed cover bytes when sparse checkout omits the working-tree file', () => {
+    const root = fixture();
+    addGeneratedEvidence(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    execFileSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    });
+    commitFixture(root);
+    git(root, ['sparse-checkout', 'init', '--no-cone']);
+    git(root, ['sparse-checkout', 'set', '--no-cone', '/data/', '/packages/']);
+
+    expect(fs.existsSync(path.join(root, `public${IMAGE}`))).toBe(false);
+    const output = JSON.parse(execFileSync(process.execPath, [VERIFY_SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+    }));
+
+    expect(output).toMatchObject({ generated: 1, errors: 0 });
+  });
+
+  it('keeps an absent untracked cover as a verifier error', () => {
+    const root = fixture();
+    addGeneratedEvidence(root);
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    execFileSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    });
+    commitFixture(root, { omitImage: true });
+
+    expect(fs.existsSync(path.join(root, `public${IMAGE}`))).toBe(false);
+    expect(spawnSync('git', ['ls-files', '--error-unmatch', '--', `public${IMAGE}`], {
+      cwd: root,
+      encoding: 'utf8',
+    }).status).toBe(1);
+    const result = spawnSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('generated record has no corresponding site cover bytes');
+    expect(JSON.parse(result.stdout)).toMatchObject({ generated: 1 });
+    expect(JSON.parse(result.stdout).errors).toBeGreaterThan(0);
   });
 
   it.each([

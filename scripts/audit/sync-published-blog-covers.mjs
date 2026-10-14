@@ -10,7 +10,6 @@
  */
 
 import crypto from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -23,6 +22,7 @@ import {
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isPublishedDeterministicCardRecord } from '../lib/published-blog-image-evidence.mjs';
+import { readPublishedBlogCoverBytes } from '../lib/published-blog-cover-bytes.mjs';
 
 const ROOT = process.cwd();
 const LEDGER_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
@@ -79,21 +79,9 @@ function parseRegistry({ section, file }) {
 
 function coverBytes(image) {
   const relative = `public/${image.replace(/^\/+/, '')}`;
-  const expectedRoot = path.join(ROOT, 'public/images/blog');
-  const absolute = path.resolve(ROOT, relative);
-  if (!absolute.startsWith(`${expectedRoot}${path.sep}`)) {
-    throw new Error(`Refusing non-blog cover path: ${image}`);
-  }
-  if (fs.existsSync(absolute)) return fs.readFileSync(absolute);
-  try {
-    return execFileSync('git', ['show', `HEAD:${relative}`], {
-      cwd: ROOT,
-      maxBuffer: 16 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-  } catch {
-    throw new Error(`Published cover blob is unavailable: ${relative}`);
-  }
+  const bytes = readPublishedBlogCoverBytes(ROOT, image, { rejectInvalidPath: true });
+  if (bytes) return bytes;
+  throw new Error(`Published cover blob is unavailable: ${relative}`);
 }
 
 function priority(article) {

@@ -12,6 +12,7 @@ import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isExplicitInferredCover } from '../lib/blog-cover-decisions.mjs';
+import { readPublishedBlogCoverBytes } from '../lib/published-blog-cover-bytes.mjs';
 import {
   isPublishedDeterministicCardRecord,
   validatePublishedBlogImageEvidence,
@@ -40,15 +41,6 @@ function parseCoverImages(file) {
     if (key) covers.set(key, match[1]);
   }
   return covers;
-}
-
-function publishedCoverBytes(imageUrl) {
-  const relative = `public/${String(imageUrl).replace(/^\/+/, '')}`;
-  const expectedRoot = path.resolve(ROOT, 'public/images/blog');
-  const absolute = path.resolve(ROOT, relative);
-  if (!absolute.startsWith(`${expectedRoot}${path.sep}`)) return null;
-  if (!fs.existsSync(absolute)) return null;
-  return fs.readFileSync(absolute);
 }
 
 function recordForKey(key) {
@@ -102,7 +94,7 @@ function main() {
         if (record.scope !== 'article-hero') continue;
         const key = coverKey(imageUrl);
         if (!key || currentCoverImages.get(key) !== imageUrl) continue;
-        const bytes = publishedCoverBytes(imageUrl);
+        const bytes = readPublishedBlogCoverBytes(ROOT, imageUrl);
         if (!bytes) {
           errors.push(`${imageUrl}: published evidence has no corresponding site cover bytes`);
         } else {
@@ -158,7 +150,7 @@ function main() {
     }
     if (record.source === 'generated-provider') {
       counts.generated += 1;
-      const bytes = publishedCoverBytes(record.cover);
+      const bytes = readPublishedBlogCoverBytes(ROOT, record.cover);
       if (!bytes) {
         errors.push(`${key}: generated record has no corresponding site cover bytes`);
         continue;
