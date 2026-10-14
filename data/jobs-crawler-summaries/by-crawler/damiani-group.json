@@ -1,20 +1,21 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-13T21:24:20.979Z",
+  "generatedAt": "2026-10-14T09:25:44.020Z",
   "total": 10,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9074,
-  "avgDurationMs": 9074,
+  "durationMs": 8825,
+  "avgDurationMs": 8825,
   "durationHistory": [
-    9074
+    8825
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Business Controller",
       "slug": "business-controller-damiani-group-mendrisio",
@@ -48,16 +49,14 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-13T21:24:12.552Z",
-      "_qualityScore": 84,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 23,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Graphic Designer - Freelance",
       "slug": "graphic-designer-freelance-damiani-group-mendrisio",
@@ -432,5 +431,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
