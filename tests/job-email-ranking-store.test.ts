@@ -272,7 +272,6 @@ describe('job email ranking Firestore store', () => {
       ranking_variant: 'affinity',
       ranking_score: 0.81,
       relevance_score: 8,
-      newness_score: 0.6,
       affinity_profile: true,
     });
     // The CTR experiment's per-job fields are no longer written.

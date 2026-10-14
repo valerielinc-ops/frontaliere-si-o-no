@@ -241,6 +241,7 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
       position: 5,
       ranking_score: 0.9 - 4 * 0.01,
       relevance_score: 0.8,
+      newness_score: null,
       affinity_score: 0.333333,
       category: 'administration',
       canton: 'TI',
