@@ -413,18 +413,28 @@ describe('live section: pages from R2', () => {
     }
   });
 
-  it('an R2 5xx serves the last good copy (stale-if-error), else 503 — never a cached 404', async () => {
+  it.each([400, 401, 403, 428, 429, 431, 500, 502])('an R2 HTTP %s serves the last good copy, else 503 — never a cached 404', async (status) => {
     mockFetch({ registry: live, objects });
     const ok = await get('/articoli-ticino/');
     expect(ok.status).toBe(200);
     vi.restoreAllMocks();
-    mockFetch({ registry: live, objectStatus: { '/edge/sections/articoli-ticino/index.html': 502, '/edge/sections/articoli-ticino/altro/index.html': 502 } });
+    mockFetch({ registry: live, objectStatus: { '/edge/sections/articoli-ticino/index.html': status, '/edge/sections/articoli-ticino/altro/index.html': status } });
     const stale = await get('/articoli-ticino/');
     expect(stale.status).toBe(200);
-    expect(stale.headers.get('X-Served-Stale')).toBe('corpus-502');
+    expect(stale.headers.get('X-Served-Stale')).toBe(`corpus-${status}`);
     const none = await get('/articoli-ticino/altro/');
     expect(none.status).toBe(503);
     expect(none.headers.get('Cache-Control')).toBe('no-store');
+    expect(none.headers.get('Retry-After')).toBe('30');
+    expect(none.headers.get('X-Robots-Tag')).toBeNull();
+  });
+
+  it.each([404, 410])('a definitive R2 HTTP %s remains a real miss, not an outage', async (status) => {
+    mockFetch({ registry: live, objectStatus: { '/edge/sections/articoli-ticino/altro/index.html': status } });
+    const missing = await get('/articoli-ticino/altro/');
+    expect(missing.status).toBe(404);
+    expect(missing.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+    expect(missing.headers.get('X-Robots-Tag')).toBe('noindex');
   });
 
   it('registry redirects are 301s and gone paths are 410 + noindex', async () => {
@@ -488,6 +498,24 @@ describe('registry memo and last-known-good', () => {
 });
 
 describe('corpus sitemaps: one regex rule against the closed set', () => {
+  it.each([400, 401, 403, 428, 429, 431, 500, 502])('a listed sitemap HTTP %s is unavailable, not missing', async (status) => {
+    const name = 'sitemap-cantons.xml';
+    mockFetch({ registry: registry({}, { release: release([name]) }), objectStatus: { [releaseKey(name)]: status } });
+    const res = await get(`/${name}`);
+    expect(res.status).toBe(503);
+    expect(res.headers.get('Cache-Control')).toBe('no-store');
+    expect(res.headers.get('Retry-After')).toBe('60');
+    expect(res.headers.get('X-Robots-Tag')).toBeNull();
+  });
+
+  it.each([404, 410])('a listed sitemap HTTP %s remains a real miss', async (status) => {
+    const name = 'sitemap-cantons.xml';
+    mockFetch({ registry: registry({}, { release: release([name]) }), objectStatus: { [releaseKey(name)]: status } });
+    const res = await get(`/${name}`);
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Cache-Control')).toBe(CORPUS_NOT_FOUND_CACHE_CONTROL);
+  });
+
   it('maps the index and the per-section sitemaps, nothing else', () => {
     expect(corpusEdgeFileForPath('/sitemap-cantons.xml')).toEqual({ name: 'sitemap-cantons.xml', section: null });
     expect(corpusEdgeFileForPath('/sitemap-articles-canton-ti.xml')).toEqual({
