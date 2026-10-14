@@ -2751,11 +2751,17 @@ function employerBrandPath(
   knownSlugs?: ReadonlySet<string>,
 ): string | null {
   if (!employerKey) return null;
-  const key = String(employerKey).trim().toLowerCase();
+  const key = String(employerKey).toLowerCase();
   // Priority 1: EMPLOYER_BRANDS curated registry.
-  const brand = Object.values(EMPLOYER_BRANDS).find((candidate) => candidate.brandKey === key);
-  if (brand) {
-    return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
+  for (const brand of Object.values(EMPLOYER_BRANDS)) {
+    if (
+      brand.brandKey === key ||
+      brand.brandKey === key.replace(/-/g, '') ||
+      key.includes(brand.brandKey) ||
+      brand.brandKey.includes(key.split('-')[0])
+    ) {
+      return `/cerca-lavoro-ticino/azienda-${brand.brandKey}/`;
+    }
   }
   // Priority 2: canonical page registry (all-known-job-slugs.json).
   if (knownSlugs && employerName) {

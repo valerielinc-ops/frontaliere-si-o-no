@@ -546,9 +546,9 @@ describe('renderWeeklyEmployersPage', () => {
 
   it('requires an exact employer identity for a weekly Organization @id', () => {
     const nearMatch = {
-      // Invented name: it shares only the EOC prefix with a curated key.
-      employer: 'EOC Forge SA',
-      employerKey: 'eoc-forge-sa',
+      // Invented name: it shares only the prefix with the exact profile below.
+      employer: 'Northstar Atelier Group',
+      employerKey: 'northstar-atelier-group',
       active: 4,
       delta: 0,
     };
