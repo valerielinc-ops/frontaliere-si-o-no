@@ -21,6 +21,11 @@ export const BORDER_WAIT_SECTION_BY_LOCALE = Object.freeze({
   fr: 'temps-attente-douane',
 });
 
+/** Crossings whose published monthly archives must survive daily retention. */
+export const BORDER_WAIT_ARCHIVE_CROSSINGS = Object.freeze([
+  'chiasso-brogeda', 'chiasso-centro', 'gaggiolo', 'oria-gandria', 'ponte-tresa',
+]);
+
 /** Current "today" slug per locale, mirrored by the build plugin. */
 export const BORDER_WAIT_TODAY_BY_LOCALE = Object.freeze({
   it: 'oggi',

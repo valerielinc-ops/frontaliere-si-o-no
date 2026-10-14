@@ -41,6 +41,7 @@ import { sourceDateIso, formatSourceDate, borderReadingState } from '../services
 import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import fs from 'node:fs';
 import np from 'node:path';
+import { readBorderWaitArchive } from '../scripts/lib/border-wait-monthly-archive.mjs';
 import {
   BASE_URL,
   BUILD_ID,
@@ -2983,11 +2984,16 @@ function renderHubPage(inp: HubInputs): string {
 
 // ── Monthly archive ────────────────────────────────────────────
 
+interface BorderWaitArchiveDay {
+  date: string;
+  perCrossing: Partial<Record<BorderCrossingSlug, Array<null | { avg: number }>>>;
+}
+
 interface ArchiveInputs {
   locale: BorderWaitLocale;
   crossing: BorderCrossingSlug;
   monthKey: string;
-  history: BorderWaitHistoryDay[];
+  history: BorderWaitArchiveDay[];
   today: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
@@ -3531,12 +3537,12 @@ export function generateBorderWaitPages(opts: {
 }
 
 export function generateBorderWaitArchives(opts: {
-  history: BorderWaitHistoryDay[];
+  history: BorderWaitArchiveDay[];
   today?: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }): Record<string, string> {
-  const history = opts.history;
+  const history = [...new Map(opts.history.map((day) => [day.date, day])).values()];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const currentMonth = today.toISOString().slice(0, 7);
@@ -3631,7 +3637,11 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       }
 
       const pages = generateBorderWaitPages({ current, history, today, distDir });
-      const archives = generateBorderWaitArchives({ history, today, distDir });
+      const archivedHistory = readBorderWaitArchive(
+        np.join(rootDir, 'data', 'border-wait-archive'),
+        np.join(rootDir, 'data', 'border-wait-recovery-archive.json'),
+      );
+      const archives = generateBorderWaitArchives({ history: [...archivedHistory, ...history], today, distDir });
 
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitPagesPlugin' });
       let pagesWritten = 0;

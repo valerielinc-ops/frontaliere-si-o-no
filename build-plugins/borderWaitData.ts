@@ -24,6 +24,7 @@
 import {
   BORDER_WAIT_SECTION_BY_LOCALE,
   BORDER_WAIT_TODAY_BY_LOCALE,
+  BORDER_WAIT_ARCHIVE_CROSSINGS,
   isBorderWaitPath as isSharedBorderWaitPath,
 } from '../scripts/lib/borderWaitSections.mjs';
 
@@ -511,12 +512,8 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
 export const TOP_5_CROSSINGS: readonly BorderCrossingSlug[] = [
-  'chiasso-brogeda',
-  'chiasso-centro',
-  'gaggiolo',
-  'oria-gandria',
-  'ponte-tresa',
-] as const;
+  ...BORDER_WAIT_ARCHIVE_CROSSINGS,
+];
 
 /**
  * Display names — proper nouns, same across all locales. New crossing → add

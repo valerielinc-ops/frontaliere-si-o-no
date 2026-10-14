@@ -37,6 +37,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { writeBorderWaitArchive } from './lib/border-wait-monthly-archive.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -208,7 +209,8 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
     'utf-8',
   );
 
-  // 3. Optional prune.
+  // 3. Preserve published monthly facts before optional daily-window pruning.
+  writeBorderWaitArchive(historyDir, path.join(repoRoot, 'data', 'border-wait-archive'), today);
   if (opts.prune !== false) {
     const days = typeof opts.prune === 'number' && opts.prune > 0 ? opts.prune : 90;
     pruneOldHistory(historyDir, days);
