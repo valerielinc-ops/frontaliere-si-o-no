@@ -6,9 +6,9 @@
       "id": "ottos-94a517183e5c",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-munsingen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-munsingen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-munsingen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-munsingen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-munsingen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-munsingen"
       },
       "company": "OTTO'S AG",
@@ -88,12 +88,12 @@
     },
     {
       "id": "ottos-7c7161d02b9c",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-schattdorf",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-schattdorf",
+        "en": "sales-associate-furniture-otto-s-ag-schattdorf",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-schattdorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -143,11 +143,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-schattdorf"
+          "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-schattdorf"
+        "verkaufsmitarbeiter-in-mobel-ottos-schattdorf",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-schattdorf"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -168,9 +176,9 @@
       "id": "ottos-9f38700bbed4",
       "slug": "cassiere-a-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
+        "de": "kassierer-in-ottos-hegnau-volketswil",
         "it": "cassiere-a-otto-s-ag-hegnau-volketswil",
         "en": "cashier-otto-s-ag-hegnau-volketswil",
-        "de": "kassierer-in-ottos-hegnau-volketswil",
         "fr": "caissier-ere-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
@@ -250,12 +258,12 @@
     },
     {
       "id": "ottos-c68515af04f5",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-arbon",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-arbon",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-arbon",
+        "en": "sales-associate-furniture-otto-s-ag-arbon",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-arbon"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -305,11 +313,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-arbon"
+          "verkaufsmitarbeiter-in-mobel-ottos-arbon",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-arbon"
+        "verkaufsmitarbeiter-in-mobel-ottos-arbon",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-arbon"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -328,12 +344,12 @@
     },
     {
       "id": "ottos-fb8be538a6a1",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-netstal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-netstal",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-netstal",
+        "en": "sales-associate-food-non-food-otto-s-ag-netstal",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-netstal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -383,11 +399,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-netstal"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-netstal",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-netstal"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-netstal",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-netstal"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -406,12 +430,12 @@
     },
     {
       "id": "ottos-b6ffd47cf682",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-mels",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-mels",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-mels",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-mels",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-mels"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -461,11 +485,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-mels"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-mels",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-mels"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-mels",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-mels"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -486,9 +518,9 @@
       "id": "ottos-c64148f65744",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-grenchen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-grenchen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-grenchen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-grenchen"
       },
       "company": "OTTO'S AG",
@@ -570,9 +602,9 @@
       "id": "ottos-c08ee26549e7",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-interlaken",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-interlaken",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-interlaken",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-interlaken"
       },
       "company": "OTTO'S AG",
@@ -654,9 +686,9 @@
       "id": "ottos-df16df3695e0",
       "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-gamsen-brig",
       "slugByLocale": {
+        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-gamsen-brig",
         "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-gamsen-brig",
         "en": "sales-associate-food-non-food-otto-s-ag-gamsen-brig",
-        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-gamsen-brig",
         "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
@@ -736,12 +768,12 @@
     },
     {
       "id": "ottos-e5f9ba2b8adb",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-kloten",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-kloten",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-kloten",
+        "en": "sales-associate-textiles-sports-otto-s-ag-kloten",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-kloten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -791,11 +823,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-kloten"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-kloten",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-kloten"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-kloten",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-kloten"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -814,12 +854,12 @@
     },
     {
       "id": "ottos-ca718d76fdfb",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wettingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-wettingen",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wettingen",
+        "en": "sales-associate-food-non-food-otto-s-ag-wettingen",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-wettingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -869,11 +909,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-wettingen"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-wettingen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-wettingen"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-wettingen",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wettingen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -892,12 +940,12 @@
     },
     {
       "id": "ottos-6de32ce2056b",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-aathal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-aathal",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-aathal",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-aathal",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-aathal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -947,11 +995,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-aathal"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-aathal",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-aathal"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-aathal",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-aathal"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -970,12 +1026,12 @@
     },
     {
       "id": "ottos-326888f09911",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-altstatten",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-altstatten",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-altstatten",
+        "en": "sales-associate-food-non-food-otto-s-ag-altstatten",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-altstatten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1025,11 +1081,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-altstatten"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-altstatten",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-altstatten"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-altstatten",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-altstatten"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1048,12 +1112,12 @@
     },
     {
       "id": "ottos-191df0eebd1f",
-      "slug": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy",
+      "slug": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-etoy",
       "slugByLocale": {
-        "it": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy",
+        "fr": "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
+        "it": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-etoy",
         "en": "food-non-food-auxiliary-seller-m-f-otto-s-ag-etoy",
-        "de": "lebensmittel-nichtlebensmittel-hilfsverkaufer-m-w-otto-s-ag-etoy",
-        "fr": "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
+        "de": "lebensmittel-nichtlebensmittel-hilfsverkaufer-m-w-otto-s-ag-etoy"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1103,7 +1167,8 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
+          "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy"
         ],
         "en": [
           "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
@@ -1113,7 +1178,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
+        "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
+        "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -1134,9 +1200,9 @@
       "id": "ottos-2f7216788e5e",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-niederhasli",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-niederhasli",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-niederhasli",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-niederhasli",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-niederhasli",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-niederhasli"
       },
       "company": "OTTO'S AG",
@@ -1218,9 +1284,9 @@
       "id": "ottos-d21f47b4cb5b",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-oberburg",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-oberburg",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-oberburg",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-oberburg",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-oberburg",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-oberburg"
       },
       "company": "OTTO'S AG",
@@ -1300,12 +1366,12 @@
     },
     {
       "id": "ottos-f9bc2f963c16",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-kreuzlingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-kreuzlingen",
+        "en": "sales-associate-furniture-otto-s-ag-kreuzlingen",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-kreuzlingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1355,11 +1421,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
+          "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
+        "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1380,9 +1454,9 @@
       "id": "ottos-4ab5aa8c37ad",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-basel",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-basel",
         "it": "vice-responsabile-di-filiale-otto-s-ag-basel",
         "en": "deputy-store-manager-otto-s-ag-basel",
-        "de": "stellvertreter-in-filialleitung-ottos-basel",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-basel"
       },
       "company": "OTTO'S AG",
@@ -1462,12 +1536,12 @@
     },
     {
       "id": "ottos-2ea13d094e67",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-wil",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wil",
+        "en": "sales-associate-food-non-food-otto-s-ag-wil",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-wil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1517,11 +1591,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-wil"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-wil",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-wil"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-wil",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1540,12 +1622,12 @@
     },
     {
       "id": "ottos-f86256cab150",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-luzern",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-luzern",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-luzern",
+        "en": "sales-associate-food-non-food-otto-s-ag-luzern",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-luzern"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1595,11 +1677,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-luzern"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-luzern",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-luzern"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-luzern",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-luzern"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1618,11 +1708,11 @@
     },
     {
       "id": "ottos-64d66eff7866",
-      "slug": "bikemechaniker-in-mithilfe-im-vendita-otto-s-ag-sursee",
+      "slug": "meccanico-a-di-biciclette-supporto-alle-vendite-otto-s-ag-sursee",
       "slugByLocale": {
-        "it": "bikemechaniker-in-mithilfe-im-vendita-otto-s-ag-sursee",
-        "en": "bicycle-mechanic-sales-support-otto-s-ag-sursee",
         "de": "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee",
+        "it": "meccanico-a-di-biciclette-supporto-alle-vendite-otto-s-ag-sursee",
+        "en": "bicycle-mechanic-sales-support-otto-s-ag-sursee",
         "fr": "mecanicien-ne-velo-aide-a-la-vente-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
@@ -1673,7 +1763,8 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee"
+          "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee",
+          "bikemechaniker-in-mithilfe-im-vendita-otto-s-ag-sursee"
         ],
         "en": [
           "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee"
@@ -1683,7 +1774,8 @@
         ]
       },
       "previousSlugs": [
-        "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee"
+        "bikemechaniker-in-mithilfe-im-verkauf-ottos-sursee",
+        "bikemechaniker-in-mithilfe-im-vendita-otto-s-ag-sursee"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1702,12 +1794,12 @@
     },
     {
       "id": "ottos-b6ce5db4ed84",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-baldegg",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baldegg",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-baldegg",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-baldegg",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-baldegg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1757,11 +1849,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baldegg"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baldegg",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baldegg"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baldegg",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baldegg"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1782,9 +1882,9 @@
       "id": "ottos-5e611e9e4300",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-oberengstringen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-oberengstringen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-oberengstringen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-oberengstringen"
       },
       "company": "OTTO'S AG",
@@ -1866,9 +1966,9 @@
       "id": "ottos-8401f893f0a2",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-winterthur",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-winterthur",
         "it": "vice-responsabile-di-filiale-otto-s-ag-winterthur",
         "en": "deputy-store-manager-otto-s-ag-winterthur",
-        "de": "stellvertreter-in-filialleitung-ottos-winterthur",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-winterthur"
       },
       "company": "OTTO'S AG",
@@ -1948,12 +2048,12 @@
     },
     {
       "id": "ottos-8a7325d2b3e0",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-kreuzlingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-kreuzlingen",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-kreuzlingen",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-kreuzlingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2003,11 +2103,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2028,9 +2136,9 @@
       "id": "ottos-e964b8b20fcb",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-schlieren",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-schlieren",
         "it": "vice-responsabile-di-filiale-otto-s-ag-schlieren",
         "en": "deputy-store-manager-otto-s-ag-schlieren",
-        "de": "stellvertreter-in-filialleitung-ottos-schlieren",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-schlieren"
       },
       "company": "OTTO'S AG",
@@ -2110,12 +2218,12 @@
     },
     {
       "id": "ottos-acd67c7cacb2",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-grenchen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-grenchen",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-grenchen",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-grenchen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2165,11 +2273,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2190,9 +2306,9 @@
       "id": "ottos-9ad0b2dc4e0e",
       "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
+        "de": "verkaufsmitarbeiter-in-textil-sport-ottos-hegnau-volketswil",
         "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-hegnau-volketswil",
         "en": "sales-associate-textiles-sports-otto-s-ag-hegnau-volketswil",
-        "de": "verkaufsmitarbeiter-in-textil-sport-ottos-hegnau-volketswil",
         "fr": "employe-e-de-vente-textile-sport-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
@@ -2272,12 +2388,12 @@
     },
     {
       "id": "ottos-dc5f5aac5883",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-amriswil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-amriswil",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-amriswil",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-amriswil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2327,11 +2443,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-amriswil",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-amriswil"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2352,9 +2476,9 @@
       "id": "ottos-2942d017aa4d",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-cham",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-cham",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-cham",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-cham",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-cham",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-cham"
       },
       "company": "OTTO'S AG",
@@ -2436,9 +2560,9 @@
       "id": "ottos-eb0b2bcb0617",
       "slug": "cassiere-a-otto-s-ag-wattwil",
       "slugByLocale": {
+        "de": "kassierer-in-ottos-wattwil",
         "it": "cassiere-a-otto-s-ag-wattwil",
         "en": "cashier-otto-s-ag-wattwil",
-        "de": "kassierer-in-ottos-wattwil",
         "fr": "caissier-ere-otto-s-ag-wattwil"
       },
       "company": "OTTO'S AG",
@@ -2518,12 +2642,12 @@
     },
     {
       "id": "ottos-5e71c027473a",
-      "slug": "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg",
+      "slug": "responsabile-di-reparto-food-non-food-otto-s-ag-kirchberg",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg",
-        "en": "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg",
         "de": "abteilungsleiter-in-food-non-food-ottos-kirchberg",
-        "fr": "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg"
+        "it": "responsabile-di-reparto-food-non-food-otto-s-ag-kirchberg",
+        "en": "department-manager-food-non-food-otto-s-ag-kirchberg",
+        "fr": "responsable-de-departement-alimentaire-non-alimentaire-otto-s-ag-kirchberg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2573,11 +2697,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-food-non-food-ottos-kirchberg"
+          "abteilungsleiter-in-food-non-food-ottos-kirchberg",
+          "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg"
+        ],
+        "en": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg"
+        ],
+        "fr": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-food-non-food-ottos-kirchberg"
+        "abteilungsleiter-in-food-non-food-ottos-kirchberg",
+        "abteilungsleiter-in-food-non-food-otto-s-ag-kirchberg"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -2596,12 +2728,12 @@
     },
     {
       "id": "ottos-1c069cbb1a1f",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-netstal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-netstal",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-netstal",
+        "en": "sales-associate-textiles-sports-otto-s-ag-netstal",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-netstal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2651,11 +2783,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-netstal"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-netstal",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-netstal"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-netstal",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2676,9 +2816,9 @@
       "id": "ottos-a81596a56073",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-frauenkappelen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-frauenkappelen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-frauenkappelen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-frauenkappelen"
       },
       "company": "OTTO'S AG",
@@ -2760,9 +2900,9 @@
       "id": "ottos-47139a74af9c",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-hegnau-volketswil",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-hegnau-volketswil",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-hegnau-volketswil",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-hegnau-volketswil",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
@@ -2842,12 +2982,12 @@
     },
     {
       "id": "ottos-71ebcf96447e",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-sarnen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-sarnen",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-sarnen",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-sarnen",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-sarnen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2897,11 +3037,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-sarnen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-sarnen",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-sarnen"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-sarnen",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-sarnen"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2920,12 +3068,12 @@
     },
     {
       "id": "ottos-8bf3737ed6b3",
-      "slug": "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
+      "slug": "responsabile-di-reparto-mobili-otto-s-ag-grenchen",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
-        "en": "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
         "de": "abteilungsleiter-in-mobel-ottos-grenchen",
-        "fr": "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
+        "it": "responsabile-di-reparto-mobili-otto-s-ag-grenchen",
+        "en": "furniture-department-manager-otto-s-ag-grenchen",
+        "fr": "responsable-de-rayon-meubles-otto-s-ag-grenchen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2975,11 +3123,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-mobel-ottos-grenchen"
+          "abteilungsleiter-in-mobel-ottos-grenchen",
+          "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
+        ],
+        "en": [
+          "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
+        ],
+        "fr": [
+          "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-mobel-ottos-grenchen"
+        "abteilungsleiter-in-mobel-ottos-grenchen",
+        "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -2998,12 +3154,12 @@
     },
     {
       "id": "ottos-8c569b5b7dd2",
-      "slug": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
+      "slug": "addetto-a-di-supporto-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
       "slugByLocale": {
-        "it": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "en": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
         "de": "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
-        "fr": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        "it": "addetto-a-di-supporto-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
+        "en": "temporary-sports-goods-salesperson-otto-s-ag-gamsen-brig",
+        "fr": "auxiliaire-vendeur-euse-d-articles-de-sport-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3053,11 +3209,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig"
+          "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "en": [
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "fr": [
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
         ]
       },
       "previousSlugs": [
-        "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig"
+        "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
+        "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -3078,9 +3242,9 @@
       "id": "ottos-df33f92b370f",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-huttwil",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-huttwil",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-huttwil",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-huttwil",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-huttwil",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-huttwil"
       },
       "company": "OTTO'S AG",
@@ -3162,9 +3326,9 @@
       "id": "ottos-9d14d39314e0",
       "slug": "addetto-a-alle-vendite-di-supporto-profumeria-cosmetica-otto-s-ag-winterthur",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur",
         "it": "addetto-a-alle-vendite-di-supporto-profumeria-cosmetica-otto-s-ag-winterthur",
         "en": "temporary-sales-assistant-perfume-cosmetics-otto-s-ag-winterthur",
-        "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur",
         "fr": "vendeur-euse-auxiliaire-parfumerie-cosmetique-otto-s-ag-winterthur"
       },
       "company": "OTTO'S AG",
@@ -3246,9 +3410,9 @@
       "id": "ottos-6c8e642438e6",
       "slug": "addetto-a-alle-vendite-di-supporto-preparazione-tessile-sport-otto-s-ag-zwingen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-zwingen",
         "it": "addetto-a-alle-vendite-di-supporto-preparazione-tessile-sport-otto-s-ag-zwingen",
         "en": "temporary-sales-assistant-textile-sports-preparation-otto-s-ag-zwingen",
-        "de": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-zwingen",
         "fr": "vendeur-euse-auxiliaire-preparation-textile-sport-otto-s-ag-zwingen"
       },
       "company": "OTTO'S AG",
@@ -3328,12 +3492,12 @@
     },
     {
       "id": "ottos-0c83e2797a82",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-schlieren",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-schlieren",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-schlieren",
+        "en": "sales-associate-textiles-sports-otto-s-ag-schlieren",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-schlieren"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3383,11 +3547,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-schlieren"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-schlieren",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-schlieren"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-schlieren",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schlieren"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -3406,12 +3578,12 @@
     },
     {
       "id": "ottos-d504a9d1af16",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-zurich",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-zurich",
+        "en": "sales-associate-textiles-sports-otto-s-ag-zurich",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3461,11 +3633,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-zurich"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-zurich",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-zurich"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-zurich",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -3484,12 +3664,12 @@
     },
     {
       "id": "ottos-43eb9ea629cc",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-haag",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-haag",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-haag",
+        "en": "sales-associate-food-non-food-otto-s-ag-haag",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-haag"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3539,11 +3719,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-haag"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-haag",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-haag"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-haag",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-haag"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3562,12 +3750,12 @@
     },
     {
       "id": "ottos-9828aef31d97",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-langenthal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-langenthal",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-langenthal",
+        "en": "sales-associate-furniture-otto-s-ag-langenthal",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-langenthal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3617,11 +3805,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-langenthal"
+          "verkaufsmitarbeiter-in-mobel-ottos-langenthal",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-langenthal"
+        "verkaufsmitarbeiter-in-mobel-ottos-langenthal",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -3642,9 +3838,9 @@
       "id": "ottos-52eca6ab3315",
       "slug": "cassiere-a-otto-s-ag-altstatten",
       "slugByLocale": {
+        "de": "kassierer-in-ottos-altstatten",
         "it": "cassiere-a-otto-s-ag-altstatten",
         "en": "cashier-otto-s-ag-altstatten",
-        "de": "kassierer-in-ottos-altstatten",
         "fr": "caissier-ere-otto-s-ag-altstatten"
       },
       "company": "OTTO'S AG",
@@ -3726,9 +3922,9 @@
       "id": "ottos-0a417f6333ae",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-wadenswil",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-wadenswil",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-wadenswil",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-wadenswil",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-wadenswil"
       },
       "company": "OTTO'S AG",
@@ -3808,12 +4004,12 @@
     },
     {
       "id": "ottos-7c387513eca1",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-schattdorf",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-schattdorf",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-schattdorf",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-schattdorf",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-schattdorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3863,11 +4059,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-schattdorf"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-schattdorf",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-schattdorf"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-schattdorf",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-schattdorf"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -3886,12 +4090,12 @@
     },
     {
       "id": "ottos-9afac3316526",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-oberburen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-oberburen",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-oberburen",
+        "en": "sales-associate-textiles-sports-otto-s-ag-oberburen",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-oberburen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3941,11 +4145,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-oberburen"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-oberburen",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-oberburen"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-oberburen",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oberburen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3966,9 +4178,9 @@
       "id": "ottos-7112a03b56c9",
       "slug": "cassiere-a-otto-s-ag-baldegg",
       "slugByLocale": {
+        "de": "kassierer-in-ottos-baldegg",
         "it": "cassiere-a-otto-s-ag-baldegg",
         "en": "cashier-otto-s-ag-baldegg",
-        "de": "kassierer-in-ottos-baldegg",
         "fr": "caissier-ere-otto-s-ag-baldegg"
       },
       "company": "OTTO'S AG",
@@ -4048,12 +4260,12 @@
     },
     {
       "id": "ottos-9aa87445a899",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-langnau",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-langnau",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-langnau",
+        "en": "sales-associate-food-non-food-otto-s-ag-langnau",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-langnau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4103,11 +4315,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-langnau"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-langnau",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-langnau"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-langnau",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -4128,9 +4348,9 @@
       "id": "ottos-8a4aab2fb89c",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-cham",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-cham",
         "it": "vice-responsabile-di-filiale-otto-s-ag-cham",
         "en": "deputy-store-manager-otto-s-ag-cham",
-        "de": "stellvertreter-in-filialleitung-ottos-cham",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-cham"
       },
       "company": "OTTO'S AG",
@@ -4210,12 +4430,12 @@
     },
     {
       "id": "ottos-0deec9c4fb93",
-      "slug": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-echandens",
+      "slug": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-echandens",
       "slugByLocale": {
-        "it": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-echandens",
+        "fr": "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens",
+        "it": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-echandens",
         "en": "auxiliary-textile-sport-seller-m-f-otto-s-ag-echandens",
-        "de": "hilfstextil-sportverkaufer-m-w-otto-s-ag-echandens",
-        "fr": "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
+        "de": "hilfstextil-sportverkaufer-m-w-otto-s-ag-echandens"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4265,7 +4485,8 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
+          "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens",
+          "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-echandens"
         ],
         "en": [
           "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
@@ -4275,7 +4496,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
+        "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens",
+        "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-echandens"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -4296,9 +4518,9 @@
       "id": "ottos-ff99045fd899",
       "slug": "cassiere-a-otto-s-ag-thun",
       "slugByLocale": {
+        "de": "kassierer-in-ottos-thun",
         "it": "cassiere-a-otto-s-ag-thun",
         "en": "cashier-otto-s-ag-thun",
-        "de": "kassierer-in-ottos-thun",
         "fr": "caissier-ere-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
@@ -4378,12 +4600,12 @@
     },
     {
       "id": "ottos-00b574975649",
-      "slug": "vendeur-food-non-food-m-w-d-otto-s-ag-etoy",
+      "slug": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-etoy",
       "slugByLocale": {
-        "it": "vendeur-food-non-food-m-w-d-otto-s-ag-etoy",
+        "fr": "vendeur-food-non-food-h-f-ottos-etoy",
+        "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-etoy",
         "en": "food-non-food-seller-m-f-otto-s-ag-etoy",
-        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-etoy",
-        "fr": "vendeur-food-non-food-h-f-ottos-etoy"
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-etoy"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4433,7 +4655,8 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-food-non-food-h-f-ottos-etoy"
+          "vendeur-food-non-food-h-f-ottos-etoy",
+          "vendeur-food-non-food-m-w-d-otto-s-ag-etoy"
         ],
         "en": [
           "vendeur-food-non-food-h-f-ottos-etoy"
@@ -4443,7 +4666,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-food-non-food-h-f-ottos-etoy"
+        "vendeur-food-non-food-h-f-ottos-etoy",
+        "vendeur-food-non-food-m-w-d-otto-s-ag-etoy"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -4462,12 +4686,12 @@
     },
     {
       "id": "ottos-8cb8116121c8",
-      "slug": "abteilungsleiter-in-food-non-food-otto-s-ag-thun",
+      "slug": "responsabile-di-reparto-food-non-food-otto-s-ag-thun",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-food-non-food-otto-s-ag-thun",
-        "en": "abteilungsleiter-in-food-non-food-otto-s-ag-thun",
         "de": "abteilungsleiter-in-food-non-food-ottos-thun",
-        "fr": "abteilungsleiter-in-food-non-food-otto-s-ag-thun"
+        "it": "responsabile-di-reparto-food-non-food-otto-s-ag-thun",
+        "en": "department-manager-food-non-food-otto-s-ag-thun",
+        "fr": "responsable-de-departement-alimentaire-non-alimentaire-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4517,11 +4741,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-food-non-food-ottos-thun"
+          "abteilungsleiter-in-food-non-food-ottos-thun",
+          "abteilungsleiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "en": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "fr": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-thun"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-food-non-food-ottos-thun"
+        "abteilungsleiter-in-food-non-food-ottos-thun",
+        "abteilungsleiter-in-food-non-food-otto-s-ag-thun"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -4540,12 +4772,12 @@
     },
     {
       "id": "ottos-837ce5082392",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-st-gallen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-st-gallen",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-st-gallen",
+        "en": "sales-associate-food-non-food-otto-s-ag-st-gallen",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-st-gallen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4595,11 +4827,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-st-gallen"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-st-gallen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-st-gallen"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-st-gallen",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-st-gallen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4620,9 +4860,9 @@
       "id": "ottos-35e74336b6ea",
       "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
+        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-hegnau-volketswil",
         "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-hegnau-volketswil",
         "en": "sales-associate-food-non-food-otto-s-ag-hegnau-volketswil",
-        "de": "verkaufsmitarbeiter-in-food-non-food-ottos-hegnau-volketswil",
         "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
@@ -4704,9 +4944,9 @@
       "id": "ottos-54a49cc91372",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langnau-am-albis",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langnau-am-albis",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-langnau-am-albis",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langnau-am-albis",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-langnau-am-albis"
       },
       "company": "OTTO'S AG",
@@ -4788,9 +5028,9 @@
       "id": "ottos-680a1afdbae6",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-zwingen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-zwingen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-zwingen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-zwingen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-zwingen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-zwingen"
       },
       "company": "OTTO'S AG",
@@ -4870,12 +5110,12 @@
     },
     {
       "id": "ottos-0febc3bdc6e6",
-      "slug": "abteilungsleiter-in-food-non-food-otto-s-ag-mels",
+      "slug": "responsabile-di-reparto-food-non-food-otto-s-ag-mels",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-food-non-food-otto-s-ag-mels",
-        "en": "abteilungsleiter-in-food-non-food-otto-s-ag-mels",
         "de": "abteilungsleiter-in-food-non-food-ottos-mels",
-        "fr": "abteilungsleiter-in-food-non-food-otto-s-ag-mels"
+        "it": "responsabile-di-reparto-food-non-food-otto-s-ag-mels",
+        "en": "department-manager-food-non-food-otto-s-ag-mels",
+        "fr": "responsable-de-departement-alimentaire-non-alimentaire-otto-s-ag-mels"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4925,11 +5165,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-food-non-food-ottos-mels"
+          "abteilungsleiter-in-food-non-food-ottos-mels",
+          "abteilungsleiter-in-food-non-food-otto-s-ag-mels"
+        ],
+        "en": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-mels"
+        ],
+        "fr": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-mels"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-food-non-food-ottos-mels"
+        "abteilungsleiter-in-food-non-food-ottos-mels",
+        "abteilungsleiter-in-food-non-food-otto-s-ag-mels"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -4948,12 +5196,12 @@
     },
     {
       "id": "ottos-654155be76d0",
-      "slug": "sportartikelverkaufer-in-otto-s-ag-oftringen",
+      "slug": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-oftringen",
       "slugByLocale": {
-        "it": "sportartikelverkaufer-in-otto-s-ag-oftringen",
-        "en": "sportartikelverkaufer-in-otto-s-ag-oftringen",
         "de": "sportartikelverkaufer-in-ottos-oftringen",
-        "fr": "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        "it": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-oftringen",
+        "en": "sporting-goods-salesperson-otto-s-ag-oftringen",
+        "fr": "vendeur-euse-d-articles-de-sport-otto-s-ag-oftringen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5003,11 +5251,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sportartikelverkaufer-in-ottos-oftringen"
+          "sportartikelverkaufer-in-ottos-oftringen",
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        ],
+        "en": [
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        ],
+        "fr": [
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
         ]
       },
       "previousSlugs": [
-        "sportartikelverkaufer-in-ottos-oftringen"
+        "sportartikelverkaufer-in-ottos-oftringen",
+        "sportartikelverkaufer-in-otto-s-ag-oftringen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -5028,9 +5284,9 @@
       "id": "ottos-1509a0eeb112",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-sarnen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-sarnen",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-sarnen",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-sarnen",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-sarnen",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-sarnen"
       },
       "company": "OTTO'S AG",
@@ -5110,12 +5366,12 @@
     },
     {
       "id": "ottos-f0ce4aaf1fa9",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-chur",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-chur",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-chur",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-chur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5165,11 +5421,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -5188,12 +5452,12 @@
     },
     {
       "id": "ottos-3c49595a73a9",
-      "slug": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
+      "slug": "responsabile-di-reparto-tessile-sport-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
-        "en": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich",
         "de": "abteilungsleiter-in-textil-sport-ottos-zurich",
-        "fr": "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        "it": "responsabile-di-reparto-tessile-sport-otto-s-ag-zurich",
+        "en": "department-manager-textiles-sports-otto-s-ag-zurich",
+        "fr": "responsable-de-departement-textile-sport-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5243,11 +5507,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-textil-sport-ottos-zurich"
+          "abteilungsleiter-in-textil-sport-ottos-zurich",
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        ],
+        "en": [
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        ],
+        "fr": [
+          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-textil-sport-ottos-zurich"
+        "abteilungsleiter-in-textil-sport-ottos-zurich",
+        "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5266,12 +5538,12 @@
     },
     {
       "id": "ottos-919567eaa600",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-thun",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thun",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-thun",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-thun",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5321,11 +5593,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thun"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thun",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thun"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thun",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thun"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -5425,9 +5705,9 @@
       "id": "ottos-9a57f6d1ed7c",
       "slug": "responsabile-di-reparto-food-non-food-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
+        "de": "abteilungsleiter-in-food-non-food-ottos-hegnau-volketswil",
         "it": "responsabile-di-reparto-food-non-food-otto-s-ag-hegnau-volketswil",
         "en": "department-manager-food-non-food-otto-s-ag-hegnau-volketswil",
-        "de": "abteilungsleiter-in-food-non-food-ottos-hegnau-volketswil",
         "fr": "responsable-de-departement-alimentaire-non-alimentaire-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
@@ -5509,9 +5789,9 @@
       "id": "ottos-b03d76e98fb8",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langenthal",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langenthal",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langenthal",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-langenthal",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langenthal",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-langenthal"
       },
       "company": "OTTO'S AG",
@@ -5593,9 +5873,9 @@
       "id": "ottos-587f6f9c25f3",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-lyss",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-lyss",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-lyss",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-lyss",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-lyss",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-lyss"
       },
       "company": "OTTO'S AG",
@@ -5675,12 +5955,12 @@
     },
     {
       "id": "ottos-5da86719de10",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-bern",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-bern",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-bern",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-bern"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5730,11 +6010,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -5753,12 +6041,12 @@
     },
     {
       "id": "ottos-e3c4171533c8",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-interlaken",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-interlaken",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-interlaken",
+        "en": "sales-associate-food-non-food-otto-s-ag-interlaken",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-interlaken"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5808,11 +6096,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-interlaken"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-interlaken",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-interlaken"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-interlaken",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-interlaken"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -5831,12 +6127,12 @@
     },
     {
       "id": "ottos-5478125b8738",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-oftringen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-oftringen",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-oftringen",
+        "en": "sales-associate-food-non-food-otto-s-ag-oftringen",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-oftringen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5886,11 +6182,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-oftringen"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-oftringen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-oftringen"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-oftringen",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-oftringen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -5909,12 +6213,12 @@
     },
     {
       "id": "ottos-c95519ede4c6",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-baar",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baar",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-baar",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-baar",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-baar"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5964,11 +6268,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baar"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baar",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baar"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-baar",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-baar"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -5989,9 +6301,9 @@
       "id": "ottos-684b7c7fbe33",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-root",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-root",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-root",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-root",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-root",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-root"
       },
       "company": "OTTO'S AG",
@@ -6071,12 +6383,12 @@
     },
     {
       "id": "ottos-cc7ed4d16abc",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-spreitenbach",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-spreitenbach",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-spreitenbach",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-spreitenbach"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6126,11 +6438,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -6149,12 +6469,12 @@
     },
     {
       "id": "ottos-6d3608dd8670",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-winterthur",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-winterthur",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-winterthur",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-winterthur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6204,11 +6524,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-winterthur",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -6227,12 +6555,12 @@
     },
     {
       "id": "ottos-9bcf58c8a70b",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-wattwil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-wattwil",
+        "en": "sales-associate-furniture-otto-s-ag-wattwil",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-wattwil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6282,11 +6610,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-wattwil"
+          "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-wattwil"
+        "verkaufsmitarbeiter-in-mobel-ottos-wattwil",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-wattwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -6307,9 +6643,9 @@
       "id": "ottos-190273504169",
       "slug": "vice-responsabile-di-filiale-sport-otto-s-ag-sursee",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-sport-ottos-sursee",
         "it": "vice-responsabile-di-filiale-sport-otto-s-ag-sursee",
         "en": "deputy-store-manager-sports-otto-s-ag-sursee",
-        "de": "stellvertreter-in-filialleitung-sport-ottos-sursee",
         "fr": "adjoint-e-a-la-direction-du-magasin-sport-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
@@ -6389,12 +6725,12 @@
     },
     {
       "id": "ottos-a059685e5221",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-schonenwerd",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-schonenwerd",
+        "en": "sales-associate-textiles-sports-otto-s-ag-schonenwerd",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-schonenwerd"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6444,11 +6780,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-schonenwerd",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-schonenwerd"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -6467,12 +6811,12 @@
     },
     {
       "id": "ottos-5fb5733d1840",
-      "slug": "abteilungsleiter-in-mobel-otto-s-ag-winterthur",
+      "slug": "responsabile-di-reparto-mobili-otto-s-ag-winterthur",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-mobel-otto-s-ag-winterthur",
-        "en": "abteilungsleiter-in-mobel-otto-s-ag-winterthur",
         "de": "abteilungsleiter-in-mobel-ottos-winterthur",
-        "fr": "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
+        "it": "responsabile-di-reparto-mobili-otto-s-ag-winterthur",
+        "en": "furniture-department-manager-otto-s-ag-winterthur",
+        "fr": "responsable-de-rayon-meubles-otto-s-ag-winterthur"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6522,11 +6866,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-mobel-ottos-winterthur"
+          "abteilungsleiter-in-mobel-ottos-winterthur",
+          "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
+        ],
+        "en": [
+          "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
+        ],
+        "fr": [
+          "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-mobel-ottos-winterthur"
+        "abteilungsleiter-in-mobel-ottos-winterthur",
+        "abteilungsleiter-in-mobel-otto-s-ag-winterthur"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -6545,12 +6897,12 @@
     },
     {
       "id": "ottos-0e11c9dd01d3",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-mels",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-mels",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-mels",
+        "en": "sales-associate-food-non-food-otto-s-ag-mels",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-mels"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6600,11 +6952,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-mels"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-mels",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-mels"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-mels",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-mels"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -6625,9 +6985,9 @@
       "id": "ottos-fbb6812dbd7b",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-kirchberg",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-kirchberg",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-kirchberg",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-kirchberg",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-kirchberg"
       },
       "company": "OTTO'S AG",
@@ -6709,9 +7069,9 @@
       "id": "ottos-bda66facb30f",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wohlen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wohlen",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wohlen",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-wohlen",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wohlen",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-wohlen"
       },
       "company": "OTTO'S AG",
@@ -6791,12 +7151,12 @@
     },
     {
       "id": "ottos-5174b66f37cb",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-aathal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-aathal",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-aathal",
+        "en": "sales-associate-food-non-food-otto-s-ag-aathal",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-aathal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6846,11 +7206,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-aathal"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-aathal",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-aathal"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-aathal",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-aathal"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -6869,12 +7237,12 @@
     },
     {
       "id": "ottos-b4a34696e3bd",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zurich",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-zurich",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-zurich",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6924,11 +7292,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zurich"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zurich",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zurich"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zurich",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -6949,9 +7325,9 @@
       "id": "ottos-9701c6c09dee",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langnau",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langnau",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-langnau",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-langnau",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-langnau",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-langnau"
       },
       "company": "OTTO'S AG",
@@ -7033,9 +7409,9 @@
       "id": "ottos-0b281bbe6e6c",
       "slug": "addetto-a-alle-vendite-di-supporto-preparazione-tessile-sport-otto-s-ag-bern-bethlehem",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
         "it": "addetto-a-alle-vendite-di-supporto-preparazione-tessile-sport-otto-s-ag-bern-bethlehem",
         "en": "temporary-sales-assistant-textile-sports-preparation-otto-s-ag-bern-bethlehem",
-        "de": "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
         "fr": "vendeur-euse-auxiliaire-preparation-textile-sport-otto-s-ag-bern-bethlehem"
       },
       "company": "OTTO'S AG",
@@ -7115,12 +7491,12 @@
     },
     {
       "id": "ottos-a8ce740cbd14",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-horw",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-horw",
+        "en": "sales-associate-food-non-food-otto-s-ag-horw",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-horw"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7170,11 +7546,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -7195,9 +7579,9 @@
       "id": "ottos-eb58875f4f1e",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-spreitenbach",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-spreitenbach",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-spreitenbach",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-spreitenbach",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-spreitenbach",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-spreitenbach"
       },
       "company": "OTTO'S AG",
@@ -7277,12 +7661,12 @@
     },
     {
       "id": "ottos-f098f11b9395",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-aathal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-aathal",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-aathal",
+        "en": "sales-associate-furniture-otto-s-ag-aathal",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-aathal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7332,11 +7716,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-aathal"
+          "verkaufsmitarbeiter-in-mobel-ottos-aathal",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-aathal"
+        "verkaufsmitarbeiter-in-mobel-ottos-aathal",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-aathal"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -7357,9 +7749,9 @@
       "id": "ottos-69a1dce50ffa",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-uetendorf",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-uetendorf",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-uetendorf",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-uetendorf",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-uetendorf",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
@@ -7439,12 +7831,12 @@
     },
     {
       "id": "ottos-97c80519e236",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-thun",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-thun",
+        "en": "sales-associate-food-non-food-otto-s-ag-thun",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-thun"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7494,11 +7886,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-thun"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-thun",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-thun"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -7517,12 +7917,12 @@
     },
     {
       "id": "ottos-a49fa9b8cfbd",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-reinach-ag",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-reinach-ag",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-reinach-ag",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-reinach-ag",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-reinach-ag"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7572,11 +7972,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-reinach-ag"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-reinach-ag",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-reinach-ag"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-reinach-ag",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-reinach-ag"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -7595,12 +8003,12 @@
     },
     {
       "id": "ottos-d71c3b2845ba",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-niederhasli",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-niederhasli",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-niederhasli",
+        "en": "sales-associate-food-non-food-otto-s-ag-niederhasli",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-niederhasli"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7650,11 +8058,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-niederhasli"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-niederhasli",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-niederhasli"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-niederhasli",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-niederhasli"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -7675,9 +8091,9 @@
       "id": "ottos-e747a0093b87",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-pratteln",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-pratteln",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-pratteln",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-pratteln",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-pratteln",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-pratteln"
       },
       "company": "OTTO'S AG",
@@ -7757,12 +8173,12 @@
     },
     {
       "id": "ottos-5558655b0a1a",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-hagendorf",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-hagendorf",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-hagendorf",
+        "en": "sales-associate-furniture-otto-s-ag-hagendorf",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-hagendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7812,11 +8228,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-hagendorf"
+          "verkaufsmitarbeiter-in-mobel-ottos-hagendorf",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-hagendorf"
+        "verkaufsmitarbeiter-in-mobel-ottos-hagendorf",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -7835,12 +8259,12 @@
     },
     {
       "id": "ottos-0cbac61b08af",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-hegnau-volketswil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hegnau-volketswil",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-hegnau-volketswil",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-hegnau-volketswil",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-hegnau-volketswil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7890,11 +8314,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hegnau-volketswil"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hegnau-volketswil",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hegnau-volketswil"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hegnau-volketswil",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hegnau-volketswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -7913,12 +8345,12 @@
     },
     {
       "id": "ottos-38fab1ee5690",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-hagendorf",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-hagendorf",
+        "en": "sales-associate-textiles-sports-otto-s-ag-hagendorf",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-hagendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7968,11 +8400,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -7993,9 +8433,9 @@
       "id": "ottos-ec95141be786",
       "slug": "meccanico-a-di-biciclette-jolly-otto-s-ag-sursee",
       "slugByLocale": {
+        "de": "springer-in-bikemechaniker-in-ottos-sursee",
         "it": "meccanico-a-di-biciclette-jolly-otto-s-ag-sursee",
         "en": "relief-bike-mechanic-otto-s-ag-sursee",
-        "de": "springer-in-bikemechaniker-in-ottos-sursee",
         "fr": "remplacant-e-mecanicien-ne-velo-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
@@ -8075,12 +8515,12 @@
     },
     {
       "id": "ottos-7f277076de88",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-root",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-root",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-root",
+        "en": "sales-associate-food-non-food-otto-s-ag-root",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-root"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8130,11 +8570,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-root"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-root",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-root"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-root",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-root"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -8153,12 +8601,12 @@
     },
     {
       "id": "ottos-97f0eaa6a6b5",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-kloten",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kloten",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-kloten",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-kloten",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-kloten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8208,11 +8656,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kloten"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kloten",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kloten"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kloten",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kloten"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -8231,12 +8687,12 @@
     },
     {
       "id": "ottos-4145ae2f4146",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-langnau",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-langnau",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-langnau",
+        "en": "sales-associate-furniture-otto-s-ag-langnau",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-langnau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8286,11 +8742,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-langnau"
+          "verkaufsmitarbeiter-in-mobel-ottos-langnau",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-langnau"
+        "verkaufsmitarbeiter-in-mobel-ottos-langnau",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-langnau"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -8311,9 +8775,9 @@
       "id": "ottos-87b80bb4735f",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-murten",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-murten",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-murten",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-murten",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-murten"
       },
       "company": "OTTO'S AG",
@@ -8393,12 +8857,12 @@
     },
     {
       "id": "ottos-4d62b1650159",
-      "slug": "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld",
+      "slug": "responsabile-di-reparto-food-non-food-otto-s-ag-frauenfeld",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld",
-        "en": "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld",
         "de": "abteilungsleiter-in-food-non-food-ottos-frauenfeld",
-        "fr": "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld"
+        "it": "responsabile-di-reparto-food-non-food-otto-s-ag-frauenfeld",
+        "en": "department-manager-food-non-food-otto-s-ag-frauenfeld",
+        "fr": "responsable-de-departement-alimentaire-non-alimentaire-otto-s-ag-frauenfeld"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8448,11 +8912,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-food-non-food-ottos-frauenfeld"
+          "abteilungsleiter-in-food-non-food-ottos-frauenfeld",
+          "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld"
+        ],
+        "en": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld"
+        ],
+        "fr": [
+          "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-food-non-food-ottos-frauenfeld"
+        "abteilungsleiter-in-food-non-food-ottos-frauenfeld",
+        "abteilungsleiter-in-food-non-food-otto-s-ag-frauenfeld"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -8471,12 +8943,12 @@
     },
     {
       "id": "ottos-cb839016cabd",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-wettingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-wettingen",
+        "en": "sales-associate-textiles-sports-otto-s-ag-wettingen",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-wettingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8526,11 +8998,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-wettingen",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-wettingen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -8551,9 +9031,9 @@
       "id": "ottos-db3eb23d8a9f",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-luzern",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-luzern"
       },
       "company": "OTTO'S AG",
@@ -8635,9 +9115,9 @@
       "id": "ottos-a608d14cf0c4",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wattwil",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wattwil",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-wattwil",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-wattwil"
       },
       "company": "OTTO'S AG",
@@ -8717,12 +9197,12 @@
     },
     {
       "id": "ottos-0376234b74a3",
-      "slug": "filialleiter-in-otto-s-ag-schonenwerd",
+      "slug": "responsabile-di-filiale-otto-s-ag-schonenwerd",
       "slugByLocale": {
-        "it": "filialleiter-in-otto-s-ag-schonenwerd",
-        "en": "filialleiter-in-otto-s-ag-schonenwerd",
         "de": "filialleiter-in-ottos-schonenwerd",
-        "fr": "filialleiter-in-otto-s-ag-schonenwerd"
+        "it": "responsabile-di-filiale-otto-s-ag-schonenwerd",
+        "en": "branch-manager-otto-s-ag-schonenwerd",
+        "fr": "responsable-de-succursale-otto-s-ag-schonenwerd"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8772,11 +9252,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-ottos-schonenwerd"
+          "filialleiter-in-ottos-schonenwerd",
+          "filialleiter-in-otto-s-ag-schonenwerd"
+        ],
+        "en": [
+          "filialleiter-in-otto-s-ag-schonenwerd"
+        ],
+        "fr": [
+          "filialleiter-in-otto-s-ag-schonenwerd"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-ottos-schonenwerd"
+        "filialleiter-in-ottos-schonenwerd",
+        "filialleiter-in-otto-s-ag-schonenwerd"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -8795,12 +9283,12 @@
     },
     {
       "id": "ottos-73d2335c1d02",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-lyss",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-lyss",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-lyss",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-lyss"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8850,11 +9338,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -8873,12 +9369,12 @@
     },
     {
       "id": "ottos-e687f059e40f",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wadenswil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-wadenswil",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-wadenswil",
+        "en": "sales-associate-food-non-food-otto-s-ag-wadenswil",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-wadenswil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8928,11 +9424,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-wadenswil"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-wadenswil",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-wadenswil"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-wadenswil",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wadenswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -8953,9 +9457,9 @@
       "id": "ottos-d7305aa99272",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-bachenbulach",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-bachenbulach",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-bachenbulach",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-bachenbulach",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-bachenbulach",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-bachenbulach"
       },
       "company": "OTTO'S AG",
@@ -9035,12 +9539,12 @@
     },
     {
       "id": "ottos-2f2612619430",
-      "slug": "vendeur-polyvalent-m-w-d-otto-s-ag-biel",
+      "slug": "venditore-polivalente-m-f-otto-s-ag-biel",
       "slugByLocale": {
-        "it": "vendeur-polyvalent-m-w-d-otto-s-ag-biel",
+        "fr": "vendeur-polyvalent-h-f-ottos-biel",
+        "it": "venditore-polivalente-m-f-otto-s-ag-biel",
         "en": "polyvalent-seller-m-f-otto-s-ag-biel",
-        "de": "polyvalenter-verkaufer-m-w-otto-s-ag-biel",
-        "fr": "vendeur-polyvalent-h-f-ottos-biel"
+        "de": "polyvalenter-verkaufer-m-w-otto-s-ag-biel"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9090,7 +9594,8 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-polyvalent-h-f-ottos-biel"
+          "vendeur-polyvalent-h-f-ottos-biel",
+          "vendeur-polyvalent-m-w-d-otto-s-ag-biel"
         ],
         "en": [
           "vendeur-polyvalent-h-f-ottos-biel"
@@ -9100,7 +9605,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-polyvalent-h-f-ottos-biel"
+        "vendeur-polyvalent-h-f-ottos-biel",
+        "vendeur-polyvalent-m-w-d-otto-s-ag-biel"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -9119,12 +9625,12 @@
     },
     {
       "id": "ottos-16db74dc6188",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen",
+      "slug": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-oftringen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-oftringen",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen"
+        "it": "addetto-a-alle-vendite-tessile-sport-otto-s-ag-oftringen",
+        "en": "sales-associate-textiles-sports-otto-s-ag-oftringen",
+        "fr": "employe-e-de-vente-textile-sport-otto-s-ag-oftringen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9174,11 +9680,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-textil-sport-ottos-oftringen"
+          "verkaufsmitarbeiter-in-textil-sport-ottos-oftringen",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-textil-sport-ottos-oftringen"
+        "verkaufsmitarbeiter-in-textil-sport-ottos-oftringen",
+        "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-oftringen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -9278,9 +9792,9 @@
       "id": "ottos-6e34df8cbf99",
       "slug": "responsabile-di-reparto-tessile-sport-otto-s-ag-gamsen-brig",
       "slugByLocale": {
+        "de": "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
         "it": "responsabile-di-reparto-tessile-sport-otto-s-ag-gamsen-brig",
         "en": "department-manager-textiles-sports-otto-s-ag-gamsen-brig",
-        "de": "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
         "fr": "responsable-de-departement-textile-sport-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
@@ -9360,12 +9874,12 @@
     },
     {
       "id": "ottos-8df31b11455e",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-dietikon",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon",
-        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-dietikon",
-        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon"
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-dietikon",
+        "en": "sales-associate-furniture-otto-s-ag-dietikon",
+        "fr": "vendeur-euse-en-meubles-otto-s-ag-dietikon"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9415,11 +9929,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-dietikon"
+          "verkaufsmitarbeiter-in-mobel-ottos-dietikon",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-dietikon"
+        "verkaufsmitarbeiter-in-mobel-ottos-dietikon",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-dietikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -9440,9 +9962,9 @@
       "id": "ottos-5c1e0b30eb78",
       "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wil",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
         "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-wil",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-wil",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-wil"
       },
       "company": "OTTO'S AG",
@@ -9522,12 +10044,12 @@
     },
     {
       "id": "ottos-893624a49e2d",
-      "slug": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont",
+      "slug": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-delemont",
       "slugByLocale": {
-        "it": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont",
+        "fr": "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
+        "it": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-delemont",
         "en": "auxiliary-textile-sport-seller-m-f-otto-s-ag-delemont",
-        "de": "hilfstextil-sportverkaufer-m-w-otto-s-ag-delemont",
-        "fr": "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+        "de": "hilfstextil-sportverkaufer-m-w-otto-s-ag-delemont"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9577,7 +10099,8 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+          "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
+          "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont"
         ],
         "en": [
           "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
@@ -9587,7 +10110,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+        "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
+        "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,
@@ -9608,9 +10132,9 @@
       "id": "ottos-0c8b700b59b1",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-zuchwil",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-zuchwil",
         "it": "vice-responsabile-di-filiale-otto-s-ag-zuchwil",
         "en": "deputy-store-manager-otto-s-ag-zuchwil",
-        "de": "stellvertreter-in-filialleitung-ottos-zuchwil",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-zuchwil"
       },
       "company": "OTTO'S AG",
@@ -9772,9 +10296,9 @@
       "id": "ottos-3acf797c8012",
       "slug": "vice-responsabile-di-filiale-otto-s-ag-uetendorf",
       "slugByLocale": {
+        "de": "stellvertreter-in-filialleitung-ottos-uetendorf",
         "it": "vice-responsabile-di-filiale-otto-s-ag-uetendorf",
         "en": "deputy-store-manager-otto-s-ag-uetendorf",
-        "de": "stellvertreter-in-filialleitung-ottos-uetendorf",
         "fr": "adjoint-e-de-responsable-de-magasin-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
@@ -9856,9 +10380,9 @@
       "id": "ottos-e1658fa0f2d3",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-munsingen",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-munsingen",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-munsingen",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-munsingen",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-munsingen"
       },
       "company": "OTTO'S AG",
@@ -9938,12 +10462,12 @@
     },
     {
       "id": "ottos-dca4ce9f85bc",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-koniz",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz",
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-koniz",
+        "en": "sales-associate-with-all-round-role-otto-s-ag-koniz",
+        "fr": "collaborateur-rice-de-vente-polyvalent-e-otto-s-ag-koniz"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9993,11 +10517,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -10018,9 +10550,9 @@
       "id": "ottos-40d66e89a76c",
       "slug": "addetto-a-alle-vendite-di-supporto-profumeria-cosmetica-otto-s-ag-zurich-oerlikon",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon",
         "it": "addetto-a-alle-vendite-di-supporto-profumeria-cosmetica-otto-s-ag-zurich-oerlikon",
         "en": "temporary-sales-assistant-perfume-cosmetics-otto-s-ag-zurich-oerlikon",
-        "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon",
         "fr": "vendeur-euse-auxiliaire-parfumerie-cosmetique-otto-s-ag-zurich-oerlikon"
       },
       "company": "OTTO'S AG",
@@ -10102,10 +10634,10 @@
       "id": "ottos-d5d62ee5c235",
       "slug": "responsabile-food-non-food-department-m-f-otto-s-ag-bulle",
       "slugByLocale": {
+        "fr": "chef-de-rayon-food-non-food-h-f-ottos-bulle",
         "it": "responsabile-food-non-food-department-m-f-otto-s-ag-bulle",
         "en": "head-of-food-non-food-department-m-f-otto-s-ag-bulle",
-        "de": "leiterin-der-abteilung-lebensmittel-nicht-lebensmittel-m-w-otto-s-ag-bulle",
-        "fr": "chef-de-rayon-food-non-food-h-f-ottos-bulle"
+        "de": "leiterin-der-abteilung-lebensmittel-nicht-lebensmittel-m-w-otto-s-ag-bulle"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10184,12 +10716,12 @@
     },
     {
       "id": "ottos-b5aefa1fab02",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-brugg",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-brugg",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-brugg",
+        "en": "sales-associate-food-non-food-otto-s-ag-brugg",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-brugg"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10239,11 +10771,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-brugg"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-brugg",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-brugg"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-brugg",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brugg"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -10264,9 +10804,9 @@
       "id": "ottos-68241c9bbdb1",
       "slug": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-entlebuch",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-textil-sport-ottos-entlebuch",
         "it": "commesso-a-ausiliario-a-tessile-sport-otto-s-ag-entlebuch",
         "en": "temporary-sales-assistant-textiles-sports-otto-s-ag-entlebuch",
-        "de": "aushilfe-verkaufer-in-textil-sport-ottos-entlebuch",
         "fr": "vendeur-euse-en-renfort-textile-sport-otto-s-ag-entlebuch"
       },
       "company": "OTTO'S AG",
@@ -10346,12 +10886,12 @@
     },
     {
       "id": "ottos-b2e755939ad8",
-      "slug": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
+      "slug": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
       "slugByLocale": {
-        "it": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "en": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
         "de": "sportartikelverkaufer-in-ottos-gamsen-brig",
-        "fr": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        "it": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
+        "en": "sporting-goods-salesperson-otto-s-ag-gamsen-brig",
+        "fr": "vendeur-euse-d-articles-de-sport-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10401,11 +10941,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sportartikelverkaufer-in-ottos-gamsen-brig"
+          "sportartikelverkaufer-in-ottos-gamsen-brig",
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "en": [
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "fr": [
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
         ]
       },
       "previousSlugs": [
-        "sportartikelverkaufer-in-ottos-gamsen-brig"
+        "sportartikelverkaufer-in-ottos-gamsen-brig",
+        "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -10424,12 +10972,12 @@
     },
     {
       "id": "ottos-ac499791fe31",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-zurich",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-zurich",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-zurich",
+        "en": "sales-associate-food-non-food-otto-s-ag-zurich",
+        "fr": "collaborateur-rice-de-vente-alimentaire-non-alimentaire-otto-s-ag-zurich"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10479,11 +11027,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-food-non-food-ottos-zurich"
+          "verkaufsmitarbeiter-in-food-non-food-ottos-zurich",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-food-non-food-ottos-zurich"
+        "verkaufsmitarbeiter-in-food-non-food-ottos-zurich",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

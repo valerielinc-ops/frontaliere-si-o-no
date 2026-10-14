@@ -3758,8 +3758,8 @@
       "slugByLocale": {
         "it": "responsabile-del-team-relazioni-con-i-media-m-f-d-e-responsabile-delle-relazioni-con-i-media-del-membro-del-consiglio-di",
         "en": "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d",
-        "de": "teamleiter-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug",
-        "fr": "chef-d-equipe-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug"
+        "de": "teamleiter-medienbeziehungen-m-w-d-leiter-medienbeziehungen-zum-vorstandsmitglied-m-w-d-siemens-zug",
+        "fr": "responsable-de-l-equipe-relations-medias-h-f-d-et-responsable-des-relations-medias-aupres-d-un-membre-du-directoire-h-f"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3823,10 +3823,18 @@
       "previousSlugsByLocale": {
         "it": [
           "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
+        ],
+        "de": [
+          "teamleiter-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug"
+        ],
+        "fr": [
+          "chef-d-equipe-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug"
         ]
       },
       "previousSlugs": [
-        "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
+        "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d",
+        "teamleiter-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug",
+        "chef-d-equipe-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d-siemens-zug"
       ]
     },
     {

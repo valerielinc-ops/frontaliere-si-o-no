@@ -24795,12 +24795,12 @@
     },
     {
       "id": "interdiscount-2b234cd1-eb9",
-      "slug": "verkaufsberater-in-interdiscount-chur",
+      "slug": "consulente-di-vendita-interdiscount-chur",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-chur",
-        "it": "verkaufsberater-in-interdiscount-chur",
-        "en": "verkaufsberater-in-interdiscount-chur",
-        "fr": "verkaufsberater-in-interdiscount-chur"
+        "it": "consulente-di-vendita-interdiscount-chur",
+        "en": "sales-advisor-interdiscount-chur",
+        "fr": "conseiller-ere-de-vente-interdiscount-chur"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24873,16 +24873,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-chur"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-chur"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-chur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-chur"
+      ]
     },
     {
       "id": "interdiscount-16995208-747",
-      "slug": "auxiliaire-de-noel-interdiscount-crissier",
+      "slug": "ausiliare-di-natale-interdiscount-crissier",
       "slugByLocale": {
         "fr": "auxiliaire-de-noel-interdiscount-crissier",
-        "it": "auxiliaire-de-noel-interdiscount-crissier",
-        "en": "auxiliaire-de-noel-interdiscount-crissier",
-        "de": "auxiliaire-de-noel-interdiscount-crissier"
+        "it": "ausiliare-di-natale-interdiscount-crissier",
+        "en": "christmas-auxiliary-interdiscount-crissier",
+        "de": "weihnachtshilfswerk-interdiscount-crissier"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24954,16 +24968,30 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-noel-interdiscount-crissier"
+        ],
+        "en": [
+          "auxiliaire-de-noel-interdiscount-crissier"
+        ],
+        "de": [
+          "auxiliaire-de-noel-interdiscount-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-noel-interdiscount-crissier"
+      ]
     },
     {
       "id": "interdiscount-63b2db03-b65",
-      "slug": "verkaufsberater-in-interdiscount-oftringen",
+      "slug": "consulente-di-vendita-interdiscount-oftringen",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-oftringen",
-        "it": "verkaufsberater-in-interdiscount-oftringen",
-        "en": "verkaufsberater-in-interdiscount-oftringen",
-        "fr": "verkaufsberater-in-interdiscount-oftringen"
+        "it": "consulente-di-vendita-interdiscount-oftringen",
+        "en": "sales-advisor-interdiscount-oftringen",
+        "fr": "conseiller-ere-de-vente-interdiscount-oftringen"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -25036,7 +25064,21 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-oftringen"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-oftringen"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-oftringen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-oftringen"
+      ]
     }
   ]
 }
