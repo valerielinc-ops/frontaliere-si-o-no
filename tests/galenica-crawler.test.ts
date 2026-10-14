@@ -17,6 +17,7 @@ import {
   buildGalenicaJob,
   buildGalenicaSoliqueDescription,
   enrichFromYoustyProfile,
+  galenicaHandoffQuarantineBlocksPublication,
   galenicaWorkLocation,
   galenicaWorkplaceLine,
   isGalenicaCompanyBlurb,
@@ -366,6 +367,43 @@ describe('Galenica run partition and merge', () => {
       noSource: [candidate.job],
     });
     expect(jobs[0].applyUrl).toBe(TRUSTED_TEST_APPLY_URL);
+  });
+
+  it('blocks handoff quarantine when post-merge no-source rows leave the publishable slice empty', () => {
+    const unpublishableA = buildGalenicaJob([{
+      ...SOLIQUE_VACANCY,
+      textblocks: { ...SOLIQUE_VACANCY.textblocks, applybuttonlink: '' },
+    }]);
+    const priorA = {
+      ...unpublishableA.job,
+      applyUrl: TRUSTED_TEST_APPLY_URL,
+      description: buildGalenicaSoliqueDescription(SOLIQUE_VACANCY.textblocks),
+    };
+    const noSourceB = buildGalenicaJob(apprenticeship('12692305', 'Rue de Bourg 8', '1003'), {
+      youstyEnrichment: { applyUrl: '', sourceObserved: false },
+    });
+    const discovery = {
+      jobs: [],
+      noSource: [noSourceB.job],
+      thin: [],
+      dropped: [],
+      quarantined: [unpublishableA.job],
+      handoffQuarantineCount: 1,
+      handoffObservedCount: 1,
+      handoffQuarantineSystemicBlocked: false,
+    };
+
+    const merged = mergeGalenicaRecords([priorA], discovery);
+    expect(merged.jobs).toEqual([]);
+    expect(galenicaHandoffQuarantineBlocksPublication(discovery, merged.jobs)).toBe(true);
+  });
+
+  it('keeps per-record quarantine publishable when post-merge siblings survive', () => {
+    const survivor = withYousty(apprenticeship('12692306', 'Rue de Bourg 8', '1003')).job;
+    expect(galenicaHandoffQuarantineBlocksPublication({
+      handoffQuarantineCount: 1,
+      handoffQuarantineSystemicBlocked: false,
+    }, [survivor])).toBe(false);
   });
 
   it('keeps distinct branches of one city apart and collapses a true republication onto the lowest id', () => {

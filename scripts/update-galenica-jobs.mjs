@@ -630,13 +630,13 @@ async function fetchGalenicaJobs() {
   }
 
   const settled = handoffGate.settle(built);
-  const handoffQuarantineBlocked = handoffGate.rejectedCount > 0 && settled.length === 0;
+  const handoffQuarantineSystemicBlocked = handoffGate.rejectedCount > 0 && settled.length === 0;
   const discovery = partitionGalenicaJobs(built);
   discovery.observedJobs = observedJobs;
   discovery.quarantined = quarantined;
   discovery.handoffObservedCount = observedJobs.length;
   discovery.handoffQuarantineCount = quarantined.length;
-  discovery.handoffQuarantineBlocked = handoffQuarantineBlocked;
+  discovery.handoffQuarantineSystemicBlocked = handoffQuarantineSystemicBlocked;
   console.log(
     `📋 Total unique Galenica Swiss jobs discovered: ${built.length} `
     + `(${discovery.jobs.length} with source text, ${discovery.noSource.length} without, `
@@ -797,6 +797,17 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
   };
 }
 
+/**
+ * A quarantined handoff must fail closed when it is systemic, or when merging
+ * no-source/thin rows leaves no Galenica record publishable in the final slice.
+ */
+export function galenicaHandoffQuarantineBlocksPublication(discovery = {}, publishableJobs = []) {
+  return Boolean(discovery.handoffQuarantineSystemicBlocked)
+    || (Number(discovery.handoffQuarantineCount) > 0
+      && Array.isArray(publishableJobs)
+      && publishableJobs.length === 0);
+}
+
 function mergeGalenicaJobs(discovery) {
   // #3699 (2nd defect class): data/jobs.json is gitignored — on a fresh CI
   // checkout it doesn't exist yet, so a raw fs.existsSync(DATA_JOBS) read
@@ -807,6 +818,12 @@ function mergeGalenicaJobs(discovery) {
   const allJobs = readExistingCrawlerJobs(GALENICA_KEY, DATA_JOBS);
   const nonGalenicaJobs = allJobs.filter((j) => !isGalenicaJob(j));
   const { jobs, stats } = mergeGalenicaRecords(allJobs.filter(isGalenicaJob), discovery);
+  if (galenicaHandoffQuarantineBlocksPublication(discovery, jobs)) {
+    throw new Error(
+      `Galenica handoff quarantine reached the systemic/empty-publication guard `
+      + `(${discovery.handoffQuarantineCount}/${discovery.handoffObservedCount}); prior slice left untouched.`,
+    );
+  }
   const finalJobs = [...nonGalenicaJobs, ...jobs];
 
   writeJson(DATA_JOBS, finalJobs);
@@ -972,15 +989,14 @@ async function main() {
   // Phase 1: discover jobs from Solique data.json
   const discoveredJobs = await fetchGalenicaJobs();
 
-  if (discoveredJobs.handoffQuarantineBlocked) {
-    throw new Error(
-      `Galenica handoff quarantine reached the systemic/empty-publication guard `
-      + `(${discoveredJobs.handoffQuarantineCount}/${discoveredJobs.handoffObservedCount}); prior slice left untouched.`,
-    );
-  }
-
   const discoveredCount = discoveredJobs.jobs.length + discoveredJobs.noSource.length + discoveredJobs.thin.length;
   if (discoveredCount === 0) {
+    if (galenicaHandoffQuarantineBlocksPublication(discoveredJobs, [])) {
+      throw new Error(
+        `Galenica handoff quarantine reached the systemic/empty-publication guard `
+        + `(${discoveredJobs.handoffQuarantineCount}/${discoveredJobs.handoffObservedCount}); prior slice left untouched.`,
+      );
+    }
     console.log('ℹ️  No Swiss job listings found — skipping crawl.');
     return;
   }
