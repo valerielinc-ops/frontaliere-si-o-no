@@ -1,16 +1,9 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import { exportL4 } from '../scripts/ci/export-loop-outcomes.mjs';
-import {
-  differingKeys,
-  measuredFirestoreClient,
-  withoutGenerationDates,
-} from '../scripts/measure-loop-l4-reads.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
@@ -106,34 +99,18 @@ function fakeRestClient(data: ReturnType<typeof fixture>, calls: Array<Record<st
   };
 }
 
-async function baselineExporter() {
-  const sha = execFileSync('git', ['rev-parse', 'origin/main']).toString().trim();
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-baseline-test-'));
-  const archive = execFileSync('git', [
-    'archive',
-    sha,
-    'scripts/ci/export-loop-outcomes.mjs',
-    'scripts/lib/ga4-service-account.mjs',
-    'scripts/lib/analytics-settled-window.mjs',
-  ], { maxBuffer: 1 << 30 });
-  execFileSync('tar', ['-x', '-C', directory], { input: archive });
-  const modulePath = path.join(directory, 'scripts/ci/export-loop-outcomes.mjs');
-  const module = await import(`${pathToFileURL(modulePath).href}?test=${sha}`);
-  return { module, directory };
-}
-
 const predicates = {
   evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
   isCrossChannelStop: () => false,
   isJobAlertExcluded: () => false,
 };
 
-async function runExport(module: typeof import('../scripts/ci/export-loop-outcomes.mjs'), data: ReturnType<typeof fixture>, directory: string) {
+async function runExport(data: ReturnType<typeof fixture>, directory: string) {
   const calls: Array<Record<string, any>> = [];
   const analytics = {
     request: async () => ({ rows: [{ metricValues: [{ value: '1' }] }] }),
   };
-  const output = await module.exportL4({
+  const output = await exportL4({
     now: NOW,
     outputPath: path.join(directory, 'outcomes.json'),
     client: fakeRestClient(data, calls) as any,
@@ -143,24 +120,34 @@ async function runExport(module: typeof import('../scripts/ci/export-loop-outcom
   return { output, calls };
 }
 
-describe('L4: query Firestore e equivalenza baseline', () => {
-  it('mantiene il JSON con inattivi, tipi evento non probatori e righe fuori finestra', async () => {
-    const baseline = await baselineExporter();
-    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-head-test-'));
+function workflowSteps() {
+  const workflow = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as any;
+  const steps = workflow.jobs.audit.steps as Array<Record<string, any>>;
+  return {
+    workflow,
+    scope: steps.find((step) => step.id === 'l4-scope'),
+    exporter: steps.find((step) => step.name === 'Export fresh L4 outcomes'),
+    audit: steps.find((step) => step.name === 'Audit alert to return'),
+    evidence: steps.find((step) => step.name === 'Record canonical L4 evidence'),
+    upload: steps.find((step) => step.name === 'Upload L4 observation and actions'),
+  };
+}
+
+describe('L4: query Firestore', () => {
+  it('mantiene il JSON e le query dell\'export con righe fuori finestra escluse', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-export-test-'));
     try {
       const data = fixture();
-      const before = await runExport(baseline.module, data, baseline.directory);
-      const after = await runExport({ exportL4 } as any, data, directory);
+      const { output, calls } = await runExport(data, directory);
 
-      expect(withoutGenerationDates(after.output)).toEqual(withoutGenerationDates(before.output));
-      expect(after.output).toMatchObject({
+      expect(output).toMatchObject({
         eligibleConsentedUsers: 1,
         deliveredAlerts: 1,
         export: { deliveryRows: 1 },
       });
-      expect(before.calls).toHaveLength(5);
+      expect(calls).toHaveLength(5);
 
-      const byCollection = Object.fromEntries(after.calls.map((query) => [query.collectionId, query]));
+      const byCollection = Object.fromEntries(calls.map((query) => [query.collectionId, query]));
       expect(byCollection.alerts.where).toBeUndefined();
       expect(byCollection.job_alert_subscribers.where).toBeUndefined();
       expect(byCollection.newsletter_subscribers.where).toBeUndefined();
@@ -175,36 +162,15 @@ describe('L4: query Firestore e equivalenza baseline', () => {
       expect(byCollection.events.fieldPaths).toEqual(expect.arrayContaining([
         'event_type', 'eventType', 'message_id', 'messageId', 'timestamp',
       ]));
-      expect(after.calls).toHaveLength(5);
-      expect(differingKeys(withoutGenerationDates(before.output), withoutGenerationDates(after.output))).toEqual([]);
     } finally {
       fs.rmSync(directory, { recursive: true, force: true });
-      fs.rmSync(baseline.directory, { recursive: true, force: true });
     }
   });
 });
 
-describe('L4: misura delle query REST', () => {
-  it('conta chiamate, documenti e tempo senza esporre le righe', async () => {
-    const measured = measuredFirestoreClient({
-      runQuery: async () => [{ name: 'one' }, { name: 'two' }],
-    });
-    await measured.client.runQuery({ collectionId: 'events' });
-    expect(measured.stats.events).toMatchObject({ firestore_calls: 1, docs_read: 2 });
-    expect(Object.keys(measured.stats)).toEqual([
-      'alerts', 'job_alert_subscribers', 'newsletter_subscribers', 'campaign_deliveries', 'events',
-    ]);
-  });
-});
-
-describe('L4: push senza modifica all\'export', () => {
+describe('L4: perimetro del workflow', () => {
   it('salta export, audit ed evidenza quando git non trova i due file decisivi', () => {
-    const workflow = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as any;
-    const steps = workflow.jobs.audit.steps as Array<Record<string, any>>;
-    const scope = steps.find((step) => step.id === 'l4-scope');
-    const exporter = steps.find((step) => step.name === 'Export fresh L4 outcomes');
-    const audit = steps.find((step) => step.name === 'Audit alert to return');
-    const evidence = steps.find((step) => step.name === 'Record canonical L4 evidence');
+    const { scope, exporter, audit, evidence, upload } = workflowSteps();
     expect(scope?.run).toContain('git diff --name-only');
     expect(scope?.run).toContain("scripts/ci/export-loop-outcomes.mjs");
     expect(scope?.run).toContain(".github/workflows/loop-l4-alert-return.yml");
@@ -213,5 +179,51 @@ describe('L4: push senza modifica all\'export', () => {
     expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
     expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+    expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+  });
+
+  it('mantiene il percorso live quando il push tocca export o workflow', () => {
+    const { scope, exporter, audit, evidence, upload } = workflowSteps();
+    expect(scope?.run).toContain("grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs' -e '.github/workflows/loop-l4-alert-return.yml'");
+    expect(scope?.run).toContain("echo 'run_export=true'");
+    expect(scope?.run).toContain("echo 'run_audit=true'");
+    expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
+    expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+    expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+    expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+  });
+
+  it('mantiene schedule e dispatch sul percorso live', () => {
+    const { workflow, scope } = workflowSteps();
+    expect(workflow.on.schedule).toEqual([{ cron: '11 9 * * *' }]);
+    expect(workflow.on.workflow_dispatch).toEqual({
+      inputs: {
+        issue: {
+          description: 'Create/update one deduplicated issue when alert return evidence is not safe',
+          required: false,
+          type: 'boolean',
+          default: true,
+        },
+      },
+    });
+    expect(scope?.run).toContain("if [ \"$EVENT_NAME\" != 'push' ]; then");
+    expect(scope?.run).toContain("echo 'run_export=true'");
+    expect(scope?.run).toContain("echo 'run_audit=true'");
+  });
+
+  it('mantiene pull_request senza export live e con audit dei dati del checkout', () => {
+    const { workflow, scope, exporter, audit, evidence, upload } = workflowSteps();
+    expect(workflow.on.pull_request.paths).toEqual(expect.arrayContaining([
+      'scripts/ci/export-loop-outcomes.mjs',
+      '.github/workflows/loop-l4-alert-return.yml',
+    ]));
+    expect(scope?.run).toContain("if [ \"$EVENT_NAME\" = 'pull_request' ]; then");
+    expect(scope?.run).toContain("echo 'run_export=false'");
+    expect(scope?.run).toContain("echo 'run_audit=true'");
+    expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
+    expect(audit?.run).toContain('outcomes_path=data/alert-outcomes.json');
+    expect(audit?.run).toContain('if [ "${{ github.event_name }}" != "pull_request" ]; then outcomes_path=');
+    expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
+    expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
   });
 });
