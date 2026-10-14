@@ -233,7 +233,7 @@ export async function isDeletedEmailAccount(db, rawEmail) {
 /**
  * @param {string} uid
  * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
- * @returns {Promise<{deletedSavedJobs: number}>}
+ * @returns {Promise<{deletedSavedJobs: number, deletedCvProfile: boolean}>}
  */
 export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
   const db = injectedDb || getFirestore();
@@ -251,8 +251,9 @@ export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
   }
 
   await db.collection('users').doc(uid).delete();
+  await db.collection('user_cv_profiles').doc(uid).delete();
 
-  return { deletedSavedJobs };
+  return { deletedSavedJobs, deletedCvProfile: true };
 }
 
 /**
