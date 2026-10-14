@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-13T21:22:59.436Z",
+  "assembledAt": "2026-10-14T09:34:26.215Z",
   "jobs": [
     {
       "title": "Business Analyst - Payments and Fintech",
@@ -67,7 +67,7 @@
     },
     {
       "title": "Data Engineer",
-      "slug": "data-ingegnere-lastminute-com-chiasso",
+      "slug": "data-engineer-chiasso",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000154626729&jobName=Data+Engineer",
       "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000154626729-data-engineer?oga=true",
       "company": "lastminute.com",
@@ -93,8 +93,8 @@
       },
       "slugByLocale": {
         "en": "data-engineer-lastminute-com-chiasso",
-        "it": "data-ingegnere-lastminute-com-chiasso",
-        "de": "data-ingenieur-lastminute-com-chiasso",
+        "it": "data-engineer-chiasso",
+        "de": "data-engineer-chiasso",
         "fr": "data-engineer-chiasso"
       },
       "sourceLang": "en",
@@ -127,14 +127,15 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-chiasso"
+          "data-ingegnere-lastminute-com-chiasso"
         ],
         "de": [
-          "data-engineer-chiasso"
+          "data-ingenieur-lastminute-com-chiasso"
         ]
       },
       "previousSlugs": [
-        "data-engineer-chiasso"
+        "data-ingegnere-lastminute-com-chiasso",
+        "data-ingenieur-lastminute-com-chiasso"
       ]
     },
     {
@@ -201,7 +202,7 @@
     },
     {
       "title": "Machine Learning Scientist",
-      "slug": "scienziato-di-apprendimento-della-macchina-lastminute-com-chiasso",
+      "slug": "machine-learning-scientist-chiasso",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000151334039&jobName=Machine+Learning+Scientist",
       "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000151334039-machine-learning-scientist?oga=true",
       "company": "lastminute.com",
@@ -227,9 +228,9 @@
       },
       "slugByLocale": {
         "en": "machine-learning-scientist-chiasso",
-        "it": "scienziato-di-apprendimento-della-macchina-lastminute-com-chiasso",
+        "it": "machine-learning-scientist-chiasso",
         "de": "machine-learning-scientist-chiasso",
-        "fr": "scientifique-en-apprentissage-automatique-lastminute-com-chiasso"
+        "fr": "machine-learning-scientist-chiasso"
       },
       "sourceLang": "en",
       "category": "tech",
@@ -262,28 +263,28 @@
       "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "previousSlugsByLocale": {
         "it": [
+          "scienziato-di-apprendimento-della-macchina-lastminute-com-chiasso",
           "scienziato-di-apprendimento-automatico-lastminute-com-chiasso",
           "wissenschaftler-fur-maschinelles-lernen-lastminute-com-chiasso",
-          "scientifique-en-apprentissage-automatique-lastminute-com-chiasso",
-          "machine-learning-scientist-chiasso"
+          "scientifique-en-apprentissage-automatique-lastminute-com-chiasso"
         ],
         "fr": [
-          "machine-learning-scientist-chiasso"
+          "scientifique-en-apprentissage-automatique-lastminute-com-chiasso"
         ],
         "de": [
           "wissenschaftler-fur-maschinelles-lernen-lastminute-com-chiasso"
         ]
       },
       "previousSlugs": [
+        "scienziato-di-apprendimento-della-macchina-lastminute-com-chiasso",
         "scientifique-en-apprentissage-automatique-lastminute-com-chiasso",
         "scienziato-di-apprendimento-automatico-lastminute-com-chiasso",
-        "wissenschaftler-fur-maschinelles-lernen-lastminute-com-chiasso",
-        "machine-learning-scientist-chiasso"
+        "wissenschaftler-fur-maschinelles-lernen-lastminute-com-chiasso"
       ]
     },
     {
       "title": "Technical Product Manager - Hotel Supply & Connectivity",
-      "slug": "responsabile-tecnico-del-prodotto-fornitura-e-connettivita-dell-hotel-lastminute-com-chiasso",
+      "slug": "technical-product-manager-hotel-supply-connectivity-chiasso",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000150982849&jobName=Technical+Product+Manager+-+Hotel+Supply",
       "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000150982849-technical-product-manager-hotel-supply-connectivity?oga=true",
       "company": "lastminute.com",
@@ -309,9 +310,9 @@
       },
       "slugByLocale": {
         "en": "technical-product-manager-hotel-supply-connectivity-chiasso",
-        "it": "responsabile-tecnico-del-prodotto-fornitura-e-connettivita-dell-hotel-lastminute-com-chiasso",
-        "de": "technischer-produktmanager-hotel-supply-connectivity-lastminute-com-chiasso",
-        "fr": "gestionnaire-de-produits-techniques-approvisionnement-et-connectivite-de-l-hotel-lastminute-com-chiasso"
+        "it": "technical-product-manager-hotel-supply-connectivity-chiasso",
+        "de": "technical-product-manager-hotel-supply-connectivity-chiasso",
+        "fr": "technical-product-manager-hotel-supply-connectivity-chiasso"
       },
       "sourceLang": "en",
       "category": "tech",
@@ -345,29 +346,30 @@
       "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "previousSlugsByLocale": {
         "it": [
+          "responsabile-tecnico-del-prodotto-fornitura-e-connettivita-dell-hotel-lastminute-com-chiasso",
           "responsabile-tecnico-di-prodotto-fornitura-e-connettivita-alberghiera-lastminute-com-chiasso",
           "chef-de-produit-technique-approvisionnement-hotelier-et-connectivite-lastminute-com-chiasso",
-          "technischer-produktmanager-hotel-supply-connectivity-lastminute-com-chiasso",
-          "technical-product-manager-hotel-supply-connectivity-chiasso"
+          "technischer-produktmanager-hotel-supply-connectivity-lastminute-com-chiasso"
         ],
         "de": [
-          "technical-product-manager-hotel-supply-connectivity-chiasso"
+          "technischer-produktmanager-hotel-supply-connectivity-lastminute-com-chiasso"
         ],
         "fr": [
-          "chef-de-produit-technique-approvisionnement-hotelier-et-connectivite-lastminute-com-chiasso",
-          "technical-product-manager-hotel-supply-connectivity-chiasso"
+          "gestionnaire-de-produits-techniques-approvisionnement-et-connectivite-de-l-hotel-lastminute-com-chiasso",
+          "chef-de-produit-technique-approvisionnement-hotelier-et-connectivite-lastminute-com-chiasso"
         ]
       },
       "previousSlugs": [
+        "responsabile-tecnico-del-prodotto-fornitura-e-connettivita-dell-hotel-lastminute-com-chiasso",
         "technischer-produktmanager-hotel-supply-connectivity-lastminute-com-chiasso",
+        "gestionnaire-de-produits-techniques-approvisionnement-et-connectivite-de-l-hotel-lastminute-com-chiasso",
         "responsabile-tecnico-di-prodotto-fornitura-e-connettivita-alberghiera-lastminute-com-chiasso",
-        "chef-de-produit-technique-approvisionnement-hotelier-et-connectivite-lastminute-com-chiasso",
-        "technical-product-manager-hotel-supply-connectivity-chiasso"
+        "chef-de-produit-technique-approvisionnement-hotelier-et-connectivite-lastminute-com-chiasso"
       ]
     },
     {
       "title": "AI Automation Engineer",
-      "slug": "ai-automation-ingegnere-lastminute-com-chiasso",
+      "slug": "ai-automation-engineer-chiasso",
       "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer",
       "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000148443690-ai-automation-engineer?oga=true",
       "company": "lastminute.com",
@@ -393,8 +395,8 @@
       },
       "slugByLocale": {
         "en": "ai-automation-engineer-lastminute-com-chiasso",
-        "it": "ai-automation-ingegnere-lastminute-com-chiasso",
-        "de": "ai-automation-ingenieur-lastminute-com-chiasso",
+        "it": "ai-automation-engineer-chiasso",
+        "de": "ai-automation-engineer-chiasso",
         "fr": "ai-automation-engineer-chiasso"
       },
       "sourceLang": "en",
@@ -428,16 +430,16 @@
       "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "previousSlugsByLocale": {
         "it": [
-          "ai-automation-ingenieur-lastminute-com-chiasso",
-          "ai-automation-engineer-chiasso"
+          "ai-automation-ingegnere-lastminute-com-chiasso",
+          "ai-automation-ingenieur-lastminute-com-chiasso"
         ],
         "de": [
-          "ai-automation-engineer-chiasso"
+          "ai-automation-ingenieur-lastminute-com-chiasso"
         ]
       },
       "previousSlugs": [
-        "ai-automation-ingenieur-lastminute-com-chiasso",
-        "ai-automation-engineer-chiasso"
+        "ai-automation-ingegnere-lastminute-com-chiasso",
+        "ai-automation-ingenieur-lastminute-com-chiasso"
       ]
     },
     {
