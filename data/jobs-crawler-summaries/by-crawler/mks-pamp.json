@@ -1,18 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-10-13T21:32:11.398Z",
+  "generatedAt": "2026-10-14T09:45:41.489Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10659,
-  "avgDurationMs": 10659,
+  "durationMs": 14657,
+  "avgDurationMs": 14657,
   "durationHistory": [
-    10659
+    14657
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Vault Operations Specialist",
       "slug": "vault-operations-specialist-mks-pamp-castel-san-pietro",
@@ -34,28 +35,25 @@
       "datePosted": "2026-10-08T11:03:47+02:00",
       "postedDate": "2026-10-08T11:03:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.090Z",
+      "crawledAt": "2026-10-14T09:45:27.059Z",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "id": "mks-pamp-01db383769ae",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6874",
       "firstSeenAt": "2026-10-13T21:32:05.090Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Precious Metal Control Manager",
       "slug": "prezioso-responsabile-del-controllo-del-metallo-mks-pamp-castel-san-pietro",
@@ -86,7 +84,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.095Z",
+      "crawledAt": "2026-10-14T09:45:27.068Z",
       "postalCode": "6874",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -129,7 +127,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.098Z",
+      "crawledAt": "2026-10-14T09:45:27.073Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -171,7 +169,7 @@
       "firstSeenAt": "2026-10-03T09:31:28.506Z",
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.092Z",
+      "crawledAt": "2026-10-14T09:45:27.063Z",
       "postalCode": "6874",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -211,7 +209,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.093Z",
+      "crawledAt": "2026-10-14T09:45:27.065Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -251,7 +249,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-11T17:56:17+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.096Z",
+      "crawledAt": "2026-10-14T09:45:27.070Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -291,7 +289,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-30T18:17:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.097Z",
+      "crawledAt": "2026-10-14T09:45:27.072Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -333,7 +331,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-13T21:32:05.098Z",
+      "crawledAt": "2026-10-14T09:45:27.074Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -343,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

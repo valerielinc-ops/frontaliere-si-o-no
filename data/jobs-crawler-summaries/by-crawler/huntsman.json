@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-10-13T21:31:50.352Z",
+  "generatedAt": "2026-10-14T09:46:21.265Z",
   "total": 5,
   "discovered": null,
   "parsed": 4,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6102,
-  "avgDurationMs": 6102,
+  "durationMs": 7247,
+  "avgDurationMs": 7247,
   "durationHistory": [
-    6102
+    7247
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "huntsman-44c7f12fdf02",
-      "slug": "pilot-operatore-huntsman-corporation-monthey",
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "OPERATEUR PILOTE",
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08",
-      "postedDate": "2026-09-08",
-      "postingDateSource": "reported",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-12T09:37:11.651Z",
-      "jobReqId": "J-019784",
-      "firstSeenAt": "2026-09-08T23:39:26.585Z",
-      "salaryMin": 68000,
-      "salaryMax": 92000,
-      "salarySource": "estimated",
-      "postalCode": "1870",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -95,7 +51,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:31:41.943Z",
+      "crawledAt": "2026-10-14T09:46:04.368Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 72500,
@@ -137,7 +93,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-13T21:31:41.367Z",
+      "crawledAt": "2026-10-14T09:46:03.630Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
@@ -179,7 +135,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:31:40.646Z",
+      "crawledAt": "2026-10-14T09:46:02.851Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "salaryMin": 72500,
@@ -221,7 +177,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-13T21:31:38.478Z",
+      "crawledAt": "2026-10-14T09:46:01.668Z",
       "jobReqId": "J-020004",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -270,7 +226,7 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -280,5 +236,5 @@
       }
     }
   ],
-  "codeCommit": "1bc6988981c2f1d2ee8bd162c8d309a9f81fd697"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
