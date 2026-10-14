@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-14T07:51:41.379Z",
+  "generatedAt": "2026-10-14T09:16:40.915Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8117,
-  "avgDurationMs": 8117,
+  "durationMs": 7473,
+  "avgDurationMs": 7473,
   "durationHistory": [
-    8117
+    7473
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T07:51:21.020Z",
+      "crawledAt": "2026-10-14T09:16:26.145Z",
       "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -80,7 +80,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T07:51:22.779Z",
+      "crawledAt": "2026-10-14T09:16:27.672Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -118,7 +118,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T07:51:22.138Z",
+      "crawledAt": "2026-10-14T09:16:27.061Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -156,7 +156,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T07:51:20.366Z",
+      "crawledAt": "2026-10-14T09:16:25.456Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -171,5 +171,5 @@
       }
     }
   ],
-  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }

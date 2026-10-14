@@ -1,61 +1,20 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-14T07:55:57.096Z",
+  "generatedAt": "2026-10-14T09:16:05.308Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 10695,
-  "avgDurationMs": 10695,
+  "durationMs": 10741,
+  "avgDurationMs": 10741,
   "durationHistory": [
-    10695
+    10741
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "HR Business Partner/-in",
-      "slug": "hr-business-partner-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19792",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-09T08:05:21Z",
-      "validThrough": "2026-10-13",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-d4ab9b520cbe",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-09T13:44:14.822Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
-      "datePosted": "2026-09-09T08:05:21Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Praktikant/-in Buchhaltung",
@@ -254,46 +213,6 @@
       }
     },
     {
-      "title": "Sanitär- und Heizungstechniker/in",
-      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-29T22:00:00Z",
-      "validThrough": "2026-11-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-7ef1058e63a6",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-18T21:36:14.124Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
-      "datePosted": "2026-09-29T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
       "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
@@ -329,6 +248,46 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Sanitär- und Heizungstechniker/in",
+      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-29T22:00:00Z",
+      "validThrough": "2026-11-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-7ef1058e63a6",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -614,5 +573,5 @@
       }
     }
   ],
-  "codeCommit": "99515511547c7f09b8830e38a9b7f2cc2f6822df"
+  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
 }
