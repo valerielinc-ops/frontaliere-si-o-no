@@ -225,7 +225,7 @@ describe('the Worker entrypoint applies the filter', () => {
     }
   });
 
-  it('returns a ranged apex passthrough as the origin answered it, without the rewriter', async () => {
+  it('returns a ranged non-document passthrough as the origin answered it, without the rewriter', async () => {
     (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
     const originalFetch = globalThis.fetch;
     let forwardedRange: string | null = null;
@@ -239,7 +239,9 @@ describe('the Worker entrypoint applies the filter', () => {
     };
     try {
       const res = await router.default.fetch(
-        new Request('https://frontaliereticino.ch/agenzie-del-lavoro-lugano/', {
+        // Not a document route (no trailing slash, no .html): the Worker keeps
+        // Range here, so the 206 guard of the filter is the only protection.
+        new Request('https://frontaliereticino.ch/agenzie-del-lavoro-lugano', {
           headers: { Range: 'bytes=0-1023' },
         }),
         {},
