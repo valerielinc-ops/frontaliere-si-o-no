@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-14T09:16:40.915Z",
+  "generatedAt": "2026-10-14T21:11:39.767Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7473,
-  "avgDurationMs": 7473,
+  "durationMs": 4155,
+  "avgDurationMs": 4155,
   "durationHistory": [
-    7473
+    4155
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,6 +44,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -80,7 +81,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:16:27.672Z",
+      "crawledAt": "2026-10-14T21:11:26.301Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -118,7 +119,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:16:27.061Z",
+      "crawledAt": "2026-10-14T21:11:26.004Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -156,7 +157,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:16:25.456Z",
+      "crawledAt": "2026-10-14T21:11:25.706Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -171,5 +172,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }
