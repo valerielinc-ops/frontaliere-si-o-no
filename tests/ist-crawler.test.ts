@@ -5,6 +5,7 @@ import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty
 import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
+  classifyIstDetailPage,
   dropIstFabricatedText,
   extractIstMicrodata,
   hasCompleteIstDetailEvidence,
@@ -25,6 +26,7 @@ describe('IST country-code parsing', () => {
   it('retains a genuinely foreign final country code', () => {
     expect(parseCountryCode('Como, IT')).toBe('IT');
     expect(parseCountryCode('Zurich, FR')).toBe('FR');
+    expect(parseCountryCode('CR')).toBe('CR');
   });
 });
 
@@ -250,6 +252,32 @@ describe('IST detail extraction', () => {
       hiringOrganization: 'Inspired Education',
     }));
   });
+
+  it('composes the native locality when location contains only the country marker', () => {
+    const html = `
+      <h1 data-job-field="title">Primary Teacher</h1>
+      <div data-job-field="location">CH</div>
+      <div data-job-field="city">Lugano</div>
+      <div data-job-field="country">CH</div>
+      <div data-job-field="hiringOrganization">Inspired Education</div>
+      <div data-job-field="facility">International School of Ticino</div>
+    `;
+
+    expect(extractIstMicrodata(html)).toEqual(expect.objectContaining({
+      title: 'Primary Teacher',
+      location: 'Lugano, CH',
+    }));
+
+    expect(classifyIstDetailPage({
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      status: 200,
+      html,
+    })).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: { location: 'Lugano, CH' },
+    });
+  });
 });
 
 describe('IST empty-source proof', () => {
@@ -309,6 +337,131 @@ describe('IST empty-source proof', () => {
       discoveredCount: 2,
       parsedCount: 1,
       completeDetailCount: 1,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
+  });
+});
+
+describe('IST detail response classification', () => {
+  const detailUrl = 'https://jobs.inspirededu.com/job/Teacher/12345/';
+
+  it('treats HTTP 410 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 410 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
+  });
+
+  it('treats HTTP 404 as proof that the sitemap entry is no longer active', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 404 }))
+      .toMatchObject({ outcome: 'removed', evidence: 'http-404' });
+  });
+
+  it('classifies an active detail after a redirect to a careers path', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      finalUrl: 'https://jobs.inspirededu.com/careers/teacher/1',
+      redirects: [{ status: 302, to: 'https://jobs.inspirededu.com/careers/teacher/1' }],
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: true });
+  });
+
+  it('treats the native filled-position message as a removed entry', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <div class="jobDisplayShell" itemscope="itemscope">
+          <div class="jobDisplay">
+            <div class="content">
+              <div class="jobTitle"></div>
+              <div class="job"><p><strong>Sorry, this position has been filled.</strong></p></div>
+            </div>
+          </div>
+        </div>
+      `,
+    })).toMatchObject({ outcome: 'removed', evidence: 'native-filled-message' });
+  });
+
+  it('does not treat an unrelated filled-position aside as removal', () => {
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <aside class="job-help"><p>This position has been filled.</p></aside>
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    })).toMatchObject({ outcome: 'classified', isIst: true });
+  });
+
+  it('reads native markers from an alternate template for an IST detail', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">International School of Ticino</div>
+          <div data-job-field="facility">International School of Ticino</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      isIst: true,
+      detail: {
+        title: 'Primary Teacher',
+        location: 'Lugano, CH',
+        hiringOrganization: 'International School of Ticino',
+        facility: 'International School of Ticino',
+      },
+    });
+  });
+
+  it('reads native markers from an alternate template for another tenant', () => {
+    const result = classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">Primary Teacher</h1>
+          <div data-job-field="location">London, GB</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-job-field="company">Sevenoaks School</div>
+          <div data-job-field="facility">Sevenoaks School</div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({ outcome: 'classified', isIst: false });
+  });
+
+  it('keeps a 5xx response and an unknown template incomplete', () => {
+    expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 503 }))
+      .toMatchObject({ outcome: 'incomplete', evidence: 'http-503' });
+    expect(classifyIstDetailPage({
+      sourceUrl: detailUrl,
+      status: 200,
+      html: '<html><h1>Primary Teacher</h1></html>',
+    })).toMatchObject({ outcome: 'incomplete', evidence: 'unknown-template' });
+    expect(classifyIstDetailWalk({
+      discoveredCount: 1,
+      parsedCount: 0,
+      completeDetailCount: 0,
     })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
   });
 });
