@@ -33,6 +33,17 @@
  *                         `source-body-floor.mjs` e il cui runner non passa da
  *                         `runStandardCrawlerPipeline`, che la applica prima
  *                         di scrivere (PR 10333).
+ *   R6 geografia-source  geografia risolta ma indirizzi ripresi dal raw source,
+ *                         guardia cantonale solo target, CAP da HQ mentre il
+ *                         cantone viene dal source, o marker cantonale restituito
+ *                         prima del resolver condiviso senza guardia paese.
+ *                         Misura pre-fix: 4/5 esempi (PR 12157, 12674, 12710,
+ *                         12995; i due parser Recruitee contano come un esempio).
+ *                         Main: 15 emissioni in 5 parser, tutte lette a mano.
+ *   R7 alias-paese       `canonicalChCountry(addressCountry ??/|| country)`:
+ *                         la scelta degli alias resta dentro un'espressione e
+ *                         un alias vuoto puo' mascherare quello successivo.
+ *                         Misura pre-fix: 1/5 (PR 12994); main: 0.
  *
  * RATCHET. `scripts/ci/parser-contract-baseline.json` conta le violazioni
  * esistenti per file e regola. Un file nuovo con una violazione, o un
@@ -62,6 +73,8 @@ export const RULES = {
   R3: 'validThrough senza normalizzatore',
   R4: 'sourcePostingDateFields con catena || o campo start*',
   R5: 'description da estrattore senza meetsSourceBodyFloor',
+  R6: 'geografia source-backed non proiettata o bypassata',
+  R7: 'alias paese in catena ??/||',
 };
 
 const MAX_EXPRESSION_LINES = 8;
@@ -207,6 +220,100 @@ function* fieldEmissions(masked, fieldSource, { property = true, assignment = tr
       if (statement && !member && expr.terminator === '}' && !declared) continue;
       yield { anchor, valueStart, kind: declared ? 'declaration' : 'assignment', field: match[1], ...expr };
     }
+  }
+}
+
+const SIMPLE_IDENTIFIER_RE = /^[A-Za-z_$][\w$]*$/;
+const GEOGRAPHY_ADDRESS_FIELDS = 'addressRegion|postalCode|streetAddress';
+const COUNTRY_ALIAS_OPERAND = String.raw`[A-Za-z_$][\w$]*(?:\??\.)?(?:addressCountry|country)`;
+const COUNTRY_ALIAS_CHAIN_RE = new RegExp(
+  `(?:${COUNTRY_ALIAS_OPERAND})\\s*(?:\\?\\?|\\|\\|)\\s*(?:${COUNTRY_ALIAS_OPERAND})`,
+);
+
+function escapedRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function fieldReferencesObject(text, objectName) {
+  return new RegExp(`(?<![\\w$])${escapedRegExp(objectName)}\\s*\\?\\.\\s*[A-Za-z_$]`).test(text)
+    || new RegExp(`(?<![\\w$])${escapedRegExp(objectName)}\\s*\\.\\s*[A-Za-z_$]`).test(text);
+}
+
+/**
+ * Indirizzi raw emessi dopo aver tenuto solo `location,canton` dal risultato
+ * di un resolver chiamato con un oggetto source. Un resolver object-shaped puo'
+ * aver normalizzato anche CAP e via: ignorare quei campi e rileggere `listing`
+ * ricrea esattamente il passaggio che il contratto deve rendere visibile.
+ */
+function* sourceGeographyProjectionViolations(masked) {
+  const resolverRe = /(?<![\w$])(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*resolveSourceBackedSwissGeography\s*\(/g;
+  for (const resolver of masked.matchAll(resolverRe)) {
+    const argument = expressionAt(masked, resolver.index + resolver[0].length).text.trim();
+    if (!SIMPLE_IDENTIFIER_RE.test(argument)) continue;
+    const resultName = resolver[1];
+    const destructureRe = new RegExp(
+      `(?<![\\w$])(?:const|let|var)\\s*\\{([^{}]*)\\}\\s*=\\s*${escapedRegExp(resultName)}\\b`,
+      'g',
+    );
+    for (const destructure of masked.matchAll(destructureRe)) {
+      const fields = destructure[1].split(',').map((field) => field.trim()).filter(Boolean);
+      if (fields.length !== 2 || !fields.includes('location') || !fields.includes('canton')) continue;
+      for (const emission of fieldEmissions(masked, GEOGRAPHY_ADDRESS_FIELDS)) {
+        if (emission.anchor <= destructure.index) continue;
+        if (fieldReferencesObject(emission.text, argument)) yield emission.anchor;
+      }
+    }
+  }
+}
+
+/** La guardia di `addressRegionRaw` deve riconoscere tutti i cantoni, non solo il funnel target. */
+function* targetOnlySourceCantonViolations(masked) {
+  const re = /(?<![\w$])(?:const|let|var)\s+sourceCanton\s*=\s*inferSwissTargetCanton\s*\(\s*addressRegionRaw\s*\)/g;
+  for (const match of masked.matchAll(re)) {
+    const tail = masked.slice(match.index, match.index + 1800);
+    if (/\bpostalPlace\s*&&[\s\S]*\bsourceCanton\b[\s\S]*\bpostalPlaceAgrees\b/.test(tail)) {
+      yield match.index;
+    }
+  }
+}
+
+/** Un CAP da HQ non puo' seguire un cantone inferito da una localita' source-backed. */
+function* sourceCantonHqPostalViolations(masked) {
+  const inferredRe = /(?<![\w$])(?:const|let|var)\s+inferredCanton\s*=\s*inferCantonFromJobEvidence\s*\(/g;
+  const inferredOffsets = [...masked.matchAll(inferredRe)].map((match) => match.index);
+  if (!inferredOffsets.length) return;
+  for (const emission of fieldEmissions(masked, 'postalCode')) {
+    if (!/\binferredCanton\b/.test(emission.text) || !/\bHQ\s*\.\s*postalCode\b/.test(emission.text)) continue;
+    if (inferredOffsets.some((offset) => offset < emission.anchor)) yield emission.anchor;
+  }
+}
+
+/**
+ * Un marker cantonale locale puo' essere usato prima del resolver condiviso
+ * solo dopo la validazione del paese esplicito.
+ */
+function* cantonMarkerBypassViolations(masked) {
+  const markerRe = /(?<![\w$])(?:const|let|var)\s+locationCanton\s*=\s*cantonNamedByLocation\s*\(/g;
+  for (const marker of masked.matchAll(markerRe)) {
+    const resolverOffset = masked.indexOf('resolveSourceBackedSwissGeography', marker.index + marker[0].length);
+    if (resolverOffset === -1) continue;
+    // Il resolver deve essere quello della stessa funzione: non attraversare
+    // il corpo di un helper precedente solo perche' il file contiene un altro
+    // resolver piu' avanti. Le forme del finding stanno nello stesso blocco,
+    // entro questo limite statico, prima della chiamata condivisa.
+    const windowEnd = Math.min(resolverOffset, marker.index + 1000);
+    const window = masked.slice(marker.index, windowEnd);
+    if (!/\bif\s*\(\s*locationCanton\s*\)\s*\{[\s\S]*?\bcanton\s*:\s*locationCanton\b/.test(window)) continue;
+    if (/\bisExplicitlyForeign\s*\(/.test(window)) continue;
+    yield marker.index;
+  }
+}
+
+/** Alias paese passati come una catena: il helper deve ricevere i campi separati. */
+function* countryAliasChainViolations(masked) {
+  for (const match of masked.matchAll(/(?<![\w$])canonicalChCountry\s*\(/g)) {
+    const argument = expressionAt(masked, match.index + match[0].length).text;
+    if (COUNTRY_ALIAS_CHAIN_RE.test(argument)) yield match.index;
   }
 }
 
@@ -385,6 +492,17 @@ export function scanParserSource(source, file = '', { centralBodyFloor = false }
     const arg = expressionAt(masked, match.index + match[0].length).text;
     if (hasDateCandidateChain(arg) || START_FIELD_RE.test(arg)) push('R4', match.index);
   }
+
+  // R6 — geografia source-backed non proiettata o bypassata.
+  for (const offset of sourceGeographyProjectionViolations(masked)) push('R6', offset);
+  for (const offset of targetOnlySourceCantonViolations(masked)) push('R6', offset);
+  for (const offset of sourceCantonHqPostalViolations(masked)) push('R6', offset);
+  for (const offset of cantonMarkerBypassViolations(masked)) push('R6', offset);
+
+  // R7 — la scelta fra alias paese non va compressa in `??`/`||` prima del
+  // canonicalizzatore: un campo strutturato vuoto o non scalare puo' oscurare
+  // il secondo alias. Passare i campi separati lascia la precedenza al helper.
+  for (const offset of countryAliasChainViolations(masked)) push('R7', offset);
 
   // R5 — corpo della vacancy senza soglia di parole alla fonte: solo il
   // percorso che scrive il corpo senza passare da nessuna soglia (ne' propria
