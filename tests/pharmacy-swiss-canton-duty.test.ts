@@ -6,6 +6,7 @@ import {
   buildSwissCantonDutyCoverage,
   type SwissCantonDutySnapshot,
 } from '../services/pharmacies/swissCantonDuty';
+import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
 import type { PharmacySourcesRegistry } from '../services/pharmacies/types';
 
 const NOW = new Date('2026-09-29T08:00:00.000Z');
@@ -144,7 +145,7 @@ describe('Swiss canton duty coverage', () => {
     const fetchedAt = liveSnapshot.generatedAt;
     const result = buildSwissCantonDutyCoverage({
       now: new Date(fetchedAt),
-      weekStart: WEEK_START,
+      weekStart: currentDutyWeekStart(new Date(fetchedAt)),
       registry: liveRegistry as unknown as PharmacySourcesRegistry,
       snapshots: liveSnapshot.snapshots,
       includeGeneva: false,

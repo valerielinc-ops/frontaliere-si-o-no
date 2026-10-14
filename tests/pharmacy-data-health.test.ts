@@ -16,6 +16,7 @@ import {
   findBorderOutOfScopeRecords,
   findBorderSourceMismatches,
   normalizeIdentityField,
+  observeSwissCantonDutyCoverage,
   formatReport,
   loadDatasets,
   parseIsoDurationMs,
@@ -120,6 +121,77 @@ describe('evaluateFreshness', () => {
   it('flags a missing or unparsable _fetchedAt as stale', () => {
     const res = evaluateFreshness(registry, { ticino: anagrafica({ _fetchedAt: undefined }) }, {}, NOW);
     expect(res.entries[0]).toMatchObject({ stale: true, ageHours: null });
+  });
+});
+
+describe('observeSwissCantonDutyCoverage', () => {
+  const sourceRegistry = { sources: { jura: { canton: 'Giura', status: 'active' } } };
+  const release = (overrides: Record<string, unknown> = {}) => ({
+    _fetchedAt: '2026-09-29T12:00:00.000Z',
+    _scope: { country: 'CH', canton: 'JU', coverageType: 'canton' },
+    _coverage: { coverage: 'covered' },
+    _releaseReady: true,
+    _state: 'fresh',
+    _release: { state: 'fresh' },
+    _errors: [],
+    _unresolvedIdentities: [],
+    duties: [{
+      status: 'verified',
+      startsAt: '2026-09-26T06:00:00.000Z',
+      endsAt: '2026-10-03T06:00:00.000Z',
+    }],
+    ...overrides,
+  });
+
+  it('anchors coverage to the release fetch week, not a later fixed week', () => {
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, { jura: release() });
+
+    expect(observed.entries[0]).toMatchObject({
+      key: 'jura',
+      weekStart: '2026-09-28',
+      verifiedDutyCount: 1,
+      covered: true,
+      signalled: false,
+    });
+    expect(observed.unreportedGaps).toEqual([]);
+  });
+
+  it('fails the health report for a fresh release with no fetch-week coverage', () => {
+    const duties = {
+      jura: release({
+        duties: [{
+          status: 'expired',
+          startsAt: '2026-09-19T06:00:00.000Z',
+          endsAt: '2026-09-26T06:00:00.000Z',
+        }],
+      }),
+    };
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, duties);
+    const report = buildReport({
+      registry: sourceRegistry,
+      duties,
+      knownCantonCount: 1,
+      nowMs: Date.parse('2026-09-29T12:00:00.000Z'),
+    });
+
+    expect(observed.unreportedGaps).toMatchObject([{
+      key: 'jura',
+      weekStart: '2026-09-28',
+      verifiedDutyCount: 0,
+      covered: false,
+      signalled: false,
+    }]);
+    expect(report.healthy).toBe(false);
+    expect(report.problems).toContain('release turni jura fuori copertura nella settimana del fetch 2026-09-28 senza segnale di errore');
+  });
+
+  it('does not duplicate a gap already marked by the release state', () => {
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, {
+      jura: release({ _state: 'stale', _releaseReady: false, _errors: ['fetch failed'], duties: [] }),
+    });
+
+    expect(observed.entries[0]).toMatchObject({ covered: false, signalled: true });
+    expect(observed.unreportedGaps).toEqual([]);
   });
 });
 
