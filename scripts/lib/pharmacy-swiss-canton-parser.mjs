@@ -467,7 +467,13 @@ export function parseSolothurnDutyPage({ html, sourceUrl, fetchedAt, calendarYea
     const values = [];
     let valueMatch;
     valuePattern.lastIndex = 0;
-    while ((valueMatch = valuePattern.exec(cardMatch[1]))) values.push(stripHtml(valueMatch[1]));
+    while ((valueMatch = valuePattern.exec(cardMatch[1]))) {
+      // AVSO added a labeled opening-hours field before the pharmacy name;
+      // ignore only that known metadata and keep identity matching fail-closed.
+      const fieldLabel = /<span\b[^>]*class=["'][^"']*\bdmach-acf-label\b[^"']*["'][^>]*>([^<]*)/i.exec(valueMatch[1]);
+      if (fieldLabel && normalizeKey(fieldLabel[1]) === 'OFFNUNGSZEITEN') continue;
+      values.push(stripHtml(valueMatch[1]));
+    }
     if (values.length < 5) continue;
     const region = SOLOTHURN_REGIONS[normalizeKey(values[0])];
     if (!region) throw new Error(`Solothurn duty region is not allowlisted: ${values[0]}`);
