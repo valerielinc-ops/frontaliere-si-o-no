@@ -1111,6 +1111,37 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state._authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('uses Mendrisio per-run proof instead of the empty-ok registry', () => {
+    const mendrisioSummaryObservation = {
+      slug: 'citta-di-mendrisio',
+      jobCount: 0,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: null,
+      discovered: 0,
+      written: 0,
+    };
+
+    const proven = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...mendrisioSummaryObservation, authoritativeEmptySnapshot: true },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(proven.status).toBe('healthy');
+    expect(proven.state._authoritativeEmptySnapshot).toBe(true);
+
+    const unproven = nextCrawlerState(
+      brokenEligiblePrev,
+      { ...mendrisioSummaryObservation, authoritativeEmptySnapshot: false },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(unproven.status).toBe('broken');
+    expect(unproven.state._authoritativeEmptySnapshot).toBe(false);
+  });
+
   it('keeps the Locarno empty-source allowance only for a complete, source-proven zero', () => {
     const { status, reason, state } = nextCrawlerState(
       brokenEligiblePrev,
