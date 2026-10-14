@@ -27,6 +27,7 @@ import type { Plugin } from 'vite';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
+import { readFuelArchive } from '../scripts/lib/fuel-monthly-archive.mjs';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -5127,7 +5128,7 @@ export function generateFuelArchivePages(opts: {
   today?: Date;
   distDir?: string;
 }): Record<string, string> {
-  const history = opts.history;
+  const history = [...new Map(opts.history.map((day) => [day.date, day])).values()];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const currentMonth = today.toISOString().slice(0, 7);
@@ -5232,7 +5233,11 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }
 
       const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
-      const archives = generateFuelArchivePages({ history, today, distDir });
+      const archivedHistory = readFuelArchive(
+        np.join(rootDir, 'data', 'fuel-prices-archive'),
+        np.join(rootDir, 'data', 'fuel-prices-recovery-archive.json'),
+      );
+      const archives = generateFuelArchivePages({ history: [...archivedHistory, ...history], today, distDir });
       const stationPages = generateFuelStationPages({
         dataset,
         today,
