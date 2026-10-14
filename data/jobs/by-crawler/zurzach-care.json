@@ -5354,12 +5354,12 @@
     },
     {
       "id": "zurzach-care-ea2e4301b408",
-      "slug": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach",
+      "slug": "meal-hostess-pasto-20-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach",
-        "it": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach",
-        "en": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach",
-        "fr": "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+        "it": "meal-hostess-pasto-20-zurzach-care-bad-zurzach",
+        "en": "meal-attendant-meal-attendant-20-zurzach-care-bad-zurzach",
+        "fr": "agent-de-repas-agent-de-repas-20-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5417,16 +5417,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:19:21.566Z"
+      "firstSeenAt": "2026-10-14T09:19:21.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "mahlzeitenbegleiterin-mahlzeitenbegleiter-20-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-a37305c528d2",
-      "slug": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
+      "slug": "terapia-creativa-terapia-creativa-40-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
-        "it": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
-        "en": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
-        "fr": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+        "it": "terapia-creativa-terapia-creativa-40-zurzach-care-bad-zurzach",
+        "en": "creative-therapist-creative-therapist-40-zurzach-care-bad-zurzach",
+        "fr": "therapeute-creative-therapeute-creative-40-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5484,16 +5498,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:19:20.967Z"
+      "firstSeenAt": "2026-10-14T09:19:20.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-b9f6016c6a48",
-      "slug": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
+      "slug": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
-        "it": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
-        "en": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
-        "fr": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        "it": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
+        "en": "assistant-physician-general-internal-medicine-aim-100-zurzach-care-basel",
+        "fr": "medecin-adjoint-medecine-generale-interne-mai-100-zurzach-care-basel"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5551,7 +5579,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:19:20.363Z"
+      "firstSeenAt": "2026-10-14T09:19:20.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+      ]
     },
     {
       "id": "zurzach-care-ee7f39e330ce",

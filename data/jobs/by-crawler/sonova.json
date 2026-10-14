@@ -1275,12 +1275,12 @@
     },
     {
       "id": "sonova-25937ba3a144",
-      "slug": "epfl-2026-talent-community-future-opportunities-sonova-ch",
+      "slug": "epfl-2026-comunita-intempestiva-opportunita-future-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "epfl-2026-talent-community-future-opportunities-sonova-ch",
-        "it": "epfl-2026-talent-community-future-opportunities-sonova-ch",
+        "it": "epfl-2026-comunita-intempestiva-opportunita-future-sonova-staefa-switzerland",
         "de": "epfl-2026-talent-community-future-opportunities-sonova-ch",
-        "fr": "epfl-2026-talent-community-future-opportunities-sonova-ch"
+        "fr": "epfl-2026-communaute-de-talents-opportunites-futures-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1337,16 +1337,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-14T09:17:55.761Z"
+      "firstSeenAt": "2026-10-14T09:17:55.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "epfl-2026-talent-community-future-opportunities-sonova-ch"
+        ],
+        "fr": [
+          "epfl-2026-talent-community-future-opportunities-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "epfl-2026-talent-community-future-opportunities-sonova-ch"
+      ]
     },
     {
       "id": "sonova-cbd2506c0301",
-      "slug": "gebaudetechniker-hlk-m-w-d-sonova-staefa",
+      "slug": "tecnico-di-costruzione-hlk-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "de": "gebaudetechniker-hlk-m-w-d-sonova-ch",
-        "it": "gebaudetechniker-hlk-m-w-d-sonova-staefa",
-        "en": "gebaudetechniker-hlk-m-w-d-sonova-staefa",
-        "fr": "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+        "it": "tecnico-di-costruzione-hlk-m-f-d-sonova-staefa-switzerland",
+        "en": "building-technician-hlk-m-f-d-sonova-staefa-switzerland",
+        "fr": "technicien-en-batiment-hlk-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1391,11 +1402,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gebaudetechniker-hlk-m-w-d-sonova-ch"
+          "gebaudetechniker-hlk-m-w-d-sonova-ch",
+          "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+        ],
+        "en": [
+          "gebaudetechniker-hlk-m-w-d-sonova-staefa"
+        ],
+        "fr": [
+          "gebaudetechniker-hlk-m-w-d-sonova-staefa"
         ]
       },
       "previousSlugs": [
-        "gebaudetechniker-hlk-m-w-d-sonova-ch"
+        "gebaudetechniker-hlk-m-w-d-sonova-ch",
+        "gebaudetechniker-hlk-m-w-d-sonova-staefa"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -2025,7 +2025,7 @@
       "slug": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "it": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
-        "en": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
+        "en": "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach",
         "de": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
         "fr": "medecin-a-du-mandat-helsana-dubendorf-stettbach"
       },
@@ -2072,8 +2072,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
-        "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
+        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2081,7 +2080,7 @@
         ],
         "en": [
           "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-          "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
+          "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:06.129Z",
@@ -3633,12 +3632,12 @@
     },
     {
       "id": "helsana-7be778a224ed",
-      "slug": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich",
+      "slug": "codificatore-medico-a-60-80-temporaneo-fino-al-marzo-2027-helsana-zurich",
       "slugByLocale": {
         "de": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich",
-        "it": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich",
-        "en": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich",
-        "fr": "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+        "it": "codificatore-medico-a-60-80-temporaneo-fino-al-marzo-2027-helsana-zurich",
+        "en": "medical-coder-a-60-80-temporary-until-march-2027-helsana-zurich",
+        "fr": "codeur-medical-a-60-80-temporaire-jusqu-en-mars-2027-helsana-zurich"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3696,7 +3695,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:33:23.309Z"
+      "firstSeenAt": "2026-10-14T09:33:23.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+        ],
+        "en": [
+          "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+        ],
+        "fr": [
+          "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischer-codierer-a-60-80-befristet-bis-marz-2027-helsana-zurich"
+      ]
     },
     {
       "id": "helsana-a0a91a24fff3",

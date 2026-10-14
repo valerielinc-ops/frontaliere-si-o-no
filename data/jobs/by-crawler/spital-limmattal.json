@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-250247a57efc",
-      "slug": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
+      "slug": "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
-        "it": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
-        "en": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        "it": "dipl-specialista-di-cura-hf-fh-pronto-soccorso-spital-limmattal-schlieren",
+        "en": "dipl-care-specialist-hf-fh-emergency-department-spital-limmattal-schlieren",
+        "fr": "dipl-specialiste-des-soins-hf-fh-service-d-urgence-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-11T21:48:37.741Z"
+      "firstSeenAt": "2026-08-11T21:48:37.741Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-notfallstation-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-3146d5d0a34b",
@@ -1927,7 +1941,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -1988,9 +2002,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

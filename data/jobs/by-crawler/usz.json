@@ -17340,7 +17340,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -17387,7 +17387,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17395,7 +17395,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -17416,12 +17416,12 @@
     },
     {
       "id": "usz-ee88c79eaeea",
-      "slug": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
+      "slug": "cura-speciale-tecnica-chirurgica-specialistica-hf-neurochirurgica-op-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
-        "it": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
-        "en": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
-        "fr": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+        "it": "cura-speciale-tecnica-chirurgica-specialistica-hf-neurochirurgica-op-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "special-care-specialist-surgical-technique-hf-neurosurgical-op-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "soins-speciaux-technique-chirurgicale-specialisee-hf-neurochirurgical-op-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17478,16 +17478,30 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+        ],
+        "en": [
+          "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+        ],
+        "fr": [
+          "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-4c3bd9461104",
-      "slug": "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich",
+      "slug": "professionista-infermieristico-a-per-la-clinica-di-traumatologia-50-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
-        "it": "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        "it": "professionista-infermieristico-a-per-la-clinica-di-traumatologia-50-100-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-for-the-clinic-of-traumatology-50-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-de-la-clinique-de-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17534,11 +17548,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
+          "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
+        "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17557,12 +17579,12 @@
     },
     {
       "id": "usz-0bd735e2de3f",
-      "slug": "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-e-der-schockraumbetr-universitatsspital-zurich-usz-zurich",
+      "slug": "cure-specialistiche-tecnico-a-di-sala-operatoria-hf-traumatologia-pazienti-ustionati-e-attivita-nella-shock-room",
       "slugByLocale": {
         "de": "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der",
-        "it": "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-e-der-schockraumbetr-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der",
-        "fr": "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der"
+        "it": "cure-specialistiche-tecnico-a-di-sala-operatoria-hf-traumatologia-pazienti-ustionati-e-attivita-nella-shock-room",
+        "en": "special-care-specialist-surgical-technique-hf-traumatology-fire-injured-and-the-shock-room-berth-universitatsspital",
+        "fr": "soins-speciaux-technique-chirurgicale-specialisee-hf-traumatologie-incendie-blesse-et-couchette-de-la-salle-de-choc"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17609,11 +17631,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der",
+          "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-e-der-schockraumbetr-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der"
+        ],
+        "fr": [
           "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der"
+        "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-und-der",
+        "spezialpflege-fachperson-operationstechnik-hf-traumatologie-brandverletzten-e-der-schockraumbetr-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,

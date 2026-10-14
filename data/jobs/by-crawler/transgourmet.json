@@ -202,7 +202,7 @@
         "it": "ordina-picker-ordine-picker-transgourmet-neuendorf",
         "en": "order-picker-order-picker-transgourmet-neuendorf",
         "de": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "fr": "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -264,15 +264,14 @@
         ]
       },
       "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ],
         "fr": [
-          "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.106Z",
@@ -2504,7 +2503,7 @@
       "slugByLocale": {
         "it": "autista-cat-c-transgourmet-gals",
         "en": "female-male-driver-category-c-transgourmet-gals",
-        "de": "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+        "de": "fahrerin-fahrer-kat-c-transgourmet-gals",
         "fr": "chauffeuse-chauffeur-cat-c-transgourmet-gals"
       },
       "company": "Transgourmet",
@@ -2569,8 +2568,7 @@
         ]
       },
       "previousSlugs": [
-        "chauffeuse-chauffeur-cat-c-transgourmet-gals",
-        "fahrerin-fahrer-kat-c-transgourmet-gals"
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2580,7 +2578,7 @@
           "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ],
         "de": [
-          "fahrerin-fahrer-kat-c-transgourmet-gals"
+          "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:41.625Z",
@@ -2600,11 +2598,11 @@
     },
     {
       "id": "transgourmet-a9a122aa-8ee",
-      "slug": "conseillere-conseiller-des-clients-transgourmet-meyrin",
+      "slug": "advisor-client-advisor-transgourmet-meyrin",
       "slugByLocale": {
-        "it": "conseillere-conseiller-des-clients-transgourmet-meyrin",
+        "it": "advisor-client-advisor-transgourmet-meyrin",
         "en": "conseillere-conseiller-des-clients-transgourmet-meyrin",
-        "de": "conseillere-conseiller-des-clients-transgourmet-meyrin",
+        "de": "berater-kundenberater-transgourmet-meyrin",
         "fr": "conseillere-conseiller-des-clients-transgourmet-meyrin"
       },
       "company": "Transgourmet",
@@ -2676,7 +2674,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-des-clients-transgourmet-meyrin"
+        ],
+        "de": [
+          "conseillere-conseiller-des-clients-transgourmet-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-des-clients-transgourmet-meyrin"
+      ]
     },
     {
       "id": "transgourmet-779a2b13-3f5",

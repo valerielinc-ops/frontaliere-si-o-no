@@ -85,12 +85,12 @@
     },
     {
       "id": "siemens-healthineers-25e11f5aa4ad",
-      "slug": "ux-researcher-siemens-healthineers-ch",
+      "slug": "ricercatore-ux-siemens-healthineers-baden",
       "slugByLocale": {
-        "it": "ux-researcher-siemens-healthineers-ch",
+        "it": "ricercatore-ux-siemens-healthineers-baden",
         "en": "ux-researcher-siemens-healthineers-ch",
-        "de": "ux-researcher-siemens-healthineers-ch",
-        "fr": "ux-researcher-siemens-healthineers-ch"
+        "de": "ux-forscher-siemens-healthineers-baden",
+        "fr": "ux-chercheur-siemens-healthineers-baden"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
@@ -148,7 +148,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "previousSlugsByLocale": {
+        "it": [
+          "ux-researcher-siemens-healthineers-ch"
+        ],
+        "de": [
+          "ux-researcher-siemens-healthineers-ch"
+        ],
+        "fr": [
+          "ux-researcher-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ux-researcher-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-235b60d2d69a",

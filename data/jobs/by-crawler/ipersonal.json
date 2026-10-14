@@ -712,12 +712,12 @@
     },
     {
       "id": "ipersonal-590abd0d9dc6",
-      "slug": "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
+      "slug": "direttore-direttrice-medico-specialista-in-medicina-interna-generale-medipersonal-biel-bienne-bern",
       "slugByLocale": {
         "de": "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
-        "it": "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
-        "en": "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
-        "fr": "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern"
+        "it": "direttore-direttrice-medico-specialista-in-medicina-interna-generale-medipersonal-biel-bienne-bern",
+        "en": "managing-director-specialist-in-general-internal-medicine-medipersonal-biel-bienne-bern",
+        "fr": "directeur-rice-medecin-specialiste-en-medecine-interne-generale-medipersonal-biel-bienne-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -761,12 +761,20 @@
       "previousSlugsByLocale": {
         "it": [
           "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
-          "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne"
+          "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne",
+          "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne-bern"
+        ],
+        "en": [
+          "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern"
+        ],
+        "fr": [
+          "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern"
         ]
       },
       "previousSlugs": [
         "geschaftsleiter-in-facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-biel-bienne-bern",
-        "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne"
+        "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne",
+        "geschaftsleiter-in-facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-biel-bienne-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

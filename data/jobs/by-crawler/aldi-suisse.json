@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "aldi-suisse-68a478184e0b",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+      "slug": "direttore-di-ramo-aggiunto-m-f-d-aldi-suisse-basel",
       "slugByLocale": {
-        "it": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "en": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "it": "direttore-di-ramo-aggiunto-m-f-d-aldi-suisse-basel",
+        "en": "deputy-branch-manager-m-f-d-aldi-suisse-basel",
         "de": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "fr": "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        "fr": "directeur-adjoint-h-f-d-aldi-suisse-basel"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -94,7 +94,21 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-96f2f8de71f8",
@@ -543,9 +557,9 @@
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-basel",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-basel",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "en": "sales-associate-m-w-d-aldi-suisse-basel",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-basel"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -620,6 +634,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
         ]
       },
@@ -6837,8 +6857,8 @@
       "slug": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
       "slugByLocale": {
         "it": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-        "en": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-        "de": "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
+        "en": "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
+        "de": "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana",
         "fr": "collaborateur-de-vente-m-f-d-aldi-suisse"
       },
       "company": "ALDI SUISSE",
@@ -6910,19 +6930,11 @@
       "sourceLang": "fr",
       "crawledAt": "2026-10-14T09:35:19.267Z",
       "previousSlugs": [
-        "collaborateur-de-vente-m-f-d-aldi-suisse",
-        "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
-        "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana"
+        "collaborateur-de-vente-m-f-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-m-f-d-aldi-suisse"
-        ],
-        "en": [
-          "sales-collaborator-m-f-d-aldi-suisse-crans-montana"
-        ],
-        "de": [
-          "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana"
         ]
       },
       "firstSeenAt": "2026-10-14T06:14:25.366Z",
@@ -8726,9 +8738,9 @@
       "slug": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-mendrisio-4085bd2a48",
       "slugByLocale": {
         "it": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-mendrisio-4085bd2a48",
-        "en": "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "en": "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
         "de": "lernende-im-einzelhandel-m-w-x-aldi-suisse-mendrisio",
-        "fr": "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+        "fr": "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -8800,7 +8812,9 @@
         "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-2",
         "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
         "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio",
-        "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse"
+        "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
+        "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8809,10 +8823,10 @@
           "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse"
         ],
         "en": [
-          "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio"
+          "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ],
         "fr": [
-          "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+          "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ]
       },
       "firstSeenAt": "2026-08-18T10:19:27.720Z",

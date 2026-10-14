@@ -2343,8 +2343,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-40-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "dipl-pflegefachperson-hf-40-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-pflegefachperson-hf-40-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-pflegefachperson-hf-40-100-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "en": "dipl-care-professional-hf-40-100-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "dipl-soins-professionnels-hf-40-100-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2490,12 +2490,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-66a47837618c",
-      "slug": "fachperson-msr-e-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "specialista-msr-e-applicazioni-per-edifici-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "fachperson-msr-e-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "specialista-msr-e-applicazioni-per-edifici-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "specialist-msr-and-building-applications-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "specialiste-msr-et-applications-de-construction-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2543,11 +2543,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "fachperson-msr-e-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
           "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fachperson-msr-und-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fachperson-msr-e-gebaudeapplikationen-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,

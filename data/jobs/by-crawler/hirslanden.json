@@ -25959,12 +25959,12 @@
     },
     {
       "id": "hirslanden-6828864e2dbe",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
+      "slug": "specialista-di-radiologia-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        "it": "specialista-di-radiologia-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "en": "radiology-specialist-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "fr": "specialiste-en-radiologie-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26022,14 +26022,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:21:50.940Z"
+      "firstSeenAt": "2026-10-14T09:21:50.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+      ]
     },
     {
       "id": "hirslanden-f83677fc98c7",
-      "slug": "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil",
+      "slug": "assistente-medico-al-10-all-ora-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil",
-        "it": "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil",
+        "it": "assistente-medico-al-10-all-ora-hirslanden-klinik-hirslanden-clinique-cecil",
         "en": "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil",
         "de": "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil"
       },
@@ -26089,7 +26103,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:21:49.836Z"
+      "firstSeenAt": "2026-10-14T09:21:49.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-10-a-l-heure-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-df16746ed1c4",

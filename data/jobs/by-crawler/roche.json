@@ -5115,7 +5115,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -5159,12 +5159,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -7010,12 +7014,12 @@
     },
     {
       "id": "roche-64f98bc3dd97",
-      "slug": "digital-biomarker-science-technology-neuroscience-lead-roche-ch",
+      "slug": "digital-biomarker-scienza-e-tecnologia-roche-basel",
       "slugByLocale": {
         "en": "digital-biomarker-science-technology-neuroscience-lead-roche-ch",
-        "it": "digital-biomarker-science-technology-neuroscience-lead-roche-ch",
-        "de": "digital-biomarker-science-technology-neuroscience-lead-roche-ch",
-        "fr": "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+        "it": "digital-biomarker-scienza-e-tecnologia-roche-basel",
+        "de": "digital-biomarker-wissenschaft-technologie-neurowissenschaften-lead-roche-basel",
+        "fr": "biomarqueur-numerique-science-et-technologie-neuroscience-responsable-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7073,7 +7077,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-14T09:14:16.682Z"
+      "firstSeenAt": "2026-10-14T09:14:16.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+        ],
+        "de": [
+          "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+        ],
+        "fr": [
+          "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-biomarker-science-technology-neuroscience-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-fdf21730120c",
@@ -7081,7 +7099,7 @@
       "slugByLocale": {
         "de": "asset-excellence-manager-befristet-2-jahre-roche-ch",
         "it": "asset-excellence-manager-temporaneo-2-anni-roche-kaiseraugst",
-        "en": "asset-excellence-manager-befristet-2-jahre-roche-ch",
+        "en": "asset-excellence-manager-temporary-2-years-roche-kaiseraugst",
         "fr": "gestionnaire-d-excellence-des-actifs-temporaire-2-ans-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -7126,6 +7144,9 @@
       "previousSlugsByLocale": {
         "it": [
           "asset-excellence-manager-befristet-2-jahre-roche-ch"
+        ],
+        "en": [
+          "asset-excellence-manager-befristet-2-jahre-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -7149,11 +7170,11 @@
     },
     {
       "id": "roche-2b73bd23d36e",
-      "slug": "ai-engineer-roche-ch",
+      "slug": "ai-ingegnere-roche-basel",
       "slugByLocale": {
         "en": "ai-engineer-roche-ch",
-        "it": "ai-engineer-roche-ch",
-        "de": "ai-engineer-roche-ch",
+        "it": "ai-ingegnere-roche-basel",
+        "de": "ai-ingenieur-roche-basel",
         "fr": "ai-engineer-roche-ch"
       },
       "company": "Roche",
@@ -7211,7 +7232,18 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-roche-ch"
+        ],
+        "de": [
+          "ai-engineer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-roche-ch"
+      ]
     },
     {
       "id": "roche-3956b26d7e71",

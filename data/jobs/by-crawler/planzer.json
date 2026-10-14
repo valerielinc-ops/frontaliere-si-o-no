@@ -165,12 +165,12 @@
     },
     {
       "id": "planzer-4c2c263ecd57",
-      "slug": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
+      "slug": "project-manager-intralogistics-m-f-d-planzer-dallikon",
       "slugByLocale": {
-        "it": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
+        "it": "project-manager-intralogistics-m-f-d-planzer-dallikon",
         "en": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
         "de": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
-        "fr": "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        "fr": "gestionnaire-de-projet-intralogistique-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -227,16 +227,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-ea3bb6010690",
-      "slug": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems",
+      "slug": "autista-notturno-cat-b-m-f-d-planzer-domat-ems",
       "slugByLocale": {
-        "it": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems",
-        "en": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems",
+        "it": "autista-notturno-cat-b-m-f-d-planzer-domat-ems",
+        "en": "night-chauffeur-cat-b-m-f-d-planzer-domat-ems",
         "de": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems",
-        "fr": "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+        "fr": "chauffeur-de-nuit-cat-b-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -294,16 +305,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+        ],
+        "en": [
+          "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "nachtchauffeur-kat-b-m-w-d-planzer-domat-ems"
+      ]
     },
     {
       "id": "planzer-4b9fc94bfe16",
       "slug": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
       "slugByLocale": {
         "it": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
-        "en": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+        "en": "employee-package-sorting-late-shift-m-f-d-planzer-zurich-altstetten",
         "de": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
-        "fr": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        "fr": "colis-d-employes-triant-le-quart-tardif-h-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -354,6 +379,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-10-14T07:52:24.724Z",
@@ -376,9 +407,9 @@
       "slug": "collaboratore-trice-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
       "slugByLocale": {
         "it": "collaboratore-trice-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
-        "en": "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
+        "en": "employee-package-sorting-early-shift-m-f-d-planzer-zurich-altstetten",
         "de": "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten",
-        "fr": "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten"
+        "fr": "ensemble-d-employes-triant-le-quart-de-travail-anticipe-h-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -429,6 +460,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
+          "mitarbeiter-paketsortierung-fruhschicht-m-w-d-planzer-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-10-14T07:52:24.133Z",
@@ -448,11 +485,11 @@
     },
     {
       "id": "planzer-15666acce832",
-      "slug": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy",
+      "slug": "deposito-deposito-pacco-su-chiamata-m-f-d-planzer-grand-lancy",
       "slugByLocale": {
-        "it": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy",
-        "en": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy",
-        "de": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy",
+        "it": "deposito-deposito-pacco-su-chiamata-m-f-d-planzer-grand-lancy",
+        "en": "store-store-deposit-parcel-on-call-m-f-d-planzer-grand-lancy",
+        "de": "ladendepotpaket-auf-anruf-m-w-d-planzer-grand-lancy",
         "fr": "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
       },
       "company": "Planzer",
@@ -511,16 +548,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
+        ],
+        "en": [
+          "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
+        ],
+        "de": [
+          "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "magasinier-depot-colis-sur-appel-m-f-d-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-25c69e5b5017",
       "slug": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
       "slugByLocale": {
         "it": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
-        "en": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+        "en": "vehicle-professional-for-the-new-vehicle-provision-m-f-d-planzer-dallikon",
         "de": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
-        "fr": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        "fr": "vehicule-professionnel-pour-la-nouvelle-disposition-de-vehicule-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -571,6 +622,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
         ]
       },
       "firstSeenAt": "2026-10-14T07:52:22.943Z",
@@ -590,12 +647,12 @@
     },
     {
       "id": "planzer-14cd27ec634c",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
       "slugByLocale": {
-        "it": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
         "en": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
         "de": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -653,7 +710,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-f66bcb5c7c1b",

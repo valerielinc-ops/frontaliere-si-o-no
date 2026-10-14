@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bcv-5d25da6b8cfe",
-      "slug": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle",
+      "slug": "consulente-bancario-regione-chablais-banque-cantonale-vaudoise-aigle",
       "slugByLocale": {
         "fr": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle",
-        "it": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle",
-        "en": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle",
-        "de": "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+        "it": "consulente-bancario-regione-chablais-banque-cantonale-vaudoise-aigle",
+        "en": "banking-advisor-chablais-region-banque-cantonale-vaudoise-aigle",
+        "de": "bankberater-region-chablais-banque-cantonale-vaudoise-aigle"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -69,15 +69,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:22:17.812Z"
+      "firstSeenAt": "2026-10-14T09:22:17.812Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+        ],
+        "en": [
+          "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+        ],
+        "de": [
+          "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-ou-conseiller-bancaire-region-chablais-bcv-aigle"
+      ]
     },
     {
       "id": "bcv-af267f0aa378",
-      "slug": "conseiller-a-distance-niveau-1-579-bcv-lausanne",
+      "slug": "consulente-remoto-livello-1-579-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseiller-a-distance-niveau-1-579-bcv-lausanne",
-        "it": "conseiller-a-distance-niveau-1-579-bcv-lausanne",
-        "en": "conseiller-a-distance-niveau-1-579-bcv-lausanne",
+        "it": "consulente-remoto-livello-1-579-banque-cantonale-vaudoise-lausanne",
+        "en": "remote-advisor-level-1-579-banque-cantonale-vaudoise-lausanne",
         "de": "conseiller-a-distance-niveau-1-579-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -138,7 +152,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:22:17.032Z"
+      "firstSeenAt": "2026-10-14T09:22:17.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-a-distance-niveau-1-579-bcv-lausanne"
+        ],
+        "en": [
+          "conseiller-a-distance-niveau-1-579-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-a-distance-niveau-1-579-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-e908007933b2",
@@ -307,7 +332,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -364,14 +389,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
@@ -986,10 +1011,10 @@
     },
     {
       "id": "bcv-ffd7885d9873",
-      "slug": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne",
+      "slug": "specialist-recruitment-advisor-80-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne",
-        "it": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne",
+        "it": "specialist-recruitment-advisor-80-banque-cantonale-vaudoise-lausanne",
         "en": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne",
         "de": "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne"
       },
@@ -1051,7 +1076,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:22:08.765Z"
+      "firstSeenAt": "2026-10-14T09:22:08.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ou-conseillere-en-recrutement-specialise-80-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-c9e31df39b0d",

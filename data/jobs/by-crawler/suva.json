@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suva-d53355d93040",
-      "slug": "assistent-in-ceo-60-suva-luzern",
+      "slug": "assistente-del-ceo-60-suva-luzern",
       "slugByLocale": {
         "de": "assistent-in-ceo-60-suva-luzern",
-        "it": "assistent-in-ceo-60-suva-luzern",
-        "en": "assistent-in-ceo-60-suva-luzern",
-        "fr": "assistent-in-ceo-60-suva-luzern"
+        "it": "assistente-del-ceo-60-suva-luzern",
+        "en": "ceo-assistant-60-suva-luzern",
+        "fr": "assistant-e-du-ceo-60-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -66,7 +66,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-14T09:21:12.840Z"
+      "firstSeenAt": "2026-10-14T09:21:12.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-ceo-60-suva-luzern"
+        ],
+        "en": [
+          "assistent-in-ceo-60-suva-luzern"
+        ],
+        "fr": [
+          "assistent-in-ceo-60-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-ceo-60-suva-luzern"
+      ]
     },
     {
       "id": "suva-baf55943dd7d",

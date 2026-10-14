@@ -740,12 +740,12 @@
     },
     {
       "id": "honegger-ca5d50f8d643",
-      "slug": "collaboratore-trice-in-reinigung-m-w-d-honegger-ag-stans",
+      "slug": "addetto-a-alle-pulizie-m-f-d-honegger-ag-stans",
       "slugByLocale": {
         "de": "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
-        "it": "collaboratore-trice-in-reinigung-m-w-d-honegger-ag-stans",
-        "en": "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
-        "fr": "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
+        "it": "addetto-a-alle-pulizie-m-f-d-honegger-ag-stans",
+        "en": "cleaning-employee-m-f-d-honegger-ag-stans",
+        "fr": "employe-e-de-nettoyage-h-f-d-honegger-ag-stans"
       },
       "company": "Honegger AG",
       "companyKey": "honegger",
@@ -805,11 +805,19 @@
       "pensum": "30%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
+          "collaboratore-trice-in-reinigung-m-w-d-honegger-ag-stans"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
+        ],
+        "fr": [
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
+        "collaboratore-trice-in-reinigung-m-w-d-honegger-ag-stans"
       ],
       "salaryMin": 53000,
       "salaryMax": 71500,

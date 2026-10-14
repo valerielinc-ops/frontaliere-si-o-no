@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "straumann-37d90b4f44da",
-      "slug": "team-leader-quality-systems-compliance-m-f-d-straumann-ch",
+      "slug": "capo-squadra-quality-systems-compliance-m-f-d-straumann-basel",
       "slugByLocale": {
         "en": "team-leader-quality-systems-compliance-m-f-d-straumann-ch",
-        "it": "team-leader-quality-systems-compliance-m-f-d-straumann-ch",
+        "it": "capo-squadra-quality-systems-compliance-m-f-d-straumann-basel",
         "de": "team-leader-quality-systems-compliance-m-f-d-straumann-ch",
         "fr": "team-leader-quality-systems-compliance-m-f-d-straumann-ch"
       },
@@ -68,7 +68,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:16:50.417Z"
+      "firstSeenAt": "2026-10-14T09:16:50.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-quality-systems-compliance-m-f-d-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-quality-systems-compliance-m-f-d-straumann-ch"
+      ]
     },
     {
       "id": "straumann-e16a4cb12d98",

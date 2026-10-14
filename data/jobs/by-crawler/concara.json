@@ -3276,12 +3276,12 @@
     },
     {
       "id": "concara-e627999a023f",
-      "slug": "kommunikations-spezialist-in-employer-branding-concara-bern",
+      "slug": "specialista-della-comunicazione-employer-branding-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "kommunikations-spezialist-in-employer-branding-concara-bern",
-        "it": "kommunikations-spezialist-in-employer-branding-concara-bern",
-        "en": "kommunikations-spezialist-in-employer-branding-concara-bern",
-        "fr": "kommunikations-spezialist-in-employer-branding-concara-bern"
+        "it": "specialista-della-comunicazione-employer-branding-concara-domicil-spitex-bern-bern",
+        "en": "communications-specialist-employer-branding-concara-domicil-spitex-bern-bern",
+        "fr": "specialiste-en-communication-employer-branding-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3340,7 +3340,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:19:01.659Z"
+      "firstSeenAt": "2026-10-14T09:19:01.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommunikations-spezialist-in-employer-branding-concara-bern"
+        ],
+        "en": [
+          "kommunikations-spezialist-in-employer-branding-concara-bern"
+        ],
+        "fr": [
+          "kommunikations-spezialist-in-employer-branding-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "kommunikations-spezialist-in-employer-branding-concara-bern"
+      ]
     }
   ]
 }

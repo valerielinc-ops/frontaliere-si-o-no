@@ -1978,7 +1978,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "fr": "greffier-ere-etat-de-vaud-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -2026,7 +2026,7 @@
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-yverdon-les-bains",
         "gerichtsschreiber-in-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2034,7 +2034,7 @@
         ],
         "de": [
           "gerichtsschreiber-in-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-10-05T21:35:33.220Z",
@@ -2982,7 +2982,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "fr": "greffier-ere-etat-de-vaud-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3029,7 +3029,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-renens-vd",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3040,7 +3040,7 @@
         ],
         "de": [
           "greffier-ere-etat-de-vaud-renens-vd",
-          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ]
       },
       "firstSeenAt": "2026-10-08T09:29:34.086Z",
@@ -3860,11 +3860,11 @@
     },
     {
       "id": "etat-de-vaud-6031",
-      "slug": "assistant-e-en-gestion-comptable-etat-de-vaud-orbe",
+      "slug": "assistente-contabile-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "assistant-e-en-gestion-comptable-etat-de-vaud-orbe",
-        "it": "assistant-e-en-gestion-comptable-etat-de-vaud-orbe",
-        "en": "assistant-e-en-gestion-comptable-etat-de-vaud-orbe",
+        "it": "assistente-contabile-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "accounting-assistant-etat-de-vaud-administration-cantonale-vaudoise-orbe",
         "de": "assistant-e-en-gestion-comptable-etat-de-vaud-orbe"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3924,16 +3924,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:27:48.062Z"
+      "firstSeenAt": "2026-10-14T09:27:48.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-gestion-comptable-etat-de-vaud-orbe"
+        ],
+        "en": [
+          "assistant-e-en-gestion-comptable-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-gestion-comptable-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-6009",
-      "slug": "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "capo-ufficio-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne",
-        "it": "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne",
-        "de": "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne"
+        "it": "capo-ufficio-aggiunto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "deputy-head-of-office-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "stellvertretender-leiter-des-amtes-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3981,11 +3992,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne",
+          "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne"
+        ],
+        "de": [
           "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne"
+        "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-lausanne",
+        "adjoint-e-a-la-cheffe-d-office-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4004,12 +4023,12 @@
     },
     {
       "id": "etat-de-vaud-5996",
-      "slug": "assesseurs-de-justice-de-paix-etat-de-vaud-aigle",
+      "slug": "avvocati-della-giustizia-della-pace-etat-de-vaud-administration-cantonale-vaudoise-aigle",
       "slugByLocale": {
         "fr": "assesseurs-de-justice-de-paix-etat-de-vaud-aigle",
-        "it": "assesseurs-de-justice-de-paix-etat-de-vaud-aigle",
-        "en": "assesseurs-de-justice-de-paix-etat-de-vaud-aigle",
-        "de": "assesseurs-de-justice-de-paix-etat-de-vaud-aigle"
+        "it": "avvocati-della-giustizia-della-pace-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+        "en": "peace-justice-advocates-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+        "de": "friedensgerechtigkeit-befurwortet-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4068,7 +4087,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:27:47.161Z"
+      "firstSeenAt": "2026-10-14T09:27:47.161Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assesseurs-de-justice-de-paix-etat-de-vaud-aigle"
+        ],
+        "en": [
+          "assesseurs-de-justice-de-paix-etat-de-vaud-aigle"
+        ],
+        "de": [
+          "assesseurs-de-justice-de-paix-etat-de-vaud-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "assesseurs-de-justice-de-paix-etat-de-vaud-aigle"
+      ]
     }
   ]
 }
