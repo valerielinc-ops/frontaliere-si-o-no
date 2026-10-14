@@ -10,6 +10,7 @@ const aliases = {
   'denner-ag': 'denner',
   'kantonsspital-st-gallen-kssg-hoch': 'hoch-health-ostschweiz',
   'solothurner-spitaler-soh': 'solothurner-spitaler-ag-soh',
+  'migros-genossenschafts-bund': 'migros-hq-zurich',
 };
 const paths = Object.entries(aliases).flatMap(([from, to]) => ['', '/en', '/de', '/fr'].map(prefix => ({
   from: `${prefix}/aziende/${from}/`, to: `${prefix}/aziende/${to}/`,
@@ -56,7 +57,7 @@ describe('exact employer profile display-name migrations', () => {
 
   it.each([
     '/fr/aziende/denner/', '/aziende/christ-orologi-gioielli/', '/aziende/spitex-mittleres-tosstal/',
-    '/aziende/pkb-private-bank-sa/', '/fr/aziende/migros-genossenschafts-bund/',
+    '/aziende/pkb-private-bank-sa/', '/fr/aziende/migros-hq-zurich/',
     '/en/aziende/solothurner-spitaler-soh/extra/', '/it/aziende/denner-sa/',
     '/en/companies/denner-sa/', '/en/aziende/constructor/',
   ])('never guesses an alias or probes a healthy canonical: %s', async from => {

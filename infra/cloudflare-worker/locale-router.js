@@ -946,12 +946,14 @@ async function recoverOrphanQueryAlias(url, origin, originIsLive = false) {
 
 // Declared employer display-name migrations, not a generic legal-suffix or
 // brand matcher: Denner profile history, the KSSG → HOCH brand map, and soH's
-// official organization name attest these exact same-entity replacements.
+// official organization name, and the entity-scoped Migros HQ crawler attest
+// these exact same-entity replacements.
 const EMPLOYER_PROFILE_ALIAS_SLUGS = {
   'denner-sa': 'denner',
   'denner-ag': 'denner',
   'kantonsspital-st-gallen-kssg-hoch': 'hoch-health-ostschweiz',
   'solothurner-spitaler-soh': 'solothurner-spitaler-ag-soh',
+  'migros-genossenschafts-bund': 'migros-hq-zurich',
 };
 
 async function recoverEmployerProfileAlias(url, origin) {
