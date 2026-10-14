@@ -3,8 +3,7 @@
   "totals": {
     "R3": 23,
     "R4": 18,
-    "R5": 139,
-    "R6": 12
+    "R5": 139
   },
   "files": {
     "scripts/lib/a-plus-plus-job-parser.mjs": {
@@ -26,9 +25,6 @@
     "scripts/lib/amag-job-parser.mjs": {
       "R3": 1,
       "R5": 2
-    },
-    "scripts/lib/anicura-job-parser.mjs": {
-      "R6": 3
     },
     "scripts/lib/answerconsulting-job-parser.mjs": {
       "R4": 1
@@ -66,9 +62,6 @@
     "scripts/lib/cerbios-pharma-job-parser.mjs": {
       "R5": 2
     },
-    "scripts/lib/christinavassalli-job-parser.mjs": {
-      "R6": 3
-    },
     "scripts/lib/citta-di-lugano-job-parser.mjs": {
       "R5": 1
     },
@@ -96,9 +89,6 @@
     "scripts/lib/fincons-job-parser.mjs": {
       "R3": 1,
       "R5": 1
-    },
-    "scripts/lib/fisba-job-parser.mjs": {
-      "R6": 3
     },
     "scripts/lib/giorgio-armani-job-parser.mjs": {
       "R5": 1
@@ -130,9 +120,6 @@
     },
     "scripts/lib/mtic-job-parser.mjs": {
       "R5": 2
-    },
-    "scripts/lib/my-job-parser.mjs": {
-      "R6": 3
     },
     "scripts/lib/new-yorker-job-parser.mjs": {
       "R3": 1

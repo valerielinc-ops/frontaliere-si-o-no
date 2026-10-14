@@ -7545,8 +7545,20 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     // contaminate a fresh job record with stale, unrelated content.
     const aSourceText = normalizeLocaleTextKeepLines(String(a?.[sourceLocale] || ''));
     const bSourceText = normalizeLocaleTextKeepLines(String(b?.[sourceLocale] || ''));
+    // Compare the WHOLE source text. `slugify` truncates at 140 characters by
+    // default, so for a description only its opening was compared: staffing
+    // agencies (sta.jobs, Stellentreff, Stellenpartner, Fachkraft) serve the
+    // same paragraphs in a different order on every visit, the opening
+    // changed, and every crawl dropped the translations as if the posting
+    // were a different job. Measured on the group-10 commit d373228c378
+    // (2026-10-13, stellentreff.json): 773 descriptions changed only in
+    // paragraph order, 596 of them lost their translations here; 0 with the
+    // full-text comparison.
     const sourceDrifted = aSourceText.length >= minChars && bSourceText.length >= minChars
-      && slugJaccard(slugify(aSourceText), slugify(bSourceText)) < SOURCE_DRIFT_JACCARD_FLOOR;
+      && slugJaccard(
+        slugify(aSourceText, Number.MAX_SAFE_INTEGER),
+        slugify(bSourceText, Number.MAX_SAFE_INTEGER),
+      ) < SOURCE_DRIFT_JACCARD_FLOOR;
 
     for (const locale of LOCALES) {
       const av = normalizeLocaleTextKeepLines(String(a?.[locale] || ''));

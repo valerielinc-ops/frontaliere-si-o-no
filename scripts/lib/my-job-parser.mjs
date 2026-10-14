@@ -16,7 +16,10 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -140,11 +143,30 @@ export async function fetchAllMyJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const sourceGeographyEvidence = {
+      location: listing.location,
+      addressLocality: listing.addressLocality,
+      addressRegion: listing.addressRegion,
+      addressCountry: listing.addressCountry,
+      country: listing.country,
+      postalCode: listing.postalCode,
+      streetAddress: listing.streetAddress,
+    };
+    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
+    const geography = resolvedGeography
+      && sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      addressCountry,
+      postalCode,
+      streetAddress,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -180,12 +202,12 @@ export async function fetchAllMyJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
-      country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
+      addressCountry: normalizeSpace(addressCountry || 'CH'),
+      country: normalizeSpace(addressCountry || 'CH'),
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'

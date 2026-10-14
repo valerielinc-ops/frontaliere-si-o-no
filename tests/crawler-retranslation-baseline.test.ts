@@ -45,6 +45,21 @@ const pair = (name: string): Pair => {
 
 beforeEach(() => _resetRetranslationBaselines());
 
+describe('retranslationSourceHash and paragraph order', () => {
+  // Same paragraphs, new order: the agency sites (sta.jobs, Stellentreff,
+  // Stellenpartner) reorder them on every visit; the hash must not re-raise
+  // `needsRetranslation` for that. A changed paragraph still changes it.
+  const job = (description: string) => ({ sourceLang: 'de', title: 'Zimmermann EFZ', description });
+  const a = 'Erster Absatz über die Arbeit.\nZweiter Absatz über das Team.\n- Dritter Punkt im Profil';
+  it('is the same for the same paragraphs in another order', () => {
+    expect(retranslationSourceHash(job('- Dritter Punkt im Profil\nErster Absatz über die Arbeit.\nZweiter Absatz über das Team.')))
+      .toBe(retranslationSourceHash(job(a)));
+  });
+  it('differs when a paragraph changes', () => {
+    expect(retranslationSourceHash(job(a.replace('Team', 'Betrieb')))).not.toBe(retranslationSourceHash(job(a)));
+  });
+});
+
 describe('fixture premises (what the crawler wrote on 2026-09-26)', () => {
   it.each(['source-unchanged', 'source-formal-only', 'source-changed'])(
     '%s: flag raised by the crawler on a record translate-pending calls complete',

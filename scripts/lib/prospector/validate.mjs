@@ -341,7 +341,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
  *
  * @param {{ companyKey: string }} spec
  * @param {any[]} vacancies
- * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown> }} [opts]
+ * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any }} [opts]
  * @returns {Promise<QualityReport>}
  */
 export async function gradeExtraction(spec, vacancies, opts = {}) {
@@ -371,6 +371,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
         dispatcher: urlPolicy.dispatcher,
         fetchImpl: opts.fetchImpl,
         sleepImpl: opts.sleepImpl,
+        detailExtractor: opts.detailExtractor,
         ...(isPageExecutive ? { headers: { 'Accept-Encoding': 'identity' } } : {}),
       }));
     }

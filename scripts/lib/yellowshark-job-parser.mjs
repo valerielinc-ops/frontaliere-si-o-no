@@ -16,7 +16,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -52,7 +55,10 @@ export function resolveYellowsharkListingAdmission(listing = {}) {
     return { accepted: false, reason: 'source country is foreign or conflicting', countryEvidence };
   }
 
-  const geography = resolveSourceBackedSwissGeography({ ...listing, addressCountry: 'CH' });
+  const sourceGeographyEvidence = { ...listing, addressCountry: 'CH' };
+  const resolvedGeography = resolveSourceBackedSwissGeography(sourceGeographyEvidence);
+  const geography = resolvedGeography
+    && sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography);
   if (!geography) {
     return { accepted: false, reason: 'source location is foreign or unresolved', countryEvidence };
   }
@@ -174,7 +180,14 @@ export async function fetchAllYellowsharkJobs() {
       continue;
     }
     const { geography } = admission;
-    const { location, canton } = geography;
+    const {
+      location,
+      canton,
+      addressLocality,
+      addressRegion,
+      postalCode,
+      streetAddress,
+    } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
@@ -210,12 +223,12 @@ export async function fetchAllYellowsharkJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(addressRegion || canton),
       addressCountry: admission.country,
       country: admission.country,
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
+      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'

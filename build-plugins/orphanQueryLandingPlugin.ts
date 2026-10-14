@@ -86,6 +86,7 @@ import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
+import { buildOrphanQueryAliases } from '../scripts/lib/orphan-query-aliases.mjs';
 import {
   resolveNursingOrphanQueryTarget,
   type NursingOrphanQueryTarget,
@@ -1225,6 +1226,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       }
 
       const t0 = Date.now();
+      collector.add(path.join(distDir, 'orphan-query-aliases.json'), JSON.stringify({ schema: 1, aliases: buildOrphanQueryAliases(clusters) }));
       const written = await collector.flush();
       console.log(
         `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${canonicalBridges} canonical nursing bridges) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,

@@ -196,14 +196,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f public/data/plate-auctions.json
+          git add -f public/data/plate-auctions.json public/data/plate-auctions-archive/
           if git diff --cached --quiet; then
             echo "No plate-auction snapshot changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "🚘 Refresh Swiss plate-auction snapshot"
             bash scripts/lib/git-push-with-retry.sh \
-              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json'
+              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json public/data/plate-auctions-archive/'
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
