@@ -126,6 +126,15 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     routes.push({ route: { activeTab: tab }, label: tab });
   }
 
+  // The public application-concierge landing uses the job-board shell, but
+  // has locale-specific SEO entries and canonical paths of its own.
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    routes.push({
+      route: { activeTab: 'job-board', applicationConciergeLocale: locale },
+      label: `application-concierge/${locale}`,
+    });
+  }
+
   // SEO landings (long-tail)
   for (const id of ALL_SEO_LANDING_IDS) {
     routes.push({
