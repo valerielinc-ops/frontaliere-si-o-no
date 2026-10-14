@@ -292,6 +292,7 @@ export function normalizeGeneratedImageSpec(spec = {}) {
  */
 export function buildGeneratedImagePrompt(spec, { variation = '' } = {}) {
   const normalized = normalizeGeneratedImageSpec(spec);
+  const realisticEditorial = normalized.scope === 'article-hero';
   const policy = GENERATED_IMAGE_POLICY.map((rule) => `- ${rule}`).join('\n');
   const variationText = normalizeText(variation);
   const ratio = normalized.format.width / normalized.format.height;
@@ -301,13 +302,17 @@ export function buildGeneratedImagePrompt(spec, { variation = '' } = {}) {
       ? 'portrait'
       : 'square';
   return [
-    'Create one original editorial illustration for frontaliereticino.ch.',
+    realisticEditorial
+      ? 'Create one original photorealistic editorial illustration for frontaliereticino.ch. This is a synthetic illustrative scene, not a documentary photograph.'
+      : 'Create one original editorial illustration for frontaliereticino.ch.',
     `Purpose: ${normalized.scope}.`,
     `Subject: ${normalized.subject}.`,
     `Area or visual context: ${normalized.area}.`,
     `Seasonal atmosphere: ${normalized.season}.`,
     `Composition: ${composition} ${normalized.format.width}x${normalized.format.height}, clear subject separation, calm editorial composition, no cropped focal subject at the edges.`,
-    'Style: warm, precise, contemporary Swiss editorial illustration with natural texture, restrained colors and a consistent art direction; not photorealistic.',
+    realisticEditorial
+      ? 'Style: realistic-v2. Natural daylight, believable materials, ordinary Swiss or border-region surroundings, restrained colors, camera-like perspective and realistic proportions. No cartoons, vector art, painting, plastic 3D render, fantasy scenery or exaggerated cinematic effects. Show one recognizable subject relevant to the article, not a generic mountain panorama. Do not invent a specific incident, identifiable building, official document or real person; never imply that this depicts the reported event.'
+      : 'Style: warm, precise, contemporary Swiss editorial illustration with natural texture, restrained colors and a consistent art direction; not photorealistic.',
     'Mandatory safety policy:',
     policy,
     variationText ? `Deterministic variation: ${variationText}.` : '',
@@ -320,6 +325,7 @@ export function generatedImagePromptInput(spec, options) {
   const normalized = normalizeGeneratedImageSpec(spec);
   return JSON.stringify({
     promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+    visualStyle: normalized.scope === 'article-hero' ? 'realistic-v2' : 'editorial-v1',
     spec: normalized,
     variation: normalizeText(options?.variation || ''),
   });

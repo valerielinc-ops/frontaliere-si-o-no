@@ -97,6 +97,16 @@ const PHOTO_RECORD = {
 };
 
 describe('generated event image policy', () => {
+  it('uses realistic article scenes while preserving event provenance and policy', () => {
+    const prompt = buildGeneratedImagePrompt({ scope: 'article-hero', subject: 'border crossing traffic', area: 'Ticino' });
+    expect(prompt).toContain('photorealistic editorial illustration');
+    expect(prompt).toContain('No cartoons');
+    expect(prompt).not.toContain('not photorealistic');
+    expect(prompt).toContain('never imply that this depicts the reported event');
+    expect(prompt).toContain('No logo, brand, trademark');
+    expect(buildGeneratedImagePrompt({ scope: 'event-library', subject: 'concert' })).toContain('not photorealistic');
+    expect(validateGeneratedImageRecord(ARTICLE_RECORD).valid).toBe(true);
+  });
   it('keeps the forbidden-content policy in the canonical prompt', () => {
     const prompt = buildGeneratedImagePrompt({
       scope: 'event-library',

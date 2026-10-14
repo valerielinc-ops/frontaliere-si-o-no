@@ -27,7 +27,10 @@ import { cantonSectionConfig, isCantonArticleSection } from '@/services/runtimeA
 import CantonTopicHub from '@/components/community/CantonTopicHub';
 import { cantonDisplayName, cantonSectionLabel } from '@/packages/articles/engine/shared/cantonSectionCopy.mjs';
 import { isStaticArticleReadyForTakeover } from '@/services/staticFallbackHandoff';
-import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
+import { NAV_ACTION_ROUTES, contentLinkDestinations, type NavAction, type NavigatorMap } from '@/services/internalLinks';
+import { linkContentKeywords } from '@/packages/articles/engine/shared/linkContentKeywords.mjs';
+import { matchContentLinks } from '@/packages/articles/engine/shared/contentLinkVocabulary.mjs';
+import { rankContentDestinations } from '@/packages/articles/engine/shared/contentKeywordMatcher.mjs';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
@@ -49,11 +52,6 @@ import {
 // offline placement observer can use the same rules.
 export { isAdStraddleBlock, isTableBlock } from '@/services/adPlacement';
 
-// Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
-const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
- ...kl,
- giPattern: new RegExp(kl.pattern.source, 'gi'),
-}));
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -170,7 +168,7 @@ async function fetchTrendingArticles(validIds: Set<string>, section: ArticleSect
 
 /* ─── Navigation types & keyword auto-linking ─── */
 
-// NavAction, NavigatorMap, NAV_ACTION_ROUTES, KEYWORD_LINKS imported from @/services/internalLinks
+// Navigation routes and multilingual content destinations share one catalogue.
 // Re-export for backward compatibility (tests import from here)
 export { NAV_ACTION_ROUTES } from '@/services/internalLinks';
 
@@ -178,97 +176,12 @@ export { NAV_ACTION_ROUTES } from '@/services/internalLinks';
  * Strips bold/italic markers before matching so patterns work even when keywords
  * span formatting boundaries (e.g. `cambio **franco-euro**`).
  * Exported for regression testing (see tests/markdown-lite-formatting.test.ts). */
-export function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
- if (!text) return text;
-
- // 1. Build a stripped copy (no * chars) with a position map back to the original
- const posMap: number[] = []; // posMap[strippedIdx] → originalIdx
- let stripped = '';
- for (let i = 0; i < text.length; i++) {
- if (text[i] !== '*') {
- posMap.push(i);
- stripped += text[i];
- }
- }
-
- // 2. Find all formatting spans (**bold** / *italic*) in the original text.
- // Delimiters must not cross a newline — otherwise a stray unpaired `*` (e.g. a
- // `* ` list bullet marker on one line) pairs with an unrelated `*` many lines
- // later, producing a bogus span thousands of characters long that then inflates
- // an unrelated keyword-link match in step 4.
- const fmtSpans: Array<[number, number]> = [];
- const fmtRe = /(\*\*([^\n]+?)\*\*)|(\*([^*\n]+?)\*)/g;
- let fm: RegExpExecArray | null;
- while ((fm = fmtRe.exec(text)) !== null) {
- fmtSpans.push([fm.index, fm.index + fm[0].length]);
- }
-
- // 3. Detect pre-existing [text](nav:action)/[text](https://...)/[text](/path) links so
- // we skip those regions — otherwise a keyword match landing inside an already-linked
- // phrase (e.g. "offerte di lavoro" inside "[offerte di lavoro in Ticino](/cerca-lavoro-ticino/)")
- // gets wrapped again, nesting a [word](nav:action) inside the existing brackets and
- // corrupting the markdown.
- const existingLinkSpans: Array<[number, number]> = [];
- const usedActions = new Set<string>();
- const navLinkRe = /\[([^\]]+)\]\(nav:([a-z0-9\-]+)\)/g;
- let nlm: RegExpExecArray | null;
- while ((nlm = navLinkRe.exec(text)) !== null) {
- existingLinkSpans.push([nlm.index, nlm.index + nlm[0].length]);
- usedActions.add(nlm[2]); // mark action as already linked
- }
- const urlLinkRe = /\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g;
- let ulm: RegExpExecArray | null;
- while ((ulm = urlLinkRe.exec(text)) !== null) {
- existingLinkSpans.push([ulm.index, ulm.index + ulm[0].length]);
- }
-
- // 4. Match keyword patterns against the stripped text
- const matches: Array<{ origStart: number; origEnd: number; action: string; linkText: string }> = [];
-
- for (const { pattern, action } of KEYWORD_LINKS) {
- if (usedActions.has(action)) continue;
- if (!navigators[action]) continue;
-
- const re = new RegExp(pattern.source, pattern.flags.replace('g', ''));
- const m = re.exec(stripped);
- if (!m || m.index === undefined) continue;
-
- const sStart = m.index;
- const sEnd = sStart + m[0].length;
-
- // Map stripped range → original range
- let origStart = posMap[sStart];
- let origEnd = sEnd < posMap.length ? posMap[sEnd] : text.length;
-
- // Skip if this match falls inside a pre-existing nav link
- if (existingLinkSpans.some(([ls, le]) => origStart >= ls && origEnd <= le)) continue;
-
- // Expand to include any partially-overlapped formatting spans (** / *)
- for (const [fs, fe] of fmtSpans) {
- if (origStart < fe && origEnd > fs) {
- origStart = Math.min(origStart, fs);
- origEnd = Math.max(origEnd, fe);
- }
- }
-
- // Link text = original segment with all * stripped
- const linkText = text.slice(origStart, origEnd).replace(/\*/g, '');
-
- // Avoid overlapping matches (including pre-existing links)
- if (matches.some(prev => origStart < prev.origEnd && origEnd > prev.origStart)) continue;
- if (existingLinkSpans.some(([ls, le]) => origStart < le && origEnd > ls)) continue;
-
- matches.push({ origStart, origEnd, action, linkText });
- usedActions.add(action);
- }
-
- // 5. Apply replacements in reverse order so positions stay valid
- matches.sort((a, b) => b.origStart - a.origStart);
- let result = text;
- for (const m of matches) {
- result = result.slice(0, m.origStart) + `[${m.linkText}](nav:${m.action})` + result.slice(m.origEnd);
- }
- return result;
+export function autoLinkKeywords(text: string, navigators: NavigatorMap, locale: string = getLocale()): string {
+ const paths = contentLinkDestinations(locale as Locale);
+ return linkContentKeywords(text, locale, {
+   isEnabled: (id) => Boolean(navigators[id]) || id === 'fuel-petrol' || id === 'fuel-diesel',
+   destinations: { 'fuel-petrol': paths['fuel-petrol'], 'fuel-diesel': paths['fuel-diesel'] },
+ });
 }
 
 /* ─── Markdown-lite formatted content renderer ─── */
@@ -484,9 +397,15 @@ export function renderFormattedContent(
  minWordGap: number = AD_MIN_WORD_GAP,
  onH2Boundary?: (outcome: H2BoundaryOutcome, key: string) => void,
  usedHeadingIds: Set<string> = new Set(),
+ usedLinkIds: Set<string> = new Set(),
 ): ReactElement {
  // Auto-link keywords if navigators provided
- const processed = navigators ? autoLinkKeywords(text, navigators) : text;
+ const paths = contentLinkDestinations(getLocale());
+ const processed = navigators ? linkContentKeywords(text, getLocale(), {
+   isEnabled: (id) => Boolean(navigators[id]) || id === 'fuel-petrol' || id === 'fuel-diesel',
+   destinations: { 'fuel-petrol': paths['fuel-petrol'], 'fuel-diesel': paths['fuel-diesel'] },
+   usedIds: usedLinkIds, maxLinks: 3,
+ }) : text;
 
  const renderedBlocks: ReactElement[] = [];
 
@@ -1247,8 +1166,8 @@ interface CtaConfig {
  titleKey: string;
  descKey: string;
  buttonKey: string;
- action: () => void;
- navAction: NavAction;
+ action?: () => void;
+ href: string;
  color: 'indigo' | 'emerald' | 'amber' | 'blue' | 'violet' | 'rose';
 }
 
@@ -1279,6 +1198,11 @@ const NAV_ACTION_CTA_MAP: Partial<Record<NavAction, { icon: LucideIcon; i18nPref
  'traffic-history':{ icon: TrendingUp, i18nPrefix: 'blog.cta.trafficHistory', color: 'rose' },
  'parental-leave': { icon: Baby, i18nPrefix: 'blog.cta.parentalLeave', color: 'rose' },
  'job-board': { icon: Search, i18nPrefix: 'blog.cta.jobBoard', color: 'emerald' },
+};
+
+const STATIC_CONTENT_CTA_MAP = {
+ 'fuel-petrol': { icon: Coins, i18nPrefix: 'blog.cta.petrol', color: 'amber' as const },
+ 'fuel-diesel': { icon: Coins, i18nPrefix: 'blog.cta.diesel', color: 'amber' as const },
 };
 
 const CTA_COLORS = {
@@ -1318,20 +1242,6 @@ const CTA_BTN_COLORS = {
 };
 
 export const BLOG_LIST_PAGE_STORAGE_KEY = 'blog-list-current-page';
-
-type SeoCluster = 'taxes20km' | 'pension' | 'exchange' | 'generic';
-const SEO_CLUSTER_PATTERNS: Record<Exclude<SeoCluster, 'generic'>, RegExp> = {
- taxes20km: /(20\s?km|entro\s*i\s*20|oltre\s*i\s*20|imposta|irpef|credito\s*d[' ]?imposta|nuovo\s+accordo|doppia\s+imposizione|fascia\s*20)/i,
- pension: /(pensione|avs|inps|lpp|secondo\s+pilastro|terzo\s+pilastro|pillar\s*3|prepension)/i,
- exchange: /(cambio|chf|eur|franco|euro|tasso\s*di\s*cambio|valuta|wise|bonifico)/i,
-};
-
-const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
- taxes20km: ['calculator', 'tax-return', 'permits', 'job-board'],
- pension: ['pension', 'pillar3', 'calculator', 'job-board'],
- exchange: ['exchange', 'banks', 'shopping', 'calculator'],
- generic: ['calculator', 'exchange', 'pension', 'job-board'],
-};
 
 function BlogArticlesContent({
  selectedArticle = null,
@@ -2031,59 +1941,23 @@ function BlogArticlesContent({
  const excerpt = t(`blog.article.${articleId}.excerpt`);
  // Concatenate all body sections
  const body = collectArticleBodySegments(articleId, t).join(' ');
- const contextText = `${articleId} ${title} ${excerpt} ${body}`;
-
- const cluster: SeoCluster =
- SEO_CLUSTER_PATTERNS.taxes20km.test(contextText) ? 'taxes20km'
- : SEO_CLUSTER_PATTERNS.pension.test(contextText) ? 'pension'
- : SEO_CLUSTER_PATTERNS.exchange.test(contextText) ? 'exchange'
- : 'generic';
-
- // Count keyword matches per NavAction
- const counts: Partial<Record<NavAction, number>> = {};
- for (const { giPattern, action } of KEYWORD_LINKS_GI) {
- const matches = body.match(giPattern);
- if (matches) {
- counts[action] = (counts[action] || 0) + matches.length;
- }
- }
-
- // Sort by density descending, take top candidates with an available navigator
- const rankedByDensity = (Object.entries(counts) as [NavAction, number][])
- .filter(([action]) => navigators[action])
- .sort((a, b) => b[1] - a[1])
- .slice(0, 6)
- .map(([action]) => action);
-
- // Enforce cluster-first CTAs for stronger internal linking on high-intent SEO pages.
- const orderedActions: NavAction[] = [];
- const pushUnique = (action: NavAction) => {
- if (!navigators[action]) return;
- if (orderedActions.includes(action)) return;
- if (!NAV_ACTION_CTA_MAP[action]) return;
- orderedActions.push(action);
- };
-
- for (const action of SEO_CLUSTER_ACTIONS[cluster]) pushUnique(action);
- for (const action of rankedByDensity) pushUnique(action);
- for (const action of SEO_CLUSTER_ACTIONS.generic) pushUnique(action);
-
- const ranked = orderedActions.slice(0, 4);
-
- // Fallback hard-stop: always include calculator if nothing else passed filters
- if (ranked.length === 0 && navigators.calculator) {
- ranked.push('calculator');
- }
+ // The title and lede set intent. Repeated terms in long bodies carry less
+ // weight; absence of intent yields no unrelated calculator/bank fallback.
+ const ranked = rankContentDestinations(matchContentLinks, {
+   title, excerpt, body, locale: getLocale(),
+ }).map(({ id }) => id)
+   .filter(action => (navigators[action] && NAV_ACTION_CTA_MAP[action]) || STATIC_CONTENT_CTA_MAP[action])
+   .slice(0, 4);
 
  return ranked.map(action => {
- const cfg = NAV_ACTION_CTA_MAP[action];
+ const cfg = NAV_ACTION_CTA_MAP[action] || STATIC_CONTENT_CTA_MAP[action];
  return {
  icon: cfg.icon,
  titleKey: `${cfg.i18nPrefix}.title`,
  descKey: `${cfg.i18nPrefix}.desc`,
  buttonKey: `${cfg.i18nPrefix}.btn`,
- action: navigators[action]!,
- navAction: action,
+ action: navigators[action],
+ href: contentLinkDestinations(getLocale())[action],
  color: cfg.color,
  };
  });
@@ -2357,6 +2231,7 @@ function BlogArticlesContent({
 
  const bodySegments = collectArticleBodySegments(article.id, t);
  const usedHeadingIds = new Set<string>();
+ const usedLinkIds = new Set<string>();
  const presentSegments = bodySegments;
  const bodyWordCount = countArticleBodyWords(presentSegments);
  const bodyCharCount = countArticleBodyChars(presentSegments);
@@ -2838,7 +2713,7 @@ function BlogArticlesContent({
  </>
  )}
 
- {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap, undefined, usedHeadingIds)}
+ {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap, undefined, usedHeadingIds, usedLinkIds)}
  </Fragment>
   );
  })}
@@ -2908,8 +2783,8 @@ function BlogArticlesContent({
  {t(cta.descKey, getCantonI18nParams())}
  </p>
  <a
- href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}
- onClick={(e) => { e.preventDefault(); cta.action(); }}
+ href={cta.href}
+ onClick={(e) => { if (cta.action) { e.preventDefault(); cta.action(); } }}
  className={`mt-3 px-4 py-2 min-h-[44px] ${CTA_BTN_COLORS[cta.color]} text-on-accent rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
  >
  {t(cta.buttonKey)} <ArrowRight size={14} />

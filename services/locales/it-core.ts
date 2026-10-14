@@ -1,6 +1,16 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v3988.title": "Articoli con collegamenti più pertinenti",
+ "whatsNew.v3988.contextualLinks.title": "Strumenti nella tua lingua",
+ "whatsNew.v3988.contextualLinks.desc": "Gli articoli collegano gli strumenti pertinenti al tema, con supporto per italiano, inglese, tedesco e francese.",
+ "blog.cta.petrol.title": "Prezzi benzina oggi",
+ "blog.cta.petrol.desc": "Confronta i prezzi della benzina al confine.",
+ "blog.cta.petrol.btn": "Vedi prezzi benzina",
+ "blog.cta.diesel.title": "Prezzi diesel oggi",
+ "blog.cta.diesel.desc": "Confronta i prezzi del diesel al confine.",
+ "blog.cta.diesel.btn": "Vedi prezzi diesel",
+
  'whatsNew.v3987.title': "Articoli per cantone nella stessa esperienza",
  'whatsNew.v3987.cantonArticles.title': "Leggi e scopri gli articoli dei cantoni",
  'whatsNew.v3987.cantonArticles.desc': "Le sezioni cantonali live ora usano la stessa vista interattiva degli articoli frontalieri e svizzeri: archivio, lettura, correlati, condivisione e navigazione senza ricaricare la pagina.",
