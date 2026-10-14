@@ -51,7 +51,7 @@ describe('SumUpPaymentWidget', () => {
     renderWidget();
 
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-busy', 'true');
-    expect(screen.getAllByText('Pagamento unico · nessun abbonamento')).toHaveLength(2);
+    expect(screen.getByText('Pagamento unico · nessun abbonamento')).toBeInTheDocument();
     expect(screen.getByText(/0,99/)).toBeInTheDocument();
     expect(screen.getByTestId('sumup-payment-widget-close')).toHaveAccessibleName('Chiudi');
 
