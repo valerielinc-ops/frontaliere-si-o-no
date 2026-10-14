@@ -545,7 +545,9 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7562,13 +7564,13 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugsByLocale": {
-        "de": [
-          "teamleitung-pflege-ksa-ch"
-        ],
         "it": [
           "teamleitung-pflege-ksa-ch",
           "teamleitung-pflege-ksa-ch-9ztl7k",
           "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "teamleitung-pflege-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -7576,7 +7578,6 @@
         "teamleitung-pflege-ksa-ch-9ztl7k",
         "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
       ],
-      "firstSeenAt": "2026-09-17T14:23:50.727Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7589,7 +7590,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-17T14:23:50.727Z"
     },
     {
       "id": "ksa-7c0bbde0f88d",
