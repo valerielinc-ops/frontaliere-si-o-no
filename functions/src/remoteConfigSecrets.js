@@ -5,24 +5,72 @@
  * This avoids needing Cloud Secret Manager — keys are stored in Remote Config
  * and protected by App Check on callable functions.
  *
- * Values are cached for 5 minutes to avoid excessive Remote Config reads.
+ * Values are cached for 5 minutes to avoid excessive Remote Config reads. Once
+ * that TTL expires, callers can use the cached template while one background
+ * refresh runs until the 60-minute stale limit. Beyond that limit, reads wait
+ * at most 8 seconds for Remote Config before using a cached template or failing
+ * clearly.
  */
 
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 
 const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+const CACHE_MAX_STALE_MS = 60 * 60 * 1000; // 60 minutes
+const REMOTE_CONFIG_FETCH_TIMEOUT_MS = 8 * 1000; // 8 seconds
+const REMOTE_CONFIG_FETCH_TIMEOUT_CODE = 'REMOTE_CONFIG_FETCH_TIMEOUT';
 let cachedTemplate = null;
 let cacheTimestamp = 0;
 
 // In-flight getTemplate() promise, coalesced across concurrent callers on a
-// cold/expired cache (#5766). Without this, a Promise.all of several
-// getRemoteConfigValue() calls each sees no cached template and fires its
-// own getTemplate(), multiplying the Remote Config read cost per cold start
-// by the number of concurrent readers — enough to trip the project-wide
-// 'Read requests per minute' quota and 500 exchange_auth_code. Cleared in
-// `finally` on both success and rejection so a failed fetch never stays
-// stuck: the next call retries fresh instead of awaiting a dead promise.
+// cold/too-old cache and across stale-while-revalidate refreshes (#5766).
+// Without this, a Promise.all of several getRemoteConfigValue() calls each
+// sees no cached template and fires its own getTemplate(), multiplying the
+// Remote Config read cost per cold start by the number of concurrent readers —
+// enough to trip the project-wide 'Read requests per minute' quota and 500
+// exchange_auth_code. Cleared in `finally` on success, rejection or timeout so
+// a failed fetch never stays stuck: the next call can retry fresh instead of
+// awaiting a dead promise.
 let fetchPromise = null;
+
+function createFetchTimeoutError() {
+ const error = new Error(`Remote Config getTemplate timed out after ${REMOTE_CONFIG_FETCH_TIMEOUT_MS}ms`);
+ error.code = REMOTE_CONFIG_FETCH_TIMEOUT_CODE;
+ return error;
+}
+
+function isFetchTimeoutError(error) {
+ return error?.code === REMOTE_CONFIG_FETCH_TIMEOUT_CODE;
+}
+
+function startTemplateFetch() {
+ let remoteConfigPromise;
+ try {
+ remoteConfigPromise = getRemoteConfig().getTemplate();
+ } catch (error) {
+ remoteConfigPromise = Promise.reject(error);
+ }
+
+ let timeoutId;
+ const timeoutPromise = new Promise((_, reject) => {
+ timeoutId = setTimeout(() => reject(createFetchTimeoutError()), REMOTE_CONFIG_FETCH_TIMEOUT_MS);
+ });
+ const attempt = Promise.race([remoteConfigPromise, timeoutPromise])
+ .then((template) => {
+ cachedTemplate = template;
+ cacheTimestamp = Date.now();
+ return template;
+ })
+ .finally(() => {
+ clearTimeout(timeoutId);
+ if (fetchPromise === attempt) fetchPromise = null;
+ });
+ fetchPromise = attempt;
+ return attempt;
+}
+
+function getTemplatePromise() {
+ return fetchPromise || startTemplateFetch();
+}
 
 /**
  * Fetch a Remote Config parameter value by key.
@@ -30,20 +78,39 @@ let fetchPromise = null;
  */
 export async function getRemoteConfigValue(key) {
  const now = Date.now();
- if (!cachedTemplate || now - cacheTimestamp > CACHE_TTL_MS) {
+ const hasCachedTemplate = cachedTemplate !== null;
+ if (!hasCachedTemplate) {
+ try {
+ await getTemplatePromise();
+ } catch (error) {
+ if (!isFetchTimeoutError(error)) throw error;
+ throw new Error(
+ `Remote Config template fetch timed out after ${REMOTE_CONFIG_FETCH_TIMEOUT_MS}ms and no cached template is available`,
+ { cause: error },
+ );
+ }
+ } else {
+ const age = now - cacheTimestamp;
+ if (age > CACHE_TTL_MS && age <= CACHE_MAX_STALE_MS) {
  if (!fetchPromise) {
- fetchPromise = getRemoteConfig()
- .getTemplate()
- .then((template) => {
- cachedTemplate = template;
- cacheTimestamp = Date.now();
- return template;
- })
- .finally(() => {
- fetchPromise = null;
+ const refreshPromise = startTemplateFetch();
+ void refreshPromise.catch((error) => {
+ console.warn(
+ '[remoteConfigSecrets] background Remote Config refresh failed; keeping cached template:',
+ error?.message || error,
+ );
  });
  }
- await fetchPromise;
+ } else if (age > CACHE_MAX_STALE_MS) {
+ try {
+ await getTemplatePromise();
+ } catch (error) {
+ if (!isFetchTimeoutError(error)) throw error;
+ console.warn(
+ '[remoteConfigSecrets] Remote Config refresh timed out; serving cached template beyond max stale age',
+ );
+ }
+ }
  }
 
  const param = cachedTemplate.parameters?.[key];
@@ -69,9 +136,12 @@ export async function getRemoteConfigValue(key) {
  *     and minting a format the verifier does not know yet would sign everybody
  *     out.
  *  2. It is the rollback. Emptying the three parameters restores the
- *     never-expiring credential for every link in every inbox within one cache
- *     TTL (5 minutes) and WITHOUT a deploy — the only kind of rollback worth
- *     having when the failure mode is "subscribers cannot get in".
+ *     never-expiring credential for every link in every inbox without a
+ *     deploy. With stale-while-revalidate, the normal guarantee is the cache
+ *     TTL (5 minutes) plus the duration of one refresh: the first request
+ *     after expiry can still see the previous policy while that refresh runs.
+ *     A caller that needs an immediate security revocation must use a
+ *     blocking/fail-closed read rather than rely on this general reader.
  *  3. The TTL is applied at verification time, so changing
  *     `NEWSLETTER_AC_TTL_DAYS` re-judges codes ALREADY SENT, in both
  *     directions. Nothing has to be re-minted to widen or narrow the window.
@@ -107,6 +177,8 @@ export async function getAutologinPolicyConfig() {
  * four languages, that its link expires in 7 days. Shipping that switched off
  * would leave the sentence false, which is the half of #5704 that is a statement
  * to people who never asked to be subscribed.
+ * The rollback has the same stale-while-revalidate visibility window described
+ * above: the first read after the cache TTL can still use the previous policy.
  *
  * Rolling back is still one Remote Config edit: `NEWSLETTER_TOKEN_SCHEME=legacy`
  * mints exactly what was minted before #5704, and
