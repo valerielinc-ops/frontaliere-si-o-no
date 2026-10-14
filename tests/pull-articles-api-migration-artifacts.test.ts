@@ -75,6 +75,9 @@ const blogSitemap = urlset([
   `  <url>
     <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/a-en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/a-de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/a-fr/" />
   </url>`,
 ]);
 
@@ -110,7 +113,13 @@ const archiveSitemap = urlset([
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const SLUGS_PATH = 'slugs.json';
 const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
+const PUBLISHED_SLUGS = JSON.stringify({
+  commit: API_COMMIT,
+  blog: { a: { it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' } },
+  swiss: {},
+});
 const validGeneratedCover = () => {
   const now = Date.now();
   return {
@@ -246,9 +255,13 @@ function baseRoutes(): Routes {
     'manifest.json': JSON.stringify({
       commit: API_COMMIT,
       counts: { articles: 500 },
-      files: { [BLOG_CREDITS_PATH]: Buffer.byteLength(credits) },
+      files: {
+        [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
+        [SLUGS_PATH]: Buffer.byteLength(PUBLISHED_SLUGS),
+      },
     }),
     [BLOG_CREDITS_PATH]: credits,
+    [SLUGS_PATH]: PUBLISHED_SLUGS,
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
@@ -307,7 +320,12 @@ function makeCheckout(opts: { newsEntries?: string[]; windowHours?: number | nul
       `export const NEWS_SITEMAP_WINDOW_HOURS = ${opts.windowHours ?? 48};\n`,
     );
   }
-  for (const s of SITEMAPS) fs.writeFileSync(path.join(pub, s), blogSitemap);
+  for (const s of SITEMAPS) {
+    fs.writeFileSync(
+      path.join(pub, s),
+      s === 'sitemap-articles-archive.xml' ? archiveSitemap : blogSitemap,
+    );
+  }
   for (const f of FEEDS) fs.writeFileSync(path.join(pub, f), feed);
   fs.writeFileSync(path.join(pub, 'news-ticker-live.json'), ticker);
   fs.writeFileSync(path.join(pub, 'sitemap-news.xml'), urlset(opts.newsEntries ?? []));
@@ -352,6 +370,28 @@ function run(cwd: string, args: string[] = []): Promise<{ code: number | null; o
 
 const readPub = (dir: string, rel: string) =>
   fs.readFileSync(path.join(dir, 'public', rel), 'utf-8');
+
+describe('pull-articles-api: sitemap/slug-map source parity', () => {
+  it('refuses a hreflang slug that disagrees with the same release slug map', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-blog.xml': urlset([
+        `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/a/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/a/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/wrong/" />
+  </url>`,
+      ]),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-blog.xml: a en hreflang');
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
+  });
+});
 
 describe('pull-articles-api: hero-image manifest', () => {
   it('skips both artifacts when nanako does not publish them yet, and still pulls the rest', async () => {

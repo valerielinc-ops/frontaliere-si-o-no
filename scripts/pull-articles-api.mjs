@@ -61,6 +61,7 @@ const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const CHECK_ONLY = process.argv.includes('--check');
 const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
+const SLUGS_ARTIFACT = 'slugs.json';
 const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 
 /**
@@ -391,6 +392,78 @@ const SECTION_SITEMAPS = {
   },
 };
 
+const PUBLISHED_SLUG_SECTIONS = {
+  'sitemap-blog.xml': 'blog',
+  'sitemap-blog-ch.xml': 'swiss',
+};
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * The corpus publishes the slug registry and the sitemaps from one API
+ * release. Validate that relationship before the sitemap enters `public/` so
+ * a stale or independently generated hreflang block cannot overwrite the
+ * site's matching registry on the next sync.
+ */
+function assertSitemapUsesPublishedSlugMap(name, xml, slugDocument) {
+  const sectionName = PUBLISHED_SLUG_SECTIONS[name];
+  if (!sectionName) return;
+
+  const cfg = SECTION_SITEMAPS[name];
+  const rows = slugDocument?.[sectionName];
+  if (!rows || typeof rows !== 'object' || Array.isArray(rows)) {
+    fail(`${SLUGS_ARTIFACT} has no ${sectionName} slug registry — refusing ${name}`);
+  }
+
+  const byItSlug = new Map();
+  for (const [id, slugs] of Object.entries(rows)) {
+    if (!slugs || typeof slugs !== 'object' || typeof slugs.it !== 'string' || !slugs.it) {
+      fail(`${SLUGS_ARTIFACT} has an invalid ${sectionName} row for ${id} — refusing ${name}`);
+    }
+    if (byItSlug.has(slugs.it)) {
+      fail(`${SLUGS_ARTIFACT} has duplicate ${sectionName} IT slug ${slugs.it} — refusing ${name}`);
+    }
+    byItSlug.set(slugs.it, { id, slugs });
+  }
+
+  const itLoc = new RegExp(`^${escapeRegExp(cfg.bases.it)}([^/]+)/$`);
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  for (const block of blocks) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    const itMatch = loc?.match(itLoc);
+    if (!itMatch) continue;
+
+    const row = byItSlug.get(itMatch[1]);
+    if (!row) {
+      fail(`${name}: ${loc} is absent from ${SLUGS_ARTIFACT}.${sectionName} — refusing`);
+    }
+
+    const seenLocales = new Set();
+    for (const match of block.matchAll(/hreflang="(it|en|de|fr)"\s+href="([^"]+)"/g)) {
+      const locale = match[1];
+      seenLocales.add(locale);
+      const expectedSlug = row.slugs[locale];
+      if (typeof expectedSlug !== 'string' || !expectedSlug) {
+        fail(`${SLUGS_ARTIFACT}.${sectionName}.${row.id} has no ${locale} slug — refusing ${name}`);
+      }
+      const expectedUrl = `${cfg.bases[locale]}${expectedSlug}/`;
+      if (match[2] !== expectedUrl) {
+        fail(
+          `${name}: ${row.id} ${locale} hreflang is ${match[2]}, `
+          + `but ${SLUGS_ARTIFACT}.${sectionName}.${row.id}.${locale} is ${expectedUrl} — refusing`,
+        );
+      }
+    }
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      if (!seenLocales.has(locale)) {
+        fail(`${name}: ${row.id} has no ${locale} hreflang in the same release as ${SLUGS_ARTIFACT} — refusing`);
+      }
+    }
+  }
+}
+
 /**
  * `{ id: {it,en,de,fr} }` out of a registry .ts, or null when the file is not
  * in this checkout. The shared parser is used because these are TypeScript
@@ -458,6 +531,31 @@ function reinstateLocalArticles(name, xml) {
 const shadowedSitemapSlugs = loadAllShadowedSlugs(ROOT);
 log(`canonical-override shadowed slugs held out of the sitemaps: ${shadowedSitemapSlugs.size}`);
 
+const slugsBytes = manifest.files?.[SLUGS_ARTIFACT];
+if (!Number.isSafeInteger(slugsBytes) || slugsBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${SLUGS_ARTIFACT} — refusing`);
+}
+
+let slugsRaw;
+try {
+  slugsRaw = await get(SLUGS_ARTIFACT);
+} catch (err) {
+  fail(`${SLUGS_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(slugsRaw, 'utf8') !== slugsBytes) {
+  fail(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
+}
+
+let publishedSlugs;
+try {
+  publishedSlugs = JSON.parse(slugsRaw);
+} catch (err) {
+  fail(`${SLUGS_ARTIFACT} is not valid JSON: ${err.message}`);
+}
+if (!publishedSlugs || publishedSlugs.commit !== manifest.commit) {
+  fail(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
+}
+
 const staged = new Map();
 
 // The public blog index carries the generated-image registry alongside the
@@ -515,6 +613,11 @@ for (const name of SITEMAPS) {
   } catch (err) {
     fail(`${name} unavailable: ${err.message}`);
   }
+
+  // The map is the corpus's source of truth for localized URLs. Check the
+  // upstream sitemap against that same release before adding any site-owned
+  // entries or staging the document.
+  assertSitemapUsesPublishedSlugMap(name, xml, publishedSlugs);
 
   // Before the count guards, so the shrink comparison below is made against
   // the document that will actually be written.
