@@ -50,6 +50,21 @@ describe('IST sitemap discovery', () => {
       authoritativeEmptySnapshot: false,
     });
   });
+
+  it('decodes XML entities in live sitemap job URLs', () => {
+    const xml = fs.readFileSync(
+      path.join(__dirname, 'fixtures', 'ist', 'inspired-sitemap-xml.xml'),
+      'utf8',
+    );
+
+    expect(parseIstSitemapJobUrls(xml)).toEqual({
+      urls: [
+        'https://jobs.inspirededu.com/job/Primary-Teacher-&-Science/12345/',
+        "https://jobs.inspirededu.com/job/Head's-PA/67890/",
+      ],
+      authoritativeEmptySnapshot: false,
+    });
+  });
 });
 
 describe('IST detail extraction', () => {

@@ -296,7 +296,10 @@ export function parseIstSitemapJobUrls(xml = '') {
   const allJobUrls = [];
   let match;
   while ((match = locPattern.exec(source)) !== null) {
-    allJobUrls.push(match[1].trim());
+    // The live XML sitemap escapes ampersands and apostrophes in slugs
+    // (`&amp;`, `&apos;`). Decode the URL text before the detail fetch; the
+    // escaped entities are XML markup, not part of the source URL path.
+    allJobUrls.push(decodeEntities(match[1].trim()));
   }
 
   const sitemapUrlCount = (source.match(/<url(?:\s|>)/gi) || []).length;
