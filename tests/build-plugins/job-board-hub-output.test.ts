@@ -7,6 +7,7 @@ import { JSDOM } from 'jsdom';
 import { jobsSeoPagesPlugin } from '../../build-plugins/jobsSeoPagesPlugin';
 import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
 import { hubSlugFor } from '../../build-plugins/seoHubsData';
+import { normalizeCitySlug } from '../../build-plugins/shared/cantonCities';
 import { employerProfilePagesPlugin } from '../../build-plugins/employerProfilePagesPlugin';
 import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
 import { getActiveJobCountsByLocale } from '../../build-plugins/jobBoardSeo';
@@ -140,6 +141,37 @@ describe('job-board emitted output', () => {
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
       }
       expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, '_AGGREGATE_').length);
+    }
+  });
+
+  it('keeps low-volume canton roots and every canonical city hub indexable', () => {
+    const emptyCity = normalizeCitySlug('Altstätten');
+    const populatedCity = normalizeCitySlug('St. Gallen');
+    // Each canton root must link its full emitted municipality set.
+    for (const locale of locales) {
+      for (const relative of [
+        hubPath(locale, 'SG'),
+        `${hubPath(locale, 'SG')}${emptyCity}/`,
+        `${hubPath(locale, 'SG')}${populatedCity}/`,
+      ]) {
+        const document = htmlDoc(relative);
+        expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).not.toMatch(/noindex/i);
+        expect(document.querySelector('main.seo-static-content')).toBeTruthy();
+      }
+      expect(htmlDoc(`${hubPath(locale, 'SG')}${emptyCity}/`).body.textContent).toContain('Altstatten');
+    }
+  });
+
+  it('links every emitted canonical city from a canton root', () => {
+    for (const locale of locales) {
+      const cantonRoot = htmlDoc(hubPath(locale, 'SG'));
+      const cityLinks = [...cantonRoot.querySelectorAll('[data-explore-cities] a[href]')];
+      expect(cityLinks.length).toBeGreaterThan(8);
+      expect(new Set(cityLinks.map((link) => link.getAttribute('href'))).size).toBe(cityLinks.length);
+      for (const link of cityLinks) {
+        const pathname = new URL(link.getAttribute('href')!, 'https://frontaliereticino.ch').pathname;
+        expect(fs.existsSync(path.join(root, 'dist', pathname, 'index.html')), pathname).toBe(true);
+      }
     }
   });
 

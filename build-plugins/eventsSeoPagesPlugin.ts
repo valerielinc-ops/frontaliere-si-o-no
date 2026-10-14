@@ -36,7 +36,8 @@
  *     before this change. The Swiss-wide index itself is reached the other
  *     way — every canton hub's `cantonSwitcher` now also links UP to it —
  *     so it sits at depth 2 (one hop past the TI hub), well inside budget.
- *   - MIN_INDEXABLE_WORDS gate → thin pages get noindex,follow (never dropped)
+ *   - MIN_INDEXABLE_WORDS gate → thin live pages get noindex,follow (never dropped);
+ *     historical detail pages stay indexable as the permanent event archive
  *
  * Default-on. Escape hatch: SKIP_EVENTS_PAGES=1.
  */
@@ -54,6 +55,7 @@ import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/t
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
   loadEventsDataset,
@@ -3763,7 +3765,12 @@ export function renderEventDetailPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  // Historical details are intentionally recoverable even when their source
+  // description is short: the archive template still carries the event's
+  // date, place, source link, practical context and related navigation. The
+  // word-count gate remains for live pages, where a thin detail should not
+  // compete with the canonical event hub.
+  const indexable = isPast || wordCount >= MIN_INDEXABLE_WORDS;
   const inlineAd = indexable
     ? `<section class="ev-ad" aria-label="${esc(dc.adLabel)}" data-ad-placement="event-detail-inline">
       <p class="ev-ad-label">${esc(dc.adLabel)}</p>
@@ -4308,10 +4315,10 @@ export function historicalEventSlugMigrations(
   });
 }
 const EVENT_SLUG_REDIRECT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
-  it: { title: 'Pagina evento aggiornata | Frontaliere Ticino', body: 'Questa pagina evento ha un indirizzo aggiornato. Ti reindirizziamo automaticamente alla versione canonica.', cta: 'Apri la pagina evento' },
-  en: { title: 'Event page updated | Frontaliere Ticino', body: 'This event page has an updated address. You are being redirected automatically to the canonical version.', cta: 'Open the event page' },
-  de: { title: 'Veranstaltungsseite aktualisiert | Frontaliere Ticino', body: 'Diese Veranstaltungsseite hat eine aktualisierte Adresse. Sie werden automatisch zur kanonischen Version weitergeleitet.', cta: 'Veranstaltungsseite öffnen' },
-  fr: { title: 'Page événement mise à jour | Frontaliere Ticino', body: 'Cette page événement a une adresse mise à jour. Vous serez automatiquement redirigé vers la version canonique.', cta: 'Ouvrir la page événement' },
+  it: { title: 'Pagina evento aggiornata | Frontaliere Ticino', body: 'L’indirizzo di questo evento è cambiato, ma la pagina resta disponibile per chi arriva da un vecchio link, da una ricerca o da un calendario salvato. Ti reindirizziamo alla scheda canonica, dove trovi data, luogo, programma, fonti e gli eventuali aggiornamenti pubblicati dagli organizzatori.', cta: 'Apri la pagina evento' },
+  en: { title: 'Event page updated | Frontaliere Ticino', body: 'This event address has changed, but the page remains available for visitors arriving from an old link, a search result or a saved calendar. You are being redirected to the canonical listing, where you can find the date, venue, programme, sources and any updates published by the organisers.', cta: 'Open the event page' },
+  de: { title: 'Veranstaltungsseite aktualisiert | Frontaliere Ticino', body: 'Die Adresse dieser Veranstaltung hat sich geändert, die Seite bleibt jedoch für Besucher mit einem alten Link, einem Suchergebnis oder einem gespeicherten Kalender erreichbar. Sie werden zur kanonischen Veranstaltung weitergeleitet, mit Datum, Ort, Programm, Quellen und allfälligen Aktualisierungen der Veranstalter.', cta: 'Veranstaltungsseite öffnen' },
+  fr: { title: 'Page événement mise à jour | Frontaliere Ticino', body: 'L’adresse de cet événement a changé, mais la page reste accessible aux visiteurs qui arrivent depuis un ancien lien, un résultat de recherche ou un calendrier enregistré. Vous serez redirigé vers la fiche canonique, qui présente la date, le lieu, le programme, les sources et les éventuelles mises à jour des organisateurs.', cta: 'Ouvrir la page événement' },
 };
 export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: string): string {
   const copy = EVENT_SLUG_REDIRECT_COPY[locale];
@@ -4324,6 +4331,8 @@ export function renderEventSlugRedirectPage(locale: Locale, canonicalPath: strin
     body: copy.body,
     ctaLabel: copy.cta,
     lang: locale,
+    // A changed/moved URL is an old alias, not the event's canonical landing.
+    // Keep it crawlable for the refresh target but out of the index.
     noindex: true,
   });
   return bridge.replace('</head>', ` <meta http-equiv="refresh" content="0; url=${canonicalUrl}">\n </head>`);
@@ -4398,6 +4407,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // at all 4. See build-plugins/constants.ts BUILD_DATE_STAMP doc.
       const dateStamp = BUILD_DATE_STAMP;
       const dataset = loadEventsDataset();
+      // The next crawl also persists these records. Read the same recovery
+      // archive here so the first deploy can restore the historical URLs
+      // without waiting for a crawler refresh to reach main.
+      const recovery = loadEventsDataset(path.join(rootDir, 'data/events-recovery-archive.json'));
+      dataset.events = retainPublishedPastEvents(dataset.events, recovery.events, dateStamp);
       const ephemeralEvents = loadEphemeralEvents({
         publicEvents: withoutPrivateEvents(dataset.events),
         dateStamp,

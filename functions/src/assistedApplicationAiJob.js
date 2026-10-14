@@ -235,11 +235,55 @@ async function workdayPostingUnlisted(fetchImpl, api, resolve) {
 
 // Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
 // «Jetzt bewerben» through a redirect to the employer's ATS (SAP SuccessFactors).
+// Jobs2Web pages (ORIOR, 2026-10-14) expose the same ATS route in their boot
+// configuration when the public apply endpoint falls back to the home page.
 const ATS_REDIRECT_RE = /^https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?$/i;
 const ATS_REDIRECT_LINK_RE = /<a\b[^>]*\bhref=["'](https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/([0-9a-f-]{36})\/ats\/?)["'][^>]*>([\s\S]*?)<\/a>/gi;
 const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+const SUCCESSFACTORS_HOST_RE = /(^|\.)(?:successfactors\.(?:com|eu)|sapsf\.(?:com|eu))$/i;
 const APPLY_LABEL_RE = /(bewerben|\bapply\b|candidat|postuler|postulez)/i;
 const APPLY_LATER_LABEL_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+
+function javascriptConfigValue(html, key) {
+  const escaped = String(key).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return String(html || '').match(new RegExp(`(?:["']${escaped}["']|\\b${escaped})\\s*:\\s*["']([^"']+)["']`, 'i'))?.[1] || '';
+}
+
+/**
+ * Jobs2Web pages hosted by an employer can expose a valid SuccessFactors
+ * application while their public "Apply" endpoint redirects back to the
+ * employer home page. The page's own boot configuration contains the ATS
+ * tenant, requisition and locale; use that exact data to open the normal
+ * account/application route. Empty or untrusted configuration is ignored.
+ *
+ * @returns {string} a public SuccessFactors application URL, or ''
+ */
+export function successFactorsApplyUrlFromPosting(html) {
+  const ssoUrl = javascriptConfigValue(html, 'ssoUrl');
+  const company = javascriptConfigValue(html, 'ssoCompanyId');
+  const internalId = javascriptConfigValue(html, 'internalId');
+  const configuredLocale = javascriptConfigValue(html, 'locale');
+  if (!ssoUrl || !company || !internalId) return '';
+  let host;
+  try {
+    const url = new URL(ssoUrl);
+    if (url.protocol !== 'https:' || !SUCCESSFACTORS_HOST_RE.test(url.hostname)) return '';
+    host = url.origin;
+  } catch {
+    return '';
+  }
+  // Jobs2Web writes «<requisition>-<locale>», for example «2190-it_IT».
+  const match = /^([0-9]+)-([a-z]{2}(?:[_-][A-Z]{2})?)$/i.exec(internalId.trim());
+  if (!match) return '';
+  const locale = (configuredLocale || match[2]).replace('-', '_');
+  const params = new URLSearchParams({
+    company: company.trim(),
+    career_job_req_id: match[1],
+    lang: locale,
+    career_ns: 'job_application',
+  });
+  return `${host}/career?${params.toString()}`;
+}
 
 /**
  * The posting's own redirect, never another job's (a "similar jobs" list):
@@ -275,8 +319,9 @@ async function redirectTarget(fetchImpl, startUrl, resolve) {
 
 /**
  * The address «Apply» really leads to when the posting page sends it through
- * a known ATS redirect: the channel is then the ATS's (its account, its
- * quirks), not "Sito del datore". Any problem keeps the posting's address.
+ * a known ATS redirect or exposes a validated Jobs2Web SuccessFactors route:
+ * the channel is then the ATS's (its account, its quirks), not "Sito del
+ * datore". Any problem keeps the posting's address.
  * @returns {Promise<{applyUrl:string, via:string}>} `via` is '' when nothing changed
  */
 export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = lookup } = {}) {
@@ -288,7 +333,14 @@ export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = l
     if (!redirect) {
       const response = await fetchPublicPage(fetchImpl, url, resolve);
       if (!response?.ok || !String(response.headers?.get?.('content-type') || '').includes('html')) return kept;
-      redirect = postingAtsRedirect(url, (await response.text()).slice(0, MAX_PAGE_BYTES));
+      const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
+      redirect = postingAtsRedirect(url, html);
+      if (!redirect) {
+        const successFactors = successFactorsApplyUrlFromPosting(html);
+        if (successFactors && await resolvesToPublicHost(successFactors, resolve)) {
+          return { applyUrl: successFactors, via: 'successfactors' };
+        }
+      }
     }
     if (!redirect) return kept;
     const target = await redirectTarget(fetchImpl, redirect, resolve);

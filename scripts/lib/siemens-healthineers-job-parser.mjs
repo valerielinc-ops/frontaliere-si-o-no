@@ -19,9 +19,9 @@
  * Workday CXS API: https://onehealthineers.wd3.myworkdayjobs.com/wday/cxs/onehealthineers/SHSJB/jobs
  *
  * Swiss-scoped via the shared Workday factory (country facet + foreign guard).
- * Default canton ZH / city Zurich (matches existing company registry entry;
- * Workday's own location codes for these postings are internal facility
- * codes with no resolvable Swiss municipality, e.g. "DWL T").
+ * The default canton/city remains registry metadata only: an unresolved
+ * facility code is still dropped, never stamped as the HQ. The Swiss primary
+ * facility code "DWL T" is explicitly evidenced as Baden (AG) below.
  *
  * Exports 4 required functions crawler template:
  * - fetchAllSiemensHealthineersJobs() — Fetch + parse all Swiss jobs
@@ -45,6 +45,12 @@ const parser = createWorkdaySwissParser({
   defaultCity: 'Zurich',
   sector: 'Sanità / Medicale',
   defaultSourceLang: 'en',
+  facilityLocations: {
+    'DWL T': {
+      locality: 'Baden',
+      evidence: 'https://cancercare.siemens-healthineers.com/about-us/about/company-locations/baden-dättwil/',
+    },
+  },
   // Issue #9651: the Swiss facet returns only reqs cross-posted to a Swiss site
   // whose PRIMARY workplace is abroad (measured 2026-09-24: 3 listings, primary
   // country GB / DE / FR). The primary-only gate drops all of them by design, so

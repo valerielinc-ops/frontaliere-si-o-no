@@ -673,12 +673,14 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // permanent 301 that crosses locales (which would de-index the localized canonical
 // and is far worse than the soft-404 it replaces).
 //
-// Matching MIRRORS public/404.html (jobRe + shard key) and jobCanonRedirectMapPlugin
+// Baseline matching mirrors public/404.html (jobRe + shard key) and
+// jobCanonRedirectMapPlugin; numeric suffixes additionally require a verified
+// registry target in this server-side recovery path.
 // (shard key). It is duplicated, not imported: this Worker is a standalone runtime
 // deployed by wrangler, not part of the Vite bundle, so it cannot share the TS
 // build-plugin modules. Keep the three copies in lockstep when touching any one.
 const JOB_DETAIL_RE =
-  /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)\/?$/;
+  /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
 
 // Cross-locale company-hub prefix recovery (see recoverCrossLocaleCompanyPrefix).
 // Company-hub URLs carry a LOCALIZED prefix on the last path segment:
@@ -926,6 +928,22 @@ async function recoverCantonDriftOrphan(url, locale) {
   const canonical = `${prefix}/${slug}/`;
   // Never 301 to the path we are already on (avoids a redirect loop).
   if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
+
+  // Old links sometimes appended the source's numeric id after the slug.
+  // Only the registry can identify those as the same vacancy. Verify its
+  // destination on the owning shard (including Ticino's physical fan-out),
+  // since the job may also have moved to another canton in the meantime.
+  if (m[2]) {
+    const route = matchSection(canonical);
+    if (!route || route.locale !== locale) return null;
+    const targetOrigin = SECTION_ORIGIN[route.section]?.[locale];
+    if (!targetOrigin) return null;
+    let live = false;
+    for (const physical of sectionShardPhysicalPaths(canonical, route)) {
+      if (await redirectTargetIsLive(physical, targetOrigin)) { live = true; break; }
+    }
+    if (!live) return null;
+  }
 
   const location = canonical + url.search + url.hash;
   return new Response(null, {
@@ -2309,7 +2327,9 @@ function recoverLegacySearchCluster(url, locale) {
   const board = NATIONAL_BOARD_BY_LOCALE[locale];
   if (!board) return null;
   const m = url.pathname.match(JOB_DETAIL_RE);
-  if (!m) return null;
+  // A numeric suffix is a vacancy alias only with registry/live evidence;
+  // it must not enter this registry-free legacy search fallback.
+  if (!m || m[2]) return null;
   const lastSeg = lowerSegment(m[1]);
   if (!SEARCH_CLUSTER_PREFIX_RE.test(lastSeg)) return null;
   // Already on the national board (loop guard — the board path has no extra segment).
@@ -2353,7 +2373,9 @@ function recoverLegacyPagination(url) {
 // (and are more specific) above.
 async function recoverExpiredJobToCantonRoot(url, origin) {
   const m = url.pathname.match(JOB_DETAIL_RE);
-  if (!m) return null;
+  // Numeric-suffix aliases require a registry-confirmed vacancy above; an
+  // unknown slug must not turn into a guessed directory/board redirect.
+  if (!m || m[2]) return null;
   const sectionRoot =
     url.pathname.replace(/\/+$/, '').split('/').slice(0, -1).join('/') + '/'; // mirrors public/404.html's sectionRoot
   // Loop guard (unreachable: JOB_DETAIL_RE always leaves a trailing slug segment

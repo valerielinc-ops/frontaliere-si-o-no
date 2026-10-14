@@ -126,8 +126,78 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+
+      # I push che toccano soltanto codice dell'audit o i suoi input non devono
+      # rileggere Firestore e non devono registrare un'evidenza basata su dati
+      # vecchi. Il confronto usa git, perche' il filtro del trigger non espone
+      # i path cambiati allo job. Un push che cambia l'export o questo workflow
+      # mantiene invece il percorso live necessario per verificare la modifica.
+      - name: Determina il perimetro della misura L4
+        id: l4-scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          L4_EXPORT_PERIMETER: |
+            .github/workflows/loop-l4-alert-return.yml
+            data/alert-config.json
+            data/alert-snoozes.json
+            functions/src/emailI18n.js
+            functions/src/jobAlertBackfillCore.js
+            functions/src/lib/cantonUrlSlugs.json
+            functions/src/lib/emailSuppression.js
+            functions/src/lib/jobBoardUrlCanton.js
+            functions/src/lib/newsletterOptOut.js
+            functions/src/lib/subscriberConsent.js
+            functions/src/lib/subscriberLocale.js
+            functions/src/lib/subscriberPersonalization.js
+            scripts/ci/export-loop-outcomes.mjs
+            scripts/lib/analytics-settled-window.mjs
+            scripts/lib/ga4-service-account.mjs
+        run: |
+          set -euo pipefail
+          safe_live_path() {
+            echo 'run_export=true' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=true' >> "$GITHUB_OUTPUT"
+            echo "::notice::L4 percorso live prudente: impossibile determinare i path cambiati ($1); eseguo export e audit"
+          }
+          if [ "$EVENT_NAME" = 'pull_request' ]; then
+            echo 'run_export=false' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$EVENT_NAME" != 'push' ]; then
+            echo 'run_export=true' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -z "${BEFORE_SHA:-}" ] || [ "$BEFORE_SHA" = '0000000000000000000000000000000000000000' ]; then
+            if ! changed_paths=$(git diff-tree --root --no-commit-id --name-only -r "$AFTER_SHA"); then
+              safe_live_path 'il diff del commit iniziale ha fallito'
+              exit 0
+            fi
+          else
+            if ! git fetch --no-tags --depth=1 origin "$BEFORE_SHA"; then
+              safe_live_path 'il fetch del commit precedente ha fallito'
+              exit 0
+            fi
+            if ! changed_paths=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA"); then
+              safe_live_path 'il diff tra commit non ha potuto essere calcolato'
+              exit 0
+            fi
+          fi
+          if printf '%s\n' "$changed_paths" | grep -F -x -f <(printf '%s\n' "$L4_EXPORT_PERIMETER") >/dev/null; then
+            echo 'run_export=true' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run_export=false' >> "$GITHUB_OUTPUT"
+            echo 'run_audit=false' >> "$GITHUB_OUTPUT"
+            echo "::notice::L4 saltato: il push non cambia l'export ne' il workflow; nessuna misura o evidenza viene registrata"
+          fi
+
       - name: Prepare read-only Firebase credentials
-        if: github.event_name != 'pull_request'
+        if: steps.l4-scope.outputs.run_export == 'true' && github.event_name != 'pull_request'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -141,7 +211,7 @@ jobs:
           chmod 600 /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Export fresh L4 outcomes
-        if: always() && github.event_name != 'pull_request'
+        if: always() && steps.l4-scope.outputs.run_export == 'true'
         run: |
           set -euo pipefail
           output_path="$RUNNER_TEMP/alert-outcomes.json"
@@ -158,6 +228,7 @@ jobs:
             node scripts/ci/export-loop-outcomes.mjs --loop L4 --unavailable --out "$output_path" --reason 'live Firestore alert-delivery export failed'
           fi
       - name: Audit alert to return
+        if: steps.l4-scope.outputs.run_audit == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
@@ -183,12 +254,12 @@ jobs:
             exit "$run_code"
           fi
       - name: Record canonical L4 evidence
-        if: always()
+        if: always() && steps.l4-scope.outputs.run_audit == 'true'
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l4
         run: node scripts/ci/record-loop-fleet-evidence.mjs --loop L4 --report-dir "$REPORT_DIR" --registry data/loop-fleet/loop-registry.json
       - name: Upload L4 observation and actions
-        if: always()
+        if: always() && steps.l4-scope.outputs.run_audit == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: loop-l4-alert-return-${{ github.run_id }}
