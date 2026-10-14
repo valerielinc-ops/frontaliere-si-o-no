@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { createContentKeywordMatcher, rankContentDestinations } from '../packages/articles/engine/shared/contentKeywordMatcher.mjs';
 import { matchContentLinks } from '../packages/articles/engine/shared/contentLinkVocabulary.mjs';
 import { autoLinkKeywords } from '../components/community/BlogArticles';
-import { NAV_ACTION_ROUTES } from '../services/internalLinks';
+import { NAV_ACTION_ROUTES, contentLinkDestinations } from '../services/internalLinks';
 import { buildPath } from '../services/router';
 
 describe('multilingual content matching', () => {
@@ -11,13 +11,22 @@ describe('multilingual content matching', () => {
     ['en', 'Compare the net salary before applying.', 'calculator'],
     ['de', 'Die Wartezeit an der Grenze steigt.', 'border'],
     ['fr', 'Le coût de la vie augmente.', 'cost-of-living'],
-  ])('matches intent in %s and resolves a canonical localized destination', (locale, text, id) => {
+  ] as const)('matches intent in %s and resolves a canonical localized destination', (locale, text, id) => {
     const hit = matchContentLinks(text, locale).find(m => m.id === id);
     expect(hit).toBeDefined();
     expect(text.slice(hit!.start, hit!.end)).toBe(hit!.text);
     const path = buildPath(NAV_ACTION_ROUTES[id], locale);
     expect(path).toMatch(/\/$/);
     if (locale !== 'it') expect(path).toMatch(new RegExp(`^/${locale}/`));
+  });
+
+  it('links fuel intent to the localized daily page, preserving an existing target', () => {
+    const paths = contentLinkDestinations('fr');
+    const text = 'Comparez les prix du diesel avant le trajet.';
+    const out = autoLinkKeywords(text, {}, 'fr');
+    expect(out).toContain(`](${paths['fuel-diesel']})`);
+    expect(paths['fuel-diesel']).toBe('/fr/prix-gasoil-suisse/aujourdhui/');
+    expect(autoLinkKeywords(out, {}, 'fr')).toBe(out);
   });
 
   it('supports arbitrary content entries, pairs, triples and diacritics', () => {
