@@ -184,6 +184,10 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     throw new Error('imageObjectLd: contentUrl (or url) is required');
   }
 
+  if (creator && Array.isArray(creator['@type']) && creator['@type'].length === 0) {
+    throw new TypeError('imageObjectLd: creator.@type must contain at least one type');
+  }
+
   const resolvedCreator: ImageCreator = creator
     ? {
       ...creator,
