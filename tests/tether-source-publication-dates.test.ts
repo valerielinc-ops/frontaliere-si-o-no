@@ -37,6 +37,16 @@ describe('Tether source publication provenance', () => {
     const jobs = await fetchAllTetherJobs();
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject({ url: 'https://tether.recruitee.com/o/mixed', location: 'Lugano, Ticino', addressCountry: 'CH', country: 'CH', canton: 'TI' });
+    expect(jobs.recruiteeCountrySnapshot).toMatchObject({
+      complete: true,
+      offerCount: 2,
+      acceptedOfferCount: 1,
+      rejectedOfferCount: 1,
+      unclassifiedOfferCount: 0,
+      rejectedDetailPaths: ['/o/foreign'],
+      quarantinedDetailPaths: ['/o/foreign'],
+    });
+    expect(JSON.stringify(jobs)).not.toContain('recruiteeCountrySnapshot');
   });
   it('uses the selected Swiss location postal code instead of the Lugano HQ', async () => {
     const mixed = offer(undefined, 'zurich');

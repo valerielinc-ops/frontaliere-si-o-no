@@ -1,17 +1,81 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+const specCrawlerMocks = vi.hoisted(() => ({
+  loadSpec: vi.fn(),
+  runSpecInProduction: vi.fn(),
+}));
+vi.mock('../scripts/lib/prospector/spec-crawler.mjs', () => specCrawlerMocks);
+
 import {
   YELLOWSHARK_KEY,
   YELLOWSHARK_COMPANY_NAME,
+  fetchAllYellowsharkJobs,
   isYellowsharkJob,
   isTrustedDomain,
+  resolveYellowsharkListingAdmission,
 } from '../scripts/lib/yellowshark-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  specCrawlerMocks.loadSpec.mockReset();
+  specCrawlerMocks.runSpecInProduction.mockReset();
+});
 
 describe('yellowshark AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(YELLOWSHARK_KEY).toBe('yellowshark');
     expect(YELLOWSHARK_COMPANY_NAME).toBe('yellowshark AG');
+  });
+
+  it('admits only explicit Swiss source countries and emits the canonical CH code', async () => {
+    const spec = { companyKey: YELLOWSHARK_KEY };
+    specCrawlerMocks.loadSpec.mockReturnValue(spec);
+    specCrawlerMocks.runSpecInProduction.mockResolvedValue([
+      {
+        title: 'Software Engineer',
+        description: '<p>Build reliable software with the engineering team.</p>',
+        location: 'Lugano, Ticino',
+        addressCountry: 'Switzerland',
+        url: 'https://jobs.yellowshark.com/job/swiss/',
+      },
+      {
+        title: 'Software Engineer Abroad',
+        description: '<p>Build reliable software with the engineering team.</p>',
+        location: 'Lugano, Ticino',
+        addressCountry: 'India',
+        url: 'https://jobs.yellowshark.com/job/foreign/',
+      },
+      {
+        title: 'Software Engineer Unknown',
+        description: '<p>Build reliable software with the engineering team.</p>',
+        location: 'Lugano, Ticino',
+        url: 'https://jobs.yellowshark.com/job/unknown/',
+      },
+      {
+        title: 'Software Engineer Conflict',
+        description: '<p>Build reliable software with the engineering team.</p>',
+        location: 'Lugano, Ticino',
+        addressCountry: 'CH',
+        country: 'India',
+        url: 'https://jobs.yellowshark.com/job/conflict/',
+      },
+    ]);
+
+    const jobs = await fetchAllYellowsharkJobs();
+
+    expect(specCrawlerMocks.runSpecInProduction).toHaveBeenCalledWith(spec, {
+      requireExplicitCountryEvidence: true,
+    });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ country: 'CH', addressCountry: 'CH' });
+    expect(resolveYellowsharkListingAdmission({
+      location: 'Lugano, Ticino',
+      addressCountry: 'Switzerland',
+    })).toMatchObject({ accepted: true, country: 'CH' });
+    expect(resolveYellowsharkListingAdmission({
+      location: 'Lugano, Ticino',
+      addressCountry: 'India',
+    })).toMatchObject({ accepted: false, reason: 'source country is foreign or conflicting' });
   });
 
   // ── isCompanyJob ──

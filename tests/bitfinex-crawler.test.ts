@@ -99,7 +99,18 @@ describe('Bitfinex crawler parser', () => {
         offer({ city: 'Remote', state: 'Worldwide' }, 'unresolved'),
       ])));
 
-      await expect(fetchAllBitfinexJobs()).resolves.toEqual([]);
+      const jobs = await fetchAllBitfinexJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.recruiteeCountrySnapshot).toMatchObject({
+        complete: true,
+        offerCount: 2,
+        acceptedOfferCount: 0,
+        rejectedOfferCount: 1,
+        unclassifiedOfferCount: 1,
+        rejectedDetailPaths: ['/o/foreign'],
+        unclassifiedDetailPaths: ['/o/unresolved'],
+      });
     });
 
     it('keeps a source-backed Swiss offer and emits CH fields', async () => {
