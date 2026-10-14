@@ -50,7 +50,7 @@ export function linkContentKeywords(text, locale = 'it', { enabledIds, isEnabled
  // Code, headings and HTML remain literal, including attributes and URLs.
  const htmlProtectedRe = /<(a|code|pre|script|style|h[1-6])\b[^>]*>[\s\S]*?<\/\1>/gi;
  for (const m of text.matchAll(htmlProtectedRe)) existingLinkSpans.push([m.index, m.index + m[0].length]);
- const protectedRe = /```[\s\S]*?```|`[^`\n]+`|^\s*#{1,6}\s+.*$|<[^>]+>/gm;
+ const protectedRe = /```[\s\S]*?```|`[^`\n]+`|^\s*#{1,6}\s+.*$|^[ \t]*[*-][ \t]+(?:\*\*[^*\n]+\*\*|[^:\n]{1,40}):[^\n]*$|<[^>]+>/gm;
  for (const protectedMatch of text.matchAll(protectedRe)) {
  existingLinkSpans.push([protectedMatch.index, protectedMatch.index + protectedMatch[0].length]);
  }
