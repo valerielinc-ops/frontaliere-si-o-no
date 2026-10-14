@@ -17234,8 +17234,8 @@
       "slugByLocale": {
         "de": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
         "it": "muratore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
-        "en": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
-        "fr": "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
+        "en": "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
+        "fr": "macon-ne-pour-constructions-neuves-et-transformations-stellenpartner-ag-weinfelden-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -17282,7 +17282,6 @@
       "previousSlugs": [
         "bricklayer-for-new-buildings-and-conversions-stellenpartner-ag-weinfelden-thurgau",
         "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
-        "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau",
         "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
         "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch",
         "maurer-in-per-neu-e-umbauten-stellenpartner-ag-weinfelden"
@@ -17294,11 +17293,12 @@
         ],
         "en": [
           "bricklayer-for-new-buildings-and-conversions-stellenpartner-ag-weinfelden-thurgau",
-          "bricklayer-for-new-builds-and-conversions-stellenpartner-ag-weinfelden-thurgau"
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
         ],
         "fr": [
           "macon-pour-de-nouveaux-batiments-et-conversions-stellenpartner-ag-weinfelden-thurgau",
-          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau"
+          "macon-maconneuse-pour-les-nouvelles-constructions-et-les-transformations-stellenpartner-ag-weinfelden-thurgau",
+          "maurer-in-fur-neu-und-umbauten-weinfelden-thurgau-stellenpartner-ch"
         ]
       },
       "salaryMin": 57500,
@@ -18753,12 +18753,12 @@
     },
     {
       "id": "stellenpartner-c38bc32011f7",
-      "slug": "maler-in-per-kundenmalerei-e-renovationen-stellenpartner-ag-winterthur",
+      "slug": "imbianchino-a-per-lavori-di-pittura-presso-i-clienti-e-ristrutturazioni-stellenpartner-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch",
-        "it": "maler-in-per-kundenmalerei-e-renovationen-stellenpartner-ag-winterthur",
-        "en": "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch",
-        "fr": "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch"
+        "it": "imbianchino-a-per-lavori-di-pittura-presso-i-clienti-e-ristrutturazioni-stellenpartner-ag-winterthur-zurich",
+        "en": "painter-for-customer-painting-and-renovations-stellenpartner-ag-winterthur-zurich",
+        "fr": "peintre-pour-travaux-de-peinture-chez-les-clients-et-renovations-stellenpartner-ag-winterthur-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -18804,11 +18804,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch",
+          "maler-in-per-kundenmalerei-e-renovationen-stellenpartner-ag-winterthur"
+        ],
+        "en": [
+          "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch"
+        "maler-in-fur-kundenmalerei-und-renovationen-winterthur-zurich-stellenpartner-ch",
+        "maler-in-per-kundenmalerei-e-renovationen-stellenpartner-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18824,7 +18832,7 @@
         }
       },
       "postalCode": "8400",
-      "translationHoldSince": "2026-10-13T21:50:42.748Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "stellenpartner-e6fdc582d1f5",

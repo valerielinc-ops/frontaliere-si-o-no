@@ -181654,12 +181654,12 @@
     },
     {
       "id": "fachkraft-492266aba03b",
-      "slug": "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur",
+      "slug": "automatista-specialista-della-manutenzione-fachkraft-ch-gmbh-winterthur-zurich",
       "slugByLocale": {
         "de": "automatiker-in-instandhaltungsspezialist-in-winterthur-zurich-fachkraft-ch",
-        "it": "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur",
-        "en": "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur",
-        "fr": "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur"
+        "it": "automatista-specialista-della-manutenzione-fachkraft-ch-gmbh-winterthur-zurich",
+        "en": "automation-technician-maintenance-specialist-fachkraft-ch-gmbh-winterthur-zurich",
+        "fr": "automaticien-ne-specialiste-de-la-maintenance-fachkraft-ch-gmbh-winterthur-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -181705,11 +181705,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-instandhaltungsspezialist-in-winterthur-zurich-fachkraft-ch"
+          "automatiker-in-instandhaltungsspezialist-in-winterthur-zurich-fachkraft-ch",
+          "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur"
+        ],
+        "en": [
+          "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur"
+        ],
+        "fr": [
+          "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-instandhaltungsspezialist-in-winterthur-zurich-fachkraft-ch"
+        "automatiker-in-instandhaltungsspezialist-in-winterthur-zurich-fachkraft-ch",
+        "automatiker-in-instandhaltungsspezialist-in-fachkraft-ch-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -181726,7 +181734,7 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-09T10:30:16.378Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-102b88cbf25d",
@@ -182116,7 +182124,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-09-26T15:25:37.543Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-d04a7f882438",
@@ -182606,8 +182614,8 @@
       "slugByLocale": {
         "de": "automatiker-in-supply-chain-zurich-zurich-fachkraft-ch",
         "it": "automatiker-in-supply-chain-zurich-zurich-fachkraft-ch",
-        "en": "automatiker-in-supply-chain-zurich-zurich-fachkraft-ch",
-        "fr": "automatiker-in-chaine-d-approvisionnement-fachkraft-ch-gmbh-zurich-zurich"
+        "en": "automation-technician-supply-chain-fachkraft-ch-gmbh-zurich-zurich",
+        "fr": "automaticien-ne-supply-chain-fachkraft-ch-gmbh-zurich-zurich"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -182666,7 +182674,15 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-06T10:16:49.140Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "automatiker-in-chaine-d-approvisionnement-fachkraft-ch-gmbh-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-chaine-d-approvisionnement-fachkraft-ch-gmbh-zurich-zurich"
+      ]
     },
     {
       "id": "fachkraft-33027980099e",
@@ -182742,7 +182758,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-09-26T15:25:37.541Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-fbd8b9011b19",
@@ -182818,7 +182834,7 @@
       },
       "postalCode": "8200",
       "firstSeenAt": "2026-09-26T15:25:37.542Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-5c791bd13f7b",
@@ -182995,12 +183011,12 @@
     },
     {
       "id": "fachkraft-d5160525b98d",
-      "slug": "anlagenfuhrer-in-per-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau",
+      "slug": "operatore-trice-di-impianti-di-produzione-per-la-lavorazione-del-legno-fachkraft-ch-gmbh-willisau-luzern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau",
-        "it": "anlagenfuhrer-in-per-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau",
-        "en": "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau",
-        "fr": "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau"
+        "it": "operatore-trice-di-impianti-di-produzione-per-la-lavorazione-del-legno-fachkraft-ch-gmbh-willisau-luzern",
+        "en": "plant-operator-for-production-systems-in-wood-processing-fachkraft-ch-gmbh-willisau-luzern",
+        "fr": "operateur-rice-d-installations-de-production-dans-la-transformation-du-bois-fachkraft-ch-gmbh-willisau-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -183046,14 +183062,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-willisau-luzern-fachkraft"
+          "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-willisau-luzern-fachkraft",
+          "anlagenfuhrer-in-per-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau"
         ],
         "de": [
           "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-willisau-luzern-fachkraft"
+        ],
+        "en": [
+          "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-willisau-luzern-fachkraft"
+        "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-willisau-luzern-fachkraft",
+        "anlagenfuhrer-in-per-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau",
+        "anlagenfuhrer-in-fur-produktionsanlagen-in-der-holzverarbeitung-fachkraft-ch-gmbh-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -183070,7 +183095,7 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-05T10:15:52.469Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-cb660b7f59e3",
@@ -183153,7 +183178,7 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-09-26T15:25:37.541Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-ad890fefe863",
@@ -268922,7 +268947,7 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-03T10:07:24.354Z",
-      "translationHoldSince": "2026-10-13T22:19:43.270Z"
+      "translationHoldReleasedAt": "2026-10-14T09:26:21.060Z"
     },
     {
       "id": "fachkraft-665c07c225b9",
