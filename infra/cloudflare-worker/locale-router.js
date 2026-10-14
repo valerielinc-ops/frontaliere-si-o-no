@@ -1623,6 +1623,10 @@ export function retiredEdgeResponse(url) {
 // retirements and are derived from the append-only article registry, while
 // these are site-level route aliases owned by the edge router.
 export const EDGE_LEGACY_REDIRECTS = Object.freeze({
+  // Observed legacy legal URL; the Italian privacy page contains the cookie notice.
+  '/cookie/': '/privacy/',
+  // Same NASpI consolidation already declared for the Italian article in the SSG map.
+  '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
   '/jobs-im-tessin/': '/de/jobs-im-tessin/', // cathedral-allow: legacy SEO redirect
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
   '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect

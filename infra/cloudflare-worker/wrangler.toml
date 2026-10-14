@@ -41,6 +41,8 @@ routes = [
   # Apex legacy aliases. These paths are outside the /en|/de|/fr locale routes
   # and therefore need their own wildcard route so query-string variants reach
   # the same deterministic 301/410 response in locale-router.js.
+  { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/articles-frontalier/naspi-disoccupazione-frontalieri*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/jobs-im-tessin*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/trouver-emploi-tessin*", zone_name = "frontaliereticino.ch" },

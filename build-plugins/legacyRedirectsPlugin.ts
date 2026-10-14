@@ -36,6 +36,8 @@ import { isSafeDistPath } from './shared/distPathSafety';
 // origin may still serve the canonical bridge, but must not advertise a
 // meta-refresh for a route whose HTTP contract is already server-side.
 const EDGE_HTTP_REDIRECT_PATHS = new Set([
+ '/cookie/',
+ '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/',
  '/job-board/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/',
  '/guida-frontaliere/comuni-di-frontiera/',
@@ -179,6 +181,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Older slug /naspi-disoccupazione-frontalieri/ redirects to the
  // canonical /naspi-ex-frontalieri-2026/ hub.
  '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
+ '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
  '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
  '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
  '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
@@ -491,6 +494,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/about/': '/en/about-us/',
  '/contact/': '/en/contact-us/',
  '/privacy-policy/': '/en/privacy/',
+ // Historical Italian cookie-policy entry; the notice lives in the privacy page.
+ '/cookie/': '/privacy/',
  '/en/cross-border-faq/': '/en/frequently-asked-questions/',
  '/de/grenzgaenger-faq/': '/de/haeufige-fragen/',
  '/fr/faq-frontaliers/': '/fr/questions-frequentes/',
