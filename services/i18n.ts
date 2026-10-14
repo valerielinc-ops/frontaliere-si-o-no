@@ -7,6 +7,7 @@
 export type Locale = 'it' | 'en' | 'de' | 'fr';
 import type { ArticleSection, HistoricalArticleSection } from './articleSections';
 import { articlesApiBase } from './articlesApiBase';
+import { isArticleBodyPlaceholder } from './articleBodyRecovery';
 
 type TranslationKey = string;
 type Translations = Record<TranslationKey, string>;
@@ -105,6 +106,30 @@ export function mergeArticleMetaOverlay(locale: Locale, translations: Translatio
     listeners.forEach((fn) => fn(currentLocale));
   }
   return added;
+}
+
+/** Recover absent/placeholder body keys only; valid prose and metadata stay authoritative. */
+export function mergeRecoveredArticleBody(locale: Locale, id: string, parts: readonly string[]): number {
+  const target = loadedLocales[locale] ?? (loadedLocales[locale] = {});
+  const prefix = `blog.article.${id}.body`;
+  const existing = Object.keys(target).filter((key) => key.startsWith(prefix) && /^\d+$/.test(key.slice(prefix.length)));
+  // Static recovery returns an array, not named fields. A compacted or partial
+  // body must not be assigned to different existing bodyN positions.
+  if (existing.length > 0 && (existing.length !== parts.length
+    || parts.some((_, index) => !existing.includes(`${prefix}${index + 1}`)))) return 0;
+  let changed = 0;
+  parts.forEach((part, index) => {
+    const key = `${prefix}${index + 1}`;
+    if (!isArticleBodyPlaceholder(part) && (target[key] === undefined || isArticleBodyPlaceholder(target[key]))) {
+      target[key] = part;
+      changed++;
+    }
+  });
+  if (changed > 0) {
+    localeTick++;
+    listeners.forEach((fn) => fn(currentLocale));
+  }
+  return changed;
 }
 
 // Background preloads can be interrupted during test worker teardown.
