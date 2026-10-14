@@ -40,6 +40,14 @@ describe('deriveAnalyticsPageContext', () => {
   });
 
   it('classifies the assisted-application landing and private service URLs', () => {
+    expect(deriveAnalyticsPageContext('/automatizza-ricerca-lavoro-svizzera/')).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'application_concierge',
+      siteSection: 'jobs',
+      routeFamily: 'application_concierge',
+      contentLocale: 'it',
+    });
+
     expect(deriveAnalyticsPageContext('/cerca-lavoro-ticino/?application_concierge=1')).toMatchObject({
       contentGroup: 'jobs',
       pageTemplate: 'application_concierge',

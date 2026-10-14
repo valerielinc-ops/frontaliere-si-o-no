@@ -418,9 +418,11 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
   it('recovers the alternates the defect removed from sitemap-pages.xml', () => {
     const { entries } = collectLocaleVariantEntries(sources, () => true);
     const before = countAnnotations(readSeeded('sitemap-pages.xml'));
-    // 890: the previous 830 annotations plus four explicit reciprocal
-    // groups (3 locale-owned blocks × 5 annotations each). These groups are
-    // intentionally listed in public/sitemap-pages.xml because their pages
+    // 895: the previous 890 annotations plus the concierge landing's five
+    // explicit reciprocal annotations. The previous 890 was the previous
+    // 830 annotations plus four explicit reciprocal groups (3 locale-owned
+    // blocks × 5 annotations each). These groups are intentionally listed in
+    // public/sitemap-pages.xml because their pages
     // are emitted by separate SEO overlays and cannot rely on the generic
     // static-page backfill to win the closeBundle race.
     // The previous 830 was the previous 1565 annotations minus 15 retired utility-alias
@@ -431,7 +433,7 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
     // The tripwire is kept as an exact count on purpose — the committed sitemap
     // is a static file nothing rebuilds, so an UNEXPLAINED change to it is exactly
     // what this assertion exists to surface.
-    expect(before).toBe(890);
+    expect(before).toBe(895);
 
     const withoutBackfill = sanitizeSitemapHreflangReciprocity(seeded);
     const withBackfill = sanitizeSitemapHreflangReciprocity([

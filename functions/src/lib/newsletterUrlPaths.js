@@ -33,7 +33,7 @@
 
 const BASE_URL = 'https://frontaliereticino.ch';
 export const JOB_BOARD_PATH = '/cerca-lavoro-ticino';
-export const APPLICATION_CONCIERGE_PATH = `${JOB_BOARD_PATH}/?application_concierge=1`;
+export const APPLICATION_CONCIERGE_PATH = '/automatizza-ricerca-lavoro-svizzera';
 
 export function nlNormLocale(raw) {
   if (!raw) return 'it';
@@ -54,6 +54,12 @@ export const LOCALE_PATH_MAP = {
     en: '/en/find-jobs-ticino',
     de: '/de/jobs-im-tessin',
     fr: '/fr/trouver-emploi-tessin',
+  },
+  [APPLICATION_CONCIERGE_PATH]: {
+    it: '/automatizza-ricerca-lavoro-svizzera',
+    en: '/en/automate-job-search-switzerland',
+    de: '/de/arbeitssuche-schweiz-automatisieren',
+    fr: '/fr/automatiser-recherche-emploi-suisse',
   },
   // Paid 1:1 consulting. Slugs mirror services/routeSlugs.data.ts `consulting`
   // (router.ts:3366 builds `${prefix}/${table.consulting}`); the drift test in

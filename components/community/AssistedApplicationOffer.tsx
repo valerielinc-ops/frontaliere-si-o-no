@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
-import { buildPath } from '@/services/router';
+import { getApplicationConciergePath } from '@/services/router';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { useApplicationOfferAdClearance } from '@/components/community/useApplicationOfferAdClearance';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
@@ -65,7 +65,7 @@ export default function AssistedApplicationOffer({
   // The free and paid buttons sit at the card's bottom, where Google's anchor
   // ad lands: the card stays above it.
   const adClearance = useApplicationOfferAdClearance();
-  const conciergeHref = `${buildPath({ activeTab: 'job-board' }, locale)}?application_concierge=1`;
+  const conciergeHref = getApplicationConciergePath(locale);
 
   useEffect(() => {
     trackAssistedApplicationEvent('assisted_application_offer_viewed', {

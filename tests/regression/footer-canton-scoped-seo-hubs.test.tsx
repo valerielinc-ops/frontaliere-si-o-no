@@ -45,6 +45,7 @@ vi.mock('@/services/router', () => ({
   replaceRoute: vi.fn(),
   buildPath: vi.fn(() => '/'),
   isArticleSectionRoute: vi.fn(() => false),
+  isApplicationConciergePath: vi.fn(() => false),
   buildAllLocalePaths: vi.fn(() => ({ it: '/', en: '/en/', de: '/de/', fr: '/fr/' })),
   getSeoSection: vi.fn(() => 'job-board'),
   updatePathForLocale: vi.fn(),
