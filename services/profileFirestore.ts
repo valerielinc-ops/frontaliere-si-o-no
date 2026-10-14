@@ -83,3 +83,45 @@ export async function loadEnrichmentProfileFields(email: string): Promise<Enrich
     return { ...EMPTY_FIELDS };
   }
 }
+
+export interface UserCvProfileRecord {
+  userId: string;
+  status: 'processing' | 'ready' | 'needs_review' | string;
+  cvDocument?: {
+    fileName?: string;
+    sourceType?: string;
+    sourceId?: string;
+    uploadedAt?: unknown;
+    detectedType?: string | null;
+    extractedTextAvailable?: boolean;
+  };
+  profile?: {
+    fullName?: string;
+    email?: string;
+    phone?: string;
+    headline?: string;
+    workPosition?: string;
+    workplace?: string;
+    preferredLanguage?: string;
+    skills?: string[];
+    languages?: string[];
+    experienceSummary?: string[];
+  };
+  updatedAt?: unknown;
+}
+
+/** Owner-only CV projection; the original file and extracted text stay server-side. */
+export async function loadUserCvProfile(uid: string): Promise<UserCvProfileRecord | null> {
+  if (!uid) return null;
+  try {
+    const db = await initFirestore();
+    if (!db) return null;
+    const { doc, getDoc } = await import('firebase/firestore');
+    const snapshot = await getDoc(doc(db as never, 'user_cv_profiles', uid));
+    if (!snapshot.exists()) return null;
+    return { userId: uid, ...(snapshot.data() as Omit<UserCvProfileRecord, 'userId'>) };
+  } catch (error) {
+    reportCaughtError(error, 'profileFirestore.loadUserCvProfile', { type: 'api_error' });
+    return null;
+  }
+}

@@ -6,9 +6,11 @@ import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
+import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   acceptApplicationConciergeProposal,
   declineApplicationConciergeProposal,
+  recordApplicationConciergeConsent,
   fetchApplicationConciergeService,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
@@ -17,6 +19,7 @@ import {
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const POLL_MS = 3500;
+const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
 export interface ApplicationConciergePortalProps {
   serviceId?: string | null;
@@ -130,13 +133,13 @@ export default function ApplicationConciergePortal({
   }, [authLoading, loadService, serviceId]);
 
   useEffect(() => {
-    if (!serviceId || !service || !isPending(service)) return undefined;
+    if (!serviceId || !service || (!isPending(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
     let cancelled = false;
     const timer = window.setTimeout(async function poll() {
       if (cancelled) return;
       try {
         const loaded = await loadService();
-        if (!cancelled && loaded && isPending(loaded)) window.setTimeout(poll, POLL_MS);
+        if (!cancelled && loaded && (isPending(loaded) || MATCHING_STATES.has(String(loaded.matchingStatus || '')))) window.setTimeout(poll, POLL_MS);
       } catch (pollError) {
         if (!cancelled) setError(errorKey(pollError));
       }
@@ -172,7 +175,7 @@ export default function ApplicationConciergePortal({
     }
   };
 
-  const saveProfile = async (cvStorageKey?: string) => {
+  const saveProfile = async (options: { cvStorageKey?: string; cvFileName?: string } = {}) => {
     if (!serviceId) return null;
     const user = await ensureUser();
     if (!user) {
@@ -183,12 +186,38 @@ export default function ApplicationConciergePortal({
       applicantName: name.trim(),
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
-      consent,
-      ...(cvStorageKey ? { cvStorageKey } : {}),
+      ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
+      ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
     setService(updated);
     setConsent(updated.hasConsent);
     return updated;
+  };
+
+  const handleRecordConsent = async () => {
+    if (!serviceId || !consent || busy) return;
+    setBusy('consent');
+    setError(null);
+    setMessage(null);
+    try {
+      const user = await ensureUser();
+      if (!user) {
+        onRequireAuth?.();
+        throw new Error('auth_required');
+      }
+      const updated = await recordApplicationConciergeConsent(user, serviceId, {
+        applicantName: name.trim(),
+        applicantEmail: email.trim().toLowerCase(),
+        applicantPhone: phone.trim(),
+      });
+      setService(updated);
+      setConsent(updated.hasConsent);
+      setMessage(t('jobBoard.concierge.consentRecorded'));
+    } catch (consentError) {
+      setError(errorKey(consentError));
+    } finally {
+      setBusy(null);
+    }
   };
 
   const handleSaveProfile = async () => {
@@ -224,7 +253,7 @@ export default function ApplicationConciergePortal({
       const path = `application-concierge-uploads/${serviceId}/${Date.now()}-${randomToken()}-${safeFileName(file.name)}`;
       const uploaded = await storageModule.uploadBytes(storageModule.ref(storage, path), file, { contentType });
       const fullPath = uploaded.metadata.fullPath || path;
-      await saveProfile(fullPath);
+      await saveProfile({ cvStorageKey: fullPath, cvFileName: safeFileName(file.name) });
       setMessage(t('jobBoard.concierge.cvUploaded'));
     } catch (uploadError) {
       setError(errorKey(uploadError));
@@ -392,10 +421,25 @@ export default function ApplicationConciergePortal({
   const pending = isPending(service);
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
 
+  const matchingStatus = String(service.matchingStatus || '');
+  const matchingActive = MATCHING_STATES.has(matchingStatus);
+  const matchingNeedsReview = matchingStatus === 'needs_review';
+  const matchingFailed = matchingStatus === 'failed';
+
   return (
-    <PortalShell>
-      <div className="space-y-5">
-        <header><p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('jobBoard.concierge.eyebrow')}</p><h1 className="mt-1 text-2xl font-bold font-display text-heading">{t('jobBoard.concierge.portalTitle')}</h1><p className="mt-2 text-sm text-subtle">{t('jobBoard.concierge.portalIntro')}</p></header>
+    <PortalShell wide>
+      <div className="space-y-6">
+        <header className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{t('jobBoard.concierge.eyebrow')}</p>
+            <h1 className="mt-1 text-3xl font-bold tracking-[-0.025em] font-display text-heading">{t('jobBoard.concierge.portalTitle')}</h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-subtle">{t('jobBoard.concierge.portalIntro')}</p>
+          </div>
+          <div className="flex items-center gap-3 rounded-2xl border border-accent-border bg-accent-subtle/60 px-4 py-3">
+            <Target className="h-5 w-5 text-accent" aria-hidden="true" />
+            <div><p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.concierge.remaining')}</p><p className="text-xl font-bold tabular-nums text-heading">{service.remainingPositions}<span className="text-sm font-medium text-subtle">/{service.maxPositions}</span></p></div>
+          </div>
+        </header>
         {pending && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
         {service.paymentStatus === 'failed' && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
         {expired && <Notice icon={<Clock3 size={17} />} tone="warning" text={t('jobBoard.concierge.expired')} />}
@@ -403,18 +447,58 @@ export default function ApplicationConciergePortal({
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
         {!pending && service.paymentStatus === 'paid' && (
           <>
-            <section className="rounded-2xl border border-edge bg-surface p-5">
-              <div className="flex items-start justify-between gap-4"><div><h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.profileTitle')}</h2><p className="mt-1 text-sm text-subtle">{t('jobBoard.concierge.profileIntro')}</p></div><span className="shrink-0 rounded-full bg-accent-subtle px-3 py-1 text-xs font-bold text-accent">{service.remainingPositions}/{service.maxPositions}</span></div>
-              <form className="mt-4 grid gap-3 sm:grid-cols-2" onSubmit={(event) => { event.preventDefault(); void handleSaveProfile(); }}>
-                <label className="text-sm font-medium text-body">{t('jobBoard.concierge.name')}<input value={name} onChange={(event) => setName(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm" autoComplete="name" /></label>
-                <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm" type="email" autoComplete="email" /></label>
-                <label className="text-sm font-medium text-body sm:col-span-2">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm" autoComplete="tel" /></label>
-                <label className="flex items-start gap-2 text-sm leading-6 text-body sm:col-span-2"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} className="mt-1 h-4 w-4 accent-accent" /><span>{t('jobBoard.concierge.consent')}</span></label>
-                <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:opacity-60 sm:col-span-2 sm:justify-self-start">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveProfile')}</button>
-              </form>
-              <div className="mt-5 rounded-xl border border-dashed border-edge p-4"><div className="flex flex-wrap items-center justify-between gap-3"><p className="text-sm font-semibold text-body">{service.hasCv ? <span className="inline-flex items-center gap-2 text-success"><CheckCircle2 size={16} aria-hidden="true" />{t('jobBoard.concierge.cvReady')}</span> : t('jobBoard.concierge.cvTitle')}</p><label className={`inline-flex min-h-[42px] cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold ${service.hasConsent ? 'bg-accent text-on-accent' : 'bg-surface-raised text-muted'}`}><UploadCloud size={16} aria-hidden="true" />{busy === 'cv' ? t('jobBoard.concierge.uploading') : t('jobBoard.concierge.upload')}<input type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="sr-only" disabled={!service.hasConsent || busy !== null || expired} onChange={(event) => { void handleCvChange(event.target.files?.[0]); event.currentTarget.value = ''; }} /></label></div>{!service.hasConsent && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.saveConsentFirst')}</p>}</div>
-            </section>
-            <section className="rounded-2xl border border-edge bg-surface p-5"><div className="flex items-center justify-between gap-3"><h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</h2><span className="text-xs font-semibold text-muted">{service.acceptedPositionsCount}/{service.maxPositions}</span></div><p className="mt-1 text-sm text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p><div className="mt-4 space-y-3">{service.proposals.length === 0 && <p className="rounded-xl bg-surface-raised p-4 text-sm text-subtle">{t('jobBoard.concierge.noProposals')}</p>}{service.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}</div></section>
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+              <section className="rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-profile-title">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-xl bg-accent-subtle p-2.5 text-accent"><ShieldCheck size={20} aria-hidden="true" /></div>
+                  <div><h2 id="concierge-profile-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.profileTitle')}</h2><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.profileIntro')}</p></div>
+                </div>
+                <form className="mt-5 space-y-4" onSubmit={(event) => { event.preventDefault(); void handleSaveProfile(); }}>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <label className="text-sm font-medium text-body">{t('jobBoard.concierge.name')}<input value={name} onChange={(event) => setName(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" /></label>
+                    <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
+                  </div>
+                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
+                  <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
+                </form>
+
+                <div className="mt-6 border-t border-edge pt-5">
+                  {service.hasConsent ? (
+                    <div className="rounded-xl border border-success-border bg-success-subtle/70 p-4">
+                      <div className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" /><div><p className="text-sm font-semibold text-heading">{t('jobBoard.concierge.consentRecorded')}</p><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.consentStored')}</p><p className="mt-3 flex items-center gap-2 text-xs font-medium text-body"><FileText size={14} className="text-accent" aria-hidden="true" />{service.cvFileName || t('jobBoard.concierge.cvPending')}</p></div></div>
+                      <AssistedApplicationLegalLinks className="mt-3 block text-xs text-muted" />
+                    </div>
+                  ) : (
+                    <div className="rounded-xl border border-warning-border bg-warning-subtle/40 p-4">
+                      <p className="text-sm font-semibold text-heading">{t('jobBoard.concierge.consentTitle')}</p>
+                      <label className="mt-3 flex items-start gap-3 text-sm leading-6 text-body"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-accent" /><span>{t('jobBoard.concierge.consent')}</span></label>
+                      <AssistedApplicationLegalLinks className="mt-2 block pl-7 text-xs text-muted" />
+                      <button type="button" onClick={() => { void handleRecordConsent(); }} disabled={!consent || busy !== null || expired} className="mt-4 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50">{busy === 'consent' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.recordConsent')}</button>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-5 rounded-xl border border-dashed border-edge p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div><p className="text-sm font-semibold text-body">{service.hasCv ? <span className="inline-flex items-center gap-2 text-success"><CheckCircle2 size={16} aria-hidden="true" />{t('jobBoard.concierge.cvReady')}</span> : t('jobBoard.concierge.cvTitle')}</p>{service.cvFileName && <p className="mt-1 text-xs text-muted">{service.cvFileName}</p>}</div>
+                    <label className={`inline-flex min-h-[42px] cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ${service.hasConsent ? 'bg-accent text-on-accent hover:bg-accent-strong' : 'bg-surface-raised text-muted'}`}><UploadCloud size={16} aria-hidden="true" />{busy === 'cv' ? t('jobBoard.concierge.uploading') : t('jobBoard.concierge.upload')}<input type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="sr-only" disabled={!service.hasConsent || busy !== null || expired} onChange={(event) => { void handleCvChange(event.target.files?.[0]); event.currentTarget.value = ''; }} /></label>
+                  </div>
+                  {!service.hasConsent && <p className="mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.consentUploadHint')}</p>}
+                  {service.cvProfileStatus === 'needs_review' && <p className="mt-2 text-xs leading-5 text-warning">{t('jobBoard.concierge.cvNeedsReview')}</p>}
+                </div>
+              </section>
+
+              <section className="rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
+                <div className="flex items-start justify-between gap-3"><div><h2 id="concierge-proposals-title" className="text-lg font-bold font-display text-heading">{t('jobBoard.concierge.proposalsTitle')}</h2><p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.proposalsIntro')}</p></div><span className="shrink-0 rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">{service.acceptedPositionsCount}/{service.maxPositions}</span></div>
+                {matchingActive && <div className="mt-5 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status"><div className="flex items-center gap-2 text-sm font-semibold text-info"><Loader2 size={16} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.matchingRunning')}</div><p className="mt-1 text-xs leading-5 text-body">{t('jobBoard.concierge.matchingRunningHint')}</p><div className="mt-4 space-y-2" aria-hidden="true"><div className="h-16 animate-pulse rounded-lg bg-surface" /><div className="h-16 animate-pulse rounded-lg bg-surface" /></div></div>}
+                {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
+                {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
+                <div className="mt-5 space-y-3">
+                  {service.proposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {service.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                </div>
+              </section>
+            </div>
             <p className="text-xs leading-5 text-muted">{t('jobBoard.concierge.noGuarantee')}</p>
           </>
         )}
@@ -423,8 +507,8 @@ export default function ApplicationConciergePortal({
   );
 }
 
-function PortalShell({ children }: { children: ReactNode }) {
-  return <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-3xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}><section className="rounded-3xl border border-edge bg-surface p-5 shadow-sm sm:p-8">{children}</section></main>;
+function PortalShell({ children, wide = false }: { children: ReactNode; wide?: boolean }) {
+  return <main className={`${REPLAY_PRIVATE_CLASS} mx-auto ${wide ? 'max-w-5xl' : 'max-w-3xl'} px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}><section className="rounded-3xl border border-edge bg-surface p-5 shadow-sm sm:p-8">{children}</section></main>;
 }
 
 function Info({ icon, label }: { icon: ReactNode; label: string }) {
@@ -468,5 +552,5 @@ function Notice({ icon, text, tone = 'info' }: { icon: ReactNode; text: string; 
 
 function ProposalCard({ proposal, disabled, canAccept, busy, onDecision, t }: { proposal: ApplicationConciergeProposal; disabled: boolean; canAccept: boolean; busy: string | null; onDecision: (proposal: ApplicationConciergeProposal, decision: 'accept' | 'decline') => void; t: (key: string, params?: Record<string, string>) => string }) {
   const proposed = proposal.status === 'proposed';
-  return <article className="rounded-xl border border-edge p-4"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p></div><span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposed && <div className="mt-3 flex flex-wrap items-center gap-2"><a href={proposal.jobUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
+  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={proposal.jobUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
 }

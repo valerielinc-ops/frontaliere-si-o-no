@@ -16,7 +16,7 @@ import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { reportCaughtError } from '@/services/errorReporter';
-import { savePartialProfile } from '@/services/profileFirestore';
+import { loadUserCvProfile, savePartialProfile, type UserCvProfileRecord } from '@/services/profileFirestore';
 import {
  User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
@@ -25,7 +25,8 @@ import {
  Clock, FileCheck, Mail, ExternalLink, Newspaper, Bookmark,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
-import { buildPath, ensureJobSlugMapLoaded } from '@/services/router';
+import { buildPath, ensureJobSlugMapLoaded, getApplicationConciergePath } from '@/services/router';
+import { fetchApplicationConciergeServices, type ApplicationConciergeService } from '@/services/applicationConciergeService';
 import { loadSavedJobs, SAVED_JOBS_CHANGED_EVENT, type SavedJobEntry } from '@/services/savedJobsService';
 import { fetchAllJobs } from '@/services/jobsService';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
@@ -344,6 +345,8 @@ const FamilyMemberRow: React.FC<{
 const UserProfile: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user, loading: authLoading, signIn, signInFacebook, logout } = useAuth();
+ const [conciergeService, setConciergeService] = useState<ApplicationConciergeService | null>(null);
+ const [cvProfile, setCvProfile] = useState<UserCvProfileRecord | null>(null);
  // Profile page needs auth immediately — skip the interaction-deferred loading
  useEffect(() => { eagerAuth(); }, []);
  // Show a "I miei annunci" shortcut only when the user has created publisher ads.
@@ -408,6 +411,37 @@ const UserProfile: React.FC = () => {
    })();
    return () => { cancelled = true; };
  }, [user]);
+
+ // Keep an active 30-day concierge service one click away from the profile.
+ // The API is owner-scoped; the profile never scans public job-board data to
+ // infer an entitlement.
+ useEffect(() => {
+   if (!user) { setConciergeService(null); return; }
+   let cancelled = false;
+   fetchApplicationConciergeServices(user).then((services) => {
+     if (cancelled) return;
+     const active = services.find((service) => service.paymentStatus === 'paid'
+       && service.serviceStatus === 'active'
+       && (!service.expiresAt || new Date(service.expiresAt).getTime() > Date.now()));
+     setConciergeService(active || null);
+   }).catch(() => {
+     if (!cancelled) setConciergeService(null);
+   });
+   return () => { cancelled = true; };
+ }, [user?.uid]);
+
+ // CV-derived data is kept in a private UID document. It is shown here as a
+ // safe projection and merged into empty local profile fields so a CV uploaded
+ // for either paid flow helps complete the same account profile.
+ useEffect(() => {
+   if (!user?.uid) { setCvProfile(null); return; }
+   let cancelled = false;
+   loadUserCvProfile(user.uid).then((record) => {
+     if (!cancelled) setCvProfile(record);
+   });
+   return () => { cancelled = true; };
+ }, [user?.uid]);
+
  // Saved jobs (account-gating follow-up to #4466/#4467). The Firestore sync
  // itself is mounted once at app root (App.tsx → subscribeSavedJobsFirestore,
  // keyed on authUser?.uid) — this component only reads the already-live
@@ -627,6 +661,24 @@ const UserProfile: React.FC = () => {
  return merged;
  });
  }, [user?.uid]);
+
+ useEffect(() => {
+   const parsed = cvProfile?.profile;
+   if (!parsed) return;
+   const language = (parsed.languages || []).map((value) => value.toLowerCase()).find((value) => /italian|italiano|english|inglese|german|tedesco|french|francese/.test(value));
+   const preferredLanguage = language
+     ? (/italian|italiano/.test(language) ? 'it' : /english|inglese/.test(language) ? 'en' : /german|tedesco/.test(language) ? 'de' : 'fr')
+     : '';
+   setProfile((previous) => {
+     const merged = { ...previous };
+     if (!merged.workPosition && parsed.workPosition) merged.workPosition = parsed.workPosition;
+     if (!merged.workplace && parsed.workplace) merged.workplace = parsed.workplace;
+     if (!merged.preferredLanguage && preferredLanguage) merged.preferredLanguage = preferredLanguage;
+     if (JSON.stringify(merged) === JSON.stringify(previous)) return previous;
+     localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(merged));
+     return merged;
+   });
+ }, [cvProfile, user?.uid]);
 
  // Google One Tap: prompt when user is not signed in. Authentication here is
  // access-only; newsletter consent is collected only by an explicit
@@ -1314,6 +1366,41 @@ const UserProfile: React.FC = () => {
  })}
  </ul>
  </div>
+ )}
+
+ {conciergeService && (
+ <a
+   href={`${getApplicationConciergePath(locale)}?application_concierge_service_id=${encodeURIComponent(conciergeService.serviceId)}`}
+   className="mx-6 mt-4 block rounded-2xl border border-accent-border bg-accent-subtle/60 p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ >
+   <div className="flex items-start gap-3">
+     <div className="rounded-xl bg-accent p-2 text-on-accent"><Sparkles size={18} aria-hidden="true" /></div>
+     <div className="min-w-0 flex-1">
+       <div className="flex flex-wrap items-center justify-between gap-2">
+         <h3 className="text-sm font-bold text-heading">{t('profile.concierge.title')}</h3>
+         <ExternalLink size={15} className="shrink-0 text-accent" aria-hidden="true" />
+       </div>
+       <p className="mt-1 text-xs leading-5 text-body">{t('profile.concierge.subtitle')}</p>
+       <p className="mt-2 text-xs font-semibold text-accent">{t('profile.concierge.open')}{conciergeService.expiresAt ? ` · ${t('profile.concierge.expires')} ${new Date(conciergeService.expiresAt).toLocaleDateString(locale)}` : ''}</p>
+     </div>
+   </div>
+ </a>
+ )}
+
+ {cvProfile && (
+ <section className="mx-6 mt-4 rounded-2xl border border-info-border bg-info-subtle/50 p-4" aria-labelledby="profile-cv-title">
+   <div className="flex items-start gap-3">
+     <div className="rounded-xl bg-surface p-2 text-info"><FileCheck size={18} aria-hidden="true" /></div>
+     <div className="min-w-0 flex-1">
+       <h3 id="profile-cv-title" className="text-sm font-bold text-heading">{t('profile.cv.title')}</h3>
+       <p className="mt-1 text-xs leading-5 text-subtle">{t('profile.cv.subtitle')}</p>
+       <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-body"><FileCheck size={15} className="text-success" aria-hidden="true" />{cvProfile.cvDocument?.fileName || t('profile.cv.pending')}</p>
+       {cvProfile.profile?.workPosition && <p className="mt-2 text-xs text-body"><span className="font-semibold">{t('profile.workPosition')}:</span> {cvProfile.profile.workPosition}</p>}
+       {cvProfile.profile?.skills?.length ? <p className="mt-1 text-xs leading-5 text-body"><span className="font-semibold">{t('profile.cv.skills')}:</span> {cvProfile.profile.skills.slice(0, 8).join(', ')}</p> : null}
+       {cvProfile.profile?.experienceSummary?.length ? <p className="mt-1 text-xs leading-5 text-body"><span className="font-semibold">{t('profile.cv.experience')}:</span> {cvProfile.profile.experienceSummary.slice(0, 2).join(' · ')}</p> : null}
+     </div>
+   </div>
+ </section>
  )}
 
  {/* Profile data form */}
