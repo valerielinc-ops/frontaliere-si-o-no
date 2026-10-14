@@ -1,0 +1,3556 @@
+{
+  "schemaVersion": 1,
+  "source": "gsc-coverage-2026-10-14",
+  "sourceSnapshots": [
+    {
+      "commit": "44238ba45f15c445d3cbdcb087e1c819e3f6787c",
+      "generatedAt": "2026-10-03T11:26:54.288Z",
+      "matchedRecords": 1
+    },
+    {
+      "commit": "fe5e0dcdc78b9298b059df54396d8b656b918da8",
+      "generatedAt": "2026-09-29T12:20:16.362Z",
+      "matchedRecords": 2
+    },
+    {
+      "commit": "182932629dd5e5e9657781832753c280399caa54",
+      "generatedAt": "2026-09-16T11:04:04.615Z",
+      "matchedRecords": 80
+    },
+    {
+      "commit": "1d67b6d1de63ac7a27682744e45b031a72c2df8c",
+      "generatedAt": "2026-09-14T11:36:34.465Z",
+      "matchedRecords": 76
+    },
+    {
+      "commit": "885b0fba0dca5b2e2bbeb339163a101e4aa2c068",
+      "generatedAt": "2026-08-31T12:34:49.122Z",
+      "matchedRecords": 55
+    },
+    {
+      "commit": "0d92ff07be4b654be941042b1469ac5c87466593",
+      "generatedAt": "2026-08-13T07:46:35.865Z",
+      "matchedRecords": 46
+    },
+    {
+      "commit": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
+      "generatedAt": "2026-07-07T09:25:23.155Z",
+      "matchedRecords": 34
+    }
+  ],
+  "events": [
+    {
+      "id": "myswitzerland:7d3356ac1f254b54a072216b1218a059",
+      "title": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA",
+      "titleByLocale": {
+        "it": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA",
+        "en": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA",
+        "de": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA",
+        "fr": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Carouge GE",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ilos-mariachis-aramis-monroy-helio-monroy-nelson-gomez-solistes-geca/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "ilos-mariachis-aramis-monroy-helio-monroy-nelson-gomez-2026-12-04"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:c8148728cc9a49dca4856b1cbecb1ae4",
+      "title": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+      "titleByLocale": {
+        "it": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "en": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "de": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "fr": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026"
+      },
+      "startDate": "2026-07-10",
+      "endDate": "2026-12-11",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Lüsslingen",
+      "comune": "Lüsslingen-Nennigkofen",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kulturkommision-luesslingen-nennigkofen-praesentiert-das-programm-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SO",
+          "comune": "Lüsslingen-Nennigkofen",
+          "slug": "kulturkommision-lusslingen-nennigkofen-prasentiert-das-2026-07-10"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:a41a777677c046268135140cdcb0cfd9",
+      "title": "Book start: esperienza in biblioteca per i più piccoli",
+      "titleByLocale": {
+        "it": "Book start: esperienza in biblioteca per i più piccoli",
+        "en": "Book start: library experience for the little ones",
+        "de": "Buchstart: Bibliothekserlebnis für die Kleinsten",
+        "fr": "Buchstart : l'expérience de la bibliothèque pour les tout-petits"
+      },
+      "startDate": "2026-04-28",
+      "endDate": "2026-09-22",
+      "startTime": "09:30",
+      "category": "Theater",
+      "venue": "Gemeindebibliothek Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/buchstart-bibliothekserlebnis-fuer-die-kleinsten-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "APPENZELLO",
+          "comune": "Heiden",
+          "slug": "book-start-esperienza-in-biblioteca-per-i-piu-piccoli-2026-04-28"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:18c479cf615b43ee898d4e3501eb4170",
+      "title": "Öffentliche Führung durch die Sonderausstellung «Addio – Willkommen – A revair»",
+      "titleByLocale": {
+        "it": "Öffentliche Führung durch die Sonderausstellung «Addio – Willkommen – A revair»",
+        "en": "Öffentliche Führung durch die Sonderausstellung «Addio – Willkommen – A revair»",
+        "de": "Öffentliche Führung durch die Sonderausstellung «Addio – Willkommen – A revair»",
+        "fr": "Öffentliche Führung durch die Sonderausstellung «Addio – Willkommen – A revair»"
+      },
+      "startDate": "2026-05-19",
+      "endDate": "2026-09-22",
+      "startTime": "12:15",
+      "category": "Event",
+      "venue": "Rätisches Museum",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/oeffentliche-fuehrung-durch-die-sonderausstellung-addio-willkommen-a-revair/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:528371d512d34f0da4a206e68d92ebc6",
+      "title": "Kunstkabine für Alle",
+      "titleByLocale": {
+        "it": "Kunstkabine für Alle",
+        "en": "Kunstkabine für Alle",
+        "de": "Kunstkabine für Alle",
+        "fr": "Kunstkabine für Alle"
+      },
+      "startDate": "2026-08-05",
+      "endDate": "2026-09-20",
+      "startTime": "19:00",
+      "category": "Exhibition",
+      "venue": "Kunstkabine",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/kunstkabine-fuer-alle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:45902aee09cf4ee88277befb252138e9",
+      "title": "Vollmondschwimmen",
+      "titleByLocale": {
+        "it": "Vollmondschwimmen",
+        "en": "Vollmondschwimmen",
+        "de": "Vollmondschwimmen",
+        "fr": "Vollmondschwimmen"
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-09-25",
+      "startTime": "18:00",
+      "category": "Sports",
+      "venue": "Strandbad Seerose",
+      "comune": "Meisterschwanden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/vollmondschwimmen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:96052d6a10d9471e8e03455dc6b52390",
+      "title": "Komödie \"The Invite\"",
+      "titleByLocale": {
+        "it": "Komödie \"The Invite\"",
+        "en": "Komödie \"The Invite\"",
+        "de": "Komödie \"The Invite\"",
+        "fr": "Komödie \"The Invite\""
+      },
+      "startDate": "2026-09-03",
+      "endDate": "2026-09-25",
+      "startTime": "18:00",
+      "category": "Theater",
+      "venue": "Kino Orion",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/komoedie-the-invite/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Dübendorf",
+          "slug": "komodie-the-invite-2026-09-03"
+        },
+        {
+          "canton": "ZH",
+          "comune": "Dübendorf",
+          "slug": "komodie-the-invite-2026-09-03"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:dc14f9e2cafe4545953ab44bb20631be",
+      "title": "Bifertenstock / Piz Durschin, 3418 m, via the Bänderweg",
+      "titleByLocale": {
+        "it": "Bifertenstock / Piz Durschin, 3418 m, via the Bänderweg",
+        "en": "Bifertenstock / Piz Durschin, 3418 m, via the Bänderweg",
+        "de": "Bifertenstock / Piz Durschin, 3418 m, Hochtour über den Bänderweg",
+        "fr": "Bifertenstock / Piz Durschin, 3418 m, par le Bänderweg"
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-18",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Brigels / Breil",
+      "comune": "Breil/Brigels",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/bifertenstock-piz-durschin-3418-m-via-the-baenderweg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:077d199416aa4f3e85bcb3d63fd030cf",
+      "title": "ISA ECKLIN TRACES DE JAZZ",
+      "titleByLocale": {
+        "it": "ISA ECKLIN TRACES DE JAZZ",
+        "en": "ISA ECKLIN TRACES DE JAZZ",
+        "de": "ISA ECKLIN TRACES DE JAZZ",
+        "fr": "ISA ECKLIN TRACES DE JAZZ"
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-20",
+      "startTime": "02:00",
+      "category": "Music",
+      "venue": "Galerie du Raccard",
+      "comune": "Anniviers",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/isa-ecklin-traces-de-jazz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:d39563588c444eec8e90f87ddeeb831a",
+      "title": "Kulinarische Entdeckungsreise im Bad Bubendorf",
+      "titleByLocale": {
+        "it": "Kulinarische Entdeckungsreise im Bad Bubendorf",
+        "en": "Kulinarische Entdeckungsreise im Bad Bubendorf",
+        "de": "Kulinarische Entdeckungsreise im Bad Bubendorf",
+        "fr": "Kulinarische Entdeckungsreise im Bad Bubendorf"
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-20",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Bubendorf",
+      "comune": "Bubendorf",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kulinarische-entdeckungsreise-im-bad-bubendorf/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:escape-game-plein-vieille-ville-0",
+      "title": "Escape Game en plein air dans la Vieille Ville",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-20",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/escape-game-plein-vieille-ville-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-14-2"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:a12d2a8820b04f72903d2725018efb8d",
+      "title": "Bänz Friedli: «Bänz Friedli räumt auf – Das neue Programm»",
+      "titleByLocale": {
+        "it": "Bänz Friedli: «Bänz Friedli räumt auf – Das neue Programm»",
+        "en": "Bänz Friedli: «Bänz Friedli räumt auf – Das neue Programm»",
+        "de": "Bänz Friedli: «Bänz Friedli räumt auf – Das neue Programm»",
+        "fr": "Bänz Friedli: «Bänz Friedli räumt auf – Das neue Programm»"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-20",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baenz-friedli-baenz-friedli-raeumt-auf-das-neue-programm/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "guidle:AHuJg9u",
+      "title": "TRÄUME VON UNIVERSEN",
+      "titleByLocale": {
+        "it": "TRÄUME VON UNIVERSEN",
+        "en": "DREAMS OF THE UNIVERSE",
+        "de": "TRÄUME VON UNIVERSEN",
+        "fr": "REVES D’UNIVERS"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-19",
+      "startTime": "21:30",
+      "category": "Astronomia",
+      "venue": "Observatoire Arbaz",
+      "comune": "Arbaz",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/savoir/arbaz/reves-dunivers_AHuJg9u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle"
+    },
+    {
+      "id": "tio-agenda:58243",
+      "title": "Corpi in prestito",
+      "titleByLocale": {
+        "it": "Corpi in prestito",
+        "en": "Borrowed bodies",
+        "de": "Leihkörper",
+        "fr": "Corps prêtés"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-10-06",
+      "category": "arte",
+      "venue": "Associazione per l’assistenza e la cura a domicilio Maggio",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/58243",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:septembre-ludobus-reprend-tournee-ete",
+      "title": "De mai à septembre le ludobus reprend sa tournée d'été!",
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-24",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/septembre-ludobus-reprend-tournee-ete",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "de-mai-a-septembre-le-ludobus-reprend-sa-tournee-2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:61534",
+      "title": "Isa Hesse-Rabinovitch!",
+      "titleByLocale": {
+        "it": "Isa Hesse-Rabinovitch!",
+        "de": "Isa Hesse-Rabinowitsch!",
+        "fr": "Isa Hesse-Rabinovitch !"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-10-06",
+      "startTime": "10:30",
+      "category": "arte",
+      "venue": "Museo Hermann Hesse",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/61534",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63671",
+      "title": "Locarno Organ Festival",
+      "titleByLocale": {
+        "it": "Locarno Organ Festival",
+        "de": "Locarno Orgelfestival",
+        "fr": "Festival d'orgue de Locarno"
+      },
+      "startDate": "2026-09-16",
+      "startTime": "10:30",
+      "category": "musica",
+      "venue": "Collegiata S. Antonio",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/63671",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "ge-agenda:nocturnes-pierre",
+      "title": "Nocturnes de St-Pierre",
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-28",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/nocturnes-pierre",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "nocturnes-de-st-pierre-2026-09-16"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "nocturnes-de-st-pierre-2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:53980",
+      "title": "Sentimento e osservazione",
+      "titleByLocale": {
+        "it": "Sentimento e osservazione",
+        "en": "Feeling and Observation",
+        "de": "Gefühl und Beobachtung",
+        "fr": "Sentiment et observation"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-10-06",
+      "startTime": "11:00",
+      "category": "arte",
+      "venue": "Lac",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260916/53980",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-09-16"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:3d1ea31dd9d1491584d3d1fd3adda3dd",
+      "title": "Swiss Chamber Music Festival: Volksmusik mit Geza Quartet & Thomas Aeschbacher",
+      "titleByLocale": {
+        "it": "Swiss Chamber Music Festival: Volksmusik mit Geza Quartet & Thomas Aeschbacher",
+        "en": "Swiss Chamber Music Festival: Volksmusik mit Geza Quartet & Thomas Aeschbacher",
+        "de": "Swiss Chamber Music Festival: Volksmusik mit Geza Quartet & Thomas Aeschbacher",
+        "fr": "Swiss Chamber Music Festival: Volksmusik mit Geza Quartet & Thomas Aeschbacher"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-16",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Adelboden",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/swiss-chamber-music-festival-volksmusik-mit-geza-quartet-thomas-aeschbacher/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:1f0d07d9a3ba4743b9940d9d093d6ed7",
+      "title": "The Large Village",
+      "titleByLocale": {
+        "it": "The Large Village",
+        "en": "The Large Village",
+        "de": "Das große Dorf",
+        "fr": "Le Grand Village"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-21",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Jardin Roussy",
+      "comune": "La Tour-de-Peilz",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/le-grand-village/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63902",
+      "title": "Astro hour",
+      "titleByLocale": {
+        "it": "Astro hour",
+        "de": "Astro-Stunde",
+        "fr": "Heure astro"
+      },
+      "startDate": "2026-09-17",
+      "startTime": "18:30",
+      "category": "altro",
+      "venue": "L'ideatorio",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260917/63902",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "astro-hour-2026-09-17"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "astro-hour-2026-09-17"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:cours-tango-argentin-niveau-debutant-0",
+      "title": "Cours de Tango Argentin - Niveau débutant",
+      "startDate": "2026-09-17",
+      "category": "Danse",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:27c81d9d23f84db6bc3f3ed625f68e7a",
+      "title": "Das Kriminal Dinner - Krimidinner mit Kitzel für Nerven und Gaumen",
+      "titleByLocale": {
+        "it": "Das Kriminal Dinner - Krimidinner mit Kitzel für Nerven und Gaumen",
+        "en": "Das Kriminal Dinner - Krimidinner mit Kitzel für Nerven und Gaumen",
+        "de": "Das Kriminal Dinner - Krimidinner mit Kitzel für Nerven und Gaumen",
+        "fr": "Das Kriminal Dinner - Krimidinner mit Kitzel für Nerven und Gaumen"
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/das-kriminal-dinner-krimidinner-mit-kitzel-fuer-nerven-und-gaumen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:509c8e7075574b0faad0ad21171fc664",
+      "title": "Dorffest Netstal",
+      "titleByLocale": {
+        "it": "Dorffest Netstal",
+        "en": "Dorffest Netstal",
+        "de": "Dorffest Netstal",
+        "fr": "Dorffest Netstal"
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-19",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Netstal",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/dorffest-netstal/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:rendez-publics-projet-h107-lieu-creation-arts-vivants",
+      "title": "Les rendez-vous publics du Projet H107, lieu pour la création en arts vivants",
+      "startDate": "2026-09-17",
+      "category": "Danse",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/rendez-publics-projet-h107-lieu-creation-arts-vivants",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:efed9f4b947246d189a30985a34310cc",
+      "title": "Wasser-Gymnastik 60+ / Organisiert vom Frauenverein",
+      "titleByLocale": {
+        "it": "Wasser-Gymnastik 60+ / Organisiert vom Frauenverein",
+        "en": "Wasser-Gymnastik 60+ / Organisiert vom Frauenverein",
+        "de": "Wasser-Gymnastik 60+ / Organisiert vom Frauenverein",
+        "fr": "Wasser-Gymnastik 60+ / Organisiert vom Frauenverein"
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "16:30",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wassergymnastik-60-organisiert-vom-frauenverein-19/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63536",
+      "title": "Mirabiblia",
+      "startDate": "2026-09-18",
+      "endDate": "2026-10-02",
+      "category": "musei",
+      "venue": "Biblioteca cantonale",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260918/63536",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "myswitzerland:a25346be4e7e4cd7a4f8d2f2447a363d",
+      "title": "Rêves d'Univers",
+      "titleByLocale": {
+        "it": "Rêves d'Univers",
+        "en": "Rêves d'Univers",
+        "de": "Rêves d'Univers",
+        "fr": "Rêves d'Univers"
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-19",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Observatoire d'Arbaz-Anzère",
+      "comune": "Arbaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/reves-dunivers-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63772",
+      "title": "Alberto Burri: un “sacco” di idee",
+      "titleByLocale": {
+        "it": "Alberto Burri: un “sacco” di idee",
+        "en": "Alberto Burri: a \"lot\" of ideas",
+        "de": "Alberto Burri: viele Ideen",
+        "fr": "Alberto Burri : un « sac » d'idées"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "14:15",
+      "category": "altro",
+      "venue": "Museo in erba",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63772",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "guidle:A84qwvX",
+      "title": "Allein – die improvisierte Solo-Show mit da vorne links",
+      "titleByLocale": {
+        "it": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "en": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "de": "Allein – die improvisierte Solo-Show mit da vorne links",
+        "fr": "Allein – die improvisierte Solo-Show mit da vorne links"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "20:00",
+      "category": "Commedia",
+      "venue": "Theater Ida",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/allein-die-improvisierte-solo-show-mit-da-vorne-links_A84qwvX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle"
+    },
+    {
+      "id": "tio-agenda:63822",
+      "title": "Anniversario di smum a Losone: porte aperte 2026",
+      "titleByLocale": {
+        "it": "Anniversario di smum a Losone: porte aperte 2026",
+        "en": "Smum anniversary in Losone: doors open 2026",
+        "de": "Smum-Jubiläum in Losone: Offene Türen 2026",
+        "fr": "Anniversaire de smum à Losone : portes ouvertes 2026"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "16:00",
+      "category": "musica",
+      "venue": "Osteria La Fabbrica",
+      "comune": "Losone",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63822",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "tio-agenda:63968",
+      "title": "Artiste contemporanee: successi, sfide e cadute",
+      "titleByLocale": {
+        "it": "Artiste contemporanee: successi, sfide e cadute",
+        "en": "Contemporary Artists: Successes, Challenges and Falls",
+        "de": "Zeitgenössische Künstlerinnen: Erfolge, Herausforderungen und Stürze",
+        "fr": "Artistes contemporains : succès, défis et chutes"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "16:30",
+      "category": "conferenze",
+      "venue": "Ex panificio Artebianca nel nucleo",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63968",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "artiste-contemporanee-successi-sfide-e-cadute-2026-09-19"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "artiste-contemporanee-successi-sfide-e-cadute-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:347eeb34bb51472c814870b1bda75cbf",
+      "title": "Clean up day",
+      "titleByLocale": {
+        "it": "Clean up day",
+        "en": "Clean up day",
+        "de": "Clean up day",
+        "fr": "Clean up day"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "7558 Strada",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/clean-up-day/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:comite-citoyen-calim-0",
+      "title": "Comité Citoyen - Calim",
+      "startDate": "2026-09-19",
+      "category": "Conférence - Rencontre",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/comite-citoyen-calim-0",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "comite-citoyen-calim-2026-09-19"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "comite-citoyen-calim-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:6e8de8bab2bb49df9a15fdb11f29ae9e",
+      "title": "Ein Tag Maske & Frisuren – Grundlagen",
+      "titleByLocale": {
+        "it": "Ein Tag Maske & Frisuren – Grundlagen",
+        "en": "Ein Tag Maske & Frisuren – Grundlagen",
+        "de": "Ein Tag Maske & Frisuren – Grundlagen",
+        "fr": "Ein Tag Maske & Frisuren – Grundlagen"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Maskenbildnerschule Colorline",
+      "comune": "Unterentfelden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/ein-wochenende-maske-frisuren-grundlagen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:john-armleder-trio-complet",
+      "title": "John Armleder Trio * COMPLET *",
+      "startDate": "2026-09-19",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/john-armleder-trio-complet",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:9514530df3f346c2bdae1f5632006ca0",
+      "title": "Kulturnacht mit Patrick Frey",
+      "titleByLocale": {
+        "it": "Kulturnacht mit Patrick Frey",
+        "en": "Kulturnacht mit Patrick Frey",
+        "de": "Kulturnacht mit Patrick Frey",
+        "fr": "Kulturnacht mit Patrick Frey"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kulturnacht-winterthur/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Winterthur",
+          "slug": "kulturnacht-mit-patrick-frey-2026-09-19"
+        },
+        {
+          "canton": "ZH",
+          "comune": "Winterthur",
+          "slug": "kulturnacht-mit-patrick-frey-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63962",
+      "title": "La giornata antispreco! Inaugurazione Madame Frigo",
+      "titleByLocale": {
+        "it": "La giornata antispreco! Inaugurazione Madame Frigo",
+        "en": "Anti-waste day! Inauguration of Madame Frigo",
+        "de": "Der Tag gegen Verschwendung! Einweihung Madame Frigo",
+        "fr": "La journée sans gaspillage ! Inauguration Madame Frigo"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "09:00",
+      "category": "appuntamenti",
+      "venue": "Arsenale - Cooperativa Area",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63962",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "la-giornata-antispreco-inaugurazione-madame-frigo-2026-09-19"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "la-giornata-antispreco-inaugurazione-madame-frigo-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:08cc6eab40b547c4a48971fbf187e691",
+      "title": "Lauréats du Concours Reine Élisabeth 2025 en duo: Rachel Breen & Jiaxin Min",
+      "titleByLocale": {
+        "it": "Lauréats du Concours Reine Élisabeth 2025 en duo: Rachel Breen & Jiaxin Min",
+        "en": "Lauréats du Concours Reine Élisabeth 2025 en duo: Rachel Breen & Jiaxin Min",
+        "de": "Lauréats du Concours Reine Élisabeth 2025 en duo: Rachel Breen & Jiaxin Min",
+        "fr": "Lauréats du Concours Reine Élisabeth 2025 en duo: Rachel Breen & Jiaxin Min"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "14:00",
+      "category": "Music",
+      "venue": "Evang.-ref. Kirche Andeer",
+      "comune": "Andeer",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/laureats-du-concours-reine-elisabeth-2025-en-duo-rachel-breen-jiaxin-min/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:09d59f559ec24628b876ac828bb883f0",
+      "title": "Les saveurs Bordillonnes : 10 ans [EN]",
+      "titleByLocale": {
+        "it": "Les saveurs Bordillonnes : 10 ans [EN]",
+        "en": "Les saveurs Bordillonnes : 10 ans [EN]",
+        "de": "Les saveurs Bordillonnes : 10 ans [DE]",
+        "fr": "Les saveurs Bordillonnes : 10 ans"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Martigny",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/les-saveurs-bordillonnes-10-ans-en/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:marie-ducate-simultanes",
+      "title": "Marie Ducaté. Simultanés",
+      "startDate": "2026-09-19",
+      "category": "Visite commentée",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/marie-ducate-simultanes",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "tio-agenda:63953",
+      "title": "Obsolescenza programmata",
+      "titleByLocale": {
+        "it": "Obsolescenza programmata",
+        "en": "planned obsolescence.",
+        "de": "Geplante Obsoleszenz",
+        "fr": "Obsolescence programmée"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "17:00",
+      "category": "conferenze",
+      "venue": "Bibliomedia",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63953",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "obsolescenza-programmata-2026-09-19"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "obsolescenza-programmata-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:0a1db8f50ea94d45b2e95d8fd8251650",
+      "title": "Öffentliche Städtliführung - Schweizer Geschichte und Reformation",
+      "titleByLocale": {
+        "it": "Öffentliche Städtliführung - Schweizer Geschichte und Reformation",
+        "en": "Öffentliche Städtliführung - Schweizer Geschichte und Reformation",
+        "de": "Öffentliche Städtliführung - Schweizer Geschichte und Reformation",
+        "fr": "Öffentliche Städtliführung - Schweizer Geschichte und Reformation"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "16:30",
+      "category": "Event",
+      "venue": "Mellingen",
+      "comune": "Mellingen",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oeffentliche-staedtlifuehrung-schweizer-geschichte-und-reformation/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:72467326fcab4f85ab458383e04c361f",
+      "title": "Orgelkonzert zum Thema \"Norden\"",
+      "titleByLocale": {
+        "it": "Orgelkonzert zum Thema \"Norden\"",
+        "en": "Orgelkonzert zum Thema \"Norden\"",
+        "de": "Orgelkonzert zum Thema \"Norden\"",
+        "fr": "Orgelkonzert zum Thema \"Norden\""
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "19:15",
+      "category": "Event",
+      "venue": "St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/orgelkonzert-zum-thema-norden/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63442",
+      "title": "Robot - Esposizione interattiva",
+      "titleByLocale": {
+        "it": "Robot - Esposizione interattiva",
+        "en": "Robot - Interactive Display",
+        "de": "Roboter - Interaktive Ausstellung",
+        "fr": "Robot - Exposition interactive"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-10-04",
+      "startTime": "14:00",
+      "category": "musei",
+      "venue": "L'ideatorio",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63442",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "ge-agenda:sauvons-herissons-sortie-panda-club-geneve",
+      "title": "Sauvons les hérissons! - Sortie Panda Club - WWF Genève",
+      "startDate": "2026-09-19",
+      "category": "Balade – Excursion",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/sauvons-herissons-sortie-panda-club-geneve",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:4e87fdda046d454280c8a03e131e2d9e",
+      "title": "Saveurs et plantes du Chasseral",
+      "titleByLocale": {
+        "it": "Saveurs et plantes du Chasseral",
+        "en": "Saveurs et plantes du Chasseral",
+        "de": "Saveurs et plantes du Chasseral",
+        "fr": "Saveurs et plantes du Chasseral"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "10:35",
+      "category": "Event",
+      "venue": "Orvin",
+      "comune": "Orvin",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/saveurs-et-plantes-du-chasseral/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63884",
+      "title": "Yoga e meditazione OMM",
+      "titleByLocale": {
+        "it": "Yoga e meditazione OMM",
+        "en": "Yoga &amp; meditations",
+        "de": "Yoga und Meditation",
+        "fr": "Yoga et méditation omn"
+      },
+      "startDate": "2026-09-19",
+      "startTime": "09:00",
+      "category": "altro",
+      "venue": "Parco della Pace",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260919/63884",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "yoga-e-meditazione-omm-2026-09-19"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "yoga-e-meditazione-omm-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:d7e3bd84d6604f9bb6e4702be5423dd0",
+      "title": "53° Concerto della chiesa cittadina di Baden - cornetta, trombone e organo",
+      "titleByLocale": {
+        "it": "53° Concerto della chiesa cittadina di Baden - cornetta, trombone e organo",
+        "en": "53rd Baden City Church Concerts - cornett, recorder, trombone & organ",
+        "de": "53. Badener Stadtkirchenkonzerte - Zink, Blockflöte, Posaune & Orgel",
+        "fr": "53e concert de la Stadtkirche de Baden - Zinc, flûte à bec, trombone & orgue"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "16:30",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/53-concerto-della-chiesa-cittadina-di-baden-cornetta-trombone-e-organo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:5a1171ba80b84987897f0b432ceefad6",
+      "title": "Concerts Pochtenalp",
+      "titleByLocale": {
+        "it": "Concerts Pochtenalp",
+        "en": "Concerts Pochtenalp",
+        "de": "Konzerte auf der Pochtenalp",
+        "fr": "Concert Pochtenalp"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "13:00",
+      "category": "Event",
+      "venue": "Hotel Waldrand",
+      "comune": "Reichenbach im Kandertal",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/concerts-pochtenalp-5/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:62258",
+      "title": "Costellazione giovani | Next Generation II",
+      "titleByLocale": {
+        "it": "Costellazione giovani | Next Generation II",
+        "en": "Youth constellation | Next Generation II",
+        "de": "Aufstellung Jugend | Next Generation II",
+        "fr": "Constellation des jeunes | Next Generation II"
+      },
+      "startDate": "2026-09-20",
+      "startTime": "17:00",
+      "category": "musica",
+      "venue": "Chiesa di Santa Maria Assunta",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260920/62258",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "tio-agenda:63773",
+      "title": "Evento speciale: in famiglia “en plein air”",
+      "titleByLocale": {
+        "it": "Evento speciale: in famiglia “en plein air”",
+        "en": "Special event: family \"en plein air\"",
+        "de": "Besonderes Ereignis: Familie „en plein air“",
+        "fr": "Événement spécial : en famille « en plein air »"
+      },
+      "startDate": "2026-09-20",
+      "startTime": "14:15",
+      "category": "altro",
+      "venue": "Museo in erba",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260920/63773",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "tio-agenda:63037",
+      "title": "Jannis Kounellis: Io sono un pittore",
+      "titleByLocale": {
+        "it": "Jannis Kounellis: Io sono un pittore",
+        "en": "Jannis Kounellis: I am a painter",
+        "de": "Jannis Kounellis: Ich bin Maler",
+        "fr": "Jannis Kounellis : Je suis un peintre"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-10-06",
+      "category": "arte",
+      "venue": "Collezione Giancarlo e Danna Olgiati",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260920/63037",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20-2"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:d4271ea358a348eab022b4fadf35aaad",
+      "title": "On the trail of the restoration trade",
+      "titleByLocale": {
+        "it": "On the trail of the restoration trade",
+        "en": "On the trail of the restoration trade",
+        "de": "Dem Restaurierungshandwerk auf der Spur",
+        "fr": "Sur les traces de l'artisanat de la restauration"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Feldbrunnen-St.Niklaus",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/on-the-trail-of-the-restoration-trade/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:b7fa4c8bd72c404b843be5f55f7f93d5",
+      "title": "Ride the Alps 2026",
+      "titleByLocale": {
+        "it": "Ride the Alps 2026",
+        "en": "Ride the Alps 2026",
+        "de": "Ride the Alps 2026",
+        "fr": "Ride the Alps 2026"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "02:00",
+      "category": "Sports",
+      "venue": "Valais / Wallis (Canton / Kanton)",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/ride-the-alps-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Sion",
+          "slug": "ride-the-alps-2026-2026-09-20"
+        },
+        {
+          "canton": "VS",
+          "comune": "Sion",
+          "slug": "ride-the-alps-2026-2026-09-20"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:5ba79df9aacb44e0a758bee1ad22a62c",
+      "title": "slowUp Basel-Dreiland",
+      "titleByLocale": {
+        "it": "slowUp Basel-Dreiland",
+        "en": "slowUp Basel-Dreiland",
+        "de": "slowUp Basel-Dreiland",
+        "fr": "slowUp Bâle-Dreiland"
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "startTime": "10:00",
+      "category": "Sports",
+      "venue": "4000 Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/slowup-basel-dreiland/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:05f70c80eb154ee4827632c37ca28622",
+      "title": "Premium Matcha-Workshop",
+      "titleByLocale": {
+        "it": "Premium Matcha-Workshop",
+        "en": "Premium Matcha-Workshop",
+        "de": "Premium Matcha-Workshop",
+        "fr": "Premium Matcha-Workshop"
+      },
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-21",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Rittersaal Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/premium-matcha-workshop/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SO",
+          "comune": "Solothurn",
+          "slug": "premium-matcha-workshop-2026-09-21"
+        },
+        {
+          "canton": "SO",
+          "comune": "Solothurn",
+          "slug": "premium-matcha-workshop-2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:6a556c9b33a14c02bdc29eb1904adf14",
+      "title": "Breeding bull’s market in Bulle",
+      "titleByLocale": {
+        "it": "Breeding bull’s market in Bulle",
+        "en": "Breeding bull’s market in Bulle",
+        "de": "Zuchtstiermarkt in Bulle",
+        "fr": "Marché-concours de taureaux à Bulle"
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-22",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Espace Gruyère",
+      "comune": "Bulle",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/breeding-bulls-market-in-bulle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:rencontre-discussion-dialoguer-futur",
+      "title": "Rencontre et discussion: comment dialoguer avec le futur ?",
+      "startDate": "2026-09-22",
+      "category": "Conférence - Rencontre",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/rencontre-discussion-dialoguer-futur",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:1728a38b7a3247ff8c92d494158e1dd0",
+      "title": "«Chambre séparée»",
+      "titleByLocale": {
+        "it": "«Chambre séparée»",
+        "en": "«Chambre séparée»",
+        "de": "«Chambre séparée»",
+        "fr": "«Chambre séparée»"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chambre-separee-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Zürich",
+          "slug": "chambre-separee-2026-09-23"
+        },
+        {
+          "canton": "ZH",
+          "comune": "Zürich",
+          "slug": "chambre-separee-2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63658",
+      "title": "2026 Real estate and urban economics conference",
+      "titleByLocale": {
+        "it": "2026 Real estate and urban economics conference",
+        "de": "2026 Konferenz für Immobilien und Stadtökonomie",
+        "fr": "Conférence 2026 sur l'immobilier et l'économie urbaine"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-24",
+      "startTime": "09:00",
+      "category": "conferenze",
+      "venue": "Aula magna, Campus Ovest USI",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260923/63658",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "ge-agenda:balade-litteraire-polars-paquis",
+      "title": "Balade littéraire : Polars aux Pâquis",
+      "startDate": "2026-09-23",
+      "category": "Balade – Excursion",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/balade-litteraire-polars-paquis",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:b67d6287ff1b4106b10483e02baccc82",
+      "title": "Des images imprimées au soleil",
+      "titleByLocale": {
+        "it": "Des images imprimées au soleil",
+        "en": "Des images imprimées au soleil",
+        "de": "Des images imprimées au soleil",
+        "fr": "Des images imprimées au soleil"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Môtiers",
+      "comune": "Val-de-Travers",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/des-images-imprimees-au-soleil-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:jazz-night-groove-party-matthieu-llodra",
+      "title": "Jazz night GROOVE PARTY | Matthieu Llodra",
+      "startDate": "2026-09-23",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/jazz-night-groove-party-matthieu-llodra",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:2633c39cb08d449bbb8c4a56197eded1",
+      "title": "Läckerli Workshop",
+      "titleByLocale": {
+        "it": "Läckerli Workshop",
+        "en": "Läckerli Workshop",
+        "de": "Läckerli Workshop",
+        "fr": "Läckerli Workshop"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/laeckerli-workshop/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:4466cfef740e43ddb5a35c46378dc5e6",
+      "title": "Pixel Academy - Life simulation and management games",
+      "titleByLocale": {
+        "it": "Pixel Academy - Life simulation and management games",
+        "en": "Pixel Academy - Life simulation and management games",
+        "de": "Pixel Academy - Lebenssimulation und Planspiele",
+        "fr": "Pixel Academy - Simulation de vie et jeux de gestion"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Bibliothèque médiathèque municipale de Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/pixel-academy-lebenssimulation-und-planspiele/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Vevey",
+          "slug": "pixel-academy-life-simulation-and-management-games-2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:vernissage-station-505-parc-bastions-oeuvre-art-temporaire-andreas-kressig",
+      "title": "Vernissage de \"Station 505\" au Parc des Bastions, une œuvre d’art temporaire d’Andreas Kressig",
+      "startDate": "2026-09-23",
+      "category": "Inauguration – Vernissage – Portes ouvertes",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/vernissage-station-505-parc-bastions-oeuvre-art-temporaire-andreas-kressig",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:7584ab1d9afa432fa4b077c4aa640679",
+      "title": "Richard Koechli & Blue Roots Company (CH)",
+      "titleByLocale": {
+        "it": "Richard Koechli & Blue Roots Company (CH)",
+        "en": "Richard Koechli & Blue Roots Company (CH)",
+        "de": "Richard Koechli & Blue Roots Company (CH)",
+        "fr": "Richard Koechli & Blue Roots Company (CH)"
+      },
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/richard-koechli-blue-roots-company-ch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:astral-festival-geneva-4-events",
+      "title": "ASTRAL FESTIVAL GENEVA – 4 EVENTS",
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-26",
+      "category": "Clubbing",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/astral-festival-geneva-4-events",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "myswitzerland:37a8a58f070b4196a19860dcb603cef9",
+      "title": "Conférence la mécanique de la frontière : Les secrets de l’Arc Jurassien",
+      "titleByLocale": {
+        "it": "Conférence la mécanique de la frontière : Les secrets de l’Arc Jurassien",
+        "en": "Conférence la mécanique de la frontière : Les secrets de l’Arc Jurassien",
+        "de": "Conférence la mécanique de la frontière : Les secrets de l’Arc Jurassien",
+        "fr": "Conférence la mécanique de la frontière : Les secrets de l’Arc Jurassien"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Tramelan",
+      "comune": "Tramelan",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/conference-la-mecanique-de-la-frontiere-les-secrets-de-larc-jurassien/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:f8e2305cb47d457a8c4fd9ab691afc12",
+      "title": "Flügel–Akkordeon Fusion – «Mozarts Trojanische Märchen»",
+      "titleByLocale": {
+        "it": "Flügel–Akkordeon Fusion – «Mozarts Trojanische Märchen»",
+        "en": "Flügel–Akkordeon Fusion – «Mozarts Trojanische Märchen»",
+        "de": "Flügel–Akkordeon Fusion – «Mozarts Trojanische Märchen»",
+        "fr": "Flügel–Akkordeon Fusion – «Mozarts Trojanische Märchen»"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fluegelakkordeon-fusion-mozarts-trojanische-maerchen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SG",
+          "comune": "St. Gallen",
+          "slug": "flugel-akkordeon-fusion-mozarts-trojanische-2026-09-25"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:musique-harry-potter-ensemble",
+      "title": "La musique de Harry Potter par l’Ensemble BOW",
+      "startDate": "2026-09-25",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/musique-harry-potter-ensemble",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "guidle:AQmShE9",
+      "title": "Schloss Buvette im Schloss Zwingen",
+      "titleByLocale": {
+        "it": "Schloss Buvette im Schloss Zwingen",
+        "en": "Schloss Buvette im Schloss Zwingen",
+        "de": "Schloss Buvette im Schloss Zwingen",
+        "fr": "Schloss Buvette im Schloss Zwingen"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-26",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Schloss Zwingen",
+      "comune": "Zwingen",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/populaer/zwingen/schloss-buvette-im-schloss-zwingen_AQmShE9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle"
+    },
+    {
+      "id": "myswitzerland:09ed0a5976f144b283ecb3e681a6e1cb",
+      "title": "Bewegen und Denken gleichzeitig",
+      "titleByLocale": {
+        "it": "Bewegen und Denken gleichzeitig",
+        "en": "Bewegen und Denken gleichzeitig",
+        "de": "Bewegen und Denken gleichzeitig",
+        "fr": "Bewegen und Denken gleichzeitig"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/bewegen-und-denken-gleichzeitig/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:ombre-lumieres-peinture-genevoise-1444-1782",
+      "title": "De l'Ombre aux Lumières. La peinture genevoise (1444-1782)",
+      "startDate": "2026-09-26",
+      "category": "Visite commentée",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/ombre-lumieres-peinture-genevoise-1444-1782",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "ge-agenda:escapade-gourmande-visite-ferme-degustation-produits-locaux",
+      "title": "ESCAPADE GOURMANDE : VISITE DE LA FERME ET DÉGUSTATION DE PRODUITS LOCAUX",
+      "startDate": "2026-09-26",
+      "category": "Visite commentée",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/escapade-gourmande-visite-ferme-degustation-produits-locaux",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda"
+    },
+    {
+      "id": "tio-agenda:63774",
+      "title": "Open Lab: famiglie in gioco",
+      "titleByLocale": {
+        "it": "Open Lab: famiglie in gioco",
+        "en": "Open Lab: families at stake",
+        "de": "Open Lab: Familien im Spiel",
+        "fr": "Open Lab : familles en jeu"
+      },
+      "startDate": "2026-09-26",
+      "startTime": "14:15",
+      "category": "arte",
+      "venue": "Museo in erba",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260926/63774",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "myswitzerland:5d7937e49ece474295a81902cbae4208",
+      "title": "Pyromelodic show",
+      "titleByLocale": {
+        "it": "Pyromelodic show",
+        "en": "Pyromelodic show",
+        "de": "Pyromelodische Show",
+        "fr": "Spectacle pyromélodique"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "20:30",
+      "category": "Theater",
+      "venue": "Spectacle Pyromélodique",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/pyromelodic-show/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63823",
+      "title": "Esplorare il Sogno 2026",
+      "titleByLocale": {
+        "it": "Esplorare il Sogno 2026",
+        "en": "Exploring the Dream 2026",
+        "de": "Den Traum 2026 erkunden",
+        "fr": "Explorer le Rêve 2026"
+      },
+      "startDate": "2026-10-03",
+      "startTime": "18:15",
+      "category": "appuntamenti",
+      "venue": "Sala Aragonite",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261003/63823",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda"
+    },
+    {
+      "id": "ge-agenda:activites-estivales-seniors-sortie-bateau-voile",
+      "title": "Activités estivales pour les seniors | Sortie en bateau à voile",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-17",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-sortie-bateau-voile",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "activites-estivales-pour-les-seniors-sortie-en-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:atelier-photographier-art-ville-smartphone",
+      "title": "Atelier \"Photographier l'art en Ville avec son smartphone\"",
+      "startDate": "2026-09-14",
+      "category": "Atelier",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-photographier-art-ville-smartphone",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-photographier-lart-en-ville-avec-son-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:boite-troc-jonction",
+      "title": "Boîte à troc - Jonction",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-26",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/boite-troc-jonction",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "boite-a-troc-jonction-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "boite-a-troc-jonction-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:bourses-ville-geneve-2026",
+      "title": "Bourses de la Ville de Genève 2026",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-27",
+      "category": "Exposition",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/bourses-ville-geneve-2026",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "bourses-de-la-ville-de-geneve-2026-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "bourses-de-la-ville-de-geneve-2026-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:vendredis-bien",
+      "title": "Les Vendredis du Bien-être",
+      "startDate": "2026-09-14",
+      "endDate": "2026-10-02",
+      "category": "Animation",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/vendredis-bien",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "les-vendredis-du-bien-etre-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "les-vendredis-du-bien-etre-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:tenders-buttons",
+      "title": "Tenders buttons",
+      "startDate": "2026-09-14",
+      "endDate": "2026-10-04",
+      "category": "Exposition",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/tenders-buttons",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "tenders-buttons-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "tenders-buttons-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:visite-flash-pause-dejeuner",
+      "title": "Visite flash pause déjeuner",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-25",
+      "category": "Visite commentée",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/visite-flash-pause-dejeuner",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "visite-flash-pause-dejeuner-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "visite-flash-pause-dejeuner-2026-09-14"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63735",
+      "title": "Facciamo conoscenza",
+      "titleByLocale": {
+        "it": "Facciamo conoscenza",
+        "en": "Let's get acquainted",
+        "de": "Wir machen Sie darauf aufmerksam",
+        "fr": "Faisons connaissance !"
+      },
+      "startDate": "2026-09-15",
+      "startTime": "18:30",
+      "category": "conferenze",
+      "venue": "Auditorium Usi",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260915/63735",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "facciamo-conoscenza-2026-09-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "facciamo-conoscenza-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:c8add314740a44159cdd79466306e9db",
+      "title": "Haus- & Heilmittel - die kleine Kräuterapotheke für Zuhause",
+      "titleByLocale": {
+        "it": "Haus- & Heilmittel - die kleine Kräuterapotheke für Zuhause",
+        "en": "Haus- & Heilmittel - die kleine Kräuterapotheke für Zuhause",
+        "de": "Haus- & Heilmittel - die kleine Kräuterapotheke für Zuhause",
+        "fr": "Haus- & Heilmittel - die kleine Kräuterapotheke für Zuhause"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-15",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Gemeinde Mandach",
+      "comune": "Mandach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/haus-heilmittel-die-kleine-kraeuterapotheke-fuer-zuhause/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Mandach",
+          "slug": "haus-heilmittel-die-kleine-krauterapotheke-fur-zuhause-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:d01ccef4a7874c4d9fe7f61eedbb161a",
+      "title": "Kafi Sch(w)atz",
+      "titleByLocale": {
+        "it": "Kafi Sch(w)atz",
+        "en": "Kafi Sch(w)atz",
+        "de": "Kafi Sch(w)atz",
+        "fr": "Kafi Sch(w)atz"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-15",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kafi-schwatz-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:62100",
+      "title": "Quando delle opere d'arte rimangono solo le foto",
+      "titleByLocale": {
+        "it": "Quando delle opere d'arte rimangono solo le foto",
+        "en": "When only the photos remain of the works of art",
+        "de": "Wenn von den Kunstwerken nur noch die Fotos übrig sind",
+        "fr": "Quand des œuvres d'art ne restent que des photos"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-10-03",
+      "startTime": "07:30",
+      "category": "arte",
+      "venue": "Canvetto luganese",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260915/62100",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "quando-delle-opere-darte-rimangono-solo-le-foto-2026-09-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "quando-delle-opere-darte-rimangono-solo-le-foto-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63492",
+      "title": "Tra cielo e acqua",
+      "titleByLocale": {
+        "it": "Tra cielo e acqua",
+        "en": "Between sky and water",
+        "de": "Zwischen Himmel und Wasser",
+        "fr": "Entre ciel et eau"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-26",
+      "category": "arte",
+      "venue": "Galleria Amici dell'Arte",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260915/63492",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "tra-cielo-e-acqua-2026-09-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "tra-cielo-e-acqua-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:62804",
+      "title": "Umberto Boccioni",
+      "titleByLocale": {
+        "it": "Umberto Boccioni",
+        "fr": "Umberto Boccioni a écrit:"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-10-04",
+      "startTime": "11:00",
+      "category": "musei",
+      "venue": "Museo d’arte della Svizzera italiana",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260915/62804",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-09-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-09-15"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:4b9c4a5c27384ad0af57c1d61a6d2dd6",
+      "title": "Alp Rusna bei Bargis - geführte Wanderung",
+      "titleByLocale": {
+        "it": "Alp Rusna bei Bargis - geführte Wanderung",
+        "en": "Alp Rusna bei Bargis - geführte Wanderung",
+        "de": "Alp Rusna bei Bargis - geführte Wanderung",
+        "fr": "Alp Rusna bei Bargis - geführte Wanderung"
+      },
+      "startDate": "2026-06-28",
+      "endDate": "2026-09-13",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Flims Dorf",
+      "comune": "Flims",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/alp-rusna-bei-bargis-gefuehrte-wanderung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "guidle:AXxhpH8",
+      "title": "Natur- und Waldbaden",
+      "titleByLocale": {
+        "it": "Natur- und Waldbaden",
+        "en": "Natur- und Waldbaden",
+        "de": "Natur- und Waldbaden",
+        "fr": "Natur- und Waldbaden"
+      },
+      "startDate": "2026-07-04",
+      "endDate": "2026-09-05",
+      "startTime": "09:30",
+      "category": "Contemplazione / Meditazione",
+      "venue": "Soulness-Stübli",
+      "comune": "Bözberg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/boezberg/natur-und-waldbaden_AXxhpH8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle"
+    },
+    {
+      "id": "myswitzerland:92c141975c904610beee6d7815f1ed42",
+      "title": "Smoke'n'Roll im 1881 Waggon",
+      "titleByLocale": {
+        "it": "Smoke'n'Roll im 1881 Waggon",
+        "en": "Smoke'n'Roll im 1881 Waggon",
+        "de": "Smoke'n'Roll im 1881 Waggon",
+        "fr": "Smoke'n'Roll im 1881 Waggon"
+      },
+      "startDate": "2026-07-25",
+      "endDate": "2026-09-04",
+      "startTime": "18:00",
+      "category": "Food",
+      "venue": "1881 Kantine",
+      "comune": "Luterbach",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/smokenroll-im-1881-waggon/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SO",
+          "comune": "Luterbach",
+          "slug": "smokenroll-im-1881-waggon-2026-07-25"
+        },
+        {
+          "canton": "SO",
+          "comune": "Luterbach",
+          "slug": "smokenroll-im-1881-waggon-2026-07-25"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:e5e419b418b9438baae065d68e491319",
+      "title": "To Do Everything, You Need a Flower",
+      "titleByLocale": {
+        "it": "To Do Everything, You Need a Flower",
+        "en": "To Do Everything, You Need a Flower",
+        "de": "Um alles zu schaffen, braucht es eine Blume",
+        "fr": "Pour tout faire, il faut une fleur"
+      },
+      "startDate": "2026-08-25",
+      "endDate": "2026-09-06",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Le Locle",
+      "comune": "Le Locle",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pour-tout-faire-il-faut-une-fleur/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "NE",
+          "comune": "Le Locle",
+          "slug": "to-do-everything-you-need-a-flower-2026-08-25"
+        },
+        {
+          "canton": "NE",
+          "comune": "Le Locle",
+          "slug": "to-do-everything-you-need-a-flower-2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:bout-nez",
+      "title": "Par le bout du nez",
+      "startDate": "2026-08-27",
+      "endDate": "2026-09-13",
+      "category": "Spectacle - Théâtre",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/bout-nez",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "par-le-bout-du-nez-2026-08-27"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "par-le-bout-du-nez-2026-08-27"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63135",
+      "title": "Eco. Il richiamo della montagna",
+      "titleByLocale": {
+        "it": "Eco. Il richiamo della montagna",
+        "en": "The call of the mountains",
+        "de": "Echo. Der Ruf des Berges",
+        "fr": "Eco. L'appel de la montagne"
+      },
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-20",
+      "startTime": "09:00",
+      "category": "musei",
+      "venue": "Passo San Gottardo",
+      "comune": "Faido",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260831/63135",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Faido",
+          "slug": "eco-il-richiamo-della-montagna-2026-08-31"
+        },
+        {
+          "canton": "TI",
+          "comune": "Faido",
+          "slug": "eco-il-richiamo-della-montagna-2026-08-31"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63136",
+      "title": "Esposizione",
+      "titleByLocale": {
+        "it": "Esposizione",
+        "en": "Exposure",
+        "de": "arbeiten",
+        "fr": "Expo"
+      },
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-20",
+      "startTime": "11:00",
+      "category": "arte",
+      "venue": "Residenza Rivabella",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260831/63136",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "esposizione-2026-08-31"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "esposizione-2026-08-31"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:retrospective-arthur-harari",
+      "title": "Rétrospective: Arthur Harari",
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-01",
+      "category": "Projection",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/retrospective-arthur-harari",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "retrospective-arthur-harari-2026-08-31"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "retrospective-arthur-harari-2026-08-31"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:9905b5e9aee1431cbe283a69e1d776f7",
+      "title": "Abendführung «Olten kolonial?»",
+      "titleByLocale": {
+        "it": "Abendführung «Olten kolonial?»",
+        "en": "Abendführung «Olten kolonial?»",
+        "de": "Abendführung «Olten kolonial?»",
+        "fr": "Abendführung «Olten kolonial?»"
+      },
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-01",
+      "startTime": "18:15",
+      "category": "Event",
+      "venue": "Haus der Museen",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/abendfuehrung-olten-kolonial/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SO",
+          "comune": "Olten",
+          "slug": "abendfuhrung-olten-kolonial-2026-09-01"
+        },
+        {
+          "canton": "SO",
+          "comune": "Olten",
+          "slug": "abendfuhrung-olten-kolonial-2026-09-01"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:cf1a95ba698a41c0b961a7e14eaa869f",
+      "title": "The Collection de l'Art Brut at the Livre sur les quais",
+      "titleByLocale": {
+        "it": "The Collection de l'Art Brut at the Livre sur les quais",
+        "en": "The Collection de l'Art Brut at the Livre sur les quais",
+        "de": "The Collection de l'Art Brut at the Livre sur les quais",
+        "fr": "La Collection de l’Art Brut au Livre sur les quais"
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Collection de l'Art Brut",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/la-collection-de-lart-brut-au-livre-sur-les-quais/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Lausanne",
+          "slug": "the-collection-de-lart-brut-at-the-livre-sur-les-quais-2026-09-04"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:b2c6519ae3294c79bf5bfdaf4e25e8ad",
+      "title": "PawDAY - Der Hundemarkt für dich & deinen Vierbeiner",
+      "titleByLocale": {
+        "it": "PawDAY - Der Hundemarkt für dich & deinen Vierbeiner",
+        "en": "PawDAY - Der Hundemarkt für dich & deinen Vierbeiner",
+        "de": "PawDAY - Der Hundemarkt für dich & deinen Vierbeiner",
+        "fr": "PawDAY - Der Hundemarkt für dich & deinen Vierbeiner"
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Halle 710",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/pawday-der-hundemarkt-fuer-dich-deinen-vierbeiner/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:2a0b64b9e2d04e8db52a10cb19f2f603",
+      "title": "Grüezi - min Name isch Fridolin",
+      "titleByLocale": {
+        "it": "Grüezi - min Name isch Fridolin",
+        "en": "Gr Fr",
+        "de": "Name isch Fridolin",
+        "fr": "Grüezi - min Nom isch Fridolin"
+      },
+      "startDate": "2026-09-08",
+      "endDate": "2026-09-11",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/buchstart-fuer-kinder-im-september/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "GL",
+          "comune": "Glarus",
+          "slug": "gruezi-min-name-isch-fridolin-2026-09-08"
+        },
+        {
+          "canton": "GL",
+          "comune": "Glarus",
+          "slug": "gruezi-min-name-isch-fridolin-2026-09-08"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:6ca65b3b85874ef5b5973ce7e6d4a434",
+      "title": "4Waldstätten",
+      "titleByLocale": {
+        "it": "4Waldstätten",
+        "en": "4Waldstätten",
+        "de": "4Waldstätten",
+        "fr": "4Waldstätten"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Sarnen",
+      "comune": "Sarnen",
+      "canton": "OW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/4waldstaetten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "OW",
+          "comune": "Sarnen",
+          "slug": "4waldstatten-2026-09-11"
+        },
+        {
+          "canton": "OW",
+          "comune": "Sarnen",
+          "slug": "4waldstatten-2026-09-11"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:d5d7e6c5cd524eb3865774c275e437f0",
+      "title": "CLUB BELLEVUE - ZÜRICH 1 JAHR JUBILÄUM",
+      "titleByLocale": {
+        "it": "CLUB BELLEVUE - ZÜRICH 1 JAHR JUBILÄUM",
+        "en": "CLUB BELLEVUE - ZÜRICH 1 JAHR JUBILÄUM",
+        "de": "CLUB BELLEVUE - ZÜRICH 1 JAHR JUBILÄUM",
+        "fr": "CLUB BELLEVUE - ZÜRICH 1 JAHR JUBILÄUM"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Club Bellevue",
+      "comune": "Bellevue",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/club-bellevue-zuerich-1-jahr-jubilaeum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:0e57e9f329a941d393d4acf8978d3386",
+      "title": "Dreitägiger Steinhauerkurs im Diemtigtal",
+      "titleByLocale": {
+        "it": "Dreitägiger Steinhauerkurs im Diemtigtal",
+        "en": "Dreitägiger Steinhauerkurs im Diemtigtal",
+        "de": "Dreitägiger Steinhauerkurs im Diemtigtal",
+        "fr": "Cours de trois jours sur la taille de pierre dans le Diemtigtal"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-13",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Atelier cuncta fluunt",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/dreitaegiger-steinhauerkurs-im-diemtigtal/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "dreitagiger-steinhauerkurs-im-diemtigtal-2026-09-11"
+        },
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "dreitagiger-steinhauerkurs-im-diemtigtal-2026-09-11"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:5593c97378e24474a43a92a682931440",
+      "title": "Young District Zelten",
+      "titleByLocale": {
+        "it": "Young District Zelten",
+        "en": "Young District Zelten",
+        "de": "Young District Zelten",
+        "fr": "Young District Zelten"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-12",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Walchwil",
+      "comune": "Walchwil",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/young-district-zelten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "guidle:Ar6vQ6q",
+      "title": "Alte Liebe",
+      "titleByLocale": {
+        "it": "Alte Liebe",
+        "en": "Alte Liebe",
+        "de": "Alte Liebe",
+        "fr": "Alte Liebe"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "20:00",
+      "category": "Genere drammativo",
+      "venue": "Schwertsaal",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/wald-zh/alte-liebe_Ar6vQ6q",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "__other-events__",
+          "slug": "alte-liebe-2026-09-12"
+        },
+        {
+          "canton": "ZH",
+          "comune": "__other-events__",
+          "slug": "alte-liebe-2026-09-12"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:9a369a5972aa4fafacd44c4a34205901",
+      "title": "An Bruchstellen – wakker durch Brig-Glis",
+      "titleByLocale": {
+        "it": "An Bruchstellen – wakker durch Brig-Glis",
+        "en": "An Bruchstellen – wakker durch Brig-Glis",
+        "de": "An Bruchstellen – wakker durch Brig-Glis",
+        "fr": "An Bruchstellen – wakker durch Brig-Glis"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-13",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/an-bruchstellen-wakker-durch-brig-glis/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Brig-Glis",
+          "slug": "an-bruchstellen-wakker-durch-brig-glis-2026-09-12"
+        },
+        {
+          "canton": "VS",
+          "comune": "Brig-Glis",
+          "slug": "an-bruchstellen-wakker-durch-brig-glis-2026-09-12"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:3678c421677840f9af197c38e68c863e",
+      "title": "Die Rote Zora im Schlosskeller Interlaken",
+      "titleByLocale": {
+        "it": "Die Rote Zora im Schlosskeller Interlaken",
+        "en": "Die Rote Zora im Schlosskeller Interlaken",
+        "de": "Die Rote Zora im Schlosskeller Interlaken",
+        "fr": "Die Rote Zora im Schlosskeller Interlaken"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "20:15",
+      "category": "Music",
+      "venue": "Schlosskeller Interlaken",
+      "comune": "Interlaken",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/die-rote-zora-im-schlosskeller-interlaken/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "BE",
+          "comune": "Interlaken",
+          "slug": "die-rote-zora-im-schlosskeller-interlaken-2026-09-12"
+        },
+        {
+          "canton": "BE",
+          "comune": "Interlaken",
+          "slug": "die-rote-zora-im-schlosskeller-interlaken-2026-09-12"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:d0d72f5e183042d89f7f22401dce3c60",
+      "title": "Exkursion Watvögel am Klingnauer Stausee",
+      "titleByLocale": {
+        "it": "Exkursion Watvögel am Klingnauer Stausee",
+        "en": "Exkursion Watvögel am Klingnauer Stausee",
+        "de": "Exkursion Watvögel am Klingnauer Stausee",
+        "fr": "Exkursion Watvögel am Klingnauer Stausee"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Hubersdorf",
+      "comune": "Hubersdorf",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/exkursion-watvoegel-am-klingnauer-stausee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:df109a9d94834f69970f26848817edc9",
+      "title": "Libsigs Sprechstune",
+      "titleByLocale": {
+        "it": "Libsigs Sprechstune",
+        "en": "Libsigs Sprechstune",
+        "de": "Libsigs Sprechstune",
+        "fr": "Libsigs Sprechstune"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Schneisingen",
+      "comune": "Schneisingen",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/libsigs-sprechstune/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:d971741914c549eda0d7d7dd0998e990",
+      "title": "Rebsortenwanderung",
+      "titleByLocale": {
+        "it": "Rebsortenwanderung",
+        "en": "Rebsortenwanderung",
+        "de": "Rebsortenwanderung",
+        "fr": "Rebsortenwanderung"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "09:00",
+      "category": "Sports",
+      "venue": "Château de Villa",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/rebsortenwanderung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Sierre",
+          "slug": "rebsortenwanderung-2026-09-12"
+        },
+        {
+          "canton": "VS",
+          "comune": "Sierre",
+          "slug": "rebsortenwanderung-2026-09-12"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:920a8b129d454c359164a95ad891b7da",
+      "title": "Le Giornate Europee del Patrimonio 2026 \"in pericolo\"?",
+      "titleByLocale": {
+        "it": "Le Giornate Europee del Patrimonio 2026 \"in pericolo\"?",
+        "en": "European Heritage Days 2026 \"in danger?\"",
+        "de": "Europäische Tage des Denkmals 2026 «in Gefahr?»",
+        "fr": "Journées européennes du patrimoine 2026 \"en danger ?\""
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Museum Burg Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/europaeische-tage-des-denkmals-2026-in-gefahr/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:0d9bc2a89fd542b587210f58c6e94fab",
+      "title": "Morning pint",
+      "titleByLocale": {
+        "it": "Morning pint",
+        "en": "Morning pint",
+        "de": "Frühschoppen",
+        "fr": "Matinée"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Weggis",
+      "comune": "Weggis",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/morning-pint-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:marie-ducate-simultanes-7",
+      "title": "Marie Ducaté. Simultanés",
+      "startDate": "2026-09-19",
+      "category": "Visite commentée",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/marie-ducate-simultanes-7",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "marie-ducate-simultanes-2026-09-19"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "marie-ducate-simultanes-2026-09-19"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:f6875e27b20f47b9936e873108d45281",
+      "title": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+      "titleByLocale": {
+        "it": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "en": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "de": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "fr": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Hans Erni Museum",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/bedrohung-durch-drohnen-und-hybride-kriegsfuehrung-panta-rheivortrag/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-panta-rhei-2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:8e30205501d04d519d042e0048b2b6d0",
+      "title": "L'arte delle marionette: Visita guidata e conferenza di Sasha Morgenthaler",
+      "titleByLocale": {
+        "it": "L'arte delle marionette: Visita guidata e conferenza di Sasha Morgenthaler",
+        "en": "The art of puppets: Guided tour & lecture on Sasha Morgenthaler",
+        "de": "Die Kunst der Puppen: Führung & Vortrag zu Sasha Morgenthaler",
+        "fr": "L'art des marionnettes : Visite guidée & conférence sur Sasha Morgenthaler"
+      },
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-19",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Büren a. A.",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/die-kunst-der-puppen-fuehrung-vortrag-zu-sasha-morgenthaler/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "larte-delle-marionette-visita-guidata-e-conferenza-di-sasha-2026-10-05"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:b38249a7cc25454180642b112a65d766",
+      "title": "Bergkirchli-Konzert mit Daniela & Lukas Roos",
+      "titleByLocale": {
+        "it": "Bergkirchli-Konzert mit Daniela & Lukas Roos",
+        "en": "Bergkirchli-Konzert mit Daniela & Lukas Roos",
+        "de": "Bergkirchli-Konzert mit Daniela & Lukas Roos",
+        "fr": "Bergkirchli-Konzert mit Daniela & Lukas Roos"
+      },
+      "startDate": "2026-10-06",
+      "endDate": "2026-10-06",
+      "startTime": "17:00",
+      "category": "Music",
+      "venue": "Bergkirchli",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/bergkirchlikonzert-mit-daniela-lukas-roos/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:4da0fd755b98450da84be0a13af5d4e6",
+      "title": "Kindertheater",
+      "titleByLocale": {
+        "it": "Kindertheater",
+        "en": "Kindertheater",
+        "de": "Kindertheater",
+        "fr": "Kindertheater"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kindertheater-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:11a5114531a842ffbe6b7b2b7e89e2ef",
+      "title": "Saira da Cumpagnia with live music",
+      "titleByLocale": {
+        "it": "Saira da Cumpagnia with live music",
+        "en": "Saira da Cumpagnia with live music",
+        "de": "Saira da Cumpagnia mit Live Musik",
+        "fr": "Saira da Cumpagnia with live music"
+      },
+      "startDate": "2026-07-03",
+      "endDate": "2026-08-14",
+      "startTime": "18:00",
+      "category": "Music",
+      "venue": "Restorant Prasüras",
+      "comune": "S-chanf",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/saira-da-cumpagnia-mit-live-musik/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "S-chanf",
+          "slug": "saira-da-cumpagnia-with-live-music-2026-07-03"
+        },
+        {
+          "canton": "GR",
+          "comune": "S-chanf",
+          "slug": "saira-da-cumpagnia-with-live-music-2026-07-03"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:018b9cdd55a943238d0ba13f2cbb0c6d",
+      "title": "Holz Skulpturen",
+      "titleByLocale": {
+        "it": "Holz Skulpturen",
+        "en": "Holz Skulpturen",
+        "de": "Holz Skulpturen",
+        "fr": "Holz Skulpturen"
+      },
+      "startDate": "2026-08-07",
+      "endDate": "2026-08-16",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Buchen (Prättigau)",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/holz-skulpturen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "holz-skulpturen-2026-08-07"
+        },
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "holz-skulpturen-2026-08-07"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:activites-estivales-seniors-plein",
+      "title": "Activités estivales pour les seniors | Gym en plein air",
+      "startDate": "2026-08-13",
+      "category": "Sport",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/activites-estivales-seniors-plein",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "activites-estivales-pour-les-seniors-gym-en-plein-air-2026-08-13"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63512",
+      "title": "Music in dal parc",
+      "titleByLocale": {
+        "it": "Music in dal parc",
+        "en": "Music in from the park",
+        "de": "Musik im Dal Parc",
+        "fr": "Musique dans le parc"
+      },
+      "startDate": "2026-08-14",
+      "startTime": "18:30",
+      "category": "musica",
+      "venue": "Parco comunale",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260814/63512",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "music-in-dal-parc-2026-08-14"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "music-in-dal-parc-2026-08-14"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:3800f44f78774b8e9bb25e151595227e",
+      "title": "Ref. Frauenverein Muri Sins: Grillabend",
+      "titleByLocale": {
+        "it": "Ref. Frauenverein Muri Sins: Grillabend",
+        "en": "Ref. Frauenverein Muri Sins: Grillabend",
+        "de": "Ref. Frauenverein Muri Sins: Grillabend",
+        "fr": "Ref. Frauenverein Muri Sins: Grillabend"
+      },
+      "startDate": "2026-08-19",
+      "endDate": "2026-08-19",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Muri AG",
+      "comune": "Sins",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ref-frauenverein-muri-sins-grillabend/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:749d92ca99414223ba476b9cd728f1cf",
+      "title": "800 Jahre Hersberg",
+      "titleByLocale": {
+        "it": "800 Jahre Hersberg",
+        "en": "800 Jahre Hersberg",
+        "de": "800 Jahre Hersberg",
+        "fr": "800 Jahre Hersberg"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Hersberg",
+      "comune": "Hersberg",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/800-jahre-hersberg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "ge-agenda:boukman-eksperyans-paul-beaubrun-aloko-queen",
+      "title": "Boukman Eksperyans & Paul Beaubrun + DJ ALOKO & EZ QUEEN",
+      "startDate": "2026-08-22",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/boukman-eksperyans-paul-beaubrun-aloko-queen",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "boukman-eksperyans-paul-beaubrun-dj-aloko-ez-queen-2026-08-22"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:kenkylla-afro-caribbean-soca-dancehall-1",
+      "title": "DJ KENKYLLA · AFRO CARIBBEAN SOCA DANCEHALL",
+      "startDate": "2026-08-22",
+      "category": "Clubbing",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/kenkylla-afro-caribbean-soca-dancehall-1",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "dj-kenkylla-afro-caribbean-soca-dancehall-2026-08-22"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "dj-kenkylla-afro-caribbean-soca-dancehall-2026-08-22"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:e30959c239d444a28508f8664e0b6eaf",
+      "title": "Pizza Masterclass Fociacca Kurs",
+      "titleByLocale": {
+        "it": "Pizza Masterclass Fociacca Kurs",
+        "en": "Pizza Masterclass Fociacca Kurs",
+        "de": "Pizza Masterclass Fociacca Kurs",
+        "fr": "Pizza Masterclass Fociacca Kurs"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Genusswerk AG",
+      "comune": "Wildberg",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/pizza-masterclass-fociacca-kurs-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "tio-agenda:63281",
+      "title": "Leggende ticinesi narrate in dialetto",
+      "titleByLocale": {
+        "it": "Leggende ticinesi narrate in dialetto",
+        "en": "Ticino legends narrated in dialect",
+        "de": "Tessiner Legenden im Dialekt erzählt",
+        "fr": "Légendes tessinoises racontées en dialecte"
+      },
+      "startDate": "2026-08-25",
+      "startTime": "18:00",
+      "category": "teatro",
+      "venue": "Biblioteca cantonale",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260825/63281",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "leggende-ticinesi-narrate-in-dialetto-2026-08-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "leggende-ticinesi-narrate-in-dialetto-2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:soiree-ouverture",
+      "title": "Soirée d'ouverture",
+      "startDate": "2026-08-25",
+      "category": "Festival",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/soiree-ouverture",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "soiree-douverture-2026-08-25"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "soiree-douverture-2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:b39f51842c7a401080e3a4e73bd97eab",
+      "title": "Lesekreis",
+      "titleByLocale": {
+        "it": "Lesekreis",
+        "en": "Lesekreis",
+        "de": "Lesekreis",
+        "fr": "Lesekreis"
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/lesekreis-7/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:a8b4ad5a497d4432862a367a58e26972",
+      "title": "«Sugo Magico»",
+      "titleByLocale": {
+        "it": "«Sugo Magico»",
+        "en": "«Sugo Magico»",
+        "de": "«Sugo Magico»",
+        "fr": "«Sugo Magico»"
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "startTime": "19:30",
+      "category": "Music",
+      "venue": "Revue Langenbruck",
+      "comune": "Langenbruck",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/sugo-magico/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "BASILEA",
+          "comune": "Langenbruck",
+          "slug": "sugo-magico-2026-08-28"
+        },
+        {
+          "canton": "BASILEA",
+          "comune": "Langenbruck",
+          "slug": "sugo-magico-2026-08-28"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:kangding-oliver-laxe-sirat-live-experience-johnson",
+      "title": "KANGDING RAY & ÓLIVER LAXE - Sirāt live A/V experience + Jo Johnson",
+      "startDate": "2026-08-28",
+      "category": "Concert",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/kangding-oliver-laxe-sirat-live-experience-johnson",
+      "sourceKey": "ge-agenda",
+      "sourceName": "Ville de Genève Agenda",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "kangding-ray-oliver-laxe-sirat-live-a-v-experience-jo-2026-08-28"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:de9a8a91f6224bebb04648691ffb12f9",
+      "title": "TASTEival",
+      "titleByLocale": {
+        "it": "TASTEival",
+        "en": "TASTEival",
+        "de": "TASTEival",
+        "fr": "TASTEival"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "16:00",
+      "category": "Food",
+      "venue": "Arkaden-Platz",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/tasteival/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "GR",
+          "comune": "Davos",
+          "slug": "tasteival-2026-08-29"
+        },
+        {
+          "canton": "GR",
+          "comune": "Davos",
+          "slug": "tasteival-2026-08-29"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:84432a31d7564d7e80a229c11119cdd3",
+      "title": "Vinocello – Saiten, Wein & Genuss",
+      "titleByLocale": {
+        "it": "Vinocello – Saiten, Wein & Genuss",
+        "en": "Vinocello – Saiten, Wein & Genuss",
+        "de": "Vinocello – Saiten, Wein & Genuss",
+        "fr": "Vinocello – Saiten, Wein & Genuss"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "18:30",
+      "category": "Music",
+      "venue": "Rotenfluebahn Mythenregion AG",
+      "comune": "Schwyz",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/vinocello-saiten-wein-genuss/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland"
+    },
+    {
+      "id": "myswitzerland:b49d76a23b3a467b9c834784ec7b20f8",
+      "title": "West Side Story",
+      "titleByLocale": {
+        "it": "West Side Story",
+        "en": "West Side Story",
+        "de": "West Side Story",
+        "fr": "West Side Story"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Naters",
+      "comune": "Naters",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/west-side-story/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Naters",
+          "slug": "west-side-story-2026-08-29"
+        },
+        {
+          "canton": "VS",
+          "comune": "Naters",
+          "slug": "west-side-story-2026-08-29"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:61525",
+      "title": "Fra Roberto tra le mura",
+      "titleByLocale": {
+        "it": "Fra Roberto tra le mura",
+        "en": "Fra Roberto fra le mura",
+        "de": "Fra Roberto zwischen den Mauern",
+        "fr": "Frère Roberto entre les murs"
+      },
+      "startDate": "2026-07-07",
+      "endDate": "2026-07-27",
+      "category": "arte",
+      "venue": "Sasso Corbaro",
+      "comune": "Bellinzona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260707/61525",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-07-07"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:grand-insolite-blaise-hofmann-marzi-isabelle-sbrissa",
+      "title": "Le Grand Insolite avec Blaise Hofmann, Eva Marzi et Isabelle Sbrissa",
+      "startDate": "2026-07-07",
+      "category": "Balade – Excursion",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/grand-insolite-blaise-hofmann-marzi-isabelle-sbrissa",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "le-grand-insolite-avec-blaise-hofmann-eva-marzi-et-isabelle-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:a1899e14bb3549929a41439fbd1b7358",
+      "title": "Schaffhausen weekly market",
+      "titleByLocale": {
+        "it": "Schaffhausen weekly market",
+        "en": "Schaffhausen weekly market",
+        "de": "Schaffhauser Wochenmarkt",
+        "fr": "Marché hebdomadaire de Schaffhouse"
+      },
+      "startDate": "2026-07-07",
+      "endDate": "2027-11-16",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Schaffhauser Wochenmarkt",
+      "comune": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/schaffhausen-weekly-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SH",
+          "comune": "Schaffhausen",
+          "slug": "schaffhausen-weekly-market-2026-07-07"
+        },
+        {
+          "canton": "SH",
+          "comune": "Schaffhausen",
+          "slug": "schaffhausen-weekly-market-2026-07-07"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:grand-insolite-denise-mutzenberg-christian-viredaz",
+      "title": "Le Grand Insolite avec Denise Mützenberg et Christian Viredaz",
+      "startDate": "2026-07-08",
+      "category": "Conférence - Rencontre",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/grand-insolite-denise-mutzenberg-christian-viredaz",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "le-grand-insolite-avec-denise-mutzenberg-et-christian-2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:speedbooking-short-stories",
+      "title": "Speedbooking : Short Stories !",
+      "startDate": "2026-07-09",
+      "category": "Lecture",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/speedbooking-short-stories",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "speedbooking-short-stories-2026-07-09"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "speedbooking-short-stories-2026-07-09"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:6e8099c87b2d475e8beb44f189085a8f",
+      "title": "AquaBaby - Schwimmen lessons from 10 Weeks",
+      "titleByLocale": {
+        "it": "AquaBaby - Schwimmen lessons from 10 Weeks",
+        "en": "AquaBaby - Schwimmen lessons from 10 Weeks",
+        "de": "AquaBaby - Schwimmkurse ab 10 Wochen (SG) - Qualitop zertifiziert",
+        "fr": "AquaBaby - Schwimmen lessons from 10 Weeks"
+      },
+      "startDate": "2026-07-10",
+      "endDate": "2026-07-10",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Therapiebad Stiftung Balm",
+      "comune": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/en-ch/experiences/events/aquababy-schwimmen-lessons-from-10-weeks/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "SG",
+          "comune": "Rapperswil-Jona",
+          "slug": "aquababy-schwimmen-lessons-from-10-weeks-2026-07-10"
+        },
+        {
+          "canton": "SG",
+          "comune": "Rapperswil-Jona",
+          "slug": "aquababy-schwimmen-lessons-from-10-weeks-2026-07-10"
+        }
+      ]
+    },
+    {
+      "id": "ge-agenda:atelier-creez-carte-vacances-chocolat",
+      "title": "Atelier Créez Votre Carte de vacances Chocolat",
+      "startDate": "2026-07-11",
+      "category": "Atelier",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.geneve.ch/agenda/atelier-creez-carte-vacances-chocolat",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-creez-votre-carte-de-vacances-chocolat-2026-07-11"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "atelier-creez-votre-carte-de-vacances-chocolat-2026-07-11"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:61740",
+      "title": "Anton Zoran Music",
+      "titleByLocale": {
+        "it": "Anton Zoran Music",
+        "de": "Anton Zoran Musik",
+        "fr": "Anton Zoran Musique"
+      },
+      "startDate": "2026-07-12",
+      "endDate": "2026-07-26",
+      "startTime": "14:00",
+      "category": "arte",
+      "venue": "Deposito della Fondazione Matasci per l'Arte",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260712/61740",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "anton-zoran-music-2026-07-12"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "anton-zoran-music-2026-07-12"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:63126",
+      "title": "Crociere sul Piroscafo Piemonte da Ascona",
+      "titleByLocale": {
+        "it": "Crociere sul Piroscafo Piemonte da Ascona",
+        "en": "Cruises on the Piroscafo Piemonte from Ascona",
+        "de": "Kreuzfahrten auf dem Piémont-Piroscope ab Ascona",
+        "fr": "Croisières sur le Piroscafo Piemonte au départ d'Ascona"
+      },
+      "startDate": "2026-07-19",
+      "category": "altro",
+      "venue": "Lago Maggiore",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260719/63126",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Ascona",
+          "slug": "crociere-sul-piroscafo-piemonte-da-ascona-2026-07-19"
+        },
+        {
+          "canton": "TI",
+          "comune": "Ascona",
+          "slug": "crociere-sul-piroscafo-piemonte-da-ascona-2026-07-19"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:62247",
+      "title": "Miller Anderson Band",
+      "titleByLocale": {
+        "it": "Miller Anderson Band",
+        "fr": "Bande Miller Anderson"
+      },
+      "startDate": "2026-07-22",
+      "startTime": "21:00",
+      "category": "musica",
+      "venue": "Maggia Ronchini (Campo Pineta)",
+      "comune": "Maggia",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260722/62247",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Maggia",
+          "slug": "miller-anderson-band-2026-07-22"
+        },
+        {
+          "canton": "TI",
+          "comune": "Maggia",
+          "slug": "miller-anderson-band-2026-07-22"
+        }
+      ]
+    },
+    {
+      "id": "guidle:ANCakNB",
+      "title": "Musikfestival Jardin Bizarre",
+      "titleByLocale": {
+        "it": "Musikfestival Jardin Bizarre",
+        "en": "Music Festival Jardin Bizarre",
+        "de": "Musikfestival Jardin Bizarre",
+        "fr": "Musikfestival Jardin Bizarre"
+      },
+      "startDate": "2026-07-25",
+      "endDate": "2026-07-26",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Alp Hobiel",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/events/music/engelberg/music-festival-jardin-bizarre_ANCakNB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "previousRoutes": [
+        {
+          "canton": "OW",
+          "comune": "Engelberg",
+          "slug": "musikfestival-jardin-bizarre-2026-07-25"
+        },
+        {
+          "canton": "OW",
+          "comune": "Engelberg",
+          "slug": "musikfestival-jardin-bizarre-2026-07-25"
+        }
+      ]
+    },
+    {
+      "id": "tio-agenda:62552",
+      "title": "Jazz Matinée al Fiore di pietra",
+      "titleByLocale": {
+        "it": "Jazz Matinée al Fiore di pietra",
+        "en": "Jazz Matinée with Stone Flower",
+        "de": "Jazz Matinée mit Steinblume",
+        "fr": "Jazz Matinée à la Fleur de Pierre"
+      },
+      "startDate": "2026-07-26",
+      "startTime": "11:00",
+      "category": "musica",
+      "venue": "Fiore di pietra",
+      "comune": "Mendrisio",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260726/62552",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "jazz-matinee-al-fiore-di-pietra-2026-07-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "jazz-matinee-al-fiore-di-pietra-2026-07-26"
+        }
+      ]
+    },
+    {
+      "id": "myswitzerland:80e75030ea1d426d9831d3d8fe9c423f",
+      "title": "Festa del 1° agosto a Ferden",
+      "titleByLocale": {
+        "it": "Festa del 1° agosto a Ferden",
+        "en": "August 1 celebration in Ferden",
+        "de": "1. Augustfeier in Ferden",
+        "fr": "Fête du 1er août à Ferden"
+      },
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-01",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Ferden",
+      "comune": "Ferden",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/festa-del-1-agosto-a-ferden/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Ferden",
+          "slug": "festa-del-1-agosto-a-ferden-2026-08-01"
+        },
+        {
+          "canton": "VS",
+          "comune": "Ferden",
+          "slug": "festa-del-1-agosto-a-ferden-2026-08-01"
+        }
+      ]
+    }
+  ]
+}
