@@ -17,7 +17,11 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { classifyCohorts } from '@/scripts/ci/information-gain-live-scan.mjs';
+import {
+  FULL_FAMILY_MAX_URLS,
+  classifyCohorts,
+  selectFamilyUrls,
+} from '@/scripts/ci/information-gain-live-scan.mjs';
 import { INFORMATION_GAIN_GATE } from '@/scripts/audit-information-gain.mjs';
 
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -35,6 +39,27 @@ const OPTS = { floor: 5, tolerance: 1.5, target: 40, inventory: new Map<string, 
 const titleCollisionFixture = JSON.parse(
   fs.readFileSync(path.join(REPO_ROOT, 'tests/fixtures/information-gain-title-collision.json'), 'utf-8'),
 );
+
+describe('selectFamilyUrls — population metrics stay population metrics when bounded', () => {
+  const urls = (count: number) => Array.from({ length: count }, (_, i) => `/page-${i + 1}/`);
+
+  it('measures a small sitemap in full instead of deriving a verdict from a slice', () => {
+    const family = urls(FULL_FAMILY_MAX_URLS);
+    expect(selectFamilyUrls(family, 12)).toEqual(family);
+  });
+
+  it('keeps large families bounded and evenly spaced', () => {
+    const family = urls(FULL_FAMILY_MAX_URLS + 1);
+    const selected = selectFamilyUrls(family, 4);
+
+    expect(selected).toEqual(['/page-1/', '/page-11/', '/page-21/', '/page-31/']);
+  });
+
+  it('honours a larger explicit per-family request as complete coverage', () => {
+    const family = urls(FULL_FAMILY_MAX_URLS + 1);
+    expect(selectFamilyUrls(family, family.length)).toEqual(family);
+  });
+});
 
 describe('classifyCohorts — i tre bucket sono tre loop diversi', () => {
   it('una coorte fuori inventario sotto il floor è una regressione', () => {
