@@ -2,7 +2,7 @@
  * Vite build plugin — emits static HTML for border-wait pages (F8).
  *
  * Reads a pre-snapshotted JSON state written by `scripts/snapshot-border-wait-
- * history.mjs` (cron, daily 23:30 CET) so the plugin stays deterministic and
+ * history.mjs` (via the traffic-scheduler collector) so the plugin stays deterministic and
  * doesn't hit Firestore at build time. If the snapshot files are missing, the
  * plugin degrades gracefully and emits pages with the static `avgWait*` fallback
  * from data/borderCrossings.ts plus a banner explaining that live data is

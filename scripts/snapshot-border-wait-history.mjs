@@ -8,8 +8,9 @@ import { realpathSync } from 'node:fs';
  *
  *  1. CLI: `node scripts/snapshot-border-wait-history.mjs` — initializes
  *     Firebase Admin (via GOOGLE_APPLICATION_CREDENTIALS), runs the snapshot,
- *     and exits. This preserves the historical workflow contract used by
- *     `update-border-wait-history.yml`.
+ *     and exits. The scheduled writer is `traffic-scheduler.yml`, which
+ *     invokes this helper through `scripts/collect-traffic.mjs`; there is
+ *     no separate scheduled CLI workflow.
  *
  *  2. Programmatic: `import { snapshotBorderWaitFiles } from …` — the live
  *     traffic collector (`scripts/collect-traffic.mjs`) reuses this helper
