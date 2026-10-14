@@ -2663,11 +2663,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland",
+          "controllo-di-gestione-industriale-trainee-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "en": [
+          "stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland",
+          "trainee-industrial-management-control-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
           "stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "previousSlugs": [
-        "stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland"
+        "stagiaire-controle-gestion-industriel-audemars-piguet-le-brassus-vd-switzerland",
+        "controllo-di-gestione-industriale-trainee-audemars-piguet-le-brassus-vd-switzerland",
+        "trainee-industrial-management-control-audemars-piguet-le-brassus-vd-switzerland"
       ],
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -2738,12 +2748,21 @@
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-forward-deployed-engineer-audemars-piguet-le-brassus-vd-switzerland",
-          "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus"
+          "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus",
+          "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus-ae4541da44"
+        ],
+        "en": [
+          "trainee-forward-employed-engineer-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "stagiaire-forward-deployed-engineer-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "previousSlugs": [
         "stagiaire-forward-deployed-engineer-audemars-piguet-le-brassus-vd-switzerland",
-        "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus"
+        "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus",
+        "tirocinante-forward-deployed-engineer-audemars-piguet-le-brassus-ae4541da44",
+        "trainee-forward-employed-engineer-audemars-piguet-le-brassus-vd-switzerland"
       ],
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -2823,7 +2842,6 @@
         ]
       },
       "firstSeenAt": "2026-10-13T21:20:20.628Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

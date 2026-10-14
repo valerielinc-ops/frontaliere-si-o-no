@@ -418,7 +418,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -502,7 +501,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -838,7 +836,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "needsRetranslation": true,
       "salaryMin": 27400,
       "salaryMax": 41600
     },
@@ -1000,7 +997,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "postalCode": "4222",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400
     },
@@ -1853,8 +1849,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6330",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-svwhs0",
@@ -2257,7 +2252,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "2558",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -3378,7 +3372,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5312",
       "firstSeenAt": "2026-09-23T11:55:40.747Z",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -4520,8 +4513,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8952",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-ddls3x",
@@ -5189,8 +5181,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "7151",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-tb3ufo",
@@ -5349,7 +5340,6 @@
       "addressRegion": "SZ",
       "employmentType": "FULL_TIME",
       "postalCode": "8840",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -5846,7 +5836,6 @@
       "datePosted": "2026-10-02T14:07:40+00:00",
       "postingDateSource": "reported",
       "postalCode": "8184",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -6014,7 +6003,6 @@
       "datePosted": "2026-10-02T14:06:59+00:00",
       "postingDateSource": "reported",
       "postalCode": "8600",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -6177,7 +6165,6 @@
       "datePosted": "2026-10-02T13:56:39+00:00",
       "postingDateSource": "reported",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -6939,8 +6926,7 @@
       "postingDateSource": "reported",
       "postalCode": "6340",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-da3utt",
@@ -11681,7 +11667,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
-        "en": "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
         "fr": "directeur-de-succursale-stv-directeur-de-succursale-stv-h-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       },
@@ -11701,7 +11687,7 @@
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
           "branch-manager-m-f-d-80-100-st-gallen-lidl-svizzera-st-gallen",
-          "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz"
+          "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
         ],
         "de": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66"
@@ -11719,7 +11705,7 @@
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66",
         "gestionnaire-de-succursale-m-f-j-80-100-st-gallen-lidl-svizzera-st-gallen",
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen",
-        "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz-ssgtoz"
+        "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -11907,8 +11893,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3930",
       "salaryMin": 60500,
-      "salaryMax": 91500,
-      "needsRetranslation": true
+      "salaryMax": 91500
     },
     {
       "id": "company-uptbjg",
@@ -12028,8 +12013,7 @@
       "postingDateSource": "reported",
       "postalCode": "3004",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-2i2usl",
@@ -13182,7 +13166,6 @@
       "datePosted": "2026-09-04T07:00:27+00:00",
       "postingDateSource": "reported",
       "postalCode": "3900",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },
@@ -14282,7 +14265,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900
     },
@@ -14519,7 +14501,6 @@
       "datePosted": "2026-08-21T05:40:52+00:00",
       "postingDateSource": "reported",
       "postalCode": "2558",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -15718,7 +15699,6 @@
       "datePosted": "2026-08-10T09:58:15+00:00",
       "postingDateSource": "reported",
       "postalCode": "3930",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },
@@ -17448,7 +17428,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "postalCode": "3186",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -19803,7 +19782,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8184",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -19887,7 +19865,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -20308,8 +20285,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-4hrwqv",
@@ -20736,7 +20712,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "postalCode": "7500",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20820,7 +20795,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -21554,8 +21528,7 @@
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "postalCode": "5430",
-      "needsRetranslation": true
+      "postalCode": "5430"
     },
     {
       "id": "company-iiwjog",
@@ -21638,8 +21611,7 @@
       "addressLocality": "Döttingen",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "postalCode": "5312",
-      "needsRetranslation": true
+      "postalCode": "5312"
     },
     {
       "id": "company-dxgnwv",
@@ -21722,8 +21694,7 @@
       "addressLocality": "Hunzenschwil",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "postalCode": "5502",
-      "needsRetranslation": true
+      "postalCode": "5502"
     },
     {
       "id": "company-lfq9cr",
@@ -21806,8 +21777,7 @@
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "postalCode": "5400",
-      "needsRetranslation": true
+      "postalCode": "5400"
     },
     {
       "id": "company-j87akk",
@@ -21890,8 +21860,7 @@
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "postalCode": "5200",
-      "needsRetranslation": true
+      "postalCode": "5200"
     },
     {
       "id": "company-wp7upg",
@@ -21975,8 +21944,7 @@
       "datePosted": "2026-09-07T12:38:29+00:00",
       "postingDateSource": "reported",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-3niwzs",
@@ -22896,7 +22864,6 @@
         "en": "Are you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour Mission\n- Team leader according to planning\n\n- Ensure customer satisfaction and sales standards in our stores\n\n- Support for personnel planning, personnel management and store organization\n\n- Order and present the goods\n\n- Cash\nYour profile\n- Professional experience in sales or similar fields\n\n- Ideally, vocational training completed in the retail trade\n\n- Flexibility with regard to working hours (Monday to Saturday between 5:00 a.m. and 10:00 p.m.; morning and/or evening shift around 9:00 a.m. each)\n\n- Communication skills and enjoyment of human contacts\n\n- High motivation, flexibility and stress resistance\n\n- Good knowledge in written and oral French\nOur offer\nAt Lidl Switzerland, there is room for ambition and innovation. Helps shape the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. Moreover, we guarantee you a safe job, a dream team, the privileges of the CLC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!\n\nBenefitsLOREM IPSUM DOLOR SIT AMETPlanningThe salary is insured LPP from the first franc; There is no coordination deduction.\nAttractive wagesA fair and competitive remuneration, in line with your position, qualifications and experience.\n41 hours / weekThe weekly working time for a full-time person is 41 hours.\nLeaveWe offer five weeks of leave per year, six weeks for those over 50, and even seven for those over 60. If someone wants more days off, we offer them the opportunity to buy them.\nFree parking available\nIn shape with LidlOur own gym at the headquarters and interesting offers at fitness partners throughout Switzerland.\nIndeterminate fixed-term positionYour contract of employment is always indefinite, we are indeed interested in long-term collaboration. We propose fixed-term contracts only in the case of justified reasons, such as replacement during pregnancy.\nInteresting tasks and perspectivesWe offer you interesting tasks and various responsibilities in this dynamic retail sector. Your personal development is the priority.\nSupport for you During your training period, you will be accompanied by a sponsor or personal godmother.\nReconciliation of private and professional life4 weeks of paternity leave and 18 weeks of maternity leave with maintenance of salary.\nTeam spiritSuccess is teamwork and must be celebrated. We therefore organise numerous events and events throughout the year in order to find ourselves outside the professional daily.\nMore information",
         "de": "Haben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung von Personalplanung, Personalmanagement und Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!\n\nBenefitsLOREM IPSUM DOLOR SIT AMETPlanning Das Gehalt ist LPP ab dem ersten Franken versichert; Es gibt keinen Koordinationsabzug.\nEine faire und wettbewerbsfähige Vergütung, die Ihrer Position, Ihren Qualifikationen und Ihrer Erfahrung entspricht.\n41 Stunden / Woche Die wöchentliche Arbeitszeit für eine Vollzeitperson beträgt 41 Stunden.\nWir bieten fünf Wochen Urlaub pro Jahr, sechs Wochen für diejenigen über 50 und sogar sieben für diejenigen über 60. Wenn jemand mehr freie Tage möchte, bieten wir ihm die Möglichkeit, sie zu kaufen.\nKostenlose Parkplätze verfügbar\nIn Form mit LidlUnser eigenes Fitnessstudio am Hauptsitz und interessante Angebote bei Fitnesspartnern in der ganzen Schweiz.\nUnbestimmte befristete Position Ihr Arbeitsvertrag ist immer unbefristet, wir sind in der Tat an einer langfristigen Zusammenarbeit interessiert. Wir schlagen befristete Verträge nur im Falle von berechtigten Gründen vor, wie zum Beispiel Ersatz während der Schwangerschaft.\nInteressante Aufgaben und Perspektiven Wir bieten Ihnen interessante Aufgaben und verschiedene Aufgaben in diesem dynamischen Einzelhandel. Ihre persönliche Entwicklung hat Priorität.\nUnterstützung für Sie Während Ihrer Ausbildungszeit werden Sie von einem Sponsor oder einer persönlichen Patin begleitet.\nVereinbarkeit von Privat- und Berufsleben4 Wochen Vaterschaftsurlaub und 18 Wochen Mutterschaftsurlaub unter Beibehaltung des Gehalts.\nTeamgeistErfolg ist Teamarbeit und muss gefeiert werden. Deshalb organisieren wir das ganze Jahr über zahlreiche Events und Events, um uns außerhalb des professionellen Alltags wiederzufinden.\nWeitere Informationen"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-neuchatel-lidl-svizzera-neuchatel",
         "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-neuchatel-5y6fr9",
@@ -22974,7 +22941,6 @@
         "en": "Selling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n- Guidance of layers according to m. Planning\n\n- Implementation of customer orientation and sales standards in our branches\n\n- Support in personnel planning, personnel management and branch organization\n\n- Goods disposition and presentation\n\n- Cash activity\nYour profile\n- Professional experience in sales or comparable industry\n\n- Ideally completed vocational training in the retail trade\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift of about 9 hours each\n\n- Communicative skills and pleasure in dealing with people\n\n- High motivation, commitment and resilience\n\n- Good knowledge of German in words and writing\n\nWe offer\nAt Lidl Switzerland there is room for ambition and innovation. Be actively involved. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive familiarization. If desired and good personal suitability, internal further developments are possible. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!\n\nEvery wage franc is BVG-insured, whereby the coordination deduction is eliminated.\nAttractive wage fairness and market-driven remuneration that matches your position, qualification and experience.\nThe weekly working time for a full-time workload is 41 hours.\nWe offer five weeks holidays, for over 50 years six weeks and for over 60 years even seven weeks. If you want more holiday days, you will get the opportunity to buy a holiday with us.\nFree parking (if available) Free parking (if available)\nFit with LidlE’s own fitness center at the headquarters and attractive offers with fitness partners throughout Switzerland.\nPermanent employmentYour employment contract is basically permanent. Because we are interested in long-term cooperation. We only conclude fixed-term contracts if they are justified by a factual reason – e.g. for a pregnancy representation.\nExciting tasks & perspectives await you with exciting and responsible tasks in the dynamic environment of the retail trade. Your personal development is a top priority.\nDuring your extensive training period in your position, a personal godfather or godmother is at your side.\nCompatibility of family & work4 weeks paternity leave and 18 weeks maternity leave at 100% wage.\nSuccess is teamwork and should be celebrated. In addition to everyday work, there are various events and events throughout the year.",
         "fr": "Vendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n- Orientation des couches selon m. Planification\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n- Expérience professionnelle dans les ventes ou l'industrie comparable\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!\n\nChaque franc salarial est assuré par BVG, ce qui élimine la déduction pour coordination.\nL'équité salariale attrayante et la rémunération axée sur le marché qui correspondent à votre position, qualification et expérience.\nLe temps de travail hebdomadaire pour une charge de travail à plein temps est de 41 heures.\nNous offrons cinq semaines de vacances, pour plus de 50 ans six semaines et pour plus de 60 ans même sept semaines. Si vous voulez plus de jours de vacances, vous aurez la possibilité d'acheter des vacances avec nous.\nParking gratuit (si disponible) Parking gratuit (si disponible)\nS'adapte avec le centre de fitness LidlE-S au siège et offre attrayante avec des partenaires de fitness partout en Suisse.\nEmploi permanent Votre contrat de travail est essentiellement permanent. Parce que nous nous intéressons à la coopération à long terme. Nous ne concluons des contrats à durée déterminée que s'ils sont justifiés par une raison factuelle – par exemple pour une représentation de grossesse.\nDes tâches et des perspectives passionnantes vous attendent avec des tâches passionnantes et responsables dans l'environnement dynamique du commerce de détail. Votre développement personnel est une priorité absolue.\nPendant votre longue période d'entraînement dans votre poste, un parrain ou une marraine est à vos côtés.\nCompatibilité de la famille et du travail4 semaines de congé de paternité et 18 semaines de congé de maternité à 100% de salaire.\nLe succès est un travail d'équipe et devrait être célébré. Outre le travail quotidien, il y a plusieurs événements et événements tout au long de l'année."
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-horgen-f06a5i",
         "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-horgen-f06a5i",
@@ -23050,7 +23016,6 @@
         "en": "Selling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n- Guidance of layers according to m. Planning\n\n- Implementation of customer orientation and sales standards in our branches\n\n- Support in personnel planning, personnel management and branch organization\n\n- Goods disposition and presentation\n\n- Cash activity\nYour profile\n- Professional experience in sales or comparable industry\n\n- Ideally completed vocational training in the retail trade\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift of about 9 hours each\n\n- Communicative skills and pleasure in dealing with people\n\n- High motivation, commitment and resilience\n\n- Good knowledge of German in words and writing\n\nWe offer\nAt Lidl Switzerland there is room for ambition and innovation. Be actively involved. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive familiarization. If desired and good personal suitability, internal further developments are possible. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!\n\nEvery wage franc is BVG-insured, whereby the coordination deduction is eliminated.\nAttractive wage fairness and market-driven remuneration that matches your position, qualification and experience.\nThe weekly working time for a full-time workload is 41 hours.\nWe offer five weeks holidays, for over 50 years six weeks and for over 60 years even seven weeks. If you want more holiday days, you will get the opportunity to buy a holiday with us.\nFree parking (if available) Free parking (if available)\nFit with LidlE’s own fitness center at the headquarters and attractive offers with fitness partners throughout Switzerland.\nPermanent employmentYour employment contract is basically permanent. Because we are interested in long-term cooperation. We only conclude fixed-term contracts if they are justified by a factual reason – e.g. for a pregnancy representation.\nExciting tasks & perspectives await you with exciting and responsible tasks in the dynamic environment of the retail trade. Your personal development is a top priority.\nDuring your extensive training period in your position, a personal godfather or godmother is at your side.\nCompatibility of family & work4 weeks paternity leave and 18 weeks maternity leave at 100% wage.\nSuccess is teamwork and should be celebrated. In addition to everyday work, there are various events and events throughout the year.",
         "fr": "Vendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n- Orientation des couches selon m. Planification\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n- Expérience professionnelle dans les ventes ou l'industrie comparable\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h); Changement prématuré ou tardif d'environ 9 heures chacun\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!\n\nChaque franc salarial est assuré par BVG, ce qui élimine la déduction pour coordination.\nL'équité salariale attrayante et la rémunération axée sur le marché qui correspondent à votre position, qualification et expérience.\nLe temps de travail hebdomadaire pour une charge de travail à plein temps est de 41 heures.\nNous offrons cinq semaines de vacances, pour plus de 50 ans six semaines et pour plus de 60 ans même sept semaines. Si vous voulez plus de jours de vacances, vous aurez la possibilité d'acheter des vacances avec nous.\nParking gratuit (si disponible) Parking gratuit (si disponible)\nS'adapte avec le centre de fitness LidlE-S au siège et offre attrayante avec des partenaires de fitness partout en Suisse.\nEmploi permanent Votre contrat de travail est essentiellement permanent. Parce que nous nous intéressons à la coopération à long terme. Nous ne concluons des contrats à durée déterminée que s'ils sont justifiés par une raison factuelle – par exemple pour une représentation de grossesse.\nDes tâches et des perspectives passionnantes vous attendent avec des tâches passionnantes et responsables dans l'environnement dynamique du commerce de détail. Votre développement personnel est une priorité absolue.\nPendant votre longue période d'entraînement dans votre poste, un parrain ou une marraine est à vos côtés.\nCompatibilité de la famille et du travail4 semaines de congé de paternité et 18 semaines de congé de maternité à 100% de salaire.\nLe succès est un travail d'équipe et devrait être célébré. Outre le travail quotidien, il y a plusieurs événements et événements tout au long de l'année."
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-ruschlikon-6dxyzq",
         "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-ruschlikon-6dxyzq",

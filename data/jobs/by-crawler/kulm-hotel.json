@@ -250,7 +250,6 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:44.867Z",
       "previousSlugsByLocale": {
         "it": [
@@ -436,8 +435,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -670,8 +668,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-189b3fb9dd6a",
@@ -1006,7 +1003,6 @@
           "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:36.050Z",
       "salaryMin": 79000,
       "salaryMax": 120000,

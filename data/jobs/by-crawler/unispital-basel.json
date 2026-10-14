@@ -10423,7 +10423,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "laborhilfe-medizinische-r-praxisassistent-in-unispital-basel-ch-2"
@@ -10499,7 +10498,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -10567,7 +10565,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
@@ -10664,7 +10661,7 @@
       "id": "unispital-basel-5c3a6032e855",
       "slug": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
       "slugByLocale": {
-        "en": "phd-position-translational-tumor-immunology-unispital-basel-ch",
+        "en": "phd-position-translational-tumor-immunology-unispital-basel-ch-9lnos1",
         "it": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
         "de": "phd-position-translational-tumor-immunology-unispital-basel-ch-2",
         "fr": "phd-position-translational-tumor-immunology-unispital-basel-ch-2"
@@ -10725,7 +10722,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T09:42:16.222Z"
+      "firstSeenAt": "2026-10-14T09:42:16.222Z",
+      "previousSlugs": [
+        "phd-position-translational-tumor-immunology-unispital-basel-ch"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "phd-position-translational-tumor-immunology-unispital-basel-ch"
+        ]
+      }
     },
     {
       "id": "unispital-basel-b57f21c42e57",
@@ -10913,7 +10918,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch-2",
@@ -10991,7 +10995,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -11013,7 +11016,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel",
         "en": "dipl-nursing-specialist-hf-fh-with-option-vocational-trainer-surgery-internal-medicine-universitatsspital-basel-basel",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere-mjfa6g",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-option-formateur-professionnel-chirurgie-et-medecine-interne"
       },
       "company": "Universitätsspital Basel",
@@ -11062,6 +11065,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        ],
+        "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
         ]
       },

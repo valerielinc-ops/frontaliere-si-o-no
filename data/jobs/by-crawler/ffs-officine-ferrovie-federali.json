@@ -86,7 +86,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-330cd8604fe7",
@@ -349,8 +350,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle/a81e915b-ea81-4f08-ae6d-2bc38a893e94",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle/a81e915b-ea81-4f08-ae6d-2bc38a893e94"
     },
     {
       "id": "sbb-d275d10d8531",
@@ -9483,7 +9483,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -9501,7 +9501,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
