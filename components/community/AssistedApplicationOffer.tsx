@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
-import { buildPath } from '@/services/router';
+import { getApplicationConciergePath } from '@/services/router';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { useApplicationOfferAdClearance } from '@/components/community/useApplicationOfferAdClearance';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
@@ -65,10 +65,9 @@ export default function AssistedApplicationOffer({
   // The free and paid buttons sit at the card's bottom, where Google's anchor
   // ad lands: the card stays above it.
   const adClearance = useApplicationOfferAdClearance();
-  // The clean concierge slug is understood by the SPA router, but the static
-  // host does not emit an HTML shell for it yet. The published job-board entry
-  // is the same portal and keeps this link working on a full-page navigation.
-  const conciergeHref = `${buildPath({ activeTab: 'job-board' }, locale)}?application_concierge=1`;
+  // The canonical landing is a public page; authentication is only needed
+  // when the visitor starts checkout or opens a paid service.
+  const conciergeHref = getApplicationConciergePath(locale);
 
   useEffect(() => {
     trackAssistedApplicationEvent('assisted_application_offer_viewed', {
