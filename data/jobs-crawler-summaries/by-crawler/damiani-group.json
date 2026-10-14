@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-14T09:25:44.020Z",
+  "generatedAt": "2026-10-14T21:20:56.400Z",
   "total": 10,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 8825,
-  "avgDurationMs": 8825,
+  "durationMs": 7921,
+  "avgDurationMs": 7921,
   "durationHistory": [
-    8825
+    7921
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -431,5 +431,5 @@
       }
     }
   ],
-  "codeCommit": "2b117c144b7c48baa8cbe9d3423e80b2849214e8"
+  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
 }
