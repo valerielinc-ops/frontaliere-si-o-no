@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T06:55:59.659Z",
+  "generatedAt": "2026-10-14T07:57:22.346Z",
   "totalEvents": 13148,
   "events": [
     {
@@ -252518,7 +252518,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra si tiene un’anteprima cinematografica di un film d’avventura. L’opera deriva da un romanzo per ragazzi di Michael Morpurgo e affronta i temi della differenza e della tolleranza, rivolgendosi a tutta la famiglia.",
+      "descriptionByLocale": {
+        "it": "A Ginevra si tiene un’anteprima cinematografica di un film d’avventura. L’opera deriva da un romanzo per ragazzi di Michael Morpurgo e affronta i temi della differenza e della tolleranza, rivolgendosi a tutta la famiglia.",
+        "en": "A Geneva screening presents an advance premiere of an adventure film adapted from a young readers’ novel by Michael Morpurgo. Its story deals with difference and tolerance and is intended for the whole family.",
+        "de": "In Genf findet die Vorpremiere eines Abenteuerfilms statt, der auf einem Jugendroman von Michael Morpurgo basiert. Die Handlung thematisiert Unterschiedlichkeit und Toleranz und richtet sich an die ganze Familie.",
+        "fr": "À Genève, une projection en avant-première présente un film d’aventure. Il est adapté d’un roman jeunesse de Michael Morpurgo et traite de la différence et de la tolérance, en s’adressant à toute la famille."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ar1Jgi9",
@@ -254819,7 +254827,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma klezmer comprende composizioni di Majid Montazer, eseguite da Giora Feidman. L’appuntamento si svolge nella St. Laurenzen Kirche St.Gallen.",
+      "descriptionByLocale": {
+        "it": "Il programma klezmer comprende composizioni di Majid Montazer, eseguite da Giora Feidman. L’appuntamento si svolge nella St. Laurenzen Kirche St.Gallen.",
+        "en": "The Klezmer programme includes works by Majid Montazer, performed by Giora Feidman. The concert is held at St. Laurenzen Kirche St.Gallen.",
+        "de": "Das Klezmer-Programm umfasst Kompositionen von Majid Montazer, die Giora Feidman interpretiert. Die Veranstaltung findet in der St. Laurenzen Kirche St.Gallen statt.",
+        "fr": "Le programme klezmer réunit des compositions de Majid Montazer, interprétées par Giora Feidman. Le concert a lieu à la St. Laurenzen Kirche St.Gallen."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a3dd704116b445dcb088b795d24c15c1",
@@ -266267,7 +266283,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Presentato al Cinema teatro di Chiasso, il lavoro ha per protagonista la giovane Irene Bernasconi e ricostruisce la sua partenza dal Ticino nel 1915 per un incarico educativo nella campagna romana, dove applicò l’approccio Montessori. Il racconto prende spunto dai suoi diari e descrive un anno di attività formativa e impegno civile, con alfabetizzazione ed emancipazione sociale sullo sfondo di guerra e povertà.",
+      "descriptionByLocale": {
+        "it": "Presentato al Cinema teatro di Chiasso, il lavoro ha per protagonista la giovane Irene Bernasconi e ricostruisce la sua partenza dal Ticino nel 1915 per un incarico educativo nella campagna romana, dove applicò l’approccio Montessori. Il racconto prende spunto dai suoi diari e descrive un anno di attività formativa e impegno civile, con alfabetizzazione ed emancipazione sociale sullo sfondo di guerra e povertà.",
+        "en": "At Cinema teatro in Chiasso, the production focuses on Irene Bernasconi and her departure from Ticino in 1915 for educational work in the Roman countryside, where she used the Montessori approach. Drawing on her diaries, it depicts a year of teaching and civic commitment, with literacy and social emancipation set against war and poverty.",
+        "de": "Im Cinema teatro in Chiasso steht Irene Bernasconi im Mittelpunkt: 1915 verließ sie das Tessin, um in der römischen Landschaft ein Kinderhaus nach der Montessori-Methode zu leiten. Die auf ihren Tagebüchern beruhende Aufführung schildert ein Jahr mit Bildungsarbeit und bürgerschaftlichem Engagement sowie Alphabetisierung und sozialer Emanzipation vor dem Hintergrund von Krieg und Armut.",
+        "fr": "Au Cinema teatro de Chiasso, la pièce présente le parcours d’Irene Bernasconi et son départ du Tessin en 1915 pour une mission éducative dans la campagne romaine, menée selon l’approche Montessori. À partir de ses journaux, elle retrace une année de travail pédagogique et d’engagement civique, marquée par l’alphabétisation et l’émancipation sociale dans un contexte de guerre et de pauvreté."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:60597f4417624fe385dfce6d7f5c3c1b",
@@ -275495,7 +275519,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
       "imageCopyrightNotice": "© Makalu",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "description": "L'appuntamento jazz con Émile Parisien e «Floating» si svolge al Théâtre De L'heure Bleue di La Chaux-de-Fonds. Émile Parisien è un sassofonista francese che ha ricevuto numerosi riconoscimenti alle Victoires du Jazz.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento jazz con Émile Parisien e «Floating» si svolge al Théâtre De L'heure Bleue di La Chaux-de-Fonds. Émile Parisien è un sassofonista francese che ha ricevuto numerosi riconoscimenti alle Victoires du Jazz.",
+        "en": "The jazz event featuring Émile Parisien and “Floating” takes place at Théâtre De L'heure Bleue in La Chaux-de-Fonds. Parisien is a French saxophonist who has received numerous distinctions at the Victoires du Jazz.",
+        "de": "Die Jazzveranstaltung mit Émile Parisien und „Floating“ findet im Théâtre De L'heure Bleue in La Chaux-de-Fonds statt. Parisien ist ein französischer Saxofonist, der mehrfach bei den Victoires du Jazz ausgezeichnet wurde.",
+        "fr": "Cette rencontre de jazz avec Émile Parisien et «Floating» se déroule au Théâtre De L'heure Bleue, à La Chaux-de-Fonds. Parisien est un saxophoniste français qui a reçu de nombreuses distinctions aux Victoires du Jazz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0302a121c25f47f2836d1e019de7280c",
@@ -290288,7 +290320,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Häslitreff è un evento teatrale presso l’Evang.-ref. Kirchgemeindehaus di Weinfelden. Il programma comprende canti, storie, giochi e attività manuali in un’atmosfera informale.",
+      "descriptionByLocale": {
+        "it": "Häslitreff è un evento teatrale presso l’Evang.-ref. Kirchgemeindehaus di Weinfelden. Il programma comprende canti, storie, giochi e attività manuali in un’atmosfera informale.",
+        "en": "Häslitreff is a theatre event at the Evang.-ref. Kirchgemeindehaus in Weinfelden. Its programme includes singing, stories, games and craft activities in a relaxed setting.",
+        "de": "Häslitreff ist eine Theaterveranstaltung im Evang.-ref. Kirchgemeindehaus in Weinfelden. Das Programm umfasst Singen, Geschichten, Spiele und Bastelaktivitäten in lockerer Atmosphäre.",
+        "fr": "Häslitreff est une manifestation théâtrale qui se tient à l’Evang.-ref. Kirchgemeindehaus de Weinfelden. Le programme comprend des chants, des histoires, des jeux et des activités de bricolage dans une atmosphère détendue."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4d1cd0398e934f2daa77df12c11ae6e6",
@@ -295920,7 +295960,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento ricorrente di Halloween si svolge presso Les Anciens abattoirs a Payerne. La quarta edizione, proposta dall’associazione Hallowings, presenta un universo cupo e inquietante legato a «Studio 666».",
+      "descriptionByLocale": {
+        "it": "Questo evento ricorrente di Halloween si svolge presso Les Anciens abattoirs a Payerne. La quarta edizione, proposta dall’associazione Hallowings, presenta un universo cupo e inquietante legato a «Studio 666».",
+        "en": "This recurring Halloween event takes place at Les Anciens abattoirs in Payerne. The fourth edition is presented by the Hallowings association and centres on the dark, unsettling world of “Studio 666”.",
+        "de": "Diese wiederkehrende Halloween-Veranstaltung findet in den Les Anciens abattoirs in Payerne statt. Die vierte Ausgabe von Hallowings führt in die düstere und beunruhigende Welt von «Studio 666».",
+        "fr": "Cet événement récurrent d’Halloween se déroule aux Anciens abattoirs de Payerne. Pour sa quatrième édition, l’association Hallowings propose un univers sombre et inquiétant lié à « Studio 666 »."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AJGX9ji",
@@ -296529,7 +296577,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa giornata cantonale dedicata allo sviluppo sostenibile è registrata come conferenza ed è organizzata da Développement durable. L’evento è indicato a Fribourg, nel comune e nel cantone di Fribourg, mentre Fribourg figura anche come organizzazione nelle informazioni della manifestazione. Luogo, comune e cantone riportati coincidono quindi con Fribourg, e il titolo identifica lo sviluppo sostenibile come tema della giornata.",
+      "descriptionByLocale": {
+        "it": "Questa giornata cantonale dedicata allo sviluppo sostenibile è registrata come conferenza ed è organizzata da Développement durable. L’evento è indicato a Fribourg, nel comune e nel cantone di Fribourg, mentre Fribourg figura anche come organizzazione nelle informazioni della manifestazione. Luogo, comune e cantone riportati coincidono quindi con Fribourg, e il titolo identifica lo sviluppo sostenibile come tema della giornata.",
+        "en": "This cantonal event on sustainable development is classified as a conference and organised by Développement durable. It is listed in Fribourg, within the municipality and canton of Fribourg, while Fribourg is also recorded as an organisation in the event information. The listed place, municipality and canton therefore all point to Fribourg, and the title identifies sustainable development as the subject of the day.",
+        "de": "Dieser kantonale Tag zur nachhaltigen Entwicklung ist als Konferenz eingeordnet und wird von Développement durable organisiert. Die Veranstaltung ist in Fribourg verzeichnet, das sowohl als Gemeinde als auch als Veranstaltungsort genannt wird, während der Kanton Freiburg angegeben ist; zusätzlich erscheint Fribourg in den Veranstaltungsangaben als Organisation. Der Veranstaltungsort und die Gemeinde verweisen auf Fribourg, der Kanton ist als Freiburg ausgewiesen, und der Titel nennt nachhaltige Entwicklung als Thema des Tages.",
+        "fr": "Cette journée cantonale consacrée au développement durable est classée comme une conférence et organisée par Développement durable. Elle est annoncée à Fribourg, dans la commune de Fribourg et le canton de Fribourg, avec Fribourg également indiqué comme organisation dans les informations de l’événement. La commune, le canton et le lieu mentionnés concordent donc autour de Fribourg, tandis que l’intitulé précise le thème de la journée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:94036",
@@ -301094,7 +301150,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone un musical interpretato da 16 cantanti del Choeur à Corps. La regia è affidata a Christopher Belizaire. Il cabaret si svolge a Cully, nel comune di Bourg-en-Lavaux, e ritorna una volta all’anno.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un musical interpretato da 16 cantanti del Choeur à Corps. La regia è affidata a Christopher Belizaire. Il cabaret si svolge a Cully, nel comune di Bourg-en-Lavaux, e ritorna una volta all’anno.",
+        "en": "The event features a musical performed by 16 singers from Choeur à Corps. Christopher Belizaire is responsible for the direction. The cabaret takes place in Cully, in Bourg-en-Lavaux, and is held once a year.",
+        "de": "Die Veranstaltung umfasst ein Musical mit 16 Sängerinnen und Sängern des Choeur à Corps. Die Inszenierung übernimmt Christopher Belizaire. Das Kabarett findet in Cully, in Bourg-en-Lavaux, statt und wird einmal jährlich veranstaltet.",
+        "fr": "L’événement présente un spectacle musical avec 16 chanteurs de Choeur à Corps. Christopher Belizaire en assure la mise en scène. Le cabaret a lieu à Cully, dans la commune de Bourg-en-Lavaux, et revient une fois par an."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AND3JJj",
@@ -304671,7 +304735,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma unisce un concerto a una lettura con Samuel Schnydrig. La lettura è legata al suo secondo romanzo, pubblicato da Zytglogge Verlag dopo il debutto, e l’evento si svolge all’Hotel Glocke.",
+      "descriptionByLocale": {
+        "it": "Il programma unisce un concerto a una lettura con Samuel Schnydrig. La lettura è legata al suo secondo romanzo, pubblicato da Zytglogge Verlag dopo il debutto, e l’evento si svolge all’Hotel Glocke.",
+        "en": "The programme combines a concert with a reading featuring Samuel Schnydrig. The reading relates to his second novel, published by Zytglogge Verlag after his debut, and the event takes place at Hotel Glocke.",
+        "de": "Das Programm verbindet ein Konzert mit einer Lesung von Samuel Schnydrig. Die Lesung bezieht sich auf seinen zweiten Roman, der nach seinem Debüt beim Zytglogge Verlag erschienen ist; die Veranstaltung findet im Hotel Glocke statt.",
+        "fr": "La manifestation réunit un concert et une lecture avec Samuel Schnydrig. La lecture est liée à son deuxième roman, paru aux éditions Zytglogge après ses débuts, et se déroule à l’Hotel Glocke."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ARbJyaJ",
@@ -310273,7 +310345,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si svolge alla Lokremise di St. Gallen. La serata propone testi di vario tipo e interventi sul palco, mentre il pubblico partecipa alla scelta finale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si svolge alla Lokremise di St. Gallen. La serata propone testi di vario tipo e interventi sul palco, mentre il pubblico partecipa alla scelta finale.",
+        "en": "The event takes place at Lokremise St. Gallen. It features a range of texts and live stage performances, with the audience involved in the decision.",
+        "de": "Die Veranstaltung findet in der Lokremise St. Gallen statt. Sie präsentiert unterschiedliche Texte und Bühnenauftritte, wobei das Publikum an der Entscheidung beteiligt ist.",
+        "fr": "Le rendez-vous a lieu à la Lokremise de Saint-Gall. Il présente des textes variés et des prestations scéniques, tandis que le public participe à la décision."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c3e04c0af2724b8cac51f3846fdae4a6",
@@ -314547,7 +314627,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento per famiglie si svolge in occasione di Halloween presso Fiore di pietra, a Capolago. L’attività è ambientata sul Monte Generoso e si rivolge a tutta la famiglia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento per famiglie si svolge in occasione di Halloween presso Fiore di pietra, a Capolago. L’attività è ambientata sul Monte Generoso e si rivolge a tutta la famiglia.",
+        "en": "This family event is held for Halloween at Fiore di pietra in Capolago. It takes place on Monte Generoso and is intended for the whole family.",
+        "de": "Die Familienveranstaltung findet zu Halloween bei Fiore di pietra in Capolago statt. Sie findet am Monte Generoso statt und richtet sich an die ganze Familie.",
+        "fr": "Cet événement familial est organisé à l’occasion d’Halloween au Fiore di pietra, à Capolago. Il se déroule sur le Monte Generoso et s’adresse à toute la famille."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:70df5a638b9c466183c4e24ace409d50",
@@ -318638,7 +318726,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Presso il Kurhaus Seeblick di Weggis si propone un appuntamento ricorrente con Ivan al pianoforte. Il programma comprende musica d’ambiente, da brani tranquilli e rilassanti a momenti più vivaci. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Presso il Kurhaus Seeblick di Weggis si propone un appuntamento ricorrente con Ivan al pianoforte. Il programma comprende musica d’ambiente, da brani tranquilli e rilassanti a momenti più vivaci. L’ingresso è gratuito.",
+        "en": "At Kurhaus Seeblick in Weggis, Ivan provides recurring piano accompaniment. The music moves from quiet, relaxing background pieces to livelier passages. Admission is free.",
+        "de": "Im Kurhaus Seeblick in Weggis gestaltet Ivan eine wiederkehrende musikalische Begleitung am Klavier. Die Auswahl reicht von stillen, entspannenden Hintergrundstücken bis zu lebhafteren Passagen. Der Eintritt ist kostenlos.",
+        "fr": "Au Kurhaus Seeblick, à Weggis, Ivan assure un accompagnement récurrent au piano. La musique va de pièces discrètes et apaisantes à des passages plus animés. L’accès est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACxbcHR",
