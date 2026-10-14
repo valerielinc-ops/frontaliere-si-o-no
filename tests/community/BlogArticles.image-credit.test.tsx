@@ -90,7 +90,7 @@ const body = (n: number) => [
 ].join('\n\n');
 
 mergeArticleMetaOverlay('it', {
-  [`blog.article.${fixture.id}.title`]: 'Articolo di prova con copertina accreditata',
+  [`blog.article.${fixture.id}.title`]: 'Stipendio netto: articolo di prova con copertina accreditata',
   [`blog.article.${fixture.id}.excerpt`]: 'Un articolo inventato per il test dei crediti delle copertine.',
   [`blog.article.${fixture.id}.body1`]: body(1),
   [`blog.article.${fixture.id}.body2`]: body(2),

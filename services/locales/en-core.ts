@@ -1,6 +1,16 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ "whatsNew.v3988.title": "Articles with more relevant links",
+ "whatsNew.v3988.contextualLinks.title": "Tools in your language",
+ "whatsNew.v3988.contextualLinks.desc": "Articles link to tools relevant to the topic, in Italian, English, German and French.",
+ "blog.cta.petrol.title": "Petrol prices today",
+ "blog.cta.petrol.desc": "Compare petrol prices near the border.",
+ "blog.cta.petrol.btn": "View petrol prices",
+ "blog.cta.diesel.title": "Diesel prices today",
+ "blog.cta.diesel.desc": "Compare diesel prices near the border.",
+ "blog.cta.diesel.btn": "View diesel prices",
+
  'whatsNew.v3987.title': "Articles by canton, with the same full experience",
  'whatsNew.v3987.cantonArticles.title': "Read and discover canton articles",
  'whatsNew.v3987.cantonArticles.desc': "Live canton sections now use the same interactive article view as cross-border and Switzerland-wide articles: archives, reading tools, related stories, sharing and navigation without a reload.",

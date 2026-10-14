@@ -1,6 +1,16 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ "whatsNew.v3988.title": "Artikel mit passenderen Links",
+ "whatsNew.v3988.contextualLinks.title": "Werkzeuge in Ihrer Sprache",
+ "whatsNew.v3988.contextualLinks.desc": "Artikel verlinken passende Werkzeuge zum Thema auf Italienisch, Englisch, Deutsch und Französisch.",
+ "blog.cta.petrol.title": "Benzinpreise heute",
+ "blog.cta.petrol.desc": "Vergleichen Sie Benzinpreise an der Grenze.",
+ "blog.cta.petrol.btn": "Benzinpreise ansehen",
+ "blog.cta.diesel.title": "Dieselpreise heute",
+ "blog.cta.diesel.desc": "Vergleichen Sie Dieselpreise an der Grenze.",
+ "blog.cta.diesel.btn": "Dieselpreise ansehen",
+
  'whatsNew.v3987.title': "Artikel nach Kanton mit derselben vollständigen Erfahrung",
  'whatsNew.v3987.cantonArticles.title': "Artikel der Kantone lesen und entdecken",
  'whatsNew.v3987.cantonArticles.desc': "Aktive Kantonsbereiche verwenden jetzt dieselbe interaktive Ansicht wie die Grenzgänger- und Schweiz-Artikel: Archiv, Lesewerkzeuge, verwandte Artikel, Teilen und Navigation ohne Neuladen.",

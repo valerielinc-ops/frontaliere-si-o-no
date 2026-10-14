@@ -1185,7 +1185,7 @@ async function runGeminiVision(filePath, {
     'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, contains_recognizable_foreground_person, looks_like_specific_real_event, is_photograph, is_topic_relevant and notes.',
     kind === LICENSED_PHOTO_KIND
       ? 'This is a real licensed photo candidate; a real place is allowed, but reject recognizable people in the foreground and logos or brands.'
-      : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
+      : 'Set ok=true only when the image is an original generic synthetic illustration and has none of the forbidden properties. A photorealistic visual style is allowed; it must not claim to document a specific real event.',
     kind === LICENSED_PHOTO_KIND
       ? 'Mark contains_text only when present; it is not by itself a rejection for a licensed photo.'
       : 'Mark any readable or decorative lettering, signage, watermark or signature as contains_text=true.',
@@ -1195,9 +1195,9 @@ async function runGeminiVision(filePath, {
     'Mark a documentary/news image of a specific real event as looks_like_specific_real_event=true.',
     kind === LICENSED_PHOTO_KIND
       ? 'Set is_photograph=true only when the image is a real camera photograph, not a painting, drawing, map, scan, poster, logo or illustration.'
-      : 'Set is_photograph=false for this generated illustration.',
+      : 'Set is_photograph=false for this synthetic illustration, even when its visual style is photorealistic.',
     scope === 'article-hero'
-      ? `For an article hero, set is_topic_relevant=true only when the photograph visibly matches the article topic and place. Subject: ${subject || 'unspecified'}. Topic: ${topic || 'unspecified'}. Place: ${place || 'unspecified'}. Keywords: ${Array.isArray(keywords) ? keywords.join(', ') : keywords || 'unspecified'}. Reject readable text, signage, watermarks and logos.`
+      ? `For an article hero, set is_topic_relevant=true only when the image visibly matches the article topic and place. Subject: ${subject || 'unspecified'}. Topic: ${topic || 'unspecified'}. Place: ${place || 'unspecified'}. Keywords: ${Array.isArray(keywords) ? keywords.join(', ') : keywords || 'unspecified'}. Reject readable text, signage, watermarks and logos.`
       : '',
     `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
@@ -1290,6 +1290,19 @@ function parseVisionResult(text) {
   throw new Error('vision verifier returned no JSON result');
 }
 
+/** The publication verdict applies topic relevance to synthetic heroes too. */
+export function imageVisionRejected(verdict, { kind = GENERATED_IMAGE_KIND, scope } = {}) {
+  const articleHero = scope === 'article-hero';
+  if (verdict?.ok !== true) return true;
+  if (articleHero && verdict.is_topic_relevant !== true) return true;
+  if (kind === LICENSED_PHOTO_KIND) {
+    return !verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face
+      || (articleHero && verdict.contains_recognizable_foreground_person !== false)
+      || (articleHero && verdict.contains_text);
+  }
+  return verdict.contains_text !== false || verdict.contains_logo !== false || verdict.contains_recognizable_face !== false || verdict.looks_like_specific_real_event !== false;
+}
+
 export async function verifyGeneratedImage(filePath, {
   deadlineAt,
   kind = GENERATED_IMAGE_KIND,
@@ -1304,7 +1317,7 @@ export async function verifyGeneratedImage(filePath, {
     'Return only the requested JSON object.',
     kind === LICENSED_PHOTO_KIND
       ? 'This is a real licensed photo candidate; a real place is allowed, but recognizable foreground people and logos or brands are forbidden.'
-      : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
+      : 'Set ok=true only when the image is an original generic synthetic illustration and has none of the forbidden properties. A photorealistic visual style is allowed; it must not claim to document a specific real event.',
     kind === LICENSED_PHOTO_KIND
       ? 'contains_text may be true for a real photo and is not alone a rejection.'
       : 'contains_text is true for any readable or decorative lettering, signage, watermark or signature.',
@@ -1314,7 +1327,7 @@ export async function verifyGeneratedImage(filePath, {
     'looks_like_specific_real_event is true for a documentary/news photograph of a specific real event.',
     kind === LICENSED_PHOTO_KIND
       ? 'is_photograph is true only for a real camera photograph, never a painting, drawing, map, scan, poster, logo or illustration.'
-      : 'is_photograph is false for this generated illustration.',
+      : 'is_photograph is false for this synthetic illustration, even when its visual style is photorealistic.',
     scope === 'article-hero'
       ? `This article hero must be relevant to its subject. Subject: ${subject || 'unspecified'}. Topic: ${topic || 'unspecified'}. Place: ${place || 'unspecified'}. Keywords: ${Array.isArray(keywords) ? keywords.join(', ') : keywords || 'unspecified'}. Set is_topic_relevant=true only for a clear match; reject readable text, signage, watermarks and logos.`
       : '',
@@ -1345,16 +1358,7 @@ export async function verifyGeneratedImage(filePath, {
     });
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
-  const articlePhoto = kind === LICENSED_PHOTO_KIND && scope === 'article-hero';
-  const rejected = kind === LICENSED_PHOTO_KIND
-    ? (!verdict.ok
-      || verdict.is_photograph !== true
-      || verdict.contains_logo
-      || verdict.contains_recognizable_face
-      || (articlePhoto && verdict.contains_recognizable_foreground_person !== false)
-      || (articlePhoto && verdict.contains_text)
-      || (articlePhoto && verdict.is_topic_relevant !== true))
-    : (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event);
+  const rejected = imageVisionRejected(verdict, { kind, scope });
   if (rejected) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
   }
