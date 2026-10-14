@@ -8,6 +8,7 @@ import {
   dropIstFabricatedText,
   extractIstMicrodata,
   hasCompleteIstDetailEvidence,
+  hasIstSitemapPositiveHint,
   isIstDetailJob,
   markIstFacilityFacetEmptySnapshot,
   parseIstFacilityFacetResponse,
@@ -67,6 +68,22 @@ describe('IST sitemap discovery', () => {
       ],
       authoritativeEmptySnapshot: false,
     });
+  });
+
+  it('recognizes positive IST and Ticino tokens in sitemap paths only', () => {
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/international-school-of-ticino/12345/',
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Lugano-Teacher/12345/',
+      'https://jobs.inspirededu.com/job/cadempino-admin/67890/',
+      'https://jobs.inspirededu.com/job/ist-library/99999/',
+    ])).toBe(true);
+    expect(hasIstSitemapPositiveHint([
+      'https://jobs.inspirededu.com/job/Milan-Teacher/67890/',
+      'https://jobs.inspirededu.com/job/listener/99999/',
+    ])).toBe(false);
   });
 });
 

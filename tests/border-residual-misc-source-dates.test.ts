@@ -8,11 +8,12 @@ import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common
 vi.mock('../scripts/lib/crawler-template.mjs', async (original) => ({
   ...await original<typeof import('../scripts/lib/crawler-template.mjs')>(),
   fetchHtml: vi.fn(),
+  fetchJson: vi.fn(),
 }));
 vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({ launchChromium: vi.fn() }));
 import { launchChromium } from '../scripts/lib/ensure-chromium.mjs';
 import { JSDOM } from 'jsdom';
-import { fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { fetchHtml, fetchJson } from '../scripts/lib/crawler-template.mjs';
 const body = 'We are seeking an experienced teacher who will support students in their learning and development through carefully planned lessons and collaborative activities. '.repeat(5);
 const unknown = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 const stamp = '2020-06-05T12:30:00+02:00';
@@ -62,6 +63,7 @@ describe('Grace bounded publication label', () => {
 describe('IST live fetch projection and production merge', () => {
   it.each([undefined, '2020-02-30', '2099-01-01', '2020-06-05garbage', stamp])('transports strict publication %s without throwing', async (date) => {
     const url = 'https://jobs.inspirededu.com/job/international-school-of-ticino/123456/';
+    vi.mocked(fetchJson).mockRejectedValue(new Error('facet unavailable in test'));
     vi.mocked(fetchHtml).mockImplementation(async (input) => String(input).endsWith('sitemap.xml')
       ? `<urlset><url><loc>${url}</loc></url></urlset>`
       : `<meta itemprop="title" content="English Teacher"><meta itemprop="streetAddress" content="Lugano, CH"><meta itemprop="company" content="International School of Ticino">${date ? `<meta itemprop="datePosted" content="${date}">` : ''}<span data-careersite-propertyid="description">${body}</span>`);
@@ -71,6 +73,39 @@ describe('IST live fetch projection and production merge', () => {
     expect(jobs[0]).toMatchObject(expected);
     const merged = mergePreserveLocaleData([{ ...jobs[0], datePosted: '2020-01-01', postedDate: '2020-01-01', postingDateSource: undefined }], jobs);
     expect(merged[0]).toMatchObject(date === stamp ? reportedFull : unknown);
+  });
+
+  it('falls back to the detail walk when the facet request fails', async () => {
+    const url = 'https://jobs.inspirededu.com/job/teacher/123456/';
+    vi.mocked(fetchJson).mockRejectedValue(new Error('facet unavailable in test'));
+    vi.mocked(fetchHtml).mockImplementation(async (input) => String(input).endsWith('sitemap.xml')
+      ? `<urlset><url><loc>${url}</loc></url></urlset>`
+      : `<meta itemprop="title" content="English Teacher"><meta itemprop="streetAddress" content="Lugano, CH"><meta itemprop="company" content="International School of Ticino"><span data-careersite-propertyid="description">${body}</span>`);
+
+    const jobs = await fetchIstJobs();
+
+    expect(fetchJson).toHaveBeenCalledTimes(1);
+    expect(jobs).toHaveLength(1);
+  });
+
+  it('uses the detail walk when a sitemap URL positively identifies IST despite a facet without IST', async () => {
+    const url = 'https://jobs.inspirededu.com/job/international-school-of-ticino/123456/';
+    vi.mocked(fetchJson).mockResolvedValue({
+      facets: {
+        map: {
+          facility: [{ name: 'International School of Como', count: 1 }],
+          location: [{ name: 'Milan, IT', count: 1 }],
+        },
+      },
+    });
+    vi.mocked(fetchHtml).mockImplementation(async (input) => String(input).endsWith('sitemap.xml')
+      ? `<urlset><url><loc>${url}</loc></url></urlset>`
+      : `<meta itemprop="title" content="English Teacher"><meta itemprop="streetAddress" content="Lugano, CH"><meta itemprop="company" content="International School of Ticino"><span data-careersite-propertyid="description">${body}</span>`);
+
+    const jobs = await fetchIstJobs();
+
+    expect(fetchJson).not.toHaveBeenCalled();
+    expect(jobs).toHaveLength(1);
   });
 });
 

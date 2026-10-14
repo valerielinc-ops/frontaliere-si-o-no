@@ -171,6 +171,7 @@ function normalizeFacilityName(value = '') {
 }
 
 const IST_FACILITY_SIGNAL_RE = /\b(?:ticino|lugano|cadempino|ist)\b|\binternational school of ticino\b|\bscuola internazionale\b/i;
+const IST_SITEMAP_HINT_TOKENS = new Set(['ticino', 'lugano', 'cadempino', 'ist']);
 
 const IST_SHARED_PORTAL_COMPANIES = new Set([
   'inspired education',
@@ -312,6 +313,38 @@ export function markIstFacilityFacetEmptySnapshot(payload = {}) {
       + `${parsed.locationCount} active locations, ${parsed.activeListingCount} listings) with no `
       + `${IST_COMPANY_NAME} entry or Ticino location signal`,
   );
+}
+
+/**
+ * A sitemap path can be positive IST evidence before any detail page is read.
+ * Tokenize each path segment so `international-school-of-ticino` and
+ * `Lugano-Teacher` match without treating a substring such as `list` as `ist`.
+ */
+export function hasIstSitemapPositiveHint(jobUrls = []) {
+  return (Array.isArray(jobUrls) ? jobUrls : []).some((rawUrl) => {
+    let pathname;
+    try {
+      pathname = new URL(String(rawUrl)).pathname;
+    } catch {
+      return false;
+    }
+
+    return pathname.split('/').filter(Boolean).some((segment) => {
+      let decodedSegment;
+      try {
+        decodedSegment = decodeURIComponent(segment);
+      } catch {
+        decodedSegment = segment;
+      }
+      const tokens = decodedSegment
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .split(/[^a-z0-9]+/)
+        .filter(Boolean);
+      return tokens.some((token) => IST_SITEMAP_HINT_TOKENS.has(token));
+    });
+  });
 }
 
 export function isIstDetailJob(detail = {}) {
@@ -465,7 +498,12 @@ async function discoverIstJobUrls() {
  * A transport/schema failure is deliberately non-authoritative: the sitemap
  * detail walk remains the fallback and can still prove a zero independently.
  */
-async function discoverIstFacilityEmptySnapshot() {
+async function discoverIstFacilityEmptySnapshot(jobUrls = []) {
+  if (hasIstSitemapPositiveHint(jobUrls)) {
+    console.log('  🏫 Sitemap contains a positive IST/Ticino hint; skipping the native facet and continuing with detail-level filtering.');
+    return null;
+  }
+
   try {
     const payload = await fetchJsonShared(IST_FACET_URL, {
       method: 'POST',
@@ -828,7 +866,7 @@ export async function fetchIstJobs() {
     return [];
   }
 
-  const nativeEmptySnapshot = await discoverIstFacilityEmptySnapshot();
+  const nativeEmptySnapshot = await discoverIstFacilityEmptySnapshot(jobUrls);
   if (nativeEmptySnapshot) {
     SUMMARY_COUNTS.parsed = 0;
     SUMMARY_COUNTS.lastFetchOutcome = 'filtered_empty';
