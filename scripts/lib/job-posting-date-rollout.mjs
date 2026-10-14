@@ -1,4 +1,4 @@
-import { resolveReportedPostingDate } from './job-posting-date.mjs';
+import { resolveReportedPostingDate, resolveSchemaPostingDate } from './job-posting-date.mjs';
 
 /** Publication dates require explicit source evidence, including legacy records.
  * The callback argument remains for compatibility but is never evaluated.
@@ -12,4 +12,10 @@ export function resolveRolloutPostingDate(input, _legacyDate, now) {
   // reaches this wrapper before the stricter validator below.
   if (input?.postingDateSource !== 'reported') return null;
   return resolveReportedPostingDate(input, now);
+}
+
+/** Schema-only boundary: unlike visible recency consumers, JobPosting must
+ * retain its mandatory date field even when employer provenance is absent. */
+export function resolveRolloutSchemaPostingDate(input, now) {
+  return resolveSchemaPostingDate(input, now);
 }

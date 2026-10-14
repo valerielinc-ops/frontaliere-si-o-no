@@ -1,6 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -929,7 +929,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 type ActiveJobReuseFragments = {
- jobPostingDatePosted: string | null;
+ jobPostingDatePosted: string;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -954,10 +954,9 @@ function replaceActiveJobReuseFragment(
 
 export function replaceActiveJobPostingDates(
  fragment: string,
- datePosted: string | null,
+ datePosted: string,
  validThrough: string,
 ): string {
- if (!datePosted) return '';
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -3368,7 +3367,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryCurrency,
    );
    return {
-   jobPostingDatePosted: resolveReportedPostingDate(job, jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolveRolloutSchemaPostingDate(job, jobsSeoReuseBuildNow).value,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -3819,7 +3818,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
- const jobLd = canonicalSchema ? inlineScriptJson({
+ const jobLd = inlineScriptJson({
  ...canonicalSchema,
  // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
@@ -3830,7 +3829,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- }) : null;
+ });
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',

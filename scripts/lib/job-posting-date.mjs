@@ -30,3 +30,24 @@ export function resolveReportedPostingDate(input, now = new Date()) {
   }
   return null;
 }
+
+/**
+ * Stable sentinel used only for the mandatory JobPosting.datePosted field.
+ *
+ * It is deliberately independent from crawl, first-seen and build clocks, so
+ * an unknown employer publication date can never be presented as reported.
+ * Consumers must keep the returned provenance alongside the value.
+ */
+export const JOB_POSTING_DATE_SAFE_DEFAULT = '1970-01-01';
+
+/**
+ * Resolve the value emitted at the JSON-LD boundary without changing source
+ * provenance. Visible recency UI must continue to use
+ * resolveReportedPostingDate(), never this schema-only fallback.
+ */
+export function resolveSchemaPostingDate(input, now = new Date()) {
+  const reported = resolveReportedPostingDate(input, now);
+  return reported
+    ? { value: reported, provenance: 'reported' }
+    : { value: JOB_POSTING_DATE_SAFE_DEFAULT, provenance: 'safe-default' };
+}

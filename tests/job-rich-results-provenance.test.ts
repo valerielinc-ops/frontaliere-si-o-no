@@ -4,6 +4,7 @@ import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { JOB_POSTING_DATE_SAFE_DEFAULT } from '../scripts/lib/job-posting-date.mjs';
 
 const script = resolve('scripts/validate-jobs-rich-results-sample.mjs');
 const date = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
@@ -14,6 +15,7 @@ const posting = {
   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900', streetAddress: 'Via Test 1' } },
   baseSalary: { currency: 'CHF', value: { minValue: 70000, maxValue: 90000, unitText: 'YEAR' } },
 };
+const fallbackPosting = { ...posting, datePosted: JOB_POSTING_DATE_SAFE_DEFAULT };
 function validate(source: string | undefined, schema: Record<string, unknown> | null) {
   const root = mkdtempSync(join(tmpdir(), 'rich-result-provenance-'));
   try {
@@ -30,20 +32,25 @@ function validate(source: string | undefined, schema: Record<string, unknown> | 
   }
 }
 describe('rich-result eligibility validation', () => {
-  it.each(['unknown'])('requires schema absence for %s provenance', (source) => {
+  it.each(['unknown'])('requires a schema-safe JobPosting for %s provenance', (source) => {
     const result = validate(source, null);
-    expect(result.status, result.stdout + result.stderr).toBe(0);
-    expect(result.stdout).toContain('Publication date unverified (JobPosting must be absent): 4');
-    expect(result.stdout).toContain('JobPosting withheld (unverified publication): 4');
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain('Publication date unverified (schema safe default required): 4');
+    expect(result.stdout).toContain('jobposting_missing');
   });
-  it('requires missing legacy provenance to remain ineligible', () => {
+  it('requires missing legacy provenance to use the same safe default', () => {
     expect(validate(undefined, posting).status).toBe(1);
-    expect(validate(undefined, null).status).toBe(0);
+    expect(validate(undefined, fallbackPosting).status).toBe(0);
   });
-  it('rejects schema manufactured for unverified publication', () => {
+  it('rejects an arbitrary date for unverified publication', () => {
     const result = validate('unknown', posting);
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain('jobposting_without_reported_publication_date');
+    expect(result.stdout).toContain('datePosted:safe_default_mismatch');
+  });
+  it('accepts the deterministic safe default without changing source provenance', () => {
+    const result = validate('unknown', fallbackPosting);
+    expect(result.status, result.stdout + result.stderr).toBe(0);
+    expect(result.stdout).toContain('JobPosting safe-default dates: 4');
   });
   it('still requires schema for every reported eligible job', () => {
     const result = validate('reported', null);

@@ -1,4 +1,4 @@
-import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -850,18 +850,20 @@ export function buildJobPostingFacts(
   };
 }
 
-/** JobPosting eligibility requires a verified employer publication date.
- * Unknown, invalid and unmarked legacy inputs retain page/FAQ content only. */
+/**
+ * Build a complete JobPosting for every active detail page. Reported dates are
+ * preserved verbatim; missing or invalid source dates receive only the shared
+ * schema-safe sentinel, without changing the job's source provenance.
+ */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema | null {
+): JobPostingSchema {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const datePosted = resolveReportedPostingDate(job, opts.now);
-  if (!datePosted) return null;
+  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
