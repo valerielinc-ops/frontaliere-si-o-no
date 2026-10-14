@@ -319,7 +319,8 @@ export async function buildDraft(ctx) {
     applicationEmail: requirements.applicationEmail,
   });
   // The employer's page may only pass «Apply» on to its ATS (Coop: Prospective.ch
-  // → SAP SuccessFactors): the channel is the ATS's, with its account.
+  // → SAP SuccessFactors), or expose that ATS in its Jobs2Web boot config
+  // (ORIOR): the channel is the ATS's, with its account.
   if (channel.type === 'employer_site') {
     const target = await resolveApplyUrl(channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
     if (target.via) {

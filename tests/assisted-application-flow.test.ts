@@ -95,11 +95,11 @@ describe('red flags', () => {
     const poor = { ...cleanDraft, verdict: 'poor' };
     expect(evaluateRedFlags(poor).owner).toEqual([]);
     const ready = transition({ state: 'drafting', round: 1 }, { type: 'draft_ready' }, { draft: poor, nowMs: T0 });
-    expect(ready.flow).toMatchObject({ state: 'owner_review', heldBy: [], deadlineAt: T0 + OWNER_REVIEW_MS });
-    expect(ready.effects).toEqual([{ type: 'email', kind: 'owner_review', held: false, flags: [] }]);
-    // The hour passes: on to the candidate, as any other draft.
-    const passed = transition(ready.flow, { type: 'tick' }, { draft: poor, nowMs: T0 + OWNER_REVIEW_MS });
-    expect(passed.flow.state).toBe('candidate_review');
+    expect(ready.flow).toMatchObject({ state: 'candidate_review', heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS });
+    expect(ready.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: false, round: 1 }]);
+    // A clean draft does not spend an hour waiting for the owner before the candidate can review it.
+    const passed = transition(ready.flow, { type: 'tick' }, { draft: poor, nowMs: T0 + CANDIDATE_REVIEW_MS });
+    expect(passed.flow.state).toBe('submitting');
     // An order the old flag still holds is approved without a tick.
     const held = transition({ state: 'owner_review', round: 1, heldBy: ['knock_out'], deadlineAt: null }, { type: 'owner_approve' }, { draft: poor, nowMs: T0 });
     expect(held.flow.state).toBe('candidate_review');
@@ -117,14 +117,13 @@ describe('red flags', () => {
 });
 
 describe('approval flow', () => {
-  it('runs the happy path on the two clocks: 1 h owner, 12 h candidate', () => {
+  it('runs the ownerless happy path on the 12 h candidate clock', () => {
     let step = transition({ state: 'drafting', round: 1 }, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 });
-    expect(step.flow).toMatchObject({ state: 'owner_review', deadlineAt: T0 + OWNER_REVIEW_MS });
-    expect(step.effects).toEqual([{ type: 'email', kind: 'owner_review', held: false, flags: [] }]);
+    expect(step.flow).toMatchObject({ state: 'candidate_review', deadlineAt: T0 + CANDIDATE_REVIEW_MS });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: false, round: 1 }]);
 
-    expect(transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + OWNER_REVIEW_MS - 1 }).ignored).toBe('nothing_due');
-    step = transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + OWNER_REVIEW_MS });
-    const candidateStart = T0 + OWNER_REVIEW_MS;
+    expect(transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 1 }).ignored).toBe('nothing_due');
+    const candidateStart = T0;
     expect(step.flow).toMatchObject({
       state: 'candidate_review',
       deadlineAt: candidateStart + CANDIDATE_REVIEW_MS,
@@ -146,10 +145,9 @@ describe('approval flow', () => {
     expect(step.effects).toEqual([{ type: 'mark_submitted' }]);
   });
 
-  it('lets Valerie and the candidate approve before the clocks run out', () => {
+  it('lets the candidate approve before the autonomous clock runs out', () => {
     let step = transition({ state: 'drafting' }, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 });
-    step = transition(step.flow, { type: 'owner_approve' }, { draft: cleanDraft, nowMs: T0 + 5 * 60_000 });
-    expect(step.flow.state).toBe('candidate_review');
+    expect(transition(step.flow, { type: 'owner_approve' }, { draft: cleanDraft, nowMs: T0 + 5 * 60_000 }).ignored).toBe('not_owner_review');
     step = transition(step.flow, { type: 'candidate_approve' }, { draft: cleanDraft, nowMs: T0 + 10 * 60_000 });
     expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' }]);
   });
@@ -304,7 +302,6 @@ describe('approval flow', () => {
       expect(step.flow).toMatchObject({ state: 'regenerating', round: round + 1, deadlineAt: null });
       expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'candidate_feedback' }]);
       flow = transition(step.flow, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 }).flow;
-      flow = transition(flow, { type: 'owner_approve' }, { draft: cleanDraft, nowMs: T0 }).flow;
     }
     const last = transition(flow, { type: 'candidate_reject', feedback: 'no' }, { draft: cleanDraft, nowMs: T0 });
     expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['max_rounds'] });
