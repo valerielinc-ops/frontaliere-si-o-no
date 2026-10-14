@@ -78,6 +78,10 @@ describe('IST native facility facet empty proof', () => {
           { name: 'International School of Como', count: 1 },
           { name: 'Head Office', count: 32 },
         ],
+        location: [
+          { name: 'London, GB', count: 32 },
+          { name: 'Milan, IT', count: 1 },
+        ],
       },
     },
   };
@@ -89,7 +93,9 @@ describe('IST native facility facet empty proof', () => {
       complete: true,
       facilityCount: 2,
       activeListingCount: 33,
+      locationCount: 2,
       hasIstFacility: false,
+      hasTicinoLocation: false,
     });
 
     const snapshot = markIstFacilityFacetEmptySnapshot(noIstPayload);
@@ -103,9 +109,52 @@ describe('IST native facility facet empty proof', () => {
       facets: {
         map: {
           facility: [{ name: 'International School of Ticino', count: 1 }],
+          location: [{ name: 'Lugano, CH', count: 1 }],
         },
       },
     })).toBeNull();
+  });
+
+  it('does not stamp zero for renamed IST facility names', () => {
+    for (const name of [
+      'IST Lugano',
+      'Inspired Ticino',
+      'International School of Ticino - Cadempino',
+      'Scuola Internazionale del Ticino',
+    ]) {
+      expect(markIstFacilityFacetEmptySnapshot({
+        facets: {
+          map: {
+            facility: [{ name, count: 1 }],
+            location: [{ name: 'London, GB', count: 1 }],
+          },
+        },
+      }), name).toBeNull();
+    }
+  });
+
+  it('does not stamp zero when a neutral facility has a Ticino location', () => {
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'Lugano, Ticino', count: 1 }],
+        },
+      },
+    })).toBeNull();
+  });
+
+  it('keeps a missing location facet fail-closed', () => {
+    const payload = {
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+        },
+      },
+    };
+
+    expect(parseIstFacilityFacetResponse(payload)).toMatchObject({ complete: false });
+    expect(markIstFacilityFacetEmptySnapshot(payload)).toBeNull();
   });
 
   it('keeps malformed or empty facet responses fail-closed', () => {
@@ -115,6 +164,14 @@ describe('IST native facility facet empty proof', () => {
     })).toBeNull();
     expect(markIstFacilityFacetEmptySnapshot({
       facets: { map: { facility: [] } },
+    })).toBeNull();
+    expect(markIstFacilityFacetEmptySnapshot({
+      facets: {
+        map: {
+          facility: [{ name: 'Head Office', count: 1 }],
+          location: [{ name: 'London, GB' }],
+        },
+      },
     })).toBeNull();
   });
 });

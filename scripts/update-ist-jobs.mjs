@@ -68,6 +68,7 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   inferAnyCanton,
+  isCantonRelevant,
   isTargetSwissLocation,
   locationFieldHasSwissSignal,
 } from './lib/target-swiss-locations.mjs';
@@ -169,7 +170,7 @@ function normalizeFacilityName(value = '') {
     .trim();
 }
 
-const IST_FACILITY_NAME_RE = /^international school of ticino(?: ist)?$/i;
+const IST_FACILITY_SIGNAL_RE = /\b(?:ticino|lugano|cadempino|ist)\b|\binternational school of ticino\b|\bscuola internazionale\b/i;
 
 const IST_SHARED_PORTAL_COMPANIES = new Set([
   'inspired education',
@@ -240,59 +241,76 @@ function isLegacyIstJob(job) {
 }
 
 /**
- * Parse the portal's native School Name facet. The endpoint is a complete
- * active-facility map (`mincount=1`, limit 5000), not a parser-derived zero:
- * omitting IST from a complete response is positive source evidence that an
- * IST posting cannot be hidden in the current multi-tenant result set.
+ * Parse the portal's native School Name and location facets. The endpoint is
+ * a complete active-facility/location map (`mincount=1`, limit 5000), not a
+ * parser-derived zero: omitting IST and Ticino signals from a complete
+ * response is positive source evidence that an IST posting cannot be hidden
+ * in the current multi-tenant result set.
  */
 export function parseIstFacilityFacetResponse(payload = {}) {
-  const rows = payload?.facets?.map?.facility;
-  if (!Array.isArray(rows) || rows.length === 0) {
+  const facilityRows = payload?.facets?.map?.facility;
+  const locationRows = payload?.facets?.map?.location;
+  const facilityCount = Array.isArray(facilityRows) ? facilityRows.length : 0;
+  const locationCount = Array.isArray(locationRows) ? locationRows.length : 0;
+  if (facilityCount === 0 || locationCount === 0) {
     return {
       complete: false,
-      facilityCount: 0,
+      facilityCount,
+      locationCount,
       activeListingCount: 0,
       hasIstFacility: false,
+      hasTicinoLocation: false,
     };
   }
 
-  const normalizedRows = rows.map((row) => ({
+  const normalizedFacilityRows = facilityRows.map((row) => ({
     name: normalizeSpace(row?.name),
     count: Number(row?.count),
   }));
-  const complete = normalizedRows.every(({ name, count }) => (
+  const normalizedLocationRows = locationRows.map((row) => ({
+    name: normalizeSpace(row?.name),
+    count: Number(row?.count),
+  }));
+  const rowsAreComplete = (rows) => rows.every(({ name, count }) => (
     name && Number.isInteger(count) && count > 0
   ));
-  if (!complete) {
+  if (!rowsAreComplete(normalizedFacilityRows) || !rowsAreComplete(normalizedLocationRows)) {
     return {
       complete: false,
-      facilityCount: normalizedRows.length,
+      facilityCount,
+      locationCount,
       activeListingCount: 0,
       hasIstFacility: false,
+      hasTicinoLocation: false,
     };
   }
 
   return {
     complete: true,
-    facilityCount: normalizedRows.length,
-    activeListingCount: normalizedRows.reduce((sum, row) => sum + row.count, 0),
-    hasIstFacility: normalizedRows.some(({ name }) => (
-      IST_FACILITY_NAME_RE.test(normalizeFacilityName(name))
+    facilityCount,
+    locationCount,
+    activeListingCount: normalizedFacilityRows.reduce((sum, row) => sum + row.count, 0),
+    hasIstFacility: normalizedFacilityRows.some(({ name }) => (
+      IST_FACILITY_SIGNAL_RE.test(normalizeFacilityName(name))
+    )),
+    hasTicinoLocation: normalizedLocationRows.some(({ name }) => (
+      isCantonRelevant(name, 'TI', { includeBorderProximity: false })
     )),
   };
 }
 
 /**
- * Stamp only the native-facet proof. A missing/partial facet or an IST row
- * returns null so the caller must continue with the detail walk.
+ * Stamp only the native-facet proof. A missing/partial facet or an IST/Ticino
+ * row returns null so the caller must continue with the detail walk.
  */
 export function markIstFacilityFacetEmptySnapshot(payload = {}) {
   const parsed = parseIstFacilityFacetResponse(payload);
-  if (!parsed.complete || parsed.hasIstFacility) return null;
+  if (!parsed.complete || parsed.hasIstFacility || parsed.hasTicinoLocation) return null;
   return markAuthoritativeEmptySnapshot(
     [],
     `Inspired Education native School Name facet is complete (${parsed.facilityCount} active facilities, `
-      + `${parsed.activeListingCount} listings) with no ${IST_COMPANY_NAME} entry`,
+      + `${parsed.locationCount} active locations, ${parsed.activeListingCount} listings) with no `
+      + `${IST_COMPANY_NAME} entry or Ticino location signal`,
   );
 }
 
