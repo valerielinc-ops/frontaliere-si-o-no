@@ -1,10 +1,56 @@
 import { describe, expect, it } from 'vitest';
 import {
+  diagnoseScatterParity,
   scatterAssembledIntoSliceEntries,
   verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 
 describe('scatter parity for source-backed multi-location postings', () => {
+  it('diagnoses shared text without reporting sibling slugs or bridges as pending writes', () => {
+    const url = 'https://jobs.pwc.ch/job-vacancies/career-start-audit/03d1f0dd-21be-4372-869c-504e96d620d4';
+    const assembled = {
+      id: 'pwc-multilocation',
+      url,
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      titleByLocale: { it: 'Revisore', en: 'Auditor' },
+      descriptionByLocale: { it: 'Testo IT', en: 'Text EN' },
+      slugByLocale: { it: 'pwc-zurich-it', en: 'pwc-zurich-en' },
+      previousSlugs: ['old-zurich-route'],
+      previousSlugsByLocale: { it: ['old-zurich-route'] },
+    };
+    const bern = {
+      ...structuredClone(assembled),
+      location: 'Bern',
+      addressLocality: 'Bern',
+      titleByLocale: { it: 'Vecchio titolo' },
+      descriptionByLocale: { it: 'Vecchia descrizione' },
+      slugByLocale: { it: 'pwc-bern-it', en: 'pwc-bern-en' },
+      previousSlugs: ['old-bern-route'],
+      previousSlugsByLocale: { it: ['old-bern-route'] },
+    };
+    const entries = [{ file: 'pwc.json', jobs: [bern] }];
+    const before = structuredClone(entries);
+
+    const report = diagnoseScatterParity([assembled], entries);
+
+    expect(report.pendingWrites).toMatchObject({
+      total: 1,
+      byClass: { multiple: 1 },
+      examples: [{ classes: ['title', 'description'], changes: {
+        title: expect.any(Object),
+        description: expect.any(Object),
+      } }],
+    });
+    expect(report.pendingWrites.examples[0].classes).not.toContain('slug');
+    expect(report.pendingWrites.examples[0].classes).not.toContain('bridge');
+    expect(report.pendingWrites.examples[0].changes).not.toHaveProperty('slug');
+    expect(report.pendingWrites.examples[0].changes).not.toHaveProperty('bridge');
+    expect(report.missingBridges.total).toBe(0);
+    expect(report.missingBridges.candidateCounts).toEqual({});
+    expect(entries).toEqual(before);
+  });
+
   it('projects shared text without overwriting per-location slugs or bridges', () => {
     // Reduced from translate-pending run 38470539868: PwC publishes one
     // vacancy URL/ID for several explicit offices. Assembly keeps Zürich;

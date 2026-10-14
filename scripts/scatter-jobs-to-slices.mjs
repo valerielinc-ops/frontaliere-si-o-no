@@ -502,24 +502,21 @@ function diagnosticFindProjectionJob(projectionEntries, entry, sliceJob) {
   )) || null;
 }
 
-function diagnosticPendingChangeSummary(sliceJob, projectedJob, assembled, missingBridges) {
-  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+function diagnosticPendingChangeSummary(sliceJob, projectedJob, missingBridges) {
   const changes = {};
-  if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) {
+  if (!localeMapsEqual(projectedJob.titleByLocale, sliceJob.titleByLocale)) {
     changes.title = {
       before: diagnosticTextLocaleMap(sliceJob.titleByLocale),
       after: diagnosticTextLocaleMap(projectedJob.titleByLocale),
     };
   }
-  if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) {
+  if (!localeMapsEqual(projectedJob.descriptionByLocale, sliceJob.descriptionByLocale)) {
     changes.description = {
       before: diagnosticTextLocaleMap(sliceJob.descriptionByLocale),
       after: diagnosticTextLocaleMap(projectedJob.descriptionByLocale),
     };
   }
-  if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) {
+  if (!localeMapsEqual(projectedJob.slugByLocale, sliceJob.slugByLocale)) {
     // Report entry, not a job mutation: built with Object.assign so the
     // slug-write encapsulation scan does not read it as a direct slug write.
     Object.assign(changes, {
@@ -627,18 +624,23 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
         firstMatch.set(assembled, diagnosticJobRef(entry, sliceJob));
       }
 
-      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
-      const missing = collectMissingAssembledBridges(sliceJob, assembled, { skipBridges });
-      const applied = applyAssembledToSliceJob(sliceJob, assembled, { skipBridges });
+      const preserveLocationSpecificSlugs = isSourceBackedLocationVariant(sliceJob, assembled);
+      const skipBridges = preserveLocationSpecificSlugs
+        ? assembledBridgeSlugs(assembled)
+        : bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
+      const missing = preserveLocationSpecificSlugs
+        ? []
+        : collectMissingAssembledBridges(sliceJob, assembled, { skipBridges });
+      const applied = applyAssembledToSliceJob(sliceJob, assembled, {
+        skipBridges,
+        preserveLocationSpecificSlugs,
+      });
       if (applied.changed) {
         pendingWrites.total++;
-        const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-        const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-        const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
         const classes = [];
-        if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) classes.push('title');
-        if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) classes.push('description');
-        if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) classes.push('slug');
+        if (!localeMapsEqual(applied.job.titleByLocale, sliceJob.titleByLocale)) classes.push('title');
+        if (!localeMapsEqual(applied.job.descriptionByLocale, sliceJob.descriptionByLocale)) classes.push('description');
+        if (!localeMapsEqual(applied.job.slugByLocale, sliceJob.slugByLocale)) classes.push('slug');
         if (missing.length > 0) classes.push('bridge');
         const className = classes.length === 1 ? classes[0] : (classes.length > 1 ? 'multiple' : 'unknown');
         increment(pendingWrites, className);
@@ -646,11 +648,12 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
           pendingWrites.examples.push({
             ...diagnosticJobRef(entry, sliceJob),
             classes,
-            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, assembled, missing),
+            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, missing),
           });
         }
       }
 
+      if (preserveLocationSpecificSlugs) continue;
       const candidateByKey = new Map(diagnosticBridgeCandidates(assembled).map((candidate) => [candidate.key, candidate]));
       const selectedKeys = new Set(missing.map(({ locale, slug }) => `${locale || ''}\u0000${String(slug)}`));
       const selectedSlugs = new Set(missing.map(({ slug }) => String(slug)));
