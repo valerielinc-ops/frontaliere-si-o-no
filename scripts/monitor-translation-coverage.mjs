@@ -228,6 +228,24 @@ export function formatVerdict(verdict) {
   ];
 }
 
+const ALERT_KINDS = [KIND_DATA, KIND_MEASURE, KIND_UNKNOWN];
+
+/**
+ * I titoli d'allarme da chiudere: quelli di una metrica misurata in questa run
+ * e rientrata. Il tipo nel titolo (dato, misura, predicato ignoto) cambia fra
+ * una run e l'altra, quindi si chiudono tutti e tre. Una metrica non misurata
+ * (MA3 senza tre punti, coorte sotto il minimo di job) non chiude niente: non
+ * è una prova di guarigione. Issue 11547: aperta il 28-09, rientrata dal 10-10
+ * (MA3 88,7%, calo 0,2 punti), restava aperta perché il monitor non chiudeva.
+ * Pura.
+ */
+export function recoveredAlertTitles(verdict) {
+  const titles = [];
+  if (verdict.ma3.current != null && !verdict.ma3.fired) titles.push(...ALERT_KINDS.map(ma3AlertTitle));
+  if (verdict.cohort.measured && !verdict.cohort.fired) titles.push(...ALERT_KINDS.map(cohortAlertTitle));
+  return titles;
+}
+
 function parseArgs(argv) {
   const args = { dryRun: false, history: DEFAULT_HISTORY };
   for (let i = 0; i < argv.length; i++) {
@@ -251,13 +269,26 @@ async function main() {
   const alerts = [];
   if (verdict.ma3.fired) alerts.push({ title: ma3AlertTitle(verdict.ma3.kind), description: ma3AlertBody(verdict) });
   if (verdict.cohort.fired) alerts.push({ title: cohortAlertTitle(verdict.cohort.kind), description: cohortAlertBody(verdict) });
-  if (alerts.length === 0 || args.dryRun) {
+  const recovered = recoveredAlertTitles(verdict);
+  if (args.dryRun) {
     for (const alert of alerts) console.log(`[dry-run] ${alert.title}`);
+    for (const title of recovered) console.log(`[dry-run] resolve: ${title}`);
     return;
   }
 
-  const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  const { createGithubIssue, resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
   let failed = 0;
+  // Simmetrico all'apertura: una metrica rientrata chiude i propri titoli
+  // esatti. Nessuna issue aperta con quel titolo = nessuna scrittura.
+  for (const title of recovered) {
+    try {
+      const closed = await resolveGithubIssue(title, { exactTitle: true, workflow: 'translation-coverage-monitor' });
+      if (closed) console.log(`   resolved: ${title} → ${closed.url ?? closed.number ?? 'n/a'}`);
+    } catch (err) {
+      failed++;
+      console.error(`   resolve failed: ${title}: ${err.message}`);
+    }
+  }
   for (const alert of alerts) {
     const result = await createGithubIssue({
       ...alert,

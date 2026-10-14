@@ -101,6 +101,10 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'il conteggio iscritti cambiato entro la soglia chiude il titolo stabile STABLE_ISSUE_TITLE della stagnazione che lo stesso monitor apre',
   },
+  'scripts/monitor-translation-coverage.mjs': {
+    calls: 1,
+    why: 'metrica misurata e rientrata (MA3 o coorte 24-48 h) → chiude i titoli stabili esatti che lo stesso monitor apre, uno per tipo (issue 11547); nessun numero valutato',
+  },
   'scripts/monitor-gcp-costs.mjs': {
     calls: 1,
     why: 'nessun driver sopra soglia → chiude il titolo stabile del monitor costi',
