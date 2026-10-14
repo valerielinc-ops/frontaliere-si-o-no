@@ -3,6 +3,11 @@
   "source": "gsc-coverage-2026-10-14",
   "sourceSnapshots": [
     {
+      "commit": "f020ee1c66a7093ab752556d57983cc42adb0316",
+      "generatedAt": "2026-10-14T11:13:48.917Z",
+      "matchedRecords": 1
+    },
+    {
       "commit": "5bee4218f83b9be738c735aa1b704d1cd84ecc4e",
       "generatedAt": "2026-10-14T07:57:22.346Z",
       "matchedRecords": 1
@@ -280,6 +285,39 @@
   ],
   "events": [
     {
+      "id": "guidle:An77Y4G",
+      "title": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+      "titleByLocale": {
+        "it": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "en": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "de": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
+        "fr": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026"
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-12-11",
+      "startTime": "20:00",
+      "canton": "SO",
+      "comune": "Lüsslingen-Nennigkofen",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luesslingen/kulturkommision-luesslingen-nennigkofen-praesentiert-das-programm-2026_An77Y4G",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "category": "Pop generalmente",
+      "venue": "Pfarrschüür Lüsslingen",
+      "previousRoutes": [
+        {
+          "canton": "SO",
+          "comune": "Lüsslingen-Nennigkofen",
+          "slug": "kulturkommision-lusslingen-nennigkofen-prasentiert-das-2026-07-10"
+        }
+      ],
+      "recoveryEvidence": {
+        "previousId": "myswitzerland:c8148728cc9a49dca4856b1cbecb1ae4",
+        "previousSnapshot": "fe5e0dcdc78b9298b059df54396d8b656b918da8",
+        "municipalSource": "https://www.luesslingen-nennigkofen.ch/anlaesseaktuelles/7254668",
+        "verifiedOn": "2026-10-14"
+      }
+    },
+    {
       "id": "myswitzerland:7d3356ac1f254b54a072216b1218a059",
       "title": "iLOS MARIACHIS! · Aramis Monroy, Hélio Monroy, Nelson Gómez & solistes GECA",
       "titleByLocale": {
@@ -302,33 +340,6 @@
           "canton": "__UNRESOLVED-CANTON__",
           "comune": "__other-events__",
           "slug": "ilos-mariachis-aramis-monroy-helio-monroy-nelson-gomez-2026-12-04"
-        }
-      ]
-    },
-    {
-      "id": "myswitzerland:c8148728cc9a49dca4856b1cbecb1ae4",
-      "title": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
-      "titleByLocale": {
-        "it": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
-        "en": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
-        "de": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026",
-        "fr": "Kulturkommision Lüsslingen-Nennigkofen präsentiert das Programm 2026"
-      },
-      "startDate": "2026-07-10",
-      "endDate": "2026-12-11",
-      "startTime": "02:00",
-      "category": "Event",
-      "venue": "Lüsslingen",
-      "comune": "Lüsslingen-Nennigkofen",
-      "canton": "SO",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kulturkommision-luesslingen-nennigkofen-praesentiert-das-programm-2026/",
-      "sourceKey": "myswitzerland",
-      "sourceName": "MySwitzerland",
-      "previousRoutes": [
-        {
-          "canton": "SO",
-          "comune": "Lüsslingen-Nennigkofen",
-          "slug": "kulturkommision-lusslingen-nennigkofen-prasentiert-das-2026-07-10"
         }
       ]
     },
