@@ -16,11 +16,14 @@ import {
   parseBodyCasConfig,
   prBodyWriteTarget,
   reviewRetryDetails,
+  stampReviewInputRevision,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
   normalizeReviewInputRevision,
+  reviewInputMarker,
   reviewInputRevisionFromBody,
   reviewInputRevisionFromPullRequest,
+  reviewInputRevisions,
 } from '../scripts/ci/lib/review-input-revision.mjs';
 
 const run = promisify(execFile);
@@ -105,6 +108,19 @@ describe('Codex file IPC', () => {
     expect(reviewRetryDetails(['pr', 'review', '8488', '--comment', '--body', '## LGTM'], 0, {
       cwd: process.cwd(), workspaceRoot: process.cwd(), scratchRoot: process.cwd(), headSha: 'short',
     })).toBeNull();
+  });
+  it.each([
+    ['63-char marker', `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(63)} -->\n## LGTM`],
+    ['missing marker', '## LGTM'],
+    ['duplicate markers', `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(64)} -->\n<!-- REVIEW_INPUT_REVISION: body:${'b'.repeat(64)} -->\n## LGTM`],
+    ['correct marker', `## Scope\n<!-- REVIEW_INPUT_REVISION: body:${'c'.repeat(64)} -->\n\n## LGTM`],
+  ])('stamps exactly one deterministic marker for %s', (_label, body) => {
+    const expected = `body:${'d'.repeat(64)}`;
+    const stamped = stampReviewInputRevision(body, expected);
+    expect(stamped.split(/\r?\n/u)[0]).toBe(reviewInputMarker(expected));
+    expect(reviewInputRevisions(stamped)).toEqual([expected]);
+    expect(stampReviewInputRevision(body, '')).toBe(body);
+    expect(stampReviewInputRevision(body, 'body:short')).toBe(body);
   });
   // `process.exit()` right after `process.stdout.write()` drops whatever a pipe
   // has not taken yet. Inside the Codex sandbox every `gh`/`git` call goes
@@ -266,6 +282,143 @@ esac
       await new Promise(resolve => server.once('exit', resolve));
     }
   });
+  it('stamps the host revision before publishing every review body', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-stamp-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const published = join(root, 'published-body');
+    const expected = `body:${'e'.repeat(64)}`;
+    const marker = reviewInputMarker(expected);
+    const fakeGh = join(root, 'gh');
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+[ "\${1:-}" = pr ] && [ "\${2:-}" = review ] || exit 2
+shift 2
+while [ "\$#" -gt 0 ]; do
+  case "\$1" in
+    --body-file) cat "\$2" > '${published}'; shift 2 ;;
+    --body) printf '%s' "\$2" > '${published}'; shift 2 ;;
+    *) shift ;;
+  esac
+done
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: 'e'.repeat(40), CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com',
+        CODEX_GH_REVIEW_INPUT_REVISION: expected, CODEX_GH_REVIEW_PR_NUMBER: '8488' },
+      stdio: 'ignore',
+    });
+    const cases = [
+      ['short', `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(63)} -->\n## LGTM\n\ncase: short`],
+      ['missing', '## LGTM\n\ncase: missing'],
+      ['duplicate', `${marker}\n<!-- REVIEW_INPUT_REVISION: body:${'b'.repeat(64)} -->\n## LGTM\n\ncase: duplicate`],
+      ['correct', `## Scope\n${marker}\n\n## LGTM\n\ncase: correct`],
+    ] as const;
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      for (const [label, body] of cases) {
+        const source = join(root, `${label}.md`);
+        writeFileSync(source, body);
+        const reviewArgs = label === 'correct'
+          ? ['pr', 'review', '8488', '--comment', '--body', body]
+          : ['pr', 'review', '8488', '--comment', '--body-file', source];
+        await run(process.execPath, [join(action, 'gh-bridge-client.mjs'), ...reviewArgs], {
+          env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+        });
+        const posted = readFileSync(published, 'utf8');
+        expect(posted.split(/\r?\n/u)[0], label).toBe(marker);
+        expect(reviewInputRevisions(posted), label).toEqual([expected]);
+        expect(posted, label).toContain(`case: ${label}`);
+      }
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
+  it('leaves the review body untouched when the host revision is unavailable', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-no-stamp-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const published = join(root, 'published-body');
+    const source = join(root, 'body.md');
+    const body = `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(63)} -->\n## LGTM`;
+    writeFileSync(source, body);
+    const fakeGh = join(root, 'gh');
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+[ "\${1:-}" = pr ] && [ "\${2:-}" = review ] || exit 2
+shift 2
+while [ "\$#" -gt 0 ]; do
+  case "\$1" in
+    --body-file) cat "\$2" > '${published}'; shift 2 ;;
+    --body) printf '%s' "\$2" > '${published}'; shift 2 ;;
+    *) shift ;;
+  esac
+done
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: 'a'.repeat(40), CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com',
+        CODEX_GH_REVIEW_PR_NUMBER: '8488' },
+      stdio: 'ignore',
+    });
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      await run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+        'pr', 'review', '8488', '--comment', '--body-file', source], {
+        env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+      });
+      expect(readFileSync(published, 'utf8')).toBe(body);
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
+  it('uses the stamped body for review idempotency before retrying or reposting', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-stamp-key-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const state = join(root, 'review-attempts');
+    writeFileSync(state, '0');
+    const expected = `body:${'f'.repeat(64)}`;
+    const marker = reviewInputMarker(expected);
+    const fakeGh = join(root, 'gh');
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+[ "\${1:-}" = pr ] && [ "\${2:-}" = review ] || exit 2
+count=\$(cat '${state}')
+printf '%s' "\$((count + 1))" > '${state}'
+`, { mode: 0o755 });
+    const source = join(root, 'body.md');
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: 'f'.repeat(40), CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com',
+        CODEX_GH_REVIEW_INPUT_REVISION: expected, CODEX_GH_REVIEW_PR_NUMBER: '8488' },
+      stdio: 'ignore',
+    });
+    const post = () => run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+      'pr', 'review', '8488', '--comment', '--body-file', source], {
+      env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+    });
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      writeFileSync(source, `<!-- REVIEW_INPUT_REVISION: body:${'a'.repeat(63)} -->\n## LGTM\n\ncase: same`);
+      await post();
+      writeFileSync(source, `${marker}\n## LGTM\n\ncase: same`);
+      const repeat = await post();
+      expect(repeat.stderr).toContain('already posted on PR #8488');
+      expect(readFileSync(state, 'utf8')).toBe('1');
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
   it('starts the real gh bridge with HEAD_SHA, the last piece of the review idempotency key (#9778)', () => {
     // I test end-to-end qui sopra passano HEAD_SHA al server da soli: senza
     // questa riga nell'`env -i` della action, in produzione la chiave era
@@ -278,6 +431,13 @@ esac
     while (start > 0 && !/^\s*env -i \\$/.test(launch[start])) start -= 1;
     expect(launch[start]).toMatch(/^\s*env -i \\$/);
     expect(launch.slice(start, serverLine + 1).join('\n')).toMatch(/^\s*HEAD_SHA="\$\{HEAD_SHA:-\}" \\$/m);
+    expect(launch.slice(start, serverLine + 1).join('\n'))
+      .toMatch(/^\s*CODEX_GH_REVIEW_INPUT_REVISION="\$codex_review_input_revision" \\$/m);
+    expect(launch.slice(start, serverLine + 1).join('\n'))
+      .toMatch(/^\s*CODEX_GH_REVIEW_PR_NUMBER="\$codex_review_pr_number" \\$/m);
+    const before = launch.slice(0, start).join('\n');
+    expect(before).toMatch(/codex_review_input_revision="\$\{REVIEW_REVISION:-\}"/);
+    expect(before).toMatch(/codex_review_pr_number="\$\{PR_NUMBER:-\}"/);
   });
   it('confirms a posted review and never posts the same body twice on one HEAD (#9705)', async () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-once-'));

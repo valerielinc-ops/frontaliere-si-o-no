@@ -980,6 +980,11 @@ runs:
         # re-checks every PR body write against it. Empty = no CAS.
         codex_body_expected_revision="${PR_BODY_EXPECTED_REVISION:-}"
         codex_body_pr_number="${PR_NUMBER:-}"
+        # The review marker is stamped by the host bridge, never copied from
+        # the model. Keep both values outside Codex's environment: env -i below
+        # is the only path that delivers them to gh-server.mjs.
+        codex_review_input_revision="${REVIEW_REVISION:-}"
+        codex_review_pr_number="${PR_NUMBER:-}"
         if [ -n "$codex_body_expected_revision" ]; then
           if ! [[ "$codex_body_expected_revision" =~ ^body:[0-9a-fA-F]{64}$ ]] \
             || ! [[ "$codex_body_pr_number" =~ ^[1-9][0-9]*$ ]]; then
@@ -995,6 +1000,8 @@ runs:
         env -i \
           CODEX_BRIDGE_TRANSPORT=files \
           HEAD_SHA="${HEAD_SHA:-}" \
+          CODEX_GH_REVIEW_INPUT_REVISION="$codex_review_input_revision" \
+          CODEX_GH_REVIEW_PR_NUMBER="$codex_review_pr_number" \
           CODEX_GH_PR_BODY_EXPECTED_REVISION="$codex_body_expected_revision" \
           CODEX_GH_PR_BODY_PR_NUMBER="$codex_body_pr_number" \
           CODEX_GH_AUTH="$codex_github_auth" \

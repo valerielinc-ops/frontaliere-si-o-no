@@ -4,8 +4,8 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * Deterministic post-model marker admission.
  *
- * The reviewer prompt asks for REVIEW_INPUT_REVISION, but a prompt is not an
- * integrity mechanism. This helper validates the API payload after the model
+ * The host bridge stamps REVIEW_INPUT_REVISION, but a producer boundary is
+ * not the validator. This helper validates the API payload after the model
  * or the tests-only writer and before the review gate. Missing, malformed,
  * duplicate, or stale markers stop the required job. A narrowly-scoped
  * `repair` command can add the Codex marker to one otherwise-valid, approving

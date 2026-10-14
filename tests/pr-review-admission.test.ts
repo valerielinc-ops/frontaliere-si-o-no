@@ -551,7 +551,9 @@ describe('workflow wiring for one review per HEAD', () => {
     expect(guard?.run).toContain('--revision "$REVIEW_REVISION"');
     const input = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_input');
     expect(input?.run).toContain('review-input-revision.mjs" hash-pr-json');
-    expect(testsYml).toContain('REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }}');
+    expect(testsYml).toContain('REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}');
+    expect(testsYml).toContain('host-side gh bridge removes any model-supplied marker');
+    expect(testsYml).not.toContain('REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }}');
     expect(testsYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
     expect(reviewGateSource).toContain('process.env.TRUSTED_GH_BIN');
     expect(guard?.run).not.toContain('PR metadata modificata → review piena');
