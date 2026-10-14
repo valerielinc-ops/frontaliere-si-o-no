@@ -3193,7 +3193,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:10:01.436Z",
-      "needsRetranslation": true,
       "salaryMin": 41700,
       "salaryMax": 63600,
       "salarySource": "estimated",
@@ -3808,14 +3807,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T15:29:15.272Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
-        ]
-      },
-      "previousSlugs": [
-        "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
-      ],
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -3828,7 +3819,15 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
+        ]
+      },
+      "previousSlugs": [
+        "team-lead-media-relations-f-m-d-media-relations-lead-to-managing-board-member-f-m-d"
+      ]
     },
     {
       "id": "siemens-44499ba3656b",
@@ -3960,17 +3959,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-14T15:29:06.131Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "communications-manager-80-befristet-siemens-zuerich"
-        ],
-        "fr": [
-          "communications-manager-80-befristet-siemens-zuerich"
-        ]
-      },
-      "previousSlugs": [
-        "communications-manager-80-befristet-siemens-zuerich"
-      ],
       "salaryMin": 81200,
       "salaryMax": 123200,
       "salarySource": "estimated",
@@ -3983,7 +3971,18 @@
           "maxValue": 123200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "communications-manager-80-befristet-siemens-zuerich"
+        ],
+        "fr": [
+          "communications-manager-80-befristet-siemens-zuerich"
+        ]
+      },
+      "previousSlugs": [
+        "communications-manager-80-befristet-siemens-zuerich"
+      ]
     }
   ]
 }

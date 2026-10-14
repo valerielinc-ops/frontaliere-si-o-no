@@ -93,7 +93,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -139,7 +139,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -149,7 +149,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -1415,7 +1415,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau-98b340",
         "en": "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti9l",
         "fr": "dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1469,7 +1469,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti9l"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti9l",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -2865,7 +2866,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg",
         "fr": "dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -2920,7 +2921,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -7343,6 +7345,19 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "firstSeenAt": "2026-10-14T15:35:23.589Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
@@ -7356,20 +7371,7 @@
       },
       "previousSlugs": [
         "fachspezialist-in-qualitat-projekte-sanitatsnotrufzentrale-144-ksa-ch"
-      ],
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "ksa-d344a57a145d",
@@ -7423,17 +7425,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-10-14T15:35:23.589Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
-        ],
-        "fr": [
-          "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
-      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7446,7 +7437,18 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
+      ]
     },
     {
       "id": "ksa-5a02d18570a8",
@@ -7892,13 +7894,11 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -7932,7 +7932,7 @@
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-infermieristica-kantonsspital-aarau-ksa-aarau-971f25",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti74",
         "fr": "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -8011,7 +8011,7 @@
           "specialiste-des-soins-infirmiers-et-professionnels-de-l-oncologie-hematologie-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti74"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -8486,17 +8486,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-10-14T15:35:23.587Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
-        ],
-        "fr": [
-          "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
-      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -8509,7 +8498,18 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
+        ],
+        "fr": [
+          "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
+      ]
     },
     {
       "id": "ksa-a900cf57a2ad",
