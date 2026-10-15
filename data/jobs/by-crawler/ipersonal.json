@@ -7,9 +7,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-susten-wallis-valais",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-susten-wallis-valais",
-        "it": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-susten-wallis-valais",
-        "en": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-susten-wallis-valais",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-susten-wallis-valais"
+        "it": "dipl-infermieristica-professionale-infermieristica-monitoraggio-ndk-medipersonal-susten-wallis-valais",
+        "en": "dipl-nursing-professional-nursing-specialist-monitoring-care-ndk-medipersonal-susten-wallis-valais",
+        "fr": "dipl-professionnels-des-soins-infirmiers-specialiste-des-soins-infirmiers-medipersonal-susten-wallis-valais"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -70,9 +70,9 @@
       "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-oberbuchsiten-solothurn",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-oberbuchsiten-solothurn",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-oberbuchsiten-solothurn",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-oberbuchsiten-solothurn",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-oberbuchsiten-solothurn"
+        "it": "dipl-assistenza-specialistica-esperta-ndk-medipersonal-oberbuchsiten-solothurn",
+        "en": "dipl-specialist-expert-monitoring-care-ndk-medipersonal-oberbuchsiten-solothurn",
+        "fr": "dipl-soins-de-surveillance-specialises-experts-medipersonal-oberbuchsiten-solothurn"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -133,9 +133,9 @@
       "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hunenberg-zug",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hunenberg-zug",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hunenberg-zug",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hunenberg-zug",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-hunenberg-zug"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-hunenberg-zug",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-hunenberg-zug",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-hunenberg-zug"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -196,9 +196,9 @@
       "slug": "fachmann-gesundheit-medipersonal-arth-schwyz",
       "slugByLocale": {
         "de": "fachmann-gesundheit-medipersonal-arth-schwyz",
-        "it": "fachmann-gesundheit-medipersonal-arth-schwyz",
-        "en": "fachmann-gesundheit-medipersonal-arth-schwyz",
-        "fr": "fachmann-gesundheit-medipersonal-arth-schwyz"
+        "it": "salute-professionale-medipersonal-arth-schwyz",
+        "en": "health-professional-medipersonal-arth-schwyz",
+        "fr": "professionnels-de-la-sante-medipersonal-arth-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -256,12 +256,12 @@
     },
     {
       "id": "ipersonal-ffa39eaf0e81",
-      "slug": "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
+      "slug": "operatore-operatrice-sociosanitario-a-afc-m-f-d-medipersonal-muri-b",
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b",
-        "it": "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
-        "en": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b",
-        "fr": "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
+        "it": "operatore-operatrice-sociosanitario-a-afc-m-f-d-medipersonal-muri-b",
+        "en": "professional-health-professional-efz-m-f-d-medipersonal-muri-b",
+        "fr": "professionnel-professionnel-de-la-sante-efz-h-f-d-medipersonal-muri-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -301,7 +301,6 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-muri-b-bern-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -319,11 +318,20 @@
       "firstSeenAt": "2026-10-14T21:12:29.988Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern"
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern",
+          "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b"
+        ],
+        "en": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
+        ],
+        "fr": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern"
+        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b-bern-bern",
+        "fachmann-fachfrau-gesundheit-cfc-m-w-d-medipersonal-muri-b",
+        "fachmann-fachfrau-gesundheit-efz-m-w-d-medipersonal-muri-b"
       ]
     },
     {
@@ -331,9 +339,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-wangen-an-der-aare-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-wangen-an-der-aare-bern",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-wangen-an-der-aare-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-medipersonal-wangen-an-der-aare-bern",
-        "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-wangen-an-der-aare-bern"
+        "it": "infermiere-a-diplomato-a-sup-medipersonal-wangen-an-der-aare-bern",
+        "en": "registered-nurse-fh-medipersonal-wangen-an-der-aare-bern",
+        "fr": "infirmiere-infirmier-diplome-e-hes-medipersonal-wangen-an-der-aare-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -374,7 +382,6 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-wangen-an-der-aare-gesucht-jetzt-karriere-machen/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -403,9 +410,9 @@
       "slug": "fage-cfc-betreuung-medipersonal-riehen-basel-stadt",
       "slugByLocale": {
         "de": "fage-efz-betreuung-medipersonal-riehen-basel-stadt",
-        "it": "fage-cfc-betreuung-medipersonal-riehen-basel-stadt",
-        "en": "fage-efz-betreuung-medipersonal-riehen-basel-stadt",
-        "fr": "fage-efz-betreuung-medipersonal-riehen-basel-stadt"
+        "it": "operatore-trice-sociosanitario-a-afc-assistenza-medipersonal-riehen-basel-stadt",
+        "en": "fage-efz-support-medipersonal-riehen-basel-stadt",
+        "fr": "soutien-fage-efz-medipersonal-riehen-basel-stadt"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -446,7 +453,6 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fage-efz-betreuung-80-100-fuer-die-region-riehen-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -464,6 +470,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fage-efz-betreuung-medipersonal-riehen-basel-stadt"
+        ],
+        "en": [
+          "fage-efz-betreuung-medipersonal-riehen-basel-stadt"
+        ],
+        "fr": [
+          "fage-efz-betreuung-medipersonal-riehen-basel-stadt"
         ]
       },
       "previousSlugs": [
@@ -475,9 +487,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-dn1-80-100-per-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304",
-        "it": "dipl-pflegefachfrau-mann-hf-dn1-80-100-per-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304",
-        "en": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304",
-        "fr": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304"
+        "it": "infermiere-a-diplomato-a-sss-dn1-80-100-cercato-a-per-uster-inizia-la-tua-carriera-nell-assistenza-infermieristica",
+        "en": "registered-nurse-hf-dn1-80-100-wanted-for-uster-start-your-career-in-nursing-medipersonal-8304-wallisellen",
+        "fr": "infirmiere-infirmier-diplome-e-es-dn1-80-100-recherche-e-pour-uster-commence-ta-carriere-dans-les-soins-medipersonal"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -518,11 +530,16 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-dn1-80-100-fuer-uster-gesucht-starte-deine-karriere-in-der-pflege/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304",
           "dipl-pflegefachfrau-mann-hf-dn1-80-100-per-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-wallisellen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-uster-gesucht-starte-deine-karriere-in-der-pflege-medipersonal-8304"
         ]
       },
       "previousSlugs": [
@@ -549,9 +566,9 @@
       "slug": "assistent-in-gesundheit-e-soziales-afp-medipersonal-altendorf-schwyz",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz",
-        "it": "assistent-in-gesundheit-e-soziales-afp-medipersonal-altendorf-schwyz",
-        "en": "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz",
-        "fr": "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz"
+        "it": "assistente-di-cura-e-accompagnamento-cfp-medipersonal-altendorf-schwyz",
+        "en": "healthcare-and-social-care-assistant-eba-medipersonal-altendorf-schwyz",
+        "fr": "aide-en-soins-et-accompagnement-afp-medipersonal-altendorf-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -592,11 +609,16 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/assistent-in-gesundheit-und-soziales-eba-80-100-in-altendorf-gesucht-unterstuetzung-mit-herz-und-engagement/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz",
           "assistent-in-gesundheit-e-soziales-afp-medipersonal-altendorf"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-eba-medipersonal-altendorf-schwyz"
         ]
       },
       "previousSlugs": [
@@ -623,9 +645,9 @@
       "slug": "fage-cfc-langzeitpflege-medipersonal-wil-st-gallen",
       "slugByLocale": {
         "de": "fage-efz-langzeitpflege-medipersonal-wil-st-gallen",
-        "it": "fage-cfc-langzeitpflege-medipersonal-wil-st-gallen",
-        "en": "fage-efz-langzeitpflege-medipersonal-wil-st-gallen",
-        "fr": "fage-efz-langzeitpflege-medipersonal-wil-st-gallen"
+        "it": "operatore-trice-sociosanitario-a-afc-cure-di-lunga-durata-medipersonal-wil-st-gallen",
+        "en": "fage-efz-long-term-care-medipersonal-wil-st-gallen",
+        "fr": "fage-efz-soins-de-longue-duree-medipersonal-wil-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -666,7 +688,6 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fage-efz-langzeitpflege-80-100-fuer-die-region-wil-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -684,6 +705,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fage-efz-langzeitpflege-medipersonal-wil-st-gallen"
+        ],
+        "en": [
+          "fage-efz-langzeitpflege-medipersonal-wil-st-gallen"
+        ],
+        "fr": [
+          "fage-efz-langzeitpflege-medipersonal-wil-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -695,9 +722,9 @@
       "slug": "fachfrau-fachmann-betreuung-cfc-medipersonal-gruningen-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich",
-        "it": "fachfrau-fachmann-betreuung-cfc-medipersonal-gruningen-zurich",
-        "en": "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich",
-        "fr": "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich"
+        "it": "operatrice-operatore-socioassistenziale-afc-medipersonal-gruningen-zurich",
+        "en": "specialist-supervision-efz-medipersonal-gruningen-zurich",
+        "fr": "surveillance-specialisee-efz-medipersonal-gruningen-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -738,7 +765,6 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-betreuung-efz-80-100-in-grueningen-gesucht-menschen-begleiten-foerdern-und-unterstuetzen/",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -756,6 +782,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-efz-medipersonal-gruningen-zurich"
         ]
       },
       "previousSlugs": [
@@ -767,9 +799,9 @@
       "slug": "dipl-pflegefachmann-frau-hf-medipersonal-meilen-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-medipersonal-meilen-zurich",
-        "it": "dipl-pflegefachmann-frau-hf-medipersonal-meilen-zurich",
-        "en": "dipl-pflegefachmann-frau-hf-medipersonal-meilen-zurich",
-        "fr": "dipl-pflegefachmann-frau-hf-medipersonal-meilen-zurich"
+        "it": "dipl-infermieristica-professionale-donna-hf-medipersonal-meilen-zurich",
+        "en": "dipl-nursing-professional-woman-hf-medipersonal-meilen-zurich",
+        "fr": "dipl-soins-infirmiers-professionnels-femme-hf-medipersonal-meilen-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -838,9 +870,9 @@
       "slug": "fachmann-gesundheit-medipersonal-wil-st-gallen",
       "slugByLocale": {
         "de": "fachmann-gesundheit-medipersonal-wil-st-gallen",
-        "it": "fachmann-gesundheit-medipersonal-wil-st-gallen",
-        "en": "fachmann-gesundheit-medipersonal-wil-st-gallen",
-        "fr": "fachmann-gesundheit-medipersonal-wil-st-gallen"
+        "it": "salute-professionale-medipersonal-wil-st-gallen",
+        "en": "health-professional-medipersonal-wil-st-gallen",
+        "fr": "professionnels-de-la-sante-medipersonal-wil-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -901,9 +933,9 @@
       "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-ramsen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-ramsen-schaffhausen",
-        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-ramsen-schaffhausen",
-        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-ramsen-schaffhausen",
-        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-ramsen-schaffhausen"
+        "it": "dipl-expert-expert-nds-emergency-care-medipersonal-ramsen-schaffhausen",
+        "en": "dipl-expert-expert-nds-emergency-care-medipersonal-ramsen-schaffhausen",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-ramsen-schaffhausen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -961,12 +993,12 @@
     },
     {
       "id": "ipersonal-ef5b4f08ddb4",
-      "slug": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
+      "slug": "esperta-diplomata-esperto-diplomato-in-cure-infermieristiche-d-emergenza-nds-medipersonal-zuzwil-sg-st-gallen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "it": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "en": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "fr": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        "it": "esperta-diplomata-esperto-diplomato-in-cure-infermieristiche-d-emergenza-nds-medipersonal-zuzwil-sg-st-gallen",
+        "en": "dipl-expert-expert-for-emergency-care-nds-medipersonal-zuzwil-sg-st-gallen",
+        "fr": "dipl-expert-expert-en-soins-d-urgence-nds-medipersonal-zuzwil-sg-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1007,16 +1039,23 @@
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-fuer-notfallpflege-nds-80-100-in-zueberwangen-gesucht-dein-einsatz-entscheidet/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg"
+          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg",
+          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        ],
+        "en": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen",
-        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg"
+        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg",
+        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-zuzwil-sg-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -2098,7 +2098,7 @@
           "velo-und-werkstattmechaniker-in-m-w-d-xx-unbefristet-z-b-genf-decathlon-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:28:15.887Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -2112,7 +2112,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "decathlon-0fc06527f37f",
@@ -3611,7 +3612,6 @@
         "warehouse-3pl-coordinator-logistics-w-m-d-100-decathlon-ch"
       ],
       "firstSeenAt": "2026-10-14T09:32:55.370Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -3628,10 +3628,10 @@
     },
     {
       "id": "decathlon-10e592cf31ed",
-      "slug": "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch",
+      "slug": "consulente-sportivo-running-fitness-m-f-cdi-80-losanna-bel-air-decathlon-lausanne",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch",
-        "it": "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch",
+        "it": "consulente-sportivo-running-fitness-m-f-cdi-80-losanna-bel-air-decathlon-lausanne",
         "en": "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch",
         "de": "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch"
       },
@@ -3691,7 +3691,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:22:00.625Z"
+      "firstSeenAt": "2026-10-14T21:22:00.625Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-running-fitness-h-f-cdi-80-lausanne-bel-air-decathlon-ch"
+      ]
     }
   ]
 }

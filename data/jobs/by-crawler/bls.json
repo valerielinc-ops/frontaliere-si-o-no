@@ -2239,8 +2239,8 @@
       "slugByLocale": {
         "de": "disponent-in-leitstelle-bls-ch",
         "it": "disponent-in-leitstelle-bls-ag-bern",
-        "en": "disponent-in-leitstelle-bls-ch",
-        "fr": "disponent-in-leitstelle-bls-ch"
+        "en": "control-center-dispatcher-bls-ag-bern",
+        "fr": "dispatcheur-euse-au-centre-de-controle-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2303,6 +2303,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-leitstelle-bls-ch"
+        ],
+        "en": [
+          "disponent-in-leitstelle-bls-ch"
+        ],
+        "fr": [
           "disponent-in-leitstelle-bls-ch"
         ]
       },

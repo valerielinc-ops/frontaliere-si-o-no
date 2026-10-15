@@ -152,7 +152,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:17:23.769Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -5756,12 +5755,12 @@
     },
     {
       "id": "hopital-du-valais-555f64206a46",
-      "slug": "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre",
+      "slug": "collaboratore-del-reparto-assicurazioni-e-garanzia-80-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre",
-        "it": "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre",
-        "en": "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre",
-        "de": "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre"
+        "it": "collaboratore-del-reparto-assicurazioni-e-garanzia-80-hopital-du-valais-sierre",
+        "en": "collaborator-of-the-insurance-department-and-80-guarantees-hopital-du-valais-sierre",
+        "de": "mitarbeiter-der-versicherungsabteilung-und-80-garantien-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5821,16 +5820,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-14T21:16:13.154Z"
+      "firstSeenAt": "2026-10-14T21:16:13.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-du-service-des-assurances-et-garanties-a-80-hopital-du-valais-sierre"
+      ]
     },
     {
       "id": "hopital-du-valais-1a5c9e320b39",
-      "slug": "fachperson-op-lagerung-80-100-hopital-du-valais-visp",
+      "slug": "memorizzazione-chirurgica-specialistica-80-100-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "fachperson-op-lagerung-80-100-hopital-du-valais-visp",
-        "it": "fachperson-op-lagerung-80-100-hopital-du-valais-visp",
-        "en": "fachperson-op-lagerung-80-100-hopital-du-valais-visp",
-        "fr": "fachperson-op-lagerung-80-100-hopital-du-valais-visp"
+        "it": "memorizzazione-chirurgica-specialistica-80-100-hopital-du-valais-visp",
+        "en": "specialist-surgical-storage-80-100-hopital-du-valais-visp",
+        "fr": "stockage-chirurgical-specialise-80-100-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5890,7 +5903,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-14T21:16:11.648Z"
+      "firstSeenAt": "2026-10-14T21:16:11.648Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-op-lagerung-80-100-hopital-du-valais-visp"
+        ],
+        "en": [
+          "fachperson-op-lagerung-80-100-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "fachperson-op-lagerung-80-100-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-op-lagerung-80-100-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-c80ffbc9bcc1",
@@ -5963,12 +5990,12 @@
     },
     {
       "id": "hopital-du-valais-ced3f4e1d7b8",
-      "slug": "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion",
+      "slug": "il-fisioterapista-si-e-laureato-80-100-per-il-servizio-di-fisioterapia-dell-ospedale-di-sion-e-il-suo-team-specializzato",
       "slugByLocale": {
         "fr": "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion",
-        "it": "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion",
-        "en": "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion",
-        "de": "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion"
+        "it": "il-fisioterapista-si-e-laureato-80-100-per-il-servizio-di-fisioterapia-dell-ospedale-di-sion-e-il-suo-team-specializzato",
+        "en": "physiotherapist-graduated-80-100-for-the-physiotherapy-service-of-the-hospital-of-sion-and-his-team-specialized-in",
+        "de": "physiotherapeut-absolvierte-80-100-fur-den-physiotherapie-service-des-krankenhauses-von-sion-und-sein-team"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -6028,7 +6055,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-14T21:16:10.868Z"
+      "firstSeenAt": "2026-10-14T21:16:10.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion"
+        ],
+        "en": [
+          "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion"
+        ],
+        "de": [
+          "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-diplome-e-a-80-100-pour-le-service-de-physiotherapie-de-l-hopital-de-sion"
+      ]
     }
   ]
 }

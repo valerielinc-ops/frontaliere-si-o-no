@@ -302,7 +302,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -363,7 +363,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -371,7 +371,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -1259,7 +1259,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.916Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1437,7 +1436,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.026Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1529,7 +1527,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.036Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7844,7 +7841,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7901,14 +7898,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8042,7 +8039,7 @@
         "it": "hr-business-partner-emmi-ch-2",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8100,11 +8097,11 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -8381,7 +8378,6 @@
         ]
       },
       "firstSeenAt": "2026-10-13T21:16:26.801Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -8398,12 +8394,12 @@
     },
     {
       "id": "emmi-412f23ded6be",
-      "slug": "schichtkoordinator-in-100-emmi-suhr",
+      "slug": "coordinatore-trice-dei-turni-100-emmi-suhr-aargau",
       "slugByLocale": {
         "de": "schichtkoordinator-in-100-emmi-ch",
-        "it": "schichtkoordinator-in-100-emmi-suhr",
-        "en": "schichtkoordinator-in-100-emmi-suhr",
-        "fr": "schichtkoordinator-in-100-emmi-suhr"
+        "it": "coordinatore-trice-dei-turni-100-emmi-suhr-aargau",
+        "en": "shift-coordinator-100-emmi-suhr-aargau",
+        "fr": "coordinateur-trice-de-shift-100-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8460,14 +8456,21 @@
           "• Du führst Menschen mit Klarheit und Respekt und schaffst ein Umfeld, in dem Zusammenarbeit funktioniert."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schichtkoordinator-in-100-emmi-ch"
+          "schichtkoordinator-in-100-emmi-ch",
+          "schichtkoordinator-in-100-emmi-suhr"
+        ],
+        "en": [
+          "schichtkoordinator-in-100-emmi-suhr"
+        ],
+        "fr": [
+          "schichtkoordinator-in-100-emmi-suhr"
         ]
       },
       "previousSlugs": [
-        "schichtkoordinator-in-100-emmi-ch"
+        "schichtkoordinator-in-100-emmi-ch",
+        "schichtkoordinator-in-100-emmi-suhr"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

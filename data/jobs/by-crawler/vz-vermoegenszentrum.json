@@ -2414,7 +2414,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:19:05.458Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -3263,7 +3262,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3324,7 +3323,8 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3332,7 +3332,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
@@ -4194,7 +4194,7 @@
         "it": "collaboratore-trice-in-operations-bvg-con-fachverantwortung-vz-vermogenszentrum-zurich",
         "en": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "fr": "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
+        "fr": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4249,14 +4249,14 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+        "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+          "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-10-12T21:25:51.084Z",
@@ -4434,7 +4434,6 @@
           "lehre-als-entwickler-in-digitales-business-vz-vermoegenszentrum-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -4709,10 +4708,10 @@
       "id": "vz-vermoegenszentrum-07f4c5f5a69a",
       "slug": "responsabile-operativo-junior-per-il-reporting-fiscale-e-il-recupero-fiscale-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "responsabile-operativo-junior-per-il-reporting-fiscale-e-il-recupero-fiscale-vz-vermogenszentrum-zurich",
+        "it": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
         "en": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich",
         "de": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-        "fr": "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
+        "fr": "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4770,15 +4769,14 @@
       },
       "previousSlugs": [
         "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-        "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+        "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch",
-          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "junior-operations-manager-tax-reporting-tax-reclaim-vz-vermogenszentrum-zurich"
+          "gestionnaire-des-operations-juniors-declaration-des-impots-et-remboursement-des-impots-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -4795,7 +4793,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "vz-vermoegenszentrum-19fbcbe30e5a",

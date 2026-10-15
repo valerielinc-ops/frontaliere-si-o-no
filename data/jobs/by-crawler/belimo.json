@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "belimo-9b50f106dc74",
-      "slug": "expert-supply-chain-planning-operations-belimo-hinwil",
+      "slug": "pianificazione-e-operazioni-della-catena-di-approvvigionamento-degli-esperti-belimo-hinwil",
       "slugByLocale": {
         "de": "expert-supply-chain-planning-operations-belimo-hinwil",
-        "it": "expert-supply-chain-planning-operations-belimo-hinwil",
+        "it": "pianificazione-e-operazioni-della-catena-di-approvvigionamento-degli-esperti-belimo-hinwil",
         "en": "expert-supply-chain-planning-operations-belimo-hinwil",
-        "fr": "expert-supply-chain-planning-operations-belimo-hinwil"
+        "fr": "expert-chaine-d-approvisionnement-planning-operations-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:11:10.254Z"
+      "firstSeenAt": "2026-10-14T21:11:10.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-supply-chain-planning-operations-belimo-hinwil"
+        ],
+        "fr": [
+          "expert-supply-chain-planning-operations-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "expert-supply-chain-planning-operations-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-58ec97a621f8",
@@ -536,7 +547,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T09:15:27.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -604,7 +614,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-25T14:39:06.864Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1192,7 +1201,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T04:53:26.756Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1260,7 +1268,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-08T09:15:29.192Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1336,7 +1343,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:17:58.563Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1499,7 +1505,6 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:39:07.465Z",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 50400,
       "salarySource": "estimated",
@@ -2114,7 +2119,6 @@
         ]
       },
       "firstSeenAt": "2026-07-26T22:07:56.558Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",

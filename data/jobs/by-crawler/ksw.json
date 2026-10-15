@@ -1896,7 +1896,7 @@
         "it": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1963,7 +1963,7 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
@@ -2999,9 +2999,9 @@
     },
     {
       "id": "ksw-265156035163",
-      "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
         "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur"
@@ -3050,16 +3050,16 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
         "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca",
           "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-61a3ac",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-da5434bcca"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -3087,7 +3087,7 @@
       "id": "ksw-fce9482fcf5c",
       "slug": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
+        "it": "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
         "en": "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur-ca7442",
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur-ca7442"
@@ -3136,13 +3136,11 @@
       "department": "Klinik für med. Onkologie und Hämatologie",
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-ksw-ch",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
         "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-29e08cc9a7",
           "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
@@ -4066,7 +4064,7 @@
         "de": "med-praxisassistentin-med-praxisassistent-ksw-ch",
         "it": "med-praxisassistentin-med-praxisassistent-ksw-ch-2",
         "en": "med-praxisassistentin-med-praxisassistent-ksw-ch-2",
-        "fr": "med-praxisassistentin-med-praxisassistent-ksw-ch-2"
+        "fr": "med-praxisassistin-med-praxisassistin-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5129,12 +5127,12 @@
     },
     {
       "id": "ksw-e5e0751aeaf2",
-      "slug": "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-o-laborassistentin-laborassistent-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "analista-biomedica-sss-analista-biomedico-sss-o-assistente-di-laboratorio-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin",
-        "it": "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-o-laborassistentin-laborassistent-kantonsspital-winterthur-ksw-winterthur",
-        "en": "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin",
-        "fr": "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin"
+        "it": "analista-biomedica-sss-analista-biomedico-sss-o-assistente-di-laboratorio-kantonsspital-winterthur-ksw-winterthur",
+        "en": "biomedical-analyst-hf-biomedical-analyst-hf-or-laboratory-assistant-laboratory-assistant-kantonsspital-winterthur-ksw",
+        "fr": "analyste-biomedical-hf-analyste-biomedical-hf-ou-assistant-de-laboratoire-assistant-de-laboratoire-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5180,14 +5178,21 @@
         "de": []
       },
       "department": "Institut für Pathologie",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin",
+          "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-o-laborassistentin-laborassistent-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin"
+        ],
+        "fr": [
           "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin"
+        "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-oder-laborassistentin",
+        "biomedizinische-analytikerin-hf-biomedizinischer-analytiker-hf-o-laborassistentin-laborassistent-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
