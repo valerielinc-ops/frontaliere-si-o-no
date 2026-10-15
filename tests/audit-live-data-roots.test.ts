@@ -15,7 +15,10 @@ import {
   resolveAutomatedPullRequestFiles,
   squashCommitPathsByPullNumber,
 } from '../scripts/ci/audit-live-data-roots.mjs';
-import { LIVE_DATA_ROOTS } from '../scripts/ci/live-data-test-guard.mjs';
+import {
+  BOT_AUDIT_LIVE_DATA_ROOTS,
+  LIVE_DATA_ROOTS,
+} from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('audit periodico delle radici dati automatiche', () => {
   it('isola i percorsi dei commit bot diretti, escludendo i merge di PR', () => {
@@ -72,20 +75,43 @@ describe('audit periodico delle radici dati automatiche', () => {
 
   it('deduplica gli output e conserva ogni percorso fuori dall’inventario', () => {
     const audit = auditLiveDataRoots({
-      directPaths: ['data/live/one.json', 'data/new.json', 'docs/generated/report.json'],
-      pullRequestPaths: ['data/new.json', 'data/pr-only.json', 'public/images/live/photo.webp'],
-      roots: ['data/live/', 'public/images/live/'],
+      directPaths: [
+        'data/live/one.json',
+        'data/new.json',
+        'docs/generated/report.json',
+        '.github/workflows/tests.yml',
+        'scripts/generated.mjs',
+        'tests/new.test.ts',
+        'public/sitemap-new.xml',
+        'public/sitemap-pages.xml',
+      ],
+      pullRequestPaths: [
+        'data/new.json',
+        'data/pr-only.json',
+        'public/data/live/photo.json',
+        'public/images/live/photo.webp',
+      ],
+      roots: ['data/live/', 'public/data/live/'],
     });
-    expect(audit.directPathCount).toBe(3);
-    expect(audit.pullRequestPathCount).toBe(3);
+    expect(audit.directPathCount).toBe(8);
+    expect(audit.pullRequestPathCount).toBe(4);
     expect(audit.uncovered).toEqual([
       'data/new.json',
       'data/pr-only.json',
-      'docs/generated/report.json',
+      'public/sitemap-new.xml',
     ]);
-    expect(audit.directOnly).toEqual(['docs/generated/report.json']);
+    expect(audit.directOnly).toEqual(['public/sitemap-new.xml']);
     expect(audit.pullRequestOnly).toEqual(['data/pr-only.json']);
     expect(audit.both).toEqual(['data/new.json']);
+  });
+
+  it('copre le radici dati automatiche misurate nel report di 30 giorni', () => {
+    const paths = BOT_AUDIT_LIVE_DATA_ROOTS.map((root) => (
+      root.endsWith('/') ? root + 'inventory-probe.json' : root
+    ));
+
+    expect(LIVE_DATA_ROOTS).toEqual(expect.arrayContaining(BOT_AUDIT_LIVE_DATA_ROOTS));
+    expect(auditLiveDataRoots({ directPaths: paths }).uncovered).toEqual([]);
   });
 
   it('non segnala radici live già coperte dai test con replay', () => {
@@ -116,7 +142,7 @@ describe('audit periodico delle radici dati automatiche', () => {
     expect(body).toContain('2026-09-10');
     expect(body).toContain('data/direct.json');
     expect(body).toContain('data/pr.json');
-    expect(body).toContain('osservatore non li autorizza né modifica l’inventario');
+    expect(body).toContain('L’osservatore non autorizza né modifica le radici');
     expect(body).toContain('actions/runs/1');
   });
 
@@ -167,6 +193,7 @@ describe('raccolta delle PR automatiche per finestre giornaliere', () => {
       expect(calls).toHaveLength(2);
       expect(calls[0]).toContain('--filter=blob:none');
       expect(calls[0]).toContain('--no-auto-gc');
+      expect(calls[1]).toContain('--min-parents=1');
       expect(calls[1]).toContain('--no-renames');
       expect(calls[1]).toContain('--name-only');
       return calls.length;

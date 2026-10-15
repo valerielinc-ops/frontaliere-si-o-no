@@ -63,7 +63,7 @@ const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const OUTPUT_HELPER_KV_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)["'`]\s*,/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
-const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappend(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
@@ -1592,7 +1592,7 @@ function outputKeysFromSource(source, { outputFlags = null } = {}) {
     for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
   }
   if (outputFlags && outputFlags.size > 0) return keys;
-  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
+  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
   for (const match of raw.matchAll(OUTPUT_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_KV_CALL_RE)) keys.add(match[1]);

@@ -16,7 +16,7 @@
  *      claim — MEBEKO/SRK for healthcare, SEFRI/SECO/L-GAV for trades,
  *      ESTI for electricians, USTRA for drivers. Sources come from
  *      PROFESSION_FACTS and data/seo/{mebeko,sefri}-equivalence.json.
- *   3. 5 FAQ entries per locale answering the top PAA questions
+ *   3. 4 FAQ entries per locale answering the top PAA questions
  *      (requisiti, stipendio, permesso, concorsi, lingue, orari, tasse).
  *
  * FAQ answers are profession-keyed so the FAQ uniqueness gate passes
@@ -1705,7 +1705,7 @@ function buildSections(
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Build FAQ — 5 per locale, profession-keyed for uniqueness.
+// Build FAQ — 4 per locale, profession-keyed for uniqueness.
 // ─────────────────────────────────────────────────────────────────
 
 function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandingFaq[] {
@@ -1727,19 +1727,15 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `Quanto guadagna un/una ${strings.role} in Ticino nel 2026?`,
-        answer: `La forchetta tipica è CHF ${minStr}–${maxStr} lordi annui su 13 mensilità, con una stima editoriale di CHF ${medianStr} come riferimento editoriale, non misurato sulle offerte attive. Il netto dipende dal tipo di permesso (G vs B), dalla chilometraggio dal confine e dallo stato civile: usa il calcolatore del sito per una stima personalizzata.`,
+        answer: `La forchetta tipica è CHF ${minStr}–${maxStr} lordi annui su 13 mensilità, con una stima editoriale di CHF ${medianStr} come riferimento editoriale, non misurato sulle offerte attive.`,
       },
       {
         question: `Quale CCL si applica a ${strings.role} in Ticino?`,
         answer: `Il contratto di riferimento è **${facts.cclReference}**, pubblicato e consultabile sul sito SECO. Regola salario minimo, 13a mensilità, vacanze, indennità turni, preavvisi e indennità malattia. Fonte: ${facts.cclUrl}.`,
       },
       {
-        question: `Conviene il permesso G o il permesso B per un/una ${strings.role}?`,
-        answer: `Dipende dal lordo e dal progetto di vita. Sotto CHF 75'000 lordi e con famiglia in Italia il permesso G resta più vantaggioso; sopra CHF 90'000 o con piani di acquisto casa in Ticino il permesso B è di solito più conveniente sul netto. Il calcolatore del sito simula entrambi.`,
-      },
-      {
         question: `Quali sono i principali datori di lavoro in Ticino per ${strings.role}?`,
-        answer: `Tra i principali: ${facts.topEmployers.slice(0, 3).join(', ')}. Le sedi più attive sono ${facts.topCities.join(', ')}. Offerte aggiornate settimanalmente su Frontaliere Ticino — iscriviti ai job alert per ricevere i nuovi bandi.`,
+        answer: `Tra i principali: ${facts.topEmployers.slice(0, 3).join(', ')}. Le sedi più attive sono ${facts.topCities.join(', ')}.`,
       },
     ];
   }
@@ -1754,19 +1750,15 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `How much does a ${strings.role} earn in Ticino in 2026?`,
-        answer: `The typical range is CHF ${minStr}–${maxStr} gross per year over 13 months, with an editorial estimate of CHF ${medianStr} as an editorial reference, not measured from active listings. Net pay depends on permit type (G vs B), distance from the border and marital status — use the site calculator for a personalised estimate.`,
+        answer: `The typical range is CHF ${minStr}–${maxStr} gross per year over 13 months, with an editorial estimate of CHF ${medianStr} as an editorial reference, not measured from active listings.`,
       },
       {
         question: `Which collective agreement applies to ${strings.role} in Ticino?`,
         answer: `The reference contract is **${facts.cclReference}**, published on the SECO website. It sets minimum wage, 13th month, holidays, shift premiums, notice periods and sickness indemnities. Source: ${facts.cclUrl}.`,
       },
       {
-        question: `Is G-permit or B-permit better for a ${strings.role}?`,
-        answer: `It depends on gross pay and life plans. Below CHF 75,000 with family in Italy, G-permit typically wins; above CHF 90,000 or with home-purchase plans in Ticino, B-permit is usually better. The site calculator simulates both scenarios.`,
-      },
-      {
         question: `Who are the main Ticino employers for ${strings.role}s?`,
-        answer: `Main employers include: ${facts.topEmployers.slice(0, 3).join(', ')}. Most openings concentrate in ${facts.topCities.join(', ')}. Offers refreshed weekly on Frontaliere Ticino — subscribe to job alerts to get new tenders in your inbox.`,
+        answer: `Main employers include: ${facts.topEmployers.slice(0, 3).join(', ')}. Most openings concentrate in ${facts.topCities.join(', ')}.`,
       },
     ];
   }
@@ -1781,19 +1773,15 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `Wie viel verdient ein/e ${strings.role} im Tessin 2026?`,
-        answer: `Typische Bandbreite: CHF ${minStr}–${maxStr} brutto pro Jahr auf 13 Monate, mit redaktioneller Schätzung von CHF ${medianStr} als redaktioneller Richtwert, nicht aus aktiven Anzeigen gemessen. Der Netto-Lohn hängt von Bewilligungsart (G/B), Grenzdistanz und Zivilstand ab — den Lohnrechner für eine personalisierte Schätzung nutzen.`,
+        answer: `Typische Bandbreite: CHF ${minStr}–${maxStr} brutto pro Jahr auf 13 Monate, mit redaktioneller Schätzung von CHF ${medianStr} als redaktioneller Richtwert, nicht aus aktiven Anzeigen gemessen.`,
       },
       {
         question: `Welcher GAV gilt für ${strings.role} im Tessin?`,
         answer: `Der massgebende Vertrag ist **${facts.cclReference}**, auf der SECO-Website veröffentlicht. Er regelt Mindestlohn, 13., Ferien, Schichtzulagen, Kündigungsfristen und Krankheitsindemnitäten. Quelle: ${facts.cclUrl}.`,
       },
       {
-        question: `Ist G- oder B-Bewilligung besser für eine/n ${strings.role}?`,
-        answer: `Hängt vom Bruttolohn und Lebensprojekt ab. Unter CHF 75'000 mit Familie in Italien gewinnt meist die G-Bewilligung; über CHF 90'000 oder mit Hauskauf-Plänen ist die B-Bewilligung meist netto besser. Der Rechner der Website simuliert beides.`,
-      },
-      {
         question: `Wer sind die wichtigsten Tessiner Arbeitgeber für ${strings.role}?`,
-        answer: `Hauptarbeitgeber: ${facts.topEmployers.slice(0, 3).join(', ')}. Häufigste Standorte: ${facts.topCities.join(', ')}. Wöchentlich aktualisierte Angebote auf Frontaliere Ticino — Job-Alerts abonnieren, um neue Ausschreibungen zu erhalten.`,
+        answer: `Hauptarbeitgeber: ${facts.topEmployers.slice(0, 3).join(', ')}. Häufigste Standorte: ${facts.topCities.join(', ')}.`,
       },
     ];
   }
@@ -1808,19 +1796,15 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
     },
     {
       question: `Combien gagne un/une ${strings.role} au Tessin en 2026 ?`,
-      answer: `La fourchette typique est CHF ${minStr}–${maxStr} brut par an sur 13 mois, avec une estimation éditoriale à CHF ${medianStr} comme repère éditorial, non mesuré sur les annonces actives. Le net dépend du type de permis (G vs B), de la distance au confin et de l'état civil — utilisez le calculateur du site pour une estimation personnalisée.`,
+      answer: `La fourchette typique est CHF ${minStr}–${maxStr} brut par an sur 13 mois, avec une estimation éditoriale à CHF ${medianStr} comme repère éditorial, non mesuré sur les annonces actives.`,
     },
     {
       question: `Quelle CCT s'applique aux ${strings.role} au Tessin ?`,
       answer: `Le contrat de référence est **${facts.cclReference}**, publié sur le site SECO. Il fixe le salaire minimum, le 13e, les vacances, les suppléments de rotation, les délais de congé et les indemnités maladie. Source : ${facts.cclUrl}.`,
     },
     {
-      question: `Le permis G ou B est-il préférable pour un/une ${strings.role} ?`,
-      answer: `Cela dépend du brut et du projet de vie. Sous CHF 75 000 avec famille en Italie, le permis G reste habituellement plus avantageux ; au-dessus de CHF 90 000 ou avec achat immobilier, le permis B est souvent préférable sur le net. Le calculateur du site simule les deux scénarios.`,
-    },
-    {
       question: `Quels sont les principaux employeurs tessinois pour les ${strings.role} ?`,
-      answer: `Principaux employeurs : ${facts.topEmployers.slice(0, 3).join(', ')}. Offres les plus fréquentes à ${facts.topCities.join(', ')}. Offres rafraîchies chaque semaine sur Frontaliere Ticino — abonnez-vous aux alertes pour recevoir les nouveaux postes.`,
+      answer: `Principaux employeurs : ${facts.topEmployers.slice(0, 3).join(', ')}. Offres les plus fréquentes à ${facts.topCities.join(', ')}.`,
     },
   ];
 }
