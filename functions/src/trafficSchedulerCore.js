@@ -26,6 +26,7 @@ import {
   TRANSIENT_RESERVATION_REASONS,
   buildTrafficProviderChain,
   classifyProviderError,
+  estimateWebcamWait,
   getTrafficSegmentTravelTimes,
   isRetryableReservationError,
   isTransientProviderRefusal,
@@ -355,6 +356,56 @@ function finiteNonNegative(value) {
  return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
+const WEBCAM_BASELINE_PROVIDER_IDS = new Set(['tomtom', 'here']);
+
+/**
+ * Pair per-feed CV measurements with the crossing-segment provider wait.
+ *
+ * This is shadow-only evidence: it is produced after the provider request that
+ * already powers the traffic snapshot, and it explicitly records zero
+ * incremental paid requests. No aggregate fallback is allowed here because a
+ * single max score cannot identify which feed produced it.
+ */
+export function buildWebcamBaselineObservations({
+ crossingName,
+ provider,
+ providerWaitMinutes,
+ webcam,
+ observedAt,
+}) {
+ const wait = finiteNonNegative(providerWaitMinutes);
+ if (!WEBCAM_BASELINE_PROVIDER_IDS.has(provider) || wait === null) return [];
+ if (typeof observedAt !== 'string' || !Number.isFinite(Date.parse(observedAt))) return [];
+ if (!Array.isArray(webcam?.feedObservations)) return [];
+
+ return webcam.feedObservations
+  .filter((feed) => {
+   const score = Number(feed?.congestionScore);
+   const vehicles = Number(feed?.vehicleCount);
+   return feed?.visibility === 'good'
+    && typeof feed?.feedKey === 'string'
+    && feed.feedKey.trim().length > 0
+    && Number.isFinite(score)
+    && score >= 0
+    && score <= 1
+    && Number.isFinite(vehicles)
+    && vehicles >= 0;
+  })
+  .map((feed) => ({
+   crossingName,
+   provider,
+   providerWaitMinutes: wait,
+   feedKey: feed.feedKey,
+   vehicleCount: Number(feed.vehicleCount),
+   congestionScore: Number(feed.congestionScore),
+   queueDetected: feed.queueDetected === true,
+   observedAt,
+   // The route and webcam observations share this collector run; no extra
+   // provider request is made for the benchmark row.
+   incrementalPaidRequests: 0,
+  }));
+}
+
 function officialSignalForCrossing(options, crossing) {
  const signals = options.officialSignals;
  if (!signals) return null;
@@ -518,6 +569,11 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  }
  }
 
+ // Preserve the provider's raw crossing wait before official signals and the
+ // webcam sanity filter touch it. This is the target value for the shadow
+ // baseline; the published value below may legitimately be adjusted.
+ const providerWaitBeforeWebcamSanity = waitTimeMinutes;
+
  if (approachResult.status === 'fulfilled') {
  const { durationNormalSec, durationTrafficSec } = approachResult.value;
  approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
@@ -552,6 +608,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // Only active when webcam analysis is enabled (options.enableWebcam) and the
  // crossing actually has a camera (analyzeWebcamForCrossing returns null otherwise).
  let webcam = null;
+ const webcamObservedAt = new Date().toISOString();
  if (options.enableWebcam) {
   try {
    const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
@@ -560,6 +617,14 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
   }
  }
+
+ const webcamBaselineObservations = buildWebcamBaselineObservations({
+  crossingName: crossing.name,
+  provider: crossingResult.status === 'fulfilled' ? crossingResult.value.provider : null,
+  providerWaitMinutes: providerWaitBeforeWebcamSanity,
+  webcam,
+  observedAt: webcamObservedAt,
+ });
 
  if (hasLiveData) {
   // (a) Adjust-only: never let the webcam replace a successful routing estimate.
@@ -573,7 +638,18 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  } else if (webcam && webcam.visibility === 'good') {
   // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
   // camera saw the road. Use the granular congestion→minutes estimate.
-  waitTimeMinutes = Math.max(waitTimeMinutes, estimateWaitFromCongestion(webcam.congestionScore));
+  const calibratedEstimate = estimateWebcamWait(
+   webcam.congestionScore,
+   options.webcamWaitCalibration,
+  );
+  // Keep the existing conservative fallback until the shadow benchmark has
+  // produced a validated calibration. The new estimator is never silently
+  // promoted by the presence of a webcam score alone.
+  if (calibratedEstimate.status === 'estimated') {
+   waitTimeMinutes = Math.max(waitTimeMinutes, calibratedEstimate.waitTimeMinutes);
+  } else {
+   waitTimeMinutes = Math.max(waitTimeMinutes, estimateWaitFromCongestion(webcam.congestionScore));
+  }
   approachMinutes = 0; // no live approach datum to combine with
   source = signal ? 'official+webcam' : 'webcam';
   console.log(
@@ -615,6 +691,9 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
  if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
  if (signal) result.dataQuality = hasLiveData ? 'live+official' : 'official';
+ if (webcamBaselineObservations.length > 0) {
+  result.webcamBaselineObservations = webcamBaselineObservations;
+ }
  return result;
 }
 
@@ -913,11 +992,12 @@ export async function saveTrafficToFirestore(crossingResults) {
 
  for (const result of crossingResults) {
  const slug = slugifyCrossingName(result.crossingName);
+ const { webcamBaselineObservations, ...publishedResult } = result;
  const docData = {
- ...result,
- lastUpdate: now,
- hour,
- dayOfWeek,
+ ...publishedResult,
+  lastUpdate: now,
+  hour,
+  dayOfWeek,
  };
 
  // Current state – overwrite on every run
@@ -926,11 +1006,16 @@ export async function saveTrafficToFirestore(crossingResults) {
 
  // Historical snapshot – append only
  const historyRef = db
- .collection('trafficHistory')
- .doc(slug)
- .collection('snapshots')
- .doc(snapshotId);
- batch.set(historyRef, docData);
+  .collection('trafficHistory')
+  .doc(slug)
+  .collection('snapshots')
+  .doc(snapshotId);
+ // Keep the raw pair in the append-only operational history, not in the
+ // current public document. The daily mirror only aggregates wait minutes,
+ // so this shadow evidence never changes the public snapshot shape.
+ batch.set(historyRef, webcamBaselineObservations?.length > 0
+  ? { ...docData, webcamBaselineObservations }
+  : docData);
  }
 
  await batch.commit();
@@ -1032,10 +1117,14 @@ export async function runWebcamOnlyCollection(options = {}) {
   continue;
  }
 
- const waitTimeMinutes = Math.max(
-  officialMinutes.waitTimeMinutes,
-  estimateWaitFromCongestion(webcam.congestionScore),
+ const calibratedEstimate = estimateWebcamWait(
+  webcam.congestionScore,
+  options.webcamWaitCalibration,
  );
+ const webcamWaitMinutes = calibratedEstimate.status === 'estimated'
+  ? calibratedEstimate.waitTimeMinutes
+  : estimateWaitFromCongestion(webcam.congestionScore);
+ const waitTimeMinutes = Math.max(officialMinutes.waitTimeMinutes, webcamWaitMinutes);
  results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes, officialMinutes.approachMinutes, signal));
  console.log(
  `📷 Webcam-only estimate for ${crossing.name}: ` +

@@ -162,4 +162,43 @@ describe('traffic provider rotation at crossing level', () => {
     expect(result.officialQueueKm).toBe(3);
     expect(result.dataQuality).toBe('live+official');
   });
+
+  it('records per-feed shadow pairs with the raw provider wait before webcam sanity', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ sections: [{ summary: { baseDuration: 60, duration: 240 } }] }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.7,
+      queueDetected: true,
+      visibility: 'good',
+      feeds: ['03.3S'],
+      feedObservations: [{
+        feedKey: '03.3S',
+        congestionScore: 0.7,
+        vehicleCount: 7,
+        queueDetected: true,
+        visibility: 'good',
+      }],
+    });
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Chiasso-Brogeda', lat: 45.8409, lng: 9.0376 },
+      { hereApiKey: 'here-key', enableWebcam: true },
+    );
+
+    expect(result.webcamBaselineObservations).toEqual([
+      expect.objectContaining({
+        crossingName: 'Chiasso-Brogeda',
+        provider: 'here',
+        providerWaitMinutes: 3,
+        feedKey: '03.3S',
+        vehicleCount: 7,
+        congestionScore: 0.7,
+        observedAt: expect.any(String),
+        incrementalPaidRequests: 0,
+      }),
+    ]);
+  });
 });

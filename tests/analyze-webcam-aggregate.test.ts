@@ -27,6 +27,7 @@ const good = (queueDetected: boolean, congestionScore: number, feedKey: string) 
   visibility: 'good',
   queueDetected,
   congestionScore,
+  vehicleCount: Math.round(congestionScore * 10),
   feedKey,
 });
 
@@ -45,6 +46,10 @@ describe('aggregateWebcamResults', () => {
     expect(out?.visibility).toBe('good');
     expect(out?.congestionScore).toBeCloseTo(0.7);
     expect(out?.feeds).toEqual(['00.3S', '03.3S']);
+    expect(out?.feedObservations).toEqual([
+      { feedKey: '00.3S', congestionScore: 0.6, vehicleCount: 6, queueDetected: true, visibility: 'good' },
+      { feedKey: '03.3S', congestionScore: 0.7, vehicleCount: 7, queueDetected: true, visibility: 'good' },
+    ]);
   });
 
   it('with 2 good feeds, 1 vote meets the majority threshold (ceil(2*0.5)=1)', () => {
@@ -105,6 +110,7 @@ describe('aggregateWebcamResults', () => {
     ]);
     expect(out?.queueDetected).toBe(false);
     expect(out?.feeds).toEqual([]);
+    expect(out?.feedObservations).toEqual([]);
   });
 
   it('warming-up feed does not vote and is excluded from the feeds list', () => {

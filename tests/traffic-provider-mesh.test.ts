@@ -1,7 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
+  assessWebcamWaitBaseline,
   buildTrafficProviderChain,
   computeProviderBudgetDecision,
+  estimateWebcamWait,
   getTrafficSegmentTravelTimes,
   parseProviderBudget,
   providerQuotaDefinition,
@@ -12,6 +14,60 @@ import { HERE_MONTHLY_FREE_TIER_BUDGET } from '../functions/src/lib/hereBudget.j
 import { lambert93ToWgs84 } from '../scripts/lib/official-traffic-sources.mjs';
 
 describe('traffic provider mesh', () => {
+  it('keeps the webcam estimator unknown until a three-feed, zero-cost baseline is validated', () => {
+    expect(estimateWebcamWait(0.7)).toEqual({
+      status: 'unknown',
+      waitTimeMinutes: null,
+      reason: 'baseline-not-validated',
+    });
+    expect(estimateWebcamWait(null, {
+      validated: true,
+      feedCount: 2,
+      coverage: 1,
+      maeMinutes: 1,
+      maxAbsoluteErrorMinutes: 2,
+      incrementalPaidRequests: 0,
+      intercept: 1,
+      slope: 10,
+    }).status).toBe('unknown');
+  });
+
+  it('accepts a measured three-feed baseline and enforces the estimator cap', () => {
+    const observations = [
+      { feedKey: 'feed-a', provider: 'tomtom', congestionScore: 0.2, vehicleCount: 2, providerWaitMinutes: 5, candidateWaitMinutes: 5, observedAt: '2026-10-15T06:00:00.000Z', incrementalPaidRequests: 0 },
+      { feedKey: 'feed-b', provider: 'here', congestionScore: 0.5, vehicleCount: 5, providerWaitMinutes: 10, candidateWaitMinutes: 10, observedAt: '2026-10-15T06:00:00.000Z', incrementalPaidRequests: 0 },
+      { feedKey: 'feed-c', provider: 'tomtom', congestionScore: 0.8, vehicleCount: 8, providerWaitMinutes: 15, candidateWaitMinutes: 15, observedAt: '2026-10-15T06:00:00.000Z', incrementalPaidRequests: 0 },
+    ];
+    const baseline = assessWebcamWaitBaseline(observations);
+    expect(baseline.ready).toBe(true);
+    expect(baseline.metrics).toMatchObject({ feedCount: 3, validPairs: 3, incrementalPaidRequests: 0, maeMinutes: 0 });
+
+    expect(estimateWebcamWait(0.9, {
+      validated: true,
+      feedCount: 3,
+      coverage: 1,
+      maeMinutes: 2,
+      maxAbsoluteErrorMinutes: 4,
+      incrementalPaidRequests: 0,
+      intercept: 5,
+      slope: 40,
+      capMinutes: 30,
+    })).toMatchObject({ status: 'estimated', waitTimeMinutes: 30 });
+  });
+
+  it('fails the baseline gate when rows are missing or paid', () => {
+    const report = assessWebcamWaitBaseline([
+      { feedKey: 'feed-a', provider: 'tomtom', congestionScore: 0.2, vehicleCount: 2, providerWaitMinutes: 5, observedAt: '2026-10-15T06:00:00.000Z', incrementalPaidRequests: 1 },
+    ]);
+    expect(report.ready).toBe(false);
+    expect(report.reasons).toEqual(expect.arrayContaining([
+      'requires at least 3 distinct feed keys',
+      'requires at least 3 valid webcam/provider pairs',
+      'baseline collection must add zero paid provider requests',
+      'candidate accuracy is not measured for every valid pair',
+    ]));
+  });
+
   it('builds the documented preference chain without exposing key values', () => {
     const chain = buildTrafficProviderChain({
       tomtomApiKey: 'tt',
