@@ -9,7 +9,7 @@ describe('MTIC listing URL boundary', () => {
         <ul>
           <li><a href="/it/opportunita-di-lavoro/open-position-quality-assurance-manager/">Official</a></li>
           <li><a href="https://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-a/">Subdomain</a></li>
-          <li><a href="http://central.st12.consulting1x1.info/it/opportunita-di-lavoro/open-position-quality-assurance-manager">External redirect</a></li>
+          <li><a href="http://central.st12.consulting1x1.info/it/opportunita-di-lavoro/open-position-quality-assurance-manager/">External redirect</a></li>
         </ul>
       </section>`;
 
