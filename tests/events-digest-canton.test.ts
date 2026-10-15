@@ -83,6 +83,21 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(omitted.content.en.body2).toContain('<!-- digest-event:ti1 -->');
   });
 
+  it('encodes hyphens in event marker payloads so HTML comments stay valid', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'venue--series',
+        title: 'Serie speciale',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(article.content.it.body2).toContain('<!-- digest-event:venue%2D%2Dseries -->');
+    expect(decodeURIComponent('venue%2D%2Dseries')).toBe('venue--series');
+  });
+
   const gr = buildWeekendDigestArticle({ events: EVENTS, todayIso: TODAY, canton: 'GR' });
 
   it('uses the canton identity and counts only that canton weekend events', () => {

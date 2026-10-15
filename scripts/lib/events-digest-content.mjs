@@ -170,7 +170,8 @@ function cantonLabelForLocale(canton, locale) {
  */
 function digestEventMarker(event) {
   const id = String(event?.id ?? '').trim();
-  return id ? ` <!-- digest-event:${encodeURIComponent(id)} -->` : '';
+  const payload = encodeURIComponent(id).replaceAll('-', '%2D');
+  return id ? ` <!-- digest-event:${payload} -->` : '';
 }
 
 const T = {
