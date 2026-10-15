@@ -5421,89 +5421,89 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
-      - name: Launch technic-emplois
-        id: crawler-launch-technic-emplois
+      - name: Launch seniorenzentrum-engelhof
+        id: crawler-launch-seniorenzentrum-engelhof
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-technic-emplois.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-seniorenzentrum-engelhof.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_TECHNIC_EMPLOIS_STRICT: ${{ inputs.strict_localization || '1' }}
+          JOBS_SENIORENZENTRUM_ENGELHOF_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: technic-emplois
-          JOBS_SLICE_FILE: data/jobs/by-crawler/technic-emplois.json
+          JOBS_HOUSEKEEPING_SCOPE: seniorenzentrum-engelhof
+          JOBS_SLICE_FILE: data/jobs/by-crawler/seniorenzentrum-engelhof.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-21"
           mkdir -p "$state_dir/slots"
-          script_path="$state_dir/technic-emplois.sh"
-          launcher_path="$state_dir/technic-emplois.launcher.sh"
-          worker_path="$state_dir/technic-emplois.worker.sh"
-          log_path="$state_dir/technic-emplois.log"
-          pid_path="$state_dir/technic-emplois.pid"
-          status_path="$state_dir/technic-emplois.status"
-          started_path="$state_dir/technic-emplois.started"
-          watchdog_path="$state_dir/technic-emplois.watchdog"
+          script_path="$state_dir/seniorenzentrum-engelhof.sh"
+          launcher_path="$state_dir/seniorenzentrum-engelhof.launcher.sh"
+          worker_path="$state_dir/seniorenzentrum-engelhof.worker.sh"
+          log_path="$state_dir/seniorenzentrum-engelhof.log"
+          pid_path="$state_dir/seniorenzentrum-engelhof.pid"
+          status_path="$state_dir/seniorenzentrum-engelhof.status"
+          started_path="$state_dir/seniorenzentrum-engelhof.started"
+          watchdog_path="$state_dir/seniorenzentrum-engelhof.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/technic-emplois.crawl-exit"
+          rm -f "$state_dir/seniorenzentrum-engelhof.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- technic-emplois: run crawler (verbatim from original workflow) ----
-          node scripts/update-technic-emplois-jobs.mjs
+          # ---- seniorenzentrum-engelhof: run crawler (verbatim from original workflow) ----
+          node scripts/update-seniorenzentrum-engelhof-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
             crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
             if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
               rm -f "$crawl_exit_tmp" 2>/dev/null
-              echo "::warning::technic-emplois: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+              echo "::warning::seniorenzentrum-engelhof: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
             fi
           fi
           git_commit_exit=0
 
-          # ---- technic-emplois: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- seniorenzentrum-engelhof: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- technic-emplois: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- seniorenzentrum-engelhof: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Technic Emplois SA jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Seniorenzentrum Engelhof jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- technic-emplois: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- seniorenzentrum-engelhof: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
-              --title "Crawler Failure: Run technic-emplois" \
+              --title "Crawler Failure: Run seniorenzentrum-engelhof" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run technic-emplois"
+              --workflow "Run seniorenzentrum-engelhof"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::technic-emplois: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ technic-emplois: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::seniorenzentrum-engelhof: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ seniorenzentrum-engelhof: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::technic-emplois: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ technic-emplois: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::seniorenzentrum-engelhof: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ seniorenzentrum-engelhof: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::technic-emplois: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ technic-emplois: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::error::seniorenzentrum-engelhof: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ seniorenzentrum-engelhof: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::technic-emplois: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ technic-emplois: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::seniorenzentrum-engelhof: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ seniorenzentrum-engelhof: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
 
@@ -5513,12 +5513,12 @@ jobs:
           exit 0' > "$script_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.log"
+          script_path="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5528,11 +5528,11 @@ jobs:
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-21/technic-emplois.watchdog"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-21/seniorenzentrum-engelhof.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7149,43 +7149,43 @@ jobs:
             exit 1
           fi
           exit "$status"
-      - name: Run technic-emplois
-        id: crawler-technic-emplois
+      - name: Run seniorenzentrum-engelhof
+        id: crawler-seniorenzentrum-engelhof
         if: always()
         continue-on-error: true
         env:
-          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-technic-emplois'].outcome }}
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-seniorenzentrum-engelhof'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-21"
-          status_file="$state_dir/technic-emplois.status"
-          pid_file="$state_dir/technic-emplois.pid"
-          log_file="$state_dir/technic-emplois.log"
+          status_file="$state_dir/seniorenzentrum-engelhof.status"
+          pid_file="$state_dir/seniorenzentrum-engelhof.pid"
+          log_file="$state_dir/seniorenzentrum-engelhof.log"
           launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
           if [ "$launch_outcome" != "success" ]; then
-            echo "::error::technic-emplois: launch step outcome is $launch_outcome; detached crawler was not started"
+            echo "::error::seniorenzentrum-engelhof: launch step outcome is $launch_outcome; detached crawler was not started"
             exit 1
           fi
           if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::technic-emplois: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            echo "::error::seniorenzentrum-engelhof: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::technic-emplois: detached crawler did not publish a status before the 340 minute group budget"
+              echo "::error::seniorenzentrum-engelhof: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
               if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::technic-emplois: invalid detached crawler PID: $pid"
+                echo "::error::seniorenzentrum-engelhof: invalid detached crawler PID: $pid"
                 exit 1
               fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
-                  echo "::error::technic-emplois: detached crawler exited without publishing its status"
+                  echo "::error::seniorenzentrum-engelhof: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
@@ -7195,12 +7195,12 @@ jobs:
           if [ -f "$log_file" ]; then
             cat "$log_file"
           else
-            echo "::error::technic-emplois: crawler log is missing"
+            echo "::error::seniorenzentrum-engelhof: crawler log is missing"
             exit 1
           fi
           status="$(cat "$status_file" 2>/dev/null || true)"
           if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::technic-emplois: invalid crawler status: $status"
+            echo "::error::seniorenzentrum-engelhof: invalid crawler status: $status"
             exit 1
           fi
           exit "$status"
@@ -7288,7 +7288,7 @@ jobs:
           aggregate_crawler_member 'geberit'
           aggregate_crawler_member 'lombard-odier'
           aggregate_crawler_member 'kone'
-          aggregate_crawler_member 'technic-emplois'
+          aggregate_crawler_member 'seniorenzentrum-engelhof'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7358,7 +7358,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ardian","primarySlice":"data/jobs/by-crawler/ardian.json"},{"crawlerId":"beekeeper","primarySlice":"data/jobs/by-crawler/beekeeper.json"},{"crawlerId":"bps-suisse","primarySlice":"data/jobs/by-crawler/bps-suisse.json"},{"crawlerId":"cambiavalute","primarySlice":"data/jobs/by-crawler/cambiavalute.json"},{"crawlerId":"clinique-le-noirmont","primarySlice":"data/jobs/by-crawler/clinique-le-noirmont.json"},{"crawlerId":"dormakaba","primarySlice":"data/jobs/by-crawler/dormakaba.json"},{"crawlerId":"flury-stiftung","primarySlice":"data/jobs/by-crawler/flury-stiftung.json"},{"crawlerId":"galderma","primarySlice":"data/jobs/by-crawler/galderma.json"},{"crawlerId":"geberit","primarySlice":"data/jobs/by-crawler/geberit.json"},{"crawlerId":"hoch-health","primarySlice":"data/jobs/by-crawler/hoch-health.json"},{"crawlerId":"kellerhals-carrard","primarySlice":"data/jobs/by-crawler/kellerhals-carrard.json"},{"crawlerId":"klinik-sonnenhalde","primarySlice":"data/jobs/by-crawler/klinik-sonnenhalde.json"},{"crawlerId":"kone","primarySlice":"data/jobs/by-crawler/kone.json"},{"crawlerId":"ksbl","primarySlice":"data/jobs/by-crawler/ksbl.json"},{"crawlerId":"liebherr","primarySlice":"data/jobs/by-crawler/liebherr.json"},{"crawlerId":"livit","primarySlice":"data/jobs/by-crawler/livit.json"},{"crawlerId":"logitech","primarySlice":"data/jobs/by-crawler/logitech.json"},{"crawlerId":"lombard-odier","primarySlice":"data/jobs/by-crawler/lombard-odier.json"},{"crawlerId":"marriott","primarySlice":"data/jobs/by-crawler/marriott.json"},{"crawlerId":"michaelpage","primarySlice":"data/jobs/by-crawler/michaelpage.json"},{"crawlerId":"omega","primarySlice":"data/jobs/by-crawler/omega.json"},{"crawlerId":"orell-fuessli-thalia","primarySlice":"data/jobs/by-crawler/orell-fuessli-thalia.json"},{"crawlerId":"pdag","primarySlice":"data/jobs/by-crawler/pdag.json"},{"crawlerId":"ricola","primarySlice":"data/jobs/by-crawler/ricola.json"},{"crawlerId":"six-group","primarySlice":"data/jobs/by-crawler/six-group.json"},{"crawlerId":"spital-buelach","primarySlice":"data/jobs/by-crawler/spital-buelach.json"},{"crawlerId":"stadtspital-zuerich","primarySlice":"data/jobs/by-crawler/stadtspital-zuerich.json"},{"crawlerId":"technic-emplois","primarySlice":"data/jobs/by-crawler/technic-emplois.json"},{"crawlerId":"vtg","primarySlice":"data/jobs/by-crawler/vtg.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ardian","primarySlice":"data/jobs/by-crawler/ardian.json"},{"crawlerId":"beekeeper","primarySlice":"data/jobs/by-crawler/beekeeper.json"},{"crawlerId":"bps-suisse","primarySlice":"data/jobs/by-crawler/bps-suisse.json"},{"crawlerId":"cambiavalute","primarySlice":"data/jobs/by-crawler/cambiavalute.json"},{"crawlerId":"clinique-le-noirmont","primarySlice":"data/jobs/by-crawler/clinique-le-noirmont.json"},{"crawlerId":"dormakaba","primarySlice":"data/jobs/by-crawler/dormakaba.json"},{"crawlerId":"flury-stiftung","primarySlice":"data/jobs/by-crawler/flury-stiftung.json"},{"crawlerId":"galderma","primarySlice":"data/jobs/by-crawler/galderma.json"},{"crawlerId":"geberit","primarySlice":"data/jobs/by-crawler/geberit.json"},{"crawlerId":"hoch-health","primarySlice":"data/jobs/by-crawler/hoch-health.json"},{"crawlerId":"kellerhals-carrard","primarySlice":"data/jobs/by-crawler/kellerhals-carrard.json"},{"crawlerId":"klinik-sonnenhalde","primarySlice":"data/jobs/by-crawler/klinik-sonnenhalde.json"},{"crawlerId":"kone","primarySlice":"data/jobs/by-crawler/kone.json"},{"crawlerId":"ksbl","primarySlice":"data/jobs/by-crawler/ksbl.json"},{"crawlerId":"liebherr","primarySlice":"data/jobs/by-crawler/liebherr.json"},{"crawlerId":"livit","primarySlice":"data/jobs/by-crawler/livit.json"},{"crawlerId":"logitech","primarySlice":"data/jobs/by-crawler/logitech.json"},{"crawlerId":"lombard-odier","primarySlice":"data/jobs/by-crawler/lombard-odier.json"},{"crawlerId":"marriott","primarySlice":"data/jobs/by-crawler/marriott.json"},{"crawlerId":"michaelpage","primarySlice":"data/jobs/by-crawler/michaelpage.json"},{"crawlerId":"omega","primarySlice":"data/jobs/by-crawler/omega.json"},{"crawlerId":"orell-fuessli-thalia","primarySlice":"data/jobs/by-crawler/orell-fuessli-thalia.json"},{"crawlerId":"pdag","primarySlice":"data/jobs/by-crawler/pdag.json"},{"crawlerId":"ricola","primarySlice":"data/jobs/by-crawler/ricola.json"},{"crawlerId":"seniorenzentrum-engelhof","primarySlice":"data/jobs/by-crawler/seniorenzentrum-engelhof.json"},{"crawlerId":"six-group","primarySlice":"data/jobs/by-crawler/six-group.json"},{"crawlerId":"spital-buelach","primarySlice":"data/jobs/by-crawler/spital-buelach.json"},{"crawlerId":"stadtspital-zuerich","primarySlice":"data/jobs/by-crawler/stadtspital-zuerich.json"},{"crawlerId":"vtg","primarySlice":"data/jobs/by-crawler/vtg.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-21-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

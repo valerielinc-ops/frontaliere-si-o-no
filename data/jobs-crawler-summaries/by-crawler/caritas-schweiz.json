@@ -1,7 +1,7 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-10-14T21:17:03.815Z",
+  "generatedAt": "2026-10-15T09:16:02.665Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 8904,
-  "avgDurationMs": 8904,
+  "durationMs": 6360,
+  "avgDurationMs": 6360,
   "durationHistory": [
-    8904
+    6360
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "caritas-schweiz-6b39cbcf8a7a",
-      "slug": "interkulturelle-r-vermittler-in-im-auftragsverhaltnis-deutsch-somalisch-caritas-schweiz",
+      "slug": "mediatore-trice-interculturale-con-contratto-d-incarico-tedesco-somalo-caritas-schweiz-zurich",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
       "companyDomain": "caritas.ch",
       "title": "Interkulturelle*r Vermittler*in im Auftragsverhältnis (Deutsch/Somalisch)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:44.989Z",
+      "crawledAt": "2026-10-15T09:15:51.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,20 +56,19 @@
       "pensumMin": 10,
       "pensumMax": 10,
       "pensum": "10%",
+      "firstSeenAt": "2026-10-14T21:16:44.989Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-14T21:16:44.989Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +84,7 @@
       "url": "https://apply.refline.ch/126757/2367/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:43.666Z",
+      "crawledAt": "2026-10-15T09:15:50.975Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:43.218Z",
+      "crawledAt": "2026-10-15T09:15:50.526Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/8/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:42.768Z",
+      "crawledAt": "2026-10-15T09:15:50.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:42.312Z",
+      "crawledAt": "2026-10-15T09:15:49.627Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://apply.refline.ch/126757/2363/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:16:41.859Z",
+      "crawledAt": "2026-10-15T09:15:49.173Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -309,7 +309,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:16:41.375Z",
+      "crawledAt": "2026-10-15T09:15:48.720Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -342,5 +342,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
 }
