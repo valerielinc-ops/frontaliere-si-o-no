@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-felgencenter-a-galliker-altishofen",
         "it": "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
-        "en": "mitarbeiter-felgencenter-a-galliker-altishofen",
-        "fr": "mitarbeiter-felgencenter-a-galliker-altishofen"
+        "en": "employee-rim-center-a-galliker-transport-ag-altishofen",
+        "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -58,6 +58,12 @@
       "externalId": "0475",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-felgencenter-a-galliker-altishofen"
+        ],
+        "en": [
+          "mitarbeiter-felgencenter-a-galliker-altishofen"
+        ],
+        "fr": [
           "mitarbeiter-felgencenter-a-galliker-altishofen"
         ]
       },
@@ -2033,7 +2039,7 @@
         "it": "pw-a-galliker-transport-ag-altishofen",
         "en": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
         "de": "carrosseriespengler-pw-a-galliker-altishofen",
-        "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+        "fr": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -2083,7 +2089,8 @@
         "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
         "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
         "carrossier-pw-a-galliker-transport-ag-altishofen",
-        "carrosseriespengler-pw-a-galliker-altishofen"
+        "carrosseriespengler-pw-a-galliker-altishofen",
+        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2097,7 +2104,7 @@
         "fr": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
           "carrossier-pw-a-galliker-transport-ag-altishofen",
-          "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
+          "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:04.864Z",
@@ -3055,7 +3062,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3103,7 +3110,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3115,7 +3122,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3370,7 +3377,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3417,14 +3424,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",
@@ -3833,7 +3840,7 @@
       "id": "galliker-b716c0db7e23",
       "slug": "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen-24d771023e",
       "slugByLocale": {
-        "it": "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen-24d771023e",
+        "it": "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen",
         "en": "employee-spare-parts-warehouse-truck-a-galliker-transport-ag-altishofen",
         "de": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
         "fr": "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen"
@@ -3883,13 +3890,11 @@
       "requirementsByLocale": {},
       "externalId": "0380",
       "previousSlugs": [
-        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-        "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen"
+        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-          "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen"
+          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:07.572Z",

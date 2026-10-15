@@ -430,12 +430,12 @@
     },
     {
       "id": "bcvs-13a4fb112fcc",
-      "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion",
+      "slug": "clienti-privati-individuali-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion",
-        "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion",
-        "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion",
-        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion"
+        "it": "clienti-privati-individuali-banque-cantonale-du-valais-sion",
+        "en": "private-individual-clients-banque-cantonale-du-valais-sion",
+        "de": "privatkunden-einzelkunden-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -508,7 +508,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-10-15T09:30:54.893Z"
+      "firstSeenAt": "2026-10-15T09:30:54.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion"
+        ],
+        "en": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion"
+        ],
+        "de": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-sion"
+      ]
     }
   ]
 }

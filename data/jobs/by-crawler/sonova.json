@@ -1358,12 +1358,12 @@
     },
     {
       "id": "sonova-ecc26f98994e",
-      "slug": "project-manager-m-f-d-sonova-ch",
+      "slug": "responsabile-del-progetto-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "project-manager-m-f-d-sonova-ch",
-        "it": "project-manager-m-f-d-sonova-ch",
-        "de": "project-manager-m-f-d-sonova-ch",
-        "fr": "project-manager-m-f-d-sonova-ch"
+        "it": "responsabile-del-progetto-m-f-d-sonova-staefa-switzerland",
+        "de": "projektmanager-m-w-d-sonova-staefa-switzerland",
+        "fr": "gestionnaire-de-projet-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1420,7 +1420,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-15T09:16:24.418Z"
+      "firstSeenAt": "2026-10-15T09:16:24.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "project-manager-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "project-manager-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-e470d7c19320",

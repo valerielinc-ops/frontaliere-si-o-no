@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch",
         "it": "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "en": "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch",
-        "fr": "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch"
+        "en": "senior-qc-technician-limited-to-12-months-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "fr": "technicien-ne-senior-en-controle-qualite-a-duree-determinee-de-12-mois-thermo-fisher-scientific-schweiz-ag-allschwil"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -56,6 +56,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch"
+        ],
+        "en": [
+          "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
           "senior-qc-technician-befristet-auf-12-monate-thermo-fisher-scientific-ch"
         ]
       },
@@ -365,7 +371,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -415,7 +421,8 @@
         "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
         "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
         "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -430,7 +437,8 @@
           "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
         ],
         "de": [
-          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil"

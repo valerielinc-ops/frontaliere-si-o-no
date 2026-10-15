@@ -25050,12 +25050,12 @@
     },
     {
       "id": "hirslanden-aed2b66be9e3",
-      "slug": "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden",
+      "slug": "gestore-drg-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden",
-        "it": "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden",
+        "it": "gestore-drg-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden",
         "en": "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        "fr": "drg-gestionnaire-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25113,7 +25113,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:18:10.563Z"
+      "firstSeenAt": "2026-10-15T09:18:10.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "fr": [
+          "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "drg-managerin-manager-a-60-hirslanden-hirslanden-klinik-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-1527779a015b",
@@ -27200,12 +27211,12 @@
     },
     {
       "id": "hirslanden-c4b0abad8d41",
-      "slug": "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau",
+      "slug": "team-leader-logistics-a-100-hirslanden-klinik-hirslanden-klinik-aarau",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau",
-        "it": "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau",
+        "it": "team-leader-logistics-a-100-hirslanden-klinik-hirslanden-klinik-aarau",
         "en": "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau",
-        "fr": "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau"
+        "fr": "chef-d-equipe-logistique-a-100-hirslanden-klinik-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27263,16 +27274,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:17:43.234Z"
+      "firstSeenAt": "2026-10-15T09:17:43.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-logistik-a-100-hirslanden-hirslanden-klinik-aarau"
+      ]
     },
     {
       "id": "hirslanden-6d98270e1df6",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100",
+      "slug": "infermiera-infermiere-diplomata-o-con-responsabilita-specialistica-chirurgia-mista-a-80-100-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100",
-        "it": "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100",
-        "en": "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100"
+        "it": "infermiera-infermiere-diplomata-o-con-responsabilita-specialistica-chirurgia-mista-a-80-100-hirslanden-klinik-hirslanden",
+        "en": "dipl-nursing-professional-with-professional-responsibility-mixed-surgery-a-80-100-hirslanden-klinik-hirslanden-klinik",
+        "fr": "dipl-professionnels-des-soins-infirmiers-a-responsabilite-professionnelle-chirurgie-mixte-a-80-100-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27330,7 +27352,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:17:42.234Z"
+      "firstSeenAt": "2026-10-15T09:17:42.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-mit-fachverantwortung-gemischte-chirurgie-a-80-100"
+      ]
     },
     {
       "id": "hirslanden-c0117520a915",

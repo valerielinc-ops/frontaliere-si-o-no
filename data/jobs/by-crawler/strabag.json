@@ -980,12 +980,12 @@
     },
     {
       "id": "strabag-78d686ea2837",
-      "slug": "baumaschinenmechaniker-in-efz-strabag-lindau",
+      "slug": "meccanico-a-di-macchine-da-costruzione-efz-strabag-ag-lindau",
       "slugByLocale": {
         "de": "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "it": "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "en": "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "fr": "baumaschinenmechaniker-in-efz-strabag-lindau"
+        "it": "meccanico-a-di-macchine-da-costruzione-efz-strabag-ag-lindau",
+        "en": "construction-machinery-mechanic-efz-strabag-ag-lindau",
+        "fr": "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1044,7 +1044,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:40.047Z"
+      "firstSeenAt": "2026-09-19T23:05:40.047Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-efz-strabag-lindau"
+        ],
+        "en": [
+          "baumaschinenmechaniker-in-efz-strabag-lindau"
+        ],
+        "fr": [
+          "baumaschinenmechaniker-in-efz-strabag-lindau"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-efz-strabag-lindau"
+      ]
     },
     {
       "id": "strabag-fee1b7166142",

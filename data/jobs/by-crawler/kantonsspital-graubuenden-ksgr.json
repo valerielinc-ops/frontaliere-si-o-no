@@ -25,12 +25,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-15T09:27:30.954Z",
-      "slug": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan",
+      "slug": "radiologia-specialista-radiologia-specialistica-diagnostica-kantonsspital-graubunden-samedan",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan",
-        "it": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan",
-        "en": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan",
-        "fr": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan"
+        "it": "radiologia-specialista-radiologia-specialistica-diagnostica-kantonsspital-graubunden-samedan",
+        "en": "radiology-specialist-radiology-specialist-diagnostics-kantonsspital-graubunden-samedan",
+        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-kantonsspital-graubunden-samedan"
       },
       "titleByLocale": {
         "de": "Radiologiefachfrau / Radiologiefachmann Diagnostik",
@@ -61,7 +61,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-15T09:27:30.954Z"
+      "firstSeenAt": "2026-10-15T09:27:30.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan"
+        ],
+        "en": [
+          "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan"
+        ],
+        "fr": [
+          "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-samedan"
+      ]
     },
     {
       "id": "10225748",

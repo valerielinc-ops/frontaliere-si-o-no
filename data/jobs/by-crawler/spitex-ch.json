@@ -1050,7 +1050,7 @@
       "id": "spitex-ch-7d634e94bc88",
       "slug": "dipl-cura-professionale-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
       "slugByLocale": {
-        "it": "dipl-cura-professionale-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
+        "it": "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
         "en": "dipl-nurse-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
         "de": "dipl-pflegefachperson-hf-m-w-d-80-spitex-ch-grosshochstetten",
         "fr": "dipl-infirmiere-hf-m-f-j-80-spitex-region-konolfingen-grosshochstetten"
@@ -1100,14 +1100,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-        "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
-        "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten"
+        "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-          "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten",
-          "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten"
+          "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
         ],
         "de": [
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten"
@@ -1207,12 +1205,12 @@
     },
     {
       "id": "spitex-ch-ea32b24a5d69",
-      "slug": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
+      "slug": "infermiere-a-diplomato-a-sss-sup-con-senza-responsabilita-specialistica-operatore-trice-sociosanitario-a-afc-operatore",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
-        "it": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
-        "en": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson",
-        "fr": "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
+        "it": "infermiere-a-diplomato-a-sss-sup-con-senza-responsabilita-specialistica-operatore-trice-sociosanitario-a-afc-operatore",
+        "en": "registered-nurse-hf-fh-with-without-specialist-responsibility-healthcare-professional-efz-care-professional-efz",
+        "fr": "infirmier-ere-es-hes-avec-sans-responsabilite-specialisee-assistant-e-en-soins-et-sante-communautaire-cfc-assistant-e"
       },
       "company": "Spitex Oberaargau AG",
       "companyKey": "spitex-ch",
@@ -1271,7 +1269,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:20:33.888Z"
+      "firstSeenAt": "2026-10-15T09:20:33.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-mit-ohne-fachverantwortung-fachperson-gesundheit-efz-fachperson"
+      ]
     },
     {
       "id": "spitex-ch-b64b2c7f4334",
@@ -1350,12 +1362,12 @@
     },
     {
       "id": "spitex-ch-5bdd6b35d3e5",
-      "slug": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
+      "slug": "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "it": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "en": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
+        "it": "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
+        "en": "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
+        "fr": "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
       },
       "company": "Spitex Burgdorf-Oberburg",
       "companyKey": "spitex-ch",
@@ -1415,7 +1427,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:20:32.626Z"
+      "firstSeenAt": "2026-10-15T09:20:32.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf"
+      ]
     },
     {
       "id": "spitex-ch-76dfec98c9b7",

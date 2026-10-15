@@ -5181,12 +5181,12 @@
     },
     {
       "id": "zurzach-care-ba3e0a32739d",
-      "slug": "oberarztin-oberarzt-90-zurzach-care-schlieren",
+      "slug": "medico-senior-medico-senior-90-zurzach-care-schlieren",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-90-zurzach-care-schlieren",
-        "it": "oberarztin-oberarzt-90-zurzach-care-schlieren",
-        "en": "oberarztin-oberarzt-90-zurzach-care-schlieren",
-        "fr": "oberarztin-oberarzt-90-zurzach-care-schlieren"
+        "it": "medico-senior-medico-senior-90-zurzach-care-schlieren",
+        "en": "senior-physician-senior-physician-90-zurzach-care-schlieren",
+        "fr": "medecin-superieur-medecin-superieur-90-zurzach-care-schlieren"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5244,16 +5244,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:16:22.287Z"
+      "firstSeenAt": "2026-10-15T09:16:22.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-90-zurzach-care-schlieren"
+        ],
+        "en": [
+          "oberarztin-oberarzt-90-zurzach-care-schlieren"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-90-zurzach-care-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-90-zurzach-care-schlieren"
+      ]
     },
     {
       "id": "zurzach-care-84b71f599039",
-      "slug": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
+      "slug": "neuropsicologo-40-80-zurzach-care-luzern",
       "slugByLocale": {
         "de": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
-        "it": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
-        "en": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
-        "fr": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+        "it": "neuropsicologo-40-80-zurzach-care-luzern",
+        "en": "neuropsychologist-40-80-zurzach-care-luzern",
+        "fr": "neuropsychologue-40-80-zurzach-care-luzern"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5311,7 +5325,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:16:21.643Z"
+      "firstSeenAt": "2026-10-15T09:16:21.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+        ],
+        "en": [
+          "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+        ],
+        "fr": [
+          "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+      ]
     },
     {
       "id": "zurzach-care-c4d3b23c7dd2",
@@ -5650,8 +5678,8 @@
       "slugByLocale": {
         "de": "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach",
         "it": "responsabile-psychologie-60-100-con-abgeschlossener-weiterbildung-in-psychotherapie-zurzach-care-baden",
-        "en": "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach",
-        "fr": "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach"
+        "en": "head-of-psychology-60-100-with-completed-further-training-in-psychotherapy-zurzach-care-baden",
+        "fr": "responsable-de-la-psychologie-60-100-avec-une-formation-continue-achevee-en-psychotherapie-zurzach-care-baden"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5698,6 +5726,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach"
+        ],
+        "en": [
+          "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach"
+        ],
+        "fr": [
           "leiter-in-psychologie-60-100-mit-abgeschlossener-weiterbildung-in-psychotherapie-zurzach"
         ]
       },

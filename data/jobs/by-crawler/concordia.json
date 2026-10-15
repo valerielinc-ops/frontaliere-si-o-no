@@ -3221,12 +3221,12 @@
     },
     {
       "id": "concordia-9b4bc1b677a9",
-      "slug": "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis",
+      "slug": "consulente-alla-clientela-temporaneo-a-100-ad-affoltern-am-albis-concordia-affoltern-am-albis",
       "slugByLocale": {
         "de": "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis",
-        "it": "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis",
-        "en": "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis",
-        "fr": "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis"
+        "it": "consulente-alla-clientela-temporaneo-a-100-ad-affoltern-am-albis-concordia-affoltern-am-albis",
+        "en": "temporary-customer-advisor-100-in-affoltern-am-albis-concordia-affoltern-am-albis",
+        "fr": "conseiller-ere-clientele-temporaire-100-a-affoltern-am-albis-concordia-affoltern-am-albis"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3285,7 +3285,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:14:12.019Z"
+      "firstSeenAt": "2026-10-15T09:14:12.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis"
+        ],
+        "en": [
+          "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis"
+        ],
+        "fr": [
+          "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-temporar-100-in-affoltern-am-albis-concordia-affoltern-am-albis"
+      ]
     }
   ]
 }

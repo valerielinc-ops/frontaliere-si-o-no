@@ -162,12 +162,12 @@
     },
     {
       "id": "ipersonal-7f5ed4d998d9",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-medipersonal-oberwil-b",
+      "slug": "operatrice-operatore-sociosanitario-afc-medipersonal-oberwil-b",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b",
-        "it": "fachfrau-fachmann-gesundheit-cfc-medipersonal-oberwil-b",
-        "en": "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b",
-        "fr": "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b"
+        "it": "operatrice-operatore-sociosanitario-afc-medipersonal-oberwil-b",
+        "en": "professional-health-efz-medipersonal-oberwil-b",
+        "fr": "sante-professionnelle-efz-medipersonal-oberwil-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -224,11 +224,20 @@
       "firstSeenAt": "2026-10-15T09:16:35.756Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b-zug-zug"
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b-zug-zug",
+          "fachfrau-fachmann-gesundheit-cfc-medipersonal-oberwil-b"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b-zug-zug"
+        "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b-zug-zug",
+        "fachfrau-fachmann-gesundheit-cfc-medipersonal-oberwil-b",
+        "fachfrau-fachmann-gesundheit-efz-medipersonal-oberwil-b"
       ]
     },
     {

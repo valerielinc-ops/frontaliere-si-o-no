@@ -572,12 +572,12 @@
     },
     {
       "id": "spital-oberengadin-efcf093b6b4a",
-      "slug": "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan",
+      "slug": "esperto-a-in-prevenzione-delle-infezioni-e-igiene-ospedaliera-possibilita-di-un-attivita-aggiuntiva-come-infermiere-a",
       "slugByLocale": {
         "de": "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als",
-        "it": "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan",
-        "en": "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als",
-        "fr": "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als"
+        "it": "esperto-a-in-prevenzione-delle-infezioni-e-igiene-ospedaliera-possibilita-di-un-attivita-aggiuntiva-come-infermiere-a",
+        "en": "subject-matter-expert-in-infection-prevention-and-hospital-hygiene-additional-work-as-a-nursing-professional-possible",
+        "fr": "expert-e-en-prevention-des-infections-et-en-hygiene-hospitaliere-activite-supplementaire-comme-infirmier-ere-possible"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -628,11 +628,19 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
+          "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als",
+          "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als"
+        ],
+        "fr": [
           "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als"
         ]
       },
       "previousSlugs": [
-        "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als"
+        "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als",
+        "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

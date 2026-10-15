@@ -24839,11 +24839,11 @@
     },
     {
       "id": "interdiscount-04049fec-31e",
-      "slug": "chauffeur-in-interdiscount-jegenstorf",
+      "slug": "autista-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "chauffeur-in-interdiscount-jegenstorf",
-        "it": "chauffeur-in-interdiscount-jegenstorf",
-        "en": "chauffeur-in-interdiscount-jegenstorf",
+        "it": "autista-interdiscount-jegenstorf",
+        "en": "driver-interdiscount-jegenstorf",
         "fr": "chauffeur-in-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
@@ -24919,7 +24919,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:17:35.674Z"
+      "firstSeenAt": "2026-10-15T09:17:35.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-in-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "chauffeur-in-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-in-interdiscount-jegenstorf"
+      ]
     }
   ]
 }
