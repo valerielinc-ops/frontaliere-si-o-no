@@ -8339,6 +8339,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.orari-apertura-lucerna-festivi.title': 'horaires d\'ouverture des magasins à Lucerne, dimanches et jours fériés',
     'blog.article.orari-apertura-lucerna-festivi.excerpt': 'Dans le canton de Lucerne, les horaires d\'ouverture des magasins varient selon le niveau compétent (cantonal, communal ou institutionnel) ; les dimanches et les jours fériés font partie des horaires commerciaux, tandis que les ouvertures dérogatoires nécessitent des autorisations spéciales à vérifier sur la source officielle.',
     'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Rue de Lucerne avec des magasins et des panneaux d\'horaires d\'ouverture, ciel dégagé et horloge en arrière-plan',
+    'blog.article.ubs-scenari-trasferimento-sede.title': 'UBS évalue trois scénarios pour le déplacement du siège',
+    'blog.article.ubs-scenari-trasferimento-sede.excerpt': 'UBS évalue trois scénarios pour un siège hors de Suisse Le Conseil des États soutient 100% de capital CET1 L’exigence actuelle pour les filiales étrangères est',
+    'blog.article.ubs-scenari-trasferimento-sede.imageAlt': 'Siège d\'une banque en Suisse',
 };
 
 export default blogMetaChFr;

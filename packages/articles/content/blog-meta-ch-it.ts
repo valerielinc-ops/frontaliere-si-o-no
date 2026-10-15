@@ -8339,6 +8339,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.orari-apertura-lucerna-festivi.title': 'orari apertura negozi Lucerna domeniche festivi',
     'blog.article.orari-apertura-lucerna-festivi.excerpt': 'Nel Canton Lucerna gli orari di apertura dei negozi variano secondo il livello competente (cantonale, comunale o istituzionale); domeniche e festivi fanno parte degli orari commerciali, mentre le aperture in deroga richiedono autorizzazioni speciali da verificare sulla fonte ufficiale.',
     'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Via di Lucerna con negozi e cartelli degli orari di apertura, cielo limpido e torre dell\'orologio sullo sfondo',
+    'blog.article.ubs-scenari-trasferimento-sede.title': 'UBS valuta tre scenari per lo spostamento della sede',
+    'blog.article.ubs-scenari-trasferimento-sede.excerpt': 'UBS valuta tre scenari per la sede fuori dalla Svizzera Il Consiglio degli Stati sostiene il 100% di capitale CET1 Il requisito attuale per le filiali estere è',
+    'blog.article.ubs-scenari-trasferimento-sede.imageAlt': 'Sede bancaria in Svizzera',
 };
 
 export default blogMetaChIt;

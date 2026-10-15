@@ -8339,6 +8339,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orari-apertura-lucerna-festivi.title': 'Lucerne shop opening hours Sundays public holidays',
     'blog.article.orari-apertura-lucerna-festivi.excerpt': 'In the Canton of Lucerne, shop opening hours vary according to the competent level (cantonal, municipal or institutional); Sundays and public holidays are part of commercial opening hours, while exceptional openings require special permits to be verified against the official source.',
     'blog.article.orari-apertura-lucerna-festivi.imageAlt': 'Lucerne street with shops and opening hours signs, clear sky and clock tower in the background',
+    'blog.article.ubs-scenari-trasferimento-sede.title': 'UBS considers three scenarios for relocating its headquarters',
+    'blog.article.ubs-scenari-trasferimento-sede.excerpt': 'UBS assesses three scenarios for its head office outside Switzerland The Council of States supports 100% CET1 capital The current requirement for foreign branches is',
+    'blog.article.ubs-scenari-trasferimento-sede.imageAlt': 'Bank headquarters in Switzerland',
 };
 
 export default blogMetaChEn;

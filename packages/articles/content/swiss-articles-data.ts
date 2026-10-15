@@ -27884,6 +27884,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-scenari-trasferimento-sede',
+    category: 'novita',
+    date: '2026-10-15T06:00:40.644Z',
+    image: '/images/blog/article-ubs-scenari-trasferimento-sede.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

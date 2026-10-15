@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "8ab88871539492b20186e4ad8d603fd915f675f9",
+  "commit": "c794d4b2b82b511e46144d3b0e0dd42d857c800e",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -20850,6 +20850,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial illustration matching the petrol route/Lugano subject; no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-ubs-scenari-trasferimento-sede.webp": {
+      "schema": 1,
+      "assetId": "article-ubs-scenari-trasferimento-sede",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "88544864f2ed2eef8c19b21d0059c77363399280ba2eef55ec2159c7906069cc",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "1a57d1c55b6d9368a0f26d9717371995c366179da0529892924cd91579248d06",
+      "bytes": 139436,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T06:00:34.072Z",
+      "verifiedAt": "2026-10-15T06:00:40.299Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-ubs-scenari-trasferimento-sede.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic illustration of a modern Swiss office building; no text, signage, logos, people, or specific-event cues."
       }
     },
     "/images/places/lugano-view.webp": {
