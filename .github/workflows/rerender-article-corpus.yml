@@ -159,6 +159,8 @@ on:
       # The site shell the renderer reads through getSiteShell().
       - 'build-plugins/articlesSiteShellBootstrap.ts'
       - 'build-plugins/constants.ts'
+      # Shared markup consumed by the shell and emitted article pages.
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/htmlTemplate.ts'
       - 'build-plugins/batchWrite.ts'
       - 'build-plugins/spaBundleResolver.ts'

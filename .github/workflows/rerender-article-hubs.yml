@@ -54,6 +54,7 @@ on:
     paths:
       - 'build-plugins/seoHubsPlugin.ts'
       - 'build-plugins/topicClusterHubsPlugin.ts'
+      - 'build-plugins/lib/adSlotHtml.ts'
       - 'build-plugins/topicClusterHubsData.ts'
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
