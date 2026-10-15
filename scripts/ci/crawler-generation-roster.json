@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "groups": {
     "10": [
       "atec-personal",
@@ -206,6 +206,7 @@
       "hopital-la-tour",
       "kantonsspital-graubuenden-ksgr",
       "kispi-sg",
+      "kita-summervogel",
       "lastminute-com",
       "matterhorn-gotthard-bahn",
       "recruitingapp-1154",
@@ -233,7 +234,6 @@
       "imerys",
       "implenia",
       "kispi",
-      "kita-summervogel",
       "klinik-arlesheim",
       "new-yorker",
       "ophtalmique",
@@ -245,6 +245,7 @@
       "siemens-healthineers",
       "spital-zofingen",
       "sygnum",
+      "technic-emplois",
       "veeam",
       "zurich-insurance-sede-ticino"
     ],
@@ -1264,6 +1265,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1324,5 +1326,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:bc8ac8e2d4a25e81f6c96172d0905d5e66791415df9aaaffffc6cd9c54b0f35e"
+  "digest": "sha256:ec4ffc9c88340cc3adbba76700a65fdd22131e6a3028117f3d67754a9a5eb1d8"
 }

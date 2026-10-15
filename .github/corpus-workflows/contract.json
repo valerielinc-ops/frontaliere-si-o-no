@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4",
+  "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "bc9580793081ba13f2fea350d9915c60423afcd4"
+    "sourceCommit": "77830587e630de2c242789005784ec034adcd7d9"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 635,
+  "crawlerCount": 636,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:bc8ac8e2d4a25e81f6c96172d0905d5e66791415df9aaaffffc6cd9c54b0f35e",
+    "rosterDigest": "sha256:ec4ffc9c88340cc3adbba76700a65fdd22131e6a3028117f3d67754a9a5eb1d8",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -543,6 +543,7 @@
     "scripts/update-tally-weijl-jobs.mjs",
     "scripts/update-tarchini-group-jobs.mjs",
     "scripts/update-tecan-jobs.mjs",
+    "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
@@ -1198,8 +1199,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "7b6ae9ab533192a44069b46f278a9e0c1e1e4155e7400774cc11cb00bc1df9ab",
-      "artifactSha256": "2ba0036d6836d216f637c5550197123fb01a84e85cac012845c6374738e77631",
+      "sourceSha256": "c3a9ac7370d2b767fa55058fe0cae7d030eb0a87ae94b17b152b6c766d01ad0c",
+      "artifactSha256": "da590e813c863aeb5a9401dad2ada71ecb803adf685ff048b34bfbc5f04aa00a",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1229,14 +1230,15 @@
         "benteler",
         "adullam",
         "buersten-technik",
-        "matterhorn-gotthard-bahn"
+        "matterhorn-gotthard-bahn",
+        "kita-summervogel"
       ]
     },
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "8cf5cf38b2d83fe143b33c4627613fa66535481ee913b144956d084feef1e998",
-      "artifactSha256": "dfbb189d254107dd6b83dd2e1580e8e1baa26b43f944b393f5cda2ccd93669bf",
+      "sourceSha256": "eefc658ea6de6d477913bebc14733a3575c9755297fa992df365b9eba220334b",
+      "artifactSha256": "8be6bb59526c4768c5ade01223091c088a250f2674384f499561eabe29980c4b",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "siemens-healthineers",
@@ -1267,7 +1269,7 @@
         "board",
         "aldi-suisse",
         "badrutts-palace",
-        "kita-summervogel"
+        "technic-emplois"
       ]
     },
     {
