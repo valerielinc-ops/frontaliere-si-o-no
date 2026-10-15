@@ -1,18 +1,104 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-15T09:16:26.997Z",
-  "total": 57,
-  "newCount": 1,
+  "generatedAt": "2026-10-15T21:16:58.968Z",
+  "total": 58,
+  "newCount": 3,
   "updatedCount": 13,
-  "removedCount": 0,
-  "unchangedCount": 43,
-  "durationMs": 37672,
-  "avgDurationMs": 37672,
+  "removedCount": 2,
+  "unchangedCount": 42,
+  "durationMs": 34420,
+  "avgDurationMs": 34420,
   "durationHistory": [
-    37672
+    34420
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/AI-Workshop-Facilitator-for-baerai-lab-10---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-two-years--possible-extension-_r-19625-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/AI-Workshop-Facilitator-for-baerai-lab-10---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-two-years--possible-extension-_r-19625-1",
+      "title": "AI Workshop Facilitator for baer.ai lab max. 10% (f/m/d) - (Contract through our external payroll partner, immediate start for two years, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "ai-workshop-facilitator-for-baer-ai-lab-max-10-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-two-years-possible-extension-julius-baer",
+      "category": "hr",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "PART_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-15T21:16:45.339Z",
+      "salaryMin": 7400,
+      "salaryMax": 11200,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-15T21:16:45.339Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 16
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Test-Manager---Core-Banking---Pricing-System-Integration-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027--possible-extension-_r-20154-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Test-Manager---Core-Banking---Pricing-System-Integration-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027--possible-extension-_r-20154-1",
+      "title": "Senior Test Manager - Core Banking & Pricing System Integration 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.12.2027, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-test-manager-core-banking-pricing-system-integration-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-possible-extension-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-15T21:16:45.339Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-15T21:16:45.339Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 16
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Trade-Reporting-Specialist---Global-Products---Solutions--GPS--80----100---f-m-d-_r-19796-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Trade-Reporting-Specialist---Global-Products---Solutions--GPS--80----100---f-m-d-_r-19796-1",
@@ -41,18 +127,17 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "firstSeenAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T09:16:14.905Z",
-      "_qualityScore": 65,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 16
       }
     }
@@ -87,7 +172,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-14T21:14:43.872Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -128,16 +213,16 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -175,7 +260,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -217,7 +302,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -259,7 +344,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -301,7 +386,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-29T21:13:54.864Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -343,7 +428,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-26T13:54:14.518Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -385,7 +470,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -427,7 +512,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -469,7 +554,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -510,16 +595,16 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2568,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -557,7 +642,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -598,16 +683,16 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2652,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -617,7 +702,93 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Trade-Reporting-Specialist---Global-Products---Solutions--GPS--80----100---f-m-d-_r-19796-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regulatory-Trade-Reporting-Specialist---Global-Products---Solutions--GPS--80----100---f-m-d-_r-19796-1",
+      "title": "Regulatory Trade Reporting Specialist – Global Products & Solutions (GPS) 80% - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "standard-trade-reporting-specialist-prodotti-e-soluzioni-globali-gps-80-100-m-f-d-julius-baer-zurich",
+      "category": "risk",
+      "datePosted": "2026-10-15",
+      "postedDate": "2026-10-15",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-15T09:16:14.905Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 16
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Infrastructure-Solution-Architect--Infra-Tech-Lead--100---f-m-d-_r-19312-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Infrastructure-Solution-Architect--Infra-Tech-Lead--100---f-m-d-_r-19312-2",
+      "title": "IT Infrastructure Solution Architect (Infra Tech Lead) 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "it-infrastructure-solution-architect-infra-tech-lead-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-13",
+      "postedDate": "2026-08-13",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-08-13T10:18:32.503Z",
+      "crawledAt": "2026-10-14T09:15:11.345Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern---Financial-Crime-Support-90---f-m-d---Temporary-6-Months_r-20087-2",
@@ -648,7 +819,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-13T21:16:07.418Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 71100,
       "salaryMax": 124700,
       "currency": "CHF",
@@ -690,7 +861,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-13T09:13:52.039Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -732,7 +903,7 @@
         "location": "Geneva"
       },
       "firstSeenAt": "2026-10-13T09:13:52.039Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -775,7 +946,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -817,7 +988,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-09T21:11:04.933Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -859,7 +1030,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-30T21:10:36.349Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -904,7 +1075,7 @@
       "localeMismatchSuppressedLen": 2997,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-21T15:57:50.187Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -946,7 +1117,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T09:14:18.277Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -987,16 +1158,16 @@
         "canton": "ZH",
         "location": "Zurich"
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5322,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1034,7 +1205,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-08T22:10:54.683Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1076,7 +1247,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1118,7 +1289,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-08T23:21:09.003Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1127,48 +1298,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager---Intermediaries-100---f-m-d---Temporary-until-31072027_r-20061-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager---Intermediaries-100---f-m-d---Temporary-until-31072027_r-20061-2",
-      "title": "Assistant Relationship Manager - Intermediaries 100% (f/m/d), Temporary until 31.07.2027",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "assistant-relationship-manager-intermediaries-100-f-m-d-temporary-until-31-07-2027-julius-baer",
-      "category": "wealth-management",
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-10-07T09:14:44.969Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 16
       }
@@ -1202,7 +1331,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1244,7 +1373,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-03T09:10:35.151Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1286,7 +1415,7 @@
         "location": "Geneva"
       },
       "firstSeenAt": "2026-10-03T09:10:35.151Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1328,7 +1457,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -1370,7 +1499,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1412,7 +1541,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-29T09:13:05.388Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1454,7 +1583,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-26T13:54:14.518Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1496,7 +1625,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1538,7 +1667,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1580,7 +1709,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1622,7 +1751,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1664,7 +1793,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-17T10:54:38.510Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1706,7 +1835,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-02T23:09:43.976Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1748,7 +1877,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1790,7 +1919,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1832,7 +1961,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-07T15:04:01.668Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1874,7 +2003,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "crawledAt": "2026-10-15T09:16:14.905Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "currency": "CHF",
@@ -1886,7 +2015,49 @@
         "translation": 25,
         "completeness": 16
       }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategic-Financial-Controller-100---f-m-d-_r-18428-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategic-Financial-Controller-100---f-m-d-_r-18428-1",
+      "title": "Financial Analyst, Performance- & Initiative Manager 80 - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "financial-analyst-performance-initiative-manager-80-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-08-27",
+      "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-29T11:35:47.890Z",
+      "crawledAt": "2026-10-15T21:16:45.339Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 16
+      }
     }
   ],
-  "codeCommit": "ce364e22c7a7f71efb12e18ec6355eb0e8dffa77"
+  "codeCommit": "88501497c0183a2d4c0491898a991f2ec0015fd1"
 }
