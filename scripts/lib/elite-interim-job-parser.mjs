@@ -12,7 +12,7 @@
  * multi-canton Arc jurassien roles are never used as a location fallback.
  */
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
-import { fetchJson, slugify, stripHtml } from './crawler-template.mjs';
+import { RETRYABLE_STATUS, fetchWithRetry, slugify, stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 
 export const ELITE_INTERIM_KEY = 'elite-interim';
@@ -72,7 +72,7 @@ export function eliteInterimDetailText(contentHtml = '') {
 export function extractEliteInterimWorkplace(detailText = '') {
   const lines = String(detailText || '').split(/\n+/).map(normalizeSpace).filter(Boolean);
   for (let index = 0; index < lines.length; index += 1) {
-    const match = /^(?:lieu|lieu de travail)\s*:\s*(.*)$/i.exec(lines[index]);
+    const match = /^(?:[-•]\s*)?(?:lieu|lieu de travail)\s*:\s*(.*)$/i.exec(lines[index]);
     if (!match) continue;
     return normalizeSpace(match[1] || lines[index + 1] || '');
   }
@@ -84,7 +84,7 @@ export function isNeuchatelElectricianDetail(title = '', workplace = '') {
   const normalizedWorkplace = fold(workplace);
   const electricalRole = /\b(?:electricien|electricienne|securite electrique)\b/.test(normalizedTitle);
   const neuchatel = /\bneuchatel\b/.test(normalizedWorkplace);
-  const otherCanton = /\b(?:vaud|jura|bernois|berne|valais|fribourg|geneve|soleure)\b/.test(normalizedWorkplace);
+  const otherCanton = /\b(?:arc jurassien|vaud|jura|bernois|berne|valais|fribourg|geneve|soleure)\b/.test(normalizedWorkplace);
   return electricalRole && neuchatel && !otherCanton;
 }
 
@@ -164,22 +164,60 @@ function postsPageUrl(page) {
   return `${WP_POSTS_URL}?per_page=${PAGE_SIZE}&page=${page}&_fields=${fields}`;
 }
 
+async function fetchPostsPage(page) {
+  const url = postsPageUrl(page);
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Accept: 'application/json',
+          Referer: PUBLIC_LISTING_URL,
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        const error = new Error(`HTTP ${response.status} from ${url}`);
+        error.status = response.status;
+        error.retryable = RETRYABLE_STATUS.has(response.status);
+        throw error;
+      }
+      const batch = JSON.parse(await response.text());
+      if (!Array.isArray(batch)) {
+        throw new Error('Unexpected Elite Interim WordPress payload: expected an array');
+      }
+      const rawTotalPages = response.headers?.get?.('x-wp-totalpages');
+      const declaredTotalPages = Number(rawTotalPages);
+      return {
+        batch,
+        totalPages: Number.isInteger(declaredTotalPages) && declaredTotalPages > 0
+          ? declaredTotalPages
+          : null,
+      };
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `Elite Interim official WordPress posts page ${page}` });
+}
+
 export async function fetchAllEliteInterimJobs() {
   console.log(`Fetching ${ELITE_INTERIM_COMPANY_NAME} electrician jobs in NE`);
   console.log(`   Source: ${PUBLIC_LISTING_URL}\n`);
 
   const posts = [];
+  let totalPages = null;
   for (let page = 1; page <= MAX_PAGES; page += 1) {
-    const batch = await fetchJson(postsPageUrl(page), {
-      label: `Elite Interim official WordPress posts page ${page}`,
-      timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
-      headers: { Referer: PUBLIC_LISTING_URL },
-    });
-    if (!Array.isArray(batch)) {
-      throw new Error('Unexpected Elite Interim WordPress payload: expected an array');
+    const result = await fetchPostsPage(page);
+    if (page === 1 && result.totalPages != null) {
+      if (result.totalPages > MAX_PAGES) {
+        throw new Error(`Elite Interim WordPress feed exceeded ${MAX_PAGES * PAGE_SIZE} posts`);
+      }
+      totalPages = result.totalPages;
     }
-    posts.push(...batch);
-    if (batch.length < PAGE_SIZE) break;
+    posts.push(...result.batch);
+    if ((totalPages != null && page >= totalPages) || result.batch.length < PAGE_SIZE) break;
     if (page === MAX_PAGES) throw new Error(`Elite Interim WordPress feed exceeded ${MAX_PAGES * PAGE_SIZE} posts`);
   }
 

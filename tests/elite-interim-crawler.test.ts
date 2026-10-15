@@ -8,6 +8,7 @@ import {
   isEliteInterimJob,
   isNeuchatelElectricianDetail,
   isTrustedDomain,
+  parseEliteInterimPost,
 } from '../scripts/lib/elite-interim-job-parser.mjs';
 import { evaluatePromotion } from '../scripts/lib/prospector/promotion-gate.mjs';
 
@@ -33,11 +34,12 @@ function officialPost(id: number, title: string, workplace: string, days = 10) {
   };
 }
 
-function jsonResponse(body: unknown) {
+function jsonResponse(body: unknown, totalPages?: number) {
   return {
     ok: true,
     status: 200,
     statusText: 'OK',
+    headers: { get: (name: string) => name.toLowerCase() === 'x-wp-totalpages' && totalPages != null ? String(totalPages) : null },
     json: async () => body,
     text: async () => JSON.stringify(body),
   } as unknown as Response;
@@ -74,7 +76,31 @@ describe('Elite Interim electrician:NE crawler', () => {
     expect(isNeuchatelElectricianDetail(NE_POSTS[0].title.rendered, 'Canton de Neuchâtel')).toBe(true);
     expect(isNeuchatelElectricianDetail('Installateur électricien', 'Canton de Vaud')).toBe(false);
     expect(isNeuchatelElectricianDetail('Conseiller en sécurité électrique', 'Arc Jurassien (Jura, Jura bernois et canton de Neuchâtel)')).toBe(false);
+    expect(isNeuchatelElectricianDetail('Électricien', 'Neuchâtel / Arc jurassien')).toBe(false);
     expect(isNeuchatelElectricianDetail('Technicien de maintenance', 'Canton de Neuchâtel')).toBe(false);
+  });
+
+  it('accepts a workplace label authored as a WordPress list item', () => {
+    const post = officialPost(3200, 'Électricien CFC', 'Neuchâtel');
+    post.content.rendered = post.content.rendered.replace(
+      '<p><strong>Lieu de travail :</strong><br>Neuchâtel</p>',
+      '<ul><li><strong>Lieu :</strong> Neuchâtel</li></ul>',
+    );
+    expect(parseEliteInterimPost(post)?.location).toBe('Neuchâtel');
+  });
+
+  it('stops from WordPress pagination metadata when the last page contains 100 posts', async () => {
+    const posts = Array.from({ length: 100 }, (_, index) =>
+      officialPost(4000 + index, `Électricien CFC ${index + 1}`, 'Canton de Neuchâtel'));
+    const requested: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      requested.push(url);
+      if (url.includes('page=2')) throw new Error('invalid page must not be requested');
+      return jsonResponse(posts, 1);
+    }));
+
+    await expect(fetchAllEliteInterimJobs()).resolves.toHaveLength(100);
+    expect(requested).toHaveLength(1);
   });
 
   it('extracts four source-backed jobs with stable URLs, source dates, descriptions and detail locations', async () => {
