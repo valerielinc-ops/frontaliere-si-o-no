@@ -84,7 +84,7 @@ describe('Technic Emplois crawler parser', () => {
     ]);
 
     const jobs = await fetchAllTechnicEmploisJobs({
-      spec,
+      spec: SPEC,
       runtime: { fetchPageImpl: async (url: string) => pages.get(url) || '' },
     });
 
