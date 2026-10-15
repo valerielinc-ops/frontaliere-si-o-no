@@ -19,6 +19,7 @@ import {
   validateLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
+import { ledgerShardName, listLoopFleetLedgerFiles } from '../lib/loop-fleet-ledger-files.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 const OBSERVED_EVENT_TYPES = new Set([
@@ -287,6 +288,7 @@ export function appendLoopFleetLifecycle({
   eventsFile,
   ledgerDir,
   registryPath = DEFAULT_REGISTRY_PATH,
+  shardId = null,
 } = {}) {
   if (!eventsFile) throw new Error('eventsFile is required');
   if (!ledgerDir) throw new Error('ledgerDir is required');
@@ -299,8 +301,9 @@ export function appendLoopFleetLifecycle({
     }
   }
 
-  const target = path.resolve(ledgerDir, 'lifecycle-events.jsonl');
-  const existing = readJsonl(target, 'durable lifecycle ledger');
+  const existingFiles = listLoopFleetLedgerFiles(ledgerDir, 'lifecycle-events.jsonl');
+  const target = path.resolve(ledgerDir, ledgerShardName('lifecycle-events.jsonl', shardId));
+  const existing = existingFiles.flatMap((file) => readJsonl(file, `ledger ${path.basename(file)}`));
   const byId = new Map();
   const existingByCandidate = new Map();
   for (const [index, event] of existing.entries()) {
@@ -392,6 +395,7 @@ export function main({ argv = process.argv.slice(2), logger = console } = {}) {
     eventsFile: valueAfter(argv, '--events-file'),
     ledgerDir: valueAfter(argv, '--ledger-dir'),
     registryPath: valueAfter(argv, '--registry', DEFAULT_REGISTRY_PATH),
+    shardId: valueAfter(argv, '--shard-id'),
   });
   logger.log(JSON.stringify(result, null, 2));
   return result;
