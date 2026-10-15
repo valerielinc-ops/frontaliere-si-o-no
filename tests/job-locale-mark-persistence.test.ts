@@ -469,4 +469,9 @@ describe('#5645 — the whole class of writers, not just the one in the issue', 
     // blind to anything another writer committed since the read.
     expect(source).not.toContain('writeJsonAtomic(');
   });
+
+  it('assembled-to-slice writers preserve an assembled retranslation mark', () => {
+    expect(read('scatter-jobs-to-slices.mjs')).toContain('carryForwardMarks(updatedJob, assembled)');
+    expect(read('relocalize-pending-jobs.mjs')).toContain('carryForwardMarks(crawlerJob, assembled)');
+  });
 });
