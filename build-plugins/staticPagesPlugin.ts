@@ -126,7 +126,7 @@ import {
  isJobBoardLandingPath,
  type JobBoardLocale,
 } from './jobBoardSeo';
-import { emitSeoHubs } from './seoHubsPlugin';
+import { countEmittedJobArchivePagesByLocale, emitSeoHubs } from './seoHubsPlugin';
 import { JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import {
   countSvizzeraArticleArchivePages,
@@ -172,7 +172,6 @@ import {
   type ImageCreditRecord,
 } from '../packages/articles/engine/shared/imageCredits.mjs';
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
-import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   parseAnnotatedSitemapUrls,
   collectLocaleVariantEntries,
@@ -1887,20 +1886,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const svizzeraArchiveBases = svizzeraArticlesArchiveBasePaths();
  const svizzeraArticlesTotalPages = countSvizzeraArticleArchivePages(fs, np, rootDir);
 
- // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
- // so every /tutti/page-K/ archive page is at depth 2 from `/`. With ~30k
- // job slugs at 100/page, totalPages is ~304 — far too many for a flat list,
- // so the navigator goes inside a <details> collapsible (UX-fold, SEO-flat).
- // Closes ~1330 of the 1843 baseline offenders that live in
- // sitemap-jobs.xml + sitemap-seo-hubs.xml.
- let jobsTotalPages = 1;
- try {
- const jobSlugsRaw = readAllKnownJobSlugs(rootDir);
- const slugCount = (jobSlugsRaw && typeof jobSlugsRaw === 'object') ? Object.keys(jobSlugsRaw).length : 0;
- jobsTotalPages = Math.max(1, Math.ceil(slugCount / JOBS_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute jobsTotalPages from the canonical slug registry:', e);
- }
+ // Same for the jobs hub: derive each root navigator from the emitted-detail
+ // inventory for that locale. The historical slug registry is monotonic and
+ // locale routes can be absent from this dist, so reusing the Italian count
+ // can advertise page-index tails a localized archive did not emit.
+ const jobsTotalPagesByLocale = countEmittedJobArchivePagesByLocale(fs, np, rootDir, distDir);
 
  /* ── BFS-depth closure (May 2026) — TI hub deep navigators ──
   *
@@ -4699,7 +4689,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // [H2, intro, archive-nav?, prose1..4, sources, faq] and we splice
  // the cathedral canton navigator between the archive navigator and
  // the prose because that navigator is unique to the TI hub.
- const archiveNavigablePages = locale === 'it' ? jobsTotalPages : 1;
+ const jobsTotalPages = jobsTotalPagesByLocale[locale as ArchiveHubLocale];
+ const archiveNavigablePages = jobsTotalPages;
  const tiHubBlocks = buildCantonHubEditorial({
  canton: 'TI',
  locale: locale as ArchiveHubLocale,
@@ -4712,9 +4703,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
  });
  // Push leading entries up to and including the archive navigator. The
- // helper's navigable-page count is the source of truth here: non-IT static
- // variants emit only the archive root, so their block order is [H2, intro]
- // even when the underlying IT archive has multiple pages.
+ // helper's locale-specific count keeps emitted navigation aligned with the
+ // archive pages available in this locale.
  const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
