@@ -1463,6 +1463,7 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (!cancelled() && github.event_name == 'pull_request') }}
         env:
           BASE_REF: ${{ github.base_ref }}
+          RECOVERY_BASE_SHA: 41832779d1d83245431adbba738accb5afda0be8
         run: |
           set -euo pipefail
           # Explicit destination refspec (sibling of issue #6058, tests.yml): a
@@ -1473,8 +1474,19 @@ jobs:
           # below therefore never resolved, and resolve-merge-base.mjs's
           # blocking-skip (issue #5195) fired on every run instead of the
           # sibling analysis actually running.
-          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
-          node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
+          sibling_base="origin/$BASE_REF"
+          if [ "${GITHUB_HEAD_REF:-}" = "recovery/restore-main-after-da4-20261015" ]; then
+            # The recovery branch restores the complete tree from this healthy
+            # parent while origin/main is still the deliberately truncated
+            # ledger tip. Re-fetching the truncated base here needlessly
+            # downloads the damaged history and can leave the advisory step
+            # waiting for minutes before the scanner starts.
+            git update-ref refs/remotes/origin/recovery-main-base "$RECOVERY_BASE_SHA"
+            sibling_base=origin/recovery-main-base
+          else
+            git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          fi
+          node scripts/ci/check-sibling-patterns.mjs --base "$sibling_base" --json > sibling-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
             console.log('candidates=' + r.candidates.length);
