@@ -139,6 +139,37 @@ describe('Kita Summervogel educator:SG crawler', () => {
     ]);
   });
 
+  it('keeps source-identified summaries distinct when the board URL is shared', async () => {
+    const postings = ['wil-1', 'wil-2'].map((identifier) => ({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      identifier,
+      title: 'Miterzieherin',
+      description: SOURCE_BODY,
+      url: KITA_SUMMERVOGEL_JOBS_URL,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Wil',
+          addressRegion: 'SG',
+          postalCode: '9500',
+          addressCountry: 'CH',
+        },
+      },
+    }));
+    const html = `<script type="application/ld+json">${JSON.stringify(postings)}</script>`;
+
+    const jobs = parseKitaSummervogelJobs(html);
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.sourcePostingIdentity).sort()).toEqual(['wil-1', 'wil-2']);
+
+    const emitted = await fetchAllKitaSummervogelJobs({ fetchImpl: async () => response(html) });
+    expect(emitted).toHaveLength(2);
+    expect(new Set(emitted.map((job) => job.id)).size).toBe(2);
+  });
+
   it('does not treat an unrelated page node as the official empty state', () => {
     const jobs = parseKitaSummervogelJobs(`
       <main class="jobs-page">
@@ -151,6 +182,32 @@ describe('Kita Summervogel educator:SG crawler', () => {
 
     expect(jobs).toEqual([]);
     expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
+  });
+
+  it('does not treat a nested empty-looking class as source empty evidence', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main class="jobs-page">
+        <div class="no-jobs">
+          <p>Zurzeit keine offenen Stellen — diese Nachricht betrifft la pagina aziendale.</p>
+        </div>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBeUndefined();
+  });
+
+  it('accepts an explicit empty marker directly under the job list', () => {
+    const jobs = parseKitaSummervogelJobs(`
+      <main class="jobs-page">
+        <div data-empty-state="true">
+          <p>Zurzeit keine offenen Stellen.</p>
+        </div>
+      </main>
+    `);
+
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
   });
 
   it('rejects non-educator roles and non-SG workplace evidence', () => {

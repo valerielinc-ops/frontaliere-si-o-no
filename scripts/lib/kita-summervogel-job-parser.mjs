@@ -48,16 +48,10 @@ const JOB_LIST_SELECTOR = [
   '#job-list',
   '#vacancies',
 ].join(',');
-const EMPTY_STATE_SELECTOR = [
+const EMPTY_STATE_MARKER_SELECTOR = [
   '[data-empty-state]',
   '[data-jobs-empty]',
   '[data-no-jobs]',
-  '.empty-state',
-  '.jobs-empty',
-  '.job-empty',
-  '.no-jobs',
-  '.no-vacancies',
-  '.no-results',
 ].join(',');
 
 function normalizeSpace(value = '') {
@@ -163,6 +157,20 @@ function structuredText(value) {
     return structuredText(value.name || value.value || value['@value'] || '');
   }
   return '';
+}
+
+function sourcePostingIdentityFromRecord(source, pageUrl) {
+  const raw = source?.identifier;
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  const identity = typeof value === 'object' && value !== null
+    ? normalizeSpace(value.value || value.name || value.propertyID || '')
+    : normalizeSpace(value || '');
+  if (!identity) return '';
+
+  const canonical = /^(?:[a-z][a-z\d+.-]*:|\/)/i.test(identity)
+    ? canonicalSourceUrl(identity, pageUrl)
+    : '';
+  return canonical || identity;
 }
 
 function locationEvidenceFromRaw(raw = '') {
@@ -288,8 +296,8 @@ function explicitEmptyState(document) {
 
   return leafJobListNodes.some((jobListNode) => {
     const emptyStateNodes = [
-      jobListNode.matches?.(EMPTY_STATE_SELECTOR) ? jobListNode : null,
-      ...jobListNode.querySelectorAll(EMPTY_STATE_SELECTOR),
+      jobListNode.matches?.(EMPTY_STATE_MARKER_SELECTOR) ? jobListNode : null,
+      ...[...jobListNode.children].filter((node) => node.matches?.(EMPTY_STATE_MARKER_SELECTOR)),
     ].filter(Boolean);
     if (emptyStateNodes.some((node) => EMPTY_STATE_RE.test(normalizeSpace(node.textContent || '')))) {
       return true;
@@ -338,6 +346,7 @@ function candidateFromSource(source, block, pageUrl) {
   if (!geography) return null;
   const url = canonicalSourceUrl(source?.url || block?.url || pageUrl, pageUrl);
   if (!url) return null;
+  const sourcePostingIdentity = sourcePostingIdentityFromRecord(source, pageUrl);
   const publication = sourcePostingDateCandidatesFields([
     normalizeGermanDate(source?.datePosted),
     normalizeGermanDate(block?.dateText),
@@ -351,47 +360,33 @@ function candidateFromSource(source, block, pageUrl) {
     ...publication,
     employmentType: employmentTypeFor(employmentText),
     hiringOrganizationName: structuredText(source?.hiringOrganization?.name) || KITA_SUMMERVOGEL_COMPANY_NAME,
+    ...(sourcePostingIdentity ? { sourcePostingIdentity } : {}),
   };
 }
 
-function mergeCandidate(records, candidate, pageUrl) {
+function candidateRecordKey(candidate, pageUrl) {
   const listingPageUrl = canonicalSourceUrl(pageUrl, pageUrl);
-  const candidateIsDetail = candidate.url !== listingPageUrl;
-  const titleLocationKey = [fold(candidate.title), fold(candidate.addressLocality || candidate.location)].join('|');
-  const key = candidateIsDetail ? `url|${candidate.url}` : `listing|${titleLocationKey}`;
+  if (candidate.url !== listingPageUrl) return `url|${candidate.url}`;
+  if (candidate.sourcePostingIdentity) return `source|${candidate.sourcePostingIdentity}`;
+  return '';
+}
+
+function mergeCandidate(records, candidate, pageUrl) {
+  const key = candidateRecordKey(candidate, pageUrl);
+  if (!key) {
+    // The jobs page URL identifies the board, not an individual posting. Keep
+    // an unlabelled summary rather than inventing a title/location identity;
+    // otherwise two same-title openings at one locality can be collapsed
+    // before fetchAllKitaSummervogelJobs creates their URL-hash IDs.
+    records.set(`summary|${records.size}`, candidate);
+    return;
+  }
   const before = records.get(key);
 
   if (before) {
     records.set(key, preferCandidate(before, candidate, pageUrl));
     return;
   }
-
-  if (candidateIsDetail) {
-    // A summary without its own URL can be upgraded to a detail candidate,
-    // but only while there is no other detail posting with the same title and
-    // locality. Once source URLs disagree, the URL is the posting identity and
-    // the ambiguous summary must not collapse either listing.
-    const fallbackKey = `listing|${titleLocationKey}`;
-    const fallback = records.get(fallbackKey);
-    if (fallback) records.delete(fallbackKey);
-    records.set(key, fallback ? preferCandidate(fallback, candidate, pageUrl) : candidate);
-    return;
-  }
-
-  const matchingDetails = [...records.entries()].filter(([entryKey, record]) => (
-    entryKey.startsWith('url|')
-      && [fold(record.title), fold(record.addressLocality || record.location)].join('|') === titleLocationKey
-  ));
-  if (matchingDetails.length > 0) {
-    // A page-level summary cannot identify which of multiple same-title,
-    // same-locality postings it describes. Keep the URL-keyed detail records.
-    if (matchingDetails.length === 1) {
-      const [detailKey, detail] = matchingDetails[0];
-      records.set(detailKey, preferCandidate(detail, candidate, pageUrl));
-    }
-    return;
-  }
-
   records.set(key, candidate);
 }
 
@@ -476,7 +471,10 @@ export async function fetchAllKitaSummervogelJobs(runtime = {}) {
   const now = new Date().toISOString();
   const jobs = listings.map((listing) => {
     const sourceLang = detectLang(`${listing.title} ${listing.description}`, SOURCE_LANG);
-    const urlHash = createHash('sha1').update(`${listing.url}|${listing.title}`).digest('hex').slice(0, 12);
+    const hashInput = listing.sourcePostingIdentity
+      ? `${listing.sourcePostingIdentity}|${listing.url}|${listing.title}`
+      : `${listing.url}|${listing.title}`;
+    const urlHash = createHash('sha1').update(hashInput).digest('hex').slice(0, 12);
     const slug = slugify(`${listing.title} ${KITA_SUMMERVOGEL_KEY} ${listing.addressLocality || listing.location}`);
     return {
       id: `${KITA_SUMMERVOGEL_KEY}-${urlHash}`,
