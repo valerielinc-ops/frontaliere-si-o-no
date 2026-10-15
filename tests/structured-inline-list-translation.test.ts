@@ -56,6 +56,24 @@ describe('preserveStructuredTranslation and inline list entries', () => {
     expect(seen).toEqual([prose]);
   });
 
+  it('an HTML line elsewhere in the text does not turn the splitting off for the other lines', async () => {
+    // Review of PR 13388: a mixed description lost its inline entries.
+    const mixed = ['- Tasks - Repair - Training', '<p>Notes</p>'].join('\n');
+    const dictionary: Record<string, string> = { Tasks: 'Aufgaben', Repair: 'Reparatur', Training: 'Schulung' };
+    const provider = async (text: string) => dictionary[text] ?? text.replace(/\s+-\s+/g, ', ');
+    const translated = await preserveStructuredTranslation(mixed, provider);
+    expect(translated.split('\n')).toEqual(['- Aufgaben - Reparatur - Schulung', '<p>Notes</p>']);
+    expect(hasStructureParity(mixed, translated)).toBe(true);
+  });
+
+  it('does not reshape a segment that opens or closes with a URL', async () => {
+    const source = '• Kontakt im Team\nInfos - Bewerbung online - Details: - Mehr unter www.example.ch';
+    const provider = async (text: string) => (text.startsWith('Mehr') ? 'www.example.ch/it' : text.toLowerCase());
+    const translated = await preserveStructuredTranslation(source, provider);
+    expect(translated).toContain('www.example.ch/it');
+    expect(translated).not.toContain('Www.');
+  });
+
   it('leaves lines with HTML on the whole-line path', async () => {
     const html = '<p>Tätigkeiten - Wartung von Anlagen - Reparatur von Maschinen - Prüfung</p>';
     const seen: string[] = [];

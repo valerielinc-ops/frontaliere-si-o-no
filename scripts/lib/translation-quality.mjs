@@ -180,14 +180,18 @@ const HAS_LETTERS_RE = /[^\W\d_]/u;
  * closing «:», so the entry would no longer count. Carry both over from the
  * source segment; the words stay the provider's.
  */
+const URL_START_RE = /^(?:https?:\/\/|www\.)/i;
+const URL_END_RE = /(?:https?:\/\/|www\.)\S+$/i;
+
 function withEntryShape(source, translated) {
   let out = translated;
   const sourceFirst = source.match(/\p{L}/u)?.[0] || '';
-  if (sourceFirst && sourceFirst !== sourceFirst.toLowerCase()) {
-    out = out.replace(/\p{L}/u, (letter) => letter.toUpperCase());
+  // Only a word that opens the segment: a URL, markup or code keeps its case.
+  if (sourceFirst && sourceFirst !== sourceFirst.toLowerCase() && /^\p{Ll}/u.test(out) && !URL_START_RE.test(out)) {
+    out = out.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase());
   }
   const sourceEnd = source.match(/[.!?:;]$/u)?.[0];
-  if (sourceEnd && !/[.!?:;]$/u.test(out)) out += sourceEnd;
+  if (sourceEnd && !/[.!?:;]$/u.test(out) && !URL_END_RE.test(out)) out += sourceEnd;
   return out;
 }
 
@@ -206,8 +210,10 @@ export async function preserveStructuredTranslation(text, translateLine, { concu
   // `lost-list-items` (run 38686616395, 2026-10-15: all 357 refusals of phase
   // 2e; 575 of 581 untranslated slots in the ten slices with most refusals
   // carry inline entries). HTML lines keep the whole-line path: the scanner
-  // counts `<li>` on tag-stripped text, whose lines do not map onto these.
-  const scanned = lines.some((line) => /<[a-z][^>]*>/i.test(line)) ? [] : scanListLines(lines);
+  // counts `<li>` on tag-stripped text, whose lines do not map onto these —
+  // only those lines: the other lines of the same text are still split.
+  const scanned = scanListLines(lines);
+  const hasMarkup = (line) => /<[a-z][^>]*>/i.test(line);
   const translateSegment = async (segment, { keepEntryShape = false } = {}) => {
     const content = segment.trim();
     if (!content || !HAS_LETTERS_RE.test(content)) return segment;
@@ -227,8 +233,9 @@ export async function preserveStructuredTranslation(text, translateLine, { concu
     if (!content.trim() || !HAS_LETTERS_RE.test(content)) {
       return line;
     }
-    const markers = (scanned[lineIndex]?.inlineMarkers || [])
-      .filter((marker) => marker.index >= prefix.length);
+    const markers = hasMarkup(line)
+      ? []
+      : (scanned[lineIndex]?.inlineMarkers || []).filter((marker) => marker.index >= prefix.length);
     if (markers.length === 0) {
       return `${prefix}${await translateSegment(content)}`;
     }
