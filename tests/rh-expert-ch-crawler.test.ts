@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
 import {
   extractRhExpertChDetailFields,
   isRhExpertChJob,
@@ -48,5 +49,13 @@ describe('RH-Expert source-backed detail extraction', () => {
     expect(isRhExpertChJob({ companyKey: RH_EXPERT_CH_KEY })).toBe(true);
     expect(isTrustedDomain(detailUrl)).toBe(true);
     expect(isTrustedDomain('https://www.jobup.ch/fr/')).toBe(false);
+  });
+
+  it('registers the dedicated runner in the production crawler manifest', () => {
+    const manifest = JSON.parse(fs.readFileSync('data/crawler-manifest.json', 'utf8'));
+    const entry = manifest.manifest.find((crawler: { slug: string }) => crawler.slug === RH_EXPERT_CH_KEY);
+    expect(entry?.runStep?.run).toBe('node scripts/update-rh-expert-ch-jobs.mjs');
+    expect(entry?.postSteps?.[0]?.env?.JOBS_HOUSEKEEPING_SCOPE).toBe(RH_EXPERT_CH_KEY);
+    expect(entry?.postSteps?.[0]?.env?.JOBS_SLICE_FILE).toBe('data/jobs/by-crawler/rh-expert-ch.json');
   });
 });
