@@ -9,7 +9,7 @@
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, slugify, stripHtml } from './crawler-template.mjs';
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
@@ -159,18 +159,34 @@ function structuredText(value) {
   return '';
 }
 
+function sourcePostingIdentityFromUrl(rawUrl, pageUrl, preserveBoardIdentity = false) {
+  const value = normalizeSpace(rawUrl || '');
+  if (!value) return '';
+  try {
+    const resolved = new URL(value, pageUrl);
+    if (!isTrustedDomain(resolved.href)) return '';
+    const canonical = canonicalSourceUrl(resolved.href, pageUrl);
+    const listingPageUrl = canonicalSourceUrl(pageUrl, pageUrl);
+    if (!preserveBoardIdentity && canonical === listingPageUrl && !resolved.search && !resolved.hash) return '';
+    return resolved.href;
+  } catch {
+    return '';
+  }
+}
+
 function sourcePostingIdentityFromRecord(source, pageUrl) {
   const raw = source?.identifier;
   const value = Array.isArray(raw) ? raw[0] : raw;
   const identity = typeof value === 'object' && value !== null
     ? normalizeSpace(value.value || value.name || value.propertyID || '')
     : normalizeSpace(value || '');
-  if (!identity) return '';
-
-  const canonical = /^(?:[a-z][a-z\d+.-]*:|\/)/i.test(identity)
-    ? canonicalSourceUrl(identity, pageUrl)
-    : '';
-  return canonical || identity;
+  if (identity) {
+    if (/^(?:[a-z][a-z\d+.-]*:|\/)/i.test(identity)) {
+      return sourcePostingIdentityFromUrl(identity, pageUrl, true);
+    }
+    return identity;
+  }
+  return sourcePostingIdentityFromUrl(source?.url, pageUrl);
 }
 
 function locationEvidenceFromRaw(raw = '') {
@@ -247,7 +263,7 @@ function jsonLdJobPostings(document) {
   return records;
 }
 
-function roleContainers(document) {
+function roleContainers(document, pageUrl) {
   const rows = [];
   const seen = new Set();
   for (const heading of document.querySelectorAll('h1,h2,h3,h4,h5,h6')) {
@@ -274,15 +290,17 @@ function roleContainers(document) {
       if (normalizeSpace(node.textContent || '') === title) node.remove();
     });
     const description = sourceTextFromNode(clone);
-    const link = [...container.querySelectorAll('a[href]')]
-      .map((node) => canonicalSourceUrl(node.getAttribute('href') || ''))
-      .find(Boolean) || '';
+    const rawLink = [...container.querySelectorAll('a[href]')]
+      .map((node) => normalizeSpace(node.getAttribute('href') || ''))
+      .find((value) => canonicalSourceUrl(value, pageUrl)) || '';
+    const link = canonicalSourceUrl(rawLink, pageUrl);
     rows.push({
       title,
       description,
       locationText: extractLocationText(text),
       dateText: extractDateText(text, container.querySelector('time[datetime]')),
       url: link,
+      sourcePostingIdentity: sourcePostingIdentityFromUrl(rawLink, pageUrl),
     });
   }
   return rows;
@@ -346,7 +364,8 @@ function candidateFromSource(source, block, pageUrl) {
   if (!geography) return null;
   const url = canonicalSourceUrl(source?.url || block?.url || pageUrl, pageUrl);
   if (!url) return null;
-  const sourcePostingIdentity = sourcePostingIdentityFromRecord(source, pageUrl);
+  const sourcePostingIdentity = sourcePostingIdentityFromRecord(source, pageUrl)
+    || normalizeSpace(source?.sourcePostingIdentity || block?.sourcePostingIdentity || '');
   const publication = sourcePostingDateCandidatesFields([
     normalizeGermanDate(source?.datePosted),
     normalizeGermanDate(block?.dateText),
@@ -366,8 +385,8 @@ function candidateFromSource(source, block, pageUrl) {
 
 function candidateRecordKey(candidate, pageUrl) {
   const listingPageUrl = canonicalSourceUrl(pageUrl, pageUrl);
-  if (candidate.url !== listingPageUrl) return `url|${candidate.url}`;
   if (candidate.sourcePostingIdentity) return `source|${candidate.sourcePostingIdentity}`;
+  if (candidate.url !== listingPageUrl) return `url|${candidate.url}`;
   return '';
 }
 
@@ -405,7 +424,7 @@ function preferCandidate(before, candidate, pageUrl) {
 export function parseKitaSummervogelJobs(html = '', pageUrl = KITA_SUMMERVOGEL_JOBS_URL) {
   const dom = new JSDOM(String(html || ''), { url: pageUrl });
   const document = dom.window.document;
-  const blocks = roleContainers(document);
+  const blocks = roleContainers(document, pageUrl);
   const structured = jsonLdJobPostings(document);
   const records = new Map();
 
@@ -418,6 +437,7 @@ export function parseKitaSummervogelJobs(html = '', pageUrl = KITA_SUMMERVOGEL_J
     const candidate = candidateFromSource({
       title: block.title,
       url: block.url,
+      sourcePostingIdentity: block.sourcePostingIdentity,
       datePosted: block.dateText,
       employmentType: block.description,
     }, block, pageUrl);
@@ -475,11 +495,16 @@ export async function fetchAllKitaSummervogelJobs(runtime = {}) {
       ? `${listing.sourcePostingIdentity}|${listing.url}|${listing.title}`
       : `${listing.url}|${listing.title}`;
     const urlHash = createHash('sha1').update(hashInput).digest('hex').slice(0, 12);
-    const slug = slugify(`${listing.title} ${KITA_SUMMERVOGEL_KEY} ${listing.addressLocality || listing.location}`);
+    const slugDisambiguator = listing.sourcePostingIdentity ? urlHash.slice(0, 8) : '';
+    const slug = appendSlugDisambiguator(
+      slugify(`${listing.title} ${KITA_SUMMERVOGEL_KEY} ${listing.addressLocality || listing.location}`),
+      slugDisambiguator,
+    );
     return {
       id: `${KITA_SUMMERVOGEL_KEY}-${urlHash}`,
       slug,
       slugByLocale: { [sourceLang]: slug },
+      ...(slugDisambiguator ? { slugDisambiguator } : {}),
       company: KITA_SUMMERVOGEL_COMPANY_NAME,
       companyKey: KITA_SUMMERVOGEL_KEY,
       companyDomain: KITA_SUMMERVOGEL_COMPANY_DOMAIN,

@@ -139,6 +139,33 @@ describe('Kita Summervogel educator:SG crawler', () => {
     ]);
   });
 
+  it('keeps query-identified postings distinct in both IDs and slugs', async () => {
+    const postings = ['1', '2'].map((job) => ({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Miterzieherin',
+      description: SOURCE_BODY,
+      url: `${KITA_SUMMERVOGEL_JOBS_URL}?job=${job}`,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Wil',
+          addressRegion: 'SG',
+          postalCode: '9500',
+          addressCountry: 'CH',
+        },
+      },
+    }));
+    const html = `<script type="application/ld+json">${JSON.stringify(postings)}</script>`;
+
+    const emitted = await fetchAllKitaSummervogelJobs({ fetchImpl: async () => response(html) });
+
+    expect(emitted).toHaveLength(2);
+    expect(new Set(emitted.map((job) => job.id)).size).toBe(2);
+    expect(new Set(emitted.map((job) => job.slug)).size).toBe(2);
+  });
+
   it('keeps source-identified summaries distinct when the board URL is shared', async () => {
     const postings = ['wil-1', 'wil-2'].map((identifier) => ({
       '@context': 'https://schema.org',
