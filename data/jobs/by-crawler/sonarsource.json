@@ -1259,12 +1259,12 @@
     },
     {
       "id": "sonarsource-09bfac65de1e",
-      "slug": "major-account-manager-italy-sonarsource-ch",
+      "slug": "principal-account-manager-italia-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "major-account-manager-italy-sonarsource-ch",
-        "it": "major-account-manager-italy-sonarsource-ch",
+        "it": "principal-account-manager-italia-sonarsource-sonar-geneva",
         "de": "major-account-manager-italy-sonarsource-ch",
-        "fr": "major-account-manager-italy-sonarsource-ch"
+        "fr": "directeur-principal-des-comptes-italie-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1322,7 +1322,18 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-14T21:26:46.421Z"
+      "firstSeenAt": "2026-10-14T21:26:46.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "major-account-manager-italy-sonarsource-ch"
+        ],
+        "fr": [
+          "major-account-manager-italy-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "major-account-manager-italy-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-bdc61dadc0db",

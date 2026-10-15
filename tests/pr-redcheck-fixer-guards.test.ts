@@ -210,6 +210,25 @@ describe('REGOLA #0 — il modo ovvio e sbagliato di far tornare verde un test',
     expect(prompt).toContain('$RUNNER_TEMP/redcheck/diff.patch');
     expect(prompt).toContain('non ricostruire il contesto con `git diff origin/main...HEAD`');
   });
+
+  it('consegna le diagnosi senza push al classificatore tramite un artifact pubblicato da zero-Claude', () => {
+    expect(src).toContain('response_artifact: redcheck-response.md');
+    expect(prompt).toContain('$RUNNER_TEMP/redcheck-response.md');
+    expect(prompt).toContain('inherited:');
+    expect(prompt).toContain('Lo step deterministico successivo pubblica quel file come commento sulla PR');
+
+    const action = src.indexOf('response_artifact: redcheck-response.md');
+    const publisher = src.indexOf('name: Publish the redcheck response (zero-Claude)');
+    const classifier = src.indexOf('name: Classify outcome (work-done, not CLI exit)');
+    expect(action).toBeGreaterThan(0);
+    expect(publisher).toBeGreaterThan(action);
+    expect(publisher).toBeLessThan(classifier);
+
+    const publisherBlock = src.slice(publisher, classifier);
+    expect(publisherBlock).toContain('REDCHECK_RESPONSE');
+    expect(publisherBlock).toContain('pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"');
+    expect(publisherBlock).toContain('steps.snapshot_final.outputs.snapshot_valid');
+  });
 });
 
 describe('costo — il contesto è raccolto senza Claude', () => {
