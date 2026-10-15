@@ -13260,6 +13260,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inchiesta-medico-locarnese.title': 'Délits sexuels sur des patients, un médecin en prison',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Médecin du Locarnese sous enquête Investigations entamées début juillet Homme toujours en détention préventive D\'autres victimes présumées identifiées Chapeau',
     'blog.article.inchiesta-medico-locarnese.imageAlt': 'Rue du Locarnese avec un bâtiment public dans une scène sobre',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR supprime 202 postes supplémentaires',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR supprime 202 postes à temps plein et prévoit 41 millions d\'économies.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rédaction radiotélévisée au Tessin, avec vue urbaine, symbole des suppressions de postes à la SSR.',
 };
 
 export default blogMetaFr;

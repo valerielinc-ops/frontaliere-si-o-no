@@ -13258,6 +13258,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inchiesta-medico-locarnese.title': 'Sexual offenses against patients, a doctor in prison',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Doctor from the Locarno region under investigation Investigations launched in early July Man still in pretrial detention Other alleged victims identified Chief',
     'blog.article.inchiesta-medico-locarnese.imageAlt': 'A Locarnese street with a public building in a restrained scene',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'SSR cuts another 202 jobs',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'SSR is eliminating 202 full-time positions and expects savings of 41 million.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Broadcast newsroom in Ticino with an urban view, symbolizing SSR job cuts.',
 };
 
 export default blogMetaEn;

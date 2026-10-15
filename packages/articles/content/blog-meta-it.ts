@@ -13259,6 +13259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inchiesta-medico-locarnese.title': 'Reati sessuali su pazienti, un medico in carcere',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Medico del Locarnese sotto inchiesta Accertamenti avviati a inizio luglio Uomo ancora in carcerazione preventiva Identificate altre presunte vittime Capo',
     'blog.article.inchiesta-medico-locarnese.imageAlt': 'Strada del Locarnese con un edificio pubblico in una scena sobria',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'La SSR taglia altri 202 posti di lavoro',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'La SSR sopprime 202 posti a tempo pieno e prevede risparmi per 41 milioni.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR.',
 };
 
 export default blogMetaIt;

@@ -13257,6 +13257,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inchiesta-medico-locarnese.title': 'Sexualdelikte an Patienten, ein Arzt in Haft',
     'blog.article.inchiesta-medico-locarnese.excerpt': 'Gegen einen Arzt aus dem Locarnese wird ermittelt Ermittlungen Anfang Juli eingeleitet Mann weiterhin in Untersuchungshaft Weitere mutmassliche Opfer identifiziert Vorspann',
     'blog.article.inchiesta-medico-locarnese.imageAlt': 'Strasse im Locarnese mit einem öffentlichen Gebäude in sachlicher Szene',
+    'blog.article.ssr-riduce-organico-risparmi.title': 'Die SSR streicht weitere 202 Arbeitsplätze',
+    'blog.article.ssr-riduce-organico-risparmi.excerpt': 'Die SSR streicht 202 Vollzeitstellen und sieht Einsparungen von 41 Millionen vor.',
+    'blog.article.ssr-riduce-organico-risparmi.imageAlt': 'Rundfunkredaktion im Tessin mit Stadtblick als Symbol für den Stellenabbau bei der SSR.',
 };
 
 export default blogMetaDe;

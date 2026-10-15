@@ -108999,6 +108999,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ssr-riduce-organico-risparmi': {
+    title: 'La SSR taglia altri 202 posti di lavoro | Frontaliere Ticino',
+    description: 'La SSR ha annunciato giovedì il taglio di 202 posti a tempo pieno: 173 nelle Operazioni e 29 nei settori di supporto. Il provvedimento vale 41 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglia, altri, posti, lavoro',
+    ogTitle: 'SSR: altri 202 posti di lavoro tagliati',
+    ogDescription: 'La riduzione del canone a 300 franchi impone alla SSR un piano di risparmi: 270 milioni entro il 2029, con 80 milioni già nel 2027. Il piano prevede fluttuazioni naturali, pensionamenti, licenziamenti e prepensionamenti.',
+    canonicalPath: '/articoli-frontaliere/ssr-riduce-organico-risparmi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SSR taglia altri 202 posti di lavoro",
+      "description": "La SSR ha annunciato giovedì il taglio di 202 posti a tempo pieno: 173 nelle Operazioni e 29 nei settori di supporto. Il provvedimento vale 41 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-life-taglio-posti-lavoro-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Redazione radiotelevisiva in Ticino con vista urbana, immagine simbolica dei tagli SSR."
+      },
+      "datePublished": "2026-10-15T21:41:27+00:00",
+      "dateModified": "2026-10-15T21:41:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ssr-riduce-organico-risparmi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
