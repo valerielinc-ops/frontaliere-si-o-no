@@ -105599,6 +105599,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-cambiamento-climatico-svizzera-2060': {
+    title: 'Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060',
+    description: 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambiamento, climatico, miliardi, costi',
+    ogTitle: 'Cambiamento climatico: miliardi di costi per la Svizzera',
+    ogDescription: 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
+    canonicalPath: '/articoli-svizzera/costi-cambiamento-climatico-svizzera-2060/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060",
+      "description": "I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l'anno L'idroelettrico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-costi-cambiamento-climatico-svizzera-2060.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio delle Alpi svizzere con cime innevate"
+      },
+      "datePublished": "2026-10-15T13:53:49+00:00",
+      "dateModified": "2026-10-15T13:53:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-cambiamento-climatico-svizzera-2060/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

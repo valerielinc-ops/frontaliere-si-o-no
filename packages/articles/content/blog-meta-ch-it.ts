@@ -8363,6 +8363,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scambio-informazioni-conti-finanziari-2026.title': 'Scambio di informazioni con 113 Stati su 4 milioni di conti',
     'blog.article.scambio-informazioni-conti-finanziari-2026.excerpt': 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
     'blog.article.scambio-informazioni-conti-finanziari-2026.imageAlt': 'Edificio dell\'Amministrazione federale a Berna',
+    'blog.article.costi-cambiamento-climatico-svizzera-2060.title': 'Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060',
+    'blog.article.costi-cambiamento-climatico-svizzera-2060.excerpt': 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
+    'blog.article.costi-cambiamento-climatico-svizzera-2060.imageAlt': 'Paesaggio delle Alpi svizzere con cime innevate',
 };
 
 export default blogMetaChIt;

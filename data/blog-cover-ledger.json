@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5495
+      "6": 5496
     },
-    "publishedCovers": 7076,
+    "publishedCovers": 7077,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5300
+    "inferredRecords": 5301
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -185346,6 +185346,33 @@
           "id": "controlli-polizia-cuvio-cuveglio",
           "category": "pratico",
           "date": "2026-10-14T19:44:45.280Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-costi-cambiamento-climatico-svizzera-2060": {
+      "cover": "/images/blog/article-costi-cambiamento-climatico-svizzera-2060.webp",
+      "hash": "b1a2f5c6df9bfc5eafb07807fe4cdef07bb2b69eadf6b8dddb9bde7a5d983a96",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "costi-cambiamento-climatico-svizzera-2060",
+          "category": "novita",
+          "date": "2026-10-15T13:53:49.445Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
