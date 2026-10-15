@@ -4,6 +4,9 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+const YOUSTY_PROFILE_PATH_RE = /^\/(?:[a-z]{2}-[a-z]{2}\/)?(?:lehrstellen\/profile|places-d-apprentissage\/profils|posti-di-apprendistato\/profili)\/[^/?#]+\/?$/i;
+const YOUSTY_WIDGET_ID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 // Inline markup must stay inside its sentence: the previous walker pushed
 // every child node as its own paragraph, so `<p><strong>5 Wochen Ferien</strong>,
 // mit der Möglichkeit …</p>` came out as "5 Wochen Ferien\n\n, mit der …".
@@ -121,9 +124,30 @@ function extractDirectApplyUrl(html) {
   return '';
 }
 
-export function parseYoustyApprenticeshipHtml(html) {
+/**
+ * The Solique profilelink sometimes carries Yousty's application widget UUID.
+ * That explicit source marker makes the profile URL an application entrypoint;
+ * a bare profile URL remains content-only and must not become an apply link.
+ */
+export function extractYoustyWidgetApplicationUrl(profileUrl = '') {
+  try {
+    const url = new URL(String(profileUrl || '').trim());
+    const hostname = url.hostname.toLowerCase();
+    if (url.protocol !== 'https:' || url.username || url.password || hostname !== 'www.yousty.ch') {
+      return '';
+    }
+    if (!YOUSTY_PROFILE_PATH_RE.test(url.pathname)) return '';
+    const widgetId = String(url.searchParams.get('widget') || '').trim();
+    if (!YOUSTY_WIDGET_ID_RE.test(widgetId)) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   const rawHtml = String(html || '');
-  const applyUrl = extractDirectApplyUrl(rawHtml);
+  const applyUrl = extractDirectApplyUrl(rawHtml) || extractYoustyWidgetApplicationUrl(profileUrl);
   const noscriptMatches = [...rawHtml.matchAll(/<noscript[^>]*>([\s\S]*?)<\/noscript>/gi)];
   const noscriptHtml = (
     noscriptMatches

@@ -13,11 +13,11 @@
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 636,
+  "crawlerCount": 640,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:c295b7a82271626b9ad93d1195413e66511d6758eabc01f21776651c1ee573ae",
+    "rosterDigest": "sha256:a4b0d4c2c0dff736947999343fdfef26f5a2dae1e165a9e4486fe448285cd379",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -190,6 +190,7 @@
     "scripts/update-daler-hopital-jobs.mjs",
     "scripts/update-debiopharm-jobs.mjs",
     "scripts/update-decathlon-jobs.mjs",
+    "scripts/update-deillon-delley-architectes-jobs.mjs",
     "scripts/update-deloitte-jobs.mjs",
     "scripts/update-dic-sa-jobs.mjs",
     "scripts/update-dormakaba-jobs.mjs",
@@ -245,6 +246,7 @@
     "scripts/update-ghol-jobs.mjs",
     "scripts/update-giardino-jobs.mjs",
     "scripts/update-gim-architekten-jobs.mjs",
+    "scripts/update-gipo-jobs.mjs",
     "scripts/update-givaudan-jobs.mjs",
     "scripts/update-gkb-jobs.mjs",
     "scripts/update-globus-jobs.mjs",
@@ -345,6 +347,7 @@
     "scripts/update-kulm-hotel-jobs.mjs",
     "scripts/update-kzu-jobs.mjs",
     "scripts/update-lalive-jobs.mjs",
+    "scripts/update-le-team-jobs.mjs",
     "scripts/update-leukerbad-clinic-jobs.mjs",
     "scripts/update-lhm-luzerner-hohenklinik-montana-jobs.mjs",
     "scripts/update-liebherr-jobs.mjs",
@@ -538,6 +541,7 @@
     "scripts/update-swisslog-jobs.mjs",
     "scripts/update-swissquote-jobs.mjs",
     "scripts/update-sygnum-jobs.mjs",
+    "scripts/update-sympajobs-reinach-bl-jobs.mjs",
     "scripts/update-szb-chb-jobs.mjs",
     "scripts/update-talan-jobs.mjs",
     "scripts/update-tally-weijl-jobs.mjs",
@@ -973,8 +977,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "34ce4e0997d36d6fb3a7464ec4b9e6ed22198c7c56c9fb2d842ec919ca6d8065",
-      "artifactSha256": "04a4cfcf2b4ee84d60dd06e8c168dd173ea83793924ce94c93ad01aea4786581",
+      "sourceSha256": "532a4fa09062e276985bfe07ff68fff94c9595c7f5e97dc9463b1212b2badaa1",
+      "artifactSha256": "db16a19918393adb67ef312be1b68b9d4e25060ffec4b07bc02d7370e51efc2f",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "jumbo",
@@ -1004,7 +1008,8 @@
         "stellentreff",
         "atec-personal",
         "debiopharm",
-        "fondation-domus"
+        "fondation-domus",
+        "sympajobs-reinach-bl"
       ]
     },
     {
@@ -1162,8 +1167,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "b42a5d2e66750b9472addc97b462290ec437021f95266951158ea7447c44e1ed",
-      "artifactSha256": "b2ded6c1c06c212d609580e04b6023a79f0637f130dead29fa88dc7d608d8a39",
+      "sourceSha256": "7fecca36ba5554b55aa66c17f674e7844feeb63aa827ba2cdca096675b100220",
+      "artifactSha256": "d0a559790a4f7ad2a1d47eae34cb57567818538f989551fb337c81ad85f00f61",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1193,14 +1198,16 @@
         "sta",
         "elprom",
         "sonarsource",
-        "elite-interim"
+        "elite-interim",
+        "gipo",
+        "le-team"
       ]
     },
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "7b6ae9ab533192a44069b46f278a9e0c1e1e4155e7400774cc11cb00bc1df9ab",
-      "artifactSha256": "2ba0036d6836d216f637c5550197123fb01a84e85cac012845c6374738e77631",
+      "sourceSha256": "fdf4a5f479d602c6fd80b0d664dd05d63b63ba29be7e774a824c550f2b9db243",
+      "artifactSha256": "a60f6ce7b3bf973782b9c059ac6d1788bd18cc18782ba4fceace78d95711ebd1",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "ksgr",
@@ -1230,7 +1237,8 @@
         "benteler",
         "adullam",
         "buersten-technik",
-        "matterhorn-gotthard-bahn"
+        "matterhorn-gotthard-bahn",
+        "deillon-delley-architectes"
       ]
     },
     {

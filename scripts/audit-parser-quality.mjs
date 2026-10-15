@@ -28,7 +28,7 @@ import {
 } from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
   findSwissCityInText,
@@ -725,15 +725,6 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
   const structured = structuredCandidates.find((candidate) => (
     resolveSourceBackedSwissGeography(candidate)
   )) || structuredCandidates.at(0);
-  if (structured) {
-    return withLocationEvidenceCounts(
-      { location: structured.location, evidence: 'jsonld' },
-      structuredBeforeGate,
-      structuredAfterGate,
-      includeDiagnostics,
-    );
-  }
-
   // A shared listing/detail response may contain authoritative markup for more
   // than one vacancy. Once the requested row cannot be matched, the remaining
   // DOM is page-wide evidence and must not be attributed to that row.
@@ -742,6 +733,34 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
       { location: '', evidence: 'generic' },
       { jsonld: Number(rawStructuredCandidates.length > 0), 'strong-markup': 0 },
       { jsonld: 0, 'strong-markup': 0 },
+      includeDiagnostics,
+    );
+  }
+
+  // SBB's vacancy-specific social summary carries the workplace, while its
+  // JobPosting JSON-LD can repeat the company's Bern headquarters. Accept the
+  // summary only on the canonical detail host and only in its date/workload
+  // shape; generic page descriptions remain non-authoritative.
+  let sbbSummaryLocation = '';
+  try {
+    if (new URL(pageUrl).hostname.toLowerCase() === 'jobs.sbb.ch') {
+      sbbSummaryLocation = plainText(readVacancySummaryLocation(html));
+    }
+  } catch {}
+  if (sbbSummaryLocation && isUsableSourceLocation(sbbSummaryLocation)) {
+    return withLocationEvidenceCounts(
+      { location: sbbSummaryLocation, evidence: 'job-summary' },
+      structuredBeforeGate,
+      structuredAfterGate,
+      includeDiagnostics,
+    );
+  }
+
+  if (structured) {
+    return withLocationEvidenceCounts(
+      { location: structured.location, evidence: 'jsonld' },
+      structuredBeforeGate,
+      structuredAfterGate,
       includeDiagnostics,
     );
   }
@@ -990,7 +1009,7 @@ function visibleFieldMatchesLocation(field, location) {
 }
 
 function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLocation, locationEvidence) {
-  if (!['jsonld', 'strong-markup'].includes(locationEvidence)
+  if (!['jsonld', 'strong-markup', 'job-summary'].includes(locationEvidence)
     || !isUsableSourceLocation(sourceLocation)
     || !publishedLocation) return false;
   const visibleFields = [

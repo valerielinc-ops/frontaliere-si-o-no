@@ -175,4 +175,29 @@ describe('persistBrowserInsights', () => {
     expect(`${result.stdout}${result.stderr}`).toContain('❌ persist browser Insights:');
     expect(result.stdout).not.toContain('"status":"pushed"');
   });
+
+  it('does not retry a storage failure that cannot succeed until the host has space', () => {
+    const root = tempDir();
+    const snapshot = snapshotPath(root);
+    let worktreeAdds = 0;
+    const git = (repo: string, args: string[], options: { allowFailure?: boolean; env?: Record<string, string> } = {}) => {
+      if (args[0] === 'worktree' && args[1] === 'add') {
+        worktreeAdds += 1;
+        throw new Error('fatal: No space left on device');
+      }
+      if (args[0] === 'worktree' && args[1] === 'remove') {
+        fs.rmSync(args[3], { recursive: true, force: true });
+        return '';
+      }
+      return '';
+    };
+
+    expect(() => persistBrowserInsights({
+      repo: path.join(root, 'site'),
+      snapshot,
+      attempts: 3,
+      gitFn: git,
+    })).toThrow(/No space left on device/);
+    expect(worktreeAdds).toBe(1);
+  });
 });
