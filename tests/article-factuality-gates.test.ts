@@ -529,6 +529,12 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     )).toEqual([]);
   });
 
+  it('accepts the real Joint Research Centre acronym', () => {
+    expect(checkFabricatedInstitutionAcronyms(
+      'La Commissione Europea (JRC) ha pubblicato lo studio sulle città verdi.',
+    )).toEqual([]);
+  });
+
   // ── 2026-07-29 corpus triage ──
   it('accepts the non-Italian acronym of an office already listed', () => {
     // Swiss federal offices publish under three or four acronyms and the writer
