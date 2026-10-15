@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582",
+  "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "83bc1378a173db3712ef47edd5896b813f309582"
+    "sourceCommit": "67ab9ce27de6acc35d56b6ba2d9a07f4506a5f42"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 628,
+  "crawlerCount": 629,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff",
+    "rosterDigest": "sha256:e16f71b2e294e53a783e7441ecd9ca0d003b662e5ab530f71e4ad923385001c5",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -342,6 +342,7 @@
     "scripts/update-kulm-hotel-jobs.mjs",
     "scripts/update-kzu-jobs.mjs",
     "scripts/update-lalive-jobs.mjs",
+    "scripts/update-le-team-jobs.mjs",
     "scripts/update-leukerbad-clinic-jobs.mjs",
     "scripts/update-lhm-luzerner-hohenklinik-montana-jobs.mjs",
     "scripts/update-liebherr-jobs.mjs",
@@ -1154,8 +1155,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "bee4c5b0241585ce3fe58a6c339dcb9c7179654c0860c7381bfa94cac3b89fd9",
-      "artifactSha256": "fe9459c718420fbfd9aa3febbbb234b1ab8323730af5522265a879f4e7c82500",
+      "sourceSha256": "03fd6109ee940185bfbeefa3e2cffc33692f1a9e6fd1dc57f4e3e855eced1c91",
+      "artifactSha256": "d928fb9912b315d1a69bc3dd9049db3a8efa8d499e9a3037c2ac1600fd9a0280",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "kronenhof",
@@ -1184,7 +1185,8 @@
         "ail",
         "sta",
         "elprom",
-        "sonarsource"
+        "sonarsource",
+        "le-team"
       ]
     },
     {
