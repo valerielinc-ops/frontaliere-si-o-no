@@ -8297,6 +8297,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.hacker-frigoriferi-connessi.title': 'Hacker manipulieren die Kühlung: Risiko für Haushalte',
     'blog.article.hacker-frigoriferi-connessi.excerpt': 'Angriff auf Hunderte französische Supermärkte Kühlung aus der Ferne manipuliert Schäden in Höhe von Millionen Euro Coop und Migros: Kein ähnlicher Angriff registriert',
     'blog.article.hacker-frigoriferi-connessi.imageAlt': 'Kühlsysteme und vernetzte Geräte im Mittelpunkt eines Cyberalarms',
+    'blog.article.orologio-lingotto-trump-seco.title': 'Uhr und Goldbarren für Trump, Seco: «Sie waren für das amerikanische Volk»',
+    'blog.article.orologio-lingotto-trump-seco.excerpt': 'Die Geschenke an Donald Trump waren etwa 100\'000 Franken wert Die Übergabe erfolgte im November 2025 Die US-Zölle sanken von 39% auf 15% Ein Bericht über die Behörden',
+    'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Rolex Tischuhr und Goldbarren auf rotem Schweizer Stoff, Symbol des Geschenks an die USA',
 };
 
 export default blogMetaChDe;

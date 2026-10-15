@@ -2788,6 +2788,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'grigioni-preventivo-contributi-terzi': { it: 'grigioni-preventivo-contributi-terzi', en: 'gr-sectors-weigh-increasingly-on-the-quote', de: 'gr-bereiche-fallen-im-voranschlag-zunehmend-ins-gewicht', fr: 'gr-les-secteurs-pesent-de-plus-en-plus-sur-le-budget-previsionnel' },
  'consiglio-federale-knifefish-adesione': { it: 'consiglio-federale-knifefish-adesione', en: 'federal-council-knifefish-accession', de: 'bundesrat-knifefish-beitritt', fr: 'conseil-federal-knifefish-adhesion' },
  'hacker-frigoriferi-connessi': { it: 'hacker-frigoriferi-connessi', en: 'hackers-connected-refrigeration', de: 'hacker-vernetzte-kuehlung', fr: 'hackers-refrigeration-connectee' },
+ 'orologio-lingotto-trump-seco': { it: 'orologio-lingotto-trump-seco', en: 'watch-and-gold-bar-for-trump-seco-they-were-for-the-american-people', de: 'uhr-und-goldbarren-fur-trump-seco-sie-waren-fur-das-amerikanische-volk', fr: 'montre-et-lingot-d-or-trump-seco-pour-peuple-americain' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

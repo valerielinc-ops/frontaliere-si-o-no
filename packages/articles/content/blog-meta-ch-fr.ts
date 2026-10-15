@@ -8297,6 +8297,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.hacker-frigoriferi-connessi.title': 'Des hackers manipulent la réfrigération : un risque pour les foyers',
     'blog.article.hacker-frigoriferi-connessi.excerpt': 'Attaque contre des centaines de supermarchés français Réfrigération manipulée à distance Des dommages de plusieurs millions d’euros Coop et Migros : aucune attaque similaire enregistrée',
     'blog.article.hacker-frigoriferi-connessi.imageAlt': 'Systèmes de réfrigération et appareils connectés au centre de l\'alerte informatique',
+    'blog.article.orologio-lingotto-trump-seco.title': 'Montre et lingot d’or Trump, Seco: «pour peuple américain»',
+    'blog.article.orologio-lingotto-trump-seco.excerpt': 'Les cadeaux offerts à Donald Trump valaient environ 100\'000 francs La remise remonte à novembre 2025 Les droits de douane américains sont passés de 39% à 15% Un rapport sur les autorités',
+    'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Montre Rolex de table et lingot d\'or sur tissu suisse rouge, symbole du cadeau aux États-Unis',
 };
 
 export default blogMetaChFr;

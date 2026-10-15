@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5462
+      "6": 5463
     },
-    "publishedCovers": 7043,
+    "publishedCovers": 7044,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5267
+    "inferredRecords": 5268
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -187174,6 +187174,33 @@
           "id": "ordinanza-animali-compagnia-ue",
           "category": "novita",
           "date": "2026-10-14T22:26:00.196Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-orologio-lingotto-trump-seco": {
+      "cover": "/images/blog/article-orologio-lingotto-trump-seco.webp",
+      "hash": "5f916c9990595bea3c3521f9a00a7277de98819f45535c22b908f68fdfd2f40c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "orologio-lingotto-trump-seco",
+          "category": "novita",
+          "date": "2026-10-14T23:41:41.807Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

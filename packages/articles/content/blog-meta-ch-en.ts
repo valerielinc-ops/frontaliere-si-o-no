@@ -8297,6 +8297,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hacker-frigoriferi-connessi.title': 'Hackers tamper with refrigeration: risk to homes',
     'blog.article.hacker-frigoriferi-connessi.excerpt': 'Attack on hundreds of French supermarkets Remote manipulation of refrigeration Damage amounting to millions of euros Coop and Migros: no similar attack recorded',
     'blog.article.hacker-frigoriferi-connessi.imageAlt': 'Refrigeration systems and connected devices at the center of a cyber alert',
+    'blog.article.orologio-lingotto-trump-seco.title': 'Watch and gold bar for Trump, Seco: “They were for the American people”',
+    'blog.article.orologio-lingotto-trump-seco.excerpt': 'The gifts to Donald Trump were worth approximately 100\'000 francs The delivery dates back to November 2025 US tariffs dropped from 39% to 15% A report on the authorities',
+    'blog.article.orologio-lingotto-trump-seco.imageAlt': 'Rolex table watch and gold ingot on red Swiss fabric, symbolizing the gift to the USA',
 };
 
 export default blogMetaChEn;

@@ -104739,6 +104739,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orologio-lingotto-trump-seco': {
+    title: 'Orologio e lingotto d’oro a Trump, Seco: «Erano per il popolo americano»',
+    description: 'I regali a Donald Trump valevano circa 100\'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, orologio, lingotto, trump, seco',
+    ogTitle: 'Orologio e lingotto d’oro a Trump: Seco spiega il gesto',
+    ogDescription: 'I regali a Donald Trump valevano circa 100\'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità',
+    canonicalPath: '/articoli-svizzera/orologio-lingotto-trump-seco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orologio e lingotto d’oro a Trump, Seco: «Erano per il popolo americano»",
+      "description": "I regali a Donald Trump valevano circa 100'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orologio-lingotto-trump-seco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orologio Rolex e lingotto d'oro su tessuto svizzero rosso, simbolo del dono agli USA"
+      },
+      "datePublished": "2026-10-14T23:41:41+00:00",
+      "dateModified": "2026-10-14T23:41:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologio-lingotto-trump-seco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

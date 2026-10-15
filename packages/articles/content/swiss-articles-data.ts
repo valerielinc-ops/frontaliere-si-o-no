@@ -27734,6 +27734,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'orologio-lingotto-trump-seco',
+    category: 'novita',
+    date: '2026-10-14T23:41:41.807Z',
+    image: '/images/blog/article-orologio-lingotto-trump-seco.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
