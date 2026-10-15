@@ -126,7 +126,7 @@ import {
  isJobBoardLandingPath,
  type JobBoardLocale,
 } from './jobBoardSeo';
-import { emitSeoHubs } from './seoHubsPlugin';
+import { countEmittedJobArchivePages, emitSeoHubs } from './seoHubsPlugin';
 import { JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import {
   countSvizzeraArticleArchivePages,
@@ -172,7 +172,6 @@ import {
   type ImageCreditRecord,
 } from '../packages/articles/engine/shared/imageCredits.mjs';
 import { baseCompanySlug } from './shared/companyProfileSlug.mjs';
-import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   parseAnnotatedSitemapUrls,
   collectLocaleVariantEntries,
@@ -1888,19 +1887,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const svizzeraArticlesTotalPages = countSvizzeraArticleArchivePages(fs, np, rootDir);
 
  // Same for the jobs hub: emit a deep-link navigator on /cerca-lavoro-ticino/
- // so every /tutti/page-K/ archive page is at depth 2 from `/`. With ~30k
- // job slugs at 100/page, totalPages is ~304 — far too many for a flat list,
- // so the navigator goes inside a <details> collapsible (UX-fold, SEO-flat).
- // Closes ~1330 of the 1843 baseline offenders that live in
- // sitemap-jobs.xml + sitemap-seo-hubs.xml.
- let jobsTotalPages = 1;
- try {
- const jobSlugsRaw = readAllKnownJobSlugs(rootDir);
- const slugCount = (jobSlugsRaw && typeof jobSlugsRaw === 'object') ? Object.keys(jobSlugsRaw).length : 0;
- jobsTotalPages = Math.max(1, Math.ceil(slugCount / JOBS_PAGE_SIZE));
- } catch (e) {
- console.warn('[static-pages] Could not compute jobsTotalPages from the canonical slug registry:', e);
- }
+ // so every /tutti/page-K/ archive page is at depth 2 from `/`. Derive the
+ // count from the same emitted-detail inventory as seoHubsPlugin: the
+ // historical slug registry is monotonic and includes routes absent from the
+ // current dist, so its raw size can advertise a 404 page-index tail.
+ const jobsTotalPages = countEmittedJobArchivePages(fs, np, rootDir, distDir, 'it');
 
  /* ── BFS-depth closure (May 2026) — TI hub deep navigators ──
   *

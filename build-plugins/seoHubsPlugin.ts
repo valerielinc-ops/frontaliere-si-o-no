@@ -853,6 +853,43 @@ function hasEmittedJobDetailPage(
   }
 }
 
+function emittedJobArchiveItems(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  jobSlugs: readonly string[],
+  jobPerLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): Array<{ slug: string; href: string }> {
+  const localeMap = jobPerLocale[locale];
+  const itMap = jobPerLocale.it;
+  const emitted: Array<{ slug: string; href: string }> = [];
+  for (const slug of jobSlugs) {
+    const href = localeMap[slug] || itMap[slug];
+    if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href)) continue;
+    emitted.push({ slug, href });
+  }
+  return emitted;
+}
+
+/**
+ * Count archive pages from the same emitted-detail inventory used by the hub
+ * renderer. The canonical slug registry is historical and monotonic, so its
+ * raw size can advertise a tail of page-index links whose targets were not
+ * emitted in the current build.
+ */
+export function countEmittedJobArchivePages(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+  locale: HubLocale = 'it',
+): number {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale).length;
+  return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
+}
+
 /**
  * Parse CRAWLED_COMPANY_LOGOS from services/jobDataNormalization.ts source.
  * Returns slug → URL map for use as fallback when the local manifest has no
@@ -2681,12 +2718,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       // is identical per locale — keeps hreflang alternates consistent. When a
       // locale-specific translated path is missing, fall back to the IT canonical
       // path (item is still browseable; user lands on the IT detail).
-      const localeMap = jobPerLocale[locale];
-      const itMap = jobPerLocale.it;
-      for (const slug of jobSlugs) {
-        const localePath = localeMap[slug] || itMap[slug];
-        if (!localePath || !hasEmittedJobDetailPage(fs, np, distDir, localePath)) continue;
-        items.push({ href: localePath, label: humanizeSlug(slug) });
+      for (const { slug, href } of emittedJobArchiveItems(fs, np, distDir, jobSlugs, jobPerLocale, locale)) {
+        items.push({ href, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {
       pageSize = HUB_SECTORS.length;

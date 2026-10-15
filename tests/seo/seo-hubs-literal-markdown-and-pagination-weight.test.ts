@@ -1,10 +1,15 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {
   renderPagination,
   buildThinCantonHubHtml,
   buildPaginationIndexHtml,
+  countEmittedJobArchivePages,
 } from '../../build-plugins/seoHubsPlugin';
 import {
+  JOBS_PAGE_SIZE,
   isSeoHubPath,
   paginationIndexCount,
   paginationIndexPath,
@@ -13,6 +18,7 @@ import { createAuditor } from '../../scripts/audit-no-literal-markdown.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
+import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 // Regression for post-deploy validate-dist run 29330607996 (issue #4060),
 // audit:all failing sub-audits:
@@ -67,6 +73,29 @@ describe('seoHubs — no literal markdown leaks into hub listings', () => {
 });
 
 describe('seoHubs — pagination ladder page-weight byte-shave', () => {
+  it('counts the archive navigator from emitted detail pages, not the historical registry tail', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-archive-pages-'));
+    try {
+      const distDir = path.join(root, 'dist');
+      const emittedPath = '/cerca-lavoro-ticino/emitted-detail/';
+      const missingPath = '/cerca-lavoro-ticino/missing-detail/';
+      const emittedFile = path.join(distDir, emittedPath, 'index.html');
+      fs.mkdirSync(path.dirname(emittedFile), { recursive: true });
+      fs.writeFileSync(emittedFile, '<!doctype html>');
+
+      const registry = Object.fromEntries(Array.from({ length: 7100 }, (_, index) => [
+        `historical-job-${index}`,
+        { it: index < 6700 ? emittedPath : missingPath },
+      ]));
+      writeAllKnownJobSlugs(registry, root);
+
+      expect(Math.ceil(Object.keys(registry).length / JOBS_PAGE_SIZE)).toBe(71);
+      expect(countEmittedJobArchivePages(fs, path, root, distDir, 'it')).toBe(67);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('renderPagination replaces the unbounded page ladder with bounded range indexes', () => {
     const total = 2500;
     const basePath = '/cerca-lavoro-ticino/tutti/';
