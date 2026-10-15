@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "71c408f57b3973b753987233743e42c3ee5df1cd",
+  "commit": "02dff8d62fef1abd99842dd072377b94e4ac3f60",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -21331,6 +21331,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original synthetic, photorealistic editorial illustration of a generic mountain-valley exercise beside rail and road infrastructure; no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-della-valle-lesione-varese.webp": {
+      "schema": 1,
+      "assetId": "article-della-valle-lesione-varese",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "66dc68beb04ddd8fce8f73d782fedb40756e324a742e2f325842db6d54e633e7",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "a3314f75a16d8007b7c5087663df1f2301fc6d1ff4cf28e094fe98a255b71b3b",
+      "bytes": 79918,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T08:11:39.268Z",
+      "verifiedAt": "2026-10-15T08:11:49.970Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-della-valle-lesione-varese.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration matching the basketball injury subject and Ticino mountain setting; no readable text, logos, or identifiable people."
       }
     },
     "/images/places/lugano-view.webp": {

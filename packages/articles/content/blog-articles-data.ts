@@ -44562,6 +44562,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'della-valle-lesione-varese',
+ category: 'novita',
+ date: '2026-10-15T08:11:50.536Z',
+ image: '/images/blog/article-della-valle-lesione-varese.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

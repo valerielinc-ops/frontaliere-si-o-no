@@ -108297,6 +108297,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-della-valle-lesione-varese': {
+    title: 'Pallacanestro Varese: Della Valle out per lesione al bicipite femorale',
+    description: 'Amedeo Della Valle ha una lesione al bicipite femorale destro Il trauma è di secondo grado L\'infortunio è arrivato contro Peristeri Betsson Il rientro sarà',
+    keywords: 'frontalieri, ticino, svizzera, italia, pallacanestro, varese, valle, lesione',
+    ogTitle: 'Pallacanestro Varese: Della Valle out per lesione al bicipite femorale',
+    ogDescription: 'Amedeo Della Valle ha una lesione al bicipite femorale destro Il trauma è di secondo grado L\'infortunio è arrivato contro Peristeri Betsson Il rientro sarà',
+    canonicalPath: '/articoli-frontaliere/della-valle-lesione-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pallacanestro Varese: Della Valle out per lesione al bicipite femorale",
+      "description": "Amedeo Della Valle ha una lesione al bicipite femorale destro Il trauma è di secondo grado L'infortunio è arrivato contro Peristeri Betsson Il rientro sarà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-della-valle-lesione-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo da basket in Ticino con staff medico che esamina la gamba di un giocatore"
+      },
+      "datePublished": "2026-10-15T08:11:50+00:00",
+      "dateModified": "2026-10-15T08:11:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/della-valle-lesione-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

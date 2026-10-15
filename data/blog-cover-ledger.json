@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5480
+      "6": 5481
     },
-    "publishedCovers": 7061,
+    "publishedCovers": 7062,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5285
+    "inferredRecords": 5286
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -185346,6 +185346,33 @@
           "id": "decisioni-avs-ue-voto",
           "category": "novita",
           "date": "2026-10-14T00:54:06.050Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-della-valle-lesione-varese": {
+      "cover": "/images/blog/article-della-valle-lesione-varese.webp",
+      "hash": "a3314f75a16d8007b7c5087663df1f2301fc6d1ff4cf28e094fe98a255b71b3b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "della-valle-lesione-varese",
+          "category": "novita",
+          "date": "2026-10-15T08:11:50.536Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

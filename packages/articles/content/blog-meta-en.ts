@@ -13201,7 +13201,10 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Bellinzona city council hall',
     'blog.article.operatori-emergenze-valli.title': 'Tre Valli: 80 operators in four exercises',
     'blog.article.operatori-emergenze-valli.excerpt': 'Around 80 operators trained in 2026 Four editions between Biasca and Giornico Three scenarios: fire, public order and bad weather Training will continue',
-    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustration generated for this article',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Operators during an emergency-response exercise in a Ticino valley',
+    'blog.article.della-valle-lesione-varese.title': 'Pallacanestro Varese: Della Valle out with a hamstring injury',
+    'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle has a right hamstring injury The injury is grade two The injury occurred against Peristeri Betsson The return will be',
+    'blog.article.della-valle-lesione-varese.imageAlt': 'Basketball court in Ticino with medical staff examining player\'s leg',
 };
 
 export default blogMetaEn;

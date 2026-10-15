@@ -13202,7 +13202,10 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Sala del Consiglio comunale di Bellinzona',
     'blog.article.operatori-emergenze-valli.title': 'Tre Valli: 80 operatori in quattro esercitazioni',
     'blog.article.operatori-emergenze-valli.excerpt': 'Circa 80 operatori formati nel 2026 Quattro edizioni tra Biasca e Giornico Tre scenari: incendio, ordine pubblico e maltempo La formazione continuerà',
-    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Operatori durante un\'esercitazione di emergenza in una valle del Ticino',
+    'blog.article.della-valle-lesione-varese.title': 'Pallacanestro Varese: Della Valle out per lesione al bicipite femorale',
+    'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle ha una lesione al bicipite femorale destro Il trauma è di secondo grado L\'infortunio è arrivato contro Peristeri Betsson Il rientro sarà',
+    'blog.article.della-valle-lesione-varese.imageAlt': 'Campo da basket in Ticino con staff medico che esamina la gamba di un giocatore',
 };
 
 export default blogMetaIt;

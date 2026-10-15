@@ -13200,7 +13200,10 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Gemeinderatssaal in Bellinzona',
     'blog.article.operatori-emergenze-valli.title': 'Tre Valli: 80 Einsatzkräfte bei vier Übungen',
     'blog.article.operatori-emergenze-valli.excerpt': 'Rund 80 Einsatzkräfte im Jahr 2026 ausgebildet Vier Durchführungen zwischen Biasca und Giornico Drei Szenarien: Brand, öffentliche Ordnung und Unwetter Die Ausbildung wird fortgesetzt',
-    'blog.article.operatori-emergenze-valli.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Einsatzkräfte bei einer Notfallübung in einem Tal im Tessin',
+    'blog.article.della-valle-lesione-varese.title': 'Varese: Della Valle fällt mit Oberschenkelverletzung aus',
+    'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle hat eine Verletzung am rechten Oberschenkelbizeps Die Verletzung ist zweiten Grades Die Verletzung zog er sich gegen Peristeri Betsson zu Die Rückkehr wird',
+    'blog.article.della-valle-lesione-varese.imageAlt': 'Basketballplatz im Tessin mit medizinischem Personal das Spielerbein untersucht',
 };
 
 export default blogMetaDe;

@@ -13203,7 +13203,10 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Salle du conseil municipal de Bellinzone',
     'blog.article.operatori-emergenze-valli.title': 'Tre Valli : 80 opérateurs dans quatre exercices',
     'blog.article.operatori-emergenze-valli.excerpt': 'Environ 80 opérateurs formés en 2026 Quatre éditions entre Biasca et Giornico Trois scénarios : incendie, ordre public et intempéries La formation continuera',
-    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Intervenants lors d\'un exercice d\'urgence dans une vallée tessinoise',
+    'blog.article.della-valle-lesione-varese.title': 'Varese : Della Valle out pour lésion au biceps fémoral',
+    'blog.article.della-valle-lesione-varese.excerpt': 'Amedeo Della Valle présente une lésion au biceps fémoral droit Le traumatisme est de deuxième degré La blessure est survenue contre Peristeri Betsson Le retour sera',
+    'blog.article.della-valle-lesione-varese.imageAlt': 'Terrain de basket au Tessin avec staff médical examinant la jambe d\'un joueur',
 };
 
 export default blogMetaFr;
