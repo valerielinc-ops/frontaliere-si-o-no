@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863",
+  "sourceCommit": "72dc536734a3db1da33d744dad3bb7a2fb4b28c9",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "0aefe0e2968215e10ae5c6079835d149cba0a863"
+    "sourceCommit": "72dc536734a3db1da33d744dad3bb7a2fb4b28c9"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 632,
+  "crawlerCount": 633,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:4df50c9f3a99175a964f67500b8c633d5a1eb08f177babb5c479f5f074396c4f",
+    "rosterDigest": "sha256:265f9e182882411e8f2fff7880886381456bf5fdccf3e07b69498a37be659107",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -83,6 +83,7 @@
     "scripts/update-adullam-jobs.mjs",
     "scripts/update-adus-klinik-jobs.mjs",
     "scripts/update-afry-jobs.mjs",
+    "scripts/update-agat-jobs.mjs",
     "scripts/update-agie-charmilles-jobs.mjs",
     "scripts/update-agroscope-jobs.mjs",
     "scripts/update-albergo-gardenia-jobs.mjs",
@@ -1306,8 +1307,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "85b7310cdedfdee7439b03b6ed697eb2e510bd877cb5646c48b12e40bd341bd7",
-      "artifactSha256": "c8c139d9f9a9aaf8036b5524cb9eaf251e38e968fae1a1bc3063018a717acde0",
+      "sourceSha256": "51b84d57b91bbf44878f0a936fd46b6535430b6cd12ce0f303bc8e8c49db370b",
+      "artifactSha256": "a20f00fd60b040ce835bb31a1003751d3c9d75b7c7bf666f66e289b4836086db",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "migros",
@@ -1337,7 +1338,8 @@
         "alpiq",
         "vereinaklosters",
         "unibe",
-        "convit"
+        "convit",
+        "agat"
       ]
     },
     {
