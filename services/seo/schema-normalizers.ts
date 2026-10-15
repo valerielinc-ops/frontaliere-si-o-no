@@ -250,8 +250,12 @@ function creatorIdentity(value: unknown): string | undefined {
    ?? comparableSchemaValue('name', value.name);
  }
  if (Array.isArray(value)) {
-  const identities = [...new Set(value.map(creatorIdentity).filter((id): id is string => Boolean(id)))];
-  return identities.length === 1 ? identities[0] : undefined;
+  const identities = value.map(creatorIdentity);
+  const [firstIdentity] = identities;
+  if (firstIdentity === undefined || identities.some((identity) => identity === undefined)) {
+   return undefined;
+  }
+  return identities.every((identity) => identity === firstIdentity) ? firstIdentity : undefined;
  }
  return comparableSchemaValue('creator', value);
 }
@@ -259,8 +263,12 @@ function creatorIdentity(value: unknown): string | undefined {
 function creatorName(value: unknown): string | undefined {
  if (isRecord(value)) return comparableSchemaValue('name', value.name);
  if (Array.isArray(value)) {
-  const names = [...new Set(value.map(creatorName).filter((name): name is string => Boolean(name)))];
-  return names.length === 1 ? names[0] : undefined;
+  const names = value.map(creatorName);
+  const [firstName] = names;
+  if (firstName === undefined || names.some((name) => name === undefined)) {
+   return undefined;
+  }
+  return names.every((name) => name === firstName) ? firstName : undefined;
  }
  return undefined;
 }

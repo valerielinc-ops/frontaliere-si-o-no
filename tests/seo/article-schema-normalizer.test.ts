@@ -191,6 +191,21 @@ describe('static Article JSON-LD safety net', () => {
     expect(normalized.creditText).toBe('Ufficio cantonale');
   });
 
+  it('does not derive image credit or creator identity from an incomplete creator array', () => {
+    const { normalized, schemaEntityConflicts: conflicts } = normalizeStructuredDataWithDiagnostics({
+      '@type': 'ImageObject',
+      contentUrl: 'https://example.test/image.jpg',
+      creator: [{ name: 'A' }, {}],
+    });
+
+    expect(normalized).not.toHaveProperty('creditText');
+    expect(normalized).toMatchObject({
+      contentUrl: 'https://example.test/image.jpg',
+    });
+    expect(normalized.creator).toEqual([{ name: 'A' }, {}]);
+    expect(conflicts).toEqual([]);
+  });
+
   it('consolidates repeated external organizations by URL or exact name', () => {
     const normalized = normalizeStructuredData({
       '@type': 'NewsArticle',
