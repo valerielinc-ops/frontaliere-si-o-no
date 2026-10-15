@@ -1,26 +1,31 @@
 /** Runtime data boundary for hydrated canton thematic hubs (D20/D23).
  *
  * The corpus publishes the payload as JSON. The edge registry remains the
- * activation authority: this module accepts a hub only when the payload
- * commit is the same commit currently served by the edge registry and the
- * requested section is live. A missing, stale or malformed response returns
- * null so the prerendered corpus page can remain the safe fallback.
+ * activation authority: this module reads the payload from the immutable
+ * `registry.release.base` selected by that registry and accepts a hub only
+ * when the payload commit is the same corpus commit currently served by the
+ * registry and the requested section is live. A missing, stale or malformed
+ * response returns null so the prerendered corpus page can remain the safe
+ * fallback.
  */
 
 import type { Locale } from '@/services/i18n';
-import { articlesApiBase } from '@/services/articlesApiBase';
 import type { CantonArticleSection } from '@/services/articleSections';
 import {
+  CANTON_SECTION_REGISTRY_URL,
   cantonSectionConfig,
   isCantonArticleSection,
   loadCantonSectionRegistry,
   refreshCantonSectionRegistry,
 } from '@/services/runtimeArticleSections';
+import type { CantonSectionRegistry } from '@/services/runtimeArticleSections';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = 6000;
 const RELEASE_RETRY_DELAYS_MS = [0, 500, 1500] as const;
 const HUB_FAILURE_BACKOFF_MS = [30_000, 120_000, 300_000] as const;
+const CANTON_SECTION_CDN_ORIGIN = new URL(CANTON_SECTION_REGISTRY_URL).origin;
+const CANTON_HUB_PAYLOAD_FILE = 'canton-hubs.json';
 
 export interface CantonHubKeyFact {
   label: string;
@@ -210,19 +215,25 @@ function readPayloadDocument(
   return readLocale(value.locales[locale], section, topic, locale);
 }
 
-async function fetchHubPayload(registry: { commit: string }): Promise<HubPayload | null> {
+function hubPayloadUrl(registry: CantonSectionRegistry): string | null {
+  const base = registry.release?.base;
+  if (!base) return null;
+  return new URL(`${base}${CANTON_HUB_PAYLOAD_FILE}`, `${CANTON_SECTION_CDN_ORIGIN}/`).toString();
+}
+
+async function fetchHubPayload(registry: CantonSectionRegistry): Promise<HubPayload | null> {
+  const url = hubPayloadUrl(registry);
+  if (!url) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
-    const url = `${articlesApiBase()}/canton-hubs.json?commit=${encodeURIComponent(registry.commit)}`;
     const response = await fetch(url, { signal: controller.signal, cache: 'no-store' });
     if (!response.ok) return null;
     const payload = await response.json() as HubPayload;
-    // Keep a structurally valid payload even when its commit differs from the
-    // cached registry. A release can advance between the registry read that
-    // seeded the SPA cache and this request; the caller must re-read the
-    // registry and confirm the newer payload instead of discarding the only
-    // evidence of the release that is now actually being served.
+    // Keep the structural check separate from release selection. In normal
+    // operation the immutable path and root commit agree; if a stale handoff
+    // or an edge misroute returns a newer body, the caller must confirm that
+    // body against a fresh registry before adopting it.
     if (payload?.schema !== 1 || !nonEmptyString(payload.commit) || !isRecord(payload.sections)) return null;
     return payload;
   } catch {
@@ -232,14 +243,19 @@ async function fetchHubPayload(registry: { commit: string }): Promise<HubPayload
   }
 }
 
-let hubPayloadCache: { commit: string; promise: Promise<HubPayload | null> } | null = null;
+let hubPayloadCache: { key: string; promise: Promise<HubPayload | null> } | null = null;
 const hubLoadPromises = new Map<string, Promise<CantonTopicHubData | null>>();
 const hubFailureBackoff = new Map<string, { failures: number; retryAt: number }>();
 
-function loadHubPayload(registry: { commit: string }): Promise<HubPayload | null> {
-  if (hubPayloadCache?.commit === registry.commit) return hubPayloadCache.promise;
+function registryReleaseKey(registry: CantonSectionRegistry): string {
+  return `${registry.commit}\0${registry.release?.base ?? ''}`;
+}
+
+function loadHubPayload(registry: CantonSectionRegistry): Promise<HubPayload | null> {
+  const key = registryReleaseKey(registry);
+  if (hubPayloadCache?.key === key) return hubPayloadCache.promise;
   const promise = fetchHubPayload(registry);
-  hubPayloadCache = { commit: registry.commit, promise };
+  hubPayloadCache = { key, promise };
   return promise;
 }
 
@@ -302,16 +318,16 @@ async function loadCantonTopicHubOnce(
           && freshRegistry.sections[section]?.status === 'live') {
           const data = readPayloadHub(payload, section, topic, locale);
           if (data) {
-            hubPayloadCache = { commit: freshRegistry.commit, promise: Promise.resolve(payload) };
+            hubPayloadCache = { key: registryReleaseKey(freshRegistry), promise: Promise.resolve(payload) };
             return data;
           }
         }
       }
     }
 
-    // Keep D20 fail-closed: never accept a payload from a different release.
-    // Instead, discard the cached result and re-read both authorities. This
-    // covers the short Pages/R2 propagation window and aborted JSON reads.
+    // Keep D20 fail-closed: discard the cached result and re-read both
+    // authorities. This covers an object not yet staged and aborted reads,
+    // without ever retrying for the lifetime of the page.
     hubPayloadCache = null;
     if (attempt < RELEASE_RETRY_DELAYS_MS.length - 1) refreshCantonSectionRegistry();
   }

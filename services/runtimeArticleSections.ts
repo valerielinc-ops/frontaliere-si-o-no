@@ -31,16 +31,54 @@ export interface CantonSectionRegistryEntry {
   status?: unknown;
 }
 
+export interface CantonSectionReleaseFile {
+  sha256: string;
+  bytes: number;
+}
+
+export interface CantonSectionRelease {
+  commit: string;
+  base: string;
+  files: Record<string, CantonSectionReleaseFile>;
+}
+
 export interface CantonSectionRegistry {
   schema: number;
   commit: string;
   sections: Record<string, CantonSectionRegistryEntry>;
+  release: CantonSectionRelease | null;
 }
 
 interface RegistryPayload {
   schema?: unknown;
   commit?: unknown;
   sections?: Record<string, CantonSectionRegistryEntry>;
+  release?: unknown;
+}
+
+const CANTON_RELEASE_COMMIT_RE = /^[0-9a-f]{7,40}$/;
+const CANTON_RELEASE_BASE_PREFIX = 'edge/sections/_releases/';
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function parseCantonSectionRelease(value: unknown): CantonSectionRelease | null {
+  if (!isRecord(value)
+    || typeof value.commit !== 'string'
+    || !CANTON_RELEASE_COMMIT_RE.test(value.commit)
+    || value.base !== `${CANTON_RELEASE_BASE_PREFIX}${value.commit}/`
+    || !isRecord(value.files)) return null;
+  const files: Record<string, CantonSectionReleaseFile> = {};
+  for (const [name, metadata] of Object.entries(value.files)) {
+    if (!isRecord(metadata)
+      || typeof metadata.sha256 !== 'string'
+      || !/^[0-9a-f]{64}$/.test(metadata.sha256)
+      || !Number.isSafeInteger(metadata.bytes)
+      || metadata.bytes < 0) return null;
+    files[name] = { sha256: metadata.sha256, bytes: metadata.bytes };
+  }
+  return { commit: value.commit, base: value.base, files };
 }
 
 let registryPromise: Promise<RegistryPayload | null> | null = null;
@@ -124,10 +162,13 @@ async function fetchLiveRegistry(): Promise<RuntimeCantonArticleSection[]> {
 export async function loadCantonSectionRegistry(): Promise<CantonSectionRegistry | null> {
   const payload = await loadRegistryPayload();
   if (!payload || payload.schema !== 1 || typeof payload.commit !== 'string' || !payload.commit) return null;
+  const release = payload.release === undefined ? null : parseCantonSectionRelease(payload.release);
+  if (payload.release !== undefined && !release) return null;
   return {
     schema: 1,
     commit: payload.commit,
     sections: payload.sections ?? {},
+    release,
   };
 }
 

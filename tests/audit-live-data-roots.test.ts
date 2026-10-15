@@ -193,6 +193,7 @@ describe('raccolta delle PR automatiche per finestre giornaliere', () => {
       expect(calls).toHaveLength(2);
       expect(calls[0]).toContain('--filter=blob:none');
       expect(calls[0]).toContain('--no-auto-gc');
+      expect(calls[1]).toContain('--min-parents=1');
       expect(calls[1]).toContain('--no-renames');
       expect(calls[1]).toContain('--name-only');
       return calls.length;
