@@ -9,6 +9,7 @@ export const SOURCE_RELAY_RETRY_DELAY_MS = 1_200;
 export const SOURCE_RELAY_MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const GITHUB_OIDC_REQUEST_HOSTS = new Set([
   'token.actions.githubusercontent.com',
+  'vstoken.actions.githubusercontent.com',
   'pipelines.actions.githubusercontent.com',
 ]);
 /** Workflow flag set only on the relay members' launch steps (see the crawler group generator). */
