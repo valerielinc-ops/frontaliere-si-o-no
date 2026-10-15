@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 628,
+  "crawlerCount": 629,
   "groups": {
     "10": [
       "atec-personal",
@@ -158,6 +158,7 @@
       "wuerth-international"
     ],
     "15": [
+      "agat",
       "ail-lugano",
       "apg-sga",
       "asana-spital",
@@ -691,6 +692,7 @@
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
     "afry": "data/jobs/by-crawler/afry.json",
+    "agat": "data/jobs/by-crawler/agat.json",
     "agie-charmilles": "data/jobs/by-crawler/agie-charmilles.json",
     "agroscope": "data/jobs/by-crawler/agroscope.json",
     "ail-lugano": "data/jobs/by-crawler/ail-lugano.json",
@@ -1310,5 +1312,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
+  "digest": "sha256:3e6ad441b774ab28d27100d9ffefe7105c95b5c6cd3876c1f3ef06ff5a1e6011"
 }
