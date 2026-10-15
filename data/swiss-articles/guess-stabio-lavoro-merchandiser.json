@@ -1,0 +1,40 @@
+{
+  "id": "guess-stabio-lavoro-merchandiser",
+  "slug": "guess-stabio-lavoro-merchandiser",
+  "publishedAt": "2026-06-30T03:59:34.429Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 20.151069379317715,
+    "confidence": 0.8,
+    "finalScore": 16.120855503454173,
+    "topK": [
+      {
+        "slug": "guess-stabio-merchandiser",
+        "cosine": 0.8551757547124131
+      },
+      {
+        "slug": "fuga-ammoniaca-stabio-rapelli-allerta-ticino",
+        "cosine": 0.8437975937858859
+      },
+      {
+        "slug": "tilo-stabio-malpensa-sospensione-2026",
+        "cosine": 0.8187899962014159
+      },
+      {
+        "slug": "fuoriuscita-ammoniaca-rapelli-stabio",
+        "cosine": 0.8151919363981801
+      },
+      {
+        "slug": "tilo-collegamenti-sospesi-giugno",
+        "cosine": 0.8151679606912638
+      }
+    ],
+    "score": 16.120855503454173,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

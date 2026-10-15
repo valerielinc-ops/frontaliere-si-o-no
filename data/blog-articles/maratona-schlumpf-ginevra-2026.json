@@ -1,0 +1,40 @@
+{
+  "id": "maratona-schlumpf-ginevra-2026",
+  "slug": "maratona-schlumpf-ginevra-2026",
+  "publishedAt": "2026-05-11T00:30:47.250Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.157554519198223,
+    "confidence": 0.8,
+    "finalScore": 11.326043615358579,
+    "topK": [
+      {
+        "slug": "ultimo-svizzero-rientra-incendio-crans-montana",
+        "cosine": 0.8082326229200398
+      },
+      {
+        "slug": "staffette-rossocrociate-pechino-2027",
+        "cosine": 0.7949679172228891
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.7908792171026934
+      },
+      {
+        "slug": "simona-waltert-ticino-frontalieri",
+        "cosine": 0.7904352186010892
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.7881063782538767
+      }
+    ],
+    "score": 5.663021807679289,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

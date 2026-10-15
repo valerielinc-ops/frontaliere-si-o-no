@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-2535",
+      "sourceKey": "UR",
+      "sourceRecordId": "2535",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "2535",
+      "normalizedPlate": "UR2535",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 1000,
+      "closedAt": "2026-09-15T06:58:56.497Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4932",
+      "sourceFetchedAt": "2026-09-15T06:58:56.497Z",
+      "lastVerifiedAt": "2026-09-15T06:58:56.497Z",
+      "firstSeenAt": "2026-09-15T06:51:17.132Z",
+      "lastSeenAt": "2026-09-15T06:58:56.497Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f77133455067"
+    }
+  ]
+}

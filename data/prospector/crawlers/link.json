@@ -1,0 +1,20 @@
+{
+  "companyKey": "link",
+  "companyName": "Walter Zoo AG Gossau",
+  "companyHost": "link.ostendis.com",
+  "platform": "ostendis.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my"
+  ],
+  "detailTemplate": "/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Praktikant:in Artenschutz und Umweltbildung 100%"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-10T11:44:34.606Z"
+}

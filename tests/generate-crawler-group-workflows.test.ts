@@ -1,0 +1,3942 @@
+/**
+ * Guards scripts/generate-crawler-group-workflows.mjs's `packGroups`
+ * bin-packing logic — the algorithm that decides which of the 581 crawler
+ * scripts get bundled into which of the 24 grouped GitHub Actions workflows
+ * (each group is one job holding multiple `background: true` steps, so the
+ * job's wall-clock is bounded by its SLOWEST member, not the sum of all
+ * members).
+ *
+ * An earlier iteration of this function had a real bug caught during
+ * development: naive "always add to the currently lowest-wallClockMs group"
+ * greedy degenerates once every group already has one member, because
+ * adding a smaller item never raises a group's `wallClockMs` past its
+ * existing max — so the greedy kept dumping the entire remaining corpus into
+ * whichever anchor happened to be smallest, producing 22 near-empty groups
+ * and 1 giant group of 559. These tests guard against that regression by
+ * asserting group SIZE balance, not just wall-clock balance.
+ */
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
+import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation } from '../scripts/generate-crawler-group-workflows.mjs';
+import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+
+interface Crawler {
+  slug: string;
+  durationMs: number;
+}
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Ogni prova cross-repo rigenera 25 artifact YAML. Il default globale di 15s
+// è sufficiente in isolamento, ma sotto il pool della suite completa il lavoro
+// CPU-bound può superarlo senza che sia cambiato il verdetto della prova.
+const CROSS_REPO_GENERATION_TIMEOUT = 60_000;
+
+function crawlerLaunchSteps(steps: any[]) {
+  return steps.filter((step) => typeof step?.id === 'string' && step.id.startsWith('crawler-launch-'));
+}
+
+function crawlerResultSteps(steps: any[]) {
+  return steps.filter((step) => typeof step?.id === 'string'
+    && /^crawler-[a-z0-9-]+$/.test(step.id)
+    && !step.id.startsWith('crawler-launch-')
+    && !step.id.startsWith('crawler-generation-'));
+}
+
+function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId = '400') {
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-queue-guard-fixture-'));
+  const binDir = path.join(scratch, 'bin');
+  fs.mkdirSync(binDir);
+  const outputPath = path.join(scratch, 'github-output');
+  fs.writeFileSync(path.join(binDir, 'gh'), ghScript, { mode: 0o755 });
+  const fixtureRun = `PATH=${binDir}:$PATH\n${guardRun}`;
+
+  try {
+    const stdout = execFileSync('bash', ['-e', '-c', fixtureRun], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH ?? ''}`,
+        BASH_ENV: '/dev/null',
+        GITHUB_OUTPUT: outputPath,
+        GITHUB_REPOSITORY: 'nanakokyobashi-rgb/frontaliere-articles',
+        GITHUB_RUN_ID: runId,
+        GITHUB_EVENT_NAME: 'schedule',
+        TRANSLATION_MANUAL_OVERRIDE: 'false',
+        GH_TOKEN: 'fixture-token',
+      },
+    });
+    // Un `gh` finto puo' registrare gli endpoint serviti in `gh-calls.log`
+    // accanto a `bin/` (`$(dirname "$0")/../gh-calls.log`): serve a provare
+    // quante volte il guard ha letto uno stato e a servire risposte diverse
+    // alla prima e alla seconda lettura dello stesso endpoint.
+    const callsPath = path.join(scratch, 'gh-calls.log');
+    const calls = fs.existsSync(callsPath)
+      ? fs.readFileSync(callsPath, 'utf8').split('\n').filter(Boolean)
+      : [];
+    return { stdout, output: fs.readFileSync(outputPath, 'utf8'), calls };
+  } finally {
+    fs.rmSync(scratch, { recursive: true, force: true });
+  }
+}
+
+function makeCrawlers(n: number, durationFn: (i: number) => number): Crawler[] {
+  return Array.from({ length: n }, (_, i) => ({ slug: `crawler-${i}`, durationMs: durationFn(i) }));
+}
+
+describe('packGroups', () => {
+  it('produces exactly GROUP_COUNT groups', () => {
+    const crawlers = makeCrawlers(581, (i) => 60_000 + (i % 50) * 60_000);
+    const median = 1_500_000;
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+    expect(groups).toHaveLength(GROUP_COUNT);
+  });
+
+  it('every input crawler appears in exactly one group — no missing, no duplicated', () => {
+    const crawlers = makeCrawlers(581, (i) => 60_000 + (i % 97) * 90_000);
+    const median = 1_500_000;
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+
+    const seen = new Map<string, number>();
+    for (const g of groups) {
+      for (const m of g.members) {
+        seen.set(m.slug, (seen.get(m.slug) ?? 0) + 1);
+      }
+    }
+    expect(seen.size).toBe(crawlers.length);
+    expect([...seen.values()].every((count) => count === 1)).toBe(true);
+  });
+
+  it('reproduces the real-corpus regression scenario: no group balloons to near-total membership', () => {
+    // Mirrors the actual duration distribution shape: one extreme outlier
+    // (~6.5x median, like Coop), then a long, gently-declining tail of
+    // similarly-sized crawlers (like the real corpus top-40), then a bulk of
+    // small/medium crawlers.
+    const median = 1_466_500; // ~24.4min, the real corpus median
+    const crawlers: Crawler[] = [
+      { slug: 'coop', durationMs: 9_597_000 }, // ~160min, real outlier
+      ...Array.from({ length: 40 }, (_, i) => ({
+        slug: `big-${i}`,
+        durationMs: 5_167_500 - i * 40_000, // gently declining from ~86min
+      })),
+      ...Array.from({ length: 540 }, (_, i) => ({
+        slug: `small-${i}`,
+        durationMs: 60_000 + (i % 30) * 30_000, // 1-16min range
+      })),
+    ];
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+
+    expect(groups).toHaveLength(GROUP_COUNT);
+    const sizes = groups.map((g) => g.members.length);
+    const total = crawlers.length;
+
+    // No single group should hold more than a small fraction of the corpus.
+    // A regression of the old bug produced one group with 559/581 (~96%).
+    const maxShare = Math.max(...sizes) / total;
+    expect(maxShare).toBeLessThan(0.15);
+
+    // Every non-outlier group should have a reasonably comparable member
+    // count (the tail should spread ~evenly across regular groups).
+    const nonOutlierSizes = groups.filter((g) => g.members.length > 0 && g.wallClockMs < median * OUTLIER_MEDIAN_MULTIPLE).map((g) => g.members.length);
+    if (nonOutlierSizes.length > 1) {
+      const spread = Math.max(...nonOutlierSizes) - Math.min(...nonOutlierSizes);
+      expect(spread).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it('isolates genuine duration outliers (> OUTLIER_MEDIAN_MULTIPLE * median) into their own group', () => {
+    const median = 1_000_000;
+    const crawlers: Crawler[] = [
+      { slug: 'huge-outlier', durationMs: median * (OUTLIER_MEDIAN_MULTIPLE + 2) },
+      ...makeCrawlers(100, (i) => 200_000 + (i % 20) * 50_000),
+    ];
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+    const outlierGroup = groups.find((g) => g.members.some((m) => m.slug === 'huge-outlier'));
+    expect(outlierGroup).toBeDefined();
+    expect(outlierGroup!.members).toHaveLength(1);
+  });
+
+  it('no group wall-clock exceeds the max single-member duration in that group (max, not sum)', () => {
+    const crawlers = makeCrawlers(200, (i) => 100_000 + (i % 40) * 200_000);
+    const median = 1_000_000;
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+    for (const g of groups) {
+      if (g.members.length === 0) continue;
+      const trueMax = Math.max(...g.members.map((m) => m.durationMs));
+      expect(g.wallClockMs).toBe(trueMax);
+    }
+  });
+
+  it('no group exceeds a sane wall-clock ceiling (safety margin under the 6h GH Actions job limit)', () => {
+    const crawlers = makeCrawlers(581, (i) => 60_000 + (i % 160) * 60_000);
+    const median = 1_500_000;
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+    const SIX_HOURS_MS = 6 * 60 * 60 * 1000;
+    for (const g of groups) {
+      expect(g.wallClockMs).toBeLessThan(SIX_HOURS_MS);
+    }
+  });
+
+  it('handles fewer crawlers than groups without crashing or creating empty-group errors', () => {
+    const crawlers = makeCrawlers(5, (i) => 100_000 * (i + 1));
+    const median = 200_000;
+    const groups = packGroups(crawlers, GROUP_COUNT, median);
+    const total = groups.reduce((sum, g) => sum + g.members.length, 0);
+    expect(total).toBe(5);
+    expect(groups).toHaveLength(GROUP_COUNT);
+  });
+
+  it('is deterministic given the same inputs', () => {
+    const crawlers = makeCrawlers(581, (i) => 60_000 + (i % 71) * 45_000);
+    const median = 1_400_000;
+    const a = packGroups(crawlers, GROUP_COUNT, median);
+    const b = packGroups(crawlers, GROUP_COUNT, median);
+    expect(a.map((g) => g.members.map((m) => m.slug))).toEqual(b.map((g) => g.members.map((m) => m.slug)));
+  });
+});
+
+describe('generate() — shared install step reflects per-crawler prep requirements', () => {
+  // Regression guard (PR #3701 review finding): the shared "Install
+  // dependencies" step is sequential and shared by an ENTIRE group. If any
+  // member's original workflow required `npm ci --ignore-scripts` and the
+  // generator silently drops that flag, two things go wrong: (1) that
+  // crawler's install semantics silently change, and (2) since the step has
+  // no `continue-on-error`, a flaky dependency postinstall script failing
+  // there blocks the group's shared install step outright — which blocks
+  // EVERY background crawler step in that group from ever starting, not
+  // just the one crawler that needed the flag. The fix: if ANY member
+  // requires `--ignore-scripts`, the whole group's shared install step must
+  // use it (safe superset — harmless for members that didn't strictly
+  // require it).
+  let tmpDir: string;
+  let manifestPath: string;
+  let baselinePath: string;
+  let outDir: string;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-group-gen-test-'));
+    manifestPath = path.join(tmpDir, 'manifest.json');
+    baselinePath = path.join(tmpDir, 'baseline.json');
+    outDir = path.join(tmpDir, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  function baseCrawler(slug, installRun = 'npm ci') {
+    return {
+      slug,
+      file: `update-jobs-${slug}.yml`,
+      jobKey: `update-${slug}-jobs`,
+      timeoutMinutes: 360,
+      prepSteps: [{ name: 'Install dependencies', run: installRun }],
+      runStep: {
+        name: `Run ${slug}`,
+        env: {
+          CRAWLER_SLICE_ONLY: '1',
+          JOBS_HOUSEKEEPING_SCOPE: slug,
+          JOBS_SLICE_FILE: `data/jobs/by-crawler/${slug}.json`,
+        },
+        run: `node scripts/update-${slug}-jobs.mjs`,
+      },
+      postSteps: [
+        { name: 'Commit and push', id: 'changes', env: {}, run: `bash scripts/lib/git-commit-data.sh --slice-only "Auto-update ${slug} jobs"` },
+        { name: 'Report failure to GitHub Issues', if: 'failure()', 'continue-on-error': true, env: {}, run: 'node scripts/lib/github-issue-creator.mjs --title "x"' },
+      ],
+    };
+  }
+
+  // GROUP_COUNT (24) crawlers of similar duration each become their own
+  // group "anchor" in packGroups' first phase — to reliably land MULTIPLE
+  // synthetic crawlers in the SAME group (reproducing the real corpus
+  // scenario where a group has ~25 members), use more crawlers than
+  // GROUP_COUNT so the "spread the tail by member count" phase kicks in.
+  const CRAWLER_COUNT = GROUP_COUNT * 3;
+
+  function writeManifestAndBaseline(crawlers) {
+    fs.writeFileSync(manifestPath, JSON.stringify({ manifest: crawlers, anomalies: [] }));
+    const crawlerBaseline = Object.fromEntries(
+      crawlers.map((c) => [
+        c.file.replace(/^update-jobs-/, 'update-jobs-').replace(/\.yml$/, ''),
+        { avgDurationMs: 500_000, sampleCount: 1 },
+      ]),
+    );
+    fs.writeFileSync(baselinePath, JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      medianDurationMs: 500_000,
+      crawlers: crawlerBaseline,
+    }));
+  }
+
+  it('applies --ignore-scripts to the shared install step when any group member requires it', () => {
+    // One crawler whose ORIGINAL workflow used `npm ci --ignore-scripts` as
+    // its own "Install dependencies" prep step (mirrors the real afry/
+    // agroscope/pwc/etc. shape found in the actual 581-crawler corpus),
+    // plus enough same-duration crawlers that several of them are forced
+    // into the SAME group as it (reproducing the real "~25 members share
+    // one job" scenario, not an isolated singleton group).
+    const crawlers = [
+      baseCrawler('lean-crawler', 'npm ci --ignore-scripts'),
+      ...Array.from({ length: CRAWLER_COUNT - 1 }, (_, i) => baseCrawler(`normal-${i}`)),
+    ];
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: true });
+    const groupWithLean = results.find((r) => r.members.includes('lean-crawler'));
+    expect(groupWithLean, 'expected lean-crawler to be placed in some group').toBeDefined();
+    expect(groupWithLean!.members.length, 'expected lean-crawler to share a group with other crawlers, not be isolated').toBeGreaterThan(1);
+
+    const doc = YAML.parse(groupWithLean!.content);
+    const jobKey = Object.keys(doc.jobs)[0];
+    const installStep = doc.jobs[jobKey].steps.find((s) => s.name === 'Install dependencies');
+    expect(installStep.run).toBe('npm ci --ignore-scripts');
+
+    // Every OTHER group (none of whose members required the flag) must keep
+    // plain `npm ci` — the fix should not force `--ignore-scripts`
+    // repo-wide, only for groups that actually contain a member needing it.
+    const otherGroups = results.filter((r) => !r.members.includes('lean-crawler'));
+    for (const g of otherGroups) {
+      const gDoc = YAML.parse(g.content);
+      const gJobKey = Object.keys(gDoc.jobs)[0];
+      const gInstall = gDoc.jobs[gJobKey].steps.find((s) => s.name === 'Install dependencies');
+      expect(gInstall.run, `group ${g.fileName} should not have --ignore-scripts`).toBe('npm ci');
+    }
+  });
+
+  it('keeps plain `npm ci` when no group member requires --ignore-scripts', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`normal-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: true });
+    for (const g of results) {
+      const doc = YAML.parse(g.content);
+      const jobKey = Object.keys(doc.jobs)[0];
+      const installStep = doc.jobs[jobKey].steps.find((s) => s.name === 'Install dependencies');
+      expect(installStep.run).toBe('npm ci');
+    }
+  });
+
+  it('preserves a committed group install command when membership is regenerated', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`normal-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    generate({ manifestPath, baselinePath, outDir, write: true });
+    const firstGroupPath = path.join(outDir, 'crawler-group-01.yml');
+    const seeded = fs.readFileSync(firstGroupPath, 'utf8');
+    fs.writeFileSync(firstGroupPath, seeded.replace('run: npm ci\n', 'run: npm ci --ignore-scripts\n'));
+
+    const regenerated = generate({ manifestPath, baselinePath, outDir, write: true });
+    const doc = YAML.parse(regenerated[0].content);
+    const jobKey = Object.keys(doc.jobs)[0];
+    const installStep = doc.jobs[jobKey].steps.find((s: any) => s.name === 'Install dependencies');
+    expect(installStep.run).toBe('npm ci --ignore-scripts');
+  });
+
+  it('hydrates and saves the runtime-only per-company translation cache around every group', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`cache-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: false });
+    for (const result of results) {
+      const cacheNamespace = result.fileName.replace(/\.yml$/, '');
+      const doc = YAML.parse(result.content);
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const restore = job.steps.find((step) => step.id === 'translation_cache_restore');
+      expect(restore).toMatchObject({
+        name: 'Restore per-company translation cache',
+        'continue-on-error': true,
+        uses: 'actions/cache/restore@v6',
+        with: {
+          path: 'data/translation-cache',
+          key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
+          'restore-keys': `translation-cache-v1-${cacheNamespace}-`,
+        },
+      });
+      expect(job.steps.find((step) => step.name === 'Prepare per-company translation cache'))
+        .toMatchObject({ if: 'always()' });
+      const commitIndex = job.steps.findIndex((step) => step.name === 'Commit crawler group data atomically');
+      const saveIndex = job.steps.findIndex((step) => step.name === 'Save per-company translation cache');
+      const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
+      expect(saveIndex).toBeGreaterThan(commitIndex);
+      expect(saveIndex).toBeLessThan(cleanupIndex);
+      expect(job.steps[saveIndex]).toMatchObject({
+        if: "always() && steps.crawler_group_setup.outcome == 'success'",
+        'continue-on-error': true,
+        uses: 'actions/cache/save@v6',
+        with: {
+          path: 'data/translation-cache',
+          key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
+        },
+      });
+    }
+  });
+});
+
+describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 fix)', () => {
+  // Regression guard: a crawler that scrapes successfully but then fails to
+  // commit/push (network blip, git-commit-data.sh push-retry exhaustion,
+  // prune-abort, etc.) must make the generated background step exit
+  // non-zero — that's what fails the job visibly in the Actions UI and
+  // satisfies the `if: failure()` guard on the "Report failure to GitHub
+  // Issues" step. Pre-fix, the commit step's exit code was captured nowhere
+  // (swallowed by a blanket `|| true` on the flock-wrapped commit
+  // invocation) and the step's final `exit "$crawler_exit"` only ever
+  // reflected the CRAWL step's exit code — so a failed commit silently
+  // reported full success.
+  //
+  // These tests actually EXECUTE the generated shell body with real bash
+  // (not just string-match the generator's output), substituting a fake
+  // "crawler" command and a fake git-commit-data.sh-shaped command that
+  // exits non-zero, to prove the composite step body surfaces the failure
+  // end-to-end exactly as GitHub Actions would evaluate it.
+  //
+  // `flock` (util-linux) is present on the real `ubuntu-latest` runners this
+  // generates workflows for, but is not preinstalled on every dev/CI
+  // sandbox (e.g. macOS). Since these tests are about exit-code propagation
+  // through the composite shell body — not about the locking semantics
+  // itself — provide a minimal `flock` shim on PATH that just runs the
+  // wrapped command (`flock <lockfile> -c '<cmd>'` -> `bash -c '<cmd>'`),
+  // preserving its exit code, so the tests exercise the real generated
+  // `flock ... -c '...'` invocation shape on any platform.
+  let binDir: string;
+  let originalPath: string | undefined;
+  beforeEach(() => {
+    binDir = fs.mkdtempSync(path.join(os.tmpdir(), 'flock-shim-bin-'));
+    const flockShim = path.join(binDir, 'flock');
+    fs.writeFileSync(
+      flockShim,
+      ['#!/usr/bin/env bash', '# Minimal flock(1) shim for tests: ignores the lockfile arg, runs the -c command.', 'lockfile="$1"; shift', 'flag="$1"; shift', 'exec bash -c "$1"', ''].join('\n'),
+      { mode: 0o755 },
+    );
+    const timeoutShim = path.join(binDir, 'timeout');
+    fs.writeFileSync(
+      timeoutShim,
+      [
+        '#!/usr/bin/env bash',
+        '# Portable timeout(1) shim: tests can force expiry without sleeping.',
+        'while [[ "$1" == --* ]]; do shift; done',
+        'duration="$1"; shift',
+        'if [ "${TEST_FORCE_TARGET_TIMEOUT:-0}" = "1" ]; then exit 124; fi',
+        'exec "$@"',
+        '',
+      ].join('\n'),
+      { mode: 0o755 },
+    );
+    originalPath = process.env.PATH;
+    process.env.PATH = `${binDir}:${originalPath}`;
+  });
+  afterEach(() => {
+    delete process.env.TEST_FORCE_TARGET_TIMEOUT;
+    process.env.PATH = originalPath;
+    fs.rmSync(binDir, { recursive: true, force: true });
+  });
+
+  function crawlerFixture(overrides: Partial<{ runCommand: string; commitCommand: string }> = {}) {
+    const runCommand = overrides.runCommand ?? 'true'; // crawl succeeds by default
+    const commitCommand = overrides.commitCommand ?? 'true'; // commit succeeds by default
+    return {
+      slug: 'test-crawler',
+      runStep: { env: {}, run: runCommand },
+      postSteps: [
+        { name: 'Housekeeping', env: {}, run: 'true' },
+        {
+          name: 'Commit and push',
+          id: 'changes',
+          env: {},
+          // Mirrors the real generated line's shape: a `bash
+          // scripts/lib/git-commit-data.sh ...` invocation, detected by
+          // buildCrawlerShellBody via the `git-commit-data.sh` substring —
+          // substitute a fixture script standing in for the real one so
+          // the test never touches the real git working copy, but keep the
+          // literal filename so the generator's detection regex matches
+          // the real code path (not a simplified stand-in for it).
+          run: `bash ${commitCommand}/git-commit-data.sh`,
+        },
+        {
+          name: 'Report failure to GitHub Issues',
+          if: 'failure()',
+          env: {},
+          run: 'echo REPORTED_FAILURE',
+        },
+      ],
+    };
+  }
+
+  let tmpDir: string;
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-shell-body-test-'));
+  });
+  afterEach(() => {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  // Writes a fixture standing in for scripts/lib/git-commit-data.sh, named
+  // exactly `git-commit-data.sh` so buildCrawlerShellBody's detection regex
+  // (which matches on that literal filename) recognizes it as the commit
+  // step, and returns the CONTAINING DIRECTORY (the fixture's `run:` string
+  // is `bash <dir>/git-commit-data.sh`, mirroring the real
+  // `bash scripts/lib/git-commit-data.sh` shape).
+  function writeFixtureCommitScript(exitCode: number): string {
+    const dir = fs.mkdtempSync(path.join(tmpDir, 'lib-'));
+    const scriptPath = path.join(dir, 'git-commit-data.sh');
+    fs.writeFileSync(scriptPath, `#!/usr/bin/env bash\nexit ${exitCode}\n`, { mode: 0o755 });
+    return dir;
+  }
+
+  function runBody(body: string): { exitCode: number; stdout: string } {
+    try {
+      const stdout = execFileSync('bash', ['-c', body], { encoding: 'utf8' });
+      return { exitCode: 0, stdout };
+    } catch (err: any) {
+      return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+    }
+  }
+
+  function withInspectableFailureReporter(crawler: ReturnType<typeof crawlerFixture>) {
+    const reporterRun = `printf 'TITLE=%s\nDESCRIPTION<<EOF\n%s\nEOF\nWORKFLOW=%s\n' \\
+  "Crawler Failure: Run test-crawler" \\
+  "## Crawler fallito
+**Run:** fixture" \\
+  "Run test-crawler"`;
+    return {
+      ...crawler,
+      postSteps: crawler.postSteps.map((step) => (
+        step.if === 'failure()' ? { ...step, run: reporterRun } : step
+      )),
+    };
+  }
+
+  it('crawl succeeds, commit/push fails -> background step exits non-zero and the failure-report step fires', () => {
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const crawler = crawlerFixture({ commitCommand: failingCommitDir });
+    const body = buildCrawlerShellBody(crawler);
+
+    // Sanity: this is the actual code path that used to swallow the
+    // failure — assert the generated body really does route the commit
+    // command through the flock wrapper (i.e. we're testing the real
+    // composite construction, not a simplified stand-in for it).
+    expect(body).toMatch(/flock \/tmp\/crawler-group-git\.lock -c/);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode, 'background step must exit non-zero when commit/push fails').not.toBe(0);
+    expect(stdout, 'failure-report step must fire when commit/push fails').toContain('REPORTED_FAILURE');
+  });
+
+  // ── OSSERVATORE del cluster `Crawler Failure: Run *` ──────────────────────
+  //
+  // Il predicato dell'apri-issue per-crawler non distingueva un guasto DEL
+  // crawler da un guasto CONDIVISO del gruppo. Il ramo deferred-commit di
+  // git-commit-data.sh non pusha niente: scrive solo il descrittore per il
+  // commit atomico del gruppo, quindi ogni suo fallimento e' una proprieta'
+  // dell'ambiente di job condiviso e ogni crawler fratello lo riproduce nella
+  // STESSA run. Misurato sulla run corpus 33585044260 (group 05): 27 step su
+  // 27 falliti con "could not persist its commit descriptor" DOPO che tutti e
+  // 27 i crawl erano riusciti, e il reporter ha sparato 27 volte — #6857
+  // (faulhaber) e #6953 (ipersonal) sono due delle issue priority:high nate
+  // cosi', entrambe per crawler che avevano scrapato bene. Titoli tutti
+  // diversi, quindi nessun dedup puo' collassarli.
+  //
+  // Questi due test falliscono se quel carve-out sparisce, e falliscono anche
+  // se qualcuno lo "aggiusta" rendendo lo step verde: il segnale di gruppo
+  // vive proprio nel fatto che la run resta `conclusion == failure`, che e'
+  // cio' che scan-failed-runs.mjs consuma per aprire UNA sola
+  // `Workflow Failure: <group>`. Sopprimere qui consolida il segnale, non lo
+  // spegne — e i due assert insieme sono l'unica cosa che lo dimostra.
+  it('exit 43 (shared group precondition): no per-crawler issue, but the step stays red', () => {
+    const sharedFaultDir = writeFixtureCommitScript(43);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: sharedFaultDir }));
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(stdout, 'un guasto condiviso non deve aprire una issue per-crawler').not.toContain(
+      'TITLE=Crawler Failure: Run test-crawler',
+    );
+    expect(exitCode, 'il wrapper deve propagare l exit 43 per mantenere il segnale sistemico nel terminal status').toBe(43);
+    // L'annotation e' l'unica traccia leggibile: la riga di step-summary va in
+    // `${GITHUB_STEP_SUMMARY:-/dev/null}` e fuori da Actions non si vede.
+    expect(stdout).toContain("shared deferred-commit precondition failed (exit 43)");
+  });
+
+  it('exit 43 under the target timeout wrapper: same verdict through target_exit', () => {
+    const sharedFaultDir = writeFixtureCommitScript(43);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: sharedFaultDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(exitCode).not.toBe(0);
+  });
+
+  it('exit 44 (global lease busy): no per-crawler issue and retryable soft success', () => {
+    const leaseBusyDir = writeFixtureCommitScript(44);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: leaseBusyDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('global data-pipeline lease is busy (exit 44)');
+  });
+
+  it('exit 44 under the target timeout wrapper: same retryable verdict through target_exit', () => {
+    const leaseBusyDir = writeFixtureCommitScript(44);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: leaseBusyDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
+  it('exit 143 (runner shutdown): preserves systemic status without a per-crawler issue', () => {
+    const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(143);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
+  });
+
+  it('exit 143 under the target timeout wrapper stays systemic', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(143);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).toContain('runner shutdown interrupted the crawler (exit 143)');
+  });
+
+  // Il contrappeso: il carve-out deve restare stretto. Un fallimento di
+  // commit VERO del singolo crawler (exit 1) tiene la sua issue, altrimenti
+  // la fix avrebbe barattato il rumore con il silenzio.
+  it('exit 1 (real per-crawler commit failure) still files its own issue', () => {
+    const realFailureDir = writeFixtureCommitScript(1);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: realFailureDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(stdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(exitCode).not.toBe(0);
+  });
+
+  it('crawl succeeds, commit/push succeeds -> background step exits zero and no failure report fires', () => {
+    const okCommitDir = writeFixtureCommitScript(0);
+    const crawler = crawlerFixture({ commitCommand: okCommitDir });
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('crawl fails -> background step exits non-zero, commit step never runs, failure report fires', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(exitCode).not.toBe(0);
+    expect(stdout).toContain('REPORTED_FAILURE');
+  });
+
+  it('bounds the complete target work phase and keeps the failure reporter outside the timeout', () => {
+    const okCommitDir = writeFixtureCommitScript(0);
+    const crawler = {
+      ...crawlerFixture({ commitCommand: okCommitDir }),
+      targetTimeoutMinutes: 30,
+    };
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toContain('timeout --signal=TERM --kill-after=30s 30m bash -c');
+    expect(body.indexOf('timeout --signal=TERM')).toBeLessThan(body.indexOf('REPORTED_FAILURE'));
+    expect(body.indexOf('flock /tmp/crawler-group-git.lock')).toBeLessThan(body.indexOf('REPORTED_FAILURE'));
+    expect(body).toContain('outside timeout, only on target failure');
+
+    const { exitCode, stdout } = runBody(body);
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('derives both timed shell headers from one preamble source without changing either shell phase', () => {
+    const crawler = {
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 30,
+    };
+    const body = buildCrawlerShellBody(crawler);
+    const source = fs.readFileSync(
+      path.resolve(import.meta.dirname, '../scripts/generate-crawler-group-workflows.mjs'),
+      'utf8',
+    );
+
+    expect(source.match(/const CRAWLER_SHELL_PREAMBLE = Object\.freeze/g)).toHaveLength(1);
+    expect(source.match(/\['set -uo pipefail', 'set \+e', ''\]/g)).toHaveLength(1);
+    expect(source.match(/\[\.\.\.CRAWLER_SHELL_PREAMBLE\]/g)).toHaveLength(2);
+    expect(body.match(/set -uo pipefail\nset \+e\n/g)).toHaveLength(2);
+  });
+
+  it('fails closed on target timeout, reports it, and never reaches commit', () => {
+    const commitMarker = path.join(tmpDir, 'commit-ran');
+    const commitDir = fs.mkdtempSync(path.join(tmpDir, 'lib-timeout-'));
+    fs.writeFileSync(
+      path.join(commitDir, 'git-commit-data.sh'),
+      `#!/usr/bin/env bash\ntouch ${JSON.stringify(commitMarker)}\n`,
+      { mode: 0o755 },
+    );
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: commitDir })),
+      targetTimeoutMinutes: 30,
+    };
+    process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
+
+    expect(exitCode).toBe(124);
+    expect(normalizedStdout).toContain('target exceeded 30 minute wall timeout');
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Causa:** timeout del target dopo 30 minuti (exit 124).\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
+    expect(fs.existsSync(commitMarker)).toBe(false);
+  });
+
+  it('preserves exit 124 from a nested crawler timeout through the outer wrapper', () => {
+    const crawler = {
+      // The real crawler is a child command: model its timeout exit without
+      // terminating the generated wrapper shell before it can classify it.
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: "bash -c 'exit 124'" })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(124);
+    expect(stdout).toContain('nested timeout reached the target deadline (exit 124)');
+    expect(stdout).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
+  });
+
+  it('publishes 1, never 124, when an untimed crawler exits 124 on its own', () => {
+    // FU-2026-09-29-014: 124 is the timeout code. Without targetTimeoutMinutes
+    // the body has no deadline, so a crawler's own 124 must not reach the
+    // durable status as 124: the aggregate would print it as
+    // `target timeout (124)`. The launcher's watchdog marker cannot fire either,
+    // because it is written only when the worker published no status at all.
+    const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: "bash -c 'exit 124'" }));
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(body).not.toContain('timeout --signal=TERM');
+    expect(exitCode).toBe(1);
+    expect(stdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).not.toContain('nested timeout reached the target deadline');
+    expect(stdout).not.toContain('timeout del target');
+  });
+
+  it('keeps the generic failure description, title, and dedup workflow unchanged for non-timeout crashes', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'false' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
+
+    expect(exitCode).not.toBe(0);
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).not.toContain('**Causa:**');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
+  });
+
+  // ── OSSERVATORE CR-04b: l'exit del SOLO crawl ─────────────────────────────
+  //
+  // Se scatta: «Gruppo crawler: l'exit del solo crawl non viene più scritto —
+  // il gate di consegna torna cieco fra crawl fallito e consegna fallita».
+  // L'exit del corpo (`.status`) è 1 sia per un crawl fallito sia per un crawl
+  // riuscito il cui descrittore di commit è fallito: solo `.crawl-exit` li
+  // distingue per readMemberCrawlOutcomes nel finalizer.
+  describe('member crawl exit signal (CR-04b)', () => {
+    function runBodyWithCrawlExitFile(body: string, crawlExitFile: string | null) {
+      const env: NodeJS.ProcessEnv = { ...process.env };
+      delete env.CRAWLER_MEMBER_CRAWL_EXIT_FILE;
+      if (crawlExitFile !== null) env.CRAWLER_MEMBER_CRAWL_EXIT_FILE = crawlExitFile;
+      try {
+        const stdout = execFileSync('bash', ['-c', body], { encoding: 'utf8', env });
+        return { exitCode: 0, stdout };
+      } catch (err: any) {
+        return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+      }
+    }
+    const readCrawlExit = (file: string) => fs.readFileSync(file, 'utf8');
+
+    it('crawl exits 2 -> crawl-exit records 2, body exits 1', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ runCommand: "bash -c 'exit 2'", commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('2\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, deferred commit exits 1 -> crawl-exit records 0 while the body stays red', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(1) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, shared precondition exits 43 -> crawl-exit records 0, body keeps 43', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(43) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(43);
+    });
+
+    it('timed variant: the inner work phase records the crawl exit too', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }),
+        targetTimeoutMinutes: 30,
+      };
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('timed variant: a crawl killed by the target deadline records 124', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(0) }),
+        targetTimeoutMinutes: 30,
+      };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('124\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it('timed variant: a deadline after a finished crawl keeps the recorded crawl exit', () => {
+      // The crawl finished (0) and only the commit overran: that is a lost
+      // delivery, not a failed crawl, so the outer fallback must not turn it
+      // into 124. Modelled by a file the work phase already wrote.
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      fs.writeFileSync(crawlExitFile, '0\n');
+      const crawler = { ...crawlerFixture(), targetTimeoutMinutes: 30 };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it.each([
+      ['untimed', {}],
+      ['timed', { targetTimeoutMinutes: 30 }],
+    ])('%s body run by hand (variable unset) writes nothing and keeps its exit', (_label, extra) => {
+      const crawler = { ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }), ...extra };
+      const before = fs.readdirSync(tmpDir).sort();
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), null);
+
+      expect(exitCode).toBe(1);
+      expect(fs.readdirSync(tmpDir).sort()).toEqual(before);
+      expect(stdout).not.toContain('could not record the crawl exit');
+    });
+
+    it('an unwritable target warns but never changes the body exit', () => {
+      const crawlExitFile = path.join(tmpDir, 'missing-dir', 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(exitCode).toBe(0);
+      expect(stdout).toContain('could not record the crawl exit');
+      expect(fs.existsSync(crawlExitFile)).toBe(false);
+    });
+  });
+
+  it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
+    const crawler = {
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 340,
+    };
+    expect(() => buildCrawlerShellBody(crawler)).toThrow(/at or below the 320 minute target ceiling/);
+  });
+
+  it('rejects a target timeout that leaves no watchdog headroom', () => {
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 331,
+    })).toThrow(/at or below the 320 minute target ceiling/);
+  });
+
+  it('renders the validated timeout value and rejects malformed raw input', () => {
+    const normalizedBody = buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '030',
+    });
+
+    expect(normalizedBody).toContain('timeout --signal=TERM --kill-after=30s 30m bash -c');
+    expect(normalizedBody).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
+    expect(normalizedBody).not.toContain('030');
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '30m',
+    })).toThrow(/at or below the 320 minute target ceiling/);
+  });
+
+  it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
+    // This test does not call production code; it pins down, in isolation,
+    // why the pre-fix generated body was wrong, so a future refactor can't
+    // silently reintroduce the same shape. The old body's tail was
+    // equivalent to:
+    //   if [ "$crawler_exit" -eq 0 ]; then
+    //     flock ... -c '<commit>' || true      # exit code discarded here
+    //   fi
+    //   if [ "$crawler_exit" -ne 0 ]; then ... fi   # never sees commit failure
+    //   exit "$crawler_exit"                         # always 0 if crawl succeeded
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const oldStyleBody = [
+      'set -uo pipefail',
+      'true', // crawl
+      'crawler_exit=$?',
+      'if [ "$crawler_exit" -eq 0 ]; then',
+      `  flock /tmp/crawler-group-git.lock -c 'bash ${failingCommitDir}/git-commit-data.sh' || true`,
+      'fi',
+      'if [ "$crawler_exit" -ne 0 ]; then',
+      '  echo REPORTED_FAILURE',
+      'fi',
+      'exit "$crawler_exit"',
+    ].join('\n');
+
+    const { exitCode, stdout } = runBody(oldStyleBody);
+
+    // This is the bug: despite the commit genuinely failing, the old body
+    // reports success and never fires the failure report.
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('handles the real corpus shape where the commit step is named "Commit updated data" (avaloq/livingcircle), not "Commit and push"', () => {
+    // Regression guard for a second defect found while fixing the first:
+    // detecting the commit step by literal step name alone misses the
+    // "Commit updated data" variant used by a couple of real crawlers,
+    // silently reintroducing the same swallowed-failure bug for them.
+    const failingCommitDir = writeFixtureCommitScript(1);
+    const crawler = {
+      slug: 'avaloq-like',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [
+        { name: 'Commit updated data', env: {}, run: `bash ${failingCommitDir}/git-commit-data.sh` },
+        { name: 'Report failure to GitHub Issues', if: 'failure()', env: {}, run: 'echo REPORTED_FAILURE' },
+      ],
+    };
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toContain('git_commit_exit=$?');
+
+    const { exitCode, stdout } = runBody(body);
+    expect(exitCode, 'background step must exit non-zero when the "Commit updated data" step fails').not.toBe(0);
+    expect(stdout).toContain('REPORTED_FAILURE');
+  });
+
+  // GitHub Actions invokes `run:` steps as `bash -e {0}` (errexit ON) — a
+  // real run's log line confirms `shell: /usr/bin/bash -e {0}`. The tests
+  // above all use `runBody()`, which shells out via plain `bash -c` (no
+  // `-e`) — that never enables errexit, so it could not have caught the
+  // actual root cause of zero "Crawler Failure" issues being filed despite
+  // ~160 real overnight failures post-#3701. These two tests specifically
+  // invoke the body the way GitHub Actions really does (`bash -e <file>`)
+  // to prove the `set +e` fix, and to pin down the defect it closes.
+  function runBodyStrict(body: string): { exitCode: number; stdout: string } {
+    const scriptPath = path.join(tmpDir, 'body.sh');
+    fs.writeFileSync(scriptPath, body);
+    try {
+      const stdout = execFileSync('bash', ['-e', scriptPath], { encoding: 'utf8' });
+      return { exitCode: 0, stdout };
+    } catch (err: any) {
+      return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+    }
+  }
+
+  it('crawl fails -> under real bash -e invocation (GitHub Actions default), the fix still reaches the failure-report gate', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toMatch(/^set -uo pipefail\nset \+e\n/);
+
+    const { exitCode, stdout } = runBodyStrict(body);
+
+    expect(exitCode, 'background step must exit non-zero when the crawl fails').not.toBe(0);
+    expect(stdout, 'failure-report step must fire even under real bash -e semantics').toContain('REPORTED_FAILURE');
+  });
+
+  it('documents the defect: WITHOUT `set +e`, the same body aborts before crawler_exit is even captured under bash -e — the actual overnight root cause', () => {
+    const crawler = crawlerFixture({ runCommand: 'false' });
+    const body = buildCrawlerShellBody(crawler);
+    // Reconstruct the exact pre-fix shape by stripping the injected `set +e`
+    // line from the real generator output, rather than hand-building a
+    // parallel body that could drift from what the generator actually emits.
+    const oldStyleBody = body.replace(/^set \+e\n/m, '');
+    expect(oldStyleBody).not.toContain('set +e');
+
+    const { stdout } = runBodyStrict(oldStyleBody);
+
+    // Under real bash -e, the crawl command's own non-zero exit aborts the
+    // script immediately: `crawler_exit=$?` is never reached, so the
+    // failure-report gate never fires. This is the mechanism that silenced
+    // ~160 "Crawler Failure" issues overnight post-#3701.
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+});
+
+describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
+  it('does not pass RUNNER_TRACKING_ID to either detached launcher branch', () => {
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'tracking-isolated',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 1);
+
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path"');
+    expect(body).toContain('env -u RUNNER_TRACKING_ID nohup bash "$launcher_path"');
+  });
+
+  it('bounds active crawler bodies with a per-group semaphore and records a lost worker', () => {
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'bounded-crawler',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 2);
+
+    expect(body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+    expect(body).toContain('worker_watchdog_max=330');
+    expect(body).toContain('[ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]');
+    expect(body).toContain('for slot_index in $(seq 1 "$max_parallel"); do');
+    expect(body).toContain('flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
+    expect(body).toContain('timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"');
+    expect(body).toContain('started_file="$RUNNER_TEMP/crawler-generation/group-02/bounded-crawler.started"');
+    expect(body).toContain('terminal_exit=143');
+  });
+
+  it('derives a bounded worker watchdog from the target override or duration baseline', () => {
+    expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 60 })).toBe(70);
+    expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
+    expect(crawlerWorkerWatchdogMinutes({ durationMs: 60 * 60 * 1000 })).toBe(180);
+    expect(crawlerWorkerWatchdogMinutes({ durationMs: 0 })).toBe(330);
+  });
+});
+
+describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader)', () => {
+  // Real launcher -> worker -> body chain, read back by the finalizer's own
+  // reader. flock/setsid/timeout are shimmed so this runs on macOS too: the
+  // semaphore and the watchdog are not what is under test, the file key and
+  // its contents are.
+  function launchMember(runCommand: string, commitExit: number) {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-crawl-exit-'));
+    const bin = path.join(temp, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'flock'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == -* ]]; do shift; done',
+      'shift',
+      'if [ "${1:-}" = "-c" ]; then exec bash -c "$2"; fi',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'setsid'), '#!/usr/bin/env bash\nexec "$@"\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'timeout'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == --* ]]; do shift; done',
+      'shift',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const lib = path.join(temp, 'lib');
+    fs.mkdirSync(lib);
+    fs.writeFileSync(path.join(lib, 'git-commit-data.sh'), `#!/usr/bin/env bash\nexit ${commitExit}\n`, { mode: 0o755 });
+    // Slug and roster id differ on purpose (the group-07 `guess` /
+    // `guess-europe` shape): the file must be keyed by the roster id.
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'acme',
+      durationMs: 60_000,
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'acme-europe' }, run: runCommand },
+      postSteps: [
+        { name: 'Commit and push', env: {}, run: `bash ${lib}/git-commit-data.sh` },
+      ],
+    } as any, 15);
+    execFileSync('bash', ['-e', '-c', body], {
+      env: { ...process.env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      encoding: 'utf8',
+    });
+    const stateDir = memberCrawlStateDir(temp, '15');
+    const statusFile = path.join(stateDir, 'acme.status');
+    const deadline = Date.now() + 20_000;
+    while (!fs.existsSync(statusFile) && Date.now() < deadline) execFileSync('sleep', ['0.1']);
+    return { temp, stateDir, statusFile };
+  }
+
+  it('failed crawl: status 1, crawl-exit keyed by the roster id, reader says crawl_failed', () => {
+    const { temp, stateDir, statusFile } = launchMember("bash -c 'exit 2'", 0);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.crawl-exit'), 'utf8')).toBe('2\n');
+      expect(fs.existsSync(path.join(stateDir, 'acme.crawl-exit'))).toBe(false);
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_failed' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('crawl fine, commit descriptor failed: status 1 but reader says crawl_ok (delivery loss stays visible)', () => {
+    const { temp, stateDir, statusFile } = launchMember('true', 1);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('every committed corpus group exports one crawl-exit file per expected roster crawler', () => {
+    const corpusDir = path.resolve(import.meta.dirname, '../.github/corpus-workflows');
+    const files = fs.readdirSync(corpusDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
+    expect(files.length).toBeGreaterThan(0);
+    for (const file of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(corpusDir, file), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const finalizer = job.steps.find((step: any) => step.id === 'crawler-generation-finalizer');
+      expect(finalizer, file).toBeDefined();
+      const group = finalizer.env.CRAWLER_GENERATION_GROUP;
+      const expected = JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)
+        .map((entry: any) => entry.crawlerId).sort();
+      const exported = crawlerLaunchSteps(job.steps).map((step: any) => {
+        const match = String(step.run).match(
+          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="\\$RUNNER_TEMP/crawler-generation/group-${group}/([^"/]+)\\.crawl-exit"`),
+        );
+        return match?.[1] ?? null;
+      }).sort();
+      expect(exported, file).toEqual(expected);
+    }
+  });
+});
+
+describe('crawler group outcome isolation', () => {
+  it('fails the group only after all member outcomes have been aggregated', () => {
+    const body = buildCrawlerAggregateFailureGateShellBody();
+    const run = (values: Record<string, string>) => {
+      try {
+        execFileSync('bash', ['-e', '-c', body], {
+          env: { ...process.env, ...values },
+          encoding: 'utf8',
+        });
+        return 0;
+      } catch (error: any) {
+        return error.status ?? 1;
+      }
+    };
+
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '3',
+      CRAWLER_AGGREGATE_FAILURES: '0',
+      CRAWLER_AGGREGATE_MISSING: '0',
+      CRAWLER_AGGREGATE_SYSTEMIC: '1',
+    })).not.toBe(0);
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '3',
+      CRAWLER_AGGREGATE_FAILURES: '0',
+      CRAWLER_AGGREGATE_MISSING: '0',
+      CRAWLER_AGGREGATE_SYSTEMIC: '0',
+    })).toBe(0);
+    expect(run({
+      CRAWLER_AGGREGATE_OUTCOME: 'success',
+      CRAWLER_AGGREGATE_SUCCESS: '2',
+      CRAWLER_AGGREGATE_FAILURES: '1',
+      CRAWLER_AGGREGATE_MISSING: '0',
+    })).not.toBe(0);
+  });
+
+  it('counts exit 143 as systemic instead of a failed crawler', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-143-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-01');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'shutdown-crawler.status'), '143\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody([{ slug: 'shutdown-crawler' }], 1)], {
+        env: {
+          ...process.env,
+          RUNNER_TEMP: temp,
+          GITHUB_OUTPUT: output,
+          GITHUB_STEP_SUMMARY: summary,
+        },
+        encoding: 'utf8',
+      });
+
+      expect(fs.readFileSync(output, 'utf8')).toContain('failure_count=0');
+      expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=1');
+      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=failure');
+      expect(fs.readFileSync(summary, 'utf8')).toContain('systemic runner shutdown (143)');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps exit 124 as an actionable target-timeout failure', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-124-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'timed-out-crawler.status'), '124\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody([{ slug: 'timed-out-crawler' }], 23)], {
+        env: {
+          ...process.env,
+          RUNNER_TEMP: temp,
+          GITHUB_OUTPUT: output,
+          GITHUB_STEP_SUMMARY: summary,
+        },
+        encoding: 'utf8',
+      });
+
+      expect(fs.readFileSync(output, 'utf8')).toContain('failure_count=1');
+      expect(fs.readFileSync(output, 'utf8')).toContain('systemic_count=0');
+      expect(fs.readFileSync(output, 'utf8')).toContain('wait_outcome=failure');
+      expect(fs.readFileSync(summary, 'utf8')).toContain('target timeout (124)');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('watchdog kill visibility (exit 124 without the in-script reporter)', () => {
+  // sbb (gruppo 15) è stato ucciso dal watchdog di 91 minuti in tre
+  // generazioni di fila senza una sola issue: il reporter per-crawler vive
+  // nello script che il watchdog uccide. Il launcher lascia un marker, il
+  // passo aggregato apre/aggiorna la issue con lo stesso titolo stabile.
+  const hasFlock = (() => {
+    try { execFileSync('bash', ['-c', 'command -v flock && command -v setsid'], { stdio: 'ignore' }); return true; } catch { return false; }
+  })();
+
+  function launchAndWait(runCommand: string, env: Record<string, string> = {}, extra: Record<string, unknown> = {}) {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-watchdog-'));
+    const bin = path.join(temp, 'bin');
+    fs.mkdirSync(bin);
+    // timeout(1) stand-in: run the command in its own process group and stop
+    // the whole group after N/20 seconds for an N minute budget, so an inner
+    // target timeout still expires before the outer watchdog. It answers
+    // FAKE_TIMEOUT_EXIT: 124 (SIGTERM was enough) or 137 (escalated to SIGKILL
+    // after --kill-after).
+    fs.writeFileSync(path.join(bin, 'timeout'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == --* ]]; do shift; done',
+      'minutes="${1%m}"; shift',
+      'setsid "$@" &',
+      'child=$!',
+      'for _ in $(seq 1 $(( minutes / 2 ))); do',
+      '  if ! kill -0 "$child" 2>/dev/null; then wait "$child"; exit $?; fi',
+      '  sleep 0.1',
+      'done',
+      'signal=TERM; if [ "${FAKE_TIMEOUT_EXIT:-124}" = "137" ]; then signal=KILL; fi',
+      'kill -"$signal" -- "-$child" 2>/dev/null || kill -"$signal" "$child" 2>/dev/null',
+      'wait "$child" 2>/dev/null',
+      'exit "${FAKE_TIMEOUT_EXIT:-124}"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'slow-crawler',
+      durationMs: 30 * 60 * 1000,
+      runStep: { env: {}, run: runCommand },
+      postSteps: [],
+      ...extra,
+    } as any, 15);
+    execFileSync('bash', ['-e', '-c', body], {
+      env: { ...process.env, ...env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      encoding: 'utf8',
+    });
+    const stateDir = path.join(temp, 'crawler-generation', 'group-15');
+    const statusFile = path.join(stateDir, 'slow-crawler.status');
+    const deadline = Date.now() + 20_000;
+    while (!fs.existsSync(statusFile) && Date.now() < deadline) {
+      execFileSync('sleep', ['0.2']);
+    }
+    return { temp, stateDir, statusFile };
+  }
+
+  it.skipIf(!hasFlock)('marks a worker the watchdog killed before it published a status', () => {
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', { CRAWLER_WORKER_TIMEOUT_MINUTES: '20' });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('124');
+      expect(fs.readFileSync(path.join(stateDir, 'slow-crawler.watchdog'), 'utf8').trim()).toBe('20');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.skipIf(!hasFlock)('marks a worker the watchdog had to SIGKILL after --kill-after (137)', () => {
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', {
+      CRAWLER_WORKER_TIMEOUT_MINUTES: '20',
+      FAKE_TIMEOUT_EXIT: '137',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('137');
+      expect(fs.readFileSync(path.join(stateDir, 'slow-crawler.watchdog'), 'utf8').trim()).toBe('20');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.skipIf(!hasFlock)('leaves no marker when the inner target timeout escalated to SIGKILL (already reported)', () => {
+    // targetTimeoutMinutes 30: the inner timeout (1.5 s here) kills the crawl
+    // with 137, the script's own reporter path runs and the worker publishes
+    // status 1 before the 40 minute watchdog (2 s here) would fire.
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', { FAKE_TIMEOUT_EXIT: '137' }, { targetTimeoutMinutes: 30 });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(fs.existsSync(path.join(stateDir, 'slow-crawler.watchdog'))).toBe(false);
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.skipIf(!hasFlock)('leaves no marker when the crawler published its own 124 (target timeout already reported)', () => {
+    // Only an explicit targetTimeoutMinutes keeps the crawler's own 124 (its
+    // reporter runs outside the inner timeout); otherwise the script exits 1.
+    const { temp, stateDir, statusFile } = launchAndWait("bash -c 'exit 124'", {}, { targetTimeoutMinutes: 30 });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('124');
+      expect(fs.existsSync(path.join(stateDir, 'slow-crawler.watchdog'))).toBe(false);
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  function runAggregate({ status, marker, nodeExit = 0 }: { status: string, marker?: string, nodeExit?: number }) {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-watchdog-'));
+    const bin = path.join(temp, 'bin');
+    fs.mkdirSync(bin);
+    const calls = path.join(temp, 'node-calls.jsonl');
+    fs.writeFileSync(path.join(bin, 'node'), [
+      '#!/usr/bin/env bash',
+      `printf '%s\\0' "$@" >> ${JSON.stringify(calls)}`,
+      `printf '\\036' >> ${JSON.stringify(calls)}`,
+      `exit ${nodeExit}`,
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const stateDir = path.join(temp, 'crawler-generation', 'group-15');
+    fs.mkdirSync(stateDir, { recursive: true });
+    fs.writeFileSync(path.join(stateDir, 'sbb.status'), `${status}\n`);
+    if (marker) fs.writeFileSync(path.join(stateDir, 'sbb.watchdog'), `${marker}\n`);
+    const output = path.join(temp, 'output.txt');
+    const summary = path.join(temp, 'summary.md');
+    const stdout = execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody([{ slug: 'sbb' }] as any, 15)], {
+      env: {
+        ...process.env,
+        PATH: `${bin}:${process.env.PATH ?? ''}`,
+        RUNNER_TEMP: temp,
+        GITHUB_OUTPUT: output,
+        GITHUB_STEP_SUMMARY: summary,
+        GITHUB_REPOSITORY: 'owner/corpus',
+        GITHUB_RUN_ID: '36927458310',
+        GITHUB_REF_NAME: 'main',
+        GITHUB_EVENT_NAME: 'workflow_dispatch',
+      },
+      encoding: 'utf8',
+    });
+    const argv = fs.existsSync(calls)
+      ? fs.readFileSync(calls, 'utf8').split('\x1e').filter(Boolean).map((record) => record.split('\0').filter(Boolean))
+      : [];
+    const result = { stdout, argv, output: fs.readFileSync(output, 'utf8') };
+    fs.rmSync(temp, { recursive: true, force: true });
+    return result;
+  }
+
+  it('files the per-crawler issue from the aggregate with the reporter\'s stable title', () => {
+    const { stdout, argv, output } = runAggregate({ status: '124', marker: '91' });
+
+    expect(argv).toHaveLength(1);
+    const args = argv[0];
+    expect(args[0]).toBe('scripts/lib/github-issue-creator.mjs');
+    expect(args[args.indexOf('--title') + 1]).toBe('Crawler Failure: Run sbb');
+    expect(args[args.indexOf('--workflow') + 1]).toBe('Run sbb');
+    expect(args[args.indexOf('--priority') + 1]).toBe('2');
+    expect(args[args.indexOf('--label') + 1]).toBe('Bug');
+    expect(args[args.indexOf('--description') + 1]).toBe([
+      '## Crawler fallito',
+      '**Causa:** il watchdog del worker ha fermato il crawler dopo 91 minuti (exit 124), prima che potesse segnalare il fallimento.',
+      '**Run:** https://github.com/owner/corpus/actions/runs/36927458310',
+      '**Branch:** main',
+      '**Trigger:** workflow_dispatch',
+    ].join('\n'));
+    expect(stdout).toContain('::error::sbb: the worker watchdog stopped the crawler after 91 minutes');
+    expect(output).toContain('failure_count=1');
+    expect(output).toContain('wait_outcome=failure');
+  });
+
+  it('files a SIGKILL watchdog stop (137) with its real exit code', () => {
+    const { argv } = runAggregate({ status: '137', marker: '91' });
+    expect(argv).toHaveLength(1);
+    expect(argv[0][argv[0].indexOf('--title') + 1]).toBe('Crawler Failure: Run sbb');
+    expect(argv[0][argv[0].indexOf('--description') + 1])
+      .toContain('**Causa:** il watchdog del worker ha fermato il crawler dopo 91 minuti (exit 137), prima che potesse segnalare il fallimento.');
+  });
+
+  it('does not file for a 137 without the watchdog marker', () => {
+    expect(runAggregate({ status: '137' }).argv).toHaveLength(0);
+  });
+
+  it('does not file again for a 124 the crawler reported itself', () => {
+    expect(runAggregate({ status: '124' }).argv).toHaveLength(0);
+  });
+
+  it('never files for other statuses, even with a stale marker', () => {
+    expect(runAggregate({ status: '1', marker: '91' }).argv).toHaveLength(0);
+    expect(runAggregate({ status: '0', marker: '91' }).argv).toHaveLength(0);
+  });
+
+  it('files from the quarantine aggregate too, as the in-script reporter would have', () => {
+    const body = buildCrawlerAggregateShellBody([{ slug: 'sbb' }] as any, 15, { quarantine: { tolerated: new Map() } } as any);
+    expect(body).toContain('### Crawler group 15 outcome (quarantine group)');
+    expect(body).toContain('watchdog_status="$(cat "$state_dir/sbb.status" 2>/dev/null || true)"');
+    expect(body).toContain('if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then');
+    expect(body).toContain("node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sbb'");
+  });
+
+  it('keeps the aggregate green when the issue cannot be filed', () => {
+    const { stdout, argv, output } = runAggregate({ status: '124', marker: '91', nodeExit: 1 });
+    expect(argv).toHaveLength(1);
+    expect(stdout).toContain('::warning::sbb: the watchdog-timeout issue could not be filed');
+    expect(output).toContain('wait_outcome=failure');
+  });
+});
+
+describe('push-contention class (exit 42) in generated steps', () => {
+  it('skips the per-crawler issue and keeps the step green for contention losses, everything else unchanged', () => {
+    const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) {
+      const y = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
+      // the failure-report gate must exclude 42...
+      expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
+      // ...and the contention branch must log loudly instead of filing an issue
+      expect(y).toContain('push contention loss (exit 42)');
+      // A global lease convoy is a separate retryable systemic class.
+      expect(y).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(y).toContain('global data-pipeline lease busy (exit 44)');
+      // real failures still fail the step (the plain exit 1 path survives)
+      expect(y).toContain('exit 1');
+    }
+  });
+});
+
+describe('#9667 — token-bound retry class on the group-batch commit step', () => {
+  it('retries exit 42/44 in the same generation and fails closed after the bounded budget', () => {
+    const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const commitStep = job.steps.find((step: any) => step.name === 'Commit crawler group data atomically');
+      expect(commitStep).toBeDefined();
+      // the exit code must be captured (not left to the bare `bash -e {0}` default)...
+      expect(commitStep.run).toContain('git_commit_exit=$?');
+      // ...42 must be handled explicitly and retried without creating a
+      // green run whose receipt never reached main...
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 42 ]');
+      expect(commitStep.run).toContain('exit 0');
+      expect(commitStep.run).toContain('commit_max_attempts=3');
+      expect(commitStep.run).toContain('retrying the same generation');
+      expect(commitStep.run).toContain('same-generation retry budget exhausted');
+      // ...as must the cross-repository lease convoy (exit 44), while the
+      // exhausted retryable branch still propagates the non-zero status.
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(commitStep.run).toContain('retryable commit exit $git_commit_exit');
+      expect(commitStep.run).toContain('exit "$git_commit_exit"');
+    }
+  });
+});
+
+describe('#6380 — one atomic commit per crawler group', () => {
+  it('defers every successful crawler commit and joins them before finalization', () => {
+    const workflowsDir = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(workflowsDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
+    expect(files).toHaveLength(GROUP_COUNT);
+
+    for (const file of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(workflowsDir, file), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      expect(job.env.CRAWLER_GROUP_COMMIT_DIR).toBe('crawler-generation/commit-batch');
+      const launchers = crawlerLaunchSteps(job.steps);
+      const results = crawlerResultSteps(job.steps);
+      expect(launchers.length).toBeGreaterThan(0);
+      expect(results).toHaveLength(launchers.length);
+      for (const step of launchers) {
+        expect(step.if).toBe("always() && steps.crawler_group_setup.outcome == 'success'");
+        expect(step['continue-on-error']).toBe(true);
+        expect(step.run).toContain('CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock');
+      }
+      for (const step of results) {
+        expect(step.if).toBe('always()');
+        expect(step['continue-on-error']).toBe(true);
+      }
+      const setup = job.steps.find((step: any) => step.id === 'crawler_group_setup');
+      expect(setup).toMatchObject({
+        name: 'Confirm crawler shared setup succeeded',
+        run: 'true',
+      });
+      const aggregate = job.steps.find((step: any) => step.name === 'Aggregate crawler outcomes');
+      expect(aggregate).toMatchObject({
+        if: 'always()',
+        'continue-on-error': true,
+      });
+      expect(aggregate.run).toContain('no terminal status was published');
+      expect(aggregate.run).toContain('Summary:');
+      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(CRAWLER_GROUP_MAX_PARALLEL));
+
+      const batchIndexes = job.steps
+        .map((step, index) => ({ step, index }))
+        .filter(({ step }) => step.name === 'Commit crawler group data atomically');
+      expect(batchIndexes).toHaveLength(1);
+      expect(batchIndexes[0].index).toBeGreaterThan(Math.max(...results.map((step) => job.steps.indexOf(step))));
+      expect(batchIndexes[0].step.if).toBe("always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'");
+      expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
+      const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
+      if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);
+      const finalizerIndex = job.steps.findIndex((step) => step.name === 'Finalize crawler generation manifest (shadow)');
+      expect(finalizerIndex).toBeGreaterThan(Math.max(batchIndexes[0].index, cleanupIndex));
+      const aggregateGate = job.steps.find((step: any) => step.name === 'Fail crawler group after all member outcomes');
+      expect(aggregateGate).toMatchObject({ if: 'always()' });
+      expect(aggregateGate.env).toMatchObject({
+        CRAWLER_AGGREGATE_OUTCOME: "\${{ steps.crawler_aggregate.outcome }}",
+      });
+      expect(aggregateGate.run).toContain('healthy siblings were preserved');
+      expect(job.steps.indexOf(aggregateGate)).toBeGreaterThan(finalizerIndex);
+      const ledgerIndex = job.steps.findIndex((step) => step.name === 'Persist crawler generation ledger');
+      const uploadIndex = job.steps.findIndex((step) => step.name === 'Upload crawler generation manifest (shadow)');
+      expect(ledgerIndex).toBeGreaterThan(finalizerIndex);
+      expect(uploadIndex).toBeGreaterThan(ledgerIndex);
+    }
+  });
+});
+
+describe('#6381 — crawler AI cache lives outside git', () => {
+  it('restores and saves one runner cache namespace per generated crawler group', () => {
+    const artifacts = [
+      '.github/workflows/crawler-group-01.yml',
+      '.github/workflows/crawler-group-01-logic.yml',
+      '.github/corpus-workflows/crawler-group-01.yml',
+    ];
+
+    for (const relativePath of artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.resolve(import.meta.dirname, '..', relativePath), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      expect(job.env.AI_CACHE_PATH).toBe('.cache/jobs-ai-cache.json');
+
+      const restore = job.steps.find((step: any) => step.name === 'Restore crawler AI cache');
+      expect(restore).toMatchObject({ uses: 'actions/cache/restore@v6', 'continue-on-error': true });
+      expect(restore.with.path).toBe('.cache/jobs-ai-cache.json');
+      expect(restore.with.key).toContain('jobs-ai-cache-v1-crawler-group-01-');
+      expect(restore.with['restore-keys']).toContain('jobs-ai-cache-v1-crawler-group-01-');
+
+      const save = job.steps.find((step: any) => step.name === 'Save crawler AI cache');
+      expect(save).toMatchObject({ uses: 'actions/cache/save@v6', 'continue-on-error': true });
+      expect(save.with.path).toBe('.cache/jobs-ai-cache.json');
+      expect(save.with.key).toBe(restore.with.key);
+      expect(save.if).toContain("hashFiles('.cache/jobs-ai-cache.json')");
+    }
+  });
+});
+
+describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
+  const ROOT = path.resolve(import.meta.dirname, '..');
+
+  it('keeps the budget in the manifest and renders it in all three owned group-18 artifacts only', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const bounded = manifest.filter((crawler: any) => crawler.targetTimeoutMinutes != null);
+    expect(bounded.map((crawler: any) => ({ slug: crawler.slug, minutes: crawler.targetTimeoutMinutes }))).toEqual([
+      { slug: 'apleona-schweiz-ag', minutes: 60 },
+      { slug: 'fachkraft', minutes: 150 },
+    ]);
+
+    const artifacts = [
+      '.github/workflows/crawler-group-18.yml',
+      '.github/workflows/crawler-group-18-logic.yml',
+      '.github/corpus-workflows/crawler-group-18.yml',
+    ];
+    for (const relativePath of artifacts) {
+      const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(text.match(/timeout --signal=TERM --kill-after=30s 60m bash -c/g)).toHaveLength(1);
+      expect(text).toContain('Run apleona-schweiz-ag');
+      expect(text).toContain('outside timeout, only on target failure');
+      expect(text).toContain('**Causa:** timeout del target dopo 60 minuti (exit 124).');
+    }
+
+    // The groups that own a bounded crawler come from the pins: fachkraft sits in
+    // the quarantine group today and returns to group 23 when the quarantine
+    // review (scripts/crawler-quarantine-review.mjs) moves it back.
+    const pins = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const ownerGroups = new Set(bounded.map((crawler: any) =>
+      String(pins.groups.findIndex((group: string[]) => group.includes(crawler.slug)) + 1).padStart(2, '0')));
+    const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
+      .filter((file) => /^crawler-group-\d+(?:-logic)?\.yml$/.test(file))
+      .filter((file) => !ownerGroups.has(/^crawler-group-(\d+)/.exec(file)![1]));
+    for (const file of otherGroups) {
+      expect(fs.readFileSync(path.join(ROOT, '.github/workflows', file), 'utf8')).not.toContain('target wall timeout');
+    }
+  });
+
+  // fachkraft non ha una riga nel baseline delle durate (2026-07-06): il
+  // watchdog cadeva sulla mediana del corpus ×3 = 74 min, mentre il crawl di
+  // ~3000 annunci finisce dopo ~75 min e l'housekeeping lo seguiva. Il
+  // 2026-09-23 il worker è stato ucciso con exit 124 a crawl completato.
+  it('gives fachkraft an explicit 150 minute target and a 160 minute worker watchdog in its group', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const fachkraft = manifest.find((crawler: any) => crawler.slug === 'fachkraft');
+    expect(crawlerWorkerWatchdogMinutes(fachkraft)).toBe(160);
+    const pins = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const nn = String(pins.groups.findIndex((group: string[]) => group.includes('fachkraft')) + 1).padStart(2, '0');
+    expect(nn).not.toBe('00');
+
+    for (const relativePath of [
+      `.github/workflows/crawler-group-${nn}.yml`,
+      `.github/workflows/crawler-group-${nn}-logic.yml`,
+      `.github/corpus-workflows/crawler-group-${nn}.yml`,
+    ]) {
+      const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
+      expect(text).toContain('# ---- fachkraft: 150 minute target wall timeout ----');
+      expect(text).toContain('**Causa:** timeout del target dopo 150 minuti (exit 124).');
+      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"');
+    }
+  });
+});
+
+describe('real-corpus invariant: every active manifest crawler in exactly one committed crawler-group-*.yml', () => {
+  // Guards the COMMITTED OUTPUT, not just packGroups() in isolation (which
+  // the tests above already cover with synthetic data). generate() throws if
+  // its own in-memory packGroups() result mismatches its input crawlers, but
+  // that check never runs against what actually landed on disk — a
+  // regeneration that silently skipped a file write, a stale file left over
+  // from a previous manifest, or a manual edit to a crawler-group-*.yml would
+  // all pass that in-memory check while still breaking the real invariant
+  // (follow-up of #6320: a 22-file rebalance was verified only 5/5 on the new
+  // entries, not against the full committed corpus). Extracts each group's
+  // background-step crawler slugs the same way the generator names them
+  // (`id: crawler-<slug>`) and diffs the union against
+  // the active slugs in data/crawler-manifest.json. Retired crawlers remain in
+  // the manifest for route/data continuity, but the generator deliberately
+  // removes them from the scheduled corpus (data/crawler-quarantine.json).
+  it('active data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
+    const REPO_ROOT = path.resolve(import.meta.dirname, '..');
+    const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const manifestSlugs = manifest.map((c) => c.slug).filter((slug) => !retiredSlugs.has(slug));
+
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+
+    const occurrences = new Map<string, string[]>(); // slug -> file names it was found in
+    for (const f of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
+      const jobKey = Object.keys(doc.jobs)[0];
+      const steps = doc.jobs[jobKey].steps;
+      for (const step of crawlerLaunchSteps(steps)) {
+        const match = /^crawler-launch-(.+)$/.exec(step.id ?? '');
+        expect(match, `crawler launch step in ${f} has no 'crawler-launch-<slug>' id: ${JSON.stringify(step.id)}`).not.toBeNull();
+        const slug = match[1];
+        const list = occurrences.get(slug) ?? [];
+        list.push(f);
+        occurrences.set(slug, list);
+      }
+    }
+
+    const missing = manifestSlugs.filter((slug) => !occurrences.has(slug));
+    expect(missing, `crawlers in manifest but absent from every crawler-group-*.yml: ${missing.join(', ')}`).toEqual([]);
+
+    const duplicated = [...occurrences.entries()].filter(([, files]) => files.length > 1);
+    expect(duplicated, `crawlers present in more than one group: ${duplicated.map(([slug, files]) => `${slug} in [${files.join(', ')}]`).join('; ')}`).toEqual([]);
+
+    const manifestSlugSet = new Set(manifestSlugs);
+    const extraneous = [...occurrences.keys()].filter((slug) => !manifestSlugSet.has(slug));
+    expect(extraneous, `crawlers in group workflows but absent from active data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+
+    const retiredScheduled = [...occurrences.keys()].filter((slug) => retiredSlugs.has(slug));
+    expect(retiredScheduled, `retired crawlers must not be scheduled: ${retiredScheduled.join(', ')}`).toEqual([]);
+  });
+});
+
+/**
+ * ---------------------------------------------------------------------------
+ * #6482 — the committed .yml ARE the generator's output, and a one-crawler
+ * change costs one file.
+ * ---------------------------------------------------------------------------
+ *
+ * The describe above proves the MEMBERSHIP SET matches the manifest. That is
+ * strictly weaker than "the committed files are what the generator produces":
+ * every hand-edit that keeps the slug list intact — a tweaked step body, a
+ * stale install flag, a dropped env var, a `name:` that no longer matches the
+ * member count — passes it. Worked example, live:
+ *
+ *   - PR #6484 removed a crawler from the manifest and hand-edited
+ *     crawler-group-10.yml to match, precisely BECAUSE re-running the
+ *     generator rewrote all 24 files.
+ *
+ * That was not detectable by the suite afterwards. These tests close the gap
+ * from both ends: the output must be reproducible byte-for-byte, and
+ * reproducing it after a single manifest edit must stay proportional to the
+ * edit — otherwise the next person hand-edits again and the drift is back.
+ */
+describe('#6482 — committed crawler-group-*.yml are byte-identical to the generator output', () => {
+  const REPO_ROOT = path.resolve(import.meta.dirname, '..');
+  const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+  const MANIFEST_PATH = path.join(REPO_ROOT, 'data/crawler-manifest.json');
+  const BASELINE_PATH = path.join(REPO_ROOT, 'data/crawler-workflow-duration-baseline.json');
+  const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
+  const QUARANTINE_PATH = path.join(REPO_ROOT, 'data/crawler-quarantine.json');
+
+  const groupFiles = () =>
+    fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+
+  let tmp: string;
+  beforeEach(() => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-groups-sync-'));
+  });
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  /**
+   * Regenerate into a scratch dir, never touching the repo's own
+   * .github/workflows or pin file.
+   *
+   * The scratch dir is SEEDED with the committed files first, because that is
+   * what a real run overwrites — and the generator carries each file's manual
+   * preamble across the overwrite. Generating into an empty dir would compare
+   * a first-ever generation against an incrementally-maintained tree.
+   *
+   * `write: true` matters too: the checkout-profile pass (applyProfilesToFile)
+   * reads the file back off disk, so a dry run does not produce the bytes that
+   * actually get committed.
+   */
+  function regenerate(manifestOverride?: (doc: any) => void) {
+    const outDir = path.join(tmp, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+    for (const f of groupFiles()) fs.copyFileSync(path.join(WORKFLOWS_DIR, f), path.join(outDir, f));
+
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const assignmentsPath = path.join(tmp, 'assignments.json');
+    const doc = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    manifestOverride?.(doc);
+    fs.writeFileSync(manifestPath, JSON.stringify(doc));
+    fs.copyFileSync(ASSIGNMENTS_PATH, assignmentsPath);
+
+    // The manifest is a scratch copy, so the committed quarantine registry has
+    // to be named: it belongs to the committed manifest by default.
+    generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, quarantinePath: QUARANTINE_PATH, write: true });
+    return { outDir, assignmentsPath };
+  }
+
+  function changedFiles(outDir: string): string[] {
+    const committed = groupFiles();
+    const produced = fs.readdirSync(outDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+    const changed: string[] = [];
+    for (const f of new Set([...committed, ...produced])) {
+      const a = committed.includes(f) ? fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8') : null;
+      const b = produced.includes(f) ? fs.readFileSync(path.join(outDir, f), 'utf8') : null;
+      if (a !== b) changed.push(f);
+    }
+    return changed.sort();
+  }
+
+  function crawlerCloneWithIdentity(proto: any, slug: string) {
+    const crawler = JSON.parse(JSON.stringify(proto));
+    crawler.slug = slug;
+    crawler.file = `update-jobs-${slug}.yml`;
+    for (const step of [crawler.runStep, ...crawler.postSteps]) {
+      if (!step.env) continue;
+      if (Object.prototype.hasOwnProperty.call(step.env, 'JOBS_HOUSEKEEPING_SCOPE')) {
+        step.env.JOBS_HOUSEKEEPING_SCOPE = slug;
+      }
+      if (Object.prototype.hasOwnProperty.call(step.env, 'JOBS_SLICE_FILE')) {
+        step.env.JOBS_SLICE_FILE = `data/jobs/by-crawler/${slug}.json`;
+      }
+    }
+    return crawler;
+  }
+
+  it('re-running the generator on the committed manifest+baseline+pins is a no-op', () => {
+    const { outDir } = regenerate();
+
+    const produced = fs.readdirSync(outDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+    expect(produced, 'the generator no longer emits the same set of group files that is committed').toEqual(groupFiles());
+
+    for (const f of produced) {
+      const committedText = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
+      const producedText = fs.readFileSync(path.join(outDir, f), 'utf8');
+      expect(
+        producedText === committedText,
+        `${f} differs from what scripts/generate-crawler-group-workflows.mjs produces.\n` +
+          `Either it was hand-edited, or the manifest/pins changed and nobody regenerated.\n` +
+          `Fix: node scripts/generate-crawler-group-workflows.mjs (then commit BOTH the .yml and data/crawler-group-assignments.json).\n` +
+          `If the .yml is the correct state and the pins are the stale side: node scripts/generate-crawler-group-workflows.mjs --bootstrap-from-workflows`,
+      ).toBe(true);
+    }
+  }, 30_000);
+
+  it('every manifest crawler is pinned, exactly once', () => {
+    // NOT asserted: "no stale pin". A pin whose crawler left the manifest is
+    // inert — assignGroupsStable drops it, and the next generator run prunes it
+    // from the file. Requiring its absence would make this test red on main
+    // purely as a function of MERGE ORDER: a concurrent PR that removes a
+    // crawler (#6484 is exactly that) does not know this pin file exists.
+    // What must hold is the other direction, which is not self-healing: an
+    // unpinned crawler would get assigned to an arbitrary group on the next
+    // run, and a doubly-pinned one would run twice in one job.
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const pinned = pins.groups.flat();
+
+    expect(pins.groupCount).toBe(pins.groups.length);
+    const dupes = pinned.filter((s: string, i: number) => pinned.indexOf(s) !== i);
+    expect(dupes, `pinned to more than one group: ${dupes.join(', ')}`).toEqual([]);
+
+    const pinnedSet = new Set(pinned);
+    // A retired crawler (data/crawler-quarantine.json) stays in the manifest but
+    // is deliberately unscheduled.
+    const retired = new Set(Object.keys(JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8')).retired ?? {}));
+    const unpinned = manifest.map((c: any) => c.slug).filter((s: string) => !pinnedSet.has(s) && !retired.has(s));
+    expect(
+      unpinned,
+      `in data/crawler-manifest.json but not pinned in data/crawler-group-assignments.json: ${unpinned.join(', ')}. ` +
+        'Fix: node scripts/generate-crawler-group-workflows.mjs',
+    ).toEqual([]);
+  });
+
+  it('the pins and the committed .yml describe the same assignment, in the same order', () => {
+    // The pins and the .yml are two renderings of one decision; comparing them
+    // directly is what makes a hand-edit to a .yml legible as such. Restricted
+    // to crawlers still in the manifest, for the stale-pin reason above.
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const live = new Set(manifest.map((c: any) => c.slug));
+    const expected = pins.groups.map((g: string[]) => g.filter((s) => live.has(s)));
+    expect(extractAssignmentsFromWorkflows(WORKFLOWS_DIR)).toEqual(expected);
+  });
+
+  it('keeps the quarantine group equal to its registry, and new crawlers out of it', () => {
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const registry = JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8'));
+    const generated = generate({
+      outDir: WORKFLOWS_DIR,
+      assignmentsPath: ASSIGNMENTS_PATH,
+      write: false,
+    });
+    const quarantineGroup = pins.groups[registry.group - 1];
+
+    // Every member has an entry and every entry is pinned there: which crawler
+    // sits in the quarantine group is data/crawler-quarantine.json, and the
+    // review (scripts/crawler-quarantine-review.mjs) moves both together.
+    expect([...quarantineGroup].sort()).toEqual(Object.keys(registry.members).sort());
+    expect(generated[registry.group - 1].members).toEqual(quarantineGroup);
+    for (const slug of Object.keys(registry.retired ?? {})) {
+      expect(pins.groups.flat()).not.toContain(slug);
+    }
+  });
+
+  it('removing ONE crawler from the manifest rewrites ONE group file, not all 24', () => {
+    // The exact regression: on the global bin-pack, dropping
+    // `eoc-candidati-posizioni` moved 14 crawlers out of crawler-group-02 and
+    // 14 different ones in, and rewrote all 24 files (~5000 lines) — i.e. it
+    // silently changed which crawler runs in which window in production.
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const victim = manifest[Math.floor(manifest.length / 2)].slug;
+
+    const { outDir } = regenerate((doc) => {
+      doc.manifest = doc.manifest.filter((c: any) => c.slug !== victim);
+    });
+
+    const changed = changedFiles(outDir);
+    expect(
+      changed.length,
+      `removing '${victim}' rewrote ${changed.length} files (${changed.join(', ')}); ` +
+        'the assignment is being re-derived globally again instead of read from the pins',
+    ).toBe(1);
+  });
+
+  it('adding ONE crawler to the manifest rewrites ONE group file, not all 24', () => {
+    const { outDir } = regenerate((doc) => {
+      doc.manifest.push(crawlerCloneWithIdentity(doc.manifest[0], 'zz-sync-test-crawler'));
+      doc.manifest.sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+    });
+
+    const changed = changedFiles(outDir);
+    expect(
+      changed.length,
+      `adding one crawler rewrote ${changed.length} files (${changed.join(', ')})`,
+    ).toBe(1);
+  });
+
+  it('two crawlers added in either order land on the same assignment', () => {
+    // Order-independence is what makes the pin file mergeable: two agents
+    // promoting one crawler each must not produce two different corpora.
+    const add = (doc: any, slugs: string[]) => {
+      for (const slug of slugs) doc.manifest.push(crawlerCloneWithIdentity(doc.manifest[0], slug));
+    };
+    const a = regenerate((doc) => add(doc, ['zz-alpha-crawler', 'zz-beta-crawler']));
+    const b = regenerate((doc) => add(doc, ['zz-beta-crawler', 'zz-alpha-crawler']));
+    expect(JSON.parse(fs.readFileSync(a.assignmentsPath, 'utf8')).groups).toEqual(
+      JSON.parse(fs.readFileSync(b.assignmentsPath, 'utf8')).groups,
+    );
+    // Two full regenerations, not one: each costs ~7.2s on the CI runner (run
+    // 36103442471: the single-regeneration siblings above took 7168/7184ms,
+    // this case 15667ms against the 15s default). Same budget as the
+    // byte-identical regeneration case above; the assertion is unchanged.
+  }, 30_000);
+
+  it('refuses a pin file whose groupCount does not match GROUP_COUNT, instead of silently truncating/padding it', () => {
+    // A foreign/stale pin file with a different groups.length would otherwise
+    // be reshaped by Array.from({ length: GROUP_COUNT }, ...) — truncating
+    // excess groups (their crawlers reappearing as `added`) or padding with
+    // empty ones, with no visible error. #6513 item 2.
+    const outDir = path.join(tmp, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+    for (const f of groupFiles()) fs.copyFileSync(path.join(WORKFLOWS_DIR, f), path.join(outDir, f));
+
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const assignmentsPath = path.join(tmp, 'assignments.json');
+    fs.copyFileSync(MANIFEST_PATH, manifestPath);
+
+    const foreign = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    foreign.groupCount = foreign.groups.length + 1;
+    foreign.groups.push(['stray-crawler']);
+    fs.writeFileSync(assignmentsPath, JSON.stringify(foreign));
+
+    expect(() =>
+      generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, write: true }),
+    ).toThrow(/groupCount=\d+, expected \d+/);
+  });
+
+});
+
+describe('#6482 — extractManualPreamble', () => {
+  const MARKER = '# AUTO-GENERATED by scripts/generate-crawler-group-workflows.mjs — DO NOT EDIT BY HAND.\n';
+
+  it('carries over a leading comment block', () => {
+    expect(extractManualPreamble(`# note\n# more\n#\n${MARKER}name: x\n`)).toBe('# note\n# more\n#\n');
+  });
+
+  it('returns nothing when the file already starts at the marker', () => {
+    expect(extractManualPreamble(`${MARKER}name: x\n`)).toBe('');
+  });
+
+  it('refuses to carry over anything that is not purely comments — a body edit is not a preamble', () => {
+    expect(extractManualPreamble(`name: sneaky\n${MARKER}name: x\n`)).toBe('');
+  });
+
+  it('returns nothing for a file with no marker at all', () => {
+    expect(extractManualPreamble('# just a comment\nname: x\n')).toBe('');
+  });
+});
+
+describe('#6482 — assignGroupsStable', () => {
+  const median = 1_000_000;
+  const crawler = (slug: string, durationMs = median) => ({ slug, durationMs });
+
+  it('keeps a pinned crawler in its group AND at its position', () => {
+    const crawlers = [crawler('a'), crawler('b'), crawler('c')];
+    const { groups } = assignGroupsStable(crawlers, [['c', 'a'], ['b']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['c', 'a'], ['b']]);
+  });
+
+  it('drops a pin whose crawler left the manifest, without touching the other group', () => {
+    const crawlers = [crawler('a'), crawler('b')];
+    const { groups, removed } = assignGroupsStable(crawlers, [['a', 'gone'], ['b']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a'], ['b']]);
+    expect(removed).toEqual(['gone']);
+  });
+
+  it('appends an unpinned crawler to the group with the fewest members', () => {
+    const crawlers = [crawler('a'), crawler('b'), crawler('c'), crawler('new')];
+    const { groups, added } = assignGroupsStable(crawlers, [['a', 'b'], ['c']], median);
+    expect(added).toEqual(['new']);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], ['c', 'new']]);
+  });
+
+  it('never grows a group reserved for a single duration outlier', () => {
+    // crawler-group-01 exists to hold Coop alone: everything bundled with it
+    // would pay its ~160min wall-clock for nothing.
+    const crawlers = [crawler('coop', median * 8), crawler('a'), crawler('new')];
+    const { groups } = assignGroupsStable(crawlers, [['coop'], ['a']], median);
+    expect(groups[0].members.map((m) => m.slug)).toEqual(['coop']);
+    expect(groups[1].members.map((m) => m.slug)).toEqual(['a', 'new']);
+  });
+
+  it('keeps a slug pinned twice only once — a duplicate would race two commits on one file', () => {
+    const crawlers = [crawler('a'), crawler('b')];
+    const { groups, duplicatesDiscarded } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], []]);
+    expect(duplicatesDiscarded).toEqual(['a']);
+  });
+
+  it('refuses to place a new crawler when every group is reserved for an outlier, instead of silently growing one', () => {
+    const crawlers = [crawler('coop', median * 8), crawler('walmart', median * 8), crawler('new')];
+    expect(() => assignGroupsStable(crawlers, [['coop'], ['walmart']], median)).toThrow(
+      /every group is reserved/,
+    );
+  });
+});
+
+describe('cross-repo crawler execution artifacts', () => {
+  const repoRoot = path.resolve(import.meta.dirname, '..');
+  const workflowsDir = path.join(repoRoot, '.github/workflows');
+  const assignmentsPath = path.join(repoRoot, 'data/crawler-group-assignments.json');
+  let tmp = '';
+
+  beforeEach(() => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-cross-repo-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  function generateArtifacts() {
+    const groupResults = generate({
+      outDir: workflowsDir,
+      assignmentsPath,
+      write: false,
+    });
+    const outDir = path.join(tmp, 'workflows');
+    const contractPath = path.join(tmp, 'crawler-cross-repo-contract.json');
+    // The committed portable artifacts are an observation of an explicit site
+    // revision.  Keep this fixture comparison on that same pin instead of
+    // letting CI's pull_request merge ref silently produce a different
+    // sourceRef/sourceCommit on every run.
+    const committedContract = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'),
+    );
+    const result = generateCrossRepoExecutionArtifacts({
+      groupResults,
+      outDir,
+      contractPath,
+      sourceRef: committedContract.sourceRef,
+      sourceCommit: committedContract.sourceCommit,
+    });
+    return { ...result, outDir, contractPath };
+  }
+
+  it('lega i 24 job completi *-logic.yml alla stessa sorgente del generatore', () => {
+    const { contract } = generateArtifacts();
+    const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
+    const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'));
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const currentCrawlerCount = manifest.manifest.filter((crawler: any) => !retiredSlugs.has(crawler.slug)).length;
+
+    expect(groups).toHaveLength(GROUP_COUNT);
+    expect(contract.crawlerCount).toBe(currentCrawlerCount);
+    expect(groups.flatMap((artifact: any) => artifact.members)).toHaveLength(currentCrawlerCount);
+    expect(new Set(groups.flatMap((artifact: any) => artifact.members)).size).toBe(currentCrawlerCount);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('pubblica soltanto runtime path del sito esistenti e fallisce su un typo citato', () => {
+    const { contract, outDir } = generateArtifacts();
+    const contents = [
+      ...contract.artifacts.map((artifact: any) =>
+        fs.readFileSync(path.join(outDir, artifact.file), 'utf8')),
+      ...contract.observers
+        .filter((observer: any) => /\.ya?ml$/.test(observer.source))
+        .map((observer: any) => fs.readFileSync(path.join(outDir, observer.source), 'utf8')),
+    ];
+    const citedRuntimePaths = [...new Set(contents.flatMap((content: string) =>
+      [...content.matchAll(/\b(?:scripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)|functions\/src\/githubApiHeaders\.js)\b/g)]
+        .map((match) => match[0]),
+    ))].filter((runtimePath) => !CORPUS_OBSERVER_FILES.some(
+      ({ target }) => target === runtimePath,
+    )).sort();
+    expect(contract.siteRuntimePaths).toEqual(collectSiteRuntimePaths(contents));
+    expect(contract.siteRuntimePaths).toEqual(citedRuntimePaths);
+    expect(contract.siteRuntimePaths.length).toBeGreaterThan(0);
+    expect(contract.siteRuntimePaths).toContain('functions/src/githubApiHeaders.js');
+    expect(() => collectSiteRuntimePaths([
+      ...contents,
+      'run: node scripts/typo-nonexistent.mjs\n',
+    ])).toThrow(/missing site runtime path.*scripts\/typo-nonexistent\.mjs/);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
+    const { contract, outDir } = generateArtifacts();
+    const importClosure = collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs');
+    // Only code is hash-bound. A data file reached by a static JSON import
+    // (data/canton-municipalities.json through target-swiss-locations, since
+    // #10145) is materialized by the `/*` bucket checkout instead: it must not
+    // fall in an excluded bucket, or the finalizer dies with ERR_MODULE_NOT_FOUND.
+    const isHashBoundRuntimePath = (runtimePath: string) =>
+      runtimePath.startsWith('scripts/') || runtimePath === 'functions/src/githubApiHeaders.js';
+    const expectedClosure = [
+      ...importClosure.filter(isHashBoundRuntimePath),
+      // The generated workflow also executes git-commit-data.sh, whose
+      // cross-repository serialization helper is a deliberate runtime path
+      // even though it is not imported by the finalizer.
+      'scripts/lib/global-data-pipeline-lease.mjs',
+    ].sort();
+    expect(expectedClosure).not.toContain('scripts/ci/crawler-generation-roster.json');
+    const excludedFromCheckout = crossRepoCrawlerSparsePatterns()
+      .filter((pattern) => pattern.startsWith('!/'))
+      .map((pattern) => pattern.slice(2));
+    for (const dataPath of importClosure.filter((runtimePath) => !isHashBoundRuntimePath(runtimePath))) {
+      const excluded = excludedFromCheckout.some((prefix) =>
+        dataPath === prefix || (prefix.endsWith('/') && dataPath.startsWith(prefix)));
+      expect(excluded, `${dataPath} is imported by the finalizer but excluded from the crawler checkout`).toBe(false);
+    }
+
+    for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
+      const content = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      const declaredClosure = [...content.matchAll(/^# - ((?:scripts\/[A-Za-z0-9._/-]+|functions\/src\/githubApiHeaders\.js))$/gm)]
+        .map((match) => match[1]);
+      expect(declaredClosure, artifact.file).toEqual(expectedClosure);
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('dichiara gli input runtime in ogni forma del workflow e usa il contesto portabile', () => {
+    const generatedArtifacts = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const [generated] = generatedArtifacts;
+    const generatedDoc = YAML.parse(generated.content);
+    const expectedInputs = ['timeout_ms', 'strict_localization'];
+    for (const input of expectedInputs) {
+      expect(generatedDoc.on.workflow_dispatch.inputs[input], input).toMatchObject({
+        required: false,
+        type: 'string',
+      });
+    }
+    expect(generatedDoc.on.workflow_dispatch.inputs.strict_localization.default).toBe('');
+    expect(generatedDoc.on.workflow_dispatch.inputs.scan_start_id).toBeUndefined();
+
+    const generatedArmani = generatedArtifacts.find((artifact: any) => artifact.groupIndex === 12);
+    expect(generatedArmani).toBeDefined();
+    const generatedArmaniDoc = YAML.parse(generatedArmani.content);
+    expect(generatedArmaniDoc.on.workflow_dispatch.inputs.scan_start_id).toMatchObject({
+      required: false,
+      type: 'string',
+    });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    for (const input of expectedInputs) {
+      expect(logicDoc.on.workflow_call.inputs[input], `workflow_call.${input}`).toMatchObject({
+        required: false,
+        type: 'string',
+      });
+    }
+    expect(logicDoc.on.workflow_call.inputs.strict_localization.default).toBe('');
+    expect(logicDoc.on.workflow_call.inputs.scan_start_id).toBeUndefined();
+
+    const armaniLogicPath = path.join(workflowsDir, 'crawler-group-12-logic.yml');
+    const armaniLogicDoc = YAML.parse(fs.readFileSync(armaniLogicPath, 'utf8'));
+    expect(armaniLogicDoc.on.workflow_call.inputs.scan_start_id).toMatchObject({
+      required: false,
+      type: 'string',
+    });
+
+    const stepValues = [
+      ...Object.values(generatedArmaniDoc.jobs)[0].steps,
+      ...Object.values(armaniLogicDoc.jobs)[0].steps,
+    ]
+      .filter((step: any) => step.id?.startsWith('crawler-launch-'))
+      .flatMap((step: any) => Object.values(step.env ?? {}))
+      .filter((value: any): value is string => typeof value === 'string');
+    expect(stepValues.some((value) => value.includes('github.event.inputs.'))).toBe(false);
+    expect(stepValues.some((value) => value.includes('inputs.timeout_ms'))).toBe(true);
+    expect(stepValues.some((value) => value.includes('inputs.strict_localization'))).toBe(true);
+    expect(stepValues.some((value) => value.includes('inputs.scan_start_id'))).toBe(true);
+    const armaniStep = Object.values(armaniLogicDoc.jobs)[0].steps
+      .find((step: any) => step.id === 'crawler-launch-giorgio-armani');
+    expect(armaniStep.env.JOBS_GIORGIO_ARMANI_STRICT).toBe("${{ inputs.strict_localization || '0' }}");
+  });
+
+  it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logic = fs.readFileSync(logicPath, 'utf8').replace('node-version: "22"', 'node-version: "20"');
+    expect(() => assertCrawlerLogicParity(generated.content, logic, path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+
+    const checkoutDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const checkoutJob: any = Object.values(checkoutDoc.jobs)[0];
+    checkoutJob.steps.find((step: any) => step.uses === 'actions/checkout@v7').if = 'always()';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(checkoutDoc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+  });
+
+  it('rifiuta campi futuri non normalizzati sui crawler launch step', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const doc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const job: any = Object.values(doc.jobs)[0];
+    job.steps.find((step: any) => step.id?.startsWith('crawler-launch-')).if = 'always()';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(doc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+  });
+
+  it('rifiuta campi futuri non dichiarati a livello job e workflow', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const jobDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const job: any = Object.values(jobDoc.jobs)[0];
+    job.strategy = { 'fail-fast': false };
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(jobDoc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+
+    const workflowDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    workflowDoc.defaults = { run: { shell: 'bash' } };
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(workflowDoc), path.basename(logicPath)))
+      .toThrow(/undeclared top-level workflow metadata/);
+  });
+
+  it('rifiuta righe extra nei bootstrap RC/PAT e metadata trigger annidati', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const source = fs.readFileSync(logicPath, 'utf8');
+
+    const rcDoc = YAML.parse(source);
+    const rcJob: any = Object.values(rcDoc.jobs)[0];
+    rcJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config').run += '\necho unexpected';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(rcDoc), path.basename(logicPath)))
+      .toThrow(/complete allowed form/);
+
+    const patDoc = YAML.parse(source);
+    const patJob: any = Object.values(patDoc.jobs)[0];
+    patJob.steps.find((step: any) => step.name?.startsWith('Bootstrap write auth')).run += '\necho unexpected';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(patDoc), path.basename(logicPath)))
+      .toThrow(/write-auth bootstrap/);
+
+    const triggerDoc = YAML.parse(source);
+    triggerDoc.on.workflow_call.unexpected = true;
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(triggerDoc), path.basename(logicPath)))
+      .toThrow(/workflow_call inputs\/secrets/);
+  });
+
+  it('ignora l’ordine delle chiavi nei mapping YAML del contratto', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logicDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const logicJob: any = Object.values(logicDoc.jobs)[0];
+    const rcStep = logicJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config');
+    const reorderedRcStep = Object.fromEntries(Object.entries(rcStep).reverse());
+    logicJob.steps = logicJob.steps.map((step: any) => step === rcStep ? reorderedRcStep : step);
+
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(logicDoc), path.basename(logicPath)))
+      .not.toThrow();
+  });
+
+  it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
+    const bucketsPath = path.join(tmp, 'checkout-buckets.json');
+    fs.writeFileSync(bucketsPath, JSON.stringify({
+      buckets: [
+        { id: 'public/images/', mb: 4_409 },
+        { id: 'data/translation-cache/', mb: 190 },
+        { id: 'data/future-crawler-input/', mb: 900 },
+      ],
+    }));
+    const patterns = crossRepoCrawlerSparsePatterns({ bucketsPath });
+    expect(patterns).toContain('!/public/images/');
+    expect(patterns).toContain('!/data/translation-cache/');
+    expect(patterns).not.toContain('!/data/future-crawler-input/');
+  });
+
+  it('gli artifact portabili committati includono hash del transformer e sono la sorgente del corpus', () => {
+    const { contract, outDir, contractPath } = generateArtifacts();
+    const portableDir = path.join(repoRoot, '.github/corpus-workflows');
+    for (const artifact of contract.artifacts) {
+      expect(fs.readFileSync(path.join(portableDir, artifact.file), 'utf8'))
+        .toBe(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+    }
+    expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
+      .toBe(fs.readFileSync(contractPath, 'utf8'));
+    expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(contract.sourceCommit).toMatch(/^[a-f0-9]{40}$/);
+    expect(contract.sourceRef).toBeTruthy();
+    expect(contract.artifactObservation).toEqual({
+      generatorSha256: contract.generatorSha256,
+      sourceRef: contract.sourceRef,
+      sourceCommit: contract.sourceCommit,
+    });
+    expect(contract.artifacts.every((artifact: any) => artifact.generatorSha256 === contract.generatorSha256)).toBe(true);
+    expect(contract.observerCount).toBe(CORPUS_OBSERVER_FILES.length);
+    expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
+      .toEqual(CORPUS_OBSERVER_FILES);
+    for (const observer of contract.observers) {
+      expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
+        .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
+    }
+  }, 60_000);
+
+  it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
+    expect(resolveCrawlerContractSource({
+      sourceCommit: 'a'.repeat(40),
+      sourceRef: 'main',
+    })).toEqual({ sourceCommit: 'a'.repeat(40), sourceRef: 'main' });
+    expect(() => resolveCrawlerContractSource({ sourceCommit: 'main', sourceRef: 'main' }))
+      .toThrow(/40-character source commit SHA/);
+  });
+
+  it('il contratto committato non indica mai il merge sintetico di una pull request', () => {
+    const onMain = { sourceCommit: 'a'.repeat(40), sourceRef: 'main' };
+    expect(assertCommittedContractSource(onMain, {})).toEqual(onMain);
+    for (const sourceRef of ['11227/merge', 'refs/pull/11227/merge', 'pull/11227/head', '42/head']) {
+      expect(() => assertCommittedContractSource({ ...onMain, sourceRef }, {}))
+        .toThrow(/is a pull request ref, not a branch/);
+    }
+    // In un evento pull_request GITHUB_SHA e' il merge sintetico
+    // `refs/pull/<N>/merge`: senza CRAWLER_SOURCE_COMMIT esplicito non puo'
+    // diventare la lineage che il corpus rilegge.
+    const pullRequestEnv = { GITHUB_EVENT_NAME: 'pull_request', GITHUB_SHA: 'b'.repeat(40) };
+    expect(() => assertCommittedContractSource({ sourceCommit: 'b'.repeat(40), sourceRef: 'main' }, pullRequestEnv))
+      .toThrow(/synthetic merge commit of a pull_request run/);
+    expect(assertCommittedContractSource(
+      { sourceCommit: 'b'.repeat(40), sourceRef: 'main' },
+      { ...pullRequestEnv, CRAWLER_SOURCE_COMMIT: 'b'.repeat(40) },
+    )).toEqual({ sourceCommit: 'b'.repeat(40), sourceRef: 'main' });
+    // Osservatore sul file committato, che il trasporto copia nel corpus byte
+    // per byte: la PR 11227 vi aveva scritto `11227/merge`.
+    const committed = JSON.parse(fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'));
+    expect(() => assertCommittedContractSource({ sourceCommit: committed.sourceCommit, sourceRef: committed.sourceRef }, {}))
+      .not.toThrow();
+    expect(() => assertCommittedContractSource({
+      sourceCommit: committed.artifactObservation.sourceCommit,
+      sourceRef: committed.artifactObservation.sourceRef,
+    }, {})).not.toThrow();
+  });
+
+  it('add/remove arriva al corpus eseguito e una nuova data lascia baseline allineate byte-identiche', () => {
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const baselinePath = path.join(repoRoot, 'data/crawler-workflow-duration-baseline.json');
+    const pinsPath = path.join(tmp, 'assignments.json');
+    const localDir = path.join(tmp, 'local');
+    const logicDir = path.join(tmp, 'logic');
+    const portableDir = path.join(tmp, 'portable');
+    const contractPath = path.join(portableDir, 'contract.json');
+    const corpusRoot = path.join(tmp, 'corpus');
+    const corpusManifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const sourceManifest = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'),
+    );
+    const target = sourceManifest.manifest[0].slug;
+    fs.mkdirSync(localDir, { recursive: true });
+    fs.mkdirSync(path.dirname(corpusManifestPath), { recursive: true });
+    fs.writeFileSync(corpusManifestPath, JSON.stringify({
+      files: [
+        ...CRAWLER_WORKFLOW_FILES.map((file) => ({
+          path: `.github/workflows/${file}`,
+          sitePath: `.github/corpus-workflows/${file}`,
+          mode: 'identical',
+          baseline: {},
+        })),
+        {
+          path: 'generator/data/crawler-cross-repo-contract.json',
+          sitePath: '.github/corpus-workflows/contract.json',
+          mode: 'identical',
+          baseline: {},
+        },
+      ],
+    }));
+    fs.copyFileSync(assignmentsPath, pinsPath);
+
+    const render = (doc: any) => {
+      fs.writeFileSync(manifestPath, JSON.stringify(doc));
+      const groups = generate({
+        manifestPath,
+        baselinePath,
+        assignmentsPath: pinsPath,
+        outDir: localDir,
+        write: true,
+      });
+      generateCrawlerLogicArtifacts({ groupResults: groups, workflowsDir: logicDir });
+      const generated = generateCrossRepoExecutionArtifacts({
+        groupResults: groups,
+        workflowsDir: logicDir,
+        outDir: portableDir,
+        contractPath,
+      });
+      prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-08-31' });
+      return generated;
+    };
+    const countInLogic = () => fs.readdirSync(logicDir)
+      .filter((file) => /-logic\.yml$/.test(file))
+      .map((file) => fs.readFileSync(path.join(logicDir, file), 'utf8'))
+      .filter((text) => text.includes(`id: crawler-${target}\n`)).length;
+
+    const without = structuredClone(sourceManifest);
+    without.manifest = without.manifest.filter((crawler: any) => crawler.slug !== target);
+    const removed = render(without);
+    expect(countInLogic()).toBe(0);
+    expect(removed.contract.artifacts.flatMap((artifact: any) => artifact.members)).not.toContain(target);
+
+    const couplingSnapshot = [
+      { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+    ];
+    const manifestWithCoupling = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
+    const coupledObserver = manifestWithCoupling.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    ));
+    coupledObserver.couplingSnapshot = couplingSnapshot;
+    fs.writeFileSync(corpusManifestPath, `${JSON.stringify(manifestWithCoupling, null, 2)}\n`);
+
+    const added = render(sourceManifest);
+    expect(countInLogic()).toBe(1);
+    expect(added.contract.artifacts.flatMap((artifact: any) => artifact.members)
+      .filter((slug: string) => slug === target)).toHaveLength(1);
+    const executedDir = path.join(corpusRoot, '.github/workflows');
+    const executed = fs.readdirSync(executedDir)
+      .filter((file) => /^crawler-group-/.test(file))
+      .map((file) => fs.readFileSync(path.join(executedDir, file), 'utf8'))
+      .filter((text) => text.includes(`id: crawler-launch-${target}\n`));
+    expect(executed).toHaveLength(1);
+    for (const observer of CORPUS_OBSERVER_FILES) {
+      expect(fs.readFileSync(path.join(corpusRoot, observer.target), 'utf8'))
+        .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
+    }
+    const transportedManifest = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
+    expect(transportedManifest.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    )).couplingSnapshot).toEqual(couplingSnapshot);
+    const baselines = transportedManifest.files.map((entry: any) => entry.baseline);
+    expect(baselines).toHaveLength(CRAWLER_WORKFLOW_FILES.length + CORPUS_OBSERVER_FILES.length + 1);
+    expect(baselines.every((baseline: any) => baseline.site === baseline.corpus && baseline.site.length === 16))
+      .toBe(true);
+    const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
+    prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-09-01' });
+    expect(fs.readFileSync(corpusManifestPath, 'utf8')).toBe(stableManifest);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('converge il transport adattato del translate in identical dopo il fix sorgente', () => {
+    const { outDir, contractPath } = generateArtifacts();
+    fs.copyFileSync(contractPath, path.join(outDir, 'contract.json'));
+    const corpusRoot = path.join(tmp, 'adapted-corpus');
+    const manifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const baseManifest = {
+      files: [
+        {
+          path: '.github/workflows/translate-pending.yml',
+          sitePath: '.github/corpus-workflows/translate-pending.yml',
+          mode: 'adapted',
+          reason: 'temporary corpus-only lease removal for issue #1314',
+          baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+        },
+        {
+          path: 'generator/data/crawler-cross-repo-contract.json',
+          sitePath: '.github/corpus-workflows/contract.json',
+          mode: 'adapted',
+          reason: 'temporary contract divergence for issue #1314',
+          baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+        },
+      ],
+    };
+    fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+    fs.writeFileSync(manifestPath, `${JSON.stringify(baseManifest, null, 2)}\n`);
+
+    prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot, alignedAt: '2026-09-17' });
+
+    const currentManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    for (const sitePath of [
+      '.github/corpus-workflows/translate-pending.yml',
+      '.github/corpus-workflows/contract.json',
+    ]) {
+      const entry = currentManifest.files.find((candidate: any) => candidate.sitePath === sitePath);
+      expect(entry?.mode).toBe('identical');
+      expect(entry).not.toHaveProperty('reason');
+    }
+    expect(() => assertCrawlerManifestDelta({
+      baseManifest,
+      currentManifest,
+    })).not.toThrow();
+  }, 30_000);
+
+  it('accetta il reason storico sul contratto già identical senza allargare il transport', () => {
+    const { outDir, contractPath } = generateArtifacts();
+    fs.copyFileSync(contractPath, path.join(outDir, 'contract.json'));
+    const corpusRoot = path.join(tmp, 'identical-contract-reason-corpus');
+    const manifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const baseManifest = {
+      files: [{
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        reason: 'Riallineato dopo una precedente divergenza adattata.',
+        baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-21' },
+      }],
+    };
+    fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+    fs.writeFileSync(manifestPath, `${JSON.stringify(baseManifest, null, 2)}\n`);
+
+    expect(() => prepareCrawlerWorkflowCorpusSync({
+      sourceDir: outDir,
+      corpusRoot,
+      alignedAt: '2026-09-21',
+    })).not.toThrow();
+
+    const currentManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const contractEntry = currentManifest.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/contract.json'
+    ));
+    expect(contractEntry).toMatchObject({
+      mode: 'identical',
+      reason: baseManifest.files[0].reason,
+    });
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest })).not.toThrow();
+  }, 30_000);
+
+  it('non consente la convergenza di un adattamento transport non approvato', () => {
+    const baseManifest: any = {
+      files: [{
+        path: '.github/workflows/crawler-group-01.yml',
+        sitePath: '.github/corpus-workflows/crawler-group-01.yml',
+        mode: 'adapted',
+        reason: 'unrelated adaptation',
+        baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-16' },
+      }],
+    };
+    const currentManifest = structuredClone(baseManifest);
+    currentManifest.files[0] = {
+      path: '.github/workflows/crawler-group-01.yml',
+      sitePath: '.github/corpus-workflows/crawler-group-01.yml',
+      mode: 'identical',
+      baseline: { site: 'new-site', corpus: 'new-site', alignedAt: '2026-09-17' },
+    };
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest }))
+      .toThrow(/owned crawler manifest entry missing or malformed/);
+  });
+
+  it('un artifact sorgente mancante fallisce prima di cancellare la destinazione', () => {
+    const { outDir } = generateArtifacts();
+    fs.renameSync(path.join(outDir, 'crawler-group-23.yml'), path.join(outDir, 'crawler-group-23.missing'));
+    const corpusRoot = path.join(tmp, 'truncated-corpus');
+    const sentinel = path.join(corpusRoot, '.github/workflows/crawler-group-23.yml');
+    fs.mkdirSync(path.dirname(sentinel), { recursive: true });
+    fs.writeFileSync(sentinel, 'sentinel\n');
+    expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
+      .toThrow(/required crawler transport input missing/);
+    expect(fs.readFileSync(sentinel, 'utf8')).toBe('sentinel\n');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('un observer sorgente mancante fallisce prima di sostituire il workflow corpus', () => {
+    const { outDir } = generateArtifacts();
+    const observer = CORPUS_OBSERVER_FILES.find(({ source }) => /\.ya?ml$/.test(source))!;
+    fs.renameSync(path.join(outDir, observer.source), path.join(outDir, `${observer.source}.missing`));
+    const corpusRoot = path.join(tmp, 'truncated-observer-corpus');
+    const destination = path.join(corpusRoot, observer.target);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, 'sentinel-workflow\n');
+    expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
+      .toThrow(/required crawler transport input missing/);
+    expect(fs.readFileSync(destination, 'utf8')).toBe('sentinel-workflow\n');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('rifiuta qualunque mutazione non-owned nel loop-sync manifest condiviso', () => {
+    const baseManifest: any = {
+      files: [
+        { path: 'generator/data/other.json', mode: 'corpus-only', reason: 'owned by corpus' },
+      ],
+      schemaVersion: 1,
+    };
+    const allowed = structuredClone(baseManifest);
+    allowed.files.push(
+      ...CRAWLER_WORKFLOW_FILES.map((file) => ({
+        path: `.github/workflows/${file}`,
+        sitePath: `.github/corpus-workflows/${file}`,
+        mode: 'identical',
+        baseline: { site: 'new', corpus: 'new', alignedAt: '2026-08-31' },
+      })),
+      ...CORPUS_OBSERVER_FILES.map(({ source, target }) => ({
+        path: target,
+        sitePath: `.github/corpus-workflows/${source}`,
+        mode: 'identical',
+        baseline: { site: 'new', corpus: 'new', alignedAt: '2026-08-31' },
+      })),
+      {
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        baseline: { site: 'new', corpus: 'new', alignedAt: '2026-08-31' },
+      },
+    );
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: allowed })).not.toThrow();
+
+    const withLegacyObserverDuplicate = structuredClone(allowed);
+    withLegacyObserverDuplicate.files.push({
+      path: '.github/workflows/observers/scripts/lib/canonical-json-digest.mjs',
+      sitePath: '.github/corpus-workflows/observers/scripts/lib/canonical-json-digest.mjs',
+      mode: 'identical',
+      baseline: { site: 'legacy', corpus: 'legacy', alignedAt: '2026-08-31' },
+    });
+    expect(() => assertCrawlerManifestDelta({
+      baseManifest: withLegacyObserverDuplicate,
+      currentManifest: allowed,
+    })).not.toThrow();
+
+    const withCouplingSnapshot = structuredClone(allowed);
+    const coupledObserver = withCouplingSnapshot.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs'
+    ));
+    coupledObserver.couplingSnapshot = [
+      { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+    ];
+    expect(() => assertCrawlerManifestDelta({ baseManifest: allowed, currentManifest: withCouplingSnapshot }))
+      .not.toThrow();
+
+    const contaminated = structuredClone(allowed);
+    contaminated.files[0].reason = 'silently changed by transport branch';
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: contaminated }))
+      .toThrow(/outside its owned baselines/);
+  });
+
+  it('non consente al vecchio one-shot di rigenerare il reusable workflow difettoso', () => {
+    const legacyPath = path.join(repoRoot, 'scripts/migrate-crawler-groups-to-reusable-workflow.mjs');
+    expect(() => execFileSync(process.execPath, [legacyPath], { encoding: 'utf8', stdio: 'pipe' }))
+      .toThrow(/retired migration: use generate-crawler-group-workflows\.mjs/);
+    expect(fs.readFileSync(legacyPath, 'utf8').split('\n').length).toBeLessThan(20);
+  });
+
+  it('genera 24 gruppi + translate senza reusable workflow o composite action cross-repo', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.artifactCount).toBe(GROUP_COUNT + 1);
+
+    for (const artifact of contract.artifacts) {
+      const text = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/workflows\//);
+      expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/actions\//);
+      expect(text).toContain('uses: ./.github/actions/');
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('documenta nel translate il confine di scrittura isolato senza lease Firestore', () => {
+    const { outDir } = generateArtifacts();
+    const translate = fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8');
+    expect(translate).toMatch(/isolated `--slice-only`/);
+    expect(translate).toMatch(/private index from the\s+# current `origin\/main`/);
+    expect(translate).toMatch(/3-way-merges touched JSON/);
+    expect(translate).toMatch(/retries the atomic ref push after contention/);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non applica il lease globale ai crawler e conserva il guard lease per gruppo', () => {
+    const groupResults = generate({
+      outDir: workflowsDir,
+      assignmentsPath,
+      write: false,
+    });
+
+    expect(groupResults).toHaveLength(GROUP_COUNT);
+    for (const result of groupResults) {
+      const workflow = YAML.parse(result.content);
+      const job = Object.values(workflow.jobs)[0] as any;
+      expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+    }
+    expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('confina il secret Codex all’action setup e lo rimuove dagli env dei processi', () => {
+    const { outDir } = generateArtifacts();
+    const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
+    const logic = YAML.parse(fs.readFileSync(path.join(workflowsDir, 'crawler-group-01-logic.yml'), 'utf8'));
+    const generatedSteps = Object.values(generated.jobs)[0].steps;
+    const crawlerSteps = crawlerLaunchSteps(generatedSteps);
+    const setupStep = generatedSteps.find(
+      (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
+    );
+
+    expect(setupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(setupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.AI_MODELS_PREFER === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+    const cleanupStep = generatedSteps.find((step: any) => step.name === 'Cleanup Codex auth broker');
+    expect(cleanupStep?.if).toBe('always()');
+    expect(cleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(cleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
+    expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
+    const logicSetupStep = Object.values(logic.jobs)[0].steps.find(
+      (step: any) => step.uses?.endsWith('/.github/actions/setup-claude-haiku-fallback@main'),
+    );
+    expect(logicSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(logicSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(Object.values(logic.jobs)[0].steps
+      .filter((step: any) => step.id?.startsWith('crawler-launch-'))
+      .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+        && step.env?.CODEX_AUTH_BROKER_SOCKET
+          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}'
+        && step.env?.AI_MODELS_PREFER === undefined
+        && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+
+    const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
+    expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
+
+    // translate-pending usa Codex come riserva dei tier a chiave nella cascata
+    // 2b (decisione del proprietario H7, 2026-10-05) e come ultimo tier delle
+    // fasi 2d/2e, dopo Argos (decisione del 2026-09-25): stesso confinamento
+    // del secret dei crawler, e il socket solo come output del broker.
+    // Dal 2026-10-07 lo usa anche la corsia titoli 2a.2 (PR 12158, poi 12179 e
+    // 12266): quarto consumatore, con lo stesso confinamento, verificato qui
+    // sotto per ogni passo del job.
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const translationSteps: any[] = translation.jobs.translate.steps;
+    const translationSetupStep = translationSteps.find(
+      (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
+    );
+    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    const translationStep = translationSteps.find(
+      (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
+    );
+    expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
+    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationStep.env.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
+    expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
+    const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      && step.name !== 'Cleanup Codex auth broker');
+    expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)',
+      'Phase 2b: Translate pending jobs (cascade top-up)',
+      'Phase 2d: Fix untranslated titles (free cascade)',
+      'Phase 2e: Fix untranslated descriptions (free cascade)',
+    ]);
+    expect(translationConsumers.every((step: any) => step.env.CODEX_AUTH_BROKER_SOCKET
+      === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
+    expect(translationSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+      && step.env?.AI_MODELS_PREFER === undefined
+      && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+    const translationCleanupStep = translationSteps.find(
+      (step: any) => step.name === 'Cleanup Codex auth broker',
+    );
+    expect(translationCleanupStep?.if).toBe('always()');
+    expect(translationCleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.siteRuntimePaths).toContain('scripts/ci/crawler-retry-cmd.sh');
+
+    for (const artifact of contract.artifacts) {
+      const text = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      const lines = text.split('\n');
+      expect(lines.filter((line) => /^\s*(run:\s*)?npm ci\b/.test(line)), artifact.file)
+        .toEqual([]);
+      expect(lines.filter((line) => (
+        !/^\s*#/.test(line.trim()) && /(^|[\s;&|])npx\s/.test(line) &&
+        !line.includes('crawler-retry-cmd.sh')
+      )), artifact.file).toEqual([]);
+      expect(text, artifact.file)
+        .toMatch(/run: bash scripts\/ci\/crawler-retry-cmd\.sh npm ci(?: --ignore-scripts)?/);
+
+      if (text.includes('playwright install --with-deps chromium')) {
+        expect(text, artifact.file).toContain(
+          'run: bash scripts/ci/crawler-retry-cmd.sh npx playwright install --with-deps chromium',
+        );
+      }
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ritenta soltanto il checkout sparse, con backoff prima di qualunque logica', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.checkout).toMatchObject({
+      attempts: 2,
+      backoffSeconds: 30,
+      retryScope: 'checkout-before-logic-only',
+      reporter: 'corpus-issue-github-token',
+    });
+    expect(contract.checkout.excludedMb).toBeGreaterThan(5_000);
+
+    for (const artifact of contract.artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      expect(Object.keys(doc.jobs)).toHaveLength(artifact.file === 'translate-pending.yml' ? 2 : 1);
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
+      if (artifact.members.length > 0) {
+        expect(doc.on.workflow_dispatch.inputs.site_code_commit).toMatchObject({
+          required: false,
+          default: '',
+          type: 'string',
+        });
+      }
+      const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v7');
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
+      expect(checkouts[0]).toMatchObject({
+        id: 'site_checkout_primary',
+        'continue-on-error': true,
+      });
+      expect(checkouts[1].if).toBe("steps.site_checkout_primary.outcome == 'failure'");
+
+      const reporter = job.steps.find((step: any) => step.name === 'Report exhausted site checkout');
+      expect(reporter).toMatchObject({
+        if: "always() && steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry.outcome == 'failure'",
+        env: {
+          GH_TOKEN: '${{ github.token }}',
+          ISSUE_TITLE: `Workflow Failure: ${doc.name}`,
+        },
+      });
+      expect(reporter.env.ISSUE_TITLE).toMatch(/^Workflow Failure: .+/);
+      expect(reporter.run).toContain('gh issue list --repo "$GITHUB_REPOSITORY"');
+      expect(reporter.run).toContain('gh issue comment');
+      expect(reporter.run).toContain('gh issue create');
+      expect(reporter.run).not.toContain('GITHUB_PAT');
+      expect(doc.permissions.issues).toBe('write');
+      expect(doc.permissions.actions).toBe('read');
+
+      const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
+      expect(checkoutReady).toMatchObject({
+        name: 'Confirm site checkout succeeded',
+        run: 'true',
+      });
+      expect(checkoutReady.if).toContain("steps.site_checkout_retry.outcome == 'success'");
+
+      const backoffAt = job.steps.findIndex((step: any) => /Backoff 30s/.test(step.name ?? ''));
+      const firstLogicAt = job.steps.findIndex((step: any) =>
+        step.id?.startsWith('crawler-launch-') || /^Phase /.test(step.name ?? ''));
+      expect(backoffAt).toBeGreaterThan(0);
+      expect(job.steps[backoffAt].run).toContain('sleep 30');
+      expect(firstLogicAt).toBeGreaterThan(backoffAt);
+      expect(firstLogicAt).toBeGreaterThan(job.steps.indexOf(checkoutReady));
+      expect(job.steps.indexOf(reporter)).toBeGreaterThan(job.steps.indexOf(checkouts[1]));
+      expect(job.steps.indexOf(reporter)).toBeLessThan(job.steps.indexOf(checkoutReady));
+
+      for (const checkout of checkouts) {
+        expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
+        expect(checkout.with.token).toBeUndefined();
+        // The caller's GITHUB_TOKEN is not allowed to survive a site checkout:
+        // actions/checkout v6/v7 can persist it through a credentials file and
+        // includeIf, which overrides the PAT in the later remote URL.
+        expect(checkout.with['persist-credentials'], `${artifact.file} site checkout auth`).toBe(false);
+        expect(checkout.with.ref).toBe(artifact.members.length > 0
+          ? "${{ inputs.site_code_commit || 'main' }}"
+          : 'main');
+        expect(checkout.with['sparse-checkout']).toContain('!/public/images/');
+        expect(checkout.with['sparse-checkout']).toContain('!/packages/articles/content/');
+        expect(checkout.with['sparse-checkout']).not.toContain('!/data/jobs/');
+      }
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
+    const { contract, outDir } = generateArtifacts();
+    let diagnosticReporters = 0;
+    for (const artifact of contract.artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = artifact.file === 'translate-pending.yml'
+        ? doc.jobs.translate
+        : Object.values(doc.jobs)[0];
+      const reporters = job.steps.filter((step: any) => step.uses === './.github/actions/report-failure');
+      expect(reporters, artifact.file).toHaveLength(1);
+      for (const reporter of reporters) {
+        diagnosticReporters += 1;
+        expect(reporter.if).toBe(
+          "failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')",
+        );
+        expect(reporter.with).toMatchObject({
+          title: `Workflow Failure: ${doc.name}`,
+          'closed-by': 'close-recovered-failure-issues',
+          'github-token': '${{ github.token }}',
+          repo: '${{ github.repository }}',
+          'workflow-name': doc.name,
+          'workflow-file': `.github/corpus-workflows/${artifact.file}`,
+        });
+        expect(reporter.with.repo).not.toBe('valerielinc-ops/frontaliere-si-o-no');
+        expect(reporter.with['workflow-file']).not.toContain('-logic.yml');
+      }
+      const firstCrawlerAt = job.steps.findIndex((step: any) => step.id?.startsWith('crawler-launch-'));
+      const reporterAt = job.steps.indexOf(reporters[0]);
+      if (artifact.members.length > 0) {
+        expect(reporterAt, artifact.file).toBeLessThan(firstCrawlerAt);
+        expect(reporters[0].name).toBe('Report shared setup failure to GitHub Issues');
+      } else {
+        expect(firstCrawlerAt, artifact.file).toBe(-1);
+        expect(reporters[0].name).toBe('Report failure to GitHub Issues');
+      }
+    }
+    expect(diagnosticReporters).toBe(GROUP_COUNT + 1);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('protegge il solo workflow translate con il claim immutabile del successore', () => {
+    const { contract, outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const job: any = translation.jobs.translate;
+    const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
+    const guard = job.steps.find((step: any) => step.name === 'Validate recovery successor claim');
+
+    expect(contract.siteRuntimePaths).toContain('scripts/ci/translate-recovery-successor-guard.mjs');
+    expect(guard).toMatchObject({
+      id: 'recovery_guard',
+      if: "steps.checkout.outcome == 'success' && github.run_attempt > 1",
+      env: {
+        GITHUB_API_URL: '${{ github.api_url }}',
+        GITHUB_EVENT_NAME: '${{ github.event_name }}',
+        GITHUB_RUN_ATTEMPT: '${{ github.run_attempt }}',
+        GITHUB_RUN_ID: '${{ github.run_id }}',
+        GITHUB_SHA: '${{ github.sha }}',
+        GITHUB_TOKEN: '${{ github.token }}',
+      },
+      run: 'node scripts/ci/translate-recovery-successor-guard.mjs',
+    });
+    expect(job.steps.indexOf(guard)).toBeGreaterThan(job.steps.indexOf(checkoutReady));
+    expect(job.steps.filter((step: any) => step.name === 'Validate recovery successor claim')).toHaveLength(1);
+
+    const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+    const postGuardAlways = job.steps
+      .slice(job.steps.indexOf(guard) + 1)
+      .filter((step: any) => typeof step.if === 'string' && step.if.includes('always()'));
+    // Il cleanup del broker Codex (fasi 2d/2e) resta vivo anche su una
+    // riesecuzione respinta, come il reporter: toglie solo un socket, se c'e'.
+    const cleanup = postGuardAlways.find((step: any) => step.name === 'Cleanup Codex auth broker');
+    expect(cleanup?.if).toBe('always()');
+    for (const step of postGuardAlways.filter((entry: any) => entry !== cleanup)) {
+      expect(step.if, step.name).toContain(recoveryReady);
+    }
+    expect(postGuardAlways.some((step: any) => step.name === 'Install Argos Translate (local MT engine)')).toBe(true);
+    expect(postGuardAlways.some((step: any) => step.name === 'Commit translations')).toBe(true);
+
+    const failureReporter = job.steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
+    expect(failureReporter?.if).not.toContain('recovery_guard');
+
+    for (const artifact of contract.artifacts.filter((entry: any) => entry.file !== 'translate-pending.yml')) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      expect(Object.values(doc.jobs)[0].steps.some(
+        (step: any) => step.name === 'Validate recovery successor claim',
+      ), artifact.file).toBe(false);
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('tiene il guard della coda fuori dal mutex e sposta il mutex sul job pesante', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardJob: any = translation.jobs.translate_queue_guard;
+    const translateJob: any = translation.jobs.translate;
+    const guardStep = guardJob.steps.find((step: any) => step.id === 'translate_queue_guard');
+
+    expect(translation.concurrency).toBeUndefined();
+    expect(guardJob.concurrency).toBeUndefined();
+    expect(guardJob.permissions).toEqual({ actions: 'read' });
+    expect(translateJob.needs).toBe('translate_queue_guard');
+    expect(translateJob.if).toBe("needs.translate_queue_guard.outputs.run == 'true'");
+    expect(translateJob.concurrency).toEqual({
+      group: 'jobs-data-pipeline',
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
+    expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")');
+    expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
+    expect(guardStep.run).toContain('per_page=${status_page_size}&page=${status_page}&status=${run_status}');
+    expect(guardStep.run).toContain('status_page_size=100');
+    expect(guardStep.run).toContain('status_page_limit=3');
+    // Una pagina corta chiude l'elenco. `total_count` decide una sola cosa: al
+    // tetto di pagine, se l'ultima pagina piena e' una troncatura vera. Nessun
+    // altro `fail_closed` puo' dipendere dal confronto fra conteggio e righe:
+    // quel confronto, sotto il tetto, e' cio' che spegneva la traduzione.
+    expect(guardStep.run).toContain('if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi');
+    expect(guardStep.run).not.toMatch(/"\$status_total_count" -gt/);
+    const guardCode: string[] = guardStep.run.split('\n')
+      .map((line: string) => line.trim())
+      .filter((line: string) => !line.startsWith('#'));
+    // L'invariante e' sul contenuto, non sulla formattazione: i comportamenti
+    // (tetto esatto, rilettura, unione) sono coperti dai test a fixture.
+    const countFailClosed = guardCode.filter((line) => line.includes('fail_closed') && line.includes('status_total_count'));
+    expect(countFailClosed.length).toBe(1);
+    expect(countFailClosed[0]).toContain('_truncated"');
+    const truncatedAt = guardCode.findIndex((line) => line.includes('_truncated"'));
+    // La rilettura di conferma: annota e decide sull'unione, non fallisce sul
+    // confronto fra conteggio e righe.
+    const confirmAt = guardCode.findIndex((line) => line.includes('"$status_rows_read" -lt "$status_total_count"'));
+    expect(confirmAt).toBeGreaterThan(truncatedAt);
+    const confirmBlock = guardCode.slice(confirmAt, guardCode.indexOf('fi', confirmAt));
+    expect(confirmBlock.some((line) => line.includes('read_status_rows'))).toBe(true);
+    expect(confirmBlock.filter((line) => line.includes('fail_closed')).every((line) => line.includes('_union"'))).toBe(true);
+    // Dopo la rilettura un conteggio ancora maggiore delle righe non fa
+    // fail_closed: chiede la prova sull'elenco senza filtro di stato, una sola
+    // volta per run del guard e solo in quel caso.
+    expect(confirmBlock.some((line) => line.includes('queue_proof_reasons='))).toBe(true);
+    const proofCallLines = guardCode.filter((line) => /\bprove_queue_beyond_union\b/.test(line) && !line.endsWith('{'));
+    expect(proofCallLines).toEqual(['if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi']);
+    const proofStart = guardCode.indexOf('prove_queue_beyond_union() {');
+    const proofEnd = guardCode.indexOf('}', proofStart);
+    expect(proofStart).toBeGreaterThan(-1);
+    const proofBody = guardCode.slice(proofStart, proofEnd);
+    const proofReads = proofBody.filter((line) => line.includes('/runs?'));
+    expect(proofReads.length).toBeGreaterThan(0);
+    expect(proofReads.every((line) => !line.includes('status='))).toBe(true);
+    expect(proofBody.some((line) => line.includes('$(guard_api "$runs_path")'))).toBe(true);
+    // Nella prova il conteggio decide solo se l'elenco letto e' completo: API,
+    // payload, righe illeggibili, elenco incoerente (pagina corta sotto il
+    // conteggio) e coda non dimostrabile AL TETTO di pagine.
+    const proofFailReasons = proofBody
+      .filter((line) => line.includes('fail_closed'))
+      .map((line) => line.match(/fail_closed "([^"]+)"/)?.[1]);
+    expect(new Set(proofFailReasons)).toEqual(new Set([
+      'workflow_runs_unfiltered_window',
+      'workflow_runs_unfiltered',
+      'workflow_runs_unfiltered_payload',
+      'workflow_runs_unfiltered_rows',
+      'workflow_runs_unfiltered_incomplete',
+      'workflow_runs_queue_unproven',
+      'workflow_runs_unfiltered_union',
+    ]));
+    const completenessChecks = proofBody.filter((line) => line.startsWith('if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed'));
+    expect(completenessChecks.map((line) => line.match(/fail_closed "([^"]+)"/)?.[1]))
+      .toEqual(['workflow_runs_unfiltered_incomplete', 'workflow_runs_queue_unproven']);
+    // Il conteggio e' il MINIMO visto e le righe sono contate per id distinto:
+    // una run creata fra due letture alza i conteggi successivi e ripete una
+    // riga gia' letta senza rendere incompleta la prova.
+    expect(proofBody).toContain('if [ "$proof_min_total" -lt 0 ] || [ "$proof_page_total" -lt "$proof_min_total" ]; then proof_min_total="$proof_page_total"; fi');
+    expect(proofBody.some((line) => line.includes('!seen[$0]++'))).toBe(true);
+    // La prova chiude in due soli punti, la pagina corta e il tetto, e ognuno
+    // passa prima dal controllo di completezza: nessun ramo chiude sul solo
+    // contenuto di una pagina piena (review della PR di lockstep 2066 del
+    // corpus) ne' sulla sola pagina corta (review della PR di lockstep 2076).
+    const breakAt = proofBody.flatMap((line, index) => (line === 'break' ? [index] : []));
+    const breakBlocks = breakAt.map((at) => {
+      let openAt = at - 1;
+      while (openAt >= 0 && !/^if \[.*\]; then$/.test(proofBody[openAt])) openAt -= 1;
+      return proofBody.slice(openAt, at);
+    });
+    expect(breakBlocks.map((block) => block[0])).toEqual([
+      'if [ "$proof_returned_count" -lt "$status_page_size" ]; then',
+      'if [ "$proof_page" -ge "$proof_page_limit" ]; then',
+    ]);
+    for (const block of breakBlocks) {
+      expect(block[1]).toMatch(/^if \[ "\$proof_seen_count" -lt "\$proof_min_total" \]; then fail_closed /);
+    }
+    // L'elenco senza filtro e' limitato alla vita massima di una run (35 giorni):
+    // senza il limite cresce con ogni run e oltre il tetto la prova fallirebbe
+    // sempre, spegnendo di nuovo la traduzione.
+    expect(proofReads.every((line) => line.includes('&created=%3E%3D${proof_since}'))).toBe(true);
+    expect(guardCode).toContain('run_lifetime_days=35');
+    expect(guardCode).toContain('proof_page_limit=5');
+    // Le letture passano tutte da guard_api: un solo budget di tempo.
+    expect(guardStep.run.match(/guard_total_timeout_seconds=/g)).toEqual(['guard_total_timeout_seconds=']);
+    expect(guardCode.filter((line) => /\bgh api\b/.test(line)).every((line) => line.includes('timeout --kill-after=0s'))).toBe(true);
+    expect(guardStep.run).toContain('echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"');
+    expect(guardJob.outputs).toEqual({
+      run: '${{ steps.translate_queue_guard.outputs.run }}',
+      guard_error: '${{ steps.translate_queue_guard.outputs.guard_error }}',
+    });
+    expect(guardStep.run).toContain('remaining_seconds');
+    expect(guardStep.run).toContain('call_timeout_seconds');
+    expect(guardStep.run).toContain('api_retry_limit=3');
+    expect(guardStep.run).toContain('api_retry_delay_seconds=1');
+    expect(guardStep.run).toContain('while :; do');
+    expect(guardStep.run).toContain('attempt=$((attempt + 1))');
+    expect(guardStep.run).toContain('timeout --kill-after=0s');
+    expect(guardStep.run).toContain('guard_total_timeout_seconds=120');
+    expect(guardStep.run).not.toContain('--paginate');
+    expect(guardStep.run).toContain('select((.id | tostring) != $current)');
+    expect(guardStep.run).toContain('created_at');
+    expect(guardStep.run).toContain('oldest_run_id');
+    expect(guardStep.run).toContain('sort -k1,1 -k2,2n');
+    expect(guardStep.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
+    expect(guardStep.run).toContain('workflow_dispatch');
+    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
+    expect(guardStep.run).toContain('run=false');
+    expect(guardStep.run).toContain('current_run_path');
+    expect(guardStep.run).toContain('skipping the heavy run to keep the queue bounded');
+    expect(guardStep.run).not.toContain('fail_open');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando la run corrente è l’unica attiva', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('admits the oldest waiting run');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando l’altra run in_progress ha già il job translate in corso', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"},{"name":"translate_queue_guard","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"pending"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('1 heavy run(s) currently active and 0 waiting behind it');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non entra in fail_closed quando total_count coincide con le righe restituite per ogni status', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":501,"created_at":"2026-09-30T09:00:00Z","status":"queued"}]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=1');
+    expect(output).not.toContain('waiting_runs=-1');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('salta il pesante con piu run pending anche se la lista non contiene ancora la run corrente', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=pending")
+    printf '%s\n' '{"total_count":2,"workflow_runs":[{"id":101,"created_at":"2026-09-30T09:00:00Z","status":"pending"},{"id":102,"created_at":"2026-09-30T09:30:00Z","status":"pending"}]}'
+    ;;
+  *"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+    expect(stdout).toContain('found older run 101');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=2');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('decide sulle righe quando total_count supera le righe restituite (coda fantasma)', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Conteggio fantasma persistente: stessa risposta alla prima lettura e alla
+    // rilettura di conferma. E' il caso che spegneva la traduzione. L'unione
+    // non basta: la coda e' provata sull'elenco senza filtro di stato, che qui
+    // finisce in una pagina corta (criterio a) con la sola corrente non conclusa.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":3,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":399,"created_at":"2026-09-30T09:00:00Z","status":"completed"},{"id":398,"created_at":"2026-09-30T08:00:00Z","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain(
+      'queued total_count=3 but rows=0; confirm read total_count=3, rows=0; deciding on the union of both reads (0 row(s))',
+    );
+    expect(stdout).toContain('admits the oldest waiting run');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+    // Lo stato col conteggio fantasma e' stato riletto una volta; gli altri no.
+    const readsOf = (status: string) => calls.filter((endpoint) => endpoint.endsWith(`status=${status}`)).length;
+    expect(readsOf('pending')).toBe(1);
+    expect(readsOf('queued')).toBe(readsOf('pending') + 1);
+    expect(readsOf('in_progress')).toBe(readsOf('pending'));
+    // La prova: una sola pagina dell'elenco senza filtro, chiusa dal criterio a.
+    const unfilteredReads = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(unfilteredReads).toHaveLength(1);
+    const since = unfilteredReads[0].match(/translate-pending\.yml\/runs\?per_page=100&page=1&created=%3E%3D(\d{4}-\d{2}-\d{2})$/)?.[1];
+    expect(since).toBeTruthy();
+    expect(Math.abs(Date.parse(`${since}T00:00:00Z`) - (Date.now() - 35 * 86400000))).toBeLessThan(2 * 86400000);
+    expect(stdout).toContain(
+      `count still above rows after the confirm read (queued total_count=3 rows=0); the unfiltered run list proves the queue by criterion a (page 1 has 3 row(s) and ends the list of runs created since ${since}; 3 distinct row(s) cover total_count=3); 0 unfinished run(s) besides the current one, new vs the per-status reads: none.`,
+    );
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non accetta una pagina piena senza leggere la pagina finale corta', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Prima pagina senza filtro piena: la corrente e 99 run concluse. La
+    // seconda pagina contiene una run queued piu' vecchia: il guard deve
+    // leggerla invece di concludere dal solo contenuto della prima pagina.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    jq -cn '{total_count: 5000, workflow_runs: ([{id: 400, created_at: "2026-09-30T10:00:00Z", status: "in_progress"}] + [range(1; 100) | {id: (400 - .), created_at: "2026-09-30T09:00:00Z", status: "completed"}])}'
+    ;;
+  *"/runs?per_page=100&page=2&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":101,"workflow_runs":[{"id":90,"created_at":"2026-09-30T07:00:00Z","status":"queued"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion a (page 2 has 1 row(s) and ends the list of runs created since ');
+    expect(stdout).toContain('found older run 90');
+    expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=$/m);
+    const unfilteredReads = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    const pendingReads = calls.filter((endpoint) => endpoint.endsWith('status=pending'));
+    expect(unfilteredReads.length).toBe(pendingReads.length + 1);
+    expect(unfilteredReads[0]).toMatch(/&page=1&created=%3E%3D\d{4}-\d{2}-\d{2}$/);
+    expect(unfilteredReads[1]).toMatch(/&page=2&created=%3E%3D\d{4}-\d{2}-\d{2}$/);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('la prova senza filtro porta fra i candidati la run davvero mancante dalle letture per stato', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // L'ipotesi del reviewer: l'elenco per stato omette la run 90, piu' vecchia
+    // della corrente e ancora in coda. L'elenco senza filtro la mostra.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":3,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":90,"created_at":"2026-09-30T07:00:00Z","status":"queued"},{"id":89,"created_at":"2026-09-30T06:00:00Z","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('1 unfinished run(s) besides the current one, new vs the per-status reads: 90.');
+    expect(stdout).toContain('found older run 90');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=1');
+    // Duplicato legittimo deciso sui dati, non guard cieco.
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando l’elenco senza filtro non dimostra la coda entro il tetto di pagine', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Cinque pagine piene (il tetto della prova), nessuna corta: la coda e'
+    // piu' lunga di cio' che il guard puo' vedere. Una sesta pagina non esiste
+    // nella fixture.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page="[1-5]"&created=%3E%3D"*)
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&created.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 5000, workflow_runs: [range(0; 100) | {id: (10000 * $page + .), created_at: "2026-09-30T11:00:00Z", status: (if . == 0 then "queued" else "completed" end)}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain(
+      'could not inspect GitHub Actions (workflow_runs_queue_unproven; queued total_count=3 rows=0; unfiltered pages=5 since ',
+    );
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    // guard_error valorizzato: lo step «Fail the run when the queue guard was
+    // blind» rende rossa la run (contratto coperto dal test del guard cieco).
+    expect(output).toMatch(/^guard_error=workflow_runs_queue_unproven$/m);
+    const unfilteredPages = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(new Set(unfilteredPages).size).toBe(unfilteredPages.length);
+    expect(unfilteredPages[unfilteredPages.length - 1]).toMatch(/&page=5&created=/);
+    expect(stdout).toContain(', rows=500 total_count=5000, no short final page)');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando una pagina corta dell’elenco senza filtro ha meno righe distinte del conteggio', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Review della PR di lockstep 2076 del corpus: la pagina corta da sola non
+    // dimostra la fine dell'elenco. Qui GitHub dichiara 5 run e ne restituisce
+    // 3 in una pagina corta: una run piu' vecchia ancora in coda potrebbe essere
+    // fra le due mancanti, quindi la corrente non viene ammessa.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":5,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":399,"created_at":"2026-09-30T09:00:00Z","status":"completed"},{"id":398,"created_at":"2026-09-30T08:00:00Z","status":"completed"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('could not inspect GitHub Actions (workflow_runs_unfiltered_incomplete; queued total_count=3 rows=0; unfiltered rows=3 total_count=5 since ');
+    expect(stdout).toContain(', short page 1 before the end of the list)');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    expect(output).toMatch(/^guard_error=workflow_runs_unfiltered_incomplete$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('una run creata fra due letture dell’elenco senza filtro non rende incompleta la prova', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Fra la prima e la seconda lettura nasce una run nuova: la seconda pagina
+    // dichiara 101 run e ripete l'ultima riga della prima (301), spostata in
+    // giu' di una posizione. Le 100 run distinte lette coprono il conteggio
+    // minimo (100): la run nuova e' piu' recente della corrente e non cambia la
+    // sua posizione in coda.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    jq -cn '{total_count: 100, workflow_runs: ([{id: 400, created_at: "2026-09-30T10:00:00Z", status: "in_progress"}] + [range(1; 100) | {id: (400 - .), created_at: "2026-09-30T09:00:00Z", status: "completed"}])}'
+    ;;
+  *"/runs?per_page=100&page=2&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":101,"workflow_runs":[{"id":301,"created_at":"2026-09-30T09:00:00Z","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion a (page 2 has 1 row(s) and ends the list of runs created since ');
+    expect(stdout).toContain('; 100 distinct row(s) cover total_count=100)');
+    expect(output).toContain('run=true');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('al tetto di pagine un’ultima pagina piena che chiude esattamente l’elenco decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Review della PR di lockstep 2076 del corpus: esattamente 500 run nella
+    // finestra riempiono le cinque pagine del tetto. Le righe distinte coprono
+    // il conteggio, quindi l'elenco e' finito: niente guard cieco.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page="[1-5]"&created=%3E%3D"*)
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&created.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 500, workflow_runs: [range(0; 100) | {id: (if $page == 1 and . == 0 then 400 else 10000 * $page + . end), created_at: "2026-09-30T09:00:00Z", status: (if $page == 1 and . == 0 then "in_progress" else "completed" end)}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion b (page 5 is full and is the page ceiling; 500 distinct row(s) cover total_count=500 of the runs created since ');
+    expect(output).toContain('run=true');
+    expect(output).toMatch(/^guard_error=$/m);
+    const unfilteredPages = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(unfilteredPages[unfilteredPages.length - 1]).toMatch(/&page=5&created=/);
+    expect(unfilteredPages.some((endpoint) => /&page=6&/.test(endpoint))).toBe(false);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando l’elenco senza filtro restituisce un payload non valido', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('could not inspect GitHub Actions (workflow_runs_unfiltered_payload; queued total_count=3 rows=0; page=1)');
+    expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=workflow_runs_unfiltered_payload$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('la rilettura di conferma porta fra i candidati una run elencata in ritardo', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Prima lettura: il conteggio dichiara una run che l'elenco non mostra
+    // ancora. Seconda lettura: la run (piu' vecchia della corrente) compare.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+calls_log="$(dirname "$0")/../gh-calls.log"
+printf '%s\n' "$endpoint" >> "$calls_log"
+case "$endpoint" in
+  *"status=queued")
+    if [ "$(grep -c 'status=queued$' "$calls_log")" -eq 1 ]; then
+      printf '%s\n' '{"total_count":1,"workflow_runs":[]}'
+    else
+      printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":300,"created_at":"2026-09-30T09:00:00Z","status":"queued"}]}'
+    fi
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain(
+      'queued total_count=1 but rows=0; confirm read total_count=1, rows=1; deciding on the union of both reads (1 row(s))',
+    );
+    expect(stdout).toContain('found older run 300');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=1');
+    // Duplicato legittimo, non guard cieco: la run resta verde.
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+    // La rilettura copre il conteggio: la prova senza filtro non serve e
+    // l'elenco senza `status=` non viene letto.
+    expect(stdout).not.toContain('unfiltered run list');
+    expect(calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='))).toEqual([]);
+    expect(calls.some((endpoint) => endpoint.endsWith('status=queued'))).toBe(true);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('conta una sola volta la run letta sotto due stati (queued, poi in_progress)', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // La run 100 passa da queued a in_progress fra la lettura dei due stati:
+    // compare in entrambi gli elenchi. Vale l'ultima lettura (pesante attivo),
+    // quindi nessuno e' in attesa e la corrente e' ammessa dietro di lei.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"queued"}]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"},{"name":"translate_queue_guard","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"pending"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('found older run');
+    expect(stdout).toContain('1 heavy run(s) currently active and 0 waiting behind it');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('a tetto esatto (ultima pagina piena, total_count uguale alle righe) decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Tre pagine piene e GitHub dichiara esattamente le righe lette: l'elenco e'
+    // completo. Una quarta pagina non esiste nella fixture: chiederla farebbe
+    // fallire il `gh` finto e il guard andrebbe in fail_closed.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"page=1&status=queued"|*"page=2&status=queued"|*"page=3&status=queued")
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 300, workflow_runs: [range(0; 100) | {id: (1000 + ($page * 100) + .), created_at: "2026-09-30T09:00:00Z", status: "queued"}]}'
+    ;;
+  *"page=1&status=pending"|*"page=1&status=waiting"|*"page=1&status=requested"|*"page=1&status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    const queuedPages = calls.filter((endpoint) => endpoint.endsWith('status=queued'));
+    const declaredRows = 300;
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).not.toContain('confirm read');
+    expect(stdout).toContain('found older run 1100');
+    expect(output).toContain('run=false');
+    expect(output).toContain(`waiting_runs=${declaredRows}`);
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+    // Ogni pagina letta una volta sola, fino al tetto e non oltre.
+    expect(new Set(queuedPages).size).toBe(queuedPages.length);
+    expect(queuedPages.length * 100).toBe(declaredRows);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed con guard_error quando la terza pagina è piena e total_count dichiara altre righe', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"page=1&status=queued"|*"page=2&status=queued"|*"page=3&status=queued")
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 450, workflow_runs: [range(0; 100) | {id: (1000 + ($page * 100) + .), created_at: "2026-09-30T09:00:00Z", status: "queued"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain(
+      'could not inspect GitHub Actions (workflow_runs_queued_truncated; total_count=450, rows=300, pages=3)',
+    );
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    expect(output).toMatch(/^guard_error=workflow_runs_queued_truncated$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('legge tutte le pagine fino a quella parziale e decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // 120 run in coda: la piu' vecchia (id 7119) sta nella SECONDA pagina. Se il
+    // guard si fermasse alla prima, ammetterebbe o sceglierebbe la run sbagliata.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"page=1&status=queued")
+    jq -cn '{total_count: 120, workflow_runs: [range(0; 100) | {id: (7000 + .), created_at: "2026-09-30T09:30:00Z", status: "queued"}]}'
+    ;;
+  *"page=2&status=queued")
+    jq -cn '{total_count: 120, workflow_runs: [range(100; 120) | {id: (7000 + .), created_at: (if . == 119 then "2026-09-30T07:00:00Z" else "2026-09-30T09:30:00Z" end), status: "queued"}]}'
+    ;;
+  *"page=1&status=pending"|*"page=1&status=waiting"|*"page=1&status=requested"|*"page=1&status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('found older run 7119');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=120');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('un guard cieco rende rossa la run invece di chiuderla in verde a vuoto', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardJob: any = translation.jobs.translate_queue_guard;
+    const guardIndex = guardJob.steps.findIndex((step: any) => step.id === 'translate_queue_guard');
+    const blindIndex = guardJob.steps
+      .findIndex((step: any) => step.name === 'Fail the run when the queue guard was blind');
+    const blindStep = guardJob.steps[blindIndex];
+
+    expect(blindIndex).toBeGreaterThan(guardIndex);
+    expect(blindStep.if).toBe("steps.translate_queue_guard.outputs.guard_error != ''");
+    expect(blindStep['continue-on-error']).toBeUndefined();
+    expect(guardJob['continue-on-error']).toBeUndefined();
+    expect(blindStep.env.GUARD_ERROR).toBe('${{ steps.translate_queue_guard.outputs.guard_error }}');
+    expect(blindStep.run).toContain(
+      'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita',
+    );
+    expect(blindStep.run.trimEnd().endsWith('exit 1')).toBe(true);
+    // Il job pesante resta saltato: nessuna funzione di stato che lo riapra
+    // dopo il fallimento del guard.
+    expect(translation.jobs.translate.if).toBe("needs.translate_queue_guard.outputs.run == 'true'");
+
+    // Ogni uscita dello script dichiara guard_error: vuoto quando ha deciso sui
+    // dati (ammissione, duplicato, override manuale), valorizzato solo in fail_closed.
+    const guardRun: string = guardJob.steps[guardIndex].run;
+    const runWrites = guardRun.match(/echo "run=(?:true|false)" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    const errorWrites = guardRun.match(/echo "guard_error=[^"]*" >> "\$GITHUB_OUTPUT"/g) ?? [];
+    // Contratto strutturale del codice generato, non del dataset:
+    // `translatePendingQueueGuardJob()` emette quattro rami di decisione
+    // (fail_closed, override manuale, ammissione e duplicato); questa asserzione
+    // garantisce che ogni decisione continui a dichiarare `run`.
+    // cron-count-ok: i quattro rami sono emessi da `translatePendingQueueGuardJob()`.
+    expect(runWrites).toHaveLength(4);
+    // Lo stesso codice emette un `guard_error` per ciascuno dei quattro rami;
+    // senza uno di questi output un guard cieco potrebbe restare verde o
+    // lasciare il job pesante in uno stato non deterministico.
+    // cron-count-ok: i quattro rami emettono tutti `guard_error`.
+    expect(errorWrites).toHaveLength(4);
+    expect(errorWrites.filter((line) => line.includes('guard_error=${reason}'))).toHaveLength(1);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non ammette il pesante quando la discovery API fallisce', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(
+      guardStep.run,
+      '#!/usr/bin/env bash\nexit 1\n',
+    );
+    expect(stdout).toContain('skipping the heavy run to keep the queue bounded');
+    expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=workflow_runs_queued$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {
+    const { contract, outDir } = generateArtifacts();
+    for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      const executed = crawlerLaunchSteps(job.steps);
+      expect(executed.map((step: any) => step.id)).toEqual(
+        artifact.members.map((member: string) => `crawler-launch-${member}`),
+      );
+      expect(new Set(executed.map((step: any) => step.id)).size).toBe(executed.length);
+      expect(job.needs).toBeUndefined();
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('i waiter propagano il launch outcome e falliscono subito senza stato ne PID', () => {
+    const { contract, outDir } = generateArtifacts();
+    for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      for (const member of artifact.members) {
+        const result = job.steps.find((step: any) => step.id === `crawler-${member}`);
+        expect(result, `${artifact.file}: missing waiter for ${member}`).toBeDefined();
+        expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
+          `\${{ steps['crawler-launch-${member}'].outcome }}`,
+        );
+        expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
+        expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
+        expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
+        expect(result.run).toContain('invalid detached crawler PID');
+        expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
+        expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
+      }
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+});
+
+// ── OSSERVATORE: dimensione dei workflow generati (04-10) ─────────────────────
+// GitHub rifiuta un file di workflow oltre ~512.000 byte (misura del 04-10: il
+// gruppo 12 del corpus, 508.926 byte, era valido; il 14, 512.281, no). Dopo il
+// lockstep di cr-04b i gruppi 06 e 14 lo hanno superato e ogni push creava una
+// run fallita «workflow file issue» al posto del crawl. Il budget dichiarato nel
+// generatore tiene ~6% di margine; qui si misurano i file COMMITTATI, cosi' un
+// artefatto rigenerato a mano o da un generatore vecchio non sfugge.
+describe('generated crawler workflows stay under the GitHub size budget', () => {
+  const committedWorkflowFiles = () => [
+    ...fs.readdirSync(path.join(ROOT, '.github/corpus-workflows'))
+      .filter((file) => file.endsWith('.yml'))
+      .map((file) => path.join('.github/corpus-workflows', file)),
+    ...fs.readdirSync(path.join(ROOT, '.github/workflows'))
+      .filter((file) => /^crawler-group-\d+(?:-logic)?\.yml$/.test(file))
+      .map((file) => path.join('.github/workflows', file)),
+  ];
+
+  it('declares a budget with real headroom below the GitHub limit', () => {
+    expect(GITHUB_WORKFLOW_SIZE_LIMIT_BYTES).toBe(512_000);
+    expect(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES).toBeLessThanOrEqual(GITHUB_WORKFLOW_SIZE_LIMIT_BYTES * 0.94);
+  });
+
+  it('every committed generated workflow is within the budget', () => {
+    const files = committedWorkflowFiles();
+    // 24 copie portabili del corpus + 24 gruppi + 24 logic del sito.
+    expect(files.filter((file) => /crawler-group-\d+\.yml$/.test(file)).length).toBeGreaterThanOrEqual(48);
+    const violations = workflowSizeBudgetViolations(
+      files.map((file) => ({ file, content: fs.readFileSync(path.join(ROOT, file), 'utf8') })),
+    );
+    expect(violations.map((violation) => formatWorkflowSizeBudgetViolation(violation))).toEqual([]);
+  });
+
+  it('names the file and the overshoot in bytes', () => {
+    const [violation] = workflowSizeBudgetViolations([{ file: 'x/crawler-group-06.yml', content: 'é'.repeat(5) }], 8);
+    expect(violation).toEqual({ file: 'x/crawler-group-06.yml', bytes: 10, over: 2 });
+    expect(formatWorkflowSizeBudgetViolation(violation, 8)).toBe(
+      `x/crawler-group-06.yml: 10 bytes, 2 over the 8-byte budget (GitHub rejects workflow files above ~${GITHUB_WORKFLOW_SIZE_LIMIT_BYTES})`,
+    );
+  });
+
+  it('the aggregate defines the per-member classification once instead of unrolling it', () => {
+    const slugs = Array.from({ length: 29 }, (_, index) => ({ slug: `member-${index}` }));
+    const body = buildCrawlerAggregateShellBody(slugs as any, 6);
+    expect(body.split(`${AGGREGATE_MEMBER_FUNCTION}() {`)).toHaveLength(2);
+    expect(body.split('no terminal status was published')).toHaveLength(2);
+    for (const { slug } of slugs) expect(body).toContain(`${AGGREGATE_MEMBER_FUNCTION} '${slug}'`);
+    // 29 membri: corpo condiviso + una riga per membro, non ~2,9 KB ciascuno.
+    expect(Buffer.byteLength(body, 'utf8')).toBeLessThan(8_000);
+  });
+
+  it('the shared function classifies several members exactly as the unrolled blocks did', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-multi-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-06');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'ok-a.status'), '0\n');
+      fs.writeFileSync(path.join(stateDir, 'bad-b.status'), '1\n');
+      fs.writeFileSync(path.join(stateDir, 'stop-d.status'), '143\n');
+      fs.writeFileSync(path.join(stateDir, 'slow-e.status'), '124\n');
+      fs.writeFileSync(path.join(stateDir, 'junk-f.status'), 'x\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      const members = ['ok-a', 'bad-b', 'gone-c', 'stop-d', 'slow-e', 'junk-f'].map((slug) => ({ slug }));
+      const stdout = execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody(members as any, 6)], {
+        env: { ...process.env, RUNNER_TEMP: temp, GITHUB_OUTPUT: output, GITHUB_STEP_SUMMARY: summary },
+        encoding: 'utf8',
+      });
+      expect(stdout).toContain('::error::bad-b: crawler exited with status 1');
+      expect(stdout).toContain('::warning::gone-c: no terminal status was published');
+      expect(stdout).toContain('::warning::stop-d: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed');
+      expect(stdout).toContain('::error::slow-e: target timeout recorded as an actionable failure (exit 124)');
+      expect(stdout).toContain('::error::junk-f: invalid terminal status: x');
+      expect(fs.readFileSync(summary, 'utf8')).toBe([
+        '### Crawler group 06 outcome',
+        '| Crawler | Outcome |',
+        '| --- | --- |',
+        '| ok-a | success |',
+        '| bad-b | failed (1) |',
+        '| gone-c | missing status |',
+        '| stop-d | systemic runner shutdown (143) |',
+        '| slow-e | target timeout (124) |',
+        '| junk-f | invalid status |',
+        '**Summary:** 1 succeeded, 3 failed, 1 missing, 1 systemic.',
+        '',
+      ].join('\n'));
+      expect(fs.readFileSync(output, 'utf8')).toBe([
+        'success_count=1', 'failure_count=3', 'missing_count=1', 'systemic_count=1', 'wait_outcome=failure', '',
+      ].join('\n'));
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+});

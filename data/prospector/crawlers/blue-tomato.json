@@ -1,0 +1,24 @@
+{
+  "companyKey": "blue-tomato",
+  "companyName": "Blue Tomato",
+  "companyHost": "corporate.blue-tomato.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://corporate.blue-tomato.com/de/jobs/"
+  ],
+  "detailTemplate": "/de/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 24,
+  "sampleTitles": [
+    "Customer Service Assistant (m/w/d) Customer Service Teilzeit Graz | Österreich <img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" src=\"https://www.blue-toma",
+    "Shop Manager (m/w/d) Retail Shops Vollzeit Shop Stockholm | Schweden <img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" src=\"https://www.blue-tomato.com/svg",
+    "Sales Assistant (m/w/d) Retail Shops Stundenweise Abrechnung Shop Malmö | Schweden <img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" src=\"https://www.blue-",
+    "Sales Assistant (m/w/d) Retail Shops 20h Shop Bregenz | Österreich <img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" src=\"https://www.blue-tomato.com/svg/i",
+    "Reinigungskraft/Bürohilfe (m/w/d) People & Relations Geringfügig Wien | Österreich <img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" src=\"https://www.b"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-10T09:02:13.337Z"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-1123",
+  "companyName": "BIG & ARE Stellen",
+  "companyHost": "recruitingapp-1123.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-1123.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Assistenz Immobilienverwaltung (m/w/d)",
+    "Hochbautechniker:in Instandhaltung Wohnungen (m/w/d)",
+    "Partieführer:in / Vorarbeiter:in Elektrotechnik für Gebäudetechnik (m/w/d)",
+    "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
+    "Immobilienverwalter:in Schwerpunkt Neubau-Wohnungen (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:38.284Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "sciopero-easyjet-malpensa-11-maggio-2026",
+  "slug": "sciopero-easyjet-malpensa-11-maggio-2026",
+  "publishedAt": "2026-05-10T10:16:53.839Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 16.35958511743108,
+    "confidence": 0.8,
+    "finalScore": 13.087668093944865,
+    "topK": [
+      {
+        "slug": "malpensa-carburante-rischio-frontalieri-2026",
+        "cosine": 0.8610307956542674
+      },
+      {
+        "slug": "disagi-tilo-sciopero-italia",
+        "cosine": 0.8477627412694335
+      },
+      {
+        "slug": "malcontento-aeroporto-lugano-2026",
+        "cosine": 0.8469833744679696
+      },
+      {
+        "slug": "aumento-kerosene-voli-cancellati-frontalieri-ticino",
+        "cosine": 0.8436551352042738
+      },
+      {
+        "slug": "swiss-guasti-voli-frontalieri-ticino-2026",
+        "cosine": 0.8406884760135866
+      }
+    ],
+    "score": 1.3087668093944866,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

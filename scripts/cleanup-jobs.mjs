@@ -1,0 +1,975 @@
+#!/usr/bin/env node
+/**
+ * Job Board Housekeeping
+ *
+ * Removes job listings that are no longer available.
+ *
+ * - Source of truth: data/jobs.json + public/data/jobs.json (kept in sync)
+ * - Uses shared URL validator (scripts/lib/validate-job-url.mjs)
+ * - Deletes only on strong signals (404/410, explicit "no longer available" phrases,
+ *   career-portal-specific closure signals, redirect to generic listing page)
+ * - Fail-open: network/auth/rate-limit errors never trigger deletions
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { performance } from 'node:perf_hooks';
+import { fileURLToPath } from 'node:url';
+import {
+  validateJobUrls,
+  isFreshProtected,
+  DEFAULT_CONCURRENCY,
+  DEFAULT_TIMEOUT_MS,
+} from './lib/validate-job-url.mjs';
+import { hardenJobLocaleFields, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
+import { intFromEnv } from './lib/int-from-env.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  mergeSourceIdentityHistory,
+  normalizeExpiredEntryTitles,
+  normalizeExpiredAtEntries,
+} from './lib/expired-jobs-archive.mjs';
+import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
+import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { deduplicateJobsBySlug } from './lib/job-slug-dedup.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
+import { dropHousekeepingDuplicatePostings } from './lib/housekeeping-duplicate-postings.mjs';
+import {
+  clearCrossCrawlerDedupProofFile,
+  writeCrossCrawlerDedupProofFile,
+  writeHousekeepingProofFile,
+} from './lib/crawler-slice-integrity.mjs';
+import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
+import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
+const PUBLIC_JOBS_PATH = path.resolve(__dirname, '..', 'public', 'data', 'jobs.json');
+const PUBLIC_EXPIRED_JOBS_PATH = process.env.JOBS_PUBLIC_EXPIRED_JOBS_PATH
+  ? path.resolve(process.env.JOBS_PUBLIC_EXPIRED_JOBS_PATH)
+  : path.resolve(__dirname, '..', 'public', 'data', 'expired-jobs.json');
+const META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
+const EXPIRED_JOBS_PATH = process.env.JOBS_EXPIRED_JOBS_PATH
+  ? path.resolve(process.env.JOBS_EXPIRED_JOBS_PATH)
+  : path.resolve(__dirname, '..', 'data', 'expired-jobs.json');
+const EXPIRED_SLICES_DIR = process.env.JOBS_EXPIRED_SLICES_DIR
+  ? path.resolve(process.env.JOBS_EXPIRED_SLICES_DIR)
+  : path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
+const ACTIVE_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
+
+const MAX_CONCURRENCY = Math.max(1, Math.min(20, intFromEnv('JOBS_HOUSEKEEPING_CONCURRENCY', DEFAULT_CONCURRENCY)));
+const TIMEOUT_MS = Math.max(2000, Math.min(15000, intFromEnv('JOBS_HOUSEKEEPING_TIMEOUT_MS', DEFAULT_TIMEOUT_MS)));
+const HOUSEKEEPING_SCOPE = String(process.env.JOBS_HOUSEKEEPING_SCOPE || '').trim();
+const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') === '1';
+
+/** Slice-only mode: operate on a single per-crawler slice file instead of the
+ *  monolithic data/jobs.json. Set JOBS_SLICE_FILE to the slice path, e.g.
+ *  data/jobs/by-crawler/coop-ticino.json. Assembly into data/jobs.json happens
+ *  in the deploy pipeline instead of per-crawler. */
+const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
+
+/** Maximum age in days before a job is considered stale regardless of URL status.
+ *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
+const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
+const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
+
+function readJson(filePath) {
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  return JSON.parse(raw);
+}
+
+function dedupProofJob(job) {
+  return {
+    id: job?.id ?? null,
+    url: String(job?.url ?? '').trim(),
+    title: job?.title ?? '',
+    company: job?.company ?? '',
+    location: job?.location ?? '',
+    slug: String(job?.slug ?? '').trim(),
+  };
+}
+
+function dedupProofSourceKeys(job) {
+  const keys = new Set();
+  const url = String(job?.url ?? '').trim();
+  if (url) keys.add(`url:${url}`);
+  const stableIdentity = buildStableJobIdentity(job);
+  if (stableIdentity) keys.add(`identity:${stableIdentity}`);
+  const id = String(job?.id ?? '').trim().toLowerCase();
+  if (id) keys.add(`id:${id}`);
+  const slug = String(job?.slug ?? '').trim().toLowerCase();
+  if (slug) keys.add(`slug:${slug}`);
+  return keys;
+}
+
+/**
+ * Index the exact records still present in the active slices.
+ *
+ * Assembly intentionally normalizes records before cleanup-jobs sees them
+ * (absolute URLs, titles, companies, locations and generated IDs). The later
+ * slice-pruning phase needs evidence for the pre-assembly record, so a proof
+ * entry carries every raw source snapshot sharing the loser identity.
+ */
+function buildDedupProofSourceIndex() {
+  const index = new Map();
+  for (const slicePath of listSliceFilePaths(ACTIVE_SLICES_DIR)) {
+    let slice;
+    try {
+      slice = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(slice?.jobs)) continue;
+    for (const sourceJob of slice.jobs) {
+      const snapshot = dedupProofJob(sourceJob);
+      for (const key of dedupProofSourceKeys(sourceJob)) {
+        const entries = index.get(key) || [];
+        const duplicate = entries.some((entry) => JSON.stringify(entry) === JSON.stringify(snapshot));
+        if (!duplicate) entries.push(snapshot);
+        index.set(key, entries);
+      }
+    }
+  }
+  return index;
+}
+
+function dedupProofSourceJobs(index, job) {
+  if (!index) return [];
+  const keys = [...dedupProofSourceKeys(job)];
+  const directKeys = keys.filter((key) => !key.startsWith('identity:'));
+  const collect = (lookupKeys) => {
+    const candidates = [];
+    const seen = new Set();
+    for (const key of lookupKeys) {
+      for (const sourceJob of index.get(key) || []) {
+        const serialized = JSON.stringify(sourceJob);
+        if (seen.has(serialized)) continue;
+        seen.add(serialized);
+        candidates.push(sourceJob);
+      }
+    }
+    return candidates;
+  };
+
+  // Prefer the least ambiguous source key. In particular, identityUrlKey
+  // strips fragments by design, while some vendors use the fragment for the
+  // per-posting identity; falling back to it too early would copy unrelated
+  // records into every proof entry for that vendor.
+  for (const key of directKeys) {
+    const direct = collect([key]);
+    if (direct.length > 0) return direct;
+  }
+
+  return collect(keys);
+}
+
+function normalizeScopeValue(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function compactScopeValue(value) {
+  return normalizeScopeValue(value).replace(/-/g, '');
+}
+
+function buildJobScopeTokens(job) {
+  const tokens = new Set();
+  const add = (value) => {
+    const normalized = normalizeScopeValue(value);
+    if (!normalized) return;
+    tokens.add(normalized);
+    const compact = compactScopeValue(value);
+    if (compact) tokens.add(compact);
+  };
+
+  add(job?.companyKey);
+  add(job?.company);
+  add(job?.companyHost);
+  try {
+    if (job?.url) add(new URL(String(job.url)).hostname);
+  } catch {
+    // ignore invalid URL
+  }
+  return tokens;
+}
+
+function jobMatchesHousekeepingScope(job, scopeRaw) {
+  const scope = normalizeScopeValue(scopeRaw);
+  const compactScope = compactScopeValue(scopeRaw);
+  if (!scope) return true;
+
+  const jobTokens = buildJobScopeTokens(job);
+  return jobTokens.has(scope) || jobTokens.has(compactScope);
+}
+
+/** Maximum number of expired jobs to keep in the archive. Older entries are
+ *  evicted when the cap is exceeded. */
+const EXPIRED_JOBS_CAP = 5000;
+
+/**
+ * Build an expired-job archive entry from a job object.
+ */
+function buildExpiredEntry(job) {
+  const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
+  const entry = {
+    slug: job.slug,
+    title: job.title || '',
+    titleByLocale: { ...(job.titleByLocale || {}) },
+    company: job.company || '',
+    companyKey: job.companyKey || '',
+    location: job.location || '',
+    addressLocality: job.addressLocality || '',
+    descriptionByLocale: job.descriptionByLocale || {},
+    slugByLocale: job.slugByLocale || {},
+    sector: job.sector || '',
+    expiredAt: new Date().toISOString(),
+    // Preserve old slug aliases so the build plugin can generate enriched
+    // soft-landing pages for URLs that were renamed before expiry.
+    previousSlugs: Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0
+      ? [...job.previousSlugs]
+      : undefined,
+    // Locale-aware slug history so expired soft-landing pages are generated
+    // under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug).
+    previousSlugsByLocale: job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+        && Object.keys(job.previousSlugsByLocale).length > 0
+      ? JSON.parse(JSON.stringify(job.previousSlugsByLocale))
+      : undefined,
+    // FRO-343: preserve address + salary data for rich soft-landing pages
+    postalCode: job.postalCode || '',
+    streetAddress: job.streetAddress || '',
+    salaryMin: job.salaryMin || null,
+    salaryMax: job.salaryMax || null,
+    salaryCurrency: job.salaryCurrency || 'CHF',
+    salaryPeriod: job.salaryPeriod || 'YEAR',
+    // Marker so dedup-archived losers are distinguishable from URL-validation
+    // and age-based expirations. Preserves SEO continuity without losing the
+    // signal that this job was a within-slice slug-collision loser.
+    dedupArchive: job.dedupArchive === true ? true : undefined,
+    sourceIdentityHistory:
+      Array.isArray(job.sourceIdentityHistory) && job.sourceIdentityHistory.length > 0
+        ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
+        : undefined,
+  };
+  normalizeExpiredEntryTitles(entry);
+  // Clean up empty fields
+  if (!entry.postalCode) delete entry.postalCode;
+  if (!entry.streetAddress) delete entry.streetAddress;
+  if (!entry.salaryMin) delete entry.salaryMin;
+  if (!entry.salaryMax) delete entry.salaryMax;
+  if (entry.dedupArchive !== true) delete entry.dedupArchive;
+  if (sourceIdentity) entry.sourceIdentity = sourceIdentity;
+  if (job.firstSeenAt) entry.firstSeenAt = job.firstSeenAt;
+  if (!entry.sourceIdentityHistory) delete entry.sourceIdentityHistory;
+  return entry;
+}
+
+/**
+ * Recency timestamp for slug-dedup tiebreaking. Prefers `datePosted` (when
+ * the employer actually published the listing — the freshness signal that
+ * matters to job seekers) and falls back to `crawledAt` (when our crawler
+ * last saw it) when datePosted is absent. Returns 0 for jobs with neither
+ * — those tie-break by lexicographic id at the call site.
+ *
+ * Why two fields: most crawlers populate datePosted from the employer's
+ * structured data (JobPosting.datePosted) but a handful only have
+ * crawledAt. Sticking to a single field would silently demote those
+ * fallback jobs into being picked as losers regardless of recency.
+ */
+function jobRecencyTimestamp(job) {
+  const dp = job?.datePosted ? new Date(job.datePosted).getTime() : 0;
+  if (dp > 0 && !Number.isNaN(dp)) return dp;
+  const ca = job?.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+  if (ca > 0 && !Number.isNaN(ca)) return ca;
+  return 0;
+}
+
+/**
+ * Disambiguate a within-slice slug-dedup loser so it can be archived to the
+ * expired pipeline without colliding with the winning slug. The loser receives
+ * a deterministic slug based on its fingerprint hash, and the original
+ * (colliding) slug is preserved in previousSlugs[] so any indexed URL still
+ * resolves to an enriched soft-landing page generated by jobsSeoPagesPlugin.
+ *
+ * Pure: returns a new job object, never mutates the input.
+ */
+function disambiguateDedupLoser(loser, collidingSlug) {
+  const suffix = stableSlugHash(loser) || '';
+  const originalSlug = String(collidingSlug || loser.slug || '').trim();
+  const baseInput = originalSlug || `${loser?.title || ''}-${loser?.company || ''}-${loser?.location || ''}`;
+  const baseSlug = baseInput
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  let disambiguated;
+  if (suffix) {
+    const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
+    const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
+    disambiguated = trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
+  } else {
+    // Fallback for jobs without a stable fingerprint: use the loser id
+    // (which is itself derived from a stable hash by the crawler infra).
+    const idTail = String(loser?.id || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '')
+      .slice(-6) || 'dedup';
+    const baseMaxLen = Math.max(0, 90 - (idTail.length + 1));
+    const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
+    disambiguated = trimmedBase ? `${trimmedBase}-${idTail}` : idTail;
+  }
+
+  const previousSlugs = Array.isArray(loser.previousSlugs) ? [...loser.previousSlugs] : [];
+  if (originalSlug && !previousSlugs.includes(originalSlug)) {
+    previousSlugs.push(originalSlug);
+  }
+
+  const slugByLocale = (loser.slugByLocale && typeof loser.slugByLocale === 'object')
+    ? Object.fromEntries(
+        Object.entries(loser.slugByLocale).map(([locale, value]) => {
+          if (value === originalSlug) return [locale, disambiguated];
+          return [locale, value];
+        }),
+      )
+    : {};
+
+  return {
+    ...loser,
+    slug: disambiguated,
+    slugByLocale,
+    previousSlugs,
+    dedupArchive: true,
+  };
+}
+
+/**
+ * Archive only records with matching source identity. Distinct jobs that
+ * happen to share a route stay active and receive town-bearing Italian slugs.
+ */
+function deduplicateWithinSliceSlugs(jobs) {
+  const deduped = deduplicateJobsBySlug(jobs, {
+    preferCurrent: (current, previous) => {
+      const currentTimestamp = jobRecencyTimestamp(current);
+      const previousTimestamp = jobRecencyTimestamp(previous);
+      return currentTimestamp > previousTimestamp
+        || (currentTimestamp === previousTimestamp
+          && String(current.id || current.url || '') < String(previous.id || previous.url || ''));
+    },
+  });
+  return {
+    ...deduped,
+    archived: deduped.duplicates.map(({ loser, winner, slug }) => ({
+      loser: disambiguateDedupLoser(loser, slug),
+      winner,
+      slug,
+    })),
+  };
+}
+
+/**
+ * Archive removed jobs to data/expired-jobs.json (aggregated, used during deploy).
+ *
+ * Only jobs with a slug are archived (slugless jobs have no page to land on).
+ * Existing entries are preserved; newer removals overwrite older ones for the
+ * same slug.
+ */
+function archiveExpiredJobs(removedJobs, allJobsById) {
+  let existing = [];
+  try {
+    existing = JSON.parse(fs.readFileSync(EXPIRED_JOBS_PATH, 'utf-8'));
+    if (!Array.isArray(existing)) existing = [];
+  } catch { /* file missing or malformed — start fresh */ }
+
+  // Keyed by companyKey+slug, not bare slug — this archives across every
+  // company in the assembled dataset, and two companies' jobs sharing a
+  // computed slug would silently drop one company's expired-job record here
+  // (same collision class fixed in scatter-jobs-to-slices.mjs /
+  // reconcile-job-slugs.mjs for issue #3734).
+  const archiveKey = (entry) => `${entry.companyKey || ''}::${entry.slug}`;
+  const repaired = normalizeExpiredAtEntries(existing, { source: 'cleanup-jobs/aggregate' });
+  const bySlug = new Map();
+  for (const ej of existing) {
+    if (ej.slug) bySlug.set(archiveKey(ej), ej);
+  }
+
+  let added = 0;
+  for (const r of removedJobs) {
+    const job = allJobsById.get(r.id);
+    if (!job || !job.slug) continue;
+    // Held out of publication for translation: never had a public URL, so no
+    // expired soft-landing either (scripts/lib/translation-publication-hold.mjs).
+    if (isHeldFromPublication(job)) continue;
+    const entry = buildExpiredEntry(job);
+    const key = archiveKey(job);
+    mergeSourceIdentityHistory(entry, bySlug.get(key));
+    bySlug.set(key, entry);
+    added++;
+  }
+
+  // A repair changes no key, so the counters above stay put: write it out
+  // anyway, otherwise the unorderable value survives to the cap below.
+  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
+
+  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
+  // `archiveKey` dedups on companyKey+slug, i.e. the CURRENT slug: two entries
+  // whose histories overlap on a locale route still both survive it. Collapse
+  // by route before capping so the aggregate never publishes a URL owned twice.
+  let archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'cleanup-jobs/aggregate' },
+  ).entries;
+  if (archived.length > EXPIRED_JOBS_CAP) {
+    archived = archived.slice(0, EXPIRED_JOBS_CAP);
+  }
+
+  writeJson(EXPIRED_JOBS_PATH, archived);
+  writeJson(PUBLIC_EXPIRED_JOBS_PATH, archived);
+  return added;
+}
+
+/**
+ * Archive removed jobs to a per-crawler expired slice file.
+ * Used in slice-only mode so each crawler persists its own expired jobs
+ * independently. The aggregated expired-jobs.json is assembled at deploy time.
+ */
+function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
+  if (!crawlerKey) return 0;
+
+  fs.mkdirSync(EXPIRED_SLICES_DIR, { recursive: true });
+  const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
+
+  let existing = [];
+  try {
+    existing = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    if (!Array.isArray(existing)) existing = [];
+  } catch { /* file missing or malformed — start fresh */ }
+
+  const repaired = normalizeExpiredAtEntries(existing, { source: `cleanup-jobs/slice/${crawlerKey}` });
+  const bySlug = new Map();
+  for (const ej of existing) {
+    if (ej.slug) bySlug.set(ej.slug, ej);
+  }
+
+  let added = 0;
+  for (const r of removedJobs) {
+    const job = allJobsById.get(r.id);
+    if (!job || !job.slug) continue;
+    // Same rule as the aggregate archive above: a held job was never public.
+    if (isHeldFromPublication(job)) continue;
+    const entry = buildExpiredEntry(job);
+    mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
+    bySlug.set(job.slug, entry);
+    added++;
+  }
+
+  if (added === 0 && existing.length === bySlug.size && repaired === 0) return 0;
+
+  const archived = collapseDuplicateRouteEntries(
+    [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    { source: 'cleanup-jobs/slice' },
+  ).entries;
+  writeJson(slicePath, archived);
+  return added;
+}
+
+function updateMeta(totalJobs) {
+  let meta;
+  try {
+    meta = readJson(META_PATH);
+  } catch {
+    meta = {};
+  }
+
+  const next = {
+    ...meta,
+    lastUpdated: new Date().toISOString(),
+    totalJobs,
+    sources: {
+      ...(meta.sources || {}),
+      // Current dataset is a curated import list; keep shape stable.
+      arbeitSwiss: 0,
+      ubs: 0,
+      migros: 0,
+      tutti: 0,
+      remotive: 0,
+      findwork: 0,
+      curatedTicino: totalJobs,
+    },
+  };
+
+  writeJson(META_PATH, next);
+}
+
+async function main() {
+  // ── Slice-only mode: operate on a single per-crawler slice file ──────────
+  if (SLICE_FILE) {
+    const slicePath = path.resolve(SLICE_FILE);
+    // The caller is a shell glob over `data/jobs/by-crawler/*.json`
+    // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
+    // companions that are NOT slices: `update-coop-jobs.mjs` used to park its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, still
+    // tracked on main as `[]`), and a housekeeping run killed mid-write leaves a
+    // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
+    // through `sliceJobs` below as if it were a job list: housekeeping pruned
+    // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
+    // fallback further down archived it into a phantom
+    // `data/jobs/expired/by-crawler/coop-ticino-locale-cache.json`. Guarding here
+    // rather than in the glob covers every caller of this script at once.
+    if (!isSliceFile(path.basename(slicePath))) {
+      console.log(`ℹ️  Not a crawler slice: ${SLICE_FILE} — skip housekeeping`);
+      return;
+    }
+    if (!fs.existsSync(slicePath)) {
+      console.log(`ℹ️  Slice file not found: ${SLICE_FILE} — skip housekeeping`);
+      return;
+    }
+    console.log(`📦 Slice-only housekeeping: ${SLICE_FILE}`);
+    const sliceRaw = fs.readFileSync(slicePath, 'utf8');
+    const sliceData = JSON.parse(sliceRaw);
+    const sliceJobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : (Array.isArray(sliceData) ? sliceData : []);
+    if (sliceJobs.length === 0) {
+      console.log('ℹ️  Slice is empty — skip housekeeping');
+      return;
+    }
+
+    // Run locale hardening on the slice (skip if JOBS_SKIP_LOCALE_HARDENING=1,
+    // e.g. when slug hardening is deferred to after translations in the combined pipeline).
+    // Also auto-skip when running in scoped mode (JOBS_HOUSEKEEPING_SCOPE set): the
+    // dedicated crawler already hardened this slice moments ago — re-hardening in a
+    // separate process can revert AI-translated slugs and generate spurious previousSlugs.
+    const skipHardening = process.env.JOBS_SKIP_LOCALE_HARDENING === '1'
+      || !!process.env.JOBS_HOUSEKEEPING_SCOPE;
+    const tempPath = slicePath + '.cleanup-tmp.json';
+    writeJson(tempPath, sliceJobs);
+    try {
+      if (!skipHardening) {
+        // This slice goes back to git: an empty locale slot must stay empty
+        // ("to translate"), never become a source copy that looks translated.
+        // The publish-gate fill happens on the build-time dataset (standard
+        // mode below, deploy.yml prep), which is not committed.
+        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath, fillEmptyWithSourceCopy: false });
+        if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
+      }
+      const hardenedJobs = readJson(tempPath);
+      const decontamination = decontaminateJobs(hardenedJobs);
+      const decontaminationChanged = decontamination.moved > 0
+        || decontamination.emptyLocaleBucketsPruned > 0;
+      if (decontaminationChanged) {
+        console.log(
+          `🧼 Previous-slug decontamination: moved ${decontamination.moved} claim(s), `
+          + `pruned ${decontamination.emptyLocaleBucketsPruned} empty locale bucket(s).`,
+        );
+      }
+
+      // Age-based pruning
+      const now = Date.now();
+      let kept = hardenedJobs.filter((job) => {
+        const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+        return !(ts > 0 && now - ts > STALE_MS);
+      });
+      const agePruned = hardenedJobs.length - kept.length;
+      if (agePruned > 0) console.log(`🗓️  Removed ${agePruned} stale jobs (> ${STALE_DAYS} days) from slice.`);
+
+      // URL validation (honors JOBS_SKIP_URL_VALIDATION for tests + scoped runs)
+      const urlRemoved = [];
+      if (SKIP_URL_VALIDATION) {
+        console.log(`⏭️  Slice URL validation skipped (JOBS_SKIP_URL_VALIDATION=1) — keeping ${kept.length} jobs`);
+      } else {
+        console.log(`🧹 Slice housekeeping: checking ${kept.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
+        // Keyed by resolveJobDiffKey() not bare job.id: id-less per-crawler
+        // slices (JOBS_HOUSEKEEPING_SCOPE+SLICE_FILE mode — see #3411) stamp
+        // `.id` only at data/jobs.json assembly time, so every job.id here is
+        // `undefined` and a bare-id Map collapses all of them onto one key,
+        // making lookups return an arbitrary sibling job's validation result.
+        const checks = await validateJobUrls(kept.map((j) => ({ id: resolveJobDiffKey(j), url: j.url })), { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS });
+        const checkById = new Map(checks.map((c) => [c.id, c]));
+        const fallbackCandidates = kept
+          .filter((job) => {
+            const c = checkById.get(resolveJobDiffKey(job));
+            return c?.valid === false && job.applyUrl && job.applyUrl !== job.url;
+          })
+          .map((job) => ({ id: resolveJobDiffKey(job), url: job.applyUrl }));
+        const fallbackById = fallbackCandidates.length > 0
+          ? new Map((await validateJobUrls(fallbackCandidates, { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS })).map((c) => [c.id, c]))
+          : new Map();
+        kept = kept.filter((job) => {
+          const c = checkById.get(resolveJobDiffKey(job));
+          if (c && c.valid === false) {
+            const fallback = fallbackById.get(resolveJobDiffKey(job));
+            if (fallback && fallback.valid !== false) return true;
+            if (isFreshProtected(job) && !c.definitive) return true;
+            urlRemoved.push({
+              job,
+              id: resolveJobDiffKey(job),
+              reason: c.reason,
+              definitive: c.definitive === true,
+            });
+            return false;
+          }
+          return true;
+        });
+        if (urlRemoved.length > 0) console.log(`🧹 Removed ${urlRemoved.length} invalid-URL jobs from slice.`);
+      }
+
+      const slugDedup = deduplicateWithinSliceSlugs(kept);
+      const dedupLosers = slugDedup.archived.map((entry) => entry.loser);
+      const dedupCollisions = slugDedup.archived.map((entry) => ({
+        removedId: entry.loser.id,
+        keptId: entry.winner.id,
+        slug: entry.slug,
+      }));
+      const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+        buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+      ).length;
+      if (archivedIdentityMismatches !== 0) {
+        throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
+      }
+      if (dedupLosers.length > 0) {
+        console.log(`🧹 Archived ${dedupLosers.length} within-slice same-identity duplicate-slug jobs from slice (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
+        for (const c of dedupCollisions.slice(0, 5)) {
+          console.log(`   - ${c.removedId} (duplicate of ${c.keptId}) slug=${c.slug}`);
+        }
+      }
+      if (slugDedup.distinctCollisions.length > 0) {
+        console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+      }
+      kept = slugDedup.jobs;
+
+      // Archive removed jobs to per-crawler expired slice (not the shared file).
+      // Combines URL/age-prune removals (`sliceRemoved`) with dedup losers
+      // (`dedupLosers`). Dedup losers are NOT in the original `hardenedJobs`
+      // map under their disambiguated slug, so they're tracked separately.
+      const keptKeys = new Set(kept.map((job) => resolveJobDiffKey(job)));
+      const archivedDedupKeys = new Set(dedupLosers.map((job) => resolveJobDiffKey(job)));
+      const sliceRemoved = hardenedJobs.filter((job) => {
+        const key = resolveJobDiffKey(job);
+        return job.slug && !keptKeys.has(key) && !archivedDedupKeys.has(key);
+      });
+      // Keyed by resolveJobDiffKey() not bare j.id — see comment above on the
+      // checkById Map for why bare id-less-slice ids collide (#3411).
+      const archiveJobsById = new Map(hardenedJobs.map((j) => [resolveJobDiffKey(j), j]));
+      const archiveRefs = sliceRemoved.map((j) => ({ id: resolveJobDiffKey(j) }));
+      for (const loser of dedupLosers) {
+        // Use a synthetic key to avoid colliding with the original job's key
+        // (the original may already be in the map under its pre-dedup slug).
+        const loserKey = `__dedup__${resolveJobDiffKey(loser)}__${loser.slug}`;
+        archiveJobsById.set(loserKey, loser);
+        archiveRefs.push({ id: loserKey });
+      }
+      // Run even with no removals: the archive helper also repairs legacy
+      // title/timestamp values already on disk during a clean crawler run.
+      const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
+      const sliceArchived = archiveExpiredJobsPerCrawler(
+        archiveRefs,
+        archiveJobsById,
+        crawlerKey,
+      );
+      if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
+
+      // Write back to slice file (preserve envelope)
+      const totalRemoved = hardenedJobs.length - kept.length;
+      if (totalRemoved > 0 || decontaminationChanged || slugDedup.distinctCollisions.length > 0) {
+        const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
+          ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
+          : kept;
+        writeJson(slicePath, envelope, { housekeepingProof: urlRemoved });
+        writeHousekeepingProofFile(slicePath, urlRemoved, {
+          baseRaw: sliceRaw,
+          candidateRaw: fs.readFileSync(slicePath, 'utf8'),
+        });
+        console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
+      } else {
+        console.log('✅ Slice clean — no jobs removed.');
+      }
+    } finally {
+      try { fs.unlinkSync(tempPath); } catch { /* ignore */ }
+    }
+    return;
+  }
+
+  // ── Standard mode: operate on monolithic data/jobs.json ──────────────────
+  // A proof belongs to exactly one cleanup pass. Remove any residue before
+  // reading the next candidate so a failed/empty run can never authorize a
+  // later slice write with stale duplicate decisions.
+  clearCrossCrawlerDedupProofFile();
+  if (!fs.existsSync(DATA_JOBS_PATH) || !fs.existsSync(PUBLIC_JOBS_PATH)) {
+    console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
+    return;
+  }
+
+  // ── 0. Locale hardening (fill missing titleByLocale/descriptionByLocale/slugByLocale) ──
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath: DATA_JOBS_PATH });
+  if (localeHardening.changed) {
+    console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs.`);
+  }
+
+  // ── 0b. Enrich short descriptions (deploy-blocking safety net) ──────────
+  // If any job's description in any locale is too short or contains garbage
+  // (e.g. search widget text scraped instead of real content), replace it with
+  // a minimal viable description built from title + company + location.
+  // This prevents deploy failures from the validate-jobs-quality gate.
+  // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
+  // blocking predicate of validate:translation-completeness.
+  {
+    const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+    const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
+    const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
+
+    if (jobsArr) {
+      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
+      if (enriched > 0) {
+        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
+        writeJson(DATA_JOBS_PATH, out);
+        // Keep public copy in sync
+        if (fs.existsSync(PUBLIC_JOBS_PATH)) {
+          writeJson(PUBLIC_JOBS_PATH, out);
+        }
+        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
+      }
+    }
+  }
+
+  // Housekeeping must stay fast and deterministic: missing-locale translation
+  // belongs to dedicated crawler localization or the explicit relocalize job,
+  // not to the final cleanup pass that runs after every crawler.
+  if (String(process.env.JOBS_HOUSEKEEPING_TRANSLATE_MISSING || '0') === '1') {
+    console.log('ℹ️  Housekeeping locale translation explicitly enabled via JOBS_HOUSEKEEPING_TRANSLATE_MISSING=1');
+  }
+
+  const dataJobs = readJson(DATA_JOBS_PATH);
+  const publicJobs = readJson(PUBLIC_JOBS_PATH);
+
+  if (!Array.isArray(dataJobs) || !Array.isArray(publicJobs)) {
+    throw new Error('jobs.json must be an array');
+  }
+
+  // Use data/ as source of truth, but ensure public/ stays in sync.
+  const jobs = dataJobs;
+  const scopedJobs = HOUSEKEEPING_SCOPE ? jobs.filter((job) => jobMatchesHousekeepingScope(job, HOUSEKEEPING_SCOPE)) : jobs;
+  const untouchedJobs = HOUSEKEEPING_SCOPE ? jobs.filter((job) => !jobMatchesHousekeepingScope(job, HOUSEKEEPING_SCOPE)) : [];
+
+  if (HOUSEKEEPING_SCOPE) {
+    console.log(`🎯 Housekeeping scoped to company selector: ${HOUSEKEEPING_SCOPE}`);
+    console.log(`   Scoped jobs: ${scopedJobs.length} | Untouched jobs: ${untouchedJobs.length}`);
+    if (scopedJobs.length === 0) {
+      console.log('ℹ️  Nessun job corrisponde allo scope richiesto — skip housekeeping scoped');
+      return;
+    }
+  }
+
+  // ── 1. Age-based pruning (safety net) ────────────────────────────────
+  const now = Date.now();
+  const ageRemoved = [];
+  const afterAgePrune = [];
+
+  for (const job of scopedJobs) {
+    const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+    if (ts > 0 && now - ts > STALE_MS) {
+      ageRemoved.push({ id: job.id, url: job.url, reason: `older than ${STALE_DAYS} days`, crawledAt: job.crawledAt });
+    } else {
+      afterAgePrune.push(job);
+    }
+  }
+
+  if (ageRemoved.length > 0) {
+    console.log(`\n🗓️  Rimossi ${ageRemoved.length} job più vecchi di ${STALE_DAYS} giorni:`);
+    for (const r of ageRemoved.slice(0, 20)) {
+      console.log(`   - ${r.id} (crawledAt: ${r.crawledAt})`);
+    }
+    if (ageRemoved.length > 20) console.log(`   … +${ageRemoved.length - 20} altri`);
+  }
+
+  // ── 2. URL validation ─────────────────────────────────────────────────
+  const removed = [...ageRemoved];
+  const dedupProofEntries = [];
+  const dedupProofSourceIndex = buildDedupProofSourceIndex();
+  let kept = [];
+
+  if (SKIP_URL_VALIDATION) {
+    console.log(`\n⏭️  URL validation skipped (JOBS_SKIP_URL_VALIDATION=1) — keeping ${afterAgePrune.length} jobs`);
+    kept = afterAgePrune;
+  } else {
+    console.log(`\n🧹 Job housekeeping: checking ${afterAgePrune.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
+
+    const checks = await validateJobUrls(
+      afterAgePrune.map((j) => ({ id: j.id, url: j.url })),
+      { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS }
+    );
+
+    const checkById = new Map(checks.map((c) => [c.id, c]));
+    const fallbackCandidates = afterAgePrune
+      .filter((job) => {
+        const c = checkById.get(job.id);
+        return c?.valid === false && job.applyUrl && job.applyUrl !== job.url;
+      })
+      .map((job) => ({ id: job.id, url: job.applyUrl }));
+    const fallbackById = fallbackCandidates.length > 0
+      ? new Map((await validateJobUrls(fallbackCandidates, { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS })).map((c) => [c.id, c]))
+      : new Map();
+    for (const job of afterAgePrune) {
+      const c = checkById.get(job.id);
+      if (c && c.valid === false) {
+        const fallback = fallbackById.get(job.id);
+        if (fallback && fallback.valid !== false) {
+          kept.push(job);
+          continue;
+        }
+        // Definitive signals (HTTP 404/410, explicit closure phrases, portal-specific)
+        // bypass fresh protection — the job is unambiguously gone.
+        if (isFreshProtected(job) && !c.definitive) {
+          kept.push(job);
+          continue;
+        }
+        removed.push({ id: job.id, url: job.url, reason: c.reason, status: c.status, definitive: !!c.definitive });
+      } else {
+        kept.push(job);
+      }
+    }
+  }
+
+  // ── 3. Same posting published twice (dropHousekeepingDuplicatePostings) ──
+  // Only a proof from the source groups two records: the same title, company
+  // and location plus a full workplace (postal code AND street) or the same
+  // source identity. Title+company+location alone deleted distinct vacancies
+  // that are still online (stores of one city, one Workday req per vacancy).
+  const { kept: afterTcDedup, removed: tcDuplicates } = dropHousekeepingDuplicatePostings(kept);
+  for (const { loser, retained, duplicateKey } of tcDuplicates) {
+    dedupProofEntries.push({
+      job: dedupProofJob(loser),
+      retainedJob: dedupProofJob(retained),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
+      reason: 'duplicate title+company',
+      duplicateKey,
+    });
+    removed.push({ id: loser.id, title: loser.title, url: loser.url, reason: 'duplicate title+company' });
+  }
+  kept = afterTcDedup;
+
+  // ── 4. Slug collisions: archive only confirmed duplicate postings. ──
+  const slugDedup = deduplicateWithinSliceSlugs(kept);
+  const standardDedupLosers = slugDedup.archived.map((entry) => entry.loser);
+  const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+    buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+  ).length;
+  if (archivedIdentityMismatches !== 0) {
+    throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
+  }
+  for (const entry of slugDedup.archived) {
+    dedupProofEntries.push({
+      job: dedupProofJob(entry.loser),
+      retainedJob: dedupProofJob(entry.winner),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, entry.loser),
+      reason: 'duplicate slug',
+      duplicateKey: entry.slug,
+    });
+    removed.push({ id: entry.loser.id, url: entry.loser.url, reason: 'duplicate slug' });
+  }
+  if (standardDedupLosers.length > 0) {
+    console.log(`🧹 Archived ${standardDedupLosers.length} within-slice same-identity duplicate-slug jobs (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+  }
+  kept = slugDedup.jobs;
+
+  if (removed.length === 0) {
+    // A clean run must still persist repairs to the existing aggregate archive.
+    // Otherwise legacy malformed entries survive indefinitely until a removal
+    // happens to trigger the archival path again.
+    archiveExpiredJobs([], new Map());
+    console.log('✅ Nessun job da rimuovere (nessun segnale forte rilevato)');
+    return;
+  }
+
+  console.log(`⚠️  Rimossi ${removed.length} job non più disponibili:`);
+  for (const r of removed.slice(0, 30)) {
+    const label = r.id || r.title || r.url || 'unknown';
+    console.log(`   - ${label} (${r.status ?? '?'}) ${r.reason}`);
+  }
+  if (removed.length > 30) console.log(`   … +${removed.length - 30} altri`);
+
+  // Archive removed jobs for rich soft-landing pages.
+  // Dedup losers replace their pre-dedup entry in the lookup map under a
+  // synthetic key so the archive preserves the disambiguated slug + the
+  // original (colliding) slug in previousSlugs[].
+  const jobsById = new Map(jobs.map((j) => [j.id, j]));
+  const archiveRemoved = removed.filter((r) => !standardDedupLosers.some((loser) => loser.id === r.id && r.reason === 'duplicate slug'));
+  for (const loser of standardDedupLosers) {
+    const loserKey = `__dedup__${loser.id}__${loser.slug}`;
+    jobsById.set(loserKey, loser);
+    archiveRemoved.push({ id: loserKey, url: loser.url, reason: 'duplicate slug' });
+  }
+  const archived = archiveExpiredJobs(archiveRemoved, jobsById);
+  if (archived > 0) {
+    console.log(`📦 Archiviati ${archived} job scaduti in data/expired-jobs.json (soft-landing SEO)`);
+  }
+
+  const finalJobs = HOUSEKEEPING_SCOPE ? [...untouchedJobs, ...kept] : kept;
+
+  writeJson(DATA_JOBS_PATH, finalJobs);
+  writeJson(PUBLIC_JOBS_PATH, finalJobs);
+  updateMeta(finalJobs.length);
+  writeCrossCrawlerDedupProofFile(dedupProofEntries, {
+    candidateRaw: fs.readFileSync(DATA_JOBS_PATH, 'utf8'),
+  });
+
+  // Basic reference sanity checks (expected: no per-job routes/translations/sitemap entries)
+  const suspiciousFiles = [
+    path.resolve(__dirname, '..', 'public', 'sitemap.xml'),
+    path.resolve(__dirname, '..', 'services', 'locales', 'it.ts'),
+    path.resolve(__dirname, '..', 'services', 'locales', 'en.ts'),
+    path.resolve(__dirname, '..', 'services', 'locales', 'de.ts'),
+    path.resolve(__dirname, '..', 'services', 'locales', 'fr.ts'),
+  ].filter((p) => fs.existsSync(p));
+
+  for (const file of suspiciousFiles) {
+    const content = fs.readFileSync(file, 'utf-8');
+    const hit = removed.find((r) => content.includes(r.id) || (r.url && content.includes(r.url)));
+    if (hit) {
+      console.warn(`⚠️  Trovato riferimento a job rimosso in ${path.relative(process.cwd(), file)}: ${hit.id}`);
+    }
+  }
+
+  console.log(`✅ jobs.json aggiornati (data/ + public/data) e meta aggiornato${HOUSEKEEPING_SCOPE ? ` — scope ${HOUSEKEEPING_SCOPE}` : ''}`);
+}
+
+main()
+  .then(() => {
+    // Dataset mode only, and after main() on EVERY exit path — including the
+    // early return when nothing was removed, which skips the final writes.
+    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
+    // build) and name, per crawler, the records the dist gate
+    // validate:translation-completeness would block. Report only: no record
+    // is removed and the exit code does not change (see the module header).
+    if (!SLICE_FILE) {
+      // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
+      const reparseStartedAt = performance.now();
+      try {
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      } finally {
+        try {
+          // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
+          const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+        } catch {
+          /* the probe must never change the outcome or the exit code */
+        }
+      }
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Job housekeeping error:', err);
+    process.exitCode = 1;
+  });

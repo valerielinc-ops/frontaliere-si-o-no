@@ -1,0 +1,40 @@
+{
+  "id": "sequestrati-7200-euro",
+  "slug": "sequestrati-7200-euro",
+  "publishedAt": "2026-07-25T02:34:41.659Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.068326152641763,
+    "confidence": 0.8,
+    "finalScore": 4.054660922113411,
+    "topK": [
+      {
+        "slug": "malpensa-contanti-sequestri-370mila-euro",
+        "cosine": 0.8447210254402939
+      },
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.8424438455231262
+      },
+      {
+        "slug": "auto-truccate-polizia-zugo-2026",
+        "cosine": 0.841781673602084
+      },
+      {
+        "slug": "g7-evian-controlli-frontiere-ticino",
+        "cosine": 0.8369976826576424
+      },
+      {
+        "slug": "eroina-auto-chiasso-brogeda",
+        "cosine": 0.8369856543331918
+      }
+    ],
+    "score": 4.054660922113411,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

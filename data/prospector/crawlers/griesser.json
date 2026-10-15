@@ -1,0 +1,21 @@
+{
+  "companyKey": "griesser",
+  "companyName": "Griesser",
+  "companyHost": "recruitingapp-2690.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2690.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 24,
+  "sampleTitles": [
+    "Betriebselektriker:in / Automatiker:in Betriebsunterhalt (all genders)",
+    "Projektleiter:in Storenbau (all genders) für die Region St. Gallen und Umgebung",
+    "Assistent:in Disposition (all genders) - Quereinsteiger:innen willkommen",
+    "Teamleiter:in Fertigungsbereich (all genders)",
+    "Storenmonteur:in (all genders)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:28:53.926Z"
+}

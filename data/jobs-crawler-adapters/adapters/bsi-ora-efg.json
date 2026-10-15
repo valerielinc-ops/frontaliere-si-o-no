@@ -1,0 +1,22 @@
+{
+  "companyKey": "bsi-ora-efg",
+  "companyName": "BSI (ora EFG)",
+  "companyHost": "efginternational.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.efginternational.com/careers",
+    "https://www.efginternational.com/career",
+    "https://www.efginternational.com/jobs",
+    "https://www.efginternational.com/karriere",
+    "https://www.efginternational.com/offene-stellen",
+    "https://www.efginternational.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.929Z"
+}

@@ -1,0 +1,228 @@
+{
+  "_comment": "Canton-capital total tax burden (%) at 5 reference income levels. Source of truth for per-canton withholding-tax precision in components/comparators/SalaryCompare.tsx (services/cantonSalary.ts:cantonTaxBurdenPct). Single source, no duplicated constants.",
+  "_methodology": "ESTV (Swiss Federal Tax Administration) 'Steuerbelastungsstatistik' / Tax burden statistics tool does not publish a single flat national withholding curve; burden differs materially by canton (communal+cantonal multiplier stacks on top of the same federal schedule). Each canton is represented by its official capital/Hauptort commune as a single, citable reference point (consistent with published canton-ranking methodology; avoids skew from population-weighting hundreds of small Ticino communes vs few Geneva communes). Reference taxpayer: single, no children, no religious affiliation (zero church tax - the app does not model religion), tax year 2024 (latest finalized/closed year at data-pull time). Values are 'Total tax burden in %' = (federal + cantonal + communal + personal tax) / gross income - i.e. pure income-tax burden, EXCLUDING social security contributions (AVS/AI/APG/AC/LPP), which the app already models separately via CH_SOCIAL_RATE. Linear interpolation between the 5 reference points approximates the progressive curve; flat-clamped beyond the first/last point.",
+  "_sources": {
+    "estvTaxBurdenTool": "https://swisstaxcalculator.estv.admin.ch/#/taxburden/income-wealth-tax - official ESTV 'Geographical comparison' export, all 26 cantons, machine-read via the tool's 'Export table as XLS file' action.",
+    "referenceScenario": "Single taxpayer, no children, no religion (no church tax), income tax, tax year 2024, at gross income CHF 30'000 / 60'000 / 100'000 / 150'000 / 250'000 (matches the app's existing bracket boundaries)."
+  },
+  "referenceYear": 2024,
+  "incomeBracketsCHF": [
+    30000,
+    60000,
+    100000,
+    150000,
+    250000
+  ],
+  "cantonCapital": {
+    "ZH": "Zürich",
+    "BE": "Bern",
+    "LU": "Luzern",
+    "UR": "Altdorf (UR)",
+    "SZ": "Schwyz",
+    "OW": "Sarnen",
+    "NW": "Stans",
+    "GL": "Glarus",
+    "ZG": "Zug",
+    "FR": "Fribourg",
+    "SO": "Solothurn",
+    "BS": "Basel",
+    "BL": "Liestal",
+    "SH": "Schaffhausen",
+    "AR": "Herisau",
+    "AI": "Appenzell",
+    "SG": "St. Gallen",
+    "GR": "Chur",
+    "AG": "Aarau",
+    "TG": "Frauenfeld",
+    "TI": "Bellinzona",
+    "VD": "Lausanne",
+    "VS": "Sion",
+    "NE": "Neuchâtel",
+    "GE": "Genève",
+    "JU": "Delémont"
+  },
+  "totalTaxBurdenPctByCanton": {
+    "AG": [
+      2.81,
+      8.72,
+      13.0,
+      16.77,
+      22.08
+    ],
+    "AI": [
+      3.87,
+      7.57,
+      10.35,
+      13.22,
+      16.88
+    ],
+    "AR": [
+      5.48,
+      10.47,
+      14.43,
+      18.05,
+      22.9
+    ],
+    "BE": [
+      6.98,
+      12.96,
+      16.64,
+      20.65,
+      26.58
+    ],
+    "BL": [
+      3.82,
+      11.09,
+      16.89,
+      21.91,
+      28.07
+    ],
+    "BS": [
+      0.3,
+      10.02,
+      14.77,
+      18.37,
+      22.93
+    ],
+    "FR": [
+      4.37,
+      11.82,
+      16.48,
+      20.58,
+      26.92
+    ],
+    "GE": [
+      2.14,
+      11.06,
+      17.35,
+      21.99,
+      28.0
+    ],
+    "GL": [
+      4.31,
+      9.1,
+      12.76,
+      15.98,
+      21.05
+    ],
+    "GR": [
+      1.29,
+      8.1,
+      12.97,
+      16.86,
+      21.84
+    ],
+    "JU": [
+      4.26,
+      10.49,
+      15.7,
+      20.36,
+      26.15
+    ],
+    "LU": [
+      4.01,
+      9.73,
+      12.81,
+      15.6,
+      20.14
+    ],
+    "NE": [
+      4.78,
+      13.67,
+      18.21,
+      22.43,
+      28.35
+    ],
+    "NW": [
+      4.08,
+      8.67,
+      11.62,
+      14.45,
+      18.26
+    ],
+    "OW": [
+      5.16,
+      9.47,
+      11.51,
+      13.68,
+      17.19
+    ],
+    "SG": [
+      4.6,
+      10.55,
+      15.25,
+      19.19,
+      24.09
+    ],
+    "SH": [
+      3.46,
+      8.26,
+      12.32,
+      15.9,
+      21.06
+    ],
+    "SO": [
+      4.58,
+      11.76,
+      16.05,
+      19.78,
+      24.97
+    ],
+    "SZ": [
+      1.83,
+      6.47,
+      9.55,
+      12.39,
+      16.3
+    ],
+    "TG": [
+      3.47,
+      9.55,
+      13.21,
+      16.55,
+      21.41
+    ],
+    "TI": [
+      3.19,
+      9.26,
+      14.7,
+      19.25,
+      25.0
+    ],
+    "UR": [
+      4.55,
+      8.97,
+      11.52,
+      13.93,
+      17.66
+    ],
+    "VD": [
+      0.72,
+      11.89,
+      17.0,
+      21.53,
+      28.33
+    ],
+    "VS": [
+      0.74,
+      9.7,
+      14.95,
+      20.63,
+      26.95
+    ],
+    "ZG": [
+      0.91,
+      3.12,
+      5.63,
+      8.96,
+      13.81
+    ],
+    "ZH": [
+      3.85,
+      7.95,
+      12.12,
+      16.26,
+      22.79
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "dgs-druckguss-com",
+  "companyName": "DGS Druckguss Systeme AG St. Gallen",
+  "companyHost": "dgs-druckguss.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://dgs-druckguss.com/de/karriere"
+  ],
+  "detailTemplate": "/de/karriere/stellenangebote/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Schweiz – St. Gallen Berufserfahrene",
+    "Schweiz – St. Gallen Junge Talente"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-03T11:06:15.348Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "guida-busta-paga-svizzera-2026",
+  "slug": "guida-busta-paga-svizzera-2026",
+  "publishedAt": "2026-07-19T06:29:36.866Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 74.38846931578026,
+    "confidence": 0.8,
+    "finalScore": 59.51077545262421,
+    "topK": [
+      {
+        "slug": "guida-contributi-sociali-svizzera",
+        "cosine": 0.9071764550704909
+      },
+      {
+        "slug": "frontalieri-busta-paga-svizzera-2026",
+        "cosine": 0.8941490114365475
+      },
+      {
+        "slug": "guida-pensione-frontaliere-avs-lpp",
+        "cosine": 0.8849692998070411
+      },
+      {
+        "slug": "tredicesima-avs-finanziamento-contributi",
+        "cosine": 0.8848363871691429
+      },
+      {
+        "slug": "simulazione-fiscale-frontaliere-2026",
+        "cosine": 0.8810816076279064
+      }
+    ],
+    "score": 59.51077545262421,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

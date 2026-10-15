@@ -1,0 +1,978 @@
+[
+  {
+    "generatedAt": "2026-07-16T18:48:01.935Z",
+    "windowDays": 7,
+    "families": {
+      "articoli-frontaliere": {
+        "label": "Articoli (blog)",
+        "pathContains": "/articoli-frontaliere/",
+        "targetCtr": 0.03,
+        "error": "no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)"
+      },
+      "guida-frontaliere": {
+        "label": "Guida frontaliere",
+        "pathContains": "/guida-frontaliere/",
+        "targetCtr": 0.035,
+        "error": "no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)"
+      },
+      "tasse-e-pensione": {
+        "label": "Tasse e pensione",
+        "pathContains": "/tasse-e-pensione/",
+        "targetCtr": 0.03,
+        "error": "no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)"
+      },
+      "de": {
+        "label": "DE locale (riferimento)",
+        "pathContains": "/de/",
+        "targetCtr": null,
+        "error": "no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)"
+      },
+      "cerca-lavoro-ticino": {
+        "label": "Cerca lavoro Ticino (riferimento)",
+        "pathContains": "/cerca-lavoro-ticino/",
+        "targetCtr": null,
+        "error": "no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)"
+      }
+    }
+  },
+  {
+    "generatedAt": "2026-07-16T18:48:37.569Z",
+    "windowDays": 90,
+    "families": {
+      "articoli-frontaliere": {
+        "label": "Articoli (blog)",
+        "pathContains": "/articoli-frontaliere/",
+        "targetCtr": 0.03,
+        "rawRowCount": 2420,
+        "pageCount": 776,
+        "totalClicks": 3143,
+        "totalImpressions": 146617,
+        "avgCtr": 0.021436804736149288,
+        "avgPosition": 7.803140154279517,
+        "belowCurveCount": 432,
+        "belowCurvePages": [
+          {
+            "path": "/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali/",
+            "clicks": 68,
+            "impressions": 6770,
+            "ctr": 0.010044313146233382,
+            "position": 8.400295420974889,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.3138847858197932
+          },
+          {
+            "path": "/articoli-frontaliere/calendario-festivi-ticino-2026/",
+            "clicks": 21,
+            "impressions": 4511,
+            "ctr": 0.004655287076036355,
+            "position": 8.629572156949678,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.16626025271558412
+          },
+          {
+            "path": "/articoli-frontaliere/venditti-estival-lugano-2026/",
+            "clicks": 47,
+            "impressions": 3418,
+            "ctr": 0.013750731421884143,
+            "position": 8.396138092451725,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.42971035693387943
+          },
+          {
+            "path": "/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/",
+            "clicks": 34,
+            "impressions": 3042,
+            "ctr": 0.011176857330703484,
+            "position": 6.848126232741618,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.3020772251541482
+          },
+          {
+            "path": "/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa/",
+            "clicks": 64,
+            "impressions": 2665,
+            "ctr": 0.02401500938086304,
+            "position": 6.253658536585366,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.5457956677468873
+          },
+          {
+            "path": "/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/",
+            "clicks": 32,
+            "impressions": 2309,
+            "ctr": 0.013858813339107838,
+            "position": 8.493720225205717,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.43308791684711995
+          },
+          {
+            "path": "/articoli-frontaliere/richiesta-permesso-g-step-by-step-2026/",
+            "clicks": 20,
+            "impressions": 2122,
+            "ctr": 0.00942507068803016,
+            "position": 7.035815268614515,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.2547316402170314
+          },
+          {
+            "path": "/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026/",
+            "clicks": 22,
+            "impressions": 2102,
+            "ctr": 0.010466222645099905,
+            "position": 6.487630827783064,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.2378686964795433
+          },
+          {
+            "path": "/articoli-frontaliere/permesso-g-guida-frontalieri-2026/",
+            "clicks": 20,
+            "impressions": 1927,
+            "ctr": 0.010378827192527244,
+            "position": 6.997405293201868,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.2805088430412769
+          },
+          {
+            "path": "/articoli-frontaliere/fine-scuole-ticino-2026/",
+            "clicks": 0,
+            "impressions": 1701,
+            "ctr": 0,
+            "position": 9.343915343915343,
+            "expectedCtr": 0.028,
+            "gapRatio": 0
+          },
+          {
+            "path": "/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli/",
+            "clicks": 15,
+            "impressions": 1594,
+            "ctr": 0.009410288582183186,
+            "position": 7.10288582183187,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.25433212384278886
+          },
+          {
+            "path": "/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026/",
+            "clicks": 27,
+            "impressions": 1501,
+            "ctr": 0.01798800799467022,
+            "position": 6.548301132578281,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.48616237823433034
+          },
+          {
+            "path": "/articoli-frontaliere/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026/",
+            "clicks": 24,
+            "impressions": 1493,
+            "ctr": 0.016075016744809108,
+            "position": 6.799732083054253,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.4344599120218678
+          },
+          {
+            "path": "/articoli-frontaliere/ascensione-pentecoste-viaggi-2026/",
+            "clicks": 2,
+            "impressions": 1408,
+            "ctr": 0.0014204545454545455,
+            "position": 9.627130681818182,
+            "expectedCtr": 0.025,
+            "gapRatio": 0.056818181818181816
+          },
+          {
+            "path": "/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse/",
+            "clicks": 26,
+            "impressions": 1404,
+            "ctr": 0.018518518518518517,
+            "position": 7.953703703703703,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.5787037037037036
+          },
+          {
+            "path": "/articoli-frontaliere/slowup-strade-trasporti-limiti-2026/",
+            "clicks": 23,
+            "impressions": 1339,
+            "ctr": 0.01717699775952203,
+            "position": 8.029126213592233,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.5367811799850635
+          },
+          {
+            "path": "/articoli-frontaliere/permesso-b-imposta-fonte-2026/",
+            "clicks": 16,
+            "impressions": 1335,
+            "ctr": 0.01198501872659176,
+            "position": 6.313857677902622,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.27238678924072185
+          },
+          {
+            "path": "/articoli-frontaliere/riforma-cassa-malati-ticino-2029/",
+            "clicks": 19,
+            "impressions": 1254,
+            "ctr": 0.015151515151515152,
+            "position": 6.0933014354066986,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.34435261707988984
+          },
+          {
+            "path": "/articoli-frontaliere/a9-chiasso-como-chiusure-frontalieri/",
+            "clicks": 7,
+            "impressions": 1244,
+            "ctr": 0.005627009646302251,
+            "position": 8.460610932475884,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.17584405144694534
+          },
+          {
+            "path": "/articoli-frontaliere/a9-como-chiasso-disagi-notturni-frontiera/",
+            "clicks": 9,
+            "impressions": 1218,
+            "ctr": 0.007389162561576354,
+            "position": 8.192118226600986,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.23091133004926107
+          },
+          {
+            "path": "/articoli-frontaliere/radar-ticino-velocita-2026/",
+            "clicks": 24,
+            "impressions": 1154,
+            "ctr": 0.02079722703639515,
+            "position": 6.195840554592721,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.4726642508271625
+          },
+          {
+            "path": "/articoli-frontaliere/richiesta-permesso-g-step-by-step/",
+            "clicks": 7,
+            "impressions": 1069,
+            "ctr": 0.006548175865294668,
+            "position": 7.480823199251637,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.1769777260890451
+          },
+          {
+            "path": "/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese/",
+            "clicks": 14,
+            "impressions": 1022,
+            "ctr": 0.0136986301369863,
+            "position": 5.698630136986301,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.31133250311332505
+          },
+          {
+            "path": "/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026/",
+            "clicks": 6,
+            "impressions": 963,
+            "ctr": 0.006230529595015576,
+            "position": 7.857736240913811,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.19470404984423675
+          },
+          {
+            "path": "/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026/",
+            "clicks": 18,
+            "impressions": 902,
+            "ctr": 0.019955654101995565,
+            "position": 7.414634146341464,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.5393420027566369
+          }
+        ]
+      },
+      "guida-frontaliere": {
+        "label": "Guida frontaliere",
+        "pathContains": "/guida-frontaliere/",
+        "targetCtr": 0.035,
+        "rawRowCount": 77,
+        "pageCount": 31,
+        "totalClicks": 777,
+        "totalImpressions": 37988,
+        "avgCtr": 0.020453827524481414,
+        "avgPosition": 7.868984942613457,
+        "belowCurveCount": 16,
+        "belowCurvePages": [
+          {
+            "path": "/guida-frontaliere/disoccupazione-transfrontaliera/",
+            "clicks": 88,
+            "impressions": 7783,
+            "ctr": 0.011306694076834125,
+            "position": 8.979570859565719,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.40381050274407587
+          },
+          {
+            "path": "/guida-frontaliere/imposta-alla-fonte-ticino-tabelle-a-b-c-h/",
+            "clicks": 2,
+            "impressions": 3005,
+            "ctr": 0.0006655574043261231,
+            "position": 5.196339434276206,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.01188495364868077
+          },
+          {
+            "path": "/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/",
+            "clicks": 22,
+            "impressions": 2425,
+            "ctr": 0.009072164948453608,
+            "position": 6.1872164948453605,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.2061855670103093
+          },
+          {
+            "path": "/guida-frontaliere/permessi-di-lavoro/",
+            "clicks": 12,
+            "impressions": 2259,
+            "ctr": 0.005312084993359893,
+            "position": 9.38158477202302,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.18971732119142476
+          },
+          {
+            "path": "/guida-frontaliere/lamal-frontalieri/",
+            "clicks": 27,
+            "impressions": 2111,
+            "ctr": 0.012790146849834202,
+            "position": 7.38180956892468,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.3456796445901136
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/ponte-tresa/",
+            "clicks": 22,
+            "impressions": 1386,
+            "ctr": 0.015873015873015872,
+            "position": 8.995670995670995,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.5668934240362812
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/luino-fornasette/",
+            "clicks": 1,
+            "impressions": 463,
+            "ctr": 0.0021598272138228943,
+            "position": 7.470842332613391,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.05837370848169985
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/porto-ceresio-brusino/",
+            "clicks": 5,
+            "impressions": 332,
+            "ctr": 0.015060240963855422,
+            "position": 5.370481927710843,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.2689328743545611
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/maslianico-roggiana/",
+            "clicks": 1,
+            "impressions": 321,
+            "ctr": 0.003115264797507788,
+            "position": 10.968847352024921,
+            "expectedCtr": 0.022,
+            "gapRatio": 0.1416029453412631
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/saltrio-arzo/",
+            "clicks": 0,
+            "impressions": 105,
+            "ctr": 0,
+            "position": 8.342857142857142,
+            "expectedCtr": 0.032,
+            "gapRatio": 0
+          },
+          {
+            "path": "/guida-frontaliere/guida-completa-calcolo-stipendio-frontaliere-2026/",
+            "clicks": 1,
+            "impressions": 97,
+            "ctr": 0.010309278350515464,
+            "position": 6.22680412371134,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.23430178069353327
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/",
+            "clicks": 0,
+            "impressions": 77,
+            "ctr": 0,
+            "position": 16.07792207792208,
+            "expectedCtr": 0.012,
+            "gapRatio": 0
+          },
+          {
+            "path": "/guida-frontaliere/trasferire-auto-svizzera/",
+            "clicks": 0,
+            "impressions": 59,
+            "ctr": 0,
+            "position": 6.898305084745763,
+            "expectedCtr": 0.037,
+            "gapRatio": 0
+          },
+          {
+            "path": "/guida-frontaliere/primo-giorno-lavoro/",
+            "clicks": 0,
+            "impressions": 44,
+            "ctr": 0,
+            "position": 43.56818181818182,
+            "expectedCtr": 0.006,
+            "gapRatio": 0
+          },
+          {
+            "path": "/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella/",
+            "clicks": 1,
+            "impressions": 33,
+            "ctr": 0.030303030303030304,
+            "position": 4.303030303030303,
+            "expectedCtr": 0.072,
+            "gapRatio": 0.4208754208754209
+          },
+          {
+            "path": "/guida-frontaliere/confronta-permesso-g-vs-b",
+            "clicks": 0,
+            "impressions": 23,
+            "ctr": 0,
+            "position": 6.782608695652174,
+            "expectedCtr": 0.037,
+            "gapRatio": 0
+          }
+        ]
+      },
+      "tasse-e-pensione": {
+        "label": "Tasse e pensione",
+        "pathContains": "/tasse-e-pensione/",
+        "targetCtr": 0.03,
+        "rawRowCount": 20,
+        "pageCount": 10,
+        "totalClicks": 314,
+        "totalImpressions": 23050,
+        "avgCtr": 0.013622559652928417,
+        "avgPosition": 6.094533622559653,
+        "belowCurveCount": 5,
+        "belowCurvePages": [
+          {
+            "path": "/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/",
+            "clicks": 77,
+            "impressions": 16595,
+            "ctr": 0.004639951792708647,
+            "position": 5.8187405845134075,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.10545344983428744
+          },
+          {
+            "path": "/tasse-e-pensione/",
+            "clicks": 6,
+            "impressions": 741,
+            "ctr": 0.008097165991902834,
+            "position": 7.157894736842105,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.21884232410548202
+          },
+          {
+            "path": "/tasse-e-pensione/scadenze-fiscali/",
+            "clicks": 6,
+            "impressions": 342,
+            "ctr": 0.017543859649122806,
+            "position": 5.964912280701754,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.39872408293460926
+          },
+          {
+            "path": "/tasse-e-pensione/nuova-legge-frontalieri-2026/",
+            "clicks": 0,
+            "impressions": 68,
+            "ctr": 0,
+            "position": 7.455882352941177,
+            "expectedCtr": 0.037,
+            "gapRatio": 0
+          },
+          {
+            "path": "/tasse-e-pensione/festivita-ticino/",
+            "clicks": 0,
+            "impressions": 51,
+            "ctr": 0,
+            "position": 15.450980392156863,
+            "expectedCtr": 0.013,
+            "gapRatio": 0
+          }
+        ]
+      },
+      "de": {
+        "label": "DE locale (riferimento)",
+        "pathContains": "/de/",
+        "targetCtr": null,
+        "rawRowCount": 18884,
+        "pageCount": 4171,
+        "totalClicks": 10418,
+        "totalImpressions": 367073,
+        "avgCtr": 0.02838127565906509,
+        "avgPosition": 12.202973250552342,
+        "belowCurveCount": 2537,
+        "belowCurvePages": [
+          {
+            "path": "/de/benzinpreis-schweiz/heute/",
+            "clicks": 25,
+            "impressions": 3612,
+            "ctr": 0.0069213732004429675,
+            "position": 15.317275747508306,
+            "expectedCtr": 0.013,
+            "gapRatio": 0.5324133231109975
+          },
+          {
+            "path": "/de/dieselpreis-schweiz/heute/",
+            "clicks": 17,
+            "impressions": 2632,
+            "ctr": 0.006458966565349544,
+            "position": 8.804711246200608,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.23067737733391228
+          },
+          {
+            "path": "/de/grenzgaenger-artikel/italienisch-schweizer-grenzuebertritt-regeln-tessin/",
+            "clicks": 21,
+            "impressions": 1562,
+            "ctr": 0.013444302176696543,
+            "position": 8.162612035851472,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.42013444302176695
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-erlernt-im-einzelhandel-cfp-oder-afc/",
+            "clicks": 0,
+            "impressions": 1557,
+            "ctr": 0,
+            "position": 2.617212588310854,
+            "expectedCtr": 0.106,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-der-waadt/leiter-bibliotheksdienste-und-archive-epfl-lausanne/",
+            "clicks": 11,
+            "impressions": 1478,
+            "ctr": 0.007442489851150203,
+            "position": 9.083897158322056,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.2658032089696501
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-support-basel/",
+            "clicks": 0,
+            "impressions": 1472,
+            "ctr": 0,
+            "position": 3.2839673913043477,
+            "expectedCtr": 0.106,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-jysk-stans/",
+            "clicks": 1,
+            "impressions": 1401,
+            "ctr": 0.0007137758743754461,
+            "position": 8.16630977872948,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.02230549607423269
+          },
+          {
+            "path": "/de/grenzgaenger-artikel/diesel-preiserhohung-schweiz-2026/",
+            "clicks": 0,
+            "impressions": 1369,
+            "ctr": 0,
+            "position": 8.47991234477721,
+            "expectedCtr": 0.032,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-jysk-schlieren/",
+            "clicks": 0,
+            "impressions": 1365,
+            "ctr": 0,
+            "position": 8.126739926739926,
+            "expectedCtr": 0.032,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-schwyz/verkaufsberater-in-interdiscount-lachen-schwyz-b1h2aw/",
+            "clicks": 0,
+            "impressions": 1229,
+            "ctr": 0,
+            "position": 9.192839707078926,
+            "expectedCtr": 0.028,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/grenzgaenger-artikel/italien-kurieren-kraftstoffsteuer-benzinpreise-beunruhigen-tankstellenbetreiber/",
+            "clicks": 6,
+            "impressions": 1191,
+            "ctr": 0.005037783375314861,
+            "position": 7.653232577665827,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.1574307304785894
+          },
+          {
+            "path": "/de/krankenkassenpraemien/basel-landschaft/erwachsene-26-30/",
+            "clicks": 0,
+            "impressions": 1185,
+            "ctr": 0,
+            "position": 7.938396624472574,
+            "expectedCtr": 0.032,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/haeufige-fragen/",
+            "clicks": 3,
+            "impressions": 1145,
+            "ctr": 0.0026200873362445414,
+            "position": 7.91353711790393,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.08187772925764192
+          },
+          {
+            "path": "/de/jobs-im-tessin/mitarbeiter-in-front-office-davos-klosters-bergbahnen-davos/",
+            "clicks": 0,
+            "impressions": 1083,
+            "ctr": 0,
+            "position": 3.772853185595568,
+            "expectedCtr": 0.072,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-schwyz/verkaufsberater-in-interdiscount-schwyz-oud0tt/",
+            "clicks": 1,
+            "impressions": 1014,
+            "ctr": 0.0009861932938856016,
+            "position": 8.91913214990138,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.035221189067342916
+          },
+          {
+            "path": "/de/grenzgaenger-artikel/chinesische-autos-schweiz-2026/",
+            "clicks": 7,
+            "impressions": 945,
+            "ctr": 0.007407407407407408,
+            "position": 9.357671957671958,
+            "expectedCtr": 0.028,
+            "gapRatio": 0.26455026455026454
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-berufsbildnerin-pflege-m-w-80-salary-switzerland/",
+            "clicks": 0,
+            "impressions": 930,
+            "ctr": 0,
+            "position": 3.0505376344086024,
+            "expectedCtr": 0.106,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-im-tessin/bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-l/",
+            "clicks": 10,
+            "impressions": 924,
+            "ctr": 0.010822510822510822,
+            "position": 9.926406926406926,
+            "expectedCtr": 0.025,
+            "gapRatio": 0.43290043290043284
+          },
+          {
+            "path": "/de/jobs-im-tessin/mitarbeiter-in-arzneimittelherstellung-kantonsspital-graubunden-chur/",
+            "clicks": 0,
+            "impressions": 863,
+            "ctr": 0,
+            "position": 5.426419466975666,
+            "expectedCtr": 0.056,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/krankenkassenpraemien/basel-landschaft/",
+            "clicks": 0,
+            "impressions": 861,
+            "ctr": 0,
+            "position": 8.229965156794425,
+            "expectedCtr": 0.032,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/dieselpreis-schweiz/italien/livigno/tankstellen/agip-eni-via-rasia-833/",
+            "clicks": 10,
+            "impressions": 820,
+            "ctr": 0.012195121951219513,
+            "position": 7.678048780487805,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.38109756097560976
+          },
+          {
+            "path": "/de/grenzgaenger-artikel/schweizer-wochentliche-arbeitszeit-2025/",
+            "clicks": 0,
+            "impressions": 803,
+            "ctr": 0,
+            "position": 9.097135740971357,
+            "expectedCtr": 0.028,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-im-wallis/lager-mitarbeiter-a-40-60-in-der-filiale-eyholz-jysk-eyholz-evp2lu/",
+            "clicks": 3,
+            "impressions": 790,
+            "ctr": 0.0037974683544303796,
+            "position": 8.426582278481012,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.11867088607594936
+          },
+          {
+            "path": "/de/jobs-im-tessin/verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen/",
+            "clicks": 0,
+            "impressions": 661,
+            "ctr": 0,
+            "position": 2.2829046898638428,
+            "expectedCtr": 0.155,
+            "gapRatio": 0
+          },
+          {
+            "path": "/de/jobs-in-schweiz/suche-fielmann-wadenswil/",
+            "clicks": 0,
+            "impressions": 620,
+            "ctr": 0,
+            "position": 11.296774193548387,
+            "expectedCtr": 0.022,
+            "gapRatio": 0
+          }
+        ]
+      },
+      "cerca-lavoro-ticino": {
+        "label": "Cerca lavoro Ticino (riferimento)",
+        "pathContains": "/cerca-lavoro-ticino/",
+        "targetCtr": null,
+        "rawRowCount": 12677,
+        "pageCount": 2902,
+        "totalClicks": 43638,
+        "totalImpressions": 821622,
+        "avgCtr": 0.05311201501420361,
+        "avgPosition": 7.206582832494748,
+        "belowCurveCount": 1275,
+        "belowCurvePages": [
+          {
+            "path": "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia/",
+            "clicks": 88,
+            "impressions": 6356,
+            "ctr": 0.013845185651353053,
+            "position": 5.531623662680931,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.31466331025802396
+          },
+          {
+            "path": "/cerca-lavoro-ticino/apprendista-laboratorista-in-chimica-afc-sintetica/",
+            "clicks": 117,
+            "impressions": 4732,
+            "ctr": 0.024725274725274724,
+            "position": 5.923499577345731,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.561938061938062
+          },
+          {
+            "path": "/cerca-lavoro-ticino/candidature-spontanee-per-lavoro-estivo-presso-l-amministrazione-cantonale-per-studenti-domiciliati-nel-cantone-ticino-o-nel-grigioni-italia-213ie3/",
+            "clicks": 145,
+            "impressions": 4724,
+            "ctr": 0.03069432684165961,
+            "position": 4.492167654530059,
+            "expectedCtr": 0.072,
+            "gapRatio": 0.4263100950230502
+          },
+          {
+            "path": "/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/",
+            "clicks": 35,
+            "impressions": 4713,
+            "ctr": 0.007426267769997878,
+            "position": 9.513897729683853,
+            "expectedCtr": 0.025,
+            "gapRatio": 0.29705071079991513
+          },
+          {
+            "path": "/cerca-lavoro-ticino/capireparto-lis-lugano-istituti-sociali-pregassona/",
+            "clicks": 54,
+            "impressions": 3453,
+            "ctr": 0.015638575152041704,
+            "position": 8.410947002606429,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.4887054735013032
+          },
+          {
+            "path": "/cerca-lavoro-ticino/capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-lugano/",
+            "clicks": 87,
+            "impressions": 3337,
+            "ctr": 0.02607132154629907,
+            "position": 5.553790830086904,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.5925300351431607
+          },
+          {
+            "path": "/cerca-lavoro-ticino/posizione-di-assistente-dottorando-a-usi/",
+            "clicks": 67,
+            "impressions": 3130,
+            "ctr": 0.021405750798722045,
+            "position": 5.468370607028754,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.38224554997717936
+          },
+          {
+            "path": "/cerca-lavoro-ticino/azienda-lidl/",
+            "clicks": 26,
+            "impressions": 2835,
+            "ctr": 0.009171075837742505,
+            "position": 8.393650793650794,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.2865961199294533
+          },
+          {
+            "path": "/cerca-lavoro-ticino/operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano/",
+            "clicks": 65,
+            "impressions": 2597,
+            "ctr": 0.02502887947631883,
+            "position": 5.3273007316134,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.44694427636283623
+          },
+          {
+            "path": "/cerca-lavoro-ticino/ricerca-stipendio-giardiniere-svizzera/",
+            "clicks": 1,
+            "impressions": 2522,
+            "ctr": 0.0003965107057890563,
+            "position": 7.942902458366376,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.012390959555908009
+          },
+          {
+            "path": "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-balerna/",
+            "clicks": 22,
+            "impressions": 2087,
+            "ctr": 0.010541447053186392,
+            "position": 6.1887877335888835,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.23957834211787254
+          },
+          {
+            "path": "/cerca-lavoro-ticino/un-a-consulente-sicurezza-antincendio-tra-il-70-e-l-80-presso-la-divisione-risorse-umane-citta-di-lugano/",
+            "clicks": 87,
+            "impressions": 2082,
+            "ctr": 0.04178674351585014,
+            "position": 2.978866474543708,
+            "expectedCtr": 0.106,
+            "gapRatio": 0.3942145614702844
+          },
+          {
+            "path": "/cerca-lavoro-ticino/ricerca-offerte-lavoro-parrucchiera-parrucchiere/",
+            "clicks": 7,
+            "impressions": 2073,
+            "ctr": 0.003376748673420164,
+            "position": 28.51519536903039,
+            "expectedCtr": 0.006,
+            "gapRatio": 0.5627914455700274
+          },
+          {
+            "path": "/cerca-lavoro-ticino/sustainability-specialista-vf-international-the-north-face-timberland-stabio/",
+            "clicks": 38,
+            "impressions": 2069,
+            "ctr": 0.01836636056065732,
+            "position": 6.0497825036249395,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.4174172854694846
+          },
+          {
+            "path": "/cerca-lavoro-ticino/capireparto-lis-lugano-istituti-sociali-lugano/",
+            "clicks": 43,
+            "impressions": 1981,
+            "ctr": 0.02170620898536093,
+            "position": 5.346794548207976,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.387610874738588
+          },
+          {
+            "path": "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona/",
+            "clicks": 17,
+            "impressions": 1750,
+            "ctr": 0.009714285714285713,
+            "position": 5.854285714285714,
+            "expectedCtr": 0.044,
+            "gapRatio": 0.22077922077922077
+          },
+          {
+            "path": "/cerca-lavoro-ticino/apprendistato-mediamatico-a-afc-swisscom-sede-ticino-bellinzona/",
+            "clicks": 26,
+            "impressions": 1737,
+            "ctr": 0.014968336211859529,
+            "position": 7.0120898100172715,
+            "expectedCtr": 0.037,
+            "gapRatio": 0.40454962734755484
+          },
+          {
+            "path": "/cerca-lavoro-ticino/addetto-alle-vendite-venditore-a-tempo-pieno-e-part-time-m-f-d-laderach-schweiz-ag-karlsruhe/",
+            "clicks": 67,
+            "impressions": 1647,
+            "ctr": 0.04068002428658166,
+            "position": 4.36247723132969,
+            "expectedCtr": 0.072,
+            "gapRatio": 0.5650003373136343
+          },
+          {
+            "path": "/cerca-lavoro-ticino/vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione/",
+            "clicks": 66,
+            "impressions": 1520,
+            "ctr": 0.04342105263157895,
+            "position": 1.5032894736842106,
+            "expectedCtr": 0.155,
+            "gapRatio": 0.28013582342954163
+          },
+          {
+            "path": "/cerca-lavoro-ticino/operatori-sociosanitari-lis-lugano-istituti-sociali-lugano/",
+            "clicks": 38,
+            "impressions": 1410,
+            "ctr": 0.02695035460992908,
+            "position": 5.1127659574468085,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.48125633232016213
+          },
+          {
+            "path": "/cerca-lavoro-ticino/assistente-team-100-m-f-lugano-ticino-premium-properties-sa-lugano/",
+            "clicks": 2,
+            "impressions": 1374,
+            "ctr": 0.001455604075691412,
+            "position": 3.119359534206696,
+            "expectedCtr": 0.106,
+            "gapRatio": 0.013732113921617094
+          },
+          {
+            "path": "/cerca-lavoro-ticino/collaboratore-collaboratrice-scientifico-a-per-la-modellistica-usi/",
+            "clicks": 17,
+            "impressions": 1370,
+            "ctr": 0.012408759124087591,
+            "position": 7.987591240875912,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.38777372262773724
+          },
+          {
+            "path": "/cerca-lavoro-ticino/1-apprendista-giardiniera-e-afc-indirizzo-produzione-di-piante-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-press/",
+            "clicks": 21,
+            "impressions": 1258,
+            "ctr": 0.016693163751987282,
+            "position": 7.643879173290938,
+            "expectedCtr": 0.032,
+            "gapRatio": 0.5216613672496025
+          },
+          {
+            "path": "/cerca-lavoro-ticino/venditore-a-m-w-d-volg-nufenen/",
+            "clicks": 31,
+            "impressions": 1205,
+            "ctr": 0.025726141078838173,
+            "position": 4.819917012448133,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.4593953764078245
+          },
+          {
+            "path": "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-swisscom-sede-ticino-bellinzona/",
+            "clicks": 12,
+            "impressions": 1201,
+            "ctr": 0.009991673605328892,
+            "position": 4.794338051623647,
+            "expectedCtr": 0.056,
+            "gapRatio": 0.17842274295230165
+          }
+        ]
+      }
+    }
+  }
+]

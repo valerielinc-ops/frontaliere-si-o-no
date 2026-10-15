@@ -1,0 +1,40 @@
+{
+  "id": "mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione",
+  "slug": "mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione",
+  "publishedAt": "2026-07-21T16:31:48.728Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.3451696327610065,
+    "confidence": 0.8,
+    "finalScore": 3.4761357062088054,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8675252961436103
+      },
+      {
+        "slug": "settimana-corta-svizzera-frontalieri",
+        "cosine": 0.8464795180224627
+      },
+      {
+        "slug": "ippodromo-varese-svicc-allenatori",
+        "cosine": 0.845304768776338
+      },
+      {
+        "slug": "ristorazione-ticinese-ore-non-pagate",
+        "cosine": 0.8427156108120044
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8420019013926369
+      }
+    ],
+    "score": 0.34761357062088055,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

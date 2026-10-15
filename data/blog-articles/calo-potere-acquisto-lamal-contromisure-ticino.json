@@ -1,0 +1,40 @@
+{
+  "id": "calo-potere-acquisto-lamal-contromisure-ticino",
+  "slug": "calo-potere-acquisto-lamal-contromisure-ticino",
+  "publishedAt": "2026-05-11T20:18:48.342Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.531719608303225,
+    "confidence": 0.8,
+    "finalScore": 4.425375686642581,
+    "topK": [
+      {
+        "slug": "maillard-uss-udc-iniziativa-1-maggio-2026",
+        "cosine": 0.7902456583290322
+      },
+      {
+        "slug": "votazione-popolare-lamal-frontalieri",
+        "cosine": 0.7856331217971669
+      },
+      {
+        "slug": "potere-dacquisto-ticino-2024",
+        "cosine": 0.7818834765068164
+      },
+      {
+        "slug": "lamal-low-cost-premi-bassi-2026",
+        "cosine": 0.7751893839389619
+      },
+      {
+        "slug": "malattia-frontaliere-guida-assicurazione",
+        "cosine": 0.7727171852111987
+      }
+    ],
+    "score": 2.2126878433212904,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

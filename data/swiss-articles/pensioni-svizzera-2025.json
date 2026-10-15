@@ -1,0 +1,40 @@
+{
+  "id": "pensioni-svizzera-2025",
+  "slug": "pensioni-svizzera-2025",
+  "publishedAt": "2026-06-23T00:33:13.661Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.217984812351586,
+    "confidence": 0.8,
+    "finalScore": 4.17438784988127,
+    "topK": [
+      {
+        "slug": "pensioni-svizzere-all-estero-numerose-ma-modeste",
+        "cosine": 0.8696641353919311
+      },
+      {
+        "slug": "guerra-frena-viaggi-estero-2026",
+        "cosine": 0.8610509045097224
+      },
+      {
+        "slug": "costo-vivere-mappa-comuni",
+        "cosine": 0.8603029736747863
+      },
+      {
+        "slug": "frontalieri-ticino-spese-svizzera-2026",
+        "cosine": 0.8601874964011968
+      },
+      {
+        "slug": "super-ricco-tasse-frontalieri-ticino",
+        "cosine": 0.8596459971660939
+      }
+    ],
+    "score": 4.17438784988127,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

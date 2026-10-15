@@ -1,0 +1,292 @@
+#!/usr/bin/env node
+/**
+ * Prospector stage 5 — VALIDATE.
+ *
+ * Re-runs each synthesised spec and grades what it produced against the
+ * employer's OWN page, field by field. This is the gate that decides whether a
+ * discovered employer enters production, and it is deliberately harsher than
+ * the crawler-health monitor: health asks "did rows come back", quality asks
+ * "are the rows true".
+ *
+ * A run writes `data/prospector/validation.json` — the report a human or a
+ * follow-up workflow reads — and moves each candidate to `promoted`
+ * (good), `validated` (weak, kept for a retry) or `rejected` (bad).
+ *
+ * Usage:
+ *   node scripts/prospect-validate.mjs
+ *   node scripts/prospect-validate.mjs --key=<crawler key> --sample=6
+ *   node scripts/prospect-validate.mjs --limit=15 --dry-run
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadCandidates, reopenRejectedCandidate, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import { runSpec } from './lib/prospector/synthesize.mjs';
+import { gradeExtraction } from './lib/prospector/validate.mjs';
+import { sourceCrawlerAdapterFor } from './lib/prospector/source-adapters.mjs';
+import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
+import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
+import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
+import { tenantHostOwner } from './lib/prospector/coverage.mjs';
+import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
+
+const argv = process.argv.slice(2);
+// `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
+// e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
+assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'sample'] });
+const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
+const flag = (n) => argv.includes(`--${n}`);
+
+const limit = Number(arg('limit', 40));
+const onlyKey = arg('key', '');
+const sampleSize = Number(arg('sample', 4));
+const dryRun = flag('dry-run');
+const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
+
+const store = loadCandidates();
+/** @type {Map<string, any>} candidate key by crawler key, ogni stato */
+const byCrawlerKey = new Map();
+for (const c of Object.values(store.candidates)) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
+
+function candidateForSpec(spec) {
+  return (spec.candidateKey && store.candidates[spec.candidateKey])
+    || byCrawlerKey.get(spec.companyKey)
+    || null;
+}
+
+function canRevalidateRejectedCandidate(spec, candidate) {
+  const adapter = sourceCrawlerAdapterFor(spec);
+  if (spec.revalidateRejectedWithSourceAdapter !== true
+    || !adapter?.allowRejectedRevalidation
+    || candidate?.status !== 'rejected') return false;
+  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  return history.at(-1)?.sourceAdapterVersion !== adapter.version
+    && candidate.reopenedSourceAdapterVersion !== adapter.version;
+}
+
+let specs = [];
+try {
+  specs = fs.readdirSync(SPEC_DIR)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(fs.readFileSync(path.join(SPEC_DIR, f), 'utf8')));
+} catch {
+  console.log('Nessuna spec da validare: serve prima uno stadio SYNTHESIZE.');
+  process.exit(0);
+}
+if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
+
+// Il budget giornaliero e' fisso (`limit`, 40 nel workflow) e la selezione e'
+// l'ordine alfabetico di `readdir`: senza questo filtro i candidati gia'
+// `production`/`promoting` (che non possono piu' avanzare: `setStatus` e'
+// forward-only, vedi candidate-store.mjs) e i `rejected`/`dead` (terminali)
+// restano nel file indefinitamente e occupano ogni giorno gli slot
+// alfabeticamente precoci — misurato su #6303: nel run del 2026-08-29,
+// 24 dei 40 slot andavano a candidati che non potevano piu' beneficiare di
+// una rivalidazione, mentre 43 spec restavano fuori dal giro per sempre,
+// alcuni bloccati per giorni a "1 giorno su 2" di stabilita' o senza
+// logo/jobLike mai misurati. Chi non puo' piu' avanzare non deve competere
+// per lo slot con chi puo'.
+const DONE_STATUSES = new Set(['production', 'promoting', 'rejected', 'dead']);
+specs = specs.filter((s) => {
+  const c = candidateForSpec(s);
+  return !c || !DONE_STATUSES.has(c.status) || canRevalidateRejectedCandidate(s, c);
+});
+
+// Il filtro qui sopra toglie chi non puo' piu' avanzare, ma fra chi resta
+// l'ordine e' ancora quello di `readdir`: con 64 spec in gara e 40 slot, le
+// stesse 24 di coda alfabetica (`recruitingapp-2861` … `walo`, misurate il
+// 2026-09-05) non vengono rivalidate MAI. Ogni check aggiunto al gate dopo la
+// loro ultima validazione resta percio' «mai misurato» per sempre, che il gate
+// tratta — giustamente — come bloccante: 14 delle 34 candidate `promoted`
+// erano ferme li', con l'ultima validazione al 2026-08-21. Ordina per
+// validazione piu' vecchia: chi non e' mai stato validato passa per primo,
+// l'alfabeto resta solo come spareggio a parita' di data.
+specs.sort((a, b) => {
+  const lastAt = (spec) => {
+    const history = candidateForSpec(spec)?.validationHistory;
+    return Array.isArray(history) && history.length ? String(history[history.length - 1].at || '') : '';
+  };
+  return lastAt(a).localeCompare(lastAt(b)) || String(a.companyKey).localeCompare(String(b.companyKey));
+});
+
+specs = specs.slice(0, limit);
+
+console.log('═══ Prospector · VALIDATE ═══');
+console.log(`spec da validare: ${specs.length}   campione per spec: ${sampleSize} annunci\n`);
+
+const reports = [];
+const tally = { good: 0, weak: 0, bad: 0, insufficient: 0 };
+let duplicates = 0;
+
+// What we already crawl, keyed by the individual vacancy URL. Read once: the
+// slices are large and the answer cannot change during a run.
+const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+
+for (const spec of specs) {
+  const adapter = sourceCrawlerAdapterFor(spec);
+  // A tenant we already read is a duplicate whatever its vacancies look like.
+  // The URL comparison below is blind when the spec reads a page other than
+  // the ATS: `im-bethesda-spital` read the hospital's own jobs page, whose
+  // URL-less JSON-LD postings became `jobs.html#job-<hash>`, and was re-graded
+  // `good` for weeks on a tenant `bethesda-spital` had been crawling since May
+  // (issue 5253). Asked before `runSpec`, so a known duplicate costs no fetch.
+  const candidate = candidateForSpec(spec);
+  const tenantOwner = tenantHostOwner(candidate, ownership.byHost);
+  if (tenantOwner) {
+    duplicates++;
+    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
+    setStatus(store, candidate.key, 'rejected', {
+      qualityVerdict: 'duplicate',
+      qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
+      duplicateOf: tenantOwner,
+    }, dryRun ? null : undefined);
+    continue;
+  }
+
+  // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
+  // siti arbitrari, e perdere il giudizio di tutte le spec per colpa di una
+  // significherebbe anche non far avanzare lo STORICO su cui il gate di
+  // promozione decide — cioe' rimandare ogni promozione di un giorno.
+  let vacancies;
+  let errors;
+  try {
+    if (adapter) {
+      vacancies = await adapter.fetchJobs();
+      errors = vacancies?.fetchErrors || [];
+    } else {
+      ({ vacancies, errors } = await runSpec(spec));
+    }
+  } catch (err) {
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
+    continue;
+  }
+  // Does this "new employer" simply re-publish vacancies we already carry?
+  // Grading cannot tell: a duplicate tenant parses beautifully and scores
+  // `good`, which is precisely how `eoc-candidati-posizioni` was promoted
+  // alongside the EOC crawler that had been reading the same Umantis tenant for
+  // months. The question is not "does it parse" but "is it someone new", and
+  // only the vacancies themselves answer it.
+  // `exclude` is not optional here: this stage re-grades candidates that are
+  // already `promoted`/`production`, and a live crawler matches its OWN slice at
+  // 100% — without it, every established crawler would reject itself.
+  const twin = matchExistingCrawler(
+    (vacancies || []).map((v) => v?.url || ''),
+    ownership,
+    { exclude: spec.companyKey },
+  );
+  if (twin) {
+    duplicates++;
+    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${twin.key} — ${twin.shared}/${twin.total} annunci gia' coperti`);
+    if (candidate) {
+      setStatus(store, candidate.key, 'rejected', {
+        qualityVerdict: 'duplicate',
+        qualityProblems: [`duplica ${twin.key}: ${twin.shared}/${twin.total} annunci gia' presenti in data/jobs/by-crawler/${twin.key}.json`],
+        duplicateOf: twin.key,
+      }, dryRun ? null : undefined);
+    }
+    continue;
+  }
+
+  let report;
+  try {
+    report = await gradeExtraction(spec, vacancies, {
+      sampleSize,
+      detailExtractor: adapter?.detailExtractor,
+    });
+  } catch (err) {
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
+    continue;
+  }
+  report.companyName = spec.companyName;
+  report.companyHost = spec.companyHost;
+  report.platform = spec.platform || null;
+  report.mode = spec.mode;
+  report.sourceAdapterVersion = adapter?.version || null;
+  report.runErrors = errors;
+
+  // Logo obbligatorio quanto jobLike: un candidato la cui azienda non ha un
+  // logo verificabile non entra in produzione (vedi promotion-gate.mjs). La
+  // probe non fa fallire la spec — un errore di rete qui si traduce solo in
+  // `logoFound: false`, che il gate tratta come "non ancora dimostrato" e che
+  // si autoripara alla prossima validazione (stessa filosofia del resto del
+  // gate: nessuna misura non fatta vale come "passata").
+  const logo = await probeCompanyLogo(spec.companyHost).catch(() => ({ found: false, reason: 'errore probe' }));
+  report.logoFound = logo.found;
+
+  reports.push(report);
+  tally[report.verdict]++;
+
+  const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
+  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
+
+  if (candidate) {
+    const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
+    const next = report.verdict === 'good' ? 'promoted' : (report.verdict === 'bad' ? 'rejected' : 'validated');
+    // Keep a short grading history. A single good grade proves the page parsed
+    // ONCE; autonomous promotion needs proof it parses the same way on a
+    // different day, because the dominant failure of a synthesised crawler is a
+    // listing that renders differently between visits (A/B markup, a cookie
+    // wall, an empty week). The promotion gate reads this, nothing else does.
+    const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+    history.push({
+      at: new Date().toISOString(),
+      score: report.score,
+      verdict: report.verdict,
+      vacancyCount: report.vacancyCount,
+      sampled: report.sampled,
+      reachableRate: report.reachableRate,
+      titleMatchRate: report.titleMatchRate,
+      contentfulRate: report.contentfulRate,
+      locationSourceRate: report.locationSourceRate,
+      distinctRate: report.distinctRate,
+      // Letto dal gate insieme a `distinctRate`: titoli ripetuti su pagine
+      // diverse sono un fatto del datore, non un selettore rotto.
+      detailDistinctRate: report.detailDistinctRate,
+      // The promotion gate reads this key and treats ABSENT as "never
+      // measured" (blocking) while `null` means "measured, unreadable bytes"
+      // (not blocking) — so it must be written on every entry, including null.
+      jobLikeRate: report.jobLikeRate ?? null,
+      logoFound: report.logoFound,
+      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
+    });
+    if (rejectedRevalidation) {
+      const reopened = reopenRejectedCandidate(
+        store,
+        candidate.key,
+        adapter.version,
+        dryRun ? null : undefined,
+      );
+      if (!reopened) {
+        console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} rivalutazione rifiutata: versione adapter gia' usata`);
+        continue;
+      }
+    }
+    setStatus(store, candidate.key, next, {
+      crawlerKey: spec.companyKey,
+      domain: candidate.domain || spec.companyHost,
+      careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      ...(rejectedRevalidation && next === 'rejected'
+        ? { reason: report.problems[0] || 'rivalutazione source adapter respinta' }
+        : {}),
+      detailEnrichment: spec.detailEnrichment === true,
+      qualityScore: report.score,
+      qualityVerdict: report.verdict,
+      qualityProblems: report.problems,
+      vacancyCount: report.vacancyCount,
+      validationHistory: history.slice(-8),
+      ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
+    }, dryRun ? null : undefined);
+  }
+}
+
+const promotedVacancies = reports.filter((r) => r.verdict === 'good').reduce((a, r) => a + r.vacancyCount, 0);
+console.log(`\nesito: ${tally.good} promossi · ${tally.weak} deboli · ${tally.bad} respinti · ${tally.insufficient} campione insufficiente · ${duplicates} duplicati di crawler esistenti`);
+console.log(`annunci coperti dai crawler promossi: ${promotedVacancies}`);
+console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
+
+if (dryRun) { console.log('\n--dry-run: niente scritto.'); }
+else {
+  fs.mkdirSync(path.dirname(VALIDATION_PATH), { recursive: true });
+  fs.writeFileSync(VALIDATION_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), tally, promotedVacancies, reports }, null, 2)}\n`);
+  saveCandidates(store);
+  console.log(`\nreport in ${path.relative(process.cwd(), VALIDATION_PATH)}`);
+}

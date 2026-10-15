@@ -1,0 +1,626 @@
+/**
+ * Capri Holdings (Michael Kors / Versace) crawler parser tests
+ *
+ * Tests parseCapriHoldingsDetailPage(), isCapriHoldingsSwissJob(),
+ * isCapriHoldingsJob(), and CAPRI_WORKDAY_HOSTS constants.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+import {
+  parseCapriHoldingsDetailPage,
+  isCapriHoldingsSwissJob,
+  isCapriHoldingsJob,
+  CAPRI_WORKDAY_HOSTS,
+  WORKDAY_SITES,
+} from '@/scripts/lib/capri-holdings-job-parser.mjs';
+import {
+  fetchCapriHoldingsJobs,
+  assertWorkdayPage,
+  assertUniqueWorkdayPostings,
+  listSwissJobs,
+  isSwissWorkdayListing,
+  resolveWorkdayCity,
+  resolveWorkdayLocation,
+  buildCapriDescriptionFields,
+  dropCapriFabricatedText,
+} from '../scripts/update-capri-holdings-jobs.mjs';
+import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe('Capri structured address resolution', () => {
+  it('replaces a Mendrisio CAP with the verified CAP for the actual city', () => {
+    const address = resolveSwissStructuredAddress({
+      city: 'Winterthur',
+      canton: 'ZH',
+      postalCode: '6850',
+      streetAddress: 'Via Penate',
+    });
+
+    expect(address).toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+    expect(address.streetAddress).not.toBe('Via Penate');
+  });
+
+  it('rejects an arbitrary four-digit CAP instead of pairing it with the city', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Winterthur', canton: 'ZH', postalCode: '0000' }))
+      .toMatchObject({ city: 'Winterthur', canton: 'ZH', postalCode: '8400' });
+  });
+
+  it('uses a complete same-canton fallback for an unverified municipality CAP', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Küsnacht (ZH)', canton: 'ZH' }))
+      .toMatchObject({
+        city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+      });
+  });
+
+  it('does not carry a source street into a canton fallback tuple', () => {
+    expect(resolveSwissStructuredAddress({
+      city: 'Küsnacht (ZH)',
+      canton: 'ZH',
+      postalCode: '9999',
+      streetAddress: 'Via Penate',
+    })).toMatchObject({
+      city: 'Zürich', canton: 'ZH', postalCode: '8001', streetAddress: 'Bahnhofstrasse 1',
+    });
+  });
+
+  it('uses the verified city tuple when the source omits a street', () => {
+    expect(resolveSwissStructuredAddress({ city: 'Manno', canton: 'TI' })).toMatchObject({
+      city: 'Manno', canton: 'TI', postalCode: '6928', streetAddress: 'Via Cantonale 2c',
+    });
+  });
+});
+
+describe('Capri Workday location resolution', () => {
+  it('accepts a Swiss location in a later bullet field', () => {
+    expect(isSwissWorkdayListing({ bulletFields: ['Full time', 'Manno'] })).toBe(true);
+  });
+
+  it('accepts an explicit Swiss country signal from the listing', () => {
+    expect(isSwissWorkdayListing({ locationCountry: 'Switzerland' })).toBe(true);
+  });
+
+  it('does not invent a historical location for a country-only listing', () => {
+    const resolved = resolveWorkdayLocation(
+      { country: 'Switzerland', bulletFields: ['5 locations'] },
+      { country: 'Switzerland' },
+    );
+
+    expect(resolved).toMatchObject({
+      countryIsSwiss: true,
+      locationRaw: '',
+      canton: '',
+      resolvedSwissSignal: true,
+    });
+  });
+
+  it('prefers a concrete canton resolved from the detail over the listing', () => {
+    const resolved = resolveWorkdayLocation(
+      { bulletFields: ['Zurich'] },
+      { location: 'Manno' },
+    );
+
+    expect(resolved).toMatchObject({
+      detailLocation: 'Manno',
+      locationRaw: 'Manno',
+      canton: 'TI',
+    });
+  });
+
+  it('does not turn a canton-only detail into a concrete city', () => {
+    expect(resolveWorkdayCity(
+      { country: 'Switzerland', bulletFields: ['5 locations'] },
+      { location: 'Ticino', country: 'Switzerland' },
+    )).toBe('');
+  });
+
+  it('fails closed on a malformed Workday page', () => {
+    expect(() => assertWorkdayPage({ total: 3, jobPostings: null }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20,
+    })).toThrow(/malformed page/);
+  });
+
+  it('fails closed when Workday omits its declared total', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [] }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toThrow(/invalid total/);
+  });
+
+  it('fails closed when Workday declares a null or blank total', () => {
+    for (const total of [null, '']) {
+      expect(() => assertWorkdayPage({ jobPostings: [], total }, {
+        brand: 'Versace', searchText: 'Switzerland', offset: 0,
+      })).toThrow(/invalid total/);
+    }
+    expect(assertWorkdayPage({ jobPostings: [], total: 0 }, {
+      brand: 'Versace', searchText: 'Switzerland', offset: 0,
+    })).toEqual({ jobPostings: [], declaredTotal: 0 });
+  });
+
+  it('fails closed when Workday changes its total between pages', () => {
+    expect(() => assertWorkdayPage({ jobPostings: [], total: 4 }, {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, expectedTotal: 3,
+    })).toThrow(/changed its total/);
+  });
+
+  it('uses page zero total when a later Capri page reports zero with rows', () => {
+    expect(assertWorkdayPage({
+      total: 0,
+      jobPostings: [{ externalPath: '/job/Mendrisio/role-21' }],
+    }, {
+      brand: 'Michael Kors', searchText: '', offset: 20, expectedTotal: 501,
+    })).toEqual({
+      declaredTotal: 501,
+      jobPostings: [{ externalPath: '/job/Mendrisio/role-21' }],
+    });
+  });
+
+  it('still rejects a later zero total when the page is empty', () => {
+    expect(() => assertWorkdayPage({ total: 0, jobPostings: [] }, {
+      brand: 'Michael Kors', searchText: '', offset: 20, expectedTotal: 501,
+    })).toThrow(/changed its total/);
+  });
+
+  it('fails closed when a query repeats a posting identity across pages', () => {
+    const seen = new Set();
+    assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 0, seen,
+    });
+
+    expect(() => assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
+      brand: 'Michael Kors', searchText: 'Switzerland', offset: 20, seen,
+    })).toThrow(/repeated posting identity/);
+  });
+
+  it('fails closed after bounded restarts when Workday repeats a full page', async () => {
+    const page = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/role-${index + 1}`,
+        title: `Role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify(page), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/repeated posting identity/);
+    expect(fetchMock).toHaveBeenCalledTimes(6);
+  });
+
+  it('fails closed when Workday changes the total between pages', async () => {
+    const pages = [
+      {
+        total: 40,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/first-${index + 1}`,
+          title: `First role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+      {
+        total: 41,
+        jobPostings: Array.from({ length: 20 }, (_, index) => ({
+          externalPath: `/job/Mendrisio/second-${index + 1}`,
+          title: `Second role ${index + 1}`,
+          locationsText: 'Mendrisio, Switzerland',
+        })),
+      },
+    ];
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset } = JSON.parse(options.body);
+      const page = pages[offset === 0 ? 0 : 1];
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
+      .rejects.toThrow(/changed its total/);
+    expect(fetchMock).toHaveBeenCalledTimes(12);
+  });
+
+  it('restarts the whole query when page retries cannot establish one snapshot', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-first-${index + 1}`,
+        title: `Restart first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-second-${index + 1}`,
+        title: `Restart second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      const page = offset20Attempts <= 3
+        ? { total: 41, jobPostings: secondPage.jobPostings }
+        : secondPage;
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(4);
+  });
+
+  it('restarts the whole query when a page repeats the prior offset', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-first-${index + 1}`,
+        title: `Repeated first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/repeated-second-${index + 1}`,
+        title: `Repeated second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      return new Response(
+        JSON.stringify(offset20Attempts === 1 ? firstPage : secondPage),
+        { status: 200 },
+      );
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(2);
+  });
+
+  it('keeps a non-empty later page when Workday repeats its offset-zero bug', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/first-${index + 1}`,
+        title: `First role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/second-${index + 1}`,
+        title: `Second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      const page = offset20Attempts === 1
+        ? { total: 0, jobPostings: secondPage.jobPostings }
+        : secondPage;
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(offset20Attempts).toBe(1);
+  });
+});
+
+describe('Capri Workday brand sites', () => {
+  // Versace's site on the capri tenant answers 403 S22 since the 2026-10-01
+  // runs (corpus runs 36842478998, 36928432579) and failed the whole crawler.
+  it('never queries the decommissioned Versace site', async () => {
+    const requested: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      requested.push(String(url));
+      if (String(url).includes('/Versace/')) {
+        return new Response(
+          JSON.stringify({ errorCode: 'S22', httpStatus: 403, message: 'permission denied' }),
+          { status: 403 },
+        );
+      }
+      return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+    }));
+
+    await expect(fetchCapriHoldingsJobs()).resolves.toEqual([]);
+
+    expect(WORKDAY_SITES.map((entry) => entry.site)).toEqual(['Michael_Kors']);
+    expect(requested.length).toBeGreaterThan(0);
+    expect(requested.every((url) => url.includes('/Michael_Kors/'))).toBe(true);
+  });
+
+  it('propagates the successful Workday listing observation time', async () => {
+    const observedAt = new Date('2026-10-13T10:25:00.000Z');
+    vi.useFakeTimers();
+    vi.setSystemTime(observedAt);
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Warehouse Operator',
+            externalPath: '/job/Mendrisio/Warehouse-Operator_R1',
+            locationsText: 'Mendrisio, Switzerland',
+            bulletFields: ['Mendrisio'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          title: 'Warehouse Operator',
+          location: 'Mendrisio, Switzerland',
+          country: { alpha2Code: 'CH', descriptor: 'Switzerland' },
+          jobDescription: Array(8).fill('Warehouse operations and stock handling responsibilities in the Swiss logistics centre.').join(' '),
+          timeType: 'Full time',
+        },
+      }), { status: 200 });
+    }));
+
+    const [job] = await fetchCapriHoldingsJobs();
+
+    expect(job.crawledAt).toBe(observedAt.toISOString());
+  });
+});
+
+// ─── Fixture: Workday detail page (Mendrisio) ───
+const MENDRISIO_JOB_HTML = `
+<html>
+<head>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Warehouse Operator",
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mendrisio",
+        "addressCountry": "CH"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+<main>
+  <h1>Warehouse Operator</h1>
+  <div class="description">
+    <p>Michael Kors is looking for a Warehouse Operator at our Mendrisio
+    logistics center. You will be responsible for receiving, storing, and
+    distributing merchandise. We offer a dynamic work environment and
+    competitive benefits package.</p>
+    <h3>Responsibilities</h3>
+    <ul>
+      <li>Receiving and processing incoming stock</li>
+      <li>Picking and filling orders from stock</li>
+      <li>Packing and shipping orders</li>
+      <li>Managing inventory</li>
+    </ul>
+    <h3>Requirements</h3>
+    <ul>
+      <li>Previous warehouse experience</li>
+      <li>Physical fitness</li>
+      <li>Italian language skills</li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>`;
+
+// ─── Fixture: Non-Swiss job (Milan) ───
+const MILAN_JOB_HTML = `
+<html>
+<body>
+<main>
+  <h1>Store Manager</h1>
+  <div class="description">
+    <p>Versace is looking for a Store Manager at our Milan boutique.
+    The ideal candidate has luxury retail experience.</p>
+  </div>
+</main>
+</body>
+</html>`;
+
+// ═══════════════════════════════════════════════════════════════
+// parseCapriHoldingsDetailPage
+// ═══════════════════════════════════════════════════════════════
+
+describe('parseCapriHoldingsDetailPage', () => {
+  it('extracts title from detail page', () => {
+    const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
+    expect(result).not.toBeNull();
+    expect(result.title).toBe('Warehouse Operator');
+  });
+
+  it('propagates only an explicit detail-page observation time', () => {
+    const observedAt = new Date('2026-10-13T10:30:00.000Z');
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt)?.crawledAt)
+      .toBe(observedAt.toISOString());
+    expect(parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML, observedAt.toISOString()))
+      .not.toHaveProperty('crawledAt');
+  });
+
+  it('extracts location from JSON-LD', () => {
+    const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
+    expect(result.location).toBe('Mendrisio');
+  });
+
+  it('detects Michael Kors brand', () => {
+    const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
+    expect(result.brand).toBe('Michael Kors');
+  });
+
+  it('detects Versace brand', () => {
+    const result = parseCapriHoldingsDetailPage(MILAN_JOB_HTML);
+    expect(result.brand).toBe('Versace');
+  });
+
+  it('extracts body text', () => {
+    const result = parseCapriHoldingsDetailPage(MENDRISIO_JOB_HTML);
+    expect(result.body).toContain('Warehouse Operator');
+    expect(result.body).toContain('logistics center');
+  });
+
+  it('returns null for empty input', () => {
+    expect(parseCapriHoldingsDetailPage('')).toBeNull();
+    expect(parseCapriHoldingsDetailPage(null)).toBeNull();
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// isCapriHoldingsSwissJob
+// ═══════════════════════════════════════════════════════════════
+
+describe('isCapriHoldingsSwissJob', () => {
+  it('returns true for Mendrisio', () => {
+    expect(isCapriHoldingsSwissJob({ location: 'Mendrisio' })).toBe(true);
+  });
+
+  it('returns true for country CH', () => {
+    expect(isCapriHoldingsSwissJob({ country: 'CH' })).toBe(true);
+  });
+
+  it('returns true for country Switzerland', () => {
+    expect(isCapriHoldingsSwissJob({ country: 'Switzerland' })).toBe(true);
+  });
+
+  it('returns false for Milan', () => {
+    expect(isCapriHoldingsSwissJob({ location: 'Milan', country: 'IT' })).toBe(false);
+  });
+
+  it('returns false for null', () => {
+    expect(isCapriHoldingsSwissJob(null)).toBe(false);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// isCapriHoldingsJob
+// ═══════════════════════════════════════════════════════════════
+
+describe('isCapriHoldingsJob', () => {
+  it('matches by companyKey', () => {
+    expect(isCapriHoldingsJob({ companyKey: 'capri-holdings' })).toBe(true);
+  });
+
+  it('matches by Michael Kors company name', () => {
+    expect(isCapriHoldingsJob({ company: 'Michael Kors' })).toBe(true);
+  });
+
+  it('matches by Versace company name', () => {
+    expect(isCapriHoldingsJob({ company: 'Versace' })).toBe(true);
+  });
+
+  it('matches by Workday URL', () => {
+    expect(isCapriHoldingsJob({ url: 'https://capriholdings.wd1.myworkdayjobs.com/job/123' })).toBe(true);
+  });
+
+  it('does not match unrelated companies', () => {
+    expect(isCapriHoldingsJob({ companyKey: 'lidl', company: 'Lidl' })).toBe(false);
+  });
+
+  it('returns false for null', () => {
+    expect(isCapriHoldingsJob(null)).toBe(false);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// CAPRI_WORKDAY_HOSTS
+// ═══════════════════════════════════════════════════════════════
+
+describe('CAPRI_WORKDAY_HOSTS', () => {
+  it('contains at least 2 Workday hosts', () => {
+    expect(CAPRI_WORKDAY_HOSTS.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('includes capriholdings Workday host', () => {
+    expect(CAPRI_WORKDAY_HOSTS).toContain('capriholdings.wd1.myworkdayjobs.com');
+  });
+});
+
+// Fixture: the start of a live Workday `jobDescription` (Michael Kors Landquart, 2026-09-29).
+describe('Capri description fields', () => {
+  const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'capri-holdings', 'workday-description-landquart.txt'), 'utf8').trim();
+
+  it('publishes the Workday text alone, without an Italian company blurb', () => {
+    const fields = buildCapriDescriptionFields('Store Manager, Landquart', text, 'Michael Kors', 'Landquart');
+    expect(fields.description).toBe(text);
+    expect(fields.descriptionByLocale).toEqual({ en: text });
+  });
+
+  it('removes the fabricated Italian blurb from a stored job', () => {
+    const job: any = {
+      sourceLang: 'en',
+      descriptionByLocale: {
+        en: text,
+        it: "Posizione aperta presso Michael Kors (Capri Holdings) a Landquart.\nRuolo: Store Manager, Landquart.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo.",
+        de: 'Michael Kors ist immer daran interessiert …',
+      },
+    };
+    expect(dropCapriFabricatedText(job)).toBe(true);
+    expect(Object.keys(job.descriptionByLocale).sort()).toEqual(['de', 'en']);
+    expect(job.needsRetranslation).toBe(true);
+  });
+});
+
+describe('Capri Holdings: il nome mostrato è il marchio Michael Kors (owner 2026-10-03)', () => {
+  it('pubblica i job come Michael Kors e il vecchio nome porta allo stesso hub', async () => {
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync('scripts/update-capri-holdings-jobs.mjs', 'utf8');
+    expect(source).toContain("const CAPRI_COMPANY_NAME = 'Michael Kors';");
+
+    const { canonicalCompanyProfileSlug, companyDisplayIdentityKeys } = await import('../build-plugins/shared/companyProfileSlug.mjs');
+    const { isBrandAlias } = await import('../build-plugins/shared/brandCanonicalMap.mjs');
+    expect(canonicalCompanyProfileSlug('Michael Kors', 'capri-holdings')).toBe('michael-kors');
+    // L'hub e il profilo già pubblicati col vecchio nome diventano un ponte,
+    // e chi segue l'azienda col vecchio nome resta sulla stessa identità.
+    expect(isBrandAlias('capri-holdings-michael-kors-versace')).toBe(true);
+    expect(canonicalCompanyProfileSlug('Capri Holdings (Michael Kors / Versace)', 'capri-holdings')).toBe('michael-kors');
+    expect(companyDisplayIdentityKeys('Capri Holdings (Michael Kors / Versace)')).toEqual(['michael-kors']);
+  });
+});

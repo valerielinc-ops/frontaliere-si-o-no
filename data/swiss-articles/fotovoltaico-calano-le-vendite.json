@@ -1,0 +1,40 @@
+{
+  "id": "fotovoltaico-calano-le-vendite",
+  "slug": "fotovoltaico-calano-le-vendite",
+  "publishedAt": "2026-07-14T02:15:06.417Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.252881140020268,
+    "confidence": 0.8,
+    "finalScore": 12.202304912016215,
+    "topK": [
+      {
+        "slug": "fallimenti-fotovoltaico-clienti-ticino",
+        "cosine": 0.8473822855566815
+      },
+      {
+        "slug": "potere-dacquisto-ticino-2024",
+        "cosine": 0.8281944922747994
+      },
+      {
+        "slug": "caos-medioriente-e-impatti-costruzione-ticino",
+        "cosine": 0.8225330064586015
+      },
+      {
+        "slug": "agricoltura-ticino-allarme-2024",
+        "cosine": 0.8193460185614282
+      },
+      {
+        "slug": "svizzera-elettricita-inverno-2026",
+        "cosine": 0.8185235725592538
+      }
+    ],
+    "score": 12.202304912016215,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,411 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Klinik Wysshölzli (Herzogenbuchsee, BE) crawler runner.
+ *
+ * Privatklinik for psychiatric and psychotherapeutic care, specialised in
+ * women with addiction and eating disorders. Postings are PDF-only:
+ *
+ *   Career page: https://www.wysshoelzli.ch/jobs-karriere
+ *   PDF folder:  /uploads/Stelleninserate/*.pdf
+ */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
+} from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
+  assembleJobsDataset,
+  readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+  mergePreserveLocaleData,
+} from './lib/dedicated-crawler-common.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import {
+  parseKlinikWysshholzliListing,
+  buildKlinikWysshholzliDescription,
+  KLINIK_WYSSHOLZLI_KEY,
+  KLINIK_WYSSHOLZLI_COMPANY_NAME,
+  KLINIK_WYSSHOLZLI_COMPANY_DOMAIN,
+  KLINIK_WYSSHOLZLI_CAREERS_URL,
+  KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
+} from './lib/klinik-wyssholzli-job-parser.mjs';
+import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import {
+  dropUnreadableSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+// Per-crawler-scoped scratch path (never shared with sibling crawlers in the
+// same crawler-group CI job -- no cross-process race possible by construction).
+const SCRATCH_KEY = path.basename(fileURLToPath(import.meta.url), '.mjs');
+const DATA_JOBS = path.join(os.tmpdir(), `frontaliere-jobs-scratch-${SCRATCH_KEY}.json`);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
+const ADAPTER_PATH = path.resolve(
+  ROOT,
+  'data',
+  'jobs-crawler-adapters',
+  'adapters',
+  `${KLINIK_WYSSHOLZLI_KEY}.json`
+);
+
+const COMPANY_KEY = KLINIK_WYSSHOLZLI_KEY;
+const COMPANY_NAME = KLINIK_WYSSHOLZLI_COMPANY_NAME;
+const COMPANY_HOST = `www.${KLINIK_WYSSHOLZLI_COMPANY_DOMAIN}`;
+const COMPANY_DOMAIN = KLINIK_WYSSHOLZLI_COMPANY_DOMAIN;
+const CAREERS_URL = KLINIK_WYSSHOLZLI_CAREERS_URL;
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Hardcoded HQ (Herzogenbuchsee BE). crawler-location-config.mjs is read-only here.
+const HQ = {
+  city: 'Herzogenbuchsee',
+  canton: 'BE',
+  postalCode: '3360',
+  addressRegion: 'BE',
+};
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function slugify(text = '') {
+  const slug = String(text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 200);
+}
+
+async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+  });
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return (
+    key === COMPANY_KEY ||
+    key.startsWith('klinik-wyssh') ||
+    company.includes('wyssh') ||
+    url.includes('wysshoelzli.ch')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === COMPANY_DOMAIN || host === `www.${COMPANY_DOMAIN}`;
+  } catch {
+    return false;
+  }
+}
+
+function jobMatchKey(job = {}) {
+  return (
+    extractStableJobId(job.url) ||
+    `slug:${String(job.slug || job.titleByLocale?.de || job.title || '').toLowerCase()}`
+  );
+}
+
+function urlKey(job = {}) {
+  return String(job?.url || '').trim().replace(/\/+$/, '');
+}
+
+/** Stored postings of this crawler, without text the crawler once invented. */
+function readStoredTargetJobs() {
+  return dropFabricatedDescriptions(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
+    KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
+    COMPANY_NAME,
+  );
+}
+
+function buildJob({ title, pdfUrl, pdfText, filename }) {
+  const slug = slugify(`${title}-${COMPANY_KEY}`);
+  // The PDF text is keyed by its own language.
+  const sourceLang = detectLang(`${title} ${pdfText}`, 'de');
+  const description = buildKlinikWysshholzliDescription({ title, pdfText }).description;
+  return {
+    title,
+    slug,
+    url: pdfUrl,
+    applyUrl: CAREERS_URL,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: HQ.city,
+    addressLocality: HQ.city,
+    addressRegion: HQ.addressRegion,
+    postalCode: HQ.postalCode,
+    addressCountry: 'CH',
+    canton: HQ.canton,
+    country: 'CH',
+    category: 'health',
+    sector: 'Psychiatrie und Psychotherapie',
+    employmentType: 'full-time',
+    contractType: 'full-time',
+    source: `${COMPANY_KEY}-dedicated-crawler`,
+    sourceLang,
+    ...sourcePostingDateFields(),
+    validThrough: '',
+    needsRetranslation: true,
+    description,
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: description },
+    slugByLocale: { [sourceLang]: slug },
+    _meta: { sourceFilename: filename },
+  };
+}
+
+async function mergeJobs(discoveredJobs, parsedJobs = discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const existingTarget = readStoredTargetJobs();
+  const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
+
+  // A posting whose PDF gave no usable body this run (failed or image-only)
+  // is in discoveredJobs only with a stored body over the floor. Without one,
+  // the merge's grace retention must not re-add the stored row: its body is
+  // under the floor too, so it would go out empty.
+  const mergeExistingTarget = dropUnreadableSourceJobsWithoutValidBody(existingTarget, parsedJobs, urlKey);
+  const mergedTarget = mergePreserveLocaleData(mergeExistingTarget, discoveredJobs);
+  for (const job of mergedTarget) {
+    job.needsRetranslation = true;
+  }
+
+  const beforeSnapshot = snapshotJobSlugs(existingTarget);
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const newJobs = mergedTarget.filter((job) => !existingByKey.has(jobMatchKey(job)));
+  if (newJobs.length > 0) {
+    console.log(`🔗 Validating URLs for ${newJobs.length} newly inserted jobs…`);
+    const results = await validateJobUrls(newJobs, { concurrency: 4 });
+    const invalid = results.filter((r) => !r.valid);
+    if (invalid.length > 0) {
+      console.warn(`⚠️  ${invalid.length} URL(s) failed validation:`);
+      for (const inv of invalid) console.warn(`     - ${inv.url}: ${inv.reason}`);
+      throw new Error(`Klinik Wysshölzli inserted ${invalid.length} invalid job URLs.`);
+    }
+    console.log(`✅ All ${newJobs.length} new job URLs validated successfully`);
+  }
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'Klinik Wysshölzli');
+  writeCrawlChangeSummaryToGH(diff, 'Klinik Wysshölzli');
+  writeJobsSummary(mergedTarget, 'Klinik Wysshölzli');
+  printPublishedJobUrls(mergedTarget, 'Klinik Wysshölzli');
+  const removed = Math.max(0, existingTarget.length - mergedTarget.length);
+  console.log(
+    `📦 Merge results:\n  ➕ Added: ${newJobs.length}\n  🔄 Updated: ${mergedTarget.length - newJobs.length}\n  🗑️  Removed (stale): ${removed}\n  📊 Total jobs in file: ${allJobs.length}`
+  );
+  return { diff };
+}
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton,
+      company: COMPANY_NAME,
+      ...mergeSourcePostingDates({}, job),
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 10,
+    crawlerModes: ['html', 'pdf'],
+    seedUrls: jobs.map((job) => job.url),
+    notes:
+      'Dedicated Klinik Wysshölzli crawler scrapes /jobs-karriere and extracts descriptions from the /uploads/Stelleninserate PDFs.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_KLINIK_WYSSHOLZLI_STRICT',
+    label: 'Klinik Wysshölzli',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_wysshoelzli_domain',
+    failWhenNoJobs: true,
+    noJobsMessage: 'No Klinik Wysshölzli jobs found after dedicated crawl.',
+    detectSourceLang: (text) => detectLang(text, 'de'),
+  });
+}
+
+export async function main() {
+  setCrawlerStartTime();
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Klinik Wysshölzli', summaryCounts);
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Klinik Wysshölzli — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${CAREERS_URL}\n`);
+
+  const html = await fetchPage(CAREERS_URL);
+  const listings = parseKlinikWysshholzliListing(html);
+  console.log(`📋 PDF stelleninserate found: ${listings.length}`);
+  if (listings.length === 0) {
+    throw new Error('Klinik Wysshölzli discovery returned 0 PDF jobs.');
+  }
+
+  // A posting whose PDF cannot be read this run is a degraded source, handled
+  // like the other PDF crawlers (Locarno, Bellinzona, FART): it is marked with
+  // the source-body failure reason, keeps the body stored from an earlier
+  // read of the same PDF, is left out of this run only when no stored body
+  // exists, and is listed in the summary slice either way. It used to abort
+  // the whole crawler, so one transient read failure (all five PDFs answered
+  // HTTP 415 to the CI egress, run corpus 36989251899) failed crawler group 20.
+  const parsedJobs = [];
+  const sourceBodyFailures = [];
+  for (const listing of listings) {
+    console.log(`  📄 Extracting PDF: ${listing.filename}`);
+    const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
+    if (pdf.proxiedBy) console.log(`     ↪︎ read through ${pdf.proxiedBy} (direct HTTP ${pdf.httpStatus})`);
+    // A PDF without a text layer (pdf.thin) leaves the same gap as a failed
+    // read: both are listed as a degraded source, as ECAM does.
+    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error || pdf.thin);
+    if (pdfFailed) {
+      const message = pdf.error || pdf.warning || 'PDF extraction failed';
+      console.warn(`     ⚠️ PDF error: ${message}`);
+      sourceBodyFailures.push({
+        title: listing.titleFromFilename,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message,
+      });
+    }
+    const job = buildJob({
+      title: listing.titleFromFilename,
+      pdfUrl: listing.pdfUrl,
+      pdfText: pdfFailed ? '' : (pdf.text || ''),
+      filename: listing.filename,
+    });
+    if (pdfFailed) {
+      job.sourceBodyFailureReason = SOURCE_BODY_FAILURE_REASON;
+      job.sourceBodyFailureMessage = sourceBodyFailures.at(-1).message;
+    }
+    parsedJobs.push(job);
+  }
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
+
+  const discoveredJobs = keepStoredSourceBodiesByKey(parsedJobs, readStoredTargetJobs(), urlKey);
+  const freshBodyByKey = new Map(parsedJobs.map((job) => [urlKey(job), job.description]));
+  const keptStored = discoveredJobs.filter((job) => job.description !== freshBodyByKey.get(urlKey(job))).length;
+  if (keptStored > 0) {
+    console.warn(`  ⚠️ ${keptStored} posting(s) keep the source body stored from an earlier read of the same PDF.`);
+  }
+  if (discoveredJobs.length < parsedJobs.length) {
+    console.warn(
+      `  ⚠️ ${parsedJobs.length - discoveredJobs.length} posting(s) left out of this run: no readable PDF text and no stored source body.`,
+    );
+  }
+  if (discoveredJobs.length === 0) {
+    throw new Error(
+      `Klinik Wysshölzli has no publishable posting: ${parsedJobs.length} listed, `
+      + `${sourceBodyFailures.length} PDF read failure(s), no stored source body to keep.`,
+    );
+  }
+
+  // Seeds name every listed posting, including one left out of this run.
+  updateAdapterConfig(parsedJobs);
+  const { diff } = await mergeJobs(discoveredJobs, parsedJobs);
+
+  console.log('\n🌐 Running locale fill for Klinik Wysshölzli jobs...');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+
+  validateLocales();
+  console.log('\n✅ Klinik Wysshölzli crawler complete.');
+
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'Klinik Wysshölzli',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  });
+  await assembleJobsDataset();
+}
+
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Klinik Wysshölzli'));
+}

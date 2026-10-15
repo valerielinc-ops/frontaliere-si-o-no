@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>BMAC Banner Generator</title>
+<style>
+  body { margin: 0; background: #1a1a2e; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: system-ui; color: #fff; }
+  canvas { border: 1px solid #333; margin: 20px; }
+  button { padding: 12px 32px; font-size: 16px; background: #ffdd00; color: #1a1a2e; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; }
+  button:hover { background: #ffe640; }
+  p { color: #888; font-size: 14px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<canvas id="banner" width="1600" height="400"></canvas>
+<button onclick="download()">Scarica PNG (1600×400)</button>
+<p>Clicca per scaricare, poi carica su Buy Me a Coffee → Edit Page → Cover Image</p>
+
+<script>
+const canvas = document.getElementById('banner');
+const ctx = canvas.getContext('2d');
+const W = 1600, H = 400;
+
+// === Background gradient ===
+const bg = ctx.createLinearGradient(0, 0, W, H);
+bg.addColorStop(0, '#0f172a');
+bg.addColorStop(0.4, '#1e3a5f');
+bg.addColorStop(0.7, '#1e40af');
+bg.addColorStop(1, '#3b82f6');
+ctx.fillStyle = bg;
+ctx.fillRect(0, 0, W, H);
+
+// === Subtle mountain silhouette ===
+ctx.beginPath();
+ctx.moveTo(0, H);
+ctx.lineTo(0, H * 0.72);
+ctx.lineTo(W * 0.06, H * 0.55);
+ctx.lineTo(W * 0.12, H * 0.65);
+ctx.lineTo(W * 0.20, H * 0.42);
+ctx.lineTo(W * 0.28, H * 0.58);
+ctx.lineTo(W * 0.35, H * 0.38);
+ctx.lineTo(W * 0.42, H * 0.52);
+ctx.lineTo(W * 0.48, H * 0.35);
+ctx.lineTo(W * 0.55, H * 0.50);
+ctx.lineTo(W * 0.62, H * 0.30);
+ctx.lineTo(W * 0.70, H * 0.48);
+ctx.lineTo(W * 0.78, H * 0.36);
+ctx.lineTo(W * 0.85, H * 0.55);
+ctx.lineTo(W * 0.92, H * 0.40);
+ctx.lineTo(W, H * 0.60);
+ctx.lineTo(W, H);
+ctx.closePath();
+const mountainGrad = ctx.createLinearGradient(0, H * 0.3, 0, H);
+mountainGrad.addColorStop(0, 'rgba(15, 23, 42, 0.6)');
+mountainGrad.addColorStop(1, 'rgba(15, 23, 42, 0.15)');
+ctx.fillStyle = mountainGrad;
+ctx.fill();
+
+// === Snow caps ===
+ctx.beginPath();
+ctx.moveTo(W * 0.20, H * 0.42);
+ctx.lineTo(W * 0.18, H * 0.46);
+ctx.lineTo(W * 0.22, H * 0.46);
+ctx.closePath();
+ctx.fillStyle = 'rgba(255,255,255,0.15)';
+ctx.fill();
+
+ctx.beginPath();
+ctx.moveTo(W * 0.48, H * 0.35);
+ctx.lineTo(W * 0.46, H * 0.39);
+ctx.lineTo(W * 0.50, H * 0.39);
+ctx.closePath();
+ctx.fill();
+
+ctx.beginPath();
+ctx.moveTo(W * 0.62, H * 0.30);
+ctx.lineTo(W * 0.60, H * 0.34);
+ctx.lineTo(W * 0.64, H * 0.34);
+ctx.closePath();
+ctx.fill();
+
+// === Decorative dots/grid ===
+ctx.fillStyle = 'rgba(255,255,255,0.03)';
+for (let x = 0; x < W; x += 40) {
+  for (let y = 0; y < H; y += 40) {
+    ctx.beginPath();
+    ctx.arc(x, y, 1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// === Glowing orbs ===
+const orb1 = ctx.createRadialGradient(W * 0.15, H * 0.3, 0, W * 0.15, H * 0.3, 200);
+orb1.addColorStop(0, 'rgba(239, 68, 68, 0.08)');
+orb1.addColorStop(1, 'rgba(239, 68, 68, 0)');
+ctx.fillStyle = orb1;
+ctx.fillRect(0, 0, W, H);
+
+const orb2 = ctx.createRadialGradient(W * 0.85, H * 0.7, 0, W * 0.85, H * 0.7, 250);
+orb2.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
+orb2.addColorStop(1, 'rgba(59, 130, 246, 0)');
+ctx.fillStyle = orb2;
+ctx.fillRect(0, 0, W, H);
+
+// === Flags: 🇨🇭 left side ===
+// Swiss flag
+const flagY = H * 0.32;
+const flagSize = 52;
+
+// CH flag
+ctx.fillStyle = '#DC1A21';
+roundRect(ctx, 80, flagY, flagSize, flagSize, 6);
+ctx.fill();
+ctx.fillStyle = '#FFFFFF';
+ctx.fillRect(80 + flagSize * 0.38, flagY + flagSize * 0.18, flagSize * 0.24, flagSize * 0.64);
+ctx.fillRect(80 + flagSize * 0.18, flagY + flagSize * 0.38, flagSize * 0.64, flagSize * 0.24);
+
+// IT flag
+const itX = 80 + flagSize + 14;
+const stripeW = flagSize / 3;
+ctx.beginPath();
+roundRectPath(ctx, itX, flagY, flagSize, flagSize, 6);
+ctx.clip();
+ctx.fillStyle = '#009246';
+ctx.fillRect(itX, flagY, stripeW, flagSize);
+ctx.fillStyle = '#FFFFFF';
+ctx.fillRect(itX + stripeW, flagY, stripeW, flagSize);
+ctx.fillStyle = '#CE2B37';
+ctx.fillRect(itX + stripeW * 2, flagY, stripeW, flagSize);
+ctx.restore();
+ctx.save();
+
+// === Main title ===
+ctx.textBaseline = 'middle';
+
+// Title
+ctx.font = 'bold 56px system-ui, -apple-system, sans-serif';
+ctx.fillStyle = '#ffffff';
+ctx.fillText('Frontaliere Ticino', 260, H * 0.38);
+
+// Subtitle
+ctx.font = '24px system-ui, -apple-system, sans-serif';
+ctx.fillStyle = 'rgba(191, 219, 254, 0.9)';
+ctx.fillText('Il simulatore fiscale gratuito per frontalieri 🇨🇭🇮🇹', 262, H * 0.58);
+
+// === Right side: tagline box ===
+const boxX = W - 440;
+const boxY = H * 0.2;
+const boxW = 380;
+const boxH = H * 0.6;
+
+ctx.fillStyle = 'rgba(255, 255, 255, 0.07)';
+roundRect(ctx, boxX, boxY, boxW, boxH, 16);
+ctx.fill();
+ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+ctx.lineWidth = 1;
+roundRect(ctx, boxX, boxY, boxW, boxH, 16);
+ctx.stroke();
+
+ctx.font = '18px system-ui, -apple-system, sans-serif';
+ctx.fillStyle = 'rgba(253, 224, 71, 0.95)';
+ctx.fillText('☕ Offrici un caffè per:', boxX + 28, boxY + 40);
+
+ctx.font = '16px system-ui, -apple-system, sans-serif';
+ctx.fillStyle = 'rgba(226, 232, 240, 0.85)';
+const items = [
+  '📊  Dati fiscali sempre aggiornati',
+  '💱  Tassi di cambio in tempo reale',
+  '🆕  Nuove funzionalità gratuite',
+  '🚫  Zero pubblicità invasiva',
+];
+items.forEach((item, i) => {
+  ctx.fillText(item, boxX + 28, boxY + 80 + i * 36);
+});
+
+// === Bottom bar ===
+ctx.fillStyle = 'rgba(0,0,0,0.25)';
+ctx.fillRect(0, H - 44, W, 44);
+
+ctx.font = '15px system-ui, -apple-system, sans-serif';
+ctx.fillStyle = 'rgba(148, 163, 184, 0.8)';
+ctx.fillText('valerielinc-ops.github.io/frontaliere-si-o-no', 80, H - 20);
+
+ctx.textAlign = 'right';
+ctx.fillText('Confronta stipendio · Tasse · Pensione · Assicurazioni · Cambio valuta', W - 80, H - 20);
+ctx.textAlign = 'left';
+
+// === Helper functions ===
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  roundRectPath(ctx, x, y, w, h, r);
+}
+
+function roundRectPath(ctx, x, y, w, h, r) {
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function download() {
+  const link = document.createElement('a');
+  link.download = 'bmac-banner-1600x400.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+</body>
+</html>

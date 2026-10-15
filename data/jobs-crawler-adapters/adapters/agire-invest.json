@@ -1,0 +1,22 @@
+{
+  "companyKey": "agire-invest",
+  "companyName": "Agire Invest",
+  "companyHost": "agire.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.agire.ch/careers",
+    "https://www.agire.ch/career",
+    "https://www.agire.ch/jobs",
+    "https://www.agire.ch/karriere",
+    "https://www.agire.ch/offene-stellen",
+    "https://www.agire.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.919Z"
+}

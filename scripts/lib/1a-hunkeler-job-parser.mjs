@@ -1,0 +1,266 @@
+#!/usr/bin/env node
+/**
+ * 1a-hunkeler job parser — Fetcher and job builder.
+ *
+ * Source: https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur
+ *
+ * Exports the 4 required functions for the crawler template:
+ *   - fetchAllC1aHunkelerJobs()  — Fetch and parse all jobs
+ *   - isC1aHunkelerJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()           — Validate URLs belong to this company
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { extractDetailFields, isSufficientVacancyDescription } from './prospector/extract.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+export const A1_HUNKELER_KEY = '1a-hunkeler';
+export const A1_HUNKELER_COMPANY_NAME = '1a-hunkeler';
+export const A1_HUNKELER_COMPANY_DOMAIN = '1a-hunkeler.ch';
+
+const CAREER_URL = 'https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur';
+
+/* ── Helpers ───────────────────────────────────────────────── */
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/* ── Company Matchers ──────────────────────────────────────── */
+
+/**
+ * Check if a job belongs to 1a-hunkeler.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function isC1aHunkelerJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === A1_HUNKELER_KEY ||
+    key.startsWith('1a-hunkeler-') ||
+    company.includes('1a-hunkeler') ||
+    url.includes('1a-hunkeler.ch')
+  );
+}
+
+/**
+ * Validate that a URL belongs to 1a-hunkeler's domain.
+ */
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === '1a-hunkeler.ch' || host.endsWith('.1a-hunkeler.ch');
+  } catch {
+    return false;
+  }
+}
+
+/* ── Category Detection ────────────────────────────────────── */
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
+  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
+  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
+  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
+  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  return 'Altro';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(junior|jr)/.test(t)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  return 'mid';
+}
+
+function detectEmploymentType(text = '') {
+  const t = normalize(text);
+  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
+  return 'OTHER';
+}
+
+/* ── Detail page ───────────────────────────────────────────── */
+
+/**
+ * Detail fields of a 1a hunkeler vacancy page. The generic extractor gives the
+ * title and the workplace; the description is the page's `div.jobBody` — the
+ * company paragraph, «Darum solltest du dich bei uns bewerben», «Das erwartet
+ * dich», «Deine Aufgaben», «Das bringst du mit» — as HTML, so the list
+ * structure survives.
+ *
+ * The JSON-LD alone is not the ad: its `description` lacks the company
+ * paragraph and the benefits list, and its `responsibilities`/`skills` are the
+ * same lists glued without separators («…EinbaumaterialsDemontage…», issue
+ * 5253). The generic extractor's own body is no better here: it starts at the
+ * title and runs into the contact card and the application form (Anrede,
+ * Vorname, … Absenden). An empty description means «no vacancy body on this
+ * page» and lets the spec runtime keep the listing's structured text.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {{ recordUrl?: string }} [opts]
+ */
+export function extract1aHunkelerDetailFields(html = '', pageUrl = '', opts = {}) {
+  const source = String(html || '');
+  const detail = extractDetailFields(source, pageUrl, opts);
+  if (!source) return detail;
+  const dom = new JSDOM(source);
+  try {
+    const body = dom.window.document.querySelector('.jobBody');
+    const bodyHtml = body ? body.innerHTML : '';
+    return {
+      ...detail,
+      description: isSufficientVacancyDescription(bodyHtml) ? bodyHtml : '',
+    };
+  } finally {
+    dom.window.close();
+  }
+}
+
+/**
+ * Plain text of a vacancy body with its structure kept: headings as `##`
+ * lines, `<li>` as `• ` bullets, one paragraph per line.
+ */
+export function descriptionTextOf(html = '') {
+  const withHeadings = String(html || '').replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, heading) => {
+    const text = normalizeSpace(stripHtml(heading));
+    return text ? `\n\n## ${text}\n` : '';
+  });
+  return stripHtml(withHeadings)
+    .split('\n')
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/* ── Fetcher guidato dalla spec ───────────────────────────────
+ * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
+ * template degli URL di dettaglio, appresi dalla pagina reale. La spec chiede
+ * la visita del dettaglio (`detailEnrichment`), letto da
+ * `extract1aHunkelerDetailFields`.
+ */
+async function fetchJobListings(runtime = {}) {
+  const spec = loadSpec(A1_HUNKELER_KEY);
+  return runSpecInProduction(spec, { ...runtime, detailExtractor: extract1aHunkelerDetailFields });
+}
+
+/**
+ * Fetch all 1a-hunkeler jobs.
+ * Returns an array of ParsedJob objects (source-locale only).
+ *
+ * IMPORTANT: Only set source-locale fields. Other locales are filled
+ * by the AI localization step and translate-pending pipeline.
+ */
+export async function fetchAllC1aHunkelerJobs(runtime = {}) {
+  console.log(`🔍 Fetching 1a-hunkeler jobs`);
+  console.log(`   Source: ${CAREER_URL}\n`);
+
+  const listings = await fetchJobListings(runtime);
+  if (!listings || listings.length === 0) {
+    console.warn('⚠️ No job listings returned.');
+    return [];
+  }
+
+  console.log(`  📋 Listings found: ${listings.length}`);
+
+  const jobs = [];
+  for (const listing of listings) {
+    // TODO: Extract fields from each listing.
+    // Adapt these field names to match the actual API response.
+    const title = normalizeSpace(listing.title || '');
+    if (!title || title.length < 3) continue;
+
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Required structured-data geography must come from the vacancy source.
+    // Missing, foreign or non-specific values are not replaced with an HQ.
+    if (!geography) continue;
+    const { location, canton } = geography;
+    const descriptionHtml = listing.description || '';
+    const descriptionText = descriptionTextOf(descriptionHtml);
+    if (!descriptionText) continue;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
+    const employmentType = detectEmploymentType(listing.timeType || title);
+
+    const sourceLang = detectLang(descriptionText || title, 'de');
+    const jobSlug = slugify(`${title} ${location} 1a-hunkeler ch`);
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+
+    const job = {
+      // ── Required fields ──
+      id: `1a-hunkeler-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: A1_HUNKELER_COMPANY_NAME,
+      companyKey: A1_HUNKELER_KEY,
+      companyDomain: A1_HUNKELER_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
+      location,
+      canton,
+      url: publicUrl,
+      source: '1a-hunkeler Dedicated Parser',
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+
+      // ── Recommended fields ──
+      // Prospected runtime rows retain the selected structured candidate;
+      // other ATS tiers use the same fields when their client exposes them.
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      category: detectCategory(title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
+      experienceLevel: detectExperienceLevel(title),
+      sector: 'Altro', // TODO: Set appropriate sector
+      currency: 'CHF',
+      featured: false,
+      ...mergeSourcePostingDates({}, listing),
+      applyUrl: publicUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    };
+
+    jobs.push(job);
+  }
+
+  console.log(`\n📋 Total 1a-hunkeler jobs discovered: ${jobs.length}`);
+  return jobs;
+}

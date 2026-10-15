@@ -1,0 +1,40 @@
+{
+  "id": "zurich-finma-licenziamenti-previdenza",
+  "slug": "zurich-finma-licenziamenti-previdenza",
+  "publishedAt": "2026-07-28T15:07:52.240Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.147180803727135,
+    "confidence": 0.8,
+    "finalScore": 8.117744642981709,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8783017178557337
+      },
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8614785570689537
+      },
+      {
+        "slug": "samarate-licenziamenti-2026",
+        "cosine": 0.8573878668463808
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8478185890197278
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8468882918377659
+      }
+    ],
+    "score": 2.029436160745427,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

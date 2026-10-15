@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Search Results</title></head>
+<body>
+<!--
+  Canonical SAP SuccessFactors jobs2web (j2w) search-results page carrying ONE
+  multi-office row: the extra offices are rendered as a nested
+  `<small class="nobr">+N more&hellip;</small>` INSIDE the location cell.
+
+  This fixture is the family gate for every j2w listing parser (see
+  tests/successfactors-parser-quality.test.ts): the markup is the union of the
+  selectors those parsers use (row `tr.data-row`, anchor `a.jobTitle-link` with
+  href BEFORE class, `td.colLocation.hidden-phone > span.jobLocation`,
+  `span.jobDepartment`, `span.jobFacility`, `span.jobDate`, `#searchresults`
+  wrapper, "Results 1 to 1 of 1" total), so a single HTML input can be fed to
+  all of them unchanged. The href is relative on purpose: it resolves against
+  each tenant's own search-page origin, which is what the URL-trust checks
+  (e.g. Zurich Insurance) validate.
+-->
+<div id="searchresults-container">
+  <span class="paginationLabel">Results 1 &ndash; 1 of 1</span>
+  <span class="paginationLabel">Results 1 to 1 of 1</span>
+  <table id="searchresults">
+    <thead>
+      <tr>
+        <th id="hdrTitle">Title</th>
+        <th id="hdrLocation">Location</th>
+        <th id="hdrDepartment">Department</th>
+        <th id="hdrFacility">Facility</th>
+        <th id="hdrDate">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="data-row">
+        <td class="colTitle" headers="hdrTitle">
+          <span class="jobTitle visible-phone">
+            <a href="/job/Lugano-Ingegnere-di-produzione-TI/1387654321/" class="jobTitle-link">Ingegnere di produzione</a>
+          </span>
+        </td>
+        <td class="colLocation hidden-phone" headers="hdrLocation"><span class="jobLocation">Lugano, CH <small class="nobr">+1 more&hellip;</small></span></td>
+        <td class="colDepartment hidden-phone" headers="hdrDepartment"><span class="jobDepartment">Operations</span></td>
+        <td class="colFacility hidden-phone" headers="hdrFacility"><span class="jobFacility">Switzerland</span></td>
+        <td class="colDate hidden-phone" headers="hdrDate"><span class="jobDate">2026-08-20</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

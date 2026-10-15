@@ -1,0 +1,40 @@
+{
+  "id": "frontaliere-immondizia-cantello-multa",
+  "slug": "frontaliere-immondizia-cantello-multa",
+  "publishedAt": "2026-05-15T01:26:41.095Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.009542229868381,
+    "confidence": 0.8,
+    "finalScore": 4.807633783894705,
+    "topK": [
+      {
+        "slug": "trippa-dogana-novazzano",
+        "cosine": 0.8585060328383401
+      },
+      {
+        "slug": "multe-vignetta-chiasso-2024",
+        "cosine": 0.8568392518968583
+      },
+      {
+        "slug": "spreco-alimentare-svizzera-obiettivo-fallito",
+        "cosine": 0.8565393181288823
+      },
+      {
+        "slug": "divieto-petardi-svizzera-frontalieri",
+        "cosine": 0.8564438884614526
+      },
+      {
+        "slug": "super-ricco-tasse-frontalieri-ticino",
+        "cosine": 0.8522268513390935
+      }
+    ],
+    "score": 4.807633783894705,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

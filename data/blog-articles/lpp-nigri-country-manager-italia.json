@@ -1,0 +1,40 @@
+{
+  "id": "lpp-nigri-country-manager-italia",
+  "slug": "lpp-nigri-country-manager-italia",
+  "publishedAt": "2026-05-11T04:18:28.582Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.513864847309792,
+    "confidence": 0.8,
+    "finalScore": 4.411091877847833,
+    "topK": [
+      {
+        "slug": "supermercati-ticino-2026",
+        "cosine": 0.7876949781871131
+      },
+      {
+        "slug": "migros-immigrazione-necessaria-offerta",
+        "cosine": 0.7778717479230728
+      },
+      {
+        "slug": "marchi-migros-riduzione-frontalieri-ticino",
+        "cosine": 0.775433380552203
+      },
+      {
+        "slug": "lidl-svizzera-ceo-elvetico",
+        "cosine": 0.7748423847437207
+      },
+      {
+        "slug": "nespresso-svizzera-dazi-2026",
+        "cosine": 0.7700048570718017
+      }
+    ],
+    "score": 2.2055459389239167,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

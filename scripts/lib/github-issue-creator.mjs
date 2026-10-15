@@ -1,0 +1,2045 @@
+/**
+ * github-issue-creator.mjs — Auto-create GitHub Issues on workflow failure.
+ *
+ * Drop-in replacement for the legacy github-issue-creator.mjs. Same CLI
+ * surface and function signature so existing workflows migrate via a
+ * single import path swap.
+ *
+ * Usage from CLI:
+ *   node scripts/lib/github-issue-creator.mjs \
+ *     --title "Crawler Failure: Update Coop" \
+ *     --description "Stack trace + context" \
+ *     --priority 2 \
+ *     --label Bug \
+ *     --workflow "Update Coop Ticino"
+ *
+ * Usage as module:
+ *   import { createGithubIssue } from './github-issue-creator.mjs';
+ *   await createGithubIssue({ title, description, priority, labels, workflow });
+ *
+ * Auth: requires `gh` CLI authenticated via GITHUB_TOKEN (default in GH
+ * Actions) or local `gh auth login`. Repo is auto-detected from the working
+ * directory; override with $GH_REPO if needed.
+ *
+ * Priority → label mapping (1-4 scale so call sites don't need to change):
+ *   1 → priority:urgent
+ *   2 → priority:high
+ *   3 → priority:medium (default)
+ *   4 → priority:low
+ *
+ * De-duplication: searches for OPEN issues by the complete title when an
+ * unkeyed title fits within 60 chars; truncated titles and keyed families use
+ * a safe prefix derived from the first 60 chars. If found, posts a comment
+ * with the new context instead of creating a duplicate. The lookup reconciles
+ * the search index with a plain repository listing — the index is eventually
+ * consistent and does not
+ * see an issue opened seconds ago, so search alone lets two near-simultaneous
+ * reporters both believe they are the first (how #5305/#5306 were minted 3s
+ * apart).
+ *
+ * When there is no OPEN duplicate the dedup then looks among the RECENTLY
+ * CLOSED issues (default DEFAULT_REOPEN_WITHIN_HOURS) and REOPENS the twin
+ * instead of minting a new number. See the `reopenWithinHours` option for the
+ * measurement that made this the default rather than an opt-in. A caller that
+ * re-reads PAST failures (a scanner with a lookback window) passes `occurredAt`,
+ * and an occurrence that started before the twin was closed neither reopens
+ * nor comments (issue #9761, see occurrencePredatesClose).
+ */
+
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+
+const PRIORITY_LABEL = {
+  1: 'priority:urgent',
+  2: 'priority:high',
+  3: 'priority:medium',
+  4: 'priority:low',
+};
+
+const DEDUP_TITLE_PREFIX_LEN = 60;
+const MAX_BODY_LEN = 60000; // GH issue body cap is 65536; leave margin
+
+// This file is intentionally executable as a standalone transport artifact:
+// deploy's no-checkout fallback downloads only this module at the run SHA, and
+// the identical corpus twin receives it without arbitrary relative imports.
+// Keep the bounded retry primitive here so both execution modes retain the
+// same post-condition and transient-error behavior.
+const MAX_TRANSIENT_GH_MUTATION_ATTEMPTS = 3;
+const TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
+const TRANSIENT_GH_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?(?:429|50[23])\b|bad gateway|service unavailable|rate[- ]limit|abuse[- ]detection|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
+
+function sleepForGithubMutationRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const wait = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(wait, 0, 0, delayMs);
+}
+
+function capturedGithubErrorOutput(error) {
+  if (typeof error === 'string') return error;
+  return [error?.message, error?.stderr, error?.stdout, error?.status]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function isTransientGithubMutationError(error) {
+  return TRANSIENT_GH_MUTATION_ERROR_RE.test(capturedGithubErrorOutput(error));
+}
+
+/**
+ * Retry a bounded GitHub operation only for known transient failures. A
+ * caller can inspect the resource after a lost mutation response through
+ * `findExisting`, avoiding a duplicate side effect before retrying.
+ */
+export function withTransientGithubMutationRetry(operation, {
+  findExisting = () => null,
+  attemptLimit = MAX_TRANSIENT_GH_MUTATION_ATTEMPTS,
+  delaysMs = TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS,
+  sleep = sleepForGithubMutationRetry,
+  onRetry = () => {},
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('GitHub mutation retry operation must be a function');
+  if (typeof findExisting !== 'function') throw new TypeError('GitHub mutation existence lookup must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_TRANSIENT_GH_MUTATION_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForGithubMutationRetry;
+  const notify = typeof onRetry === 'function' ? onRetry : () => {};
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return { reused: false, value: operation(), attempts: attempt + 1 };
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isTransientGithubMutationError(error)) throw error;
+      const existing = findExisting();
+      if (existing) return { reused: true, value: existing, attempts: attempt + 1 };
+      const delayMs = Number(delays[attempt]);
+      notify(attempt + 2, attempts, delayMs);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('GitHub mutation retry exhausted without an attempt');
+}
+
+// Crawler failure reporters fire from `if: failure()` steps with this stable
+// title. A SINGLE transient network blip (`fetch failed`, timeout, 429/5xx)
+// must NOT immediately open a priority:high issue — the layer-1 retry usually
+// self-heals on the next scheduled run. Auto-gate these titles by consecutive
+// failures: the first N-1 land as a low-priority breadcrumb; only the Nth
+// failure within the rolling window escalates to the caller's priority.
+const CRAWLER_FAILURE_TITLE_PREFIX = 'Crawler Failure:';
+const DEFAULT_CRAWLER_GATE_THRESHOLD = 3; // escalate on the 3rd failure
+// Window must comfortably span (threshold-1) crawl cadences so a genuinely-broken
+// source reliably reaches the threshold. orchestrate-crawlers.yml dispatches each
+// crawler-group-*.yml (each bundling ~25 crawlers as background steps) twice
+// daily (~12h apart), so 3 consecutive failures of a given crawler span ~24h; a
+// 24h window leaves the oldest event sitting on the cutoff (CI jitter decides
+// inclusion) → escalation becomes a coin-flip and real breakage can decay
+// silently. 48h gives a full cadence of margin so the 3rd consecutive failure
+// deterministically escalates, while a lone transient still expires as intended.
+const DEFAULT_CRAWLER_GATE_WINDOW_HOURS = 48; // failures older than this don't count
+const CRAWLER_TRANSIENT_LABEL = 'crawler-transient';
+const RECURRENCE_MARKER = '🔁'; // prefixes every recurrence comment we post
+
+// Sub-threshold failures are recorded HERE instead of each minting its own
+// issue (#5139/#5137). The gate above always downgraded a lone blip to a
+// `crawler-transient` breadcrumb — but a breadcrumb is still an issue: 333 of
+// them had been opened by 2026-08-05, and although a bot auto-closes each one
+// once the crawler goes green (~14h later), every one still fires notifications,
+// enters triage, and buries real bugs. The ones that DON'T recover quickly reach
+// a human, which is how two priority:low network blips ended up hand-triaged.
+//
+// One long-lived ledger issue absorbs all of them. Consecutive-failure counting
+// keeps working — the ordinal is read from ledger comments carrying the
+// crawler's stable title key — so the Nth failure still escalates into a real,
+// routable per-crawler issue. Nobody ever has to close the ledger.
+const TRANSIENT_LEDGER_TITLE = 'Crawler transient failures (rolling ledger)';
+const LEDGER_KEY_PREFIX = 'transient-key:'; // machine-readable per-crawler key in each ledger comment
+// Counter issue: never eligible for followup-drainer's age-out close (#5615).
+// Without this, a stretch of healthy crawlers — no sub-threshold comments to
+// refresh `updatedAt` — makes the ledger look old+idle and the drainer closes
+// it, resetting every in-progress streak. Checked in isAgeOutEligible
+// (scripts/ci/followup-drainer.mjs); keep the literal in sync.
+const LBL_NO_AGE_OUT = 'agent:no-age-out';
+
+// How close to the `closed` event a `referenced` commit event must sit before we
+// accept it AS the closing commit (see findClosingCommitSha). GitHub emits the
+// two in the same second when a merge commit's `Closes #N` retires the issue —
+// measured 0s apart on #5729 (`referenced eb7eac6a` and `closed`, both
+// 2026-08-13T19:40:34Z). The window exists only to reject an UNRELATED older
+// reference: #5729 also carried `referenced d72549e1` 25 minutes earlier, from a
+// PR that merely mentioned the issue. Widening this trades precision for the
+// risk of attributing the close to a commit that did not cause it.
+const CLOSING_REFERENCE_WINDOW_MS = 5 * 60 * 1000;
+
+// Default reopen window, applied when a caller does not name one.
+//
+// WHY IT IS A DEFAULT AND NOT AN OPT-IN. `reopenWithinHours` shipped opt-in and
+// nothing ever opted in outside the post-deploy validators, so every recurring
+// monitor whose issue had been CLOSED in the meantime minted a NEW number: the
+// closed twin is invisible to a dedup that only searches `--state open`.
+// Measured 2026-08-14 across both repos — 11 open issues share their 60-char
+// title prefix with a closed one, of which 8 are genuine recurrences:
+//
+//   comm -12 <(gh issue list -R <r> --state open   --limit 300 --json title -q '.[].title[0:60]'|sort -u) \
+//            <(gh issue list -R <r> --state closed --limit 500 --json title -q '.[].title[0:60]'|sort -u)
+//
+//   site   #5427←#5039 · #5480←#4357 · #5670←#4677 · #5691←#5136,#4947
+//   corpus #311←#271,#250,#240 · #312←#273 · #313←#266,#206
+//
+// The remaining 3 are rolling TRACKERS (site #1951/#5198, corpus #25) carrying
+// `agent:no-age-out`; they are excluded by construction below, not by count.
+//
+// 30 days, not the 6h the validators use: those collapse a red→green→red flap
+// inside one deploy cycle, whereas a watchdog re-observes its condition on a
+// weekly/monthly cadence — a 6h window would have caught none of the 8 above
+// (#5039 was closed weeks before #5427 was opened). Long enough to catch the
+// slow cadences, short enough that a condition genuinely settled for a month
+// gets a fresh issue with a fresh discussion.
+const DEFAULT_REOPEN_WITHIN_HOURS = 30 * 24; // 720h
+
+export function isFailureReportingDisabled() {
+  return process.env.ENABLE_FAILURE_REPORT === 'false';
+}
+
+/**
+ * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
+ * stderr is forwarded for visibility (workflow logs will show the actual error).
+ */
+function ghBin() {
+  const configured = String(process.env.TRUSTED_GH_BIN || '').trim();
+  if (!configured) return 'gh'; // legacy reporters run outside the review cone
+  if (!configured.startsWith('/') || configured.includes('\0')) {
+    throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+  }
+  return configured;
+}
+
+function gh(args, { allowFailure = false } = {}) {
+  try {
+    return execFileSync(ghBin(), args, {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'inherit'],
+    }).trim();
+  } catch (err) {
+    if (allowFailure) return null;
+    throw err;
+  }
+}
+
+/**
+ * Run a GitHub call whose stderr must be inspected for a bounded transient
+ * retry. The normal `gh()` helper inherits stderr for legacy best-effort calls;
+ * this variant captures it on failure so GraphQL/5xx/network errors are
+ * distinguishable from permission and validation failures.
+ */
+function ghMutation(args) {
+  try {
+    return execFileSync(ghBin(), args, {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+  } catch (error) {
+    const stderr = error?.stderr;
+    if (stderr) process.stderr.write(Buffer.isBuffer(stderr) ? stderr : String(stderr));
+    throw error;
+  }
+}
+
+/**
+ * Append one line to the job summary, when running inside Actions. The issue
+ * comment is the primary trace for an abstention, but it goes through `gh` and
+ * `gh` is allowed to fail silently here; the summary is written locally and
+ * survives that. A SILENT abstention is indistinguishable from a broken
+ * reopener — which is the very defect this guard repairs — so the trace is part
+ * of the behaviour, not decoration. No-op outside CI, never throws.
+ */
+function appendStepSummary(line) {
+  const file = process.env.GITHUB_STEP_SUMMARY;
+  if (!file) return;
+  try {
+    fs.appendFileSync(file, `${line}\n`);
+  } catch { /* best-effort: a summary write must never break a reporter */ }
+}
+
+function repoFlag() {
+  // Honor explicit override; otherwise gh auto-detects from cwd's git remote.
+  return process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+}
+
+export function ensureLabelsExist(labels) {
+  // Best-effort: try to create each label. `gh label create` errors if it
+  // exists, which is fine — we proceed.
+  for (const name of labels) {
+    if (!name) continue;
+    gh(['label', 'create', name, ...repoFlag()], { allowFailure: true });
+  }
+}
+
+// Cut a string at the first opening bracket that is never closed within it, so
+// no UNBALANCED `(`/`[`/`{` survives into the search phrase. A balanced group
+// (`…(Dedicated)`) is preserved; an open group (`…(KSSG / HOCH` cut by the
+// slice, or `…HIB (Hôpital Intercantonal de la`) is dropped from its opener on.
+function stripUnbalancedBracketTail(s) {
+  const OPEN = { '(': ')', '[': ']', '{': '}' };
+  const CLOSE = new Set([')', ']', '}']);
+  const stack = []; // each entry: { char, index }
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (OPEN[c]) stack.push({ char: c, index: i });
+    else if (CLOSE.has(c) && stack.length) stack.pop();
+  }
+  // Anything left on the stack is an unmatched opener → cut at the FIRST one.
+  return stack.length ? s.slice(0, stack[0].index) : s;
+}
+
+// Make a title prefix SAFE for `gh issue list --search 'in:title "<phrase>"'`.
+// The naive `title.slice(0, 60)` can cut mid-token, leaving a partial word
+// and/or an UNBALANCED opening bracket (e.g. `...Jobs (Dedicat`, or names with
+// an internal parenthetical like `HIB (Hôpital Intercantonal de la Broye)` /
+// `Kantonsspital St. Gallen (KSSG / HOCH)` cut mid-group). GitHub's phrase
+// search ZERO-matches on a dangling partial word OR an unbalanced bracket →
+// dedup never finds the canonical issue → a fresh duplicate opens every run
+// (observed: 8 identical "Crawler Failure: …(Dedicated)" issues for SVAR alone,
+// 2× each for HIB/KSSG-shaped names). Keep a whole-token,
+// balanced-bracket, punctuation-clean prefix so the search resolves. When the
+// cut lands inside a space-free discriminator (for example an escalation
+// bucket key), extend that token to its boundary instead of dropping the whole
+// discriminator and over-matching every sibling bucket. A token beginning with
+// an opening bracket is still dropped and sanitized below: extending it would
+// reintroduce the unbalanced-bracket search failure this helper prevents.
+// Takes the FULL title (not a pre-sliced prefix) so it can tell whether
+// slice(0,LEN) actually split a word — the signal needed to repair a partial
+// discriminator token without mistaking a clean 60-character boundary for a
+// fragment. The caller uses the returned value as an exact title only when the
+// complete, untruncated title survives unchanged and no deduplication family
+// key was declared; truncated titles and keyed families retain prefix matching.
+export function searchSafePrefix(fullTitle) {
+  const LEN = DEDUP_TITLE_PREFIX_LEN;
+  const full = String(fullTitle);
+  let p = full.slice(0, LEN);
+  // Handle a dangling trailing token ONLY when slice(0,LEN) actually SPLITS a
+  // word — i.e. both sides of the cut are non-space. Gating on the cut boundary
+  // (not on p.length) is essential: a title whose 60th char is a space — e.g.
+  // "escalation(harvester): reviewer-finding/workflow-scope-creds ricorre…"
+  // (the key is space-free, only the space before "ricorre" precedes the cut) —
+  // must KEEP its discriminator. Gating on length alone would strip the whole
+  // space-free key and collapse every escalation to "escalation(harvester)",
+  // making distinct buckets dedup onto one canonical.
+  const cutSplitWord =
+    full.length > LEN && /\S/u.test(full[LEN - 1] || '') && /\S/u.test(full[LEN] || '');
+  if (cutSplitWord) {
+    const tokenStart = p.lastIndexOf(' ') + 1;
+    const partialToken = p.slice(tokenStart);
+    if (partialToken && !/^[([{]/u.test(partialToken)) {
+      const tokenTailEnd = full.slice(LEN).search(/\s/u);
+      p = full.slice(0, tokenTailEnd === -1 ? full.length : LEN + tokenTailEnd);
+    } else if (p.includes(' ')) {
+      p = p.replace(/\s+\S*$/, '');
+    }
+  }
+  // Drop any tail from the first unmatched opening bracket (internal or trailing).
+  p = stripUnbalancedBracketTail(p);
+  // Strip trailing chars that break/destabilize phrase search: leftover openers,
+  // quotes, slashes, and dangling punctuation. A balanced closing bracket
+  // (e.g. full short title "…(Dedicated)") is intentionally kept.
+  p = p.replace(/[\s"'([{/:;,.\-]+$/u, '').trim();
+  // Guard: never return an over-short/empty prefix (would over-match); fall
+  // back to the raw quote-stripped slice.
+  return p.length >= 8 ? p : full.slice(0, LEN).replace(/"/g, '').trim();
+}
+
+// How many issues the immediate-consistency listing pulls. `gh issue list`
+// WITHOUT `--search` is a plain repository listing, so it sees an issue the
+// instant it exists; the search index does not.
+const LISTING_FALLBACK_LIMIT = 100;
+
+/**
+ * Run `gh issue list` with the given extra args and parse the JSON array.
+ *
+ * `[]` is a successful empty lookup. `null` means that GitHub did not return a
+ * trustworthy listing, so callers must not interpret it as "no duplicate".
+ */
+function ghIssueList(state, extraArgs) {
+  let out;
+  try {
+    out = gh([
+      'issue', 'list',
+      '--state', state,
+      ...extraArgs,
+      // `stateReason` and `labels` are read ONLY by the reopen path (a closed
+      // twin must be provably `COMPLETED` and provably not a tracker before it is
+      // resurrected). Requested on every listing so the two call sites share one
+      // shape; the open-dedup path ignores both fields.
+      '--json', 'number,title,url,closedAt,state,stateReason,labels',
+      ...repoFlag(),
+    ]);
+  } catch {
+    return null;
+  }
+  // `gh()` trims successful stdout, so `''` is a valid empty listing. Only
+  // null means that the command failed; treating blank success as an error
+  // would block every create even when GitHub proved there are zero matches.
+  if (typeof out !== 'string') return null;
+  if (!out.trim()) return [];
+  try {
+    const parsed = JSON.parse(out);
+    return Array.isArray(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+// `fullTitle` is the complete issue title (callers must NOT pre-slice it — the
+// mid-word-cut detection in searchSafePrefix needs the char at the ceiling).
+// Quante voci chiede la query sull'indice. 10 basta per il ramo APERTE (di
+// canonical aperti con lo stesso prefisso ce n'è uno), ma non per le CHIUSE:
+// lì si accumulano tutti i giri passati della stessa famiglia, e la famiglia
+// `escalation(harvester)` ne ha già 8 chiuse contro un tetto di 10 — un tetto
+// che sfiora il vero. Se la gemella vera cade fuori dalla pagina il filtro
+// sulla firma non trova nulla e si apre una issue nuova: fail-safe, ma è
+// recall persa in silenzio. 50 la ricompra al costo della stessa singola
+// chiamata (è la dimensione di pagina, non il numero di richieste).
+const CLOSED_SEARCH_LIMIT = 50;
+
+function searchIssuesByTitlePrefix(
+  fullTitle,
+  state,
+  searchLimit = 10,
+  { exactTitle = false, dedupKey = null } = {},
+) {
+  const requestedTitle = String(fullTitle);
+  const safePrefix = searchSafePrefix(fullTitle);
+  const matchExactTitle = exactTitle || (
+    !dedupKey
+    && requestedTitle.length <= DEDUP_TITLE_PREFIX_LEN
+    && safePrefix === requestedTitle
+  );
+  // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
+  // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
+  // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
+  // entrambi comparire. Un titolo completo entro i 60 caratteri, senza una
+  // chiave di famiglia, non è un prefisso: in quel caso richiedi il titolo
+  // esatto. Un titolo troncato, una famiglia con chiave o un caller che chiede
+  // `exactTitle` esplicitamente seguono invece la regola rispettiva sotto.
+  // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
+  // resta coerente quando lo slice grezzo era stato troncato a metà token.
+  const matching = (issues) =>
+    issues.filter((i) => typeof i.title === 'string' && (
+      matchExactTitle
+        ? i.title === requestedTitle.slice(0, 200)
+        : i.title.startsWith(safePrefix)
+    ));
+
+  const searchedIssues = ghIssueList(state, [
+    '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
+    '--limit', String(searchLimit),
+  ]);
+  if (searchedIssues === null) return null;
+  const viaSearch = matching(searchedIssues);
+  // WHY the second read is unconditional: `--search` goes through GitHub's
+  // SEARCH INDEX, which is eventually consistent — an issue created seconds
+  // ago is routinely NOT in it yet. Two reporters firing back-to-back for the
+  // same stable title (e.g. two jobs of one run reported by scan-job-timeouts)
+  // therefore both saw "no duplicate" and both opened one: that is exactly how
+  // #5305/#5306 were born, 3 seconds apart, same run, identical title. A
+  // listing WITHOUT `--search` reads the repository directly and is immediately
+  // consistent, so both views must be reconciled — including ACROSS processes,
+  // which an in-process memo cannot.
+  const listedIssues = ghIssueList(state, ['--limit', String(LISTING_FALLBACK_LIMIT)]);
+  if (listedIssues === null) return null;
+  const viaListing = matching(listedIssues);
+  // Stable family keys can match several legacy OPEN trackers. Even if search
+  // returns an older hit, its eventually-consistent page may still omit the
+  // issue created by the latest run. Merge both views and order by issue number
+  // so every caller deterministically chooses the newest canonical.
+  return Array.from(
+    new Map([...viaSearch, ...viaListing].map((issue) => [issue.number, issue])).values(),
+  ).sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
+}
+
+function findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest = false, options = {}) {
+  const candidates = searchIssuesByTitlePrefix(
+    fullTitle,
+    'open',
+    10,
+    options,
+  );
+  if (candidates === null) return undefined;
+  if (preferNewest) {
+    // Legacy count-bearing audit titles produced more than one OPEN tracker.
+    // The highest issue number is the latest run and therefore the canonical
+    // one already under active remediation (#6759/#6760, not #6657/#6658).
+    candidates.sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
+  }
+  return candidates;
+}
+
+function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false, options = {}) {
+  const candidates = findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest, options);
+  if (candidates === undefined) return undefined;
+  return candidates[0] || null;
+}
+
+/**
+ * Return every OPEN issue whose complete title starts with `titlePrefix`.
+ *
+ * Callers that need to resolve a family must not call `resolveGithubIssue`
+ * repeatedly: its 60-character lookup intentionally closes only the newest
+ * match. The complete-title filter here narrows the safe-prefix search, after
+ * which callers can re-read and close each number with
+ * `resolveGithubIssueByNumber`.
+ */
+export function findOpenGithubIssuesByTitlePrefix(titlePrefix) {
+  const requested = String(titlePrefix || '');
+  if (!requested) return [];
+  const candidates = searchIssuesByTitlePrefix(requested, 'open', LISTING_FALLBACK_LIMIT, { dedupKey: requested });
+  if (candidates === null) return undefined;
+  return candidates.filter((issue) => typeof issue?.title === 'string' && issue.title.startsWith(requested));
+}
+
+function formatOpenTwinNote(canonical, openCandidates = []) {
+  const discarded = openCandidates
+    .filter((candidate) => Number(candidate?.number) !== Number(canonical?.number))
+    .map((candidate) => `#${candidate.number}`)
+    .filter(Boolean);
+  if (discarded.length === 0) return '';
+  return [
+    '<!-- github-issue-creator:open-twin-links -->',
+    `🔗 **Canonicale:** #${canonical.number} è la issue OPEN più recente per questo titolo.`,
+    `Issue OPEN gemelle lasciate aperte ma scartate: ${discarded.join(', ')}.`,
+    'Nessuna issue gemella viene chiusa automaticamente.',
+  ].join('\n');
+}
+
+function lookupFailedResult(title, state) {
+  const prefix = searchSafePrefix(title);
+  const message = `[github-issue-creator] Lookup ${state} non affidabile per "${prefix}" — rifiuto la creazione per non aprire un duplicato.`;
+  console.error(message);
+  appendStepSummary(`⚠️ ${message}`);
+  return {
+    number: null,
+    title,
+    url: null,
+    lookupFailed: true,
+    persisted: false,
+  };
+}
+
+function migrateLegacyIssueTitle(issue, canonicalTitle, dedupKey) {
+  if (!issue || !dedupKey || issue.title === canonicalTitle) return issue;
+  const migrated = gh([
+    'issue', 'edit', String(issue.number),
+    '--title', canonicalTitle.slice(0, 200),
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (migrated !== null) {
+    console.log(
+      `[github-issue-creator] Migrated legacy title on #${issue.number} `
+      + `using stable key "${dedupKey}".`,
+    );
+    return { ...issue, title: canonicalTitle };
+  }
+  console.error(
+    `[github-issue-creator] Could not migrate legacy title on #${issue.number}; `
+    + 'reusing the issue without changing its number.',
+  );
+  return issue;
+}
+
+/**
+ * Collapse a title to the CONDITION it names, discarding whatever varies run to
+ * run. Digits become `#` (counts, ordinals, dates, percentages, issue numbers),
+ * everything that is not a letter or a digit becomes a single space, case is
+ * folded. `pool news svuotato da 3 giorni` and `… da 11 giorni` collapse to the
+ * same signature; `sezione frontaliere` and `sezione svizzera` do not.
+ *
+ * This is the SECOND discriminator the reopen path needs, and the reason is in
+ * searchSafePrefix above: the search prefix is derived from a 60-char cut and
+ * can drop or extend the token it splits, so two DIFFERENT conditions can still
+ * share it. Measured on the corpus,
+ * `Watchdog generazione, sezione frontaliere: pool news svuotat`
+ * and its `sezione svizzera` twin are 47 chars of common prefix apart — they
+ * only diverge later — and on the site the four `escalation(harvester): …`
+ * buckets share everything up to the cut. Reopening on the prefix alone would
+ * resurrect the WRONG issue, which is strictly worse than opening a new one:
+ * a spurious new issue is triaged and closed, a wrongly-reopened issue puts a
+ * measurement under a title that does not describe it.
+ *
+ * Deliberately asymmetric: only the CLOSED lookup applies it. The open-dedup
+ * path keeps prefix-only matching, because commenting on a live sibling is a
+ * recoverable mistake and tightening it would change behaviour this change did
+ * not measure.
+ */
+export function conditionSignature(title) {
+  return String(title)
+    .toLowerCase()
+    .replace(/\d+/g, '#')
+    .replace(/[^\p{L}#]+/gu, ' ')
+    .trim();
+}
+
+/** Label names of an issue as returned by `gh issue list --json labels`. */
+function issueLabelNames(issue) {
+  return (Array.isArray(issue?.labels) ? issue.labels : [])
+    .map((l) => (typeof l === 'string' ? l : l?.name))
+    .filter(Boolean);
+}
+
+/**
+ * Find a recently-closed issue with the same stable title prefix, closed within
+ * `withinHours`. Collapses FLAPPING transient failures (fail → auto-close on
+ * green → fail again) onto a single canonical issue instead of spawning a new
+ * one every deploy. This was the residual churn behind #928/#931/#937/#941: the
+ * post-deploy validation titles were already stable, but the dedup matched only
+ * OPEN issues, so each per-deploy transient that had been closed reopened as a
+ * brand-new issue. Returns the most-recently-closed matching issue, or null.
+ *
+ * Three filters stand between a prefix match and a reopen, all of which fail
+ * CLOSED (skip the candidate → the caller opens a fresh issue, i.e. today's
+ * behaviour) rather than resurrecting something. With `occurredAt`, the NEWEST
+ * close of the condition is checked before them: an occurrence that started
+ * before it comes back marked `predatesClose` whatever the close reason, and
+ * the caller neither reopens nor creates (issue #9761):
+ *
+ *  1. same condition signature — see conditionSignature: the prefix alone is
+ *     not a discriminator, it drops the token it split;
+ *  2. closed as COMPLETED — a `NOT_PLANNED` close is a human saying "don't
+ *     track this"; reopening it every run for 30 days would overrule them;
+ * COSTO. 1 chiamata `gh` per tentativo di apertura, 2 nel caso peggiore (la
+ * seconda solo se l'indice non ha risposto nulla). Nessuna paginazione: il
+ * costo è limitato dalla DIMENSIONE DI PAGINA, non dalla finestra dei 30
+ * giorni, che filtra soltanto ciò che è già tornato — sono cose diverse e vale
+ * la pena non confonderle. E si paga solo sul ramo in cui si stava per aprire
+ * una issue nuova (nessun duplicato APERTO), che è la minoranza dei passaggi.
+ * Sul volume misurato nella finestra 2026-08-07..14 — 244 issue aperte da
+ * monitor/watchdog/validation sui due repo — il tetto è ~244-488 chiamate in
+ * più a settimana, ~1,5-3/ora: irrilevante contro il rate limit.
+ *
+ * NOTA sul ripiego: `LISTING_FALLBACK_LIMIT` (100, senza `--search`) esiste per
+ * la latenza dell'indice, cioè per una issue nata SECONDI fa. Sul ramo delle
+ * chiuse non è quello il modo di fallire, e su questo repo quelle 100 coprono
+ * circa un giorno e mezzo (505 issue chiuse in una settimana): la recall sulle
+ * gemelle vecchie la porta la query sull'indice, non il ripiego.
+ *
+ *  3. not a rolling tracker/counter — a CLOSED one was retired deliberately.
+ *     TWO signals, because neither alone holds: the `agent:no-age-out` label,
+ *     AND this module's own singleton titles. The label alone is not enough,
+ *     measured 2026-08-14: the corpus crawler-transient ledger carries it on
+ *     the SITE (#5198) but not on the corpus (#25, and neither do its closed
+ *     predecessors #24/#21) — so a label-only guard would have judged #21
+ *     reopenable. The ledger is unreachable from here today by construction
+ *     (findOrCreateTransientLedger calls `gh issue create` directly and never
+ *     routes through createGithubIssue), and that is exactly the kind of
+ *     contract-without-an-import-form this repo has been bitten by: it holds
+ *     until one caller passes the ledger title in, and then nothing catches it.
+ */
+const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
+
+function findRecentlyClosedIssueByTitlePrefix(
+  fullTitle,
+  withinHours,
+  dedupKey = null,
+  occurredAt = null,
+  { exactTitle = false } = {},
+) {
+  if (!withinHours || withinHours <= 0) return null;
+  const cutoff = Date.now() - withinHours * 3600 * 1000;
+  const wantedSignature = conditionSignature(fullTitle);
+  const candidates = searchIssuesByTitlePrefix(
+    exactTitle ? fullTitle : (dedupKey || fullTitle),
+    'closed',
+    CLOSED_SEARCH_LIMIT,
+    { exactTitle, dedupKey },
+  );
+  if (candidates === null) return undefined;
+  const inWindow = candidates
+    .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
+    .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
+
+  const eligible = [];
+  let newestSameCondition = true;
+  for (const candidate of inWindow) {
+    // A caller-supplied key explicitly declares every matching legacy title to
+    // be the same condition. Without it, retain the stricter signature guard
+    // that protects unrelated reporters sharing only a long title prefix.
+    if (!dedupKey && conditionSignature(candidate.title) !== wantedSignature) {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} shares the `
+        + `${DEDUP_TITLE_PREFIX_LEN}-char prefix but names a different condition `
+        + `("${candidate.title}") — not reopening it.`,
+      );
+      continue;
+    }
+    // History guard (#9761), on the NEWEST close of this condition and BEFORE
+    // the eligibility filters below: an occurrence that started before it was
+    // closed is covered by that close however it was closed. Skipping a
+    // NOT_PLANNED or tracker close here instead would send the caller to
+    // `gh issue create`, i.e. a fresh issue for the very run a human had just
+    // decided about. Older closes need no check: they close earlier still.
+    if (newestSameCondition) {
+      newestSameCondition = false;
+      if (occurrencePredatesClose(occurredAt, candidate.closedAt)) {
+        return { ...candidate, predatesClose: true };
+      }
+    }
+    if (candidate.stateReason && candidate.stateReason !== 'COMPLETED') {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} was closed as `
+        + `${candidate.stateReason}, not COMPLETED — leaving it closed.`,
+      );
+      continue;
+    }
+    const trackerBy = issueLabelNames(candidate).includes(LBL_NO_AGE_OUT)
+      ? LBL_NO_AGE_OUT
+      : (NEVER_REOPEN_TITLES.has(candidate.title) ? 'singleton title' : null);
+    if (trackerBy) {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} is a rolling tracker `
+        + `(${trackerBy}) — not reopening it.`,
+      );
+      appendStepSummary(
+        `↩︎ **Riapertura saltata** — #${candidate.number} è un tracker rotolante `
+        + `(${trackerBy}). Apro una issue nuova, come prima.`,
+      );
+      continue;
+    }
+    if (!dedupKey) return candidate;
+    eligible.push(candidate);
+  }
+  // A stable family key can span several generations whose close dates do not
+  // reflect creation order. Prefer the highest issue number, matching the OPEN
+  // election, so a recently-closed old tracker cannot displace its successor.
+  eligible.sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
+  return eligible[0] || null;
+}
+
+// `gh api` resolves the literal placeholders `{owner}/{repo}` from the cwd's
+// git remote; GH_REPO (when set) must win over that auto-detection, same as
+// repoFlag() does for `gh issue`/`gh pr`.
+function apiRepoPath(suffix) {
+  const repo = process.env.GH_REPO;
+  return repo ? `repos/${repo}${suffix}` : `repos/{owner}/{repo}${suffix}`;
+}
+
+/**
+ * The commit SHA of the event that most recently CLOSED an issue (issue #5539).
+ *
+ * Two sources, tried in order, because the first one is EMPTY for the entire
+ * class of issues this guard exists to protect:
+ *
+ *  1. `/issues/N/events` — a `closed` event carries `commit_id` only when GitHub
+ *     itself retired the issue from a closing keyword. Measured 2026-08-13: on
+ *     #5729, #5786 and #5752 every `closed` event has `commit_id: null`, because
+ *     `frontaliere-automation[bot]` closes them explicitly (`gh issue close`)
+ *     rather than letting the keyword do it. So this rung returns null on 3/3 of
+ *     the observed reopens — the #5539 guard was structurally dead here, not
+ *     merely unlucky, and that is why it never fired.
+ *
+ *  2. `/issues/N/timeline` — the richer endpoint still records the merge commit
+ *     as a `referenced` event. On #5729 that is `eb7eac6a` (the merge commit of
+ *     PR #5778) at 2026-08-13T19:40:34Z, the same second as the `closed` event.
+ *     We accept the LATEST such commit within CLOSING_REFERENCE_WINDOW_MS before
+ *     `closedAt`, which excludes the unrelated `d72549e1` referenced 25 minutes
+ *     earlier by a different PR.
+ *
+ * Returns null on any degradation (manual close with no reference; API error;
+ * malformed JSON) so the caller keeps the fail-safe: no proof of staleness →
+ * reopen. `closedAt` is optional; without it only rung 1 is attempted.
+ */
+function findClosingCommitSha(issueNumber, closedAt = null) {
+  const fromEvents = gh([
+    'api', apiRepoPath(`/issues/${issueNumber}/events`), '--paginate',
+    '--jq', '[.[] | select(.event == "closed" and .commit_id != null) | .commit_id] | last',
+  ], { allowFailure: true });
+  const eventSha = fromEvents?.trim();
+  if (eventSha && eventSha !== 'null') return eventSha;
+
+  const closedMs = closedAt ? Date.parse(closedAt) : NaN;
+  if (!Number.isFinite(closedMs)) return null;
+
+  // `.[]` guards against the endpoint returning an object (error payload)
+  // instead of an array — `--jq` would otherwise abort the whole call.
+  const raw = gh([
+    'api', apiRepoPath(`/issues/${issueNumber}/timeline`), '--paginate',
+    '--jq', '.[] | select(.event == "referenced" and .commit_id != null) '
+      + '| "\\(.created_at)\\t\\(.commit_id)"',
+  ], { allowFailure: true });
+  if (!raw) return null;
+
+  let best = null;
+  for (const line of raw.split('\n')) {
+    const [at, sha] = line.split('\t');
+    const atMs = Date.parse(at || '');
+    if (!sha || !Number.isFinite(atMs)) continue;
+    // At or before the close, and near enough to have caused it.
+    if (atMs > closedMs || closedMs - atMs > CLOSING_REFERENCE_WINDOW_MS) continue;
+    if (!best || atMs >= best.atMs) best = { atMs, sha: sha.trim() };
+  }
+  return best?.sha || null;
+}
+
+/**
+ * True when the commit under validation was authored into the repo STRICTLY
+ * BEFORE the issue was closed — the coarse rung of the staleness ladder, used
+ * only when no closing commit SHA is recoverable at all.
+ *
+ * Less precise than the ancestor check by design: it proves "this code predates
+ * the close", not "this code predates the specific fix". The two coincide
+ * whenever the close is caused by the fix, which is the automated path here —
+ * measured 2s between merge and close on both #5729 (eb7eac6a merged
+ * 19:40:32Z, closed 19:40:34Z) and #5752 (PR #5761 merged 03:52:30Z, closed
+ * 03:52:32Z). They diverge when a HUMAN closes an issue long after the fix
+ * landed: a build committed inside that gap does contain the fix, yet is judged
+ * stale. That over-abstention is bounded — it costs one deploy cycle, because
+ * the next build (committed after the close) is not stale and reopens normally.
+ *
+ * Fails CLOSED on every uncertainty (unknown commit, unparseable date, API
+ * error): no proof of staleness → the caller reopens, as before.
+ */
+function buildPredatesClose(buildSha, closedAt) {
+  const closedMs = closedAt ? Date.parse(closedAt) : NaN;
+  if (!buildSha || !Number.isFinite(closedMs)) return null;
+  const out = gh([
+    'api', apiRepoPath(`/commits/${buildSha}`), '--jq', '.commit.committer.date',
+  ], { allowFailure: true });
+  const date = out?.trim();
+  if (!date || date === 'null') return null;
+  const builtMs = Date.parse(date);
+  if (!Number.isFinite(builtMs) || builtMs >= closedMs) return null;
+  return date;
+}
+
+/**
+ * True when the observed failure STARTED strictly before the issue was closed:
+ * the close already covers it, so it is history, not a recurrence (issue #9761).
+ *
+ * Only callers that re-read PAST failures need it. `scan-unreported-failures`
+ * looks back 24 h on every pass, so a run that failed hours BEFORE the fix
+ * merged is still in its window after the close. Measured on #9654: run
+ * 35995267599 started 2026-09-24T11:49:18Z, the fix (PR #9699) closed the issue
+ * at 17:59:52Z, no run of the workflow followed, and the 20:48Z pass reopened
+ * the issue on that same 11:49 run. A reporter that fires from inside the
+ * failing run has no such window and needs no timestamp.
+ *
+ * `occurredAt` is when the failing run STARTED (`created_at`), not when it
+ * ended: a run that started before the fix merged cannot contain it, however
+ * late it failed. The bound, stated rather than hidden: when a human closes an
+ * issue AFTER a post-fix run already failed, that run predates the close and
+ * is skipped too; the next failing run starts after the close and reopens, so
+ * the cost is at most one cadence of the workflow.
+ *
+ * Fails CLOSED: an absent or unparseable timestamp on either side returns
+ * false, and the caller reopens exactly as before this guard existed.
+ */
+export function occurrencePredatesClose(occurredAt, closedAt) {
+  const occurredMs = Date.parse(String(occurredAt ?? ''));
+  const closedMs = Date.parse(String(closedAt ?? ''));
+  if (!Number.isFinite(occurredMs) || !Number.isFinite(closedMs)) return false;
+  return occurredMs < closedMs;
+}
+
+/**
+ * True when `earlierSha` is an ANCESTOR of `laterSha` — i.e. a build built at
+ * `earlierSha` cannot possibly contain whatever landed at `laterSha`. Used to
+ * tell "the fix predates this failing build" (latency, not a real recurrence)
+ * apart from "this build already has the fix and still failed" (real
+ * recurrence). `gh compare base...head` returns `status: "ahead"` exactly when
+ * base is an ancestor of head (fast-forwardable) — the same check
+ * `gh api .../compare/<buildSha>...<closingSha>` from the issue body.
+ * Fails CLOSED on any error/identical/diverged/unknown commit (never claims
+ * staleness it can't prove), so the caller falls back to reopening as before.
+ */
+function isAncestorCommit(earlierSha, laterSha) {
+  if (!earlierSha || !laterSha || earlierSha === laterSha) return false;
+  const out = gh([
+    'api', apiRepoPath(`/compare/${earlierSha}...${laterSha}`), '--jq', '.status',
+  ], { allowFailure: true });
+  return out?.trim() === 'ahead';
+}
+
+/**
+ * Count failure events recorded on an issue within the rolling window. An
+ * "event" is the issue's own creation plus every `🔁`-marked recurrence comment
+ * we posted. Used by the crawler-failure gate to decide whether THIS failure is
+ * the Nth consecutive one (→ escalate) or still an isolated transient blip
+ * (→ keep low-priority breadcrumb). Returns the count of in-window events
+ * (does NOT include the current run yet). Best-effort: returns 0 on any gh/parse
+ * error so the gate fails OPEN to the low-priority breadcrumb (never louder).
+ */
+function countRecentFailureEvents(issueNumber, windowHours) {
+  const cutoff = Date.now() - windowHours * 3600 * 1000;
+  const out = gh([
+    'issue', 'view', String(issueNumber),
+    '--json', 'createdAt,comments',
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!out) return 0;
+  try {
+    const data = JSON.parse(out);
+    let count = 0;
+    if (data.createdAt && Date.parse(data.createdAt) >= cutoff) count += 1;
+    for (const c of data.comments || []) {
+      const at = c.createdAt && Date.parse(c.createdAt);
+      if (at && at >= cutoff && typeof c.body === 'string' && c.body.includes(RECURRENCE_MARKER)) {
+        count += 1;
+      }
+    }
+    return count;
+  } catch {
+    return 0;
+  }
+}
+
+// The ledger is a SINGLETON, and its lookup is the one place where losing the
+// read-then-create race is not cosmetic: two ledgers split the streak counters
+// between them, so a crawler sitting at 2/3 on one ledger never reaches 3/3 and
+// NEVER escalates — the counter stops counting, silently. That is what happened
+// on the corpus repo (nanakokyobashi-rgb/frontaliere-articles #24 and #25,
+// created 3 seconds apart on 2026-08-07).
+//
+// So this lookup does NOT go through the search index at all. `gh issue list
+// --label crawler-transient --state open` is a plain repository listing:
+// immediately consistent, and narrow enough that the ledger can never be paged
+// out by unrelated backlog. The title-search path is kept only as a secondary
+// probe for a ledger that somehow lost its label.
+const LEDGER_LOOKUP_LIMIT = 200;
+
+/**
+ * The single open ledger issue that absorbs sub-threshold crawler blips.
+ * Looked up by exact title; created on first use. A failed listing returns
+ * `undefined`, which is distinct from a valid empty listing (`[]`) and stops
+ * the caller before it can mint a possible duplicate. A failed create still
+ * returns `null`, so the caller can preserve the previous per-crawler fallback.
+ */
+function findOrCreateTransientLedger() {
+  const exactTitle = (issues) => issues.find((i) => i.title === TRANSIENT_LEDGER_TITLE);
+
+  // Primary: immediately-consistent, label-scoped listing (no search index).
+  const labeledIssues = ghIssueList('open', [
+    '--label', CRAWLER_TRANSIENT_LABEL,
+    '--limit', String(LEDGER_LOOKUP_LIMIT),
+  ]);
+  if (labeledIssues === null) return undefined;
+  const byLabel = exactTitle(labeledIssues);
+  if (byLabel) return byLabel.number;
+
+  // Secondary: title lookup, for a ledger whose label was stripped by hand.
+  const titledIssues = searchIssuesByTitlePrefix(TRANSIENT_LEDGER_TITLE, 'open');
+  if (titledIssues === null) return undefined;
+  const byTitle = exactTitle(titledIssues);
+  if (byTitle) return byTitle.number;
+
+  ensureLabelsExist([CRAWLER_TRANSIENT_LABEL, PRIORITY_LABEL[4], LBL_NO_AGE_OUT]);
+  const body = [
+    'Rolling log of **sub-threshold** crawler failures.',
+    '',
+    `A crawler that fails fewer than ${DEFAULT_CRAWLER_GATE_THRESHOLD} times in a`,
+    `${DEFAULT_CRAWLER_GATE_WINDOW_HOURS}h window is almost always a network blip that`,
+    'self-heals on the next scheduled run. Those land here as a comment instead of',
+    'opening their own issue, so the backlog is not flooded with breadcrumbs that a',
+    'bot opens and closes hours later.',
+    '',
+    `On the ${DEFAULT_CRAWLER_GATE_THRESHOLD}rd consecutive failure the crawler gets a real,`,
+    'routable issue at full priority — that is the signal worth acting on.',
+    '',
+    '**Leave this issue open.** It is the counter; closing it resets every streak.',
+    `The \`${LBL_NO_AGE_OUT}\` label keeps followup-drainer's age-out close from`,
+    'doing that automatically during a healthy stretch.',
+  ].join('\n');
+  const url = gh([
+    'issue', 'create',
+    '--title', TRANSIENT_LEDGER_TITLE,
+    '--body', body,
+    '--label', CRAWLER_TRANSIENT_LABEL,
+    '--label', PRIORITY_LABEL[4],
+    '--label', LBL_NO_AGE_OUT,
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!url) return null;
+  const m = url.split('\n').pop().trim().match(/\/issues\/(\d+)/);
+  return m ? Number(m[1]) : null;
+}
+
+/**
+ * Count in-window ledger entries for one crawler key. Mirrors
+ * countRecentFailureEvents but reads the shared ledger instead of a
+ * dedicated issue. Fails OPEN (0) so the gate can never escalate on a
+ * counting error.
+ */
+function countLedgerEvents(ledgerNumber, key, windowHours) {
+  if (!ledgerNumber) return 0;
+  const cutoff = Date.now() - windowHours * 3600 * 1000;
+  const out = gh([
+    'issue', 'view', String(ledgerNumber),
+    '--json', 'comments',
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!out) return 0;
+  try {
+    const marker = `${LEDGER_KEY_PREFIX} ${key}`;
+    let count = 0;
+    for (const c of JSON.parse(out).comments || []) {
+      const at = c.createdAt && Date.parse(c.createdAt);
+      if (at && at >= cutoff && typeof c.body === 'string' && c.body.includes(marker)) count += 1;
+    }
+    return count;
+  } catch {
+    return 0;
+  }
+}
+
+/** Append one sub-threshold failure to the ledger. Returns true when recorded. */
+function recordLedgerEvent(ledgerNumber, key, ordinal, threshold, body) {
+  if (!ledgerNumber) return false;
+  const comment = [
+    `${RECURRENCE_MARKER} **${key}** — transient failure ${ordinal}/${threshold} in the rolling window.`,
+    '',
+    `\`${LEDGER_KEY_PREFIX} ${key}\``,
+    '',
+    body,
+  ].join('\n');
+  const res = gh([
+    'issue', 'comment', String(ledgerNumber),
+    '--body', comment.slice(0, MAX_BODY_LEN),
+    ...repoFlag(),
+  ], { allowFailure: true });
+  return res !== null;
+}
+
+/** Replace an issue's priority label (remove all priority:* labels, add the target). */
+function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) {
+  const removable = Object.values(PRIORITY_LABEL).filter((l) => l !== targetPriorityLabel);
+  ensureLabelsExist([targetPriorityLabel, ...extraAdd]);
+  gh([
+    'issue', 'edit', String(issueNumber),
+    ...['--add-label', targetPriorityLabel],
+    ...extraAdd.flatMap((l) => ['--add-label', l]),
+    ...removable.flatMap((l) => ['--remove-label', l]),
+    ...repoFlag(),
+  ], { allowFailure: true });
+}
+
+/**
+ * True only when `gh issue view` proves the issue is CLOSED. Unreadable
+ * output is not a close: a refused or silent failure must stay visible.
+ */
+function issueViewState(number, { retryTransient = false } = {}) {
+  const read = () => ghMutation(
+    ['issue', 'view', String(number), '--json', 'state', ...repoFlag()],
+  );
+  let out;
+  try {
+    out = retryTransient
+      ? withTransientGithubMutationRetry(read, {
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue state read transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      }).value
+      : read();
+  } catch {
+    return null;
+  }
+  if (typeof out !== 'string' || !out) return null;
+  try {
+    return String(JSON.parse(out)?.state || '').toUpperCase();
+  } catch {
+    return String(out).toUpperCase();
+  }
+}
+
+function issueViewIsClosed(number, options = {}) {
+  return issueViewState(number, options) === 'CLOSED';
+}
+
+/** Close reasons `resolveGithubIssue` and `resolveGithubIssueByNumber` accept (`--reason` on the CLI). */
+export const RESOLVE_REASONS = Object.freeze(['completed', 'not_planned']);
+
+// Checked before any gh call: an unknown reason is a caller bug, and closing
+// with a reason nobody chose would be worse than not closing.
+function assertResolveReason(reason) {
+  if (!RESOLVE_REASONS.includes(reason)) {
+    throw new Error(`[github-issue-creator] resolve: unknown --reason ${JSON.stringify(reason)} (allowed: ${RESOLVE_REASONS.join(', ')})`);
+  }
+}
+
+/** Comment posted before a resolve-close, and the `gh issue close --reason` value. */
+function resolveCloseText(reason, { workflow, runUrl } = {}) {
+  if (reason === 'not_planned') {
+    return {
+      ghReason: 'not planned',
+      note: [
+        '🗄️ Chiusa perché il soggetto è stato ritirato, non perché il controllo sia tornato verde'
+          + (workflow ? ` (${workflow})` : '') + '.',
+        runUrl ? `\nRun: ${runUrl}` : '',
+        '\nChiusa come «not planned»: non viene riaperta da sola; se il soggetto viene riattivato e fallisce di nuovo si apre una issue nuova.',
+      ].join(''),
+    };
+  }
+  return {
+    ghReason: 'completed',
+    note: [
+      '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
+      runUrl ? `\nGreen run: ${runUrl}` : '',
+      '\nClosed automatically; it will reopen if the same failure recurs.',
+    ].join(''),
+  };
+}
+
+/**
+ * Close a specific issue number after a caller has already evaluated it.
+ * Title lookup is intentionally bypassed: a concurrent same-title issue must
+ * not redirect the close to a different issue.
+ */
+function closeGithubIssueByNumber(number, { title, url, workflow, runUrl, reason = 'completed' }) {
+  const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
+  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  let closed = null;
+  try {
+    closed = withTransientGithubMutationRetry(
+      () => ghMutation(['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()]),
+      {
+        findExisting: () => issueViewIsClosed(number),
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue close transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      },
+    ).value;
+  } catch {
+    // Preserve the existing fail-closed contract below: a non-transient
+    // rejection (or an exhausted transient budget) is not a successful close.
+  }
+  if (issueViewIsClosed(number, { retryTransient: true })) {
+    console.log(`[github-issue-creator] resolve: closed #${number} — ${title}`);
+    return {
+      number,
+      title,
+      url,
+      persisted: true,
+    };
+  }
+  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
+  const message = `[github-issue-creator] resolve: could not close #${number} (${detail})`;
+  console.error(message);
+  const err = new Error(message);
+  err.persisted = false;
+  err.number = number;
+  throw err;
+}
+
+/**
+ * Resolve (close) the canonical OPEN issue with the given stable title prefix.
+ *
+ * The mirror of the `reopenWithinHours` flap-collapse logic: failure reporters
+ * REOPEN the canonical issue on red, so a green run must CLOSE it again —
+ * otherwise the issue stays open while the state is already OK (stale-issue
+ * churn). Idempotent: a no-op when no matching OPEN issue exists, so it's safe
+ * to run on every green pass. A verified close returns the issue ref with
+ * `persisted: true`. A refused or unverified close throws (the error carries
+ * `persisted: false`) so callers cannot treat it as a successful no-op.
+ *
+ * `reason` (default `completed`, the green-run case) also accepts
+ * `not_planned`: the subject of the issue was RETIRED, not repaired — a
+ * retired crawler is not "green again", and a `NOT_PLANNED` close is never
+ * resurrected by the reopen path (see findRecentlyClosedIssueByTitlePrefix).
+ *
+ * @param {string} titlePrefix  Stable full title; by default its safe prefix
+ *                              derived from DEDUP_TITLE_PREFIX_LEN is matched.
+ * @param {{ workflow?: string, runUrl?: string, exactTitle?: boolean,
+ *           issueNumber?: number|string, reason?: 'completed'|'not_planned' }} [ctx]
+ *                              exactTitle opts into complete-title matching;
+ *                              issueNumber bypasses title lookup and targets
+ *                              that already-evaluated issue directly.
+ */
+export function resolveGithubIssue(
+  titlePrefix,
+  { workflow, runUrl, exactTitle = false, issueNumber, reason = 'completed' } = {},
+) {
+  assertResolveReason(reason);
+  if (isFailureReportingDisabled()) {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
+    return null;
+  }
+  if (!titlePrefix) {
+    console.error('[github-issue-creator] resolve: title is required');
+    return null;
+  }
+  if (issueNumber !== undefined && issueNumber !== null) {
+    const targetNumber = Number(issueNumber);
+    if (!Number.isSafeInteger(targetNumber) || targetNumber <= 0) {
+      throw new Error(`[github-issue-creator] resolve: invalid issue number ${issueNumber}`);
+    }
+    return closeGithubIssueByNumber(targetNumber, {
+      title: titlePrefix,
+      workflow,
+      runUrl,
+      reason,
+    });
+  }
+  // Pass the FULL title — searchSafePrefix slices + sanitizes internally and
+  // needs the un-sliced title to detect a mid-word cut.
+  const existing = findOpenIssueByTitlePrefix(titlePrefix, false, { exactTitle });
+  if (existing === undefined) {
+    console.error('[github-issue-creator] resolve: open-issue lookup was unreliable — leaving the issue state unchanged');
+    return null;
+  }
+  if (!existing) {
+    const prefix = titlePrefix.slice(0, DEDUP_TITLE_PREFIX_LEN);
+    console.log(`[github-issue-creator] resolve: no open issue matching "${prefix}" — nothing to close`);
+    return null;
+  }
+  return closeGithubIssueByNumber(existing.number, {
+    title: existing.title,
+    url: existing.url,
+    workflow,
+    runUrl,
+    reason,
+  });
+}
+
+/**
+ * Resolve (close) the issue whose NUMBER the caller has already decided on.
+ *
+ * `resolveGithubIssue` looks the issue up again by title and closes the
+ * NEWEST open match: by default on the 60-char safe prefix, so
+ * `Workflow Failure: Deploy` also matches `Workflow Failure: Deploy Preview`.
+ * A caller that judged one specific issue (its runs, its comments, its labels)
+ * and then closes by title can therefore close a DIFFERENT issue — one whose
+ * check may still be red. Same defect fixed in monitor-issue-reconcile.mjs
+ * (`io.close(freshNumber)`).
+ *
+ * Here the target is the number itself, re-read immediately before any write.
+ * If the issue is no longer OPEN, or its title is no longer `expectedTitle`
+ * (the title the decision was made on), nothing is written and the outcome is
+ * returned as `{ persisted: false, skipped }`. Same contract as
+ * `resolveGithubIssue` otherwise: `null` when reporting is disabled or the
+ * input is unusable, a verified close returns `persisted: true`, a refused or
+ * unverified close throws with `persisted: false`.
+ *
+ * `reason` has the same meaning and default as in `resolveGithubIssue`
+ * (`completed`; `not_planned` for a RETIRED subject).
+ *
+ * @param {number|string} issueNumber
+ * @param {{ expectedTitle: string, workflow?: string, runUrl?: string, preface?: string, reason?: 'completed'|'not_planned' }} ctx
+ *   `preface` is an extra comment posted only once the re-read has confirmed
+ *   the issue is still the one decided on (e.g. why a hold was released).
+ */
+export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflow, runUrl, preface, reason = 'completed' } = {}) {
+  assertResolveReason(reason);
+  if (isFailureReportingDisabled()) {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
+    return null;
+  }
+  const number = Number(issueNumber);
+  if (!Number.isInteger(number) || number <= 0 || typeof expectedTitle !== 'string' || !expectedTitle) {
+    console.error('[github-issue-creator] resolve by number: a positive issue number and the expected title are required');
+    return null;
+  }
+  const out = gh(
+    ['issue', 'view', String(number), '--json', 'number,state,title,url', ...repoFlag()],
+    { allowFailure: true },
+  );
+  let fresh = null;
+  try {
+    fresh = typeof out === 'string' && out ? JSON.parse(out) : null;
+  } catch {
+    fresh = null;
+  }
+  if (!fresh || typeof fresh.state !== 'string' || typeof fresh.title !== 'string') {
+    console.error(`[github-issue-creator] resolve: #${number} could not be re-read — leaving it unchanged`);
+    return { number, persisted: false, skipped: 'unreadable' };
+  }
+  if (fresh.state.toUpperCase() !== 'OPEN') {
+    console.log(`[github-issue-creator] resolve: #${number} is ${fresh.state} since the decision — nothing to close`);
+    return { number, persisted: false, skipped: 'not-open' };
+  }
+  if (fresh.title !== expectedTitle) {
+    console.log(`[github-issue-creator] resolve: #${number} was retitled since the decision ("${expectedTitle}" → "${fresh.title}") — leaving it open`);
+    return { number, persisted: false, skipped: 'title-changed' };
+  }
+  if (preface) {
+    gh(['issue', 'comment', String(number), '--body', preface, ...repoFlag()], { allowFailure: true });
+  }
+  const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
+  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  const closed = gh(
+    ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (issueViewIsClosed(number)) {
+    console.log(`[github-issue-creator] resolve: closed #${number} — ${fresh.title}`);
+    return { number, title: fresh.title, url: fresh.url, persisted: true };
+  }
+  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
+  const message = `[github-issue-creator] resolve: could not close #${number} (${detail})`;
+  console.error(message);
+  const err = new Error(message);
+  err.persisted = false;
+  err.number = number;
+  throw err;
+}
+
+/**
+ * Post a comment on an issue whose number the caller ALREADY knows.
+ *
+ * For a reporter that has just created (or matched) the canonical issue inside
+ * the same process, going back through `createGithubIssue` would mean another
+ * title search — and the search index may not have caught up yet, which is the
+ * very race that mints duplicates. Commenting by number skips the lookup
+ * entirely, so a second occurrence in the same pass is *structurally* unable to
+ * open a second issue while still preserving its context.
+ *
+ * Best-effort, never throws. Returns true when the comment landed.
+ *
+ * @param {number|string} issueNumber
+ * @param {string} body
+ */
+export function commentOnGithubIssue(issueNumber, body) {
+  if (isFailureReportingDisabled()) {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping comment');
+    return false;
+  }
+  if (!issueNumber || !body) return false;
+  const out = gh(
+    ['issue', 'comment', String(issueNumber), '--body', body, ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (out === null) {
+    console.error(`[github-issue-creator] Failed to comment on #${issueNumber} (best-effort)`);
+    return false;
+  }
+  console.log(`[github-issue-creator] Commented on #${issueNumber}`);
+  return true;
+}
+
+/**
+ * Formats the `signals` option (see `createGithubIssue`) into a `## Segnali`
+ * block — the zero-Claude equivalent of issue-decompose's `## Scheda` (see
+ * ISSUES.md → "Contratto minimo per issue auto-generate"). NOT a diagnosis:
+ * these reporters are deterministic monitors with no root-cause judgment,
+ * this is only the facts they already have in hand — the fixer would
+ * otherwise spend a turn re-discovering exactly this (what failed, how to
+ * reproduce it, where the evidence is) before it can start on the real fix.
+ * Every field optional; an empty/absent `signals` renders nothing.
+ *
+ * @typedef {{
+ *   cosa?: string|null,
+ *   metrica?: {
+ *     osservato?: string|number|null,
+ *     atteso?: string|number|null,
+ *   }|null,
+ *   comando?: string|null,
+ *   evidenza?: Array<string|null|undefined>|null,
+ * }} GithubIssueSignals
+ *
+ * @param {GithubIssueSignals|null|undefined} signals
+ */
+export function formatSignalsBlock(signals) {
+  if (!signals || typeof signals !== 'object') return '';
+  const lines = [];
+  if (signals.cosa) lines.push(`- Cosa: ${signals.cosa}`);
+  if (signals.metrica && (signals.metrica.osservato !== undefined || signals.metrica.atteso !== undefined)) {
+    const { osservato = '?', atteso = '?' } = signals.metrica;
+    lines.push(`- Metrica: osservato=${osservato} atteso=${atteso}`);
+  }
+  if (signals.comando) lines.push(`- Comando di riproduzione: \`${signals.comando}\``);
+  const evidenza = Array.isArray(signals.evidenza) ? signals.evidenza.filter(Boolean) : [];
+  if (evidenza.length > 0) lines.push(`- Evidenza: ${evidenza.join(' · ')}`);
+  if (lines.length === 0) return '';
+  return ['## Segnali (raccolti automaticamente)', ...lines].join('\n');
+}
+
+/**
+ * Create a GitHub issue, or comment on an existing open duplicate.
+ * Successful write paths return `persisted: true`; a known comment failure on
+ * an existing/reopened issue returns `persisted: false`. Callers that cannot
+ * tolerate best-effort loss can therefore fail their own workflow and retry.
+ * An occurrence older than the close of its twin (`occurredAt`) returns the
+ * closed issue with `predatesClose: true` and `persisted: true`: no write was
+ * needed, and a caller must not count it as a delivered report.
+ *
+ * @param {{
+ *   title?: string,
+ *   description?: string,
+ *   priority?: number,
+ *   labels?: string[],
+ *   workflow?: string,
+ *   project?: string|null,
+ *   dedupKey?: string|null,
+ *   reopenWithinHours?: number|null,
+ *   buildSha?: string|null,
+ *   occurredAt?: string|null,
+ *   consecutiveGate?: number,
+ *   gateWindowHours?: number,
+ *   signals?: GithubIssueSignals|null,
+ * }} [options]
+ */
+export async function createGithubIssue({
+  title,
+  description = '',
+  priority = 3,
+  labels = [],
+  workflow,
+  // Optional stable family key used for de-duplication when old issue titles
+  // embedded a changing measurement. The key MUST prefix both the canonical
+  // title and every legacy title it is meant to absorb. Once a legacy OPEN
+  // issue is found, its title is migrated in place before the recurrence is
+  // commented, preserving the issue number and history.
+  dedupKey = null,
+  // Opt-in for stable titles whose semantic bucket appears after the normal
+  // 60-character dedup prefix. The search still narrows candidates by prefix,
+  // then requires the complete (200-character-capped) title to match.
+  exactTitle = false,
+  // Hours: a closed issue naming the SAME condition, closed no longer ago than
+  // this, is REOPENED + commented instead of opening a fresh duplicate.
+  //
+  // DEFAULT-ON since 2026-08-14. Omitting it (or passing null/undefined) means
+  // DEFAULT_REOPEN_WITHIN_HOURS — see that constant for the 8-issue measurement
+  // that motivated the flip. Opting OUT is now the explicit act: pass 0 (CLI:
+  // --no-reopen) to get the always-a-new-issue behaviour, which is right only
+  // for a reporter whose every occurrence is a genuinely distinct incident
+  // deserving its own thread.
+  reopenWithinHours = null,
+  // Commit the CURRENT run actually validated (e.g. `deploy_ref` for a
+  // post-deploy validation triggered by workflow_run, NOT `github.sha`).
+  // Optional — only reporters that can tell "build commit" apart from "the run
+  // that observed it" have one to give. When present, the reopen path below
+  // uses it to distinguish "the same broken build observed twice" (a real
+  // recurrence) from "a stale build validated again inside the deploy-latency
+  // window, before a build containing the fix could run" (issue #5539: NOT a
+  // recurrence — the reopener was reporting deploy latency as regression).
+  buildSha = null,
+  // ISO timestamp at which the observed failure STARTED (a run's `created_at`).
+  // Optional — only callers that re-read PAST failures (scanners with a
+  // lookback window) have a reason to pass it. When it predates the close of
+  // the recently-closed twin, the reopen path returns `predatesClose: true`
+  // without reopening or commenting (issue #9761, see occurrencePredatesClose).
+  // Absent or unparseable → the unconditional reopen, as before.
+  occurredAt = null,
+  // Consecutive-failure gate. When > 0, the first (threshold-1) failures within
+  // the rolling window land as a low-priority `crawler-transient` breadcrumb
+  // instead of the caller's priority; only the Nth failure escalates. Auto-set
+  // to DEFAULT_CRAWLER_GATE_THRESHOLD for stable `Crawler Failure:` titles so
+  // a single transient blip never opens a priority:high issue. 0 = disabled.
+  // CLI: --consecutive-gate N --gate-window-hours H.
+  consecutiveGate = 0,
+  gateWindowHours = DEFAULT_CRAWLER_GATE_WINDOW_HOURS,
+  // Optional structured facts — see `formatSignalsBlock` above. Opt-in: omit
+  // for the unchanged free-form `description` behaviour every existing caller
+  // already has.
+  signals = null,
+  // `project` accepted for backward compatibility but not used (GH issues
+  // don't have a free-form project field; the workflow name is preserved
+  // in the body for grouping instead).
+} = {}) {
+  if (isFailureReportingDisabled()) {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping');
+    return null;
+  }
+  if (!title) {
+    console.error('[github-issue-creator] --title is required');
+    return null;
+  }
+
+  const normalizedDedupKey = dedupKey == null ? null : String(dedupKey).trim();
+  const matchExactTitle = exactTitle === true;
+  if (
+    normalizedDedupKey
+    && (normalizedDedupKey.length < 8 || !String(title).startsWith(normalizedDedupKey))
+  ) {
+    throw new Error('[github-issue-creator] dedupKey must be an 8+ character prefix of title');
+  }
+
+  // Pass the FULL title to dedup — searchSafePrefix slices/sanitizes internally
+  // and needs the un-sliced title to detect a real mid-word cut. `titlePrefix`
+  // stays for logging/gate messages only.
+  const titlePrefix = title.slice(0, DEDUP_TITLE_PREFIX_LEN);
+  const dedupTitle = normalizedDedupKey || title;
+
+  // null/undefined → the default window; an explicit number (0 included) wins.
+  // Written as a null-check and NOT as `reopenWithinHours || DEFAULT`, because
+  // `|| DEFAULT` would swallow the explicit 0 that is the documented opt-out.
+  const reopenWindowHours = reopenWithinHours == null
+    ? DEFAULT_REOPEN_WITHIN_HOURS
+    : Number(reopenWithinHours);
+
+  const openCandidates = findOpenIssueCandidatesByTitlePrefix(
+    matchExactTitle ? title : dedupTitle,
+    Boolean(normalizedDedupKey),
+    { exactTitle: matchExactTitle, dedupKey: normalizedDedupKey },
+  );
+  if (openCandidates === undefined) return lookupFailedResult(title, 'open-issue');
+  const newestOpen = openCandidates[0] || null;
+  // With a family key, OPEN and eligible CLOSED issues are generations of the
+  // same tracker. Elect across BOTH states before acting: otherwise an old OPEN
+  // legacy (#6657/#6658) steals a recurrence from its newer closed successor
+  // (#6759/#6760), losing the canonical history. Issue number is the immutable
+  // creation order; `closedAt` is not (an older tracker may be closed later).
+  let newestClosed = null;
+  if (normalizedDedupKey && Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
+    newestClosed = findRecentlyClosedIssueByTitlePrefix(
+      title, reopenWindowHours, normalizedDedupKey, occurredAt, { exactTitle: matchExactTitle },
+    );
+    if (newestClosed === undefined) return lookupFailedResult(title, 'closed-issue');
+  }
+  const preferredRecentlyClosed = newestClosed
+    && (!newestOpen || Number(newestClosed.number || 0) > Number(newestOpen.number || 0))
+    ? newestClosed
+    : null;
+  let existing = preferredRecentlyClosed ? null : newestOpen;
+  existing = migrateLegacyIssueTitle(existing, title, normalizedDedupKey);
+
+  // Auto-enable the consecutive-failure gate for the stable crawler-failure
+  // reporter title, unless a caller explicitly opted out (consecutiveGate < 0).
+  const gateThreshold =
+    consecutiveGate > 0
+      ? consecutiveGate
+      : (consecutiveGate === 0 && title.startsWith(CRAWLER_FAILURE_TITLE_PREFIX)
+          ? DEFAULT_CRAWLER_GATE_THRESHOLD
+          : 0);
+
+  // Decide the EFFECTIVE priority for this failure. With the gate active, count
+  // how many failures the canonical issue already recorded in the window; this
+  // run is event #(priorEvents + 1). Below threshold → low-priority breadcrumb
+  // (`crawler-transient`, non-routable); at/above → caller's priority. Gate
+  // fails OPEN (low) on any gh error, never louder.
+  let effectivePriority = priority;
+  let gatedBelowThreshold = false;
+  if (gateThreshold > 0) {
+    // Where the streak is counted depends on whether this crawler already has a
+    // real issue. Once escalated, the issue itself is the counter; before that,
+    // the shared ledger is — so a blip never needs an issue of its own.
+    const ledgerNumber = existing ? null : findOrCreateTransientLedger();
+    if (!existing && ledgerNumber === undefined) return lookupFailedResult(title, 'transient-ledger');
+    const priorEvents = existing
+      ? countRecentFailureEvents(existing.number, gateWindowHours)
+      : countLedgerEvents(ledgerNumber, titlePrefix, gateWindowHours);
+    const thisEventOrdinal = priorEvents + 1;
+
+    if (thisEventOrdinal < gateThreshold) {
+      effectivePriority = 4; // priority:low breadcrumb
+      gatedBelowThreshold = true;
+      console.log(
+        `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `
+        + `"${titlePrefix}" within ${gateWindowHours}h → low-priority breadcrumb (no escalation).`,
+      );
+
+      // No issue for this crawler yet → record in the ledger and stop. This is
+      // the line that keeps a lone network blip out of the backlog entirely;
+      // the old behaviour opened a `crawler-transient` issue here (#5139/#5137).
+      // If the ledger is unavailable we deliberately fall through to the legacy
+      // per-crawler issue rather than dropping the signal.
+      if (!existing && ledgerNumber) {
+        const recorded = recordLedgerEvent(
+          ledgerNumber, titlePrefix, thisEventOrdinal, gateThreshold,
+          [workflow ? `**Workflow:** ${workflow}` : '', description || '_no details provided_']
+            .filter(Boolean).join('\n\n'),
+        );
+        if (recorded) {
+          console.log(
+            `[github-issue-creator] Recorded transient failure in ledger #${ledgerNumber} `
+            + `— no per-crawler issue opened (${thisEventOrdinal}/${gateThreshold}).`,
+          );
+          return {
+            number: ledgerNumber,
+            title: TRANSIENT_LEDGER_TITLE,
+            url: null,
+            ledger: true,
+            persisted: true,
+            state: 'OPEN',
+          };
+        }
+        console.error('[github-issue-creator] Ledger write failed; falling back to per-crawler issue.');
+      }
+    } else {
+      console.log(
+        `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `
+        + `"${titlePrefix}" → escalating to priority ${priority}.`,
+      );
+    }
+  }
+
+  // Build label set: priority label + caller-supplied labels. While gated below
+  // threshold, attach `crawler-transient` so triage/fixer skip the breadcrumb.
+  const priorityLabel = PRIORITY_LABEL[Number(effectivePriority)] || PRIORITY_LABEL[3];
+  const labelSet = Array.from(
+    new Set([
+      priorityLabel,
+      ...(gatedBelowThreshold ? [CRAWLER_TRANSIENT_LABEL] : []),
+      ...labels,
+    ].filter(Boolean)),
+  );
+
+  // Body: workflow name + Segnali (if supplied) + description, truncated to
+  // GH limit. Segnali comes BEFORE the free-form description so the fixer
+  // reads the structured facts first — same ordering issue-decompose uses
+  // for `## Scheda` on its sub-issues.
+  const bodyLines = [];
+  if (workflow) bodyLines.push(`**Workflow:** ${workflow}`);
+  const signalsBlock = formatSignalsBlock(signals);
+  if (signalsBlock) bodyLines.push(signalsBlock);
+  if (bodyLines.length > 0) bodyLines.push('');
+  bodyLines.push(description || '_no details provided_');
+  let body = bodyLines.join('\n');
+  if (body.length > MAX_BODY_LEN) body = body.slice(0, MAX_BODY_LEN - 30) + '\n\n...(truncated)';
+
+  if (existing) {
+    // Post a comment instead of opening a duplicate.
+    try {
+      const twinNote = formatOpenTwinNote(existing, openCandidates);
+      gh([
+        'issue', 'comment', String(existing.number),
+        '--body', [
+          `${RECURRENCE_MARKER} Recurrence on workflow run.`,
+          body,
+          twinNote,
+        ].filter(Boolean).join('\n\n'),
+        ...repoFlag(),
+      ]);
+      // Gate escalation: this failure reached/passed the threshold → promote the
+      // canonical breadcrumb from priority:low/crawler-transient to the caller's
+      // priority so the fixer pipeline picks it up. Idempotent if already there.
+      if (gateThreshold > 0 && !gatedBelowThreshold) {
+        const targetLabel = PRIORITY_LABEL[Number(priority)] || PRIORITY_LABEL[3];
+        setIssuePriorityLabel(existing.number, targetLabel, labels);
+        gh([
+          'issue', 'edit', String(existing.number),
+          '--remove-label', CRAWLER_TRANSIENT_LABEL,
+          ...repoFlag(),
+        ], { allowFailure: true });
+        console.log(`[github-issue-creator] Escalated #${existing.number} → ${targetLabel}`);
+      }
+      console.log(`[github-issue-creator] Commented on existing #${existing.number} — ${existing.title}`);
+      return {
+        number: existing.number,
+        title: existing.title,
+        url: existing.url,
+        state: existing.state || 'OPEN',
+        persisted: true,
+      };
+    } catch (err) {
+      console.error(`[github-issue-creator] Failed to comment on #${existing.number}: ${err.message}`);
+      return { ...existing, persisted: false };
+    }
+  }
+
+  // No OPEN duplicate. For transient reporters, check whether the SAME canonical
+  // issue was recently closed (e.g. auto-closed on a green deploy) and is now
+  // flapping red again. Reopen + comment instead of minting a new issue — this
+  // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
+  if (Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
+    // With a family key the joint OPEN/CLOSED election above has already run
+    // the full CLOSED search+listing lookup, including the valid "not found"
+    // result. Reuse it explicitly: `preferredRecentlyClosed || finder()` would
+    // repeat both GitHub calls on every cold start where newestClosed is null.
+    let recentlyClosed = newestClosed;
+    if (!normalizedDedupKey) {
+      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(
+        title,
+        reopenWindowHours,
+        null,
+        occurredAt,
+        { exactTitle: matchExactTitle },
+      );
+      if (recentlyClosed === undefined) return lookupFailedResult(title, 'closed-issue');
+    }
+    if (recentlyClosed) {
+      // Historical-occurrence guard (#9761), checked FIRST: a failure that
+      // started before this issue was closed is what the close already covered,
+      // so it neither reopens nor comments. No comment on purpose, unlike the
+      // stale-build abstention below: a scanner re-reads the same run on every
+      // pass of its lookback window (hourly × 24 h for scan-unreported-failures),
+      // and one comment per pass on a closed issue is the noise the dedup exists
+      // to prevent. The trace stays in the log and in the job summary. The
+      // finder hands over the newest close of the condition even when it is
+      // NOT_PLANNED or a tracker, so this also stops the fresh-issue fallback.
+      if (occurrencePredatesClose(occurredAt, recentlyClosed.closedAt)) {
+        const closedAs = recentlyClosed.stateReason ? ` come ${recentlyClosed.stateReason}` : '';
+        appendStepSummary(
+          `⏮️ **Riapertura saltata** — il guasto osservato è iniziato il ${occurredAt}, prima `
+          + `della chiusura di #${recentlyClosed.number}${closedAs} (${recentlyClosed.closedAt}): è `
+          + 'storia già coperta dalla chiusura, non una ricorrenza. Nessuna issue nuova.',
+        );
+        console.log(
+          `[github-issue-creator] Occurrence ${occurredAt} predates the close of `
+          + `#${recentlyClosed.number} (${recentlyClosed.closedAt}) — not reopening, not commenting, `
+          + 'not creating.',
+        );
+        return {
+          number: recentlyClosed.number,
+          title: recentlyClosed.title,
+          url: recentlyClosed.url,
+          state: recentlyClosed.state || 'CLOSED',
+          predatesClose: true,
+          // Nothing had to be written: the closed issue is the durable record
+          // of this occurrence. `false` would make callers that retry on an
+          // unpersisted write (scan-job-timeouts throws) fail on a correct skip.
+          persisted: true,
+        };
+      }
+      // Deploy-latency guard (#5539): a build started BEFORE the fix that closed
+      // this issue merged cannot possibly contain it — a validation failing on
+      // that stale build is the same pre-fix breakage observed again, not a
+      // recurrence. Only checked when the caller can supply buildSha; degrades
+      // to the pre-#5539 unconditional reopen on any lookup failure.
+      //
+      // TWO rungs, strongest first. #5539 shipped only the first, and the first
+      // needs a closing commit SHA that this repo's automation does not leave
+      // behind (see findClosingCommitSha): measured 2026-08-13, all three
+      // reopens of the day — #5729, #5786, #5752 — got null from it and were
+      // reopened unconditionally on builds that predated their own fix by 3, 3
+      // and 26 minutes. The ladder is what makes the guard reachable; either
+      // rung firing means the same thing (this build cannot contain the fix)
+      // and both abstain LOUDLY, never in silence.
+      if (buildSha) {
+        const closingSha = findClosingCommitSha(recentlyClosed.number, recentlyClosed.closedAt);
+        let staleReason = null;
+        if (closingSha) {
+          // Rung 1 — graph proof. A closing SHA we could not prove stale is NOT
+          // downgraded to the timestamp rung: the strong answer was available
+          // and it said "this build already has the fix", which is a real
+          // recurrence. Falling through would let the coarse rung overturn it.
+          if (isAncestorCommit(buildSha, closingSha)) {
+            staleReason = `precede la fix (commit \`${closingSha}\`) che ha chiuso questa issue`;
+          }
+        } else {
+          // Rung 2 — timestamp proof, only when no closing SHA exists at all.
+          const builtAt = buildPredatesClose(buildSha, recentlyClosed.closedAt);
+          if (builtAt) {
+            staleReason = `è stata committata (\`${builtAt}\`) prima che questa issue venisse chiusa (\`${recentlyClosed.closedAt}\`); il commit di chiusura non è ricavabile, quindi il confronto è sui timestamp`;
+          }
+        }
+        if (staleReason) {
+          const note = `⏳ Build \`${buildSha}\` ${staleReason} — è latenza del deploy dentro la finestra post-merge, non una ricorrenza. Riapertura saltata; in attesa di una build che contenga la fix.`;
+          const staleCommented = gh([
+            'issue', 'comment', String(recentlyClosed.number),
+            '--body', [note, body, formatOpenTwinNote(recentlyClosed, openCandidates)]
+              .filter(Boolean).join('\n\n'),
+            ...repoFlag(),
+          ], { allowFailure: true });
+          appendStepSummary(`⏳ **Riapertura saltata** — la run su \`${buildSha}\` non contiene la fix che ha chiuso #${recentlyClosed.number}. ${staleReason}.`);
+          console.log(`[github-issue-creator] Stale build ${buildSha} predates the close of #${recentlyClosed.number} — not reopening (deploy latency).`);
+          return {
+            number: recentlyClosed.number,
+            title: recentlyClosed.title,
+            url: recentlyClosed.url,
+            state: recentlyClosed.state || 'CLOSED',
+            staleBuild: true,
+            persisted: staleCommented !== null,
+          };
+        }
+      }
+      const reopened = gh(
+        ['issue', 'reopen', String(recentlyClosed.number), ...repoFlag()],
+        { allowFailure: true },
+      );
+      if (reopened !== null) {
+        // The recurrence comment carries the DATE and the CURRENT measurement
+        // (`body` is the caller's freshly-collected description). Without both,
+        // a reopened issue reads as if nothing had changed since it was closed
+        // and the reader cannot tell the new observation from the old one. The
+        // 🔁 marker is load-bearing: countRecentFailureEvents counts comments
+        // carrying it to drive the consecutive-failure gate.
+        const now = new Date().toISOString();
+        const header = [
+          `${RECURRENCE_MARKER} **Reopened** — ricorrenza il ${now}: la stessa`,
+          `condizione si è ripresentata entro ${reopenWindowHours}h dalla chiusura`,
+          recentlyClosed.closedAt ? `(chiusa il ${recentlyClosed.closedAt})` : '',
+          '— riaperta invece di aprire una issue nuova, così la storia della',
+          'condizione resta in un solo thread.',
+        ].filter(Boolean).join(' ');
+        const recurrenceComment = gh([
+          'issue', 'comment', String(recentlyClosed.number),
+          '--body', [
+            header,
+            `**Misura corrente:**\n\n${body}`,
+            formatOpenTwinNote(recentlyClosed, openCandidates),
+          ].filter(Boolean).join('\n\n'),
+          ...repoFlag(),
+        ], { allowFailure: true });
+        if (recurrenceComment === null) {
+          console.error(
+            `[github-issue-creator] Reopened #${recentlyClosed.number}, but failed to persist recurrence context.`,
+          );
+          return {
+            number: recentlyClosed.number,
+            title: recentlyClosed.title,
+            url: recentlyClosed.url,
+            state: 'OPEN',
+            reopened: true,
+            persisted: false,
+          };
+        }
+        appendStepSummary(
+          `${RECURRENCE_MARKER} **Riaperta #${recentlyClosed.number}** — ricorrenza della stessa `
+          + 'condizione, nessuna issue nuova aperta.',
+        );
+        const canonical = migrateLegacyIssueTitle(recentlyClosed, title, normalizedDedupKey);
+        console.log(`[github-issue-creator] Reopened #${canonical.number} — ${canonical.title}`);
+        return {
+          number: canonical.number,
+          title: canonical.title,
+          url: canonical.url,
+          state: 'OPEN',
+          reopened: true,
+          persisted: true,
+        };
+      }
+      // Reopen failed (e.g. closed-as-duplicate locked) → fall through to create.
+      console.error(`[github-issue-creator] Could not reopen #${recentlyClosed.number}; creating fresh issue.`);
+    }
+  }
+
+  // Create labels if missing, then open the issue.
+  ensureLabelsExist(labelSet);
+  const args = [
+    'issue', 'create',
+    '--title', title.slice(0, 200),
+    '--body', body,
+    ...labelSet.flatMap((l) => ['--label', l]),
+    ...repoFlag(),
+  ];
+  try {
+    const url = gh(args).split('\n').pop().trim();
+    console.log(`[github-issue-creator] Created: ${url}`);
+    // Parse issue number from URL for return value
+    const m = url.match(/\/issues\/(\d+)/);
+    return { number: m ? Number(m[1]) : null, title, url, state: 'OPEN', persisted: true };
+  } catch (err) {
+    // Why: this helper runs in `if: failure()` reporter steps. If posting to
+    // GH fails (missing GH_TOKEN, API outage, perms), we must NOT lose the
+    // diagnostics — dump them so the workflow log preserves the upstream
+    // error context. Callers should still treat this as best-effort (CLI
+    // mode exits 0 below).
+    console.error(`[github-issue-creator] Failed to create issue: ${err.message}`);
+    console.error('[github-issue-creator] --- begin issue body fallback ---');
+    console.error(`Title: ${title}`);
+    if (workflow) console.error(`Workflow: ${workflow}`);
+    console.error(body);
+    console.error('[github-issue-creator] --- end issue body fallback ---');
+    return null;
+  }
+}
+
+// CLI mode — mirrors github-issue-creator.mjs flag set so workflow scripts
+// only need to swap the .mjs filename in the path.
+// Entrypoint canonico, non suffisso del path (#7292): `endsWith` diceva true
+// per QUALUNQUE entrypoint il cui `argv[1]` finisse con questo nome di file;
+// `realpathSync` copre l'invocazione via symlink, dove `argv[1]` e' il link.
+// ── Log excerpt of the failed step (`--log-excerpt-file`) ──────────────────
+//
+// A `Crawler Failure: Run <slug>` issue used to carry only the run URL, the
+// branch and the trigger. The cause lives in the log of ONE member of a
+// 25-30-crawler group job, and the fixer that triages the issue cannot read
+// that run: issue 11553 (csvp-poschiavo) was closed by the automatic cycle as
+// `no-root-cause` while the log said exactly why the crawl failed. The
+// generated group workflows pass the member's own log file (the detached
+// worker's stdout) so the body names the error without the external run.
+const LOG_EXCERPT_READ_BYTES = 256 * 1024;
+const LOG_EXCERPT_TAIL_LINES = 30;
+const LOG_EXCERPT_ERROR_LINES = 5;
+const LOG_EXCERPT_MAX_CHARS = 6000;
+// eslint-disable-next-line no-control-regex
+const ANSI_ESCAPE_RE = /\u001b\[[0-9;?]*[ -/]*[@-~]/g;
+const LOG_ERROR_LINE_RE = /❌|::error::|\berror\b|\bfailed\b|\bfatal\b|abortKind|earlyExit|exited with status|Traceback|Unhandled/i;
+
+/**
+ * Build the markdown section that quotes the end of a failed step's log and
+ * the last lines that name an error. Returns '' when the log has no text.
+ */
+export function buildLogExcerptSection(logText = '') {
+  const lines = String(logText || '')
+    .replace(ANSI_ESCAPE_RE, '')
+    .split(/\r?\n/)
+    .map((line) => line.replace(/\r/g, '').trimEnd());
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+  if (!lines.some((line) => line.trim())) return '';
+
+  const errorLines = [...new Set(lines.filter((line) => LOG_ERROR_LINE_RE.test(line)).map((line) => line.trim()))]
+    .slice(-LOG_EXCERPT_ERROR_LINES);
+  let tail = lines.slice(-LOG_EXCERPT_TAIL_LINES).join('\n');
+  if (tail.length > LOG_EXCERPT_MAX_CHARS) tail = `…${tail.slice(-LOG_EXCERPT_MAX_CHARS)}`;
+  // A fence the log itself cannot close.
+  const fence = /`{3,}/.test(tail) || errorLines.some((line) => /`{3,}/.test(line)) ? '~~~~' : '```';
+
+  const out = ['### Errore del passo (estratto del log del membro)', ''];
+  if (errorLines.length) {
+    out.push('**Righe di errore:**', fence + 'text', ...errorLines, fence, '');
+  }
+  out.push(`**Ultime righe del log** (max ${LOG_EXCERPT_TAIL_LINES}):`, fence + 'text', tail, fence);
+  return out.join('\n');
+}
+
+/**
+ * Append the excerpt of `logPath` to `description`. An unreadable or empty
+ * log is stated in the body instead of failing the report: the issue must be
+ * filed either way, and the triage must know the excerpt is missing.
+ */
+export function appendLogExcerpt(description = '', logPath = '') {
+  const target = String(logPath || '').trim();
+  let section = '';
+  if (!target) {
+    section = '_Estratto del log non disponibile: nessun file di log indicato._';
+  } else {
+    try {
+      const fd = fs.openSync(target, 'r');
+      try {
+        const { size } = fs.fstatSync(fd);
+        const length = Math.min(size, LOG_EXCERPT_READ_BYTES);
+        const buffer = Buffer.alloc(length);
+        fs.readSync(fd, buffer, 0, length, size - length);
+        section = buildLogExcerptSection(buffer.toString('utf8'))
+          || `_Estratto del log non disponibile: ${target} è vuoto._`;
+      } finally {
+        fs.closeSync(fd);
+      }
+    } catch (err) {
+      section = `_Estratto del log non disponibile: ${err?.code || err?.message || err}._`;
+    }
+  }
+  return [String(description || '').trimEnd(), section].filter(Boolean).join('\n\n');
+}
+
+const isDirectRun = (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})();
+if (isDirectRun) {
+  const args = process.argv.slice(2);
+  const get = (flag) => {
+    const idx = args.indexOf(flag);
+    return idx >= 0 && idx + 1 < args.length ? args[idx + 1] : undefined;
+  };
+  const collect = (flag) => {
+    const values = [];
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] === flag && i + 1 < args.length) values.push(args[i + 1]);
+    }
+    return values;
+  };
+
+  const title = get('--title');
+  if (!title) {
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..." | --description-file path] [--log-excerpt-file path] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
+    process.exit(1);
+  }
+
+  // --signal-*: opt-in structured facts, see `formatSignalsBlock`. Absent →
+  // `signals` stays null → unchanged free-form `--description` behaviour.
+  const signals = (() => {
+    const cosa = get('--signal-cosa');
+    const osservato = get('--signal-osservato');
+    const atteso = get('--signal-atteso');
+    const comando = get('--signal-comando');
+    const evidenza = collect('--signal-evidenza');
+    const hasAny = cosa || osservato !== undefined || atteso !== undefined || comando || evidenza.length > 0;
+    if (!hasAny) return null;
+    return {
+      cosa,
+      metrica: (osservato !== undefined || atteso !== undefined) ? { osservato, atteso } : undefined,
+      comando,
+      evidenza,
+    };
+  })();
+
+  // --resolve: close the OPEN canonical issue with this stable title (green run).
+  // Mirror of the failure reporter; runs from `if: success()` steps so a recovered
+  // gate doesn't leave a stale open issue. A refused close must not exit 0.
+  // `--reason not_planned` closes a RETIRED subject (default `completed`); an
+  // unknown value throws inside resolveGithubIssue and exits 1.
+  if (args.includes('--resolve')) {
+    try {
+      resolveGithubIssue(title, {
+        workflow: get('--workflow'),
+        runUrl: get('--run-url'),
+        // `?? ''`: a bare `--reason` must fail, not fall back to the default.
+        ...(args.includes('--reason') ? { reason: get('--reason') ?? '' } : {}),
+      });
+      process.exit(0);
+    } catch (err) {
+      console.error(`[github-issue-creator] ${err.message}`);
+      process.exit(1);
+    }
+  }
+
+  // --consecutive-gate: N>0 forces the gate (escalate on the Nth failure);
+  // N<0 opts a `Crawler Failure:` title OUT of the auto-gate; omitted = auto.
+  const rawGate = get('--consecutive-gate');
+  const consecutiveGate = rawGate === undefined ? 0 : Number(rawGate);
+  const requirePersisted = args.includes('--require-persisted');
+
+  let description = get('--description') || '';
+  const descriptionFile = get('--description-file');
+  if (descriptionFile) {
+    try {
+      // Keep large report bodies out of execve's argv/environment limit. The
+      // creator applies the GitHub body cap after loading the file, preserving
+      // the same truncation semantics as the inline flag.
+      description = fs.readFileSync(descriptionFile, 'utf8');
+    } catch (err) {
+      console.error(`[github-issue-creator] Cannot read --description-file: ${err.message}`);
+      process.exit(1);
+    }
+  }
+
+  // `--log-excerpt-file <path>`: quote the failed step's own log (see
+  // buildLogExcerptSection). Present with an empty value → the body says so.
+  if (args.includes('--log-excerpt-file')) {
+    description = appendLogExcerpt(description, get('--log-excerpt-file'));
+  }
+
+  createGithubIssue({
+    title,
+    description,
+    priority: Number(get('--priority') || 3),
+    labels: (() => {
+      const single = get('--label');
+      const many = collect('--label');
+      return many.length > 0 ? many : (single ? [single] : ['bug']);
+    })(),
+    workflow: get('--workflow'),
+    // Absent flag → null → DEFAULT_REOPEN_WITHIN_HOURS. It must NOT collapse to
+    // 0 here: `Number(undefined || 0)` was the line that kept every workflow
+    // reporter on the always-a-new-issue path unless it spelled the flag out,
+    // which is exactly the opt-in this change removes. `--no-reopen` is the
+    // explicit way back.
+    reopenWithinHours: (() => {
+      if (args.includes('--no-reopen')) return 0;
+      const raw = get('--reopen-within-hours');
+      return raw === undefined ? null : Number(raw);
+    })(),
+    // Same semantics as the `buildSha` option: the commit the BUILD was made
+    // from (`workflow_run.head_sha` / `deploy_ref`), NEVER the head_sha of the
+    // run that observed the failure — for a workflow_run-triggered validation
+    // those differ, and only the build one proves staleness. Measured on the
+    // 2nd reopen of #5729: validation head_sha ae8b2d9a compares "behind" the
+    // fix (→ would have reopened, wrongly), while build 8085cd36 compares
+    // "ahead" of it, i.e. built 37 min BEFORE the fix landed.
+    // Empty string → null → unconditional reopen, the fail-safe default: a
+    // caller that has no build SHA must not get an abstention built on a value
+    // it never supplied.
+    buildSha: get('--build-sha') || null,
+    consecutiveGate: Number.isFinite(consecutiveGate) ? consecutiveGate : 0,
+    gateWindowHours: Number(get('--gate-window-hours') || DEFAULT_CRAWLER_GATE_WINDOW_HOURS),
+    signals,
+  }).then((result) => {
+    if (requirePersisted && result?.persisted !== true) {
+      console.error('[github-issue-creator] Required persisted issue write was not confirmed.');
+      process.exit(1);
+    }
+    // Why: this CLI is a best-effort reporter invoked from `if: failure()`
+    // steps after the real failure has already been recorded. Exiting non-zero
+    // here remains opt-in: ordinary reporters keep their best-effort contract,
+    // while owner steps can fail closed when the issue is their only durable
+    // record of the verdict.
+    process.exit(0);
+  }).catch((err) => {
+    console.error(`[github-issue-creator] Error: ${err.message}`);
+    process.exit(requirePersisted ? 1 : 0);
+  });
+}

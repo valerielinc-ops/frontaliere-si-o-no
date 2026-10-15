@@ -1,0 +1,21 @@
+{
+  "companyKey": "mcm-group",
+  "companyName": "Medizinisches Center Bonaduz",
+  "companyHost": "mcm-group.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://mcm-group.ch/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Hausärztin / Hausarzt (50-100%), Männedorf",
+    "Med. Praxisassistent/in (MPA) 100%, Allg. Medizin, Malans GR"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:51:51.683Z"
+}

@@ -1,0 +1,24 @@
+{
+  "companyKey": "opus-personal-ch",
+  "companyName": "Opus Personal AG, Zweigniederlassung Bern",
+  "companyHost": "opus-personal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://opus-personal.ch/aktuelle-jobs"
+  ],
+  "detailTemplate": "/aktuelle-jobs/job.aspx/*/f-op/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 364,
+  "sampleTitles": [
+    "Schweisser MAG (m/w)",
+    "Gerüstbauer/in",
+    "Montage-Elektriker/in EFZ",
+    "Montage-Elektriker/in EFZ",
+    "Montage-Elektriker/in EFZ"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-11T11:50:35.360Z"
+}

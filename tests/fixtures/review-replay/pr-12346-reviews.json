@@ -1,0 +1,37 @@
+[
+  [
+    {
+      "id": 5451868696,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "submitted_at": "2026-10-08T05:22:02Z",
+      "commit_id": "5c5738e355fc7947bb3d90f92f63e0b4431a8753",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:8b9caad945c3015a62539fd3d30cff75f6578232b32deecb639652358156cd4b -->\n<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope\nReview of the three changed CI/freshness modules and their direct selection and inventory interactions (tier: high).\n\n## Findings (Important: 1, Nit: 0)\nscripts/ci/live-data-test-guard.mjs:L571: 🔴 Important: [correctness] Moving the article freshness entry from the full live-data inventory to `LIVE_DATA_PARTIAL_TESTS` drops the previously declared `public/news-ticker-live.json` root, so the guard no longer carries that live input into the mixed-file classification. Restore `public/news-ticker-live.json` in this entry’s `roots`. Accettazione: `node --input-type=module -e \"import { LIVE_DATA_PARTIAL_TESTS } from './scripts/ci/live-data-test-guard.mjs'; const e = LIVE_DATA_PARTIAL_TESTS.find((x) => x.file === 'tests/scripts/article-chunk-publish-freshness.test.ts'); if (!e || !e.roots.includes('public/news-ticker-live.json')) process.exit(1)\"` → exit 0.\n\n## Adversarial check\n- ❓ q: Are `changed-paths.txt` inputs guaranteed to be normalized repo-relative paths before the new exact-path predicate runs, since the matcher does not normalize a leading `./` or alternate separators? — deferred, non funnel-critical.\n- ❓ q: After entries move between `KNOWN_LIVE_DATA_TESTS`, `LIVE_DATA_PARTIAL_TESTS`, and `LIVE_DATA_SCAN_EXEMPTIONS`, does the guard’s merged inventory remain keyed by file and idempotent rather than double-counting ownership? — deferred, non funnel-critical.\n- ❓ q: When the new source-tree predicate is evaluated during selection, does an incomplete or malformed changed-path input still fail closed with the runner’s existing non-zero exit behavior instead of silently selecting nothing? — deferred, non funnel-critical.\n"
+    },
+    {
+      "id": 5451951140,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "submitted_at": "2026-10-08T05:31:07Z",
+      "commit_id": "910a7061c00d3bf9132963ad42e56cbb3283650a",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:4aa614827b1e6a0c33002745283e5f12c8459e023cfd7549cef067546db1a7f8 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n## Scope\nRe-review del delta incrementale sulla classificazione dei test con dati vivi e della correzione del finding storico (tier: incremental).\n\n## Findings (Important: 0, Nit: 0)\nFix di `b6b17efbacbb`: ok.\nFix di `scripts/ci/live-data-test-guard.mjs:L571`: ok.\n\n## LGTM\n"
+    },
+    {
+      "id": 5452082749,
+      "user": {
+        "login": "frontaliere-automation[bot]",
+        "type": "Bot"
+      },
+      "state": "COMMENTED",
+      "submitted_at": "2026-10-08T05:45:58Z",
+      "commit_id": "8eee64dfda36ca20588f852e7f2ba823da84ae0b",
+      "body": "<!-- REVIEW_INPUT_REVISION: body:4aa614827b1e6a0c33002745283e5f12c8459e023cfd7549cef067546db1a7f8 -->\n<!-- CODEX_FALLBACK_REVIEW -->\n\n## Scope\nReview of the publisher freshness classification, live-data partition, and related-test selector changes (tier: high)\n\nFix di `b6b17efbacbb`: ok.\nFix di `scripts/ci/live-data-test-guard.mjs:L571`: ok.\n\n## Findings (Important: 0, Nit: 0)\nNessun finding.\n\n## Adversarial check\n- ❓ q: Does the exact publisher-path matcher receive only Git-normalized slash paths from every changed-path producer? — deferred, non funnel-critical.\n- ❓ q: Does the source-tree selector preserve its intended exit code when a future predicate or changed-path entry is malformed? — deferred, non funnel-critical.\n- ❓ q: Does the mixed live-data partition keep file roots and directory roots disambiguated if another entry overlaps this test? — deferred, non funnel-critical.\n\n## LGTM\n"
+    }
+  ]
+]

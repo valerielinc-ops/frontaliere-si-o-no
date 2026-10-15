@@ -1,0 +1,19 @@
+{
+  "id": "rientro-svizzera-senza-lavoro",
+  "slug": "rientro-svizzera-senza-lavoro",
+  "publishedAt": "2026-06-04T02:38:37.390Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 96.23427814000001,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_note": "Static snapshot read by /embed/salary-badge.html. Regenerated at every build by build-plugins/salaryBadgeEmbedPlugin.ts from data/profession-salary-medians.json (produced by scripts/generate-profession-salary-medians.mjs); this checked-in copy is only the pre-first-deploy fallback.",
+  "updatedAt": "2026-07-16",
+  "canonicalUrl": "https://frontaliereticino.ch/stipendi-ticino/",
+  "source": "data/jobs.json via build-plugins/professionJobsAggregate.ts#aggregateProfessionJobs (TI-scoped)",
+  "professions": [
+    { "id": "ingegnere", "label": "Ingegnere", "medianChf": 73000, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-ingegnere/" },
+    { "id": "infermiere", "label": "Infermiere", "medianChf": 75250, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-infermiere/" },
+    { "id": "farmacista", "label": "Farmacista", "medianChf": 84500, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-farmacista/" },
+    { "id": "ostetrica", "label": "Ostetrica", "medianChf": 84500, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-ostetrica/" },
+    { "id": "educatore", "label": "Educatore", "medianChf": 84500, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-educatore/" },
+    { "id": "cuoco", "label": "Cuoco", "medianChf": 69000, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-cuoco/" },
+    { "id": "psicologo", "label": "Psicologo", "medianChf": 75250, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-psicologo/" },
+    { "id": "assistente-sociale", "label": "Assistente sociale", "medianChf": 84500, "landingUrl": "https://frontaliereticino.ch/lavoro-ticino-assistente-sociale/" }
+  ]
+}

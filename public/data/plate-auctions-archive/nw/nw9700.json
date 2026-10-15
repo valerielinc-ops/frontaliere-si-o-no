@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "nw-1508",
+      "sourceKey": "NW",
+      "sourceRecordId": "1508",
+      "canton": "Nidvaldo",
+      "platePrefix": "NW",
+      "plateNumber": "9700",
+      "normalizedPlate": "NW9700",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1900,
+      "startingPriceChf": 300,
+      "bidCount": 14,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-09-21T19:00:00.000Z",
+      "closedAt": "2026-09-21T19:00:00.000Z",
+      "officialAuctionUrl": "https://ecarinwprod.ilz.info/ecari-auction/",
+      "officialDetailUrl": "https://ecarinwprod.ilz.info/ecari-auction/ui/app/details/app?id=1508",
+      "sourceFetchedAt": "2026-09-21T12:52:56.338Z",
+      "lastVerifiedAt": "2026-09-21T12:52:56.338Z",
+      "firstSeenAt": "2026-09-15T04:53:49.770Z",
+      "lastSeenAt": "2026-09-21T12:52:56.338Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1be2d17624d6"
+    }
+  ]
+}

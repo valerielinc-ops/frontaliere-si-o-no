@@ -1,0 +1,347 @@
+{
+  "generatedAt": "2026-07-16T20:17:49.023Z",
+  "windowDays": 90,
+  "posthogEnabled": true,
+  "onsiteEventsTotal": 33675,
+  "uniqueOnsiteTerms": 2000,
+  "inventoryFloor": 3,
+  "professionCityGaps": [
+    {
+      "rank": 1,
+      "professionId": "ingegnere",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 79,
+      "exampleQueries": [
+        "development ingegnere centiel lugano",
+        "devops ingegnere lugano",
+        "engineer lugano"
+      ],
+      "liveJobCount": 18,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 2,
+      "professionId": "autista",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 69,
+      "exampleQueries": [
+        "autista lugano",
+        "autista addetto alla distribuzione lugano"
+      ],
+      "liveJobCount": 2,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 3,
+      "professionId": "autista",
+      "city": "bellinzona",
+      "cityDisplay": "Bellinzona",
+      "searchCount": 43,
+      "exampleQueries": [
+        "autista c bellinzona",
+        "autista bellinzona",
+        "driver bellinzona"
+      ],
+      "liveJobCount": 1,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 4,
+      "professionId": "ostetrica",
+      "city": "locarno",
+      "cityDisplay": "Locarno",
+      "searchCount": 31,
+      "exampleQueries": [
+        "levatrice ostetrica locarno"
+      ],
+      "liveJobCount": 1,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 5,
+      "professionId": "infermiere",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 29,
+      "exampleQueries": [
+        "infermiere lugano",
+        "infermiere a specializzato a lugano"
+      ],
+      "liveJobCount": 7,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 6,
+      "professionId": "impiegato",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 22,
+      "exampleQueries": [
+        "impiegata o amministrativa o 80 lugano"
+      ],
+      "liveJobCount": 5,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 7,
+      "professionId": "infermiere",
+      "city": "bellinzona",
+      "cityDisplay": "Bellinzona",
+      "searchCount": 19,
+      "exampleQueries": [
+        "infermiere bellinzona"
+      ],
+      "liveJobCount": 5,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 8,
+      "professionId": "contabile",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 17,
+      "exampleQueries": [
+        "contabile lugano",
+        "financial accountant specialist lugano"
+      ],
+      "liveJobCount": 1,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 9,
+      "professionId": "psicologo",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 15,
+      "exampleQueries": [
+        "psicologo a specialista in neuropsicologia fsp lugano"
+      ],
+      "liveJobCount": 0,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 10,
+      "professionId": "educatore",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 15,
+      "exampleQueries": [
+        "concorso generale 2026 educatori lugano",
+        "educatori lugano"
+      ],
+      "liveJobCount": 3,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 11,
+      "professionId": "psicologo",
+      "city": "bellinzona",
+      "cityDisplay": "Bellinzona",
+      "searchCount": 11,
+      "exampleQueries": [
+        "psicoterapeuta in formazione 40 o 60 bellinzona"
+      ],
+      "liveJobCount": 2,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 12,
+      "professionId": "oss",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 11,
+      "exampleQueries": [
+        "medecin assistant en soins intensifs sottoceneri lugano"
+      ],
+      "liveJobCount": 0,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 13,
+      "professionId": "infermiere",
+      "city": "locarno",
+      "cityDisplay": "Locarno",
+      "searchCount": 9,
+      "exampleQueries": [
+        "infermiere locarno"
+      ],
+      "liveJobCount": 4,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 14,
+      "professionId": "farmacista",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 8,
+      "exampleQueries": [
+        "assistente di farmacia afc lugano"
+      ],
+      "liveJobCount": 4,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 15,
+      "professionId": "ingegnere",
+      "city": "mendrisio",
+      "cityDisplay": "Mendrisio",
+      "searchCount": 7,
+      "exampleQueries": [
+        "mendrisio ingegneria"
+      ],
+      "liveJobCount": 6,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 16,
+      "professionId": "tecnico-radiologia",
+      "city": "bellinzona",
+      "cityDisplay": "Bellinzona",
+      "searchCount": 6,
+      "exampleQueries": [
+        "tecnico a di radiologia 100 bellinzona"
+      ],
+      "liveJobCount": 4,
+      "meetsInventoryFloor": true
+    },
+    {
+      "rank": 17,
+      "professionId": "farmacista",
+      "city": "locarno",
+      "cityDisplay": "Locarno",
+      "searchCount": 6,
+      "exampleQueries": [
+        "assistente di farmacia afc locarno"
+      ],
+      "liveJobCount": 1,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 18,
+      "professionId": "farmacista",
+      "city": "mendrisio",
+      "cityDisplay": "Mendrisio",
+      "searchCount": 6,
+      "exampleQueries": [
+        "assistente di farmacia afc mendrisio"
+      ],
+      "liveJobCount": 2,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 19,
+      "professionId": "impiegato",
+      "city": "mendrisio",
+      "cityDisplay": "Mendrisio",
+      "searchCount": 5,
+      "exampleQueries": [
+        "impiegato a amministrativo a 70 mendrisio"
+      ],
+      "liveJobCount": 0,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 20,
+      "professionId": "cuoco",
+      "city": "lugano",
+      "cityDisplay": "Lugano",
+      "searchCount": 5,
+      "exampleQueries": [
+        "cuoco lugano"
+      ],
+      "liveJobCount": 2,
+      "meetsInventoryFloor": false
+    },
+    {
+      "rank": 21,
+      "professionId": "impiegato",
+      "city": "bellinzona",
+      "cityDisplay": "Bellinzona",
+      "searchCount": 5,
+      "exampleQueries": [
+        "impiegato a amministrativo bellinzona"
+      ],
+      "liveJobCount": 4,
+      "meetsInventoryFloor": true
+    }
+  ],
+  "topRawSearchTerms": [
+    {
+      "rank": 1,
+      "term": "lugano",
+      "count": 669
+    },
+    {
+      "rank": 2,
+      "term": "infermiere",
+      "count": 595
+    },
+    {
+      "rank": 3,
+      "term": "ingegnere",
+      "count": 340
+    },
+    {
+      "rank": 4,
+      "term": "mendrisio",
+      "count": 325
+    },
+    {
+      "rank": 5,
+      "term": "autista",
+      "count": 246
+    },
+    {
+      "rank": 6,
+      "term": "educatore",
+      "count": 233
+    },
+    {
+      "rank": 7,
+      "term": "ticino",
+      "count": 228
+    },
+    {
+      "rank": 8,
+      "term": "chiasso",
+      "count": 172
+    },
+    {
+      "rank": 9,
+      "term": "bellinzona",
+      "count": 171
+    },
+    {
+      "rank": 10,
+      "term": "ottico optometrista w m d",
+      "count": 154
+    },
+    {
+      "rank": 11,
+      "term": "inf",
+      "count": 140
+    },
+    {
+      "rank": 12,
+      "term": "contabile ticino",
+      "count": 137
+    },
+    {
+      "rank": 13,
+      "term": "infermier",
+      "count": 136
+    },
+    {
+      "rank": 14,
+      "term": "infer",
+      "count": 124
+    },
+    {
+      "rank": 15,
+      "term": "responsabile del negozio",
+      "count": 122
+    }
+  ]
+}

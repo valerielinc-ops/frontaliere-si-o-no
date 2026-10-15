@@ -1,0 +1,24 @@
+{
+  "companyKey": "azs",
+  "companyName": "Alterszentrum Schwanden",
+  "companyHost": "glsc.ch",
+  "platform": "glsc.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://glsc.ch/jobs"
+  ],
+  "detailTemplate": "/fileadmin/files/Downloads/Stellen/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Berufsbildner/In Pflege (w/m/d) 40% Pensum",
+    "Koch/Köchin EFZ (w/m/d) 100% Pensum",
+    "Mitarbeiter/in Service (w/m/d) im Stundenlohn",
+    "Nachtbereitschaft Pflege (w/m/d) 60 - 100% Pensum, Linthal",
+    "Pflegefachkraft, alle Standorte (w/m/d) 60-100% Pensum"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:19.621Z"
+}

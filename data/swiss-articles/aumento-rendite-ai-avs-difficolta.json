@@ -1,0 +1,40 @@
+{
+  "id": "aumento-rendite-ai-avs-difficolta",
+  "slug": "aumento-rendite-ai-avs-difficolta",
+  "publishedAt": "2026-07-02T10:53:35.497Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.138602166383079,
+    "confidence": 0.8,
+    "finalScore": 4.1108817331064635,
+    "topK": [
+      {
+        "slug": "addio-tutto-compreso-ai-costi",
+        "cosine": 0.8564336943971798
+      },
+      {
+        "slug": "finanza-ticino-si-reinventa-economia-dati",
+        "cosine": 0.8454419237278039
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8410827138647005
+      },
+      {
+        "slug": "potere-dacquisto-ticino-2024",
+        "cosine": 0.8391013682376957
+      },
+      {
+        "slug": "aumento-beneficiari-rendite-avs-ticino",
+        "cosine": 0.8370612935283732
+      }
+    ],
+    "score": 0.5138602166383079,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

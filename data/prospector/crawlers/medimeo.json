@@ -1,0 +1,24 @@
+{
+  "companyKey": "medimeo",
+  "companyName": "Medimeo AG",
+  "companyHost": "medimeo.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://medimeo.ch/offene-jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Oberarzt / Oberärztin Psychiatrie",
+    "Praxispartnerin / Praxispartner – flexible Beteiligungsmodelle in moderner Hausarztpraxis",
+    "Oberärztin / Oberarzt Intensivmedizin und Anästhesie 60–100% – beide Fachgebiete verbinden",
+    "Oberärztin / Oberarzt Radiologie 80–100 % – breite Diagnostik ohne Nachtdienste",
+    "Oberärztin / Oberarzt Anästhesie 80–100% – Dienstplanung mit Rücksicht auf Ihre Wünsche"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-20T10:08:34.275Z"
+}

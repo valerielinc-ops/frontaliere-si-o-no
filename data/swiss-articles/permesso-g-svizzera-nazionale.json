@@ -1,0 +1,40 @@
+{
+  "id": "permesso-g-svizzera-nazionale",
+  "slug": "permesso-g-svizzera-nazionale",
+  "publishedAt": "2026-06-30T19:44:55.862Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.5746836715067785,
+    "confidence": 0.8,
+    "finalScore": 2.859746937205423,
+    "topK": [
+      {
+        "slug": "permesso-g-apprendisti-frontali",
+        "cosine": 0.8936709178766946
+      },
+      {
+        "slug": "apprendisti-frontalieri-riforma-permesso-g",
+        "cosine": 0.8894424815512842
+      },
+      {
+        "slug": "richiesta-permesso-g-step-by-step",
+        "cosine": 0.8840082004693007
+      },
+      {
+        "slug": "statuto-svizzera-centrale-permesso-b",
+        "cosine": 0.8820133285982129
+      },
+      {
+        "slug": "apprendisti-frontalieri-permessi-g",
+        "cosine": 0.8811197312846196
+      }
+    ],
+    "score": 2.859746937205423,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

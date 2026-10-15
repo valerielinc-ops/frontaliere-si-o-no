@@ -1,0 +1,82 @@
+name: translation-coverage-monitor
+
+# Allarme sulla quota `complete` di data/translation-stats-history.json
+# (mappa di convergenza delle traduzioni, workspace issue 2). Fra il 24-09 e il
+# 04-10 la quota è scesa dal 91% al 33% e la coorte 24-48 h al 12,6% senza che
+# niente lo segnalasse. Apre una issue a titolo stabile quando la MA3 scende di
+# oltre 10 punti sotto il massimo a 7 giorni o quando la coorte 24-48 h va
+# sotto il 50%, e dice se il calo è «misura» (predicateVersion cambiato) o
+# «dato». Regole e motivazioni in scripts/monitor-translation-coverage.mjs.
+
+on:
+  schedule:
+    - cron: '35 7 * * *' # una volta al giorno: la history cresce di 2-4 righe after al giorno
+  workflow_dispatch:
+
+concurrency:
+  group: translation-coverage-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          # Niente `npm ci`: lo script usa solo la stdlib di Node e moduli locali.
+
+      - name: Valuta la copertura delle traduzioni
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/monitor-translation-coverage.mjs
+
+      - name: Report unexpected scan failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## translation-coverage-monitor crashato
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

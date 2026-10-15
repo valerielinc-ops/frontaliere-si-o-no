@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58754",
+      "sourceKey": "AG",
+      "sourceRecordId": "58754",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "8713",
+      "normalizedPlate": "AG8713",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 4800,
+      "bidCount": 15,
+      "endsAt": "2026-09-30T19:00:00.000Z",
+      "closedAt": "2026-09-30T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58754",
+      "sourceFetchedAt": "2026-09-30T12:38:33.576Z",
+      "lastVerifiedAt": "2026-09-30T12:38:33.576Z",
+      "firstSeenAt": "2026-09-19T11:04:31.342Z",
+      "lastSeenAt": "2026-09-30T12:38:33.576Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "9a5323004711"
+    }
+  ]
+}

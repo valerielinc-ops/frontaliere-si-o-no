@@ -1,0 +1,23 @@
+{
+  "companyKey": "pininfarina",
+  "companyName": "pininfarina",
+  "companyHost": "pininfarina.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://pininfarina.altamiraweb.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Invoicing Specialist Intern",
+    "Responsabile Commerciale Italia",
+    "Interior Architect",
+    "Digital Transformation and A.I Specialist",
+    "Business Application Analyst"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:46.568Z"
+}

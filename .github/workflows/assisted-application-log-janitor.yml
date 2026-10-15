@@ -1,0 +1,36 @@
+name: Assisted application log janitor
+
+# Layer 4 of the personal-data protection of assisted-application-agent.yml
+# (owner decision 2026-09-30): this repository is public, so once a run of the
+# agent completes, its logs are deleted. The agent already masks every
+# personal value and uploads no artifact; this removes whatever a future bug
+# might still print. Evidence lives encrypted in the order's Storage folder.
+on:
+  workflow_run:
+    workflows: ['Assisted application agent']
+    types: [completed]
+
+permissions:
+  actions: write
+
+jobs:
+  delete-logs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete the agent run's logs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          REPO: ${{ github.repository }}
+        run: |
+          # The logs may take a few seconds to become deletable after completion.
+          for attempt in 1 2 3 4 5; do
+            if gh api -X DELETE "repos/$REPO/actions/runs/$RUN_ID/logs" >/dev/null 2>&1; then
+              echo "deleted logs of run $RUN_ID"
+              exit 0
+            fi
+            sleep $((attempt * 10))
+          done
+          echo "::error::could not delete the logs of run $RUN_ID"
+          exit 1

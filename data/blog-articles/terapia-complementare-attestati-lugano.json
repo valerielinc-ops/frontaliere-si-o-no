@@ -1,0 +1,40 @@
+{
+  "id": "terapia-complementare-attestati-lugano",
+  "slug": "terapia-complementare-attestati-lugano",
+  "publishedAt": "2026-05-18T07:27:58.814Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.652834629854044,
+    "confidence": 0.8,
+    "finalScore": 3.7222677038832352,
+    "topK": [
+      {
+        "slug": "cannabis-medica-rimborsi-casse-malati-ticino",
+        "cosine": 0.8440579579256606
+      },
+      {
+        "slug": "denuncia-soccorsi-crans-montana-2026",
+        "cosine": 0.833380932169032
+      },
+      {
+        "slug": "crans-montana-soccorso-denunciato",
+        "cosine": 0.8304422945887275
+      },
+      {
+        "slug": "sanita-integrativa-lombardia-ticino",
+        "cosine": 0.8301523070900918
+      },
+      {
+        "slug": "cure-infermieristiche-190mila-firme-2026",
+        "cosine": 0.8289600576108969
+      }
+    ],
+    "score": 3.7222677038832352,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

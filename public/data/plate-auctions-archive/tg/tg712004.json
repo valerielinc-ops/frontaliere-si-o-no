@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109765",
+      "sourceKey": "TG",
+      "sourceRecordId": "109765",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "712004",
+      "normalizedPlate": "TG712004",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-07T17:00:00.000Z",
+      "closedAt": "2026-10-07T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109765",
+      "sourceFetchedAt": "2026-10-06T18:26:53.867Z",
+      "lastVerifiedAt": "2026-10-06T18:26:53.867Z",
+      "firstSeenAt": "2026-09-29T22:19:51.599Z",
+      "lastSeenAt": "2026-10-06T18:26:53.867Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ab7cf2e020b1"
+    }
+  ]
+}

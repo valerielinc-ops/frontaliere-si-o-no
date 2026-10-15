@@ -1,0 +1,37 @@
+{
+  "_source": "Commenti reali letti il 2026-09-29 con gh pr view <n> --json comments e gh issue view <n> --json number,title,body. Marker e commento del gate parola per parola; dei bucket solo titolo e il blocco item pertinente, parola per parola.",
+  "prs": {
+    "10015": {
+      "comments": [
+        {
+          "createdAt": "2026-09-28T18:23:51Z",
+          "body": "## Post-merge follow-up triage\n\nCreated/updated: 2 item.\n- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-009` (chiavi blog mancanti in `content/blog-body[-ch]/<locale>/<id>.ts`).\n- Site #10171 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-033` (descrizioni job errate nella pipeline `translate-pending-logic.yml`).\n\nDropped: 1 item — `no-acceptance-condition`: la voce sui test bloccati riporta solo evidenza live in aggiornamento e nessuna edit verificabile.\nSkipped: 0 item."
+        }
+      ]
+    },
+    "10050": {
+      "comments": [
+        {
+          "createdAt": "2026-09-28T18:23:54Z",
+          "body": "## Post-merge follow-up triage\n\nCreated/updated: 1 item.\n- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-010` (riallineamento della baseline adattata in `scripts/ci/loop-sync-manifest.json`).\n\nDropped: 3 item — `non-actionable-churn` (reviewer ❓ marcato `deferred, non funnel-critical`)."
+        },
+        {
+          "createdAt": "2026-09-28T18:41:20Z",
+          "body": "<!-- followup-mint-gate -->\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui integralmente**, come i `Live-verification`. Issue #1957 resta aperta con 10 item validi; questi sono stati tolti dal suo corpo e vivono solo qui.\n\n### (senza titolo)\n- State: open\n- Target repository: nanakokyobashi-rgb/frontaliere-articles\n- Target file: `scripts/ci/loop-sync-manifest.json`\n- Sources: PR #10050 / PR body `## Non implementato (ancora)`\n- Stato dichiarato nella PR: `blocked: la baseline adattata del corpus non può essere aggiornata prima del merge del site; prossimo passo: aprire e mergiare la PR del corpus dopo questo merge`\n- Blocked on: merge della PR site e successiva PR del corpus per registrare la nuova baseline.\n- Original text:\n  > blocked: la baseline adattata del corpus non può essere aggiornata prima del merge del site; prossimo passo: aprire e mergiare la PR del corpus dopo questo merge.\n- Funnel area: traffico organico\n- Rationale: Una baseline adattata lasciata stantia mantiene irrisolta la divergenza del generatore e può lasciare il percorso di pubblicazione editoriale senza una verifica affidabile.\n- Acceptance token: `baseline.site`\n- Suggested action: Dopo il merge site, eseguire `scripts/ci/loop-drift-check.mjs --init` nel corpus e aggiornare `baseline.site` insieme a `baseline.corpus` nel manifest, verificando che i due hash registrati convergano."
+        }
+      ]
+    }
+  },
+  "buckets": {
+    "nanakokyobashi-rgb/frontaliere-articles#1957": {
+      "number": 1957,
+      "title": "follow-up(daily:2026-09-28): 10 items — nanakokyobashi-rgb/frontaliere-articles",
+      "body": "### FU-2026-09-28-009 — Chiavi blog mancanti nel corpus locale\n- State: open\n- Target repository: nanakokyobashi-rgb/frontaliere-articles\n- Target file: `content/blog-body[-ch]/<locale>/<id>.ts`\n- Sources: PR #10015 / PR body `## Non implementato (ancora)`\n- Stato dichiarato nella PR: `blocked: il gate live-data continua a rilevare 40 chiavi blog mancanti e 492 descrizioni sotto il locale sbagliato; questi dati richiedono il workflow di traduzione/bonifica del corpus e non sono modificati in questa PR`\n- Blocked on: workflow di traduzione/bonifica del corpus non ancora eseguito dopo il merge.\n- Original text:\n  > La chiusura completa di issue 9453 è `blocked: il gate live-data continua a rilevare 40 chiavi blog mancanti e 492 descrizioni sotto il locale sbagliato; questi dati richiedono il workflow di traduzione/bonifica del corpus e non sono modificati in questa PR`.\n- Funnel area: traffico organico\n- Rationale: Le chiavi mancanti nelle superfici articolo possono lasciare contenuto localizzato incompleto e degradare indicizzabilità e valore SEO delle pagine pubblicate.\n- Acceptance token: `blog.article.`\n- Suggested action: Riparare le chiavi mancanti `blog.article.` nei file `content/blog-body[-ch]/<locale>/<id>.ts` ed eseguire il gate di completezza locale finché il conteggio dichiarato di 40 chiavi passa a 0, senza abbassare la soglia.\n"
+    },
+    "valerielinc-ops/frontaliere-si-o-no#10171": {
+      "number": 10171,
+      "title": "follow-up(daily:2026-09-28): 41 items — valerielinc-ops/frontaliere-si-o-no",
+      "body": "### FU-2026-09-28-033 — Descrizioni job servite sotto il locale errato\n- State: open\n- Target repository: valerielinc-ops/frontaliere-si-o-no\n- Target file: `.github/workflows/translate-pending-logic.yml`\n- Sources: PR #10015 / PR body `## Non implementato (ancora)`\n- Stato dichiarato nella PR: `blocked: il gate live-data continua a rilevare 40 chiavi blog mancanti e 492 descrizioni sotto il locale sbagliato; questi dati richiedono il workflow di traduzione/bonifica del corpus e non sono modificati in questa PR`\n- Blocked on: workflow di traduzione/bonifica del corpus non ancora eseguito dopo il merge.\n- Original text:\n  > La chiusura completa di issue 9453 è `blocked: il gate live-data continua a rilevare 40 chiavi blog mancanti e 492 descrizioni sotto il locale sbagliato; questi dati richiedono il workflow di traduzione/bonifica del corpus e non sono modificati in questa PR`.\n- Funnel area: traffico organico\n- Rationale: Le descrizioni job sotto il locale errato vengono servite nella superficie SEO con testo non coerente con la lingua della pagina e possono ridurre qualità organica e conversione.\n- Acceptance token: `job.needsRetranslation`\n- Suggested action: Far passare ogni offender nel marker `job.needsRetranslation` della pipeline `.github/workflows/translate-pending-logic.yml`, persistere il flag nelle slice e drenare la traduzione finché il conteggio dichiarato di 492 descrizioni sotto il locale errato passa a 0, mantenendo invariate le soglie del gate.\n"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58736",
+      "sourceKey": "AG",
+      "sourceRecordId": "58736",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "8541",
+      "normalizedPlate": "AG8541",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 5400,
+      "bidCount": 12,
+      "endsAt": "2026-09-16T19:00:00.000Z",
+      "closedAt": "2026-09-16T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58736",
+      "sourceFetchedAt": "2026-09-15T06:58:44.714Z",
+      "lastVerifiedAt": "2026-09-15T06:58:44.714Z",
+      "firstSeenAt": "2026-09-15T04:53:44.686Z",
+      "lastSeenAt": "2026-09-15T06:58:44.714Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "e64a3e6c0088"
+    }
+  ]
+}

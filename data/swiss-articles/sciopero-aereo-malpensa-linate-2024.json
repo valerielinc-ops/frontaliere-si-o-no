@@ -1,0 +1,40 @@
+{
+  "id": "sciopero-aereo-malpensa-linate-2024",
+  "slug": "sciopero-aereo-malpensa-linate-2024",
+  "publishedAt": "2026-07-06T01:58:00.186Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.069281948832717,
+    "confidence": 0.8,
+    "finalScore": 6.455425559066175,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8661014538514914
+      },
+      {
+        "slug": "sciopero-easyjet-malpensa-11-maggio-2026",
+        "cosine": 0.8567287741176102
+      },
+      {
+        "slug": "malpensa-carburante-rischio-frontalieri-2026",
+        "cosine": 0.8555470992129719
+      },
+      {
+        "slug": "aeroporti-milano-boom-fatturato-197-milioni",
+        "cosine": 0.8485895303877953
+      },
+      {
+        "slug": "lot-polish-60-anni-malpensa-varsavia",
+        "cosine": 0.8471953351261037
+      }
+    ],
+    "score": 1.6138563897665437,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

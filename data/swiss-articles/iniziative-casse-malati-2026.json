@@ -1,0 +1,40 @@
+{
+  "id": "iniziative-casse-malati-2026",
+  "slug": "iniziative-casse-malati-2026",
+  "publishedAt": "2026-06-02T21:12:34.558Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.380781951177866,
+    "confidence": 0.8,
+    "finalScore": 8.304625560942293,
+    "topK": [
+      {
+        "slug": "iniziative-casse-malati-dado-scissione-dossier",
+        "cosine": 0.9038753475929711
+      },
+      {
+        "slug": "premi-cassa-malati-ticino-2026",
+        "cosine": 0.8936160843604875
+      },
+      {
+        "slug": "iniziative-cassa-malati-costituzionalista-ticino",
+        "cosine": 0.8886821661326022
+      },
+      {
+        "slug": "iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps",
+        "cosine": 0.8857727828342251
+      },
+      {
+        "slug": "iniziative-cassa-malati-piano-lega-ticino",
+        "cosine": 0.8854989731971855
+      }
+    ],
+    "score": 8.304625560942293,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

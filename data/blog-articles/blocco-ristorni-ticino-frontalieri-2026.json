@@ -1,0 +1,40 @@
+{
+  "id": "blocco-ristorni-ticino-frontalieri-2026",
+  "slug": "blocco-ristorni-ticino-frontalieri-2026",
+  "publishedAt": "2026-05-13T02:16:45.714Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.467798452427823,
+    "confidence": 0.8,
+    "finalScore": 4.374238761942259,
+    "topK": [
+      {
+        "slug": "centrodestra-stop-ristorni-2026",
+        "cosine": 0.9112997420713038
+      },
+      {
+        "slug": "ristorni-bloccati-ticino-italia",
+        "cosine": 0.9087440380384634
+      },
+      {
+        "slug": "ristorni-scontro-gobbi-berna",
+        "cosine": 0.9082058992066541
+      },
+      {
+        "slug": "ristorni-frontalieri-scontro-ticino-lombardia",
+        "cosine": 0.9019519514146838
+      },
+      {
+        "slug": "tassa-salute-ticino-riforme-invece-aggravi",
+        "cosine": 0.8985659495926774
+      }
+    ],
+    "score": 2.1871193809711293,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

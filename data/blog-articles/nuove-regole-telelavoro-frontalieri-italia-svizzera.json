@@ -1,0 +1,40 @@
+{
+  "id": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
+  "slug": "nuove-regole-telelavoro-frontalieri-italia-svizzera",
+  "publishedAt": "2026-07-31T08:09:28.399Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.275846655466327,
+    "confidence": 0.8,
+    "finalScore": 3.4206773243730617,
+    "topK": [
+      {
+        "slug": "telelavoro-frontalieri-nuove-regole",
+        "cosine": 0.9155194313179174
+      },
+      {
+        "slug": "telelavoro-frontalieri-italia-svizzera",
+        "cosine": 0.9153968341333523
+      },
+      {
+        "slug": "frontalieri-telelavoro-2026",
+        "cosine": 0.9114598821032636
+      },
+      {
+        "slug": "telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ",
+        "cosine": 0.8997774133501883
+      },
+      {
+        "slug": "cu-telelavoro-regole-frontalieri",
+        "cosine": 0.8927809048190503
+      }
+    ],
+    "score": 3.4206773243730617,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

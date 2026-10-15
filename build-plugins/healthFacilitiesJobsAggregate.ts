@@ -1,0 +1,257 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+/**
+ * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
+ * health-facilities hub (epic #4455 / sub #4457).
+ *
+ * For each committed facility (build-plugins/healthFacilitiesData.ts) it
+ * selects the employer's live jobs from `data/jobs.json` by `companyKey`
+ * (the registry stores the resolved keys, so no re-matching is needed here —
+ * the name/geo matching lives once in the generator) and computes a snapshot:
+ * live job count, healthcare-role mix + median salary (via the SAME
+ * classifier + median helper the generator used), 30-day freshness, top
+ * roles, the complete ranked job inventory (for the static job cards) and a
+ * ItemList projection of the first featured jobs.
+ *
+ * Module-level cache keyed by rootDir — the ~150 MB jobs.json is parsed once
+ * per build (loadJobsJson is itself cached; this caches the per-facility
+ * aggregation on top). Read-only, no side effects.
+ */
+
+import { loadJobsJson } from './shared/loadJobsJson';
+import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
+import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { classifyHealthcareRole, type HealthcareRole } from './healthFacilitiesMatch';
+import { HEALTH_FACILITIES, type HealthFacilityRecord } from './healthFacilitiesData';
+
+const DAY_MS = 86_400_000;
+
+/** Minimal job-record shape we read from jobs.json. */
+interface JobRecord {
+  id?: string;
+  slug?: string;
+  slugByLocale?: Partial<Record<string, string>>;
+  title?: string;
+  titleByLocale?: Partial<Record<string, string>>;
+  descriptionByLocale?: Partial<Record<string, string>>;
+  description?: string;
+  company?: string;
+  companyKey?: string;
+  companyDomain?: string;
+  addressLocality?: string;
+  canton?: string;
+  contract?: string;
+  employmentType?: string;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  salarySource?: string;
+  currency?: string;
+  postingDateSource?: string;
+  datePosted?: string;
+  postedDate?: string;
+  firstSeenAt?: string;
+  crawledAt?: string;
+  validThrough?: string;
+  featured?: boolean;
+  url?: string;
+  streetAddress?: string;
+  postalCode?: string;
+  sector?: string;
+  category?: string;
+}
+
+/** A live facility job projected for a card + the bounded schema projection. */
+export interface FacilityFeaturedJob {
+  readonly id: string;
+  readonly title: string;
+  readonly titleByLocale: Partial<Record<string, string>>;
+  readonly descriptionByLocale: Partial<Record<string, string>>;
+  readonly description: string | null;
+  readonly company: string;
+  readonly companyKey: string | null;
+  readonly companyDomain: string | null;
+  readonly addressLocality: string | null;
+  readonly canton: string | null;
+  readonly streetAddress: string | null;
+  readonly postalCode: string | null;
+  readonly contract: string | null;
+  readonly employmentType: string | null;
+  readonly salaryMin: number | null;
+  readonly salaryMax: number | null;
+  readonly salarySource: string | null;
+  readonly currency: string | null;
+  readonly postingDateSource?: string;
+  readonly postedDate: string | null;
+  readonly datePosted: string | null;
+  readonly validThrough: string | null;
+  readonly crawledAt: string | null;
+  readonly daysAgo: number;
+  readonly slug: string;
+  readonly slugByLocale: Partial<Record<string, string>>;
+  readonly url: string | null;
+  readonly sector: string | null;
+  readonly category: string | null;
+}
+
+export interface FacilitySnapshot {
+  readonly slug: string;
+  readonly liveCount: number;
+  readonly healthcareCount: number;
+  readonly fresh30Count: number;
+  readonly medianSalaryChf: number | null;
+  readonly reportedSalary?: ReportedSalarySummary;
+  readonly roleCounts: Readonly<Record<HealthcareRole, number>>;
+  /** All valid live jobs, ordered with healthcare and featured roles first. */
+  readonly jobs: readonly FacilityFeaturedJob[];
+  /** First six jobs kept for the bounded ItemList JSON-LD projection. */
+  readonly featured: readonly FacilityFeaturedJob[];
+}
+
+let _cache: Map<string, FacilitySnapshot> | null = null;
+let _cacheRootDir: string | null = null;
+
+function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
+  if (!job.id || !job.title || !job.slug) return null;
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
+  const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
+  return {
+    id: job.id,
+    title: job.title,
+    titleByLocale: job.titleByLocale ?? {},
+    descriptionByLocale: job.descriptionByLocale ?? {},
+    description: job.description ?? null,
+    company: job.company ?? '',
+    companyKey: job.companyKey ?? null,
+    companyDomain: job.companyDomain ?? null,
+    addressLocality: job.addressLocality ?? null,
+    canton: job.canton ?? null,
+    streetAddress: job.streetAddress ?? null,
+    postalCode: job.postalCode ?? null,
+    contract: job.contract ?? null,
+    employmentType: job.employmentType ?? null,
+    salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
+    salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource ?? null,
+    currency: job.currency ?? null,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
+    postedDate,
+    validThrough: job.validThrough ?? null,
+    crawledAt: job.crawledAt ?? null,
+    daysAgo,
+    slug: job.slug,
+    slugByLocale: job.slugByLocale ?? {},
+    url: job.url ?? null,
+    sector: job.sector ?? null,
+    category: job.category ?? null,
+  };
+}
+
+const EMPTY_ROLE_COUNTS = (): Record<HealthcareRole, number> => ({
+  infermiere: 0,
+  oss: 0,
+  medico: 0,
+  terapista: 0,
+  ostetrica: 0,
+  tecnico: 0,
+  altro: 0,
+});
+
+function buildSnapshot(
+  facility: HealthFacilityRecord,
+  jobsByKey: Map<string, JobRecord[]>,
+  now: number,
+): FacilitySnapshot {
+  const jobs: JobRecord[] = [];
+  for (const key of facility.companyKeys) {
+    const bucket = jobsByKey.get(key);
+    if (bucket) jobs.push(...bucket);
+  }
+
+  const roleCounts = EMPTY_ROLE_COUNTS();
+  const healthcareJobs: JobRecord[] = [];
+  for (const job of jobs) {
+    const role = classifyHealthcareRole(job.title);
+    if (role) {
+      roleCounts[role]++;
+      healthcareJobs.push(job);
+    }
+  }
+
+  const last30 = now - 30 * DAY_MS;
+  let fresh30 = 0;
+  for (const job of jobs) {
+    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    if (ts && ts >= last30 && ts <= now) fresh30++;
+  }
+
+  const median = reportedSalarySummary(healthcareJobs).medianChf;
+
+  // Featured: healthcare roles first, then freshest. Falls back to any job so
+  // an all-admin snapshot still surfaces the employer's live openings.
+  const ranked = [...jobs].sort((a, b) => {
+    const aHealth = classifyHealthcareRole(a.title) ? 1 : 0;
+    const bHealth = classifyHealthcareRole(b.title) ? 1 : 0;
+    if (aHealth !== bHealth) return bHealth - aHealth;
+    const aFeat = a.featured ? 1 : 0;
+    const bFeat = b.featured ? 1 : 0;
+    if (aFeat !== bFeat) return bFeat - aFeat;
+    return firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now))) - firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+  });
+  const allJobs = ranked
+    .map((job) => toFeatured(job, now))
+    .filter((job): job is FacilityFeaturedJob => job !== null);
+  const featured = allJobs.slice(0, 6);
+
+  return {
+    slug: facility.slug,
+    liveCount: jobs.length,
+    healthcareCount: healthcareJobs.length,
+    fresh30Count: fresh30,
+    medianSalaryChf: median,
+    reportedSalary: reportedSalarySummary(healthcareJobs),
+    roleCounts,
+    jobs: allJobs,
+    featured,
+  };
+}
+
+/**
+ * Aggregate live jobs.json into per-facility snapshots, keyed by slug.
+ * Cached per rootDir. Pass `now` to override the clock (tests).
+ */
+export function aggregateHealthFacilityJobs(
+  rootDir: string,
+  now: number = Date.now(),
+): Map<string, FacilitySnapshot> {
+  if (_cache && _cacheRootDir === rootDir) return _cache;
+
+  const allJobs = loadJobsJson<JobRecord>(rootDir);
+  const jobsByKey = new Map<string, JobRecord[]>();
+  for (const job of allJobs) {
+    const key = job.companyKey;
+    if (!key) continue;
+    let bucket = jobsByKey.get(key);
+    if (!bucket) {
+      bucket = [];
+      jobsByKey.set(key, bucket);
+    }
+    bucket.push(job);
+  }
+
+  const out = new Map<string, FacilitySnapshot>();
+  for (const facility of HEALTH_FACILITIES) {
+    out.set(facility.slug, buildSnapshot(facility, jobsByKey, now));
+  }
+
+  _cache = out;
+  _cacheRootDir = rootDir;
+  return out;
+}
+
+/** Test/CI helper — clear the module-level cache. */
+export function _resetHealthFacilityJobsAggregateCache(): void {
+  _cache = null;
+  _cacheRootDir = null;
+}

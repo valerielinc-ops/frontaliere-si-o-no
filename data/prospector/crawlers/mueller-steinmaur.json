@@ -1,0 +1,19 @@
+{
+  "companyKey": "mueller-steinmaur",
+  "companyName": "mueller-steinmaur",
+  "companyHost": "mueller-steinmaur.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/"
+  ],
+  "detailTemplate": "/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Betriebsmechaniker:in / Landmaschinenmechaniker:in (50-100%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:33.784Z"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "luxurylivinggroup",
+  "companyName": "Luxury Living Group",
+  "companyHost": "luxurylivinggroup.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://luxurylivinggroup.altamiraweb.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Back Office Acquisti",
+    "Sales Associate - Ralph Lauren Home",
+    "Luxury Living Group Sales & Design Consultant - Milano Marittima",
+    "Store Manager - Ralph Lauren home",
+    "Sales & Design Consultant - Ralph Lauren Home"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:55.124Z"
+}

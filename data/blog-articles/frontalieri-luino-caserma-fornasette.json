@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-luino-caserma-fornasette",
+  "slug": "frontalieri-luino-caserma-fornasette",
+  "publishedAt": "2026-05-09T21:30:26.547Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.105518750470341,
+    "confidence": 0.8,
+    "finalScore": 4.084415000376273,
+    "topK": [
+      {
+        "slug": "comuni-frontalieri-distanza",
+        "cosine": 0.8509197917450568
+      },
+      {
+        "slug": "confini-comunali-impatto-fiscale",
+        "cosine": 0.8323381467759935
+      },
+      {
+        "slug": "grigioni-stretta-permessi-mafia-roveredo",
+        "cosine": 0.8283515417689461
+      },
+      {
+        "slug": "controlli-cantieri-mendrisiotto",
+        "cosine": 0.8246973600289025
+      },
+      {
+        "slug": "calo-entrate-irregolari-chiasso",
+        "cosine": 0.8244493131999617
+      }
+    ],
+    "score": 1.0211037500940683,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

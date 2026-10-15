@@ -1,0 +1,289 @@
+#!/usr/bin/env node
+/**
+ * Pallas Kliniken AG (SO) — Augenheilkunde & Aesthetics, 17 standorte in CH.
+ *
+ * Public career site:   https://www.pallas-kliniken.ch/karriere/
+ * Flair HR ATS portal:  https://pallasjobs.careers.flair.hr/
+ * Detail page URLs:     /positions/{salesforceId}
+ *
+ * Flair HR is a Next.js + Salesforce-backed careers product. The listing page
+ * is server-rendered and exposes each position as a relative anchor
+ * `/positions/{a3LTG...}`. Each detail page embeds a clean
+ * `<script type="application/ld+json">` JobPosting with `title`, `description`
+ * (HTML-encoded), `datePosted`, `employmentType`, `jobLocation` (full address
+ * + postalCode + addressLocality + streetAddress), and `hiringOrganization`.
+ * No API endpoint is needed; the JSON-LD covers everything.
+ *
+ * Polite delay: 250 ms between detail fetches.
+ */
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
+import { createHash } from 'node:crypto';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  decodeEntities,
+  normalizeSpace,
+  htmlToText,
+  detectHealthcareCategory,
+  detectHealthcareExperienceLevel,
+  detectHealthcareEmploymentType,
+} from './hospital-custom-html-helpers.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+
+export const PALLAS_KLINIKEN_KEY = 'pallas-kliniken';
+export const PALLAS_KLINIKEN_COMPANY_NAME = 'Pallas Kliniken';
+export const PALLAS_KLINIKEN_COMPANY_DOMAIN = 'pallas-kliniken.ch';
+
+const PORTAL_BASE = 'https://pallasjobs.careers.flair.hr';
+const LISTING_URL = `${PORTAL_BASE}/`;
+const DETAIL_DELAY_MS = 250;
+
+// Headquarters fallback when JSON-LD jobLocation is unusable. The group is
+// headquartered in Olten (SO), even though some sites span ZH, BE, AG, etc.
+const HQ = {
+  city: 'Olten',
+  canton: 'SO',
+  postalCode: '4600',
+  streetAddress: 'Louis Giroud-Strasse 20',
+};
+
+// Pallas site names → Swiss canton is inferred via the shared BFS-backed
+// `inferAnyCanton` (all 26 cantons, fuzzy-tolerant) — see `pickCanton` below.
+// A hand-rolled ~30-city dict previously lived here; it silently fell back to
+// HQ.canton (SO) for every Pallas site not in the list (AGENTS.md #6 sibling
+// class shared with hirslanden/ikea/jobsSeoPagesPlugin fixes).
+
+export function isPallasKlinikenJob(job) {
+  const url = String(job?.url || '').toLowerCase();
+  return job?.companyKey === PALLAS_KLINIKEN_KEY
+    || url.includes('pallas-kliniken.ch')
+    || url.includes('pallasjobs.careers.flair.hr');
+}
+
+export function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'pallas-kliniken.ch'
+      || host.endsWith('.pallas-kliniken.ch')
+      || host === 'pallasjobs.careers.flair.hr';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Extract every position of the Flair HR listing page as `/positions/{ID}`.
+ *
+ * The page renders only the first 10 cards as anchors ("10 von 18 Stellen";
+ * pages 2+ are client-side, `?page=2` returns the same HTML), but its Next.js
+ * flight payload carries every position as `{"id":…,"name":…,"language":…}`.
+ * Reading anchors alone dropped 8 of 18 vacancies on 2026-09-29, and which 8
+ * changed with the ordering. Anchors first, in page order, then the positions
+ * only the payload lists; unique IDs.
+ */
+export function parsePallasListing(html) {
+  const out = [];
+  const seen = new Set();
+  const push = (id) => {
+    if (!id || seen.has(id)) return;
+    seen.add(id);
+    out.push({ id, detailUrl: `${PORTAL_BASE}/positions/${id}` });
+  };
+  const rx = /href="\/positions\/([A-Za-z0-9]+)"/g;
+  let m;
+  while ((m = rx.exec(html))) push(m[1]);
+  // The payload is JSON quoted inside a JS string: drop the escaping first.
+  const payload = String(html || '').replace(/\\/g, '');
+  const recordRx = /"id":"([A-Za-z0-9]{15,18})","name":"[^"]*","language":"/g;
+  while ((m = recordRx.exec(payload))) push(m[1]);
+  return out;
+}
+
+/**
+ * Extract the JSON-LD JobPosting block from a Flair HR detail page.
+ * Returns `null` if not present or malformed.
+ */
+export function extractJobPostingLd(html) {
+  if (!html) return null;
+  const scripts = html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
+  for (const m of scripts) {
+    const raw = m[1].trim();
+    try {
+      const data = JSON.parse(raw);
+      if (data && (data['@type'] === 'JobPosting' || data['@type']?.includes?.('JobPosting'))) {
+        return data;
+      }
+    } catch {
+      // Salesforce sometimes wraps HTML in CDATA; ignore parse errors.
+    }
+  }
+  return null;
+}
+
+function htmlDescriptionToText(htmlDescription = '') {
+  // Flair HR HTML-encodes the description into a single JSON string, so we
+  // decode entities first, then strip tags.
+  const decoded = decodeEntities(String(htmlDescription));
+  const text = htmlToText(decoded);
+  return normalizeDescriptionBullets(text
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim());
+}
+
+/**
+ * Headings the position page renders above each JSON-LD section, per language
+ * of the posting (the portal UI shows the German set on German postings).
+ */
+const SECTION_HEADINGS = {
+  de: { responsibilities: 'Verantwortlichkeiten', requirements: 'Anforderungen', benefits: 'Vorteile' },
+  fr: { responsibilities: 'Responsabilités', requirements: 'Exigences', benefits: 'Avantages' },
+  it: { responsibilities: 'Responsabilità', requirements: 'Requisiti', benefits: 'Vantaggi' },
+  en: { responsibilities: 'Responsibilities', requirements: 'Requirements', benefits: 'Benefits' },
+};
+
+/**
+ * The whole ad from the position's JSON-LD: the `description` holds only the
+ * intro, while tasks, requirements and benefits sit in `responsibilities`,
+ * `experienceRequirements` (or `qualifications`/`skills`) and `jobBenefits` —
+ * the three lists the page renders under «Verantwortlichkeiten»,
+ * «Anforderungen» and «Vorteile». Publishing `description` alone was the intro
+ * only (a3LTG00000Kb2yb2AB: 575 of 1'309 characters, issue 5253).
+ *
+ * @param {Record<string, any>} ld JobPosting JSON-LD
+ * @param {string} [lang] language of the posting, for the section headings
+ */
+export function buildPallasDescription(ld = {}, lang = 'de') {
+  const headings = SECTION_HEADINGS[lang] || SECTION_HEADINGS.de;
+  const requirementsHtml = [ld.experienceRequirements, ld.qualifications, ld.skills]
+    .find((value) => typeof value === 'string' && value.trim()) || '';
+  const parts = [htmlDescriptionToText(ld.description || '')];
+  for (const [key, value] of [
+    ['responsibilities', ld.responsibilities],
+    ['requirements', requirementsHtml],
+    ['benefits', ld.jobBenefits],
+  ]) {
+    const text = typeof value === 'string' ? htmlDescriptionToText(value) : '';
+    if (text) parts.push(`## ${headings[key]}\n${text}`);
+  }
+  return parts.filter(Boolean).join('\n\n');
+}
+
+function mapEmploymentTypeLd(value, fallbackText) {
+  const raw = String(value || '').toUpperCase();
+  if (raw.includes('PART')) return 'part-time';
+  if (raw.includes('FULL')) return 'full-time';
+  if (raw.includes('INTERN')) return 'internship';
+  if (raw.includes('TEMP') || raw.includes('CONTRACT')) return 'contract';
+  return detectHealthcareEmploymentType(fallbackText || '');
+}
+
+function pickCanton(addressLocality) {
+  if (!addressLocality) return HQ.canton;
+  return inferAnyCanton(addressLocality) || HQ.canton;
+}
+
+export async function fetchAllPallasKlinikenJobs() {
+  console.log(`🏥 Fetching ${PALLAS_KLINIKEN_COMPANY_NAME} jobs`);
+  console.log(`   Portal: ${LISTING_URL}\n`);
+
+  const listingHtml = await fetchHtml(LISTING_URL);
+  const positions = parsePallasListing(listingHtml);
+  console.log(`  ✓ ${positions.length} Flair HR positions parsed`);
+  if (!positions.length) return [];
+
+  const jobs = [];
+  for (let i = 0; i < positions.length; i += 1) {
+    const p = positions[i];
+    if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
+    let html;
+    try {
+      html = await fetchHtml(p.detailUrl);
+    } catch (err) {
+      console.warn(`  ⚠️ Pallas detail fetch failed (${p.detailUrl}): ${err?.message || err}`);
+      continue;
+    }
+    const ld = extractJobPostingLd(html);
+    if (!ld || !ld.title) {
+      console.warn(`  ⚠️ Pallas JSON-LD missing for ${p.detailUrl}`);
+      continue;
+    }
+
+    const title = normalizeSpace(decodeEntities(ld.title));
+    const postings = extractJobPostingsLd(html);
+    const matching = postings.filter((posting) => {
+      if (normalizeSpace(posting.title || '').toLowerCase() !== normalizeSpace(title).toLowerCase()) return false;
+      const urls = [posting.url, posting.sameAs].filter(Boolean);
+      if (!urls.length) return postings.length === 1;
+      try { return urls.every((value) => new URL(value, p.detailUrl).href === new URL(p.detailUrl).href); }
+      catch { return false; }
+    });
+    const publication = sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '');
+    const sourceLang = detectLang(htmlDescriptionToText(ld.description || '') || title, 'de');
+    const description = buildPallasDescription(ld, sourceLang);
+    if (!title || description.split(/\s+/).length < 30) {
+      console.warn(`  ⚠️ Pallas thin description for ${title || p.id}`);
+      continue;
+    }
+
+    const addr = ld.jobLocation?.address || {};
+    const rawCity = normalizeSpace(decodeEntities(addr.addressLocality || ''));
+    const city = rawCity || HQ.city;
+    const isHqCity = !rawCity || /olten/i.test(rawCity);
+    const postalCode = addr.postalCode ? String(addr.postalCode) : (isHqCity ? HQ.postalCode : '');
+    const streetAddress = addr.streetAddress
+      ? normalizeSpace(decodeEntities(addr.streetAddress))
+      : (isHqCity ? HQ.streetAddress : '');
+    const canton = pickCanton(city);
+
+
+
+    const jobSlug = slugify(`${title} ${PALLAS_KLINIKEN_KEY} ${city}`);
+    const urlHash = createHash('sha1').update(p.detailUrl).digest('hex').slice(0, 12);
+
+    jobs.push({
+      id: `${PALLAS_KLINIKEN_KEY}-${urlHash}`,
+      slug: jobSlug,
+      slugByLocale: { [sourceLang]: jobSlug },
+      company: PALLAS_KLINIKEN_COMPANY_NAME,
+      companyKey: PALLAS_KLINIKEN_KEY,
+      companyDomain: PALLAS_KLINIKEN_COMPANY_DOMAIN,
+      title,
+      titleByLocale: { [sourceLang]: title },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
+      location: city,
+      canton,
+      url: p.detailUrl,
+      source: `${PALLAS_KLINIKEN_COMPANY_NAME} Dedicated Parser (Flair HR / JSON-LD)`,
+      sourceLang,
+      crawledAt: new Date().toISOString(),
+      addressLocality: city,
+      addressRegion: canton,
+      addressCountry: 'CH',
+      country: 'CH',
+      postalCode,
+      streetAddress,
+      category: detectHealthcareCategory(`${title} ${description.slice(0, 400)}`),
+      contract: 'full-time',
+      employmentType: mapEmploymentTypeLd(ld.employmentType, `${title} ${description.slice(0, 200)}`),
+      experienceLevel: detectHealthcareExperienceLevel(title),
+      sector: 'Sanità / Ospedali',
+      currency: 'CHF',
+      featured: false,
+      ...withLegacyPostingDay(publication),
+      applyUrl: p.detailUrl,
+      requirements: [],
+      requirementsByLocale: { [sourceLang]: [] },
+    });
+  }
+  console.log(`\n📋 Total ${PALLAS_KLINIKEN_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  return jobs;
+}
+
+export { LISTING_URL };

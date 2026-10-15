@@ -1,0 +1,24 @@
+{
+  "companyKey": "bildungszentrum-gesundheit-soziales-glarus",
+  "companyName": "Bildungszentrum Gesundheit & Soziales Glarus",
+  "companyHost": "recruitingapp-2910.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2910.umantis.com/Jobs/All?CompanyID=40&amp;DesignID=10015"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Lehrperson für den Bildungsgang HF Pflege 30-50%",
+    "Lehrstelle als Assistentin / Assistent Gesundheit und Soziales AGS (EBA), 2-jährig",
+    "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ, 3-jährig",
+    "Studienplätze Pflegefachfrau / Pflegefachmann HF verkürzt mit eidgenössischer Berufsprüfung Langzeitpflege und Betreuung",
+    "Studienplätze Pflegefachfrau / Pflegefachmann HF verkürzt für FaGe, 2-jähriger Bildungsgang"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:17.531Z"
+}

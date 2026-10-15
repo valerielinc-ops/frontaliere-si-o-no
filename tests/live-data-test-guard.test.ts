@@ -1,0 +1,551 @@
+/**
+ * L'OSSERVATORE del divieto «un test del job bloccante non legge dati vivi».
+ *
+ * Cosa e' successo il 2026-08-21. La stessa revisione di
+ * `tests/pre-flight-headline-check.test.ts` era verde alle 15:47 e rossa alle
+ * 18:38, senza che una riga di codice fosse cambiata: nel mezzo la pipeline
+ * aveva pubblicato un articolo il cui titolo collideva con una delle headline
+ * «unrelated» hardcoded nel test, che leggeva il registro VIVO
+ * (`services/locales/blog-meta-it.ts`, 3'457 titoli in crescita quotidiana).
+ *
+ * Il costo non e' stato quel test. `vitest` e' il gate su cui `pr-review-loop`
+ * si innesca, quindi quel rosso ha fermato cinque PR non correlate insieme.
+ *
+ * Il guard non vieta in blocco — ventina di test leggono dati vivi e per alcuni
+ * il corpus E' il soggetto, dove un rosso da dato e' il segnale voluto. Congela
+ * l'esistente e impedisce che cresca: un test NUOVO non puo' entrare
+ * nell'inventario senza che qualcuno lo scriva a mano e lo giustifichi.
+ */
+import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { listCorpusWideTests } from '../scripts/ci/corpus-wide-tests.mjs';
+import {
+  scanLiveDataTests,
+  liveRootsFromRelativeImports,
+  diffAgainstInventory,
+  stripComments,
+  segmentSequenceRegex,
+  KNOWN_LIVE_DATA_TESTS,
+  LIVE_DATA_SCAN_EXEMPTIONS,
+  LIVE_DATA_ROOTS,
+  listLiveDataTestsForCi,
+  listNonLiveDataTestsForCi,
+  listLiveDataMonitorTests,
+  LIVE_DATA_PARTIAL_TESTS,
+  findInventoryEntriesWithoutLiveRead,
+  codeOnlyShape,
+} from '../scripts/ci/live-data-test-guard.mjs';
+
+describe('nessun test NUOVO puo` leggere dati vivi', () => {
+  it('non ci sono test fuori inventario che leggono radici dati vive', () => {
+    const { added } = diffAgainstInventory();
+    const detail = added.map((a) => `${a.file} → ${a.roots.join(', ')}`).join('\n  ');
+    expect(
+      added,
+      added.length
+        ? `\nQuesti test leggono dati che la pipeline riscrive da sola:\n  ${detail}\n\n`
+          + 'Un test che legge dati vivi non e\' riproducibile: passa e fallisce sullo\n'
+          + 'stesso codice a seconda di cosa e\' stato pubblicato. E `vitest` e\' il gate\n'
+          + 'su cui si innesca la review, quindi il suo rosso ferma anche le PR altrui.\n\n'
+          + 'Rimedio: pinna il dato in `tests/__fixtures__/` e leggi da li\'.\n'
+          + 'Se invece il corpus E\' davvero il soggetto del test, aggiungi la voce a\n'
+          + 'KNOWN_LIVE_DATA_TESTS in scripts/ci/live-data-test-guard.mjs spiegando perche\'.'
+        : '',
+    ).toEqual([]);
+  });
+
+  it('l`inventario non nomina test spariti o gia` riparati', () => {
+    // Una voce fantasma e' peggio di nessuna voce: sembra debito tracciato e
+    // non lo e', e maschera il fatto che il guard non copre piu' niente li'.
+    const { removed } = diffAgainstInventory();
+    expect(removed, `voci da rimuovere dall'inventario: ${removed.join(', ')}`).toEqual([]);
+  });
+
+  it('il test che ha causato il difetto e` fuori dall`inventario', () => {
+    // Regressione diretta: `pre-flight-headline-check` e' stato pinnato a una
+    // fixture. Se qualcuno lo ripuntasse al corpus vivo, questo torna rosso.
+    const files = scanLiveDataTests().map((e) => e.file);
+    expect(files).not.toContain('tests/pre-flight-headline-check.test.ts');
+    expect(KNOWN_LIVE_DATA_TESTS.map((e) => e.file)).not.toContain('tests/pre-flight-headline-check.test.ts');
+  });
+});
+
+describe('il rilevatore', () => {
+  it('non si autoaccusa per un percorso citato in un commento', () => {
+    // Il primo giro segnalava il test appena riparato, perche' il commento che
+    // SPIEGA il difetto cita il percorso vivo fra backtick.
+    expect(stripComments("const a = 1; // legge 'services/locales/x'")).not.toContain('services/locales/');
+    expect(stripComments('/* `packages/articles/content/y` */ const b = 2;')).not.toContain('packages/articles/content/');
+    // Il codice vero sopravvive.
+    expect(stripComments("read('services/locales/z')")).toContain('services/locales/');
+  });
+
+  it('vede un percorso costruito a segmenti, non solo il letterale con slash', () => {
+    // Gemello speculare del difetto dei commenti: li' testo che non e' lettura,
+    // qui lettura che non e' testo. `resolve(ROOT, 'packages', 'articles')` non
+    // contiene mai la stringa `packages/articles/`, e senza questo il guard e'
+    // aggirabile per caso — basta scrivere il percorso in due pezzi. Il repo ne
+    // aveva gia' uno che girava nel job bloccante (news-ticker-data).
+    const rx = segmentSequenceRegex(['packages', 'articles']);
+    expect(rx.test("np.resolve(ROOT, 'packages', 'articles')")).toBe(true);
+    expect(rx.test('path.join(ROOT, "packages" , "articles")')).toBe(true);
+    // Segmenti non adiacenti non sono quel percorso.
+    expect(rx.test("resolve(ROOT, 'packages', 'other', 'articles')")).toBe(false);
+  });
+
+  it('risolve import runtime relativi in TSX e MJS, ignorando tipi e chunk UI', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-imports-'));
+    const testsDir = path.join(root, 'tests');
+    fs.mkdirSync(testsDir, { recursive: true });
+    try {
+      fs.writeFileSync(path.join(testsDir, 'relative.test.tsx'), [
+        "import duties from '../data/pharmacy-duties-ticino.json';",
+        "import { type PharmacyType } from '../data/pharmacy-duties-italy.json';",
+        "import '../data/pharmacy-enrichment.json';",
+        "const lazy = import('../data/pharmacy-enrichment-sources.json');",
+        "import '../data/pharmacies-ticino.json';",
+        "import '../services/locales/it-core.ts';",
+      ].join('\n'));
+      fs.writeFileSync(path.join(testsDir, 'relative.test.mjs'), [
+        "const duties = require('../data/pharmacy-duties-italy.json');",
+        "export { default as registry } from '../data/pharmacy-sources-registry.json';",
+      ].join('\n'));
+
+      expect(scanLiveDataTests(root)).toEqual([
+        {
+          file: 'tests/relative.test.mjs',
+          roots: ['data/pharmacy-duties-italy.json', 'data/pharmacy-sources-registry.json'],
+        },
+        {
+          file: 'tests/relative.test.tsx',
+          roots: [
+            'data/pharmacy-duties-ticino.json',
+            'data/pharmacy-enrichment-sources.json',
+            'data/pharmacy-enrichment.json',
+          ],
+        },
+      ]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('trova i nove candidati misurati sugli import live, senza contare i chunk UI', () => {
+    const files = [
+      'tests/exchange-rate-fallback-direction.test.tsx',
+      'tests/pharmacy-directory-country-spa.test.tsx',
+      'tests/pharmacy-duty-week-spa.test.tsx',
+      'tests/pharmacy-italy-duty-seo.test.ts',
+      'tests/pharmacy-seo-runtime.test.ts',
+      'tests/pharmacy-sources-registry.test.ts',
+      'tests/pharmacy-swiss-canton-duty.test.ts',
+      'tests/seo-title-parity-factual.test.ts',
+      'tests/pharmacy-enrichment.test.ts',
+    ];
+    const detected = files.map((file) => ({
+      file,
+      roots: liveRootsFromRelativeImports(fs.readFileSync(file, 'utf8'), file),
+    }));
+    expect(detected.filter((entry) => entry.roots.length)).toEqual(detected);
+    expect(detected).toHaveLength(9);
+    expect(detected.find((entry) => entry.file === 'tests/pharmacy-directory-country-spa.test.tsx')?.roots)
+      .toContain('data/pharmacy-duties-ticino.json');
+    expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
+  });
+
+  it('non confonde un URL con un commento di riga', () => {
+    expect(stripComments("const u = 'https://example.ch/x';")).toContain('https://example.ch/x');
+  });
+
+  it('classifica job-board-seo-titles come fixture temporanea, non come dato vivo', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-job-board-'));
+    const testsDir = path.join(root, 'tests');
+    const testFile = path.join(testsDir, 'job-board-seo-titles.test.ts');
+    fs.mkdirSync(testsDir, { recursive: true });
+    try {
+      fs.writeFileSync(testFile, [
+        "const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jbsEo-'))",
+        "fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))",
+        "const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/staticPagesPlugin.ts'), 'utf8')",
+      ].join('\n'));
+      expect(scanLiveDataTests(root)).toEqual([
+        { file: 'tests/job-board-seo-titles.test.ts', roots: ['data/jobs.json'] },
+      ]);
+      const { added, removed } = diffAgainstInventory(root);
+      expect(added).toEqual([]);
+      expect(removed).not.toContain('tests/job-board-seo-titles.test.ts');
+      expect(LIVE_DATA_SCAN_EXEMPTIONS.find((e) => e.file === 'tests/job-board-seo-titles.test.ts')?.reason)
+        .toContain('staticPagesPlugin.ts');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('copre le radici che la pipeline riscrive, non le baseline pinnate', () => {
+    expect(LIVE_DATA_ROOTS).toContain('services/locales/');
+    expect(LIVE_DATA_ROOTS).toContain('data/jobs.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/jobs-snapshots-history/');
+    expect(LIVE_DATA_ROOTS).toContain('data/prospector/');
+    expect(LIVE_DATA_ROOTS).toContain('data/active-jobs-baseline.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacies-italy-border.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino-status.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-italy-status.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/blog-cover-ledger.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/event-image-library.json');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-blog');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-articles-archive.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-news.xml');
+    expect(LIVE_DATA_ROOTS).toContain('public/sitemap-topics-');
+    expect(LIVE_DATA_ROOTS).not.toContain('public/sitemap');
+    expect(LIVE_DATA_ROOTS.some((root) => 'data/pharmacies-ticino.json'.startsWith(root))).toBe(false);
+    expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
+    // Le soglie SEO restano policy pinnata; solo il contatore operativo
+    // aggiornato dal deploy e' una radice automatica.
+    expect(LIVE_DATA_ROOTS.filter((root) => root.includes('baseline')))
+      .toEqual(['data/active-jobs-baseline.json']);
+  });
+
+  it('registra ogni radice data dichiarata dai test live', () => {
+    const uncovered = [...KNOWN_LIVE_DATA_TESTS, ...LIVE_DATA_PARTIAL_TESTS]
+      .flatMap(({ file, roots }) => roots
+        .filter((root) => root.startsWith('data/')
+          && !LIVE_DATA_ROOTS.some((registered) => root.startsWith(registered)))
+        .map((root) => `${file} → ${root}`));
+
+    expect(uncovered).toEqual([]);
+  });
+
+  it('sposta lo snapshot translation nel monitor senza escludere il file intero dal gate PR', () => {
+    const entry = LIVE_DATA_PARTIAL_TESTS.find(
+      (candidate) => candidate.file === 'tests/translation-coverage-monitor.test.ts',
+    );
+    expect(entry?.roots).toContain('data/translation-stats-history.json');
+    expect(listLiveDataTestsForCi()).not.toContain('tests/translation-coverage-monitor.test.ts');
+    expect(listLiveDataMonitorTests()).toContain('tests/translation-coverage-monitor.test.ts');
+  });
+
+  it('lega le radici del bot inventory ai test live, incluso il reciprocity guard SEO', () => {
+    const contracts = [
+      { file: 'tests/seo/rate-baseline-internal-consistency.test.ts', root: 'data/active-jobs-baseline.json' },
+      { file: 'tests/articles-archive-chronological.test.ts', root: 'data/jobs-snapshots-history/' },
+      { file: 'tests/pharmacy-italy-release.test.ts', root: 'data/pharmacies-italy-border.json' },
+      { file: 'tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts', root: 'data/pharmacy-duties-italy-status.json' },
+      { file: 'tests/pharmacies-border-dataset.test.ts', root: 'data/pharmacy-duties-ticino-status.json' },
+      { file: 'tests/sitemap-hreflang-reciprocity.test.ts', root: 'public/sitemap-guides.xml' },
+    ];
+
+    for (const { file, root } of contracts) {
+      expect(LIVE_DATA_ROOTS, `${root} deve restare una radice live`).toContain(root);
+      expect(KNOWN_LIVE_DATA_TESTS.find((entry) => entry.file === file)?.roots, `${file} deve dichiarare ${root}`)
+        .toContain(root);
+      expect(listLiveDataTestsForCi(), `${file} deve restare nella partizione live`).toContain(file);
+    }
+  });
+
+  it('mantiene il test meta e rimuove i gate di qualita live dalla PR', () => {
+    expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/evergreen-pool-consumption.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/job-locale-consistency.test.ts');
+    expect(listLiveDataTestsForCi(), 'la suite Gardenia deterministica deve restare nel gate PR')
+      .not.toContain('tests/albergo-gardenia-crawler.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/albergo-gardenia-live-regression.test.ts');
+    expect(listLiveDataTestsForCi(), 'la fixture causale iPersonal deve restare nel gate PR')
+      .not.toContain('tests/ipersonal-route-recovery-7045.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/ipersonal-route-recovery-7045-live.test.ts');
+    for (const { file } of LIVE_DATA_SCAN_EXEMPTIONS) {
+      expect(listLiveDataTestsForCi(), `${file} deve restare nel gate PR`).not.toContain(file);
+    }
+  });
+});
+
+describe('un test che NON legge dati vivi non puo` stare nell`inventario', () => {
+  // Il verso opposto del guard, misurato il 2026-10-03 (issue #9453): un test
+  // di CODICE nell'inventario esce dal gate delle PR, la regressione passa il
+  // merge e riappare solo nel monitor giornaliero. `live-data-gates.yml` era
+  // rosso da giorni su un parser di chiavi i18n rotto e su un'asserzione
+  // superata sul testo di un workflow: difetti di codice, non di dato.
+  it('nessuna voce dell`inventario ha la forma di un test di solo codice', () => {
+    const offenders = findInventoryEntriesWithoutLiveRead();
+    const detail = offenders.map((o) => `${o.file} → ${o.shape}`).join('\n  ');
+    expect(
+      offenders,
+      offenders.length
+        ? `\nQueste voci di KNOWN_LIVE_DATA_TESTS non mostrano alcuna lettura di dato vivo:\n  ${detail}\n\n`
+          + 'Un test di codice nell`inventario NON gira sulle PR: la regressione che\n'
+          + 'dovrebbe fermare passa il merge e finisce nel monitor giornaliero.\n\n'
+          + 'Rimedio: togli la voce da KNOWN_LIVE_DATA_TESTS e spostala in\n'
+          + 'LIVE_DATA_SCAN_EXEMPTIONS con il motivo (il file torna nel gate delle PR).\n'
+          + 'Se invece il dato vivo arriva da un import o da un processo figlio, che\n'
+          + 'il testo non mostra, marca la voce `runtime: true` o `transitive: true`\n'
+          + 'e scrivi accanto cosa ha misurato la traccia a runtime.'
+        : '',
+    ).toEqual([]);
+  });
+
+  it('riconosce i chunk di interfaccia: sotto services/locales/ ma non vivi', () => {
+    const uiChunk = "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');";
+    expect(codeOnlyShape(uiChunk)).toBe('ui-locale-chunks');
+    // Il registro degli articoli e' un symlink verso il corpus: quello e' vivo.
+    const corpus = "const file = path.join(ROOT, 'services', 'locales', 'blog-meta-it.ts');";
+    expect(codeOnlyShape(corpus)).toBeNull();
+    const body = "const dir = path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it');";
+    expect(codeOnlyShape(body)).toBeNull();
+  });
+
+  it('non classifica come live le slice nominate solo dentro fixture temporanee', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-temp-slices-'));
+    try {
+      const testsDir = path.join(root, 'tests');
+      fs.mkdirSync(testsDir, { recursive: true });
+      fs.writeFileSync(path.join(testsDir, 'merge-history.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SHELL_PATH = path.resolve(ROOT, 'scripts/lib/git-commit-data.sh');",
+        "const SLICE = 'crawler-slices/acme.json';",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gcd-history-fast-path-'));",
+        "const input = fs.readFileSync(path.join(dir, 'base.json'), 'utf8');",
+      ].join('\n'));
+      fs.writeFileSync(path.join(testsDir, 'recover-slice.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SCRIPT = path.join(ROOT, 'scripts/recover-conflict-marker-slices.mjs');",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'recover-slice-slugs-'));",
+        "const sliceDir = path.join(dir, 'data/jobs/by-crawler');",
+        "const slice = fs.readFileSync(path.join(sliceDir, 'acme.json'), 'utf8');",
+      ].join('\n'));
+
+      expect(scanLiveDataTests(root)).toEqual([]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('riconosce il sorgente del package: packages/articles/engine non e` il corpus', () => {
+    const engine = "const src = fs.readFileSync(np.join(ROOT, 'packages', 'articles', 'engine', 'ogPagesPlugin.ts'), 'utf8');";
+    expect(codeOnlyShape(engine)).toBe('package-engine-source');
+    // La radice del package passata a una funzione che ci appende `content/`
+    // resta viva (news-ticker-data): il testo non prova che si fermi al codice.
+    const packageRoot = "const PACKAGE_ROOT = np.resolve(ROOT, 'packages', 'articles');";
+    expect(codeOnlyShape(packageRoot)).toBeNull();
+    const mixed = [
+      "const a = np.join(ROOT, 'packages', 'articles', 'engine', 'x.ts');",
+      "const b = np.join(ROOT, 'packages', 'articles', 'content');",
+    ].join('\n');
+    expect(codeOnlyShape(mixed)).toBeNull();
+  });
+
+  it('riconosce la fixture temporanea: il percorso vivo nasce sotto mkdtemp', () => {
+    const fixture = [
+      "const ROOT = path.resolve(__dirname, '..');",
+      "const SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-corpus.mjs');",
+      "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'site-checkout-'));",
+      "fs.mkdirSync(path.join(dir, 'packages', 'articles', 'content'), { recursive: true });",
+    ].join('\n');
+    expect(codeOnlyShape(fixture)).toBe('temp-fixture');
+    // Stessa cartella temporanea, ma il dato vivo si legge dal checkout.
+    const anchored = [
+      "const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'x-'));",
+      "const candidates = path.join(ROOT, 'data/prospector/candidates.json');",
+    ].join('\n');
+    expect(codeOnlyShape(anchored)).toBeNull();
+    // Una costante assegnata dalla root del checkout e' un'ancora anch'essa.
+    const alias = [
+      "const rootDir = np.resolve(__dirname, '..');",
+      "const out = fs.mkdtempSync(np.join(os.tmpdir(), 'hubs-'));",
+      "const present = fs.existsSync(np.join(rootDir, 'services/locales/blog-meta-it.ts'));",
+    ].join('\n');
+    expect(codeOnlyShape(alias)).toBeNull();
+    // Senza cartella temporanea un letterale relativo e' una lettura dal repo.
+    expect(codeOnlyShape("const SLICE = readJson('data/jobs/by-crawler/de.json');")).toBeNull();
+  });
+
+  it('si ferma su una voce di solo codice anche in un repo sintetico', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-code-only-'));
+    try {
+      fs.mkdirSync(path.join(root, 'tests'), { recursive: true });
+      fs.writeFileSync(
+        path.join(root, 'tests', 'copy-keys.test.ts'),
+        "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');\n",
+      );
+      fs.writeFileSync(
+        path.join(root, 'tests', 'traced.test.ts'),
+        "const src = fs.readFileSync(path.resolve(ROOT, `services/locales/${locale}-core.ts`), 'utf8');\n",
+      );
+      expect(findInventoryEntriesWithoutLiveRead(root, [
+        { file: 'tests/copy-keys.test.ts' },
+        // La traccia a runtime vale piu' del testo: la voce marcata resta.
+        { file: 'tests/traced.test.ts', runtime: true },
+      ])).toEqual([{ file: 'tests/copy-keys.test.ts', shape: 'ui-locale-chunks' }]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('i file riclassificati il 2026-10-03 girano nel gate delle PR, non nel monitor', () => {
+    const moved = LIVE_DATA_SCAN_EXEMPTIONS.filter((e) => e.since === '2026-10-03');
+    expect(moved.length, 'la riclassificazione non puo` sparire silenziosamente').toBeGreaterThan(0);
+    const excludedFromPrGate = new Set(listLiveDataTestsForCi());
+    const monitor = new Set(listLiveDataMonitorTests());
+    for (const { file, evidence } of moved) {
+      expect(excludedFromPrGate.has(file), `${file} deve girare sulle PR`).toBe(false);
+      expect(monitor.has(file), `${file} non e\` un test su dati vivi`).toBe(false);
+      expect(evidence, `${file}: la riclassificazione dichiara la prova`).toBe('trace');
+    }
+    // Il file MISTO: resta nella suite del gate e i suoi casi sul corpus girano
+    // nel monitor.
+    expect(excludedFromPrGate.has('tests/i18n-completeness.test.ts')).toBe(false);
+    expect(monitor.has('tests/i18n-completeness.test.ts')).toBe(true);
+  });
+
+  it('mantiene nel gate PR il test che legge solo il sorgente article engine', () => {
+    const file = 'tests/site-rendered-article-sections.test.ts';
+    const exemption = LIVE_DATA_SCAN_EXEMPTIONS.find((entry) => entry.file === file);
+    expect(exemption?.reason).toContain('packages/articles/engine/');
+    expect(KNOWN_LIVE_DATA_TESTS.map((entry) => entry.file)).not.toContain(file);
+    expect(listLiveDataTestsForCi()).not.toContain(file);
+  });
+});
+
+describe('il censimento 2026-09-19 regge le proprie premesse', () => {
+  // Il buco che questo blocco chiude. Fino al 2026-09-19 lo scanner leggeva
+  // `readdirSync('tests')` PIATTO: i test sotto `tests/seo/`, `tests/scripts/`,
+  // `tests/build-plugins/` non erano nemmeno guardati, e il guard diceva verde
+  // perche' non guardava. `tests/scripts/prompt-placeholder-guard.test.ts`
+  // scandiva 70.000 campi del corpus pubblicato dentro il job bloccante.
+  it('guarda anche dentro le sottocartelle di tests/', () => {
+    const roots = new Set([
+      ...KNOWN_LIVE_DATA_TESTS.map((e) => e.file),
+      ...LIVE_DATA_PARTIAL_TESTS.map((e) => e.file),
+      ...LIVE_DATA_SCAN_EXEMPTIONS.map((e) => e.file),
+    ]);
+    const nested = [...roots].filter((f) => f.split('/').length > 2);
+    expect(nested.length, 'il censimento deve contenere file annidati').toBeGreaterThan(5);
+  });
+
+  it('la partizione fra gate PR e gruppo dati-vivi e` esatta', () => {
+    // Il gate PR esclude per nome file (`VITEST_SKIP_LIVE_DATA=true`), il
+    // monitor esegue l'elenco che `--monitor-files` stampa: le due parti sono
+    // l'una il complemento dell'altra. Se si sovrapponessero un test girerebbe
+    // due volte, se lasciassero un buco non girerebbe MAI — ed e' esattamente
+    // il modo in cui un gate sparisce senza che nessuno lo decida.
+    const live = listLiveDataMonitorTests();
+    const rest = listNonLiveDataTestsForCi();
+    expect(live.filter((f) => rest.includes(f)), 'nessun file in entrambi i gruppi').toEqual([]);
+    expect(new Set([...live, ...rest]).size).toBe(live.length + rest.length);
+    // 120s, non i 15 di default: il complemento si calcola dalla partizione
+    // dataset, che fa il parse AST di ~2.400 file di test (11,9s misurati a
+    // macchina scarica). Col default questo caso passa in locale e diventa un
+    // rosso da CARICO in CI — cioè un falso rosso sul gate, che è esattamente
+    // la classe di guasto che questa PR sta togliendo di mezzo.
+  }, 120_000);
+
+  it('il monitor non ripesca i gate corpus-wide su main', () => {
+    // `corpus-wide-gates.yml` e` `workflow_dispatch` per decisione del
+    // proprietario: il corpus appartiene a frontaliere-articles e non deve
+    // consumare CI su main di questo repo. Un cron che li riesegue qui sarebbe
+    // quella decisione aggirata da un'altra porta.
+    const monitor = new Set(listLiveDataMonitorTests());
+    for (const file of listCorpusWideTests()) {
+      expect(monitor.has(file), `${file} non va nel monitor dei dati vivi`).toBe(false);
+    }
+  }, 60_000);
+
+  it('il CLI --monitor-files stampa esattamente il gruppo monitor', () => {
+    // Il workflow passa questo elenco a `vitest run`. Serve un CLI e non una
+    // env letta da `vitest.config.ts`: `run-related-tests.mjs` tratta quella
+    // config come globale, quindi una PR che la tocca perde la selezione per
+    // diff e ricade sulla suite intera — che a un worker non sta nei 360
+    // minuti del job (run 35481674287, cancellata a 6 ore).
+    const out = execFileSync(
+      process.execPath,
+      [path.resolve(__dirname, '..', 'scripts', 'ci', 'live-data-test-guard.mjs'), '--monitor-files'],
+      { encoding: 'utf8' },
+    );
+    expect(out.trim().split('\n')).toEqual(listLiveDataMonitorTests());
+  }, 60_000);
+
+  it('i file MISTI girano interi nel monitor, dove la env non li spegne', () => {
+    // Nel gate PR i loro casi vivi sono saltati da `SKIP_LIVE_DATA`. Se il
+    // monitor non li eseguisse, quei casi non girerebbero da nessuna parte e
+    // il taglio per test sarebbe una cancellazione con un altro nome.
+    const monitor = new Set(listLiveDataMonitorTests());
+    const corpus = new Set(listCorpusWideTests());
+    const missing = LIVE_DATA_PARTIAL_TESTS
+      .map((e) => e.file)
+      .filter((f) => !corpus.has(f) && !monitor.has(f));
+    expect(missing, `file MISTI che non girano da nessuna parte: ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('ogni file MISTO usa davvero l`interruttore per-test', () => {
+    // Un file nell'elenco parziale e' un file in cui il taglio e' stato fatto
+    // DENTRO, per test. Se qualcuno lo elenca qui senza marcare niente, il
+    // guard smette di segnalarlo e i suoi test vivi restano nel gate: la voce
+    // diventerebbe una deroga silenziosa invece di un taglio.
+    const missing = LIVE_DATA_PARTIAL_TESTS.filter(({ file }) => {
+      let src = '';
+      try { src = fs.readFileSync(path.resolve(__dirname, '..', file), 'utf8'); } catch { return true; }
+      return !src.includes('SKIP_LIVE_DATA');
+    }).map((e) => e.file);
+    expect(missing, `file senza skipIf(SKIP_LIVE_DATA): ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('non duplica un file tra inventario completo e parziale', () => {
+    const counts = new Map<string, number>();
+    for (const { file } of [...KNOWN_LIVE_DATA_TESTS, ...LIVE_DATA_PARTIAL_TESTS]) {
+      counts.set(file, (counts.get(file) ?? 0) + 1);
+    }
+    const duplicates = [...counts]
+      .filter(([, count]) => count > 1)
+      .map(([file]) => file)
+      .sort();
+    expect(duplicates).toEqual([]);
+  });
+
+  it('il replay 2026-10-12 rimette i casi di codice nel gate PR', () => {
+    const replayed = LIVE_DATA_PARTIAL_TESTS.filter((entry) => entry.since === '2026-10-12');
+    expect(replayed.map((entry) => entry.file).sort()).toEqual([
+      'tests/build-article-embeddings-meta-carryforward.test.ts',
+      'tests/extract-articles-package.test.ts',
+      'tests/seo/cathedral-expired-tracking-canton.test.ts',
+      'tests/sitemap-news-canonical.test.ts',
+      'tests/sitemap-retired-paths-absent.test.ts',
+    ]);
+
+    const liveMonitor = new Set(listLiveDataMonitorTests());
+    const fullyExcluded = new Set(listLiveDataTestsForCi());
+    for (const entry of replayed) {
+      expect(entry.evidence, `${entry.file}: replay evidence`).toBe('replay');
+      expect(KNOWN_LIVE_DATA_TESTS.map((known) => known.file)).not.toContain(entry.file);
+      expect(liveMonitor.has(entry.file), `${entry.file} deve restare nel monitor`).toBe(true);
+      expect(fullyExcluded.has(entry.file), `${entry.file} deve tornare nel gate PR`).toBe(false);
+      const source = fs.readFileSync(path.resolve(__dirname, '..', entry.file), 'utf8');
+      expect(source, `${entry.file} deve avere skip per caso vivo`).toMatch(/it\.skipIf\(SKIP_LIVE_DATA\)/u);
+    }
+  });
+
+  it('ogni voce nuova dichiara la prova su cui sta in piedi', () => {
+    const measured = KNOWN_LIVE_DATA_TESTS.filter((e) => e.since === '2026-09-19');
+    expect(measured.length, 'il censimento non puo` sparire silenziosamente').toBeGreaterThan(30);
+    for (const e of measured) {
+      expect(['replay', 'review'], `${e.file}: evidence non riconosciuta`).toContain(e.evidence);
+      expect(e.roots.length, `${e.file}: senza radici misurate`).toBeGreaterThan(0);
+    }
+    // 26 file hanno cambiato esito col solo cambio dei dati (snapshot a 7, 14 e
+    // 30 giorni, stessa revisione di codice). Di quei 26, undici erano gia'
+    // nell'inventario del 2026-08-21: i restanti quindici sono entrati qui, e
+    // sono la parte PROVATA del censimento. Non deve diluirsi in una lista di
+    // sole valutazioni a vista.
+    expect(measured.filter((e) => e.evidence === 'replay').length).toBeGreaterThanOrEqual(15);
+  });
+
+  it('i falsi positivi della scansione portano un motivo', () => {
+    for (const e of LIVE_DATA_SCAN_EXEMPTIONS) {
+      expect(e.reason, `${e.file} senza motivo`).toBeTruthy();
+      expect(e.reason.length).toBeGreaterThan(20);
+    }
+  });
+});

@@ -1,0 +1,40 @@
+{
+  "id": "dogana-brogeda",
+  "slug": "dogana-brogeda",
+  "publishedAt": "2026-06-30T13:55:21.268Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.514391716057856,
+    "confidence": 0.8,
+    "finalScore": 8.411513372846285,
+    "topK": [
+      {
+        "slug": "ascensione-svizzera-viabilit-2026",
+        "cosine": 0.8353117937157621
+      },
+      {
+        "slug": "blocco-droga-confine-brogeda-2026",
+        "cosine": 0.8134043730629894
+      },
+      {
+        "slug": "denaro-non-dichiarato-dogana-brogeda",
+        "cosine": 0.8094582369112155
+      },
+      {
+        "slug": "chiasso-dogana-tempi-attesa",
+        "cosine": 0.8072306094256936
+      },
+      {
+        "slug": "eroina-auto-chiasso-brogeda",
+        "cosine": 0.8059097097586222
+      }
+    ],
+    "score": 4.205756686423142,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

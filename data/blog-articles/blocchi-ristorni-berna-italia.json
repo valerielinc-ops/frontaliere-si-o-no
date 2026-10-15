@@ -1,0 +1,19 @@
+{
+  "id": "blocchi-ristorni-berna-italia",
+  "slug": "blocchi-ristorni-berna-italia",
+  "publishedAt": "2026-06-16T00:25:34.270Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 126.71767289999997,
+    "confidence": 1,
+    "finalScore": 126.71767289999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 126.71767289999997,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

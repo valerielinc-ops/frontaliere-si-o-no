@@ -1,0 +1,24 @@
+{
+  "companyKey": "opus-personal",
+  "companyName": "Opus Personal AG, Zweigniederlassung Altdorf",
+  "companyHost": "opus-personal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://opus-personal.ch/aktuelle-jobs"
+  ],
+  "detailTemplate": "/aktuelle-jobs/job.aspx/*/f-op/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 382,
+  "sampleTitles": [
+    "Maschinist 100 %",
+    "Heizungsinstallateur EFZ (a) - Temporäreinsatz 80-100 %",
+    "Stellvertretende Leitung Finanzen (a) 100 %",
+    "Polier Strassenbau (a) 100 %",
+    "HR Business Partner (a) 80-100 %"
+  ],
+  "canton": "UR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-25T10:27:39.248Z"
+}

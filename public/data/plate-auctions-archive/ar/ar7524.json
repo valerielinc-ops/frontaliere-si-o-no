@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ar-1778",
+      "sourceKey": "AR",
+      "sourceRecordId": "1778",
+      "canton": "Appenzello Esterno",
+      "platePrefix": "AR",
+      "plateNumber": "7524",
+      "normalizedPlate": "AR7524",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 750,
+      "startingPriceChf": 750,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-04T16:00:00.000Z",
+      "closedAt": "2026-10-04T16:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/details/app?id=1778",
+      "sourceFetchedAt": "2026-10-04T12:25:43.047Z",
+      "lastVerifiedAt": "2026-10-04T12:25:43.047Z",
+      "firstSeenAt": "2026-09-21T12:52:39.520Z",
+      "lastSeenAt": "2026-10-04T12:25:43.047Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ce2a9d92aace"
+    }
+  ]
+}

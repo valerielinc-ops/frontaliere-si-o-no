@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-indennita",
+  "slug": "frontalieri-indennita",
+  "publishedAt": "2026-07-15T00:05:58.548Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.028665709776477,
+    "confidence": 0.8,
+    "finalScore": 4.822932567821182,
+    "topK": [
+      {
+        "slug": "frontalieri-disoccupati-svizzera-indennita",
+        "cosine": 0.8612379585394968
+      },
+      {
+        "slug": "disoccupazione-frontalieri-parigi-berna",
+        "cosine": 0.857492287933979
+      },
+      {
+        "slug": "riforma-disoccupazione-frontalieri-francia-svizzera",
+        "cosine": 0.8487689001056273
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri-2026",
+        "cosine": 0.8465529369407454
+      },
+      {
+        "slug": "disoccupazione-dei-frontalieri",
+        "cosine": 0.8398502716139515
+      }
+    ],
+    "score": 4.822932567821182,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

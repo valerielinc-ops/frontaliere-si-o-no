@@ -1,0 +1,40 @@
+{
+  "id": "novita-fiscale-730-2025-frontalieri",
+  "slug": "novita-fiscale-730-2025-frontalieri",
+  "publishedAt": "2026-07-14T07:00:28.355Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.476733688803398,
+    "confidence": 0.8,
+    "finalScore": 4.381386951042718,
+    "topK": [
+      {
+        "slug": "730-precompilato-frontalieri-ticino-2026",
+        "cosine": 0.8649312842508647
+      },
+      {
+        "slug": "cross-border-teleworking-2026",
+        "cosine": 0.8636231203919229
+      },
+      {
+        "slug": "votazioni-federali-14-giugno-2026",
+        "cosine": 0.8634063092870959
+      },
+      {
+        "slug": "nuova-riforma-avs-2024-frontalieri",
+        "cosine": 0.8626538682134385
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8589439657766308
+      }
+    ],
+    "score": 2.190693475521359,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

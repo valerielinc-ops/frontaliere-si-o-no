@@ -1,0 +1,18 @@
+{
+  "id": "dati-tasse-frontalieri-italia",
+  "slug": "dati-tasse-frontalieri-italia",
+  "publishedAt": "2026-06-24T21:22:45.219Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1
+  }
+}

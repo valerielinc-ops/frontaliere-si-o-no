@@ -1,0 +1,22 @@
+{
+  "companyKey": "plan-forum-lugano",
+  "companyName": "Plan₿ Forum Lugano",
+  "companyHost": "planb.lugano.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://planb.lugano.ch/careers",
+    "https://planb.lugano.ch/career",
+    "https://planb.lugano.ch/jobs",
+    "https://planb.lugano.ch/karriere",
+    "https://planb.lugano.ch/offene-stellen",
+    "https://planb.lugano.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.968Z"
+}

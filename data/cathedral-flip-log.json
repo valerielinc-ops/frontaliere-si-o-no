@@ -1,0 +1,6 @@
+{
+  "_comment": "Append-only one-way ratchet: every entry records when a cathedral page crossed MIN_JOBS_FOR_CANTON_PAGE and became eligible for index,follow. Maintained by .github/workflows/cathedral-noindex-flip.yml. Do not edit by hand. Removing entries is forbidden (CLAUDE.md non-negotiables #1, #5).",
+  "version": 1,
+  "lastUpdated": "2026-05-10T00:00:00.000Z",
+  "flips": []
+}

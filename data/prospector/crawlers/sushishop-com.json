@@ -1,0 +1,24 @@
+{
+  "companyKey": "sushishop-com",
+  "companyName": "Sushi Shop  Suisse",
+  "companyHost": "sushishop.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://sushishop.com/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Cashier November 17, 2025",
+    "Maki roller November 17, 2025",
+    "Maki roller October 8, 2025",
+    "Cashier October 8, 2025",
+    "Chef October 8, 2025"
+  ],
+  "canton": "VD",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-27T11:01:28.091Z"
+}

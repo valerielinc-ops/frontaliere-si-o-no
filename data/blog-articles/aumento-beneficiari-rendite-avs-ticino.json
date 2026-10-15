@@ -1,0 +1,18 @@
+{
+  "id": "aumento-beneficiari-rendite-avs-ticino",
+  "slug": "aumento-beneficiari-rendite-avs-ticino",
+  "publishedAt": "2026-05-27T02:33:08.406Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pensioni",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

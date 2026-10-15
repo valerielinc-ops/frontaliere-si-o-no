@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109668",
+      "sourceKey": "TG",
+      "sourceRecordId": "109668",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "3450",
+      "normalizedPlate": "TG3450",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 510,
+      "bidCount": 2,
+      "endsAt": "2026-10-14T17:00:00.000Z",
+      "closedAt": "2026-10-14T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109668",
+      "sourceFetchedAt": "2026-10-13T22:50:23.220Z",
+      "lastVerifiedAt": "2026-10-13T22:50:23.220Z",
+      "firstSeenAt": "2026-09-30T05:38:17.759Z",
+      "lastSeenAt": "2026-10-13T22:50:23.220Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "9ecfc299e841"
+    }
+  ]
+}

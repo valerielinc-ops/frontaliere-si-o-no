@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2788",
+  "companyName": "Bewerbermanagement Maschinenring Stellen",
+  "companyHost": "recruitingapp-2788.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2788.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Fahrer für Wäschetransport (m/w/d)",
+    "Sortierpersonal (m/w/d)",
+    "Schlosserhelfer (m, w, d)",
+    "Maurer (m, w, d)",
+    "Logistikmitarbeiter (m, w, d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:38.632Z"
+}

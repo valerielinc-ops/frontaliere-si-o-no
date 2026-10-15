@@ -1,0 +1,111 @@
+{
+  "_comment": "GENERATO da scripts/ci/generate-checkout-buckets.mjs — non modificare a mano.",
+  "ref": "origin/main",
+  "measuredAt": "2026-08-19",
+  "minMb": 15,
+  "treeMb": 6829,
+  "treeFiles": 41707,
+  "baselineMb": 198,
+  "buckets": [
+    {
+      "id": "public/images/",
+      "mb": 4409,
+      "files": 14017
+    },
+    {
+      "id": "data/jobs/",
+      "mb": 702,
+      "files": 1101
+    },
+    {
+      "id": "data/seo-404-compat/",
+      "mb": 203,
+      "files": 17
+    },
+    {
+      "id": "data/translation-cache/",
+      "mb": 190,
+      "files": 163
+    },
+    {
+      "id": "packages/articles/content/",
+      "mb": 184,
+      "files": 18012
+    },
+    {
+      "id": "data/all-known-job-slugs/",
+      "mb": 141,
+      "files": 33
+    },
+    {
+      "id": "data/orphan-enriched-data/",
+      "mb": 115,
+      "files": 33
+    },
+    {
+      "id": "docs/",
+      "mb": 108,
+      "files": 706
+    },
+    {
+      "id": "public/data/",
+      "mb": 93,
+      "files": 13
+    },
+    {
+      "id": "data/related-search-candidates.json",
+      "mb": 76,
+      "files": 1
+    },
+    {
+      "id": "data/cf-hot-404s.json",
+      "mb": 69,
+      "files": 1
+    },
+    {
+      "id": "data/jobs-ai-cache.json",
+      "mb": 64,
+      "files": 1
+    },
+    {
+      "id": "data/dist-size-history.jsonl",
+      "mb": 63,
+      "files": 1
+    },
+    {
+      "id": "data/jobs-stats-history.json",
+      "mb": 49,
+      "files": 1
+    },
+    {
+      "id": "data/url-first-seen.json",
+      "mb": 48,
+      "files": 1
+    },
+    {
+      "id": "data/jobs-snapshots-history/",
+      "mb": 41,
+      "files": 12
+    },
+    {
+      "id": "data/slug-registry.json",
+      "mb": 26,
+      "files": 1
+    },
+    {
+      "id": "data/evidence-index.json",
+      "mb": 20,
+      "files": 1
+    },
+    {
+      "id": "data/health-premiums/",
+      "mb": 15,
+      "files": 3
+    },
+    {
+      "id": "data/jobs-crawler-summaries/",
+      "mb": 15,
+      "files": 589
+    }
+  ]
+}

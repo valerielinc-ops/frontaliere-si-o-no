@@ -1,0 +1,40 @@
+{
+  "id": "croce-rossa-160-anni-tagli-educatori",
+  "slug": "croce-rossa-160-anni-tagli-educatori",
+  "publishedAt": "2026-05-08T23:45:23.019Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.701934130393041,
+    "confidence": 0.8,
+    "finalScore": 6.161547304314433,
+    "topK": [
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.8557704589325601
+      },
+      {
+        "slug": "unitas-ottantesimo-futuro-ticino",
+        "cosine": 0.8556224754924682
+      },
+      {
+        "slug": "incontro-solidarieta-sicurezza-bioggio",
+        "cosine": 0.850812466121145
+      },
+      {
+        "slug": "casse-malati-ticino-divise-2026",
+        "cosine": 0.8506171305660107
+      },
+      {
+        "slug": "sospensione-costi-utenti-ticino",
+        "cosine": 0.8504936029281764
+      }
+    ],
+    "score": 0.6161547304314433,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

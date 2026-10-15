@@ -1,0 +1,20 @@
+{
+  "companyKey": "rohrer-gartenbau-und-hauswartungen",
+  "companyName": "Rohrer Gartenbau und Hauswartungen GmbH",
+  "companyHost": "rohrer-gartenbau.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rohrer-gartenbau.ch/unternehmen/jobs/"
+  ],
+  "detailTemplate": "/unternehmen/jobs/",
+  "listingCandidateText": "Treppenhausreinigung",
+  "detailEnrichment": false,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Mitarbeiter/in Treppenhausreinigung – 40%"
+  ],
+  "canton": "OW",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-15T00:00:00.000Z"
+}

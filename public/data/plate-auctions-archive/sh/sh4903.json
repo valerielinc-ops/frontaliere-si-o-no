@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69439",
+      "sourceKey": "SH",
+      "sourceRecordId": "69439",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "4903",
+      "normalizedPlate": "SH4903",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1000,
+      "bidCount": 0,
+      "endsAt": "2026-09-16T20:00:00.000Z",
+      "closedAt": "2026-09-16T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69439",
+      "sourceFetchedAt": "2026-09-15T06:58:53.829Z",
+      "lastVerifiedAt": "2026-09-15T06:58:53.829Z",
+      "firstSeenAt": "2026-09-14T20:51:09.759Z",
+      "lastSeenAt": "2026-09-15T06:58:53.829Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a6e67e49e6aa"
+    }
+  ]
+}

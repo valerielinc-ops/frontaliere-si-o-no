@@ -1,0 +1,20 @@
+{
+  "companyKey": "phgr",
+  "companyName": "Bibliothek PHGR",
+  "companyHost": "phgr.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://phgr.ch/ueber-uns/jobs-karriere/arbeiten-an-der-ph-graubuenden/"
+  ],
+  "detailTemplate": "/ueber-uns/jobs-karriere/angebote-fuer-mitarbeitende/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Angebote für Mitarbeitende"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-07T09:20:07.397Z"
+}

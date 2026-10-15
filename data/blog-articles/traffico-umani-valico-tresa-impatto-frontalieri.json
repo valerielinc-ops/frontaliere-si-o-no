@@ -1,0 +1,40 @@
+{
+  "id": "traffico-umani-valico-tresa-impatto-frontalieri",
+  "slug": "traffico-umani-valico-tresa-impatto-frontalieri",
+  "publishedAt": "2026-05-12T20:44:12.524Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ilgiornaledelticino.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.603323543546167,
+    "confidence": 0.8,
+    "finalScore": 3.682658834836934,
+    "topK": [
+      {
+        "slug": "aargau-festnahmen-2-mag-2026",
+        "cosine": 0.8633054556683896
+      },
+      {
+        "slug": "traffico-droga-arresti-svizzera-estero-2026",
+        "cosine": 0.8616918299653427
+      },
+      {
+        "slug": "contrabbando-ticino-2026",
+        "cosine": 0.8592932128986763
+      },
+      {
+        "slug": "incidente-fornasette-2026",
+        "cosine": 0.8591332766610805
+      },
+      {
+        "slug": "sicurezza-confine-ticino-brogeda",
+        "cosine": 0.858125141320381
+      }
+    ],
+    "score": 3.682658834836934,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

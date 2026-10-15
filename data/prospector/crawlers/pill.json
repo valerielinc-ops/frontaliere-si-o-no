@@ -1,0 +1,23 @@
+{
+  "companyKey": "pill",
+  "companyName": "Pill Apotheke & Drogerie St. Fridolin",
+  "companyHost": "pill.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://pill.ch/karriere/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:52.072Z"
+}

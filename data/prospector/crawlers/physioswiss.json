@@ -1,0 +1,22 @@
+{
+  "companyKey": "physioswiss",
+  "companyName": "Physio swiss",
+  "companyHost": "physioswiss.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://physioswiss.ch/stelleninserate/"
+  ],
+  "detailTemplate": "/stelleninserate/*/*/",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Stellenanzeige Physiotherapeut/in 60-100% öffnen.",
+    "Stellenanzeige Physiotherapeut / Physiotherapeutin 80-100% – für Uster gesucht öffnen.",
+    "Stellenanzeige PhysiotherapeutIn (40 – 100%) für Zentrum in Olten gesucht öffnen.",
+    "Stellenanzeige Physio gesucht – Frauenfeld öffnen.",
+    "Stellenanzeige UFGSTELLTE/I PHYSIOTHERAPEUT/-IN 80% -100% ab 1.12.2026 öffnen."
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:36.558Z"
+}

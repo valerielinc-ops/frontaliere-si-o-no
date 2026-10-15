@@ -1,0 +1,40 @@
+{
+  "id": "edilizia-ticino-estate-sfide-ssic",
+  "slug": "edilizia-ticino-estate-sfide-ssic",
+  "publishedAt": "2026-07-29T08:23:03.882Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.09188722900677,
+    "confidence": 0.8,
+    "finalScore": 9.673509783205418,
+    "topK": [
+      {
+        "slug": "lavori-giugno-sentiero-ronchitt-molinetto",
+        "cosine": 0.8482924674929124
+      },
+      {
+        "slug": "nuovo-contratto-edilizia-ticino-2026",
+        "cosine": 0.8433409132212175
+      },
+      {
+        "slug": "lavoretti-estivi-2026-regole-frontaliere",
+        "cosine": 0.8411950678030806
+      },
+      {
+        "slug": "como-vivibile-frontalieri-2026",
+        "cosine": 0.8407536547142395
+      },
+      {
+        "slug": "bagni-bellinzona-riaprono-novita-2026",
+        "cosine": 0.8391412096451895
+      }
+    ],
+    "score": 2.4183774458013545,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

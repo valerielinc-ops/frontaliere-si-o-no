@@ -1,0 +1,14 @@
+name: fixture-ref-outside-expression
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: boolean
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do the thing
+        run: |
+          # ${{ fromJSON('{"k":{"v":1}}') }} inputs.target
+          echo done

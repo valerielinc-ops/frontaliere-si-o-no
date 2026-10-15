@@ -1,0 +1,19 @@
+{
+  "id": "anticipo-orari-lavoro-canicola-ticino",
+  "slug": "anticipo-orari-lavoro-canicola-ticino",
+  "publishedAt": "2026-07-23T03:27:59.943Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.27002549999997,
+    "confidence": 1,
+    "finalScore": 150.27002549999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 150.27002549999997,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

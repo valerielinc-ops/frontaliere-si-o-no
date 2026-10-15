@@ -1,0 +1,508 @@
+/**
+ * Regression pin for issue #5039 — `alert_funnel_conversion`
+ * (`job_alert_created / job_alert_cta_shown`, 14d, target ≥ 5%).
+ *
+ * `Analytics.trackJobAlertCtaShown` documents itself as
+ *   "Impression event: the surface became VISIBLE to the user without any
+ *    explicit action."
+ * but `JobAlertEndCard` fired it from a bare mount effect, and the job-match /
+ * board-filter CTAs fired it from an effect keyed on "is rendered". All three
+ * render inside a job list most visitors never scroll to, so the goal's
+ * denominator counted renders instead of impressions.
+ *
+ * PostHog, 14d window before the fix (surfaces keyed on `cta_surface`):
+ *   end_card         440 shown →   0 clicks → 0 created
+ *   job_match_pill   300 shown →   0 clicks → 0 created
+ *   job_board_filters 35 shown →   1
+ *   job_detail_prompt 410 shown → 106 clicks → 5 created
+ *   sticky_banner     85 shown →   4 clicks
+ * The two mount-based surfaces contributed 740 of 1321 impressions (56%) and
+ * not one single interaction — the signature of a CTA nobody saw, not of a CTA
+ * nobody liked. `sticky_banner` was already gated on real scroll visibility and
+ * `job_detail_prompt` is a fixed toast, which is exactly why those two are the
+ * only surfaces with a non-zero click rate.
+ *
+ * This is an instrumentation-correctness fix, NOT a threshold relaxation: the
+ * target stays 5%, the event just has to mean what its own docblock says.
+ */
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, cleanup, act } from '@testing-library/react';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { useImpressionTracker } from '../hooks/useImpressionTracker';
+import { ALERT_CTA_SURFACES } from '../scripts/campaign-goal-check.mjs';
+import { PENDING_JOB_ALERT_ORIGINS } from '../services/pendingJobAlert';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/** Controllable IntersectionObserver stand-in. */
+class FakeIO {
+  static instances: FakeIO[] = [];
+  callback: IntersectionObserverCallback;
+  observed: Element[] = [];
+  disconnected = false;
+  constructor(cb: IntersectionObserverCallback) {
+    this.callback = cb;
+    FakeIO.instances.push(this);
+  }
+  observe(el: Element) { this.observed.push(el); }
+  unobserve() { /* noop */ }
+  disconnect() { this.disconnected = true; }
+  takeRecords() { return []; }
+  enter() {
+    act(() => {
+      this.callback(
+        this.observed.map((target) => ({ isIntersecting: true, target })) as unknown as IntersectionObserverEntry[],
+        this as unknown as IntersectionObserver,
+      );
+    });
+  }
+}
+
+function Probe({ onImpression }: { onImpression: () => void }) {
+  const ref = useImpressionTracker(onImpression);
+  return <div ref={ref}>surface</div>;
+}
+
+describe('useImpressionTracker', () => {
+  beforeEach(() => {
+    FakeIO.instances = [];
+    vi.stubGlobal('IntersectionObserver', FakeIO as unknown as typeof IntersectionObserver);
+  });
+  afterEach(() => {
+    cleanup();
+    vi.unstubAllGlobals();
+  });
+
+  it('does NOT fire on mount — the whole point of the fix', () => {
+    const spy = vi.fn();
+    render(<Probe onImpression={spy} />);
+    expect(spy).not.toHaveBeenCalled();
+    expect(FakeIO.instances).toHaveLength(1);
+  });
+
+  it('fires once when the element becomes visible', () => {
+    const spy = vi.fn();
+    render(<Probe onImpression={spy} />);
+    FakeIO.instances[0].enter();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('never double-counts on repeated intersections', () => {
+    const spy = vi.fn();
+    render(<Probe onImpression={spy} />);
+    const io = FakeIO.instances[0];
+    io.enter();
+    io.enter();
+    io.enter();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('disconnects the observer after firing', () => {
+    render(<Probe onImpression={() => {}} />);
+    const io = FakeIO.instances[0];
+    io.enter();
+    expect(io.disconnected).toBe(true);
+  });
+
+  it('degrades to mount-based when IntersectionObserver is unavailable', () => {
+    // Losing the event entirely would be worse than over-counting: the goal
+    // would then read as a conversion-rate improvement that never happened.
+    vi.unstubAllGlobals();
+    vi.stubGlobal('IntersectionObserver', undefined);
+    const spy = vi.fn();
+    render(<Probe onImpression={spy} />);
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('#5039 — no alert-CTA impression is emitted from a bare mount', () => {
+  it('JobAlertEndCard tracks on visibility, not on mount', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8');
+    expect(src).toContain('useImpressionTracker');
+    expect(src).toMatch(/ref=\{impressionRef\}/);
+    // The pre-fix shape: a mount effect that fired the impression directly.
+    expect(src).not.toMatch(/useEffect\([^)]*\)\s*=>\s*\{[^}]*trackJobAlertCtaShown/s);
+  });
+
+  it('the job-match and board-filter CTAs own their own impression', () => {
+    for (const rel of [
+      'components/community/JobMatchAlertCta.tsx',
+      'components/community/JobBoardFilterAlertCta.tsx',
+    ]) {
+      const src = fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+      expect(src, `${rel} must use the shared impression hook`).toContain('useImpressionTracker');
+      expect(src).toMatch(/ref=\{impressionRef\}/);
+      expect(src).toContain('onImpression');
+    }
+  });
+
+  it('JobBoard no longer fires those impressions from a "is rendered" effect', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    // The dedupe helper must survive — impressions stay once-per-surface-per-session.
+    expect(src).toContain('function trackJobAlertCtaShownOnce');
+    // …but it must only be reachable through the components' onImpression prop.
+    expect(src).toMatch(/onImpression=\{\(\) => trackJobAlertCtaShownOnce\('job_match_pill'/);
+    expect(src).toMatch(/onImpression=\{\(\) => trackJobAlertCtaShownOnce\('job_board_filters'/);
+    expect(src).not.toMatch(/if \(!jobMatchAlertVisible\) return;\s*\n[^\n]*\n[^\n]*\n\s*trackJobAlertCtaShownOnce/);
+    expect(src).not.toMatch(/if \(!boardFilterAlertVisible\) return;\s*\n[^\n]*\n[^\n]*\n\s*trackJobAlertCtaShownOnce/);
+  });
+});
+
+describe('issue 9577/10529 — inline_card separates actionable and passive visibility', () => {
+  const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+
+  it('JobAlertForm tracks the trigger card through the shared observer', () => {
+    expect(src()).toContain('JobAlertTriggerCard');
+    expect(src()).toContain('useImpressionTracker');
+    expect(src()).toMatch(/ref=\{impressionRef\}/);
+  });
+
+  it('keeps passive utility-card views outside the funnel event', () => {
+    const full = src();
+    expect(full).toContain('const inlineCardHasExplicitIntent = initialKeyword.trim().length > 0');
+    expect(full).toContain('trackJobAlertPassiveView');
+    expect(full).toContain("key={inlineCardHasExplicitIntent ? 'intent' : 'passive'}");
+    const analytics = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    expect(analytics).toContain("log('job_alert_card_passive_view'");
+    expect(analytics).toContain('trackJobAlertPassiveView');
+  });
+
+  it('the auto-expand effect no longer emits the impression', () => {
+    const full = src();
+    const start = full.indexOf('const autoExpandedRef');
+    expect(start).toBeGreaterThan(-1);
+    const effect = full.slice(start, full.indexOf('}, [initialKeyword, expanded]);', start));
+    expect(effect).not.toContain('trackJobAlertCtaShown');
+  });
+});
+
+describe('issue 10528 — job_detail_button shown/created parity', () => {
+  it('the direct detail CTA owns the impression for its own creation surface', () => {
+    const button = fs.readFileSync(path.join(ROOT, 'components/community/JobDetailJobAlertButton.tsx'), 'utf-8');
+    expect(button).toContain('useImpressionTracker');
+    expect(button).toMatch(/ref=\{impressionRef\}/);
+    expect(button).toContain('onImpression');
+
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    const start = board.indexOf('<JobDetailJobAlertButton');
+    const directCta = board.slice(start, start + 1400);
+    expect(directCta).toContain("onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_button'");
+    expect(directCta).toContain("surface: 'job_detail_button'");
+  });
+
+  it('the applied-receipt handoff keeps job_detail_button through the form and auth replay', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    const receiptStart = board.indexOf('const appliedNoticeJsx');
+    const receipt = board.slice(receiptStart, board.indexOf(') : null;', receiptStart));
+    expect(receipt).toContain("requestJobAlertOpen(category || undefined, 'job_detail_button')");
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain("setCtaOrigin(req.origin ?? 'inline_card')");
+    expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
+    expect(form).toContain("persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')");
+
+    const pending = fs.readFileSync(path.join(ROOT, 'services/pendingJobAlert.ts'), 'utf-8');
+    expect(pending).toContain("'job_detail_button'");
+
+    const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
+    expect(boardFilter).toContain('openJobAlertForm(keywordLabel, formOrigin)');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
+      .toContain('formOrigin="job_board_filters"');
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
+      .toContain("openJobAlertForm(keyword, 'end_card')");
+    expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertStickyBanner.tsx'), 'utf-8'))
+      .toContain("openJobAlertForm(undefined, 'sticky_banner')");
+  });
+});
+
+describe('issue 10528 — every alert surface keeps shown→created attribution', () => {
+  const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+  const jobBoard = () => source('components/community/JobBoard.tsx');
+  const form = () => source('components/community/JobAlertForm.tsx');
+
+  const directCreationSurfaces = new Set([
+    'job_detail_button',
+    'job_detail_prompt',
+    'job_board_filters',
+    'job_match_pill',
+  ]);
+
+  const formHandoffNeedles: Record<string, readonly [string, string][]> = {
+    inline_card: [
+      ['components/community/JobAlertForm.tsx', "useState<PendingJobAlertOrigin>('inline_card')"],
+      ['components/community/JobAlertForm.tsx', 'savePendingJobAlert(config, ctaOrigin)'],
+      ['components/community/JobAlertForm.tsx', "persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')"],
+    ],
+    job_detail_button: [
+      ['components/community/JobBoard.tsx', "requestJobAlertOpen(category || undefined, 'job_detail_button')"],
+    ],
+    job_board_filters: [
+      ['components/community/JobBoard.tsx', 'formOrigin="job_board_filters"'],
+      ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(keywordLabel, formOrigin)"],
+    ],
+    sticky_banner: [
+      ['components/community/JobAlertStickyBanner.tsx', "openJobAlertForm(undefined, 'sticky_banner')"],
+    ],
+    end_card: [
+      ['components/community/JobAlertEndCard.tsx', "openJobAlertForm(keyword, 'end_card')"],
+    ],
+  };
+
+  const shownNeedle = (surface: string) => (
+    surface === 'job_board_filters' || surface === 'job_match_pill'
+      ? `trackJobAlertCtaShownOnce('${surface}'`
+      : `trackJobAlertCtaShown('${surface}'`
+  );
+
+  it.each(ALERT_CTA_SURFACES)('%s has a matching shown and created origin', (surface) => {
+    const allSources = [
+      jobBoard(),
+      form(),
+      source('components/community/JobAlertStickyBanner.tsx'),
+      source('components/community/JobAlertEndCard.tsx'),
+      source('components/community/JobBoardFilterAlertCta.tsx'),
+    ].join('\n');
+
+    expect(allSources).toContain(shownNeedle(surface));
+
+    if (directCreationSurfaces.has(surface)) {
+      expect(jobBoard()).toContain(`surface: '${surface}'`);
+    }
+
+    const handoff = formHandoffNeedles[surface];
+    if (handoff) {
+      for (const [rel, needle] of handoff) {
+        expect(source(rel), `${surface} origin handoff in ${rel}`).toContain(needle);
+      }
+      expect(PENDING_JOB_ALERT_ORIGINS).toContain(surface);
+    }
+
+    expect(
+      directCreationSurfaces.has(surface) || Boolean(handoff),
+      `${surface} must have a direct matching creation or a central form handoff`,
+    ).toBe(true);
+  });
+
+  it.each([
+    ['calculator_results', 'components/calculator/SalaryAlertCTA.tsx'],
+    ['saved_jobs_nudge', 'components/community/JobBoard.tsx'],
+  ] as const)('%s emits a raw shown→created pair outside the campaign allowlist', (surface, rel) => {
+    const src = source(rel);
+    expect(ALERT_CTA_SURFACES).not.toContain(surface);
+    expect(src).toContain(`trackJobAlertCtaShown('${surface}'`);
+    expect(src).toContain(`surface: '${surface}'`);
+  });
+});
+
+describe('#13201 — direct one-tap acceptance precedes the create request', () => {
+  const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+
+  it.each([
+    'components/community/JobBoardFilterAlertCta.tsx',
+    'components/community/JobMatchAlertCta.tsx',
+    'components/community/JobDetailJobAlertButton.tsx',
+  ])('%s emits exactly one accept before awaiting create and keeps one outcome callback', (rel) => {
+    const src = source(rel);
+    const start = src.indexOf('const handleClick');
+    const end = src.indexOf('}, [', start);
+    const handler = src.slice(start, end);
+    const accept = handler.indexOf('onAccepted?.()');
+    const create = handler.indexOf('await subscribe(');
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    expect(handler.match(/onAccepted\?\.\(\)/g) ?? []).toHaveLength(1);
+    expect(accept).toBeGreaterThanOrEqual(0);
+    expect(create).toBeGreaterThan(accept);
+    expect(handler).toContain('if (onSubscribed) onSubscribed()');
+    expect(handler).toContain('if (onErrored) onErrored(error)');
+  });
+
+  it('wires the accept event to each existing GA4 surface', () => {
+    const board = source('components/community/JobBoard.tsx');
+    for (const [surface, keyword] of [
+      ['job_detail_button', 'selectedJob.title'],
+      ['job_board_filters', 'boardFilterAlertKeywordLabel'],
+      ['job_match_pill', 'jobMatchAlertCategoryLabel'],
+    ]) {
+      expect(board).toContain(
+        `onAccepted={() => Analytics.trackJobAlertCtaClick('${surface}', 'accept', ${keyword})}`,
+      );
+    }
+  });
+});
+
+describe('#13202 — anonymous job-detail origin survives the form and auth replay', () => {
+  it('keeps a dedicated origin and keyword through the single-shot handoff', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(board).toContain('formOrigin="job_detail_anonymous"');
+    expect(board).toContain("Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open'");
+
+    const signal = fs.readFileSync(path.join(ROOT, 'services/jobAlertOpenSignal.ts'), 'utf-8');
+    expect(signal).toContain('requestJobAlertOpen(keyword, origin)');
+    expect(signal).toContain('consumeJobAlertOpen');
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('const queued = consumeJobAlertOpen()');
+    expect(form).toContain('const origin = detail?.origin ?? queued?.origin');
+    expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
+    expect(form).toContain('const replaySurface = pending.origin ?? "post_auth_auto"');
+    expect(form).toContain('persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay")');
+
+    expect(PENDING_JOB_ALERT_ORIGINS).toContain('job_detail_anonymous');
+    expect(ALERT_CTA_SURFACES).not.toContain('job_detail_anonymous');
+    expect(fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8'))
+      .toContain("'job_detail_anonymous' | 'sticky_banner'");
+  });
+});
+
+describe('#13204 — board one-tap preserves only criteria supported by JobAlertConfig', () => {
+  it('passes active location, contract, sector, and canton values beside the category keyword', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(board).toContain('keywordLabel={boardFilterAlertKeywordLabel}');
+    expect(board).toContain("locations: selectedLocation === 'all' ? [] : [selectedLocation]");
+    expect(board).toContain("contractTypes: selectedContract === 'all' ? [] : [selectedContract]");
+    expect(board).toContain("sectors: selectedSector === 'all' ? [] : [selectedSector]");
+    expect(board).toContain('cantonCode={boardFilterAlertCantonCode}');
+
+    const service = fs.readFileSync(path.join(ROOT, 'services/jobAlertService.ts'), 'utf-8');
+    expect(service).toContain("keywords: [stripKeywordEmoji(category)]");
+    expect(service).toContain('locations: [...(filters?.locations ?? [])]');
+    expect(service).toContain('contractTypes: [...(filters?.contractTypes ?? [])]');
+    expect(service).toContain('sectors: [...(filters?.sectors ?? [])]');
+
+    const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('locations: selectedLocations');
+    expect(form).toContain('contractTypes: selectedContracts');
+    expect(form).toContain('sectors: selectedSectors');
+    expect(form).toContain('cantonFilter: selectedCantons.length > 0 ? selectedCantons : null');
+  });
+});
+
+describe('#7311 — the created event carries the funnel surface dimension', () => {
+  it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    const payload = src.slice(src.indexOf("log('job_alert_created'"));
+    expect(payload).toContain('cta_surface: surface');
+    // Kept alongside, not replaced: the PostHog queries read `alert_surface`.
+    expect(payload).toContain('alert_surface: surface');
+    // Issue 9576: the auth hop is a separate diagnostic field, never the surface.
+    expect(payload).toContain("alert_auth_path: details.authPath || 'direct'");
+  });
+});
+
+describe('#7765 — CTA eligibility precedes rendering and impression', () => {
+  it.each([
+    ['components/community/JobAlertEndCard.tsx', 'end_card'],
+    ['components/community/JobAlertStickyBanner.tsx', 'sticky_banner'],
+  ])('%s uses the shared eligibility gate before its impression surface', (rel, surface) => {
+    const src = fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+    expect(src, `${rel} must use the shared alert gate`).toContain('useJobAlertEligibility');
+    expect(src).toContain('eligibility !== true');
+    expect(src).toContain(`surface: '${surface}'`);
+  });
+
+  it('JobAlertForm gates only the inline impression, keeping management reachable', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(src).toContain('useJobAlertEligibility');
+    expect(src).toContain("surface: 'inline_card'");
+    expect(src).toContain('inlineCardEligibility === true');
+    expect(src).not.toMatch(/if \(inlineCardEligibility !== true\) return null/);
+  });
+
+  it('the post-apply detail button gates both the CTA and its shown event', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    expect(src).toContain("surface: 'job_detail_button'");
+    expect(src).toContain('if (!appliedAlertCtaVisible) return;');
+    expect(src).toContain('{appliedAlertCtaVisible && (');
+  });
+
+  it('all three surfaces resolve through the shared per-user cache', () => {
+    const hook = fs.readFileSync(path.join(ROOT, 'hooks/useJobAlertEligibility.ts'), 'utf-8');
+    const resolver = fs.readFileSync(path.join(ROOT, 'services/jobAlertEligibility.ts'), 'utf-8');
+    expect(hook).toContain('getJobAlertEligibility');
+    expect(resolver).toContain('fetchUserAlertsCached');
+    expect(resolver).toContain("import('./jobAlertService')");
+  });
+
+  it('analytics accepts an eligibility skip for each gated surface', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    const start = src.indexOf('trackJobAlertCtaSkipped:');
+    const block = src.slice(start, src.indexOf('},', start));
+    for (const surface of ['sticky_banner', 'end_card', 'job_detail_button', 'inline_card']) {
+      expect(block).toContain(`'${surface}'`);
+    }
+  });
+});
+
+describe('#5040 — the apply hand-off leaves a visible trace on the page', () => {
+  const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+
+  it('external apply records the applied job after the new-tab hand-off', () => {
+    // PostHog calls a click dead when nothing mutates within 2.5s. A bare
+    // window.open mutates nothing, so every apply — our highest-intent action —
+    // was logged as a $dead_click AND left the returning user with no feedback.
+    const source = src();
+    const handoffStart = source.indexOf('const redirectExternalApplication = async');
+    const handoffEnd = source.indexOf('const handleAssistedExternal', handoffStart);
+    const handoff = source.slice(handoffStart, handoffEnd);
+    const openNewTab = handoff.indexOf("window.open(applyDestination, '_blank', 'noopener,noreferrer');");
+    const recordAppliedJob = handoff.indexOf('setAppliedJobId(job.id);');
+    expect(handoffStart).toBeGreaterThanOrEqual(0);
+    expect(handoffEnd).toBeGreaterThan(handoffStart);
+    expect(openNewTab).toBeGreaterThanOrEqual(0);
+    expect(recordAppliedJob).toBeGreaterThan(openNewTab);
+
+    const applyStart = source.indexOf('const handleApply = (job: JobListing');
+    const applyEnd = source.indexOf('// Receipts of earlier rewarded grants', applyStart);
+    expect(source.slice(applyStart, applyEnd)).toContain('void redirectExternalApplication(job, surface, false);');
+  });
+
+  it('the receipt is rendered on both the mobile and the desktop apply blocks', () => {
+    expect(src().match(/\{appliedNoticeJsx\}/g) ?? []).toHaveLength(2);
+  });
+
+  it('the receipt is dropped when the user moves to another job', () => {
+    expect(src()).toMatch(/selectedJob\?\.id !== appliedJobId[\s\S]{0,120}setAppliedJobId\(null\)/);
+  });
+
+  it('its alert CTA does NOT require an authenticated session', () => {
+    // The only converting surface today is gated on userId+email and logs a
+    // `no_auth` skip for everyone else (34 such skips in 14d). Peak intent is
+    // the wrong moment to demand a login: hand off to JobAlertForm, which owns
+    // auth + email capture, exactly as SavedJobsAlertNudge already does.
+    const full = src();
+    const start = full.indexOf('const appliedNoticeJsx');
+    expect(start).toBeGreaterThan(-1);
+    const block = full.slice(start, full.indexOf(') : null;', start));
+    expect(block).toContain('requestJobAlertOpen');
+    expect(block).toContain('backToList()');
+    expect(block).not.toMatch(/\buserId\b/);
+    expect(block).not.toMatch(/\buserEmail\b/);
+  });
+});
+
+describe('applied-state copy exists in all four locales', () => {
+  it('the release entry is registered in WhatsNewModal', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/WhatsNewModal.tsx'), 'utf-8');
+    expect(src).toContain("whatsNew.v3910.applyReceipt.title");
+  });
+
+  it.each(['it', 'en', 'de', 'fr'])('%s', (locale) => {
+    const src = fs.readFileSync(path.join(ROOT, 'services/locales', `${locale}-core.ts`), 'utf-8');
+    for (const key of [
+      'jobBoard.applied.title',
+      'jobBoard.applied.body',
+      'jobBoard.applied.alertCta',
+      'jobBoard.applied.reopen',
+      // User-facing feature ⇒ WhatsNewModal entry (AGENTS.md, Accessibility And UX).
+      'whatsNew.v3910.title',
+      'whatsNew.v3910.applyReceipt.title',
+      'whatsNew.v3910.applyReceipt.desc',
+    ]) {
+      expect(src, `${locale} is missing ${key}`).toContain(`'${key}'`);
+    }
+  });
+});

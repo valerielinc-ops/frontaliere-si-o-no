@@ -1,0 +1,551 @@
+import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { deflateRawSync, inflateRawSync } from 'node:zlib';
+
+import {
+  AT_REGIONS_BY_CANTON,
+  DE_POINTS_BY_CANTON,
+  DE_SEARCH_RADIUS_KM,
+  FR_DEPARTMENTS_BY_CANTON,
+  GRANULARITIES,
+  MIN_STATIONS_PER_RECORD,
+  buildAtRecords,
+  buildChRecords,
+  buildFrRecords,
+  buildFuelCantonsDataset,
+  buildItRecords,
+  buildSwissNationalRecords,
+  createStationCantonResolver,
+  expectedCantons,
+  extractSingleZipEntry,
+  parseBfsFuelSheetXml,
+  parseEControStations,
+  parseFrenchInstantXml,
+  parseFrenchTimestamp,
+  parseItalianTimestamp,
+  parseTankerkoenigStations,
+  sourceHealth,
+  summarizePrices,
+  validateFuelCantonsDataset,
+} from '../scripts/lib/fuel-cantons-dataset.mjs';
+import {
+  fetchAustrianStations,
+  DE_REQUEST_INTERVAL_MS,
+  fetchFrenchStations,
+  fetchGermanStations,
+  fetchSwissNationalFuelPrices,
+} from '../scripts/lib/fuel-foreign-sources.mjs';
+import { buildFromInput } from '../scripts/build-fuel-cantons-dataset.mjs';
+import { buildFuelCantonsInput } from '../scripts/generate-fuel-prices-dataset.mjs';
+
+const ROOT = path.resolve(import.meta.dirname, '..');
+const readJson = (rel: string) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+const cantonSlugFile = readJson('data/canton-url-slugs.json');
+const postalIndex = readJson('data/swiss-postal-code-index.json');
+const localityIndex = readJson('data/swiss-locality-postal-codes.json');
+const CANTONS = Object.keys(cantonSlugFile.cantons);
+
+const HOUR = 3_600_000;
+const hoursAgo = (h: number) => new Date(Date.now() - h * HOUR);
+// French feed timestamps are Europe/Paris wall-clock "YYYY-MM-DD HH:MM:SS".
+const parisWallClock = (d: Date) => new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit',
+  hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23',
+}).format(d);
+// MIMIT timestamps are Europe/Rome "DD/MM/YYYY HH:MM:SS".
+const romeWallClock = (d: Date) => {
+  const [date, time] = parisWallClock(d).split(' ');
+  const [y, m, day] = date.split('-');
+  return `${day}/${m}/${y} ${time}`;
+};
+
+function makeZip(name: string, content: Buffer, { leadingDir }: { leadingDir?: string } = {}): Buffer {
+  const data = deflateRawSync(content);
+  const nameBuf = Buffer.from(name);
+  const local = Buffer.alloc(30);
+  local.writeUInt32LE(0x04034b50, 0);
+  local.writeUInt16LE(20, 4);
+  local.writeUInt16LE(8, 8);
+  local.writeUInt32LE(data.length, 18);
+  local.writeUInt32LE(content.length, 22);
+  local.writeUInt16LE(nameBuf.length, 26);
+  const cd = Buffer.alloc(46);
+  cd.writeUInt32LE(0x02014b50, 0);
+  cd.writeUInt16LE(8, 10);
+  cd.writeUInt32LE(data.length, 20);
+  cd.writeUInt32LE(content.length, 24);
+  cd.writeUInt16LE(nameBuf.length, 28);
+  cd.writeUInt32LE(0, 42);
+  const parts = [local, nameBuf, data];
+  const cdParts: Buffer[] = [];
+  if (leadingDir) {
+    // Stored, empty directory entry listed first in the central directory.
+    const dirName = Buffer.from(leadingDir);
+    const dirCd = Buffer.alloc(46);
+    dirCd.writeUInt32LE(0x02014b50, 0);
+    dirCd.writeUInt16LE(dirName.length, 28);
+    cdParts.push(dirCd, dirName);
+  }
+  cdParts.push(cd, nameBuf);
+  const cdBuf = Buffer.concat(cdParts);
+  const eocd = Buffer.alloc(22);
+  eocd.writeUInt32LE(0x06054b50, 0);
+  eocd.writeUInt16LE(leadingDir ? 2 : 1, 8);
+  eocd.writeUInt16LE(leadingDir ? 2 : 1, 10);
+  eocd.writeUInt32LE(cdBuf.length, 12);
+  eocd.writeUInt32LE(30 + nameBuf.length + data.length, 16);
+  return Buffer.concat([...parts, cdBuf, eocd]);
+}
+
+function frenchPdv(id: string, cp: string, prices: Array<[string, number, Date]>) {
+  const rows = prices
+    .map(([nom, valeur, at]) => `<prix nom="${nom}" id="1" maj="${parisWallClock(at)}" valeur="${valeur}"/>`)
+    .join('\n');
+  return `<pdv id="${id}" latitude="4700000" longitude="600000" cp="${cp}" pop="R"><adresse>x</adresse>${rows}</pdv>`;
+}
+
+function frenchXml(pdvs: string[]) {
+  return `<?xml version="1.0" encoding="ISO-8859-1"?>\n<pdv_liste>\n${pdvs.join('\n')}\n</pdv_liste>`;
+}
+
+describe('fuel cantons — source parsers', () => {
+  it('extracts the single deflated entry of a zip archive', () => {
+    const xml = Buffer.from(frenchXml([frenchPdv('25000001', '25000', [['Gazole', 2.1, hoursAgo(1)]])]));
+    expect(extractSingleZipEntry(makeZip('PrixCarburants_instantane.xml', xml), inflateRawSync).equals(xml)).toBe(true);
+    expect(() => extractSingleZipEntry(Buffer.from('not a zip at all, definitely not'), inflateRawSync)).toThrow(/central directory/);
+    // A directory entry ahead of the XML is skipped.
+    expect(extractSingleZipEntry(makeZip('x.xml', xml, { leadingDir: 'feed/' }), inflateRawSync).equals(xml)).toBe(true);
+  });
+
+  it('parses the latest BFS/UST monthly national fuel row from workbook XML', () => {
+    const sheet = `<worksheet><sheetData>
+      <row r="5"><c r="V5" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X5" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="6"><c r="A6"><v>46235</v></c><c r="V6"><v>1.98</v></c><c r="X6"><v>2.21</v></c></row>
+      <row r="7"><c r="A7"><v>46266</v></c><c r="V7"><v>2.02</v></c><c r="X7"><v>2.27</v></c></row>
+      <row r="8"><c r="A8"><v>46296</v></c><c r="V8"/><c r="X8"/></row>
+    </sheetData></worksheet>`;
+    expect(parseBfsFuelSheetXml(sheet)).toEqual({
+      sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z', period: '2026-09' },
+      diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z', period: '2026-09' },
+    });
+  });
+
+  it('keeps only the configured départements and maps SP95/E10/Gazole', () => {
+    const at = hoursAgo(2);
+    const xml = frenchXml([
+      frenchPdv('74000001', '74000', [['SP95', 2.2, at], ['E10', 2.1, at], ['Gazole', 2.3, at]]),
+      frenchPdv('01210001', '01210', [['E10', 2.05, at]]),
+      // Pre-2022 feeds: thousandths of a euro.
+      frenchPdv('25300001', '25300', [['Gazole', 2310, at]]),
+      frenchPdv('75001001', '75001', [['SP95', 2.5, at]]),
+      frenchPdv('68000001', '68000', [['GPLc', 1.1, at]]),
+    ]);
+    const stations = parseFrenchInstantXml(xml, { departments: ['74', '01', '25', '68'] });
+    expect(stations.map((s: any) => s.id)).toEqual(['FR-74000001', 'FR-01210001', 'FR-25300001']);
+    expect(stations[0].sp95.price).toBe(2.2);
+    expect(stations[1].sp95.price).toBe(2.05);
+    expect(stations[1].diesel).toBeNull();
+    expect(stations[2].diesel.price).toBeCloseTo(2.31, 6);
+    expect(Date.parse(stations[0].sp95.observedAt)).toBe(Math.floor(at.getTime() / 1000) * 1000);
+  });
+
+  it('converts Paris and Rome wall-clock times across DST', () => {
+    expect(parseFrenchTimestamp('2026-07-01 12:00:00')).toBe('2026-07-01T10:00:00.000Z');
+    expect(parseFrenchTimestamp('2026-01-15 12:00:00')).toBe('2026-01-15T11:00:00.000Z');
+    expect(parseItalianTimestamp('01/10/2026 07:54:22')).toBe('2026-10-01T05:54:22.000Z');
+    expect(parseFrenchTimestamp('garbage')).toBeNull();
+  });
+
+  it('parses E-Control and Tankerkönig responses', () => {
+    expect(parseEControStations([
+      { id: 1, prices: [{ fuelType: 'DIE', amount: 2.077 }] },
+      { id: 2, prices: [] },
+    ])).toEqual([{ id: 'AT-1', price: 2.077 }]);
+    expect(() => parseEControStations({ error: 'x' })).toThrow();
+    expect(parseTankerkoenigStations({ ok: true, stations: [{ id: 'a', e5: 1.9, diesel: false }] }))
+      .toEqual([{ id: 'DE-a', sp95: 1.9, diesel: null }]);
+    expect(() => parseTankerkoenigStations({ ok: false, message: 'apikey nicht angegeben' })).toThrow(/apikey/);
+  });
+});
+
+describe('fuel cantons — canton resolution of Swiss stations', () => {
+  const resolve = createStationCantonResolver({ postalIndex, localityIndex, cantonSlugFile });
+
+  it('resolves the NPA to the URL group and never defaults', () => {
+    expect(resolve({ address: 'Via Emilio Bossi 6, 6830 Chiasso' })).toBe('TI');
+    expect(resolve({ address: 'Hauptgasse 1, 9050 Appenzell' })).toBe('APPENZELLO');
+    expect(resolve({ address: 'Steinenvorstadt 2, 4051 Basel' })).toBe('BASILEA');
+    // A four-digit house number before the real NPA must not win.
+    expect(resolve({ address: 'Route 1200, 1950 Sion' })).toBe('VS');
+    // NPA shared by several localities of one canton (left out of the
+    // single-locality index) still resolves through the locality directory.
+    expect(resolve({ address: 'Via Cantonale 1, 6900 Lugano' })).toBe('TI');
+    // No NPA at all: the trailing locality name, when unambiguous.
+    expect(resolve({ address: 'Bahnhofstrasse 3, Chur' })).toBe('GR');
+    expect(resolve({ address: 'Somewhere without postcode' })).toBeNull();
+    // Only the postcode position counts: a known NPA used as a street number
+    // before an unknown postcode and locality must not decide the canton.
+    expect(resolve({ address: 'Via 6830, 9999 Sconosciuta' })).toBeNull();
+  });
+});
+
+describe('fuel cantons — aggregation', () => {
+  it('dedupes by id, drops implausible prices and outliers, enforces the station floor', () => {
+    const obs = [
+      { id: 'a', price: 2.0, observedAt: '2026-01-01T00:00:00.000Z' },
+      { id: 'a', price: 2.0, observedAt: '2026-01-01T00:00:00.000Z' },
+      { id: 'b', price: 2.1, observedAt: '2026-01-02T00:00:00.000Z' },
+      { id: 'c', price: 1.9 },
+      { id: 'd', price: 1.2 }, // > 20% below the median: stale/mistyped row
+      { id: 'e', price: 19.9 }, // outside PRICE_BOUNDS
+    ];
+    const r = summarizePrices({ canton: 'TI', side: 'IT', fuel: 'sp95', currency: 'EUR', observations: obs, source: 's', area: 'a', coverage: 'c' });
+    expect(r).toMatchObject({ canton: 'TI', side: 'IT', fuel: 'sp95', avg: 2, median: 2, min: 1.9, stations: 3, observedAt: '2026-01-02T00:00:00.000Z' });
+    expect(summarizePrices({ canton: 'TI', side: 'IT', fuel: 'sp95', currency: 'EUR', observations: obs.slice(0, MIN_STATIONS_PER_RECORD - 1), source: 's' })).toBeNull();
+  });
+
+  it('builds CH records per resolved canton and IT records from self-service rows only', () => {
+    const resolve = createStationCantonResolver({ postalIndex, localityIndex, cantonSlugFile });
+    const swissStations = [1, 2, 3].map((i) => ({ id: `t${i}`, address: `Via ${i}, 6900 Lugano`, sp95PriceChf: 1.9 + i / 100, dieselPriceChf: 2 + i / 100, updatedAt: hoursAgo(1).toISOString() }));
+    swissStations.push({ id: 'x', address: 'no npa', sp95PriceChf: 1.9, dieselPriceChf: 2, updatedAt: null as any });
+    const ch = buildChRecords({ swissStations, resolveStationCanton: resolve, observedAtFallback: 'fallback' });
+    expect(ch.map((r: any) => `${r.canton}/${r.side}/${r.fuel}/${r.stations}`)).toEqual(['TI/CH/sp95/3', 'TI/CH/diesel/3']);
+
+    const fresh = romeWallClock(hoursAgo(5));
+    const stale = romeWallClock(hoursAgo(24 * 40));
+    const italyStations = [
+      ...[1, 2, 3].map((i) => ({ id: `co${i}`, province: 'CO', isSelf: true, priceEur: 1.95, dieselPriceEur: 2.05, updatedAt: fresh })),
+      { id: 'co9', province: 'CO', isSelf: false, priceEur: 2.2, dieselPriceEur: 2.3, updatedAt: fresh },
+      { id: 'co8', province: 'CO', isSelf: true, priceEur: 1.95, dieselPriceEur: 2.05, updatedAt: stale },
+    ];
+    const it = buildItRecords({ italyStations, nowMs: Date.now() });
+    expect(it.filter((r: any) => r.canton === 'TI').map((r: any) => r.stations)).toEqual([3, 3]);
+  });
+});
+
+function syntheticRecords() {
+  const nowIso = new Date().toISOString();
+  const frenchStations = Object.values(FR_DEPARTMENTS_BY_CANTON).flat().flatMap((dep, i) =>
+    [0, 1, 2].map((k) => ({ id: `FR-${dep}-${k}`, department: dep, sp95: { price: 2.2 + k / 100, observedAt: nowIso }, diesel: { price: 2.4, observedAt: nowIso } })));
+  const austrianByRegion = Object.fromEntries([...new Set(Object.values(AT_REGIONS_BY_CANTON).flat())].map((code) => [code, {
+    sp95: [0, 1, 2].map((k) => ({ id: `AT-${code}-${k}`, price: 1.8 })),
+    diesel: [0, 1, 2].map((k) => ({ id: `AT-${code}-${k}`, price: 2.1 })),
+  }]));
+  const ch = buildSwissNationalRecords({
+    nationalPrices: {
+      sp95: { price: 2, observedAt: nowIso },
+      diesel: { price: 2.2, observedAt: nowIso },
+    },
+    cantonCodes: CANTONS,
+  });
+  const fresh = romeWallClock(hoursAgo(3));
+  const italyStations = ['CO', 'SO', 'VB'].flatMap((p) => [0, 1, 2].map((k) => ({ id: `${p}${k}`, province: p, isSelf: true, priceEur: 1.95, dieselPriceEur: 2.05, updatedAt: fresh })));
+  return {
+    ch,
+    it: buildItRecords({ italyStations, nowMs: Date.now() }),
+    fr: buildFrRecords({ frenchStations, nowMs: Date.now() }),
+    at: buildAtRecords({ austrianByRegion, observedAt: nowIso }),
+  };
+}
+
+describe('fuel cantons — dataset and validity gate', () => {
+  it('publishes one flat record per canton/side/fuel with the contract fields', () => {
+    const { ch, it, fr, at } = syntheticRecords();
+    const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: { chfPerEur: 0.93, eurPerChf: 1.075 }, sourceStatus: {}, records: [...fr, ...ch, ...at, ...it] });
+    expect(dataset.cantons).toHaveLength(24);
+    expect(dataset.coverage.expectedCantonsWithData).toEqual(expectedCantons(CANTONS));
+    for (const r of dataset.records) {
+      for (const key of ['canton', 'side', 'fuel', 'avg', 'min', 'stations', 'observedAt', 'source', 'granularity']) expect(r).toHaveProperty(key);
+      expect(GRANULARITIES).toContain(r.granularity);
+      expect(CANTONS).toContain(r.canton);
+    }
+    expect(dataset.records[0].canton <= dataset.records[dataset.records.length - 1].canton).toBe(true);
+    expect(validateFuelCantonsDataset(dataset)).toMatchObject({ ok: true, coverageRatio: 1 });
+  });
+
+  it('refuses the dataset when any Swiss canton loses its value', () => {
+    const { ch, it, at } = syntheticRecords();
+    const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: null, sourceStatus: {}, records: [...ch.filter((r: any) => r.canton !== 'AG'), ...it, ...at] });
+    const verdict = validateFuelCantonsDataset(dataset);
+    expect(verdict.ok).toBe(false);
+    expect(verdict.errors.join('\n')).toMatch(/no CH value for canton groups: AG/);
+  });
+
+  it('refuses the dataset when the Swiss national source is missing', () => {
+    const { fr, at } = syntheticRecords();
+    const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: null, sourceStatus: {}, records: [...fr, ...at] });
+    expect(validateFuelCantonsDataset(dataset).errors).toEqual(expect.arrayContaining([expect.stringMatching(/no CH record/)]));
+  });
+
+  it('rejects a configured canton that is not a URL group', () => {
+    expect(() => buildFuelCantonsDataset({ cantonCodes: CANTONS.filter((c) => c !== 'GE'), generatedAt: '', exchangeRate: null, sourceStatus: {}, records: [] })).toThrow(/GE/);
+  });
+});
+
+describe('fuel cantons — fetchers are failure-isolated', () => {
+  const okResponse = (body: unknown, binary = false) => ({
+    ok: true,
+    status: 200,
+    json: async () => body,
+    arrayBuffer: async () => {
+      const b = body as Buffer;
+      return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength);
+    },
+    binary,
+  });
+
+  it('skips Germany without the Tankerkönig key and never leaks the key in a failure', async () => {
+    expect(await fetchGermanStations({ apiKey: '' })).toMatchObject({ status: 'skipped' });
+    const secret = 'k3y-should-not-leak';
+    const res = await fetchGermanStations({
+      apiKey: secret,
+      requestIntervalMs: 0,
+      fetchImpl: (async (url: string) => { throw new Error(`boom ${url}`); }) as any,
+    });
+    expect(res.status).toBe('failed');
+    expect(res.reason).not.toContain(secret);
+  });
+
+  it('stops after one ok:false response for a rejected or expired key', async () => {
+    for (const message of ['Key existiert nicht oder ist deaktiviert', 'API key expired']) {
+      let calls = 0;
+      const result = await fetchGermanStations({
+        apiKey: 'key-used-only-in-test',
+        requestIntervalMs: 0,
+        fetchImpl: (async () => {
+          calls += 1;
+          return okResponse({ ok: false, message });
+        }) as any,
+      });
+      expect(result).toMatchObject({ status: 'skipped' });
+      expect(result.reason).toContain('rejected');
+      expect(result.reason).toContain(message);
+      expect(calls).toBe(1);
+    }
+  });
+
+  it('drops a partial DE overlay when a later group rejects the key', async () => {
+    let calls = 0;
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => {
+        calls += 1;
+        if (calls === 1) return okResponse({ ok: true, stations: [{ id: 'first', e5: 1.8, diesel: 2.0 }] });
+        return okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' });
+      }) as any,
+    });
+    expect(result).toMatchObject({ status: 'skipped', data: {}, coverage: {} });
+    expect(calls).toBe(2);
+  });
+
+  it('queries every configured border point serially, dedupes stations, and exposes coverage', async () => {
+    const requests: URL[] = [];
+    const waits: number[] = [];
+    const cantonOrder = Object.keys(DE_POINTS_BY_CANTON);
+    const configuredPoints = Object.values(DE_POINTS_BY_CANTON).flat();
+    const zhStart = cantonOrder
+      .slice(0, cantonOrder.indexOf('ZH'))
+      .reduce((sum, canton) => sum + DE_POINTS_BY_CANTON[canton].length, 0);
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: DE_REQUEST_INTERVAL_MS,
+      sleepImpl: async (ms) => waits.push(ms),
+      fetchImpl: (async (url: string) => {
+        requests.push(new URL(url));
+        const requestNumber = requests.length;
+        const isZhRequest = requestNumber > zhStart
+          && requestNumber <= zhStart + DE_POINTS_BY_CANTON.ZH.length;
+        return okResponse({
+          ok: true,
+          stations: [0, 1, 2].map((i) => ({
+            id: isZhRequest && i === 0 ? 'zh-shared' : `${requestNumber}-${i}`,
+            e5: 1.8 + i / 100,
+            diesel: 2.0 + i / 100,
+          })),
+        });
+      }) as any,
+    });
+    expect(DE_REQUEST_INTERVAL_MS).toBe(60_000);
+    expect(Object.keys(DE_POINTS_BY_CANTON)).toEqual(['BASILEA', 'AG', 'SH', 'TG', 'ZH', 'SG']);
+    expect(requests).toHaveLength(configuredPoints.length);
+    expect(waits).toEqual(Array(configuredPoints.length - 1).fill(DE_REQUEST_INTERVAL_MS));
+    expect(requests.every((url, i) => url.searchParams.get('rad') === String(configuredPoints[i].radiusKm ?? DE_SEARCH_RADIUS_KM))).toBe(true);
+    expect(requests.slice(zhStart, zhStart + DE_POINTS_BY_CANTON.ZH.length).map((url) => url.searchParams.get('lat')))
+      .toEqual(DE_POINTS_BY_CANTON.ZH.map((point) => String(point.lat)));
+    expect(result.status).toBe('ok');
+    for (const canton of Object.keys(DE_POINTS_BY_CANTON)) {
+      const expectedStations = canton === 'ZH'
+        ? 3 + (DE_POINTS_BY_CANTON.ZH.length - 1) * 2
+        : 3;
+      expect(result.coverage[canton]).toMatchObject({ stations: expectedStations, sp95: expectedStations, diesel: expectedStations });
+    }
+    expect(new Set(result.data.ZH.map((station: any) => station.id)).size).toBe(result.data.ZH.length);
+    expect(result.data.ZH).toHaveLength(3 + (DE_POINTS_BY_CANTON.ZH.length - 1) * 2);
+
+    const dataset = await buildFromInput({}, {
+      fetchers: {
+        ch: async () => ({ status: 'ok', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+        de: async () => result,
+      },
+    });
+    expect(dataset.health.de).toBe('ok');
+    expect(dataset.records.filter((record: any) => record.side === 'DE')).toHaveLength(12);
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+  });
+
+  it('keeps the Swiss dataset valid when DE is missing, rejected, expired, or offline', async () => {
+    const fetchers = (de: any) => ({
+      ch: async () => ({ status: 'ok', data: {
+        sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+        diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+      } }),
+      fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+      at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+      de: async () => de,
+    });
+    const rejected = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' })) as any,
+    });
+    const expired = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'API key expired' })) as any,
+    });
+    const offline = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => { throw new Error('network offline'); }) as any,
+    });
+    const cases = [
+      { de: { status: 'skipped', reason: 'missing key', data: {} }, health: 'skipped' },
+      { de: rejected, health: 'skipped' },
+      { de: expired, health: 'skipped' },
+      { de: offline, health: 'failed:network offline' },
+    ];
+    for (const { de, health } of cases) {
+      const dataset = await buildFromInput({}, { fetchers: fetchers(de) });
+      if (health === 'failed:network offline') {
+        expect(dataset.health.de).toContain('network offline');
+      } else {
+        expect(dataset.health.de).toBe(health);
+      }
+      expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+    }
+    expect(sourceHealth(offline)).toContain('network offline');
+  });
+
+  it('reads the Austrian regions and the French zip through the injected fetch', async () => {
+    const at = await fetchAustrianStations({ fetchImpl: (async () => okResponse([{ id: 7, prices: [{ amount: 2.0 }] }])) as any });
+    expect(at.status).toBe('ok');
+    expect(at.data[8].sp95).toEqual([{ id: 'AT-7', price: 2 }]);
+
+    const zip = makeZip('x.xml', Buffer.from(frenchXml([frenchPdv('74000001', '74000', [['Gazole', 2.3, hoursAgo(1)]])]), 'latin1'));
+    const fr = await fetchFrenchStations({ fetchImpl: (async () => okResponse(zip, true)) as any });
+    expect(fr).toMatchObject({ status: 'ok', stationCount: 1 });
+
+    const bfsSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c><c r="X2"><v>2.27</v></c></row>
+    </sheetData></worksheet>`;
+    const ch = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
+    });
+    expect(ch).toMatchObject({ status: 'ok', observedMonth: '2026-09', data: { sp95: { price: 2.02 }, diesel: { price: 2.27 } } });
+
+    const stale = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2027-01-01T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
+    });
+    expect(stale).toMatchObject({ status: 'failed' });
+    expect(stale.reason).toMatch(/older than/);
+
+    const splitFreshnessSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46244</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitFreshness = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-01T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitFreshnessSheet)), true)) as any,
+    });
+    expect(splitFreshness).toMatchObject({ status: 'ok' });
+
+    const splitStaleSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46204</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitStale = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-06T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitStaleSheet)), true)) as any,
+    });
+    expect(splitStale).toMatchObject({ status: 'failed', data: {} });
+    expect(splitStale.reason).toMatch(/diesel/);
+  });
+});
+
+describe('fuel cantons — producer CLI', () => {
+  it('builds from the generator hand-off with injected foreign sources', async () => {
+    const nowIso = new Date().toISOString();
+    const italyByMunicipality = new Map([
+      ['Como:CO', [0, 1, 2].map((k) => ({ id: `c${k}`, isSelf: true, priceEur: 1.95, dieselPriceEur: 2.05, updatedAt: romeWallClock(hoursAgo(2)) }))],
+    ]);
+    const input = buildFuelCantonsInput({
+      generatedAt: nowIso,
+      italyExtractedAt: nowIso.slice(0, 10),
+      swissStations: [0, 1, 2].map((k) => ({ id: `s${k}`, address: `Via ${k}, 6900 Lugano`, lat: 46, lng: 8.95, sp95PriceChf: 1.99, dieselPriceChf: 2.1, updatedAt: nowIso, name: 'drop me' })),
+      italyByMunicipality,
+      exchangeRate: { chfPerEur: 0.93, eurPerChf: 1.075 },
+    });
+    expect(input.italyStations[0]).toMatchObject({ province: 'CO', isSelf: true });
+    expect(input.swissStations[0]).not.toHaveProperty('name');
+
+    const dataset = await buildFromInput(input, {
+      fetchers: {
+        ch: async () => ({ status: 'ok', observedMonth: '2026-09', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'ok', data: { 8: { sp95: [], diesel: [] }, 7: { sp95: [], diesel: [] } } }),
+        de: async () => ({ status: 'skipped', reason: 'no key', data: {} }),
+      },
+    });
+    expect(dataset.sources.FR).toMatchObject({ status: 'failed', reason: 'offline' });
+    expect(dataset.sources.FR).not.toHaveProperty('data');
+    expect(dataset.records.filter((r: any) => r.canton === 'TI').map((r: any) => r.side)).toEqual(['CH', 'CH', 'IT', 'IT']);
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+  });
+
+  it('builds the Swiss baseline when the generator hand-off is absent', async () => {
+    const now = new Date('2026-10-06T12:00:00.000Z');
+    const dataset = await buildFromInput({}, {
+      now,
+      fetchers: {
+        ch: async () => ({ status: 'ok', observedMonth: '2026-09', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+        de: async () => ({ status: 'skipped', reason: 'blocked', data: {} }),
+      },
+    });
+    expect(dataset.records.filter((r: any) => r.side === 'CH')).toHaveLength(48);
+    expect(dataset.health.de).toBe('skipped');
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+  });
+});

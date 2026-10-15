@@ -1,0 +1,1149 @@
+#!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+/**
+ * campaign-goal-check.mjs — scheduled verification of the measurable goals
+ * declared in the campaign backlog issues #4298-#4307
+ * (valerielinc-ops/frontaliere-si-o-no). Only monitor-seo-ctr-by-template.yml
+ * (CTR-by-template) and cwv-monitor.yml (Core Web Vitals) had scheduled
+ * checks before this — the 9 goals below had none.
+ *
+ * Zero Claude invocations — deterministic provider queries only (AGENTS.md
+ * quota-frugality rule).
+ *
+ * State machine per goal (data/campaign-goal-status.json):
+ *   observing  → today < campaignStart + matureAfterDays. Log only, no
+ *                provider query, no issue.
+ *   passed     → evaluated once mature and met target. NEVER re-evaluated
+ *                again (state is terminal — goal stays "passed" forever).
+ *   failing    → evaluated, missed target. Opens/dedupes a GitHub issue via
+ *                scripts/lib/github-issue-creator.mjs with a stable per-goal
+ *                title ("Campaign goal FAILED: <id>"). Re-evaluated every run
+ *                until it passes.
+ *   error      → the provider query for this goal failed this run. Logged
+ *                only — NEVER opens an issue by itself (a single broken goal
+ *                must not spam issues on a live-still-maturing metric).
+ *   unmeasurable → the goal's data source doesn't support the query on this
+ *                plan/endpoint (bing_clicks), its source is not alive over
+ *                the goal's window (GA4 vitality guard), or the goal has no
+ *                GA4 equivalent since PostHog stopped being a monitor source
+ *                (decision H9, 2026-10-05: dead_clicks_reduction,
+ *                calc_deeplink_input_start). Logged with a note, no issue.
+ *
+ * Anti-watchdog-dead guard (mirrors scripts/cwv-monitor-check.mjs): a single
+ * goal's provider failure is soft (state=error, no issue) — but if EVERY
+ * goal sharing the same `source` fails to query in the same run, that source
+ * is flagged "dead" (auth/host almost certainly broken) and the process
+ * exits 1 so CI surfaces it loudly instead of silently reporting nothing
+ * forever.
+ *
+ * Usage: node --import tsx/esm scripts/campaign-goal-check.mjs [--dry-run]
+ *        (il loader `tsx` consente a scripts/lib/seo-ctr-curve.mjs di
+ *        importare i moduli foglia .ts)
+ *   --dry-run: evaluate + print the table, but never write state or open
+ *              issues (used for local dry runs / tests).
+ */
+
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import {
+  checkGa4Liveness,
+  declareNotMeasurable,
+  evaluateLiveness,
+  GA4_LIVENESS_LAG_DAYS,
+} from './lib/source-liveness.mjs';
+import { aggregateFamilyRows } from './lib/seo-ctr-curve.mjs';
+import { computeCtr } from './lib/analytics-opportunity-utils.mjs';
+import { getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { getBingRankAndTrafficStats } from './lib/bing-webmaster.mjs';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
+const STATE_PATH = resolve(ROOT, 'data', 'campaign-goal-status.json');
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// The ONE legitimate absolute-date constant in this file (owner-declared
+// campaign kickoff for issues #4298-#4307). Every maturity check derives
+// from this + matureAfterDays, never from a second hardcoded date.
+export const CAMPAIGN_START = '2026-07-17';
+
+// Widest window of a liveness-guarded goal (error_rate, 30d; the alert
+// funnel declares `windowDays: 14` and is ruled on over its own window).
+const LIVENESS_MAX_GOAL_WINDOW_DAYS = 30;
+
+// ---------------------------------------------------------------------------
+// Pure date/state-machine helpers (exported for unit tests — no I/O, no env).
+// ---------------------------------------------------------------------------
+
+/** campaignStart ('YYYY-MM-DD') + matureAfterDays → 'YYYY-MM-DD'. */
+export function computeMatureAt(campaignStart, matureAfterDays) {
+  const start = new Date(`${campaignStart}T00:00:00Z`);
+  return new Date(start.getTime() + matureAfterDays * DAY_MS).toISOString().slice(0, 10);
+}
+
+/** True once `now` reaches (UTC midnight of) matureAt. */
+export function isMature(matureAt, now) {
+  return now.getTime() >= new Date(`${matureAt}T00:00:00Z`).getTime();
+}
+
+/**
+ * Decide what to do with a goal this run.
+ * @returns {'skip-passed'|'observing'|'evaluate'}
+ */
+export function decideGoalAction({ matureAt, now, priorState }) {
+  if (priorState === 'passed') return 'skip-passed';
+  return isMature(matureAt, now) ? 'evaluate' : 'observing';
+}
+
+// ---------------------------------------------------------------------------
+// Product-event goals (#4298, #4304 x2, #4307). Until decision H9
+// (2026-10-05, «rimpiazza PostHog con GA4») they were PostHog HogQL goals
+// with a GA4 fallback; GA4 is now their only source. The two goals with no
+// GA4 equivalent stay declared but never read PostHog again — see
+// `noGa4Equivalent` below.
+// ---------------------------------------------------------------------------
+
+function fmtPct(n) {
+  return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : `${(n * 100).toFixed(2)}%`;
+}
+
+function fmtNum(n) {
+  return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : (Math.round(n * 100) / 100).toString();
+}
+
+// Issue #7763: only these surfaces emit the preceding
+// `job_alert_cta_shown` impression. The other `job_alert_created` surfaces are
+// valid product events, but they do not belong in this impression funnel.
+export const ALERT_CTA_SURFACES = Object.freeze([
+  'inline_card',
+  'job_detail_button',
+  'job_detail_prompt',
+  'job_board_filters',
+  'job_match_pill',
+  'sticky_banner',
+  'end_card',
+]);
+export const ALERT_FUNNEL_EVENT_NAMES = Object.freeze(['job_alert_cta_shown', 'job_alert_created']);
+export const ALERT_CTA_SURFACE_DIMENSION = 'customEvent:cta_surface';
+export const ALERT_CTA_SURFACE_NOT_SET = '(not set)';
+// A registered dimension is still unusable when more than 5% of the observed
+// users have no surface value. This is deliberately explicit and observable;
+// tighten it only after the scheduled preflight has produced evidence.
+export const ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE = 0.05;
+
+// #4298 — funnel: job_alert_cta_shown → job_alert_created, 14d, target >= 5%.
+//
+// Counted per PERSON, not per event (fix #7311). A funnel conversion answers
+// "of the people who saw the CTA, how many created an alert": dividing raw
+// event counts answered a different question, because the two sides of the
+// ratio do not scale together. `job_alert_created` is capped near one per
+// person (an alert is created once, and `MAX_ALERTS_PER_USER` caps the rest),
+// while `job_alert_cta_shown` grows with pageviews × the number of alert
+// surfaces on the page — the site now has seven of them. Measured on GA4 over
+// the 14d window of this issue: 12,923 impressions from 3,612 distinct people
+// (3.6 impressions each) against 238 creations from 163 people, i.e. 1.84%
+// per event and 4.51% per person. Every new CTA surface mechanically lowered
+// the per-event number even when it added conversions.
+//
+// This is a measurement-correctness fix, NOT a threshold relaxation: the
+// target stays 5% and the goal still fails at 4.51% (same posture as the
+// instrumentation fix in tests/job-alert-impression-contract.test.tsx). The
+// error-rate goal is person-scoped too (`totalUsers`). `viaGa4: false` keeps
+// the historical PostHog wording ("persone") for records written before H9.
+export function alertFunnelOutcome({
+  created,
+  shown,
+  viaGa4 = false,
+  ctaSurfaceNotSetShare = null,
+  surfaceBreakdown = null,
+}) {
+  const shownN = Number(shown) || 0;
+  const createdN = Number(created) || 0;
+  const rate = shownN > 0 ? createdN / shownN : null;
+  const unit = viaGa4 ? 'utenti' : 'persone';
+  const coverageDetail = viaGa4 && ctaSurfaceNotSetShare !== null
+    ? `, cta_surface (not set) ${fmtPct(ctaSurfaceNotSetShare)}`
+    : '';
+  const surfaceTable = viaGa4 && Array.isArray(surfaceBreakdown)
+    ? [
+      'Le righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.',
+      '',
+      '| cta_surface | shown users | created users | rate |',
+      '| --- | ---: | ---: | ---: |',
+      `| aggregate | ${shownN} | ${createdN} | ${fmtPct(rate)} |`,
+      ...surfaceBreakdown.map(({ surface, shown: surfaceShown, created: surfaceCreated, rate: surfaceRate }) =>
+        `| ${surface} | ${surfaceShown} | ${surfaceCreated} | ${fmtPct(surfaceRate)} |`),
+    ].join('\n')
+    : '';
+  return {
+    passed: rate !== null && rate >= 0.05,
+    value: {
+      rate,
+      created: createdN,
+      shown: shownN,
+      ...(viaGa4 && ctaSurfaceNotSetShare !== null ? { ctaSurfaceNotSetShare } : {}),
+      ...(viaGa4 && Array.isArray(surfaceBreakdown) ? { surfaceBreakdown } : {}),
+    },
+    targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', GA4' : ''})`,
+    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4]' : ''}`
+      + (surfaceTable ? `\n\n${surfaceTable}` : ''),
+  };
+}
+
+// #4298 on GA4 (primary since H9; GA4 fallback since the 2026-08-25 owner
+// decision, issue #6463). job_alert_cta_shown and job_alert_created reach GA4
+// verbatim through Analytics.log() (services/analytics.ts — the same call
+// fires both posthogCapture() and the Firebase/GA4 log), so GA4's
+// per-eventName `totalUsers` measures the person-scoped funnel once the
+// read-only cta_surface preflight succeeds and the same seven-surface
+// allowlist is applied. #4304's native $dead_click (PostHog-only autocapture)
+// and #4307's session-scoped funnel have no GA4 equivalent — see GOALS.
+export async function evalAlertFunnelConversionGa4({
+  token = null,
+  runReportImpl = ga4RunReport,
+  logImpl = console.log,
+} = {}) {
+  const accessToken = token || await getGoogleAccessToken();
+  const preflight = await checkAlertCtaSurfaceDimension(accessToken, 14, { runReportImpl, logImpl });
+  if (!preflight.ready) return { unmeasurable: true, note: preflight.reason };
+  // `totalUsers` broken down by eventName = distinct users who fired that
+  // event: the person-scoped count the funnel needs. Keep it separate from
+  // the surface rows because users can appear in more than one surface.
+  const [counts, surfaceReport] = await Promise.all([
+    ga4EventCountByName(
+      accessToken,
+      ALERT_FUNNEL_EVENT_NAMES,
+      14,
+      'totalUsers',
+      { dimensionFilter: buildAlertFunnelGa4Filter(), runReportImpl },
+    ),
+    runReportImpl(accessToken, {
+      dimensions: [
+        { name: 'eventName' },
+        { name: ALERT_CTA_SURFACE_DIMENSION },
+      ],
+      metrics: ['totalUsers'],
+      dimensionFilter: buildAlertFunnelGa4Filter(),
+      windowDays: 14,
+    }),
+  ]);
+  return alertFunnelOutcome({
+    created: counts.get('job_alert_created') || 0,
+    shown: counts.get('job_alert_cta_shown') || 0,
+    viaGa4: true,
+    ctaSurfaceNotSetShare: preflight.notSetShare,
+    surfaceBreakdown: inspectAlertFunnelSurfaceBreakdown(surfaceReport),
+  });
+}
+
+// #4304/#7312 — error rate, 30d, target < 1%, on GA4 (primary since H9). The
+// retired PostHog query counted all app_error/exception/$exception persons;
+// the GA4 numerator is narrower because GA4 retains historical self-healed
+// module-link noise: its filter keeps only actionable error types and mirrors
+// the proven non-actionable classes from scripts/lib/error-issue-sync.mjs. Neither provider exposes an ad_blocker
+// dimension on these events, so that separate noise remains tolerated by the
+// goal rather than hidden behind an unavailable filter.
+export const GA4_ERROR_RATE_EVENT_NAMES = Object.freeze(['app_error', 'exception']);
+export const GA4_ERROR_RATE_ACTIONABLE_TYPES = Object.freeze([
+  'error_boundary',
+  'api_error',
+  'unhandled_error',
+]);
+export const GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS = Object.freeze([
+  { value: 'Importing a module script failed', matchType: 'CONTAINS' },
+  { value: 'does not provide', matchType: 'CONTAINS' },
+  { value: 'import not found', matchType: 'CONTAINS' },
+  { value: 'indirect export', matchType: 'CONTAINS' },
+  { value: 'Importing binding name', matchType: 'CONTAINS' },
+  { value: 'Script error.', matchType: 'EXACT' },
+  { value: 'Error: Script error.', matchType: 'EXACT' },
+  { value: 'auth/network-request-failed', matchType: 'CONTAINS' },
+  { value: "Unexpected token '?'", matchType: 'CONTAINS' },
+  { value: 'Unexpected token "?"', matchType: 'CONTAINS' },
+  { value: 'NotReadableError: The I/O read operation failed', matchType: 'CONTAINS' },
+]);
+
+function ga4NotStringFilter(fieldName, { value, matchType }) {
+  return {
+    notExpression: {
+      filter: { fieldName, stringFilter: { value, matchType } },
+    },
+  };
+}
+
+/**
+ * GA4 filter for #7312. Raw telemetry stays available in GA4; only
+ * the goal's person-level numerator removes known recovery/environment noise.
+ */
+export function buildErrorRateGa4Filter() {
+  return ga4AndFilter(
+    ga4EventNameFilter(GA4_ERROR_RATE_EVENT_NAMES),
+    { filter: { fieldName: 'customEvent:error_type', inListFilter: { values: GA4_ERROR_RATE_ACTIONABLE_TYPES } } },
+    ...GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS.map((entry) => (
+      ga4NotStringFilter('customEvent:error_message', entry)
+    )),
+  );
+}
+
+// #4304's error-rate goal on GA4 (primary since H9; fallback since the
+// 2026-08-25 decision, issue #6463). app_error and exception reach GA4 through
+// Analytics.log() like the funnel events above; PostHog's native $exception
+// has no GA4 equivalent, so the numerator is narrower than the retired
+// PostHog query — disclosed in the detail string, not hidden. page_view is
+// GA4's own automatically-collected pageview event, the analogue of
+// PostHog's $pageview.
+export async function evalErrorRateGa4({ tokenImpl = getGoogleAccessToken, runReportImpl = ga4RunReport } = {}) {
+  const token = await tokenImpl();
+  const [errorUsers, pageviewUsers] = await Promise.all([
+    ga4DistinctUsersForEvents(token, GA4_ERROR_RATE_EVENT_NAMES, 30, {
+      dimensionFilter: buildErrorRateGa4Filter(),
+      runReportImpl,
+    }),
+    ga4DistinctUsersForEvents(token, ['page_view'], 30, { runReportImpl }),
+  ]);
+  const rate = pageviewUsers > 0 ? errorUsers / pageviewUsers : null;
+  if (rate === null) {
+    return {
+      passed: false,
+      unmeasurable: true,
+      value: { rate: null, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
+      targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, GA4)',
+      detail: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
+      note: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
+    };
+  }
+  return {
+    passed: rate < 0.01,
+    value: { rate, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
+    targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, GA4)',
+    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4; app_error|exception, tipi azionabili, classi self-healed note escluse; non include $exception nativo PostHog]`,
+  };
+}
+
+/**
+ * Goals whose PostHog measurement has no GA4 equivalent. Since H9
+ * (2026-10-05) PostHog is not a monitor source, and GA4 does not receive the
+ * same quantity:
+ *
+ *  - #4304 dead_clicks_reduction tracks PostHog's NATIVE `$dead_click`
+ *    autocapture (baseline 25,675/30d). GA4 only receives the custom
+ *    `dead_click` from Analytics.log() (services/analytics.ts), a different
+ *    heuristic capped at 3 per page with a ~2,747/30d baseline: a different
+ *    metric, not a substitute for this target.
+ *  - #4307 calc_deeplink_input_start joins `calculator_deep_link_arrival`
+ *    with `input_change`/`simulation_complete` inside the SAME session. GA4
+ *    receives all three events, but runReport cannot intersect sessions
+ *    across events without a session-id dimension, and the 50 EVENT-scoped
+ *    custom dimensions are full (owner decision H4: none freed for now).
+ *
+ * Inventing a proxy would be a new metric against an old target, so the
+ * goal stays declared and reports `unmeasurable` with this reason: no issue,
+ * no pass/fail, no PostHog query.
+ */
+export function noGa4Equivalent(reason) {
+  const note = `nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): ${reason}`;
+  return async () => ({ unmeasurable: true, note, detail: note });
+}
+
+// ---------------------------------------------------------------------------
+// Google auth — GSC (OAuth2 refresh token, SA fallback) and GA4 share one
+// cached token per run (both goals sets only need read-only scopes).
+// ---------------------------------------------------------------------------
+
+const GSC_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
+const GA4_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly';
+const GSC_SITE = 'sc-domain:frontaliereticino.ch';
+
+let googleTokenPromise = null;
+
+async function getGoogleAccessToken() {
+  if (googleTokenPromise) return googleTokenPromise;
+  googleTokenPromise = (async () => {
+    const id = process.env.GSC_CLIENT_ID;
+    const secret = process.env.GSC_CLIENT_SECRET;
+    const refresh = process.env.GSC_REFRESH_TOKEN;
+    if (id && secret && refresh) {
+      const r = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          client_id: id,
+          client_secret: secret,
+          refresh_token: refresh,
+          grant_type: 'refresh_token',
+        }),
+      });
+      if (r.ok) return (await r.json()).access_token;
+      console.warn(`[campaign-goal-check] GSC OAuth refresh failed (${r.status}); falling back to service account`);
+    }
+    const sa = await getServiceAccountToken([GSC_SCOPE, GA4_SCOPE]);
+    if (sa) return sa;
+    throw new Error('No Google credentials (GSC_CLIENT_ID/GSC_CLIENT_SECRET/GSC_REFRESH_TOKEN or GOOGLE_APPLICATION_CREDENTIALS)');
+  })();
+  return googleTokenPromise;
+}
+
+// ---------------------------------------------------------------------------
+// GSC goals (#4303, #4306) — searchAnalytics.query, dataState:'all', 3d lag.
+// ---------------------------------------------------------------------------
+
+function gscWindow(days, lagDays = 3) {
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - lagDays);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - (days - 1));
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  return { startDate: fmt(start), endDate: fmt(end) };
+}
+
+async function gscSearchAnalytics(token, body) {
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`GSC ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  return res.json();
+}
+
+async function gscPageFamilyPosition(token, pathContains, windowDays = 30) {
+  const { startDate, endDate } = gscWindow(windowDays);
+  const data = await gscSearchAnalytics(token, {
+    startDate,
+    endDate,
+    dimensions: ['page'],
+    dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'contains', expression: pathContains }] }],
+    dataState: 'all',
+    rowLimit: 25000,
+  });
+  const rows = (data.rows || []).map((r) => ({
+    clicks: r.clicks || 0,
+    impressions: r.impressions || 0,
+    ctr: r.ctr ?? null,
+    position: r.position ?? null,
+  }));
+  // minImpressions:0 — include the whole family in the weighted average,
+  // matching the issue's baseline methodology (no per-page impression floor).
+  return aggregateFamilyRows(rows, { minImpressions: 0 });
+}
+
+// #4303 — canton hub weighted-avg position, 30d (3d lag): svizzera hub < 20
+// AND zurigo hub < 14.
+async function evalCantonHubPositions() {
+  const token = await getGoogleAccessToken();
+  const [svizzera, zurigo] = await Promise.all([
+    gscPageFamilyPosition(token, '/cerca-lavoro-svizzera/'),
+    gscPageFamilyPosition(token, '/cerca-lavoro-zurigo/'),
+  ]);
+  const svPos = svizzera.avgPosition;
+  const zhPos = zurigo.avgPosition;
+  // Risposta GSC vuota (blip transiente, non errore HTTP): unmeasurable,
+  // mai un FAILED spurio con issue (review PR #4362).
+  if (svPos === null || zhPos === null) {
+    return {
+      passed: false,
+      unmeasurable: true,
+      value: { svizzeraPosition: svPos, zurigoPosition: zhPos },
+      targetDescription: 'svizzera < 20 E zurigo < 14 (weighted-avg position, 30gg, lag 3gg)',
+      detail: 'risposta GSC vuota per una o entrambe le famiglie — riprovo al prossimo run',
+    };
+  }
+  const passed = svPos < 20 && zhPos < 14;
+  return {
+    passed,
+    value: {
+      svizzeraPosition: svPos, svizzeraPages: svizzera.pageCount,
+      zurigoPosition: zhPos, zurigoPages: zurigo.pageCount,
+    },
+    targetDescription: 'svizzera < 20 E zurigo < 14 (weighted-avg position, 30gg, lag 3gg)',
+    detail: `svizzera=${fmtNum(svPos)} (${svizzera.pageCount}pg) zurigo=${fmtNum(zhPos)} (${zurigo.pageCount}pg)`,
+  };
+}
+
+const BRAND_QUERY_TERMS = ['interdiscount', 'fielmann', 'fust', 'jysk', 'coop'];
+const BRAND_QUERY_REGEX = `(?i)${BRAND_QUERY_TERMS.join('|')}`;
+const BRAND_QUERY_REGEX_JS = new RegExp(BRAND_QUERY_TERMS.join('|'), 'i');
+
+// Job-intent qualifier: a brand-matching query only measures something this
+// site can act on when the searcher is ALSO job-seeking. Without this filter
+// the aggregate is swamped by retail/consumer queries about the brand itself
+// (store promos, opening hours, plain company name) that a job listing can
+// never win a click on regardless of title/content — confirmed on the
+// 2026-08-19 evidence-index snapshot (data/evidence-index.json `gsc.queries`,
+// 90d): job-intent-qualified brand queries ("coop lavoro ticino", "jysk
+// jobs", "coop emploi valais"...) already averaged 3.26% CTR (197/6048),
+// while the un-qualified remainder ("fielmann promozione", "jysk schlieren",
+// bare "interdiscount"/"coop") sat at 0.14% CTR (50/34858) — two populations
+// with unrelated search intent blended into one number that structurally
+// could never clear 2% (issue #5953; VISION.md driver D2, "la misura si
+// corregge, la soglia no": the goal's OWN target — brand+jobs conversion,
+// #4306 — was never about winning retail-intent brand searches).
+const JOB_INTENT_QUALIFIER_REGEX = /lavoro|impiego|posizion|assunzion|apprendist|jobs?|hiring|career|emploi|recrut|stellen|arbeit|karriere|praktikum|stage/i;
+
+/** True when a query mentions one of the tracked brands AND signals job
+ * intent. Exported for testing — see the comment on evalBrandQueryCtr. */
+export function isJobIntentBrandQuery(query) {
+  const q = query || '';
+  return BRAND_QUERY_REGEX_JS.test(q) && JOB_INTENT_QUALIFIER_REGEX.test(q);
+}
+
+// #4306 — aggregate CTR across job-intent-qualified brand-name queries, 30d
+// (3d lag), target > 2%.
+async function evalBrandQueryCtr() {
+  const token = await getGoogleAccessToken();
+  const { startDate, endDate } = gscWindow(30);
+  let rows;
+  try {
+    const data = await gscSearchAnalytics(token, {
+      startDate,
+      endDate,
+      dimensions: ['query'],
+      dimensionFilterGroups: [{ filters: [{ dimension: 'query', operator: 'includingRegex', expression: BRAND_QUERY_REGEX }] }],
+      dataState: 'all',
+      rowLimit: 5000,
+    });
+    rows = data.rows || [];
+  } catch (e) {
+    console.warn(`[campaign-goal-check] brand_query_ctr: includingRegex fallita (${e.message}), fallback client-side su top query`);
+    const data = await gscSearchAnalytics(token, {
+      startDate, endDate, dimensions: ['query'], dataState: 'all', rowLimit: 25000,
+    });
+    rows = (data.rows || []).filter((r) => BRAND_QUERY_REGEX_JS.test(r.keys?.[0] || ''));
+  }
+  rows = rows.filter((r) => isJobIntentBrandQuery(r.keys?.[0]));
+  const totalClicks = rows.reduce((s, r) => s + (r.clicks || 0), 0);
+  const totalImpressions = rows.reduce((s, r) => s + (r.impressions || 0), 0);
+  const ctr = totalImpressions > 0 ? computeCtr(totalClicks, totalImpressions) : null;
+  return {
+    passed: ctr !== null && ctr > 0.02,
+    value: { ctr, totalClicks, totalImpressions, matchedQueries: rows.length },
+    targetDescription: '> 2% CTR aggregato su query brand+lavoro (interdiscount|fielmann|fust|jysk|coop, qualificate da intento job) (30gg, lag 3gg)',
+    detail: `${totalClicks}/${totalImpressions} = ${fmtPct(ctr)} su ${rows.length} query`,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// GA4 goals (#4299, #4305) — analyticsdata:runReport, built-in channel groups.
+// ---------------------------------------------------------------------------
+
+async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
+  const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  // Lag di 2gg: GA4 può non aver processato le ultime 24-48h — senza lag il
+  // cron domenicale sottoconta la coda della finestra e può produrre un
+  // falso "failing" a ridosso della soglia (review PR #4362; specchia il
+  // lag 3gg lato GSC in gscWindow()).
+  const GA4_LAG_DAYS = 2;
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - GA4_LAG_DAYS);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      dateRanges: [{ startDate: fmt(start), endDate: fmt(end) }],
+      dimensions: [{ name: 'sessionDefaultChannelGroup' }],
+      metrics: [{ name: 'sessions' }],
+      dimensionFilter: {
+        filter: {
+          fieldName: 'sessionDefaultChannelGroup',
+          stringFilter: { value: channelGroupExact, matchType: 'EXACT' },
+        },
+      },
+    }),
+  });
+  if (!res.ok) throw new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  const data = await res.json();
+  return (data.rows || []).reduce((sum, r) => sum + Number(r.metricValues?.[0]?.value || 0), 0);
+}
+
+// Shared GA4 runReport POST for the fallback goals above — same 2-day lag
+// rationale as ga4SessionsByChannelGroup (PR #4362).
+async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, windowDays, lagDays = 2 }) {
+  const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - lagDays);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      dateRanges: [{ startDate: fmt(start), endDate: fmt(end) }],
+      dimensions,
+      metrics: metrics.map((name) => ({ name })),
+      ...(dimensionFilter ? { dimensionFilter } : {}),
+    }),
+  });
+  if (!res.ok) {
+    const error = new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    error.status = res.status;
+    throw error;
+  }
+  return res.json();
+}
+
+function ga4EventNameFilter(eventNames) {
+  return { filter: { fieldName: 'eventName', inListFilter: { values: eventNames } } };
+}
+
+function ga4AndFilter(...expressions) {
+  return { andGroup: { expressions } };
+}
+
+function ga4CtaSurfaceFilter() {
+  return {
+    filter: {
+      fieldName: ALERT_CTA_SURFACE_DIMENSION,
+      inListFilter: { values: ALERT_CTA_SURFACES },
+    },
+  };
+}
+
+function ga4CtaSurfaceExactFilter(surface) {
+  return {
+    filter: {
+      fieldName: ALERT_CTA_SURFACE_DIMENSION,
+      stringFilter: { value: surface, matchType: 'EXACT' },
+    },
+  };
+}
+
+/** GA4 filter shared by the alert funnel's two event totals. */
+export function buildAlertFunnelGa4Filter(eventNames = ALERT_FUNNEL_EVENT_NAMES) {
+  return ga4AndFilter(ga4EventNameFilter(eventNames), ga4CtaSurfaceFilter());
+}
+
+function readDistinctUsers(data) {
+  const users = Number(data?.rows?.[0]?.metricValues?.[0]?.value || 0);
+  return Number.isFinite(users) && users >= 0 ? users : 0;
+}
+
+/** Reduce the probe plus non-overlapping user reports to #7764 evidence. */
+export function inspectAlertCtaSurfaceReport({
+  dimensionReport,
+  totalUsers = 0,
+  notSetUsers = 0,
+  allowlistedUsers = 0,
+} = {}) {
+  const rows = [];
+  for (const row of dimensionReport?.rows || []) {
+    const surface = row.dimensionValues?.[0]?.value || ALERT_CTA_SURFACE_NOT_SET;
+    const users = Number(row.metricValues?.[0]?.value || 0);
+    if (!Number.isFinite(users) || users < 0) continue;
+    rows.push({ surface, users });
+  }
+  const total = Number(totalUsers);
+  const notSet = Number(notSetUsers);
+  const allowlisted = Number(allowlistedUsers);
+  const safeTotalUsers = Number.isFinite(total) && total >= 0 ? total : 0;
+  const safeNotSetUsers = Number.isFinite(notSet) && notSet >= 0 ? notSet : 0;
+  const safeAllowlistedUsers = Number.isFinite(allowlisted) && allowlisted >= 0 ? allowlisted : 0;
+  return {
+    rows,
+    totalUsers: safeTotalUsers,
+    notSetUsers: safeNotSetUsers,
+    allowlistedUsers: safeAllowlistedUsers,
+    notSetShare: safeTotalUsers > 0 ? safeNotSetUsers / safeTotalUsers : null,
+  };
+}
+
+/** Return the alert funnel's two user counts in allowlist order, including empty surfaces. */
+export function inspectAlertFunnelSurfaceBreakdown(report) {
+  const countsBySurface = new Map(
+    ALERT_CTA_SURFACES.map((surface) => [surface, { shown: 0, created: 0 }]),
+  );
+  for (const row of report?.rows || []) {
+    const eventName = row.dimensionValues?.[0]?.value;
+    const surface = row.dimensionValues?.[1]?.value;
+    const users = Number(row.metricValues?.[0]?.value || 0);
+    if (!ALERT_FUNNEL_EVENT_NAMES.includes(eventName) || !countsBySurface.has(surface)) continue;
+    if (!Number.isFinite(users) || users < 0) continue;
+    const eventMetric = eventName === 'job_alert_cta_shown' ? 'shown' : 'created';
+    countsBySurface.get(surface)[eventMetric] = users;
+  }
+
+  return ALERT_CTA_SURFACES.map((surface) => {
+    const { shown, created } = countsBySurface.get(surface);
+    return { surface, shown, created, rate: shown > 0 ? created / shown : null };
+  });
+}
+
+/**
+ * Read-only GA4 Data API preflight for `customEvent:cta_surface` (#7764).
+ * A 400 means the dimension is not registered on the property; a high
+ * `(not set)` share means it is registered but not populated reliably. Both
+ * cases abstain from producing a funnel rate.
+ */
+export async function checkAlertCtaSurfaceDimension(
+  token,
+  windowDays = 14,
+  { runReportImpl = ga4RunReport, logImpl = console.log } = {},
+) {
+  let dimensionReport;
+  let totalUsers;
+  let notSetUsers;
+  let allowlistedUsers;
+  try {
+    // This dimension report is the registration/population probe. Its rows
+    // are intentionally not summed: GA4 totalUsers can repeat one user in
+    // multiple cta_surface values.
+    dimensionReport = await runReportImpl(token, {
+      dimensions: [{ name: ALERT_CTA_SURFACE_DIMENSION }],
+      metrics: ['totalUsers'],
+      dimensionFilter: ga4EventNameFilter(ALERT_FUNNEL_EVENT_NAMES),
+      windowDays,
+    });
+
+    // Each report has no surface dimension, so totalUsers is a distinct,
+    // non-overlapping population for that filter. This keeps (not set)/total
+    // from being diluted by users present in multiple surface rows.
+    [totalUsers, notSetUsers, allowlistedUsers] = await Promise.all([
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, { runReportImpl }),
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, {
+        dimensionFilter: ga4AndFilter(
+          ga4EventNameFilter(ALERT_FUNNEL_EVENT_NAMES),
+          ga4CtaSurfaceExactFilter(ALERT_CTA_SURFACE_NOT_SET),
+        ),
+        runReportImpl,
+      }),
+      ga4DistinctUsersForEvents(token, ALERT_FUNNEL_EVENT_NAMES, windowDays, {
+        dimensionFilter: buildAlertFunnelGa4Filter(),
+        runReportImpl,
+      }),
+    ]);
+  } catch (error) {
+    if (error?.status !== 400 && !/^GA4 400:/.test(error?.message || '')) throw error;
+    const reason = `custom dimension \`cta_surface\` non registrata / non popolata: ${error.message}`;
+    logImpl(`[campaign-goal-check] alert funnel preflight: cta_surface (not set) n/a; ${reason}`);
+    return { ready: false, reason, notSetShare: null };
+  }
+
+  const coverage = inspectAlertCtaSurfaceReport({ dimensionReport, totalUsers, notSetUsers, allowlistedUsers });
+  const shareText = fmtPct(coverage.notSetShare);
+  logImpl(
+    `[campaign-goal-check] alert funnel preflight: cta_surface (not set) `
+      + `${coverage.notSetUsers}/${coverage.totalUsers} (${shareText}), `
+      + `allowlisted=${coverage.allowlistedUsers}, soglia <= ${fmtPct(ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE)}`,
+  );
+
+  if (coverage.totalUsers === 0 || coverage.allowlistedUsers === 0) {
+    return {
+      ready: false,
+      reason: 'custom dimension `cta_surface` non registrata / non popolata: nessun utente attribuibile alle superfici allowlist nella finestra',
+      ...coverage,
+    };
+  }
+  if (coverage.notSetShare === null || coverage.notSetShare > ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE) {
+    return {
+      ready: false,
+      reason: `custom dimension \`cta_surface\` non registrata / non popolata: quota (not set) ${shareText} oltre la soglia ${fmtPct(ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE)}`,
+      ...coverage,
+    };
+  }
+  return { ready: true, ...coverage };
+}
+
+/** Per-eventName totals — the alert-funnel GA4 fallback needs the two events
+ * kept separate. `metric` is 'eventCount' by default; the alert funnel passes
+ * 'totalUsers' because it is scored per person (see alertFunnelOutcome). */
+async function ga4EventCountByName(
+  token,
+  eventNames,
+  windowDays,
+  metric = 'eventCount',
+  { dimensionFilter = ga4EventNameFilter(eventNames), runReportImpl = ga4RunReport } = {},
+) {
+  const data = await runReportImpl(token, {
+    dimensions: [{ name: 'eventName' }],
+    metrics: [metric],
+    dimensionFilter,
+    windowDays,
+  });
+  const perEvent = new Map();
+  for (const r of data.rows || []) {
+    perEvent.set(r.dimensionValues?.[0]?.value, Number(r.metricValues?.[0]?.value || 0));
+  }
+  return perEvent;
+}
+
+/** Distinct users touching ANY of the given events, aggregated with no
+ * per-event breakdown dimension so a user firing two of the events is
+ * counted once — the error-rate GA4 fallback needs a person-level ratio. */
+async function ga4DistinctUsersForEvents(
+  token,
+  eventNames,
+  windowDays,
+  { dimensionFilter = ga4EventNameFilter(eventNames), runReportImpl = ga4RunReport } = {},
+) {
+  const data = await runReportImpl(token, {
+    dimensions: [],
+    metrics: ['totalUsers'],
+    dimensionFilter,
+    windowDays,
+  });
+  return readDistinctUsers(data);
+}
+
+// #4299 — sessions via GA4's built-in "Email" channel group, 90d, target >= 7,350.
+async function evalEmailSessions() {
+  const token = await getGoogleAccessToken();
+  const sessions = await ga4SessionsByChannelGroup(token, 'Email', 90);
+  const TARGET = 7350;
+  return {
+    passed: sessions >= TARGET,
+    value: { sessions },
+    targetDescription: `>= ${TARGET} sessioni canale Email (90gg, 3x baseline 2.449)`,
+    detail: `${sessions} sessioni`,
+  };
+}
+
+// #4305 — sessions via GA4's built-in "AI Assistant" channel group, 90d,
+// target >= 4,839. GA4 classifies this channel from its own referrer rules
+// (sessionDefaultChannelGroup) — there is no custom AI-hostname allowlist in
+// this codebase to extract/reuse (confirmed: only check-ai-visibility.mjs
+// references AI hostnames, for an unrelated Perplexity API call).
+async function evalAiSessions() {
+  const token = await getGoogleAccessToken();
+  const sessions = await ga4SessionsByChannelGroup(token, 'AI Assistant', 90);
+  const TARGET = 4839;
+  return {
+    passed: sessions >= TARGET,
+    value: { sessions },
+    targetDescription: `>= ${TARGET} sessioni canale AI Assistant (90gg, 3x baseline 1.613)`,
+    detail: `${sessions} sessioni`,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Bing goal (#4305) — GetRankAndTrafficStats via scripts/lib/bing-webmaster.mjs.
+// ---------------------------------------------------------------------------
+
+const BING_SITE_URL = 'https://frontaliereticino.ch'; // matches scripts/check-bing-status.mjs convention
+
+// #4305 — organic clicks over the trailing 90d, target >= 500 (baseline 48).
+// getBingRankAndTrafficStats returns null on any failure (bad key, endpoint
+// not available on this plan, network) — treated as unmeasurable rather than
+// failed, since a null response can't be distinguished from "not supported
+// here" without a documented error payload.
+async function evalBingClicks() {
+  const apiKey = process.env.BING_API_KEY;
+  if (!apiKey) throw new Error('BING_API_KEY missing');
+  const stats = await getBingRankAndTrafficStats(apiKey, BING_SITE_URL);
+  if (!stats) {
+    return {
+      unmeasurable: true,
+      note: 'GetRankAndTrafficStats non ha risposto (endpoint non disponibile su questo piano/key, o errore — vedi log run per il codice HTTP).',
+    };
+  }
+  const cutoff = Date.now() - 90 * DAY_MS;
+  const inWindow = stats.filter((s) => s.date && Date.parse(s.date) >= cutoff);
+  const clicks = inWindow.reduce((sum, s) => sum + (s.clicks || 0), 0);
+  const TARGET = 500;
+  return {
+    passed: clicks >= TARGET,
+    value: { clicks, daysReturned: inWindow.length },
+    targetDescription: `>= ${TARGET} click organici Bing (90gg, baseline 48)`,
+    detail: `${clicks} click su ${inWindow.length} giorni restituiti`,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Goal registry
+// ---------------------------------------------------------------------------
+
+export const GOALS = [
+  // `livenessGuarded`: the goal reads GA4 product events over its own
+  // `windowDays`, so the GA4 vitality guard rules on that window first.
+  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversionGa4 },
+  { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'none', windowDays: 14, matureAfterDays: 14, issueRef: '#4304', evaluate: noGa4Equivalent('$dead_click e\' autocapture nativo PostHog; il dead_click custom in GA4 e\' un\'altra metrica') },
+  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'ga4', livenessGuarded: true, windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRateGa4 },
+  { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'none', windowDays: 30, matureAfterDays: 30, issueRef: '#4307', evaluate: noGa4Equivalent('funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)') },
+  { id: 'canton_hub_positions', title: 'Hub cantonali: svizzera<20 E zurigo<14', source: 'gsc', matureAfterDays: 30, issueRef: '#4303', evaluate: evalCantonHubPositions },
+  { id: 'brand_query_ctr', title: 'CTR query brand > 2%', source: 'gsc', matureAfterDays: 30, issueRef: '#4306', evaluate: evalBrandQueryCtr },
+  { id: 'email_sessions', title: 'Sessioni canale Email >= 7.350 (90gg)', source: 'ga4', matureAfterDays: 90, issueRef: '#4299', evaluate: evalEmailSessions },
+  { id: 'ai_sessions', title: 'Sessioni canale AI Assistant >= 4.839 (90gg)', source: 'ga4', matureAfterDays: 90, issueRef: '#4305', evaluate: evalAiSessions },
+  { id: 'bing_clicks', title: 'Click Bing >= 500 (90gg)', source: 'bing', matureAfterDays: 90, issueRef: '#4305', evaluate: evalBingClicks },
+];
+
+// ---------------------------------------------------------------------------
+// State I/O
+// ---------------------------------------------------------------------------
+
+function loadState(path) {
+  if (!existsSync(path)) return { goals: {} };
+  try {
+    const parsed = JSON.parse(readFileSync(path, 'utf8'));
+    return parsed && typeof parsed === 'object' && parsed.goals ? parsed : { goals: {} };
+  } catch {
+    return { goals: {} };
+  }
+}
+
+export function buildIssueBody({ goal, outcome, matureAt }) {
+  return [
+    `## Campaign goal FAILED — ${goal.title}`,
+    '',
+    `**Goal id:** \`${goal.id}\``,
+    `**Source:** ${goal.source}`,
+    `**Target:** ${outcome.targetDescription}`,
+    `**Valore misurato:** ${outcome.detail}`,
+    `**Matura da:** ${matureAt} (matureAfterDays=${goal.matureAfterDays} da CAMPAIGN_START=${CAMPAIGN_START})`,
+    `**Issue campagna:** ${goal.issueRef}`,
+    '',
+    '_Fonte: scripts/campaign-goal-check.mjs, cron settimanale .github/workflows/campaign-goal-check.yml. Rivalutato ogni run finché non supera il target._',
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) L'obiettivo \`${goal.id}\` e' maturo dal ${matureAt} e non`,
+        `raggiunge il target: ${outcome.detail}. Perche' non lo raggiunga non e' in questo`,
+        'dato — la misura dice se il traguardo e\' stato preso, non che cosa lo impedisce.',
+      ],
+      fix: [
+        'Dipende da cosa mostra la sorgente della misura; non preassegnata qui. | **REPO**:',
+        'sito.',
+      ],
+      metrica: `prima=${outcome.detail} atteso=${outcome.targetDescription}`,
+      comando: 'node --import tsx/esm scripts/campaign-goal-check.mjs --dry-run',
+      note: [
+        'Il comando rivaluta tutti gli obiettivi e stampa la tabella senza scrivere lo stato',
+        "e senza coniare: la issue si chiude quando questa riga passa. Vuole le credenziali",
+        'delle sorgenti — dalla root del workspace, `source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        '`.github/workflows/campaign-goal-check.yml`, che rivaluta ogni settimana e tiene',
+        "aperta questa issue finche' il target non e' superato. Non esiste un closer",
+        "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+      ],
+      fallimento: `\`Campaign goal FAILED — ${goal.title}\``,
+    }),
+  ].join('\n');
+}
+
+async function defaultCreateIssue({ title, description }) {
+  const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return createGithubIssue({
+    title,
+    description,
+    priority: 3,
+    labels: ['seo', 'campaign-goal'],
+    workflow: 'Campaign Goal Check',
+  });
+}
+
+// A goal re-evaluated as passed closes its own stable «Campaign goal FAILED:
+// <id>» issue: without this the issue opened on a failing run stayed open after
+// the goal was met (same opener-without-closer class as issue 11547).
+async function defaultResolveIssue({ title }) {
+  const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return resolveGithubIssue(title, { exactTitle: true, workflow: 'Campaign Goal Check' });
+}
+
+// ---------------------------------------------------------------------------
+// Orchestration — injectable for tests (goals/now/state I/O/issue creator).
+// ---------------------------------------------------------------------------
+
+export async function runCampaignGoalCheck({
+  goals = GOALS,
+  now = new Date(),
+  campaignStart = CAMPAIGN_START,
+  stateFilePath = STATE_PATH,
+  loadStateImpl = loadState,
+  saveStateImpl = (path, state) => writeJsonAtomic(path, state),
+  createIssueImpl = defaultCreateIssue,
+  resolveIssueImpl = defaultResolveIssue,
+  checkLivenessImpl = checkGa4Liveness,
+  dryRun = false,
+} = {}) {
+  const state = loadStateImpl(stateFilePath);
+  state.goals = state.goals || {};
+  const results = [];
+  const sourceStats = new Map(); // source -> {attempted, errored}
+
+  // Vitality guard (scripts/lib/source-liveness.mjs), probed lazily so a run
+  // where no guarded goal is mature never pays for the query.
+  //
+  // History (2026-07-23 → 08-10 PostHog outage): evalAlertFunnelConversion and
+  // evalCalcDeeplinkInputStart turned "0 events" into rate=null → passed:false
+  // → a "Campaign goal FAILED" issue, and evalDeadClicksReduction read 0 as
+  // beating its 5991 target and latched `passed` forever (skip-passed never
+  // re-evaluates). The same hole exists on GA4: a runReport over an empty
+  // window is an HTTP 200. `unmeasurable` is the honest verdict and opens no
+  // issue. Probed once at the widest goal window; each goal is then ruled on
+  // over its OWN window from the same daily counts, so a hole older than a 14d
+  // goal's lookback doesn't make that goal abstain for nothing.
+  let livenessProbe;
+  // Declared at most once per run per window: several goals sharing one dead
+  // source is one outage, not several alarms.
+  const declaredWindows = new Set();
+  const sourceNotMeasurable = async (goalWindowDays) => {
+    if (livenessProbe === undefined) {
+      livenessProbe = await checkLivenessImpl({ windowDays: LIVENESS_MAX_GOAL_WINDOW_DAYS, now });
+    }
+    const declareOnce = (verdict) => {
+      if (!declaredWindows.has(verdict.windowDays)) {
+        declaredWindows.add(verdict.windowDays);
+        declareNotMeasurable('campaign-goal-check', verdict);
+      }
+      return verdict;
+    };
+    if (livenessProbe.credentialsMissing || livenessProbe.probeFailed) return declareOnce(livenessProbe);
+    // Per-window re-ruling needs the daily counts. Without them (an injected
+    // probe in a test, or a source that reports only a verdict) the probe's
+    // own answer stands — re-deriving from an empty map would read "no data"
+    // as "dead" and abstain on a healthy source.
+    if (!(livenessProbe.dailyCounts instanceof Map) || livenessProbe.dailyCounts.size === 0) {
+      return livenessProbe.alive ? null : declareOnce(livenessProbe);
+    }
+    const verdict = evaluateLiveness({
+      dailyCounts: livenessProbe.dailyCounts,
+      windowDays: goalWindowDays ?? LIVENESS_MAX_GOAL_WINDOW_DAYS,
+      lagDays: GA4_LIVENESS_LAG_DAYS,
+      now,
+      source: livenessProbe.source ?? 'ga4',
+    });
+    return verdict.alive ? null : declareOnce(verdict);
+  };
+
+  for (const goal of goals) {
+    const prior = state.goals[goal.id] || {};
+    const matureAt = computeMatureAt(campaignStart, goal.matureAfterDays);
+    // A goal with no measurable source (`source: 'none'`, H9) cannot keep a
+    // `passed` latched by an earlier run: nothing can re-confirm it, and the
+    // one on record for dead_clicks_reduction ("0 $dead_click (14gg)") was
+    // read off the dead PostHog window described above. It is re-ruled and
+    // lands on its honest `unmeasurable` verdict instead.
+    const priorState = goal.source === 'none' && prior.state === 'passed' ? undefined : prior.state;
+    const action = decideGoalAction({ matureAt, now, priorState });
+    const base = { title: goal.title, source: goal.source, issueRef: goal.issueRef, matureAt };
+
+    if (action === 'skip-passed') {
+      results.push({ id: goal.id, state: 'passed', detail: prior.detail || '(già superato, non rivalutato)', matureAt });
+      state.goals[goal.id] = { ...prior, ...base, state: 'passed' };
+      // Do not re-evaluate terminal goals, but reconcile a FAILED issue left
+      // open by a run before the closer existed (issue 11547 class).
+      if (!dryRun) {
+        try {
+          await resolveIssueImpl({ title: `Campaign goal FAILED: ${goal.id}` });
+        } catch (err) {
+          console.error(`[campaign-goal-check] ${goal.id}: could not close the FAILED issue: ${err.message}`);
+        }
+      }
+      continue;
+    }
+
+    if (action === 'observing') {
+      state.goals[goal.id] = { ...prior, ...base, state: 'observing' };
+      results.push({ id: goal.id, state: 'observing', detail: `matura il ${matureAt}`, matureAt });
+      continue;
+    }
+
+    // action === 'evaluate'
+    if (goal.livenessGuarded) {
+      const dead = await sourceNotMeasurable(goal.windowDays);
+      if (dead) {
+        const note = `sorgente non misurabile: ${dead.reason}`;
+        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
+        continue;
+      }
+    }
+    const evaluate = goal.evaluate;
+    const statSource = goal.source;
+
+    const stat = sourceStats.get(statSource) || { attempted: 0, errored: 0 };
+    stat.attempted += 1;
+    sourceStats.set(statSource, stat);
+
+    try {
+      const outcome = await evaluate();
+
+      if (outcome.unmeasurable) {
+        const note = outcome.note ?? outcome.detail;
+        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
+        continue;
+      }
+
+      if (outcome.passed) {
+        state.goals[goal.id] = {
+          ...prior, ...base, state: 'passed', lastValue: outcome.value, detail: outcome.detail,
+          targetDescription: outcome.targetDescription, lastCheckAt: now.toISOString(), passedAt: now.toISOString(),
+        };
+        results.push({ id: goal.id, state: 'passed', detail: outcome.detail, matureAt });
+        if (!dryRun) {
+          try {
+            await resolveIssueImpl({ title: `Campaign goal FAILED: ${goal.id}` });
+          } catch (err) {
+            console.error(`[campaign-goal-check] ${goal.id}: could not close the FAILED issue: ${err.message}`);
+          }
+        }
+        continue;
+      }
+
+      state.goals[goal.id] = {
+        ...prior, ...base, state: 'failing', lastValue: outcome.value, detail: outcome.detail,
+        targetDescription: outcome.targetDescription, lastCheckAt: now.toISOString(),
+      };
+      results.push({ id: goal.id, state: 'failing', detail: outcome.detail, matureAt });
+      if (!dryRun) {
+        await createIssueImpl({
+          title: `Campaign goal FAILED: ${goal.id}`,
+          description: buildIssueBody({ goal, outcome, matureAt }),
+        });
+      }
+    } catch (e) {
+      stat.errored += 1;
+      console.error(`[campaign-goal-check] ${goal.id} (${goal.source}) query failed: ${e.message}`);
+      state.goals[goal.id] = { ...prior, ...base, state: 'error', lastCheckAt: now.toISOString(), lastError: e.message };
+      results.push({ id: goal.id, state: 'error', detail: e.message, matureAt });
+    }
+  }
+
+  state.generatedAt = now.toISOString();
+  state.campaignStart = campaignStart;
+  if (!dryRun) saveStateImpl(stateFilePath, state);
+
+  const deadSources = [...sourceStats.entries()]
+    .filter(([, s]) => s.attempted > 0 && s.errored === s.attempted)
+    .map(([source]) => source);
+
+  return { results, state, deadSources };
+}
+
+// ---------------------------------------------------------------------------
+// CLI
+// ---------------------------------------------------------------------------
+
+const STATE_ICON = { observing: '⏳', passed: '✅', failing: '❌', error: '⚠️', unmeasurable: '❔' };
+
+function printTable(results) {
+  console.log('\nCampaign goal status\n');
+  for (const r of results) {
+    const icon = STATE_ICON[r.state] || '·';
+    console.log(`${icon} ${r.id.padEnd(28)} ${r.state.padEnd(12)} matura ${r.matureAt}  ${r.detail}`);
+  }
+  console.log('');
+}
+
+async function main() {
+  const dryRun = process.argv.includes('--dry-run');
+  const { results, deadSources } = await runCampaignGoalCheck({ dryRun });
+  printTable(results);
+  if (deadSources.length > 0) {
+    console.error(`[campaign-goal-check] FATAL: tutte le query sono fallite per source: ${deadSources.join(', ')} — auth/host probabilmente rotto`);
+    process.exitCode = 1;
+  }
+}
+
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+  main().catch((e) => {
+    console.error(`[campaign-goal-check] fatal: ${e.message}`);
+    process.exitCode = 1;
+  });
+}

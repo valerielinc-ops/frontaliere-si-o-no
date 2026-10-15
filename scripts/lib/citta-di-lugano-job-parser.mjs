@@ -1,0 +1,329 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+/**
+ * Città di Lugano — job parser
+ *
+ * The municipality publishes public job competitions (concorsi pubblici) at:
+ *   https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/
+ *
+ * Applications go through: https://egov.lugano.ch/it/services/3
+ *
+ * Listings typically contain:
+ *   - Job title (in <strong> or heading tags)
+ *   - Deadline (Scadenza)
+ *   - PDF capitolato link with full job description
+ *   - Link to egov.lugano.ch for application
+ *
+ * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
+ */
+
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { decode as decodeHTML } from 'html-entities';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { crawledAtFromObservation } from './source-crawl-observation.mjs';
+
+const HQ = getCompanyDefaults('citta-di-lugano');
+const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
+
+function isGenericLuganoApplyUrl(value = '') {
+  try {
+    const url = new URL(String(value || '').trim());
+    return url.hostname.toLowerCase() === 'egov.lugano.ch'
+      && url.pathname.replace(/\/+$/, '') === GENERIC_LUGANO_APPLY_PATH;
+  } catch {
+    return false;
+  }
+}
+
+function firstJobSpecificLuganoUrl(...values) {
+  return values
+    .map((value) => String(value || '').trim())
+    .find((value) => value && /^https:\/\//i.test(value) && !isGenericLuganoApplyUrl(value)) || '';
+}
+
+/* ── Text helpers ──────────────────────────────────────────── */
+
+export function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+export function stripHtml(html = '') {
+  return String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+export function slugify(value = '') {
+  return truncateSlugAtWordBoundary(String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * Extract a date in DD.MM.YYYY format and convert to ISO.
+ */
+export function parseSwissDate(dateStr) {
+  if (!dateStr) return '';
+  const m = String(dateStr).match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (!m) return '';
+  const [, day, month, year] = m;
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
+// The municipality's directory heading is navigation, not an individual vacancy.
+export function isGenericCompetitionTitle(title = '') {
+  const text = normalizeSpace(stripHtml(title));
+  return /^(?:concorsi(?: pubblici)?(?: e posti di lavoro)?|concorsi per (?:posti di lavoro|l.assunzione di personale)(?:[ .,:—–-].*)?)$/i.test(text);
+}
+
+/* ── Listing page parser ───────────────────────────────────── */
+
+/**
+ * Parse the Città di Lugano concorsi pubblici listing page.
+ * Returns an array of { title, url, location, datePosted, deadline }.
+ *
+ * Structure:
+ *   - Job titles in <strong> or <h3>/<h4> tags within list items
+ *   - Deadline dates with "Scadenza" label
+ *   - PDF links to capitolati (downloadConcorsi paths)
+ *   - Application links to egov.lugano.ch
+ */
+export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const jobs = [];
+  const seen = new Set();
+
+  // Pattern 1: List items with <strong> job titles
+  // e.g. <li><strong>Architetto/a progettista</strong> ... Scadenza: 30.03.2026 ...
+  const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+  let match;
+  while ((match = liRe.exec(html)) !== null) {
+    const liHtml = match[1];
+
+    // Extract title from <strong>
+    const strongMatch = liHtml.match(/<strong[^>]*>([\s\S]*?)<\/strong>/i);
+    if (!strongMatch) continue;
+    const title = normalizeSpace(stripHtml(strongMatch[1]));
+    if (!title || title.length < 5 || isGenericCompetitionTitle(title)) continue;
+
+    // Extract deadline
+    const deadlineMatch = liHtml.match(/[Ss]cadenza[:\s]*(\d{1,2}\.\d{1,2}\.\d{4})/);
+    const deadline = deadlineMatch ? parseSwissDate(deadlineMatch[1]) : '';
+
+    // Extract PDF URL (capitolato)
+    const pdfMatch = liHtml.match(/href="([^"]*downloadConcorsi[^"]*)"/i)
+      || liHtml.match(/href="([^"]*\.pdf)"/i);
+    const pdfUrl = pdfMatch
+      ? (pdfMatch[1].startsWith('http') ? pdfMatch[1] : `https://www.lugano.ch${pdfMatch[1]}`)
+      : '';
+
+    // Extract application URL
+    const applyMatch = liHtml.match(/href="(https?:\/\/egov\.lugano\.ch[^"]*)"/i);
+    const linkedApplyUrl = applyMatch ? applyMatch[1] : '';
+    const applyUrl = firstJobSpecificLuganoUrl(linkedApplyUrl, pdfUrl);
+
+    // A generic e-government service page is not a vacancy handoff. Keep the
+    // record only when the listing exposes a job-specific official document or
+    // application URL; otherwise publishing it would create a false CTA.
+    if (!applyUrl) continue;
+
+    // Prefer the job-specific PDF as the canonical URL when no dedicated
+    // application URL was supplied; it contains the official instructions.
+    const jobUrl = pdfUrl || applyUrl;
+
+    if (seen.has(title)) continue;
+    seen.add(title);
+
+    jobs.push({
+      title,
+      url: jobUrl,
+      pdfUrl,
+      applyUrl,
+      location: 'Lugano',
+      datePosted: '',
+      deadline,
+    });
+  }
+
+  // Heading-only entries have no job-specific URL. Do not turn a section
+  // heading into a published vacancy with the generic e-government service
+  // page as its applyUrl.
+
+  return jobs;
+}
+
+/* ── Detail page parser ────────────────────────────────────── */
+
+/**
+ * Parse a Città di Lugano job detail / PDF info page.
+ * Returns { title, description, location, sections[], requirements[] }
+ */
+export function parseDetailPage(html) {
+  if (!html || typeof html !== 'string') return null;
+
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
+
+  if (!title || title.length < 3 || isGenericCompetitionTitle(title)) return null;
+
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  const contentHtml = mainMatch ? mainMatch[1] : html;
+  const description = stripHtml(contentHtml);
+
+  // Extract sections
+  const sections = [];
+  const headingRe = /<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/gi;
+  const headings = [];
+  let m;
+  while ((m = headingRe.exec(contentHtml)) !== null) {
+    headings.push({ text: normalizeSpace(stripHtml(m[1])), index: m.index, length: m[0].length });
+  }
+
+  for (let i = 0; i < headings.length; i++) {
+    const start = headings[i].index + headings[i].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index : contentHtml.length;
+    const sectionHtml = contentHtml.slice(start, end);
+    const items = [];
+    const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+    let li;
+    while ((li = liRe.exec(sectionHtml)) !== null) {
+      const text = normalizeSpace(stripHtml(li[1]));
+      if (text.length > 5) items.push(text);
+    }
+    if (items.length > 0 || normalizeSpace(stripHtml(sectionHtml)).length > 30) {
+      sections.push({ heading: headings[i].text, items });
+    }
+  }
+
+  const requirements = sections
+    .filter((s) => /requisit|profil|competen|formazione|richied/i.test(s.heading))
+    .flatMap((s) => s.items);
+
+  return {
+    title,
+    description: description.length > 50 ? description : '',
+    location: 'Lugano',
+    canton: HQ.canton,
+    sections,
+    requirements,
+    sourceTextLength: description.length,
+  };
+}
+
+/* ── Job builder ───────────────────────────────────────────── */
+
+/**
+ * Build a normalized job object from raw listing data.
+ *
+ * `description`/`sourceLang`: the PDF bando's text and its language, passed by
+ * the runner when it has read the bando; the builder keys the job's locale
+ * maps (slug included) on that language, so nothing rewrites them afterwards.
+ */
+export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
+  if (!raw || !raw.title) return null;
+  const crawledAt = crawledAtFromObservation(raw.crawlObservedAt);
+  if (!crawledAt) return null;
+
+  const title = normalizeSpace(stripHtml(raw.title));
+  if (!title || title.length < 3 || isGenericCompetitionTitle(title)) return null;
+
+  // The source's own text only. The builder used to substitute a paragraph of
+  // its own on the Città di Lugano below 220 characters / 50 words; a job
+  // without text now gets no description here, the runner fills it from the
+  // PDF bando, and without either it takes the pipeline's thin-source path.
+  const listingDescription = normalizeSpace(raw.description || '');
+  const finalDescription = description ?? listingDescription;
+  const lang = sourceLang || 'it';
+  const slug = slugify(`${title}-citta-di-lugano`);
+  const applyUrl = firstJobSpecificLuganoUrl(raw.applyUrl, raw.pdfUrl, raw.url);
+
+  return {
+    title,
+    company: 'Città di Lugano',
+    companyKey: 'citta-di-lugano',
+    url: raw.url || 'https://egov.lugano.ch/it/services/3',
+    applyUrl,
+    location: 'Lugano',
+    canton: HQ.canton,
+    country: 'CH',
+    addressLocality: 'Lugano',
+    addressRegion: HQ.addressRegion,
+    addressCountry: 'CH',
+    postalCode: HQ.postalCode,
+    streetAddress: 'Piazza della Riforma',
+    employmentType: inferEmploymentType(title, listingDescription),
+    category: detectCategory(title, listingDescription),
+    description: finalDescription,
+    ...sourcePostingDateFields(raw.datePosted),
+    crawledAt,
+    source: 'company-website',
+    slug,
+    slugByLocale: { [lang]: slug },
+    titleByLocale: { [lang]: title },
+    descriptionByLocale: { [lang]: finalDescription },
+    sourceLang: lang,
+    deadline: raw.deadline || '',
+    _targetScope: { canton: HQ.canton, location: HQ.city },
+  };
+}
+
+/* ── Category detection ────────────────────────────────────── */
+
+function detectCategory(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  if (/architett|ingegner|progettist|edil|costruz/i.test(combined)) return 'engineering';
+  if (/educato|docente|scuol|infanzia|asilo/i.test(combined)) return 'education';
+  if (/pulizia|manuten|operai|giardinier|netturbino/i.test(combined)) return 'operations';
+  if (/autist|conducent|trasport/i.test(combined)) return 'logistics';
+  if (/cassi|sportell|riceviment/i.test(combined)) return 'administration';
+  if (/informatica|it\b|digital|software/i.test(combined)) return 'technology';
+  if (/comunicazion|marketing|relazioni/i.test(combined)) return 'marketing';
+  if (/finanz|contabil|tesor/i.test(combined)) return 'finance';
+  return 'administration'; // Default for public administration
+}
+
+/**
+ * Infer employment type from title, description and optional percentage field.
+ * Swiss job postings commonly include percentage (e.g. "80-100%").
+ * @param {string} title
+ * @param {string} description
+ * @param {string} percentage
+ * @returns {string} FULL_TIME or PART_TIME
+ */
+export function inferEmploymentType(title = '', description = '', percentage = '') {
+  const combined = `${title} ${percentage} ${description}`;
+  if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
+  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
+    if (maxPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}
+
+/**
+ * Fragments only the crawler once wrote: the builder's paragraph on the city
+ * ("<titolo> — concorso pubblico presso la Città di Lugano, amministrazione
+ * comunale…") and the runner's wrapper around the PDF bando ("## <titolo>",
+ * "Città di Lugano — concorso pubblico a Lugano (TI), Svizzera.",
+ * "Settore"/"Sede" footers). Used to clean jobs stored before the crawler
+ * published the source text alone.
+ */
+export const CITTA_DI_LUGANO_FABRICATED_DESCRIPTION_RE =
+  /concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano|— concorso pubblico a Lugano \(TI\), Svizzera\.|\*\*Sede:\*\* Via Nizzola 5, 6900 Lugano/;

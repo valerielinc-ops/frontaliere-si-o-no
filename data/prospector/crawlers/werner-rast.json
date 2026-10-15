@@ -1,0 +1,24 @@
+{
+  "companyKey": "werner-rast",
+  "companyName": "Werner Rast Personal Beratung Vermittlung AG",
+  "companyHost": "werner-rast.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://werner-rast.ch/fuer-bewerbende/stellenangebote/"
+  ],
+  "detailTemplate": "/2018/fuer-bewerbende/stellenangebote/berufsgruppe/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 21,
+  "sampleTitles": [
+    "Assistent/in GL 1 Stelle",
+    "Controlling / Rechnungswesen 10 Stellen",
+    "Elektro / Elektronik 4 Stellen",
+    "Facility Management 6 Stellen",
+    "Führungskräfte / Kader 1 Stelle"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-21T10:49:09.616Z"
+}

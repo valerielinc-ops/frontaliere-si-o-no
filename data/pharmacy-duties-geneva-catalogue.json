@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-24T00:00:00.000Z",
+  "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+  "scope": {
+    "country": "CH",
+    "canton": "GE"
+  },
+  "pharmacies": [
+    {
+      "id": "ge-pharma24",
+      "name": "pharma24",
+      "address": "Boulevard de la Cluse 38",
+      "postalCode": "1205",
+      "city": "Genève",
+      "country": "CH",
+      "canton": "GE",
+      "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+      "sourceType": "association",
+      "lastVerifiedAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "ge-pharmacie-du-museum",
+      "name": "Pharmacie du Museum",
+      "address": "Rte de Malagnou 29",
+      "postalCode": "1208",
+      "city": "Genève",
+      "country": "CH",
+      "canton": "GE",
+      "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+      "sourceType": "association",
+      "lastVerifiedAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "ge-pharmacie-plaza",
+      "name": "Pharmacie Plaza",
+      "address": "Rue du Cendrier 21",
+      "postalCode": "1201",
+      "city": "Genève",
+      "country": "CH",
+      "canton": "GE",
+      "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+      "sourceType": "association",
+      "lastVerifiedAt": "2026-09-24T00:00:00.000Z"
+    }
+  ]
+}

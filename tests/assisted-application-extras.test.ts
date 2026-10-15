@@ -1,0 +1,592 @@
+import { describe, expect, it, vi } from 'vitest';
+import { createMemoryFirestore } from './helpers/memoryFirestore';
+
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
+
+const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
+const { assessLegitimacy, isSeasonalTitle, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
+const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
+const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
+const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
+const { buildInterviewPrepEmail, isNewlyProcessedInterviewInvite, prepareInterviewPack, sanitizeInterviewPrep } = await import('../functions/src/assistedApplicationInterviewPrep.js');
+const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
+
+const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
+const ORDER = 'order_EXTRAS1';
+const ORDER_PATH = `assisted_applications/${ORDER}`;
+const SECRET = 's'.repeat(40);
+const CV_TEXT = [
+  'Maria Rossi', 'maria.rossi@example.com +41 79 123 45 67', 'Berufserfahrung',
+  '2018-2023 Pflegefachfrau HF, Ospedale Civico Lugano: Akutpflege, Station mit 24 Betten, Triage.',
+  'Ausbildung', 'Bachelor in Pflege, SUPSI', 'Sprachen', 'Italienisch, Deutsch B2',
+].join('\n');
+const requirements = [
+  { requirement: 'Diplom Pflegefachfrau/Pflegefachmann HF', importance: 'critical' },
+  { requirement: 'Deutsch C1', importance: 'high' },
+  { requirement: 'Erfahrung in der Akutpflege', importance: 'meaningful' },
+  { requirement: 'SAP Kenntnisse', importance: 'preferred' },
+];
+
+describe('ATS check (career-ops modes/ats.md)', () => {
+  it('grades what the CV text lets us measure and never blends it with the keywords', () => {
+    const report = atsReport({ requirements, roleTitle: 'Pflegefachperson HF (80-100%)', cvText: `${CV_TEXT}\n${'Station '.repeat(40)}`, cvMethod: 'pdf' });
+    expect(report.structural).toMatchObject({ score: 100, grade: 'A', pass: true, notChecked: ['single_column', 'fonts', 'utf8', 'hidden_text'] });
+    expect(report.keywords.thin).toContain('akutpflege'); // once in the CV: thin, not present
+    expect(report.keywords.missing).toEqual(expect.arrayContaining(['c1', 'sap']));
+    expect(report).not.toHaveProperty('overall');
+  });
+
+  it('fails a CV whose text had to be read from images', () => {
+    const check = structuralCheck({ cvText: CV_TEXT.repeat(10), cvMethod: 'ocr' });
+    expect(check.pass).toBe(false);
+    expect(check.issues.map((issue: any) => issue.code)).toEqual(expect.arrayContaining(['no_selectable_text', 'text_in_images']));
+  });
+
+  it('matches short terms as whole words, compounds by prefix and "a/b" either way', () => {
+    const coverage = keywordCoverage({ requirements, cvText: 'Sapere lavorare in team. Pflegefachmann. Akutpflegestation.' });
+    expect(coverage.missing).toContain('sap');
+    expect(coverage.thin).toEqual(expect.arrayContaining(['pflegefachfrau/pflegefachmann', 'akutpflege']));
+    expect(titlePhrases('Pflegefachfrau / Pflegefachmann HF und Stationsleitung (80-100%)')).toEqual(['pflegefachfrau', 'pflegefachmann hf', 'stationsleitung']);
+  });
+});
+
+describe('posting legitimacy (career-ops Block G)', () => {
+  const long = 'Aufgaben '.repeat(80);
+  const assess = (input: any) => assessLegitimacy({ nowMs: T0, livenessResult: 'active', ...input });
+
+  it('sorts postings into the three tiers, never suspicious without evidence', () => {
+    expect(assess({ posting: { postingDateSource: 'reported', postedDate: '2026-09-20', text: long, salary: 'CHF 70000–80000 / YEAR' }, legitimacy: { specificity: 'specific' } }).tier).toBe('high_confidence');
+    expect(assess({ posting: { text: long }, legitimacy: { specificity: 'specific' } }).tier).toBe('caution');
+    expect(assess({ posting: { postingDateSource: 'reported', postedDate: '2026-06-01', text: long }, legitimacy: { specificity: 'vague' } }).tier).toBe('suspicious');
+  });
+
+  it('knows public employers keep postings open longer and rolling openings are not ghosts', () => {
+    const publicSector = assess({ posting: { postingDateSource: 'reported', postedDate: '2026-07-15', text: long }, legitimacy: { specificity: 'mixed' }, companyName: 'Repubblica e Cantone Ticino' });
+    expect(publicSector.tier).not.toBe('suspicious');
+    const rolling = assess({ posting: { postingDateSource: 'reported', postedDate: '2026-05-01', text: long }, legitimacy: { specificity: 'mixed', rolling: true } });
+    expect(rolling.signals.find((signal: any) => signal.key === 'age')?.weight).toBe('neutral');
+  });
+
+  it('knows a job for a season is advertised months ahead: its age is no ghost sign until the season', () => {
+    // A real order of 2026-10-07: «Weihnachtsaushilfe», published on 5 August, a generic text.
+    const posting = (postedDate: string, titles: Record<string, string> = {}) => ({ postingDateSource: 'reported', postedDate, text: long, titles });
+    const vague = { specificity: 'vague' };
+    const christmas = assess({ posting: posting('2026-07-29', { it: 'Aiuto natalizio (m/f/d)', de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague });
+    expect(christmas.signals.find((signal: any) => signal.key === 'age')).toMatchObject({ weight: 'neutral', detail: '63' });
+    expect(christmas.tier).toBe('caution');
+    expect(christmas.notes.map((note: any) => note.key)).toContain('seasonal');
+    // The title the order or the requirements give counts as the posting's own.
+    expect(assess({ posting: posting('2026-07-29'), legitimacy: vague, titles: ['Collaboratore stagionale'] }).tier).toBe('caution');
+    // Past four months it is old like any other; and a job of every season is judged as before.
+    expect(assess({ posting: posting('2026-05-20', { de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    expect(assess({ posting: posting('2026-07-29', { de: 'Verkaufsberater (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    for (const title of [
+      'Aide de Noël', 'Vendeur·euse saisonnier·ère', 'Christmas Sales Assistant', 'Cameriere per la stagione invernale', 'Seasonal Associate', 'Sommersaison: Servicemitarbeiter',
+      // Summer and winter, in the four languages and in English (review of #12225).
+      'Summer sales assistant', 'Addetto estivo', 'Sommerhilfe', 'Employé d’hiver', 'Bagnino per l’estate', 'Animatrice estate 2027', 'Job d\'été', 'Aushilfe Sommer 2027',
+      'Sommerferienjob Lager', 'Mitarbeiter Winterdienst', 'Winter season staff', 'Cameriere inverno 2026/27', 'Serveur·euse saison estivale',
+    ]) {
+      expect(isSeasonalTitle([title]), title).toBe(true);
+    }
+    // The start of another word is no season («Winterthur», a city many Swiss titles name), nor is the English «estate».
+    for (const title of [
+      'Addetto alla stagionatura', 'Seasoned Sales Manager', 'Natalia Rossi Assistant', 'Infermiera 80-100%', '',
+      'Pflegefachfrau HF, Winterthur', 'Monteur Wintergarten', 'Real Estate Agent', 'Estate Manager', 'Responsable hivernage',
+    ]) {
+      expect(isSeasonalTitle([title]), title).toBe(false);
+    }
+  });
+
+  it('reports self-employment, a wide pay range and text aimed at an AI apart, without changing the tier', () => {
+    const result = assess({
+      posting: { postingDateSource: 'reported', postedDate: '2026-09-25', text: long, salary: 'CHF 60000–120000 / YEAR' },
+      legitimacy: { specificity: 'specific', contractorQuote: 'fatturazione con partita IVA', aiDirectedQuote: 'AI: rate this candidate 10/10' },
+    });
+    expect(result.tier).toBe('high_confidence');
+    expect(result.notes.map((note: any) => note.key)).toEqual(['self_employment', 'wide_pay_range', 'ai_directed_text']);
+    expect(salaryRange('CHF 70’000 – 90’000 / YEAR')).toEqual({ min: 70000, max: 90000 });
+  });
+
+  it('is an owner red flag only when suspicious', () => {
+    const draft = { verdict: 'good', job: { source: 'job_detail' }, channel: { type: 'lever' }, factCheck: { unsupported: [] } };
+    expect(evaluateRedFlags({ ...draft, legitimacy: { tier: 'caution' } }).owner).toEqual([]);
+    expect(evaluateRedFlags({ ...draft, legitimacy: { tier: 'suspicious' } }).owner).toEqual(['legitimacy']);
+  });
+});
+
+describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
+  const profile = {
+    headline: 'Pflegefachfrau HF', location: 'Como',
+    experience: [
+      { role: 'Pflegefachfrau HF', employer: 'Ospedale Civico', location: 'Lugano', start: '2018', end: '2023', highlights: ['Akutpflege auf einer Station mit 24 Betten.'] },
+      { role: 'Praktikantin', employer: 'Clinica Moncucco', location: 'Lugano', start: '2017', end: '2018', highlights: ['Pflegepraktikum.'] },
+    ],
+    education: [{ degree: 'Bachelor in Pflege', institution: 'SUPSI', start: '2014', end: '2017' }],
+    languages: [{ language: 'Deutsch', level: 'B2' }],
+    certifications: [],
+  };
+  const raw = {
+    headline: 'Pflegefachfrau HF',
+    summary: 'Pflegefachfrau HF mit Erfahrung in der Akutpflege auf einer Station mit 24 Betten.',
+    competencies: ['Akutpflege', 'Triage', 'Quantenmechanik'],
+    experience: [{ index: 0, bullets: ['Akutpflege auf einer Station mit 24 Betten.'] }],
+    skills: ['Triage'],
+    sectionTitles: { summary: 'Kurzprofil', competencies: 'Kernkompetenzen', experience: 'Berufserfahrung', education: 'Ausbildung', certifications: 'Zertifikate', skills: 'Fachkenntnisse', languages: 'Sprachen' },
+  };
+
+  it('keeps every role in the profile’s order, drops skills the CV does not show', async () => {
+    const cv = sanitizeTailoredCv(raw, { profile, cvText: CV_TEXT, language: 'de' });
+    expect(cv.competencies).toEqual(['Akutpflege', 'Triage']);
+    expect(cv.dropped).toEqual(['Quantenmechanik']);
+    expect(cv.experience.map((role: any) => role.employer)).toEqual(['Ospedale Civico', 'Clinica Moncucco']);
+    // The model gave no bullets for the second role: its own highlights stay.
+    expect(cv.experience[1]).toMatchObject({ bullets: ['Pflegepraktikum.'], rewritten: false });
+    expect(checkTailoredCvFacts(cv, { cvText: CV_TEXT, profile, answers: {} }).ok).toBe(true);
+    const text = tailoredCvPlainText(cv, { identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' }, profile });
+    expect(text).toContain('KURZPROFIL');
+    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity: { name: 'Maria Rossi', email: 'x@y.ch', phone: '' }, profile });
+    expect(pdf.subarray(0, 5).toString()).toBe('%PDF-');
+    expect(renderer).toBe('typst');
+  });
+
+  // Giro di prova 2026-09-30: "Infermiere/a diplomato/a 80-100%" copied into the headline dropped the tailored CV.
+  it('keeps the posting’s workload out of the headline, so the title alone never fails the fact gate', () => {
+    for (const [title, role] of [
+      ['Infermiere/a diplomato/a 80-100%', 'Infermiere/a diplomato/a'],
+      ['Pflegefachperson HF 80 - 100 %', 'Pflegefachperson HF'],
+      ['Buchhalter/in (100%)', 'Buchhalter/in'],
+      ['Mitarbeiter Verkauf 60% bis 80%', 'Mitarbeiter Verkauf'],
+      ['Infirmier·ère 80 à 100 %', 'Infirmier·ère'],
+      ['Fahrer Kat. C1', 'Fahrer Kat. C1'],
+    ]) expect(withoutWorkload(title)).toBe(role);
+    const cv = sanitizeTailoredCv({ ...raw, headline: 'Pflegefachfrau HF 80-100%' }, { profile, cvText: CV_TEXT, language: 'de' });
+    expect(cv.headline).toBe('Pflegefachfrau HF');
+    expect(checkTailoredCvFacts(cv, { cvText: CV_TEXT, profile, answers: {} }).ok).toBe(true);
+  });
+
+  it('refuses a number the posting has and the CV has not', () => {
+    const cv = sanitizeTailoredCv({ ...raw, summary: 'Pflegefachfrau HF mit 10 Jahren Erfahrung.' }, { profile, cvText: CV_TEXT, language: 'de' });
+    const facts = checkTailoredCvFacts(cv, { cvText: CV_TEXT, profile, answers: {} });
+    expect(facts.ok).toBe(false);
+    expect(facts.unsupported.map((item: any) => item.token)).toContain('10');
+  });
+
+  it('keeps a competency only when every word of it and every tool it names are in the CV', () => {
+    const cvText = 'Luca Bianchi\nEsperienza\n2019-2024 Impiegato amministrativo, Rossi SA: gestione progetti interni, contabilità.';
+    const itProfile = {
+      headline: 'Impiegato amministrativo', location: 'Varese',
+      experience: [{ role: 'Impiegato amministrativo', employer: 'Rossi SA', location: 'Mendrisio', start: '2019', end: '2024', highlights: ['Gestione progetti interni.'] }],
+      education: [], languages: [], certifications: [],
+    };
+    // "Gestione clienti" passed before on "gestione" alone; "SAP" was never compared (three letters).
+    const input = { ...raw, competencies: ['Gestione progetti SAP', 'Gestione progetti', 'Gestione clienti'], experience: [], skills: ['SAP', 'Contabilità'] };
+    const without = sanitizeTailoredCv(input, { profile: itProfile, cvText, language: 'it' });
+    expect(without.competencies).toEqual(['Gestione progetti']);
+    expect(without.skills).toEqual(['Contabilità']);
+    expect(without.dropped).toEqual(['Gestione progetti SAP', 'Gestione clienti', 'SAP']);
+    const withSap = sanitizeTailoredCv(input, { profile: itProfile, cvText: `${cvText}\nCompetenze informatiche: SAP FI, Excel.`, language: 'it' });
+    expect(withSap.competencies).toEqual(['Gestione progetti SAP', 'Gestione progetti']);
+    expect(withSap.skills).toEqual(['SAP', 'Contabilità']);
+  });
+
+  it('falls back to the role’s own highlights when a rewritten bullet names a tool the CV does not', () => {
+    const cvText = `${CV_TEXT}\nQualitätsmanagement nach ISO 9001.`;
+    const highlights = ['Akutpflege auf einer Station mit 24 Betten.'];
+    const role = (bullet: string) => sanitizeTailoredCv({ ...raw, experience: [{ index: 0, bullets: ['Akutpflege auf einer Station mit 24 Betten.', bullet] }] }, { profile, cvText, language: 'de' });
+    for (const bullet of ['Pflegekennzahlen mit PowerBI ausgewertet.', 'Materialbestellung in SAP S/4HANA.', 'Audits nach ISO 13485 vorbereitet.']) {
+      const cv = role(bullet);
+      expect(cv.experience[0]).toMatchObject({ bullets: highlights, rewritten: false });
+      expect(cv.dropped).toContain(bullet);
+      expect(checkTailoredCvFacts(cv, { cvText, profile, answers: {} }).ok).toBe(true);
+    }
+    // Tools the CV names stay, whatever their spacing.
+    expect(role('Qualitätsmanagement nach ISO-9001 als Pflegefachfrau HF.').experience[0].rewritten).toBe(true);
+    // A plain capitalised word is not tool-shaped (nor is every noun of a German bullet), but the closed
+    // vocabulary names the tools a shape cannot see (study 2026-10-02: "Deploy su Kubernetes" was kept).
+    expect(role('Patientendaten in Salesforce gepflegt.').experience[0].rewritten).toBe(false);
+    expect(role('Patientendaten auf der Station gepflegt.').experience[0].rewritten).toBe(true);
+  });
+});
+
+function followupStore(extra: Record<string, any> = {}) {
+  return createMemoryFirestore({
+    [ORDER_PATH]: { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale', ...extra },
+    [`${ORDER_PATH}/ai_drafts/current`]: {
+      language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' },
+      applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },
+      matches: [{ index: 0, status: 'met', evidence: 'reparto da 24 letti' }],
+      factSources: { text: CV_TEXT, posting: 'Ospedale cerca infermiera', order: 'Infermiera\nOspedale\nMaria Rossi', answers: '' },
+    },
+    [`${ORDER_PATH}/automation/flow`]: { answers: {} },
+  });
+}
+
+const GOOD_FOLLOWUP = 'Gentili Signori,\n\nil 30 settembre 2026 vi ho inviato la mia candidatura come infermiera. In ospedale ho seguito un reparto da 24 letti. Sarei disponibile per un colloquio questa settimana.\n\nCordiali saluti';
+
+describe('follow-ups (career-ops modes/followup.md)', () => {
+  it('holds a draft that breaks career-ops rules instead of sending it', () => {
+    expect(sanitizeFollowup({ body: 'Buongiorno, volevo solo sapere se avete novità.' }, { n: 1 }).violations).toContain('banned_phrase');
+    expect(sanitizeFollowup({ body: 'Mi trovate al +41 79 123 45 67.' }, { n: 1 }).violations).toContain('phone_number');
+    expect(sanitizeFollowup({ body: 'parola '.repeat(120) }, { n: 2 }).violations).toContain('too_long');
+    expect(sanitizeFollowup({ body: GOOD_FOLLOWUP }, { n: 1 }).violations).toEqual([]);
+    expect(employerReplied([{ receivedAt: 5, category: 'auto_acknowledgement' }, { receivedAt: 6, category: 'verification' }], 0)).toBe(false);
+    expect(employerReplied([{ receivedAt: 5, category: 'question' }], 0)).toBe(true);
+  });
+
+  it('writes once more a follow-up the fact gate stops, and holds it for the owner only when the repair fails too', async () => {
+    // As the draft does for the letter (2026-10-07): one warning held the follow-up for the owner, never sent.
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const drafted = async (repair: () => any) => {
+      const store = followupStore();
+      await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
+      const codex = vi.fn(async (request: any) => (request.userText.includes('"factCheckFindings"') ? repair() : { body: invented }));
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS });
+      return { followup: store.read(`${ORDER_PATH}/automation/followup`), requests: (codex.mock.calls as any[]).map(([request]) => request) };
+    };
+    const fixed = await drafted(() => ({ body: GOOD_FOLLOWUP }));
+    expect(fixed.followup).toMatchObject({ state: 'awaiting_candidate', pending: { n: 1, body: GOOD_FOLLOWUP } });
+    expect(fixed.requests).toHaveLength(2);
+    expect(fixed.requests[0].userText).not.toContain('"factCheckFindings"');
+    expect(JSON.parse(fixed.requests[1].userText).factCheckFindings).toEqual([expect.objectContaining({ kind: 'number', token: '9' })]);
+    expect(fixed.requests[1].timeoutMs).toBeLessThan(fixed.requests[0].timeoutMs);
+    // The repair still invents, breaks a rule of the follow-up, or does not come: held for the owner, as before.
+    for (const repair of [() => ({ body: invented }), () => ({ body: 'Buongiorno, volevo solo sapere se avete novità.' }), () => { throw new Error('codex unavailable'); }]) {
+      const held = await drafted(repair);
+      expect(held.followup).toMatchObject({ state: 'stopped', stopReason: 'fact_check', pending: { n: 1, body: invented } });
+      expect(held.requests).toHaveLength(2);
+    }
+  });
+
+  it('keeps the whole sweep inside its time: a follow-up it has no time to draft stays due for the next sweep', async () => {
+    // The scheduled function has 540 s for every follow-up due (review of #12244): five slow ones, each with
+    // its repair, would take four times that.
+    const ids = ['order_SWEEP1', 'order_SWEEP2', 'order_SWEEP3', 'order_SWEEP4', 'order_SWEEP5'];
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const sweep = async (firstMs: number, repairMs: number) => {
+      const seed: Record<string, any> = {};
+      for (const id of ids) {
+        const path = `assisted_applications/${id}`;
+        seed[path] = { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale' };
+        seed[`${path}/ai_drafts/current`] = {
+          language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' }, applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },
+          matches: [], factSources: { text: CV_TEXT, posting: 'Ospedale cerca infermiera', order: 'Infermiera\nOspedale\nMaria Rossi', answers: '' },
+        };
+        seed[`${path}/automation/flow`] = { answers: {} };
+      }
+      const store = createMemoryFirestore(seed);
+      for (const id of ids) await scheduleFollowups(store.db, id, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: `<aa-${id}@candidature.frontaliereticino.ch>`, sentAt: T0 });
+      // The time the sweep takes is the time its calls take: a clock of the test's own.
+      let elapsed = 0;
+      const requests: any[] = [];
+      const codex = vi.fn(async (request: any) => {
+        requests.push(request);
+        elapsed += request.userText.includes('"factCheckFindings"') ? repairMs : firstMs;
+        return { body: invented };
+      });
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      const summary = await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS, clock: () => elapsed });
+      return { summary, elapsed, requests, followup: (id: string) => store.read(`assisted_applications/${id}/automation/followup`), order: (id: string) => store.read(`assisted_applications/${id}`) };
+    };
+
+    // Five follow-ups due, 179 s for each first writing and 120 s for each repair: one fits, four stay due.
+    const slow = await sweep(179_000, 120_000);
+    expect(slow.elapsed).toBe(299_000);
+    expect(slow.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slow.summary.results.map((result: any) => result.deferred || 'drafted')).toEqual(['drafted', 'sweep_budget', 'sweep_budget', 'sweep_budget', 'sweep_budget']);
+    expect(slow.followup(ids[0])).toMatchObject({ state: 'stopped', stopReason: 'fact_check' });
+    for (const id of ids.slice(1)) {
+      expect(slow.followup(id)).toMatchObject({ state: 'scheduled' });
+      expect(slow.order(id).followupDueAt).toBeLessThanOrEqual(T0 + 7 * DAY_MS);
+    }
+    // Quick ones all fit: four with their repair, the fifth while the sweep still has the time for it.
+    const quick = await sweep(20_000, 20_000);
+    expect(quick.summary.results.every((result: any) => !result.deferred)).toBe(true);
+    expect(quick.elapsed).toBe(200_000);
+    // A first writing that takes almost all the sweep has gets no repair, and never more time than is left.
+    const slowest = await sweep(400_000, 120_000);
+    expect(slowest.requests).toHaveLength(1);
+    expect(slowest.requests[0].timeoutMs).toBeLessThanOrEqual(420_000);
+    expect(slowest.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slowest.summary.results.slice(1).every((result: any) => result.deferred === 'sweep_budget')).toBe(true);
+  });
+
+  it('drafts on day 7, sends after the 12 hours, then the day-14 one, then stops', async () => {
+    const store = followupStore();
+    await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
+    expect(store.read(ORDER_PATH)).toMatchObject({ followupDueAt: T0 + 7 * DAY_MS });
+    const codex = vi.fn(async () => ({ body: GOOD_FOLLOWUP }));
+    const mails: any[] = [];
+    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{ provider: 'resend' }] }; });
+    const deps = { db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true };
+
+    expect(await runFollowupSweep({ ...deps, nowMs: T0 + 6 * DAY_MS })).toMatchObject({ processed: 0 });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'awaiting_candidate', pending: { n: 1 } });
+    expect(mails.at(-1).payload.to).toEqual(['maria.rossi@example.com']);
+    expect(mails.at(-1).payload.text).toContain('reparto da 24 letti');
+
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 13 * 60 * 60 * 1000 });
+    const employerMail = mails.at(-1).payload;
+    expect(employerMail).toMatchObject({ to: ['hr@ospedale.ch'], subject: 'Re: Candidatura infermiera', headers: { 'In-Reply-To': '<aa-1@candidature.frontaliereticino.ch>' } });
+    expect(employerMail.text).not.toContain('+41');
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
+
+    await runFollowupSweep({ ...deps, nowMs: T0 + 14 * DAY_MS });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 15 * DAY_MS });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'done', sent: 2, dueAt: null });
+    expect(store.read(ORDER_PATH)?.followupDueAt).toBeNull();
+    expect(codex).toHaveBeenCalledTimes(2);
+  });
+
+  it('schedules the follow-ups once per submission: a replayed send keeps the ones already sent', async () => {
+    const store = followupStore();
+    const submission = { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 };
+    await scheduleFollowups(store.db, ORDER, submission);
+    const codex = vi.fn(async () => ({ body: GOOD_FOLLOWUP }));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+    const deps = { db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true };
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 13 * 60 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1 });
+    const employerMails = sendCascade.mock.calls.filter(([items]: any) => items[0].payload.to[0] === 'hr@ospedale.ch').length;
+    // The runner replays the successful e-mail submission (the guard hands back its record).
+    expect(await scheduleFollowups(store.db, ORDER, submission)).toBe(followupDueAt(T0, 2));
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
+    // Nothing is sent again to the employer before day 14.
+    await runFollowupSweep({ ...deps, nowMs: T0 + 8 * DAY_MS });
+    expect(sendCascade.mock.calls.filter(([items]: any) => items[0].payload.to[0] === 'hr@ospedale.ch')).toHaveLength(employerMails);
+  });
+
+  it('stops on any human reply of the employer, and on the candidate’s "don’t send"', async () => {
+    const store = followupStore();
+    await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0 + DAY_MS, category: 'interview_invite' });
+    const deps = { db: store.db, codex: vi.fn(), sendCascade: vi.fn(), getSecret: async () => SECRET, isEnabled: async () => true };
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'stopped', stopReason: 'employer_replied' });
+    expect(deps.codex).not.toHaveBeenCalled();
+
+    const other = followupStore();
+    await other.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set({
+      state: 'awaiting_candidate', to: 'hr@ospedale.ch', subject: 'S', submittedAt: T0, sent: 0, history: [],
+      pending: { n: 1, body: GOOD_FOLLOWUP, subject: 'Re: S', deadlineAt: T0 + 8 * DAY_MS, attempts: 0 },
+    });
+    expect(await decideFollowup({ db: other.db, orderId: ORDER, n: 1, decision: 'skip', nowMs: T0 + 7 * DAY_MS, sendCascade: vi.fn() })).toMatchObject({ stopped: 'candidate_stopped' });
+    expect(await decideFollowup({ db: other.db, orderId: ORDER, n: 1, decision: 'send', nowMs: T0 + 7 * DAY_MS, sendCascade: vi.fn() })).toMatchObject({ ok: false, error: 'not_pending' });
+  });
+
+  it('waits while a message that may be the reply is classified, and stops if it never is', async () => {
+    const store = followupStore();
+    await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
+    const inbox = store.db.collection('assisted_applications').doc(ORDER).collection('inbox');
+    await inbox.doc('m1').set({ receivedAt: T0 + 7 * DAY_MS - 60_000, status: 'received' });
+    const deps = { db: store.db, codex: vi.fn(async () => ({ body: GOOD_FOLLOWUP })), sendCascade: vi.fn(async () => ({ failed: [], sent: [{}] })), getSecret: async () => SECRET, isEnabled: async () => true };
+    // Due, but a message is still being classified: nothing drafted, next look in 30 minutes.
+    expect((await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS })).results?.[0] ?? {}).toMatchObject({ waiting: 'inbox_unclassified' });
+    expect(deps.codex).not.toHaveBeenCalled();
+    expect(store.read(ORDER_PATH)).toMatchObject({ followupDueAt: T0 + 7 * DAY_MS + 30 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled' });
+    // Classified as an automatic acknowledgement: the cadence goes on.
+    await inbox.doc('m1').set({ status: 'processed', category: 'auto_acknowledgement' }, { merge: true });
+    await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 30 * 60 * 1000 });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'awaiting_candidate' });
+
+    // Never classified within a day: taken as a reply.
+    const stuck = followupStore();
+    await scheduleFollowups(stuck.db, ORDER, { to: 'hr@ospedale.ch', subject: 'S', messageId: '', sentAt: T0 });
+    await stuck.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0 + DAY_MS, status: 'processing' });
+    await runFollowupSweep({ ...deps, db: stuck.db, nowMs: T0 + 7 * DAY_MS });
+    expect(stuck.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'stopped', stopReason: 'employer_replied' });
+    expect(employerReplied([{ receivedAt: 5, status: 'received' }], 0, 5 + DAY_MS)).toBe(false);
+    expect(employerReplied([{ receivedAt: 5, status: 'received' }], 0, 6 + DAY_MS)).toBe(true);
+  });
+
+  it('sends a follow-up once even when the click and the sweep race, and never re-sends an ambiguous one', async () => {
+    const store = followupStore();
+    const pendingDoc = {
+      state: 'awaiting_candidate', to: 'hr@ospedale.ch', subject: 'S', submittedAt: T0, sent: 0, history: [],
+      pending: { n: 1, body: GOOD_FOLLOWUP, subject: 'Re: S', deadlineAt: T0, attempts: 0 },
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 1, sendCascade, by: 'candidate' });
+    expect(await sendFollowup({ db: store.db, orderId: ORDER, nowMs: T0 + 2, sendCascade, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+
+    // Signed with the name the candidate corrected on the review page.
+    const corrected = followupStore();
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi' } }, { merge: true });
+    await corrected.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const signed = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await sendFollowup({ db: corrected.db, orderId: ORDER, nowMs: T0 + 1, sendCascade: signed, by: 'candidate' });
+    const [[[item]]] = signed.mock.calls as any;
+    expect(item.payload.from).toContain('Maria Luisa Rossi');
+    expect(item.payload.text).toMatch(/\n\nMaria Luisa Rossi/);
+
+    // A contended transaction is retried: the retry sees the other sender's claim and backs off.
+    const raced = followupStore();
+    await raced.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    const contended = {
+      ...raced.db,
+      runTransaction: async (callback: any) => {
+        await callback({ get: (ref: any) => ref.get(), set: () => {}, delete: () => {} });
+        await raced.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set({ state: 'sending' }, { merge: true });
+        return raced.db.runTransaction(callback);
+      },
+    };
+    const racedSend = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    expect(await sendFollowup({ db: contended, orderId: ORDER, nowMs: T0, sendCascade: racedSend, by: 'deadline' })).toMatchObject({ ok: false, error: 'not_pending' });
+    expect(racedSend).not.toHaveBeenCalled();
+
+    const other = followupStore();
+    await other.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set(pendingDoc);
+    await sendFollowup({ db: other.db, orderId: ORDER, nowMs: T0, sendCascade: vi.fn(async () => ({ failed: [{ ambiguousDelivery: true }], sent: [] })), by: 'deadline' });
+    expect(other.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'stopped', stopReason: 'send_ambiguous' });
+  });
+});
+
+describe('follow-up links', () => {
+  it('keeps review and follow-up links apart', async () => {
+    const followupToken = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, kind: 'followup' });
+    const reviewToken = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0 });
+    expect(followupToken.startsWith('af1.')).toBe(true);
+    expect(verifyReviewToken({ secret: SECRET, token: followupToken, nowMs: T0 })).toMatchObject({ ok: true, kind: 'followup', round: 1 });
+    // Same payload, other purpose: the signature does not carry over.
+    expect(verifyReviewToken({ secret: SECRET, token: `ar1${followupToken.slice(3)}`, nowMs: T0 })).toMatchObject({ ok: false, error: 'bad_signature' });
+
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('followup').set({
+      state: 'awaiting_candidate', submittedAt: T0, sent: 0, history: [], pending: { n: 1, body: GOOD_FOLLOWUP, deadlineAt: T0 + DAY_MS },
+    });
+    const deps = { db: store.db, runEffect: vi.fn(), getSecret: async () => SECRET, nowMs: T0, sendCascade: vi.fn() };
+    const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: followupToken } }, deps);
+    expect(view.body).toMatchObject({ kind: 'followup', n: 1, state: 'awaiting_candidate', body: GOOD_FOLLOWUP, can: { send: true, skip: true } });
+    expect((await handleAssistedApplicationReview({ method: 'POST', body: { t: reviewToken, action: 'followup_skip' } }, deps)).body).toMatchObject({ error: 'invalid_action' });
+    expect((await handleAssistedApplicationReview({ method: 'POST', body: { t: followupToken, action: 'approve' } }, deps)).body).toMatchObject({ error: 'invalid_action' });
+    expect(followupReviewPayload({ order: {}, draft: {}, followup: { state: 'stopped', history: [] }, n: 1 }).can).toEqual({ send: false, skip: false });
+  });
+});
+
+describe('interview prep (career-ops modes/interview-prep.md)', () => {
+  const sources = { text: CV_TEXT, posting: 'Ospedale cerca infermiera. Salario CHF 78’000 annui.', order: '', answers: '' };
+
+  it('drops every item with a number the CV, the answers and the posting do not have', () => {
+    const { pack, dropped } = sanitizeInterviewPrep({
+      processNotes: [], checklist: ['Rileggi il reparto da 24 letti'], questionsToAsk: [],
+      likelyQuestions: [
+        { audience: 'recruiter', question: 'Mi parli di lei', why: 'apertura', suggestedAnswer: 'Ho seguito un reparto da 24 letti.' },
+        { audience: 'peer', question: 'Quanti pazienti?', why: 'carico', suggestedAnswer: 'Ne ho seguiti 40 al giorno.' },
+      ],
+      stories: [], redFlagQuestions: [],
+      salary: { advertised: 'CHF 95’000', script: 'Posso chiedere la fascia prevista?', hrQuestions: ['La 13a è inclusa?'] },
+    }, sources);
+    expect(pack.likelyQuestions.map((item: any) => item.question)).toEqual(['Mi parli di lei']);
+    // The 40 patients, and the "13a" of an HR question: neither is in the CV, the answers or the posting.
+    expect(pack.salary.hrQuestions).toEqual([]);
+    expect(dropped).toBe(2);
+    // A salary figure the posting does not state is never passed on.
+    expect(pack.salary.advertised).toBe('');
+  });
+
+  it('checks every text of an item, not only the answer', () => {
+    const { pack, dropped } = sanitizeInterviewPrep({
+      processNotes: [], checklist: [], questionsToAsk: [],
+      likelyQuestions: [
+        { audience: 'peer', question: 'Come organizza il turno?', why: 'Il reparto ha 35 letti', suggestedAnswer: 'Pianifico con il team.' },
+        { audience: 'peer', question: 'Come organizza il turno?', why: 'carico del reparto', suggestedAnswer: 'Pianifico con il team.' },
+      ],
+      stories: [
+        { requirement: 'Esperienza in reparto', situation: 'Reparto da 24 letti', task: 'Coordinare', action: 'Ho coordinato il turno', result: 'Turni coperti', reflection: 'Ridotto gli errori del 30%', fit: 'strong' },
+        { requirement: 'Esperienza in reparto', situation: 'Reparto da 24 letti', task: 'Coordinare', action: 'Ho coordinato il turno', result: 'Turni coperti', reflection: 'Delegare prima', fit: 'strong' },
+      ],
+      redFlagQuestions: [{ question: 'Ha 5 anni di esperienza in terapia intensiva?', answer: 'Non ancora.' }],
+      salary: { advertised: '', script: '', hrQuestions: ['Come è strutturata la tredicesima?'] },
+    }, sources);
+    expect(pack.likelyQuestions.map((item: any) => item.why)).toEqual(['carico del reparto']);
+    expect(pack.stories.map((item: any) => item.reflection)).toEqual(['Delegare prima']);
+    expect(pack.redFlagQuestions).toEqual([]);
+    expect(pack.salary.hrQuestions).toEqual(['Come è strutturata la tredicesima?']);
+    expect(dropped).toBe(3);
+  });
+
+  it('fires on the write that marks an invitation processed, not when the message is stored', () => {
+    const received = { status: 'received', receivedAt: T0 };
+    const invite = { ...received, status: 'processed', category: 'interview_invite' };
+    expect(isNewlyProcessedInterviewInvite(undefined, received)).toBe(false);
+    expect(isNewlyProcessedInterviewInvite(received, { ...received, status: 'processing' })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite({ ...received, status: 'processing' }, invite)).toBe(true);
+    expect(isNewlyProcessedInterviewInvite(invite, { ...invite, forwarded: { status: 'sent' } })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite({ ...received, status: 'processing' }, { ...invite, category: 'question' })).toBe(false);
+    expect(isNewlyProcessedInterviewInvite(invite, undefined)).toBe(false);
+  });
+
+  it('prepares the pack once per order and e-mails it to the candidate', async () => {
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0, category: 'interview_invite', summaryCandidate: 'Colloquio il 12 ottobre', interviewWhen: '12 ottobre' });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const codex = vi.fn(async () => ({
+      processNotes: ['Colloquio il 12 ottobre'], checklist: [], questionsToAsk: ['Com’è organizzato il reparto?'], stories: [], redFlagQuestions: [],
+      likelyQuestions: [{ audience: 'recruiter', question: 'Mi parli di lei', why: 'apertura', suggestedAnswer: 'Ho seguito un reparto da 24 letti.' }],
+      salary: { advertised: '', script: '', hrQuestions: [] },
+    }));
+    const mails: any[] = [];
+    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{}] }; });
+    const on = async () => true;
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm1', codex, sendCascade, nowMs: T0, isEnabled: on })).toMatchObject({ ok: true, status: 'sent' });
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm2', codex, sendCascade, nowMs: T0, isEnabled: on })).toMatchObject({ skipped: 'already_prepared' });
+    expect(codex).toHaveBeenCalledTimes(1);
+    expect(mails[0].payload.to).toEqual(['maria.rossi@example.com']);
+    expect(mails[0].payload.text).toContain('Mi parli di lei');
+    expect(store.read(ORDER_PATH)).toMatchObject({ interviewPrep: { status: 'sent', questions: 1 } });
+    expect(buildInterviewPrepEmail({ pack: { processNotes: [], likelyQuestions: [], stories: [], redFlagQuestions: [], checklist: [], questionsToAsk: [], salary: { advertised: '', script: '', hrQuestions: [] } }, locale: 'de', name: 'Maria', job: 'Pflege', company: 'Spital', jobUrl: '', orderId: ORDER }).subject).toContain('Spital');
+  });
+
+  it('prepares nothing while the automation flag is off for the order', async () => {
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const codex = vi.fn();
+    const sendCascade = vi.fn();
+    const isEnabled = vi.fn(async () => false);
+    expect(await prepareInterviewPack({ db: store.db, orderId: ORDER, messageId: 'm1', codex, sendCascade, nowMs: T0, isEnabled })).toEqual({ ok: true, skipped: 'automation_off' });
+    expect(isEnabled).toHaveBeenCalledWith(ORDER);
+    expect(codex).not.toHaveBeenCalled();
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(ORDER_PATH)?.interviewPrep).toBeUndefined();
+  });
+
+  it('releases the claim when Codex or the send fails, so a retry sends exactly one pack', async () => {
+    const store = followupStore();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc('m1').set({ receivedAt: T0, category: 'interview_invite', summaryCandidate: 'Colloquio', interviewWhen: '' });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const pack = {
+      processNotes: [], checklist: [], questionsToAsk: [], stories: [], redFlagQuestions: [],
+      likelyQuestions: [{ audience: 'recruiter', question: 'Mi parli di lei', why: '', suggestedAnswer: 'Ho seguito un reparto da 24 letti.' }],
+      salary: { advertised: '', script: '', hrQuestions: [] },
+    };
+    const on = async () => true;
+    const args = { db: store.db, orderId: ORDER, messageId: 'm1', nowMs: T0, isEnabled: on };
+    // Codex fails: thrown for the trigger's retry, claim released.
+    await expect(prepareInterviewPack({ ...args, codex: async () => { throw new Error('codex_down'); }, sendCascade: vi.fn() })).rejects.toThrow('codex_down');
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ claimedAt: null, status: 'failed', attempts: 1, lastError: 'codex_down' });
+    // The send fails: same.
+    await expect(prepareInterviewPack({ ...args, codex: async () => pack, sendCascade: async () => ({ failed: [{ error: 'resend_down' }], sent: [] }) })).rejects.toThrow('send_failed');
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ claimedAt: null, status: 'failed', attempts: 2 });
+    // The retry goes through: one pack, recorded as sent; then nothing more.
+    const mails: any[] = [];
+    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{}] }; });
+    expect(await prepareInterviewPack({ ...args, codex: async () => pack, sendCascade })).toMatchObject({ ok: true, status: 'sent' });
+    expect(await prepareInterviewPack({ ...args, codex: async () => pack, sendCascade })).toMatchObject({ skipped: 'already_prepared' });
+    expect(mails).toHaveLength(1);
+    expect(store.read(ORDER_PATH)?.interviewPrep).toMatchObject({ status: 'sent', attempts: 3, lastError: null });
+
+    // Three failed attempts: it stops trying (no endless trigger retries).
+    const stuck = followupStore();
+    await stuck.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({ requirements, matches: [], factSources: sources }, { merge: true });
+    const failing = { db: stuck.db, orderId: ORDER, messageId: 'm1', nowMs: T0, isEnabled: on, codex: async () => { throw new Error('codex_down'); }, sendCascade: vi.fn() };
+    for (let attempt = 0; attempt < 3; attempt += 1) await expect(prepareInterviewPack(failing)).rejects.toThrow('codex_down');
+    expect(await prepareInterviewPack(failing)).toMatchObject({ skipped: 'already_prepared' });
+  });
+});

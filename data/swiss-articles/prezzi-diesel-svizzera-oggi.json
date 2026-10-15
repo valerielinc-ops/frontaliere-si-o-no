@@ -1,0 +1,40 @@
+{
+  "id": "prezzi-diesel-svizzera-oggi",
+  "slug": "prezzi-diesel-svizzera-oggi",
+  "publishedAt": "2026-06-26T01:54:46.367Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.774798477958047,
+    "confidence": 0.8,
+    "finalScore": 8.619838782366438,
+    "topK": [
+      {
+        "slug": "benzina-record-annuale-svizzera-2026",
+        "cosine": 0.8978998731631705
+      },
+      {
+        "slug": "diesel-aumento-prezzi-svizzera-2026",
+        "cosine": 0.8906292829662857
+      },
+      {
+        "slug": "petrolio-gas-svizzera-approvvigionamento-sicuro",
+        "cosine": 0.8839980111179304
+      },
+      {
+        "slug": "conflitto-medio-oriente-energia-ticino",
+        "cosine": 0.8800546402062263
+      },
+      {
+        "slug": "petrolio-gas-sicuro-ticino-2026",
+        "cosine": 0.8754890152240139
+      }
+    ],
+    "score": 8.619838782366438,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

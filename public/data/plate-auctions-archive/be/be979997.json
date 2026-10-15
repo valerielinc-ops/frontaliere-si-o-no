@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-230714",
+      "sourceKey": "BE",
+      "sourceRecordId": "230714",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "979997",
+      "normalizedPlate": "BE979997",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 520,
+      "bidCount": 2,
+      "endsAt": "2026-09-16T19:00:00.000Z",
+      "closedAt": "2026-09-16T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-be.ch/de/",
+      "officialDetailUrl": "https://www.auktion-be.ch/de/auction/230714",
+      "sourceFetchedAt": "2026-09-15T06:58:45.815Z",
+      "lastVerifiedAt": "2026-09-15T06:58:45.815Z",
+      "firstSeenAt": "2026-09-15T04:53:45.751Z",
+      "lastSeenAt": "2026-09-15T06:58:45.815Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1cba0452b6ed"
+    }
+  ]
+}

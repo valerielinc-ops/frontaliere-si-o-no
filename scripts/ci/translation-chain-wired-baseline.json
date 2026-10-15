@@ -1,0 +1,12 @@
+{
+  "orphans": [
+    "scripts/lib/content-addressed-translation-memory-v2.mjs",
+    "scripts/lib/translation-candidate-executor-v2.mjs",
+    "scripts/lib/translation-completion-scheduler-v2.mjs",
+    "scripts/lib/translation-derived-patch-v2.mjs",
+    "scripts/lib/translation-derived-reducer-v2.mjs",
+    "scripts/lib/translation-journal-v2.mjs",
+    "scripts/lib/translation-state-drainer-v2.mjs",
+    "scripts/lib/translation-state-store-v2.mjs"
+  ]
+}

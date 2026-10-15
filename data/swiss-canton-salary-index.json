@@ -1,0 +1,64 @@
+{
+  "_comment": "Canonical per-canton salary index for Switzerland. Single source of truth consumed by BOTH the .mjs estimation pipeline (scripts/lib/swiss-canton-salary.mjs) and the .ts SEO build (build-plugins/shared/cantonSalaryIndex.ts). A drift guard test (tests/swiss-canton-salary-parity.test.ts) locks the two TS/MJS accessors to this file.",
+  "_methodology": "BFS does NOT publish per-canton wage medians for free; the LSE (Lohnstrukturerhebung) sample is only large enough for the 7 official Grossregionen. The defensible official-source approach: each canton inherits the median of its Grossregion, and the Ticino USTAT sector structure (sector x level shape, p25/p75 spread, frontalieri ratio) is scaled by factor = grossregionMedian / ticinoMedian. Ticino factor = 1.0 -> Ticino estimates are byte-identical to the prior model. The frontalieri (cross-border) wage discount is applied only to border cantons, where Permit G commuters actually work; interior cantons use the full resident median (no discount).",
+  "_sources": {
+    "grossregionMedian2024": "BFS STAT-TAB cube px-x-0304010000_203 (LSE 2024), gross monthly wage, central value, FTE standardized to 4 1/3 weeks, private+public sector. https://www.pxweb.bfs.admin.ch/pxweb/de/px-x-0304010000_203/ — machine-verified via PX-Web JSON API.",
+    "grossregionMapping": "BFS NUTS-2 Grandes regions / Grossregionen standard (official cube metadata labels).",
+    "minimumWage": "Cantonal statutory minimum wage laws (GE OCIRT, NE/JU/BS/TI cantonal sites). 2026 hourly rates annualized at 2080 h/year (40 h x 52 w) to match the existing Ticino convention. BS conservative (sources conflict 21.00 vs 22.20 CHF/h — verify against BS Mindestlohngesetz before raising).",
+    "frontalieri": "BFS STAF Grenzgaengerstatistik (px-x-0302010000) — canton-level presence of cross-border workers. https://www.bfs.admin.ch/bfs/de/home/statistiken/arbeit-erwerb/erhebungen/ggs.html",
+    "nationalMedian2024": "BFS LSE 2024 national median gross monthly wage."
+  },
+  "referenceYear": 2024,
+  "ticinoMedianMonthly": 5708,
+  "nationalMedianMonthly": 7024,
+  "grossregionMedianMonthly": {
+    "lemanique": 6998,
+    "mittelland": 6964,
+    "nordwest": 7156,
+    "zurich": 7502,
+    "ostschweiz": 6623,
+    "zentral": 7092,
+    "ticino": 5708
+  },
+  "cantonToGrossregion": {
+    "ZH": "zurich",
+    "BE": "mittelland",
+    "LU": "zentral",
+    "UR": "zentral",
+    "SZ": "zentral",
+    "OW": "zentral",
+    "NW": "zentral",
+    "GL": "ostschweiz",
+    "ZG": "zentral",
+    "FR": "mittelland",
+    "SO": "mittelland",
+    "BS": "nordwest",
+    "BL": "nordwest",
+    "SH": "ostschweiz",
+    "AR": "ostschweiz",
+    "AI": "ostschweiz",
+    "SG": "ostschweiz",
+    "GR": "ostschweiz",
+    "AG": "nordwest",
+    "TG": "ostschweiz",
+    "TI": "ticino",
+    "VD": "lemanique",
+    "VS": "lemanique",
+    "NE": "mittelland",
+    "GE": "lemanique",
+    "JU": "mittelland"
+  },
+  "borderCantons": ["GE", "TI", "VD", "VS", "BS", "BL", "NE", "JU", "AG", "SH", "TG", "SG", "GR"],
+  "statutoryMinWageAnnual": {
+    "GE": 51100,
+    "NE": 44400,
+    "JU": 44500,
+    "BS": 43700,
+    "TI": 41600
+  },
+  "universalFloorAnnual": 41600,
+  "nationalSectorGavFloorAnnual": {
+    "Construction": 56076,
+    "Hospitality": 47658
+  }
+}

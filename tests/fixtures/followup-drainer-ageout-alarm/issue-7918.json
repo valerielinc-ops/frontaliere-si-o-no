@@ -1,0 +1,58 @@
+{
+  "_source": "gh issue view 7918 --json number,title,labels,createdAt,closedAt,comments (2026-09-25): tre commenti di bot rappresentativi fra i 223 + il verdetto FIX_OUTCOME, corpi troncati. updatedAt = la riapertura, cioè lo stato letto dal drainer alle 00:07:16Z.",
+  "number": 7918,
+  "title": "CI Failure (build): Deploy to GitHub Pages",
+  "labels": [
+    {
+      "name": "bug"
+    },
+    {
+      "name": "priority:urgent"
+    },
+    {
+      "name": "agent:triaged"
+    },
+    {
+      "name": "fu-prio:high"
+    },
+    {
+      "name": "fu-parked"
+    },
+    {
+      "name": "needs-human"
+    }
+  ],
+  "createdAt": "2026-09-07T12:22:16Z",
+  "updatedAt": "2026-09-24T23:56:22Z",
+  "drainerClosedAt": "2026-09-25T00:07:16Z",
+  "comments": [
+    {
+      "author": {
+        "login": "frontaliere-automation"
+      },
+      "createdAt": "2026-09-16T16:37:50Z",
+      "body": "<!-- FIX_OUTCOME: already-fixed -->\n\nRoot cause confermata: la run 35106970612 è partita dal commit 6ed1ab8 con `SEQUENTIAL_PROFILE` vuoto, riattivando i `close"
+    },
+    {
+      "author": {
+        "login": "github-actions"
+      },
+      "createdAt": "2026-09-18T22:13:25Z",
+      "body": "🔁 **Reopened** — ricorrenza il 2026-09-18T22:13:25.094Z: la stessa condizione si è ripresentata entro 720h dalla chiusura (chiusa il 2026-09-17T10:21:00Z) — ri"
+    },
+    {
+      "author": {
+        "login": "github-actions"
+      },
+      "createdAt": "2026-09-19T02:40:12Z",
+      "body": "✅ Auto-resolved — the failing check is green again (Deploy to GitHub Pages).\nGreen run: https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/3540"
+    },
+    {
+      "author": {
+        "login": "github-actions"
+      },
+      "createdAt": "2026-09-24T23:56:22Z",
+      "body": "🔁 **Reopened** — ricorrenza il 2026-09-24T23:56:22.201Z: la stessa condizione si è ripresentata entro 720h dalla chiusura (chiusa il 2026-09-19T02:40:13Z) — ri"
+    }
+  ]
+}

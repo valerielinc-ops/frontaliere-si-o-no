@@ -1,0 +1,40 @@
+{
+  "id": "caso-karimova-multa-di-3-milioni",
+  "slug": "caso-karimova-multa-di-3-milioni",
+  "publishedAt": "2026-07-30T10:23:57.427Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.547724548878393,
+    "confidence": 0.8,
+    "finalScore": 2.0381796391027147,
+    "topK": [
+      {
+        "slug": "banca-grigionese-denuncia-centinaia-milioni",
+        "cosine": 0.8492415162927976
+      },
+      {
+        "slug": "malpensa-contanti-sequestri-370mila-euro",
+        "cosine": 0.8406119911311268
+      },
+      {
+        "slug": "sequestrati-7200-euro",
+        "cosine": 0.8402553501609104
+      },
+      {
+        "slug": "processo-karimova-archiviazione-parziale",
+        "cosine": 0.8397583627774027
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8353916088913218
+      }
+    ],
+    "score": 0.5095449097756787,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}
