@@ -24,6 +24,7 @@ const ISSUE_WORKFLOW = 'Loop L3 Job Quality to Apply';
 export const DEFAULT_SUMMARY_DIR = path.join('data', 'jobs-crawler-summaries', 'by-crawler');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'job-apply-outcome-baseline.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const DEFAULT_QUARANTINE_PATH = path.join('data', 'crawler-quarantine.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
@@ -257,6 +258,7 @@ export function validateJobSummaries(summaries, {
   minimumSample = MINIMUM_SAMPLE,
   candidateActionClass = null,
   registryPath = DEFAULT_REGISTRY_PATH,
+  retiredSummaryKeys = [],
 } = {}) {
   const resolvedCandidateActionClass = candidateActionClass || defaultCandidateActionClass(registryPath);
   if (!Array.isArray(summaries)) {
@@ -273,8 +275,17 @@ export function validateJobSummaries(summaries, {
   let validJobs = 0;
   let invalidJobs = 0;
   let duplicateIdentities = 0;
+  const retiredKeys = new Set(retiredSummaryKeys);
+  const ignoredRetiredSummaries = [];
+  const activeSummaries = summaries.filter((entry, summaryIndex) => {
+    const file = entry?.file || `summary[${summaryIndex}]`;
+    const fileKey = path.basename(file, path.extname(file));
+    if (!retiredKeys.has(fileKey)) return true;
+    ignoredRetiredSummaries.push(fileKey);
+    return false;
+  });
 
-  for (const [summaryIndex, entry] of summaries.entries()) {
+  for (const [summaryIndex, entry] of activeSummaries.entries()) {
     const file = entry?.file || `summary[${summaryIndex}]`;
     const summary = entry?.data ?? entry;
     const parseError = entry?.error;
@@ -368,13 +379,16 @@ export function validateJobSummaries(summaries, {
     minimumSample,
   });
   issues.push(...outcomeVerdict.issues);
-  const summaryCount = summaries.length;
+  const summaryCount = activeSummaries.length;
   if (summaryCount === 0) issues.push('crawler summary directory is explicitly empty');
   const snapshot = {
     source: 'job-crawler-summaries',
     path: sourcePath,
     outcomePath,
+    discoveredSummaryCount: summaries.length,
     summaryCount,
+    ignoredRetiredSummaries: ignoredRetiredSummaries.length,
+    retiredSummaryKeys: ignoredRetiredSummaries.sort(),
     freshSummaries,
     staleSummaries,
     malformedSummaries,
@@ -437,6 +451,16 @@ function readOptionalJson(filePath) {
   return JSON.parse(fs.readFileSync(absolute, 'utf8'));
 }
 
+function readRetiredSummaryKeys(filePath) {
+  const absolute = path.resolve(filePath);
+  if (!fs.existsSync(absolute)) throw new Error(`crawler quarantine registry is missing: ${filePath}`);
+  const registry = JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  if (!object(registry) || !object(registry.retired)) {
+    throw new Error(`crawler quarantine registry has an invalid retired map: ${filePath}`);
+  }
+  return Object.keys(registry.retired).sort();
+}
+
 function reportMarkdown(verdict, observation, decision) {
   const lines = [
     `## L3 Job Quality → Apply — ${verdict.ok ? 'OK' : 'ACTION REQUIRED'}`,
@@ -444,6 +468,7 @@ function reportMarkdown(verdict, observation, decision) {
     `- Quality: **${verdict.quality}**`,
     `- Source: ${verdict.sourcePath}`,
     `- Reason: ${verdict.reason}`,
+    `- Retired summaries ignored: ${verdict.snapshot?.ignoredRetiredSummaries ?? 0}`,
     `- Inspected jobs: ${verdict.snapshot?.jobsInspected ?? 'n/a'}`,
     `- Invalid jobs: ${verdict.snapshot?.invalidJobs ?? 'n/a'}`,
     `- Warnings: ${verdict.warnings.length}`,
@@ -626,6 +651,7 @@ export async function runL3({
   summaryDir = DEFAULT_SUMMARY_DIR,
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
+  quarantinePath = DEFAULT_QUARANTINE_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample,
   issue = false,
@@ -646,6 +672,7 @@ export async function runL3({
   try {
     const summaries = readSummaries(summaryDir);
     sourceOutcomes = readOptionalJson(outcomePath);
+    const retiredSummaryKeys = readRetiredSummaryKeys(quarantinePath);
     verdict = validateJobSummaries(summaries, {
       outcomes: sourceOutcomes,
       now,
@@ -654,6 +681,7 @@ export async function runL3({
       outcomePath,
       minimumSample: policyMinimumSample,
       candidateActionClass,
+      retiredSummaryKeys,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -785,6 +813,7 @@ function parseArgs(argv) {
     summaryDir: valueAfter('--summary-dir', DEFAULT_SUMMARY_DIR),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
+    quarantinePath: valueAfter('--quarantine', DEFAULT_QUARANTINE_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP
