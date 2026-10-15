@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 628,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -164,6 +164,7 @@
       "avaloq",
       "bachem",
       "css-versicherung",
+      "elite-interim",
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
@@ -393,6 +394,7 @@
       "spital-davos",
       "spital-thusis",
       "stadt-zuerich",
+      "technic-emplois",
       "tl-lausanne",
       "yellowshark"
     ],
@@ -847,6 +849,7 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
@@ -1250,6 +1253,7 @@
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
     "tarchini-group": "data/jobs/by-crawler/tarchini-group.json",
     "tecan": "data/jobs/by-crawler/tecan.json",
+    "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1310,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
+  "digest": "sha256:85e7604ba056cd889743801e06ae1a800ff30a487cd690b4183d5d979a2afe67"
 }
