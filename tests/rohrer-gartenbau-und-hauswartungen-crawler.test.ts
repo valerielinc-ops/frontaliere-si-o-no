@@ -11,13 +11,21 @@ import {
 } from '../scripts/lib/rohrer-gartenbau-und-hauswartungen-job-parser.mjs';
 import { sourceBodyWordCount } from '../scripts/lib/source-body-floor.mjs';
 
-const NOW = new Date('2026-10-15T12:00:00.000Z');
+const NOW = new Date();
+
+function daysAgo(days: number): Date {
+  const value = new Date(NOW);
+  value.setUTCDate(value.getUTCDate() - days);
+  return value;
+}
+
+const PUBLISHED_AT = daysAgo(12).toISOString();
 
 const OFFICIAL_PAGE_HTML = `
 <!doctype html>
 <html lang="de">
   <head>
-    <meta property="article:published_time" content="2026-10-03T08:00:00+02:00">
+    <meta property="article:published_time" content="${PUBLISHED_AT}">
   </head>
   <body>
     <main>
@@ -76,7 +84,7 @@ describe('Rohrer Gartenbau und Hauswartungen GmbH crawler', () => {
       canton: 'OW',
       addressRegion: 'OW',
       employmentType: 'PART_TIME',
-      datePosted: '2026-10-03T08:00:00+02:00',
+      datePosted: PUBLISHED_AT,
       postingDateSource: 'reported',
     });
     expect(sourceBodyWordCount(parsed.listings[0].description)).toBeGreaterThanOrEqual(50);
