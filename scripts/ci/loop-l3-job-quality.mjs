@@ -468,6 +468,7 @@ function reportMarkdown(verdict, observation, decision) {
     `- Quality: **${verdict.quality}**`,
     `- Source: ${verdict.sourcePath}`,
     `- Reason: ${verdict.reason}`,
+    `- Retired summaries ignored: ${verdict.snapshot?.ignoredRetiredSummaries ?? 0}`,
     `- Inspected jobs: ${verdict.snapshot?.jobsInspected ?? 'n/a'}`,
     `- Invalid jobs: ${verdict.snapshot?.invalidJobs ?? 'n/a'}`,
     `- Warnings: ${verdict.warnings.length}`,

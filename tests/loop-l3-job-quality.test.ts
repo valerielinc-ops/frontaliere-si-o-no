@@ -172,6 +172,8 @@ describe('L3 Job Quality → Apply', () => {
       numerator: 90,
       denominator: 120,
     });
+    expect(fs.readFileSync(path.join(source.dir, 'l3-report.md'), 'utf8'))
+      .toContain('- Retired summaries ignored: 3');
   });
 
   it('requires the CH country field for the three quarantined Swiss-only producers', () => {
