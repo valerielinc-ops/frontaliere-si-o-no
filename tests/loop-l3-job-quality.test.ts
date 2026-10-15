@@ -127,6 +127,53 @@ describe('L3 Job Quality → Apply', () => {
     });
   });
 
+  it('excludes retired crawler summaries from the active freshness verdict', async () => {
+    const source = tempSource(summary().data, outcomes());
+    const retired = ['bally', 'knowledge-lab', 'pzm-muensingen'];
+    for (const key of retired) {
+      fs.writeFileSync(path.join(source.summaryDir, `${key}.json`), `${JSON.stringify({
+        ...summary().data,
+        key,
+        generatedAt: '2026-09-01T12:00:00.000Z',
+      })}\n`);
+    }
+    const quarantinePath = path.join(source.dir, 'crawler-quarantine.json');
+    fs.writeFileSync(quarantinePath, `${JSON.stringify({
+      schemaVersion: 1,
+      retired: Object.fromEntries(retired.map((key) => [key, { reason: 'fixture' }])),
+    })}\n`);
+
+    const result = await runL3({
+      now: NOW,
+      summaryDir: source.summaryDir,
+      outcomePath: source.outcomePath,
+      quarantinePath,
+      reportDir: source.dir,
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({
+      ok: true,
+      quality: 'observed',
+      candidates: [],
+      snapshot: {
+        discoveredSummaryCount: 4,
+        summaryCount: 1,
+        ignoredRetiredSummaries: 3,
+        retiredSummaryKeys: retired,
+        freshSummaries: 1,
+        staleSummaries: 0,
+        invalidJobs: 0,
+      },
+    });
+    expect(result.outcome).toMatchObject({
+      status: 'observed',
+      independent: true,
+      numerator: 90,
+      denominator: 120,
+    });
+  });
+
   it('requires the CH country field for the three quarantined Swiss-only producers', () => {
     for (const key of ['yellowshark', 'tether', 'bitfinex']) {
       const verdict = validateJobSummaries([
