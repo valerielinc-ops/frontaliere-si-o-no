@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "groups": {
     "10": [
       "atec-personal",
@@ -229,6 +229,7 @@
       "elettra-1938",
       "evam-vaud",
       "gim-architekten",
+      "gipo",
       "holmes-place",
       "imerys",
       "implenia",
@@ -258,7 +259,6 @@
       "etat-de-fribourg",
       "etat-de-vaud",
       "etavis",
-      "gipo",
       "hofweissbad",
       "huber-suhner",
       "kanton-zuerich",
@@ -268,6 +268,7 @@
       "opus-personal",
       "pkb-private-bank",
       "rheinmetall-air-defence",
+      "rohrer-gartenbau-und-hauswartungen",
       "sfs-group",
       "sicpa",
       "spital-lachen",
@@ -1166,6 +1167,7 @@
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
     "roche": "data/jobs/by-crawler/roche.json",
+    "rohrer-gartenbau-und-hauswartungen": "data/jobs/by-crawler/rohrer-gartenbau-und-hauswartungen.json",
     "rolex": "data/jobs/by-crawler/rolex.json",
     "rsbj": "data/jobs/by-crawler/rsbj.json",
     "rss-surselva": "data/jobs/by-crawler/rss-surselva.json",
@@ -1322,5 +1324,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:7650e1c4d237a52e691d35c8ff877dd600d468607ddd761a17a784eafa181561"
+  "digest": "sha256:481a2cf44ebe438578e6898d0d9a6b6eeefa7b8d1a1793b413912ddf67791e60"
 }
