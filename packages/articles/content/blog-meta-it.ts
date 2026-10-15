@@ -13178,7 +13178,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ispezione-edile-lurate.imageAlt': 'Cantiere edile a Lurate Caccivio sottoposto a controlli e sospeso.',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.title': 'Gli ASVZ Blackbirds vincono il Champions Bowl: primo titolo europeo svizzero nel flag football',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.excerpt': 'Gli ASVZ Blackbirds trionfano al Champions Bowl 2026, conquistando il primo storico titolo europeo nel flag football per una squadra svizzera.',
-    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Immagine editoriale relativa a: Gli ASVZ Blackbirds vincono il Champions Bowl: primo titolo europeo svizzero nel flag football',
+    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.fibra-ottica-145-comuni-como.title': 'Finitura lavori fibra ottica in 145 comuni di Como, 27,9 mln €',
     'blog.article.fibra-ottica-145-comuni-como.excerpt': 'Rete in ultimazione in 145 comuni comaschi Oltre 27,9 milioni di fondi pubblici a Como Adesione alla banda ultra-larga: 23% contro 17% Piano Italia 1 Giga',
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Installazione di cavo in fibra ottica in un comune della provincia di Como, vista ravvicinata e dettagliata.',
@@ -13197,6 +13197,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.due-arresti-malpra-varese.title': 'Varese, due arresti per maltrattamenti familiari con cinque minori',
     'blog.article.due-arresti-malpra-varese.excerpt': 'Due arresti a Varese per maltrattamenti familiari Il primo episodio si è verificato sabato pomeriggio Cinque figli minori erano presenti, tra 5 e 8 anni',
     'blog.article.due-arresti-malpra-varese.imageAlt': 'Auto dei carabinieri fermata davanti a un edificio del centro di Varese al tramonto.',
+    'blog.article.bellinzona-voto-caserma-pompieri.title': 'Bellinzona: voto sul credito per la nuova caserma',
+    'blog.article.bellinzona-voto-caserma-pompieri.excerpt': 'Lunedì si vota il primo credito da 14 milioni.',
+    'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Sala del Consiglio comunale di Bellinzona',
+    'blog.article.operatori-emergenze-valli.title': 'Tre Valli: 80 operatori in quattro esercitazioni',
+    'blog.article.operatori-emergenze-valli.excerpt': 'Circa 80 operatori formati nel 2026 Quattro edizioni tra Biasca e Giornico Tre scenari: incendio, ordine pubblico e maltempo La formazione continuerà',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustrazione generata per questo articolo',
 };
 
 export default blogMetaIt;

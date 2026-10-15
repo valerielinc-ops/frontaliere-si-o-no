@@ -13177,7 +13177,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ispezione-edile-lurate.imageAlt': 'Building site in Lurate Caccivio inspected and suspended after safety violations.',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.title': 'ASVZ Blackbirds win Champions Bowl: first Swiss European title in flag football',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.excerpt': 'The ASVZ Blackbirds triumph at the 2026 Champions Bowl, winning the first historic European flag football title for a Swiss team.',
-    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Editorial image related to: Gli ASVZ Blackbirds vincono il Champions Bowl: primo titolo europeo svizzero nel flag football',
+    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Illustration generated for this article',
     'blog.article.fibra-ottica-145-comuni-como.title': 'Completion of fiber-optic work in 145 municipalities in Como, 27,9 mln €',
     'blog.article.fibra-ottica-145-comuni-como.excerpt': 'Network nearing completion in 145 municipalities in the Como area More than 27,9 million in public funds for Como Adoption of ultra-broadband: 23% versus 17% Piano Italia 1 Giga',
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Fiber optic cable installation in a Como province town, close-up and detailed view.',
@@ -13196,6 +13196,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.due-arresti-malpra-varese.title': 'Varese, two arrests for domestic abuse involving five minors',
     'blog.article.due-arresti-malpra-varese.excerpt': 'Two arrests in Varese for domestic abuse The first incident occurred on Saturday afternoon Five minor children were present, between 5 and 8 years old',
     'blog.article.due-arresti-malpra-varese.imageAlt': 'Police car stopped in front of a downtown Varese building at sunset.',
+    'blog.article.bellinzona-voto-caserma-pompieri.title': 'Bellinzona: vote on funding for the new barracks',
+    'blog.article.bellinzona-voto-caserma-pompieri.excerpt': 'On Monday, the first credit of 14 million will be put to a vote.',
+    'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Bellinzona city council hall',
+    'blog.article.operatori-emergenze-valli.title': 'Tre Valli: 80 operators in four exercises',
+    'blog.article.operatori-emergenze-valli.excerpt': 'Around 80 operators trained in 2026 Four editions between Biasca and Giornico Three scenarios: fire, public order and bad weather Training will continue',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustration generated for this article',
 };
 
 export default blogMetaEn;

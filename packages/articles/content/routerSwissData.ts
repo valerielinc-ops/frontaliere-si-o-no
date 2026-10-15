@@ -2804,6 +2804,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'orari-apertura-lucerna-festivi': { it: 'orari-apertura-lucerna-festivi', en: 'lucerne-shop-opening-hours-sundays-public-holidays', de: 'offnungszeiten-der-geschafte-in-luzern-an-sonntagen-und-feiertagen', fr: 'horaires-d-ouverture-des-magasins-a-lucerne-dimanches-et-jours-feries' },
  'ubs-scenari-trasferimento-sede': { it: 'ubs-scenari-trasferimento-sede', en: 'ubs-headquarters-relocation-scenarios', de: 'ubs-hauptsitz-verlegung-szenarien', fr: 'ubs-scenarios-transfert-siege' },
  'premio-economia-stabilizzazione': { it: 'premio-economia-stabilizzazione', en: 'economics-prize-stabilization', de: 'wirtschaftspreis-stabilisierung', fr: 'prix-economie-stabilisation' },
+ 'migros-nuovo-contratto-lavoro-2027': { it: 'migros-nuovo-contratto-lavoro-2027', en: 'migros-new-labor-contract-2027', de: 'migros-neuer-gesamtarbeitsvertrag-2027', fr: 'migros-nouveau-contrat-travail-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -104992,10 +104992,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-zurigo-targhe-immatricolazione-guida.webp`,
+        "url": `${BASE_URL}/images/blog/article-berna-veicoli-procedura-guida.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Ufficio della circolazione nel Cantone di Berna"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T02:50:14+00:00",
       "dateModified": "2026-10-15T02:50:14+00:00",
@@ -105031,10 +105031,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-festivi-berna-calendario-guida.webp`,
+        "url": `${BASE_URL}/images/blog/article-lucerna-festivi-calendario-verifica.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Paese di Lucerna con edifici amministrativi e persone che consultano orari e calendari festivi"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T03:21:39+00:00",
       "dateModified": "2026-10-15T03:21:39+00:00",
@@ -105143,15 +105143,17 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come verificare livello competente, requisiti, scadenze e importi per corsi di lingua e contributi alla formazione continua nel Cantone di Berna",
       "image": {
         "@type": "ImageObject",
-        "acquireLicensePage": "",
-        "copyrightNotice": "Generated media; provider terms apply.",
-        "license": "",
-        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
-        "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-contributi-formazione-berna-requisiti.webp`,
+        "acquireLicensePage": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
+        "copyrightNotice": "© Beat Bieri",
+        "license": "https://www.pexels.com/license/",
+        "creator": {"@type":"Person","@id":"https://www.pexels.com/@beat-bieri-2159265755","name":"Beat Bieri","url":"https://www.pexels.com/@beat-bieri-2159265755"},
+        "creditText": "Beat Bieri / Pexels",
+        "isBasedOn": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
+        "description": "Resized derivative of the licensed source.",
+        "url": `${BASE_URL}/images/blog/article-integrazione-lingua-berna-contributi.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Studente adulto in corso di lingua a Berna con libri e bandiera svizzera"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T04:28:18+00:00",
       "dateModified": "2026-10-15T04:28:18+00:00",
@@ -105187,10 +105189,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-negozi-berna-orari-festivi-regole.webp`,
+        "url": `${BASE_URL}/images/blog/article-regole-orari-negozi-lucerna.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Negozi in una via di Lucerna durante il giorno"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T04:50:01+00:00",
       "dateModified": "2026-10-15T04:50:01+00:00",
@@ -105265,10 +105267,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-negozi-berna-orari-festivi-regole.webp`,
+        "url": `${BASE_URL}/images/blog/article-orari-apertura-lucerna-festivi.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Via di Lucerna con negozi e cartelli degli orari di apertura, cielo limpido e torre dell'orologio sullo sfondo"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T05:37:40+00:00",
       "dateModified": "2026-10-15T05:37:40+00:00",
@@ -105359,6 +105361,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premio-economia-stabilizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-nuovo-contratto-lavoro-2027': {
+    title: 'Migros: nuovo contratto con 41 ore e sconti del 10%',
+    description: 'Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, nuovo, contratto, sconti',
+    ogTitle: 'Migros: 41 ore settimanali e sconti 10% dal 2027',
+    ogDescription: 'Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri',
+    canonicalPath: '/articoli-svizzera/migros-nuovo-contratto-lavoro-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros: nuovo contratto con 41 ore e sconti del 10%",
+      "description": "Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-migros-nuovo-contratto-lavoro-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T06:55:41+00:00",
+      "dateModified": "2026-10-15T06:55:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-nuovo-contratto-lavoro-2027/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

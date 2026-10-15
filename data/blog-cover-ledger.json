@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5472
+      "6": 5480
     },
-    "publishedCovers": 7053,
+    "publishedCovers": 7061,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5277
+    "inferredRecords": 5285
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -184787,6 +184787,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-bellinzona-voto-caserma-pompieri": {
+      "cover": "/images/blog/article-bellinzona-voto-caserma-pompieri.webp",
+      "hash": "ea7992ec4bc06b4b204531ce5c9398cd5096aff8e1316769f7948b225d50d4b3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-voto-caserma-pompieri",
+          "category": "novita",
+          "date": "2026-10-15T07:09:16.826Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-benu-rete-santanna-sanita": {
       "cover": "/images/blog/article-benu-rete-santanna-sanita.webp",
       "hash": "4a1ef92f32f09d0454dd9818ce11fee844f6b903fbaadefbd4bf486895f3e68f",
@@ -184798,6 +184825,33 @@
           "id": "benu-rete-santanna-sanita",
           "category": "novita",
           "date": "2026-10-12T21:32:17.379Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-berna-veicoli-procedura-guida": {
+      "cover": "/images/blog/article-berna-veicoli-procedura-guida.webp",
+      "hash": "9286540a61ae5dc2d9149255bf5b632e1cfc965a4dc389263733fb7c8e482ac5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "berna-veicoli-procedura-guida",
+          "category": "pratico",
+          "date": "2026-10-15T02:50:14.192Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -185834,14 +185888,6 @@
           "date": "2026-10-14T04:59:00.389Z",
           "updatedAt": null,
           "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "lucerna-festivi-calendario-verifica",
-          "category": "pratico",
-          "date": "2026-10-15T03:21:39.212Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,
@@ -185975,6 +186021,33 @@
           "id": "giorni-festivi-canton-zurigo-guida",
           "category": "pratico",
           "date": "2026-10-12T00:26:51.075Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel": {
+      "cover": "/images/blog/article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.webp",
+      "hash": "c3178c7fe28134ac1c542c22aac801bf7a9f318a1d0ade22cafe8496c725f42b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel",
+          "category": "novita",
+          "date": "2026-10-14T13:35:22.725Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -186450,6 +186523,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-integrazione-lingua-berna-contributi": {
+      "cover": "/images/blog/article-integrazione-lingua-berna-contributi.webp",
+      "hash": "45384043a1ba154508fb4aa51b35b67f0fd93302c81d482e79dd2b9279884196",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "integrazione-lingua-berna-contributi",
+          "category": "pratico",
+          "date": "2026-10-15T04:28:17.925Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-investimenti-illiquidi-pensione-2026": {
       "cover": "/images/blog/article-investimenti-illiquidi-pensione-2026.webp",
       "hash": "f6a01ecc2c92f3d9ab1077953ff7474b3da2d38f3794f62e9354f7505ef7a23e",
@@ -186909,6 +187009,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-lucerna-festivi-calendario-verifica": {
+      "cover": "/images/blog/article-lucerna-festivi-calendario-verifica.webp",
+      "hash": "0c909de4098e2e568b9ff3f436f7cf41b91fe94c1e20cd61601776a8ee1ad625",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-festivi-calendario-verifica",
+          "category": "pratico",
+          "date": "2026-10-15T03:21:39.212Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-lugano-bienne-vittoria-2026": {
       "cover": "/images/blog/article-lugano-bienne-vittoria-2026.webp",
       "hash": "d504bc4cced2e02ac60c3eac5073c7dac68c774fc3dcf050a9efeda1120c5b5c",
@@ -187001,6 +187128,33 @@
           "id": "migros-ecublens-57-posti",
           "category": "novita",
           "date": "2026-10-13T21:00:56.385Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-migros-nuovo-contratto-lavoro-2027": {
+      "cover": "/images/blog/article-migros-nuovo-contratto-lavoro-2027.webp",
+      "hash": "ebf8f7fb0af29c0394bdf521ebcc85d3f8583f2ea475d3b9a055f2bb88d81456",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "migros-nuovo-contratto-lavoro-2027",
+          "category": "novita",
+          "date": "2026-10-15T06:55:41.350Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -187111,22 +187265,6 @@
           "date": "2026-10-14T05:28:35.817Z",
           "updatedAt": null,
           "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "regole-orari-negozi-lucerna",
-          "category": "pratico",
-          "date": "2026-10-15T04:50:01.799Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "orari-apertura-lucerna-festivi",
-          "category": "pratico",
-          "date": "2026-10-15T05:37:40.396Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,
@@ -187206,6 +187344,60 @@
           "id": "openjobmetis-trieste-vittoria-kastritis",
           "category": "pratico",
           "date": "2026-10-11T02:48:02.856Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-operatori-emergenze-valli": {
+      "cover": "/images/blog/article-operatori-emergenze-valli.webp",
+      "hash": "bb9b1ea64b21942418854352fb73710702aa6e913151594a4e8c3b0419f477c3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "operatori-emergenze-valli",
+          "category": "novita",
+          "date": "2026-10-15T07:26:11.073Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-orari-apertura-lucerna-festivi": {
+      "cover": "/images/blog/article-orari-apertura-lucerna-festivi.webp",
+      "hash": "a1dda1546b2b7b717b17e62516d028f8ec7bb135a1f4a1b677394304dd4c601a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "orari-apertura-lucerna-festivi",
+          "category": "pratico",
+          "date": "2026-10-15T05:37:40.396Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -187719,6 +187911,33 @@
           "id": "referendum-mercosur-firme-berna",
           "category": "novita",
           "date": "2026-10-13T14:23:33.504Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-regole-orari-negozi-lucerna": {
+      "cover": "/images/blog/article-regole-orari-negozi-lucerna.webp",
+      "hash": "95904b89c90bc50c3346802c9de459af1844cb0adbf5418eceeabef7f3c08154",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "regole-orari-negozi-lucerna",
+          "category": "pratico",
+          "date": "2026-10-15T04:50:01.799Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -188988,41 +189207,6 @@
           "id": "zurigo-targhe-immatricolazione-guida",
           "category": "pratico",
           "date": "2026-10-14T02:15:21.680Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "svizzera",
-          "id": "berna-veicoli-procedura-guida",
-          "category": "pratico",
-          "date": "2026-10-15T02:50:14.192Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "proofLevel": 6,
-      "evidence": "inferred",
-      "recordFile": null,
-      "inheritedFrom": null,
-      "action": "record-inferred",
-      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
-      "priority": 1792,
-      "verifiedAt": "2026-10-15",
-      "provider": null,
-      "currentlyPublished": true,
-      "status": "no-credit"
-    },
-    "asvz-blackbirds-champions-bowl-2026": {
-      "cover": "/images/blog/asvz-blackbirds-champions-bowl-2026.webp",
-      "hash": "5bddf9531dd48e04bfe0250c2994c3dbb2ec22530e1bceddbf3609e46168163f",
-      "published": true,
-      "historicalPublished": true,
-      "references": [
-        {
-          "section": "frontaliere",
-          "id": "gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel",
-          "category": "novita",
-          "date": "2026-10-14T13:35:22.725Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

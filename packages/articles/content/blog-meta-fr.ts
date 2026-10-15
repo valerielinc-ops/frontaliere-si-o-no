@@ -13179,7 +13179,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ispezione-edile-lurate.imageAlt': 'Chantier à Lurate Caccivio contrôlé puis suspendu pour des irrégularités.',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.title': 'ASVZ Blackbirds: 1er titre européen en flag football',
     'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.excerpt': 'Les ASVZ Blackbirds triomphent au Champions Bowl 2026, remportant le premier titre européen historique dans le football flag pour une équipe suisse.',
-    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Image éditoriale relative à: Gli ASVZ Blackbirds vincono il Champions Bowl: primo titolo europeo svizzero nel flag football',
+    'blog.article.gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.imageAlt': 'Illustration générée pour cet article',
     'blog.article.fibra-ottica-145-comuni-como.title': 'Fibre optique : fin travaux 145 communes du Como, 27,9 M€',
     'blog.article.fibra-ottica-145-comuni-como.excerpt': 'Réseau en cours d\'achèvement dans 145 municipalités de Comas Plus de 27,9 millions de fonds publics à Como Adhésion à la bande ultra-large : 23% contre 17% Plan Italie 1 Giga',
     'blog.article.fibra-ottica-145-comuni-como.imageAlt': 'Installation de câble fibre optique dans une commune de la province de Côme, vue détaillée. (Como)',
@@ -13198,6 +13198,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.due-arresti-malpra-varese.title': 'Varese, deux arrestations pour maltraitances familiales impliquant cinq mineurs',
     'blog.article.due-arresti-malpra-varese.excerpt': 'Deux arrestations à Varese pour maltraitances familiales Le premier épisode s’est produit samedi après-midi Cinq enfants mineurs étaient présents, entre 5 et 8 ans',
     'blog.article.due-arresti-malpra-varese.imageAlt': 'Voiture de police arrêtée devant un bâtiment du centre de Varese au coucher du soleil.',
+    'blog.article.bellinzona-voto-caserma-pompieri.title': 'Bellinzona : vote sur le crédit pour la nouvelle caserne',
+    'blog.article.bellinzona-voto-caserma-pompieri.excerpt': 'Lundi, on vote sur le premier crédit de 14 millions.',
+    'blog.article.bellinzona-voto-caserma-pompieri.imageAlt': 'Salle du conseil municipal de Bellinzone',
+    'blog.article.operatori-emergenze-valli.title': 'Tre Valli : 80 opérateurs dans quatre exercices',
+    'blog.article.operatori-emergenze-valli.excerpt': 'Environ 80 opérateurs formés en 2026 Quatre éditions entre Biasca et Giornico Trois scénarios : incendie, ordre public et intempéries La formation continuera',
+    'blog.article.operatori-emergenze-valli.imageAlt': 'Illustration générée pour cet article',
 };
 
 export default blogMetaFr;

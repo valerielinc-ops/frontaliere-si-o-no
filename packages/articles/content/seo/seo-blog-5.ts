@@ -107960,15 +107960,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Gli ASVZ Blackbirds trionfano al Champions Bowl 2026, conquistando il primo storico titolo europeo nel flag football per una squadra svizzera.",
       "image": {
         "@type": "ImageObject",
-        "acquireLicensePage": "https://drive.google.com/drive/folders/1nR9HcOlLeFGJ0_KfNVwsFfuARTujcNup?usp=sharing",
-        "copyrightNotice": "© Football Flag / Swiss American Football Verband (SAFV)",
-        "license": "Uso editoriale con attribuzione a Noa Monn",
-        "creator": { "@type": "Person", "name": "Noa Monn" },
-        "creditText": "Noa Monn",
-        "url": `${BASE_URL}/images/blog/asvz-blackbirds-champions-bowl-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-gli-asvz-blackbirds-vincono-il-champions-bowl-primo-titolo-europeo-svizzero-nel.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Immagine editoriale relativa a: Gli ASVZ Blackbirds vincono il Champions Bowl: primo titolo europeo svizzero nel flag football"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-14T13:35:22+00:00",
       "dateModified": "2026-10-14T13:35:22+00:00",
@@ -108215,6 +108215,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/due-arresti-malpra-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bellinzona-voto-caserma-pompieri': {
+    title: 'Bellinzona: voto sul credito per la nuova caserma',
+    description: 'Lunedì si vota il primo credito da 14 milioni. L\'operazione ex LATI è stimata in 34 milioni. La minoranza chiede di respingere l\'opzione ex LATI. Il referendum',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, voto, credito, nuova',
+    ogTitle: 'Bellinzona: voto sul credito per la nuova caserma',
+    ogDescription: 'Lunedì si vota il primo credito da 14 milioni.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-voto-caserma-pompieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona: voto sul credito per la nuova caserma",
+      "description": "Lunedì si vota il primo credito da 14 milioni. L'operazione ex LATI è stimata in 34 milioni. La minoranza chiede di respingere l'opzione ex LATI. Il referendum",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bellinzona-voto-caserma-pompieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala del Consiglio comunale di Bellinzona"
+      },
+      "datePublished": "2026-10-15T07:09:16+00:00",
+      "dateModified": "2026-10-15T07:09:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-voto-caserma-pompieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-operatori-emergenze-valli': {
+    title: 'Tre Valli: 80 operatori in quattro esercitazioni',
+    description: 'Circa 80 operatori formati nel 2026 Quattro edizioni tra Biasca e Giornico Tre scenari: incendio, ordine pubblico e maltempo La formazione continuerà',
+    keywords: 'frontalieri, ticino, svizzera, italia, valli, operatori, quattro, esercitazioni',
+    ogTitle: 'Tre Valli: 80 operatori in quattro esercitazioni',
+    ogDescription: 'Circa 80 operatori formati nel 2026 Quattro edizioni tra Biasca e Giornico Tre scenari: incendio, ordine pubblico e maltempo La formazione continuerà',
+    canonicalPath: '/articoli-frontaliere/operatori-emergenze-valli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre Valli: 80 operatori in quattro esercitazioni",
+      "description": "Circa 80 operatori formati nel 2026 Quattro edizioni tra Biasca e Giornico Tre scenari: incendio, ordine pubblico e maltempo La formazione continuerà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-operatori-emergenze-valli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T07:26:11+00:00",
+      "dateModified": "2026-10-15T07:26:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operatori-emergenze-valli/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
