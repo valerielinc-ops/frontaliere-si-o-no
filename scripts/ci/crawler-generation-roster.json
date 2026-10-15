@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 630,
+  "crawlerCount": 631,
   "groups": {
     "10": [
       "atec-personal",
@@ -164,7 +164,7 @@
       "avaloq",
       "bachem",
       "css-versicherung",
-      "deillon-delley-architectes",
+      "elite-interim",
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
@@ -343,6 +343,7 @@
       "bps-suisse",
       "cambiavalute",
       "clinique-le-noirmont",
+      "deillon-delley-architectes",
       "dormakaba",
       "flury-stiftung",
       "galderma",
@@ -374,7 +375,6 @@
       "bossard",
       "clinica-holistica-engiadina",
       "corner-banca",
-      "elite-interim",
       "eth-zurich",
       "ferring",
       "giardino",
@@ -389,6 +389,7 @@
       "oerlikon",
       "otis",
       "reha-bellikon",
+      "rh-expert-ch",
       "rittmeyer-ag",
       "saint-gobain-weber-isover",
       "scandit",
@@ -1149,6 +1150,7 @@
     "relewant": "data/jobs/by-crawler/relewant.json",
     "rennbahnklinik": "data/jobs/by-crawler/rennbahnklinik.json",
     "rfsm-fribourg": "data/jobs/by-crawler/rfsm-fribourg.json",
+    "rh-expert-ch": "data/jobs/by-crawler/rh-expert-ch.json",
     "rheinmetall-air-defence": "data/jobs/by-crawler/rheinmetall-air-defence.json",
     "rhne-reseau-hospitalier-neuchatelois": "data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json",
     "richemont": "data/jobs/by-crawler/richemont.json",
@@ -1314,5 +1316,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:03bcfcd418469f1fd8799bc117ba2f4e73d80322cc353f4a7c3acaca81977a36"
+  "digest": "sha256:d20092d0c2810dba60d537e5fb615c70f9613eda94b04b652df6371c895f2fe4"
 }
