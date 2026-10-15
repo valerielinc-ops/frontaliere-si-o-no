@@ -13235,7 +13235,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.l-gav-2027-orario-salario.imageAlt': 'Photo d’un bâtiment d’entreprise à Lugano avec des employés en pause',
     'blog.article.divieti-viabilita-stadio-como.title': 'Côme : interdictions via Vittorio Veneto du 19 au 24 octobre',
     'blog.article.divieti-viabilita-stadio-como.excerpt': 'Interdictions actives du 19 octobre à 6h30 au 24 octobre à minuit Como-Manchester United mercredi 21 à 18h45 Como-Soleil samedi 24 à 15 Transit',
-    'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Signalisation routière temporaire en zone urbaine',
+    'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Illustration générée pour cet article',
     'blog.article.arresto-lite-domestica-luganese.title': 'Région de Lugano, un homme de 28 ans arrêté pour tentative présumée d’homicide',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'Un homme de 28 ans arrêté le 9 octobre dans la région de Lugano.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Vue du Luganese au Tessin au coucher du soleil',
@@ -13245,6 +13245,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.luci-masnago-terza-puntata.title': 'Basket : «Luci a Masnago» revient jeudi 15 octobre avec Marco Passera',
     'blog.article.luci-masnago-terza-puntata.excerpt': 'Jeudi 15 octobre à partir de 14,45, «Luci a Masnago» revient.',
     'blog.article.luci-masnago-terza-puntata.imageAlt': 'Studio radio avec vue sur le lac de Lugano, micros et matériel sous la lumière de l\'après‑midi.',
+    'blog.article.inaugurazione-sala-comacina-polizia.title': 'Police routière : l’inauguration à Sala Comacina',
+    'blog.article.inaugurazione-sala-comacina-polizia.excerpt': 'Cérémonie vendredi 16 octobre à 11 heures Détachement de la Police routière à Sala Comacina Salvini, Piantedosi, Molteni et Pisani attendus Le maire présent',
+    'blog.article.inaugurazione-sala-comacina-polizia.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.saronno-piccole-stelle-softball.title': 'Saronno, le tournoi Piccole Stelle revient : tournoi de softball Under 14',
+    'blog.article.saronno-piccole-stelle-softball.excerpt': 'Les 17 et 18 octobre, le tournoi Piccole Stelle revient La sixième édition est réservée à la catégorie Under 14 Le tournoi rend hommage à Enrico Obletter Saronno joue à domicile',
+    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Tournoi de softball jeunesse à Saronno pour la sixième édition de Piccole Stelle',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.title': 'Budget 2027 dans le rouge, mais multiplicateurs inchangés',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.excerpt': 'Déficit 2027 : 14,7 millions de francs Investissements nets prévus : 97 millions Multiplicateurs confirmés : 80 % et 85 % Sujet → Città di Lugano Décision →',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.imageAlt': 'Vue panoramique du centre de Lugano avec le lac en arrière-plan, en plein jour.',
+    'blog.article.terzetto-sospetto-melano-chiasso.title': 'Appels choc aux personnes âgées, trois arrestations dans le Mendrisiotto',
+    'blog.article.terzetto-sospetto-melano-chiasso.excerpt': 'Trois arrestations dans le Mendrisiotto Soupçons d’escroqueries par des appels choc Véhicule avec des plaques tchèques trouvé à Chiasso Une deuxième escroquerie dans l’après-midi a été déjouée',
+    'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso : contrôles d\'un véhicule aux plaques tchèques après trois arrestations liées aux appels choc',
 };
 
 export default blogMetaFr;

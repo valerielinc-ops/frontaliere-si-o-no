@@ -13232,7 +13232,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.l-gav-2027-orario-salario.imageAlt': 'Foto eines Firmengebäudes in Lugano mit Mitarbeitenden in Pause',
     'blog.article.divieti-viabilita-stadio-como.title': 'Como: Verbote in der Via Vittorio Veneto vom 19. bis 24. Oktober',
     'blog.article.divieti-viabilita-stadio-como.excerpt': 'Aktive Verbote vom 19. (Como)',
-    'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Temporäre Straßenschilder in einem Stadtgebiet',
+    'blog.article.divieti-viabilita-stadio-como.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.arresto-lite-domestica-luganese.title': 'Luganese: 28-Jähriger wegen des Verdachts auf versuchte Tötung festgenommen',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'Am 9. Oktober wurde ein 28-Jähriger im Luganese festgenommen.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Blick auf das Luganese im Tessin bei Sonnenuntergang',
@@ -13242,6 +13242,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.luci-masnago-terza-puntata.title': 'Basketball: «Luci a Masnago» 15. Okt. mit Marco Passera',
     'blog.article.luci-masnago-terza-puntata.excerpt': 'Am Donnerstag, dem 15.',
     'blog.article.luci-masnago-terza-puntata.imageAlt': 'Radiostudio mit Blick auf den Luganersee, Mikrofone und Technik im Nachmittagsschein.',
+    'blog.article.inaugurazione-sala-comacina-polizia.title': 'Verkehrspolizei: das Durchschneiden des Bandes in Sala Comacina',
+    'blog.article.inaugurazione-sala-comacina-polizia.excerpt': 'Zeremonie am Freitag, 16. (Sala Comacina)',
+    'blog.article.inaugurazione-sala-comacina-polizia.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.saronno-piccole-stelle-softball.title': 'Saronno, Piccole Stelle ist zurück: Softballturnier der Altersklasse Under 14',
+    'blog.article.saronno-piccole-stelle-softball.excerpt': 'Am 17. und 18. Oktober kehrt das Turnier Piccole Stelle zurück Die sechste Ausgabe ist der Kategorie Under 14 vorbehalten Das Turnier erinnert an Enrico Obletter Saronno spielt zu Hause',
+    'blog.article.saronno-piccole-stelle-softball.imageAlt': 'Jugend-Softballturnier in Saronno bei der sechsten Ausgabe von Piccole Stelle',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.title': 'Budget 2027 im Minus, aber Steuermultiplikatoren unverändert',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.excerpt': 'Defizit 2027: 14,7 Millionen Franken Geplante Nettoinvestitionen: 97 Millionen Bestätigte Steuermultiplikatoren: 80% und 85% Akteur → Città di Lugano Entscheidung →',
+    'blog.article.lugano-preventivo-2027-moltiplicatori.imageAlt': 'Panoramablick auf das Stadtzentrum von Lugano mit dem See im Hintergrund bei Tageslicht.',
+    'blog.article.terzetto-sospetto-melano-chiasso.title': 'Schockanrufe bei Senioren, drei Festnahmen im Mendrisiotto',
+    'blog.article.terzetto-sospetto-melano-chiasso.excerpt': 'Drei Festnahmen im Mendrisiotto Verdächtige wegen Betrugsfällen mit Schockanrufen Fahrzeug mit tschechischen Kennzeichen in Chiasso gefunden Ein zweiter Betrugsfall am Nachmittag wurde vereitelt',
+    'blog.article.terzetto-sospetto-melano-chiasso.imageAlt': 'Chiasso: Kontrollen eines Autos mit tschechischen Kennzeichen nach drei Festnahmen wegen Schockanrufen',
 };
 
 export default blogMetaDe;

@@ -105070,10 +105070,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-collaudo-veicoli-canton-zurigo.webp`,
+        "url": `${BASE_URL}/images/blog/article-collaudo-veicoli-berna-procedura.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Stazione di collaudo veicoli nel Cantone di Berna con documenti ufficiali"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T03:43:23+00:00",
       "dateModified": "2026-10-15T03:43:23+00:00",
@@ -105712,6 +105712,230 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/physioswiss-tariffe-fisioterapia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-niederscherli-posti-letto': {
+    title: 'SEM riapre la struttura di Niederscherli: 120 posti letto',
+    description: 'La SEM riapre Niederscherli (BE) a metà novembre. La struttura dispone di 120 posti letto. Le nuove domande crescono leggermente per motivi stagionali',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, struttura, niederscherli, posti',
+    ogTitle: 'Niederscherli riapre: 120 posti letto per l\'asilo',
+    ogDescription: 'La SEM riapre Niederscherli (BE) a metà novembre.',
+    canonicalPath: '/articoli-svizzera/niederscherli-posti-letto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SEM riapre la struttura di Niederscherli: 120 posti letto",
+      "description": "La SEM riapre Niederscherli (BE) a metà novembre. La struttura dispone di 120 posti letto. Le nuove domande crescono leggermente per motivi stagionali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-niederscherli-posti-letto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura svizzera di protezione civile in un'area verde"
+      },
+      "datePublished": "2026-10-15T16:30:26+00:00",
+      "dateModified": "2026-10-15T16:30:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/niederscherli-posti-letto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cormann-visita-berna': {
+    title: 'Cormann presenta il rapporto OCSE 2026 sulla Svizzera',
+    description: 'Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann. Il 15 settembre 2026 l\'OCSE presenta il rapporto a Berna. Il rapporto esamina sanità',
+    keywords: 'frontalieri, ticino, svizzera, italia, cormann, presenta, rapporto, ocse',
+    ogTitle: 'Cormann presenta il rapporto OCSE 2026 a Berna',
+    ogDescription: 'Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann.',
+    canonicalPath: '/articoli-svizzera/cormann-visita-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cormann presenta il rapporto OCSE 2026 sulla Svizzera",
+      "description": "Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann. Il 15 settembre 2026 l'OCSE presenta il rapporto a Berna. Il rapporto esamina sanità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cormann-visita-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro stampa di Palazzo federale a Berna per il rapporto OCSE sulla politica economica svizzera"
+      },
+      "datePublished": "2026-10-15T17:22:40+00:00",
+      "dateModified": "2026-10-15T17:22:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cormann-visita-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fusione-palestre-puregym-nonstop': {
+    title: 'Puregym acquisisce Nonstop Gym: obiettivo 100 club entro 2026',
+    description: 'Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, puregym, acquisisce, nonstop, obiettivo',
+    ogTitle: 'Puregym acquisisce Nonstop Gym: l\'obiettivo è il primato in Svizzera',
+    ogDescription: 'Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026',
+    canonicalPath: '/articoli-svizzera/fusione-palestre-puregym-nonstop/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Puregym acquisisce Nonstop Gym: obiettivo 100 club entro 2026",
+      "description": "Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fusione-palestre-puregym-nonstop.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di una palestra moderna in Svizzera"
+      },
+      "datePublished": "2026-10-15T17:37:40+00:00",
+      "dateModified": "2026-10-15T17:37:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fusione-palestre-puregym-nonstop/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agevolazioni-doganali-impiego': {
+    title: 'Agevolazioni doganali: novità dal 1° novembre 2026',
+    description: 'Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d\'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata',
+    keywords: 'frontalieri, ticino, svizzera, italia, agevolazioni, doganali, novità, novembre',
+    ogTitle: 'Agevolazioni doganali: novità dal 1° novembre 2026',
+    ogDescription: 'Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d\'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata',
+    canonicalPath: '/articoli-svizzera/agevolazioni-doganali-impiego/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agevolazioni doganali: novità dal 1° novembre 2026",
+      "description": "Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti doganali svizzeri e calendario con il 1° novembre 2026"
+      },
+      "datePublished": "2026-10-15T18:35:16+00:00",
+      "dateModified": "2026-10-15T18:35:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/agevolazioni-doganali-impiego/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-thailandia-aelss-visita-2026': {
+    title: 'Svizzera e Thailandia evidenziano opportunità libero scambio',
+    description: 'Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull\'accordo di libero scambio AELS La visita in Vietnam prosegue',
+    keywords: 'frontalieri, ticino, svizzera, italia, thailandia, evidenziano, opportunità, libero',
+    ogTitle: 'Svizzera e Thailandia evidenziano opportunità libero scambio',
+    ogDescription: 'Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull\'accordo di libero scambio AELS La visita in Vietnam prosegue',
+    canonicalPath: '/articoli-svizzera/svizzera-thailandia-aelss-visita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e Thailandia evidenziano opportunità libero scambio",
+      "description": "Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull'accordo di libero scambio AELS La visita in Vietnam prosegue",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-partecipa-fmi-bangkok-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra rappresentanti svizzeri e thailandesi a Bangkok per discutere dell'accordo di libero scambio"
+      },
+      "datePublished": "2026-10-15T18:53:35+00:00",
+      "dateModified": "2026-10-15T18:53:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-thailandia-aelss-visita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-armi-sicurezza-svizzera': {
+    title: 'Export armi e sicurezza Svizzera: referendum 29 novembre',
+    description: 'Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d\'acquisto Il Consiglio federale manterrebbe un veto',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, armi, sicurezza, referendum',
+    ogTitle: 'Export armi e sicurezza Svizzera: referendum 29 novembre',
+    ogDescription: 'Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d\'acquisto Il Consiglio federale manterrebbe un veto',
+    canonicalPath: '/articoli-svizzera/referendum-armi-sicurezza-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export armi e sicurezza Svizzera: referendum 29 novembre",
+      "description": "Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d'acquisto Il Consiglio federale manterrebbe un veto",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori dell'industria della difesa svizzera in una fabbrica con bandiera svizzera"
+      },
+      "datePublished": "2026-10-15T19:42:08+00:00",
+      "dateModified": "2026-10-15T19:42:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-armi-sicurezza-svizzera/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

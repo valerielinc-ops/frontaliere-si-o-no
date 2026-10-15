@@ -108662,10 +108662,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Divieti attivi dal 19 ottobre alle 6.30 al 24 ottobre a mezzanotte Como-Manchester United mercoledì 21 alle 18.45 Como-Sassuolo sabato 24 alle 15 Transito",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/investimenti-viabilita-lariana-como.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divieti-viabilita-stadio-como.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Segnaletica stradale temporanea in zona urbana"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-15T14:49:43+00:00",
       "dateModified": "2026-10-15T14:49:43+00:00",
@@ -108795,6 +108800,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luci-masnago-terza-puntata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inaugurazione-sala-comacina-polizia': {
+    title: 'Polizia Stradale: il taglio del nastro a Sala Comacina',
+    description: 'Cerimonia venerdì 16 ottobre alle 11 Distaccamento della Polizia Stradale a Sala Comacina Attesi Salvini, Piantedosi, Molteni e Pisani Presente il sindaco',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, stradale, taglio, nastro',
+    ogTitle: 'Polizia Stradale: il taglio del nastro a Sala Comacina',
+    ogDescription: 'Cerimonia venerdì 16 ottobre alle 11 Distaccamento della Polizia Stradale a Sala Comacina Attesi Salvini, Piantedosi, Molteni e Pisani Presente il sindaco',
+    canonicalPath: '/articoli-frontaliere/inaugurazione-sala-comacina-polizia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia Stradale: il taglio del nastro a Sala Comacina",
+      "description": "Cerimonia venerdì 16 ottobre alle 11 Distaccamento della Polizia Stradale a Sala Comacina Attesi Salvini, Piantedosi, Molteni e Pisani Presente il sindaco",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-inaugurazione-sala-comacina-polizia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T16:45:03+00:00",
+      "dateModified": "2026-10-15T16:45:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inaugurazione-sala-comacina-polizia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-saronno-piccole-stelle-softball': {
+    title: 'Saronno, torna Piccole Stelle: torneo di softball Under 14',
+    description: 'Il 17 e 18 ottobre torna il torneo Piccole Stelle La sesta edizione è riservata alla categoria Under 14 Il torneo ricorda Enrico Obletter Saronno gioca in casa',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, torna, piccole, stelle',
+    ogTitle: 'Saronno, torna il torneo Piccole Stelle Under 14',
+    ogDescription: 'Il 17 e 18 ottobre torna il torneo Piccole Stelle La sesta edizione è riservata alla categoria Under 14 Il torneo ricorda Enrico Obletter Saronno gioca in casa',
+    canonicalPath: '/articoli-frontaliere/saronno-piccole-stelle-softball/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saronno, torna Piccole Stelle: torneo di softball Under 14",
+      "description": "Il 17 e 18 ottobre torna il torneo Piccole Stelle La sesta edizione è riservata alla categoria Under 14 Il torneo ricorda Enrico Obletter Saronno gioca in casa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Torneo di softball giovanile sul campo di Saronno per la sesta edizione di Piccole Stelle"
+      },
+      "datePublished": "2026-10-15T17:55:49+00:00",
+      "dateModified": "2026-10-15T17:55:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saronno-piccole-stelle-softball/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lugano-preventivo-2027-moltiplicatori': {
+    title: 'Preventivo 2027 in rosso ma moltiplicatori invariati',
+    description: 'Disavanzo 2027: 14,7 milioni di franchi Investimenti netti previsti: 97 milioni Moltiplicatori confermati: 80% e 85% Soggetto → Città di Lugano Decisione →',
+    keywords: 'frontalieri, ticino, svizzera, italia, preventivo, rosso, moltiplicatori, invariati',
+    ogTitle: 'Preventivo 2027 Lugano: disavanzo 14,7 mln, moltiplicatori invariati',
+    ogDescription: 'Disavanzo 2027: 14,7 milioni di franchi Investimenti netti previsti: 97 milioni Moltiplicatori confermati: 80% e 85% Soggetto → Città di Lugano Decisione →',
+    canonicalPath: '/articoli-frontaliere/lugano-preventivo-2027-moltiplicatori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Preventivo 2027 in rosso ma moltiplicatori invariati",
+      "description": "Disavanzo 2027: 14,7 milioni di franchi Investimenti netti previsti: 97 milioni Moltiplicatori confermati: 80% e 85% Soggetto → Città di Lugano Decisione →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lugano-preventivo-2027-moltiplicatori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del centro di Lugano con il lago sullo sfondo, in luce diurna."
+      },
+      "datePublished": "2026-10-15T18:19:31+00:00",
+      "dateModified": "2026-10-15T18:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-preventivo-2027-moltiplicatori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-terzetto-sospetto-melano-chiasso': {
+    title: 'Chiamate shock agli anziani, tre arresti nel Mendrisiotto',
+    description: 'Tre arresti nel Mendrisiotto Sospetti per truffe con chiamate shock Veicolo con targhe ceche trovato a Chiasso Una seconda truffa pomeridiana è stata sventata',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiamate, shock, agli, anziani',
+    ogTitle: 'Mendrisiotto, tre arresti per chiamate shock',
+    ogDescription: 'Tre arresti nel Mendrisiotto Sospetti per truffe con chiamate shock Veicolo con targhe ceche trovato a Chiasso Una seconda truffa pomeridiana è stata sventata',
+    canonicalPath: '/articoli-frontaliere/terzetto-sospetto-melano-chiasso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiamate shock agli anziani, tre arresti nel Mendrisiotto",
+      "description": "Tre arresti nel Mendrisiotto Sospetti per truffe con chiamate shock Veicolo con targhe ceche trovato a Chiasso Una seconda truffa pomeridiana è stata sventata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-terzetto-sospetto-melano-chiasso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiasso: controlli su un veicolo con targhe ceche dopo tre arresti per sospette chiamate shock"
+      },
+      "datePublished": "2026-10-15T19:19:17+00:00",
+      "dateModified": "2026-10-15T19:19:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terzetto-sospetto-melano-chiasso/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
