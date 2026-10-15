@@ -1,0 +1,122 @@
+import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import {
+  fetchAllKitaSummervogelJobs,
+  isKitaSummervogelJob,
+  isTargetKitaSummervogelRole,
+  isTrustedDomain,
+  KITA_SUMMERVOGEL_JOBS_URL,
+  KITA_SUMMERVOGEL_KEY,
+  parseKitaSummervogelJobs,
+} from '../scripts/lib/kita-summervogel-job-parser.mjs';
+
+function daysAgo(days: number): Date {
+  return new Date(Date.now() - days * 86_400_000);
+}
+
+function germanDate(date: Date): string {
+  return `${String(date.getUTCDate()).padStart(2, '0')}.${String(date.getUTCMonth() + 1).padStart(2, '0')}.${date.getUTCFullYear()}`;
+}
+
+const SOURCE_BODY = [
+  'Wir suchen eine engagierte Miterzieherin für unsere altersgemischte Kindergruppe.',
+  'Sie begleiten die Kinder aufmerksam durch den Kita-Alltag, planen pädagogische Angebote',
+  'und arbeiten partnerschaftlich mit Eltern und dem Team zusammen. Zu Ihren Aufgaben gehören',
+  'die Beobachtung der kindlichen Entwicklung, die Gestaltung von Spiel- und Lernräumen,',
+  'die Übernahme von Verantwortung in der Gruppe sowie die Mitarbeit an unseren Konzepten.',
+  'Wir bieten ein wertschätzendes Arbeitsumfeld, regelmässige Fachbegleitung und Raum für',
+  'eigene Ideen. Eine Ausbildung als Fachfrau Betreuung Kind oder eine gleichwertige',
+  'pädagogische Qualifikation ist erwünscht. Wir freuen uns auf Ihre vollständige Bewerbung.',
+].join(' ');
+
+function officialPage(overrides: { title?: string; location?: string; date?: string; body?: string } = {}) {
+  const title = overrides.title || 'Miterzieherin';
+  const location = overrides.location || '9524 Zuzwil SG';
+  const date = overrides.date || germanDate(daysAgo(10));
+  const body = overrides.body || SOURCE_BODY;
+  return `<!doctype html><html lang="de"><body>
+    <main class="jobs-page">
+      <section class="job-offer">
+        <h2>${title}</h2>
+        <p><strong>Arbeitsort:</strong><br>${location}</p>
+        <p><strong>Publiziert:</strong> ${date}</p>
+        <div class="job-description"><p>${body}</p></div>
+        <a href="/jobs/miterzieherin/">Mehr erfahren</a>
+      </section>
+    </main>
+    <footer><p>Kita Summervogel GmbH · Unterdorfstrasse 36c · 9524 Zuzwil SG</p></footer>
+  </body></html>`;
+}
+
+function response(body: string, url = KITA_SUMMERVOGEL_JOBS_URL) {
+  return {
+    ok: true,
+    status: 200,
+    url,
+    text: async () => body,
+  } as Response;
+}
+
+describe('Kita Summervogel educator:SG crawler', () => {
+  it('pins the source spec to the official jobs page and the observed educator role', () => {
+    const spec = JSON.parse(readFileSync(new URL('../data/prospector/crawlers/kita-summervogel.json', import.meta.url), 'utf8'));
+    expect(spec.companyKey).toBe(KITA_SUMMERVOGEL_KEY);
+    expect(spec.seedUrls).toEqual([KITA_SUMMERVOGEL_JOBS_URL]);
+    expect(spec.detailEnrichment).toBe(true);
+    expect(spec.sampleVacancyCount).toBeGreaterThanOrEqual(1);
+    expect(spec.sampleTitles).toContain('Miterzieherin');
+    expect(JSON.stringify(spec)).not.toMatch(/jobsswitzerland|krippenstellen/);
+  });
+
+  it('extracts only a source-backed SG educator block with rich source text', () => {
+    const jobs = parseKitaSummervogelJobs(officialPage());
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Miterzieherin',
+      addressLocality: 'Zuzwil',
+      addressRegion: 'SG',
+      postalCode: '9524',
+      postingDateSource: 'reported',
+    });
+    expect(jobs[0].url).toBe('https://kitasummervogel.ch/jobs/miterzieherin/');
+    expect(jobs[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    expect(jobs[0].datePosted).toBe(germanDate(daysAgo(10)).split('.').reverse().join('-'));
+  });
+
+  it('treats the official no-open-positions notice as an authoritative empty page', () => {
+    const jobs = parseKitaSummervogelJobs('<main class="jobs-page"><h1>Jobs</h1><p>Zurzeit keine offenen Stellen. Wir freuen uns aber über Blindbewerbungen.</p></main>');
+    expect(jobs).toEqual([]);
+    expect((jobs as unknown as { authoritativeEmptyState?: string }).authoritativeEmptyState).toBe('authoritative-source-zero');
+  });
+
+  it('rejects non-educator roles and non-SG workplace evidence', () => {
+    expect(isTargetKitaSummervogelRole('Köchin')).toBe(false);
+    expect(parseKitaSummervogelJobs(officialPage({ location: '8000 Zürich ZH' }))).toEqual([]);
+  });
+
+  it('fetches only the official page and emits schema-ready source fields', async () => {
+    const fetchImpl = vi.fn(async (url: string) => response(officialPage(), url));
+    const jobs = await fetchAllKitaSummervogelJobs({ fetchImpl });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetchImpl).toHaveBeenCalledWith(KITA_SUMMERVOGEL_JOBS_URL, expect.objectContaining({ headers: expect.any(Object) }));
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      companyKey: KITA_SUMMERVOGEL_KEY,
+      canton: 'SG',
+      addressLocality: 'Zuzwil',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+      employmentType: 'OTHER',
+      sourceLang: 'de',
+    });
+    expect(isKitaSummervogelJob(jobs[0])).toBe(true);
+  });
+
+  it('trusts only the employer origin', () => {
+    expect(isTrustedDomain('https://kitasummervogel.ch/jobs/')).toBe(true);
+    expect(isTrustedDomain('https://www.kitasummervogel.ch/jobs/miterzieherin/')).toBe(true);
+    expect(isTrustedDomain('https://www.jobsswitzerland.ch/en/jobs/69418f21-4f49-4a0b-bb66-68621652fa93')).toBe(false);
+    expect(isTrustedDomain('https://krippenstellen.ch/de/frontend/inserate/71152')).toBe(false);
+  });
+});
+

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 628,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -164,6 +164,7 @@
       "avaloq",
       "bachem",
       "css-versicherung",
+      "elite-interim",
       "elprom",
       "ffs-officine-ferrovie-federali",
       "gesundheitsnetz-kuesnacht",
@@ -378,6 +379,7 @@
       "giardino",
       "heineken-ch",
       "huntsman",
+      "kita-summervogel",
       "klinik-seeschau",
       "kudelski-nagra",
       "lindenhofgruppe",
@@ -847,6 +849,7 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
@@ -990,6 +993,7 @@
     "kispi": "data/jobs/by-crawler/kispi.json",
     "kispi-sg": "data/jobs/by-crawler/kispi-sg.json",
     "kispi-zurich": "data/jobs/by-crawler/kispi-zurich.json",
+    "kita-summervogel": "data/jobs/by-crawler/kita-summervogel.json",
     "klinik-aadorf": "data/jobs/by-crawler/klinik-aadorf.json",
     "klinik-adelheid": "data/jobs/by-crawler/klinik-adelheid.json",
     "klinik-arlesheim": "data/jobs/by-crawler/klinik-arlesheim.json",
@@ -1310,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
+  "digest": "sha256:70989dff8ca83150c0ce01324c66c366d3d322ee8976068599a2189a54843e82"
 }
