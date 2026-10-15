@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 628,
+  "crawlerCount": 630,
   "groups": {
     "10": [
       "atec-personal",
@@ -161,6 +161,7 @@
       "ail-lugano",
       "apg-sga",
       "asana-spital",
+      "asile-des-aveugles",
       "avaloq",
       "bachem",
       "css-versicherung",
@@ -373,6 +374,7 @@
       "bossard",
       "clinica-holistica-engiadina",
       "corner-banca",
+      "elite-interim",
       "eth-zurich",
       "ferring",
       "giardino",
@@ -722,6 +724,7 @@
     "artisa-group": "data/jobs/by-crawler/artisa-group.json",
     "arxada": "data/jobs/by-crawler/arxada.json",
     "asana-spital": "data/jobs/by-crawler/asana-spital.json",
+    "asile-des-aveugles": "data/jobs/by-crawler/asile-des-aveugles.json",
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
@@ -847,6 +850,7 @@
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
+    "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
     "emil-frey": "data/jobs/by-crawler/emil-frey.json",
     "emmi": "data/jobs/by-crawler/emmi.json",
@@ -1310,5 +1314,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a3d9436a406b9780988c38b40395e3a13278ab2561b6a704157e09d15ead59ff"
+  "digest": "sha256:9024ee4db0eff6bc5a565eec34b5fdb2be2aba722f0f42cd15820fbea88f287e"
 }
