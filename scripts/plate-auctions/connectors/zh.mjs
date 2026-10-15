@@ -5,6 +5,7 @@ import { realpathSync } from 'node:fs';
 import {
   explicitlyEmptyCatalogue,
   fetchHtml,
+  isCardCatalogueExplicitlyEmpty,
   parseZhAuctionCards,
 } from '../../../functions/src/plateAuctionsCore.js';
 
@@ -12,30 +13,12 @@ export const ZH_CANTON = 'Zurigo';
 export const ZH_PLATE_CODE = 'ZH';
 export const ZH_AUCTION_URL = 'https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car';
 
-const ZH_AUCTION_LINK_RE = /<a\b[^>]*\bhref\s*=\s*["'][^"']*\/auction\/[^"']*["'][^>]*>/i;
-
-function hasHtmlClass(html, className) {
-  return [...String(html || '').matchAll(/\bclass\s*=\s*(["'])([^"']*)\1/gi)]
-    .some((match) => match[2].split(/\s+/).includes(className));
-}
-
-// Between auction rounds ZH keeps the complete catalogue/search shell and
-// answers with this source-specific no-results message (observed 2026-10-15).
-// Requiring the shell and rejecting every auction link keeps parser drift red.
+// Keep the ZH connector on the shared card-platform empty-state contract.
+// The newer source response omits the legacy catalogue containers, so the
+// exact no-results marker plus search controls and no auction links are the
+// evidence of an explicitly empty catalogue.
 export function isZhCatalogueExplicitlyEmpty(html) {
-  const source = String(html || '');
-  if (!source || !hasHtmlClass(source, 'auction-grid') || !hasHtmlClass(source, 'auctions')) return false;
-  if (ZH_AUCTION_LINK_RE.test(source)) return false;
-  const text = source
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text)
-    && /Herzlich\s+willkommen/i.test(text)
-    && /Kontrollschild/i.test(text)
-    && /Suchen/i.test(text);
+  return isCardCatalogueExplicitlyEmpty(html);
 }
 
 export function parseZhAuctions(html, { fetchedAt = new Date().toISOString() } = {}) {
