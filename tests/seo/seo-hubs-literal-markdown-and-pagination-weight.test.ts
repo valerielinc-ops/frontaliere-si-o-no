@@ -7,7 +7,9 @@ import {
   buildThinCantonHubHtml,
   buildPaginationIndexHtml,
   countEmittedJobArchivePages,
+  countEmittedJobArchivePagesByLocale,
 } from '../../build-plugins/seoHubsPlugin';
+import { buildCantonHubEditorial } from '../../build-plugins/shared/cantonHubEditorial';
 import {
   JOBS_PAGE_SIZE,
   isSeoHubPath,
@@ -79,18 +81,44 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
       const distDir = path.join(root, 'dist');
       const emittedPath = '/cerca-lavoro-ticino/emitted-detail/';
       const missingPath = '/cerca-lavoro-ticino/missing-detail/';
+      const enEmittedPath = '/en/find-jobs-ticino/emitted-detail/';
+      const enMissingPath = '/en/find-jobs-ticino/missing-detail/';
       const emittedFile = path.join(distDir, emittedPath, 'index.html');
+      const enEmittedFile = path.join(distDir, enEmittedPath, 'index.html');
       fs.mkdirSync(path.dirname(emittedFile), { recursive: true });
       fs.writeFileSync(emittedFile, '<!doctype html>');
+      fs.mkdirSync(path.dirname(enEmittedFile), { recursive: true });
+      fs.writeFileSync(enEmittedFile, '<!doctype html>');
 
       const registry = Object.fromEntries(Array.from({ length: 7100 }, (_, index) => [
         `historical-job-${index}`,
-        { it: index < 6700 ? emittedPath : missingPath },
+        {
+          it: index < 6700 ? emittedPath : missingPath,
+          // An English registry href does not count unless that locale's
+          // detail page was emitted, even when the Italian detail exists.
+          en: index < 6100 ? enEmittedPath : enMissingPath,
+        },
       ]));
       writeAllKnownJobSlugs(registry, root);
 
       expect(Math.ceil(Object.keys(registry).length / JOBS_PAGE_SIZE)).toBe(71);
       expect(countEmittedJobArchivePages(fs, path, root, distDir, 'it')).toBe(67);
+      const pagesByLocale = countEmittedJobArchivePagesByLocale(fs, path, root, distDir);
+      expect(pagesByLocale.it).toBe(67);
+      expect(pagesByLocale.en).toBe(61);
+      expect(countEmittedJobArchivePages(fs, path, root, distDir, 'en')).toBe(pagesByLocale.en);
+
+      const englishHub = buildCantonHubEditorial({
+        canton: 'TI',
+        locale: 'en',
+        display: 'Ticino',
+        jobsCount: 6100,
+        totalPages: pagesByLocale.en,
+        archiveNavigablePages: pagesByLocale.en,
+        archiveBaseHref: '/en/find-jobs-ticino/tutti/',
+      }).join('');
+      expect(englishHub).toContain('(61 pages)');
+      expect(englishHub).not.toContain('(67 pages)');
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }

@@ -886,6 +886,32 @@ export function countEmittedJobArchivePages(
   locale: HubLocale = 'it',
 ): number {
   const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+}
+
+/** Count the rendered archive pages from one shared registry read, per locale. */
+export function countEmittedJobArchivePagesByLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+): Record<HubLocale, number> {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  const counts = {} as Record<HubLocale, number>;
+  for (const locale of HUB_LOCALES) {
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+  }
+  return counts;
+}
+
+function countEmittedJobArchivePagesForLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  slugs: readonly string[],
+  perLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): number {
   const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale).length;
   return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
 }
