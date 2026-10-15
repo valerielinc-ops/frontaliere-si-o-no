@@ -87,7 +87,7 @@
       "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
       "slugByLocale": {
         "it": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
-        "en": "schnuppertag-automatiker-in-endress-hauser-reinach",
+        "en": "taster-day-automation-technician-endress-hauser-reinach",
         "de": "schnuppertag-automatiker-in-endress-hauser-reinach",
         "fr": "journee-d-essai-de-l-automaticien-ne-endress-hauser-reinach"
       },
@@ -133,15 +133,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-automatiker-in-endress-hauser-reinach",
-        "taster-day-automation-technician-endress-hauser-reinach"
+        "schnuppertag-automatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "taster-day-automation-technician-endress-hauser-reinach"
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
@@ -167,7 +166,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -214,15 +213,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "computer-science-experts-endress-hauser-reinach"
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
@@ -1109,12 +1107,12 @@
     },
     {
       "id": "endress-hauser-fda6d76177c3",
-      "slug": "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach",
+      "slug": "responsabile-di-progetto-marketing-e-vendite-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "de": "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach",
-        "it": "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach",
+        "it": "responsabile-di-progetto-marketing-e-vendite-m-f-d-endress-hauser-reinach",
         "en": "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach",
-        "fr": "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach"
+        "fr": "chef-fe-de-projet-marketing-ventes-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -1122,7 +1120,7 @@
       "title": "Projekt Manager*in Marketing Sales (w/m/d)",
       "titleByLocale": {
         "de": "Projekt Manager*in Marketing Sales (w/m/d)",
-        "en": "Projekt Manager*in Marketing Sales (w/m/d)",
+        "en": "Project Manager Marketing Sales (m/f/d)",
         "it": "Responsabile di progetto Marketing e vendite (m/f/d)",
         "fr": "Chef·fe de projet Marketing Ventes (h/f/d)"
       },
@@ -1173,7 +1171,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:20:30.337Z"
+      "firstSeenAt": "2026-10-15T09:20:30.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "projekt-manager-in-marketing-sales-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-1100fc47d342",

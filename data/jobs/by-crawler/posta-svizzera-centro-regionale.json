@@ -14218,12 +14218,12 @@
         "en": "Customer Advisor, PostParc Team",
         "fr": "Conseiller·ère à la clientèle équipe PostParc"
       },
-      "slug": "kundenberater-in-team-postparc-post",
+      "slug": "consulente-alla-clientela-team-postparc-die-schweizerische-post-bern",
       "slugByLocale": {
         "de": "kundenberater-in-team-postparc-post",
-        "it": "kundenberater-in-team-postparc-post",
-        "en": "kundenberater-in-team-postparc-post",
-        "fr": "kundenberater-in-team-postparc-post"
+        "it": "consulente-alla-clientela-team-postparc-die-schweizerische-post-bern",
+        "en": "customer-advisor-postparc-team-die-schweizerische-post-bern",
+        "fr": "conseiller-ere-a-la-clientele-equipe-postparc-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -14260,7 +14260,21 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-15T09:52:16.010Z"
+      "firstSeenAt": "2026-10-15T09:52:16.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-team-postparc-post"
+        ],
+        "en": [
+          "kundenberater-in-team-postparc-post"
+        ],
+        "fr": [
+          "kundenberater-in-team-postparc-post"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-team-postparc-post"
+      ]
     }
   ]
 }

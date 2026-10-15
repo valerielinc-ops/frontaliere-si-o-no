@@ -118,12 +118,12 @@
     },
     {
       "id": "evam-vaud-7500265",
-      "slug": "un-e-gerant-e-administratif-ve-100-cdd-evam-lausanne",
+      "slug": "1-direttore-amministrativo-100-csd-evam-lausanne",
       "slugByLocale": {
         "fr": "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch",
-        "it": "un-e-gerant-e-administratif-ve-100-cdd-evam-lausanne",
-        "en": "un-e-gerant-e-administratif-ve-100-cdd-evam-vaud-ch",
-        "de": "un-e-gerant-e-administratif-ve-100-cdd-evam-vaud-ch"
+        "it": "1-direttore-amministrativo-100-csd-evam-lausanne",
+        "en": "1st-administrative-manager-100-csd-evam-lausanne",
+        "de": "erster-verwaltungsdirektor-100-csd-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -172,13 +172,16 @@
           "1st-administrative-manager-100-csd-9-months-evam-lausanne",
           "1-administrative-manager-100-csd-9-monate-evam-lausanne",
           "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-lausanne",
-          "2-gerant-es-administratif-ves-100-cdd-et-cdi-evam-vaud-ch"
+          "2-gerant-es-administratif-ves-100-cdd-et-cdi-evam-vaud-ch",
+          "un-e-gerant-e-administratif-ve-100-cdd-evam-lausanne"
         ],
         "en": [
-          "1st-administrative-manager-100-csd-9-months-evam-lausanne"
+          "1st-administrative-manager-100-csd-9-months-evam-lausanne",
+          "un-e-gerant-e-administratif-ve-100-cdd-evam-vaud-ch"
         ],
         "de": [
-          "1-administrative-manager-100-csd-9-monate-evam-lausanne"
+          "1-administrative-manager-100-csd-9-monate-evam-lausanne",
+          "un-e-gerant-e-administratif-ve-100-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -187,7 +190,8 @@
         "1st-administrative-manager-100-csd-9-months-evam-lausanne",
         "1-administrative-manager-100-csd-9-monate-evam-lausanne",
         "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-lausanne",
-        "2-gerant-es-administratif-ves-100-cdd-et-cdi-evam-vaud-ch"
+        "2-gerant-es-administratif-ves-100-cdd-et-cdi-evam-vaud-ch",
+        "un-e-gerant-e-administratif-ve-100-cdd-evam-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

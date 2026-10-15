@@ -9499,12 +9499,12 @@
     },
     {
       "id": "eth-zurich-b86e6dba3432",
-      "slug": "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life",
+      "slug": "ricercatore-post-dottorato-in-ambiente-exoplanet-caratterizzazione-e-ricerca-della-vita-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life",
-        "it": "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life",
-        "de": "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life",
-        "fr": "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life"
+        "it": "ricercatore-post-dottorato-in-ambiente-exoplanet-caratterizzazione-e-ricerca-della-vita-eth-zurich-zurich",
+        "de": "postdoktorand-in-exoplaneten-atmospharencharakterisierung-und-der-suche-nach-leben-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-caracterisation-de-l-atmosphere-exoplanete-et-recherche-de-la-vie-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9562,16 +9562,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T09:41:24.646Z"
+      "firstSeenAt": "2026-10-15T09:41:24.646Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-exoplanet-atmosphere-characterisation-and-the-search-for-life"
+      ]
     },
     {
       "id": "eth-zurich-3ad5ce03ad02",
-      "slug": "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth",
+      "slug": "ricercatore-post-dottorato-in-adsorbimento-e-fato-ambientale-dei-polimeri-idrosolubili-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth",
-        "it": "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth",
-        "de": "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth",
-        "fr": "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth"
+        "it": "ricercatore-post-dottorato-in-adsorbimento-e-fato-ambientale-dei-polimeri-idrosolubili-eth-zurich-zurich",
+        "de": "postdoktorand-in-adsorption-und-umwelt-schicksal-von-wasserloslichen-polymeren-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-adsorption-et-en-ecologie-des-polymeres-solubles-dans-l-eau-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9629,16 +9643,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T09:41:24.123Z"
+      "firstSeenAt": "2026-10-15T09:41:24.123Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-adsorption-and-environmental-fate-of-water-soluble-polymers-eth"
+      ]
     },
     {
       "id": "eth-zurich-887fca3bf1b8",
-      "slug": "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch",
+      "slug": "assistente-scientifico-nella-robotica-industriale-e-nella-fabbricazione-eth-zurich-zurich",
       "slugByLocale": {
         "en": "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch",
-        "it": "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch",
+        "it": "assistente-scientifico-nella-robotica-industriale-e-nella-fabbricazione-eth-zurich-zurich",
         "de": "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch",
-        "fr": "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch"
+        "fr": "assistant-scientifique-en-robotique-industrielle-et-fabrication-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9696,7 +9724,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-15T09:41:23.594Z"
+      "firstSeenAt": "2026-10-15T09:41:23.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch"
+        ],
+        "fr": [
+          "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-assistant-in-industrial-robotics-and-manufacturing-eth-zurich-ch"
+      ]
     }
   ]
 }

@@ -1191,7 +1191,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1237,15 +1237,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3944,7 +3943,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -3989,8 +3988,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4000,7 +3998,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -4101,12 +4099,12 @@
     },
     {
       "id": "hug-3c6fc4258b5c",
-      "slug": "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve",
+      "slug": "responsabile-per-la-formazione-professionale-specializzata-90-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve",
-        "it": "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve",
-        "en": "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve",
-        "de": "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve"
+        "it": "responsabile-per-la-formazione-professionale-specializzata-90-al-100-hug-geneve",
+        "en": "responsible-for-specialized-care-training-90-to-100-hug-geneve",
+        "de": "verantwortlich-fur-spezialisiertes-pflegetraining-90-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4165,16 +4163,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-15T09:21:27.486Z"
+      "firstSeenAt": "2026-10-15T09:21:27.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve"
+        ],
+        "en": [
+          "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve"
+        ],
+        "de": [
+          "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-secteur-des-formations-specialisees-en-soins-90-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-7a2755ca1c61",
-      "slug": "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve",
+      "slug": "coordinatore-coordinatore-80-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve",
-        "it": "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve",
-        "en": "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve",
-        "de": "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve"
+        "it": "coordinatore-coordinatore-80-hug-geneve",
+        "en": "coordinator-coordinator-80-hug-geneve",
+        "de": "koordinator-koordinator-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4232,16 +4244,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve"
+        ],
+        "en": [
+          "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve"
+        ],
+        "de": [
+          "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-coordinateur-ou-coordinatrice-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-6e993aa9d1d1",
-      "slug": "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve",
+      "slug": "tecnico-biomedico-100-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve",
-        "it": "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve",
-        "en": "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve",
-        "de": "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve"
+        "it": "tecnico-biomedico-100-hug-geneve",
+        "en": "biomedical-technician-100-hug-geneve",
+        "de": "biomedizinischer-techniker-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4300,16 +4326,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-09-09T13:49:18.974Z"
+      "firstSeenAt": "2026-09-09T13:49:18.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve"
+        ],
+        "de": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-en-analyses-biomedicales-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-b946ebc29fea",
-      "slug": "psychologue-psychotherapeute-40-hug-geneve",
+      "slug": "psicologo-psicoterapeuta-40-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-40-hug-geneve",
-        "it": "psychologue-psychotherapeute-40-hug-geneve",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
-        "de": "psychologue-psychotherapeute-40-hug-geneve"
+        "it": "psicologo-psicoterapeuta-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
+        "de": "psychologe-psychotherapeut-40-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4369,16 +4409,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-15T09:21:27.479Z"
+      "firstSeenAt": "2026-10-15T09:21:27.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-40-hug-geneve"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-40-hug-geneve"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-40-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-40-hug-geneve"
+      ]
     },
     {
       "id": "hug-a07ad46f53c8",
-      "slug": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve",
+      "slug": "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve",
-        "it": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve",
-        "en": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve",
-        "de": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve"
+        "it": "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-80-al-100-hug-geneve",
+        "en": "psychologist-at-the-child-and-adolescent-psychiatry-service-80-to-100-hug-geneve",
+        "de": "psychologin-beim-kinder-und-jugendpsychiatriedienst-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4437,7 +4491,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-15T09:21:27.474Z"
+      "firstSeenAt": "2026-10-15T09:21:27.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ad71e521a4dd",

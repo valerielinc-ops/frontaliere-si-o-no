@@ -2091,12 +2091,12 @@
     },
     {
       "id": "brack-alltron-e757e4898eb6",
-      "slug": "lead-category-infrastructure-brack-alltron-magenwil",
+      "slug": "lead-categoria-infrastrutture-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "lead-category-infrastructure-brack-alltron-magenwil",
-        "it": "lead-category-infrastructure-brack-alltron-magenwil",
+        "it": "lead-categoria-infrastrutture-brack-alltron-ag-magenwil",
         "en": "lead-category-infrastructure-brack-alltron-magenwil",
-        "fr": "lead-category-infrastructure-brack-alltron-magenwil"
+        "fr": "categorie-principale-infrastructure-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2156,16 +2156,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:22:42.664Z"
+      "firstSeenAt": "2026-10-15T09:22:42.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-category-infrastructure-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "lead-category-infrastructure-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "lead-category-infrastructure-brack-alltron-magenwil"
+      ]
     },
     {
       "id": "brack-alltron-650b37d99f7e",
-      "slug": "product-manager-in-garten-brack-alltron-magenwil",
+      "slug": "responsabile-di-prodotto-per-il-giardinaggio-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "product-manager-in-garten-brack-alltron-magenwil",
-        "it": "product-manager-in-garten-brack-alltron-magenwil",
+        "it": "responsabile-di-prodotto-per-il-giardinaggio-brack-alltron-ag-magenwil",
         "en": "product-manager-in-garten-brack-alltron-magenwil",
-        "fr": "product-manager-in-garten-brack-alltron-magenwil"
+        "fr": "responsable-produit-jardin-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2173,7 +2184,7 @@
       "title": "Product Manager:in Garten",
       "titleByLocale": {
         "de": "Product Manager:in Garten",
-        "en": "Product Manager:in Garten",
+        "en": "Product Manager Garden",
         "it": "Responsabile di prodotto per il giardinaggio",
         "fr": "Responsable produit jardin"
       },
@@ -2225,7 +2236,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:22:42.657Z"
+      "firstSeenAt": "2026-10-15T09:22:42.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-in-garten-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "product-manager-in-garten-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-in-garten-brack-alltron-magenwil"
+      ]
     }
   ]
 }
