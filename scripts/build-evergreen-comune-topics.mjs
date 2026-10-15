@@ -35,7 +35,10 @@ const OUT = path.join(ROOT, 'public', 'evergreen-comune-topics.json');
 const LOADER = `
 import { buildComuneEvergreenTopics, MIN_PUBLISHED_COMUNE_TOPICS } from ${JSON.stringify(path.join(ROOT, 'scripts/lib/evergreen-topic-generator.mjs'))};
 import { MUNICIPALITIES } from ${JSON.stringify(path.join(ROOT, 'data/municipalities'))};
-process.stdout.write(JSON.stringify(buildComuneEvergreenTopics(MUNICIPALITIES)));
+process.stdout.write(JSON.stringify({
+  topics: buildComuneEvergreenTopics(MUNICIPALITIES),
+  minPublishedComuneTopics: MIN_PUBLISHED_COMUNE_TOPICS,
+}));
 `;
 
 function computeTopics() {
@@ -55,7 +58,9 @@ function computeTopics() {
 
 function main() {
   const check = process.argv.includes('--check');
-  const topics = computeTopics();
+  const computed = computeTopics();
+  const topics = computed?.topics;
+  const minPublishedComuneTopics = computed?.minPublishedComuneTopics;
 
   // A collapse here would silently strip the generator's evergreen pool, and
   // an empty pool is not a visible failure — it just quietly narrows what gets
@@ -64,8 +69,8 @@ function main() {
   // Keep the writer's floor in lockstep with the reader's reserve guard in
   // scripts/lib/evergreen-topic-generator.mjs. It rejects the old 437-topic
   // asset while allowing small source-data drift below the current 466.
-  if (!Array.isArray(topics) || topics.length < MIN_PUBLISHED_COMUNE_TOPICS) {
-    console.error(`::error::expected at least ${MIN_PUBLISHED_COMUNE_TOPICS} comune topics, got ${topics?.length ?? 0} — refusing to write`);
+  if (!Array.isArray(topics) || !Number.isInteger(minPublishedComuneTopics) || topics.length < minPublishedComuneTopics) {
+    console.error(`::error::expected at least ${minPublishedComuneTopics ?? 'the configured floor'} comune topics, got ${topics?.length ?? 0} — refusing to write`);
     process.exit(1);
   }
 
