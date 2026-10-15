@@ -36,6 +36,7 @@ const sourceListing = {
   postalCode: '8852',
   streetAddress: 'Engelhofstrasse 1',
   datePosted: '2026-09-14',
+  postingDateSource: 'reported',
   employmentType: 'PART_TIME',
   url: 'https://seniorenzentrum-engelhof.employerboard.ch/job/pflegehelferin-pflegehelfer-srk/J993250/1526A5DC-5936-45AF-9A3322C77271510E',
 };
