@@ -13237,6 +13237,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-lite-domestica-luganese.title': 'Luganese, 28-year-old arrested on suspicion of attempted murder',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'A 28-year-old was arrested in the Lugano area on October 9.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'View of the Lugano area in Ticino at sunset',
+    'blog.article.veicolo-fiamme-a2-rivera.title': 'Vehicle on fire on the A2 in Rivera: traffic disrupted',
+    'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'A van caught fire on the A2 towards Chiasso The section is between the Monte Ceneri tunnel and Rivera The right lane is closed for the necessary operations',
+    'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Vehicle on fire on the A2 at Rivera, with disrupted traffic toward Chiasso',
 };
 
 export default blogMetaEn;

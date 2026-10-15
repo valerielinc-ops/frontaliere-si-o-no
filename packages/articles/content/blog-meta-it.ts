@@ -13238,6 +13238,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-lite-domestica-luganese.title': 'Luganese, arrestato un 28enne per ipotesi di tentato omicidio',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'Arrestato il 9 ottobre un 28enne nel Luganese.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Vista del Luganese in Ticino al tramonto',
+    'blog.article.veicolo-fiamme-a2-rivera.title': 'Veicolo in fiamme sull\'A2 a Rivera: traffico perturbato',
+    'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Un furgone ha preso fuoco sull\'A2 verso Chiasso Il tratto è tra la galleria del Monte Ceneri e Rivera La corsia destra è chiusa per le operazioni necessarie',
+    'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Veicolo in fiamme sull\'A2 a Rivera, con traffico perturbato verso Chiasso',
 };
 
 export default blogMetaIt;

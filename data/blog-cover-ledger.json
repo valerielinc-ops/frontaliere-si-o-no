@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 5,
-      "6": 5499
+      "6": 5500
     },
-    "publishedCovers": 7080,
+    "publishedCovers": 7081,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 131,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 5304
+    "inferredRecords": 5305
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -189531,6 +189531,33 @@
           "id": "varese-oltrepo-serie-d-2026",
           "category": "pratico",
           "date": "2026-10-11T01:53:20.888Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-15",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-veicolo-fiamme-a2-rivera": {
+      "cover": "/images/blog/article-veicolo-fiamme-a2-rivera.webp",
+      "hash": "a361499a9f7da4ebc789dfb6e61371d75e65e17a4ff785ec0d208f9bdb9dc608",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "veicolo-fiamme-a2-rivera",
+          "category": "pratico",
+          "date": "2026-10-15T15:41:14.150Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

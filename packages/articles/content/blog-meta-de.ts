@@ -13236,6 +13236,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-lite-domestica-luganese.title': 'Luganese: 28-Jähriger wegen des Verdachts auf versuchte Tötung festgenommen',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'Am 9. Oktober wurde ein 28-Jähriger im Luganese festgenommen.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Blick auf das Luganese im Tessin bei Sonnenuntergang',
+    'blog.article.veicolo-fiamme-a2-rivera.title': 'Fahrzeug auf der A2 bei Rivera in Flammen: Verkehr beeinträchtigt',
+    'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Ein Lieferwagen ist auf der A2 in Richtung Chiasso in Brand geraten Der Abschnitt befindet sich zwischen dem Tunnel Monte Ceneri und Rivera Die rechte Fahrspur ist für die erforderlichen Arbeiten gesperrt',
+    'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Brennendes Fahrzeug auf der A2 bei Rivera, Verkehr Richtung Chiasso beeinträchtigt',
 };
 
 export default blogMetaDe;

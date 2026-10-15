@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "13ae328df4e23ba2297832c39e3277d1fcb01154",
+  "commit": "d5b0df4602999487029f14ad64fda0547c8c6cd7",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -22123,6 +22123,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of administrative architecture in Bellinzona, Switzerland; no people, text, logos, signage, or watermark."
+      }
+    },
+    "/images/blog/article-veicolo-fiamme-a2-rivera.webp": {
+      "schema": 1,
+      "assetId": "article-veicolo-fiamme-a2-rivera",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "ede4ecaffc12b1a8326e4e3252fa88288a16dde354996b3cc80356ee96478808",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "a361499a9f7da4ebc789dfb6e61371d75e65e17a4ff785ec0d208f9bdb9dc608",
+      "bytes": 131820,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-15T15:41:04.610Z",
+      "verifiedAt": "2026-10-15T15:41:13.572Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-veicolo-fiamme-a2-rivera.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a burning van causing motorway traffic disruption; no readable text, signage, branding, people, or identifiable event."
       }
     },
     "/images/places/lugano-view.webp": {

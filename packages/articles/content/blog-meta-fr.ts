@@ -13239,6 +13239,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-lite-domestica-luganese.title': 'Région de Lugano, un homme de 28 ans arrêté pour tentative présumée d’homicide',
     'blog.article.arresto-lite-domestica-luganese.excerpt': 'Un homme de 28 ans arrêté le 9 octobre dans la région de Lugano.',
     'blog.article.arresto-lite-domestica-luganese.imageAlt': 'Vue du Luganese au Tessin au coucher du soleil',
+    'blog.article.veicolo-fiamme-a2-rivera.title': 'Véhicule en feu sur l\'A2 à Rivera : circulation perturbée',
+    'blog.article.veicolo-fiamme-a2-rivera.excerpt': 'Une camionnette a pris feu sur l\'A2 en direction de Chiasso Le tronçon se situe entre le tunnel du Monte Ceneri et Rivera La voie de droite est fermée pour les opérations nécessaires',
+    'blog.article.veicolo-fiamme-a2-rivera.imageAlt': 'Véhicule en feu sur l\'A2 à Rivera, trafic perturbé vers Chiasso',
 };
 
 export default blogMetaFr;

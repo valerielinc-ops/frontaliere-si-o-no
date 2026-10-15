@@ -44676,6 +44676,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'veicolo-fiamme-a2-rivera',
+ category: 'pratico',
+ date: '2026-10-15T15:41:14.150Z',
+ image: '/images/blog/article-veicolo-fiamme-a2-rivera.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
