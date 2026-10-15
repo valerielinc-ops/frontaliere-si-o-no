@@ -8327,6 +8327,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.licenza-pubblico-berna-requisiti.title': 'Licence d\'exploitation d\'un établissement public à Berne : exigences et demande',
     'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'Dans le canton de Berne, la licence concerne les restaurants et les établissements.',
     'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Documents officiels et un stylo sur une table devant un bâtiment administratif suisse',
+    'blog.article.integrazione-lingua-berna-contributi.title': 'Cours de langue Berne : intégration, cotisations et exigences',
+    'blog.article.integrazione-lingua-berna-contributi.excerpt': 'Dans le canton de Berne, les programmes d\'intégration et les contributions à la formation continue dépendent du niveau cantonal, communal ou institutionnel ; les exigences, les délais et les montants doivent être vérifiés auprès de la source officielle.',
+    'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Étudiant adulte en cours de langue à Berne avec livres et drapeau suisse',
 };
 
 export default blogMetaChFr;

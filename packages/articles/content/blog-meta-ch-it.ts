@@ -8327,6 +8327,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.licenza-pubblico-berna-requisiti.title': 'Licenza esercizio pubblico Berna: requisiti e domanda',
     'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'Nel Cantone di Berna la licenza riguarda ristoranti e locali.',
     'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Documenti ufficiali e penna su un tavolo davanti a un edificio amministrativo svizzero',
+    'blog.article.integrazione-lingua-berna-contributi.title': 'Corsi lingua Berna: integrazione, contributi e requisiti',
+    'blog.article.integrazione-lingua-berna-contributi.excerpt': 'Nel Cantone di Berna i programmi di integrazione e i contributi alla formazione continua dipendono dal livello cantonale, comunale o istituzionale; requisiti, scadenze e importi devono essere verificati sulla fonte ufficiale.',
+    'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Studente adulto in corso di lingua a Berna con libri e bandiera svizzera',
 };
 
 export default blogMetaChIt;

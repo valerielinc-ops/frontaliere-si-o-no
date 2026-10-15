@@ -105129,6 +105129,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-integrazione-lingua-berna-contributi': {
+    title: 'Corsi lingua Berna: integrazione, contributi e requisiti',
+    description: 'Scopri come verificare livello competente, requisiti, scadenze e importi per corsi di lingua e contributi alla formazione continua nel Cantone di Berna',
+    keywords: 'frontalieri, ticino, svizzera, italia, corsi, lingua, berna, integrazione',
+    ogTitle: 'Corsi lingua Berna: integrazione, contributi e requisiti',
+    ogDescription: 'Guida pratica per chi cerca un corso di lingua o un contributo alla formazione continua nel Cantone di Berna: spiegazione del percorso per individuare il livello competente (cantone, comune, istituzione), dove trovare i requisiti ufficiali',
+    canonicalPath: '/articoli-svizzera/integrazione-lingua-berna-contributi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corsi lingua Berna: integrazione, contributi e requisiti",
+      "description": "Scopri come verificare livello competente, requisiti, scadenze e importi per corsi di lingua e contributi alla formazione continua nel Cantone di Berna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-contributi-formazione-berna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente adulto in corso di lingua a Berna con libri e bandiera svizzera"
+      },
+      "datePublished": "2026-10-15T04:28:18+00:00",
+      "dateModified": "2026-10-15T04:28:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/integrazione-lingua-berna-contributi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

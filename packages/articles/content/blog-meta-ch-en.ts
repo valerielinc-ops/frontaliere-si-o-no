@@ -8327,6 +8327,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.licenza-pubblico-berna-requisiti.title': 'Public establishment license in Bern: requirements and application',
     'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'In the Canton of Bern, the license applies to restaurants and establishments.',
     'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Official documents and a pen on a table in front of a Swiss administrative building',
+    'blog.article.integrazione-lingua-berna-contributi.title': 'Language courses in Bern: integration, subsidies and requirements',
+    'blog.article.integrazione-lingua-berna-contributi.excerpt': 'In the Canton of Bern, integration programs and continuing education contributions depend on the cantonal, municipal or institutional level; requirements, deadlines and amounts must be verified using the official source.',
+    'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Adult student in a language course in Bern with books and Swiss flag',
 };
 
 export default blogMetaChEn;

@@ -8327,6 +8327,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.licenza-pubblico-berna-requisiti.title': 'Gastgewerbebewilligung Bern: Voraussetzungen und Antrag',
     'blog.article.licenza-pubblico-berna-requisiti.excerpt': 'Im Kanton Bern betrifft die Bewilligung Restaurants und Lokale.',
     'blog.article.licenza-pubblico-berna-requisiti.imageAlt': 'Offizielle Dokumente und ein Stift auf einem Tisch vor einem Schweizer Verwaltungsgebäude',
+    'blog.article.integrazione-lingua-berna-contributi.title': 'Sprachkurse Bern: Integration, Beiträge und Voraussetzungen',
+    'blog.article.integrazione-lingua-berna-contributi.excerpt': 'Im Kanton Bern hängen Integrationsprogramme und Beiträge zur Weiterbildung von der kantonalen, kommunalen oder institutionellen Ebene ab; Voraussetzungen, Fristen und Beträge müssen anhand der offiziellen Quelle überprüft werden.',
+    'blog.article.integrazione-lingua-berna-contributi.imageAlt': 'Erwachsene/r in einem Sprachkurs in Bern mit Büchern und Schweizer Flagge',
 };
 
 export default blogMetaChDe;

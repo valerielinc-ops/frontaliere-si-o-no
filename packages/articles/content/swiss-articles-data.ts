@@ -27840,6 +27840,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'integrazione-lingua-berna-contributi',
+    category: 'pratico',
+    date: '2026-10-15T04:28:17.925Z',
+    image: '/images/blog/article-contributi-formazione-berna-requisiti.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['BE'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

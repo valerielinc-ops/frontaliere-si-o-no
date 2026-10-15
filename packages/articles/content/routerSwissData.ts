@@ -2798,6 +2798,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucerna-festivi-calendario-verifica': { it: 'lucerna-festivi-calendario-verifica', en: 'lucerne-public-holidays-calendar-guide', de: 'luzern-feiertage-kalender-anleitung', fr: 'lucerne-jours-feries-calendrier-guide' },
  'collaudo-veicoli-berna-procedura': { it: 'collaudo-veicoli-berna-procedura', en: 'berns-vehicle-inspection-procedure', de: 'bern-fahrzeugpruefung-verfahren', fr: 'controle-vehicules-berne-procedure' },
  'licenza-pubblico-berna-requisiti': { it: 'licenza-pubblico-berna-requisiti', en: 'public-license-bern-requirements', de: 'gastgewerbe-lizenz-bern-voraussetzungen', fr: 'licence-exercice-public-berne-exigences' },
+ 'integrazione-lingua-berna-contributi': { it: 'integrazione-lingua-berna-contributi', en: 'language-courses-in-bern-integration-subsidies-and-requirements', de: 'sprachkurse-bern-integration-beitrage-und-voraussetzungen', fr: 'cours-de-langue-berne-integration-cotisations-et-exigences' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
