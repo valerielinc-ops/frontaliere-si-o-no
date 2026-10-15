@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 639,
+  "crawlerCount": 640,
   "groups": {
     "10": [
       "atec-personal",
@@ -20,7 +20,6 @@
       "ipw",
       "jumbo",
       "kiabi",
-      "kita-summervogel",
       "ksgl",
       "kulm-hotel",
       "laderach",
@@ -30,6 +29,7 @@
       "richemont",
       "stellentreff",
       "swiss-medical-network",
+      "sympajobs-reinach-bl",
       "triaplus",
       "viva-luzern",
       "vz-vermoegenszentrum"
@@ -610,6 +610,7 @@
       "groupe-mutuel",
       "guess-europe",
       "guggerbach",
+      "kita-summervogel",
       "kzu",
       "lonza",
       "medtronic",
@@ -1266,6 +1267,7 @@
     "swisslog": "data/jobs/by-crawler/swisslog.json",
     "swissquote": "data/jobs/by-crawler/swissquote.json",
     "sygnum": "data/jobs/by-crawler/sygnum.json",
+    "sympajobs-reinach-bl": "data/jobs/by-crawler/sympajobs-reinach-bl.json",
     "szb-chb": "data/jobs/by-crawler/szb-chb.json",
     "talan": "data/jobs/by-crawler/talan.json",
     "tally-weijl": "data/jobs/by-crawler/tally-weijl.json",
@@ -1332,5 +1334,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:d4f5fdbdc7516864539cb810eecefb86a12690ece39c4643cdf01c580b27ee25"
+  "digest": "sha256:388f849ff3fee352f6e33a07ce09237a42a1bf346412cc3ca89b32b773881abb"
 }
