@@ -2,25 +2,29 @@
 import { realpathSync } from 'node:fs';
 /**
  * Lighthouse CI check: on the SPA-takeover pages the static HTML must paint
- * BEFORE the SPA mount hides it (issue 11666).
+ * BEFORE the SPA handoff either hides it or intentionally keeps it visible
+ * through the React takeover (issue 11666).
  *
- * index.tsx sets the user-timing mark `ft:static-handoff-hide` right before it
- * fades #root (which holds the static HTML) to `opacity: 0`. If the observed
- * first contentful paint comes after that mark, the static HTML never reached
- * the screen and the page stayed blank until React rendered: a simulated
- * mobile FCP of 8-13 s instead of ~4.6 s on /cerca-lavoro-ticino/. That race
- * is invisible to the budget assertions, which judge the BEST of 3 runs, so
- * this check judges EVERY run.
+ * index.tsx sets `ft:static-handoff-hide` before fading #root (which holds the
+ * static HTML) to `opacity: 0`, or `ft:static-handoff-preserve` when the
+ * already-visible JobBoard main stays in place. If the observed first
+ * contentful paint comes after the relevant mark, the static HTML never
+ * reached the screen before the handoff: a simulated mobile FCP of 8-13 s
+ * instead of ~4.6 s on /cerca-lavoro-ticino/. That race is invisible to the
+ * budget assertions, which judge the BEST of 3 runs, so this check judges
+ * EVERY run.
  *
  * Usage: node scripts/ci/lighthouse-first-paint-order.mjs [--dir .lighthouseci]
- * Exit 0 = every checked run painted first; 1 = a run hid before painting or
- * lacks the mark; 2 = no LHR for a checked page (nothing was verified).
+ * Exit 0 = every checked run painted first; 1 = a run handed off before
+ * painting or lacks the mark; 2 = no LHR for a checked page (nothing was
+ * verified).
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const HIDE_MARK = 'ft:static-handoff-hide';
+export const PRESERVE_MARK = 'ft:static-handoff-preserve';
 /**
  * Pages where the mount hides prerendered static HTML (route without
  * `staticOverlay`, static fallback present). `/` is NOT one of them: it ships
@@ -41,19 +45,27 @@ export function evaluateLhr(lhr) {
   const metrics = lhr.audits?.metrics?.details?.items?.[0] ?? {};
   const fcp = metrics.observedFirstContentfulPaint;
   const marks = lhr.audits?.['user-timings']?.details?.items ?? [];
-  const mark = marks.find((item) => item?.name === HIDE_MARK);
+  const mark = marks.find((item) => item?.name === HIDE_MARK || item?.name === PRESERVE_MARK);
   const base = { pathname, formFactor: lhr.configSettings?.formFactor ?? 'unknown', fetchTime: lhr.fetchTime };
   if (typeof fcp !== 'number') return { ...base, ok: false, reason: 'observed FCP missing from the LHR' };
   if (!mark || typeof mark.startTime !== 'number') {
-    return { ...base, fcp, ok: false, reason: `mark ${HIDE_MARK} missing (mount without the first-paint wait?)` };
+    return {
+      ...base,
+      fcp,
+      ok: false,
+      reason: `mark ${HIDE_MARK} or ${PRESERVE_MARK} missing (mount without the first-paint wait?)`,
+    };
   }
   const ok = fcp <= mark.startTime;
   return {
     ...base,
     fcp,
-    hide: mark.startTime,
+    handoff: mark.startTime,
+    handoffKind: mark.name === PRESERVE_MARK ? 'preserve' : 'hide',
     ok,
-    reason: ok ? 'static HTML painted before the hide' : 'static HTML hidden before its first paint',
+    reason: ok
+      ? mark.name === PRESERVE_MARK ? 'static HTML painted before the visibility-preserving handoff' : 'static HTML painted before the hide'
+      : mark.name === PRESERVE_MARK ? 'static HTML handed off before its first paint' : 'static HTML hidden before its first paint',
   };
 }
 
@@ -79,8 +91,8 @@ function main(argv) {
     return 2;
   }
   for (const v of result.verdicts) {
-    const timing = typeof v.hide === 'number'
-      ? `FCP ${Math.round(v.fcp)} ms vs hide ${Math.round(v.hide)} ms`
+    const timing = typeof v.handoff === 'number'
+      ? `FCP ${Math.round(v.fcp)} ms vs ${v.handoffKind} ${Math.round(v.handoff)} ms`
       : `FCP ${typeof v.fcp === 'number' ? Math.round(v.fcp) : '?'} ms`;
     console.log(`${v.ok ? 'ok  ' : 'FAIL'} ${v.formFactor} ${v.pathname} ${timing} — ${v.reason} (${v.file})`);
   }

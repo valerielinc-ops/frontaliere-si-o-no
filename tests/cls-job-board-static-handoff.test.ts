@@ -19,7 +19,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
@@ -27,7 +27,12 @@ import {
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
-import { adoptStaticFallbackIntoRoot } from '@/services/staticFallbackHandoff';
+import {
+  adoptStaticFallbackIntoRoot,
+  preserveRootForPaint,
+  shouldKeepStaticRootVisible,
+  STATIC_HANDOFF_PRESERVE_MARK,
+} from '@/services/staticFallbackHandoff';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -355,6 +360,42 @@ describe('adoptStaticFallbackIntoRoot — #8868', () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
     expect(entry).toContain('adoptStaticFallbackIntoRoot(rootElement, fallback)');
     expect(entry).not.toMatch(/rootElement\.appendChild\(fallback\)/);
+  });
+});
+
+describe('static job-board root visibility — issue 13044', () => {
+  it('recognizes only the prerendered JobBoard main already owned by #root', () => {
+    document.body.innerHTML = JOB_BOARD_ROOT_HUB_BODY;
+    const root = document.getElementById('root')!;
+    const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+
+    expect(shouldKeepStaticRootVisible(root, fallback)).toBe(true);
+
+    document.body.innerHTML = JOB_BOARD_HUB_BODY;
+    const outsideRoot = document.getElementById('root')!;
+    const outsideFallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+    expect(shouldKeepStaticRootVisible(outsideRoot, outsideFallback)).toBe(false);
+  });
+
+  it('reserves the painted height without applying the opacity crossfade', () => {
+    document.body.innerHTML = JOB_BOARD_ROOT_HUB_BODY;
+    const root = document.getElementById('root')!;
+    Object.defineProperty(root, 'offsetHeight', { configurable: true, value: 480 });
+    const perf = { mark: vi.fn() };
+
+    preserveRootForPaint(root, perf);
+
+    expect(root.style.minHeight).toBe('480px');
+    expect(root.style.opacity).toBe('');
+    expect(root.style.transition).toBe('');
+    expect(perf.mark).toHaveBeenCalledWith(STATIC_HANDOFF_PRESERVE_MARK);
+  });
+
+  it('keeps the JobBoard branch out of the root opacity crossfade', () => {
+    const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
+    expect(entry).toContain('keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback)');
+    expect(entry).toContain('staticHandoff.preserveRootForPaint(rootElement)');
+    expect(entry).toMatch(/if \(keepStaticRootVisible\) \{[\s\S]*?preserveRootForPaint[\s\S]*?\} else \{[\s\S]*?hideRootForCrossfade/);
   });
 });
 
