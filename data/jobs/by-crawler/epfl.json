@@ -3517,7 +3517,7 @@
           "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hurg"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:32:10.707Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3533,7 +3533,8 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "retranslationAttempts": 0
     },
     {
       "id": "epfl-d3fbf1d979eb",
@@ -5119,12 +5120,12 @@
     },
     {
       "id": "epfl-574d4c5f171f",
-      "slug": "research-and-development-specialist-epfl-lausanne",
+      "slug": "ricerca-and-development-specialista-epfl-lausanne",
       "slugByLocale": {
         "en": "research-and-development-specialist-epfl-lausanne",
-        "it": "research-and-development-specialist-epfl-lausanne",
-        "de": "research-and-development-specialist-epfl-lausanne",
-        "fr": "research-and-development-specialist-epfl-lausanne"
+        "it": "ricerca-and-development-specialista-epfl-lausanne",
+        "de": "forschung-and-development-spezialist-epfl-lausanne",
+        "fr": "recherche-and-development-specialiste-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5185,7 +5186,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-15T09:23:48.576Z"
+      "firstSeenAt": "2026-10-15T09:23:48.576Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-and-development-specialist-epfl-lausanne"
+        ],
+        "de": [
+          "research-and-development-specialist-epfl-lausanne"
+        ],
+        "fr": [
+          "research-and-development-specialist-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "research-and-development-specialist-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-80362d98ab40",

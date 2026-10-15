@@ -2208,7 +2208,7 @@
         "it": "hr-business-partner-spital-zofingen-zofingen",
         "en": "hr-business-partner-spital-zofingen-zofingen",
         "de": "hr-business-partner-spital-zofingen-zofingen",
-        "fr": "hr-business-partner-spital-zofingen"
+        "fr": "partenaire-d-affaires-rh-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2254,12 +2254,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "partenaire-operationnel-rh-spital-zofingen-zofingen",
-        "partenaire-d-affaires-rh-spital-zofingen-zofingen"
+        "hr-business-partner-spital-zofingen"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "partenaire-operationnel-rh-spital-zofingen-zofingen",
-          "partenaire-d-affaires-rh-spital-zofingen-zofingen"
+          "hr-business-partner-spital-zofingen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:21:31.893Z",
@@ -2354,12 +2354,12 @@
     },
     {
       "id": "spital-zofingen-e64c3cc706f5",
-      "slug": "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen",
+      "slug": "fisioterapista-diplomato-a-reparto-di-cure-palliative-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen",
-        "it": "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen",
-        "en": "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen",
-        "fr": "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen"
+        "it": "fisioterapista-diplomato-a-reparto-di-cure-palliative-spital-zofingen-zofingen",
+        "en": "dipl-physiotherapist-palliative-care-unit-spital-zofingen-zofingen",
+        "fr": "physiotherapeute-diplome-e-unite-de-soins-palliatifs-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2378,7 +2378,6 @@
         "en": "Their tasks\n\n• Physiotherapeutic care of patients in the palliative care unit\n• Participation in interdisciplinary team meetings and quality assurance\n• Implementation of individual treatments in various departments in the acute hospital\n• Outpatient treatments in various specialist areas\n• Participation in group therapies, student education and exciting projects\n• Active exchange in the team, participation in training and internal intervisions\n Your profile\n\n• Completed training as a physiotherapist (SRK-approved) or Bachelor in Physical Therapy\n• Ideally, experience in palliative care – or interest in further education in this field\n• You work resource-oriented, evidence-based and with heart\n• You are flexible, resilient and find joy in everyday hospital life\n• You are digitally fit and appreciate the open exchange in the team\n• Re-entrants to physiotherapy are also welcome\n Personal, Family, Competent\nIn the regional and supra-regional health network, the Zofingen Hospital plays an important role. With more than 750 employees and various partner organizations, we ensure medical care for the population and have also specialized in high-quality old-age medicine.\n Ms. Monique Huismann, Head of Department Physiotherapy",
         "fr": "Leurs tâches\n\n• Soins physiologiques des patients de l'unité de soins palliatifs\n• Participation à des réunions d'équipe interdisciplinaires et assurance de la qualité\n• Mise en oeuvre de traitements individuels dans divers départements de l'hôpital aigu\n• Traitements ambulatoires dans divers domaines spécialisés\n• Participation aux thérapies de groupe, à l'éducation des étudiants et à des projets passionnants\n• Échange actif au sein de l'équipe, participation à la formation et intervisions internes\n Votre profil\n\n• Formation complète en physiothérapeute (approuvée par SRK) ou baccalauréat en physiothérapie\n• Idéalement, l'expérience en soins palliatifs – ou l'intérêt pour la formation continue dans ce domaine\n• Vous travaillez sur des ressources, basées sur des données probantes et avec cœur\n• Vous êtes flexible, résistant et trouvez la joie dans la vie quotidienne de l'hôpital\n• Vous êtes en forme numérique et appréciez l'échange ouvert dans l'équipe\n• Les participants à la physiothérapie sont également les bienvenus.\n Personnel, famille, compétent\nDans le réseau de santé régional et suprarégional, l'hôpital Zofingen joue un rôle important. Avec plus de 750 employés et diverses organisations partenaires, nous assurons des soins médicaux à la population et nous nous sommes également spécialisés en médecine de vieillesse de haute qualité.\n Mme Monique Huismann, Chef du Département de physiothérapie"
       },
-      "needsRetranslation": true,
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://jobs.spitalzofingen.ch/offene-stellen/dipl-physiotherapeut-in-palliativstation/ac424ded-0f6f-4569-90a4-298b87382b2e",
@@ -2419,7 +2418,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:29:18.598Z"
+      "firstSeenAt": "2026-10-15T09:29:18.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherapeut-in-palliativstation-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

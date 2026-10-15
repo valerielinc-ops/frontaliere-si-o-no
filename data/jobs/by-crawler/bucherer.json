@@ -231,10 +231,10 @@
     },
     {
       "id": "bucherer-2feeeed4f0fc",
-      "slug": "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve",
+      "slug": "ospitalita-e-servizi-professional-m-f-d-20-sabato-bucherer-geneve",
       "slugByLocale": {
         "fr": "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve",
-        "it": "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve",
+        "it": "ospitalita-e-servizi-professional-m-f-d-20-sabato-bucherer-geneve",
         "en": "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve",
         "de": "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve"
       },
@@ -296,7 +296,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-15T09:21:32.095Z"
+      "firstSeenAt": "2026-10-15T09:21:32.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "hospitality-and-services-professional-m-f-d-20-les-samedis-bucherer-geneve"
+      ]
     },
     {
       "id": "bucherer-5dca283b0ab6",
@@ -304,7 +312,7 @@
       "slugByLocale": {
         "fr": "operateur-horloger-horloger-watch-services-specialist-100-m-f-d-geneve-bucherer-geneve",
         "it": "operateur-horloger-horloger-watch-services-specialist-100-m-f-d-geneve-bucherer-geneve",
-        "en": "operateur-horloger-horloger-watch-services-specialist-100-m-f-d-geneve-bucherer-geneve",
+        "en": "clock-operator-watchmaker-watch-services-specialist-100-m-f-d-geneva-bucherer-geneve",
         "de": "operateur-horloger-horloger-watch-services-specialist-100-m-f-d-geneve-bucherer-geneve"
       },
       "company": "Bucherer",
@@ -1447,7 +1455,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T09:22:15.671Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
