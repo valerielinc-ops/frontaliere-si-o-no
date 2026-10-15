@@ -611,6 +611,20 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     }
   });
 
+  it('keeps a comma-separated institution tail reportable', () => {
+    const issues = checkFabricatedInstitutionAcronyms(
+      'Il direttore del Dipartimento, Politiche Sociali (MPS).',
+    );
+
+    expect(codes(issues)).toEqual(['unknown-institution']);
+  });
+
+  it('still recognizes a comma-delimited person appositive after a lexical boundary', () => {
+    const text = 'Il direttore del Dipartimento grigionese delle finanze, Martin Bühler (PLR).';
+
+    expect(checkFabricatedInstitutionAcronyms(text)).toEqual([]);
+  });
+
   it('keeps denylisted political acronyms blocking', () => {
     const issues = checkFabricatedInstitutionAcronyms(
       'Il direttore del Dipartimento grigionese delle finanze e dei comuni Mario Rossi (PLR).',
