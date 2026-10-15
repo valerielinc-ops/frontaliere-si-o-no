@@ -28,7 +28,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
-import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary, setFallbackProviderConcurrency } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { MIN_TRANSLATION_CHARS, translationRejectionReason } from './lib/translation-quality.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
@@ -163,6 +163,14 @@ async function main() {
   let charsTranslated = 0;
   const budgetOk = () => (Date.now() - RUN_START_MS) < DESCRIPTION_FIX_DEADLINE_MS;
   let deadlineReached = false;
+
+  // Several descriptions run at once while Codex is up; the providers after it
+  // stay one call at a time, as when this phase was sequential.
+  setFallbackProviderConcurrency(1);
+  if (!Number.isFinite(MAX) && MAX !== Infinity) {
+    console.error(`❌ Invalid --max / UNTRANSLATED_DESCRIPTION_FIX_MAX: expected a number`);
+    process.exit(1);
+  }
 
   console.log(`🔧 Fixing untranslated descriptions across ${files.length} slices...`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)');
