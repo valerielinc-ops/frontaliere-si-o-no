@@ -1349,8 +1349,17 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
   const input = await required(step, 'upload', [
     page.locator('div[role="dialog"] input[type="file"]'),
     page.locator('form[enctype="multipart/form-data"] input[type="file"]'),
-    page.locator('input[type="file"][accept*="image"]'),
+    page.locator('input[type="file"][accept*="image" i]'),
+    // Some current desktop builds omit both the dialog wrapper and the
+    // accept attribute from the shared media input. The preceding Create
+    // action bounds this fallback to the upload step; validate the input's
+    // accept value below before handing it the queued images.
+    page.locator('input[type="file"]'),
   ], { guard, timeout: t.ui, state: 'attached', waitForDialog: dialogWait });
+  const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
+  if (accept && !/(?:image(?:\/|\*)|\.(?:jpe?g|png|heic))(?:[,\s]|$)/i.test(accept)) {
+    throw new RobotError('upload-unsupported', `Instagram post upload field does not accept image/*: "${accept}"`, { step: 'upload' });
+  }
   await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
   await input.setInputFiles(files);
   await human.pause();
