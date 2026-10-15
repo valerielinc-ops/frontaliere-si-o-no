@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T21:57:59.972Z",
+  "generatedAt": "2026-10-14T23:55:37.279Z",
   "totalEvents": 13578,
   "events": [
     {
@@ -110087,12 +110087,17 @@
         {
           "canton": "__UNRESOLVED-CANTON__",
           "comune": "__other-events__",
-          "slug": "evento-senza-data"
+          "slug": "bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-panta-rhei-2026-10-01"
         },
         {
           "canton": "__UNRESOLVED-CANTON__",
           "comune": "__other-events__",
-          "slug": "bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-panta-rhei-2026-10-01"
+          "slug": "bedrohung-durch-drohnen-und-hybride-kriegsfuhrung-2026-10-01"
+        },
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "evento-senza-data"
         }
       ],
       "imageUrl": "/images/events/library/event-mostra-museo-svizzera-urbana-autunno-inverno.webp",
@@ -452252,7 +452257,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il mercato dell’Avvento dello Schweizer Strohmuseum si svolge in un parco a Wohlen AG. Il programma comprende una visita al museo, l’acquisto di regali e un punch caldo.",
+      "descriptionByLocale": {
+        "it": "Il mercato dell’Avvento dello Schweizer Strohmuseum si svolge in un parco a Wohlen AG. Il programma comprende una visita al museo, l’acquisto di regali e un punch caldo.",
+        "en": "The Advent market associated with the Schweizer Strohmuseum takes place in a park in Wohlen AG. The programme includes a museum visit, gift shopping and warm punch.",
+        "de": "Der Adventsmarkt des Schweizer Strohmuseums findet in einer Parkanlage in Wohlen AG statt. Das Programm umfasst einen Museumsbesuch, den Kauf von Geschenken und warmen Punsch.",
+        "fr": "Le marché de l’Avent lié au Schweizer Strohmuseum se tient dans un parc à Wohlen AG. Le programme comprend une visite du musée, des achats de cadeaux et du punch chaud."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f4ce5776856f4588ba3fa6ac853ae947",
@@ -454447,7 +454460,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È uno spettacolo teatrale di Fabian Unteregger al Gemeindezentrum Schwanden, nel Cantone di Glarona. La rappresentazione tratta la carenza di personale qualificato e la difficoltà di reperirlo.",
+      "descriptionByLocale": {
+        "it": "È uno spettacolo teatrale di Fabian Unteregger al Gemeindezentrum Schwanden, nel Cantone di Glarona. La rappresentazione tratta la carenza di personale qualificato e la difficoltà di reperirlo.",
+        "en": "This theatre performance by Fabian Unteregger is held at Gemeindezentrum Schwanden in the canton of Glarus. It deals with the shortage of skilled workers and the difficulty of finding them.",
+        "de": "Fabian Unteregger steht mit einer Theaterveranstaltung im Gemeindezentrum Schwanden im Kanton Glarus auf der Bühne. Die Veranstaltung behandelt den Fachkräftemangel und die Schwierigkeit, Fachkräfte zu finden.",
+        "fr": "Cette représentation théâtrale de Fabian Unteregger a lieu au Gemeindezentrum Schwanden, dans le canton de Glaris. Elle traite de la pénurie de personnel qualifié et de la difficulté à en trouver."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:44e28fe1558345169953412d28e01dc3",
@@ -459375,7 +459396,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il VFD parteciperà al Chlausmärt 2026 di Dübendorf. Lo stand dell’associazione sarà allestito sulla Stadthausplatz, a Dübendorf.",
+      "descriptionByLocale": {
+        "it": "Il VFD parteciperà al Chlausmärt 2026 di Dübendorf. Lo stand dell’associazione sarà allestito sulla Stadthausplatz, a Dübendorf.",
+        "en": "The Dübendorf Family Garden Association (VFD) will be represented at the 2026 Chlausmärt in Dübendorf. Its stand will be at Stadthausplatz in Dübendorf.",
+        "de": "Der Verein für Familiengärten VFD ist beim Dübendorfer Chlausmärt 2026 mit einem Stand vertreten. Der Stand befindet sich auf dem Stadthausplatz in Dübendorf.",
+        "fr": "Le VFD participera au Chlausmärt 2026 de Dübendorf. Un stand du VFD sera installé sur la Stadthausplatz, à Dübendorf."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:381cb5d6830c415e92944265fe50736c",
@@ -462062,7 +462091,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un culto della fede evangelica riformata presso la Kapelle Schwenden. Dopo il culto si tiene un caffè della chiesa.",
+      "descriptionByLocale": {
+        "it": "L’evento è un culto della fede evangelica riformata presso la Kapelle Schwenden. Dopo il culto si tiene un caffè della chiesa.",
+        "en": "The event is a Reformed evangelical worship service at Kapelle Schwenden. A church coffee gathering follows the service.",
+        "de": "Die Veranstaltung ist ein Gottesdienst der evangelisch-reformierten Kirche in der Kapelle Schwenden. Im Anschluss findet ein Kirchenkaffee statt.",
+        "fr": "L’événement est un culte de la foi évangélique réformée à la Kapelle Schwenden. Un café de l’église est proposé à la suite du culte."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Af89THY",
@@ -463560,7 +463597,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale alla Bibliothek Ägerital ruota attorno a mondi immaginari. Il topo Topolino guida il pubblico attraverso un mondo meraviglioso a Unterägeri.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale alla Bibliothek Ägerital ruota attorno a mondi immaginari. Il topo Topolino guida il pubblico attraverso un mondo meraviglioso a Unterägeri.",
+        "en": "The theatre event at Ägerital Library is centred on imaginary worlds. The mouse Topolino guides the audience through a distinctive wonderland in Unterägeri.",
+        "de": "Die Theaterveranstaltung in der Bibliothek Ägerital dreht sich um imaginäre Welten. Die Maus Topolino führt in Unterägeri durch ihre besondere Wunderwelt.",
+        "fr": "Le spectacle théâtral à la Bibliothek Ägerital s’articule autour de mondes imaginaires. La souris Topolino guide le public dans son univers merveilleux à Unterägeri."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AxVBchH",
@@ -471492,7 +471537,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento all’Ermitage Wellness & Spa-Hotel propone il duo Fette Duette in un contesto swing-jazz. Il programma mette in evidenza come anche un organico molto ridotto possa eseguire una musica dal carattere pieno.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento all’Ermitage Wellness & Spa-Hotel propone il duo Fette Duette in un contesto swing-jazz. Il programma mette in evidenza come anche un organico molto ridotto possa eseguire una musica dal carattere pieno.",
+        "en": "At Ermitage Wellness & Spa-Hotel, the event presents the duo Fette Duette in a swing-jazz setting. It highlights how a very small ensemble can produce music with a full-bodied sound.",
+        "de": "Im Ermitage Wellness & Spa-Hotel tritt das Duo Fette Duette im Zeichen des Swing-Jazz auf. Die Veranstaltung zeigt, dass auch ein sehr kleines Orchester Musik mit vollem Klang spielen kann.",
+        "fr": "Le rendez-vous à l’Ermitage Wellness & Spa-Hotel présente le duo Fette Duette dans un registre swing-jazz. Il illustre la possibilité pour un très petit ensemble de jouer une musique à la sonorité riche."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1d4a81c745784894bb6ba9819a5ddbf5",
@@ -471740,7 +471793,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata di fondue si tiene a Derendingen, nel cantone di Soletta. L’appuntamento è classificato come evento e si svolge in orario serale.",
+      "descriptionByLocale": {
+        "it": "La serata di fondue si tiene a Derendingen, nel cantone di Soletta. L’appuntamento è classificato come evento e si svolge in orario serale.",
+        "en": "The fondue evening takes place in Derendingen, in the canton of Solothurn. It is listed as an event scheduled for the evening.",
+        "de": "Der Fondue-Abend findet in Derendingen im Kanton Solothurn statt. Die Veranstaltung ist als Event für den Abend eingetragen.",
+        "fr": "Cette soirée fondue a lieu à Derendingen, dans le canton de Soleure. Elle est enregistrée comme un événement prévu en soirée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a349af43099740129cd857327170389f",
@@ -479264,7 +479325,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Albin Brun Quartett è un evento musicale a Nidau. Il programma unisce musica popolare, jazz e improvvisazione.",
+      "descriptionByLocale": {
+        "it": "Albin Brun Quartett è un evento musicale a Nidau. Il programma unisce musica popolare, jazz e improvvisazione.",
+        "en": "Albin Brun Quartett is a music event in Nidau. The program combines folk music, jazz and improvisation.",
+        "de": "Albin Brun Quartett ist eine Musikveranstaltung in Nidau. Das Programm verbindet Volksmusik, Jazz und Improvisation.",
+        "fr": "Albin Brun Quartett est un événement musical à Nidau. Le programme réunit musique populaire, jazz et improvisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:496e47b915ca4b5a9c895ed67f7a672d",
@@ -479574,7 +479643,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è dedicato all’universo musicale di Tom Jobim e si svolge a Biel, nel comune di Biel/Bienne. La serata propone uno sguardo alla sua musica oltre il brano associato a Ipanema.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è dedicato all’universo musicale di Tom Jobim e si svolge a Biel, nel comune di Biel/Bienne. La serata propone uno sguardo alla sua musica oltre il brano associato a Ipanema.",
+        "en": "This event focuses on the musical world of Tom Jobim and takes place in Biel, in the municipality of Biel/Bienne. It explores his work beyond the song associated with Ipanema.",
+        "de": "Die Veranstaltung widmet sich der musikalischen Welt von Tom Jobim und findet in Biel in der Gemeinde Biel/Bienne statt. Im Mittelpunkt steht sein Schaffen über das mit Ipanema verbundene Lied hinaus.",
+        "fr": "Ce rendez-vous est consacré à l’univers musical de Tom Jobim et a lieu à Biel, dans la commune de Biel/Bienne. Il présente son œuvre au-delà du morceau associé à Ipanema."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A29nQnF",
@@ -479867,7 +479944,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Chlouse-Märit Spiez è un evento di mercato natalizio a Spiez. La manifestazione si svolge presso Spiez Marketing AG.",
+      "descriptionByLocale": {
+        "it": "Chlouse-Märit Spiez è un evento di mercato natalizio a Spiez. La manifestazione si svolge presso Spiez Marketing AG.",
+        "en": "Chlouse-Märit Spiez is a Christmas market event in Spiez. The event is held at Spiez Marketing AG.",
+        "de": "Chlouse-Märit Spiez ist eine weihnachtliche Marktveranstaltung in Spiez. Sie findet bei der Spiez Marketing AG statt.",
+        "fr": "Chlouse-Märit Spiez est un marché de Noël organisé à Spiez. L’événement a lieu à Spiez Marketing AG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8fihEJ",
@@ -481711,7 +481796,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone canti dell’Avvento eseguiti dal Jugendchor Baden Plus. Si svolge a Baden ed è organizzato da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L’evento propone canti dell’Avvento eseguiti dal Jugendchor Baden Plus. Si svolge a Baden ed è organizzato da MySwitzerland.",
+        "en": "The event features Advent songs performed by Jugendchor Baden Plus. It takes place in Baden and is organised by MySwitzerland.",
+        "de": "Bei der Veranstaltung erklingt ein Programm mit Adventsliedern des Jugendchors Baden Plus. Der Anlass findet in Baden statt und wird von MySwitzerland organisiert.",
+        "fr": "La manifestation propose des chants de l’Avent interprétés par le Jugendchor Baden Plus. Elle a lieu à Baden et est organisée par MySwitzerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A6qXLJk",
@@ -482008,7 +482101,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Küssnacht (SZ) è dedicato al Klausjagen, una tradizione di San Nicola con radici antiche in Europa. Si svolge presso Seebodenstrasse a Küssnacht, nel cantone di Svitto.",
+      "descriptionByLocale": {
+        "it": "L’evento di Küssnacht (SZ) è dedicato al Klausjagen, una tradizione di San Nicola con radici antiche in Europa. Si svolge presso Seebodenstrasse a Küssnacht, nel cantone di Svitto.",
+        "en": "The event in Küssnacht (SZ) is devoted to Klausjagen, a long-established St. Nicholas tradition in Europe. It is held at Seebodenstrasse in Küssnacht, in the canton of Schwyz.",
+        "de": "Die Veranstaltung in Küssnacht (SZ) ist dem Klausjagen gewidmet, einem traditionsreichen Nikolausbrauch in Europa. Sie findet an der Seebodenstrasse in Küssnacht im Kanton SZ statt.",
+        "fr": "Le rendez-vous de Küssnacht (SZ) est consacré au Klausjagen, une ancienne tradition de Saint-Nicolas en Europe. Il se tient à la Seebodenstrasse, à Küssnacht, dans le canton de Schwytz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d3eb5d9ba97b430990707c04f869c041",
@@ -483280,7 +483381,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento si svolge presso i Tréteaux de Chalamala, a Bulle, ed è dedicato alla festa di Saint-Nicolas. Il programma comprende bingo, doni e una sfilata.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento si svolge presso i Tréteaux de Chalamala, a Bulle, ed è dedicato alla festa di Saint-Nicolas. Il programma comprende bingo, doni e una sfilata.",
+        "en": "The Saint-Nicolas Day event takes place at Tréteaux de Chalamala in Bulle. Its programme includes bingo, gifts and a parade.",
+        "de": "Die Veranstaltung findet bei den Tréteaux de Chalamala in Bulle statt und ist dem Sankt-Nikolaus-Tag gewidmet. Zum Programm gehören Bingo, Geschenke und ein Umzug.",
+        "fr": "La manifestation consacrée à la Saint-Nicolas se tient aux Tréteaux de Chalamala, à Bulle. Son programme comprend du bingo, des cadeaux et un cortège."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:87839",
@@ -483584,7 +483693,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone teatro d’improvvisazione inserito in un’esposizione sul futuro. Si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento propone teatro d’improvvisazione inserito in un’esposizione sul futuro. Si svolge a Ginevra.",
+        "en": "The event presents theatrical improvisation in connection with an exhibition about the future. It takes place in Geneva.",
+        "de": "Die Veranstaltung bietet improvisiertes Theater im Rahmen einer Ausstellung über die Zukunft. Sie findet in Genf statt.",
+        "fr": "Cet événement propose du théâtre d’improvisation dans le cadre d’une exposition consacrée à l’avenir. Il se déroule à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A18Rjjg",
@@ -484846,7 +484963,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si svolge nel centro storico di Zug e comprende circa 30 ambienti dedicati alle fiabe. Il programma prevede inoltre un bazar, musica e altre attività rivolte sia agli adulti sia ai bambini.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge nel centro storico di Zug e comprende circa 30 ambienti dedicati alle fiabe. Il programma prevede inoltre un bazar, musica e altre attività rivolte sia agli adulti sia ai bambini.",
+        "en": "The event takes place in Zug’s old town and includes around 30 story-themed rooms. It also features a bazaar, music and other activities for adults and children.",
+        "de": "Die Veranstaltung findet in der Altstadt von Zug statt und umfasst rund 30 Märlistuben. Zum Programm zählen ausserdem ein Bazar, Musik und weitere Angebote für Erwachsene und Kinder.",
+        "fr": "Le rendez-vous se tient dans la vieille ville de Zoug et comprend environ 30 espaces consacrés aux contes. Il inclut aussi un bazar, de la musique et d’autres activités destinées aux adultes comme aux enfants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:efd5dee0bf3c46338a948bc7b18d46a3",
@@ -485319,7 +485444,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Chinderfiir è un appuntamento per bambini dai tre anni in su e si svolge di norma ogni domenica durante il servizio religioso. Si tiene nella casa parrocchiale evangelico-riformata di Weinfelden e collega la custodia dei bambini con il Kids Treff.",
+      "descriptionByLocale": {
+        "it": "La Chinderfiir è un appuntamento per bambini dai tre anni in su e si svolge di norma ogni domenica durante il servizio religioso. Si tiene nella casa parrocchiale evangelico-riformata di Weinfelden e collega la custodia dei bambini con il Kids Treff.",
+        "en": "Children aged three and above can attend Chinderfiir, which is normally held each Sunday at the same time as the church service. The Evangelical Reformed parish hall in Weinfelden hosts the gathering, which connects childcare with Kids Treff.",
+        "de": "Die Chinderfiir richtet sich an Kinder ab drei Jahren und findet normalerweise jeden Sonntag zeitgleich mit dem Gottesdienst statt. Das evangelisch-reformierte Kirchgemeindehaus in Weinfelden ist der Veranstaltungsort; das Angebot verbindet dort die Kinderhüeti mit dem Kids Treff.",
+        "fr": "La Chinderfiir s’adresse aux enfants dès trois ans et se déroule généralement le dimanche pendant le service religieux. Elle a lieu à la maison paroissiale évangélique réformée de Weinfelden, où elle fait le lien entre la garde d’enfants et le Kids Treff."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:30fa2e18957a40cdb797f9d4ffefcc8e",
@@ -485840,7 +485973,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento prevede la visita di San Nicolao e Schmutzli al Wildpark Brienz. L’incontro si svolge nel parco faunistico di Brienz.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento prevede la visita di San Nicolao e Schmutzli al Wildpark Brienz. L’incontro si svolge nel parco faunistico di Brienz.",
+        "en": "The event features a visit from Samichlaus and Schmutzli at Wildpark Brienz. It is held in Brienz’s animal park.",
+        "de": "Bei der Veranstaltung besuchen Samichlous und Schmutzli den Wildpark Brienz. Der Anlass findet im Tierpark von Brienz statt.",
+        "fr": "La manifestation prévoit la venue de Saint-Nicolas et de Schmutzli au Wildpark Brienz. Elle se déroule dans le parc animalier de Brienz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:73f974af69e44e138d443fb6a1aba3b5",
@@ -489031,7 +489172,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento teatrale ricorrente propone una selezione «Best of» del 35o Arosa Humorfestival. Si svolge presso Arosa Bergbahnen AG, ad Arosa.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento teatrale ricorrente propone una selezione «Best of» del 35o Arosa Humorfestival. Si svolge presso Arosa Bergbahnen AG, ad Arosa.",
+        "en": "This recurring theatre event presents a “Best of” selection from the 35th Arosa Humorfestival. It takes place at Arosa Bergbahnen AG in Arosa.",
+        "de": "Die wiederkehrende Theaterveranstaltung bietet eine «Best of»-Auswahl aus dem 35. Arosa Humorfestival. Sie findet bei der Arosa Bergbahnen AG in Arosa statt.",
+        "fr": "Ce rendez-vous théâtral récurrent propose une sélection « Best of » du 35e Arosa Humorfestival. Il se déroule à Arosa Bergbahnen AG, à Arosa."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ARwk6Ms",
@@ -490909,7 +491058,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’esibizione soul di Joss Stone è in programma al KKL Luzern, nel comune di Luzern. L’inizio è previsto alle 19:30 dell’8 dicembre 2026.",
+      "descriptionByLocale": {
+        "it": "L’esibizione soul di Joss Stone è in programma al KKL Luzern, nel comune di Luzern. L’inizio è previsto alle 19:30 dell’8 dicembre 2026.",
+        "en": "Joss Stone is scheduled for a soul performance at KKL Luzern in Luzern. The event begins at 19:30 on 8 December 2026.",
+        "de": "Im KKL Luzern in Luzern ist ein Soul-Auftritt von Joss Stone angesetzt. Beginn ist am 8. Dezember 2026 um 19:30 Uhr.",
+        "fr": "Joss Stone se produit dans le domaine de la soul au KKL Luzern, à Luzern. La représentation commence à 19 h 30 le 8 décembre 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVkxEMA",
@@ -493299,7 +493456,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’attività per bambini si tiene al Musée d'art et d'histoire di Neuchâtel. Il programma comprende la scoperta dei modellini della città alle Galeries de l’histoire e la realizzazione di una casa di pan di zenzero.",
+      "descriptionByLocale": {
+        "it": "L’attività per bambini si tiene al Musée d'art et d'histoire di Neuchâtel. Il programma comprende la scoperta dei modellini della città alle Galeries de l’histoire e la realizzazione di una casa di pan di zenzero.",
+        "en": "This children’s workshop takes place at the Musée d'art et d'histoire in Neuchâtel. Participants view models of the city at the Galeries de l’histoire and then make a gingerbread house.",
+        "de": "Der Kinderworkshop findet im Musée d'art et d'histoire in Neuchâtel statt. Zunächst werden in den Galeries de l’histoire Stadtmodelle betrachtet, danach entsteht ein Lebkuchenhaus.",
+        "fr": "Cet atelier destiné aux enfants se déroule au Musée d'art et d'histoire de Neuchâtel. Les participants découvrent des maquettes de la ville aux Galeries de l’histoire, puis réalisent une maison en pain d’épices."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Aq6gwQs",
@@ -493568,7 +493733,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
       "imageCopyrightNotice": "© Makalu",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "description": "Al Phönix Theater di Steckborn va in scena una creazione che combina musica, danza e lettere di Schubert. L’appuntamento musicale vede la partecipazione di Pause.",
+      "descriptionByLocale": {
+        "it": "Al Phönix Theater di Steckborn va in scena una creazione che combina musica, danza e lettere di Schubert. L’appuntamento musicale vede la partecipazione di Pause.",
+        "en": "The event at the Phönix Theater in Steckborn presents a creation combining music, dance and Schubert’s letters. Giulia Tonelli and the CHAARTS Chamber Artists are associated with the work, while Pause is listed as the performer.",
+        "de": "Im Phönix Theater in Steckborn wird eine künstlerische Arbeit mit Musik, Tanz und Briefen von Schubert gezeigt. Giulia Tonelli und die CHAARTS Chamber Artists stehen mit dieser Schöpfung in Verbindung; als Performer ist Pause angegeben.",
+        "fr": "Au Phönix Theater de Steckborn, une création réunit musique, danse et lettres de Schubert. Giulia Tonelli et les CHAARTS Chamber Artists sont associés à cette proposition, tandis que Pause est indiqué comme interprète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8ebb5d8bea3c4262ac1f262648721c63",
@@ -494391,7 +494564,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo alla Bühne Aarau riunisce tre partecipanti, ciascuno impegnato sia come musicista sia come danzatore. Ruedi Häusermann è indicato come interprete.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo alla Bühne Aarau riunisce tre partecipanti, ciascuno impegnato sia come musicista sia come danzatore. Ruedi Häusermann è indicato come interprete.",
+        "en": "The production at Bühne Aarau brings together three contributors, each working as both a musician and a dancer. Ruedi Häusermann is listed as the performer.",
+        "de": "Die Produktion in der Bühne Aarau vereint drei Mitwirkende, die jeweils musikalisch und tänzerisch auftreten. Ruedi Häusermann ist als Performer angegeben.",
+        "fr": "À la Bühne Aarau, la production réunit trois participants qui interviennent à la fois comme musiciens et comme danseurs. Ruedi Häusermann est indiqué comme interprète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fc89dbcfcdae44e69c86b4b22f239aa8",
@@ -495795,7 +495976,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta Pablo Mira al Théâtre du Passage di Neuchâtel. La manifestazione è indicata come ricorrente.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta Pablo Mira al Théâtre du Passage di Neuchâtel. La manifestazione è indicata come ricorrente.",
+        "en": "This event presents Pablo Mira at Théâtre du Passage in Neuchâtel. It is listed as a recurring event.",
+        "de": "Die Veranstaltung mit Pablo Mira findet im Théâtre du Passage in Neuchâtel statt. Sie ist als wiederkehrende Veranstaltung ausgewiesen.",
+        "fr": "Ce spectacle de Pablo Mira se déroule au Théâtre du Passage à Neuchâtel. Il est indiqué comme événement récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AUfiXd2",
@@ -495941,7 +496130,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Un appuntamento musicale con Pupo si tiene al Volkshaus Zürich di Zurigo. Il programma fa parte di una tournée mondiale di Pupo.",
+      "descriptionByLocale": {
+        "it": "Un appuntamento musicale con Pupo si tiene al Volkshaus Zürich di Zurigo. Il programma fa parte di una tournée mondiale di Pupo.",
+        "en": "A music event with Pupo takes place at Volkshaus Zürich in Zurich. It is part of a world tour by Pupo.",
+        "de": "Ein Musikevent mit Pupo findet im Volkshaus Zürich in Zürich statt. Die Veranstaltung gehört zu einer Welttournee von Pupo.",
+        "fr": "Un événement musical avec Pupo se tient au Volkshaus Zürich, à Zurich. Il fait partie d’une tournée mondiale de Pupo."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:86167",
@@ -496854,7 +497051,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento con AKIRA e Miguel è previsto al Werkk Kulturlokal di Baden. La località si trova nel Canton Argovia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento con AKIRA e Miguel è previsto al Werkk Kulturlokal di Baden. La località si trova nel Canton Argovia.",
+        "en": "The event with AKIRA and Miguel is scheduled at Werkk Kulturlokal in Baden. The venue is located in the canton of Aargau.",
+        "de": "Die Veranstaltung mit AKIRA und Miguel ist im Werkk Kulturlokal in Baden angesetzt. Der Veranstaltungsort liegt im Kanton Aargau.",
+        "fr": "Le rendez-vous avec AKIRA et Miguel est prévu au Werkk Kulturlokal de Baden. Le lieu se trouve dans le canton d’Argovie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7e9d8b1c015b4b2cb53fd91329aac960",
@@ -497173,7 +497378,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma presenta un film fiabesco accompagnato dal vivo dalla 21st Century Orchestra, diretta da Ludwig Wicki. L'appuntamento si tiene a Lucerna in più giornate del periodo natalizio.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta un film fiabesco accompagnato dal vivo dalla 21st Century Orchestra, diretta da Ludwig Wicki. L'appuntamento si tiene a Lucerna in più giornate del periodo natalizio.",
+        "en": "This event presents a fairy-tale film with live accompaniment by the 21st Century Orchestra, conducted by Ludwig Wicki. It takes place in Lucerne on several dates during the Christmas season.",
+        "de": "Ein Märchenfilm wird live vom 21st Century Orchestra musikalisch begleitet; Ludwig Wicki leitet das Orchester. Die Veranstaltung findet an mehreren Tagen während der Weihnachtszeit in Luzern statt.",
+        "fr": "Le programme associe la projection d’un film féerique à l’accompagnement en direct du 21st Century Orchestra, dirigé par Ludwig Wicki. Le rendez-vous se déroule à Lucerne à plusieurs dates pendant la période de Noël."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c1180a80cad0457987aaf1cc9f9bd198",
@@ -498096,7 +498309,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento natalizio si tiene a Murten, nella regione del Lago di Morat. Oltre 90 bancarelle propongono specialità, degustazioni, articoli natalizi e prodotti artigianali.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento natalizio si tiene a Murten, nella regione del Lago di Morat. Oltre 90 bancarelle propongono specialità, degustazioni, articoli natalizi e prodotti artigianali.",
+        "en": "The Christmas market takes place in Murten, in the Murtensee region. More than 90 stalls present specialities, tastings, Christmas goods and handicrafts.",
+        "de": "Die Veranstaltung findet in Murten in der Region Murtensee statt. Über 90 Stände bieten Spezialitäten, Verkostungen sowie weihnachtliche Artikel und Handwerkserzeugnisse an.",
+        "fr": "Ce marché de Noël se déroule à Morat, dans la région du lac de Morat. Plus de 90 stands présentent des spécialités, des dégustations, des articles de Noël et des créations artisanales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6b2c0f3d9e834820abe735235ea2aca0",
@@ -499219,7 +499440,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Pfäffikon, Tante Carmen presenta uno spettacolo teatrale interattivo. Comprende storie e canzoni in dialetto per bambini dai tre anni in su.",
+      "descriptionByLocale": {
+        "it": "A Pfäffikon, Tante Carmen presenta uno spettacolo teatrale interattivo. Comprende storie e canzoni in dialetto per bambini dai tre anni in su.",
+        "en": "In Pfäffikon, Tante Carmen creates and performs an interactive stage production. It includes stories and dialect songs for children aged three and above.",
+        "de": "Tante Carmen gestaltet und spielt in Pfäffikon ein interaktives Bühnenstück. Es umfasst Geschichten und Lieder in Mundart für Kinder ab drei Jahren.",
+        "fr": "À Pfäffikon, Tante Carmen conçoit et interprète une pièce de théâtre interactive. Elle comprend des histoires et des chansons en dialecte pour les enfants dès trois ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3e8089076fac49e591d1c7eb44229309",
@@ -501186,7 +501415,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "KUNZ si esibisce ad Appenzell. Il concerto presenta nuove canzoni dedicate alla vita.",
+      "descriptionByLocale": {
+        "it": "KUNZ si esibisce ad Appenzell. Il concerto presenta nuove canzoni dedicate alla vita.",
+        "en": "KUNZ performs in Appenzell. The concert presents new songs centred on life.",
+        "de": "KUNZ tritt in Appenzell auf. Bei dem Konzert stehen neue Lieder über das Leben im Mittelpunkt.",
+        "fr": "KUNZ se produit à Appenzell. Le concert présente de nouvelles chansons consacrées à la vie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6347416d040d4e6eb2693d81fafaab0d",
@@ -501878,7 +502115,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone una storia natalizia in forma di musica corale, con cori, solisti e strumentisti. L’esecuzione si svolge nella Stadtkirche Glarus, illuminata da numerose candele, e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una storia natalizia in forma di musica corale, con cori, solisti e strumentisti. L’esecuzione si svolge nella Stadtkirche Glarus, illuminata da numerose candele, e l’ingresso è gratuito.",
+        "en": "The event presents a Christmas story through choral music, with choirs, soloists and instrumentalists. The performance takes place at Stadtkirche Glarus, illuminated by numerous candles, and admission is free.",
+        "de": "Die Veranstaltung verbindet eine Weihnachtsgeschichte mit Chormusik und wird von Chören, Solisten und Instrumentalisten gestaltet. Die Aufführung findet in der Stadtkirche Glarus statt, die von zahlreichen Kerzen beleuchtet wird; der Eintritt ist frei.",
+        "fr": "Le rendez-vous présente une histoire de Noël sous forme de musique chorale, avec des chœurs, des solistes et des instrumentistes. La représentation se déroule à la Stadtkirche Glarus, éclairée par de nombreuses bougies, et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:02f22144b80e48a5a7d3747e5db46700",
@@ -501950,7 +502195,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’attività a Oberschan, nel comune di Wartau, è dedicata alla creazione di una corona luminosa. La base di paglia viene rivestita con carta Pergamyn, poi completata con una catena di luci e con fiori di gipsofila.",
+      "descriptionByLocale": {
+        "it": "L’attività a Oberschan, nel comune di Wartau, è dedicata alla creazione di una corona luminosa. La base di paglia viene rivestita con carta Pergamyn, poi completata con una catena di luci e con fiori di gipsofila.",
+        "en": "The event in Oberschan, in the municipality of Wartau, focuses on making a light wreath. A straw ring is covered with Pergamyn paper, fitted with a string of lights and decorated with baby's-breath.",
+        "de": "In Oberschan im Gemeindegebiet von Wartau entsteht ein leuchtender Kranz. Dafür umhüllen die Teilnehmenden einen Strohkranz mit Pergamyn-Papier, setzen eine Lichterkette ein und schmücken ihn mit Schleierkraut.",
+        "fr": "À Oberschan, dans la commune de Wartau, l’activité consiste à fabriquer une couronne lumineuse. Un anneau de paille est recouvert de papier Pergamyn, puis agrémenté d’une guirlande lumineuse et de gypsophile."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AA4wwVD",
@@ -502561,7 +502814,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "La serata è ospitata dal Jumeaux Jazz Club di Losanna e presenta musica foundation giamaicana. L’impianto audio B.I.D Hi-Fi accompagna una proposta di cucina giamaicana casalinga, che comprende anche piatti vegetariani.",
+      "descriptionByLocale": {
+        "it": "La serata è ospitata dal Jumeaux Jazz Club di Losanna e presenta musica foundation giamaicana. L’impianto audio B.I.D Hi-Fi accompagna una proposta di cucina giamaicana casalinga, che comprende anche piatti vegetariani.",
+        "en": "The event takes place at Jumeaux Jazz Club in Lausanne and focuses on Jamaican foundation music. Its programme includes the artisanal B.I.D Hi-Fi sound system and homemade Jamaican food, with vegetarian choices available.",
+        "de": "Die Veranstaltung findet im Jumeaux Jazz Club in Lausanne statt und widmet sich jamaikanischer Foundation-Musik. Zum Angebot gehören das handgefertigte Soundsystem B.I.D Hi-Fi sowie hausgemachte jamaikanische Küche mit vegetarischen Optionen.",
+        "fr": "Le rendez-vous se tient au Jumeaux Jazz Club, à Lausanne, autour de la musique foundation jamaïcaine. La programmation comprend le sound system B.I.D Hi-Fi et une cuisine jamaïcaine préparée sur place, avec des choix végétariens."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f5553dc81da849ee8bc8982178f715c1",
@@ -502867,7 +503128,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si svolge al Lido Beach House di Lucerna. Combina la danza con un momento di svago in una sede sul bacino lacustre di Lucerna.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge al Lido Beach House di Lucerna. Combina la danza con un momento di svago in una sede sul bacino lacustre di Lucerna.",
+        "en": "The event takes place at Lido Beach House in Lucerne. It combines dancing with leisure in a lakeside venue.",
+        "de": "Die Veranstaltung findet im Lido Beach House in Luzern statt. Sie verbindet Tanzen und Geniessen an einem Ort am Luzerner Seebecken.",
+        "fr": "L’événement a lieu au Lido Beach House à Lucerne. Il associe la danse à un moment de détente dans un cadre du bassin lacustre de Lucerne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c4775bf67fbc4451b861f362f4080683",
@@ -503121,7 +503390,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vaduz si tiene un mercatino di Natale. Peter-Kaiser-Platz assume l’aspetto di un villaggio invernale con illuminazione festiva.",
+      "descriptionByLocale": {
+        "it": "A Vaduz si tiene un mercatino di Natale. Peter-Kaiser-Platz assume l’aspetto di un villaggio invernale con illuminazione festiva.",
+        "en": "Vaduz hosts a Christmas market. Peter-Kaiser-Platz takes on the appearance of a winter village with festive lighting.",
+        "de": "In Vaduz findet ein Weihnachtsmarkt statt. Der Peter-Kaiser-Platz erhält dabei die Gestalt eines Winterdorfs mit festlicher Beleuchtung.",
+        "fr": "Vaduz accueille un marché de Noël. À cette occasion, la place Peter-Kaiser devient un village hivernal avec un éclairage festif."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b9ddf07dd0ed41cfb4f1326499f941d9",
@@ -504749,7 +505026,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Bäretswil, Casa Poli propone un appuntamento ricorrente con degustazioni di vini e specialità italiane. L’evento include anche idee regalo e offerte domenicali.",
+      "descriptionByLocale": {
+        "it": "A Bäretswil, Casa Poli propone un appuntamento ricorrente con degustazioni di vini e specialità italiane. L’evento include anche idee regalo e offerte domenicali.",
+        "en": "In Bäretswil, Casa Poli hosts a recurring event with tastings of wine and Italian delicacies. The programme also features gift ideas and Sunday offers.",
+        "de": "In Bäretswil veranstaltet Casa Poli einen wiederkehrenden Anlass mit Weinproben und Degustationen italienischer Delikatessen. Zum Programm gehören ausserdem Geschenkideen und Sonntagsangebote.",
+        "fr": "À Bäretswil, Casa Poli propose un rendez-vous récurrent avec des dégustations de vins et de spécialités italiennes. Le programme comprend aussi des idées de cadeaux et des offres dominicales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:448803b6857d4217b3925f9057d43d36",
@@ -505882,7 +506167,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Sion, l’appuntamento propone un progetto crossover incentrato sul jazz e sulla Sedunum String Orchestra. La musica accosta la dimensione orchestrale all’improvvisazione, mettendo in relazione approcci diversi.",
+      "descriptionByLocale": {
+        "it": "A Sion, l’appuntamento propone un progetto crossover incentrato sul jazz e sulla Sedunum String Orchestra. La musica accosta la dimensione orchestrale all’improvvisazione, mettendo in relazione approcci diversi.",
+        "en": "The event in Sion centres on a jazz crossover involving the Sedunum String Orchestra. Its musical approach brings orchestral playing into dialogue with improvisation.",
+        "de": "In Sion steht ein Jazzprojekt mit dem Sedunum String Orchestra im Mittelpunkt. Dabei verbindet das Programm den orchestralen Klang mit improvisierten Passagen und überschreitet die Grenzen zwischen verschiedenen musikalischen Formen.",
+        "fr": "À Sion, le rendez-vous présente un projet de jazz crossover associé au Sedunum String Orchestra. Le programme fait dialoguer le jeu orchestral et l’improvisation en rapprochant plusieurs approches musicales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:13fd799b0b8442b1926cd452f12e45e1",
@@ -506685,7 +506978,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Mighty Oaks propone musica folk alla Mühle Hunziken di Rubigen, nel cantone di Berna. Dopo una fase di concerti acustici in un contesto raccolto, il gruppo torna a esibirsi con la formazione completa.",
+      "descriptionByLocale": {
+        "it": "Mighty Oaks propone musica folk alla Mühle Hunziken di Rubigen, nel cantone di Berna. Dopo una fase di concerti acustici in un contesto raccolto, il gruppo torna a esibirsi con la formazione completa.",
+        "en": "Mighty Oaks presents folk music at Mühle Hunziken in Rubigen, in the canton of Bern. After a period of intimate acoustic performances, the group returns with its full band.",
+        "de": "Mighty Oaks präsentiert Folk-Musik in der Mühle Hunziken in Rubigen, im Kanton Bern. Nach einer Phase mit Akustikauftritten in kleiner Besetzung tritt die Gruppe wieder mit vollständiger Bandbesetzung auf.",
+        "fr": "Mighty Oaks présente de la musique folk à la Mühle Hunziken, à Rubigen, dans le canton de Berne. Après une période de concerts acoustiques en formation réduite, le groupe revient avec sa formation complète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b1f94f2e44774e358331da1d6e76160d",
@@ -507245,7 +507546,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale di Cindy Van Acker è presentato al LAC Lugano Arte e Cultura, a Lugano, nel cantone Ticino. La messa in scena coinvolge cinque danzatori.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale di Cindy Van Acker è presentato al LAC Lugano Arte e Cultura, a Lugano, nel cantone Ticino. La messa in scena coinvolge cinque danzatori.",
+        "en": "This theatre performance by Cindy Van Acker is presented at LAC Lugano Arte e Cultura in Lugano, in the canton of Ticino. It involves five dancers.",
+        "de": "Die Theateraufführung von Cindy Van Acker wird im LAC Lugano Arte e Cultura in Lugano im Kanton Tessin gezeigt. Sie umfasst fünf Tänzerinnen und Tänzer.",
+        "fr": "Cette création théâtrale de Cindy Van Acker est présentée au LAC Lugano Arte e Cultura, à Lugano, dans le canton du Tessin. Elle réunit cinq danseuses et danseurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:38ff6d0782e347b28770c256c8eae5e5",
@@ -508232,7 +508541,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è proposta una creazione sonora realizzata su dischi in vinile. Il progetto è firmato da Amandine Casadamont e Madeleine Leclair.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è proposta una creazione sonora realizzata su dischi in vinile. Il progetto è firmato da Amandine Casadamont e Madeleine Leclair.",
+        "en": "Geneva hosts a sound work built from vinyl records. It is created by Amandine Casadamont and Madeleine Leclair.",
+        "de": "In Genf wird eine Klangkreation mit Schallplatten präsentiert. Sie stammt von Amandine Casadamont und Madeleine Leclair.",
+        "fr": "À Genève, une création sonore conçue à partir de vinyles est proposée. Elle est réalisée par Amandine Casadamont et Madeleine Leclair."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1WygTE",
