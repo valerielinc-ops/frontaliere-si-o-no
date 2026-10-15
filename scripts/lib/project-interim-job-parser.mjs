@@ -33,6 +33,7 @@ const PROJECT_INTERIM_API_URL = 'https://projectinterim.ch/wp-json/wp/v2/works';
 const PAGE_SIZE = 100;
 const MAX_PAGES = 10;
 const SOURCE_LANG = 'fr';
+const MAX_SLUG_LENGTH = 90;
 
 function fold(value = '') {
   return normalizeSpace(value)
@@ -96,6 +97,17 @@ function publicationFields(record, now) {
   ], now);
 }
 
+function projectInterimSlug(title, recordId) {
+  // Keep the historical title/company/location slug as the readable prefix,
+  // then append the immutable WordPress record id. This preserves the old
+  // slug shape while making repeated titles collision-free and stable across
+  // title edits or feed ordering changes.
+  const suffix = slugify(recordId);
+  const maxBaseLength = Math.max(1, MAX_SLUG_LENGTH - suffix.length - 1);
+  const base = slugify(`${title} project interim geneve`, maxBaseLength);
+  return base ? `${base}-${suffix}` : suffix;
+}
+
 export function parseProjectInterimWork(record, now = new Date()) {
   const title = normalizeSpace(stripHtml(record?.title?.rendered || ''));
   const description = normalizeDescriptionSpace(stripHtml(record?.content?.rendered || ''));
@@ -118,11 +130,12 @@ export function parseProjectInterimWork(record, now = new Date()) {
   if (!geography || geography.canton !== 'GE') return null;
   if (description.split(/\s+/).filter(Boolean).length < 50) return null;
 
-  const slug = slugify(`${title} project interim geneve`);
+  const slug = projectInterimSlug(title, recordId);
   return {
     id: `${PROJECT_INTERIM_KEY}-${recordId}`,
     slug,
     slugByLocale: { [SOURCE_LANG]: slug },
+    slugDisambiguator: recordId,
     company: PROJECT_INTERIM_COMPANY_NAME,
     companyKey: PROJECT_INTERIM_KEY,
     companyDomain: PROJECT_INTERIM_COMPANY_DOMAIN,

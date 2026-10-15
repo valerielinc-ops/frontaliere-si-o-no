@@ -84,6 +84,25 @@ describe('Project Interim muratore:GE crawler', () => {
     expect(new Set(jobs.map((job) => job.url)).size).toBe(2);
   });
 
+  it('uses the stable WordPress record id to disambiguate repeated titles', () => {
+    const [record] = dated();
+    const duplicateTitle = structuredClone(record);
+    duplicateTitle.id = Number(record.id) + 1;
+    duplicateTitle.link = 'https://projectinterim.ch/work/macon-genie-civil-duplicate/';
+
+    const first = parseProjectInterimWork(record);
+    const second = parseProjectInterimWork(duplicateTitle);
+
+    expect(first).not.toBeNull();
+    expect(second).not.toBeNull();
+    expect(first?.slug).toContain('macon-genie-civil-h-f-project-interim-geneve');
+    expect(first?.slug).toMatch(new RegExp(`-${record.id}$`));
+    expect(second?.slug).toMatch(new RegExp(`-${duplicateTitle.id}$`));
+    expect(first?.slug).not.toBe(second?.slug);
+    expect(first?.slugDisambiguator).toBe(String(record.id));
+    expect(second?.slugDisambiguator).toBe(String(duplicateTitle.id));
+  });
+
   it('filters fail-closed by profession, GE source location and canonical official detail URL', () => {
     const [record] = dated();
     expect(isMasonRole(record.title.rendered)).toBe(true);
