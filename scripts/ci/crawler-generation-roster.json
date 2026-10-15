@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 634,
+  "crawlerCount": 635,
   "groups": {
     "10": [
       "atec-personal",
@@ -219,6 +219,7 @@
     ],
     "17": [
       "aldi-suisse",
+      "asile-des-aveugles",
       "badrutts-palace",
       "baronie",
       "barry-callebaut",
@@ -281,7 +282,6 @@
     "19": [
       "agat",
       "alpiq",
-      "asile-des-aveugles",
       "bucher-suter",
       "convit-holding",
       "cseb",
@@ -1324,5 +1324,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:268e374145adb6a712f037f9253b792432dd622a8d98060960a94d68ccb41668"
+  "digest": "sha256:2df097bef4ee5d68d32197ff343ffabbe199af44c66584e2ab3f89b914a4af76"
 }
