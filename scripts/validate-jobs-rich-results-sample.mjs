@@ -264,6 +264,7 @@ function main() {
     localeChecks: 0,
     filesMissing: 0,
     jobPostingMissing: 0,
+    jobPostingWithheldUnverifiedDate: 0,
     jobPostingSafeDefaultDate: 0,
     publicationDateUnverified: 0,
     eligibleLocaleChecks: 0,
