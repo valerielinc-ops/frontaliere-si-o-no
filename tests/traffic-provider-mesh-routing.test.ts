@@ -171,6 +171,30 @@ describe('traffic provider rotation at crossing level', () => {
     expect(result.dataQuality).toBe('live+official');
   });
 
+  it('normalizes numeric-string official queue, approach, and distance values', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 120, noTrafficTravelTimeInSeconds: 120 } }] }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await fetchCrossingTraffic(
+      { name: 'Bardonnex', lat: 46.1495357, lng: 6.0960713 },
+      {
+        tomtomApiKey: 'tomtom-key',
+        officialSignals: {
+          bardonnex: { queueMinutes: '12', approachMinutes: '4', queueKm: '3.5' },
+        },
+        enableWebcam: false,
+      },
+    );
+
+    expect(result.waitTimeMinutes).toBe(12);
+    expect(result.approachMinutes).toBe(4);
+    expect(result.totalCrossingMinutes).toBe(16);
+    expect(result.officialQueueKm).toBe(3.5);
+  });
+
   it('records per-feed shadow pairs with the raw provider wait before webcam sanity', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,

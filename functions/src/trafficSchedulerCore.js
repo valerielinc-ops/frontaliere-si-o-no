@@ -355,6 +355,17 @@ function finiteNonNegative(value) {
  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
 }
 
+// Official-signal payloads predate the strict webcam baseline contract and
+// may arrive from the open-data adapters as numeric strings. Keep that
+// compatibility local to the official path without allowing empty strings or
+// other sentinels to become zero.
+function legacyOfficialNonNegative(value) {
+ const normalized = typeof value === 'string'
+  ? value.trim() === '' ? null : Number(value)
+  : value;
+ return finiteNonNegative(normalized);
+}
+
 const WEBCAM_BASELINE_PROVIDER_IDS = new Set(['tomtom', 'here']);
 
 /**
@@ -416,8 +427,8 @@ function officialSignalForCrossing(options, crossing) {
  * measured delay remain provenance, not fabricated minutes. */
 function applyOfficialSignal(waitTimeMinutes, approachMinutes, signal) {
  if (!signal) return { waitTimeMinutes, approachMinutes };
- const officialQueue = finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes);
- const officialApproach = finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes);
+ const officialQueue = legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes);
+ const officialApproach = legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes);
  return {
   waitTimeMinutes: officialQueue === null ? waitTimeMinutes : Math.max(waitTimeMinutes, Math.round(officialQueue)),
   approachMinutes: officialApproach === null ? approachMinutes : Math.max(approachMinutes, Math.round(officialApproach)),
@@ -655,8 +666,8 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
    `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
   );
- } else if (signal && (finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
-  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null)) {
+ } else if (signal && (legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null)) {
   // Official open-data signals are a useful primary fallback when both route
   // segments fail. Incident-only records deliberately do not reach this path.
   source = 'official';
@@ -687,7 +698,8 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  };
  if (officialSources) result.officialSources = officialSources;
  if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
- if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ const officialQueueKm = legacyOfficialNonNegative(signal?.queueKm);
+ if (officialQueueKm !== null) result.officialQueueKm = officialQueueKm;
  if (signal) result.dataQuality = hasLiveData ? 'live+official' : 'official';
  if (webcamBaselineObservations.length > 0) {
   result.webcamBaselineObservations = webcamBaselineObservations;
@@ -1053,7 +1065,8 @@ function buildWebcamCrossingResult(crossing, waitTimeMinutes, approachMinutes = 
   : typeof signal?.sourceId === 'string' ? signal.sourceId : '';
  if (officialSources) result.officialSources = officialSources;
  if (signal?.updatedAt) result.officialLastUpdate = String(signal.updatedAt);
- if (finiteNonNegative(signal?.queueKm) !== null) result.officialQueueKm = Number(signal.queueKm);
+ const officialQueueKm = legacyOfficialNonNegative(signal?.queueKm);
+ if (officialQueueKm !== null) result.officialQueueKm = officialQueueKm;
  if (signal) result.dataQuality = webcamUsed ? 'official+webcam' : 'official';
  return result;
 }
@@ -1103,8 +1116,8 @@ export async function runWebcamOnlyCollection(options = {}) {
  const signal = officialSignalForCrossing(options, crossing);
  const officialMinutes = applyOfficialSignal(0, 0, signal);
  const hasOfficialMinutes = signal && (
-  finiteNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
-  || finiteNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null
+  legacyOfficialNonNegative(signal.queueMinutes ?? signal.officialQueueMinutes) !== null
+  || legacyOfficialNonNegative(signal.approachMinutes ?? signal.officialApproachMinutes) !== null
  );
  // A camera remains the preferred free primary signal. If it is absent/night,
  // an explicit official queue/approach measurement can still refresh the

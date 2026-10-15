@@ -347,6 +347,36 @@ describe('runWebcamOnlyCollection', () => {
     expect(adminState.savedCurrent).toHaveLength(0);
   });
 
+  it('keeps numeric-string official measurements in the webcam-only fallback', async () => {
+    const crossing = BORDER_CROSSINGS[0];
+    const { runWebcamOnlyCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runWebcamOnlyCollection({
+      enableWebcam: true,
+      officialSignals: {
+        [slugifyCrossingName(crossing.name)]: {
+          queueMinutes: '12',
+          approachMinutes: '4',
+          queueKm: '1.5',
+        },
+      },
+    });
+
+    expect(result.collected).toBe(1);
+    expect(result.errors).toBe(0);
+    expect(adminState.savedCurrent).toHaveLength(1);
+    expect(adminState.savedCurrent[0]).toMatchObject({
+      crossingName: crossing.name,
+      waitTimeMinutes: 12,
+      approachMinutes: 4,
+      totalCrossingMinutes: 16,
+      officialQueueKm: 1.5,
+      source: 'official',
+    });
+  });
+
   it('maps a clear road (low score) to a green 0-minute estimate', async () => {
     const crossing = BORDER_CROSSINGS[0];
     webcamBySlug.set(slugifyCrossingName(crossing.name), {
