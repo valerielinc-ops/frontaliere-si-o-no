@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-10-15T09:38:09.215Z",
+  "assembledAt": "2026-10-15T21:48:46.412Z",
   "jobs": [
     {
       "id": "gz-dielsdorf-506b243e5208",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ef32664f-32dd-4c02-8404-68bc87bb25d4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.971Z",
+      "crawledAt": "2026-10-15T21:48:38.899Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,7 +127,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c0bd766a-b33b-4462-91d6-dfb91567611a",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.967Z",
+      "crawledAt": "2026-10-15T21:48:38.895Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41427caf-48cd-4b48-8042-a98f049f9e8d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.964Z",
+      "crawledAt": "2026-10-15T21:48:38.892Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b1c73df1-bba5-47bb-a4ce-aae61d6f316b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.961Z",
+      "crawledAt": "2026-10-15T21:48:38.888Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.958Z",
+      "crawledAt": "2026-10-15T21:48:38.885Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -451,7 +451,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8f551c5a-87eb-41fb-aeb6-69b25719b70f",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.954Z",
+      "crawledAt": "2026-10-15T21:48:38.882Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -533,7 +533,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/cb972e87-7c38-4eb5-a2f3-9ea43b426eb0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.951Z",
+      "crawledAt": "2026-10-15T21:48:38.879Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -607,7 +607,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.948Z",
+      "crawledAt": "2026-10-15T21:48:38.875Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -688,7 +688,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.941Z",
+      "crawledAt": "2026-10-15T21:48:38.869Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -747,6 +747,604 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:13:16.563Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-99607a70d68f",
+      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
+      "slugByLocale": {
+        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-as-a-specialist-in-health-efz-inpatient-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
+        "fr": "place-d-apprentissage-d-infirmiere-infirmier-en-sante-cfc-soins-hospitaliers-gesundheitszentrum-dielsdorf-dielsdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Lehrstelle Fachfrau/-mann Gesundheit EFZ (Stationäre Pflege)",
+      "titleByLocale": {
+        "it": "Posizione di insegnamento Specialista donna/uomo Salute EFZ (Cura statistica)",
+        "en": "Apprenticeship as a specialist in health EFZ (inpatient care)",
+        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ (Stationäre Pflege)",
+        "fr": "Place d'apprentissage d'infirmière/infirmier en santé CFC (soins hospitaliers)"
+      },
+      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nTägliche und aufmerksame Begleitung unserer Bewohnenden in ihrem Alltag\nGestaltung und Unterstützung der Bewohnenden in ihrem Alltag\nVerantwortung für die Beobachtung und Dokumentation des Gesundheitszustandes der Bewohnenden\nKennenlernen der medizinaltechnischen Verrichtungen und selbstständige Durchzuführung\nEinsatz von modernen und digitalen Hilfsmitteln für die administrativen \n• Aufgaben\nEnge Zusammenarbeit mit den Pflegefachleuten HF\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "Lehrstart: agosto 2027\n\n8157 Dielsdorf 100% a tempo determinato\nOgni anno molti giovani fanno il salto nella vita professionale con noi come cuochi e cuoche, addetti cucina EBA, professionisti della salute (FaGe), assistenti salute e sociale (AGS), professionisti Hotellerie-Hauswirtschaft EFZ e EBA, professionisti Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ nonché commercianti.\n\nIl Gesundheitszentrum Dielsdorf è un moderno centro di competenza geriatrica con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dal servizio di consulenza per anziani e i loro familiari alla cura a lungo termine generale e specializzata, fino all’assistenza e al supporto a domicilio. Con oltre 200 posti letto, l’offerta residenziale di cura a lungo termine generale presso la sede di Dielsdorf è integrata da percorsi di trattamento specializzati per cure riabilitative acute e di transizione, Palliative Care, geriatria psichiatrica e il focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\nLe tue\n• Compiti\nAccompagnamento quotidiano e attento dei nostri residenti nella loro vita quotidiana\nOrganizzazione e supporto dei residenti nella loro vita quotidiana\nResponsabilità per l’osservazione e la documentazione dello stato di salute dei residenti\nApprendimento delle procedure medico‑tecniche e loro esecuzione autonoma\nUtilizzo di strumenti moderni e digitali per le attività amministrative\n\n• Compiti\nStretta collaborazione con gli infermieri professionisti HF\n\nIl tuo profilo\nDiploma di scuola obbligatoria\nMeticolosità e precisione nel lavoro\nResponsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavoro in team e comunicazione, buone maniere e predisposizione al contatto\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\nLa nostra offerta\nCon noi lavorerai con persone che operano in professioni molto diverse, rendendo la quotidianità davvero stimolante. Siamo situati in una zona rurale con buoni collegamenti di trasporto pubblico. Beneficerai delle nostre condizioni contrattuali vantaggiose, tra cui almeno 5 settimane di ferie, buoni benefici sociali, sconti sui Reka-Checks, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
+        "en": "Lehrstart: August 2027\n\n8157 Dielsdorf 100% Befristet\nEvery year many young people take the leap into professional life with us as cooks, kitchen staff EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ and EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ as well as merchants.\n\nDas Gesundheitszentrum Dielsdorf is a modern geriatric competence centre with around 500 employees from 35 nations. Our services range from counseling for older people and their relatives, through general and specialised long‑term care, to home care and support. With more than 200 beds, the inpatient offering of general long‑term care at the Dielsdorf site is complemented by specialised treatment pathways for rehabilitative acute and transitional care, Palliative Care, psychiatric geriatrics and a focus on dementia. At the Regensdorf site we provide 54 residents with a family‑like environment and professional nursing care.\n\nYour\n• Tasks\nDaily and attentive accompaniment of our residents in their everyday life\nDesign and support of residents in their everyday life\nResponsibility for observing and documenting the health status of the residents\nGetting to know medical‑technical procedures and carrying them out independently\nUse of modern and digital tools for administrative tasks\n• Tasks\nClose collaboration with the nursing professionals HF\n\nYour profile\nCompletion of compulsory schooling\nCareful and precise way of working\nSense of responsibility and reliability\nGood organisational skills\nTeam and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\nOur offer\nWith us you will work with people from a wide variety of professions, which makes everyday life truly exciting. We are located in a rural area with good public transport connections. You will benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka-Checks, low prices in our restaurant and free parking.",
+        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nTägliche und aufmerksame Begleitung unserer Bewohnenden in ihrem Alltag\nGestaltung und Unterstützung der Bewohnenden in ihrem Alltag\nVerantwortung für die Beobachtung und Dokumentation des Gesundheitszustandes der Bewohnenden\nKennenlernen der medizinaltechnischen Verrichtungen und selbstständige Durchzuführung\nEinsatz von modernen und digitalen Hilfsmitteln für die administrativen \n• Aufgaben\nEnge Zusammenarbeit mit den Pflegefachleuten HF\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "Début de la formation : août 2027\n\n8157 Dielsdorf 100 % temporaire\nChaque année, de nombreux jeunes franchissent le pas vers la vie professionnelle chez nous en tant que cuisinières et cuisiniers, employés de cuisine EBA, Fachpersonen Gesundheit (FaGe), Assistantes et Assistants santé et social (AGS), Fachpersonen Hotellerie‑Hauswirtschaft EFZ et EBA, Fachpersonen Betriebsunterhalt EFZ, ICT‑Fachfrau/-mann EFZ ainsi que commerçants.\n\nLe Gesundheitszentrum Dielsdorf est un centre de compétence gériatrique moderne avec environ 500 employés provenant de 35 nations. Notre offre va du service de conseil pour les personnes âgées et leurs proches à la prise en charge à long terme générale et spécialisée, jusqu’aux soins et à l’accompagnement à domicile. Avec plus de 200 lits, l’offre stationnaire de soins à long terme général sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins réhabilitatifs aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et le domaine de la démence. Sur le site de Regensdorf, nous proposons à 54 résidents un environnement familial avec un accompagnement professionnel en soins.\n\nTes\n• Missions\nAccompagnement quotidien et attentif de nos résidents dans leur quotidien\nOrganisation et soutien des résidents dans leur quotidien\nResponsabilité de l’observation et de la documentation de l’état de santé des résidents\nApprentissage des procédures médico‑techniques et réalisation autonome\nUtilisation d’outils modernes et numériques pour les tâches administratives\n• Missions\nCollaboration étroite avec les infirmiers diplômés HF\n\nTon profil\nDiplôme de fin d’études obligatoires\nMéthode de travail soigneuse et précise\nSens des responsabilités et fiabilité\nBonne capacité d’organisation\nAptitudes au travail d’équipe et à la communication, bonnes manières ainsi que sociabilité\nEmpathie et volonté d’aider\nSens de la propreté et de l’ordre\n\nNotre offre\nChez nous, tu travailleras avec des personnes exerçant des métiers très variés, ce qui rend le quotidien vraiment passionnant. Nous sommes situés en zone rurale avec de bonnes liaisons de transport public. Tu bénéficieras de nos conditions d’emploi attractives, notamment au moins 5 semaines de vacances, de bons avantages sociaux, des chèques Reka à tarif réduit, des prix avantageux dans notre restaurant et des places de parking gratuites."
+      },
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/a9d50780-7e3a-4f50-8544-098a3c73e96f",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.864Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/704/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
+        "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
+          "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-08-01T11:19:56.726Z",
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-811d60d68156",
+      "slug": "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
+      "slugByLocale": {
+        "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-assistant-health-and-social-affairs-eba-inpatient-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
+        "fr": "poste-d-apprentissage-d-assistant-dans-le-domaine-de-la-sante-et-du-social-afp-soins-hospitaliers-gesundheitszentrum"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Lehrstelle Assistent:in Gesundheit und Soziales EBA (Stationäre Pflege)",
+      "titleByLocale": {
+        "it": "Posto di apprendistato come assistente di cura e assistenza sociale CFP (assistenza stazionaria)",
+        "en": "Apprenticeship Assistant Health and Social Affairs EBA (Inpatient Care)",
+        "de": "Lehrstelle Assistent:in Gesundheit und Soziales EBA (Stationäre Pflege)",
+        "fr": "Poste d'apprentissage d'assistant :dans le domaine de la santé et du social AFP (soins hospitaliers)"
+      },
+      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nJeden Tag die Freude, unsere Bewohnenden und Klienten aufmerksam in ihrem Alltag zu begleiten und ihren Alltag mitzugestalten\nUnterstützen unserer Bewohnenden und Klienten bei den pflegerischen Verrichtungen wie Körperpflege, Bewegung und Nahrungsaufnahme, unter Anleitung unserer Berufsbildenden\nEin Umfeld, in dem deine fürsorgliche Arbeitsweise mit unseren Bewohnenden und Klienten wertgeschätzt wird\nEine Aufgabe für Menschen, die für dein engagiertes Mitarbeiten, dein offenes Ohr oder für einen Spaziergang dankbar sind\nGenügend Raum für deine Lernzeiten\nEine engagierte Begleitung während deiner Lehrzeit, für die du mit deinen guten Noten aus der Sek B oder C die optimale Grundlage gelegt hast\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nOgni giorno la gioia di accompagnare con attenzione i nostri residenti e clienti nella loro quotidianità e di contribuire a dare forma alla loro quotidianità\nSupportare i nostri residenti e clienti con compiti infermieristici come l'igiene personale, l'esercizio fisico e l'alimentazione, sotto la guida dei nostri formatori professionali\nUn ambiente in cui il tuo approccio premuroso nel lavorare con i nostri residenti e clienti è apprezzato\nUn compito per le persone che sono grate per la tua collaborazione devota, per il tuo orecchio aperto o per una passeggiata\nSpazio sufficiente per i tuoi tempi di apprendimento\nSupporto impegnato durante il tuo apprendistato, per il quale hai gettato le basi ottimali con i tuoi buoni voti dalla Sez B o C\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
+        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nEvery day the joy of carefully accompanying our residents and clients in their everyday lives and helping to shape their everyday lives\nSupporting our residents and clients with nursing tasks such as personal hygiene, exercise and feeding, under the guidance of our vocational trainers\nAn environment in which your caring approach to working with our residents and clients is valued\nA task for people who are grateful for your dedicated cooperation, your open ear or for a walk\nEnough space for your learning times\nCommitted support during your apprenticeship, for which you have laid the optimal foundation with your good grades from Sec B or C\n\n## Your profile\nCompletion of compulsory schooling\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
+        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nJeden Tag die Freude, unsere Bewohnenden und Klienten aufmerksam in ihrem Alltag zu begleiten und ihren Alltag mitzugestalten\nUnterstützen unserer Bewohnenden und Klienten bei den pflegerischen Verrichtungen wie Körperpflege, Bewegung und Nahrungsaufnahme, unter Anleitung unserer Berufsbildenden\nEin Umfeld, in dem deine fürsorgliche Arbeitsweise mit unseren Bewohnenden und Klienten wertgeschätzt wird\nEine Aufgabe für Menschen, die für dein engagiertes Mitarbeiten, dein offenes Ohr oder für einen Spaziergang dankbar sind\nGenügend Raum für deine Lernzeiten\nEine engagierte Begleitung während deiner Lehrzeit, für die du mit deinen guten Noten aus der Sek B oder C die optimale Grundlage gelegt hast\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nChaque jour la joie d'accompagner avec attention nos résidents et clients dans leur quotidien et de contribuer à façonner leur quotidien\nSoutenir nos résidents et clients dans les tâches de soins telles que l'hygiène personnelle, l'exercice et l'alimentation, sous la direction de nos formateurs professionnels.\nUn environnement dans lequel votre approche bienveillante du travail avec nos résidents et nos clients est valorisée\nUne tâche pour les personnes qui sont reconnaissantes de votre coopération dévouée, de votre oreille ouverte ou d'une promenade\nAssez d'espace pour vos temps d'apprentissage\nUn accompagnement engagé tout au long de votre apprentissage, pour lequel vous avez posé les bases optimales avec vos bonnes notes en Sec B ou C\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
+      },
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/fd9bdc63-dd7b-4426-8e5c-a39de2f46154",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.860Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/702/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
+        "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf",
+        "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
+          "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf",
+          "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf"
+        ],
+        "fr": [
+          "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-08-01T11:19:56.749Z",
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-d4b1df3e7162",
+      "slug": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
+      "slugByLocale": {
+        "it": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-as-a-practitioner-in-the-hotelindustry-housekeeping-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
+        "fr": "apprentissage-en-tant-que-praticien-dans-l-hotellerie-menager-afp-gesundheitszentrum-dielsdorf-dielsdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Lehrstelle als Praktiker:in Hotellerie-Hauswirtschaft EBA",
+      "titleByLocale": {
+        "it": "Posto di apprendistato come addetto/a d'albergo-economia domestica CFP",
+        "en": "Apprenticeship as a Practitioner in the HotelIndustry - Housekeeping EBA",
+        "de": "Lehrstelle als Praktiker:in Hotellerie-Hauswirtschaft EBA",
+        "fr": "Apprentissage en tant que praticien :dans l'hôtellerie-ménager AFP"
+      },
+      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nAccoglienza e servizio: Consulenza e servizio alla clientela, fornitura della colazione a buffet, servizio di tutti i pasti\nLavori di pulizia: pulizia delle stanze dei residenti, delle sale comuni e delle aree pubbliche\nLavanderia: lavare la biancheria dei condomini, smacchiare, stirare, azionare lavatrici e asciugatrici, rammendare indumenti\nCucina: lavorare in cucina e lavare i piatti, preparare la colazione e piatti freddi, aiutare nella produzione\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nBuona conoscenza della lingua tedesca (almeno livello B2)\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
+        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nReception and service: Advice and service to customers, provision of the breakfast buffet, service of all meals\nCleaning work: Cleaning of residents' rooms, common rooms and public areas\nLaundry: washing residents' laundry, stain treatment, ironing, operating washing machines and tumble dryers, mending clothing\nKitchen: Working in the kitchen and washing up room, preparing breakfast and cold dishes, helping with production\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (at least level B2)\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
+        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nAccueil et service : Conseil et service à la clientèle, mise à disposition du buffet petit-déjeuner, service de tous les repas\nTravaux de nettoyage : Nettoyage des chambres des résidents, des pièces communes et des espaces publics\nBlanchisserie : lavage du linge des résidents, traitement des taches, repassage, fonctionnement des machines à laver et sèche-linge, raccommodage des vêtements\nCuisine : Travailler dans la cuisine et dans la salle de vaisselle, préparer le petit-déjeuner et les plats froids, aider à la production\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (au moins niveau B2)\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
+      },
+      "needsRetranslation": false,
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.857Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/701/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
+        "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
+          "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-08-01T22:38:53.116Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-a53f2bf0ee39",
+      "slug": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-as-a-specialist-in-the-hotel-industry-housekeeping-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
+        "fr": "apprentissage-en-tant-que-specialiste-en-hotellerie-menager-cfc-gesundheitszentrum-dielsdorf-dielsdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come specialista in economia domestica alberghiera AFC",
+        "en": "Apprenticeship as a specialist in the hotel industry - housekeeping EFZ",
+        "de": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
+        "fr": "Apprentissage en tant que spécialiste en hôtellerie-ménager CFC"
+      },
+      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nAccoglienza e servizio: Consulenza e servizio alla clientela, fornitura della colazione a buffet, servizio di tutti i pasti\nLavori di pulizia: pulizia delle stanze dei residenti, delle sale comuni e delle aree pubbliche\nLavanderia: lavare la biancheria dei condomini, smacchiare, stirare, azionare lavatrici e asciugatrici, rammendare indumenti\nCucina: lavorare in cucina e lavare i piatti, preparare la colazione e piatti freddi, aiutare nella produzione\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nBuona conoscenza della lingua tedesca (almeno livello B2)\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
+        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nReception and service: Advice and service to customers, provision of the breakfast buffet, service of all meals\nCleaning work: Cleaning of residents' rooms, common rooms and public areas\nLaundry: washing residents' laundry, stain treatment, ironing, operating washing machines and tumble dryers, mending clothing\nKitchen: Working in the kitchen and washing up room, preparing breakfast and cold dishes, helping with production\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (at least level B2)\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
+        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nAccueil et service : Conseil et service à la clientèle, mise à disposition du buffet petit-déjeuner, service de tous les repas\nTravaux de nettoyage : Nettoyage des chambres des résidents, des pièces communes et des espaces publics\nBlanchisserie : lavage du linge des résidents, traitement des taches, repassage, fonctionnement des machines à laver et sèche-linge, raccommodage des vêtements\nCuisine : Travailler dans la cuisine et dans la salle de vaisselle, préparer le petit-déjeuner et les plats froids, aider à la production\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (au moins niveau B2)\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
+      },
+      "needsRetranslation": false,
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.854Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/706/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
+        "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+        "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
+          "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+          "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf",
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-08-01T22:38:53.088Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-6440dae1c75b",
+      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Spontanbewerbung",
+      "titleByLocale": {
+        "it": "Applicazione spontanea",
+        "en": "Spontaneous application",
+        "de": "Spontanbewerbung",
+        "fr": "Demande spontanée"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
+      "descriptionByLocale": {
+        "it": "<p>Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per le persone anziane e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. </p>\n\nCompiti:\nNon trovato un posto adatto sulla nostra homepage?\n\nRequisiti\nSiamo alla ricerca di professionisti permanentemente formati.\n\nOffriamo:\nApplicare spontaneamente ora.",
+        "en": "<p>Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. </p>\n\nTasks:\nNot found a suitable place on our homepage?\n\nRequirements\nWe are looking for permanently trained professionals.\n\nWe offer:\nApply spontaneously now.",
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
+        "fr": "<p>Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins de longue durée généraux et spécialisés à domicile. </p>\n\nTâches :\nPas trouvé un endroit approprié sur notre page d'accueil?\n\nExigences\nNous cherchons des professionnels formés en permanence.\n\nNous offrons:\nAppliquer spontanément maintenant."
+      },
+      "location": "Dielsdorf/Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/64d35c69-bd5e-4994-ae19-7a4f6749f018",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.850Z",
+      "addressLocality": "Dielsdorf/Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ]
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-aeab9167a250",
+      "slug": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-as-healthcare-assistant-efz-spitex-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf",
+        "fr": "place-d-apprentissage-d-assistant-e-en-soins-et-sante-communautaire-cfc-spitex-gesundheitszentrum-dielsdorf-dielsdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Lehrstelle als Fachfrau/-mann Gesundheit EFZ Spitex",
+      "titleByLocale": {
+        "it": "Posto di apprendistato come operatore/trice sociosanitario/a AFC Spitex",
+        "en": "Apprenticeship as Healthcare Assistant EFZ Spitex",
+        "de": "Lehrstelle als Fachfrau/-mann Gesundheit EFZ Spitex",
+        "fr": "Place d’apprentissage d’assistant/e en soins et santé communautaire CFC Spitex"
+      },
+      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.\n\n## Deine \n• Aufgaben\nGrundpflege, Behandlungspflege und Betreuung in einfachen bis stabilen komplexen Situationen unserer Klientinnen und Klienten\nDurchführung hauswirtschaftlicher Arbeiten bei den Klientinnen und Klienten\nLeistungserfassung und Verlaufsdokumentation\nMedikamentenmanagement\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "Inizio dell'insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% Temporaneo\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per le persone anziane e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. Come il più grande Spitex pubblico nel distretto di Dielsdorf, forniamo servizi ambulatoriali per i nostri nove comuni contrattuali. Con la nostra gamma completa di servizi di assistenza, permettiamo alle persone di rimanere nella loro casa abituale per il più a lungo possibile nonostante le restrizioni di salute. In futuro, si prevede di stabilire un dispetto notturno.\n\n## Il tuo\n• Compiti\nCura primaria, cura del trattamento e supporto in situazioni complesse semplici e stabili dei nostri clienti\nAttuazione del lavoro domestico per i clienti\nMisurazione delle prestazioni e documentazione della storia\nGestione delle droghe\n\n## Il tuo profilo\nCompletamento della scuola obbligatoria\nBuona conoscenza del tedesco (livello minimo B2)\nMetodi di lavoro accurati e precisi\nResponsabilità e affidabilità\nBuona capacità organizzativa\nCompetenze di squadra e comunicazione, buone maniere e un senso di contatto\nEmpatia e disponibilità\nUn senso di pulizia e ordine\n\n## La nostra offerta\nCon noi lavorerai con persone che lavorano in una vasta gamma di professioni, che rende la vita quotidiana davvero emozionante. Siamo in una situazione rurale con buoni collegamenti di trasporto pubblico. Lei beneficia delle nostre condizioni di lavoro attraenti, anche con la mente. 5 settimane di vacanza, buoni benefici sociali, assegni per il pranzo, sconti ai controlli SBB e Reka, opportunità di formazione individuale, prezzi bassi nei nostri ristoranti e parcheggi gratuiti.",
+        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% Temporary\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. As the largest public Spitex in the Dielsdorf district, we provide ambulatory services for our nine contract municipalities. With our comprehensive range of care services, we enable people to stay in their usual home for as long as possible despite health restrictions. In the future, it is planned to establish a night spitex.\n\n## Your\n• Tasks\nPrimary care, treatment care and support in simple to stable complex situations of our clients\nImplementation of domestic work for clients\nPerformance measurement and history documentation\nDrug management\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (minor level B2)\nCareful and accurate working methods\nResponsibility and reliability\nGood organisational capacity\nTeam and communication skills, good manners and a sense of contact\nEmpathy and helpfulness\nA sense of cleanliness and order\n\n## Our offer\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural situation with good public transport links. You benefit from our attractive employment conditions, including with mind. 5 weeks holidays, good social benefits, lunch checks, discount at SBB and Reka checks, individual training opportunities, low prices in our restaurants and free parking spaces.",
+        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.\n\n## Deine \n• Aufgaben\nGrundpflege, Behandlungspflege und Betreuung in einfachen bis stabilen komplexen Situationen unserer Klientinnen und Klienten\nDurchführung hauswirtschaftlicher Arbeiten bei den Klientinnen und Klienten\nLeistungserfassung und Verlaufsdokumentation\nMedikamentenmanagement\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "fr": "Début de l'enseignement: août 2027\n\n## 8157 Dielsdorf 100% temporaire\nLe Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins généraux et spécialisés de longue durée et aux soins à domicile. Comme le plus grand public Spitex dans le district de Dielsdorf, nous fournissons des services ambulatoires pour nos neuf municipalités contractuelles. Grâce à notre gamme complète de services de soins, nous permettons aux personnes de rester dans leur maison habituelle le plus longtemps possible malgré les restrictions de santé. À l'avenir, il est prévu d'établir un malfaiteur nocturne.\n\n## Votre\n• Tâche\nSoins primaires, soins et soutien dans des situations complexes simples à stables de nos clients\nMise en œuvre du travail domestique pour les clients\nMesure des résultats et documentation historique\nGestion des médicaments\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (niveau B2)\nMéthodes de travail prudentes et précises\nResponsabilité et fiabilité\nBonne capacité organisationnelle\nCompétences en équipe et en communication, bonnes manières et sens des contacts\nEmpathie et serviabilité\nUn sentiment de propreté et d'ordre\n\n## Notre offre\nAvec nous, vous travaillerez avec des gens qui travaillent dans une grande variété de professions, ce qui rend la vie quotidienne vraiment excitante. Nous sommes dans une situation rurale avec de bonnes liaisons de transport public. Vous bénéficiez de nos conditions d'emploi attrayantes, y compris avec l'esprit. 5 semaines de vacances, de bons avantages sociaux, des chèques déjeuner, des réductions aux chèques CFF et Reka, des possibilités de formation individuelles, des prix bas dans nos restaurants et des places de parking gratuites."
+      },
+      "needsRetranslation": false,
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/98bf11f9-62ad-4a25-8ae5-620b5dc23c43",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.843Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/703/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-08-01T11:19:56.747Z",
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "gz-dielsdorf-6e3231b16f44",
+      "slug": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
+      "slugByLocale": {
+        "it": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "professional-health-efz-palliative-care-acute-and-transitional-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
+        "fr": "sante-professionnelle-efz-soins-palliatifs-soins-aigus-et-de-transition-gesundheitszentrum-dielsdorf-dielsdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Fachperson Gesundheit EFZ - Palliative Care / Akut- und Übergangspflege",
+      "titleByLocale": {
+        "it": "Professionista sanitario/a EFZ - cure palliative / assistenza acuta e transitoria",
+        "en": "Professional Health EFZ - Palliative Care / Acute and Transitional Care",
+        "de": "Fachperson Gesundheit EFZ - Palliative Care / Akut- und Übergangspflege",
+        "fr": "Santé professionnelle EFZ - Soins palliatifs / Soins aigus et de transition"
+      },
+      "description": "per sofort oder nach Vereinbarung\n\n## 8157 Dielsdorf 80% - 100% Unbefristet\nIm Gesundheitszentrum Dielsdorf geht es um MEHR als Pflege. Es geht um Menschen, Lebensqualität und darum, im richtigen Moment den Unterschied zu machen.\nRund 500 Mitarbeitende aus 35 Nationen ziehen bei uns an einem Strang – interprofessionell, engagiert und mit Haltung.\n\n## Ihre Aufgaben\n• Begleitung und Betreuung der Bewohnenden und Patientinnen und Patienten mit Schwerpunkt Palliativ Care sowie Unterstützung in der Grundpflege und bei Pflegetrainings\n• Mitverantwortung für den Pflegeprozess, einschliesslich Pflegeplanung, Pflegedokumentation und Durchführung geriatrischer Assessments\n• Übernahme medizinaltechnischer Tätigkeiten sowie der Tagesverantwortung\n• Unterstützung bei Eintritts-, Austritts- und Übertrittsprozessen sowie Mitgestaltung von Rehabilitations- und gerontopsychiatrischen Pflegeprozessen\n• Interdisziplinäre Zusammenarbeit mit der Pflege, dem ärztlichen Dienst, Therapeutinnen und Therapeuten sowie dem Beratungs- und Sozialdienst\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder eine Äquivalenz mit SRK-Anerkennung\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n## Unser Angebot\nEine verantwortungsvolle Aufgabe mit Gestaltungsspielraum in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von attraktiven Anstellungsbedingungen: mindestens 5 Wochen Ferien, guten Sozialleistungen, Vergünstigungen bei SBB und Reka-Checks, individuelle Weiterbildungsmöglichkeiten, vergünstigte Verpflegung in unseren Restaurants sowie Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "it": "immediatamente o con accordo\n\n## 8157 Dielsdorf 80% - 100% permanente\nIl Dielsdorf Health Center è più che cura. Si tratta di persone, qualità della vita e fare la differenza al momento giusto.\nCirca 500 dipendenti da 35 nazioni stanno tirando nella stessa direzione – interprofessionale, impegnato e con un atteggiamento.\n\n## I loro compiti\n• Sostegno e cura per i residenti e i pazienti con particolare attenzione alla cura palliativa e al supporto nell'assistenza primaria e nell'allenamento infermieristico\n• Co-responsabilità per il processo di cura, compresa la pianificazione della cura, la documentazione di cura e l'attuazione delle valutazioni geriatriche\n• Assunzione di attività di tecnologia medica e responsabilità quotidiana\n• Supporto per processi di entrata, uscita e trasferimento, nonché co-design di processi di riabilitazione e cura gerontopsichiatrica\n• Cooperazione interdisciplinare con l'assistenza, il servizio medico, i terapeuti e la consulenza e il servizio sociale\n\n## Il tuo profilo\n• Formazione completa come professionista sanitario EFZ o equivalente con riconoscimento SRC\n• Buona conoscenza del tedesco nelle parole e nella scrittura (almeno livello B2)\n• Alto livello di competenza sociale, metodologica e professionale\n• Capacità informatiche contemporanee\n• Lavoro autonomo e responsabile\n\n## La nostra offerta\nUn compito responsabile con spazio di manovra in un ambiente vario, orientato al futuro e interprofessionale. Si beneficiano di condizioni di lavoro interessanti: almeno 5 settimane vacanze, buoni benefici sociali, sconti ai controlli SBB e Reka, opportunità di formazione individuale, cibo scontato nei nostri ristoranti e parcheggi gratuiti.",
+        "en": "immediately or by agreement\n\n## 8157 Dielsdorf 80% - 100% Permanent\nThe Dielsdorf Health Center is about MORE than care. It’s about people, quality of life and making the difference at the right moment.\nAround 500 employees from 35 nations are pulling in the same direction – interprofessional, committed and with an attitude.\n\n## Their tasks\n• Support and care for residents and patients with a focus on palliative care as well as support in primary care and nursing training\n• Co-responsibility for the care process, including care planning, care documentation and implementation of geriatric assessments\n• Assumption of medical technology activities and day-to-day responsibility\n• Support for entry, exit and transfer processes as well as co-design of rehabilitation and gerontopsychiatric care processes\n• Interdisciplinary cooperation with the care, the medical service, therapists and the counselling and social service\n\n## Your profile\n• Completed training as a health professional EFZ or equivalent with SRC recognition\n• Good knowledge of German in words and writing (at least level B2)\n• High level of social, methodological and professional competence\n• Contemporary IT skills\n• Self-employed and responsible work\n\n## Our offer\nA responsible task with room for manoeuvre in a varied, future-oriented and interprofessional environment. You benefit from attractive employment conditions: at least 5 weeks holidays, good social benefits, discounts at SBB and Reka checks, individual training opportunities, discounted food in our restaurants and free parking spaces.",
+        "de": "per sofort oder nach Vereinbarung\n\n## 8157 Dielsdorf 80% - 100% Unbefristet\nIm Gesundheitszentrum Dielsdorf geht es um MEHR als Pflege. Es geht um Menschen, Lebensqualität und darum, im richtigen Moment den Unterschied zu machen.\nRund 500 Mitarbeitende aus 35 Nationen ziehen bei uns an einem Strang – interprofessionell, engagiert und mit Haltung.\n\n## Ihre Aufgaben\n• Begleitung und Betreuung der Bewohnenden und Patientinnen und Patienten mit Schwerpunkt Palliativ Care sowie Unterstützung in der Grundpflege und bei Pflegetrainings\n• Mitverantwortung für den Pflegeprozess, einschliesslich Pflegeplanung, Pflegedokumentation und Durchführung geriatrischer Assessments\n• Übernahme medizinaltechnischer Tätigkeiten sowie der Tagesverantwortung\n• Unterstützung bei Eintritts-, Austritts- und Übertrittsprozessen sowie Mitgestaltung von Rehabilitations- und gerontopsychiatrischen Pflegeprozessen\n• Interdisziplinäre Zusammenarbeit mit der Pflege, dem ärztlichen Dienst, Therapeutinnen und Therapeuten sowie dem Beratungs- und Sozialdienst\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder eine Äquivalenz mit SRK-Anerkennung\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n## Unser Angebot\nEine verantwortungsvolle Aufgabe mit Gestaltungsspielraum in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von attraktiven Anstellungsbedingungen: mindestens 5 Wochen Ferien, guten Sozialleistungen, Vergünstigungen bei SBB und Reka-Checks, individuelle Weiterbildungsmöglichkeiten, vergünstigte Verpflegung in unseren Restaurants sowie Gratisparkplätzen.",
+        "fr": "immédiatement ou par accord\n\n## 8157 Dielsdorf 80% - 100% Permanent\nLe centre de santé de Dielsdorf est sur PLUS que des soins. Il parle des gens, de la qualité de vie et fait la différence au bon moment.\nEnviron 500 employés de 35 pays s'inscrivent dans la même direction – interprofessionnels, engagés et avec une attitude.\n\n## Leurs tâches\n• Soutien et soins aux résidents et aux patients en mettant l'accent sur les soins palliatifs ainsi que sur le soutien aux soins primaires et à la formation des infirmières\n• Coresponsabilité du processus de soins, y compris la planification des soins, la documentation sur les soins et la mise en oeuvre des évaluations gériatriques\n• Hypothèse des activités de technologie médicale et responsabilité quotidienne\n• Soutien aux processus d'entrée, de sortie et de transfert ainsi qu'à la co-conception des processus de réadaptation et de soins gérontopsychiatriques\n• Coopération interdisciplinaire avec les soins, les services médicaux, les thérapeutes et les services sociaux et de conseil\n\n## Votre profil\n• Formation complète en tant que professionnel de la santé EFZ ou équivalent avec reconnaissance SRC\n• Bonne connaissance de l'allemand en mots et en écriture (au moins niveau B2)\n• Haute compétence sociale, méthodologique et professionnelle\n• Compétences informatiques contemporaines\n• Travail indépendant et travail responsable\n\n## Notre offre\nUne tâche responsable avec une marge de manœuvre dans un environnement varié, orienté vers l'avenir et interprofessionnel. Vous bénéficiez de conditions d'emploi attrayantes: au moins 5 semaines de vacances, de bons avantages sociaux, des réductions aux chèques CFF et Reka, des possibilités de formation individuelle, de la nourriture à prix réduit dans nos restaurants et des places de stationnement gratuites."
+      },
+      "location": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/7bc60c9a-530a-4d7e-9476-6c851fb89646",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-15T21:48:38.836Z",
+      "addressLocality": "Dielsdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/669/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
+        "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
+          "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "firstSeenAt": "2026-10-14T21:34:08.039Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -841,605 +1439,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "gz-dielsdorf-99607a70d68f",
-      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
-      "slugByLocale": {
-        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
-        "en": "apprenticeship-as-a-specialist-in-health-efz-inpatient-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "de": "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
-        "fr": "place-d-apprentissage-d-infirmiere-infirmier-en-sante-cfc-soins-hospitaliers-gesundheitszentrum-dielsdorf-dielsdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Lehrstelle Fachfrau/-mann Gesundheit EFZ (Stationäre Pflege)",
-      "titleByLocale": {
-        "it": "Posizione di insegnamento Specialista donna/uomo Salute EFZ (Cura statistica)",
-        "en": "Apprenticeship as a specialist in health EFZ (inpatient care)",
-        "de": "Lehrstelle Fachfrau/-mann Gesundheit EFZ (Stationäre Pflege)",
-        "fr": "Place d'apprentissage d'infirmière/infirmier en santé CFC (soins hospitaliers)"
-      },
-      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nTägliche und aufmerksame Begleitung unserer Bewohnenden in ihrem Alltag\nGestaltung und Unterstützung der Bewohnenden in ihrem Alltag\nVerantwortung für die Beobachtung und Dokumentation des Gesundheitszustandes der Bewohnenden\nKennenlernen der medizinaltechnischen Verrichtungen und selbstständige Durchzuführung\nEinsatz von modernen und digitalen Hilfsmitteln für die administrativen \n• Aufgaben\nEnge Zusammenarbeit mit den Pflegefachleuten HF\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "it": "Lehrstart: agosto 2027\n\n8157 Dielsdorf 100% a tempo determinato\nOgni anno molti giovani fanno il salto nella vita professionale con noi come cuochi e cuoche, addetti cucina EBA, professionisti della salute (FaGe), assistenti salute e sociale (AGS), professionisti Hotellerie-Hauswirtschaft EFZ e EBA, professionisti Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ nonché commercianti.\n\nIl Gesundheitszentrum Dielsdorf è un moderno centro di competenza geriatrica con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dal servizio di consulenza per anziani e i loro familiari alla cura a lungo termine generale e specializzata, fino all’assistenza e al supporto a domicilio. Con oltre 200 posti letto, l’offerta residenziale di cura a lungo termine generale presso la sede di Dielsdorf è integrata da percorsi di trattamento specializzati per cure riabilitative acute e di transizione, Palliative Care, geriatria psichiatrica e il focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\nLe tue\n• Compiti\nAccompagnamento quotidiano e attento dei nostri residenti nella loro vita quotidiana\nOrganizzazione e supporto dei residenti nella loro vita quotidiana\nResponsabilità per l’osservazione e la documentazione dello stato di salute dei residenti\nApprendimento delle procedure medico‑tecniche e loro esecuzione autonoma\nUtilizzo di strumenti moderni e digitali per le attività amministrative\n\n• Compiti\nStretta collaborazione con gli infermieri professionisti HF\n\nIl tuo profilo\nDiploma di scuola obbligatoria\nMeticolosità e precisione nel lavoro\nResponsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavoro in team e comunicazione, buone maniere e predisposizione al contatto\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\nLa nostra offerta\nCon noi lavorerai con persone che operano in professioni molto diverse, rendendo la quotidianità davvero stimolante. Siamo situati in una zona rurale con buoni collegamenti di trasporto pubblico. Beneficerai delle nostre condizioni contrattuali vantaggiose, tra cui almeno 5 settimane di ferie, buoni benefici sociali, sconti sui Reka-Checks, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
-        "en": "Lehrstart: August 2027\n\n8157 Dielsdorf 100% Befristet\nEvery year many young people take the leap into professional life with us as cooks, kitchen staff EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ and EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ as well as merchants.\n\nDas Gesundheitszentrum Dielsdorf is a modern geriatric competence centre with around 500 employees from 35 nations. Our services range from counseling for older people and their relatives, through general and specialised long‑term care, to home care and support. With more than 200 beds, the inpatient offering of general long‑term care at the Dielsdorf site is complemented by specialised treatment pathways for rehabilitative acute and transitional care, Palliative Care, psychiatric geriatrics and a focus on dementia. At the Regensdorf site we provide 54 residents with a family‑like environment and professional nursing care.\n\nYour\n• Tasks\nDaily and attentive accompaniment of our residents in their everyday life\nDesign and support of residents in their everyday life\nResponsibility for observing and documenting the health status of the residents\nGetting to know medical‑technical procedures and carrying them out independently\nUse of modern and digital tools for administrative tasks\n• Tasks\nClose collaboration with the nursing professionals HF\n\nYour profile\nCompletion of compulsory schooling\nCareful and precise way of working\nSense of responsibility and reliability\nGood organisational skills\nTeam and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\nOur offer\nWith us you will work with people from a wide variety of professions, which makes everyday life truly exciting. We are located in a rural area with good public transport connections. You will benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka-Checks, low prices in our restaurant and free parking.",
-        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nTägliche und aufmerksame Begleitung unserer Bewohnenden in ihrem Alltag\nGestaltung und Unterstützung der Bewohnenden in ihrem Alltag\nVerantwortung für die Beobachtung und Dokumentation des Gesundheitszustandes der Bewohnenden\nKennenlernen der medizinaltechnischen Verrichtungen und selbstständige Durchzuführung\nEinsatz von modernen und digitalen Hilfsmitteln für die administrativen \n• Aufgaben\nEnge Zusammenarbeit mit den Pflegefachleuten HF\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-        "fr": "Début de la formation : août 2027\n\n8157 Dielsdorf 100 % temporaire\nChaque année, de nombreux jeunes franchissent le pas vers la vie professionnelle chez nous en tant que cuisinières et cuisiniers, employés de cuisine EBA, Fachpersonen Gesundheit (FaGe), Assistantes et Assistants santé et social (AGS), Fachpersonen Hotellerie‑Hauswirtschaft EFZ et EBA, Fachpersonen Betriebsunterhalt EFZ, ICT‑Fachfrau/-mann EFZ ainsi que commerçants.\n\nLe Gesundheitszentrum Dielsdorf est un centre de compétence gériatrique moderne avec environ 500 employés provenant de 35 nations. Notre offre va du service de conseil pour les personnes âgées et leurs proches à la prise en charge à long terme générale et spécialisée, jusqu’aux soins et à l’accompagnement à domicile. Avec plus de 200 lits, l’offre stationnaire de soins à long terme général sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins réhabilitatifs aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et le domaine de la démence. Sur le site de Regensdorf, nous proposons à 54 résidents un environnement familial avec un accompagnement professionnel en soins.\n\nTes\n• Missions\nAccompagnement quotidien et attentif de nos résidents dans leur quotidien\nOrganisation et soutien des résidents dans leur quotidien\nResponsabilité de l’observation et de la documentation de l’état de santé des résidents\nApprentissage des procédures médico‑techniques et réalisation autonome\nUtilisation d’outils modernes et numériques pour les tâches administratives\n• Missions\nCollaboration étroite avec les infirmiers diplômés HF\n\nTon profil\nDiplôme de fin d’études obligatoires\nMéthode de travail soigneuse et précise\nSens des responsabilités et fiabilité\nBonne capacité d’organisation\nAptitudes au travail d’équipe et à la communication, bonnes manières ainsi que sociabilité\nEmpathie et volonté d’aider\nSens de la propreté et de l’ordre\n\nNotre offre\nChez nous, tu travailleras avec des personnes exerçant des métiers très variés, ce qui rend le quotidien vraiment passionnant. Nous sommes situés en zone rurale avec de bonnes liaisons de transport public. Tu bénéficieras de nos conditions d’emploi attractives, notamment au moins 5 semaines de vacances, de bons avantages sociaux, des chèques Reka à tarif réduit, des prix avantageux dans notre restaurant et des places de parking gratuites."
-      },
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/a9d50780-7e3a-4f50-8544-098a3c73e96f",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.936Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/704/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
-        "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
-          "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf"
-        ],
-        "en": [
-          "apprenticeship-specialist-health-efz-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
-          "apprentissage-specialiste-de-la-sante-efz-soins-de-jour-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-01T11:19:56.726Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-811d60d68156",
-      "slug": "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
-      "slugByLocale": {
-        "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
-        "en": "apprenticeship-assistant-health-and-social-affairs-eba-inpatient-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
-        "fr": "poste-d-apprentissage-d-assistant-dans-le-domaine-de-la-sante-et-du-social-afp-soins-hospitaliers-gesundheitszentrum"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Lehrstelle Assistent:in Gesundheit und Soziales EBA (Stationäre Pflege)",
-      "titleByLocale": {
-        "it": "Posto di apprendistato come assistente di cura e assistenza sociale CFP (assistenza stazionaria)",
-        "en": "Apprenticeship Assistant Health and Social Affairs EBA (Inpatient Care)",
-        "de": "Lehrstelle Assistent:in Gesundheit und Soziales EBA (Stationäre Pflege)",
-        "fr": "Poste d'apprentissage d'assistant :dans le domaine de la santé et du social AFP (soins hospitaliers)"
-      },
-      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nJeden Tag die Freude, unsere Bewohnenden und Klienten aufmerksam in ihrem Alltag zu begleiten und ihren Alltag mitzugestalten\nUnterstützen unserer Bewohnenden und Klienten bei den pflegerischen Verrichtungen wie Körperpflege, Bewegung und Nahrungsaufnahme, unter Anleitung unserer Berufsbildenden\nEin Umfeld, in dem deine fürsorgliche Arbeitsweise mit unseren Bewohnenden und Klienten wertgeschätzt wird\nEine Aufgabe für Menschen, die für dein engagiertes Mitarbeiten, dein offenes Ohr oder für einen Spaziergang dankbar sind\nGenügend Raum für deine Lernzeiten\nEine engagierte Begleitung während deiner Lehrzeit, für die du mit deinen guten Noten aus der Sek B oder C die optimale Grundlage gelegt hast\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nOgni giorno la gioia di accompagnare con attenzione i nostri residenti e clienti nella loro quotidianità e di contribuire a dare forma alla loro quotidianità\nSupportare i nostri residenti e clienti con compiti infermieristici come l'igiene personale, l'esercizio fisico e l'alimentazione, sotto la guida dei nostri formatori professionali\nUn ambiente in cui il tuo approccio premuroso nel lavorare con i nostri residenti e clienti è apprezzato\nUn compito per le persone che sono grate per la tua collaborazione devota, per il tuo orecchio aperto o per una passeggiata\nSpazio sufficiente per i tuoi tempi di apprendimento\nSupporto impegnato durante il tuo apprendistato, per il quale hai gettato le basi ottimali con i tuoi buoni voti dalla Sez B o C\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
-        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nEvery day the joy of carefully accompanying our residents and clients in their everyday lives and helping to shape their everyday lives\nSupporting our residents and clients with nursing tasks such as personal hygiene, exercise and feeding, under the guidance of our vocational trainers\nAn environment in which your caring approach to working with our residents and clients is valued\nA task for people who are grateful for your dedicated cooperation, your open ear or for a walk\nEnough space for your learning times\nCommitted support during your apprenticeship, for which you have laid the optimal foundation with your good grades from Sec B or C\n\n## Your profile\nCompletion of compulsory schooling\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
-        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nJeden Tag die Freude, unsere Bewohnenden und Klienten aufmerksam in ihrem Alltag zu begleiten und ihren Alltag mitzugestalten\nUnterstützen unserer Bewohnenden und Klienten bei den pflegerischen Verrichtungen wie Körperpflege, Bewegung und Nahrungsaufnahme, unter Anleitung unserer Berufsbildenden\nEin Umfeld, in dem deine fürsorgliche Arbeitsweise mit unseren Bewohnenden und Klienten wertgeschätzt wird\nEine Aufgabe für Menschen, die für dein engagiertes Mitarbeiten, dein offenes Ohr oder für einen Spaziergang dankbar sind\nGenügend Raum für deine Lernzeiten\nEine engagierte Begleitung während deiner Lehrzeit, für die du mit deinen guten Noten aus der Sek B oder C die optimale Grundlage gelegt hast\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nChaque jour la joie d'accompagner avec attention nos résidents et clients dans leur quotidien et de contribuer à façonner leur quotidien\nSoutenir nos résidents et clients dans les tâches de soins telles que l'hygiène personnelle, l'exercice et l'alimentation, sous la direction de nos formateurs professionnels.\nUn environnement dans lequel votre approche bienveillante du travail avec nos résidents et nos clients est valorisée\nUne tâche pour les personnes qui sont reconnaissantes de votre coopération dévouée, de votre oreille ouverte ou d'une promenade\nAssez d'espace pour vos temps d'apprentissage\nUn accompagnement engagé tout au long de votre apprentissage, pour lequel vous avez posé les bases optimales avec vos bonnes notes en Sec B ou C\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
-      },
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/fd9bdc63-dd7b-4426-8e5c-a39de2f46154",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.931Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/702/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
-        "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf",
-        "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
-          "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf",
-          "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf"
-        ],
-        "en": [
-          "assistant-apprenticeship-in-health-and-social-eba-stationary-care-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf"
-        ],
-        "fr": [
-          "apprentissage-assistant-dans-le-domaine-de-la-sante-et-de-l-emploi-social-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-01T11:19:56.749Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-d4b1df3e7162",
-      "slug": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
-      "slugByLocale": {
-        "it": "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
-        "en": "apprenticeship-as-a-practitioner-in-the-hotelindustry-housekeeping-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-        "de": "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
-        "fr": "apprentissage-en-tant-que-praticien-dans-l-hotellerie-menager-afp-gesundheitszentrum-dielsdorf-dielsdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Lehrstelle als Praktiker:in Hotellerie-Hauswirtschaft EBA",
-      "titleByLocale": {
-        "it": "Posto di apprendistato come addetto/a d'albergo-economia domestica CFP",
-        "en": "Apprenticeship as a Practitioner in the HotelIndustry - Housekeeping EBA",
-        "de": "Lehrstelle als Praktiker:in Hotellerie-Hauswirtschaft EBA",
-        "fr": "Apprentissage en tant que praticien :dans l'hôtellerie-ménager AFP"
-      },
-      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nAccoglienza e servizio: Consulenza e servizio alla clientela, fornitura della colazione a buffet, servizio di tutti i pasti\nLavori di pulizia: pulizia delle stanze dei residenti, delle sale comuni e delle aree pubbliche\nLavanderia: lavare la biancheria dei condomini, smacchiare, stirare, azionare lavatrici e asciugatrici, rammendare indumenti\nCucina: lavorare in cucina e lavare i piatti, preparare la colazione e piatti freddi, aiutare nella produzione\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nBuona conoscenza della lingua tedesca (almeno livello B2)\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
-        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nReception and service: Advice and service to customers, provision of the breakfast buffet, service of all meals\nCleaning work: Cleaning of residents' rooms, common rooms and public areas\nLaundry: washing residents' laundry, stain treatment, ironing, operating washing machines and tumble dryers, mending clothing\nKitchen: Working in the kitchen and washing up room, preparing breakfast and cold dishes, helping with production\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (at least level B2)\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
-        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nAccueil et service : Conseil et service à la clientèle, mise à disposition du buffet petit-déjeuner, service de tous les repas\nTravaux de nettoyage : Nettoyage des chambres des résidents, des pièces communes et des espaces publics\nBlanchisserie : lavage du linge des résidents, traitement des taches, repassage, fonctionnement des machines à laver et sèche-linge, raccommodage des vêtements\nCuisine : Travailler dans la cuisine et dans la salle de vaisselle, préparer le petit-déjeuner et les plats froids, aider à la production\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (au moins niveau B2)\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
-      },
-      "needsRetranslation": false,
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.928Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/701/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
-        "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
-          "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf"
-        ],
-        "en": [
-          "apprenticeship-as-a-practitioner-in-the-hospitality-industry-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
-          "apprentissage-comme-praticien-dans-l-industrie-de-l-hotellerie-eba-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-01T22:38:53.116Z",
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-a53f2bf0ee39",
-      "slug": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
-        "en": "apprenticeship-as-a-specialist-in-the-hotel-industry-housekeeping-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "de": "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
-        "fr": "apprentissage-en-tant-que-specialiste-en-hotellerie-menager-cfc-gesundheitszentrum-dielsdorf-dielsdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in economia domestica alberghiera AFC",
-        "en": "Apprenticeship as a specialist in the hotel industry - housekeeping EFZ",
-        "de": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
-        "fr": "Apprentissage en tant que spécialiste en hôtellerie-ménager CFC"
-      },
-      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "it": "Inizio insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% temporaneo\nOgni anno molti giovani si tuffano nella vita professionale come cuochi, impiegati di cucina EBA, specialisti della salute (FaGe), assistenti sanitari e sociali (AGS), specialisti delle pulizie alberghiere EFZ e EBA, specialisti della manutenzione aziendale EFZ, specialisti ICT EFZ e uomini d'affari.\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrico con circa 500 dipendenti provenienti da 35 nazioni. La nostra offerta spazia dalla consulenza per gli anziani e i loro parenti all'assistenza a lungo termine generale e specializzata fino all'assistenza e al sostegno a domicilio. Con oltre 200 posti letto, l'offerta stazionaria di cure generali a lungo termine presso la sede di Dielsdorf è completata da percorsi di trattamento specializzati per cure riabilitative acute e transitorie, cure palliative, geriatria psichiatrica e un focus sulla demenza. Nella sede di Regensdorf offriamo a 54 residenti un ambiente familiare con assistenza infermieristica professionale.\n\n## Tuo\n• Compiti\nAccoglienza e servizio: Consulenza e servizio alla clientela, fornitura della colazione a buffet, servizio di tutti i pasti\nLavori di pulizia: pulizia delle stanze dei residenti, delle sale comuni e delle aree pubbliche\nLavanderia: lavare la biancheria dei condomini, smacchiare, stirare, azionare lavatrici e asciugatrici, rammendare indumenti\nCucina: lavorare in cucina e lavare i piatti, preparare la colazione e piatti freddi, aiutare nella produzione\n\n## Il tuo profilo\nCompletamento della scuola dell'obbligo\nBuona conoscenza della lingua tedesca (almeno livello B2)\nModo di lavorare attento e preciso\nSenso di responsabilità e affidabilità\nBuone capacità organizzative\nCapacità di lavorare in gruppo e di comunicazione, buone maniere e socievolezza\nEmpatia e disponibilità ad aiutare\nSenso di pulizia e ordine\n\n## la nostra gamma\nCon noi lavorerai con persone che lavorano in un'ampia varietà di professioni, il che rende la vita di tutti i giorni davvero emozionante. Siamo in una zona rurale con buoni collegamenti con i trasporti pubblici. Approfittate delle nostre interessanti condizioni di lavoro, tra cui almeno 5 settimane di ferie, buone prestazioni sociali, assegni Reka scontati, prezzi convenienti nel nostro ristorante e parcheggi gratuiti.",
-        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% temporary\nEvery year, many young people take the plunge into professional life as cooks, kitchen employees EBA, health specialists (FaGe), health and social assistants (AGS), hotel housekeeping specialists EFZ and EBA, business maintenance specialists EFZ, ICT specialists EFZ and business people.\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offering ranges from advice for older people and their relatives to general and specialized long-term care through to care and support at home. With over 200 beds, the inpatient offering of general long-term care at the Dielsdorf location is supplemented by specialized treatment paths for rehabilitative acute and transitional care, palliative care, psychiatric geriatrics and a focus on dementia. At the Regensdorf location, we offer 54 residents a family environment with professional nursing care.\n\n## Your\n• Tasks\nReception and service: Advice and service to customers, provision of the breakfast buffet, service of all meals\nCleaning work: Cleaning of residents' rooms, common rooms and public areas\nLaundry: washing residents' laundry, stain treatment, ironing, operating washing machines and tumble dryers, mending clothing\nKitchen: Working in the kitchen and washing up room, preparing breakfast and cold dishes, helping with production\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (at least level B2)\nCareful and precise way of working\nSense of responsibility and reliability\nGood organizational skills\nTeamwork and communication skills, good manners and sociability\nEmpathy and willingness to help\nSense of cleanliness and order\n\n## our range\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural location with good public transport connections. You benefit from our attractive employment conditions, including at least 5 weeks of vacation, good social benefits, discounted Reka checks, affordable prices in our restaurant and free parking spaces.",
-        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nJedes Jahr wagen bei uns viele junge Leute den Sprung ins Berufsleben als Köchinnen und Köche, Küchenangestellte EBA, Fachpersonen Gesundheit (FaGe), Assistent:innen Gesundheit und Soziales (AGS), Fachpersonen Hotellerie-Hauswirtschaft EFZ und EBA, Fachpersonen Betriebsunterhalt EFZ, ICT-Fachfrau/-mann EFZ sowie Kaufleute.\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.\n\n## Deine \n• Aufgaben\nEmpfang und Service: Beratung und Bedienung der Kundinnen und Kunden, Bereitstellung des Frühstücksbuffets, Service aller Mahlzeiten\nReinigungsarbeiten: Reinigung der Bewohnendenzimmern, Aufenthaltsräumen und öffentlichen Räumlichkeiten\nWäscherei: Waschen der Bewohnendenwäsche, Fleckenbehandlung, Bügeln, Bedienung der Waschmaschinen und Tumbler, Flickarbeiten an Kleidungsstücken\nKüche: Arbeiten in der Küche und Abwaschküche, Zubereitung von Frühstück und kalten Speisen, Mithilfe bei der Produktion\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
-        "fr": "Début des enseignements : août 2027\n\n## 8157 Dielsdorf 100% temporaire\nChaque année, de nombreux jeunes se lancent dans la vie professionnelle en tant que cuisiniers, employés de cuisine EBA, spécialistes de la santé (FaGe), assistants sanitaires et sociaux (AGS), spécialistes de l'entretien hôtelier EFZ et EBA, spécialistes de la maintenance commerciale EFZ, spécialistes des TIC EFZ et hommes d'affaires.\nLe centre de santé de Dielsdorf est un centre de compétences gériatriques moderne comptant environ 500 collaborateurs issus de 35 pays. Notre offre s'étend du conseil aux personnes âgées et à leurs proches, en passant par les soins de longue durée généraux et spécialisés, en passant par les soins et le soutien à domicile. Avec plus de 200 lits, l'offre hospitalière de soins généraux de longue durée sur le site de Dielsdorf est complétée par des parcours de traitement spécialisés pour les soins de réadaptation aigus et de transition, les soins palliatifs, la gériatrie psychiatrique et l'accent mis sur la démence. Sur le site de Regensdorf, nous offrons à 54 résidents un environnement familial avec des soins infirmiers professionnels.\n\n## Ton\n• Tâches\nAccueil et service : Conseil et service à la clientèle, mise à disposition du buffet petit-déjeuner, service de tous les repas\nTravaux de nettoyage : Nettoyage des chambres des résidents, des pièces communes et des espaces publics\nBlanchisserie : lavage du linge des résidents, traitement des taches, repassage, fonctionnement des machines à laver et sèche-linge, raccommodage des vêtements\nCuisine : Travailler dans la cuisine et dans la salle de vaisselle, préparer le petit-déjeuner et les plats froids, aider à la production\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (au moins niveau B2)\nMéthode de travail soignée et précise\nSens des responsabilités et fiabilité\nBonnes compétences organisationnelles\nCapacités de travail en équipe et de communication, bonnes manières et sociabilité\nEmpathie et volonté d'aider\nSens de la propreté et de l'ordre\n\n## notre gamme\nAvec nous, vous travaillerez avec des personnes qui exercent des professions très diverses, ce qui rend la vie quotidienne vraiment passionnante. Nous sommes dans une zone rurale avec de bonnes liaisons de transports en commun. Vous bénéficiez de nos conditions de travail attractives, notamment au moins 5 semaines de vacances, de bonnes prestations sociales, des chèques Reka réduits, des prix abordables dans notre restaurant et des places de parking gratuites."
-      },
-      "needsRetranslation": false,
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.924Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/706/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
-        "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
-          "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf"
-        ],
-        "en": [
-          "apprenticeship-as-a-specialist-hotel-industry-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
-          "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-01T22:38:53.088Z",
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-6440dae1c75b",
-      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-      "slugByLocale": {
-        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Spontanbewerbung",
-      "titleByLocale": {
-        "it": "Applicazione spontanea",
-        "en": "Spontaneous application",
-        "de": "Spontanbewerbung",
-        "fr": "Demande spontanée"
-      },
-      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
-      "descriptionByLocale": {
-        "it": "<p>Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per le persone anziane e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. </p>\n\nCompiti:\nNon trovato un posto adatto sulla nostra homepage?\n\nRequisiti\nSiamo alla ricerca di professionisti permanentemente formati.\n\nOffriamo:\nApplicare spontaneamente ora.",
-        "en": "<p>Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. </p>\n\nTasks:\nNot found a suitable place on our homepage?\n\nRequirements\nWe are looking for permanently trained professionals.\n\nWe offer:\nApply spontaneously now.",
-        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
-        "fr": "<p>Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins de longue durée généraux et spécialisés à domicile. </p>\n\nTâches :\nPas trouvé un endroit approprié sur notre page d'accueil?\n\nExigences\nNous cherchons des professionnels formés en permanence.\n\nNous offrons:\nAppliquer spontanément maintenant."
-      },
-      "location": "Dielsdorf/Regensdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/64d35c69-bd5e-4994-ae19-7a4f6749f018",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.919Z",
-      "addressLocality": "Dielsdorf/Regensdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ],
-        "en": [
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ],
-        "fr": [
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ]
-      },
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-aeab9167a250",
-      "slug": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
-        "en": "apprenticeship-as-healthcare-assistant-efz-spitex-gesundheitszentrum-dielsdorf-dielsdorf",
-        "de": "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf",
-        "fr": "place-d-apprentissage-d-assistant-e-en-soins-et-sante-communautaire-cfc-spitex-gesundheitszentrum-dielsdorf-dielsdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Lehrstelle als Fachfrau/-mann Gesundheit EFZ Spitex",
-      "titleByLocale": {
-        "it": "Posto di apprendistato come operatore/trice sociosanitario/a AFC Spitex",
-        "en": "Apprenticeship as Healthcare Assistant EFZ Spitex",
-        "de": "Lehrstelle als Fachfrau/-mann Gesundheit EFZ Spitex",
-        "fr": "Place d’apprentissage d’assistant/e en soins et santé communautaire CFC Spitex"
-      },
-      "description": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.\n\n## Deine \n• Aufgaben\nGrundpflege, Behandlungspflege und Betreuung in einfachen bis stabilen komplexen Situationen unserer Klientinnen und Klienten\nDurchführung hauswirtschaftlicher Arbeiten bei den Klientinnen und Klienten\nLeistungserfassung und Verlaufsdokumentation\nMedikamentenmanagement\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "it": "Inizio dell'insegnamento: agosto 2027\n\n## 8157 Dielsdorf 100% Temporaneo\nIl Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per le persone anziane e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. Come il più grande Spitex pubblico nel distretto di Dielsdorf, forniamo servizi ambulatoriali per i nostri nove comuni contrattuali. Con la nostra gamma completa di servizi di assistenza, permettiamo alle persone di rimanere nella loro casa abituale per il più a lungo possibile nonostante le restrizioni di salute. In futuro, si prevede di stabilire un dispetto notturno.\n\n## Il tuo\n• Compiti\nCura primaria, cura del trattamento e supporto in situazioni complesse semplici e stabili dei nostri clienti\nAttuazione del lavoro domestico per i clienti\nMisurazione delle prestazioni e documentazione della storia\nGestione delle droghe\n\n## Il tuo profilo\nCompletamento della scuola obbligatoria\nBuona conoscenza del tedesco (livello minimo B2)\nMetodi di lavoro accurati e precisi\nResponsabilità e affidabilità\nBuona capacità organizzativa\nCompetenze di squadra e comunicazione, buone maniere e un senso di contatto\nEmpatia e disponibilità\nUn senso di pulizia e ordine\n\n## La nostra offerta\nCon noi lavorerai con persone che lavorano in una vasta gamma di professioni, che rende la vita quotidiana davvero emozionante. Siamo in una situazione rurale con buoni collegamenti di trasporto pubblico. Lei beneficia delle nostre condizioni di lavoro attraenti, anche con la mente. 5 settimane di vacanza, buoni benefici sociali, assegni per il pranzo, sconti ai controlli SBB e Reka, opportunità di formazione individuale, prezzi bassi nei nostri ristoranti e parcheggi gratuiti.",
-        "en": "Start of teaching: August 2027\n\n## 8157 Dielsdorf 100% Temporary\nThe Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. As the largest public Spitex in the Dielsdorf district, we provide ambulatory services for our nine contract municipalities. With our comprehensive range of care services, we enable people to stay in their usual home for as long as possible despite health restrictions. In the future, it is planned to establish a night spitex.\n\n## Your\n• Tasks\nPrimary care, treatment care and support in simple to stable complex situations of our clients\nImplementation of domestic work for clients\nPerformance measurement and history documentation\nDrug management\n\n## Your profile\nCompletion of compulsory schooling\nGood knowledge of German (minor level B2)\nCareful and accurate working methods\nResponsibility and reliability\nGood organisational capacity\nTeam and communication skills, good manners and a sense of contact\nEmpathy and helpfulness\nA sense of cleanliness and order\n\n## Our offer\nWith us you will work with people who work in a wide variety of professions, which makes everyday life really exciting. We are in a rural situation with good public transport links. You benefit from our attractive employment conditions, including with mind. 5 weeks holidays, good social benefits, lunch checks, discount at SBB and Reka checks, individual training opportunities, low prices in our restaurants and free parking spaces.",
-        "de": "Lehrstart: August 2027\n\n## 8157 Dielsdorf 100% Befristet\nDas Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.\n\n## Deine \n• Aufgaben\nGrundpflege, Behandlungspflege und Betreuung in einfachen bis stabilen komplexen Situationen unserer Klientinnen und Klienten\nDurchführung hauswirtschaftlicher Arbeiten bei den Klientinnen und Klienten\nLeistungserfassung und Verlaufsdokumentation\nMedikamentenmanagement\n\n## Dein Profil\nAbschluss der obligatorischen Schulzeit\nGute Deutschkenntnisse (mind. Niveau B2)\nSorgfältige und genaue Arbeitsweise\nVerantwortungsbewusstsein und Zuverlässigkeit\nGute Organisationsfähigkeit\nTeam- und Kommunikationsfähigkeit, gute Umgangsformen sowie Kontaktfreude\nEinfühlungsvermögen und Hilfsbereitschaft\nSinn für Sauberkeit und Ordnung\n\n## Unser Angebot\nBei uns wirst du mit Menschen zusammenarbeiten, die in unterschiedlichsten Berufen tätig sind, was den Alltag richtig spannend macht. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Du profitierst von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
-        "fr": "Début de l'enseignement: août 2027\n\n## 8157 Dielsdorf 100% temporaire\nLe Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins généraux et spécialisés de longue durée et aux soins à domicile. Comme le plus grand public Spitex dans le district de Dielsdorf, nous fournissons des services ambulatoires pour nos neuf municipalités contractuelles. Grâce à notre gamme complète de services de soins, nous permettons aux personnes de rester dans leur maison habituelle le plus longtemps possible malgré les restrictions de santé. À l'avenir, il est prévu d'établir un malfaiteur nocturne.\n\n## Votre\n• Tâche\nSoins primaires, soins et soutien dans des situations complexes simples à stables de nos clients\nMise en œuvre du travail domestique pour les clients\nMesure des résultats et documentation historique\nGestion des médicaments\n\n## Votre profil\nAchèvement de la scolarité obligatoire\nBonne connaissance de l'allemand (niveau B2)\nMéthodes de travail prudentes et précises\nResponsabilité et fiabilité\nBonne capacité organisationnelle\nCompétences en équipe et en communication, bonnes manières et sens des contacts\nEmpathie et serviabilité\nUn sentiment de propreté et d'ordre\n\n## Notre offre\nAvec nous, vous travaillerez avec des gens qui travaillent dans une grande variété de professions, ce qui rend la vie quotidienne vraiment excitante. Nous sommes dans une situation rurale avec de bonnes liaisons de transport public. Vous bénéficiez de nos conditions d'emploi attrayantes, y compris avec l'esprit. 5 semaines de vacances, de bons avantages sociaux, des chèques déjeuner, des réductions aux chèques CFF et Reka, des possibilités de formation individuelles, des prix bas dans nos restaurants et des places de parking gratuites."
-      },
-      "needsRetranslation": false,
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/98bf11f9-62ad-4a25-8ae5-620b5dc23c43",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.913Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/703/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
-        ],
-        "en": [
-          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
-          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-01T11:19:56.747Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gz-dielsdorf-6e3231b16f44",
-      "slug": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
-      "slugByLocale": {
-        "de": "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
-        "it": "professionista-sanitario-a-efz-cure-palliative-assistenza-acuta-e-transitoria-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "professional-health-efz-palliative-care-acute-and-transitional-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "fr": "sante-professionnelle-efz-soins-palliatifs-soins-aigus-et-de-transition-gesundheitszentrum-dielsdorf-dielsdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Fachperson Gesundheit EFZ - Palliative Care / Akut- und Übergangspflege",
-      "titleByLocale": {
-        "de": "Fachperson Gesundheit EFZ - Palliative Care / Akut- und Übergangspflege",
-        "it": "Professionista sanitario/a EFZ - cure palliative / assistenza acuta e transitoria",
-        "en": "Professional Health EFZ - Palliative Care / Acute and Transitional Care",
-        "fr": "Santé professionnelle EFZ - Soins palliatifs / Soins aigus et de transition"
-      },
-      "description": "per sofort oder nach Vereinbarung\n\n## 8157 Dielsdorf 80% - 100% Unbefristet\nIm Gesundheitszentrum Dielsdorf geht es um MEHR als Pflege. Es geht um Menschen, Lebensqualität und darum, im richtigen Moment den Unterschied zu machen.\nRund 500 Mitarbeitende aus 35 Nationen ziehen bei uns an einem Strang – interprofessionell, engagiert und mit Haltung.\n\n## Ihre Aufgaben\n• Begleitung und Betreuung der Bewohnenden und Patientinnen und Patienten mit Schwerpunkt Palliativ Care sowie Unterstützung in der Grundpflege und bei Pflegetrainings\n• Mitverantwortung für den Pflegeprozess, einschliesslich Pflegeplanung, Pflegedokumentation und Durchführung geriatrischer Assessments\n• Übernahme medizinaltechnischer Tätigkeiten sowie der Tagesverantwortung\n• Unterstützung bei Eintritts-, Austritts- und Übertrittsprozessen sowie Mitgestaltung von Rehabilitations- und gerontopsychiatrischen Pflegeprozessen\n• Interdisziplinäre Zusammenarbeit mit der Pflege, dem ärztlichen Dienst, Therapeutinnen und Therapeuten sowie dem Beratungs- und Sozialdienst\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder eine Äquivalenz mit SRK-Anerkennung\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n## Unser Angebot\nEine verantwortungsvolle Aufgabe mit Gestaltungsspielraum in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von attraktiven Anstellungsbedingungen: mindestens 5 Wochen Ferien, guten Sozialleistungen, Vergünstigungen bei SBB und Reka-Checks, individuelle Weiterbildungsmöglichkeiten, vergünstigte Verpflegung in unseren Restaurants sowie Gratisparkplätzen.",
-      "descriptionByLocale": {
-        "de": "per sofort oder nach Vereinbarung\n\n## 8157 Dielsdorf 80% - 100% Unbefristet\nIm Gesundheitszentrum Dielsdorf geht es um MEHR als Pflege. Es geht um Menschen, Lebensqualität und darum, im richtigen Moment den Unterschied zu machen.\nRund 500 Mitarbeitende aus 35 Nationen ziehen bei uns an einem Strang – interprofessionell, engagiert und mit Haltung.\n\n## Ihre Aufgaben\n• Begleitung und Betreuung der Bewohnenden und Patientinnen und Patienten mit Schwerpunkt Palliativ Care sowie Unterstützung in der Grundpflege und bei Pflegetrainings\n• Mitverantwortung für den Pflegeprozess, einschliesslich Pflegeplanung, Pflegedokumentation und Durchführung geriatrischer Assessments\n• Übernahme medizinaltechnischer Tätigkeiten sowie der Tagesverantwortung\n• Unterstützung bei Eintritts-, Austritts- und Übertrittsprozessen sowie Mitgestaltung von Rehabilitations- und gerontopsychiatrischen Pflegeprozessen\n• Interdisziplinäre Zusammenarbeit mit der Pflege, dem ärztlichen Dienst, Therapeutinnen und Therapeuten sowie dem Beratungs- und Sozialdienst\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder eine Äquivalenz mit SRK-Anerkennung\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B2)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n## Unser Angebot\nEine verantwortungsvolle Aufgabe mit Gestaltungsspielraum in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von attraktiven Anstellungsbedingungen: mindestens 5 Wochen Ferien, guten Sozialleistungen, Vergünstigungen bei SBB und Reka-Checks, individuelle Weiterbildungsmöglichkeiten, vergünstigte Verpflegung in unseren Restaurants sowie Gratisparkplätzen.",
-        "it": "immediatamente o con accordo\n\n## 8157 Dielsdorf 80% - 100% permanente\nIl Dielsdorf Health Center è più che cura. Si tratta di persone, qualità della vita e fare la differenza al momento giusto.\nCirca 500 dipendenti da 35 nazioni stanno tirando nella stessa direzione – interprofessionale, impegnato e con un atteggiamento.\n\n## I loro compiti\n• Sostegno e cura per i residenti e i pazienti con particolare attenzione alla cura palliativa e al supporto nell'assistenza primaria e nell'allenamento infermieristico\n• Co-responsabilità per il processo di cura, compresa la pianificazione della cura, la documentazione di cura e l'attuazione delle valutazioni geriatriche\n• Assunzione di attività di tecnologia medica e responsabilità quotidiana\n• Supporto per processi di entrata, uscita e trasferimento, nonché co-design di processi di riabilitazione e cura gerontopsichiatrica\n• Cooperazione interdisciplinare con l'assistenza, il servizio medico, i terapeuti e la consulenza e il servizio sociale\n\n## Il tuo profilo\n• Formazione completa come professionista sanitario EFZ o equivalente con riconoscimento SRC\n• Buona conoscenza del tedesco nelle parole e nella scrittura (almeno livello B2)\n• Alto livello di competenza sociale, metodologica e professionale\n• Capacità informatiche contemporanee\n• Lavoro autonomo e responsabile\n\n## La nostra offerta\nUn compito responsabile con spazio di manovra in un ambiente vario, orientato al futuro e interprofessionale. Si beneficiano di condizioni di lavoro interessanti: almeno 5 settimane vacanze, buoni benefici sociali, sconti ai controlli SBB e Reka, opportunità di formazione individuale, cibo scontato nei nostri ristoranti e parcheggi gratuiti.",
-        "en": "immediately or by agreement\n\n## 8157 Dielsdorf 80% - 100% Permanent\nThe Dielsdorf Health Center is about MORE than care. It’s about people, quality of life and making the difference at the right moment.\nAround 500 employees from 35 nations are pulling in the same direction – interprofessional, committed and with an attitude.\n\n## Their tasks\n• Support and care for residents and patients with a focus on palliative care as well as support in primary care and nursing training\n• Co-responsibility for the care process, including care planning, care documentation and implementation of geriatric assessments\n• Assumption of medical technology activities and day-to-day responsibility\n• Support for entry, exit and transfer processes as well as co-design of rehabilitation and gerontopsychiatric care processes\n• Interdisciplinary cooperation with the care, the medical service, therapists and the counselling and social service\n\n## Your profile\n• Completed training as a health professional EFZ or equivalent with SRC recognition\n• Good knowledge of German in words and writing (at least level B2)\n• High level of social, methodological and professional competence\n• Contemporary IT skills\n• Self-employed and responsible work\n\n## Our offer\nA responsible task with room for manoeuvre in a varied, future-oriented and interprofessional environment. You benefit from attractive employment conditions: at least 5 weeks holidays, good social benefits, discounts at SBB and Reka checks, individual training opportunities, discounted food in our restaurants and free parking spaces.",
-        "fr": "immédiatement ou par accord\n\n## 8157 Dielsdorf 80% - 100% Permanent\nLe centre de santé de Dielsdorf est sur PLUS que des soins. Il parle des gens, de la qualité de vie et fait la différence au bon moment.\nEnviron 500 employés de 35 pays s'inscrivent dans la même direction – interprofessionnels, engagés et avec une attitude.\n\n## Leurs tâches\n• Soutien et soins aux résidents et aux patients en mettant l'accent sur les soins palliatifs ainsi que sur le soutien aux soins primaires et à la formation des infirmières\n• Coresponsabilité du processus de soins, y compris la planification des soins, la documentation sur les soins et la mise en oeuvre des évaluations gériatriques\n• Hypothèse des activités de technologie médicale et responsabilité quotidienne\n• Soutien aux processus d'entrée, de sortie et de transfert ainsi qu'à la co-conception des processus de réadaptation et de soins gérontopsychiatriques\n• Coopération interdisciplinaire avec les soins, les services médicaux, les thérapeutes et les services sociaux et de conseil\n\n## Votre profil\n• Formation complète en tant que professionnel de la santé EFZ ou équivalent avec reconnaissance SRC\n• Bonne connaissance de l'allemand en mots et en écriture (au moins niveau B2)\n• Haute compétence sociale, méthodologique et professionnelle\n• Compétences informatiques contemporaines\n• Travail indépendant et travail responsable\n\n## Notre offre\nUne tâche responsable avec une marge de manœuvre dans un environnement varié, orienté vers l'avenir et interprofessionnel. Vous bénéficiez de conditions d'emploi attrayantes: au moins 5 semaines de vacances, de bons avantages sociaux, des réductions aux chèques CFF et Reka, des possibilités de formation individuelle, de la nourriture à prix réduit dans nos restaurants et des places de stationnement gratuites."
-      },
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/7bc60c9a-530a-4d7e-9476-6c851fb89646",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-15T09:38:00.905Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/669/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
-          "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
-        ],
-        "en": [
-          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
-          "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-palliative-care-akut-und-ubergangspflege-gz-dielsdorf-dielsdorf",
-        "fachperson-gesundheit-cfc-palliative-care-akut-e-ubergangspflege-gesundheitszentrum-dielsdorf"
-      ],
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-14T21:34:08.039Z"
+      "crawlerMissStreak": 2
     }
   ]
 }
