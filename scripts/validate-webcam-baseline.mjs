@@ -10,6 +10,10 @@
  * measured when the export also contains the offline candidate field
  * `candidateWaitMinutes`. A missing candidate is a hard failure, never a
  * reason to treat the baseline as ready.
+ *
+ * @manual-tool
+ * Reason: this offline validator consumes a Firestore observation export chosen
+ * by an operator; no automated workflow owns a safe, canonical export input.
  */
 
 import fs from 'node:fs';
